@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukeBox;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -35,6 +36,11 @@ public class ItemBOPRecord extends ItemRecord
         records.put(par2Str, this);
     }
 
+	public void updateIcons(IconRegister iconRegister)
+	{
+    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:boprecord");
+	}
+	
     /**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
      * True if something happen and false if it don't. This is for ITEMS, not BLOCKS

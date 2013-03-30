@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.items;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -18,6 +19,11 @@ public class ItemMediumGrass extends Item
         this.spawnID = par2Block.blockID;
     }
 
+	public void updateIcons(IconRegister iconRegister)
+	{
+    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:mediumgrass");
+	}    
+    
     /**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
      * True if something happen and false if it don't. This is for ITEMS, not BLOCKS
@@ -73,16 +79,16 @@ public class ItemMediumGrass extends Item
         }
         else
         {
-            if (par3World.canPlaceEntityOnSide(this.spawnID, par4, par5, par6, false, par7, (Entity)null))
+            if (par3World.canPlaceEntityOnSide(this.spawnID, par4, par5, par6, false, par7, (Entity)null, par1ItemStack))
             {
                 Block var12 = Block.blocksList[this.spawnID];
                 int var13 = var12.onBlockPlaced(par3World, par4, par5, par6, par7, par8, par9, par10, 0);
 
-                if (par3World.setBlockAndMetadataWithNotify(par4, par5, par6, this.spawnID, 1))
+                if (par3World.setBlock(par4, par5, par6, this.spawnID, 1, 2))
                 {
                     if (par3World.getBlockId(par4, par5, par6) == this.spawnID)
                     {
-                        Block.blocksList[this.spawnID].onBlockPlacedBy(par3World, par4, par5, par6, par2EntityPlayer);
+                        Block.blocksList[this.spawnID].onBlockPlacedBy(par3World, par4, par5, par6, par2EntityPlayer, par1ItemStack);
                         Block.blocksList[this.spawnID].onPostBlockPlaced(par3World, par4, par5, par6, var13);
                     }
 

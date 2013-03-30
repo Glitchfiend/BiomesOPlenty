@@ -112,24 +112,24 @@ public class WorldGenMarsh extends WorldGenerator
 					
 					if (par2Random.nextInt(3) == 0)
 						{
-						par1World.setBlockAndMetadata(par3, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1);
-						par1World.setBlockAndMetadata(par3 - 1, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1);
-						par1World.setBlockAndMetadata(par3 - 1, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1);
-						par1World.setBlockAndMetadata(par3 + 1, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1);
-						par1World.setBlockAndMetadata(par3 + 1, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 1, par5 - 1, mod_BiomesOPlenty.highGrassBottom.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 2, par5 - 1, mod_BiomesOPlenty.highGrassTop.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 1, par5 + 1, mod_BiomesOPlenty.highGrassBottom.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 2, par5 + 1, mod_BiomesOPlenty.highGrassTop.blockID, 1);
+						par1World.setBlock(par3, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3 - 1, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3 - 1, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3 + 1, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3 + 1, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5 - 1, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5 - 1, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5 + 1, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5 + 1, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
 						}
 					else
 						{
-						par1World.setBlockAndMetadata(par3, par4 + 1, par5, Block.tallGrass.blockID, 1);
-						par1World.setBlockAndMetadata(par3 - 1, par4 + 1, par5, Block.tallGrass.blockID, 1);
-						par1World.setBlockAndMetadata(par3 + 1, par4 + 1, par5, Block.tallGrass.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 1, par5 - 1, Block.tallGrass.blockID, 1);
-						par1World.setBlockAndMetadata(par3, par4 + 1, par5 + 1, Block.tallGrass.blockID, 1);
+						par1World.setBlock(par3, par4 + 1, par5, Block.tallGrass.blockID, 1, 2);
+						par1World.setBlock(par3 - 1, par4 + 1, par5, Block.tallGrass.blockID, 1, 2);
+						par1World.setBlock(par3 + 1, par4 + 1, par5, Block.tallGrass.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5 - 1, Block.tallGrass.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5 + 1, Block.tallGrass.blockID, 1, 2);
 						}
                     break;
                 }

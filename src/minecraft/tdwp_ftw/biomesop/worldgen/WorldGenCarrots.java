@@ -53,7 +53,7 @@ public class WorldGenCarrots extends WorldGenerator
             if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[this.tallGrassID].canBlockStay(par1World, var8, var9, var10))
             {
 				par1World.setBlock(var8, var9 - 1, var10, Block.tilledField.blockID);
-				par1World.setBlockAndMetadata(var8, var9, var10, Block.carrot.blockID, var99);
+				par1World.setBlock(var8, var9, var10, Block.carrot.blockID, var99, 2);
             }
         }
 

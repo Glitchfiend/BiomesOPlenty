@@ -36,8 +36,8 @@ public class WorldGenGiantFlowerYellow extends WorldGenerator
             }
 
             var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-            var1.setBlockAndMetadata(var3, var4 + 1, var5, mod_BiomesOPlenty.giantFlowerStem.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 2, var5, mod_BiomesOPlenty.giantFlowerStem.blockID, 0);
+            var1.setBlock(var3, var4 + 1, var5, mod_BiomesOPlenty.giantFlowerStem.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 2, var5, mod_BiomesOPlenty.giantFlowerStem.blockID, 0, 2);
 
 			var1.setBlock(var3, var4 + 3, var5, mod_BiomesOPlenty.giantFlowerYellow.blockID);
 			var1.setBlock(var3 - 1, var4 + 3, var5, mod_BiomesOPlenty.giantFlowerYellow.blockID);

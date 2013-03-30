@@ -6,12 +6,13 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockBarley extends Block
 {
-    protected BlockBarley(int par1, int par2, Material par3Material)
+    protected BlockBarley(int par1, Material par3Material)
     {
         super(par1, par3Material);
         this.setTickRandomly(true);
@@ -20,9 +21,15 @@ public class BlockBarley extends Block
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
     }
 
-    public BlockBarley(int par1, int par2)
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:barley");
+	}
+    
+    public BlockBarley(int par1)
     {
-        this(par1, par2, Material.plants);
+        this(par1, Material.plants);
     }
 
     /**
@@ -65,7 +72,7 @@ public class BlockBarley extends Block
         if (!this.canBlockStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, 0);
         }
     }
 

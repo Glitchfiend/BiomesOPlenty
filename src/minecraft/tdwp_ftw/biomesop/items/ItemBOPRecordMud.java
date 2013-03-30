@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukeBox;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -34,6 +35,11 @@ public class ItemBOPRecordMud extends ItemRecord
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
         records.put(par2Str, this);
     }
+
+	public void updateIcons(IconRegister iconRegister)
+	{
+    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudrecord");
+	}
 
     /**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return

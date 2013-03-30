@@ -37,7 +37,7 @@ public class WorldGenSprout extends WorldGenerator
 
             if (par1World.isAirBlock(var8, var9, var10) && mod_BiomesOPlenty.sprout.canBlockStay(par1World, var8, var9, var10))
             {
-                par1World.setBlockAndMetadata(var8, var9, var10, mod_BiomesOPlenty.sprout.blockID, 1);
+                par1World.setBlock(var8, var9, var10, mod_BiomesOPlenty.sprout.blockID, 1, 2);
             }
         }
 

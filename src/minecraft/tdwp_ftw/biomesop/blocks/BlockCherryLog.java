@@ -6,10 +6,16 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
 
 public class BlockCherryLog extends Block
 {
@@ -19,10 +25,15 @@ public class BlockCherryLog extends Block
     public BlockCherryLog(int par1)
     {
         super(par1, Material.wood);
-        this.blockIndexInTexture = 35;
 		this.setBurnProperties(this.blockID, 5, 5);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:cherrylog");
+	}
 
     /**
      * The type of render function that is called for this block
@@ -72,7 +83,7 @@ public class BlockCherryLog extends Block
 
                             if ((var13 & 8) == 0)
                             {
-                                par1World.setBlockMetadata(par2 + var9, par3 + var10, par4 + var11, var13 | 8);
+                                par1World.setBlock(par2 + var9, par3 + var10, par4 + var11, var13 | 8);
                             }
                         }
                     }
@@ -109,12 +120,12 @@ public class BlockCherryLog extends Block
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         int var3 = par2 & 12;
         int var4 = par2 & 3;
         return var3 == 0 && (par1 == 1 || par1 == 0) ? 255 : (var3 == 4 && (par1 == 5 || par1 == 4) ? 255 : (var3 == 8 && (par1 == 2 || par1 == 3) ? 255 : (var4 == 1 ? 116 : (var4 == 2 ? 117 : (var4 == 3 ? 153 : 35)))));
-    }
+    }*/
 
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.

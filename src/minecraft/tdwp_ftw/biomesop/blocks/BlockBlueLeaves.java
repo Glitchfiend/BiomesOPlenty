@@ -35,9 +35,12 @@ public class BlockBlueLeaves extends BlockLeavesBase
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
 
-    /**
-     * ejects contained items into the world, and notifies neighbours of an update, as appropriate
-     */
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:blueleaves2") : par1IconRegister.registerIcon("BiomesOPlenty:blueleaves1"));
+	}
+	
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
         byte b0 = 1;
@@ -194,7 +197,7 @@ public class BlockBlueLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockAndMetadataWithNotify(par2, par3, par4, this.blockID, 0, 2);
+        par1World.setBlock(par2, par3, par4, this.blockID, 0, 2);
     }
 
     /**
@@ -270,12 +273,6 @@ public class BlockBlueLeaves extends BlockLeavesBase
 	
 			//return blockIndexInTexture + (isOpaqueCube() ? 1 : 0);
 	//}
-	
-	@Override
-	public void func_94332_a(IconRegister par1IconRegister)
-	{
-			this.field_94336_cN = (isOpaqueCube() ? par1IconRegister.func_94245_a("BiomesOPlenty:blueLeavesOpaque") : par1IconRegister.func_94245_a("BiomesOPlenty:blueLeaves"));
-	}
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {

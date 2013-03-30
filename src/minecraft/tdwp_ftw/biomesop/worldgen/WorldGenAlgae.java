@@ -18,7 +18,7 @@ public class WorldGenAlgae extends WorldGenerator
 
             if (par1World.isAirBlock(var7, var8, var9) && mod_BiomesOPlenty.algae.canPlaceBlockAt(par1World, var7, var8, var9))
             {
-                par1World.setBlockAndMetadata(var7, var8, var9, mod_BiomesOPlenty.algae.blockID, 0);
+                par1World.setBlock(var7, var8, var9, mod_BiomesOPlenty.algae.blockID, 0, 2);
             }
         }
 

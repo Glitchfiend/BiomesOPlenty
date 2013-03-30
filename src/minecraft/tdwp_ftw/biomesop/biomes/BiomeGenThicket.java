@@ -36,7 +36,7 @@ public class BiomeGenThicket extends BiomeGenBase
 
             if (var10 == Block.stone.blockID)
             {
-                par1World.setBlockAndMetadataWithNotify(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
+                par1World.setBlock(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
             }
         }
     }

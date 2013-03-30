@@ -36,13 +36,13 @@ public class WorldGenVolcano extends WorldGenerator
                 }
             }
 
-            var1.setBlockWithNotify(var3, var4 - 1, var5, Block.lavaMoving.blockID);
-            var1.setBlockWithNotify(var3, var4, var5, Block.lavaMoving.blockID);
-            var1.setBlockWithNotify(var3, var4 + 1, var5, Block.lavaMoving.blockID);
-            var1.setBlockWithNotify(var3 - 1, var4 + 1, var5, Block.lavaMoving.blockID);
-            var1.setBlockWithNotify(var3 + 1, var4 + 1, var5, Block.lavaMoving.blockID);
-            var1.setBlockWithNotify(var3, var4 + 1, var5 - 1, Block.lavaMoving.blockID);
-            var1.setBlockWithNotify(var3, var4 + 1, var5 + 1, Block.lavaMoving.blockID);
+            var1.setBlock(var3, var4 - 1, var5, Block.lavaMoving.blockID);
+            var1.setBlock(var3, var4, var5, Block.lavaMoving.blockID);
+            var1.setBlock(var3, var4 + 1, var5, Block.lavaMoving.blockID);
+            var1.setBlock(var3 - 1, var4 + 1, var5, Block.lavaMoving.blockID);
+            var1.setBlock(var3 + 1, var4 + 1, var5, Block.lavaMoving.blockID);
+            var1.setBlock(var3, var4 + 1, var5 - 1, Block.lavaMoving.blockID);
+            var1.setBlock(var3, var4 + 1, var5 + 1, Block.lavaMoving.blockID);
             return true;
         }
     }
