@@ -1,9 +1,12 @@
 package tdwp_ftw.biomesop.items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.helpers.TeleporterPromised;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -145,5 +148,12 @@ public class ItemAncientStaff extends Item
 			}
 		
 		return par1ItemStack;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void updateIcons(IconRegister iconRegister) {
+
+        iconIndex = iconRegister.registerIcon("biomesop" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 }

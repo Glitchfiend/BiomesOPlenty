@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukeBox;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -99,5 +100,12 @@ public class ItemBOPRecordMud extends ItemRecord
     public static ItemBOPRecordMud getRecord(String par0Str)
     {
         return (ItemBOPRecordMud)records.get(par0Str);
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void updateIcons(IconRegister iconRegister) {
+
+        iconIndex = iconRegister.registerIcon("biomesop" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 }

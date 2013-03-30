@@ -12,7 +12,7 @@ public class EntityJungleSpider extends EntitySpider
     public EntityJungleSpider(World par1World)
     {
         super(par1World);
-        this.texture = "/tdwp_ftw/biomesop/res/mobs/junglespider.png";
+        this.texture = "/mods/biomesop/textures/mobs/junglespider.png";
         this.setSize(0.4F, 0.3F);
 		this.moveSpeed = 1.1F;
     }
