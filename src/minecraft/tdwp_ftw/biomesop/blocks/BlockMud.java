@@ -19,6 +19,12 @@ public class BlockMud extends Block
         super(par1, Material.sand);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:mud");
+	}
 
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
@@ -41,10 +47,4 @@ public class BlockMud extends Block
     {
         return 4;
     }
-    
-	@Override
-	public void registerIcons(IconRegister par1IconRegister)
-	{
-    	this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:blockGrapplingHook");
-	}
 }

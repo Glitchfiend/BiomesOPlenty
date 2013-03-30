@@ -6,6 +6,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +19,7 @@ import net.minecraft.world.World;
 
 public class BlockThorn extends Block
 {
-    protected BlockThorn(int par1, int par2, Material par3Material)
+    protected BlockThorn(int par1, Material par3Material)
     {
         super(par1, par3Material);
         this.setTickRandomly(true);
@@ -27,11 +28,17 @@ public class BlockThorn extends Block
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
 
-    public BlockThorn(int par1, int par2)
+    public BlockThorn(int par1)
     {
-        this(par1, par2, Material.plants);
+        this(par1, Material.plants);
     }
-
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:thorn");
+	}
+	
     /**
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
      */
@@ -72,7 +79,7 @@ public class BlockThorn extends Block
         if (!this.canBlockStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, 0);
         }
     }
 

@@ -6,6 +6,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -21,10 +22,16 @@ public class BlockWillow extends Block
 {
     public BlockWillow(int par1)
     {
-        super(par1, 143, Material.vine);
+        super(par1, Material.vine);
 		this.setBurnProperties(this.blockID, 15, 100);
         this.setTickRandomly(true);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:willow");
+	}
 
     /**
      * Sets the block's bounds for rendering it as an item
@@ -211,7 +218,7 @@ public class BlockWillow extends Block
         {
             if (var6 != var5)
             {
-                par1World.setBlockMetadataWithNotify(par2, par3, par4, var6);
+                par1World.setBlockMetadataWithNotify(par2, par3, par4, var6, 2);
             }
 
             return true;
@@ -249,7 +256,7 @@ public class BlockWillow extends Block
         if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, 0);
         }
     }
 
@@ -287,7 +294,7 @@ public class BlockWillow extends Block
 
         if (var9 != 0)
         {
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, var9);
+            par1World.setBlockMetadataWithNotify(par2, par3, par4, var9, 2);
         }
     }
 

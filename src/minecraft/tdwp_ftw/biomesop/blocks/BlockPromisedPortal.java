@@ -18,15 +18,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.AxisAlignedBB;
 
 public class BlockPromisedPortal extends Block
 {
-	public BlockPromisedPortal(int par1, int par2)
+	public BlockPromisedPortal(int par1)
     {
-        super(par1, par2, Material.portal);
+        super(par1, Material.portal);
     }
+
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:portal");
+	}
 	
     @SideOnly(Side.CLIENT)
 

@@ -468,7 +468,7 @@ public class mod_BiomesOPlenty
 	    	    glowFlower = (new BlockGlowFlower(glowFlowerID)).setHardness(0.0F).setLightValue(0.65F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("glowFlower");
 	    	    cattail = (new BlockCattail(cattailID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("cattail");
 	    	    willow = (new BlockWillow(willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willow");
-	    	    autumnLeaves = (BlockAutumnLeaves)(new BlockAutumnLeaves(autumnLeavesID, 64)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("autumnLeaves");
+	    	    autumnLeaves = (BlockAutumnLeaves)(new BlockAutumnLeaves(autumnLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("autumnLeaves");
 	    	    thorn = (new BlockThorn(thornID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("thorn");
 	    	    toadstool = (new BlockToadstool(toadstoolID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("toadstool");
 	    	    highGrassBottom = (BlockHighGrassBottom)(new BlockHighGrassBottom(highGrassBottomID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("highGrassBottom");
@@ -537,7 +537,7 @@ public class mod_BiomesOPlenty
 				holyGrass = (BlockHolyGrass)(new BlockHolyGrass(holyGrassID)).setHardness(1.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyGrass");
 	    	    holyStone = (new BlockHolyStone(holyStoneID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("holyStone");
 	    	    holyTallGrass = (new BlockHolyTallGrass(holyTallGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyTallGrass");
-				promisedPortal = new BlockPromisedPortal(promisedLandPortalID, 1).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F);	
+				promisedPortal = new BlockPromisedPortal(promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F);	
 	    	    holySapling = (new BlockHolySapling(holySaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holySapling");
 				amethystOre = (new BlockAmethystOre(amethystOreID)).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("amethystOre");
 	    	    amethystBlock = (new BlockAmethystBlock(amethystBlockID)).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("amethystBlock");

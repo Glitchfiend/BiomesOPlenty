@@ -67,7 +67,7 @@ public class BlockBambooLeaves extends BlockLeavesBase
                         if (var12 == mod_BiomesOPlenty.bambooLeaves.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
-                            par1World.setBlock(par2 + var9, par3 + var10, par4 + var11, var13 | 8);
+                            par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
                         }
                     }
                 }
@@ -179,7 +179,7 @@ public class BlockBambooLeaves extends BlockLeavesBase
 
                 if (var12 >= 0)
                 {
-                    par1World.setBlock(par2, par3, par4, var6 & -9);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 & -9, 2);
                 }
                 else
                 {

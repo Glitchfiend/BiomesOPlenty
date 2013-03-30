@@ -7,6 +7,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
@@ -24,11 +25,17 @@ public class BlockRedwoodSlab extends BlockHalfSlab
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
 		this.useNeighborBrightness[blockID] = true;
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:redwoodplank");
+	}
 
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         switch (par2 & 7)
         {
@@ -44,15 +51,15 @@ public class BlockRedwoodSlab extends BlockHalfSlab
             default:
                 return 41;
         }
-    }
+    }*/
 
     /**
      * Returns the block texture based on the side being looked at.  Args: side
      */
-    public int getBlockTextureFromSide(int par1)
+    /*public int getBlockTextureFromSide(int par1)
     {
         return this.getBlockTextureFromSideAndMetadata(par1, 0);
-    }
+    }*/
 
     /**
      * Returns the ID of the items to drop on destruction.
@@ -81,7 +88,7 @@ public class BlockRedwoodSlab extends BlockHalfSlab
             par1 = 0;
         }
 
-        return super.getBlockName() + "." + woodType[par1];
+        return super.getUnlocalizedName() + "." + woodType[par1];
     }
 	
     /**

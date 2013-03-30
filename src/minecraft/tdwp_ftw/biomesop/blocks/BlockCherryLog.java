@@ -83,7 +83,7 @@ public class BlockCherryLog extends Block
 
                             if ((var13 & 8) == 0)
                             {
-                                par1World.setBlock(par2 + var9, par3 + var10, par4 + var11, var13 | 8);
+                                par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
                             }
                         }
                     }

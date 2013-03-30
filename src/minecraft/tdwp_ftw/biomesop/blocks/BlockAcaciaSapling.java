@@ -29,7 +29,7 @@ public class BlockAcaciaSapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"acacia"};
 
-    public BlockAcaciaSapling(int par1, int par2)
+    public BlockAcaciaSapling(int par1)
     {
         super(par1);
         float var3 = 0.4F;

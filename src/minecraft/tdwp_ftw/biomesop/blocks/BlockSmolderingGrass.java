@@ -6,6 +6,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -15,23 +16,28 @@ public class BlockSmolderingGrass extends Block
     public BlockSmolderingGrass(int par1)
     {
         super(par1, Material.grass);
-        this.blockIndexInTexture = 123;
         this.setTickRandomly(true);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass1");
+	}
 
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         return par1 == 1 ? 122 : (par1 == 0 ? 124 : 123);
-    }
+    }*/
 
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
      */
-    public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    /*public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         if (par5 == 1)
         {
@@ -46,7 +52,7 @@ public class BlockSmolderingGrass extends Block
             Material var6 = par1IBlockAccess.getBlockMaterial(par2, par3 + 1, par4);
             return var6 != Material.snow && var6 != Material.craftedSnow ? 123 : 123;
         }
-    }
+    }*/
 	
     /**
      * A randomly called display update to be able to add particles or other items for display
