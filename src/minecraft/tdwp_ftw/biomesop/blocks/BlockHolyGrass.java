@@ -6,32 +6,40 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+//=========================================
 
 public class BlockHolyGrass extends Block
 {
     public BlockHolyGrass(int par1)
     {
         super(par1, Material.grass);
-        this.blockIndexInTexture = 28;
         this.setTickRandomly(true);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
-
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:holygrass1");
+	}
+	
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         return par1 == 1 ? 29 : (par1 == 0 ? 27 : 28);
-    }
+    }*/
 
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
      */
-    public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    /*public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         if (par5 == 1)
         {
@@ -46,7 +54,7 @@ public class BlockHolyGrass extends Block
             Material var6 = par1IBlockAccess.getBlockMaterial(par2, par3 + 1, par4);
             return var6 != Material.snow && var6 != Material.craftedSnow ? 28 : 28;
         }
-    }
+    }*/
 
     /**
      * Ticks the block if it's been scheduled
@@ -57,7 +65,7 @@ public class BlockHolyGrass extends Block
         {
             if (par1World.getBlockLightValue(par2, par3 + 1, par4) < 4 && Block.lightOpacity[par1World.getBlockId(par2, par3 + 1, par4)] > 2)
             {
-                par1World.setBlockWithNotify(par2, par3, par4, mod_BiomesOPlenty.holyStone.blockID);
+                par1World.setBlock(par2, par3, par4, mod_BiomesOPlenty.holyStone.blockID);
             }
             else if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
             {
@@ -70,7 +78,7 @@ public class BlockHolyGrass extends Block
 
                     if (par1World.getBlockId(var7, var8, var9) == mod_BiomesOPlenty.holyStone.blockID && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
                     {
-                        par1World.setBlockWithNotify(var7, var8, var9, mod_BiomesOPlenty.holyGrass.blockID);
+                        par1World.setBlock(var7, var8, var9, mod_BiomesOPlenty.holyGrass.blockID);
                     }
                 }
             }

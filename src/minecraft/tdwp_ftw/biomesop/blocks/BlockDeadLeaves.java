@@ -17,7 +17,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockBrownLeaves extends BlockLeavesBase
+public class BlockDeadLeaves extends BlockLeavesBase
 {
     /**
      * The base index in terrain.png corresponding to the fancy version of the leaf texture. This is stored so we can
@@ -27,13 +27,19 @@ public class BlockBrownLeaves extends BlockLeavesBase
     public static final String[] LEAF_TYPES = new String[] {"dead"};
     int[] adjacentTreeBlocks;
 
-    public BlockBrownLeaves(int par1)
+    public BlockDeadLeaves(int par1)
     {
         super(par1, Material.leaves, false);
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves2") : par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves1"));
+	}
 
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
@@ -194,7 +200,7 @@ public class BlockBrownLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockAndMetadataWithNotify(par2, par3, par4, this.blockID, 0, 2);
+        par1World.setBlock(par2, par3, par4, this.blockID);
     }
 
     /**
@@ -270,12 +276,6 @@ public class BlockBrownLeaves extends BlockLeavesBase
 	
 			//return blockIndexInTexture + (isOpaqueCube() ? 1 : 0);
 	//}
-	
-	@Override
-	public void func_94332_a(IconRegister par1IconRegister)
-	{
-			this.field_94336_cN = (isOpaqueCube() ? par1IconRegister.func_94245_a("BiomesOPlenty:deadLeavesOpaque") : par1IconRegister.func_94245_a("BiomesOPlenty:deadLeaves"));
-	}
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {

@@ -18,7 +18,6 @@ import net.minecraft.potion.PotionEffect;
 
 public class ItemAncientStaff extends Item
 {
-	
     public ItemAncientStaff(int par1)
     {
         super(par1);
@@ -29,10 +28,12 @@ public class ItemAncientStaff extends Item
     {
         return true;
     }
+    
+	public void updateIcons(IconRegister iconRegister)
+	{
+    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
+	}
 
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
 		if (par3EntityPlayer.dimension == 0)

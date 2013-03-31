@@ -22,6 +22,11 @@ public class ItemEnderporter extends Item
 		this.setMaxDamage(9);
     }
 	
+	public void updateIcons(IconRegister iconRegister)
+	{
+    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:enderporter");
+	}    
+    
     public boolean hasEffect(ItemStack par1ItemStack)
     {
         return true;

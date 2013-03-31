@@ -7,6 +7,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -192,7 +193,7 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockAndMetadataWithNotify(par2, par3, par4, this.blockID, 0, 2);
+        par1World.setBlock(par2, par3, par4, this.blockID, 0, 2);
     }
 
     /**
@@ -269,9 +270,9 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase
 	}
 	
 	@Override
-	public void func_94332_a(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister par1IconRegister)
 	{
-			this.field_94336_cN = (isOpaqueCube() ? par1IconRegister.func_94245_a("BiomesOPlenty:appleLeavesFruitlessOpaque") : par1IconRegister.func_94245_a("BiomesOPlenty:appleLeavesFruitless"));
+		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:appleLeavesFruitlessOpaque") : par1IconRegister.registerIcon("BiomesOPlenty:appleLeavesFruitless"));
 	}
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)

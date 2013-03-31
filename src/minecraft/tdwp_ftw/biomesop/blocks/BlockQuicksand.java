@@ -6,6 +6,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
@@ -14,11 +15,17 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockQuicksand extends Block
 {
-    public BlockQuicksand(int par1, int par2)
+    public BlockQuicksand(int par1)
     {
-        super(par1, par2, Material.sand);
+        super(par1, Material.sand);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:quicksand");
+	}
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {

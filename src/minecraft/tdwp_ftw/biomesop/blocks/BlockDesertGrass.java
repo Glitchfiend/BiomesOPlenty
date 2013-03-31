@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class BlockDesertGrass extends Block
 {
-    protected BlockDesertGrass(int par1, int par2, Material par3Material)
+    protected BlockDesertGrass(int par1, Material par3Material)
     {
         super(par1, par3Material);
         this.setTickRandomly(true);
@@ -26,9 +26,9 @@ public class BlockDesertGrass extends Block
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
 
-    public BlockDesertGrass(int par1, int par2)
+    public BlockDesertGrass(int par1)
     {
-        this(par1, par2, Material.plants);
+        this(par1, Material.plants);
     }
 
     /**
@@ -71,7 +71,7 @@ public class BlockDesertGrass extends Block
         if (!this.canBlockStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, 0);
         }
     }
 

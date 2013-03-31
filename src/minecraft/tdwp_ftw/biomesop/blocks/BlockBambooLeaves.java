@@ -7,6 +7,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -15,6 +16,11 @@ import net.minecraft.stats.StatList;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
 
 public class BlockBambooLeaves extends BlockLeavesBase
 {
@@ -26,14 +32,19 @@ public class BlockBambooLeaves extends BlockLeavesBase
     public static final String[] LEAF_TYPES = new String[] {"bamboo"};
     int[] adjacentTreeBlocks;
 
-    public BlockBambooLeaves(int par1, int par2)
+    public BlockBambooLeaves(int par1)
     {
-        super(par1, par2, Material.leaves, false);
-        this.baseIndexInPNG = par2;
+        super(par1, Material.leaves, false);
         this.setTickRandomly(true);
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:bambooleaves2") : par1IconRegister.registerIcon("BiomesOPlenty:bambooleaves1"));
+	}
 
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
@@ -56,7 +67,7 @@ public class BlockBambooLeaves extends BlockLeavesBase
                         if (var12 == mod_BiomesOPlenty.bambooLeaves.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
-                            par1World.setBlockMetadata(par2 + var9, par3 + var10, par4 + var11, var13 | 8);
+                            par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
                         }
                     }
                 }
@@ -168,7 +179,7 @@ public class BlockBambooLeaves extends BlockLeavesBase
 
                 if (var12 >= 0)
                 {
-                    par1World.setBlockMetadata(par2, par3, par4, var6 & -9);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 & -9, 2);
                 }
                 else
                 {
@@ -195,7 +206,7 @@ public class BlockBambooLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockWithNotify(par2, par3, par4, 0);
+        par1World.setBlock(par2, par3, par4, 0);
     }
 
     /**
@@ -266,11 +277,11 @@ public class BlockBambooLeaves extends BlockLeavesBase
 			return Block.leaves.isOpaqueCube();
 	}
 	
-	@Override
+	/*@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int metadata) {
 	
 			return blockIndexInTexture + (isOpaqueCube() ? 1 : 0);
-	}
+	}*/
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {

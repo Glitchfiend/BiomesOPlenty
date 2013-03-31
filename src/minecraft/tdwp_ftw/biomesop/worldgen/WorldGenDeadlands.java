@@ -19,7 +19,7 @@ public class WorldGenDeadlands extends WorldGenerator
 
             if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == mod_BiomesOPlenty.ash.blockID)
             {
-                par1World.setBlockWithNotify(var7, var8, var9, Block.fire.blockID);
+                par1World.setBlock(var7, var8, var9, Block.fire.blockID);
             }
         }
 

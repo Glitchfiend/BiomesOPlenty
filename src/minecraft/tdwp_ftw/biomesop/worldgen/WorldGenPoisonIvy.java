@@ -26,7 +26,7 @@ public class WorldGenPoisonIvy extends WorldGenerator
 
             if (par1World.isAirBlock(var7, var8, var9) && Block.blocksList[this.plantBlockId].canBlockStay(par1World, var7, var8, var9))
             {
-                par1World.setBlockAndMetadata(var7, var8, var9, this.plantBlockId, 1);
+                par1World.setBlock(var7, var8, var9, this.plantBlockId, 1, 2);
             }
         }
 

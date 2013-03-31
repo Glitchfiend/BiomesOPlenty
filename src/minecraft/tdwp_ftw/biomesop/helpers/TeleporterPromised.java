@@ -648,7 +648,7 @@ public class TeleporterPromised extends Teleporter
 
 		for (var19 = 0; var19 < 4; ++var19)
 		{
-			this.worldServerInstance.editingBlocks = true;
+			//this.worldServerInstance.editingBlocks = true;
 
 			for (var20 = 0; var20 < 4; ++var20)
 			{
@@ -760,7 +760,7 @@ public class TeleporterPromised extends Teleporter
 				}
 			}
 
-			this.worldServerInstance.editingBlocks = false;
+			//this.worldServerInstance.editingBlocks = false;
 
 			for (var20 = 0; var20 < 4; ++var20)
 			{

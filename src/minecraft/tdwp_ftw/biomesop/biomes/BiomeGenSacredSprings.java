@@ -52,7 +52,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 
             if (var10 == Block.stone.blockID || var10 == Block.dirt.blockID)
             {
-                par1World.setBlockAndMetadataWithNotify(var7, var8, var9, Block.waterMoving.blockID, 0, 2);
+                par1World.setBlock(var7, var8, var9, Block.waterMoving.blockID, 0, 2);
             }
         }
     }

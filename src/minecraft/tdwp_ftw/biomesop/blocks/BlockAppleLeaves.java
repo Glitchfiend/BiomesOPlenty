@@ -33,6 +33,12 @@ public class BlockAppleLeaves extends BlockLeavesBase
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:appleleaves2") : par1IconRegister.registerIcon("BiomesOPlenty:appleleaves1"));
+	}
 
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
@@ -193,7 +199,7 @@ public class BlockAppleLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockAndMetadataWithNotify(par2, par3, par4, this.blockID, 0, 2);
+        par1World.setBlock(par2, par3, par4, this.blockID, 0, 2);
     }
 
     /**
@@ -268,13 +274,7 @@ public class BlockAppleLeaves extends BlockLeavesBase
 	public boolean isOpaqueCube() {
 			return Block.leaves.isOpaqueCube();
 	}
-	
-	@Override
-	public void func_94332_a(IconRegister par1IconRegister)
-	{
-			this.field_94336_cN = (isOpaqueCube() ? par1IconRegister.func_94245_a("BiomesOPlenty:appleLeavesOpaque") : par1IconRegister.func_94245_a("BiomesOPlenty:appleLeaves"));
-	}
-	
+
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         return true;

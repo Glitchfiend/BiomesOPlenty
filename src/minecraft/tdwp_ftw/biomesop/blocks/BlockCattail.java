@@ -6,19 +6,25 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
 public class BlockCattail extends Block
 {
-	public BlockCattail(int par1, int par2)
+	public BlockCattail(int par1)
     {
         super(par1, Material.plants);
-        this.blockIndexInTexture = par2;
         float var3 = 0.375F;
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
         this.setTickRandomly(true);
-    }
+    }	
+	
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:cattail");
+	}
 
     /**
     * Ticks the block if it's been scheduled
@@ -53,7 +59,7 @@ public class BlockCattail extends Block
         if (!this.canBlockStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, 0);
         }
     }
 

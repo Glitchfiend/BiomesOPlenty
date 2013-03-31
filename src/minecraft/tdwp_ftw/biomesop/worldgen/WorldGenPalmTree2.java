@@ -36,25 +36,25 @@ public class WorldGenPalmTree2 extends WorldGenerator
             }
 
             var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-            var1.setBlockAndMetadata(var3, var4 + 1, var5, mod_BiomesOPlenty.palmWood.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 2, var5, mod_BiomesOPlenty.palmWood.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 3, var5, mod_BiomesOPlenty.palmWood.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 4, var5, mod_BiomesOPlenty.palmWood.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 5, var5, mod_BiomesOPlenty.palmWood.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 6, var5, mod_BiomesOPlenty.palmWood.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 7, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3 + 1, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3 + 2, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3 + 3, var4 + 5, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 6, var5 + 1, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 6, var5 + 2, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 5, var5 + 3, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3 - 1, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3 - 2, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3 - 3, var4 + 5, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 6, var5 - 1, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 6, var5 - 2, mod_BiomesOPlenty.palmLeaves.blockID, 0);
-            var1.setBlockAndMetadata(var3, var4 + 5, var5 - 3, mod_BiomesOPlenty.palmLeaves.blockID, 0);
+            var1.setBlock(var3, var4 + 1, var5, mod_BiomesOPlenty.palmWood.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 2, var5, mod_BiomesOPlenty.palmWood.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 3, var5, mod_BiomesOPlenty.palmWood.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 4, var5, mod_BiomesOPlenty.palmWood.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 5, var5, mod_BiomesOPlenty.palmWood.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 6, var5, mod_BiomesOPlenty.palmWood.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 7, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3 + 1, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3 + 2, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3 + 3, var4 + 5, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 6, var5 + 1, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 6, var5 + 2, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 5, var5 + 3, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3 - 1, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3 - 2, var4 + 6, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3 - 3, var4 + 5, var5, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 6, var5 - 1, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 6, var5 - 2, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 5, var5 - 3, mod_BiomesOPlenty.palmLeaves.blockID, 0, 2);
             return true;
         }
     }

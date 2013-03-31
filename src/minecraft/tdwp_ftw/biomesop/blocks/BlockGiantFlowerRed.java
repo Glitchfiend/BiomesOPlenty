@@ -7,6 +7,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -26,15 +27,20 @@ public class BlockGiantFlowerRed extends BlockLeavesBase
     public static final String[] LEAF_TYPES = new String[] {"giantred"};
     int[] adjacentTreeBlocks;
 
-    public BlockGiantFlowerRed(int par1, int par2)
+    public BlockGiantFlowerRed(int par1)
     {
-        super(par1, par2, Material.leaves, false);
-        this.baseIndexInPNG = par2;
+        super(par1, Material.leaves, false);
         this.setTickRandomly(true);
 		this.setBurnProperties(this.blockID, 5, 5);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
-
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:bigflowerred");
+	}
+	
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
      */
@@ -56,7 +62,7 @@ public class BlockGiantFlowerRed extends BlockLeavesBase
                         if (var12 == mod_BiomesOPlenty.giantFlowerRed.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
-                            par1World.setBlockMetadata(par2 + var9, par3 + var10, par4 + var11, var13 | 8);
+                            par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
                         }
                     }
                 }
@@ -168,7 +174,7 @@ public class BlockGiantFlowerRed extends BlockLeavesBase
 
                 if (var12 >= 0)
                 {
-                    par1World.setBlockMetadata(par2, par3, par4, var6 & -9);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 & -9, 2);
                 }
                 else
                 {
@@ -195,7 +201,7 @@ public class BlockGiantFlowerRed extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockWithNotify(par2, par3, par4, 0);
+        par1World.setBlock(par2, par3, par4, 0);
     }
 
     /**

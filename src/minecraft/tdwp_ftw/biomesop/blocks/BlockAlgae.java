@@ -12,6 +12,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import java.util.List;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityBoat;
@@ -21,9 +22,9 @@ import net.minecraft.world.World;
 
 public class BlockAlgae extends BlockFlower
 {
-    public BlockAlgae(int par1, int par2)
+    public BlockAlgae(int par1)
     {
-        super(par1, par2);
+        super(par1);
         float var3 = 0.5F;
         float var4 = 0.015625F;
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, var4, 0.5F + var3);
@@ -36,6 +37,12 @@ public class BlockAlgae extends BlockFlower
     {
         return 23;
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:algae");
+	}
 
     public int getBlockColor()
     {

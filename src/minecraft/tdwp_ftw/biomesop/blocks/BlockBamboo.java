@@ -6,23 +6,26 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 
 public class BlockBamboo extends Block
 {
-	public BlockBamboo(int par1, int par2)
+	public BlockBamboo(int par1)
     {
         super(par1, Material.plants);
-        this.blockIndexInTexture = par2;
         float var3 = 0.15F;
 		this.setBurnProperties(this.blockID, 5, 5);
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
         this.setTickRandomly(true);
     }
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:bamboo");
+	}
+	
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         if (par1World.isAirBlock(par2, par3 + 1, par4))
@@ -40,12 +43,12 @@ public class BlockBamboo extends Block
 
                 if (var7 == 15)
                 {
-                    par1World.setBlockWithNotify(par2, par3 + 1, par4, this.blockID);
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, 0);
+                    par1World.setBlock(par2, par3 + 1, par4, this.blockID);
+                    par1World.setBlock(par2, par3, par4, 0);
                 }
                 else
                 {
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var7 + 1);
+                    par1World.setBlock(par2, par3, par4, var7 + 1);
                 }
             }
         }
@@ -88,7 +91,7 @@ public class BlockBamboo extends Block
         if (!this.canBlockStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlockWithNotify(par2, par3, par4, 0);
+            par1World.setBlock(par2, par3, par4, 0);
         }
     }
 

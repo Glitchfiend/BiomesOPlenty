@@ -411,6 +411,12 @@ public class ChunkProviderPromised implements IChunkProvider
      * Unloads the 100 oldest chunks from memory, due to a bug with chunkSet.add() never being called it thinks the list
      * is always empty and will not remove any chunks.
      */
+
+    public boolean unloadQueuedChunks()
+    {
+        return false;
+    }    
+    
     public boolean unload100OldestChunks()
     {
         return false;

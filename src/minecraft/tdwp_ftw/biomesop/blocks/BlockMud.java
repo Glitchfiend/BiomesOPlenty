@@ -6,6 +6,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
@@ -13,42 +14,35 @@ import net.minecraft.world.World;
 
 public class BlockMud extends Block
 {
-    public BlockMud(int par1, int par2)
+    public BlockMud(int par1)
     {
-        super(par1, par2, Material.sand);
+        super(par1, Material.sand);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:mud");
+	}
 
-    /**
-     * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-     * cleared to be reused)
-     */
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
         float var5 = 0.35F;
-        return AxisAlignedBB.getAABBPool().addOrModifyAABBInPool((double)par2, (double)par3, (double)par4, (double)(par2 + 1), (double)((float)(par3 + 1) - var5), (double)(par4 + 1));
+        return AxisAlignedBB.getAABBPool().getAABB((double)par2, (double)par3, (double)par4, (double)(par2 + 1), (double)((float)(par3 + 1) - var5), (double)(par4 + 1));
     }
 
-    /**
-     * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
-     */
     public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
         par5Entity.motionX *= 0.1D;
         par5Entity.motionZ *= 0.1D;
     }
-	
-    /**
-     * Returns the ID of the items to drop on destruction.
-     */
+
     public int idDropped(int par1, Random par2Random, int par3)
     {
         return mod_BiomesOPlenty.mudBall.itemID;
     }
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
     public int quantityDropped(Random par1Random)
     {
         return 4;

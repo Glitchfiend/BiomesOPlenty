@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -19,6 +20,12 @@ public class BlockHighGrassBottom extends BlockFlower
 		this.setBurnProperties(this.blockID, 60, 100);
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
     }
+	
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:highgrassbottom");
+	}
 	
     /**
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z

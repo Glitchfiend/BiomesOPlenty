@@ -42,9 +42,9 @@ public class WorldGenLog extends WorldGenerator
 										}
 									}
 
-									var1.setBlockAndMetadata(var3, var4 + 1, var5, Block.wood.blockID, 4);
-									var1.setBlockAndMetadata(var3 - 1, var4 + 1, var5, Block.wood.blockID, 4);
-									var1.setBlockAndMetadata(var3 + 1, var4 + 1, var5, Block.wood.blockID, 4);
+									var1.setBlock(var3, var4 + 1, var5, Block.wood.blockID, 4, 2);
+									var1.setBlock(var3 - 1, var4 + 1, var5, Block.wood.blockID, 4, 2);
+									var1.setBlock(var3 + 1, var4 + 1, var5, Block.wood.blockID, 4, 2);
 									return true;
 								}
 							else

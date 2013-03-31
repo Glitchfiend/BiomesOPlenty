@@ -8,6 +8,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -22,13 +23,21 @@ public class BlockFirSapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"fir"};
 
-    public BlockFirSapling(int par1, int par2)
+    //========================================
+    
+    public BlockFirSapling(int par1)
     {
-        super(par1, par2);
+        super(par1);
         float var3 = 0.4F;
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, var3 * 2.0F, 0.5F + var3);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
-    }
+    }	
+    
+    @Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:firsappling");
+	}
 
     /**
      * Ticks the block if it's been scheduled
@@ -45,7 +54,7 @@ public class BlockFirSapling extends BlockSapling
 
                 if ((var6 & 8) == 0)
                 {
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 | 8);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 | 8, 2);
                 }
                 else
                 {
@@ -58,11 +67,11 @@ public class BlockFirSapling extends BlockSapling
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         par2 &= 3;
         return par2 == 1 ? 63 : (par2 == 2 ? 79 : (par2 == 3 ? 30 : super.getBlockTextureFromSideAndMetadata(par1, par2)));
-    }
+    }*/
 
     /**
      * Attempts to grow a sapling into a tree
@@ -114,14 +123,14 @@ public class BlockFirSapling extends BlockSapling
         {
             if (var10)
             {
-                par1World.setBlockAndMetadata(par2 + var8, par3, par4 + var9, this.blockID, var6);
-                par1World.setBlockAndMetadata(par2 + var8 + 1, par3, par4 + var9, this.blockID, var6);
-                par1World.setBlockAndMetadata(par2 + var8, par3, par4 + var9 + 1, this.blockID, var6);
-                par1World.setBlockAndMetadata(par2 + var8 + 1, par3, par4 + var9 + 1, this.blockID, var6);
+                par1World.setBlock(par2 + var8, par3, par4 + var9, this.blockID, var6, 2);
+                par1World.setBlock(par2 + var8 + 1, par3, par4 + var9, this.blockID, var6, 2);
+                par1World.setBlock(par2 + var8, par3, par4 + var9 + 1, this.blockID, var6, 2);
+                par1World.setBlock(par2 + var8 + 1, par3, par4 + var9 + 1, this.blockID, var6, 2);
             }
             else
             {
-                par1World.setBlockAndMetadata(par2, par3, par4, this.blockID, var6);
+                par1World.setBlock(par2, par3, par4, this.blockID, var6, 2);
             }
         }
     }

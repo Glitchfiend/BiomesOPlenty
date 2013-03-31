@@ -37,8 +37,8 @@ public class WorldGenOutback extends WorldGenerator
 
             if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == mod_BiomesOPlenty.hardSand.blockID)
             {
-                par1World.setBlockAndMetadata(var8, var9 - 1, var10, Block.grass.blockID, 0);
-				par1World.setBlockAndMetadata(var8, var9, var10, mod_BiomesOPlenty.mediumGrass.blockID, 1);
+                par1World.setBlock(var8, var9 - 1, var10, Block.grass.blockID, 0, 2);
+				par1World.setBlock(var8, var9, var10, mod_BiomesOPlenty.mediumGrass.blockID, 1, 2);
             }
         }
 

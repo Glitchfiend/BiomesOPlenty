@@ -55,7 +55,7 @@ public class WorldGenColumn extends WorldGenerator
 
                         if (var11 * var11 + var12 * var12 <= var7 * var7 + 1)
                         {
-                            par1World.setBlockWithNotify(var9, var8, var10, mod_BiomesOPlenty.ashStone.blockID);
+                            par1World.setBlock(var9, var8, var10, mod_BiomesOPlenty.ashStone.blockID);
                         }
                     }
                 }

@@ -22,7 +22,7 @@ public class WorldGenMoss extends WorldGenerator
                 {
                     if (mod_BiomesOPlenty.moss.canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
                     {
-                        par1World.setBlockAndMetadata(par3, par4, par5, mod_BiomesOPlenty.moss.blockID, 1 << Direction.vineGrowth[Facing.faceToSide[var8]]);
+                        par1World.setBlock(par3, par4, par5, mod_BiomesOPlenty.moss.blockID, 1 << Direction.vineGrowth[Facing.faceToSide[var8]], 2);
                         break;
                     }
                 }
