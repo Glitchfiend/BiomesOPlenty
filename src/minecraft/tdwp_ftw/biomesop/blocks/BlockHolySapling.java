@@ -18,10 +18,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenPromisedTree;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Icon;
 
 public class BlockHolySapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"holy"};
+    private Icon[] blockIcon = new Icon[1];
 
     public BlockHolySapling(int par1)
     {
@@ -34,7 +36,12 @@ public class BlockHolySapling extends BlockSapling
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:holysappling");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:holysapling");
+	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+        return this.blockIcon[0];
 	}
 	
     /**

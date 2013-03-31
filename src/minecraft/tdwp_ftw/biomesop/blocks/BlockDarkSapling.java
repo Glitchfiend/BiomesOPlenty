@@ -19,15 +19,12 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenOminous1;
 import tdwp_ftw.biomesop.worldgen.WorldGenOminous2;
 import net.minecraft.util.AxisAlignedBB;
-
-//==============================================================
-//==============================================================
-//==============================================================
-//==============================================================
+import net.minecraft.util.Icon;
 
 public class BlockDarkSapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"dark"};
+    private Icon[] blockIcon = new Icon[1];
 
     public BlockDarkSapling(int par1)
     {
@@ -40,8 +37,13 @@ public class BlockDarkSapling extends BlockSapling
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:darksappling");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:darksapling");
 	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+        return this.blockIcon[0];
+    }
 	
     /**
      * Ticks the block if it's been scheduled

@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -26,6 +27,7 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
     private int baseIndexInPNG;
     public static final String[] LEAF_TYPES = new String[] {"acacia"};
     int[] adjacentTreeBlocks;
+    private Icon[] blockIcon = new Icon[2];
 
     public BlockAcaciaLeaves(int par1)
     {
@@ -33,6 +35,18 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+    }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves1");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves2");
+	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
 	
     public int getBlockColor()
@@ -300,14 +314,9 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
     }
 	
 	@Override
-	public boolean isOpaqueCube() {
-			return Block.leaves.isOpaqueCube();
-	}
-	
-	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public boolean isOpaqueCube() 
 	{
-		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves2") : par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves1"));
+		return Block.leaves.isOpaqueCube();
 	}
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)

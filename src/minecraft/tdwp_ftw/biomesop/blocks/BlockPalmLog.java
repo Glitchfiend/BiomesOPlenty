@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -16,6 +17,7 @@ public class BlockPalmLog extends Block
 {
     /** The type of tree this log came from. */
     public static final String[] woodType = new String[] {"palm"};
+    private Icon[] blockIcon = new Icon[2];
 
     public BlockPalmLog(int par1)
     {
@@ -27,8 +29,21 @@ public class BlockPalmLog extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:palmlog");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:logTopBottum");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:palmlog");
 	}
+	
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+    	if(par1 == 0 || par1 == 1)
+    	{
+    		return blockIcon[0];
+    	}
+    	else
+    	{
+    		return blockIcon[1];
+    	}
+    }
 
     /**
      * The type of render function that is called for this block

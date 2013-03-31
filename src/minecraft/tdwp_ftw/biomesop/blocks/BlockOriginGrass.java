@@ -8,11 +8,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockOriginGrass extends Block
 {
+    private Icon[] blockIcon = new Icon[6];
+    
     public BlockOriginGrass(int par1)
     {
         super(par1, Material.grass);
@@ -23,16 +26,21 @@ public class BlockOriginGrass extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:origingrass1");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass3");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass1");
+		this.blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
+		this.blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
+		this.blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
+		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
 	}
 	
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
-        return par1 == 1 ? 32 : (par1 == 0 ? 34 : 33);
-    }*/
+        return blockIcon[par1];
+    }
 
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side

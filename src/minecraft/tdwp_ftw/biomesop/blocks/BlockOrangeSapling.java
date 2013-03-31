@@ -18,10 +18,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenAutumn2;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Icon;
 
 public class BlockOrangeSapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"orange"};
+    private Icon[] blockIcon = new Icon[1];
 
     public BlockOrangeSapling(int par1)
     {
@@ -34,8 +36,13 @@ public class BlockOrangeSapling extends BlockSapling
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves2");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:orangesapling");
 	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+        return this.blockIcon[0];
+    }
 	
     /**
      * Ticks the block if it's been scheduled

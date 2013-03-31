@@ -8,10 +8,6 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.world.IBlockAccess;
 
-//==============================================================
-//==============================================================
-//==============================================================
-//==============================================================
 
 public class BlockAcaciaStairs extends BlockStairs
 {

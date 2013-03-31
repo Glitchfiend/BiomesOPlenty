@@ -57,7 +57,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.4.7")
+@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.4.8")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class mod_BiomesOPlenty
 {	    
@@ -675,18 +675,18 @@ public class mod_BiomesOPlenty
     			bootsAmethyst = (new ArmorAmethyst(bootsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 3)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("bootsAmethyst");
 
     	        // Achievement declaration
-    	        achFlower = (new Achievement(3047, "achFlower", 0, 0, Block.plantRed, (Achievement)null)).registerAchievement();
-    	        achRedRock = (new Achievement(3048, "achRedRock", -1, 2, redRock, achFlower)).registerAchievement();
-    	        achThorn = (new Achievement(3049, "achThorn", 2, 1, thorn, achFlower)).registerAchievement();
-				achAsh = (new Achievement(3050, "achAsh", 1, 3, ashes, achFlower)).registerAchievement();
-				achOrigin = (new Achievement(3051, "achOrigin", 0, 5, originGrass, achFlower)).setSpecial().registerAchievement();
-				achPromised = (new Achievement(3052, "achPromised", 0, -5, holyGrass, achFlower)).setSpecial().registerAchievement();
-				achMud = (new Achievement(3053, "achMud", -2, -1, mudBall, achFlower)).registerAchievement();
-				achShroom = (new Achievement(3054, "achShroom", 1, -2, toadstool, achFlower)).registerAchievement();
-				achBarley = (new Achievement(3055, "achBarley", -2, 4, barleyItem, achFlower)).registerAchievement();
-				achMoss = (new Achievement(3056, "achMoss", -1, -3, mossItem, achFlower)).registerAchievement();
+    	        achFlower2 = (new Achievement(3057, "achFlower2", 0, 0, Block.plantRed, (Achievement)null)).registerAchievement();
+    	        achRedRock2 = (new Achievement(3058, "achRedRock2", -1, 2, redRock, achFlower2)).registerAchievement();
+    	        achThorn2 = (new Achievement(3059, "achThorn2", 2, 1, thorn, achFlower2)).registerAchievement();
+				achAsh2 = (new Achievement(3060, "achAsh2", 1, 3, ashes, achFlower2)).registerAchievement();
+				achOrigin2 = (new Achievement(3061, "achOrigin2", 0, 5, originGrass, achFlower2)).setSpecial().registerAchievement();
+				achPromised2 = (new Achievement(3062, "achPromised2", 0, -5, holyGrass, achFlower2)).setSpecial().registerAchievement();
+				achMud2 = (new Achievement(3063, "achMud2", -2, -1, mudBall, achFlower2)).registerAchievement();
+				achShroom2 = (new Achievement(3064, "achShroom2", 1, -2, toadstool, achFlower2)).registerAchievement();
+				achBarley2 = (new Achievement(3065, "achBarley2", -2, 4, barleyItem, achFlower2)).registerAchievement();
+				achMoss2 = (new Achievement(3066, "achMoss2", -1, -3, mossItem, achFlower2)).registerAchievement();
 				
-				pageBOP = new AchievementPage("Biomes O\' Plenty", achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss);
+				pageBOP = new AchievementPage("Biomes O\' Plenty", achFlower2, achRedRock2, achThorn2, achAsh2, achOrigin2, achPromised2, achMud2, achShroom2, achBarley2, achMoss2);
 				AchievementPage.registerAchievementPage(pageBOP);
     	        
         		// Add block names
@@ -1417,16 +1417,16 @@ public class mod_BiomesOPlenty
 				GameRegistry.addSmelting(mangroveWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
 		        
 		        // Add Achievement registration
-		        addAchievementDesc("achFlower", "Flower Child", "Pick some flowers!");
-		        addAchievementDesc("achRedRock", "Red Rocky Mountain High", "Dig out some red rocks.");
-		        addAchievementDesc("achThorn", "Rather Thorny...", "Don\'t get cut!");
-				addAchievementDesc("achAsh", "Ash-ievement", "Get it?  \'Cause it\'s ash.");
-				addAchievementDesc("achOrigin", "Alpha...", "Get some grass from the Origin Valley.");
-				addAchievementDesc("achPromised", "...Omega", "Welcome to the Promised Land!");
-				addAchievementDesc("achMud", "Sticky Situation", "I just had these boots cleaned!");
-				addAchievementDesc("achShroom", "Trippin\'", "Don\'t try this at home, kids!");
-				addAchievementDesc("achBarley", "Fields Of Gold", "Upon the fields of barley.");
-				addAchievementDesc("achMoss", "Mossman", "Mothman's long-lost cousin.");
+		        addAchievementDesc("achFlower2", "Flower Child", "Pick some flowers!");
+		        addAchievementDesc("achRedRock2", "Red Rocky Mountain High", "Dig out some red rocks.");
+		        addAchievementDesc("achThorn2", "Rather Thorny...", "Don\'t get cut!");
+				addAchievementDesc("achAsh2", "Ash-ievement", "Get it?  \'Cause it\'s ash.");
+				addAchievementDesc("achOrigin2", "Alpha...", "Get some grass from the Origin Valley.");
+				addAchievementDesc("achPromised2", "...Omega", "Welcome to the Promised Land!");
+				addAchievementDesc("achMud2", "Sticky Situation", "I just had these boots cleaned!");
+				addAchievementDesc("achShroom2", "Trippin\'", "Don\'t try this at home, kids!");
+				addAchievementDesc("achBarley2", "Fields Of Gold", "Upon the fields of barley.");
+				addAchievementDesc("achMoss2", "Mossman", "Mothman's long-lost cousin.");
 				
 				LanguageRegistry.instance().addStringLocalization("generator.BIOMESOP", "en_US", "Biomes O\' Plenty");
 	      		
@@ -2339,16 +2339,16 @@ public class mod_BiomesOPlenty
 		public static Item bootsAmethyst;
 		
         // Achievement declaration
-        public static Achievement achFlower;
-        public static Achievement achRedRock;
-        public static Achievement achThorn;
-		public static Achievement achAsh;
-		public static Achievement achOrigin;
-		public static Achievement achPromised;
-		public static Achievement achMud;
-		public static Achievement achShroom;
-		public static Achievement achBarley;
-		public static Achievement achMoss;
+        public static Achievement achFlower2;
+        public static Achievement achRedRock2;
+        public static Achievement achThorn2;
+		public static Achievement achAsh2;
+		public static Achievement achOrigin2;
+		public static Achievement achPromised2;
+		public static Achievement achMud2;
+		public static Achievement achShroom2;
+		public static Achievement achBarley2;
+		public static Achievement achMoss2;
         
         // Biome declaration
         public static BiomeGenBase alps;
@@ -3086,43 +3086,43 @@ public class mod_BiomesOPlenty
         {
             if (item.itemID == glowFlower.blockID || item.itemID == orangeFlower.blockID || item.itemID == blueFlower.blockID || item.itemID == purpleFlower.blockID || item.itemID == pinkFlower.blockID || item.itemID == whiteFlower.blockID || item.itemID == tinyFlower.blockID || item.itemID == deathbloom.blockID || item.itemID == hydrangea.blockID || item.itemID == violet.blockID || item.itemID == Block.plantRed.blockID || item.itemID == Block.plantYellow.blockID)
             {
-            	player.addStat(achFlower, 1);
+            	player.addStat(achFlower2, 1);
             }
             if (item.itemID == redRockCobble.blockID)
             {
-            	player.addStat(achRedRock, 1);
+            	player.addStat(achRedRock2, 1);
             }
             if (item.itemID == thorn.blockID)
             {
-            	player.addStat(achThorn, 1);
+            	player.addStat(achThorn2, 1);
             }
 			if (item.itemID == ashes.itemID)
             {
-            	player.addStat(achAsh, 1);
+            	player.addStat(achAsh2, 1);
             }
 			if (item.itemID == originGrass.blockID)
             {
-            	player.addStat(achOrigin, 1);
+            	player.addStat(achOrigin2, 1);
             }
 			if (item.itemID == holyGrass.blockID || item.itemID == holyStone.blockID)
             {
-            	player.addStat(achPromised, 1);
+            	player.addStat(achPromised2, 1);
             }
 			if (item.itemID == mudBall.itemID)
             {
-            	player.addStat(achMud, 1);
+            	player.addStat(achMud2, 1);
             }
 			if (item.itemID == toadstool.blockID)
             {
-            	player.addStat(achShroom, 1);
+            	player.addStat(achShroom2, 1);
             }
 			if (item.itemID == barleyItem.itemID)
             {
-            	player.addStat(achBarley, 1);
+            	player.addStat(achBarley2, 1);
             }
 			if (item.itemID == mossItem.itemID)
             {
-            	player.addStat(achMoss, 1);
+            	player.addStat(achMoss2, 1);
             }
         }
         
