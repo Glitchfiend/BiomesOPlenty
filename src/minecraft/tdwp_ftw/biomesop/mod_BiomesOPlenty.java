@@ -28,6 +28,7 @@ import net.minecraft.stats.AchievementList;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.event.terraingen.BiomeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
@@ -1074,281 +1075,91 @@ public class mod_BiomesOPlenty
 				GameRegistry.addRecipe(new ItemStack(mudBrickStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', mudBrickBlock});
 				
 				//Redwood
+				OreDictionary.registerOre("plankWood", new ItemStack(redwoodPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(redwoodWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(redwoodPlank, 4), new Object[] {redwoodWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', redwoodPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', redwoodPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', redwoodPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', redwoodPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', redwoodPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', redwoodPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', redwoodPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(redwoodSingleSlab, 6), new Object[] {"RRR", 'R', redwoodPlank});
 				GameRegistry.addRecipe(new ItemStack(redwoodStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', redwoodPlank});
 				GameRegistry.addRecipe(new ItemStack(redwoodStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', redwoodPlank});
 				
 				//Willow
+				OreDictionary.registerOre("plankWood", new ItemStack(willowPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(willowWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(willowPlank, 4), new Object[] {willowWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', willowPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', willowPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', willowPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', willowPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', willowPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', willowPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', willowPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(willowSingleSlab, 6), new Object[] {"RRR", 'R', willowPlank});
 				GameRegistry.addRecipe(new ItemStack(willowStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', willowPlank});
 				GameRegistry.addRecipe(new ItemStack(willowStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', willowPlank});
 				
 				//Acacia
+				OreDictionary.registerOre("plankWood", new ItemStack(acaciaPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(acaciaWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(acaciaPlank, 4), new Object[] {acaciaWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', acaciaPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', acaciaPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', acaciaPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', acaciaPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', acaciaPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', acaciaPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', acaciaPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(acaciaSingleSlab, 6), new Object[] {"RRR", 'R', acaciaPlank});
 				GameRegistry.addRecipe(new ItemStack(acaciaStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', acaciaPlank});
 				GameRegistry.addRecipe(new ItemStack(acaciaStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', acaciaPlank});
 				
 				//Fir
+				OreDictionary.registerOre("plankWood", new ItemStack(firPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(firWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(firPlank, 4), new Object[] {firWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', firPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', firPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', firPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', firPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', firPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', firPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', firPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(firSingleSlab, 6), new Object[] {"RRR", 'R', firPlank});
 				GameRegistry.addRecipe(new ItemStack(firStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', firPlank});
 				GameRegistry.addRecipe(new ItemStack(firStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', firPlank});
 				
 				//Cherry
+				OreDictionary.registerOre("plankWood", new ItemStack(cherryPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(cherryWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(cherryPlank, 4), new Object[] {cherryWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', cherryPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', cherryPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', cherryPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', cherryPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', cherryPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', cherryPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', cherryPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(cherrySingleSlab, 6), new Object[] {"RRR", 'R', cherryPlank});
 				GameRegistry.addRecipe(new ItemStack(cherryStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', cherryPlank});
 				GameRegistry.addRecipe(new ItemStack(cherryStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', cherryPlank});
 				
 				//Dark
+				OreDictionary.registerOre("plankWood", new ItemStack(darkPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(darkWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(darkPlank, 4), new Object[] {darkWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', darkPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', darkPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', darkPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', darkPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', darkPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', darkPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', darkPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(darkSingleSlab, 6), new Object[] {"RRR", 'R', darkPlank});
 				GameRegistry.addRecipe(new ItemStack(darkStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', darkPlank});
 				GameRegistry.addRecipe(new ItemStack(darkStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', darkPlank});
 				
 				//Magic
+				OreDictionary.registerOre("plankWood", new ItemStack(magicPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(magicWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(magicPlank, 4), new Object[] {magicWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', magicPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', magicPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', magicPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', magicPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', magicPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', magicPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', magicPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(magicSingleSlab, 6), new Object[] {"RRR", 'R', magicPlank});
 				GameRegistry.addRecipe(new ItemStack(magicStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', magicPlank});
 				GameRegistry.addRecipe(new ItemStack(magicStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', magicPlank});
 				
 				//Palm
+				OreDictionary.registerOre("plankWood", new ItemStack(palmPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(palmWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(palmPlank, 4), new Object[] {palmWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', palmPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', palmPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', palmPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', palmPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', palmPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', palmPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', palmPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(palmSingleSlab, 6), new Object[] {"RRR", 'R', palmPlank});
 				GameRegistry.addRecipe(new ItemStack(palmStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', palmPlank});
 				GameRegistry.addRecipe(new ItemStack(palmStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', palmPlank});
 				
 				//Mangrove
+				OreDictionary.registerOre("plankWood", new ItemStack(mangrovePlank));
+				OreDictionary.registerOre("logWood", new ItemStack(mangroveWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(mangrovePlank, 4), new Object[] {mangroveWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', mangrovePlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', mangrovePlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', mangrovePlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', mangrovePlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', mangrovePlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', mangrovePlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', mangrovePlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(mangroveSingleSlab, 6), new Object[] {"RRR", 'R', mangrovePlank});
 				GameRegistry.addRecipe(new ItemStack(mangroveStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', mangrovePlank});
 				GameRegistry.addRecipe(new ItemStack(mangroveStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', mangrovePlank});
 				
 				//Holy
+				OreDictionary.registerOre("plankWood", new ItemStack(holyPlank));
+				OreDictionary.registerOre("logWood", new ItemStack(holyWood));
+				
 				GameRegistry.addShapelessRecipe(new ItemStack(holyPlank, 4), new Object[] {holyWood});
-				GameRegistry.addRecipe(new ItemStack(Block.workbench, 1), new Object[] {"RR", "RR", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.doorWood, 1), new Object[] {"RR", "RR", "RR", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.stick, 4), new Object[] {"R", "R", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.bowlEmpty, 4), new Object[] {"R R", " R ", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.boat, 1), new Object[] {"R R", "RRR", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.pressurePlatePlanks, 1), new Object[] {"RR", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.trapdoor, 2), new Object[] {"RRR", "RRR", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Block.chest, 1), new Object[] {"RRR", "R R", "RRR", 'R', holyPlank});
-				GameRegistry.addRecipe(new ItemStack(Item.swordWood, 1), new Object[] {"R", "R", "X", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.pickaxeWood, 1), new Object[] {"RRR", " X ", " X ", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "RX ", " X", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.axeWood, 1), new Object[] {"RR", "XR", "X ", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.shovelWood, 1), new Object[] {"R", "X", "X", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", "X ", "X ", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.hoeWood, 1), new Object[] {"RR", " X", " X", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.sign, 3), new Object[] {"RRR", "RRR", " X ", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Block.fenceGate, 1), new Object[] {"XRX", "XRX", 'R', holyPlank, 'X', Item.stick});
-				GameRegistry.addRecipe(new ItemStack(Item.bed, 1), new Object[] {"WWW", "RRR", 'R', holyPlank, 'W', Block.cloth});
-				GameRegistry.addRecipe(new ItemStack(Block.jukebox, 1), new Object[] {"RRR", "RDR", "RRR", 'R', holyPlank, 'D', Item.diamond});
-				GameRegistry.addRecipe(new ItemStack(Block.music, 1), new Object[] {"RRR", "RPR", "RRR", 'R', holyPlank, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.pistonBase, 1), new Object[] {"RRR", "CIC", "CPC", 'R', holyPlank, 'C', Block.cobblestone, 'I', Item.ingotIron, 'P', Item.redstone});
-				GameRegistry.addRecipe(new ItemStack(Block.bookShelf, 1), new Object[] {"RRR", "BBB", "RRR", 'R', holyPlank, 'B', Item.book});
 				GameRegistry.addRecipe(new ItemStack(holySingleSlab, 6), new Object[] {"RRR", 'R', holyPlank});
 				GameRegistry.addRecipe(new ItemStack(holyStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', holyPlank});
 				GameRegistry.addRecipe(new ItemStack(holyStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', holyPlank});
@@ -1405,16 +1216,6 @@ public class mod_BiomesOPlenty
 				GameRegistry.addSmelting(mudBall.itemID, new ItemStack(mudBrick, 1), 0F);
 				GameRegistry.addSmelting(redRockCobble.blockID, new ItemStack(redRock, 1), 0.1F);
 				GameRegistry.addSmelting(tinyCactus.blockID, new ItemStack(Item.dyePowder, 1, 2), 0.2F);
-				
-				GameRegistry.addSmelting(redwoodWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(willowWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(firWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(acaciaWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(cherryWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(darkWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(magicWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(palmWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
-				GameRegistry.addSmelting(mangroveWood.blockID, new ItemStack(Item.coal, 1, 1), 0.15F);
 		        
 		        // Add Achievement registration
 		        addAchievementDesc("achFlower", "Flower Child", "Pick some flowers!");
@@ -2845,14 +2646,6 @@ public class mod_BiomesOPlenty
 		// Add Fuel rates
 		public static int addFuel(int par1, int par2)
 		{
-			if(par1 == redwoodPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == redwoodWood.blockID)
-			{
-				return 300;
-			}
 			if(par1 == redwoodSapling.blockID)
 			{
 				return 100;
@@ -2862,14 +2655,6 @@ public class mod_BiomesOPlenty
 				return 150;
 			}
 			if(par1 == redwoodStairs.blockID)
-			{
-				return 300;
-			}
-			if(par1 == willowPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == willowWood.blockID)
 			{
 				return 300;
 			}
@@ -2885,14 +2670,6 @@ public class mod_BiomesOPlenty
 			{
 				return 300;
 			}
-			if(par1 == firPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == firWood.blockID)
-			{
-				return 300;
-			}
 			if(par1 == firSapling.blockID)
 			{
 				return 100;
@@ -2905,14 +2682,6 @@ public class mod_BiomesOPlenty
 			{
 				return 300;
 			}
-			if(par1 == acaciaPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == acaciaWood.blockID)
-			{
-				return 300;
-			}
 			if(par1 == acaciaSapling.blockID)
 			{
 				return 100;
@@ -2922,10 +2691,6 @@ public class mod_BiomesOPlenty
 				return 150;
 			}
 			if(par1 == acaciaStairs.blockID)
-			{
-				return 300;
-			}
-			if(par1 == cherryPlank.blockID)
 			{
 				return 300;
 			}
@@ -2961,23 +2726,11 @@ public class mod_BiomesOPlenty
 			{
 				return 100;
 			}
-			if(par1 == cherryWood.blockID)
-			{
-				return 300;
-			}
 			if(par1 == cherrySingleSlab.blockID)
 			{
 				return 150;
 			}
 			if(par1 == cherryStairs.blockID)
-			{
-				return 300;
-			}
-			if(par1 == darkPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == darkWood.blockID)
 			{
 				return 300;
 			}
@@ -2993,14 +2746,6 @@ public class mod_BiomesOPlenty
 			{
 				return 300;
 			}
-			if(par1 == magicPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == magicWood.blockID)
-			{
-				return 300;
-			}
 			if(par1 == magicSapling.blockID)
 			{
 				return 100;
@@ -3010,14 +2755,6 @@ public class mod_BiomesOPlenty
 				return 150;
 			}
 			if(par1 == magicStairs.blockID)
-			{
-				return 300;
-			}
-			if(par1 == palmPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == palmWood.blockID)
 			{
 				return 300;
 			}
@@ -3033,14 +2770,6 @@ public class mod_BiomesOPlenty
 			{
 				return 300;
 			}
-			if(par1 == mangrovePlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == mangroveWood.blockID)
-			{
-				return 300;
-			}
 			if(par1 == mangroveSapling.blockID)
 			{
 				return 100;
@@ -3050,14 +2779,6 @@ public class mod_BiomesOPlenty
 				return 150;
 			}
 			if(par1 == mangroveStairs.blockID)
-			{
-				return 300;
-			}
-			if(par1 == holyPlank.blockID)
-			{
-				return 300;
-			}
-			if(par1 == holyWood.blockID)
 			{
 				return 300;
 			}
