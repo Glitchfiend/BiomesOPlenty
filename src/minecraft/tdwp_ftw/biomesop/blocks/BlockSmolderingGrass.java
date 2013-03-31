@@ -8,11 +8,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockSmolderingGrass extends Block
 {
+    private Icon[] blockIcon = new Icon[6];
+    
     public BlockSmolderingGrass(int par1)
     {
         super(par1, Material.grass);
@@ -23,8 +26,18 @@ public class BlockSmolderingGrass extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass1");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass3");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass1");
+		this.blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
+		this.blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
+		this.blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
+		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
 	}
+	
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+        return blockIcon[par1];
+    }
 
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata

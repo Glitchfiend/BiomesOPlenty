@@ -17,12 +17,7 @@ public class BlockDarkSlab extends BlockHalfSlab
 {
     /** The type of tree this slab came from. */
     public static final String[] woodType = new String[] {"dark"};
-    
-	//==============================================================
-	//==============================================================
-	//==============================================================
-	//==============================================================
-    
+
     public BlockDarkSlab(int par1, boolean par2)
     {
         super(par1, par2, Material.wood);

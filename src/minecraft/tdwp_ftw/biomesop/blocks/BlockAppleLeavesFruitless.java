@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -25,6 +26,7 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase
     private int baseIndexInPNG;
     public static final String[] LEAF_TYPES = new String[] {"apple"};
     int[] adjacentTreeBlocks;
+    private Icon[] blockIcon = new Icon[2];
 
     public BlockAppleLeavesFruitless(int par1)
     {
@@ -32,6 +34,18 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+    }
+    
+	@Override
+	public void registerIcons(IconRegister par1IconRegister)
+	{
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves3");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves4");
+	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
 
     /**
@@ -267,12 +281,6 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase
 	@Override
 	public boolean isOpaqueCube() {
 			return Block.leaves.isOpaqueCube();
-	}
-	
-	@Override
-	public void registerIcons(IconRegister par1IconRegister)
-	{
-		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:appleLeavesFruitlessOpaque") : par1IconRegister.registerIcon("BiomesOPlenty:appleLeavesFruitless"));
 	}
 	
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)

@@ -13,14 +13,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-//==============================================================
-//==============================================================
-//==============================================================
-//==============================================================
 
 public class BlockDarkLeaves extends BlockLeavesBase
 {
@@ -31,6 +27,7 @@ public class BlockDarkLeaves extends BlockLeavesBase
     private int baseIndexInPNG;
     public static final String[] LEAF_TYPES = new String[] {"dark"};
     int[] adjacentTreeBlocks;
+    private Icon[] blockIcon = new Icon[2];
 
     public BlockDarkLeaves(int par1)
     {
@@ -43,8 +40,14 @@ public class BlockDarkLeaves extends BlockLeavesBase
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:darkleaves2") : par1IconRegister.registerIcon("BiomesOPlenty:darkleaves1"));
-	}    
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:darkleaves1");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:darkleaves2");
+	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
+    }  
 
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate

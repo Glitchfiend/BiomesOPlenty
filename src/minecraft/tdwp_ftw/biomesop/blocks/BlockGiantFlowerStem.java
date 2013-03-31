@@ -9,6 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -16,8 +17,7 @@ public class BlockGiantFlowerStem extends Block
 {
     /** The type of tree this log came from. */
     public static final String[] woodType = new String[] {"giantstem"};
-
-    //===========================================
+    private Icon[] blockIcon = new Icon[2];
     
     public BlockGiantFlowerStem(int par1)
     {
@@ -29,8 +29,21 @@ public class BlockGiantFlowerStem extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:bigflowerstem");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:stemTopBottum");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:bigflowerstem");
 	}    
+	
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+    	if(par1 == 0 || par1 == 1)
+    	{
+    		return blockIcon[0];
+    	}
+    	else
+    	{
+    		return blockIcon[1];
+    	}
+    }
     
     /**
      * The type of render function that is called for this block
@@ -113,16 +126,6 @@ public class BlockGiantFlowerStem extends Block
 
         return var10 | var11;
     }
-
-    /**
-     * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-     */
-    /*public int getBlockTextureFromSideAndMetadata(int par1, int par2)
-    {
-        int var3 = par2 & 12;
-        int var4 = par2 & 3;
-        return var3 == 0 && (par1 == 1 || par1 == 0) ? 254 : (var3 == 4 && (par1 == 5 || par1 == 4) ? 254 : (var3 == 8 && (par1 == 2 || par1 == 3) ? 254 : (var4 == 1 ? 116 : (var4 == 2 ? 117 : (var4 == 3 ? 153 : 48)))));
-    }*/
 
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.

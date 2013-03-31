@@ -18,10 +18,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenMangrove;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Icon;
 
 public class BlockMangroveSapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"mangrove"};
+    private Icon[] blockIcon = new Icon[1];
 
     public BlockMangroveSapling(int par1)
     {
@@ -34,8 +36,13 @@ public class BlockMangroveSapling extends BlockSapling
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:mangrovesappling");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:mangrovesapling");
 	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+        return this.blockIcon[0];
+    }
 
     /**
      * Ticks the block if it's been scheduled

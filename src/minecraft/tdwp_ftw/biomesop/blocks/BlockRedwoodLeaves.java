@@ -13,6 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.StatList;
+import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -26,6 +27,7 @@ public class BlockRedwoodLeaves extends BlockLeavesBase
     private int baseIndexInPNG;
     public static final String[] LEAF_TYPES = new String[] {"redwood"};
     int[] adjacentTreeBlocks;
+    private Icon[] blockIcon = new Icon[2];
 
     public BlockRedwoodLeaves(int par1)
     {
@@ -38,8 +40,14 @@ public class BlockRedwoodLeaves extends BlockLeavesBase
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = (isOpaqueCube() ? par1IconRegister.registerIcon("BiomesOPlenty:redwoodleaves2") : par1IconRegister.registerIcon("BiomesOPlenty:redwoodleaves1"));
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:redwoodleaves1");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:redwoodleaves2");
 	}
+    
+    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    {
+		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
+    }
 	
     public int getBlockColor()
     {
