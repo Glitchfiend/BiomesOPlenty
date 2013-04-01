@@ -1,6 +1,5 @@
 package tdwp_ftw.biomesop.worldtype;
 
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 

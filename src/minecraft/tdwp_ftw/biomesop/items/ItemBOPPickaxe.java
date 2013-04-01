@@ -3,7 +3,6 @@ package tdwp_ftw.biomesop.items;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.ItemSword;
 
 public class ItemBOPPickaxe extends ItemPickaxe
 {
