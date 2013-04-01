@@ -19,6 +19,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenMystic2;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
+import net.minecraftforge.common.ForgeDirection;
 
 public class BlockMagicSapling extends BlockSapling
 {
@@ -42,6 +43,17 @@ public class BlockMagicSapling extends BlockSapling
     public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         return this.blockIcon[0];
+    }
+    
+    /**
+     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
+     */
+    @Override
+    public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+    {
+        Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
+        return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
+                (soil != null && soil.blockID == mod_BiomesOPlenty.holyGrass.blockID);
     }
 
     /**
