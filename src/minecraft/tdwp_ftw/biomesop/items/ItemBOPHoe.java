@@ -2,9 +2,10 @@ package tdwp_ftw.biomesop.items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemSword;
 
-public class ItemBOPHoe extends ItemSword
+public class ItemBOPHoe extends ItemHoe
 {
 	public int TextureID = 0;
 	
