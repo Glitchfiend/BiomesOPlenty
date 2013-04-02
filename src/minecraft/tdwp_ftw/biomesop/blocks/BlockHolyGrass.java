@@ -1,5 +1,7 @@
 package tdwp_ftw.biomesop.blocks;
 
+import static net.minecraftforge.common.ForgeDirection.UP;
+
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
@@ -11,6 +13,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderEnd;
+import net.minecraftforge.common.ForgeDirection;
 
 //=========================================
 
@@ -43,6 +47,55 @@ public class BlockHolyGrass extends Block
     {
         return blockIcon[par1];
     }
+    
+    /**
+     * Currently only called by fire when it is on top of this block.
+     * Returning true will prevent the fire from naturally dying during updating.
+     * Also prevents firing from dying from rain.
+     *
+     * @param world The current world
+     * @param x The blocks X position
+     * @param y The blocks Y position
+     * @param z The blocks Z position
+     * @param metadata The blocks current metadata
+     * @param side The face that the fire is coming from
+     * @return True if this block sustains fire, meaning it will never go out.
+     */
+    @Override
+    public boolean isFireSource(World world, int x, int y, int z, int metadata, ForgeDirection side)
+    {
+        if (blockID == Block.netherrack.blockID && side == UP)
+        {
+            return true;
+        }
+        if (blockID == this.blockID && side == UP)
+        {
+            return true;
+        }
+        if ((world.provider instanceof WorldProviderEnd) && blockID == Block.bedrock.blockID && side == UP)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
+     */
+    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    {
+        if (par1World.provider.isHellWorld)
+        {
+            par1World.playSound(par2, par3, par4, "mob.ghast.death", 20.0F, 0.95F + (float)Math.random() * 0.1F, true);
+			
+            for (int l = 0; l < 8; ++l)
+            {
+                par1World.spawnParticle("flame", (double)par2 + Math.random(), (double)par3 + Math.random(), (double)par4 + Math.random(), 0.0D, 0.0D, 0.0D);
+                par1World.spawnParticle("smoke", (double)par2 + Math.random(), (double)par3 + Math.random(), (double)par4 + Math.random(), 0.0D, 0.0D, 0.0D);
+            }
+        }
+        return par9;
+    }
 
     /**
      * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
@@ -69,6 +122,16 @@ public class BlockHolyGrass extends Block
      */
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
+    	if (par1World.provider.isHellWorld)
+    	{
+    		par1World.setBlock(par2, par3 + 1, par4, Block.fire.blockID);
+
+    		if (this.isFireSource(par1World, par2, par3, par4, this.blockID, UP))
+    		{
+    			par1World.setBlock(par2, par3, par4, Block.slowSand.blockID);
+    		}
+    	}
+    	
         if (!par1World.isRemote)
         {
             if (par1World.getBlockLightValue(par2, par3 + 1, par4) < 4 && Block.lightOpacity[par1World.getBlockId(par2, par3 + 1, par4)] > 2)
