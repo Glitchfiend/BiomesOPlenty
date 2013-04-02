@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -47,6 +48,15 @@ public class BlockAsh extends Block
         {
             par1World.spawnParticle("smoke", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.1F), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
         }
+    }
+
+    /**
+     * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
+     */
+    public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
+    {
+        par5Entity.motionX *= 0.4D;
+        par5Entity.motionZ *= 0.4D;
     }
 	
     /**

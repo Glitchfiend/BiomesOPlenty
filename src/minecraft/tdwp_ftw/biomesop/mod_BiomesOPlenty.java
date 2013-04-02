@@ -661,6 +661,25 @@ public class mod_BiomesOPlenty
     			leggingsAmethyst = (new ArmorAmethyst(leggingsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 2)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("leggingsAmethyst");
     			bootsAmethyst = (new ArmorAmethyst(bootsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 3)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("bootsAmethyst");
 
+			//Block tool strength, 0 is Wood and Gold, 1 is Stone, 2 is Iron and 3 is Diamond
+			//Leaves can be obtained from using shears, however they arn't instantly broken by them (unsure how to do this)
+
+		MinecraftForge.setBlockHarvestLevel(smolderingGrass, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(mud, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(ash, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(originGrass, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(hardSand, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(holyGrass, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(quicksand, "shovel", 0);
+
+		MinecraftForge.setBlockHarvestLevel(driedDirt, "pickaxe", 0);
+				MinecraftForge.setBlockHarvestLevel(amethystOre, "pickaxe", 3);
+				MinecraftForge.setBlockHarvestLevel(amethystBlock, "pickaxe", 3);
+
+		        MinecraftForge.setToolClass(shovelAmethyst, "shovel", 3);
+		        MinecraftForge.setToolClass(pickaxeAmethyst, "pickaxe", 3);
+		        MinecraftForge.setToolClass(axeAmethyst, "axe", 3);
+
     	        // Achievement declaration
 			if (achievements == true)
 			{
@@ -1036,8 +1055,6 @@ public class mod_BiomesOPlenty
 				GameRegistry.registerBlock(holyDoubleSlab, "holyDoubleSlab");
 				GameRegistry.registerBlock(holySingleSlab, "holySingleSlab");
 				GameRegistry.registerBlock(holyStairs, "holyStairs");
-				
-				MinecraftForge.setBlockHarvestLevel(amethystOre, "pickaxe", 3);
 
 		        // Add crafting recipes.
 				
