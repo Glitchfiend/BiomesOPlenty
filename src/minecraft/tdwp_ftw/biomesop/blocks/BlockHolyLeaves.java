@@ -2,6 +2,9 @@ package tdwp_ftw.biomesop.blocks;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
@@ -48,7 +51,7 @@ public class BlockHolyLeaves extends BlockLeavesBase
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
-	/**
+    /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
      */
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
@@ -208,7 +211,7 @@ public class BlockHolyLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlock(par2, par3, par4, 0);
+        par1World.setBlockToAir(par2, par3, par4);
     }
 
     /**

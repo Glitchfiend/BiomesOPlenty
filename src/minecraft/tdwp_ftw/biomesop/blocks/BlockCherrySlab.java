@@ -9,6 +9,7 @@ import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -76,6 +77,49 @@ public class BlockCherrySlab extends BlockHalfSlab
     protected ItemStack createStackedBlock(int par1)
     {
         return new ItemStack(mod_BiomesOPlenty.cherrySingleSlab.blockID, 2, par1 & 7);
+    }
+    
+    /**
+     * Called upon block activation (right click on the block.)
+     */
+    public boolean onBlockActivated(World world, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+    {
+    	if (par5EntityPlayer.getCurrentEquippedItem().itemID == this.blockID)
+    	{
+    		
+    		if (world.getBlockMetadata(par2, par3, par4) == 0 /*0 = Slab at bottom half*/ )
+    		{
+    			if (par6 == 1 /*1 = top of the block*/)
+    			{
+    	    		if (!par5EntityPlayer.capabilities.isCreativeMode)
+    	    		{
+    	    			--par5EntityPlayer.getCurrentEquippedItem().stackSize;
+    	    		}
+    	    		
+    	    		world.playSoundEffect((double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getPitch() * 0.8F);
+    	    		world.setBlock(par2, par3, par4, mod_BiomesOPlenty.cherryDoubleSlab.blockID);
+    	    		
+    	    		return true;
+    			}
+    		}
+    		
+    		if (world.getBlockMetadata(par2, par3, par4) == 8 /*8 = Slab at top half*/ )
+    		{
+    			if (par6 == 0 /*0 = bottom of the block*/)
+    			{
+    	    		if (!par5EntityPlayer.capabilities.isCreativeMode)
+    	    		{
+    	    			--par5EntityPlayer.getCurrentEquippedItem().stackSize;
+    	    		}
+    	    		
+    	    		world.playSoundEffect((double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getPitch() * 0.8F);
+    	    		world.setBlock(par2, par3, par4, mod_BiomesOPlenty.cherryDoubleSlab.blockID);
+    	    		
+    	    		return true;
+    			}
+    		}
+    	}
+    	return false;
     }
 
     /**
