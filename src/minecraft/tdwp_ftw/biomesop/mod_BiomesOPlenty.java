@@ -1157,10 +1157,8 @@ public class mod_BiomesOPlenty
 				GameRegistry.addRecipe(new ItemStack(pickaxeMud, 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
 				GameRegistry.addRecipe(new ItemStack(shovelMud, 1), new Object [] {"#", "X", "X", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
 				GameRegistry.addRecipe(new ItemStack(swordMud, 1), new Object [] {"#", "#", "X", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
-				GameRegistry.addRecipe(new ItemStack(axeMud, 1), new Object [] {"##", "#X ", " X", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
-				GameRegistry.addRecipe(new ItemStack(axeMud, 1), new Object [] {"##", "X#", "X ", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
+				GameRegistry.addRecipe(new ItemStack(axeMud, 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
 				GameRegistry.addRecipe(new ItemStack(hoeMud, 1), new Object [] {"##", " X", " X", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
-				GameRegistry.addRecipe(new ItemStack(hoeMud, 1), new Object [] {"##", "X ", "X ", Character.valueOf('#'), mudBall, Character.valueOf('X'), Item.stick});
 				GameRegistry.addRecipe(new ItemStack(helmetMud, 1), new Object [] {"###", "# #", Character.valueOf('#'), mudBall});
 				GameRegistry.addRecipe(new ItemStack(chestplateMud, 1), new Object [] {"# #", "###", "###", Character.valueOf('#'), mudBall});
 				GameRegistry.addRecipe(new ItemStack(leggingsMud, 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), mudBall});
@@ -1170,10 +1168,8 @@ public class mod_BiomesOPlenty
 				GameRegistry.addRecipe(new ItemStack(pickaxeAmethyst, 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
 				GameRegistry.addRecipe(new ItemStack(shovelAmethyst, 1), new Object [] {"#", "X", "X", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
 				GameRegistry.addRecipe(new ItemStack(swordAmethyst, 1), new Object [] {"#", "#", "X", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
-				GameRegistry.addRecipe(new ItemStack(axeAmethyst, 1), new Object [] {"##", "#X ", " X", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
-				GameRegistry.addRecipe(new ItemStack(axeAmethyst, 1), new Object [] {"##", "X#", "X ", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
+				GameRegistry.addRecipe(new ItemStack(axeAmethyst, 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
 				GameRegistry.addRecipe(new ItemStack(hoeAmethyst, 1), new Object [] {"##", " X", " X", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
-				GameRegistry.addRecipe(new ItemStack(hoeAmethyst, 1), new Object [] {"##", "X ", "X ", Character.valueOf('#'), amethyst, Character.valueOf('X'), Item.ingotIron});
 				GameRegistry.addRecipe(new ItemStack(helmetAmethyst, 1), new Object [] {"###", "# #", Character.valueOf('#'), amethyst});
 				GameRegistry.addRecipe(new ItemStack(chestplateAmethyst, 1), new Object [] {"# #", "###", "###", Character.valueOf('#'), amethyst});
 				GameRegistry.addRecipe(new ItemStack(leggingsAmethyst, 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), amethyst});
