@@ -2,6 +2,9 @@ package tdwp_ftw.biomesop.blocks;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -49,24 +52,28 @@ public class BlockBlueLeaves extends BlockLeavesBase
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
 	
+    /**
+     * ejects contained items into the world, and notifies neighbours of an update, as appropriate
+     */
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
     {
-        byte b0 = 1;
-        int j1 = b0 + 1;
+        byte var7 = 1;
+        int var8 = var7 + 1;
 
-        if (par1World.checkChunksExist(par2 - j1, par3 - j1, par4 - j1, par2 + j1, par3 + j1, par4 + j1))
+        if (par1World.checkChunksExist(par2 - var8, par3 - var8, par4 - var8, par2 + var8, par3 + var8, par4 + var8))
         {
-            for (int k1 = -b0; k1 <= b0; ++k1)
+            for (int var9 = -var7; var9 <= var7; ++var9)
             {
-                for (int l1 = -b0; l1 <= b0; ++l1)
+                for (int var10 = -var7; var10 <= var7; ++var10)
                 {
-                    for (int i2 = -b0; i2 <= b0; ++i2)
+                    for (int var11 = -var7; var11 <= var7; ++var11)
                     {
-                        int j2 = par1World.getBlockId(par2 + k1, par3 + l1, par4 + i2);
+                        int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (Block.blocksList[j2] != null)
+                        if (var12 == mod_BiomesOPlenty.blueLeaves.blockID)
                         {
-                            Block.blocksList[j2].beginLeavesDecay(par1World, par2 + k1, par3 + l1, par4 + i2);
+                            int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
+                            par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
                         }
                     }
                 }
@@ -178,7 +185,7 @@ public class BlockBlueLeaves extends BlockLeavesBase
 
                 if (var12 >= 0)
                 {
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 & -9, 4);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 & -9, 2);
                 }
                 else
                 {
@@ -205,7 +212,7 @@ public class BlockBlueLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockToAir(par2, par3, par4);
+        par1World.setBlock(par2, par3, par4, 0);
     }
 
     /**
