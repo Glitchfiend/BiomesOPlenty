@@ -43,6 +43,17 @@ public class BlockHolySapling extends BlockSapling
     {
         return this.blockIcon[0];
 	}
+    
+    /**
+     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
+     */
+    @Override
+    public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+    {
+        Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
+        return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
+                (soil != null && soil.blockID == mod_BiomesOPlenty.holyGrass.blockID);
+    }
 	
     /**
      * Ticks the block if it's been scheduled
