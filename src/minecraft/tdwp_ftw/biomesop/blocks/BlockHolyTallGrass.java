@@ -1,5 +1,6 @@
 package tdwp_ftw.biomesop.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
@@ -7,10 +8,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
-public class BlockHolyTallGrass extends Block
+public class BlockHolyTallGrass extends Block implements IShearable
 {
     protected BlockHolyTallGrass(int par1, Material par3Material)
     {
@@ -31,6 +34,14 @@ public class BlockHolyTallGrass extends Block
     public BlockHolyTallGrass(int par1)
     {
         this(par1, Material.plants);
+    }
+    
+    /**
+     * Returns the ID of the items to drop on destruction.
+     */
+    public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return -1;
     }
 
     /**
@@ -117,5 +128,17 @@ public class BlockHolyTallGrass extends Block
     public int getRenderType()
     {
         return 1;
+    }
+    
+    public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+    {
+        return true;
+    }
+
+    public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+    {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
+        return ret;
     }
 }

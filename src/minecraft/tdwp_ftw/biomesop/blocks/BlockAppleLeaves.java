@@ -1,5 +1,6 @@
 package tdwp_ftw.biomesop.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
@@ -16,6 +17,7 @@ import net.minecraft.stats.StatList;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
 public class BlockAppleLeaves extends BlockLeavesBase
 {
@@ -207,7 +209,7 @@ public class BlockAppleLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlock(par2, par3, par4, this.blockID, 0, 2);
+        par1World.setBlockToAir(par2, par3, par4);
     }
 
     /**
