@@ -32,10 +32,11 @@ public class BonemealUse
 	@ForgeSubscribe
 	public void onUseBonemeal(BonemealEvent event)
 	{
-		event.setResult(Result.ALLOW);
 		
 		if (event.ID == mod_BiomesOPlenty.firSapling.blockID)
 		{
+			event.setResult(Result.ALLOW);
+			
 			if (!event.world.isRemote)
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
