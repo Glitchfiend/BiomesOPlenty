@@ -1,4 +1,4 @@
-Version 0.4.9
+Version 0.4.9 '03-04-2013'
 - Tools actually have the properties of the tools they are meant to be (they used to all think they are swords)
 - Ore dictionary support for wood
 - Added a temporary fix for the Ach Flower issue in the form of a config option for achievements
@@ -18,10 +18,10 @@ Version 0.4.9
 - Fixed axe recipes
 - Removed unnecessary recipes for hoes
 
-Version 0.4.8 '31-3-2013' 
+Version 0.4.8 '31-03-2013' 
 - fixed smoldering grass texture
 - fixed flower achievement?
 - fixed Giant red flower texture
 
-Version 0.4.7 '30-3-2013' 
+Version 0.4.7 '30-03-2013' 
 - updated to minecraft 1.5.1
