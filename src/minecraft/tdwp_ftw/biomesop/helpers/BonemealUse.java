@@ -208,7 +208,7 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockMagicSapling)mod_BiomesOPlenty.magicSapling).func_96477_c(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockMagicSapling)mod_BiomesOPlenty.magicSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}

@@ -125,11 +125,7 @@ public class BlockHolyGrass extends Block
     	if (par1World.provider.isHellWorld)
     	{
     		par1World.setBlock(par2, par3 + 1, par4, Block.fire.blockID);
-
-    		if (this.isFireSource(par1World, par2, par3, par4, this.blockID, UP))
-    		{
-    			par1World.setBlock(par2, par3, par4, Block.slowSand.blockID);
-    		}
+    		par1World.setBlock(par2, par3, par4, Block.slowSand.blockID);
     	}
     	
         if (!par1World.isRemote)
