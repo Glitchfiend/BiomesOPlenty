@@ -2637,7 +2637,7 @@ public class mod_BiomesOPlenty
         private int oasisID;
         private int ominousWoodsID;
         private int orchardID;
-        private int originValleyID;
+        public static int originValleyID;
 		private int outbackID;
         private int pastureID;
         private int prairieID;

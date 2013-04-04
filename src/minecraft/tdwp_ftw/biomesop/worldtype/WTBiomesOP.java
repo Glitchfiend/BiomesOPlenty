@@ -15,7 +15,7 @@ public class WTBiomesOP extends WorldTypeBase
         this.removeBiome(BiomeGenBase.taiga);
         this.removeBiome(BiomeGenBase.swampland);
         this.removeBiome(BiomeGenBase.jungle);
-		
+
 		if (mod_BiomesOPlenty.alpsGen == true)
 		{
 			this.addNewBiome(mod_BiomesOPlenty.alps);

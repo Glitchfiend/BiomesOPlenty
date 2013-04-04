@@ -21,6 +21,9 @@ public class BiomeGenOriginValley extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = 4;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.sandPerChunk = 0;
+		this.customBiomeDecorator.sandPerChunk2 = 0;
+        this.customBiomeDecorator.clayPerChunk = 0;
     }
 
     /**
