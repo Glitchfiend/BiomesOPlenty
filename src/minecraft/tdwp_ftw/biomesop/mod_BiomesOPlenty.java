@@ -37,6 +37,7 @@ import tdwp_ftw.biomesop.biomes.*;
 import tdwp_ftw.biomesop.blocks.*;
 import tdwp_ftw.biomesop.helpers.*;
 import tdwp_ftw.biomesop.items.*;
+import tdwp_ftw.biomesop.items.projectiles.EntityMudball;
 import tdwp_ftw.biomesop.mobs.*;
 import tdwp_ftw.biomesop.worldtype.WTBiomesOP;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -1906,6 +1907,8 @@ public class mod_BiomesOPlenty
                 LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Rosester.name", "en_US", "Rosester");
                 EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, garden);    
                 registerEntityEgg(EntityRosester.class, 14831439, 16756224);
+                
+                EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", EntityRegistry.findGlobalUniqueEntityId(), this, 80, 3, true);
 				
 				DimensionManager.registerProviderType(promisedLandDim, WorldProviderPromised.class, false);
 		
