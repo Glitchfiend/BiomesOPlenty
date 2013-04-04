@@ -26,6 +26,14 @@ public class BlockDuneGrass extends Block
     {
         this(par1, Material.plants);
     }
+    
+    /**
+     * Returns the ID of the items to drop on destruction.
+     */
+    public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return -1;
+    }
 
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)

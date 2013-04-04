@@ -1,16 +1,25 @@
 package tdwp_ftw.biomesop.blocks;
 
+import static net.minecraftforge.common.ForgeDirection.UP;
+
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.IPlantable;
 
 public class BlockOriginGrass extends Block
 {
@@ -61,6 +70,42 @@ public class BlockOriginGrass extends Block
             return var6 != Material.snow && var6 != Material.craftedSnow ? 33 : 33;
         }
     }*/
+    
+    @Override
+    public boolean canSustainPlant(World world, int x, int y, int z, ForgeDirection direction, IPlantable plant)
+    {
+        return true;
+    }
+    
+    /**
+     * Called upon block activation (right click on the block.)
+     */
+    public boolean onBlockActivated(World world, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+    {
+    	if (par5EntityPlayer.getCurrentEquippedItem() != null)
+    	{
+    		if (par5EntityPlayer.getCurrentEquippedItem().getDisplayName().toLowerCase().contains(" hoe"))
+    		{
+    			Block block = Block.tilledField;
+
+    			world.playSoundEffect((double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), block.stepSound.getStepSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
+
+    			if (!world.isRemote)
+    			{
+    				world.setBlock(par2, par3, par4, block.blockID);
+    			}
+    			return true;
+    		}
+    		else
+    		{
+    			return false;
+    		}
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    }
 
     /**
      * Ticks the block if it's been scheduled
