@@ -1,7 +1,14 @@
 package tdwp_ftw.biomesop;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.logging.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
@@ -32,6 +39,7 @@ import tdwp_ftw.biomesop.helpers.*;
 import tdwp_ftw.biomesop.items.*;
 import tdwp_ftw.biomesop.mobs.*;
 import tdwp_ftw.biomesop.worldtype.WTBiomesOP;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -61,6 +69,41 @@ public class mod_BiomesOPlenty
         @PreInit
         public void preInit(FMLPreInitializationEvent event)
         {
+        	
+        	String[] soundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
+        	
+            for (String soundFile : soundFiles)
+                try
+                {
+                  File file = new File("resources/mod/streaming/" + soundFile);
+                  if (!file.exists()) {
+                  System.out.println("[BoP] " + soundFile + " doesn't exist, creating...");
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                    InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
+                    OutputStream out = new FileOutputStream(file);
+                    byte[] buf = new byte[1024];
+                    int size = 0;
+                    int len;
+                    while ((len = istream.read(buf)) > 0) {
+                      out.write(buf, 0, len);
+                      size += len;
+                    }
+                    out.close();
+                    istream.close();
+                    if (size == 0) file.delete();
+                  }
+                  else {
+                    throw new RuntimeException("Unknown Error, file does not exist");
+                  }
+
+                }
+                catch (Exception e)
+                {
+                  FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BoP] Failed to load sound file: " + soundFile);
+                  e.printStackTrace();
+                }
+        	
         		config = new Configuration(event.getSuggestedConfigurationFile());
         		config.load();
 				skyColors = true;
@@ -439,266 +482,266 @@ public class mod_BiomesOPlenty
         @Init
         public void load(FMLInitializationEvent event)
         {
-				tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
-		
-        		// Block declaration
-	    	    mud = (new BlockMud(mudID)).setHardness(0.6F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("mud");
-	    	    driedDirt = (new BlockDriedDirt(driedDirtID)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("driedDirt");
-	    	    redRock = (new BlockRedRock(redRockID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRock");
-	    	    ash = (new BlockAsh(ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("ash");
-	    	    deadGrass = (new BlockDeadGrass(deadGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("deadGrass");
-	    	    desertGrass = (new BlockDesertGrass(desertGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("desertGrass");
-	    	    whiteFlower = (new BlockWhiteFlower(whiteFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("whiteFlower");
-	    	    blueFlower = (new BlockBlueFlower(blueFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("blueFlower");
-	    	    purpleFlower = (new BlockPurpleFlower(purpleFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("purpleFlower");
-	    	    orangeFlower = (new BlockOrangeFlower(orangeFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("orangeFlower");
-	    	    tinyFlower = (new BlockTinyFlower(tinyFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("tinyFlower");
-	    	    glowFlower = (new BlockGlowFlower(glowFlowerID)).setHardness(0.0F).setLightValue(0.65F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("glowFlower");
-	    	    cattail = (new BlockCattail(cattailID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("cattail");
-	    	    willow = (new BlockWillow(willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willow");
-	    	    autumnLeaves = (BlockAutumnLeaves)(new BlockAutumnLeaves(autumnLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("autumnLeaves");
-	    	    thorn = (new BlockThorn(thornID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("thorn");
-	    	    toadstool = (new BlockToadstool(toadstoolID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("toadstool");
-	    	    highGrassBottom = (BlockHighGrassBottom)(new BlockHighGrassBottom(highGrassBottomID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("highGrassBottom");
-	    	    highGrassTop = (BlockHighGrassTop)(new BlockHighGrassTop(highGrassTopID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("highGrassTop");
-	    	    ashStone = (new BlockAshStone(ashStoneID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("ashStone");
-	    	    hardIce = (new BlockHardIce(hardIceID)).setHardness(0.75F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("hardIce");
-	    	    redLeaves = (BlockRedLeaves)(new BlockRedLeaves(redLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redLeaves");
-	    	    orangeLeaves = (BlockOrangeLeaves)(new BlockOrangeLeaves(orangeLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("orangeLeaves");
-	    	    pinkLeaves = (BlockPinkLeaves)(new BlockPinkLeaves(pinkLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pinkLeaves");
-	    	    blueLeaves = (BlockBlueLeaves)(new BlockBlueLeaves(blueLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("blueLeaves");
-	    	    whiteLeaves = (BlockWhiteLeaves)(new BlockWhiteLeaves(whiteLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("whiteLeaves");
-	    	    deadLeaves = (BlockDeadLeaves)(new BlockDeadLeaves(deadLeavesID)).setHardness(0.1F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("deadLeaves");
-	    	    shortGrass = (BlockShortGrass)(new BlockShortGrass(shortGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("shortGrass");
-	    	    appleLeaves = (BlockAppleLeaves)(new BlockAppleLeaves(appleLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("appleLeaves");
-	    	    sprout = (BlockSprout)(new BlockSprout(sproutID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("sprout");
-	    	    bush = (BlockBush)(new BlockBush(bushID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bush");
-	    	    bamboo = new BlockBamboo(bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bamboo");
-	    	    bambooLeaves = (BlockBambooLeaves)(new BlockBambooLeaves(bambooLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bambooLeaves");
-	    	    mudBrickBlock = (new BlockMudBrick(mudBrickBlockID)).setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrickBlock");
-				originGrass = (BlockOriginGrass)(new BlockOriginGrass(originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originGrass");
-				originLeaves = (BlockOriginLeaves)(new BlockOriginLeaves(originLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originLeaves");
-	    	    pinkFlower = (new BlockPinkFlower(pinkFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pinkFlower");
-	    	    treeMoss = (new BlockTreeMoss(treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("treeMoss");
-	    	    deadWood = (new BlockDeadLog(deadWoodID)).setHardness(0.8F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("deadWood");
-	    	    appleLeavesFruitless = (BlockAppleLeavesFruitless)(new BlockAppleLeavesFruitless(appleLeavesFruitlessID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("appleLeavesFruitless");
-	    	    barley = (new BlockBarley(barleyID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("barley");
-	    	    giantFlowerStem = (new BlockGiantFlowerStem(giantFlowerStemID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("giantFlowerStem");
-	    	    giantFlowerRed = (BlockGiantFlowerRed)(new BlockGiantFlowerRed(giantFlowerRedID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("giantFlowerRed");
-				giantFlowerYellow = (BlockGiantFlowerYellow)(new BlockGiantFlowerYellow(giantFlowerYellowID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("giantFlowerYellow");
-	    	    tinyCactus = (new BlockTinyCactus(tinyCactusID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("tinyCactus");
-	    	    firSapling = (new BlockFirSapling(firSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("firSapling");
-	    	    redwoodSapling = (new BlockRedwoodSapling(redwoodSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redwoodSapling");
-	    	    palmSapling = (new BlockPalmSapling(palmSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("palmSapling");
-	    	    redSapling = (new BlockRedSapling(redSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redSapling");
-				orangeSapling = (new BlockOrangeSapling(orangeSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("orangeSapling");
-				yellowSapling = (new BlockYellowSapling(yellowSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("yellowSapling");
-				brownSapling = (new BlockBrownSapling(brownSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("brownSapling");
-				willowSapling = (new BlockWillowSapling(willowSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willowSapling");
-				appleSapling = (new BlockAppleSapling(appleSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("appleSapling");
-				originSapling = (new BlockOriginSapling(originSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originSapling");
-				pinkSapling = (new BlockPinkSapling(pinkSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pinkSapling");
-				whiteSapling = (new BlockWhiteSapling(whiteSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("whiteSapling");
-				darkSapling = (new BlockDarkSapling(darkSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("darkSapling");
-				magicSapling = (new BlockMagicSapling(magicSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("magicSapling");
-	    	    deathbloom = (new BlockDeathbloom(deathbloomID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("deathbloom");
-	    	    redRockCobble = (new BlockRedRockCobble(redRockCobbleID)).setHardness(1.6F).setResistance(7.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockCobble");
-	    	    redRockBrick = (new BlockRedRockBrick(redRockBrickID)).setHardness(1.1F).setResistance(7.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockBrick");
-	    	    hydrangea = (new BlockHydrangea(hydrangeaID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("hydrangea");
-	    	    violet = (new BlockViolet(violetID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("violet");
-	    	    mediumGrass = (BlockMediumGrass)(new BlockMediumGrass(mediumGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mediumGrass");
-	    	    duneGrass = (new BlockDuneGrass(duneGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("duneGrass");
-	    	    desertSprouts = (new BlockDesertSprouts(desertSproutsID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("desertSprouts");
-		    redRockCobbleDoubleSlab = (BlockHalfSlab)(new BlockRedRockCobbleSlab(redRockCobbleDoubleSlabID, true)).setHardness(1.6F).setResistance(7.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockCobbleSlab");
-		    redRockCobbleSingleSlab = (BlockHalfSlab)(new BlockRedRockCobbleSlab(redRockCobbleSingleSlabID, false)).setHardness(1.6F).setResistance(7.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockCobbleSlab");
-	    		redRockCobbleStairs = (new BlockRedRockCobbleStairs(redRockCobbleStairsID, redRockCobble)).setUnlocalizedName("redRockCobbleStairs");
-		    redRockBrickDoubleSlab = (BlockHalfSlab)(new BlockRedRockBrickSlab(redRockBrickDoubleSlabID, true)).setHardness(1.1F).setResistance(7.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockBrickSlab");
-		    redRockBrickSingleSlab = (BlockHalfSlab)(new BlockRedRockBrickSlab(redRockBrickSingleSlabID, false)).setHardness(1.1F).setResistance(7.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockBrickSlab");
-	    		redRockBrickStairs = (new BlockRedRockBrickStairs(redRockBrickStairsID, redRockBrick)).setUnlocalizedName("redRockBrickStairs");					
-		    mudBrickDoubleSlab = (BlockHalfSlab)(new BlockMudBrickSlab(mudBrickDoubleSlabID, true)).setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrickSlab");
-		    mudBrickSingleSlab = (BlockHalfSlab)(new BlockMudBrickSlab(mudBrickSingleSlabID, false)).setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrickSlab");
-	    		mudBrickStairs = (new BlockMudBrickStairs(mudBrickStairsID, mudBrickBlock)).setUnlocalizedName("mudBrickStairs");
-	    	    mangroveSapling = (new BlockMangroveSapling(mangroveSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mangroveSapling");
-	    	    hardSand = (new BlockHardSand(hardSandID)).setHardness(0.7F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("hardSand");
-	    	    acaciaSapling = (new BlockAcaciaSapling(acaciaSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("acaciaSapling");
-	    	    hardDirt = (new BlockHardDirt(hardDirtID)).setHardness(0.9F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("hardDirt");
-				holyGrass = (BlockHolyGrass)(new BlockHolyGrass(holyGrassID)).setHardness(1.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyGrass");
-	    	    holyStone = (new BlockHolyStone(holyStoneID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("holyStone");
-	    	    holyTallGrass = (new BlockHolyTallGrass(holyTallGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyTallGrass");
-				promisedPortal = new BlockPromisedPortal(promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F);	
-	    	    holySapling = (new BlockHolySapling(holySaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holySapling");
-				amethystOre = (new BlockAmethystOre(amethystOreID)).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("amethystOre");
-	    	    amethystBlock = (new BlockAmethystBlock(amethystBlockID)).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("amethystBlock");
-	    	    bambooThatching = (new BlockBambooThatching(bambooThatchingID)).setHardness(1.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bambooThatching");
-	    	    moss = (new BlockMoss(mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("moss");
-	    	    algae = (new BlockAlgae(algaeID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("algae");
-				smolderingGrass = (BlockSmolderingGrass)(new BlockSmolderingGrass(smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass");
-	    	    cragRock = (new BlockCragRock(cragRockID)).setHardness(1.0F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("cragRock");
-	    	    quicksand = (new BlockQuicksand(quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand");
-				
-	    		//Redwood
-	    	    redwoodPlank = (new BlockRedwoodPlank(redwoodPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodPlank");
-	    	    redwoodWood = (new BlockRedwoodLog(redwoodWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodWood");
-	    	    redwoodLeaves = (BlockRedwoodLeaves)(new BlockRedwoodLeaves(redwoodLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redwoodLeaves");
-	    	    redwoodDoubleSlab = (BlockHalfSlab)(new BlockRedwoodSlab(redwoodDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodSlab");
-	    	    redwoodSingleSlab = (BlockHalfSlab)(new BlockRedwoodSlab(redwoodSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodSlab");
-	    	    redwoodStairs = (new BlockRedwoodStairs(redwoodStairsID, redwoodPlank)).setUnlocalizedName("redwoodStairs");
-	    		
-	    		//Willow
-	    	    willowPlank = (new BlockWillowPlank(willowPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowPlank");
-	    	    willowWood = (new BlockWillowLog(willowWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowWood");
-	    	    willowLeaves = (BlockWillowLeaves)(new BlockWillowLeaves(willowLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willowLeaves");
-	    	    willowDoubleSlab = (BlockHalfSlab)(new BlockWillowSlab(willowDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowSlab");
-	    	    willowSingleSlab = (BlockHalfSlab)(new BlockWillowSlab(willowSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowSlab");
-	    		willowStairs = (new BlockWillowStairs(willowStairsID, willowPlank)).setUnlocalizedName("willowStairs");
-	    		
-	    		//Fir
-	    	    firPlank = (new BlockFirPlank(firPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firPlank");
-	    	    firWood = (new BlockFirLog(firWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firWood");
-	    	    firLeaves = (BlockFirLeaves)(new BlockFirLeaves(firLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("firLeaves");
-	    	    firDoubleSlab = (BlockHalfSlab)(new BlockFirSlab(firDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firSlab");
-	    	    firSingleSlab = (BlockHalfSlab)(new BlockFirSlab(firSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firSlab");
-	    		firStairs = (new BlockFirStairs(firStairsID, firPlank)).setUnlocalizedName("firStairs");
-	    		
-	    		//Acacia
-	    	    acaciaPlank = (new BlockAcaciaPlank(acaciaPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaPlank");
-	    	    acaciaWood = (new BlockAcaciaLog(acaciaWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaWood");
-	    	    acaciaLeaves = (BlockAcaciaLeaves)(new BlockAcaciaLeaves(acaciaLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("acaciaLeaves");
-	    	    acaciaDoubleSlab = (BlockHalfSlab)(new BlockAcaciaSlab(acaciaDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaSlab");
-	    	    acaciaSingleSlab = (BlockHalfSlab)(new BlockAcaciaSlab(acaciaSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaSlab");
-	    		acaciaStairs = (new BlockAcaciaStairs(acaciaStairsID, acaciaPlank)).setUnlocalizedName("acaciaStairs");
-				
-	    		//Cherry
-	    	    cherryPlank = (new BlockCherryPlank(cherryPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherryPlank");
-	    	    cherryWood = (new BlockCherryLog(cherryWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherryWood");
-	    	    cherryDoubleSlab = (BlockHalfSlab)(new BlockCherrySlab(cherryDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherrySlab");
-	    	    cherrySingleSlab = (BlockHalfSlab)(new BlockCherrySlab(cherrySingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherrySlab");
-	    		cherryStairs = (new BlockCherryStairs(cherryStairsID, cherryPlank)).setUnlocalizedName("cherryStairs");
-				
-	    		//Dark
-	    	    darkPlank = (new BlockDarkPlank(darkPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkPlank");
-	    	    darkWood = (new BlockDarkLog(darkWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkWood");
-	    	    darkLeaves = (BlockDarkLeaves)(new BlockDarkLeaves(darkLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("darkLeaves");
-	    	    darkDoubleSlab = (BlockHalfSlab)(new BlockDarkSlab(darkDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkSlab");
-	    	    darkSingleSlab = (BlockHalfSlab)(new BlockDarkSlab(darkSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkSlab");
-	    		darkStairs = (new BlockDarkStairs(darkStairsID, darkPlank)).setUnlocalizedName("darkStairs");
-			
-	    		//Magic
-	    	    magicPlank = (new BlockMagicPlank(magicPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicPlank");
-	    	    magicWood = (new BlockMagicLog(magicWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicWood");
-	    	    magicDoubleSlab = (BlockHalfSlab)(new BlockMagicSlab(magicDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicSlab");
-	    	    magicSingleSlab = (BlockHalfSlab)(new BlockMagicSlab(magicSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicSlab");
-	    		magicStairs = (new BlockMagicStairs(magicStairsID, magicPlank)).setUnlocalizedName("magicStairs");
-				
-	    		//Palm
-	    	    palmPlank = (new BlockPalmPlank(palmPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmPlank");
-	    	    palmWood = (new BlockPalmLog(palmWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmWood");
-	    	    palmLeaves = (BlockPalmLeaves)(new BlockPalmLeaves(palmLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("palmLeaves");
-	    	    palmDoubleSlab = (BlockHalfSlab)(new BlockPalmSlab(palmDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmSlab");
-	    	    palmSingleSlab = (BlockHalfSlab)(new BlockPalmSlab(palmSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmSlab");
-	    		palmStairs = (new BlockPalmStairs(palmStairsID, palmPlank)).setUnlocalizedName("palmStairs");
-				
-	    		//Mangrove
-	    	    mangrovePlank = (new BlockMangrovePlank(mangrovePlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangrovePlank");
-	    	    mangroveWood = (new BlockMangroveLog(mangroveWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangroveWood");
-	    	    mangroveLeaves = (BlockMangroveLeaves)(new BlockMangroveLeaves(mangroveLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mangroveLeaves");
-	    	    mangroveDoubleSlab = (BlockHalfSlab)(new BlockMangroveSlab(mangroveDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangroveSlab");
-	    	    mangroveSingleSlab = (BlockHalfSlab)(new BlockMangroveSlab(mangroveSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangroveSlab");
-	    	    mangroveStairs = (new BlockMangroveStairs(mangroveStairsID, mangrovePlank)).setUnlocalizedName("mangroveStairs");
-				
-	    		//Holy
-	    	    holyPlank = (new BlockHolyPlank(holyPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holyPlank");
-	    	    holyWood = (new BlockHolyLog(holyWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holyWood");
-	    	    holyLeaves = (BlockHolyLeaves)(new BlockHolyLeaves(holyLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyLeaves");
-	    	    holyDoubleSlab = (BlockHalfSlab)(new BlockHolySlab(holyDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
-	    	    holySingleSlab = (BlockHalfSlab)(new BlockHolySlab(holySingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
-	    	    holyStairs = (new BlockHolyStairs(holyStairsID, holyPlank)).setUnlocalizedName("holyStairs");
-        	
-	    		// Material declaration
-	    		EnumArmorMaterialMud = EnumHelper.addArmorMaterial("MUD", 2, new int[]{1, 1, 1, 1}, 5);
-	    		EnumToolMaterialMud = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0, 1);
-				EnumArmorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[]{6, 12, 10, 6}, 20);
-	    		EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
-	    	    
-	    		// Item declaration
-	       		shroomPowder = (new ItemShroomPowder(shroomPowderID, 1, 0.5F, false)).setPotionEffect(Potion.confusion.id, 30, 0, 0.6F).setAlwaysEdible().setUnlocalizedName("shroomPowder").setCreativeTab(tabBiomesOPlenty);
-	    		mudBall = (new ItemBOP(mudBallID, 0)).setUnlocalizedName("mudBall").setCreativeTab(tabBiomesOPlenty);
-	    		mudBrick = (new ItemBOP(mudBrickID, 1)).setUnlocalizedName("mudBrick").setCreativeTab(tabBiomesOPlenty);
-	    		bambooItem = (new ItemBamboo(bambooItemID, bamboo)).setUnlocalizedName("bambooItem").setCreativeTab(tabBiomesOPlenty);
-	    		cattailItem = (new ItemCattail(cattailItemID, cattail)).setUnlocalizedName("cattailItem").setCreativeTab(tabBiomesOPlenty);
-	    		barleyItem = (new ItemBarley(barleyItemID, barley)).setUnlocalizedName("barleyItem").setCreativeTab(tabBiomesOPlenty);
-				shortGrassItem = (new ItemShortGrass(shortGrassItemID, shortGrass)).setUnlocalizedName("shortGrassItem").setCreativeTab(tabBiomesOPlenty);
-				mediumGrassItem = (new ItemMediumGrass(mediumGrassItemID, mediumGrass)).setUnlocalizedName("mediumGrassItem").setCreativeTab(tabBiomesOPlenty);
-				bushItem = (new ItemBush(bushItemID, bush)).setUnlocalizedName("bushItem").setCreativeTab(tabBiomesOPlenty);
-				sproutItem = (new ItemSprout(sproutItemID, sprout)).setUnlocalizedName("sproutItem").setCreativeTab(tabBiomesOPlenty);
-				mossItem = (new ItemBOP(mossItemID, 2)).setUnlocalizedName("mossItem").setCreativeTab(tabBiomesOPlenty);
-				ancientStaff = new ItemAncientStaff(ancientStaffID).setUnlocalizedName("ancientStaff").setCreativeTab(tabBiomesOPlenty);
-				enderporter = new ItemEnderporter(enderporterID).setUnlocalizedName("enderporter").setCreativeTab(tabBiomesOPlenty);
-	    		ashes = (new ItemBOP(ashesID, 3)).setUnlocalizedName("ashes").setCreativeTab(tabBiomesOPlenty);
-				amethyst = (new ItemBOP(amethystID, 4)).setUnlocalizedName("amethyst").setCreativeTab(tabBiomesOPlenty);
-				ancientStaffHandle = (new ItemBOP(ancientStaffHandleID, 5)).setUnlocalizedName("ancientStaffHandle").setCreativeTab(tabBiomesOPlenty);
-				ancientStaffPole = (new ItemBOP(ancientStaffPoleID, 6)).setUnlocalizedName("ancientStaffPole").setCreativeTab(tabBiomesOPlenty);
-				ancientStaffTopper = (new ItemBOP(ancientStaffTopperID, 7)).setUnlocalizedName("ancientStaffTopper").setCreativeTab(tabBiomesOPlenty);
-				bopDisc = (new ItemBOPRecord(bopDiscID, "bopdisc")).setUnlocalizedName("bopDisc").setCreativeTab(tabBiomesOPlenty);
-				bopDiscMud = (new ItemBOPRecordMud(bopDiscMudID, "bopdiscmud")).setUnlocalizedName("bopDiscMud").setCreativeTab(tabBiomesOPlenty);
-				
-	    		swordMud = (new ItemBOPSword(swordMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("swordMud").setCreativeTab(tabBiomesOPlenty);
-	    		shovelMud = (new ItemBOPSpade(shovelMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("shovelMud").setCreativeTab(tabBiomesOPlenty);
-	    		pickaxeMud = (new ItemBOPPickaxe(pickaxeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("pickaxeMud").setCreativeTab(tabBiomesOPlenty);
-	    		axeMud = (new ItemBOPAxe(axeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("hatchetMud").setCreativeTab(tabBiomesOPlenty);
-	    		hoeMud = (new ItemBOPHoe(hoeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("hoeMud").setCreativeTab(tabBiomesOPlenty);
-    			helmetMud = (new ArmorMuddy(helmetMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 0)).setUnlocalizedName("helmetMud").setCreativeTab(tabBiomesOPlenty);
-    			chestplateMud = (new ArmorMuddy(chestplateMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 1)).setUnlocalizedName("chestplateMud").setCreativeTab(tabBiomesOPlenty);
-    			leggingsMud = (new ArmorMuddy(leggingsMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 2)).setUnlocalizedName("leggingsMud").setCreativeTab(tabBiomesOPlenty);
-    			bootsMud = (new ArmorMuddy(bootsMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 3)).setUnlocalizedName("bootsMud").setCreativeTab(tabBiomesOPlenty);
-				
-	    		swordAmethyst = (new ItemBOPSword(swordAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("swordAmethyst").setCreativeTab(tabBiomesOPlenty);
-	    		shovelAmethyst = (new ItemBOPSpade(shovelAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("shovelAmethyst").setCreativeTab(tabBiomesOPlenty);
-	    		pickaxeAmethyst = (new ItemBOPPickaxe(pickaxeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("pickaxeAmethyst").setCreativeTab(tabBiomesOPlenty);
-	    		axeAmethyst = (new ItemBOPAxe(axeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("hatchetAmethyst").setCreativeTab(tabBiomesOPlenty);
-	    		hoeAmethyst = (new ItemBOPHoe(hoeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("hoeAmethyst").setCreativeTab(tabBiomesOPlenty);
-    			helmetAmethyst = (new ArmorAmethyst(helmetAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 0)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("helmetAmethyst");
-    			chestplateAmethyst = (new ArmorAmethyst(chestplateAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 1)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("chestplateAmethyst");
-    			leggingsAmethyst = (new ArmorAmethyst(leggingsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 2)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("leggingsAmethyst");
-    			bootsAmethyst = (new ArmorAmethyst(bootsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 3)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("bootsAmethyst");
+        	tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
-			//Block tool strength, 0 is Wood and Gold, 1 is Stone, 2 is Iron and 3 is Diamond
-			//Leaves can be obtained from using shears, however they arn't instantly broken by them (unsure how to do this)
+        	// Block declaration
+        	mud = (new BlockMud(mudID)).setHardness(0.6F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("mud");
+        	driedDirt = (new BlockDriedDirt(driedDirtID)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("driedDirt");
+        	redRock = (new BlockRedRock(redRockID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRock");
+        	ash = (new BlockAsh(ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("ash");
+        	deadGrass = (new BlockDeadGrass(deadGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("deadGrass");
+        	desertGrass = (new BlockDesertGrass(desertGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("desertGrass");
+        	whiteFlower = (new BlockWhiteFlower(whiteFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("whiteFlower");
+        	blueFlower = (new BlockBlueFlower(blueFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("blueFlower");
+        	purpleFlower = (new BlockPurpleFlower(purpleFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("purpleFlower");
+        	orangeFlower = (new BlockOrangeFlower(orangeFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("orangeFlower");
+        	tinyFlower = (new BlockTinyFlower(tinyFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("tinyFlower");
+        	glowFlower = (new BlockGlowFlower(glowFlowerID)).setHardness(0.0F).setLightValue(0.65F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("glowFlower");
+        	cattail = (new BlockCattail(cattailID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("cattail");
+        	willow = (new BlockWillow(willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willow");
+        	autumnLeaves = (BlockAutumnLeaves)(new BlockAutumnLeaves(autumnLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("autumnLeaves");
+        	thorn = (new BlockThorn(thornID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("thorn");
+        	toadstool = (new BlockToadstool(toadstoolID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("toadstool");
+        	highGrassBottom = (BlockHighGrassBottom)(new BlockHighGrassBottom(highGrassBottomID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("highGrassBottom");
+        	highGrassTop = (BlockHighGrassTop)(new BlockHighGrassTop(highGrassTopID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("highGrassTop");
+        	ashStone = (new BlockAshStone(ashStoneID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("ashStone");
+        	hardIce = (new BlockHardIce(hardIceID)).setHardness(0.75F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("hardIce");
+        	redLeaves = (BlockRedLeaves)(new BlockRedLeaves(redLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redLeaves");
+        	orangeLeaves = (BlockOrangeLeaves)(new BlockOrangeLeaves(orangeLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("orangeLeaves");
+        	pinkLeaves = (BlockPinkLeaves)(new BlockPinkLeaves(pinkLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pinkLeaves");
+        	blueLeaves = (BlockBlueLeaves)(new BlockBlueLeaves(blueLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("blueLeaves");
+        	whiteLeaves = (BlockWhiteLeaves)(new BlockWhiteLeaves(whiteLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("whiteLeaves");
+        	deadLeaves = (BlockDeadLeaves)(new BlockDeadLeaves(deadLeavesID)).setHardness(0.1F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("deadLeaves");
+        	shortGrass = (BlockShortGrass)(new BlockShortGrass(shortGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("shortGrass");
+        	appleLeaves = (BlockAppleLeaves)(new BlockAppleLeaves(appleLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("appleLeaves");
+        	sprout = (BlockSprout)(new BlockSprout(sproutID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("sprout");
+        	bush = (BlockBush)(new BlockBush(bushID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bush");
+        	bamboo = new BlockBamboo(bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bamboo");
+        	bambooLeaves = (BlockBambooLeaves)(new BlockBambooLeaves(bambooLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bambooLeaves");
+        	mudBrickBlock = (new BlockMudBrick(mudBrickBlockID)).setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrickBlock");
+        	originGrass = (BlockOriginGrass)(new BlockOriginGrass(originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originGrass");
+        	originLeaves = (BlockOriginLeaves)(new BlockOriginLeaves(originLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originLeaves");
+        	pinkFlower = (new BlockPinkFlower(pinkFlowerID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pinkFlower");
+        	treeMoss = (new BlockTreeMoss(treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("treeMoss");
+        	deadWood = (new BlockDeadLog(deadWoodID)).setHardness(0.8F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("deadWood");
+        	appleLeavesFruitless = (BlockAppleLeavesFruitless)(new BlockAppleLeavesFruitless(appleLeavesFruitlessID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("appleLeavesFruitless");
+        	barley = (new BlockBarley(barleyID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("barley");
+        	giantFlowerStem = (new BlockGiantFlowerStem(giantFlowerStemID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("giantFlowerStem");
+        	giantFlowerRed = (BlockGiantFlowerRed)(new BlockGiantFlowerRed(giantFlowerRedID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("giantFlowerRed");
+        	giantFlowerYellow = (BlockGiantFlowerYellow)(new BlockGiantFlowerYellow(giantFlowerYellowID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("giantFlowerYellow");
+        	tinyCactus = (new BlockTinyCactus(tinyCactusID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("tinyCactus");
+        	firSapling = (new BlockFirSapling(firSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("firSapling");
+        	redwoodSapling = (new BlockRedwoodSapling(redwoodSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redwoodSapling");
+        	palmSapling = (new BlockPalmSapling(palmSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("palmSapling");
+        	redSapling = (new BlockRedSapling(redSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redSapling");
+        	orangeSapling = (new BlockOrangeSapling(orangeSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("orangeSapling");
+        	yellowSapling = (new BlockYellowSapling(yellowSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("yellowSapling");
+        	brownSapling = (new BlockBrownSapling(brownSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("brownSapling");
+        	willowSapling = (new BlockWillowSapling(willowSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willowSapling");
+        	appleSapling = (new BlockAppleSapling(appleSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("appleSapling");
+        	originSapling = (new BlockOriginSapling(originSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originSapling");
+        	pinkSapling = (new BlockPinkSapling(pinkSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pinkSapling");
+        	whiteSapling = (new BlockWhiteSapling(whiteSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("whiteSapling");
+        	darkSapling = (new BlockDarkSapling(darkSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("darkSapling");
+        	magicSapling = (new BlockMagicSapling(magicSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("magicSapling");
+        	deathbloom = (new BlockDeathbloom(deathbloomID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("deathbloom");
+        	redRockCobble = (new BlockRedRockCobble(redRockCobbleID)).setHardness(1.6F).setResistance(7.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockCobble");
+        	redRockBrick = (new BlockRedRockBrick(redRockBrickID)).setHardness(1.1F).setResistance(7.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockBrick");
+        	hydrangea = (new BlockHydrangea(hydrangeaID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("hydrangea");
+        	violet = (new BlockViolet(violetID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("violet");
+        	mediumGrass = (BlockMediumGrass)(new BlockMediumGrass(mediumGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mediumGrass");
+        	duneGrass = (new BlockDuneGrass(duneGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("duneGrass");
+        	desertSprouts = (new BlockDesertSprouts(desertSproutsID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("desertSprouts");
+        	redRockCobbleDoubleSlab = (BlockHalfSlab)(new BlockRedRockCobbleSlab(redRockCobbleDoubleSlabID, true)).setHardness(1.6F).setResistance(7.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockCobbleSlab");
+        	redRockCobbleSingleSlab = (BlockHalfSlab)(new BlockRedRockCobbleSlab(redRockCobbleSingleSlabID, false)).setHardness(1.6F).setResistance(7.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockCobbleSlab");
+        	redRockCobbleStairs = (new BlockRedRockCobbleStairs(redRockCobbleStairsID, redRockCobble)).setUnlocalizedName("redRockCobbleStairs");
+        	redRockBrickDoubleSlab = (BlockHalfSlab)(new BlockRedRockBrickSlab(redRockBrickDoubleSlabID, true)).setHardness(1.1F).setResistance(7.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockBrickSlab");
+        	redRockBrickSingleSlab = (BlockHalfSlab)(new BlockRedRockBrickSlab(redRockBrickSingleSlabID, false)).setHardness(1.1F).setResistance(7.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("redRockBrickSlab");
+        	redRockBrickStairs = (new BlockRedRockBrickStairs(redRockBrickStairsID, redRockBrick)).setUnlocalizedName("redRockBrickStairs");					
+        	mudBrickDoubleSlab = (BlockHalfSlab)(new BlockMudBrickSlab(mudBrickDoubleSlabID, true)).setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrickSlab");
+        	mudBrickSingleSlab = (BlockHalfSlab)(new BlockMudBrickSlab(mudBrickSingleSlabID, false)).setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrickSlab");
+        	mudBrickStairs = (new BlockMudBrickStairs(mudBrickStairsID, mudBrickBlock)).setUnlocalizedName("mudBrickStairs");
+        	mangroveSapling = (new BlockMangroveSapling(mangroveSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mangroveSapling");
+        	hardSand = (new BlockHardSand(hardSandID)).setHardness(0.7F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("hardSand");
+        	acaciaSapling = (new BlockAcaciaSapling(acaciaSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("acaciaSapling");
+        	hardDirt = (new BlockHardDirt(hardDirtID)).setHardness(0.9F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("hardDirt");
+        	holyGrass = (BlockHolyGrass)(new BlockHolyGrass(holyGrassID)).setHardness(1.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyGrass");
+        	holyStone = (new BlockHolyStone(holyStoneID)).setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("holyStone");
+        	holyTallGrass = (new BlockHolyTallGrass(holyTallGrassID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyTallGrass");
+        	promisedPortal = new BlockPromisedPortal(promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F);	
+        	holySapling = (new BlockHolySapling(holySaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holySapling");
+        	amethystOre = (new BlockAmethystOre(amethystOreID)).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("amethystOre");
+        	amethystBlock = (new BlockAmethystBlock(amethystBlockID)).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("amethystBlock");
+        	bambooThatching = (new BlockBambooThatching(bambooThatchingID)).setHardness(1.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bambooThatching");
+        	moss = (new BlockMoss(mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("moss");
+        	algae = (new BlockAlgae(algaeID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("algae");
+        	smolderingGrass = (BlockSmolderingGrass)(new BlockSmolderingGrass(smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass");
+        	cragRock = (new BlockCragRock(cragRockID)).setHardness(1.0F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("cragRock");
+        	quicksand = (new BlockQuicksand(quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand");
 
-		MinecraftForge.setBlockHarvestLevel(smolderingGrass, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(mud, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(ash, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(originGrass, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(hardSand, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(holyGrass, "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(quicksand, "shovel", 0);
+        	//Redwood
+        	redwoodPlank = (new BlockRedwoodPlank(redwoodPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodPlank");
+        	redwoodWood = (new BlockRedwoodLog(redwoodWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodWood");
+        	redwoodLeaves = (BlockRedwoodLeaves)(new BlockRedwoodLeaves(redwoodLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("redwoodLeaves");
+        	redwoodDoubleSlab = (BlockHalfSlab)(new BlockRedwoodSlab(redwoodDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodSlab");
+        	redwoodSingleSlab = (BlockHalfSlab)(new BlockRedwoodSlab(redwoodSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodSlab");
+        	redwoodStairs = (new BlockRedwoodStairs(redwoodStairsID, redwoodPlank)).setUnlocalizedName("redwoodStairs");
 
-		MinecraftForge.setBlockHarvestLevel(driedDirt, "pickaxe", 0);
-				MinecraftForge.setBlockHarvestLevel(amethystOre, "pickaxe", 3);
-				MinecraftForge.setBlockHarvestLevel(amethystBlock, "pickaxe", 3);
+        	//Willow
+        	willowPlank = (new BlockWillowPlank(willowPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowPlank");
+        	willowWood = (new BlockWillowLog(willowWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowWood");
+        	willowLeaves = (BlockWillowLeaves)(new BlockWillowLeaves(willowLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willowLeaves");
+        	willowDoubleSlab = (BlockHalfSlab)(new BlockWillowSlab(willowDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowSlab");
+        	willowSingleSlab = (BlockHalfSlab)(new BlockWillowSlab(willowSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("willowSlab");
+        	willowStairs = (new BlockWillowStairs(willowStairsID, willowPlank)).setUnlocalizedName("willowStairs");
 
-		        MinecraftForge.setToolClass(shovelAmethyst, "shovel", 3);
-		        MinecraftForge.setToolClass(pickaxeAmethyst, "pickaxe", 3);
-		        MinecraftForge.setToolClass(axeAmethyst, "axe", 3);
+        	//Fir
+        	firPlank = (new BlockFirPlank(firPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firPlank");
+        	firWood = (new BlockFirLog(firWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firWood");
+        	firLeaves = (BlockFirLeaves)(new BlockFirLeaves(firLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("firLeaves");
+        	firDoubleSlab = (BlockHalfSlab)(new BlockFirSlab(firDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firSlab");
+        	firSingleSlab = (BlockHalfSlab)(new BlockFirSlab(firSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("firSlab");
+        	firStairs = (new BlockFirStairs(firStairsID, firPlank)).setUnlocalizedName("firStairs");
 
-    	        // Achievement declaration
-			if (achievements == true)
-			{
-				achFlower2 = (new Achievement(3057, "achFlower2", 0, 0, Block.plantRed, (Achievement)null)).registerAchievement();
-				achRedRock2 = (new Achievement(3058, "achRedRock2", -1, 2, redRock, achFlower2)).registerAchievement();
-				achThorn2 = (new Achievement(3059, "achThorn2", 2, 1, thorn, achFlower2)).registerAchievement();
-				achAsh2 = (new Achievement(3060, "achAsh2", 1, 3, ashes, achFlower2)).registerAchievement();
-				achOrigin2 = (new Achievement(3061, "achOrigin2", 0, 5, originGrass, achFlower2)).setSpecial().registerAchievement();
-				achPromised2 = (new Achievement(3062, "achPromised2", 0, -5, holyGrass, achFlower2)).setSpecial().registerAchievement();
-				achMud2 = (new Achievement(3063, "achMud2", -2, -1, mudBall, achFlower2)).registerAchievement();
-				achShroom2 = (new Achievement(3064, "achShroom2", 1, -2, toadstool, achFlower2)).registerAchievement();
-				achBarley2 = (new Achievement(3065, "achBarley2", -2, 4, barleyItem, achFlower2)).registerAchievement();
-				achMoss2 = (new Achievement(3066, "achMoss2", -1, -3, mossItem, achFlower2)).registerAchievement();
+        	//Acacia
+        	acaciaPlank = (new BlockAcaciaPlank(acaciaPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaPlank");
+        	acaciaWood = (new BlockAcaciaLog(acaciaWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaWood");
+        	acaciaLeaves = (BlockAcaciaLeaves)(new BlockAcaciaLeaves(acaciaLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("acaciaLeaves");
+        	acaciaDoubleSlab = (BlockHalfSlab)(new BlockAcaciaSlab(acaciaDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaSlab");
+        	acaciaSingleSlab = (BlockHalfSlab)(new BlockAcaciaSlab(acaciaSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("acaciaSlab");
+        	acaciaStairs = (new BlockAcaciaStairs(acaciaStairsID, acaciaPlank)).setUnlocalizedName("acaciaStairs");
 
-				pageBOP = new AchievementPage("Biomes O\' Plenty", achFlower2, achRedRock2, achThorn2, achAsh2, achOrigin2, achPromised2, achMud2, achShroom2, achBarley2, achMoss2);
-				AchievementPage.registerAchievementPage(pageBOP);
-			}
-    	        
+        	//Cherry
+        	cherryPlank = (new BlockCherryPlank(cherryPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherryPlank");
+        	cherryWood = (new BlockCherryLog(cherryWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherryWood");
+        	cherryDoubleSlab = (BlockHalfSlab)(new BlockCherrySlab(cherryDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherrySlab");
+        	cherrySingleSlab = (BlockHalfSlab)(new BlockCherrySlab(cherrySingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("cherrySlab");
+        	cherryStairs = (new BlockCherryStairs(cherryStairsID, cherryPlank)).setUnlocalizedName("cherryStairs");
+
+        	//Dark
+        	darkPlank = (new BlockDarkPlank(darkPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkPlank");
+        	darkWood = (new BlockDarkLog(darkWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkWood");
+        	darkLeaves = (BlockDarkLeaves)(new BlockDarkLeaves(darkLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("darkLeaves");
+        	darkDoubleSlab = (BlockHalfSlab)(new BlockDarkSlab(darkDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkSlab");
+        	darkSingleSlab = (BlockHalfSlab)(new BlockDarkSlab(darkSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("darkSlab");
+        	darkStairs = (new BlockDarkStairs(darkStairsID, darkPlank)).setUnlocalizedName("darkStairs");
+
+        	//Magic
+        	magicPlank = (new BlockMagicPlank(magicPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicPlank");
+        	magicWood = (new BlockMagicLog(magicWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicWood");
+        	magicDoubleSlab = (BlockHalfSlab)(new BlockMagicSlab(magicDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicSlab");
+        	magicSingleSlab = (BlockHalfSlab)(new BlockMagicSlab(magicSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("magicSlab");
+        	magicStairs = (new BlockMagicStairs(magicStairsID, magicPlank)).setUnlocalizedName("magicStairs");
+
+        	//Palm
+        	palmPlank = (new BlockPalmPlank(palmPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmPlank");
+        	palmWood = (new BlockPalmLog(palmWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmWood");
+        	palmLeaves = (BlockPalmLeaves)(new BlockPalmLeaves(palmLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("palmLeaves");
+        	palmDoubleSlab = (BlockHalfSlab)(new BlockPalmSlab(palmDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmSlab");
+        	palmSingleSlab = (BlockHalfSlab)(new BlockPalmSlab(palmSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("palmSlab");
+        	palmStairs = (new BlockPalmStairs(palmStairsID, palmPlank)).setUnlocalizedName("palmStairs");
+
+        	//Mangrove
+        	mangrovePlank = (new BlockMangrovePlank(mangrovePlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangrovePlank");
+        	mangroveWood = (new BlockMangroveLog(mangroveWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangroveWood");
+        	mangroveLeaves = (BlockMangroveLeaves)(new BlockMangroveLeaves(mangroveLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mangroveLeaves");
+        	mangroveDoubleSlab = (BlockHalfSlab)(new BlockMangroveSlab(mangroveDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangroveSlab");
+        	mangroveSingleSlab = (BlockHalfSlab)(new BlockMangroveSlab(mangroveSingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mangroveSlab");
+        	mangroveStairs = (new BlockMangroveStairs(mangroveStairsID, mangrovePlank)).setUnlocalizedName("mangroveStairs");
+
+        	//Holy
+        	holyPlank = (new BlockHolyPlank(holyPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holyPlank");
+        	holyWood = (new BlockHolyLog(holyWoodID)).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holyWood");
+        	holyLeaves = (BlockHolyLeaves)(new BlockHolyLeaves(holyLeavesID)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyLeaves");
+        	holyDoubleSlab = (BlockHalfSlab)(new BlockHolySlab(holyDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
+        	holySingleSlab = (BlockHalfSlab)(new BlockHolySlab(holySingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
+        	holyStairs = (new BlockHolyStairs(holyStairsID, holyPlank)).setUnlocalizedName("holyStairs");
+
+        	// Material declaration
+        	EnumArmorMaterialMud = EnumHelper.addArmorMaterial("MUD", 2, new int[]{1, 1, 1, 1}, 5);
+        	EnumToolMaterialMud = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0, 1);
+        	EnumArmorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[]{6, 12, 10, 6}, 20);
+        	EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
+
+        	// Item declaration
+        	shroomPowder = (new ItemShroomPowder(shroomPowderID, 1, 0.5F, false)).setPotionEffect(Potion.confusion.id, 30, 0, 0.6F).setAlwaysEdible().setUnlocalizedName("shroomPowder").setCreativeTab(tabBiomesOPlenty);
+        	mudBall = (new ItemBOP(mudBallID, 0)).setUnlocalizedName("mudBall").setCreativeTab(tabBiomesOPlenty);
+        	mudBrick = (new ItemBOP(mudBrickID, 1)).setUnlocalizedName("mudBrick").setCreativeTab(tabBiomesOPlenty);
+        	bambooItem = (new ItemBamboo(bambooItemID, bamboo)).setUnlocalizedName("bambooItem").setCreativeTab(tabBiomesOPlenty);
+        	cattailItem = (new ItemCattail(cattailItemID, cattail)).setUnlocalizedName("cattailItem").setCreativeTab(tabBiomesOPlenty);
+        	barleyItem = (new ItemBarley(barleyItemID, barley)).setUnlocalizedName("barleyItem").setCreativeTab(tabBiomesOPlenty);
+        	shortGrassItem = (new ItemShortGrass(shortGrassItemID, shortGrass)).setUnlocalizedName("shortGrassItem").setCreativeTab(tabBiomesOPlenty);
+        	mediumGrassItem = (new ItemMediumGrass(mediumGrassItemID, mediumGrass)).setUnlocalizedName("mediumGrassItem").setCreativeTab(tabBiomesOPlenty);
+        	bushItem = (new ItemBush(bushItemID, bush)).setUnlocalizedName("bushItem").setCreativeTab(tabBiomesOPlenty);
+        	sproutItem = (new ItemSprout(sproutItemID, sprout)).setUnlocalizedName("sproutItem").setCreativeTab(tabBiomesOPlenty);
+        	mossItem = (new ItemBOP(mossItemID, 2)).setUnlocalizedName("mossItem").setCreativeTab(tabBiomesOPlenty);
+        	ancientStaff = new ItemAncientStaff(ancientStaffID).setUnlocalizedName("ancientStaff").setCreativeTab(tabBiomesOPlenty);
+        	enderporter = new ItemEnderporter(enderporterID).setUnlocalizedName("enderporter").setCreativeTab(tabBiomesOPlenty);
+        	ashes = (new ItemBOP(ashesID, 3)).setUnlocalizedName("ashes").setCreativeTab(tabBiomesOPlenty);
+        	amethyst = (new ItemBOP(amethystID, 4)).setUnlocalizedName("amethyst").setCreativeTab(tabBiomesOPlenty);
+        	ancientStaffHandle = (new ItemBOP(ancientStaffHandleID, 5)).setUnlocalizedName("ancientStaffHandle").setCreativeTab(tabBiomesOPlenty);
+        	ancientStaffPole = (new ItemBOP(ancientStaffPoleID, 6)).setUnlocalizedName("ancientStaffPole").setCreativeTab(tabBiomesOPlenty);
+        	ancientStaffTopper = (new ItemBOP(ancientStaffTopperID, 7)).setUnlocalizedName("ancientStaffTopper").setCreativeTab(tabBiomesOPlenty);
+        	bopDisc = (new ItemBOPRecord(bopDiscID, "bopdisc")).setUnlocalizedName("bopDisc").setCreativeTab(tabBiomesOPlenty);
+        	bopDiscMud = (new ItemBOPRecordMud(bopDiscMudID, "bopdiscmud")).setUnlocalizedName("bopDiscMud").setCreativeTab(tabBiomesOPlenty);
+
+        	swordMud = (new ItemBOPSword(swordMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("swordMud").setCreativeTab(tabBiomesOPlenty);
+        	shovelMud = (new ItemBOPSpade(shovelMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("shovelMud").setCreativeTab(tabBiomesOPlenty);
+        	pickaxeMud = (new ItemBOPPickaxe(pickaxeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("pickaxeMud").setCreativeTab(tabBiomesOPlenty);
+        	axeMud = (new ItemBOPAxe(axeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("hatchetMud").setCreativeTab(tabBiomesOPlenty);
+        	hoeMud = (new ItemBOPHoe(hoeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("hoeMud").setCreativeTab(tabBiomesOPlenty);
+        	helmetMud = (new ArmorMuddy(helmetMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 0)).setUnlocalizedName("helmetMud").setCreativeTab(tabBiomesOPlenty);
+        	chestplateMud = (new ArmorMuddy(chestplateMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 1)).setUnlocalizedName("chestplateMud").setCreativeTab(tabBiomesOPlenty);
+        	leggingsMud = (new ArmorMuddy(leggingsMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 2)).setUnlocalizedName("leggingsMud").setCreativeTab(tabBiomesOPlenty);
+        	bootsMud = (new ArmorMuddy(bootsMudID, EnumArmorMaterialMud, proxy.addArmor("mud"), 3)).setUnlocalizedName("bootsMud").setCreativeTab(tabBiomesOPlenty);
+
+        	swordAmethyst = (new ItemBOPSword(swordAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("swordAmethyst").setCreativeTab(tabBiomesOPlenty);
+        	shovelAmethyst = (new ItemBOPSpade(shovelAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("shovelAmethyst").setCreativeTab(tabBiomesOPlenty);
+        	pickaxeAmethyst = (new ItemBOPPickaxe(pickaxeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("pickaxeAmethyst").setCreativeTab(tabBiomesOPlenty);
+        	axeAmethyst = (new ItemBOPAxe(axeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("hatchetAmethyst").setCreativeTab(tabBiomesOPlenty);
+        	hoeAmethyst = (new ItemBOPHoe(hoeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("hoeAmethyst").setCreativeTab(tabBiomesOPlenty);
+        	helmetAmethyst = (new ArmorAmethyst(helmetAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 0)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("helmetAmethyst");
+        	chestplateAmethyst = (new ArmorAmethyst(chestplateAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 1)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("chestplateAmethyst");
+        	leggingsAmethyst = (new ArmorAmethyst(leggingsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 2)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("leggingsAmethyst");
+        	bootsAmethyst = (new ArmorAmethyst(bootsAmethystID, EnumArmorMaterialAmethyst, proxy.addArmor("amethyst"), 3)).setCreativeTab(tabBiomesOPlenty).setUnlocalizedName("bootsAmethyst");
+
+        	//Block tool strength, 0 is Wood and Gold, 1 is Stone, 2 is Iron and 3 is Diamond
+        	//Leaves can be obtained from using shears, however they arn't instantly broken by them (unsure how to do this)
+
+        	MinecraftForge.setBlockHarvestLevel(smolderingGrass, "shovel", 0);
+        	MinecraftForge.setBlockHarvestLevel(mud, "shovel", 0);
+        	MinecraftForge.setBlockHarvestLevel(ash, "shovel", 0);
+        	MinecraftForge.setBlockHarvestLevel(originGrass, "shovel", 0);
+        	MinecraftForge.setBlockHarvestLevel(hardSand, "shovel", 0);
+        	MinecraftForge.setBlockHarvestLevel(holyGrass, "shovel", 0);
+        	MinecraftForge.setBlockHarvestLevel(quicksand, "shovel", 0);
+
+        	MinecraftForge.setBlockHarvestLevel(driedDirt, "pickaxe", 0);
+        	MinecraftForge.setBlockHarvestLevel(amethystOre, "pickaxe", 3);
+        	MinecraftForge.setBlockHarvestLevel(amethystBlock, "pickaxe", 3);
+
+        	MinecraftForge.setToolClass(shovelAmethyst, "shovel", 3);
+        	MinecraftForge.setToolClass(pickaxeAmethyst, "pickaxe", 3);
+        	MinecraftForge.setToolClass(axeAmethyst, "axe", 3);
+
+        	// Achievement declaration
+        	if (achievements == true)
+        	{
+        		achFlower2 = (new Achievement(3057, "achFlower2", 0, 0, Block.plantRed, (Achievement)null)).registerAchievement();
+        		achRedRock2 = (new Achievement(3058, "achRedRock2", -1, 2, redRock, achFlower2)).registerAchievement();
+        		achThorn2 = (new Achievement(3059, "achThorn2", 2, 1, thorn, achFlower2)).registerAchievement();
+        		achAsh2 = (new Achievement(3060, "achAsh2", 1, 3, ashes, achFlower2)).registerAchievement();
+        		achOrigin2 = (new Achievement(3061, "achOrigin2", 0, 5, originGrass, achFlower2)).setSpecial().registerAchievement();
+        		achPromised2 = (new Achievement(3062, "achPromised2", 0, -5, holyGrass, achFlower2)).setSpecial().registerAchievement();
+        		achMud2 = (new Achievement(3063, "achMud2", -2, -1, mudBall, achFlower2)).registerAchievement();
+        		achShroom2 = (new Achievement(3064, "achShroom2", 1, -2, toadstool, achFlower2)).registerAchievement();
+        		achBarley2 = (new Achievement(3065, "achBarley2", -2, 4, barleyItem, achFlower2)).registerAchievement();
+        		achMoss2 = (new Achievement(3066, "achMoss2", -1, -3, mossItem, achFlower2)).registerAchievement();
+
+        		pageBOP = new AchievementPage("Biomes O\' Plenty", achFlower2, achRedRock2, achThorn2, achAsh2, achOrigin2, achPromised2, achMud2, achShroom2, achBarley2, achMoss2);
+        		AchievementPage.registerAchievementPage(pageBOP);
+        	}
+
         		// Add block names
 	            LanguageRegistry.addName(mud, "Mud");
 	            LanguageRegistry.addName(driedDirt, "Dried Dirt");
@@ -1241,7 +1284,7 @@ public class mod_BiomesOPlenty
 	      		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
 	      		MinecraftForge.EVENT_BUS.register(new AchievementPickup());
 				MinecraftForge.EVENT_BUS.register(new BonemealUse());
-	      		
+				
                 proxy.registerRenderers();
 				
                 
