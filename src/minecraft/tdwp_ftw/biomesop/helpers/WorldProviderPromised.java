@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.helpers;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBiomes;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 //import tdwp_ftw.biomesop.helpers.WorldChunkManagerPromised;
 
@@ -21,7 +22,7 @@ public class WorldProviderPromised extends WorldProvider
 {
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new WorldChunkManagerHell(mod_BiomesOPlenty.promisedLand, 0.8F, 0.1F);
+		this.worldChunkMgr = new WorldChunkManagerHell(BOPBiomes.promisedLand, 0.8F, 0.1F);
 		//this.worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		this.dimensionId = mod_BiomesOPlenty.promisedLandDimID;
 	}

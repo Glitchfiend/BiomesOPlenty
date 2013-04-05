@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.helpers;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBiomes;
 import tdwp_ftw.biomesop.helpers.BiomeCachePromised;
 
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +25,7 @@ import static net.minecraft.world.biome.BiomeGenBase.*;
 
 public class WorldChunkManagerPromised extends WorldChunkManager
 {
-    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(mod_BiomesOPlenty.promisedLand));
+    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BOPBiomes.promisedLand));
     private GenLayer genBiomes;
 
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
