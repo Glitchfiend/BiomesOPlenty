@@ -1,13 +1,9 @@
 package tdwp_ftw.biomesop.items.projectiles;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import net.minecraft.client.particle.EntityBreakingFX;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.RenderEngine;
-import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -34,6 +30,7 @@ public class EntityMudball extends EntityThrowable
 		if (par1MovingObjectPosition.entityHit != null)
 		{
 			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 1);
+			((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300));
 		}
 
 		for (int i = 0; i < 16; ++i)
