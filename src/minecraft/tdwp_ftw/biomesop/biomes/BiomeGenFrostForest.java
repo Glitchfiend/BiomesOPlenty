@@ -1,12 +1,11 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 
 public class BiomeGenFrostForest extends BiomeGenBase
 {
@@ -53,7 +52,7 @@ public class BiomeGenFrostForest extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 13557994;
 		}	

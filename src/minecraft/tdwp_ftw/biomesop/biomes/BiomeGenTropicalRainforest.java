@@ -1,9 +1,7 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
@@ -11,6 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.mobs.EntityJungleSpider;
 import tdwp_ftw.biomesop.worldgen.WorldGenRainforest1;
 import tdwp_ftw.biomesop.worldgen.WorldGenRainforest2;
@@ -87,7 +86,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 12971089;
 		}	

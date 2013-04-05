@@ -1,18 +1,17 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import java.util.Random;
 
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 import tdwp_ftw.biomesop.worldgen.WorldGenSwampTall;
 import tdwp_ftw.biomesop.worldgen.WorldGenThickTree;
-import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 
 public class BiomeGenFungiForest extends BiomeGenBase
 {
@@ -81,7 +80,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 5888980;
 		}	

@@ -2,16 +2,16 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import net.minecraft.world.World;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.worldgen.WorldGenWillow;
-import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 import tdwp_ftw.biomesop.worldgen.WorldGenLog;
+import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
+import tdwp_ftw.biomesop.worldgen.WorldGenWillow;
 
 public class BiomeGenSwampNew extends BiomeGenBase
 {

@@ -2,14 +2,11 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.world.biome.BiomeGenBase;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.worldgen.WorldGenOutback;
-import tdwp_ftw.biomesop.worldgen.WorldGenOutbackTree;
-import tdwp_ftw.biomesop.worldgen.WorldGenOutbackShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.worldgen.WorldGenOutbackShrub;
+import tdwp_ftw.biomesop.worldgen.WorldGenOutbackTree;
 
 public class BiomeGenOutback extends BiomeGenBase
 {

@@ -3,15 +3,13 @@ package tdwp_ftw.biomesop.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.worldgen.WorldGenBayou1;
 import tdwp_ftw.biomesop.worldgen.WorldGenBayou2;
 import tdwp_ftw.biomesop.worldgen.WorldGenBayou3;
-import tdwp_ftw.biomesop.worldgen.WorldGenCypress1;
-import tdwp_ftw.biomesop.worldgen.WorldGenCypress2;
 import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 
 public class BiomeGenBayou extends BiomeGenBase
@@ -83,7 +81,7 @@ public class BiomeGenBayou extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 11322556;
 		}	

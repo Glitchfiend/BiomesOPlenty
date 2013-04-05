@@ -3,8 +3,8 @@ package tdwp_ftw.biomesop.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenerator;

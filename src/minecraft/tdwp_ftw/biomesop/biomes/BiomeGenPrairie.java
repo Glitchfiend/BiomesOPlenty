@@ -4,7 +4,6 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;

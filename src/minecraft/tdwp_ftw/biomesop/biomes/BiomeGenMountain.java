@@ -4,10 +4,8 @@ import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
-import tdwp_ftw.biomesop.worldgen.WorldGenScotsPine1;
-import tdwp_ftw.biomesop.worldgen.WorldGenScotsPine2;
-import tdwp_ftw.biomesop.worldgen.WorldGenTaiga7;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.worldgen.WorldGenTaiga7;
 
 public class BiomeGenMountain extends BiomeGenBase
 {

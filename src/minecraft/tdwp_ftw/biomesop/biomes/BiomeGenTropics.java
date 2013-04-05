@@ -1,18 +1,15 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.mobs.EntityJungleSpider;
 import tdwp_ftw.biomesop.worldgen.WorldGenPalmTree1;
 import tdwp_ftw.biomesop.worldgen.WorldGenPalmTree3;
-import tdwp_ftw.biomesop.worldgen.WorldGenPalm1;
-import tdwp_ftw.biomesop.worldgen.WorldGenPalm2;
 
 public class BiomeGenTropics extends BiomeGenBase
 {
@@ -48,7 +45,7 @@ public class BiomeGenTropics extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 3333631;
 		}	

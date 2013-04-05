@@ -5,8 +5,6 @@ import java.util.Random;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenApple;
-import tdwp_ftw.biomesop.worldgen.WorldGenAppleTree1;
-import tdwp_ftw.biomesop.worldgen.WorldGenAppleTree2;
 
 public class BiomeGenOrchard extends BiomeGenBase
 {

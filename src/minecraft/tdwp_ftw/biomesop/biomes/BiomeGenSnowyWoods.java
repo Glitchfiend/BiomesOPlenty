@@ -3,12 +3,11 @@ package tdwp_ftw.biomesop.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree2;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
@@ -64,7 +63,7 @@ public class BiomeGenSnowyWoods extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 9873591;
 		}	

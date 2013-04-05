@@ -1,9 +1,7 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityChicken;
@@ -17,10 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.worldgen.WorldGenBrazilNut1;
-import tdwp_ftw.biomesop.worldgen.WorldGenBrazilNut2;
-import tdwp_ftw.biomesop.worldgen.WorldGenSandboxTree1;
-import tdwp_ftw.biomesop.worldgen.WorldGenSandboxTree2;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.mobs.EntityJungleSpider;
 
 public class BiomeGenJungleNew extends BiomeGenBase
@@ -96,7 +91,7 @@ public class BiomeGenJungleNew extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 16751442;
 		}	

@@ -2,18 +2,13 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga3;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga4;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga9;
-import tdwp_ftw.biomesop.worldgen.WorldGenFir1;
-import tdwp_ftw.biomesop.worldgen.WorldGenFir2;
-import tdwp_ftw.biomesop.worldgen.WorldGenFir3;
 
 public class BiomeGenArctic extends BiomeGenBase
 {

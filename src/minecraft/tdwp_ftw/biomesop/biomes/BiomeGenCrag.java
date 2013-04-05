@@ -1,15 +1,10 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
-import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.worldgen.WorldGenCrag;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 
 public class BiomeGenCrag extends BiomeGenBase
 {
@@ -33,7 +28,7 @@ public class BiomeGenCrag extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 4944498;
 		}	

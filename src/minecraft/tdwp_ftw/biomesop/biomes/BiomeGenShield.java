@@ -3,13 +3,11 @@ package tdwp_ftw.biomesop.biomes;
 import java.util.Random;
 
 import net.minecraft.world.World;
-import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
 import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
+import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
 
 public class BiomeGenShield extends BiomeGenBase
 {

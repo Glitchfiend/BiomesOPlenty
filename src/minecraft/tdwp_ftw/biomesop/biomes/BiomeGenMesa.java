@@ -2,11 +2,11 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.awt.Color;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 
 public class BiomeGenMesa extends BiomeGenBase
 {
@@ -32,7 +32,7 @@ public class BiomeGenMesa extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 15898486;
 		}	

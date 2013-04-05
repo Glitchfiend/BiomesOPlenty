@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
@@ -234,7 +235,7 @@ public class ChunkProviderBOP implements IChunkProvider
                                 }
                                 else if (k1 >= b0 - 4 && k1 <= b0 + 1)
                                 {
-                                	if(biomegenbase.biomeID == mod_BiomesOPlenty.originValleyID)
+                                	if(biomegenbase.biomeID == BOPConfiguration.originValleyID)
                                 	{
                                         if(gravelbeach)
                                         {

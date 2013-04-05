@@ -1,17 +1,15 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.world.biome.BiomeGenBase;
-import tdwp_ftw.biomesop.worldgen.WorldGenJadeTree;
-import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.worldgen.WorldGenJadeTree;
 
 public class BiomeGenJadeCliffs extends BiomeGenBase
 {
@@ -58,7 +56,7 @@ public class BiomeGenJadeCliffs extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 12045485;
 		}	

@@ -1,9 +1,7 @@
 package tdwp_ftw.biomesop.biomes;
 
-import java.util.Random;
 import java.awt.Color;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCaveSpider;
@@ -13,10 +11,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.worldgen.WorldGenDarkTree1;
-import tdwp_ftw.biomesop.worldgen.WorldGenDarkTree2;
-import tdwp_ftw.biomesop.worldgen.WorldGenWillow1;
-import tdwp_ftw.biomesop.worldgen.WorldGenWillow2;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.worldgen.WorldGenOminous1;
 import tdwp_ftw.biomesop.worldgen.WorldGenOminous2;
 
@@ -85,7 +80,7 @@ public class BiomeGenOminousWoods extends BiomeGenBase
      */
     public int getSkyColorByTemp(float par1)
     {
-		if (mod_BiomesOPlenty.skyColors = true)
+		if (BOPConfiguration.skyColors = true)
 		{
         return 5069168;
 		}	

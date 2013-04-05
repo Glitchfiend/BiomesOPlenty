@@ -2,17 +2,11 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import net.minecraft.world.World;
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.worldgen.WorldGenWhiteOak1;
-import tdwp_ftw.biomesop.worldgen.WorldGenWhiteOak2;
-import tdwp_ftw.biomesop.worldgen.WorldGenAlder1;
-import tdwp_ftw.biomesop.worldgen.WorldGenAlder2;
-import tdwp_ftw.biomesop.worldgen.WorldGenPaperBirch1;
-import tdwp_ftw.biomesop.worldgen.WorldGenPaperBirch2;
 import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 
 public class BiomeGenForestNew extends BiomeGenBase

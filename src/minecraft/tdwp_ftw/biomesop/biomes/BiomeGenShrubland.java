@@ -2,13 +2,11 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class BiomeGenShrubland extends BiomeGenBase
 {

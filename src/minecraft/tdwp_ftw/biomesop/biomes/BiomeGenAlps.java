@@ -3,10 +3,9 @@ package tdwp_ftw.biomesop.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga6;
-import tdwp_ftw.biomesop.worldgen.WorldGenAlpsSpruce;
-import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenAlps extends BiomeGenBase
 {

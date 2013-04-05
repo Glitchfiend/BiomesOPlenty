@@ -6,12 +6,11 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
 import tdwp_ftw.biomesop.worldgen.WorldGenAutumn;
-import net.minecraft.world.gen.feature.WorldGenShrub;
+import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
 
 public class BiomeGenBorealForest extends BiomeGenBase
 {

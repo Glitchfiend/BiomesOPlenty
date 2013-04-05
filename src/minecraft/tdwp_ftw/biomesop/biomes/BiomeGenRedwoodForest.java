@@ -8,8 +8,6 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenRedwoodTree;
 import tdwp_ftw.biomesop.worldgen.WorldGenRedwoodTree2;
-import tdwp_ftw.biomesop.worldgen.WorldGenRedwood1;
-import tdwp_ftw.biomesop.worldgen.WorldGenRedwood2;
 
 public class BiomeGenRedwoodForest extends BiomeGenBase
 {

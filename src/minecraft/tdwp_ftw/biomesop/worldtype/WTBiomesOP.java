@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.worldtype;
 import net.minecraft.world.biome.BiomeGenBase;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.declarations.BOPBiomes;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 
 public class WTBiomesOP extends WorldTypeBase
 {
@@ -17,299 +18,299 @@ public class WTBiomesOP extends WorldTypeBase
         this.removeBiome(BiomeGenBase.swampland);
         this.removeBiome(BiomeGenBase.jungle);
 
-		if (mod_BiomesOPlenty.alpsGen == true)
+		if (BOPConfiguration.alpsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.alps);
 		}
-		if (mod_BiomesOPlenty.arcticGen == true)
+		if (BOPConfiguration.arcticGen == true)
 		{
 			this.addNewBiome(BOPBiomes.arctic);
 		}
-		if (mod_BiomesOPlenty.badlandsGen == true)
+		if (BOPConfiguration.badlandsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.badlands);
 		}
-		if (mod_BiomesOPlenty.bambooForestGen == true)
+		if (BOPConfiguration.bambooForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.bambooForest);
 		}
-		if (mod_BiomesOPlenty.bayouGen == true)
+		if (BOPConfiguration.bayouGen == true)
 		{
 			this.addNewBiome(BOPBiomes.bayou);
 		}
-		if (mod_BiomesOPlenty.birchForestGen == true)
+		if (BOPConfiguration.birchForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.birchForest);
 		}
-		if (mod_BiomesOPlenty.bogGen == true)
+		if (BOPConfiguration.bogGen == true)
 		{
 			this.addNewBiome(BOPBiomes.bog);
 		}
-		if (mod_BiomesOPlenty.borealForestGen == true)
+		if (BOPConfiguration.borealForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.borealForest);
 		}
-		if (mod_BiomesOPlenty.canyonGen == true)
+		if (BOPConfiguration.canyonGen == true)
 		{
 			this.addNewBiome(BOPBiomes.canyon);
 		}
-		if (mod_BiomesOPlenty.chaparralGen == true)
+		if (BOPConfiguration.chaparralGen == true)
 		{
 			this.addNewBiome(BOPBiomes.chaparral);
 		}
-		if (mod_BiomesOPlenty.cherryBlossomGroveGen == true)
+		if (BOPConfiguration.cherryBlossomGroveGen == true)
 		{
 			this.addNewBiome(BOPBiomes.cherryBlossomGrove);
 		}
-		if (mod_BiomesOPlenty.coniferousForestGen == true)
+		if (BOPConfiguration.coniferousForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.coniferousForest);
 		}
-		if (mod_BiomesOPlenty.cragGen == true)
+		if (BOPConfiguration.cragGen == true)
 		{
 			this.addNewBiome(BOPBiomes.crag);
 		}
-		if (mod_BiomesOPlenty.deadForestGen == true)
+		if (BOPConfiguration.deadForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.deadForest);
 		}
-		if (mod_BiomesOPlenty.deadSwampGen == true)
+		if (BOPConfiguration.deadSwampGen == true)
 		{
 			this.addNewBiome(BOPBiomes.deadSwamp);
 		}
-		if (mod_BiomesOPlenty.deadlandsGen == true)
+		if (BOPConfiguration.deadlandsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.deadlands);
 		}
-		if (mod_BiomesOPlenty.deciduousForestGen == true)
+		if (BOPConfiguration.deciduousForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.deciduousForest);
 		}
-		if (mod_BiomesOPlenty.drylandsGen == true)
+		if (BOPConfiguration.drylandsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.drylands);
 		}
-		if (mod_BiomesOPlenty.dunesGen == true)
+		if (BOPConfiguration.dunesGen == true)
 		{
 			this.addNewBiome(BOPBiomes.dunes);
 		}
-		if (mod_BiomesOPlenty.fenGen == true)
+		if (BOPConfiguration.fenGen == true)
 		{
 			this.addNewBiome(BOPBiomes.fen);
 		}
-		if (mod_BiomesOPlenty.fieldGen == true)
+		if (BOPConfiguration.fieldGen == true)
 		{
 			this.addNewBiome(BOPBiomes.field);
 		}
-		if (mod_BiomesOPlenty.frostForestGen == true)
+		if (BOPConfiguration.frostForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.frostForest);
 		}
-		if (mod_BiomesOPlenty.fungiForestGen == true)
+		if (BOPConfiguration.fungiForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.fungiForest);
 		}
-		if (mod_BiomesOPlenty.gardenGen == true)
+		if (BOPConfiguration.gardenGen == true)
 		{
 			this.addNewBiome(BOPBiomes.garden);
 		}
-		if (mod_BiomesOPlenty.glacierGen == true)
+		if (BOPConfiguration.glacierGen == true)
 		{
 			this.addNewBiome(BOPBiomes.glacier);
 		}
-		if (mod_BiomesOPlenty.grasslandGen == true)
+		if (BOPConfiguration.grasslandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.grassland);
 		}
-		if (mod_BiomesOPlenty.groveGen == true)
+		if (BOPConfiguration.groveGen == true)
 		{
 			this.addNewBiome(BOPBiomes.grove);
 		}
-		if (mod_BiomesOPlenty.heathlandGen == true)
+		if (BOPConfiguration.heathlandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.heathland);
 		}
-		if (mod_BiomesOPlenty.highlandGen == true)
+		if (BOPConfiguration.highlandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.highland);
 		}
-		if (mod_BiomesOPlenty.iceSheetGen == true)
+		if (BOPConfiguration.iceSheetGen == true)
 		{
 			this.addNewBiome(BOPBiomes.iceSheet);
 		}
-		if (mod_BiomesOPlenty.icyHillsGen == true)
+		if (BOPConfiguration.icyHillsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.icyHills);
 		}
-		if (mod_BiomesOPlenty.jadeCliffsGen == true)
+		if (BOPConfiguration.jadeCliffsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.jadeCliffs);
 		}
-		if (mod_BiomesOPlenty.lushDesertGen == true)
+		if (BOPConfiguration.lushDesertGen == true)
 		{
 			this.addNewBiome(BOPBiomes.lushDesert);
 		}
-		if (mod_BiomesOPlenty.lushSwampGen == true)
+		if (BOPConfiguration.lushSwampGen == true)
 		{
 			this.addNewBiome(BOPBiomes.lushSwamp);
 		}
-		if (mod_BiomesOPlenty.mangroveGen == true)
+		if (BOPConfiguration.mangroveGen == true)
 		{
 			this.addNewBiome(BOPBiomes.mangrove);
 		}
-		if (mod_BiomesOPlenty.mapleWoodsGen == true)
+		if (BOPConfiguration.mapleWoodsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.mapleWoods);
 		}
-		if (mod_BiomesOPlenty.marshGen == true)
+		if (BOPConfiguration.marshGen == true)
 		{
 			this.addNewBiome(BOPBiomes.marsh);
 		}
-		if (mod_BiomesOPlenty.meadowGen == true)
+		if (BOPConfiguration.meadowGen == true)
 		{
 			this.addNewBiome(BOPBiomes.meadow);
 		}
-		if (mod_BiomesOPlenty.mesaGen == true)
+		if (BOPConfiguration.mesaGen == true)
 		{
 			this.addNewBiome(BOPBiomes.mesa);
 		}
-		if (mod_BiomesOPlenty.moorGen == true)
+		if (BOPConfiguration.moorGen == true)
 		{
 			this.addNewBiome(BOPBiomes.moor);
 		}
-		if (mod_BiomesOPlenty.mountainGen == true)
+		if (BOPConfiguration.mountainGen == true)
 		{
 			this.addNewBiome(BOPBiomes.mountain);
 		}
-		if (mod_BiomesOPlenty.mushroomIslandGen == true)
+		if (BOPConfiguration.mushroomIslandGen == true)
 		{
 			this.addNewBiome(BiomeGenBase.mushroomIsland);
 		}
-		if (mod_BiomesOPlenty.mysticGroveGen == true)
+		if (BOPConfiguration.mysticGroveGen == true)
 		{
 			this.addNewBiome(BOPBiomes.mysticGrove);
 		}
-		if (mod_BiomesOPlenty.oasisGen == true)
+		if (BOPConfiguration.oasisGen == true)
 		{
 			this.addNewBiome(BOPBiomes.oasis);
 		}
-		if (mod_BiomesOPlenty.ominousWoodsGen == true)
+		if (BOPConfiguration.ominousWoodsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.ominousWoods);
 		}
-		if (mod_BiomesOPlenty.orchardGen == true)
+		if (BOPConfiguration.orchardGen == true)
 		{
 			this.addNewBiome(BOPBiomes.orchard);
 		}
-		if (mod_BiomesOPlenty.originValleyGen == true)
+		if (BOPConfiguration.originValleyGen == true)
 		{
 			this.addNewBiome(BOPBiomes.originValley);
 		}
-		if (mod_BiomesOPlenty.outbackGen == true)
+		if (BOPConfiguration.outbackGen == true)
 		{
 			this.addNewBiome(BOPBiomes.outback);
 		}
-		if (mod_BiomesOPlenty.pastureGen == true)
+		if (BOPConfiguration.pastureGen == true)
 		{
 			this.addNewBiome(BOPBiomes.pasture);
 		}
-		if (mod_BiomesOPlenty.prairieGen == true)
+		if (BOPConfiguration.prairieGen == true)
 		{
 			this.addNewBiome(BOPBiomes.prairie);
 		}
-		if (mod_BiomesOPlenty.quagmireGen == true)
+		if (BOPConfiguration.quagmireGen == true)
 		{
 			this.addNewBiome(BOPBiomes.quagmire);
 		}
-		if (mod_BiomesOPlenty.rainforestGen == true)
+		if (BOPConfiguration.rainforestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.rainforest);
 		}
-		if (mod_BiomesOPlenty.redwoodForestGen == true)
+		if (BOPConfiguration.redwoodForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.redwoodForest);
 		}
-		if (mod_BiomesOPlenty.sacredSpringsGen == true)
+		if (BOPConfiguration.sacredSpringsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.sacredSprings);
 		}
-		if (mod_BiomesOPlenty.savannaGen == true)
+		if (BOPConfiguration.savannaGen == true)
 		{
 			this.addNewBiome(BOPBiomes.savanna);
 		}
-		if (mod_BiomesOPlenty.scrublandGen == true)
+		if (BOPConfiguration.scrublandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.scrubland);
 		}
-		if (mod_BiomesOPlenty.seasonalForestGen == true)
+		if (BOPConfiguration.seasonalForestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.seasonalForest);
 		}
-		if (mod_BiomesOPlenty.shieldGen == true)
+		if (BOPConfiguration.shieldGen == true)
 		{
 			this.addNewBiome(BOPBiomes.shield);
 		}
-		if (mod_BiomesOPlenty.shrublandGen == true)
+		if (BOPConfiguration.shrublandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.shrubland);
 		}
-		if (mod_BiomesOPlenty.snowyWoodsGen == true)
+		if (BOPConfiguration.snowyWoodsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.snowyWoods);
 		}
-		if (mod_BiomesOPlenty.spruceWoodsGen == true)
+		if (BOPConfiguration.spruceWoodsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.spruceWoods);
 		}
-		if (mod_BiomesOPlenty.steppeGen == true)
+		if (BOPConfiguration.steppeGen == true)
 		{
 			this.addNewBiome(BOPBiomes.steppe);
 		}
-		if (mod_BiomesOPlenty.swampwoodsGen == true)
+		if (BOPConfiguration.swampwoodsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.swampwoods);
 		}
-		if (mod_BiomesOPlenty.temperateRainforestGen == true)
+		if (BOPConfiguration.temperateRainforestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.temperateRainforest);
 		}
-		if (mod_BiomesOPlenty.thicketGen == true)
+		if (BOPConfiguration.thicketGen == true)
 		{
 			this.addNewBiome(BOPBiomes.thicket);
 		}
-		if (mod_BiomesOPlenty.tropicalRainforestGen == true)
+		if (BOPConfiguration.tropicalRainforestGen == true)
 		{
 			this.addNewBiome(BOPBiomes.tropicalRainforest);
 		}
-		if (mod_BiomesOPlenty.tropicsGen == true)
+		if (BOPConfiguration.tropicsGen == true)
 		{
 			this.addNewBiome(BOPBiomes.tropics);
 		}
-		if (mod_BiomesOPlenty.tundraGen == true)
+		if (BOPConfiguration.tundraGen == true)
 		{
 			this.addNewBiome(BOPBiomes.tundra);
 		}
-		if (mod_BiomesOPlenty.volcanoGen == true)
+		if (BOPConfiguration.volcanoGen == true)
 		{
 			this.addNewBiome(BOPBiomes.volcano);
 		}
-		if (mod_BiomesOPlenty.wastelandGen == true)
+		if (BOPConfiguration.wastelandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.wasteland);
 		}
-		if (mod_BiomesOPlenty.wetlandGen == true)
+		if (BOPConfiguration.wetlandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.wetland);
 		}
-		if (mod_BiomesOPlenty.woodlandGen == true)
+		if (BOPConfiguration.woodlandGen == true)
 		{
 			this.addNewBiome(BOPBiomes.woodland);
 		}
 		
 		
-		if (mod_BiomesOPlenty.plainsGen == true)
+		if (BOPConfiguration.plainsGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.plainsNew);
 				}
@@ -318,9 +319,9 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.plains);
 				}
 		}
-		if (mod_BiomesOPlenty.desertGen == true)
+		if (BOPConfiguration.desertGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.desertNew);
 				}
@@ -329,9 +330,9 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.desert);
 				}
 		}
-		if (mod_BiomesOPlenty.extremeHillsGen == true)
+		if (BOPConfiguration.extremeHillsGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.extremeHillsNew);
 				}
@@ -340,9 +341,9 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.extremeHills);
 				}
 		}
-		if (mod_BiomesOPlenty.forestGen == true)
+		if (BOPConfiguration.forestGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.forestNew);
 				}
@@ -351,9 +352,9 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.forest);
 				}
 		}
-		if (mod_BiomesOPlenty.taigaGen == true)
+		if (BOPConfiguration.taigaGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.taigaNew);
 				}
@@ -362,9 +363,9 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.taiga);
 				}
 		}
-		if (mod_BiomesOPlenty.swamplandGen == true)
+		if (BOPConfiguration.swamplandGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.swamplandNew);
 				}
@@ -373,9 +374,9 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.swampland);
 				}
 		}
-		if (mod_BiomesOPlenty.jungleGen == true)
+		if (BOPConfiguration.jungleGen == true)
 		{
-			if (mod_BiomesOPlenty.vanillaEnhanced == true)
+			if (BOPConfiguration.vanillaEnhanced == true)
 				{
 				this.addNewBiome(BOPBiomes.jungleNew);
 				}

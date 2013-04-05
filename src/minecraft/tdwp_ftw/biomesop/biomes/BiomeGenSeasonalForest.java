@@ -2,19 +2,16 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenAutumn;
 import tdwp_ftw.biomesop.worldgen.WorldGenAutumn2;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree2;
 import tdwp_ftw.biomesop.worldgen.WorldGenMaple;
-import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
 
 public class BiomeGenSeasonalForest extends BiomeGenBase
 {

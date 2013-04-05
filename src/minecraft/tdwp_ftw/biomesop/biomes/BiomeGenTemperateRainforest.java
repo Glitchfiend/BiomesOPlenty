@@ -1,23 +1,18 @@
 package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.world.gen.feature.WorldGenShrub;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 import tdwp_ftw.biomesop.worldgen.WorldGenTemperate;
 import tdwp_ftw.biomesop.worldgen.WorldGenThickTree;
 import tdwp_ftw.biomesop.worldgen.WorldGenWillow;
-import tdwp_ftw.biomesop.worldgen.WorldGenGrandFir1;
-import tdwp_ftw.biomesop.worldgen.WorldGenGrandFir2;
-import tdwp_ftw.biomesop.worldgen.WorldGenAlaskanCedar1;
-import tdwp_ftw.biomesop.worldgen.WorldGenAlaskanCedar2;
 
 public class BiomeGenTemperateRainforest extends BiomeGenBase
 {

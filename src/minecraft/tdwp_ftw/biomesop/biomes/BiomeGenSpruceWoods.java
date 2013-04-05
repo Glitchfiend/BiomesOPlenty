@@ -8,8 +8,6 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
-import tdwp_ftw.biomesop.worldgen.WorldGenLarch1;
-import tdwp_ftw.biomesop.worldgen.WorldGenLarch2;
 
 public class BiomeGenSpruceWoods extends BiomeGenBase
 {

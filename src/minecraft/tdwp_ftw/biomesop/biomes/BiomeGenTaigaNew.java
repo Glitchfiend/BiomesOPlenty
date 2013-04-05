@@ -2,18 +2,14 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.worldgen.WorldGenNorwaySpruce1;
-import tdwp_ftw.biomesop.worldgen.WorldGenNorwaySpruce2;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class BiomeGenTaigaNew extends BiomeGenBase
 {

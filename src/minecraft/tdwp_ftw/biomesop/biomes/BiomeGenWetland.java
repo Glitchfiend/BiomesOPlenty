@@ -2,18 +2,14 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 
-import net.minecraft.world.World;
 import net.minecraft.block.Block;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
 import tdwp_ftw.biomesop.worldgen.WorldGenWillow;
-import tdwp_ftw.biomesop.worldgen.WorldGenWillow1;
-import tdwp_ftw.biomesop.worldgen.WorldGenWillow2;
-import tdwp_ftw.biomesop.worldgen.WorldGenLarch1;
-import tdwp_ftw.biomesop.worldgen.WorldGenLarch2;
-import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 
 public class BiomeGenWetland extends BiomeGenBase
 {

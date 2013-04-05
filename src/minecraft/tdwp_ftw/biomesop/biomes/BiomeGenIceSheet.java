@@ -1,8 +1,7 @@
 package tdwp_ftw.biomesop.biomes;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenIceSheet extends BiomeGenBase
 {

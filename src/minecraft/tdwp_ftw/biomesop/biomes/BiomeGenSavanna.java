@@ -7,7 +7,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenAcacia;
 
