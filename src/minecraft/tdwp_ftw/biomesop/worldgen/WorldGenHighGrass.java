@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenHighGrass extends WorldGenerator
 {
@@ -37,8 +36,8 @@ public class WorldGenHighGrass extends WorldGenerator
 
             if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[this.tallGrassID].canBlockStay(par1World, var8, var9, var10))
             {
-                par1World.setBlock(var8, var9, var10, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
-				par1World.setBlock(var8, var9 + 1, var10, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
+                par1World.setBlock(var8, var9, var10, BOPBlocks.highGrassBottom.blockID, 1, 2);
+				par1World.setBlock(var8, var9 + 1, var10, BOPBlocks.highGrassTop.blockID, 1, 2);
             }
         }
 

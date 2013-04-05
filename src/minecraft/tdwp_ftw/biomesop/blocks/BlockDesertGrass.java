@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -52,7 +53,7 @@ public class BlockDesertGrass extends Block
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == mod_BiomesOPlenty.redRock.blockID;
+        return par1 == BOPBlocks.redRock.blockID;
     }
 
     /**
@@ -141,7 +142,7 @@ public class BlockDesertGrass extends Block
         if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
         {
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(mod_BiomesOPlenty.desertGrass, 1, par6));
+            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPBlocks.desertGrass, 1, par6));
         }
         else
         {

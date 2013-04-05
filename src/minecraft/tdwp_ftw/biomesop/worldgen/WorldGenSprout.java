@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenSprout extends WorldGenerator
 {
@@ -35,9 +34,9 @@ public class WorldGenSprout extends WorldGenerator
             int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var8, var9, var10) && mod_BiomesOPlenty.sprout.canBlockStay(par1World, var8, var9, var10))
+            if (par1World.isAirBlock(var8, var9, var10) && BOPBlocks.sprout.canBlockStay(par1World, var8, var9, var10))
             {
-                par1World.setBlock(var8, var9, var10, mod_BiomesOPlenty.sprout.blockID, 1, 2);
+                par1World.setBlock(var8, var9, var10, BOPBlocks.sprout.blockID, 1, 2);
             }
         }
 

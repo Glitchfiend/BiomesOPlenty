@@ -5,6 +5,7 @@ import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenOutback;
 import tdwp_ftw.biomesop.worldgen.WorldGenOutbackTree;
 import tdwp_ftw.biomesop.worldgen.WorldGenOutbackShrub;
@@ -20,8 +21,8 @@ public class BiomeGenOutback extends BiomeGenBase
         this.spawnableCreatureList.clear();
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)mod_BiomesOPlenty.hardSand.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.hardSand.blockID;
+		this.topBlock = (byte)BOPBlocks.hardSand.blockID;
+        this.fillerBlock = (byte)BOPBlocks.hardSand.blockID;
         this.customBiomeDecorator.treesPerChunk = 3;
 		this.customBiomeDecorator.flowersPerChunk = -999;
         this.customBiomeDecorator.outbackPerChunk = 10;

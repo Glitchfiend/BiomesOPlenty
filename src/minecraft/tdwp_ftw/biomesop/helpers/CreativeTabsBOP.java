@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.helpers;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,6 +24,6 @@ public class CreativeTabsBOP extends CreativeTabs
 	@Override
 	public ItemStack getIconItemStack()
 	{
-		return new ItemStack(mod_BiomesOPlenty.firSapling);
+		return new ItemStack(BOPBlocks.firSapling);
 	}
 }

@@ -12,6 +12,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree3;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadlands;
 
@@ -23,8 +24,8 @@ public class BiomeGenDeadlands extends BiomeGenBase
 	public BiomeGenDeadlands(int par1)
     {
         super(par1);
-        this.topBlock = (byte)mod_BiomesOPlenty.ash.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.ash.blockID;
+        this.topBlock = (byte)BOPBlocks.ash.blockID;
+        this.fillerBlock = (byte)BOPBlocks.ash.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 1;

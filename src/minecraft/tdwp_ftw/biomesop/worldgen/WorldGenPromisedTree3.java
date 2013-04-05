@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenPromisedTree3 extends WorldGenerator
 {
@@ -76,18 +75,18 @@ public class WorldGenPromisedTree3 extends WorldGenerator
                 var13 = var1.getBlockId(var3, var4 - 1, var5 - 1);
                 var14 = var1.getBlockId(var3 - 1, var4 - 1, var5 - 1);
 
-                if ((var11 == mod_BiomesOPlenty.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                if ((var11 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
                 {
-                    if ((var24 == mod_BiomesOPlenty.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                    if ((var24 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
                     {
-                        if ((var13 == mod_BiomesOPlenty.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                        if ((var13 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
                         {
-                            if ((var14 == mod_BiomesOPlenty.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                            if ((var14 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
                             {
-                                var1.setBlock(var3, var4 - 1, var5, mod_BiomesOPlenty.holyGrass.blockID);
-                                var1.setBlock(var3 - 1, var4 - 1, var5, mod_BiomesOPlenty.holyGrass.blockID);
-                                var1.setBlock(var3, var4 - 1, var5 - 1, mod_BiomesOPlenty.holyGrass.blockID);
-                                var1.setBlock(var3 - 1, var4 - 1, var5 - 1, mod_BiomesOPlenty.holyGrass.blockID);
+                                var1.setBlock(var3, var4 - 1, var5, BOPBlocks.holyGrass.blockID);
+                                var1.setBlock(var3 - 1, var4 - 1, var5, BOPBlocks.holyGrass.blockID);
+                                var1.setBlock(var3, var4 - 1, var5 - 1, BOPBlocks.holyGrass.blockID);
+                                var1.setBlock(var3 - 1, var4 - 1, var5 - 1, BOPBlocks.holyGrass.blockID);
                                 var15 = var2.nextInt(2);
                                 int var16 = 1;
                                 boolean var17 = false;

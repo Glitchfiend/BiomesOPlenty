@@ -5,6 +5,7 @@ import static net.minecraftforge.common.ForgeDirection.UP;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -125,14 +126,14 @@ public class BlockHolyGrass extends Block
     	if (par1World.provider.isHellWorld)
     	{
     		par1World.setBlock(par2, par3 + 1, par4, Block.fire.blockID);
-    		par1World.setBlock(par2, par3, par4, Block.slowSand.blockID);
+    		par1World.setBlock(par2, par3, par4, BOPBlocks.smolderingGrass.blockID);
     	}
     	
         if (!par1World.isRemote)
         {
             if (par1World.getBlockLightValue(par2, par3 + 1, par4) < 4 && Block.lightOpacity[par1World.getBlockId(par2, par3 + 1, par4)] > 2)
             {
-                par1World.setBlock(par2, par3, par4, mod_BiomesOPlenty.holyStone.blockID);
+                par1World.setBlock(par2, par3, par4, BOPBlocks.holyStone.blockID);
             }
             else if (par1World.getBlockLightValue(par2, par3 + 1, par4) >= 9)
             {
@@ -143,9 +144,9 @@ public class BlockHolyGrass extends Block
                     int var9 = par4 + par5Random.nextInt(3) - 1;
                     int var10 = par1World.getBlockId(var7, var8 + 1, var9);
 
-                    if (par1World.getBlockId(var7, var8, var9) == mod_BiomesOPlenty.holyStone.blockID && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
+                    if (par1World.getBlockId(var7, var8, var9) == BOPBlocks.holyStone.blockID && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
                     {
-                        par1World.setBlock(var7, var8, var9, mod_BiomesOPlenty.holyGrass.blockID);
+                        par1World.setBlock(var7, var8, var9, BOPBlocks.holyGrass.blockID);
                     }
                 }
             }
@@ -157,6 +158,6 @@ public class BlockHolyGrass extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.holyStone.idDropped(0, par2Random, par3);
+        return BOPBlocks.holyStone.idDropped(0, par2Random, par3);
     }
 }

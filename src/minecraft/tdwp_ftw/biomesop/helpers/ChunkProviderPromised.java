@@ -14,6 +14,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraftforge.common.*;
 import net.minecraftforge.event.Event.*;
@@ -162,7 +163,7 @@ public class ChunkProviderPromised implements IChunkProvider
                             if (var7 <= 0)
                             {
                                 var9 = 0;
-                                var10 = (byte)mod_BiomesOPlenty.holyStone.blockID;
+                                var10 = (byte)BOPBlocks.holyStone.blockID;
                             }
 							else if (var11 >= var98 - 4 && var11 <= var98 + 1)
 							{

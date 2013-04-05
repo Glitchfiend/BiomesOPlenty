@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenBambooTree;
 
 public class BiomeGenBambooForest extends BiomeGenBase
@@ -41,7 +42,7 @@ public class BiomeGenBambooForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(mod_BiomesOPlenty.shortGrass.blockID, 1);
+        return par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(BOPBlocks.shortGrass.blockID, 1);
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)

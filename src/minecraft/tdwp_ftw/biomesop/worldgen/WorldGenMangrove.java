@@ -1,11 +1,11 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenMangrove extends WorldGenerator
 {
@@ -69,7 +69,7 @@ public class WorldGenMangrove extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != mod_BiomesOPlenty.mangroveLeaves.blockID && var12 != Block.sand.blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != mod_BiomesOPlenty.mangroveWood.blockID)
+                            if (var12 != 0 && var12 != BOPBlocks.mangroveLeaves.blockID && var12 != Block.sand.blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != BOPBlocks.mangroveWood.blockID)
                             {
                                 var7 = false;
                             }
@@ -113,7 +113,7 @@ public class WorldGenMangrove extends WorldGenerator
 
                                 if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var14, var11, var16)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var14, var11, var16, mod_BiomesOPlenty.mangroveLeaves.blockID, this.metaLeaves);
+                                    this.setBlockAndMetadata(par1World, var14, var11, var16, BOPBlocks.mangroveLeaves.blockID, this.metaLeaves);
                                 }
                             }
                         }
@@ -123,36 +123,36 @@ public class WorldGenMangrove extends WorldGenerator
                     {
                         var12 = par1World.getBlockId(par3, par4 + var11, par5);
 
-                        if (var12 == 0 || var12 == mod_BiomesOPlenty.mangroveLeaves.blockID)
+                        if (var12 == 0 || var12 == BOPBlocks.mangroveLeaves.blockID)
                         {
-                            this.setBlock(par1World, par3, par4 + var11, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-                            this.setBlock(par1World, par3, par4 - 1, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-                            this.setBlock(par1World, par3, par4 - 2, par5, mod_BiomesOPlenty.mangroveWood.blockID);
+                            this.setBlock(par1World, par3, par4 + var11, par5, BOPBlocks.mangroveWood.blockID);
+                            this.setBlock(par1World, par3, par4 - 1, par5, BOPBlocks.mangroveWood.blockID);
+                            this.setBlock(par1World, par3, par4 - 2, par5, BOPBlocks.mangroveWood.blockID);
 							
-							this.setBlock(par1World, par3 - 1, par4 - 2, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3 + 1, par4 - 2, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 2, par5 - 1, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 2, par5 + 1, mod_BiomesOPlenty.mangroveWood.blockID);
+							this.setBlock(par1World, par3 - 1, par4 - 2, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3 + 1, par4 - 2, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 2, par5 - 1, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 2, par5 + 1, BOPBlocks.mangroveWood.blockID);
 							
-							this.setBlock(par1World, par3 - 1, par4 - 3, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3 + 1, par4 - 3, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 3, par5 - 1, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 3, par5 + 1, mod_BiomesOPlenty.mangroveWood.blockID);
+							this.setBlock(par1World, par3 - 1, par4 - 3, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3 + 1, par4 - 3, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 3, par5 - 1, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 3, par5 + 1, BOPBlocks.mangroveWood.blockID);
 							
-							this.setBlock(par1World, par3 - 2, par4 - 4, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3 + 2, par4 - 4, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 4, par5 - 2, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 4, par5 + 2, mod_BiomesOPlenty.mangroveWood.blockID);
+							this.setBlock(par1World, par3 - 2, par4 - 4, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3 + 2, par4 - 4, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 4, par5 - 2, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 4, par5 + 2, BOPBlocks.mangroveWood.blockID);
 							
-							this.setBlock(par1World, par3 - 2, par4 - 5, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3 + 2, par4 - 5, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 5, par5 - 2, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 5, par5 + 2, mod_BiomesOPlenty.mangroveWood.blockID);
+							this.setBlock(par1World, par3 - 2, par4 - 5, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3 + 2, par4 - 5, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 5, par5 - 2, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 5, par5 + 2, BOPBlocks.mangroveWood.blockID);
 							
-							this.setBlock(par1World, par3 - 3, par4 - 6, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3 + 3, par4 - 6, par5, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 6, par5 - 3, mod_BiomesOPlenty.mangroveWood.blockID);
-							this.setBlock(par1World, par3, par4 - 6, par5 + 3, mod_BiomesOPlenty.mangroveWood.blockID);
+							this.setBlock(par1World, par3 - 3, par4 - 6, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3 + 3, par4 - 6, par5, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 6, par5 - 3, BOPBlocks.mangroveWood.blockID);
+							this.setBlock(par1World, par3, par4 - 6, par5 + 3, BOPBlocks.mangroveWood.blockID);
 
                             if (this.vinesGrow && var11 > 0)
                             {
@@ -190,7 +190,7 @@ public class WorldGenMangrove extends WorldGenerator
                             {
                                 for (var15 = par5 - var13; var15 <= par5 + var13; ++var15)
                                 {
-                                    if (par1World.getBlockId(var14, var11, var15) == mod_BiomesOPlenty.mangroveLeaves.blockID)
+                                    if (par1World.getBlockId(var14, var11, var15) == BOPBlocks.mangroveLeaves.blockID)
                                     {
                                         if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var14 - 1, var11, var15) == 0)
                                         {

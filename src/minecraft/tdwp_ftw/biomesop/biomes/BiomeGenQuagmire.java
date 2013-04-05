@@ -6,6 +6,7 @@ import java.awt.Color;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree;
 
 public class BiomeGenQuagmire extends BiomeGenBase
@@ -17,8 +18,8 @@ public class BiomeGenQuagmire extends BiomeGenBase
         super(par1);
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.topBlock = (byte)mod_BiomesOPlenty.mud.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.mud.blockID;
+        this.topBlock = (byte)BOPBlocks.mud.blockID;
+        this.fillerBlock = (byte)BOPBlocks.mud.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 0;

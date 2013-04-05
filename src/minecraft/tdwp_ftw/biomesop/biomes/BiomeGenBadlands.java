@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.biomes;
 import java.awt.Color;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -16,7 +17,7 @@ public class BiomeGenBadlands extends BiomeGenBase
         super(par1);
         this.spawnableCreatureList.clear();
         this.topBlock = (byte)Block.sandStone.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.hardSand.blockID;
+        this.fillerBlock = (byte)BOPBlocks.hardSand.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = -999;

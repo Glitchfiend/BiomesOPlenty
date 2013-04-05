@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
@@ -66,7 +67,7 @@ public class BlockOriginLeaves extends BlockLeavesBase
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == mod_BiomesOPlenty.originLeaves.blockID)
+                        if (var12 == BOPBlocks.originLeaves.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
                             par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
@@ -119,7 +120,7 @@ public class BlockOriginLeaves extends BlockLeavesBase
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = 0;
                                 }
-                                else if (var15 == mod_BiomesOPlenty.originLeaves.blockID)
+                                else if (var15 == BOPBlocks.originLeaves.blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = -2;
                                 }
@@ -224,7 +225,7 @@ public class BlockOriginLeaves extends BlockLeavesBase
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.originSapling.blockID;
+        return BOPBlocks.originSapling.blockID;
     }
 
     /**
@@ -258,7 +259,7 @@ public class BlockOriginLeaves extends BlockLeavesBase
         if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
         {
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(mod_BiomesOPlenty.originLeaves.blockID, 1, par6 & 3));
+            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPBlocks.originLeaves.blockID, 1, par6 & 3));
         }
         else
         {

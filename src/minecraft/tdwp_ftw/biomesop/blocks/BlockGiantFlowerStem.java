@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -87,7 +88,7 @@ public class BlockGiantFlowerStem extends Block
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == mod_BiomesOPlenty.giantFlowerRed.blockID || var12 == mod_BiomesOPlenty.giantFlowerYellow.blockID)
+                        if (var12 == BOPBlocks.giantFlowerRed.blockID || var12 == BOPBlocks.giantFlowerYellow.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
 

@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenPromisedTree;
 import tdwp_ftw.biomesop.worldgen.WorldGenPromisedTree2;
 import tdwp_ftw.biomesop.worldgen.WorldGenPromisedTree3;
@@ -24,8 +25,8 @@ public class BiomeGenPromisedLand extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)mod_BiomesOPlenty.holyGrass.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.holyStone.blockID;
+		this.topBlock = (byte)BOPBlocks.holyGrass.blockID;
+        this.fillerBlock = (byte)BOPBlocks.holyStone.blockID;
         this.customBiomeDecorator.treesPerChunk = 8;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
@@ -73,7 +74,7 @@ public class BiomeGenPromisedLand extends BiomeGenBase
 
             if (var10 == Block.stone.blockID)
             {
-                par1World.setBlock(var7, var8, var9, mod_BiomesOPlenty.amethystOre.blockID, 0, 2);
+                par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.blockID, 0, 2);
             }
         }
 

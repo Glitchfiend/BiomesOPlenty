@@ -6,6 +6,7 @@ import java.awt.Color;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenVolcano;
 
 public class BiomeGenVolcano extends BiomeGenBase
@@ -16,8 +17,8 @@ public class BiomeGenVolcano extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)mod_BiomesOPlenty.ashStone.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.ashStone.blockID;
+        this.topBlock = (byte)BOPBlocks.ashStone.blockID;
+        this.fillerBlock = (byte)BOPBlocks.ashStone.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 1;

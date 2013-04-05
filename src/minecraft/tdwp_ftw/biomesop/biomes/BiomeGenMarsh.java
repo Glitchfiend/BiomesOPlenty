@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenMarsh;
 
 public class BiomeGenMarsh extends BiomeGenBase
@@ -47,6 +48,6 @@ public class BiomeGenMarsh extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(mod_BiomesOPlenty.shortGrass.blockID, 1);
+        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(BOPBlocks.shortGrass.blockID, 1);
     }
 }

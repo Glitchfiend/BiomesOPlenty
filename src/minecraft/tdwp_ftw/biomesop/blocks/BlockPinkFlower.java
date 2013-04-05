@@ -2,6 +2,7 @@ package tdwp_ftw.biomesop.blocks;
 
 import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -46,7 +47,7 @@ public class BlockPinkFlower extends Block
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == mod_BiomesOPlenty.holyGrass.blockID;
+        return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID || par1 == BOPBlocks.holyGrass.blockID;
     }
 
     /**

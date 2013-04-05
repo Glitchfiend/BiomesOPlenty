@@ -1,20 +1,19 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
-import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenPromisedLandPortal extends WorldGenerator
 {
     public boolean generate(World var1, Random var2, int var3, int var4, int var5)
     {
-		var1.setBlock(0, 64, 0, mod_BiomesOPlenty.promisedPortal.blockID);
-		var1.setBlock(0, 64, 1, mod_BiomesOPlenty.promisedPortal.blockID);
-		var1.setBlock(1, 64, 0, mod_BiomesOPlenty.promisedPortal.blockID);
-		var1.setBlock(0, 64, 1, mod_BiomesOPlenty.promisedPortal.blockID);
+		var1.setBlock(0, 64, 0, BOPBlocks.promisedPortal.blockID);
+		var1.setBlock(0, 64, 1, BOPBlocks.promisedPortal.blockID);
+		var1.setBlock(1, 64, 0, BOPBlocks.promisedPortal.blockID);
+		var1.setBlock(0, 64, 1, BOPBlocks.promisedPortal.blockID);
 		var1.setBlock(0, 65, 0, 0);
 		var1.setBlock(0, 65, 1, 0);
 		var1.setBlock(1, 65, 0, 0);

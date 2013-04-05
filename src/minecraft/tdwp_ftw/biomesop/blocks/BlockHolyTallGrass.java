@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -58,7 +59,7 @@ public class BlockHolyTallGrass extends Block implements IShearable
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == mod_BiomesOPlenty.holyGrass.blockID;
+        return par1 == BOPBlocks.holyGrass.blockID;
     }
 
     /**

@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.helpers;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 //import tdwp_ftw.biomesop.helpers.WorldChunkManagerPromised;
 
 import net.minecraft.block.Block;
@@ -67,7 +68,7 @@ public class WorldProviderPromised extends WorldProvider
     public boolean canCoordinateBeSpawn(int par1, int par2)
     {
         int var3 = this.worldObj.getFirstUncoveredBlock(par1, par2);
-        return var3 == mod_BiomesOPlenty.holyGrass.blockID;
+        return var3 == BOPBlocks.holyGrass.blockID;
     }
 
     /**

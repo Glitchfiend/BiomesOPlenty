@@ -7,6 +7,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenSpire;
 
 public class BiomeGenWasteland extends BiomeGenBase
@@ -16,8 +17,8 @@ public class BiomeGenWasteland extends BiomeGenBase
     public BiomeGenWasteland(int par1)
     {
         super(par1);
-        this.topBlock = (byte)mod_BiomesOPlenty.driedDirt.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.driedDirt.blockID;
+        this.topBlock = (byte)BOPBlocks.driedDirt.blockID;
+        this.fillerBlock = (byte)BOPBlocks.driedDirt.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.customBiomeDecorator.treesPerChunk = -999;

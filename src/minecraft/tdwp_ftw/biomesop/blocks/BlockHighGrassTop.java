@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -33,7 +34,7 @@ public class BlockHighGrassTop extends BlockFlower
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == mod_BiomesOPlenty.highGrassBottom.blockID;
+        return par1 == BOPBlocks.highGrassBottom.blockID;
     }
 
     public int getBlockColor()

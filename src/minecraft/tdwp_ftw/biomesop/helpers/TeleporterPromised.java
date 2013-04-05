@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.helpers;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -158,7 +159,7 @@ public class TeleporterPromised extends Teleporter
 						this.worldServerInstance.setBlock(3, 61 - var99, 3, 0);
 						this.worldServerInstance.setBlock(3, 60 - var99, 3, 0);
 						
-						this.worldServerInstance.setBlock(0, 64 - var99, 0, mod_BiomesOPlenty.promisedPortal.blockID);
+						this.worldServerInstance.setBlock(0, 64 - var99, 0, BOPBlocks.promisedPortal.blockID);
 					}
 				}
 			}
@@ -205,9 +206,9 @@ public class TeleporterPromised extends Teleporter
 
 					for (int var26 = this.worldServerInstance.getActualHeight() - 1; var26 >= 0; --var26)
 					{
-						if (this.worldServerInstance.getBlockId(var48, var26, var23) == mod_BiomesOPlenty.promisedPortal.blockID)
+						if (this.worldServerInstance.getBlockId(var48, var26, var23) == BOPBlocks.promisedPortal.blockID)
 						{
-							while (this.worldServerInstance.getBlockId(var48, var26 - 1, var23) == mod_BiomesOPlenty.promisedPortal.blockID)
+							while (this.worldServerInstance.getBlockId(var48, var26 - 1, var23) == BOPBlocks.promisedPortal.blockID)
 								{
 								--var26;
 								}
@@ -241,22 +242,22 @@ public class TeleporterPromised extends Teleporter
 			var27 = (double) var14 + 0.5D;
 			int var50 = -1;
 
-			if (this.worldServerInstance.getBlockId(var12 - 1, var13, var14) == mod_BiomesOPlenty.promisedPortal.blockID)
+			if (this.worldServerInstance.getBlockId(var12 - 1, var13, var14) == BOPBlocks.promisedPortal.blockID)
 			{
 				var50 = 2;
 			}
 
-			if (this.worldServerInstance.getBlockId(var12 + 1, var13, var14) == mod_BiomesOPlenty.promisedPortal.blockID)
+			if (this.worldServerInstance.getBlockId(var12 + 1, var13, var14) == BOPBlocks.promisedPortal.blockID)
 			{
 				var50 = 0;
 			}
 
-			if (this.worldServerInstance.getBlockId(var12, var13, var14 - 1) == mod_BiomesOPlenty.promisedPortal.blockID)
+			if (this.worldServerInstance.getBlockId(var12, var13, var14 - 1) == BOPBlocks.promisedPortal.blockID)
 			{
 				var50 = 3;
 			}
 
-			if (this.worldServerInstance.getBlockId(var12, var13, var14 + 1) == mod_BiomesOPlenty.promisedPortal.blockID)
+			if (this.worldServerInstance.getBlockId(var12, var13, var14 + 1) == BOPBlocks.promisedPortal.blockID)
 			{
 				var50 = 1;
 			}
@@ -640,7 +641,7 @@ public class TeleporterPromised extends Teleporter
 						this.worldServerInstance.setBlock(3, 61 - var99, 3, 0);
 						this.worldServerInstance.setBlock(3, 60 - var99, 3, 0);
 						
-						this.worldServerInstance.setBlock(0, 64 - var99, 0, mod_BiomesOPlenty.promisedPortal.blockID);
+						this.worldServerInstance.setBlock(0, 64 - var99, 0, BOPBlocks.promisedPortal.blockID);
 					}
 				}
 			}
@@ -658,7 +659,7 @@ public class TeleporterPromised extends Teleporter
 					var23 = var15 + var21;
 					var24 = var16 + (var20 - 1) * var18;
 					var33 = var20 == 0 || var20 == 3 || var21 == -1 || var21 == 3;
-					//this.worldServerInstance.setBlockWithNotify(var22, var23, var24, var33 ? Block.whiteStone.blockID : mod_BiomesOPlenty.promisedPortal.blockID);
+					//this.worldServerInstance.setBlockWithNotify(var22, var23, var24, var33 ? Block.whiteStone.blockID : BOPBlocks.promisedPortal.blockID);
 					
 					int var99 = 32;
 
@@ -756,7 +757,7 @@ public class TeleporterPromised extends Teleporter
 					this.worldServerInstance.setBlock(3, 61 - var99, 3, 0);
 					this.worldServerInstance.setBlock(3, 60 - var99, 3, 0);
 					
-					this.worldServerInstance.setBlock(0, 64 - var99, 0, mod_BiomesOPlenty.promisedPortal.blockID);
+					this.worldServerInstance.setBlock(0, 64 - var99, 0, BOPBlocks.promisedPortal.blockID);
 				}
 			}
 

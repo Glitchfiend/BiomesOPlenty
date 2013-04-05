@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.items;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -32,7 +33,7 @@ public class ItemAncientStaff extends Item
 		if (par3EntityPlayer.dimension == 0)
 		{
 
-			if (par2World.getBlockId(0, 64 - 32, 0) != mod_BiomesOPlenty.promisedPortal.blockID)
+			if (par2World.getBlockId(0, 64 - 32, 0) != BOPBlocks.promisedPortal.blockID)
 			{
 
 				if (!par3EntityPlayer.worldObj.isRemote)
@@ -130,7 +131,7 @@ public class ItemAncientStaff extends Item
 				par2World.setBlock(-1, 65 - var99, 0, 0);
 				par2World.setBlock(0, 65 - var99, 0, 0);
 
-				par2World.setBlock(0, 64 - var99, 0, mod_BiomesOPlenty.promisedPortal.blockID);
+				par2World.setBlock(0, 64 - var99, 0, BOPBlocks.promisedPortal.blockID);
 
 				par2World.setBlock(-2, 64 - var99, 2, 0);
 				par2World.setBlock(2, 64 - var99, 2, 0);

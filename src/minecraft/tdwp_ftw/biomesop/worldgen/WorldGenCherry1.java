@@ -2,12 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
-import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenCherry1 extends WorldGenerator
 {
@@ -168,7 +166,7 @@ public class WorldGenCherry1 extends WorldGenerator
                     var11[var9] = var10[var9] + var13;
                     int var14 = this.worldObj.getBlockId(var11[0], var11[1], var11[2]);
 
-                    if (var14 != 0 && var14 != mod_BiomesOPlenty.pinkLeaves.blockID)
+                    if (var14 != 0 && var14 != BOPBlocks.pinkLeaves.blockID)
                     {
                         ++var13;
                     }
@@ -230,7 +228,7 @@ public class WorldGenCherry1 extends WorldGenerator
         for (int var5 = par2 + this.leafDistanceLimit; var4 < var5; ++var4)
         {
             float var6 = this.leafSize(var4 - par2);
-            this.genTreeLayer(par1, var4, par3, var6, (byte)1, mod_BiomesOPlenty.pinkLeaves.blockID);
+            this.genTreeLayer(par1, var4, par3, var6, (byte)1, BOPBlocks.pinkLeaves.blockID);
         }
     }
 
@@ -336,19 +334,19 @@ public class WorldGenCherry1 extends WorldGenerator
         int var4 = this.basePos[2];
         int[] var5 = new int[] {var1, var2, var4};
         int[] var6 = new int[] {var1, var3, var4};
-        this.placeBlockLine(var5, var6, mod_BiomesOPlenty.cherryWood.blockID);
+        this.placeBlockLine(var5, var6, BOPBlocks.cherryWood.blockID);
 
         if (this.trunkSize == 2)
         {
             ++var5[0];
             ++var6[0];
-            this.placeBlockLine(var5, var6, mod_BiomesOPlenty.cherryWood.blockID);
+            this.placeBlockLine(var5, var6, BOPBlocks.cherryWood.blockID);
             ++var5[2];
             ++var6[2];
-            this.placeBlockLine(var5, var6, mod_BiomesOPlenty.cherryWood.blockID);
+            this.placeBlockLine(var5, var6, BOPBlocks.cherryWood.blockID);
             var5[0] += -1;
             var6[0] += -1;
-            this.placeBlockLine(var5, var6, mod_BiomesOPlenty.cherryWood.blockID);
+            this.placeBlockLine(var5, var6, BOPBlocks.cherryWood.blockID);
         }
     }
 
@@ -369,7 +367,7 @@ public class WorldGenCherry1 extends WorldGenerator
 
             if (this.leafNodeNeedsBase(var6))
             {
-                this.placeBlockLine(var3, var5, mod_BiomesOPlenty.cherryWood.blockID);
+                this.placeBlockLine(var3, var5, BOPBlocks.cherryWood.blockID);
             }
         }
     }
@@ -426,7 +424,7 @@ public class WorldGenCherry1 extends WorldGenerator
                 var13[var7] = MathHelper.floor_double((double)par1ArrayOfInteger[var7] + (double)var14 * var11);
                 int var16 = this.worldObj.getBlockId(var13[0], var13[1], var13[2]);
 
-                if (var16 != 0 && var16 != mod_BiomesOPlenty.pinkLeaves.blockID)
+                if (var16 != 0 && var16 != BOPBlocks.pinkLeaves.blockID)
                 {
                     break;
                 }

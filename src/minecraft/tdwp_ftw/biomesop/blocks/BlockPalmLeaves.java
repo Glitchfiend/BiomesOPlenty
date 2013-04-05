@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
@@ -109,7 +110,7 @@ public class BlockPalmLeaves extends BlockLeavesBase
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == mod_BiomesOPlenty.palmLeaves.blockID)
+                        if (var12 == BOPBlocks.palmLeaves.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
                             par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
@@ -158,11 +159,11 @@ public class BlockPalmLeaves extends BlockLeavesBase
                             {
                                 var15 = par1World.getBlockId(par2 + var12, par3 + var13, par4 + var14);
 
-                                if (var15 == mod_BiomesOPlenty.palmWood.blockID)
+                                if (var15 == BOPBlocks.palmWood.blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = 0;
                                 }
-                                else if (var15 == mod_BiomesOPlenty.palmLeaves.blockID)
+                                else if (var15 == BOPBlocks.palmLeaves.blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = -2;
                                 }
@@ -267,7 +268,7 @@ public class BlockPalmLeaves extends BlockLeavesBase
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.palmSapling.blockID;
+        return BOPBlocks.palmSapling.blockID;
     }
 
     /**
@@ -301,7 +302,7 @@ public class BlockPalmLeaves extends BlockLeavesBase
         if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
         {
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(mod_BiomesOPlenty.palmLeaves.blockID, 1, par6 & 3));
+            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPBlocks.palmLeaves.blockID, 1, par6 & 3));
         }
         else
         {

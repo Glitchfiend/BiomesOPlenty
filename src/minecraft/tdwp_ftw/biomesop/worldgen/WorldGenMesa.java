@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenMesa extends WorldGenerator
 {
@@ -63,7 +62,7 @@ public class WorldGenMesa extends WorldGenerator
                             {
                                 double var45 = ((double)var44 + 0.5D - var24) / (var28 / 2.0D);
 
-                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == mod_BiomesOPlenty.redRock.blockID)
+                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == BOPBlocks.redRock.blockID)
                                 {
                                     par1World.setBlock(var38, var41, var44, this.minableBlockId);
                                 }

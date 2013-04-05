@@ -2,10 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenDeadlands extends WorldGenerator
 {
@@ -17,7 +17,7 @@ public class WorldGenDeadlands extends WorldGenerator
             int var8 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var9 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == mod_BiomesOPlenty.ash.blockID)
+            if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == BOPBlocks.ash.blockID)
             {
                 par1World.setBlock(var7, var8, var9, Block.fire.blockID);
             }

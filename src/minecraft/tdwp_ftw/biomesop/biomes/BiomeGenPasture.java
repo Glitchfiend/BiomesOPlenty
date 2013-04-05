@@ -2,6 +2,7 @@ package tdwp_ftw.biomesop.biomes;
 
 import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
@@ -26,7 +27,7 @@ public class BiomeGenPasture extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return new WorldGenTallGrass(mod_BiomesOPlenty.barley.blockID, 0);
+        return new WorldGenTallGrass(BOPBlocks.barley.blockID, 0);
     }
 
     /**

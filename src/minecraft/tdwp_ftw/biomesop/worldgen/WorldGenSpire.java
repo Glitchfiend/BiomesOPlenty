@@ -2,12 +2,11 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenSpire extends WorldGenerator
 {
@@ -51,7 +50,7 @@ public class WorldGenSpire extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != mod_BiomesOPlenty.willowLeaves.blockID)
+                            if (var12 != 0 && var12 != BOPBlocks.willowLeaves.blockID)
                             {
                                 if (var12 != Block.waterStill.blockID && var12 != Block.waterMoving.blockID)
                                 {
@@ -75,28 +74,28 @@ public class WorldGenSpire extends WorldGenerator
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var8 == mod_BiomesOPlenty.driedDirt.blockID) && par4 < 128 - var6 - 1)
+                if ((var8 == BOPBlocks.driedDirt.blockID) && par4 < 128 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3 - 1, par4, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 + 1, par4, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4, par5 - 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4, par5 + 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 1, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 1, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 1, par5 - 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 1, par5 + 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 2, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 2, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 2, par5 - 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 2, par5 + 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 3, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 3, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 3, par5 - 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 3, par5 + 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 4, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 4, par5, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 4, par5 - 1, mod_BiomesOPlenty.driedDirt.blockID);
-                    this.setBlock(par1World, par3, par4 + 4, par5 + 1, mod_BiomesOPlenty.driedDirt.blockID);
+                    this.setBlock(par1World, par3 - 1, par4, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 + 1, par4, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4, par5 - 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4, par5 + 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 1, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 1, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 1, par5 - 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 1, par5 + 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 2, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 2, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 2, par5 - 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 2, par5 + 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 3, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 3, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 3, par5 - 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 3, par5 + 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 4, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 4, par5, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 4, par5 - 1, BOPBlocks.driedDirt.blockID);
+                    this.setBlock(par1World, par3, par4 + 4, par5 + 1, BOPBlocks.driedDirt.blockID);
                     int var13;
                     int var16;
 
@@ -104,9 +103,9 @@ public class WorldGenSpire extends WorldGenerator
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var10 == 0 || var10 == mod_BiomesOPlenty.willowLeaves.blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
+                        if (var10 == 0 || var10 == BOPBlocks.willowLeaves.blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
                         {
-                            this.setBlock(par1World, par3, par4 + var16, par5, mod_BiomesOPlenty.driedDirt.blockID);
+                            this.setBlock(par1World, par3, par4 + var16, par5, BOPBlocks.driedDirt.blockID);
                         }
                     }
 

@@ -5,6 +5,7 @@ import static net.minecraftforge.common.ForgeDirection.UP;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
@@ -129,7 +130,7 @@ public class BlockOriginGrass extends Block
 
                     if (par1World.getBlockId(var7, var8, var9) == Block.dirt.blockID && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
                     {
-                        par1World.setBlock(var7, var8, var9, mod_BiomesOPlenty.originGrass.blockID);
+                        par1World.setBlock(var7, var8, var9, BOPBlocks.originGrass.blockID);
                     }
                 }
             }

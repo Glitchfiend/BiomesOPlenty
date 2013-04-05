@@ -1,11 +1,11 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenCanyonShrub extends WorldGenerator
 {
@@ -22,19 +22,19 @@ public class WorldGenCanyonShrub extends WorldGenerator
     {
         int var15;
 
-        for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == mod_BiomesOPlenty.acaciaLeaves.blockID) && par4 > 0; --par4)
+        for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == BOPBlocks.acaciaLeaves.blockID) && par4 > 0; --par4)
         {
             ;
         }
 
         int var7 = par1World.getBlockId(par3, par4, par5);
 
-        if (var7 == mod_BiomesOPlenty.hardDirt.blockID)
+        if (var7 == BOPBlocks.hardDirt.blockID)
         {
             ++par4;
 			if (par4 > 95)
 			{
-				this.setBlockAndMetadata(par1World, par3, par4, par5, mod_BiomesOPlenty.acaciaWood.blockID, this.field_76526_b);
+				this.setBlockAndMetadata(par1World, par3, par4, par5, BOPBlocks.acaciaWood.blockID, this.field_76526_b);
 
 				for (int var8 = par4; var8 <= par4 + 1; ++var8)
 				{
@@ -51,7 +51,7 @@ public class WorldGenCanyonShrub extends WorldGenerator
 
 							if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || par2Random.nextInt(2) != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var11, var8, var13)])
 							{
-								this.setBlockAndMetadata(par1World, var11, var8, var13, mod_BiomesOPlenty.acaciaLeaves.blockID, this.field_76527_a);
+								this.setBlockAndMetadata(par1World, var11, var8, var13, BOPBlocks.acaciaLeaves.blockID, this.field_76527_a);
 							}
 						}
 					}

@@ -2,12 +2,11 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenFungi3 extends WorldGenerator
 {
@@ -174,7 +173,7 @@ public class WorldGenFungi3 extends WorldGenerator
      */
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndMetadata(par1World, par2, par3, par4, mod_BiomesOPlenty.willow.blockID, par5);
+        this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
         int var6 = 4;
 
         while (true)
@@ -186,7 +185,7 @@ public class WorldGenFungi3 extends WorldGenerator
                 return;
             }
 
-            this.setBlockAndMetadata(par1World, par2, par3, par4, mod_BiomesOPlenty.willow.blockID, par5);
+            this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
             --var6;
         }
     }

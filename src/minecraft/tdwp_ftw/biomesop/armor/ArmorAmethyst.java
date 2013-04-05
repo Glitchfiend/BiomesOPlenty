@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.CommonProxy;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 public class ArmorAmethyst extends ItemArmor implements IArmorTextureProvider
 {
@@ -18,10 +19,10 @@ public class ArmorAmethyst extends ItemArmor implements IArmorTextureProvider
 	}
 	
 	public String getArmorTextureFile(ItemStack par1) {
-		if(par1.itemID == mod_BiomesOPlenty.helmetAmethyst.itemID||par1.itemID == mod_BiomesOPlenty.chestplateAmethyst.itemID||par1.itemID == mod_BiomesOPlenty.bootsAmethyst.itemID){
+		if(par1.itemID == BOPItems.helmetAmethyst.itemID||par1.itemID == BOPItems.chestplateAmethyst.itemID||par1.itemID == BOPItems.bootsAmethyst.itemID){
 			return CommonProxy.ARMOR_AMETHYST1_PNG;
 		}
-		if(par1.itemID == mod_BiomesOPlenty.leggingsAmethyst.itemID){
+		if(par1.itemID == BOPItems.leggingsAmethyst.itemID){
 			return CommonProxy.ARMOR_AMETHYST2_PNG;
 		}
 		return null;

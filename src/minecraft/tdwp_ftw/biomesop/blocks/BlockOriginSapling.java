@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenOriginTree;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
@@ -84,7 +85,7 @@ public class BlockOriginSapling extends BlockSapling
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID  || par1 == mod_BiomesOPlenty.originGrass.blockID;
+        return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID  || par1 == BOPBlocks.originGrass.blockID;
     }
 
     /**

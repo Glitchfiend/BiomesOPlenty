@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.biomes;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -29,6 +30,6 @@ public class BiomeGenPlainsNew extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(mod_BiomesOPlenty.mediumGrass.blockID, 1) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlocks.mediumGrass.blockID, 1) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
     }
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenCanyonShrub;
 import tdwp_ftw.biomesop.worldgen.WorldGenCanyonTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -19,8 +20,8 @@ public class BiomeGenCanyon extends BiomeGenBase
         this.spawnableCreatureList.clear();
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)mod_BiomesOPlenty.hardDirt.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.hardDirt.blockID;
+		this.topBlock = (byte)BOPBlocks.hardDirt.blockID;
+        this.fillerBlock = (byte)BOPBlocks.hardDirt.blockID;
         this.customBiomeDecorator.treesPerChunk = 10;
 		this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.tinyCactiPerChunk = 2;

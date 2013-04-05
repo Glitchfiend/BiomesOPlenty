@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -123,7 +124,7 @@ public class BlockBarley extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.barleyItem.itemID;
+        return BOPItems.barleyItem.itemID;
     }
 
     /**
@@ -139,6 +140,6 @@ public class BlockBarley extends Block
      */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return mod_BiomesOPlenty.barleyItem.itemID;
+        return BOPItems.barleyItem.itemID;
     }
 }

@@ -1,11 +1,11 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenOutbackTree extends WorldGenerator
 {
@@ -18,7 +18,7 @@ public class WorldGenOutbackTree extends WorldGenerator
 
         int var6 = var1.getBlockId(var3, var4, var5);
 
-        if (var6 != mod_BiomesOPlenty.hardSand.blockID)
+        if (var6 != BOPBlocks.hardSand.blockID)
         {
             return false;
         }
@@ -36,14 +36,14 @@ public class WorldGenOutbackTree extends WorldGenerator
             }
 
             var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-            var1.setBlock(var3, var4 + 1, var5, mod_BiomesOPlenty.acaciaWood.blockID);
-			var1.setBlock(var3, var4 + 2, var5, mod_BiomesOPlenty.acaciaWood.blockID);
-			var1.setBlock(var3, var4 + 3, var5, mod_BiomesOPlenty.acaciaWood.blockID);
-			var1.setBlock(var3 + 1, var4 + 3, var5, mod_BiomesOPlenty.acaciaLeaves.blockID);
-			var1.setBlock(var3 - 1, var4 + 3, var5, mod_BiomesOPlenty.acaciaLeaves.blockID);
-			var1.setBlock(var3, var4 + 3, var5 + 1, mod_BiomesOPlenty.acaciaLeaves.blockID);
-			var1.setBlock(var3, var4 + 3, var5 - 1, mod_BiomesOPlenty.acaciaLeaves.blockID);
-			var1.setBlock(var3, var4 + 4, var5, mod_BiomesOPlenty.acaciaLeaves.blockID);
+            var1.setBlock(var3, var4 + 1, var5, BOPBlocks.acaciaWood.blockID);
+			var1.setBlock(var3, var4 + 2, var5, BOPBlocks.acaciaWood.blockID);
+			var1.setBlock(var3, var4 + 3, var5, BOPBlocks.acaciaWood.blockID);
+			var1.setBlock(var3 + 1, var4 + 3, var5, BOPBlocks.acaciaLeaves.blockID);
+			var1.setBlock(var3 - 1, var4 + 3, var5, BOPBlocks.acaciaLeaves.blockID);
+			var1.setBlock(var3, var4 + 3, var5 + 1, BOPBlocks.acaciaLeaves.blockID);
+			var1.setBlock(var3, var4 + 3, var5 - 1, BOPBlocks.acaciaLeaves.blockID);
+			var1.setBlock(var3, var4 + 4, var5, BOPBlocks.acaciaLeaves.blockID);
             return true;
         }
     }

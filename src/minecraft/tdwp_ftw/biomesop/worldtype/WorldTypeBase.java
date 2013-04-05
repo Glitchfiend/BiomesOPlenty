@@ -18,10 +18,10 @@ public class WorldTypeBase extends WorldType
         return new WorldChunkManagerBOP(var1);
     }
 	
-    public IChunkProvider getChunkGenerator(World world, String generatorOptions)
+   /* public IChunkProvider getChunkGenerator(World world, String generatorOptions)
     {
         return new ChunkProviderBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
-    }
+    }*/
 	
 	public void removeAllBiomes()
 	{

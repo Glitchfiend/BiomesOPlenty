@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenCypress extends WorldGenerator
 {
@@ -51,7 +50,7 @@ public class WorldGenCypress extends WorldGenerator
                         {
                             var15 = var1.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != mod_BiomesOPlenty.willowLeaves.blockID)
+                            if (var15 != 0 && var15 != BOPBlocks.willowLeaves.blockID)
                             {
                                 var10 = false;
                             }
@@ -97,7 +96,7 @@ public class WorldGenCypress extends WorldGenerator
                                 {
 									if (var2.nextInt(3) != 0)
 										{
-										this.setBlockAndMetadata(var1, var17, var16, var19, mod_BiomesOPlenty.willowLeaves.blockID, 0);
+										this.setBlockAndMetadata(var1, var17, var16, var19, BOPBlocks.willowLeaves.blockID, 0);
 										}
                                 }
                             }
@@ -126,19 +125,19 @@ public class WorldGenCypress extends WorldGenerator
                     {
                         var17 = var1.getBlockId(var3, var4 + var16, var5);
 
-                        if (var17 == 0 || var17 == mod_BiomesOPlenty.willowLeaves.blockID)
+                        if (var17 == 0 || var17 == BOPBlocks.willowLeaves.blockID)
                         {
-                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, mod_BiomesOPlenty.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, mod_BiomesOPlenty.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 2, var5, mod_BiomesOPlenty.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 1, var5, mod_BiomesOPlenty.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, mod_BiomesOPlenty.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5, mod_BiomesOPlenty.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3 - 1, (var4 + var6) + 1, var5, mod_BiomesOPlenty.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3 + 1, (var4 + var6) + 1, var5, mod_BiomesOPlenty.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 - 1, mod_BiomesOPlenty.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 + 1, mod_BiomesOPlenty.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 2, var5, mod_BiomesOPlenty.willowLeaves.blockID, 0);
+                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, BOPBlocks.willowWood.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, BOPBlocks.willowWood.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 2, var5, BOPBlocks.willowWood.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 1, var5, BOPBlocks.willowWood.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, BOPBlocks.willowWood.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5, BOPBlocks.willowWood.blockID, 0);
+							this.setBlockAndMetadata(var1, var3 - 1, (var4 + var6) + 1, var5, BOPBlocks.willowLeaves.blockID, 0);
+							this.setBlockAndMetadata(var1, var3 + 1, (var4 + var6) + 1, var5, BOPBlocks.willowLeaves.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 - 1, BOPBlocks.willowLeaves.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 + 1, BOPBlocks.willowLeaves.blockID, 0);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 2, var5, BOPBlocks.willowLeaves.blockID, 0);
                         }
                     }
 

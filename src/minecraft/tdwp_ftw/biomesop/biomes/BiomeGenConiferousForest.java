@@ -10,6 +10,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenFir1;
 import tdwp_ftw.biomesop.worldgen.WorldGenFir2;
 import tdwp_ftw.biomesop.worldgen.WorldGenFir3;
@@ -46,7 +47,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(mod_BiomesOPlenty.mediumGrass.blockID, 1);
+        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(BOPBlocks.mediumGrass.blockID, 1);
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
@@ -67,7 +68,7 @@ public class BlockDarkSlab extends BlockHalfSlab
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.darkSingleSlab.blockID;
+        return BOPBlocks.darkSingleSlab.blockID;
     }
 
     /**
@@ -76,7 +77,7 @@ public class BlockDarkSlab extends BlockHalfSlab
      */
     protected ItemStack createStackedBlock(int par1)
     {
-        return new ItemStack(mod_BiomesOPlenty.darkSingleSlab.blockID, 2, par1 & 7);
+        return new ItemStack(BOPBlocks.darkSingleSlab.blockID, 2, par1 & 7);
     }
     
     /**
@@ -97,7 +98,7 @@ public class BlockDarkSlab extends BlockHalfSlab
     	    		}
     	    		
     	    		world.playSoundEffect((double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getPitch() * 0.8F);
-    	    		world.setBlock(par2, par3, par4, mod_BiomesOPlenty.darkDoubleSlab.blockID);
+    	    		world.setBlock(par2, par3, par4, BOPBlocks.darkDoubleSlab.blockID);
     	    		
     	    		return true;
     			}
@@ -113,7 +114,7 @@ public class BlockDarkSlab extends BlockHalfSlab
     	    		}
     	    		
     	    		world.playSoundEffect((double)((float)par2 + 0.5F), (double)((float)par3 + 0.5F), (double)((float)par4 + 0.5F), this.stepSound.getPlaceSound(), (this.stepSound.getVolume() + 1.0F) / 2.0F, this.stepSound.getPitch() * 0.8F);
-    	    		world.setBlock(par2, par3, par4, mod_BiomesOPlenty.darkDoubleSlab.blockID);
+    	    		world.setBlock(par2, par3, par4, BOPBlocks.darkDoubleSlab.blockID);
     	    		
     	    		return true;
     			}
@@ -140,7 +141,7 @@ public class BlockDarkSlab extends BlockHalfSlab
      */
     public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, List par3List)
     {
-        if (par1 != mod_BiomesOPlenty.darkDoubleSlab.blockID)
+        if (par1 != BOPBlocks.darkDoubleSlab.blockID)
         {
             par3List.add(new ItemStack(par1, 1, 0));
         }
@@ -151,6 +152,6 @@ public class BlockDarkSlab extends BlockHalfSlab
      */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return mod_BiomesOPlenty.darkSingleSlab.blockID;
+        return BOPBlocks.darkSingleSlab.blockID;
     }
 }

@@ -1,10 +1,11 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenCanyonTree extends WorldGenerator
 {
@@ -47,7 +48,7 @@ public class WorldGenCanyonTree extends WorldGenerator
 
                             Block block = Block.blocksList[var15];
 
-                            if (var15 != 0 && (block == null || var15 != mod_BiomesOPlenty.acaciaLeaves.blockID))
+                            if (var15 != 0 && (block == null || var15 != BOPBlocks.acaciaLeaves.blockID))
                             {
                                 var10 = false;
                             }
@@ -68,9 +69,9 @@ public class WorldGenCanyonTree extends WorldGenerator
             {
                 var11 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var11 == mod_BiomesOPlenty.hardDirt.blockID) && par4 < 128 - var6 - 1)
+                if ((var11 == BOPBlocks.hardDirt.blockID) && par4 < 128 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, mod_BiomesOPlenty.hardDirt.blockID);
+                    this.setBlock(par1World, par3, par4 - 1, par5, BOPBlocks.hardDirt.blockID);
                     var18 = 0;
 
                     for (var13 = par4 + var6; var13 >= par4 + var7; --var13)
@@ -88,7 +89,7 @@ public class WorldGenCanyonTree extends WorldGenerator
                                 if ((Math.abs(var15) != var18 || Math.abs(var17) != var18 || var18 <= 0) && 
                                     (block == null || block.canBeReplacedByLeaves(par1World, var14, var13, var16)))
                                 {
-                                    this.setBlockAndMetadata(par1World, var14, var13, var16, mod_BiomesOPlenty.acaciaLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var14, var13, var16, BOPBlocks.acaciaLeaves.blockID, 0);
                                 }
                             }
                         }
@@ -109,9 +110,9 @@ public class WorldGenCanyonTree extends WorldGenerator
 
                         Block block = Block.blocksList[var14];
 
-                        if (var14 == 0 || block == null || var14 == mod_BiomesOPlenty.acaciaLeaves.blockID)
+                        if (var14 == 0 || block == null || var14 == BOPBlocks.acaciaLeaves.blockID)
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var13, par5, mod_BiomesOPlenty.acaciaWood.blockID, 0);
+                            this.setBlockAndMetadata(par1World, par3, par4 + var13, par5, BOPBlocks.acaciaWood.blockID, 0);
                         }
                     }
 

@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
@@ -110,7 +111,7 @@ public class BlockShortGrass extends BlockFlower
         if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
         {
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(mod_BiomesOPlenty.shortGrassItem, 1, par6));
+            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPItems.shortGrassItem, 1, par6));
         }
         else
         {
@@ -123,6 +124,6 @@ public class BlockShortGrass extends BlockFlower
      */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return mod_BiomesOPlenty.shortGrassItem.itemID;
+        return BOPItems.shortGrassItem.itemID;
     }
 }

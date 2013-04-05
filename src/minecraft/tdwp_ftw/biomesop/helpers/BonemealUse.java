@@ -17,6 +17,7 @@ import tdwp_ftw.biomesop.blocks.BlockDarkSapling;
 import tdwp_ftw.biomesop.blocks.BlockMagicSapling;
 import tdwp_ftw.biomesop.blocks.BlockMangroveSapling;
 import tdwp_ftw.biomesop.blocks.BlockAcaciaSapling;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.entity.player.EntityPlayer;
@@ -33,7 +34,7 @@ public class BonemealUse
 	public void onUseBonemeal(BonemealEvent event)
 	{
 		
-		if (event.ID == mod_BiomesOPlenty.firSapling.blockID)
+		if (event.ID == BOPBlocks.firSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -41,12 +42,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockFirSapling)mod_BiomesOPlenty.firSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockFirSapling)BOPBlocks.firSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.redwoodSapling.blockID)
+		if (event.ID == BOPBlocks.redwoodSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -54,12 +55,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockRedwoodSapling)mod_BiomesOPlenty.redwoodSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockRedwoodSapling)BOPBlocks.redwoodSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.palmSapling.blockID)
+		if (event.ID == BOPBlocks.palmSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -67,12 +68,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockPalmSapling)mod_BiomesOPlenty.palmSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockPalmSapling)BOPBlocks.palmSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.redSapling.blockID)
+		if (event.ID == BOPBlocks.redSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -80,12 +81,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockRedSapling)mod_BiomesOPlenty.redSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockRedSapling)BOPBlocks.redSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.orangeSapling.blockID)
+		if (event.ID == BOPBlocks.orangeSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -93,12 +94,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockOrangeSapling)mod_BiomesOPlenty.orangeSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockOrangeSapling)BOPBlocks.orangeSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.yellowSapling.blockID)
+		if (event.ID == BOPBlocks.yellowSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -106,12 +107,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockYellowSapling)mod_BiomesOPlenty.yellowSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockYellowSapling)BOPBlocks.yellowSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.brownSapling.blockID)
+		if (event.ID == BOPBlocks.brownSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -119,12 +120,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockBrownSapling)mod_BiomesOPlenty.brownSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockBrownSapling)BOPBlocks.brownSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.willowSapling.blockID)
+		if (event.ID == BOPBlocks.willowSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -132,12 +133,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockWillowSapling)mod_BiomesOPlenty.willowSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockWillowSapling)BOPBlocks.willowSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.appleSapling.blockID)
+		if (event.ID == BOPBlocks.appleSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -145,36 +146,23 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockAppleSapling)mod_BiomesOPlenty.appleSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockAppleSapling)BOPBlocks.appleSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.originSapling.blockID)
+		if (event.ID == BOPBlocks.originSapling.blockID)
 		{
 			if (!event.world.isRemote)
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockOriginSapling)mod_BiomesOPlenty.originSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockOriginSapling)BOPBlocks.originSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.pinkSapling.blockID)
-		{
-			event.setResult(Result.ALLOW);
-			
-			if (!event.world.isRemote)
-			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
-				{
-					((BlockPinkSapling)mod_BiomesOPlenty.pinkSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-				}
-			}
-		}
-		
-		if (event.ID == mod_BiomesOPlenty.whiteSapling.blockID)
+		if (event.ID == BOPBlocks.pinkSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -182,12 +170,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockWhiteSapling)mod_BiomesOPlenty.whiteSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockPinkSapling)BOPBlocks.pinkSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.darkSapling.blockID)
+		if (event.ID == BOPBlocks.whiteSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -195,12 +183,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockDarkSapling)mod_BiomesOPlenty.darkSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockWhiteSapling)BOPBlocks.whiteSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.magicSapling.blockID)
+		if (event.ID == BOPBlocks.darkSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -208,12 +196,25 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockMagicSapling)mod_BiomesOPlenty.magicSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockDarkSapling)BOPBlocks.darkSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.mangroveSapling.blockID)
+		if (event.ID == BOPBlocks.magicSapling.blockID)
+		{
+			event.setResult(Result.ALLOW);
+			
+			if (!event.world.isRemote)
+			{
+				if ((double)event.world.rand.nextFloat() < 0.45D)
+				{
+					((BlockMagicSapling)BOPBlocks.magicSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				}
+			}
+		}
+		
+		if (event.ID == BOPBlocks.mangroveSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 
@@ -221,12 +222,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockMangroveSapling)mod_BiomesOPlenty.mangroveSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockMangroveSapling)BOPBlocks.mangroveSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.acaciaSapling.blockID)
+		if (event.ID == BOPBlocks.acaciaSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -234,12 +235,12 @@ public class BonemealUse
 			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockAcaciaSapling)mod_BiomesOPlenty.acaciaSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockAcaciaSapling)BOPBlocks.acaciaSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
 		
-		if (event.ID == mod_BiomesOPlenty.holyGrass.blockID)
+		if (event.ID == BOPBlocks.holyGrass.blockID)
 		{
 			int var13 = event.X;
 			int var14 = event.Y + 1;
@@ -257,13 +258,13 @@ public class BonemealUse
 
 				if (event.world.getBlockId(var13, var14, var15) == 0)
 				{
-					if (mod_BiomesOPlenty.holyTallGrass.canBlockStay(event.world, var13, var14, var15))
+					if (BOPBlocks.holyTallGrass.canBlockStay(event.world, var13, var14, var15))
 					{
 						event.setResult(Result.ALLOW);
 
 						if (!event.world.isRemote)
 						{
-							event.world.setBlock(var13, var14, var15, mod_BiomesOPlenty.holyTallGrass.blockID, 0, 0x02);
+							event.world.setBlock(var13, var14, var15, BOPBlocks.holyTallGrass.blockID, 0, 0x02);
 						}      
 					}
 				}

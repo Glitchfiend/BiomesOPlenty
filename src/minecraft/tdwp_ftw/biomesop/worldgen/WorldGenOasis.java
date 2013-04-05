@@ -2,12 +2,11 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenOasis extends WorldGenerator
 {
@@ -47,7 +46,7 @@ public class WorldGenOasis extends WorldGenerator
                         {
                             int var13 = par1World.getBlockId(var8, var12, var9);
 
-                            if (var13 == Block.sand.blockID || var13 == mod_BiomesOPlenty.redRock.blockID)
+                            if (var13 == Block.sand.blockID || var13 == BOPBlocks.redRock.blockID)
                             {
                                 par1World.setBlock(var8, var12, var9, this.sandID);
                             }

@@ -2,6 +2,7 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -16,9 +17,9 @@ public class WorldGenAlgae extends WorldGenerator
             int var8 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var9 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var7, var8, var9) && mod_BiomesOPlenty.algae.canPlaceBlockAt(par1World, var7, var8, var9))
+            if (par1World.isAirBlock(var7, var8, var9) && BOPBlocks.algae.canPlaceBlockAt(par1World, var7, var8, var9))
             {
-                par1World.setBlock(var7, var8, var9, mod_BiomesOPlenty.algae.blockID, 0, 2);
+                par1World.setBlock(var7, var8, var9, BOPBlocks.algae.blockID, 0, 2);
             }
         }
 

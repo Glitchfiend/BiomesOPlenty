@@ -8,6 +8,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenCrag;
 
 public class BiomeGenCrag extends BiomeGenBase
@@ -22,8 +23,8 @@ public class BiomeGenCrag extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = -999;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.topBlock = (byte)mod_BiomesOPlenty.cragRock.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.cragRock.blockID;
+        this.topBlock = (byte)BOPBlocks.cragRock.blockID;
+        this.fillerBlock = (byte)BOPBlocks.cragRock.blockID;
 		this.waterColorMultiplier = 944693;
     }
 	

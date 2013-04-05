@@ -6,6 +6,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenAcacia;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -16,8 +17,8 @@ public class BiomeGenLushDesert extends BiomeGenBase
 	public BiomeGenLushDesert(int par1)
     {
         super(par1);
-        this.topBlock = (byte)mod_BiomesOPlenty.redRock.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.redRock.blockID;
+        this.topBlock = (byte)BOPBlocks.redRock.blockID;
+        this.fillerBlock = (byte)BOPBlocks.redRock.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 8;

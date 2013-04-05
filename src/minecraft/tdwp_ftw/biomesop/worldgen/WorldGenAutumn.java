@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.worldgen;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -49,7 +50,7 @@ public class WorldGenAutumn extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != mod_BiomesOPlenty.autumnLeaves.blockID)
+                            if (var12 != 0 && var12 != BOPBlocks.autumnLeaves.blockID)
                             {
                                 var7 = false;
                             }
@@ -90,7 +91,7 @@ public class WorldGenAutumn extends WorldGenerator
 
                                 if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var12, var16, var14, mod_BiomesOPlenty.autumnLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.autumnLeaves.blockID, 0);
                                 }
                             }
                         }
@@ -100,7 +101,7 @@ public class WorldGenAutumn extends WorldGenerator
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var10 == 0 || var10 == mod_BiomesOPlenty.autumnLeaves.blockID)
+                        if (var10 == 0 || var10 == BOPBlocks.autumnLeaves.blockID)
                         {
                             this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 2);
                         }

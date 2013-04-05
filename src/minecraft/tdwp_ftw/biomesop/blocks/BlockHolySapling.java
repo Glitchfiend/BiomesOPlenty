@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenPromisedTree;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
@@ -52,7 +53,7 @@ public class BlockHolySapling extends BlockSapling
     {
         Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
         return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
-                (soil != null && soil.blockID == mod_BiomesOPlenty.holyGrass.blockID);
+                (soil != null && soil.blockID == BOPBlocks.holyGrass.blockID);
     }
 	
     /**
@@ -95,7 +96,7 @@ public class BlockHolySapling extends BlockSapling
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == mod_BiomesOPlenty.holyGrass.blockID;
+        return par1 == BOPBlocks.holyGrass.blockID;
     }
 
     /**

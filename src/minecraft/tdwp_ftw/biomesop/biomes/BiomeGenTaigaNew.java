@@ -10,6 +10,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenNorwaySpruce1;
 import tdwp_ftw.biomesop.worldgen.WorldGenNorwaySpruce2;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -43,6 +44,6 @@ public class BiomeGenTaigaNew extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return new WorldGenTallGrass(mod_BiomesOPlenty.shortGrass.blockID, 1);
+        return new WorldGenTallGrass(BOPBlocks.shortGrass.blockID, 1);
     }
 }

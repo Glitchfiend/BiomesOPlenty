@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -66,7 +67,7 @@ public class BlockMangroveLog extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.mangroveWood.blockID;
+        return BOPBlocks.mangroveWood.blockID;
     }
 
     /**
@@ -87,7 +88,7 @@ public class BlockMangroveLog extends Block
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == mod_BiomesOPlenty.mangroveLeaves.blockID)
+                        if (var12 == BOPBlocks.mangroveLeaves.blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
 

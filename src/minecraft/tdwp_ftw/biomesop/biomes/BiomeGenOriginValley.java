@@ -6,6 +6,7 @@ import java.awt.Color;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenOriginTree;
 
 public class BiomeGenOriginValley extends BiomeGenBase
@@ -17,7 +18,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)mod_BiomesOPlenty.originGrass.blockID;
+		this.topBlock = (byte)BOPBlocks.originGrass.blockID;
         this.customBiomeDecorator.treesPerChunk = 4;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.generatePumpkins = false;

@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.biomes;
 import java.awt.Color;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
@@ -15,8 +16,8 @@ public class BiomeGenMesa extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)mod_BiomesOPlenty.redRock.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.redRock.blockID;
+        this.topBlock = (byte)BOPBlocks.redRock.blockID;
+        this.fillerBlock = (byte)BOPBlocks.redRock.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = -999;

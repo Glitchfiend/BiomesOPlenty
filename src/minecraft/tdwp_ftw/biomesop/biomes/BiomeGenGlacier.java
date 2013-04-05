@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.biomes;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenGlacier extends BiomeGenBase
@@ -11,8 +12,8 @@ public class BiomeGenGlacier extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)mod_BiomesOPlenty.hardIce.blockID;
-        this.fillerBlock = (byte)mod_BiomesOPlenty.hardIce.blockID;
+        this.topBlock = (byte)BOPBlocks.hardIce.blockID;
+        this.fillerBlock = (byte)BOPBlocks.hardIce.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = -999;

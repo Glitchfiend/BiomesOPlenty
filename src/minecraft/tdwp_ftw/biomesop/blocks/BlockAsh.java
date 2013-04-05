@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -64,7 +65,7 @@ public class BlockAsh extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.ashes.itemID;
+        return BOPItems.ashes.itemID;
     }
 
     /**

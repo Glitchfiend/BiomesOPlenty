@@ -2,12 +2,11 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenMud extends WorldGenerator
 {
@@ -49,7 +48,7 @@ public class WorldGenMud extends WorldGenerator
 
                             if (var13 == Block.dirt.blockID || var13 == Block.grass.blockID)
                             {
-                                par1World.setBlock(var8, var12, var9, mod_BiomesOPlenty.mud.blockID);
+                                par1World.setBlock(var8, var12, var9, BOPBlocks.mud.blockID);
                             }
                         }
                     }

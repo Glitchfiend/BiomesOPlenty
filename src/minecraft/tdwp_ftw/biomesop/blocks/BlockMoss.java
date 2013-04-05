@@ -3,6 +3,8 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -178,7 +180,7 @@ public class BlockMoss extends Block
      */
     private boolean canBePlacedOn(int par1)
     {
-        if (par1 != Block.wood.blockID && par1 != mod_BiomesOPlenty.willowWood.blockID && par1 != Block.stone.blockID)
+        if (par1 != Block.wood.blockID && par1 != BOPBlocks.willowWood.blockID && par1 != Block.stone.blockID)
         {
             return false;
         }
@@ -436,7 +438,7 @@ public class BlockMoss extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.mossItem.itemID;
+        return BOPItems.mossItem.itemID;
     }
 
     /**
@@ -452,6 +454,6 @@ public class BlockMoss extends Block
      */
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
-        return mod_BiomesOPlenty.mossItem.itemID;
+        return BOPItems.mossItem.itemID;
     }
 }

@@ -1,11 +1,11 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenPromisedTree extends WorldGenerator
 {
@@ -50,7 +50,7 @@ public class WorldGenPromisedTree extends WorldGenerator
                         {
                             var15 = par1World.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != mod_BiomesOPlenty.holyLeaves.blockID)
+                            if (var15 != 0 && var15 != BOPBlocks.holyLeaves.blockID)
                             {
                                 var10 = false;
                             }
@@ -71,9 +71,9 @@ public class WorldGenPromisedTree extends WorldGenerator
             {
                 var11 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var11 == mod_BiomesOPlenty.holyGrass.blockID) && par4 < 256 - var6 - 1)
+                if ((var11 == BOPBlocks.holyGrass.blockID) && par4 < 256 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, mod_BiomesOPlenty.holyGrass.blockID);
+                    this.setBlock(par1World, par3, par4 - 1, par5, BOPBlocks.holyGrass.blockID);
                     var21 = par2Random.nextInt(2);
                     var13 = 1;
                     byte var22 = 0;
@@ -94,7 +94,7 @@ public class WorldGenPromisedTree extends WorldGenerator
 
                                 if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var17, var16, var19)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var17, var16, var19, mod_BiomesOPlenty.holyLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var17, var16, var19, BOPBlocks.holyLeaves.blockID, 0);
                                 }
                             }
                         }
@@ -122,9 +122,9 @@ public class WorldGenPromisedTree extends WorldGenerator
                     {
                         var17 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var17 == 0 || var17 == mod_BiomesOPlenty.holyLeaves.blockID)
+                        if (var17 == 0 || var17 == BOPBlocks.holyLeaves.blockID)
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, mod_BiomesOPlenty.holyWood.blockID, 0);
+                            this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, BOPBlocks.holyWood.blockID, 0);
                         }
                     }
 

@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree2;
 import tdwp_ftw.biomesop.worldgen.WorldGenTaiga5;
@@ -33,7 +34,7 @@ public class BiomeGenDeadForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(9) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 0) : new WorldGenTallGrass(mod_BiomesOPlenty.shortGrass.blockID, 1);
+        return par1Random.nextInt(9) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 0) : new WorldGenTallGrass(BOPBlocks.shortGrass.blockID, 1);
     }
 	
     /**

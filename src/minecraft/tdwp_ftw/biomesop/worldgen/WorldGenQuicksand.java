@@ -1,11 +1,11 @@
 package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenQuicksand extends WorldGenerator
 {
@@ -39,19 +39,19 @@ public class WorldGenQuicksand extends WorldGenerator
                 }
             }
 
-			var1.setBlock(var3, var4 - 3, var5, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3, var4 - 2, var5, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3, var4 - 1, var5, mod_BiomesOPlenty.quicksand.blockID);
+			var1.setBlock(var3, var4 - 3, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 2, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 1, var5, BOPBlocks.quicksand.blockID);
             var1.setBlock(var3, var4, var5, 0);
 			
-			var1.setBlock(var3 - 1, var4 - 2, var5, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3 + 1, var4 - 2, var5, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3, var4 - 2, var5 - 1, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3, var4 - 2, var5 + 1, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3 - 1, var4 - 1, var5, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3 + 1, var4 - 1, var5, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3, var4 - 1, var5 - 1, mod_BiomesOPlenty.quicksand.blockID);
-			var1.setBlock(var3, var4 - 1, var5 + 1, mod_BiomesOPlenty.quicksand.blockID);
+			var1.setBlock(var3 - 1, var4 - 2, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3 + 1, var4 - 2, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 2, var5 - 1, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 2, var5 + 1, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3 - 1, var4 - 1, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3 + 1, var4 - 1, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 1, var5 - 1, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 1, var5 + 1, BOPBlocks.quicksand.blockID);
 			var1.setBlock(var3 - 1, var4, var5, 0);
 			var1.setBlock(var3 + 1, var4, var5, 0);
 			var1.setBlock(var3, var4, var5 - 1, 0);

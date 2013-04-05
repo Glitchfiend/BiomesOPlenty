@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.CommonProxy;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 public class ArmorMuddy extends ItemArmor implements IArmorTextureProvider
 {
@@ -18,10 +19,10 @@ public class ArmorMuddy extends ItemArmor implements IArmorTextureProvider
 	}
 	
 	public String getArmorTextureFile(ItemStack par1) {
-		if(par1.itemID == mod_BiomesOPlenty.helmetMud.itemID||par1.itemID == mod_BiomesOPlenty.chestplateMud.itemID||par1.itemID == mod_BiomesOPlenty.bootsMud.itemID){
+		if(par1.itemID == BOPItems.helmetMud.itemID||par1.itemID == BOPItems.chestplateMud.itemID||par1.itemID == BOPItems.bootsMud.itemID){
 			return CommonProxy.ARMOR_MUD1_PNG;
 		}
-		if(par1.itemID == mod_BiomesOPlenty.leggingsMud.itemID){
+		if(par1.itemID == BOPItems.leggingsMud.itemID){
 			return CommonProxy.ARMOR_MUD2_PNG;
 		}
 		return null;

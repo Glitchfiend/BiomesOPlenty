@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenMystic2 extends WorldGenerator
 {
@@ -51,7 +50,7 @@ public class WorldGenMystic2 extends WorldGenerator
                         {
                             var15 = var1.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != mod_BiomesOPlenty.blueLeaves.blockID)
+                            if (var15 != 0 && var15 != BOPBlocks.blueLeaves.blockID)
                             {
                                 var10 = false;
                             }
@@ -95,7 +94,7 @@ public class WorldGenMystic2 extends WorldGenerator
 
                                 if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[var1.getBlockId(var17, var16, var19)])
                                 {
-                                    this.setBlock(var1, var17, var16, var19, mod_BiomesOPlenty.blueLeaves.blockID);
+                                    this.setBlock(var1, var17, var16, var19, BOPBlocks.blueLeaves.blockID);
                                 }
                             }
                         }
@@ -123,9 +122,9 @@ public class WorldGenMystic2 extends WorldGenerator
                     {
                         var17 = var1.getBlockId(var3, var4 + var16, var5);
 
-                        if (var17 == 0 || var17 == mod_BiomesOPlenty.blueLeaves.blockID)
+                        if (var17 == 0 || var17 == BOPBlocks.blueLeaves.blockID)
                         {
-                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, mod_BiomesOPlenty.magicWood.blockID, 0);
+                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, BOPBlocks.magicWood.blockID, 0);
                         }
                     }
 

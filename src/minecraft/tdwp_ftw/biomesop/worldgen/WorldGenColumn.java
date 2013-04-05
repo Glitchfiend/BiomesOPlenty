@@ -2,10 +2,9 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenColumn extends WorldGenerator
 {
@@ -55,7 +54,7 @@ public class WorldGenColumn extends WorldGenerator
 
                         if (var11 * var11 + var12 * var12 <= var7 * var7 + 1)
                         {
-                            par1World.setBlock(var9, var8, var10, mod_BiomesOPlenty.ashStone.blockID);
+                            par1World.setBlock(var9, var8, var10, BOPBlocks.ashStone.blockID);
                         }
                     }
                 }

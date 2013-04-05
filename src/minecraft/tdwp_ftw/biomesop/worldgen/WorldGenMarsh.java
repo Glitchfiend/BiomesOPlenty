@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenMarsh extends WorldGenerator
 {
@@ -112,16 +111,16 @@ public class WorldGenMarsh extends WorldGenerator
 					
 					if (par2Random.nextInt(3) == 0)
 						{
-						par1World.setBlock(par3, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3 - 1, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3 - 1, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3 + 1, par4 + 1, par5, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3 + 1, par4 + 2, par5, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 1, par5 - 1, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 2, par5 - 1, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 1, par5 + 1, mod_BiomesOPlenty.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 2, par5 + 1, mod_BiomesOPlenty.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5, BOPBlocks.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5, BOPBlocks.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3 - 1, par4 + 1, par5, BOPBlocks.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3 - 1, par4 + 2, par5, BOPBlocks.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3 + 1, par4 + 1, par5, BOPBlocks.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3 + 1, par4 + 2, par5, BOPBlocks.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5 - 1, BOPBlocks.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5 - 1, BOPBlocks.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5 + 1, BOPBlocks.highGrassBottom.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5 + 1, BOPBlocks.highGrassTop.blockID, 1, 2);
 						}
 					else
 						{

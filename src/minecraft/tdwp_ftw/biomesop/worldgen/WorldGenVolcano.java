@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenVolcano extends WorldGenerator
 {
@@ -19,7 +18,7 @@ public class WorldGenVolcano extends WorldGenerator
 
         int var6 = var1.getBlockId(var3, var4, var5);
 
-        if (var6 != mod_BiomesOPlenty.ashStone.blockID)
+        if (var6 != BOPBlocks.ashStone.blockID)
         {
             return false;
         }

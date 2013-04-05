@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenDesertCactus extends WorldGenerator
 {
@@ -32,7 +31,7 @@ public class WorldGenDesertCactus extends WorldGenerator
 
                                 for (int var11 = 0; var11 < var10; ++var11)
                                 {
-                                    if (mod_BiomesOPlenty.desertGrass.canBlockStay(par1World, var7, var8 + var11, var9))
+                                    if (BOPBlocks.desertGrass.canBlockStay(par1World, var7, var8 + var11, var9))
                                     {
                                         par1World.setBlock(var7, var8 - 1, var9, Block.sand.blockID);
                                         par1World.setBlock(var7, var8 + var11, var9, Block.cactus.blockID);

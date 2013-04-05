@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenOutback extends WorldGenerator
 {
@@ -35,10 +34,10 @@ public class WorldGenOutback extends WorldGenerator
             int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == mod_BiomesOPlenty.hardSand.blockID)
+            if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == BOPBlocks.hardSand.blockID)
             {
                 par1World.setBlock(var8, var9 - 1, var10, Block.grass.blockID, 0, 2);
-				par1World.setBlock(var8, var9, var10, mod_BiomesOPlenty.mediumGrass.blockID, 1, 2);
+				par1World.setBlock(var8, var9, var10, BOPBlocks.mediumGrass.blockID, 1, 2);
             }
         }
 

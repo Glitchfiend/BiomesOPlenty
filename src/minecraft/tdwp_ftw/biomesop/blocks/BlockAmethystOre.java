@@ -1,6 +1,7 @@
 package tdwp_ftw.biomesop.blocks;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 import net.minecraft.block.Block;
 import java.util.Random;
@@ -30,7 +31,7 @@ public class BlockAmethystOre extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return mod_BiomesOPlenty.amethyst.itemID;
+        return BOPItems.amethyst.itemID;
     }
 
     /**

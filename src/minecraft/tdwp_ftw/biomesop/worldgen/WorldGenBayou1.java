@@ -3,6 +3,7 @@ package tdwp_ftw.biomesop.worldgen;
 import java.util.Random;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -55,7 +56,7 @@ public class WorldGenBayou1 extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != mod_BiomesOPlenty.willowLeaves.blockID)
+                            if (var12 != 0 && var12 != BOPBlocks.willowLeaves.blockID)
                             {
                                 if (var12 != Block.waterStill.blockID && var12 != Block.waterMoving.blockID)
                                 {
@@ -110,22 +111,22 @@ public class WorldGenBayou1 extends WorldGenerator
                 if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 128 - var6 - 1)
                 {
                     this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
-                    this.setBlock(par1World, par3 - 1, par4, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 + 1, par4, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4, par5 - 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4, par5 + 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 1, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 1, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4 + 1, par5 - 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4 + 1, par5 + 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 2, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 2, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4 + 2, par5 - 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4 + 2, par5 + 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 - 1, par4 + 3, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3 + 1, par4 + 3, par5, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4 + 3, par5 - 1, mod_BiomesOPlenty.willowWood.blockID);
-                    this.setBlock(par1World, par3, par4 + 3, par5 + 1, mod_BiomesOPlenty.willowWood.blockID);
+                    this.setBlock(par1World, par3 - 1, par4, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 + 1, par4, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4, par5 - 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4, par5 + 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 1, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 1, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4 + 1, par5 - 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4 + 1, par5 + 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 2, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 2, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4 + 2, par5 - 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4 + 2, par5 + 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 - 1, par4 + 3, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3 + 1, par4 + 3, par5, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4 + 3, par5 - 1, BOPBlocks.willowWood.blockID);
+                    this.setBlock(par1World, par3, par4 + 3, par5 + 1, BOPBlocks.willowWood.blockID);
                     int var13;
                     int var16;
 
@@ -144,7 +145,7 @@ public class WorldGenBayou1 extends WorldGenerator
 
                                 if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var12, var16, var14, mod_BiomesOPlenty.willowLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.willowLeaves.blockID, 0);
                                 }
                             }
                         }
@@ -154,9 +155,9 @@ public class WorldGenBayou1 extends WorldGenerator
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var10 == 0 || var10 == mod_BiomesOPlenty.willowLeaves.blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
+                        if (var10 == 0 || var10 == BOPBlocks.willowLeaves.blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
                         {
-                            this.setBlock(par1World, par3, par4 + var16, par5, mod_BiomesOPlenty.willowWood.blockID);
+                            this.setBlock(par1World, par3, par4 + var16, par5, BOPBlocks.willowWood.blockID);
                         }
                     }
 
@@ -169,7 +170,7 @@ public class WorldGenBayou1 extends WorldGenerator
                         {
                             for (var13 = par5 - var11; var13 <= par5 + var11; ++var13)
                             {
-                                if (par1World.getBlockId(var12, var16, var13) == mod_BiomesOPlenty.willowLeaves.blockID)
+                                if (par1World.getBlockId(var12, var16, var13) == BOPBlocks.willowLeaves.blockID)
                                 {
                                     if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
                                     {
@@ -214,7 +215,7 @@ public class WorldGenBayou1 extends WorldGenerator
      */
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndMetadata(par1World, par2, par3, par4, mod_BiomesOPlenty.willow.blockID, par5);
+        this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
         int var6 = 4;
 
         while (true)
@@ -226,7 +227,7 @@ public class WorldGenBayou1 extends WorldGenerator
                 return;
             }
 
-            this.setBlockAndMetadata(par1World, par2, par3, par4, mod_BiomesOPlenty.willow.blockID, par5);
+            this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
             --var6;
         }
     }
