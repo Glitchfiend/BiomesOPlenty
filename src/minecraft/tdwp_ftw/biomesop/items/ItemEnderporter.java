@@ -39,13 +39,23 @@ public class ItemEnderporter extends Item
         }
         else
         {
-			par1ItemStack.damageItem(1, par3EntityPlayer);
-			par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 999));
-			par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 200, 999));
-			par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.nightVision.id, 100, 999));
-			par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 200, 3));
-			par3EntityPlayer.setPosition(par2World.getSpawnPoint().posX, 256, par2World.getSpawnPoint().posZ);
-			par2World.playSoundAtEntity(par3EntityPlayer, "random.levelup", 1.0F, 5.0F);
+			if (par3EntityPlayer.dimension == 0)
+			{
+				par1ItemStack.damageItem(1, par3EntityPlayer);
+				par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 999));
+				par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.resistance.id, 200, 999));
+				par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.nightVision.id, 100, 999));
+				par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 200, 3));
+				par3EntityPlayer.setPosition(par2World.getSpawnPoint().posX, 256, par2World.getSpawnPoint().posZ);
+				par2World.playSoundAtEntity(par3EntityPlayer, "random.levelup", 1.0F, 5.0F);
+			}
+			else 
+			{
+				if (!par3EntityPlayer.worldObj.isRemote)
+				{
+					par3EntityPlayer.addChatMessage("\u00a75A mystical energy is preventing you from using this in the current world.");
+				}
+			}
 
             return par1ItemStack;
         }
