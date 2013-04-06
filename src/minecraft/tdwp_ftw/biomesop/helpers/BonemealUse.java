@@ -215,13 +215,16 @@ public class BonemealUse
 		
 		if (event.ID == BOPBlocks.mangroveSapling.blockID)
 		{
-			event.setResult(Result.ALLOW);
-
-			if (!event.world.isRemote)
+			if (event.world.getBlockId(event.X, event.Y - 1, event.Z) == Block.sand.blockID)
 			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
+				event.setResult(Result.ALLOW);
+
+				if (!event.world.isRemote)
 				{
-					((BlockMangroveSapling)BOPBlocks.mangroveSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					if ((double)event.world.rand.nextFloat() < 0.45D)
+					{
+						((BlockMangroveSapling)BOPBlocks.mangroveSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					}
 				}
 			}
 		}
