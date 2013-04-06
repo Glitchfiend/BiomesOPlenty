@@ -1,15 +1,14 @@
 package tdwp_ftw.biomesop.declarations;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.blocks.*;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BOPBlocks {
 
@@ -549,6 +548,10 @@ public class BOPBlocks {
 		//Redwood
 		OreDictionary.registerOre("plankWood", new ItemStack(redwoodPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(redwoodWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(redwoodSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(redwoodStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(redwoodLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(redwoodSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(redwoodPlank, 4), new Object[] {redwoodWood});
 		GameRegistry.addRecipe(new ItemStack(redwoodSingleSlab, 6), new Object[] {"RRR", 'R', redwoodPlank});
@@ -558,6 +561,10 @@ public class BOPBlocks {
 		//Willow
 		OreDictionary.registerOre("plankWood", new ItemStack(willowPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(willowWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(willowSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(willowStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(willowLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(willowSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(willowPlank, 4), new Object[] {willowWood});
 		GameRegistry.addRecipe(new ItemStack(willowSingleSlab, 6), new Object[] {"RRR", 'R', willowPlank});
@@ -567,6 +574,10 @@ public class BOPBlocks {
 		//Acacia
 		OreDictionary.registerOre("plankWood", new ItemStack(acaciaPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(acaciaWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(acaciaSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(acaciaStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(acaciaLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(acaciaSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(acaciaPlank, 4), new Object[] {acaciaWood});
 		GameRegistry.addRecipe(new ItemStack(acaciaSingleSlab, 6), new Object[] {"RRR", 'R', acaciaPlank});
@@ -576,6 +587,10 @@ public class BOPBlocks {
 		//Fir
 		OreDictionary.registerOre("plankWood", new ItemStack(firPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(firWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(firSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(firStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(firLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(firSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(firPlank, 4), new Object[] {firWood});
 		GameRegistry.addRecipe(new ItemStack(firSingleSlab, 6), new Object[] {"RRR", 'R', firPlank});
@@ -585,6 +600,12 @@ public class BOPBlocks {
 		//Cherry
 		OreDictionary.registerOre("plankWood", new ItemStack(cherryPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(cherryWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(cherrySingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(cherryStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(pinkLeaves));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(whiteLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(pinkSapling));
+		OreDictionary.registerOre("treeSapling", new ItemStack(whiteSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(cherryPlank, 4), new Object[] {cherryWood});
 		GameRegistry.addRecipe(new ItemStack(cherrySingleSlab, 6), new Object[] {"RRR", 'R', cherryPlank});
@@ -594,6 +615,10 @@ public class BOPBlocks {
 		//Dark
 		OreDictionary.registerOre("plankWood", new ItemStack(darkPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(darkWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(darkSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(darkStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(darkLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(darkSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(darkPlank, 4), new Object[] {darkWood});
 		GameRegistry.addRecipe(new ItemStack(darkSingleSlab, 6), new Object[] {"RRR", 'R', darkPlank});
@@ -603,6 +628,10 @@ public class BOPBlocks {
 		//Magic
 		OreDictionary.registerOre("plankWood", new ItemStack(magicPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(magicWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(magicSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(magicStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(blueLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(magicSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(magicPlank, 4), new Object[] {magicWood});
 		GameRegistry.addRecipe(new ItemStack(magicSingleSlab, 6), new Object[] {"RRR", 'R', magicPlank});
@@ -612,6 +641,10 @@ public class BOPBlocks {
 		//Palm
 		OreDictionary.registerOre("plankWood", new ItemStack(palmPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(palmWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(palmSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(palmStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(palmLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(palmSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(palmPlank, 4), new Object[] {palmWood});
 		GameRegistry.addRecipe(new ItemStack(palmSingleSlab, 6), new Object[] {"RRR", 'R', palmPlank});
@@ -621,6 +654,10 @@ public class BOPBlocks {
 		//Mangrove
 		OreDictionary.registerOre("plankWood", new ItemStack(mangrovePlank));
 		OreDictionary.registerOre("logWood", new ItemStack(mangroveWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(mangroveSingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(mangroveStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(mangroveLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(mangroveSapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(mangrovePlank, 4), new Object[] {mangroveWood});
 		GameRegistry.addRecipe(new ItemStack(mangroveSingleSlab, 6), new Object[] {"RRR", 'R', mangrovePlank});
@@ -630,13 +667,41 @@ public class BOPBlocks {
 		//Holy
 		OreDictionary.registerOre("plankWood", new ItemStack(holyPlank));
 		OreDictionary.registerOre("logWood", new ItemStack(holyWood));
+		OreDictionary.registerOre("slabWood", new ItemStack(holySingleSlab));
+		OreDictionary.registerOre("stairWood", new ItemStack(holyStairs));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(holyLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(holySapling));
 
 		GameRegistry.addShapelessRecipe(new ItemStack(holyPlank, 4), new Object[] {holyWood});
 		GameRegistry.addRecipe(new ItemStack(holySingleSlab, 6), new Object[] {"RRR", 'R', holyPlank});
 		GameRegistry.addRecipe(new ItemStack(holyStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', holyPlank});
 		GameRegistry.addRecipe(new ItemStack(holyStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', holyPlank});
 
+		//Autumn
+		OreDictionary.registerOre("treeLeaves", new ItemStack(autumnLeaves));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(redLeaves));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(orangeLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(yellowSapling));
+		OreDictionary.registerOre("treeSapling", new ItemStack(redSapling));
+		OreDictionary.registerOre("treeSapling", new ItemStack(orangeSapling));
+		
+		//Dead
+		OreDictionary.registerOre("woodLog", new ItemStack(deadWood));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(deadLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(brownSapling));
+		
+		//Apple
+		OreDictionary.registerOre("treeLeaves", new ItemStack(appleLeaves));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(appleLeavesFruitless));
+		OreDictionary.registerOre("treeSapling", new ItemStack(appleSapling));
+		
+		//Origin
+		OreDictionary.registerOre("treeLeaves", new ItemStack(originLeaves));
+		OreDictionary.registerOre("treeSapling", new ItemStack(originSapling));
+		
 		//Other
+		OreDictionary.registerOre("treeLeaves", new ItemStack(bambooLeaves));
+		
 		GameRegistry.addRecipe(new ItemStack(redRockBrick, 4), new Object[] {"RR", "RR", 'R', redRock});
 
 		GameRegistry.addSmelting(Block.dirt.blockID, new ItemStack(driedDirt, 1), 0F);
