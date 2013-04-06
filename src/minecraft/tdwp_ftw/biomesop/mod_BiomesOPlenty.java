@@ -7,43 +7,35 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHalfSlab;
-import net.minecraft.client.Minecraft;
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.stats.Achievement;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.ChestGenHooks;
-import tdwp_ftw.biomesop.armor.*;
-import tdwp_ftw.biomesop.biomes.*;
-import tdwp_ftw.biomesop.blocks.*;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 import tdwp_ftw.biomesop.declarations.BOPBiomes;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import tdwp_ftw.biomesop.declarations.BOPItems;
-import tdwp_ftw.biomesop.helpers.*;
-import tdwp_ftw.biomesop.items.*;
+import tdwp_ftw.biomesop.helpers.AchievementPickup;
+import tdwp_ftw.biomesop.helpers.BonemealUse;
+import tdwp_ftw.biomesop.helpers.CreativeTabsBOP;
+import tdwp_ftw.biomesop.helpers.WorldProviderPromised;
+import tdwp_ftw.biomesop.helpers.WorldTypeSize;
+import tdwp_ftw.biomesop.items.projectiles.DispenserBehaviorMudball;
 import tdwp_ftw.biomesop.items.projectiles.EntityMudball;
-import tdwp_ftw.biomesop.mobs.*;
-import tdwp_ftw.biomesop.worldtype.WTBiomesOP;
+import tdwp_ftw.biomesop.mobs.EntityJungleSpider;
+import tdwp_ftw.biomesop.mobs.EntityRosester;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -54,7 +46,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.4.9")
@@ -180,6 +171,9 @@ public class mod_BiomesOPlenty
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
 		
 		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", EntityRegistry.findGlobalUniqueEntityId(), this, 80, 3, true); 
+		
+		// Dispenser behavior for mud balls
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.mudBall, new DispenserBehaviorMudball());
 
 		DimensionManager.registerProviderType(promisedLandDim, WorldProviderPromised.class, false);
 
@@ -227,8 +221,7 @@ public class mod_BiomesOPlenty
 	public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) {
 		int id = getUniqueEntityEggId();
 		EntityList.IDtoClassMapping.put(id, entity);
-		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor,
-				secondaryColor));
+		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
 
 	//Eggs
