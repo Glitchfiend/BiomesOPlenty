@@ -1,5 +1,8 @@
 package tdwp_ftw.biomesop.items.projectiles;
 
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import net.minecraft.client.particle.EntityFX;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.potion.Potion;
@@ -26,7 +29,9 @@ public class EntityMudball extends EntityThrowable
 	}
 
 	@Override
-	protected void onImpact(MovingObjectPosition par1MovingObjectPosition) {
+	protected void onImpact(MovingObjectPosition par1MovingObjectPosition) 
+	{
+        
 		if (par1MovingObjectPosition.entityHit != null)
 		{
 			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 1);
@@ -35,7 +40,7 @@ public class EntityMudball extends EntityThrowable
 
 		for (int i = 0; i < 16; ++i)
 		{
-			this.worldObj.spawnParticle("splash", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+			mod_BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
 		}
 
 		if (!this.worldObj.isRemote)
