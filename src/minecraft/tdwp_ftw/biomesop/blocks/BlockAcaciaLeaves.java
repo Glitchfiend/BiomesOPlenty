@@ -1,28 +1,26 @@
 package tdwp_ftw.biomesop.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
-public class BlockAcaciaLeaves extends BlockLeavesBase
+public class BlockAcaciaLeaves extends BlockLeavesBase implements IShearable
 {
     /**
      * The base index in terrain.png corresponding to the fancy version of the leaf texture. This is stored so we can
@@ -41,18 +39,21 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
     
-	@Override
+    @Override
+    @SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves1");
 		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:acacialeaves2");
 	}
     
+    @SideOnly(Side.CLIENT)
     public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
 	
+    @SideOnly(Side.CLIENT)
     public int getBlockColor()
     {
         double var1 = 0.5D;
@@ -63,6 +64,7 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
     /**
      * Returns the color this block should be rendered. Used by leaves.
      */
+    @SideOnly(Side.CLIENT)
     public int getRenderColor(int par1)
     {
         return (par1 & 3) == 1 ? ColorizerFoliage.getFoliageColorPine() : ((par1 & 3) == 2 ? ColorizerFoliage.getFoliageColorBirch() : ColorizerFoliage.getFoliageColorBasic());
@@ -72,6 +74,7 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
      * Returns a integer with hex for 0xrrggbb with this color multiplied against the blocks color. Note only called
      * when first determining what to render.
      */
+    @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
 		int var6 = 0;
@@ -238,6 +241,7 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
     /**
      * A randomly called display update to be able to add particles or other items for display
      */
+    @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         if (par1World.canLightningStrikeAt(par2, par3 + 1, par4) && !par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4) && par5Random.nextInt(15) == 1)
@@ -252,7 +256,7 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlock(par2, par3, par4, 0);
+        par1World.setBlockToAir(par2, par3, par4);
     }
 
     /**
@@ -299,15 +303,7 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-        if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
-        {
-            par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPBlocks.acaciaLeaves.blockID, 1, par6 & 3));
-        }
-        else
-        {
-            super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
-        }
+        super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
     }
 
     /**
@@ -332,8 +328,23 @@ public class BlockAcaciaLeaves extends BlockLeavesBase
     /**
      * Pass true to draw this block using fancy graphics, or false for fast graphics.
      */
+    @SideOnly(Side.CLIENT)
     public void setGraphicsLevel(boolean par1)
     {
         this.graphicsLevel = par1;
     }
+
+	@Override
+	public boolean isShearable(ItemStack item, World world, int x, int y, int z) 
+	{
+		return true;
+	}
+
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune) 
+	{
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 3));
+        return ret;
+	}
 }

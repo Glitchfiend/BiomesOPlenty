@@ -1,27 +1,24 @@
 package tdwp_ftw.biomesop.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockRedLeaves extends BlockLeavesBase
+public class BlockRedLeaves extends BlockLeavesBase implements IShearable
 {
     /**
      * The base index in terrain.png corresponding to the fancy version of the leaf texture. This is stored so we can
@@ -41,12 +38,14 @@ public class BlockRedLeaves extends BlockLeavesBase
     }
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:redleaves1");
 		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:redleaves2");
 	}
     
+	@SideOnly(Side.CLIENT)
     public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
@@ -198,6 +197,7 @@ public class BlockRedLeaves extends BlockLeavesBase
     /**
      * A randomly called display update to be able to add particles or other items for display
      */
+    @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
     {
         if (par1World.canLightningStrikeAt(par2, par3 + 1, par4) && !par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4) && par5Random.nextInt(15) == 1)
@@ -259,15 +259,7 @@ public class BlockRedLeaves extends BlockLeavesBase
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-        if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
-        {
-            par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPBlocks.redLeaves.blockID, 1, par6 & 3));
-        }
-        else
-        {
-            super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
-        }
+        super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
     }
 
     /**
@@ -282,13 +274,7 @@ public class BlockRedLeaves extends BlockLeavesBase
 	public boolean isOpaqueCube() {
 			return Block.leaves.isOpaqueCube();
 	}
-	
-	/*@Override
-	public int getBlockTextureFromSideAndMetadata(int side, int metadata) {
-	
-			return blockIndexInTexture + (isOpaqueCube() ? 1 : 0);
-	}*/
-	
+
     public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
     {
         return true;
@@ -297,8 +283,23 @@ public class BlockRedLeaves extends BlockLeavesBase
     /**
      * Pass true to draw this block using fancy graphics, or false for fast graphics.
      */
+    @SideOnly(Side.CLIENT)
     public void setGraphicsLevel(boolean par1)
     {
         this.graphicsLevel = par1;
     }
+    
+	@Override
+	public boolean isShearable(ItemStack item, World world, int x, int y, int z) 
+	{
+		return true;
+	}
+
+	@Override
+	public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune) 
+	{
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 3));
+        return ret;
+	}
 }
