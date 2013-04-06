@@ -2,6 +2,7 @@ package tdwp_ftw.biomesop.helpers;
 
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.blocks.BlockFirSapling;
+import tdwp_ftw.biomesop.blocks.BlockHolySapling;
 import tdwp_ftw.biomesop.blocks.BlockRedwoodSapling;
 import tdwp_ftw.biomesop.blocks.BlockPalmSapling;
 import tdwp_ftw.biomesop.blocks.BlockRedSapling;
@@ -200,13 +201,26 @@ public class BonemealUse
 			}
 		}
 		
+		if (event.ID == BOPBlocks.holySapling.blockID)
+		{
+			event.setResult(Result.ALLOW);
+			
+			if (!event.world.isRemote)
+			{
+				if ((double)event.world.rand.nextFloat() < 0.15D)
+				{
+					((BlockHolySapling)BOPBlocks.holySapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				}
+			}
+		}
+		
 		if (event.ID == BOPBlocks.magicSapling.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
 			if (!event.world.isRemote)
 			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
+				if ((double)event.world.rand.nextFloat() < 0.10D)
 				{
 					((BlockMagicSapling)BOPBlocks.magicSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}

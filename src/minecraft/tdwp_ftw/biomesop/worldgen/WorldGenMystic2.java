@@ -71,7 +71,7 @@ public class WorldGenMystic2 extends WorldGenerator
             {
                 var11 = var1.getBlockId(var3, var4 - 1, var5);
 
-                if ((var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && var4 < 256 - var6 - 1)
+                if ((var11 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
                 {
                     var1.setBlock(var3, var4 - 1, var5, Block.dirt.blockID);
                     var21 = var2.nextInt(2);
