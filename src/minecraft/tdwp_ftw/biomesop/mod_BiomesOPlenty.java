@@ -74,34 +74,38 @@ public class mod_BiomesOPlenty
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
-
+		boolean isClient = proxy instanceof ClientProxy;
+		
 		String[] soundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
 
-		for (String soundFile : soundFiles) try
+		if (isClient)
 		{
-			File file = new File("resources/mod/streaming/" + soundFile);
-			if (!file.exists()) {
-				System.out.println("[BoP] " + soundFile + " doesn't exist, creating...");
-				file.getParentFile().mkdirs();
-				file.createNewFile();
-				InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
-				OutputStream out = new FileOutputStream(file);
-				byte[] buf = new byte[1024];
-				int size = 0;
-				int len;
-				while ((len = istream.read(buf)) > 0) {
-					out.write(buf, 0, len);
-					size += len;
+			for (String soundFile : soundFiles) try
+			{
+				File file = new File("resources/mod/streaming/" + soundFile);
+				if (!file.exists()) {
+					System.out.println("[BoP] " + soundFile + " doesn't exist, creating...");
+					file.getParentFile().mkdirs();
+					file.createNewFile();
+					InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
+					OutputStream out = new FileOutputStream(file);
+					byte[] buf = new byte[1024];
+					int size = 0;
+					int len;
+					while ((len = istream.read(buf)) > 0) {
+						out.write(buf, 0, len);
+						size += len;
+					}
+					out.close();
+					istream.close();
+					if (size == 0) file.delete();
 				}
-				out.close();
-				istream.close();
-				if (size == 0) file.delete();
 			}
-		}
-		catch (Exception e)
-		{
-			FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BoP] Failed to load sound file: " + soundFile);
-			e.printStackTrace();
+			catch (Exception e)
+			{
+				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BoP] Failed to load sound file: " + soundFile);
+				e.printStackTrace();
+			}
 		}
 		
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());

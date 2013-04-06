@@ -6,6 +6,9 @@ import static net.minecraftforge.common.Configuration.CATEGORY_GENERAL;
 import java.io.File;
 import java.util.logging.Level;
 
+import tdwp_ftw.biomesop.ClientProxy;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 
@@ -415,6 +418,8 @@ public class BOPConfiguration {
 
 	public static void init(File configFile) 
 	{
+		boolean isClient = mod_BiomesOPlenty.proxy instanceof ClientProxy;
+		
 		config = new Configuration(configFile);
 
 		try 
@@ -424,9 +429,17 @@ public class BOPConfiguration {
 			skyColors = true;
 			biomeSize = config.get("Biome Settings", "Biome Size", 4, null).getInt();
 			achievements = config.get("Achievement Settings", "Add Biomes O Plenty Achievemnets (Currently Broken)", false).getBoolean(false);
-			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
+			
+			if (!isClient)
+			{
+				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
+			}
+			else
+			{
+				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(false);
+			}
 
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 			arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);
