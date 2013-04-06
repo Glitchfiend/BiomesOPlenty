@@ -36,14 +36,10 @@ public class BlockAcaciaLog extends Block
 	
     public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
-    	if(par1 == 0 || par1 == 1)
-    	{
-    		return blockIcon[0];
-    	}
-    	else
-    	{
-    		return blockIcon[1];
-    	}
+    	int pos = par2 & 12;
+        if (pos == 0 && (par1 == 1 || par1 == 0) || pos == 4 && (par1 == 5 || par1 == 4) || pos == 8 && (par1 == 2 || par1 == 3))
+            return blockIcon[0];
+        return blockIcon[1];
     }
 
     /**
