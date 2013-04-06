@@ -153,12 +153,11 @@ public class BonemealUse
 		
 		if (event.ID == BOPBlocks.originSapling.blockID)
 		{
+			event.setResult(Result.ALLOW);
+
 			if (!event.world.isRemote)
 			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
-				{
-					((BlockOriginSapling)BOPBlocks.originSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-				}
+				((BlockOriginSapling)BOPBlocks.originSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 			}
 		}
 		
