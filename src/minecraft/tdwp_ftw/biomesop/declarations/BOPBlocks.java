@@ -3,10 +3,12 @@ package tdwp_ftw.biomesop.declarations;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import tdwp_ftw.biomesop.blocks.*;
+import tdwp_ftw.biomesop.items.ItemBOPSlab;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -395,8 +397,9 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(bamboo, "bamboo");
 		GameRegistry.registerBlock(bambooLeaves, "bambooLeaves");
 		GameRegistry.registerBlock(mudBrickBlock, "mudBrickBlock");
-		GameRegistry.registerBlock(mudBrickDoubleSlab, "mudBrickDoubleSlab");
-		GameRegistry.registerBlock(mudBrickSingleSlab, "mudBrickSingleSlab");
+		ItemBOPSlab.setSlabs(mudBrickSingleSlab, mudBrickDoubleSlab);
+		GameRegistry.registerBlock(mudBrickDoubleSlab, ItemBOPSlab.class, "mudBrickDoubleSlab");
+		GameRegistry.registerBlock(mudBrickSingleSlab, ItemBOPSlab.class, "mudBrickSingleSlab");
 		GameRegistry.registerBlock(mudBrickStairs, "mudBrickStairs");
 		GameRegistry.registerBlock(originGrass, "originGrass");
 		GameRegistry.registerBlock(originLeaves, "originLeaves");
@@ -425,12 +428,14 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(magicSapling, "magicSapling");
 		GameRegistry.registerBlock(deathbloom, "deathbloom");
 		GameRegistry.registerBlock(redRockCobble, "redRockCobble");
-		GameRegistry.registerBlock(redRockCobbleDoubleSlab, "redRockCobbleDoubleSlab");
-		GameRegistry.registerBlock(redRockCobbleSingleSlab, "redRockCobbleSingleSlab");
+		ItemBOPSlab.setSlabs(redRockCobbleSingleSlab, redRockCobbleDoubleSlab);
+		GameRegistry.registerBlock(redRockCobbleDoubleSlab, ItemBOPSlab.class, "redRockCobbleDoubleSlab");
+		GameRegistry.registerBlock(redRockCobbleSingleSlab, ItemBOPSlab.class, "redRockCobbleSingleSlab");
 		GameRegistry.registerBlock(redRockCobbleStairs, "redRockCobbleStairs");
 		GameRegistry.registerBlock(redRockBrick, "redRockBrick");
-		GameRegistry.registerBlock(redRockBrickDoubleSlab, "redRockBrickDoubleSlab");
-		GameRegistry.registerBlock(redRockBrickSingleSlab, "redRockBrickSingleSlab");
+		ItemBOPSlab.setSlabs(redRockBrickSingleSlab, redRockBrickDoubleSlab);
+		GameRegistry.registerBlock(redRockBrickDoubleSlab, ItemBOPSlab.class, "redRockBrickDoubleSlab");
+		GameRegistry.registerBlock(redRockBrickSingleSlab, ItemBOPSlab.class, "redRockBrickSingleSlab");
 		GameRegistry.registerBlock(redRockBrickStairs, "redRockBrickStairs");
 		GameRegistry.registerBlock(hydrangea, "hydrangea");
 		GameRegistry.registerBlock(violet, "violet");
@@ -458,69 +463,79 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(redwoodPlank, "redwoodPlank");
 		GameRegistry.registerBlock(redwoodWood, "redwoodWood");
 		GameRegistry.registerBlock(redwoodLeaves, "redwoodLeaves");
-		GameRegistry.registerBlock(redwoodDoubleSlab, "redwoodDoubleSlab");
-		GameRegistry.registerBlock(redwoodSingleSlab, "redwoodSingleSlab");
+		ItemBOPSlab.setSlabs(redwoodSingleSlab, redwoodDoubleSlab);
+		GameRegistry.registerBlock(redwoodDoubleSlab, ItemBOPSlab.class, "redwoodDoubleSlab");
+		GameRegistry.registerBlock(redwoodSingleSlab, ItemBOPSlab.class, "redwoodSingleSlab");
 		GameRegistry.registerBlock(redwoodStairs, "redwoodStairs");
 
 		GameRegistry.registerBlock(willowPlank, "willowPlank");
 		GameRegistry.registerBlock(willowWood, "willowWood");
 		GameRegistry.registerBlock(willowLeaves, "willowLeaves");
-		GameRegistry.registerBlock(willowDoubleSlab, "willowDoubleSlab");
-		GameRegistry.registerBlock(willowSingleSlab, "willowSingleSlab");
+		ItemBOPSlab.setSlabs(willowSingleSlab, willowDoubleSlab);
+		GameRegistry.registerBlock(willowDoubleSlab, ItemBOPSlab.class, "willowDoubleSlab");
+		GameRegistry.registerBlock(willowSingleSlab, ItemBOPSlab.class, "willowSingleSlab");
 		GameRegistry.registerBlock(willowStairs, "willowStairs");
 
 		GameRegistry.registerBlock(firPlank, "firPlank");
 		GameRegistry.registerBlock(firWood, "firWood");
 		GameRegistry.registerBlock(firLeaves, "firLeaves");
-		GameRegistry.registerBlock(firDoubleSlab, "firDoubleSlab");
-		GameRegistry.registerBlock(firSingleSlab, "firSingleSlab");
+		ItemBOPSlab.setSlabs(firSingleSlab, firDoubleSlab);
+		GameRegistry.registerBlock(firDoubleSlab, ItemBOPSlab.class, "firDoubleSlab");
+		GameRegistry.registerBlock(firSingleSlab, ItemBOPSlab.class, "firSingleSlab");
 		GameRegistry.registerBlock(firStairs, "firStairs");
 
 		GameRegistry.registerBlock(acaciaPlank, "acaciaPlank");
 		GameRegistry.registerBlock(acaciaWood, "acaciaWood");
 		GameRegistry.registerBlock(acaciaLeaves, "acaciaLeaves");
-		GameRegistry.registerBlock(acaciaDoubleSlab, "acaciaDoubleSlab");
-		GameRegistry.registerBlock(acaciaSingleSlab, "acaciaSingleSlab");
+		ItemBOPSlab.setSlabs(acaciaSingleSlab, acaciaDoubleSlab);
+		GameRegistry.registerBlock(acaciaDoubleSlab, ItemBOPSlab.class, "acaciaDoubleSlab");
+		GameRegistry.registerBlock(acaciaSingleSlab, ItemBOPSlab.class, "acaciaSingleSlab");
 		GameRegistry.registerBlock(acaciaStairs, "acaciaStairs");
 
 		GameRegistry.registerBlock(cherryPlank, "cherryPlank");
 		GameRegistry.registerBlock(cherryWood, "cherryWood");
-		GameRegistry.registerBlock(cherryDoubleSlab, "cherryDoubleSlab");
-		GameRegistry.registerBlock(cherrySingleSlab, "cherrySingleSlab");
+		ItemBOPSlab.setSlabs(cherrySingleSlab, cherryDoubleSlab);
+		GameRegistry.registerBlock(cherryDoubleSlab, ItemBOPSlab.class, "cherryDoubleSlab");
+		GameRegistry.registerBlock(cherrySingleSlab, ItemBOPSlab.class, "cherrySingleSlab");
 		GameRegistry.registerBlock(cherryStairs, "cherryStairs");
 
 		GameRegistry.registerBlock(darkPlank, "darkPlank");
 		GameRegistry.registerBlock(darkWood, "darkWood");
 		GameRegistry.registerBlock(darkLeaves, "darkLeaves");
-		GameRegistry.registerBlock(darkDoubleSlab, "darkDoubleSlab");
-		GameRegistry.registerBlock(darkSingleSlab, "darkSingleSlab");
+		ItemBOPSlab.setSlabs(darkSingleSlab, darkDoubleSlab);
+		GameRegistry.registerBlock(darkDoubleSlab, ItemBOPSlab.class, "darkDoubleSlab");
+		GameRegistry.registerBlock(darkSingleSlab, ItemBOPSlab.class, "darkSingleSlab");
 		GameRegistry.registerBlock(darkStairs, "darkStairs");
 
 		GameRegistry.registerBlock(magicPlank, "magicPlank");
 		GameRegistry.registerBlock(magicWood, "magicWood");
-		GameRegistry.registerBlock(magicDoubleSlab, "magicDoubleSlab");
-		GameRegistry.registerBlock(magicSingleSlab, "magicSingleSlab");
+		ItemBOPSlab.setSlabs(magicSingleSlab, magicDoubleSlab);
+		GameRegistry.registerBlock(magicDoubleSlab, ItemBOPSlab.class, "magicDoubleSlab");
+		GameRegistry.registerBlock(magicSingleSlab, ItemBOPSlab.class, "magicSingleSlab");
 		GameRegistry.registerBlock(magicStairs, "magicStairs");
 
 		GameRegistry.registerBlock(palmPlank, "palmPlank");
 		GameRegistry.registerBlock(palmWood, "palmWood");
 		GameRegistry.registerBlock(palmLeaves, "palmLeaves");
-		GameRegistry.registerBlock(palmDoubleSlab, "palmDoubleSlab");
-		GameRegistry.registerBlock(palmSingleSlab, "palmSingleSlab");
+		ItemBOPSlab.setSlabs(palmSingleSlab, palmDoubleSlab);
+		GameRegistry.registerBlock(palmDoubleSlab, ItemBOPSlab.class, "palmDoubleSlab");
+		GameRegistry.registerBlock(palmSingleSlab, ItemBOPSlab.class, "palmSingleSlab");
 		GameRegistry.registerBlock(palmStairs, "palmStairs");
 
 		GameRegistry.registerBlock(mangrovePlank, "mangrovePlank");
 		GameRegistry.registerBlock(mangroveWood, "mangroveWood");
 		GameRegistry.registerBlock(mangroveLeaves, "mangroveLeaves");
-		GameRegistry.registerBlock(mangroveDoubleSlab, "mangroveDoubleSlab");
-		GameRegistry.registerBlock(mangroveSingleSlab, "mangroveSingleSlab");
+		ItemBOPSlab.setSlabs(mangroveSingleSlab, mangroveDoubleSlab);
+		GameRegistry.registerBlock(mangroveDoubleSlab, ItemBOPSlab.class, "mangroveDoubleSlab");
+		GameRegistry.registerBlock(mangroveSingleSlab, ItemBOPSlab.class, "mangroveSingleSlab");
 		GameRegistry.registerBlock(mangroveStairs, "mangroveStairs");
 
 		GameRegistry.registerBlock(holyPlank, "holyPlank");
 		GameRegistry.registerBlock(holyWood, "holyWood");
 		GameRegistry.registerBlock(holyLeaves, "holyLeaves");
-		GameRegistry.registerBlock(holyDoubleSlab, "holyDoubleSlab");
-		GameRegistry.registerBlock(holySingleSlab, "holySingleSlab");
+		ItemBOPSlab.setSlabs(holySingleSlab, holyDoubleSlab);
+		GameRegistry.registerBlock(holyDoubleSlab, ItemBOPSlab.class, "holyDoubleSlab");
+		GameRegistry.registerBlock(holySingleSlab, ItemBOPSlab.class, "holySingleSlab");
 		GameRegistry.registerBlock(holyStairs, "holyStairs");
 
 		// Add crafting recipes.
@@ -722,6 +737,8 @@ public class BOPBlocks {
 		MinecraftForge.setBlockHarvestLevel(driedDirt, "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(amethystOre, "pickaxe", 3);		
 		MinecraftForge.setBlockHarvestLevel(amethystBlock, "pickaxe", 3);
+		
+		MinecraftForge.setBlockHarvestLevel(acaciaLeaves, "shears", 0);
 		
 		// Add block names
 		LanguageRegistry.addName(mud, "Mud");
