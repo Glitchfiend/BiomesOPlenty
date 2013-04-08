@@ -54,7 +54,7 @@ public class BlockMagicSapling extends BlockSapling
     {
         Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
         return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
-                (soil != null && soil.blockID == BOPBlocks.holyGrass.blockID);
+                (soil != null && soil.blockID == BOPBlocks.holyGrass.blockID || soil.blockID == Block.grass.blockID || soil.blockID == Block.dirt.blockID);
     }
 
     /**
