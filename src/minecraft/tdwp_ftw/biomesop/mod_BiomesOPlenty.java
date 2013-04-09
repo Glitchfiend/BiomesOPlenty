@@ -60,7 +60,7 @@ public class mod_BiomesOPlenty
 	@SidedProxy(clientSide="tdwp_ftw.biomesop.ClientProxy", serverSide="tdwp_ftw.biomesop.CommonProxy")
 	public static CommonProxy proxy;
 
-	public static int promisedLandDim = 20;
+//	public static int promisedLandDim = 20;
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -175,9 +175,9 @@ public class mod_BiomesOPlenty
 		// Dispenser behavior for mud balls
 		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.mudBall, new DispenserBehaviorMudball());
 
-		DimensionManager.registerProviderType(promisedLandDim, WorldProviderPromised.class, false);
+		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 
-		DimensionManager.registerDimension(promisedLandDim, promisedLandDim);
+		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
 
 		dungeon = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
 		mineshaft = ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR);
