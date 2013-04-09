@@ -1,3 +1,22 @@
+Version 0.5.0 '09-04-2013'
+- Desert sprouts and Dune Grass now require shears to be harvested
+- Added alpha beaches to origin valley biome
+- You can now throw Mudballs to deal 1/2 heart of damage
+- Entities get the slowness potion effect when hit by mudballs
+- Mud balls can now be fired from dispensers
+- Resources now only install client-side
+- Fixed bonemeal on Origin Saplings
+- Bonemeal now only reacts to mangrove saplings when they are on sand
+- Fixed bonemeal and holy grass dependancies on Holy and Magic saplings
+- Changed the leaves blocks to use the IShearable interface
+- Made the enderporter only work in the overworld
+- Fixed the textures for logs to display according to their orientation
+- Adding Leaves, Saplings, Stairs and Slabs to Ore Dictionary
+- Fixed crash on right clicking on slabs with nothing in your hand
+- Fixed trees not generating in the Mystic grove
+- Fixed placing Moss, TreeMoss and Willow
+- Fixed a bug with Promised Lands not using the ID from the config file
+
 Version 0.4.9 '03-04-2013'
 - Tools actually have the properties of the tools they are meant to be (they used to all think they are swords)
 - Ore dictionary support for wood
