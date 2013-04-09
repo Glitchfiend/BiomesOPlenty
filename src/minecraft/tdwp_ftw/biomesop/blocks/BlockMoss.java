@@ -434,6 +434,31 @@ public class BlockMoss extends Block
     }
 	
     /**
+     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
+     */
+    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    {
+        byte b0 = 0;
+
+        switch (par5)
+        {
+            case 2:
+                b0 = 1;
+                break;
+            case 3:
+                b0 = 4;
+                break;
+            case 4:
+                b0 = 8;
+                break;
+            case 5:
+                b0 = 2;
+        }
+
+        return b0 != 0 ? b0 : par9;
+    }
+    
+    /**
      * Returns the ID of the items to drop on destruction.
      */
     public int idDropped(int par1, Random par2Random, int par3)

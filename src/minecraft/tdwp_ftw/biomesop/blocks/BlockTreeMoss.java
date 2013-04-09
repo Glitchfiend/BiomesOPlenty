@@ -1,25 +1,21 @@
 package tdwp_ftw.biomesop.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatList;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Direction;
-import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
-public class BlockTreeMoss extends Block
+public class BlockTreeMoss extends Block implements IShearable
 {
     public BlockTreeMoss(int par1)
     {
@@ -236,7 +232,7 @@ public class BlockTreeMoss extends Block
         if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
         {
             this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-            par1World.setBlock(par2, par3, par4, 0);
+            par1World.setBlockToAir(par2, par3, par4);
         }
     }
 
@@ -279,6 +275,31 @@ public class BlockTreeMoss extends Block
     }
 
     /**
+     * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
+     */
+    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    {
+        byte b0 = 0;
+
+        switch (par5)
+        {
+            case 2:
+                b0 = 1;
+                break;
+            case 3:
+                b0 = 4;
+                break;
+            case 4:
+                b0 = 8;
+                break;
+            case 5:
+                b0 = 2;
+        }
+
+        return b0 != 0 ? b0 : par9;
+    }
+    
+    /**
      * Returns the ID of the items to drop on destruction.
      */
     public int idDropped(int par1, Random par2Random, int par3)
@@ -300,14 +321,20 @@ public class BlockTreeMoss extends Block
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-        if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
-        {
-            par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPBlocks.treeMoss, 1, 0));
-        }
-        else
-        {
-            super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
-        }
+        super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+    }
+    
+    @Override
+    public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+    {
+        return true;
+    }
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+    {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(this, 1, 0));
+        return ret;
     }
 }
