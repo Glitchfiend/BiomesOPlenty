@@ -23,6 +23,7 @@ import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
+import tdwp_ftw.biomesop.api.Biomes;
 import tdwp_ftw.biomesop.declarations.BOPBiomes;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.declarations.BOPConfiguration;
@@ -162,12 +163,14 @@ public class mod_BiomesOPlenty
 
 		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, this, 80, 3, true);
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.JungleSpider.name", "en_US", "Jungle Spider");
-		EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPBiomes.jungleNew, BOPBiomes.tropicalRainforest, BOPBiomes.oasis, BOPBiomes.tropics);
+		if (Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
+			EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
 		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 
 		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, this, 80, 3, true);
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Rosester.name", "en_US", "Rosester");
-		EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, BOPBiomes.garden);    
+		if (Biomes.garden.isPresent())
+			EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, Biomes.garden.get());    
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
 		
 		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", EntityRegistry.findGlobalUniqueEntityId(), this, 80, 3, true); 

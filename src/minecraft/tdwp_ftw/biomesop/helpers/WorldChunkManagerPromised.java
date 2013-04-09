@@ -1,31 +1,26 @@
 package tdwp_ftw.biomesop.helpers;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBiomes;
-import tdwp_ftw.biomesop.helpers.BiomeCachePromised;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeCache;
-import net.minecraft.world.biome.WorldChunkManager;
-
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.terraingen.*;
-import static net.minecraft.world.biome.BiomeGenBase.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.WorldTypeEvent;
+import tdwp_ftw.biomesop.api.Biomes;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldChunkManagerPromised extends WorldChunkManager
 {
-    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(BOPBiomes.promisedLand));
+    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(Biomes.promisedLand.get()));
     private GenLayer genBiomes;
 
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */

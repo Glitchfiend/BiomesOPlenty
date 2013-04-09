@@ -1,29 +1,25 @@
 package tdwp_ftw.biomesop.helpers;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBiomes;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
-//import tdwp_ftw.biomesop.helpers.WorldChunkManagerPromised;
-
-import net.minecraft.block.Block;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.gen.ChunkProviderHell;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManagerHell;
-import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.WorldChunkManagerHell;
+import net.minecraft.world.chunk.IChunkProvider;
+import tdwp_ftw.biomesop.api.Biomes;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+//import tdwp_ftw.biomesop.helpers.WorldChunkManagerPromised;
 
 public class WorldProviderPromised extends WorldProvider
 {
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new WorldChunkManagerHell(BOPBiomes.promisedLand, 0.8F, 0.1F);
+		if (Biomes.promisedLand.isPresent())
+			this.worldChunkMgr = new WorldChunkManagerHell(Biomes.promisedLand.get(), 0.8F, 0.1F);
 		//this.worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		this.dimensionId = BOPConfiguration.promisedLandDimID;
 	}

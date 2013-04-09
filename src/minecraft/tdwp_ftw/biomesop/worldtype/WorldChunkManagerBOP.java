@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import tdwp_ftw.biomesop.declarations.BOPBiomes;
-
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -14,6 +12,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import tdwp_ftw.biomesop.api.Biomes;
+
+import com.google.common.base.Optional;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {
@@ -26,12 +27,12 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     private BiomeCache biomeCache;
 
     /** A list of biomes that the player can spawn in. */
-    private List biomesToSpawnIn;
+    private List<BiomeGenBase> biomesToSpawnIn;
 
     protected WorldChunkManagerBOP()
     {
         this.biomeCache = new BiomeCache(this);
-        this.biomesToSpawnIn = new ArrayList();
+        this.biomesToSpawnIn = new ArrayList<BiomeGenBase>();
         this.biomesToSpawnIn.add(BiomeGenBase.forest);
         this.biomesToSpawnIn.add(BiomeGenBase.plains);
         this.biomesToSpawnIn.add(BiomeGenBase.taiga);
@@ -40,60 +41,60 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         this.biomesToSpawnIn.add(BiomeGenBase.jungle);
         this.biomesToSpawnIn.add(BiomeGenBase.jungleHills);
 		
-		this.biomesToSpawnIn.add(BOPBiomes.alps);
-        this.biomesToSpawnIn.add(BOPBiomes.arctic);
-		this.biomesToSpawnIn.add(BOPBiomes.badlands);
-		this.biomesToSpawnIn.add(BOPBiomes.bambooForest);
-        this.biomesToSpawnIn.add(BOPBiomes.bayou);
-        this.biomesToSpawnIn.add(BOPBiomes.birchForest);
-        this.biomesToSpawnIn.add(BOPBiomes.bog);
-        this.biomesToSpawnIn.add(BOPBiomes.borealForest);
-		this.biomesToSpawnIn.add(BOPBiomes.chaparral);
-        this.biomesToSpawnIn.add(BOPBiomes.cherryBlossomGrove);
-        this.biomesToSpawnIn.add(BOPBiomes.coniferousForest);
-        this.biomesToSpawnIn.add(BOPBiomes.crag);
-		this.biomesToSpawnIn.add(BOPBiomes.deadForest);
-        this.biomesToSpawnIn.add(BOPBiomes.deciduousForest);
-		this.biomesToSpawnIn.add(BOPBiomes.drylands);
-		this.biomesToSpawnIn.add(BOPBiomes.dunes);
-        this.biomesToSpawnIn.add(BOPBiomes.frostForest);
-        this.biomesToSpawnIn.add(BOPBiomes.glacier);
-		this.biomesToSpawnIn.add(BOPBiomes.grassland);
-        this.biomesToSpawnIn.add(BOPBiomes.grove);
-        this.biomesToSpawnIn.add(BOPBiomes.heathland);
-        this.biomesToSpawnIn.add(BOPBiomes.highland);
-        this.biomesToSpawnIn.add(BOPBiomes.lushDesert);
-		this.biomesToSpawnIn.add(BOPBiomes.lushSwamp);
-        this.biomesToSpawnIn.add(BOPBiomes.mangrove);
-		this.biomesToSpawnIn.add(BOPBiomes.mapleWoods);
-        this.biomesToSpawnIn.add(BOPBiomes.marsh);
-		this.biomesToSpawnIn.add(BOPBiomes.meadow);
-        this.biomesToSpawnIn.add(BOPBiomes.mesa);
-        this.biomesToSpawnIn.add(BOPBiomes.mountain);
-        this.biomesToSpawnIn.add(BOPBiomes.oasis);
-        this.biomesToSpawnIn.add(BOPBiomes.orchard);
-        this.biomesToSpawnIn.add(BOPBiomes.pasture);
-        this.biomesToSpawnIn.add(BOPBiomes.prairie);
-        this.biomesToSpawnIn.add(BOPBiomes.quagmire);
-        this.biomesToSpawnIn.add(BOPBiomes.rainforest);
-        this.biomesToSpawnIn.add(BOPBiomes.redwoodForest);
-        this.biomesToSpawnIn.add(BOPBiomes.savanna);
-        this.biomesToSpawnIn.add(BOPBiomes.scrubland);
-        this.biomesToSpawnIn.add(BOPBiomes.seasonalForest);
-        this.biomesToSpawnIn.add(BOPBiomes.shrubland);
-        this.biomesToSpawnIn.add(BOPBiomes.steppe);
-		this.biomesToSpawnIn.add(BOPBiomes.temperateRainforest);
-		this.biomesToSpawnIn.add(BOPBiomes.tropicalRainforest);
-        this.biomesToSpawnIn.add(BOPBiomes.tropics);
-        this.biomesToSpawnIn.add(BOPBiomes.tundra);
-		this.biomesToSpawnIn.add(BOPBiomes.volcano);
-        this.biomesToSpawnIn.add(BOPBiomes.wetland);
-        this.biomesToSpawnIn.add(BOPBiomes.woodland);
+		addSpawnBiomes(Biomes.alps);
+        addSpawnBiomes(Biomes.arctic);
+		addSpawnBiomes(Biomes.badlands);
+		addSpawnBiomes(Biomes.bambooForest);
+        addSpawnBiomes(Biomes.bayou);
+        addSpawnBiomes(Biomes.birchForest);
+        addSpawnBiomes(Biomes.bog);
+        addSpawnBiomes(Biomes.borealForest);
+		addSpawnBiomes(Biomes.chaparral);
+        addSpawnBiomes(Biomes.cherryBlossomGrove);
+        addSpawnBiomes(Biomes.coniferousForest);
+        addSpawnBiomes(Biomes.crag);
+		addSpawnBiomes(Biomes.deadForest);
+        addSpawnBiomes(Biomes.deciduousForest);
+		addSpawnBiomes(Biomes.drylands);
+		addSpawnBiomes(Biomes.dunes);
+        addSpawnBiomes(Biomes.frostForest);
+        addSpawnBiomes(Biomes.glacier);
+		addSpawnBiomes(Biomes.grassland);
+        addSpawnBiomes(Biomes.grove);
+        addSpawnBiomes(Biomes.heathland);
+        addSpawnBiomes(Biomes.highland);
+        addSpawnBiomes(Biomes.lushDesert);
+		addSpawnBiomes(Biomes.lushSwamp);
+        addSpawnBiomes(Biomes.mangrove);
+		addSpawnBiomes(Biomes.mapleWoods);
+        addSpawnBiomes(Biomes.marsh);
+		addSpawnBiomes(Biomes.meadow);
+        addSpawnBiomes(Biomes.mesa);
+        addSpawnBiomes(Biomes.mountain);
+        addSpawnBiomes(Biomes.oasis);
+        addSpawnBiomes(Biomes.orchard);
+        addSpawnBiomes(Biomes.pasture);
+        addSpawnBiomes(Biomes.prairie);
+        addSpawnBiomes(Biomes.quagmire);
+        addSpawnBiomes(Biomes.rainforest);
+        addSpawnBiomes(Biomes.redwoodForest);
+        addSpawnBiomes(Biomes.savanna);
+        addSpawnBiomes(Biomes.scrubland);
+        addSpawnBiomes(Biomes.seasonalForest);
+        addSpawnBiomes(Biomes.shrubland);
+        addSpawnBiomes(Biomes.steppe);
+		addSpawnBiomes(Biomes.temperateRainforest);
+		addSpawnBiomes(Biomes.tropicalRainforest);
+        addSpawnBiomes(Biomes.tropics);
+        addSpawnBiomes(Biomes.tundra);
+		addSpawnBiomes(Biomes.volcano);
+        addSpawnBiomes(Biomes.wetland);
+        addSpawnBiomes(Biomes.woodland);
 		
-        this.biomesToSpawnIn.add(BOPBiomes.forestNew);
-        this.biomesToSpawnIn.add(BOPBiomes.plainsNew);
-        this.biomesToSpawnIn.add(BOPBiomes.taigaNew);
-        this.biomesToSpawnIn.add(BOPBiomes.jungleNew);
+        addSpawnBiomes(Biomes.forestNew);
+        addSpawnBiomes(Biomes.plainsNew);
+        addSpawnBiomes(Biomes.taigaNew);
+        addSpawnBiomes(Biomes.jungleNew);
     }
 
     public WorldChunkManagerBOP(long par1, WorldType par3WorldType)
@@ -112,7 +113,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     /**
      * Gets the list of valid biomes for the player to spawn in.
      */
-    public List getBiomesToSpawnIn()
+    public List<BiomeGenBase> getBiomesToSpawnIn()
     {
         return this.biomesToSpawnIn;
     }
@@ -320,5 +321,11 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     public void cleanupCache()
     {
         this.biomeCache.cleanupCache();
+    }
+    
+    private void addSpawnBiomes(Optional<? extends BiomeGenBase> biome)
+    {
+    	if (biome.isPresent())
+    		this.biomesToSpawnIn.add(biome.get());
     }
 }
