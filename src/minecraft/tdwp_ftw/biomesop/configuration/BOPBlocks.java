@@ -107,6 +107,7 @@ public class BOPBlocks {
 	public static Block smolderingGrass;
 	public static Block cragRock;
 	public static Block quicksand;
+	public static Block bambooSapling;
 
 	//Redwood
 	public static Block redwoodPlank;
@@ -282,6 +283,7 @@ public class BOPBlocks {
 		smolderingGrass = (BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass");
 		cragRock = (new BlockCragRock(BOPConfiguration.cragRockID)).setHardness(1.0F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("cragRock");
 		quicksand = (new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand");
+		bambooSapling = (new BlockBambooSapling(BOPConfiguration.bambooSaplingID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bambooSapling");
 
 		//Redwood
 		redwoodPlank = (new BlockRedwoodPlank(BOPConfiguration.redwoodPlankID)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("redwoodPlank");
@@ -458,6 +460,7 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(smolderingGrass, "smolderingGrass");
 		GameRegistry.registerBlock(cragRock, "cragRock");
 		GameRegistry.registerBlock(quicksand, "quicksand");
+		GameRegistry.registerBlock(bambooSapling, "bambooSapling");
 
 		GameRegistry.registerBlock(redwoodPlank, "redwoodPlank");
 		GameRegistry.registerBlock(redwoodWood, "redwoodWood");
@@ -833,6 +836,7 @@ public class BOPBlocks {
 		LanguageRegistry.addName(smolderingGrass, "Smoldering Grass");
 		LanguageRegistry.addName(cragRock, "Crag Rock");
 		LanguageRegistry.addName(quicksand, "Quicksand");
+		LanguageRegistry.addName(bambooSapling, "Bamboo Sapling");
 
 		LanguageRegistry.addName(redwoodPlank, "Redwood Wood Planks");
 		LanguageRegistry.addName(redwoodWood, "Redwood Wood");

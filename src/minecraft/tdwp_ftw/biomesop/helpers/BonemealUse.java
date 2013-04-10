@@ -6,6 +6,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import tdwp_ftw.biomesop.blocks.BlockAcaciaSapling;
 import tdwp_ftw.biomesop.blocks.BlockAppleSapling;
+import tdwp_ftw.biomesop.blocks.BlockBambooSapling;
 import tdwp_ftw.biomesop.blocks.BlockBrownSapling;
 import tdwp_ftw.biomesop.blocks.BlockDarkSapling;
 import tdwp_ftw.biomesop.blocks.BlockFirSapling;
@@ -22,6 +23,8 @@ import tdwp_ftw.biomesop.blocks.BlockWhiteSapling;
 import tdwp_ftw.biomesop.blocks.BlockWillowSapling;
 import tdwp_ftw.biomesop.blocks.BlockYellowSapling;
 import tdwp_ftw.biomesop.configuration.BOPBlocks;
+import tdwp_ftw.biomesop.worldgen.WorldGenGiantFlowerRed;
+import tdwp_ftw.biomesop.worldgen.WorldGenGiantFlowerYellow;
 
 public class BonemealUse
 {
@@ -247,6 +250,47 @@ public class BonemealUse
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
 					((BlockAcaciaSapling)BOPBlocks.acaciaSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				}
+			}
+		}
+		
+		if (event.ID == BOPBlocks.bambooSapling.blockID)
+		{
+			event.setResult(Result.ALLOW);
+			
+			if (!event.world.isRemote)
+			{
+				if ((double)event.world.rand.nextFloat() < 0.45D)
+				{
+					((BlockBambooSapling)BOPBlocks.bambooSapling).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				}
+			}
+		}
+		
+		if (event.ID == Block.plantRed.blockID)
+		{
+			event.setResult(Result.ALLOW);
+			
+			if (!event.world.isRemote)
+			{
+				if ((double)event.world.rand.nextFloat() < 0.45D)
+				{
+		           WorldGenGiantFlowerRed worldgengiantflowerred = new WorldGenGiantFlowerRed();
+		           worldgengiantflowerred.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
+				}
+			}
+		}
+		
+		if (event.ID == Block.plantYellow.blockID)
+		{
+			event.setResult(Result.ALLOW);
+			
+			if (!event.world.isRemote)
+			{
+				if ((double)event.world.rand.nextFloat() < 0.45D)
+				{
+		           WorldGenGiantFlowerYellow worldgengiantfloweryellow = new WorldGenGiantFlowerYellow();
+		           worldgengiantfloweryellow.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
 				}
 			}
 		}

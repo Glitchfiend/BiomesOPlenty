@@ -194,6 +194,7 @@ public class BOPConfiguration {
 	public static int smolderingGrassID;
 	public static int cragRockID;
 	public static int quicksandID;
+	public static int bambooSaplingID;
 
 	//Redwood
 	public static int redwoodPlankID;
@@ -671,6 +672,7 @@ public class BOPConfiguration {
 			algaeID = config.getBlock("Algae ID", 392, null).getInt();
 			smolderingGrassID = config.getBlock("Smoldering Grass ID", 393, null).getInt();
 			quicksandID = config.getBlock("Quicksand ID", 394, null).getInt();
+			bambooSaplingID = config.getBlock("Bamboo Sapling ID", 395, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 1001, null).getInt();
