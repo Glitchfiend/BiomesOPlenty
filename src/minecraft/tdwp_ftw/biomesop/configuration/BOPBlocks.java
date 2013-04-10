@@ -1,4 +1,4 @@
-package tdwp_ftw.biomesop.declarations;
+package tdwp_ftw.biomesop.configuration;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;

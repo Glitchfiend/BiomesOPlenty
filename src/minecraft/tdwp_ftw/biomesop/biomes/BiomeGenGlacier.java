@@ -1,7 +1,7 @@
 package tdwp_ftw.biomesop.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
 public class BiomeGenGlacier extends BiomeGenBase
 {

@@ -2,7 +2,7 @@ package tdwp_ftw.biomesop.helpers;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
 public class CreativeTabsBOP extends CreativeTabs
 {

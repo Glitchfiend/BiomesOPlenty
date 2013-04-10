@@ -40,7 +40,7 @@ import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 
 public class ChunkProviderBOP implements IChunkProvider
 {

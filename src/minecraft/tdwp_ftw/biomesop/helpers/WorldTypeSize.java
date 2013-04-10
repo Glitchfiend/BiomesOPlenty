@@ -2,7 +2,7 @@ package tdwp_ftw.biomesop.helpers;
 
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.terraingen.WorldTypeEvent;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 
 public class WorldTypeSize
 {

@@ -14,7 +14,7 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
 public class TeleporterPromised extends Teleporter
 {

@@ -21,7 +21,7 @@ import tdwp_ftw.biomesop.blocks.BlockRedwoodSapling;
 import tdwp_ftw.biomesop.blocks.BlockWhiteSapling;
 import tdwp_ftw.biomesop.blocks.BlockWillowSapling;
 import tdwp_ftw.biomesop.blocks.BlockYellowSapling;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
 public class BonemealUse
 {

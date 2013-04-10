@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.configuration.BOPItems;
 
 public class BlockMud extends Block
 {

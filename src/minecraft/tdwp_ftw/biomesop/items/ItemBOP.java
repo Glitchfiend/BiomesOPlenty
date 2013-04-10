@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.configuration.BOPItems;
 import tdwp_ftw.biomesop.items.projectiles.EntityMudball;
 
 public class ItemBOP extends Item

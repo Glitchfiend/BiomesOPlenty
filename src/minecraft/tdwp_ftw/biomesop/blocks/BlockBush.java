@@ -14,7 +14,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.configuration.BOPItems;
 
 public class BlockBush extends BlockFlower
 {

@@ -10,8 +10,8 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPItems;
 
 public class BlockMoss extends Block
 {

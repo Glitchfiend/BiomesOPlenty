@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
 public class WorldGenRedwoodTree extends WorldGenerator
 {

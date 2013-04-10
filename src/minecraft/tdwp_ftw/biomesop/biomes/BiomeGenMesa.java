@@ -5,8 +5,8 @@ import java.awt.Color;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 
 public class BiomeGenMesa extends BiomeGenBase
 {

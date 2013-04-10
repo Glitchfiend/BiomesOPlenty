@@ -12,7 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenOriginTree;
 
 public class BlockOriginSapling extends BlockSapling

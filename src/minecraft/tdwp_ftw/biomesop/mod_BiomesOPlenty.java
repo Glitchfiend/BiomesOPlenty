@@ -24,16 +24,16 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import tdwp_ftw.biomesop.api.Biomes;
-import tdwp_ftw.biomesop.declarations.BOPBiomes;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
-import tdwp_ftw.biomesop.declarations.BOPCrossIntegration;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.configuration.BOPBiomes;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPItems;
 import tdwp_ftw.biomesop.helpers.AchievementPickup;
 import tdwp_ftw.biomesop.helpers.BonemealUse;
 import tdwp_ftw.biomesop.helpers.CreativeTabsBOP;
 import tdwp_ftw.biomesop.helpers.WorldProviderPromised;
 import tdwp_ftw.biomesop.helpers.WorldTypeSize;
+import tdwp_ftw.biomesop.integration.BOPCrossIntegration;
 import tdwp_ftw.biomesop.items.projectiles.DispenserBehaviorMudball;
 import tdwp_ftw.biomesop.items.projectiles.EntityMudball;
 import tdwp_ftw.biomesop.mobs.EntityJungleSpider;
@@ -77,7 +77,7 @@ public class mod_BiomesOPlenty
 			{
 				File file = new File("resources/mod/streaming/" + soundFile);
 				if (!file.exists()) {
-					System.out.println("[BoP] " + soundFile + " doesn't exist, creating...");
+					System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
 					file.getParentFile().mkdirs();
 					file.createNewFile();
 					InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
@@ -96,7 +96,7 @@ public class mod_BiomesOPlenty
 			}
 			catch (Exception e)
 			{
-				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BoP] Failed to load sound file: " + soundFile);
+				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed to load sound file: " + soundFile);
 				e.printStackTrace();
 			}
 		}
@@ -118,7 +118,7 @@ public class mod_BiomesOPlenty
 	public void load(FMLInitializationEvent event)
 	{
 		
-		BOPCrossIntegration.forestryInit();
+		BOPCrossIntegration.init();
 
 		// Achievement declaration
 		if (BOPConfiguration.achievements == true)

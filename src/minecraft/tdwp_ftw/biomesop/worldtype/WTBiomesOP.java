@@ -2,7 +2,7 @@ package tdwp_ftw.biomesop.worldtype;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import tdwp_ftw.biomesop.api.Biomes;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 
 import com.google.common.base.Optional;
 

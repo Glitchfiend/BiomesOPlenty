@@ -5,7 +5,7 @@ import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 
 public class BiomeGenFrostForest extends BiomeGenBase
 {

@@ -15,7 +15,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 import tdwp_ftw.biomesop.mobs.EntityJungleSpider;
 
 public class BiomeGenJungleNew extends BiomeGenBase

@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 
 public class BiomeGenDunes extends BiomeGenBase
 {

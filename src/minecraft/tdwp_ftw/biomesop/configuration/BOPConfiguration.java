@@ -1,4 +1,4 @@
-package tdwp_ftw.biomesop.declarations;
+package tdwp_ftw.biomesop.configuration;
 
 import java.io.File;
 import java.util.logging.Level;
@@ -799,7 +799,7 @@ public class BOPConfiguration {
 			extremeHillsNewID = config.get("Biome IDs", "Extreme Hills (New) ID", 101).getInt();
 			jungleNewID = config.get("Biome IDs", "Jungle (New) ID", 102).getInt();
 
-			System.out.println("[BoP] Generated Config!");
+			System.out.println("[BiomesOPlenty] Generated Config!");
 		}
 		catch (Exception e) 
 		{

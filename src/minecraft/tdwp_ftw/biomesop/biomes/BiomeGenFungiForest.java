@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 import tdwp_ftw.biomesop.worldgen.WorldGenMoss;
 import tdwp_ftw.biomesop.worldgen.WorldGenSwampTall;
 import tdwp_ftw.biomesop.worldgen.WorldGenThickTree;

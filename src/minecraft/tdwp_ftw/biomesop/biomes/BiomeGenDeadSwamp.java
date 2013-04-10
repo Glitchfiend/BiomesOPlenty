@@ -7,8 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPConfiguration;
 import tdwp_ftw.biomesop.worldgen.WorldGenDeadTree;
 
 public class BiomeGenDeadSwamp extends BiomeGenBase

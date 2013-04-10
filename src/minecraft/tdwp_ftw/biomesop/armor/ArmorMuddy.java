@@ -6,9 +6,8 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
 import tdwp_ftw.biomesop.CommonProxy;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.configuration.BOPItems;
 
-@SuppressWarnings("deprecation")
 public class ArmorMuddy extends ItemArmor implements IArmorTextureProvider
 {
 	public int textureID = 0;

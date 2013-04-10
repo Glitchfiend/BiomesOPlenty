@@ -43,7 +43,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
 import tdwp_ftw.biomesop.worldgen.WorldGenAlgae;
 import tdwp_ftw.biomesop.worldgen.WorldGenAsh;
 import tdwp_ftw.biomesop.worldgen.WorldGenBoulder;
