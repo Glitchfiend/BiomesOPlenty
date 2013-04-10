@@ -20,7 +20,6 @@ public class CommonProxy {
         return 0;
     }
 
-    @SideOnly(Side.CLIENT)
     public void spawnMud(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
     {
 

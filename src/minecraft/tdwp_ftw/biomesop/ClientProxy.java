@@ -27,7 +27,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPItems.mudBall)); 
 	}
 
-	@SideOnly(Side.CLIENT)
+	@Override
 	public void spawnMud(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
 	{
         EntityFX entityfx = null;
