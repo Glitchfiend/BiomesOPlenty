@@ -7,10 +7,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import tdwp_ftw.biomesop.ClientProxy;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 public class EntityMudball extends EntityThrowable 
 {
+	boolean isClient = mod_BiomesOPlenty.proxy instanceof ClientProxy;
+	
 	public EntityMudball(World par1World)
 	{
 		super(par1World);
@@ -36,9 +39,12 @@ public class EntityMudball extends EntityThrowable
 			((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300));
 		}
 
-		for (int i = 0; i < 16; ++i)
+		if (isClient)
 		{
-			mod_BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+			for (int i = 0; i < 16; ++i)
+			{
+				mod_BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+			}
 		}
 
 		if (!this.worldObj.isRemote)
