@@ -27,6 +27,7 @@ import tdwp_ftw.biomesop.api.Biomes;
 import tdwp_ftw.biomesop.declarations.BOPBiomes;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
 import tdwp_ftw.biomesop.declarations.BOPConfiguration;
+import tdwp_ftw.biomesop.declarations.BOPCrossIntegration;
 import tdwp_ftw.biomesop.declarations.BOPItems;
 import tdwp_ftw.biomesop.helpers.AchievementPickup;
 import tdwp_ftw.biomesop.helpers.BonemealUse;
@@ -116,6 +117,8 @@ public class mod_BiomesOPlenty
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
+		
+		BOPCrossIntegration.forestryInit();
 
 		// Achievement declaration
 		if (BOPConfiguration.achievements == true)
