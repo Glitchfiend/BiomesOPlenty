@@ -18,7 +18,8 @@ public class BiomeGenBog extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenBog(int par1)
+    @SuppressWarnings("unchecked")
+	public BiomeGenBog(int par1)
     {
         super(par1);
         this.spawnableCreatureList.clear();

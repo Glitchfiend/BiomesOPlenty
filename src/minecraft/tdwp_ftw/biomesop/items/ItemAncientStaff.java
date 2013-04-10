@@ -1,14 +1,12 @@
 package tdwp_ftw.biomesop.items;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class ItemAncientStaff extends Item
 {

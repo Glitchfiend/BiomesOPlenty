@@ -2,26 +2,28 @@ package tdwp_ftw.biomesop.helpers;
 
 import java.util.List;
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.Event.*;
-import net.minecraftforge.event.terraingen.*;
 
 public class ChunkProviderPromised implements IChunkProvider
 {
+	@SuppressWarnings("unused")
 	private Random rand;
     private Random endRNG;
     private NoiseGeneratorOctaves noiseGen1;
@@ -39,6 +41,7 @@ public class ChunkProviderPromised implements IChunkProvider
     double[] noiseData3;
     double[] noiseData4;
     double[] noiseData5;
+	@SuppressWarnings("unused")
 	private double[] stoneNoise = new double[256];
     int[][] field_73203_h = new int[32][32];
 
@@ -442,7 +445,8 @@ public class ChunkProviderPromised implements IChunkProvider
     /**
      * Returns a list of creatures of the specified type that can spawn at the given location.
      */
-    public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
+    @SuppressWarnings("rawtypes")
+	public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
     {
         BiomeGenBase var5 = this.endWorld.getBiomeGenForCoords(par2, par4);
         return var5 == null ? null : var5.getSpawnableList(par1EnumCreatureType);

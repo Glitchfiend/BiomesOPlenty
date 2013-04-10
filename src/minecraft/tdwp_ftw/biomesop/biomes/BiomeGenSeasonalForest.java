@@ -17,6 +17,7 @@ public class BiomeGenSeasonalForest extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenSeasonalForest(int par1)
     {
         super(par1);

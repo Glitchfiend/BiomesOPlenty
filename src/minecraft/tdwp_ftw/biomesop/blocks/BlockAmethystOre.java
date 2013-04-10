@@ -1,16 +1,14 @@
 package tdwp_ftw.biomesop.blocks;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPItems;
+import java.util.Random;
 
 import net.minecraft.block.Block;
-import java.util.Random;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 public class BlockAmethystOre extends Block
 {

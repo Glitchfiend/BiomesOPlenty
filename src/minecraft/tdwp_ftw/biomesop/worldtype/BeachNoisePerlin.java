@@ -97,7 +97,8 @@ public class BeachNoisePerlin extends NoiseGenerator
         return generateNoise(d, d1, 0.0D);
     }
 	
-    public void func_805_a(double ad[], double d, double d1, double d2, 
+    @SuppressWarnings("unused")
+	public void func_805_a(double ad[], double d, double d1, double d2, 
             int i, int j, int k, double d3, double d4, 
             double d5, double d6)
     {

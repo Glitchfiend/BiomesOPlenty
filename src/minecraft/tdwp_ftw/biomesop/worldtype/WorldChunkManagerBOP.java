@@ -258,7 +258,8 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     /**
      * checks given Chunk's Biomes against List of allowed ones
      */
-    public boolean areBiomesViable(int par1, int par2, int par3, List par4List)
+    @SuppressWarnings("rawtypes")
+	public boolean areBiomesViable(int par1, int par2, int par3, List par4List)
     {
         IntCache.resetIntCache();
         int var5 = par1 - par3 >> 2;
@@ -286,7 +287,8 @@ public class WorldChunkManagerBOP extends WorldChunkManager
      * Finds a valid position within a range, that is in one of the listed biomes. Searches {par1,par2} +-par3 blocks.
      * Strongly favors positive y positions.
      */
-    public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random)
+    @SuppressWarnings("rawtypes")
+	public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random)
     {
         IntCache.resetIntCache();
         int var6 = par1 - par3 >> 2;

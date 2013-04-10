@@ -12,6 +12,7 @@ public class BiomeGenMesa extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenMesa(int par1)
     {
         super(par1);

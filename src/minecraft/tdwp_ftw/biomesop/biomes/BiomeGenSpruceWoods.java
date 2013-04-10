@@ -13,6 +13,7 @@ public class BiomeGenSpruceWoods extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenSpruceWoods(int par1)
     {
         super(par1);

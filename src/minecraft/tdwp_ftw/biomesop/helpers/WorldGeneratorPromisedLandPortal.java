@@ -2,12 +2,10 @@ package tdwp_ftw.biomesop.helpers;
 
 import java.util.Random;
 
-import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.IWorldGenerator;
-
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import net.minecraft.world.chunk.IChunkProvider;
 import tdwp_ftw.biomesop.worldgen.WorldGenPromisedLandPortal;
+import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGeneratorPromisedLandPortal implements IWorldGenerator 
 {

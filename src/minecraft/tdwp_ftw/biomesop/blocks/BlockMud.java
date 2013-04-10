@@ -2,16 +2,14 @@ package tdwp_ftw.biomesop.blocks;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.declarations.BOPItems;
 
 public class BlockMud extends Block
 {

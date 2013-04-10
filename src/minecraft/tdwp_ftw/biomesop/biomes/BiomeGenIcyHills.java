@@ -15,6 +15,7 @@ public class BiomeGenIcyHills extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenIcyHills(int par1)
     {
         super(par1);

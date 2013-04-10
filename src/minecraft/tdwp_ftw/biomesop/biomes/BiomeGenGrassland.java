@@ -18,6 +18,7 @@ public class BiomeGenGrassland extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenGrassland(int par1)
     {
         super(par1);

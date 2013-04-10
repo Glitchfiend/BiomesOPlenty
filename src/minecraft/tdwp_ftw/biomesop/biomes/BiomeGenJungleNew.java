@@ -22,6 +22,7 @@ public class BiomeGenJungleNew extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenJungleNew(int par1)
     {
         super(par1);

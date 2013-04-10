@@ -3,9 +3,6 @@ package tdwp_ftw.biomesop.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
@@ -19,6 +16,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.declarations.BOPBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockAcaciaLeaves extends BlockLeavesBase implements IShearable
 {

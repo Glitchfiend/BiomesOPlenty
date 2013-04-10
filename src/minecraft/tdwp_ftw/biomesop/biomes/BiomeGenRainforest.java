@@ -15,6 +15,7 @@ public class BiomeGenRainforest extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenRainforest(int par1)
     {
         super(par1);

@@ -21,6 +21,7 @@ public class BiomeGenDeadlands extends BiomeGenBase
 	private WorldGenerator theWorldGenerator;
 	private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenDeadlands(int par1)
     {
         super(par1);

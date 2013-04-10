@@ -14,7 +14,8 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenLushSwamp(int par1)
+    @SuppressWarnings("unchecked")
+	public BiomeGenLushSwamp(int par1)
     {
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);

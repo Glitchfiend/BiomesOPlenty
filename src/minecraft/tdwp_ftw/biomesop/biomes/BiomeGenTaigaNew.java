@@ -15,6 +15,7 @@ public class BiomeGenTaigaNew extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenTaigaNew(int par1)
     {
         super(par1);

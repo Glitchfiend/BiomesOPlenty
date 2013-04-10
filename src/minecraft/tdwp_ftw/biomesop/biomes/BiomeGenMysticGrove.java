@@ -17,7 +17,8 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenMysticGrove(int par1)
+    @SuppressWarnings("unchecked")
+	public BiomeGenMysticGrove(int par1)
     {
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);

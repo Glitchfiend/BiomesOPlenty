@@ -1,7 +1,5 @@
 package tdwp_ftw.biomesop.helpers;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.helpers.BiomeCachePromised;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeCacheBlockPromised

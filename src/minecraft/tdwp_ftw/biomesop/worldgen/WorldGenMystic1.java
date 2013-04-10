@@ -2,11 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenMystic1 extends WorldGenerator
 {

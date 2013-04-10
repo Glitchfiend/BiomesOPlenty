@@ -1,10 +1,19 @@
 package tdwp_ftw.biomesop.worldtype;
 
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.MINESHAFT;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.SCATTERED_FEATURE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.STRONGHOLD;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.VILLAGE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAVA;
+
 import java.util.List;
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
@@ -26,12 +35,12 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenVillage;
-
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.Event.*;
-import net.minecraftforge.event.terraingen.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
+import tdwp_ftw.biomesop.declarations.BOPConfiguration;
 
 public class ChunkProviderBOP implements IChunkProvider
 {
@@ -347,7 +356,8 @@ public class ChunkProviderBOP implements IChunkProvider
      * generates a subset of the level's terrain data. Takes 7 arguments: the [empty] noise array, the position, and the
      * size.
      */
-    private double[] initializeNoiseField(double[] par1ArrayOfDouble, int par2, int par3, int par4, int par5, int par6, int par7)
+    @SuppressWarnings("unused")
+	private double[] initializeNoiseField(double[] par1ArrayOfDouble, int par2, int par3, int par4, int par5, int par6, int par7)
     {
         ChunkProviderEvent.InitNoiseField event = new ChunkProviderEvent.InitNoiseField(this, par1ArrayOfDouble, par2, par3, par4, par5, par6, par7);
         MinecraftForge.EVENT_BUS.post(event);
@@ -635,7 +645,8 @@ public class ChunkProviderBOP implements IChunkProvider
     /**
      * Returns a list of creatures of the specified type that can spawn at the given location.
      */
-    public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
+    @SuppressWarnings("rawtypes")
+	public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
     {
         BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(par2, par4);
         return biomegenbase == null ? null : (biomegenbase == BiomeGenBase.swampland && par1EnumCreatureType == EnumCreatureType.monster && this.scatteredFeatureGenerator.hasStructureAt(par2, par3, par4) ? this.scatteredFeatureGenerator.getScatteredFeatureSpawnList() : biomegenbase.getSpawnableList(par1EnumCreatureType));

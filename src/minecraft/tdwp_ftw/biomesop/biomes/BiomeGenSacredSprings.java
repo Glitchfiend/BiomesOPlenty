@@ -16,6 +16,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
+	@SuppressWarnings("unchecked")
 	public BiomeGenSacredSprings(int par1)
     {
         super(par1);

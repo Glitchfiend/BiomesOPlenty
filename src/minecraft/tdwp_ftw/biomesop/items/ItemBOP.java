@@ -1,12 +1,12 @@
 package tdwp_ftw.biomesop.items;
 
-import tdwp_ftw.biomesop.declarations.BOPItems;
-import tdwp_ftw.biomesop.items.projectiles.EntityMudball;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import tdwp_ftw.biomesop.declarations.BOPItems;
+import tdwp_ftw.biomesop.items.projectiles.EntityMudball;
 
 public class ItemBOP extends Item
 {

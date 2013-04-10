@@ -1,5 +1,13 @@
 package tdwp_ftw.biomesop.declarations;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.armor.ArmorAmethyst;
 import tdwp_ftw.biomesop.armor.ArmorMuddy;
@@ -23,14 +31,6 @@ import tdwp_ftw.biomesop.items.ItemShroomPowder;
 import tdwp_ftw.biomesop.items.ItemSprout;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.item.EnumArmorMaterial;
-import net.minecraft.item.EnumToolMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.common.MinecraftForge;
 
 public class BOPItems {
 	

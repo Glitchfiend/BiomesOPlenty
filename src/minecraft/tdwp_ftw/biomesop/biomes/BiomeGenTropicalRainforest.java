@@ -18,7 +18,8 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenTropicalRainforest(int par1)
+    @SuppressWarnings("unchecked")
+	public BiomeGenTropicalRainforest(int par1)
     {
         super(par1);
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

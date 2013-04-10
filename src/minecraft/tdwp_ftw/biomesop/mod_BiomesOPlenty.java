@@ -221,6 +221,7 @@ public class mod_BiomesOPlenty
 		return eggIdCounter;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) {
 		int id = getUniqueEntityEggId();
 		EntityList.IDtoClassMapping.put(id, entity);

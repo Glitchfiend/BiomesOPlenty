@@ -7,6 +7,7 @@ import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
 public class AchievementPickup
 {
+	@SuppressWarnings("unused")
 	private ItemStack pickupItemStack;
 
 	@ForgeSubscribe

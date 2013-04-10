@@ -1,8 +1,5 @@
 package tdwp_ftw.biomesop.helpers;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,12 +14,14 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class TeleporterPromised extends Teleporter
 {
 	private final WorldServer worldServerInstance;
 	private final Random random;
 	private final LongHashMap field_85191_c = new LongHashMap();
+	@SuppressWarnings("rawtypes")
 	private final List field_85190_d = new ArrayList();
 
 	public TeleporterPromised(WorldServer par1WorldServer)
@@ -32,6 +31,7 @@ public class TeleporterPromised extends Teleporter
 		this.random = new Random(par1WorldServer.getSeed());
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void placeInPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
 	{
@@ -169,6 +169,7 @@ public class TeleporterPromised extends Teleporter
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
 	{
@@ -354,6 +355,7 @@ public class TeleporterPromised extends Teleporter
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public boolean makePortal(Entity par1Entity)
 	{
@@ -778,6 +780,7 @@ public class TeleporterPromised extends Teleporter
 		return true;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void func_85189_a(long par1)
 	{

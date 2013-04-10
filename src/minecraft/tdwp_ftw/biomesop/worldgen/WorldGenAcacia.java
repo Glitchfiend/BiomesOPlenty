@@ -2,12 +2,10 @@ package tdwp_ftw.biomesop.worldgen;
 
 import java.util.Random;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.declarations.BOPBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import tdwp_ftw.biomesop.declarations.BOPBlocks;
 
 public class WorldGenAcacia extends WorldGenerator
 {
@@ -18,10 +16,12 @@ public class WorldGenAcacia extends WorldGenerator
     private final boolean vinesGrow;
 
     /** The metadata value of the wood to use in tree generation. */
-    private final int metaWood;
+    @SuppressWarnings("unused")
+	private final int metaWood;
 
     /** The metadata value of the leaves to use in tree generation. */
-    private final int metaLeaves;
+    @SuppressWarnings("unused")
+	private final int metaLeaves;
 
     public WorldGenAcacia(boolean par1)
     {

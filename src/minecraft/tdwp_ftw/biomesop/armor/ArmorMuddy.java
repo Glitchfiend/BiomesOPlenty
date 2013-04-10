@@ -5,10 +5,10 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.CommonProxy;
 import tdwp_ftw.biomesop.declarations.BOPItems;
 
+@SuppressWarnings("deprecation")
 public class ArmorMuddy extends ItemArmor implements IArmorTextureProvider
 {
 	public int textureID = 0;

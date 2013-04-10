@@ -19,7 +19,8 @@ public class BiomeGenOminousWoods extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenOminousWoods(int par1)
+    @SuppressWarnings("unchecked")
+	public BiomeGenOminousWoods(int par1)
     {
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);

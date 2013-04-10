@@ -1,33 +1,32 @@
 package tdwp_ftw.biomesop.items;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.helpers.TeleporterPromised;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemRecord;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.EnumRarity;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukeBox;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemRecord;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPRecordMud extends ItemRecord
 {
     /** List of all record items and their names. */
-    private static final Map records = new HashMap();
+    @SuppressWarnings("rawtypes")
+	private static final Map records = new HashMap();
 
     /** The name of the record. */
     public final String recordName;
 
-    public ItemBOPRecordMud(int par1, String par2Str)
+    @SuppressWarnings("unchecked")
+	public ItemBOPRecordMud(int par1, String par2Str)
     {
         super(par1, par2Str);
         this.recordName = par2Str;
@@ -67,7 +66,8 @@ public class ItemBOPRecordMud extends ItemRecord
         }
     }
 
-    @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	@SideOnly(Side.CLIENT)
 
     /**
      * allows items to add custom lines of information to the mouseover description

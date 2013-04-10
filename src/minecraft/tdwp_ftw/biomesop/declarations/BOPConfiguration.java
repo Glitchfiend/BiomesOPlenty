@@ -1,15 +1,11 @@
 package tdwp_ftw.biomesop.declarations;
 
-import static net.minecraftforge.common.Configuration.CATEGORY_BLOCK;
-import static net.minecraftforge.common.Configuration.CATEGORY_GENERAL;
-
 import java.io.File;
 import java.util.logging.Level;
 
+import net.minecraftforge.common.Configuration;
 import tdwp_ftw.biomesop.ClientProxy;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-
-import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfiguration {

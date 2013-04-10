@@ -1,14 +1,10 @@
 package tdwp_ftw.biomesop.helpers;
 
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import tdwp_ftw.biomesop.helpers.WorldChunkManagerPromised;
-import tdwp_ftw.biomesop.helpers.BiomeCacheBlockPromised;
-
 import java.util.ArrayList;
 import java.util.List;
+
 import net.minecraft.util.LongHashMap;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeCacheBlock;
 
 public class BiomeCachePromised
 {
@@ -24,7 +20,8 @@ public class BiomeCachePromised
     private LongHashMap cacheMap = new LongHashMap();
 
     /** The list of cached BiomeCacheBlocks */
-    private List cache = new ArrayList();
+    @SuppressWarnings("rawtypes")
+	private List cache = new ArrayList();
 
     public BiomeCachePromised(WorldChunkManagerPromised par1WorldChunkManager)
     {
@@ -34,7 +31,8 @@ public class BiomeCachePromised
     /**
      * Returns a biome cache block at location specified.
      */
-    public BiomeCacheBlockPromised getBiomeCacheBlock(int par1, int par2)
+    @SuppressWarnings("unchecked")
+	public BiomeCacheBlockPromised getBiomeCacheBlock(int par1, int par2)
     {
         par1 >>= 4;
         par2 >>= 4;
