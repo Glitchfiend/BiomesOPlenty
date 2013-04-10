@@ -39,13 +39,10 @@ public class EntityMudball extends EntityThrowable
 			((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300));
 		}
 
-		if (isClient)
-		{
 			for (int i = 0; i < 16; ++i)
 			{
 				mod_BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
 			}
-		}
 
 		if (!this.worldObj.isRemote)
 		{
