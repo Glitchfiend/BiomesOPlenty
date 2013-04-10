@@ -907,7 +907,6 @@ public class BOPBlocks {
 		GameRegistry.addRecipe(new ItemStack(ash, 1), new Object[] {"AA", "AA", 'A', BOPItems.ashes});
 		GameRegistry.addRecipe(new ItemStack(mudBrickBlock, 1), new Object[] {"MM", "MM", 'M', BOPItems.mudBrick});
 		GameRegistry.addRecipe(new ItemStack(bambooThatching, 1), new Object[] {"###", "###", "###", '#', BOPItems.bambooItem});
-		GameRegistry.addShapelessRecipe(new ItemStack(Block.cobblestoneMossy, 1), new Object[] {Block.cobblestone, BOPItems.mossItem});
 		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', BOPItems.mossItem, 'C', Block.cobblestone});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', BOPItems.mossItem, 'S', Block.stoneBrick});
 	}
