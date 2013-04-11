@@ -228,7 +228,7 @@ public class BlockBambooLeaves extends BlockLeavesBase implements IShearable
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return Block.sapling.blockID;
+        return BOPBlocks.bambooSapling.blockID;
     }
 
     /**
