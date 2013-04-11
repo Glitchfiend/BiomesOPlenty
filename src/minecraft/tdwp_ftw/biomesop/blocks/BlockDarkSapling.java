@@ -53,7 +53,7 @@ public class BlockDarkSapling extends BlockSapling
 
                 if ((var6 & 8) == 0)
                 {
-                    par1World.setBlock(par2, par3, par4, var6 | 8);
+                    par1World.setBlockMetadataWithNotify(par2, par3, par4, var6 | 8, 2);
                 }
                 else
                 {

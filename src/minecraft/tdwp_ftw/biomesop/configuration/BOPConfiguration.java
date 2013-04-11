@@ -788,7 +788,7 @@ public class BOPConfiguration {
 			tropicalRainforestID = config.get("Biome IDs", "Tropical Rainforest ID", 242).getInt();
 			tropicsID = config.get("Biome IDs", "Tropics ID", 243).getInt();
 			tundraID = config.get("Biome IDs", "Tundra ID", 244).getInt();
-			volcanoID = config.get("Biome IDs", "Volcano ID", 245)getInt();
+			volcanoID = config.get("Biome IDs", "Volcano ID", 245).getInt();
 			wastelandID = config.get("Biome IDs", "Wasteland ID", 246).getInt();
 			wetlandID = config.get("Biome IDs", "Wetland ID", 247).getInt();
 			woodlandID = config.get("Biome IDs", "Woodland ID", 248).getInt();
