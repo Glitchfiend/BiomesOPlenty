@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import tdwp_ftw.biomesop.blocks.*;
+import tdwp_ftw.biomesop.items.ItemBOPFlower;
 import tdwp_ftw.biomesop.items.ItemBOPPlank;
 import tdwp_ftw.biomesop.items.ItemBOPSlab;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -188,10 +189,12 @@ public class BOPBlocks {
 	public static BlockHalfSlab holySingleSlab;
 	public static Block holyStairs;
 	
-	public static Block planks;
-	public static Block stairs;
-	public static BlockHalfSlab singleSlab;
-	public static BlockHalfSlab doubleSlab;
+	// New definitions
+//	public static Block planks;
+//	public static Block stairs;
+//	public static BlockHalfSlab singleSlab;
+//	public static BlockHalfSlab doubleSlab;
+//	public static Block flowers;
 	
 	public static void init()
 	{
@@ -428,8 +431,22 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(stairs,1,7), "Palm Wood Stairs");
         LanguageRegistry.addName(new ItemStack(stairs,1,8), "Redwood Wood Stairs");
         LanguageRegistry.addName(new ItemStack(stairs,1,9), "Willow Wood Stairs");
-        */
+
+		// Flowers - mostly working, missing glow on Glowflower
+		flowers = (new BlockBOPFlower(2000)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers");
+		GameRegistry.registerBlock(flowers, ItemBOPFlower.class, "plants");
 		
+		LanguageRegistry.addName(new ItemStack(flowers,1,0), "Swampflower");
+        LanguageRegistry.addName(new ItemStack(flowers,1,1), "Deathbloom");
+        LanguageRegistry.addName(new ItemStack(flowers,1,2), "Glowflower");
+        LanguageRegistry.addName(new ItemStack(flowers,1,3), "Hydrangea");
+        LanguageRegistry.addName(new ItemStack(flowers,1,4), "Daisy");
+        LanguageRegistry.addName(new ItemStack(flowers,1,5), "Tulip");
+        LanguageRegistry.addName(new ItemStack(flowers,1,6), "Wildflower");
+        LanguageRegistry.addName(new ItemStack(flowers,1,7), "Violet");
+        LanguageRegistry.addName(new ItemStack(flowers,1,8), "Anemone");
+        */
+        
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");
 		GameRegistry.registerBlock(driedDirt, "driedDirt");

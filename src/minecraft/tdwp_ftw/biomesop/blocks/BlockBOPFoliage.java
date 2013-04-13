@@ -21,18 +21,18 @@ import tdwp_ftw.biomesop.configuration.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFoliage extends BlockFlower implements IShearable
+public class BlockBOPFoliage extends BlockFlower implements IShearable
 {
     private static final String[] foliageTypes = new String[] {"shortgrass", "mediumgrass", "highgrassbottom", "highgrasstop"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures  = {null, null, null, null};
     private final int metadata;
     
-    public BlockFoliage(int blockID, int index)
+    public BlockBOPFoliage(int blockID, int index)
     {
         super(blockID, Material.vine);
         float f = 0.4F;
-        BlockFoliage.setBurnProperties(this.blockID, 60, 100);
+        BlockBOPFoliage.setBurnProperties(this.blockID, 60, 100);
         metadata = index;
         
         if (metadata == 3)

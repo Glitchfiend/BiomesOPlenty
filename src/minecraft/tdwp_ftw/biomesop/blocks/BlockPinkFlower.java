@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
+@Deprecated
 public class BlockPinkFlower extends Block
 {
     protected BlockPinkFlower(int par1, Material par3Material)

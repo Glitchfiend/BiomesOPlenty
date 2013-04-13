@@ -9,6 +9,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
+@Deprecated
 public class BlockDeathbloom extends Block
 {
     protected BlockDeathbloom(int par1, Material par3Material)
