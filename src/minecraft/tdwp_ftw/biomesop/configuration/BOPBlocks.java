@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import tdwp_ftw.biomesop.blocks.*;
+import tdwp_ftw.biomesop.items.ItemBOPPlank;
 import tdwp_ftw.biomesop.items.ItemBOPSlab;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -187,6 +188,11 @@ public class BOPBlocks {
 	public static BlockHalfSlab holySingleSlab;
 	public static Block holyStairs;
 	
+	public static Block planks;
+	public static Block stairs;
+	public static BlockHalfSlab singleSlab;
+	public static BlockHalfSlab doubleSlab;
+	
 	public static void init()
 	{
 		// Block declaration
@@ -362,6 +368,67 @@ public class BOPBlocks {
 		holyDoubleSlab = (BlockHalfSlab)(new BlockHolySlab(BOPConfiguration.holyDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
 		holySingleSlab = (BlockHalfSlab)(new BlockHolySlab(BOPConfiguration.holySingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
 		holyStairs = (new BlockHolyStairs(BOPConfiguration.holyStairsID, holyPlank)).setUnlocalizedName("holyStairs");
+		/*
+//		Planks condensed into one block
+		planks = (new BlockBOPPlank(2000)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks");
+        
+        GameRegistry.registerBlock(planks, ItemBOPPlank.class, "planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,0), "Acacia Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,1), "Cherry Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,2), "Dark Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,3), "Fir Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,4), "Holy Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,5), "Magic Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,6), "Mangrove Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,7), "Palm Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,8), "Redwood Wood Planks");
+        LanguageRegistry.addName(new ItemStack(planks,1,9), "Willow Wood Planks");
+        
+        doubleSlab = (BlockHalfSlab)(new BlockBOPSlab(2003, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("slab");
+        singleSlab = (BlockHalfSlab)(new BlockBOPSlab(2002, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("slab");
+        ItemBOPSlab.setSlabs(singleSlab, doubleSlab);
+        
+//      Slabs condensed - almost working, need to divide
+        GameRegistry.registerBlock(doubleSlab, ItemBOPSlab.class, "doubleSlab");
+        GameRegistry.registerBlock(singleSlab, ItemBOPSlab.class, "singleSlab");
+        
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,0), "Acacia Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,1), "Cherry Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,2), "Dark Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,3), "Fir Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,5), "Magic Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,6), "Mangrove Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,7), "Palm Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,8), "Redwood Wood Slab");
+        LanguageRegistry.addName(new ItemStack(doubleSlab,1,9), "Willow Wood Slab");
+        
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,0), "Acacia Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,1), "Cherry Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,2), "Dark Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,3), "Fir Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,5), "Magic Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,6), "Mangrove Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,7), "Palm Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,8), "Redwood Wood Slab");
+        LanguageRegistry.addName(new ItemStack(singleSlab,1,9), "Willow Wood Slab");
+		
+		/*Stairs condensed into one block - NOT WORKING
+        stairs = (new BlockBOPStairs(2001, planks)).setUnlocalizedName("stairs");
+        
+        GameRegistry.registerBlock(stairs, ItemBOPPlank.class, "stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,0), "Acacia Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,1), "Cherry Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,2), "Dark Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,3), "Fir Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,4), "Holy Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,5), "Magic Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,6), "Mangrove Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,7), "Palm Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,8), "Redwood Wood Stairs");
+        LanguageRegistry.addName(new ItemStack(stairs,1,9), "Willow Wood Stairs");
+        */
 		
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");

@@ -2,6 +2,8 @@ package tdwp_ftw.biomesop.blocks;
 
 import java.util.Random;
 
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -18,7 +20,7 @@ public class BlockHighGrassBottom extends BlockFlower
         super(par1, Material.vine);
         float var3 = 0.4F;
 		this.setBurnProperties(this.blockID, 60, 100);
-        this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
+        this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.8F, 0.5F + var3);
     }
 	
 	@Override
@@ -99,5 +101,12 @@ public class BlockHighGrassBottom extends BlockFlower
     public boolean isBlockReplaceable(World world, int x, int y, int z)
     {
         return true;
+    }
+    
+    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    {
+        par1World.setBlock(par2, par3, par4, BOPBlocks.highGrassBottom.blockID, 2, par9);
+        par1World.setBlock(par2, par3 + 1, par4, BOPBlocks.highGrassTop.blockID, 2, par9);
+        return par9;
     }
 }

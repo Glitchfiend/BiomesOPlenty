@@ -8,6 +8,7 @@ import com.google.common.base.Optional;
 
 public class ItemBOPSlab extends ItemSlab
 {
+    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
 	private static Optional<BlockHalfSlab>	singleSlab	= Optional.absent();
 	private static Optional<BlockHalfSlab>	doubleSlab	= Optional.absent();
 	
@@ -20,9 +21,16 @@ public class ItemBOPSlab extends ItemSlab
 	public ItemBOPSlab(int id) {
 		super(id, singleSlab.get(), doubleSlab.get(), id == doubleSlab.get().blockID);
 	}
+	
+	@Override
+    public int getMetadata(int meta)
+    {
+        return meta;
+    }
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack) {
 		return itemStack.getItem().getUnlocalizedName();
+//	    return (new StringBuilder()).append(woodTypes[itemStack.getItemDamage()]).append("Slab").toString();
 	}
 }
