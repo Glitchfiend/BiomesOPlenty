@@ -94,4 +94,10 @@ public class BlockHighGrassBottom extends BlockFlower
     {
         return -1;
     }
+    
+    @Override
+    public boolean isBlockReplaceable(World world, int x, int y, int z)
+    {
+        return true;
+    }
 }

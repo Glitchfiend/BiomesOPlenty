@@ -474,4 +474,10 @@ public class BlockMoss extends Block
     {
         return BOPItems.mossItem.itemID;
     }
+    
+    @Override
+    public boolean isBlockReplaceable(World world, int x, int y, int z)
+    {
+        return true;
+    }
 }

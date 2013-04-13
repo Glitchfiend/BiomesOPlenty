@@ -130,15 +130,23 @@ public class BlockHolyTallGrass extends Block implements IShearable
         return 1;
     }
     
+    @Override
     public boolean isShearable(ItemStack item, World world, int x, int y, int z)
     {
         return true;
     }
 
+    @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
         return ret;
+    }
+    
+    @Override
+    public boolean isBlockReplaceable(World world, int x, int y, int z)
+    {
+        return true;
     }
 }

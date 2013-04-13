@@ -358,4 +358,10 @@ public class BlockWillow extends Block implements IShearable
         ret.add(new ItemStack(this, 1, 0));
         return ret;
     }
+    
+    @Override
+    public boolean isBlockReplaceable(World world, int x, int y, int z)
+    {
+        return true;
+    }
 }

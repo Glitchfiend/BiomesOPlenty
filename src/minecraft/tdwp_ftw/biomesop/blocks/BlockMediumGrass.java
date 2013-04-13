@@ -1,5 +1,6 @@
 package tdwp_ftw.biomesop.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -14,9 +15,10 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 import tdwp_ftw.biomesop.configuration.BOPItems;
 
-public class BlockMediumGrass extends BlockFlower
+public class BlockMediumGrass extends BlockFlower implements IShearable
 {
 	public BlockMediumGrass(int par1)
     {
@@ -106,15 +108,7 @@ public class BlockMediumGrass extends BlockFlower
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-        if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID)
-        {
-            par2EntityPlayer.addStat(StatList.mineBlockStatArray[this.blockID], 1);
-            this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(BOPItems.mediumGrassItem, 1, par6));
-        }
-        else
-        {
-            super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
-        }
+        super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
     }
 	
     /**
@@ -123,5 +117,25 @@ public class BlockMediumGrass extends BlockFlower
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
         return BOPItems.mediumGrassItem.itemID;
+    }
+    
+    @Override
+    public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+    {
+        return true;
+    }
+
+    @Override
+    public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+    {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        ret.add(new ItemStack(BOPItems.mediumGrassItem.itemID, 1, -1));
+        return ret;
+    }
+    
+    @Override
+    public boolean isBlockReplaceable(World world, int x, int y, int z)
+    {
+        return true;
     }
 }
