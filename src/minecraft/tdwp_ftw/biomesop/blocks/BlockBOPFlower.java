@@ -2,12 +2,14 @@ package tdwp_ftw.biomesop.blocks;
 
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
@@ -51,6 +53,15 @@ public class BlockBOPFlower extends BlockFlower
             meta = 0;
 
         return textures[meta];
+    }
+    
+    public int getLightValue(IBlockAccess world, int x, int y, int z)
+    {
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta == 2)
+            return 9;
+        else
+            return 0;
     }
     
     @Override

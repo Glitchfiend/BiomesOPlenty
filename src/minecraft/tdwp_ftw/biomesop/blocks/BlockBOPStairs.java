@@ -1,26 +1,29 @@
 package tdwp_ftw.biomesop.blocks;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPStairs extends BlockStairs
 {
+    public static enum WoodCategory
+    {
+      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW;
+    }
+    
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
+    private final WoodCategory category;
 
-    public BlockBOPStairs(int blockID, Block model)
+    public BlockBOPStairs(int blockID, Block model, WoodCategory cat)
     {
         super(blockID, model, 0);
+        category = cat;
         setBurnProperties(this.blockID, 5, 20);
         this.setLightOpacity(0);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
@@ -40,17 +43,7 @@ public class BlockBOPStairs extends BlockStairs
     @SideOnly(Side.CLIENT)
     public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
     {
-        if (meta < 0 || meta >= textures.length)
-            meta = 0;
-
-        return textures[meta];
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < woodTypes.length; ++i)
-            list.add(new ItemStack(blockID, 1, i));
+        return textures[category.ordinal()];
     }
     
     @Override

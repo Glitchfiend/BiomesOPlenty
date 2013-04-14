@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
+@Deprecated
 public class BlockPalmSlab extends BlockHalfSlab
 {
     /** The type of tree this slab came from. */
