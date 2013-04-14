@@ -10,6 +10,8 @@ import tdwp_ftw.biomesop.blocks.*;
 import tdwp_ftw.biomesop.items.ItemBOPFlower;
 import tdwp_ftw.biomesop.items.ItemBOPPlank;
 import tdwp_ftw.biomesop.items.ItemBOPSlab;
+import tdwp_ftw.biomesop.items.ItemBOPLeaves;
+import tdwp_ftw.biomesop.items.ItemBOPColorizedLeaves;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -194,7 +196,9 @@ public class BOPBlocks {
 //	public static Block stairs;
 //	public static BlockHalfSlab singleSlab;
 //	public static BlockHalfSlab doubleSlab;
-//	public static Block flowers;
+	public static Block flowers;
+	public static Block leaves;
+	public static Block leavesColorized;
 	
 	public static void init()
 	{
@@ -433,8 +437,8 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(stairs,1,9), "Willow Wood Stairs");
 
 		// Flowers - mostly working, missing glow on Glowflower
-		flowers = (new BlockBOPFlower(2000)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers");
-		GameRegistry.registerBlock(flowers, ItemBOPFlower.class, "plants");
+		flowers = (new BlockBOPFlower(2002)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers");
+		GameRegistry.registerBlock(flowers, ItemBOPFlower.class, "flowers");
 		
 		LanguageRegistry.addName(new ItemStack(flowers,1,0), "Swampflower");
         LanguageRegistry.addName(new ItemStack(flowers,1,1), "Deathbloom");
@@ -445,7 +449,35 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(flowers,1,6), "Wildflower");
         LanguageRegistry.addName(new ItemStack(flowers,1,7), "Violet");
         LanguageRegistry.addName(new ItemStack(flowers,1,8), "Anemone");
+
+        
+        // Leaves - Almost working, will have to fix drops
+		leaves = (new BlockBOPLeaves(2000)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leaves");
+		GameRegistry.registerBlock(leaves, ItemBOPLeaves.class, "leaves");
+		
+		LanguageRegistry.addName(new ItemStack(leaves,1,0), "Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,1), "Bamboo Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,2), "Magic Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,3), "Dark Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,4), "Dying Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,5), "Fir Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,6), "Holy Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,7), "Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,8), "Origin Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,9), "Cherry Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,10), "Maple Leaves");
+        LanguageRegistry.addName(new ItemStack(leaves,1,11), "Cherry Leaves");
+        
+        leavesColorized = (new BlockBOPColorizedLeaves(2001)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leavesColorized");
+        GameRegistry.registerBlock(leavesColorized, ItemBOPColorizedLeaves.class, "leavesColorized");
+        
+        LanguageRegistry.addName(new ItemStack(leavesColorized,1,0), "Acacia Leaves");
+        LanguageRegistry.addName(new ItemStack(leavesColorized,1,1), "Mangrove Leaves");
+        LanguageRegistry.addName(new ItemStack(leavesColorized,1,2), "Palm Leaves");
+        LanguageRegistry.addName(new ItemStack(leavesColorized,1,3), "Redwood Leaves");
+        LanguageRegistry.addName(new ItemStack(leavesColorized,1,4), "Willow Leaves");
         */
+        
         
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");

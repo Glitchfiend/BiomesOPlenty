@@ -28,6 +28,7 @@ public class ItemBOPFlower extends ItemBlock
         return (new StringBuilder()).append(plants[itemStack.getItemDamage()]).toString();
     }
     
+    @Override
     public Icon getIconFromDamage(int meta)
     {
         return Block.blocksList[this.itemID].getBlockTextureFromSideAndMetadata(0, meta);

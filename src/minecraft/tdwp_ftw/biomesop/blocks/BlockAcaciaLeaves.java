@@ -19,6 +19,7 @@ import tdwp_ftw.biomesop.configuration.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+@Deprecated
 public class BlockAcaciaLeaves extends BlockLeavesBase implements IShearable
 {
     /**

@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -33,6 +34,7 @@ public class BlockBOPFlower extends BlockFlower
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[plants.length];
