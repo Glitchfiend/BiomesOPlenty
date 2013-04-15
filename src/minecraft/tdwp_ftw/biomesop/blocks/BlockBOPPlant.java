@@ -4,68 +4,67 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+import tdwp_ftw.biomesop.mod_BiomesOPlenty;
+import tdwp_ftw.biomesop.configuration.BOPBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
-import net.minecraft.world.ColorizerFoliage;
-import net.minecraft.world.ColorizerGrass;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-import tdwp_ftw.biomesop.mod_BiomesOPlenty;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFoliage extends BlockFlower implements IShearable
+public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-    private static final String[] foliageTypes = new String[] {"shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
-
     
-    public BlockBOPFoliage(int blockID)
+    public BlockBOPPlant(int par1)
     {
-        super(blockID, Material.vine);
-        float f = 0.4F;
+        super(par1, Material.vine);
+        setTickRandomly(true);
+        float var3 = 0.4F;
         setBurnProperties(this.blockID, 60, 100);
-        setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
         setHardness(0.0F);
         setStepSound(Block.soundGrassFootstep);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
+        setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[foliageTypes.length];
+        textures = new Icon[plants.length];
         
-        for (int i = 0; i < textures.length; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+foliageTypes[i]);
+        for (int i = 0; i < plants.length; ++i)
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + plants[i]);
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
     {
-        if (meta >= textures.length)
-        {
+        if (meta < 0 || meta >= textures.length)
             meta = 0;
-        }
 
         return textures[meta];
     }
     
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
-    {
-        for (int i = 0; i < textures.length-1; ++i)
+    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+        for (int i = 0; i < plants.length; ++i)
             list.add(new ItemStack(blockID, 1, i));
     }
     
@@ -75,56 +74,40 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         return super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
     
-    protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
+    protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
     {
-        if (metadata == 5)
-            return blockID == this.blockID;
+        // TODO 
+        if (meta == 0)
+            return id == BOPBlocks.driedDirt.blockID || id == Block.sand.blockID;
+        else if (meta == 1)    
+            return id == BOPBlocks.redRock.blockID;
+        else if (meta == 2 || meta == 3)
+            return id == Block.sand.blockID;
+        else if (meta == 4)
+            return id == BOPBlocks.holyGrass.blockID;
         else
-            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
+            return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
     }
-       
+
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
-        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-    }   
-    
-    @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
-    {
-        super.onNeighborBlockChange(world, x, y, z, neighborID);
-        this.checkFlowerChange(world, x, y, z);
+        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+                && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
-    
+
     @Override
-    @SideOnly(Side.CLIENT)
-    public int getBlockColor()
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
-        double var1 = 0.5D;
-        double var3 = 1.0D;
-        return ColorizerGrass.getGrassColor(var1, var3);
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderColor(int par1)
-    {
-        return ColorizerFoliage.getFoliageColorBasic();
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
-    {
-        return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeGrassColor();
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta == 5)
+            entity.attackEntityFrom(DamageSource.cactus, 1);
     }
     
     @Override
     public int getDamageValue(World world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 5)
-            meta = 2;
         return meta;
     }
     
@@ -143,17 +126,18 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     @Override
     public boolean isBlockReplaceable(World world, int x, int y, int z)
     {
-        return true;
-    }
-
-    @Override
-    public boolean isShearable(ItemStack item, World world, int x, int y, int z)
-    {
-        if (world.getBlockMetadata(x, y, z) == 5)
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta == 5)
             return false;
         return true;
     }
     
+    @Override
+    public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+    {
+        return true;
+    }
+
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
     {

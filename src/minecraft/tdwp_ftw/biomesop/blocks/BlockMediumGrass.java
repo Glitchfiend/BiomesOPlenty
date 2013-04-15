@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import tdwp_ftw.biomesop.configuration.BOPItems;
 
+@Deprecated
 public class BlockMediumGrass extends BlockFlower implements IShearable
 {
 	public BlockMediumGrass(int par1)

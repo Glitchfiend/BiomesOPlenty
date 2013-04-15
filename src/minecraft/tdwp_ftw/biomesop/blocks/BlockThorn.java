@@ -18,6 +18,7 @@ import net.minecraftforge.common.IShearable;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
+@Deprecated
 public class BlockThorn extends Block implements IShearable
 {
     protected BlockThorn(int par1, Material par3Material)

@@ -5,11 +5,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class ItemBOPFlower extends ItemBlock
+public class ItemBOPPlant extends ItemBlock
 {
-    private static final String[] plants = new String[] {"swampflower", "deadbloom", "glowflower", "hydrangea", "orangeflower", "pinkflower", "purpleflower", "violet", "whiteflower", "toadstool", "cactus"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn"};
     
-    public ItemBOPFlower(int par1)
+    public ItemBOPPlant(int par1)
     {
         super(par1);
         setMaxDamage(0);

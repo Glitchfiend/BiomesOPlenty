@@ -14,6 +14,7 @@ import net.minecraftforge.common.IShearable;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
+@Deprecated
 public class BlockDesertGrass extends Block implements IShearable
 {
     protected BlockDesertGrass(int par1, Material par3Material)

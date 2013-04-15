@@ -9,6 +9,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
+@Deprecated
 public class BlockDesertSprouts extends Block
 {
     protected BlockDesertSprouts(int par1, Material par3Material)

@@ -10,6 +10,7 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import tdwp_ftw.biomesop.configuration.BOPBlocks;
 
+@Deprecated
 public class BlockHighGrassTop extends BlockFlower
 {
 	public BlockHighGrassTop(int par1)

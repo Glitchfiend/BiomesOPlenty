@@ -9,6 +9,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
+@Deprecated
 public class BlockToadstool extends Block
 {
     protected BlockToadstool(int par1, Material par3Material)

@@ -15,10 +15,12 @@ import tdwp_ftw.biomesop.blocks.BlockBOPLog.LogCategory;
 import tdwp_ftw.biomesop.blocks.BlockBOPSlab.SlabCategory;
 import tdwp_ftw.biomesop.blocks.BlockBOPStairs.WoodCategory;
 import tdwp_ftw.biomesop.items.ItemBOPFlower;
+import tdwp_ftw.biomesop.items.ItemBOPFoliage;
 import tdwp_ftw.biomesop.items.ItemBOPPlank;
 import tdwp_ftw.biomesop.items.ItemBOPSlab;
 import tdwp_ftw.biomesop.items.ItemBOPLeaves;
 import tdwp_ftw.biomesop.items.ItemBOPLog;
+import tdwp_ftw.biomesop.items.ItemBOPPlant;
 import tdwp_ftw.biomesop.items.ItemBOPColorizedLeaves;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -478,8 +480,8 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,2), "Mud Bricks Slab");
-		
-		// Flowers - WORKING!
+
+		// Flowers - WORKING! - need a fix for tiny cactus
         Blocks.flowers = Optional.of((new BlockBOPFlower(2002)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers"));
 		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
 		
@@ -492,8 +494,9 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,6), "Wildflower");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Violet");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,8), "Anemone");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Toadstool");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Tiny Cactus");
 
-        
         // Leaves - Almost working, will have to fix drops
         Blocks.leaves = Optional.of((new BlockBOPLeaves(2000)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leaves"));
 		GameRegistry.registerBlock(Blocks.leaves.get(), ItemBOPLeaves.class, "leaves");
@@ -541,8 +544,29 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,0), "Redwood Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,1), "Willow Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,2), "Dead Wood");
-*/
+
+		// Foliage - WORKIMG!
+		Blocks.foliage = Optional.of((new BlockBOPFoliage(1988)).setUnlocalizedName("foliage"));
+		GameRegistry.registerBlock(Blocks.foliage.get(), ItemBOPFoliage.class, "foliage");
+		
+		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Short Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Medium Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,2), "High Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "Bush");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Sprout");
+
+		// Plants - Semi working
+		Blocks.plants = Optional.of((new BlockBOPPlant(1987)).setUnlocalizedName("plants"));
+        GameRegistry.registerBlock(Blocks.plants.get(), ItemBOPPlant.class, "plants");
         
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,0), "Dead Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,1), "Desert Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,2), "Desert Sprouts");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,3), "Dune Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
+*/
+		
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");
 		GameRegistry.registerBlock(driedDirt, "driedDirt");

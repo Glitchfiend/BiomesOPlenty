@@ -11,6 +11,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
+@Deprecated
 public class BlockTinyCactus extends Block
 {
     protected BlockTinyCactus(int par1, Material par3Material)

@@ -31,4 +31,6 @@ public class Blocks
     public static Optional<? extends Block> logs1                       = Optional.absent();
     public static Optional<? extends Block> logs2                       = Optional.absent();
     public static Optional<? extends Block> logs3                       = Optional.absent();
+    public static Optional<? extends Block> foliage                     = Optional.absent();
+    public static Optional<? extends Block> plants                      = Optional.absent();
 }

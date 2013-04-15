@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import tdwp_ftw.biomesop.configuration.BOPItems;
 
+@Deprecated
 public class BlockBush extends BlockFlower implements IShearable
 {
 	public BlockBush(int par1)
