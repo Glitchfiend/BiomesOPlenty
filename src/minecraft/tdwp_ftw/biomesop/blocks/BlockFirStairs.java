@@ -5,6 +5,7 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IconRegister;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
+@Deprecated
 public class BlockFirStairs extends BlockStairs
 {
     /** The block that is used as model for the stair. */

@@ -5,7 +5,7 @@ import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IconRegister;
 import tdwp_ftw.biomesop.mod_BiomesOPlenty;
 
-
+@Deprecated
 public class BlockAcaciaStairs extends BlockStairs
 {
     private final Block modelBlock;

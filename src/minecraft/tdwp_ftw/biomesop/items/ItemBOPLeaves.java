@@ -23,6 +23,6 @@ public class ItemBOPLeaves extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(leaves[itemStack.getItemDamage()]).append("Planks").toString();
+        return (new StringBuilder()).append(leaves[itemStack.getItemDamage()]).append("Leaves").toString();
     }
 }

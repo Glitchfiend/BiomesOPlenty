@@ -1,5 +1,7 @@
 package tdwp_ftw.biomesop.configuration;
 
+import com.google.common.base.Optional;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
@@ -7,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
+import tdwp_ftw.biomesop.api.Blocks;
 import tdwp_ftw.biomesop.blocks.*;
 import tdwp_ftw.biomesop.blocks.BlockBOPLog.LogCategory;
 import tdwp_ftw.biomesop.blocks.BlockBOPSlab.SlabCategory;
@@ -196,33 +199,6 @@ public class BOPBlocks {
 	public static BlockHalfSlab holySingleSlab;
 	public static Block holyStairs;
 	
-	// New definitions
-	public static Block planks;
-	public static Block acaciaStairs1;
-	public static Block cherryStairs1;
-	public static Block darkStairs1;
-	public static Block firStairs1;
-	public static Block holyStairs1;
-	public static Block magicStairs1;
-	public static Block mangroveStairs1;
-	public static Block palmStairs1;
-	public static Block redwoodStairs1;
-	public static Block willowStairs1;
-	public static Block stairs;
-	
-	public static BlockHalfSlab woodenSingleSlab1;
-	public static BlockHalfSlab woodenDoubleSlab1;
-	public static BlockHalfSlab woodenSingleSlab2;
-    public static BlockHalfSlab woodenDoubleSlab2;
-    public static BlockHalfSlab stoneSingleSlab;
-    public static BlockHalfSlab stoneDoubleSlab;
-	public static Block flowers;
-	public static Block leaves;
-	public static Block leavesColorized;
-	public static Block logs1;
-	public static Block logs2;
-	public static Block logs3;
-	
 	public static void init()
 	{
 		// Block declaration
@@ -401,170 +377,170 @@ public class BOPBlocks {
 		
 /*
 		// Planks - WORKING!
-		planks = (new BlockBOPPlank(1989)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks");
+		Blocks.planks = Optional.of((new BlockBOPPlank(1989)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
         
-        GameRegistry.registerBlock(planks, ItemBOPPlank.class, "planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,0), "Acacia Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,1), "Cherry Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,2), "Dark Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,3), "Fir Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,4), "Holy Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,5), "Magic Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,6), "Mangrove Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,7), "Palm Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,8), "Redwood Wood Planks");
-        LanguageRegistry.addName(new ItemStack(planks,1,9), "Willow Wood Planks");
+        GameRegistry.registerBlock(Blocks.planks.get(), ItemBOPPlank.class, "planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 2), "Dark Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 3), "Fir Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 4), "Holy Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 5), "Magic Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 6), "Mangrove Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 7), "Palm Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 8), "Redwood Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 9), "Willow Wood Planks");
         
-        // Stairs - Almost working - need to fix displayed name. Stairs can't be compressed
-        acaciaStairs1 = (new BlockBOPStairs(1990, planks, WoodCategory.ACACIA)).setUnlocalizedName("acaciaStairs");
-        cherryStairs1 = (new BlockBOPStairs(1991, planks, WoodCategory.CHERRY)).setUnlocalizedName("cherryStairs");
-        darkStairs1 = (new BlockBOPStairs(1992, planks, WoodCategory.DARK)).setUnlocalizedName("darkStairs");
-        firStairs1 = (new BlockBOPStairs(1993, planks, WoodCategory.FIR)).setUnlocalizedName("firStairs");
-        holyStairs1 = (new BlockBOPStairs(1994, planks, WoodCategory.HOLY)).setUnlocalizedName("holyStairs");
-        magicStairs1 = (new BlockBOPStairs(1995, planks, WoodCategory.MAGIC)).setUnlocalizedName("magicStairs");
-        mangroveStairs1 = (new BlockBOPStairs(1996, planks, WoodCategory.MANGROVE)).setUnlocalizedName("mangroveStairs");
-        palmStairs1 = (new BlockBOPStairs(1997, planks, WoodCategory.PALM)).setUnlocalizedName("palmStairs");
-        redwoodStairs1 = (new BlockBOPStairs(1998, planks, WoodCategory.REDWOOD)).setUnlocalizedName("redwoodStairs");
-        willowStairs1 = (new BlockBOPStairs(1999, planks, WoodCategory.WILLOW)).setUnlocalizedName("willowStairs");
+        // Stairs - WORKING!
+        Blocks.acaciaStairs = Optional.of((new BlockBOPStairs(1990, Blocks.planks.get(), WoodCategory.ACACIA)).setUnlocalizedName("acaciaStairs"));
+        Blocks.cherryStairs = Optional.of((new BlockBOPStairs(1991, Blocks.planks.get(), WoodCategory.CHERRY)).setUnlocalizedName("cherryStairs"));
+        Blocks.darkStairs = Optional.of((new BlockBOPStairs(1992, Blocks.planks.get(), WoodCategory.DARK)).setUnlocalizedName("darkStairs"));
+        Blocks.firStairs = Optional.of((new BlockBOPStairs(1993, Blocks.planks.get(), WoodCategory.FIR)).setUnlocalizedName("firStairs"));
+        Blocks.holyStairs = Optional.of((new BlockBOPStairs(1994, Blocks.planks.get(), WoodCategory.HOLY)).setUnlocalizedName("holyStairs"));
+        Blocks.magicStairs = Optional.of((new BlockBOPStairs(1995, Blocks.planks.get(), WoodCategory.MAGIC)).setUnlocalizedName("magicStairs"));
+        Blocks.mangroveStairs = Optional.of((new BlockBOPStairs(1996, Blocks.planks.get(), WoodCategory.MANGROVE)).setUnlocalizedName("mangroveStairs"));
+        Blocks.palmStairs = Optional.of((new BlockBOPStairs(1997, Blocks.planks.get(), WoodCategory.PALM)).setUnlocalizedName("palmStairs"));
+        Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(1998, Blocks.planks.get(), WoodCategory.REDWOOD)).setUnlocalizedName("redwoodStairs"));
+        Blocks.willowStairs = Optional.of((new BlockBOPStairs(1999, Blocks.planks.get(), WoodCategory.WILLOW)).setUnlocalizedName("willowStairs"));
         
-        GameRegistry.registerBlock(acaciaStairs1, ItemBOPPlank.class, "acaciaStairs1");
-        GameRegistry.registerBlock(cherryStairs1, ItemBOPPlank.class, "cherryStairs1");
-        GameRegistry.registerBlock(darkStairs1, ItemBOPPlank.class, "darkStairs1");
-        GameRegistry.registerBlock(firStairs1, ItemBOPPlank.class, "firStairs1");
-        GameRegistry.registerBlock(holyStairs1, ItemBOPPlank.class, "holyStairs1");
-        GameRegistry.registerBlock(magicStairs1, ItemBOPPlank.class, "magicStairs1");
-        GameRegistry.registerBlock(mangroveStairs1, ItemBOPPlank.class, "mangroveStairs1");
-        GameRegistry.registerBlock(palmStairs1, ItemBOPPlank.class, "palmStairs1");
-        GameRegistry.registerBlock(redwoodStairs1, ItemBOPPlank.class, "redwoodStairs1");
-        GameRegistry.registerBlock(willowStairs1, ItemBOPPlank.class, "stairs1");
+        GameRegistry.registerBlock(Blocks.acaciaStairs.get(), "acaciaStairs1");
+        GameRegistry.registerBlock(Blocks.cherryStairs.get(), "cherryStairs1");
+        GameRegistry.registerBlock(Blocks.darkStairs.get(), "darkStairs1");
+        GameRegistry.registerBlock(Blocks.firStairs.get(), "firStairs1");
+        GameRegistry.registerBlock(Blocks.holyStairs.get(), "holyStairs1");
+        GameRegistry.registerBlock(Blocks.magicStairs.get(), "magicStairs1");
+        GameRegistry.registerBlock(Blocks.mangroveStairs.get(), "mangroveStairs1");
+        GameRegistry.registerBlock(Blocks.palmStairs.get(), "palmStairs1");
+        GameRegistry.registerBlock(Blocks.redwoodStairs.get(), "redwoodStairs1");
+        GameRegistry.registerBlock(Blocks.willowStairs.get(), "stairs1");
         
-        LanguageRegistry.addName(acaciaStairs1, "Acacia Wood Stairs");
-        LanguageRegistry.addName(cherryStairs1, "Cherry Wood Stairs");
-        LanguageRegistry.addName(darkStairs1, "Dark Wood Stairs");
-        LanguageRegistry.addName(firStairs1, "Fir Wood Stairs");
-        LanguageRegistry.addName(holyStairs1, "Holy Wood Stairs");
-        LanguageRegistry.addName(magicStairs1, "Magic Wood Stairs");
-        LanguageRegistry.addName(mangroveStairs1, "Mangrove Wood Stairs");
-        LanguageRegistry.addName(palmStairs1, "Palm Wood Stairs");
-        LanguageRegistry.addName(redwoodStairs1, "Redwood Wood Stairs");
-        LanguageRegistry.addName(willowStairs1, "Willow Wood Stairs");
+        LanguageRegistry.addName(Blocks.acaciaStairs.get(), "Acacia Wood Stairs");
+        LanguageRegistry.addName(Blocks.cherryStairs.get(), "Cherry Wood Stairs");
+        LanguageRegistry.addName(Blocks.darkStairs.get(), "Dark Wood Stairs");
+        LanguageRegistry.addName(Blocks.firStairs.get(), "Fir Wood Stairs");
+        LanguageRegistry.addName(Blocks.holyStairs.get(), "Holy Wood Stairs");
+        LanguageRegistry.addName(Blocks.magicStairs.get(), "Magic Wood Stairs");
+        LanguageRegistry.addName(Blocks.mangroveStairs.get(), "Mangrove Wood Stairs");
+        LanguageRegistry.addName(Blocks.palmStairs.get(), "Palm Wood Stairs");
+        LanguageRegistry.addName(Blocks.redwoodStairs.get(), "Redwood Wood Stairs");
+        LanguageRegistry.addName(Blocks.willowStairs.get(), "Willow Wood Stairs");
 
-        woodenDoubleSlab1 = (BlockHalfSlab)(new BlockBOPSlab(2007, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenDoubleSlab1");
-        woodenSingleSlab1 = (BlockHalfSlab)(new BlockBOPSlab(2006, false, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenSingleSlab1");
-        ItemBOPSlab.setSlabs(woodenSingleSlab1, woodenDoubleSlab1);
+        Blocks.woodenDoubleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2007, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenDoubleSlab1"));
+        Blocks.woodenSingleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2006, false, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenSingleSlab1"));
+        ItemBOPSlab.setSlabs(Blocks.woodenSingleSlab1.get(), Blocks.woodenDoubleSlab1.get());
         
         // Slabs - WORKING!
-        GameRegistry.registerBlock(woodenDoubleSlab1, ItemBOPSlab.class, "woodenDoubleSlab1");
-        GameRegistry.registerBlock(woodenSingleSlab1, ItemBOPSlab.class, "woodenSingleSlab1");
+        GameRegistry.registerBlock(Blocks.woodenDoubleSlab1.get(), ItemBOPSlab.class, "woodenDoubleSlab1");
+        GameRegistry.registerBlock(Blocks.woodenSingleSlab1.get(), ItemBOPSlab.class, "woodenSingleSlab1");
         
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,0), "Acacia Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,1), "Cherry Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,2), "Dark Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,3), "Fir Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,4), "Holy Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,5), "Magic Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,6), "Mangrove Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab1,1,7), "Palm Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,0), "Acacia Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,1), "Cherry Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,2), "Dark Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,3), "Fir Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,5), "Magic Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,6), "Mangrove Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,7), "Palm Wood Slab");
         
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,0), "Acacia Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,1), "Cherry Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,2), "Dark Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,3), "Fir Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,4), "Holy Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,5), "Magic Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,6), "Mangrove Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab1,1,7), "Palm Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,0), "Acacia Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,1), "Cherry Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,2), "Dark Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,3), "Fir Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,5), "Magic Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,6), "Mangrove Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,7), "Palm Wood Slab");
 
-        woodenDoubleSlab2 = (BlockHalfSlab)(new BlockBOPSlab(2009, true, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("woodenDoubleSlab2");
-        woodenSingleSlab2 = (BlockHalfSlab)(new BlockBOPSlab(2008, false, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("woodenSingleSlab2");
-        ItemBOPSlab.setSlabs(woodenSingleSlab2, woodenDoubleSlab2);
+        Blocks.woodenDoubleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2009, true, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("woodenDoubleSlab2"));
+        Blocks.woodenSingleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2008, false, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("woodenSingleSlab2"));
+        ItemBOPSlab.setSlabs(Blocks.woodenSingleSlab2.get(), Blocks.woodenDoubleSlab2.get());
 
-        GameRegistry.registerBlock(woodenDoubleSlab2, ItemBOPSlab.class, "woodenDoubleSlab2");
-        GameRegistry.registerBlock(woodenSingleSlab2, ItemBOPSlab.class, "woodenSingleSlab2");
+        GameRegistry.registerBlock(Blocks.woodenDoubleSlab2.get(), ItemBOPSlab.class, "woodenDoubleSlab2");
+        GameRegistry.registerBlock(Blocks.woodenSingleSlab2.get(), ItemBOPSlab.class, "woodenSingleSlab2");
         
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab2,1,0), "Redwood Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenDoubleSlab2,1,1), "Willow Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,0), "Redwood Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,1), "Willow Wood Slab");
         
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab2,1,0), "Redwood Wood Slab");
-        LanguageRegistry.addName(new ItemStack(woodenSingleSlab2,1,1), "Willow Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,0), "Redwood Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,1), "Willow Wood Slab");
         
-        stoneDoubleSlab = (BlockHalfSlab)(new BlockBOPSlab(2011, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneDoubleSlab");
-        stoneSingleSlab = (BlockHalfSlab)(new BlockBOPSlab(2010, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneSingleSlab");
-        ItemBOPSlab.setSlabs(stoneSingleSlab, stoneDoubleSlab);
+        Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2011, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneDoubleSlab"));
+        Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2010, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneSingleSlab"));
+        ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
 
-        GameRegistry.registerBlock(stoneDoubleSlab, ItemBOPSlab.class, "stoneDoubleSlab2");
-        GameRegistry.registerBlock(stoneSingleSlab, ItemBOPSlab.class, "stoneSingleSlab");
+        GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab2");
+        GameRegistry.registerBlock(Blocks.stoneSingleSlab.get(), ItemBOPSlab.class, "stoneSingleSlab");
         
-        LanguageRegistry.addName(new ItemStack(stoneDoubleSlab,1,0), "Red Rock Bricks Slab");
-        LanguageRegistry.addName(new ItemStack(stoneDoubleSlab,1,1), "Red Rock Cobblestone Slab");
-        LanguageRegistry.addName(new ItemStack(stoneDoubleSlab,1,2), "Mud Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,2), "Mud Bricks Slab");
         
-        LanguageRegistry.addName(new ItemStack(stoneSingleSlab,1,0), "Red Rock Bricks Slab");
-        LanguageRegistry.addName(new ItemStack(stoneSingleSlab,1,1), "Red Rock Cobblestone Slab");
-        LanguageRegistry.addName(new ItemStack(stoneSingleSlab,1,2), "Mud Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,2), "Mud Bricks Slab");
 		
 		// Flowers - WORKING!
-		flowers = (new BlockBOPFlower(2002)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers");
-		GameRegistry.registerBlock(flowers, ItemBOPFlower.class, "flowers");
+        Blocks.flowers = Optional.of((new BlockBOPFlower(2002)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers"));
+		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
 		
-		LanguageRegistry.addName(new ItemStack(flowers,1,0), "Swampflower");
-        LanguageRegistry.addName(new ItemStack(flowers,1,1), "Deathbloom");
-        LanguageRegistry.addName(new ItemStack(flowers,1,2), "Glowflower");
-        LanguageRegistry.addName(new ItemStack(flowers,1,3), "Hydrangea");
-        LanguageRegistry.addName(new ItemStack(flowers,1,4), "Daisy");
-        LanguageRegistry.addName(new ItemStack(flowers,1,5), "Tulip");
-        LanguageRegistry.addName(new ItemStack(flowers,1,6), "Wildflower");
-        LanguageRegistry.addName(new ItemStack(flowers,1,7), "Violet");
-        LanguageRegistry.addName(new ItemStack(flowers,1,8), "Anemone");
+		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,0), "Swampflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,1), "Deathbloom");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,2), "Glowflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,3), "Hydrangea");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,4), "Daisy");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,5), "Tulip");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,6), "Wildflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Violet");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,8), "Anemone");
 
         
         // Leaves - Almost working, will have to fix drops
-		leaves = (new BlockBOPLeaves(2000)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leaves");
-		GameRegistry.registerBlock(leaves, ItemBOPLeaves.class, "leaves");
+        Blocks.leaves = Optional.of((new BlockBOPLeaves(2000)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leaves"));
+		GameRegistry.registerBlock(Blocks.leaves.get(), ItemBOPLeaves.class, "leaves");
 		
-		LanguageRegistry.addName(new ItemStack(leaves,1,0), "Autumn Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,1), "Bamboo Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,2), "Magic Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,3), "Dark Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,4), "Dying Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,5), "Fir Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,6), "Holy Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,7), "Autumn Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,8), "Origin Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,9), "Cherry Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,10), "Maple Leaves");
-        LanguageRegistry.addName(new ItemStack(leaves,1,11), "Cherry Leaves");
+		LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,0), "Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,1), "Bamboo Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,2), "Magic Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,3), "Dark Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,4), "Dying Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,5), "Fir Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,6), "Holy Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,7), "Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,8), "Origin Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,9), "Cherry Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,10), "Maple Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,11), "Cherry Leaves");
         
-        leavesColorized = (new BlockBOPColorizedLeaves(2001)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leavesColorized");
-        GameRegistry.registerBlock(leavesColorized, ItemBOPColorizedLeaves.class, "leavesColorized");
+        Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(2001)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leavesColorized"));
+        GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBOPColorizedLeaves.class, "leavesColorized");
         
-        LanguageRegistry.addName(new ItemStack(leavesColorized,1,0), "Acacia Leaves");
-        LanguageRegistry.addName(new ItemStack(leavesColorized,1,1), "Mangrove Leaves");
-        LanguageRegistry.addName(new ItemStack(leavesColorized,1,2), "Palm Leaves");
-        LanguageRegistry.addName(new ItemStack(leavesColorized,1,3), "Redwood Leaves");
-        LanguageRegistry.addName(new ItemStack(leavesColorized,1,4), "Willow Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,0), "Acacia Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,3), "Redwood Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,4), "Willow Leaves");
         
         // Logs - WORKING!
-        logs1 = (new BlockBOPLog(2003,LogCategory.CAT1)).setUnlocalizedName("wood1");
-        logs2 = (new BlockBOPLog(2004,LogCategory.CAT2)).setUnlocalizedName("wood2");
-        logs3 = (new BlockBOPLog(2005,LogCategory.CAT3)).setUnlocalizedName("wood3");
-        GameRegistry.registerBlock(logs1, ItemBOPLog.class, "wood1");
-        GameRegistry.registerBlock(logs2, ItemBOPLog.class, "wood2");
-        GameRegistry.registerBlock(logs3, ItemBOPLog.class, "wood3");
+        Blocks.logs1 = Optional.of((new BlockBOPLog(2003,LogCategory.CAT1)).setUnlocalizedName("wood1"));
+        Blocks.logs2 = Optional.of((new BlockBOPLog(2004,LogCategory.CAT2)).setUnlocalizedName("wood2"));
+        Blocks.logs3 = Optional.of((new BlockBOPLog(2005,LogCategory.CAT3)).setUnlocalizedName("wood3"));
+        GameRegistry.registerBlock(Blocks.logs1.get(), ItemBOPLog.class, "wood1");
+        GameRegistry.registerBlock(Blocks.logs2.get(), ItemBOPLog.class, "wood2");
+        GameRegistry.registerBlock(Blocks.logs3.get(), ItemBOPLog.class, "wood3");
 
-        LanguageRegistry.addName(new ItemStack(logs1,1,0), "Acacia Woods");
-        LanguageRegistry.addName(new ItemStack(logs1,1,1), "Cherry Wood");
-        LanguageRegistry.addName(new ItemStack(logs1,1,2), "Dark Wood");
-        LanguageRegistry.addName(new ItemStack(logs1,1,3), "Fir Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,0), "Acacia Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,1), "Cherry Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,2), "Dark Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,3), "Fir Wood");
         
-        LanguageRegistry.addName(new ItemStack(logs2,1,0), "Holy Wood");
-        LanguageRegistry.addName(new ItemStack(logs2,1,1), "Magic Wood");
-        LanguageRegistry.addName(new ItemStack(logs2,1,2), "Mangrove Wood");
-        LanguageRegistry.addName(new ItemStack(logs2,1,3), "Palm Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,0), "Holy Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,1), "Magic Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,2), "Mangrove Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,3), "Palm Wood");
         
-        LanguageRegistry.addName(new ItemStack(logs3,1,0), "Redwood Wood");
-        LanguageRegistry.addName(new ItemStack(logs3,1,1), "Willow Wood");
-        LanguageRegistry.addName(new ItemStack(logs3,1,2), "Dead Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,0), "Redwood Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,1), "Willow Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,2), "Dead Wood");
 */
         
 		// Add block registration
