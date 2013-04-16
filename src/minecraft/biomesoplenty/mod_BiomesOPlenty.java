@@ -60,7 +60,7 @@ public class mod_BiomesOPlenty
 	public static mod_BiomesOPlenty instance;
 
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide="com.bopteam.biomesop.ClientProxy", serverSide="com.bopteam.biomesop.CommonProxy")
+	@SidedProxy(clientSide="biomesoplenty.ClientProxy", serverSide="biomesoplenty.CommonProxy")
 	public static CommonProxy proxy;
 
 //	public static int promisedLandDim = 20;
