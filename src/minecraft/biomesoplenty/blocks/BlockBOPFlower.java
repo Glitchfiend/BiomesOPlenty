@@ -3,6 +3,7 @@ package biomesoplenty.blocks;
 import java.util.List;
 
 import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.blocks.renderers.FoliageRenderer;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
@@ -20,7 +21,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BlockFlower
 {
-    private static final String[] plants = new String[] {"swampflower", "deadbloom", "glowflower", "hydrangea", "orangeflower", "pinkflower", "purpleflower", "violet", "whiteflower", "toadstool", "cactus"};
+    private static final String[] plants = new String[] {"tinyflower", "swampflower", "deadbloom", "glowflower", "hydrangea", "orangeflower", "pinkflower", "purpleflower", "violet", "whiteflower", "toadstool", "cactus"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -58,21 +59,42 @@ public class BlockBOPFlower extends BlockFlower
         return textures[meta];
     }
     
+    public int getRenderType ()
+    {
+        return FoliageRenderer.render;
+    }
+    
     @Override
     public int getLightValue(IBlockAccess world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 2)
+        if (meta == 3)
             return 9;
         else
             return 0;
+    }
+    
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+    {
+        int meta = world.getBlockMetadata(par2, par3, par4);
+        
+        switch (meta)
+        {
+            case 0:
+                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
+                break;
+                
+            default:
+                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+                break;
+        }
     }
     
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 10)
+        if (meta == 11)
             entity.attackEntityFrom(DamageSource.cactus, 1);
     }
     

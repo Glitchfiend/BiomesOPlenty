@@ -11,6 +11,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+@Deprecated
 public class BlockTinyFlower extends Block
 {
     protected BlockTinyFlower(int par1, Material par3Material)

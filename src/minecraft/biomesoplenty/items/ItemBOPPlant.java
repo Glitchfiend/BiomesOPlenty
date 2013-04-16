@@ -7,7 +7,7 @@ import net.minecraft.util.Icon;
 
 public class ItemBOPPlant extends ItemBlock
 {
-    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail"};
     
     public ItemBOPPlant(int par1)
     {

@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPFoliage extends ItemBlock
 {
-    private static final String[] foliageTypes = new String[] {"shortgrass", "mediumgrass", "highgrass", "bush", "sprout", "highgrasstop"};
+    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrass", "bush", "sprout", "highgrasstop"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -47,15 +47,15 @@ public class ItemBOPFoliage extends ItemBlock
     @Override
     public Icon getIconFromDamage(int meta)
     {
-        if (meta == 5)
-            meta = 2;
+        if (meta == 6)
+            meta = 3;
         return textures[meta];
     }
     
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
         
-        if (itemStack.getItemDamage() != 2)
+        if (itemStack.getItemDamage() != 3)
         {
             return super.onItemUse(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ);
         }
@@ -67,8 +67,8 @@ public class ItemBOPFoliage extends ItemBlock
                 return false;
             else if (world.getBlockMaterial(x, y, z).isReplaceable() && world.getBlockMaterial(x, y + 1, z).isReplaceable())
             {
-                world.setBlock(x, y, z, itemStack.itemID, 2, 2);
-                world.setBlock(x, y + 1, z, itemStack.itemID, 5, 2);
+                world.setBlock(x, y, z, itemStack.itemID, 3, 2);
+                world.setBlock(x, y + 1, z, itemStack.itemID, 6, 2);
                 world.notifyBlocksOfNeighborChange(x, y, z, itemStack.itemID);
                 world.notifyBlocksOfNeighborChange(x, y + 1, z, itemStack.itemID);
                 Block block = Block.blocksList[itemStack.itemID];

@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
+@Deprecated
 public class BlockBarley extends Block
 {
     protected BlockBarley(int par1, Material par3Material)

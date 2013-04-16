@@ -7,7 +7,7 @@ import net.minecraft.util.Icon;
 
 public class ItemBOPFlower extends ItemBlock
 {
-    private static final String[] plants = new String[] {"swampflower", "deadbloom", "glowflower", "hydrangea", "orangeflower", "pinkflower", "purpleflower", "violet", "whiteflower", "toadstool", "cactus"};
+    private static final String[] plants = new String[] {"tinyflower", "swampflower", "deadbloom", "glowflower", "hydrangea", "orangeflower", "pinkflower", "purpleflower", "violet", "whiteflower", "toadstool", "cactus"};
     
     public ItemBOPFlower(int par1)
     {

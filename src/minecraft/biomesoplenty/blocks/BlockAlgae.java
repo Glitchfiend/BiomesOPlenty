@@ -12,6 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
+@Deprecated
 public class BlockAlgae extends BlockFlower
 {
     public BlockAlgae(int par1)

@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
+@Deprecated
 public class BlockCattail extends Block
 {
 	public BlockCattail(int par1)

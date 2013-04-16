@@ -53,6 +53,13 @@ public class Blocks
     public static Optional<? extends Block> leavesColorized             = Optional.absent();
     public static Optional<? extends Block> foliage                     = Optional.absent();
     public static Optional<? extends Block> plants                      = Optional.absent();
+    public static Optional<? extends Block> flatPlants                  = Optional.absent();
     public static Optional<? extends Block> saplings                    = Optional.absent();
     public static Optional<? extends Block> colorizedSaplings           = Optional.absent();
+    public static Optional<? extends Block> willow                      = Optional.absent();
+    public static Optional<? extends Block> treeMoss                    = Optional.absent();
+    public static Optional<? extends Block> moss                        = Optional.absent();
+    public static Optional<? extends Block> petals                      = Optional.absent();
+    
+    public static Optional<? extends Block> decorativeBlocks            = Optional.absent();
 }

@@ -4,13 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
-import biomesoplenty.configuration.BOPBlocks;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -21,12 +14,18 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.blocks.renderers.PlantsRenderer;
+import biomesoplenty.configuration.BOPBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -60,6 +59,28 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             meta = 0;
 
         return textures[meta];
+    }
+    
+    public int getRenderType ()
+    {
+        return PlantsRenderer.render;
+    }
+    
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+    {
+        int meta = world.getBlockMetadata(par2, par3, par4);
+        
+        switch (meta)
+        {
+            case 6:
+            case 7:
+                this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
+                break;
+                
+            default:
+                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+                break;
+        }
     }
     
     @Override

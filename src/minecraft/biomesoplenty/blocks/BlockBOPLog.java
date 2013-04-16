@@ -24,7 +24,7 @@ public class BlockBOPLog extends Block
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
-    private Icon logHeart;
+    private Icon[] logHearts;
     
     private final LogCategory category;
     
@@ -44,11 +44,13 @@ public class BlockBOPLog extends Block
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[woodTypes.length];
-        
-        logHeart = iconRegister.registerIcon("BiomesOPlenty:logTopBottum");
-        
+        logHearts = new Icon[woodTypes.length];
+
         for (int i = 0; i < woodTypes.length; ++i)
+        {
             textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+woodTypes[i]+"log");
+            logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:logTopBottum");
+        }
     }
     
     @Override
@@ -57,7 +59,7 @@ public class BlockBOPLog extends Block
     {
         int pos = meta & 12;
         if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
-            return logHeart;
+            return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
         return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
     }
     

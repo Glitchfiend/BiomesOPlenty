@@ -12,6 +12,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -32,6 +33,9 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         super(blockID, Material.leaves, false);
         setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
+        setHardness(0.2F);
+        setLightOpacity(1);
+        setStepSound(Block.soundGrassFootstep);
         this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
     }
     
@@ -74,7 +78,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public int damageDropped(int meta)
     {
-        return meta & textures[0].length;
+        return meta & 15;
     }
     
     @Override

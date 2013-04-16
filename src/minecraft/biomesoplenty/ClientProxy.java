@@ -1,5 +1,7 @@
 package biomesoplenty;
 
+import biomesoplenty.blocks.renderers.FoliageRenderer;
+import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.items.projectiles.EntityMudball;
 
@@ -24,6 +26,9 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST2_PNG);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPItems.mudBall)); 
+		
+		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
+		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 	}
 
 	@Override

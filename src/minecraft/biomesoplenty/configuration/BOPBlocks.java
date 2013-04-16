@@ -11,6 +11,7 @@ import biomesoplenty.items.ItemBOPFlower;
 import biomesoplenty.items.ItemBOPFoliage;
 import biomesoplenty.items.ItemBOPLeaves;
 import biomesoplenty.items.ItemBOPLog;
+import biomesoplenty.items.ItemBOPPetals;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
 import biomesoplenty.items.ItemBOPSlab;
@@ -31,178 +32,178 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class BOPBlocks {
 
 	// Block declaration
-	public static Block mud;
-	public static Block driedDirt;
-	public static Block redRock;
-	public static Block ash;
-	public static Block deadGrass;
-	public static Block desertGrass;
-	public static Block whiteFlower;
-	public static Block blueFlower;
-	public static Block purpleFlower;
-	public static Block orangeFlower;
-	public static Block tinyFlower;
-	public static Block glowFlower;
-	public static Block cattail;
-	public static Block willow;
-	public static Block autumnLeaves;
-	public static Block thorn;
-	public static Block toadstool;
-	public static BlockHighGrassBottom highGrassBottom;
-	public static BlockHighGrassTop highGrassTop;
-	public static Block ashStone;
-	public static Block hardIce;
-	public static Block redLeaves;
-	public static Block orangeLeaves;
-	public static Block pinkLeaves;
-	public static Block blueLeaves;
-	public static Block whiteLeaves;
-	public static Block deadLeaves;
-	public static BlockShortGrass shortGrass;
+	public static Block mud;                               // Worldgen
+	public static Block driedDirt;                         // Worldgen
+	public static Block redRock;                           // Worldgen
+	public static Block ash;                               // Worldgen
+	public static Block deadGrass;                         // DONE
+	public static Block desertGrass;                       // DONE
+	public static Block whiteFlower;                       // DONE
+	public static Block blueFlower;                        // DONE
+	public static Block purpleFlower;                      // DONE
+	public static Block orangeFlower;                      // DONE
+	public static Block tinyFlower;                        // DONE
+	public static Block glowFlower;                        // DONE
+	public static Block cattail;                           // DONE
+	public static Block willow;                            // Leave
+	public static Block autumnLeaves;                      // DONE
+	public static Block thorn;                             // DONE
+	public static Block toadstool;                         // DONE
+	public static BlockHighGrassBottom highGrassBottom;    // DONE
+	public static BlockHighGrassTop highGrassTop;          // DONE
+	public static Block ashStone;                          // Worldgen
+	public static Block hardIce;                           // DONE
+	public static Block redLeaves;                         // DONE
+	public static Block orangeLeaves;                      // DONE
+	public static Block pinkLeaves;                        // DONE
+	public static Block blueLeaves;                        // DONE
+	public static Block whiteLeaves;                       // DONE
+	public static Block deadLeaves;                        // DONE
+	public static BlockShortGrass shortGrass;              // DONE
 	public static Block appleLeaves;
-	public static BlockSprout sprout;
-	public static BlockBush bush;
+	public static BlockSprout sprout;                      // DONE
+	public static BlockBush bush;                          // DONE
 	public static Block bamboo;
-	public static Block bambooLeaves;
+	public static Block bambooLeaves;                      // DONE
 	public static Block mudBrickBlock;
-	public static BlockHalfSlab mudBrickDoubleSlab;
-	public static BlockHalfSlab mudBrickSingleSlab;
+	public static BlockHalfSlab mudBrickDoubleSlab;        // DONE
+	public static BlockHalfSlab mudBrickSingleSlab;        // DONE
 	public static Block mudBrickStairs;
-	public static Block originGrass;
-	public static Block originLeaves;
-	public static Block pinkFlower;
-	public static Block treeMoss;
-	public static Block deadWood;
+	public static Block originGrass;                       // Worldgen
+	public static Block originLeaves;                      // DONE
+	public static Block pinkFlower;                        // DONE
+	public static Block treeMoss;                          // Leave
+	public static Block deadWood;                          // DONE
 	public static Block appleLeavesFruitless;
-	public static Block barley;
+	public static Block barley;                            // DONE
 	public static Block giantFlowerStem;
-	public static Block giantFlowerRed;
-	public static Block giantFlowerYellow;
-	public static Block tinyCactus;
-	public static Block firSapling;
-	public static Block redwoodSapling;
-	public static Block palmSapling;
-	public static Block redSapling;
-	public static Block orangeSapling;
-	public static Block yellowSapling;
-	public static Block brownSapling;
-	public static Block willowSapling;
-	public static Block appleSapling;
-	public static Block originSapling;
-	public static Block pinkSapling;
-	public static Block whiteSapling;
-	public static Block darkSapling;
-	public static Block magicSapling;
-	public static Block deathbloom;
+	public static Block giantFlowerRed;                    // DONE
+	public static Block giantFlowerYellow;                 // DONE
+	public static Block tinyCactus;                        // DONE
+	public static Block firSapling;                        // DONE
+	public static Block redwoodSapling;                    // DONE
+	public static Block palmSapling;                       // DONE
+	public static Block redSapling;                        // DONE
+	public static Block orangeSapling;                     // DONE
+	public static Block yellowSapling;                     // DONE
+	public static Block brownSapling;                      // DONE
+	public static Block willowSapling;                     // DONE
+	public static Block appleSapling;                      
+	public static Block originSapling;                     // DONE
+	public static Block pinkSapling;                       // DONE
+	public static Block whiteSapling;                      // DONE
+	public static Block darkSapling;                       // DONE
+	public static Block magicSapling;                      // DONE
+	public static Block deathbloom;                        // DONE
 	public static Block redRockCobble;
-	public static BlockHalfSlab redRockCobbleDoubleSlab;
-	public static BlockHalfSlab redRockCobbleSingleSlab;
+	public static BlockHalfSlab redRockCobbleDoubleSlab;   // DONE
+	public static BlockHalfSlab redRockCobbleSingleSlab;   // DONE
 	public static Block redRockCobbleStairs;
 	public static Block redRockBrick;
-	public static BlockHalfSlab redRockBrickDoubleSlab;
-	public static BlockHalfSlab redRockBrickSingleSlab;
+	public static BlockHalfSlab redRockBrickDoubleSlab;    // DONE
+	public static BlockHalfSlab redRockBrickSingleSlab;    // DONE
 	public static Block redRockBrickStairs;
-	public static Block hydrangea;
-	public static Block violet;
-	public static BlockMediumGrass mediumGrass;
-	public static Block duneGrass;
-	public static Block desertSprouts;
-	public static Block mangroveSapling;
-	public static Block hardSand;
-	public static Block acaciaSapling;
-	public static Block hardDirt;
-	public static Block holyGrass;
-	public static Block holyStone;
-	public static Block holyTallGrass;
-	public static Block promisedPortal;
-	public static Block holySapling;
+	public static Block hydrangea;                         // DONE
+	public static Block violet;                            // DONE
+	public static BlockMediumGrass mediumGrass;            // DONE
+	public static Block duneGrass;                         // DONE
+	public static Block desertSprouts;                     // DONE
+	public static Block mangroveSapling;                   // DONE
+	public static Block hardSand;                          // Worldgen
+	public static Block acaciaSapling;                     // DONE
+	public static Block hardDirt;                          // Worldgen
+	public static Block holyGrass;                         // Worldgen
+	public static Block holyStone;                         // Worldgen
+	public static Block holyTallGrass;                     // DONE
+	public static Block promisedPortal;                    // Leave
+	public static Block holySapling;                       // DONE
 	public static Block amethystOre;
 	public static Block amethystBlock;
 	public static Block bambooThatching;
-	public static Block moss;
-	public static Block algae;
+	public static Block moss;                              // Leave
+	public static Block algae;                             // DONE
 	public static Block smolderingGrass;
-	public static Block cragRock;
+	public static Block cragRock;                          // Worldgen
 	public static Block quicksand;
-	public static Block bambooSapling;
+	public static Block bambooSapling;                     // DONE
 
 	//Redwood
-	public static Block redwoodPlank;
-	public static Block redwoodWood;
-	public static Block redwoodLeaves;
-	public static BlockHalfSlab redwoodDoubleSlab;
-	public static BlockHalfSlab redwoodSingleSlab;
-	public static Block redwoodStairs;
+	public static Block redwoodPlank;                      // DONE
+	public static Block redwoodWood;                       // DONE
+	public static Block redwoodLeaves;                     // DONE
+	public static BlockHalfSlab redwoodDoubleSlab;         // DONE
+	public static BlockHalfSlab redwoodSingleSlab;         // DONE
+	public static Block redwoodStairs;                     // DONE
 
 	//Willow
-	public static Block willowPlank;
-	public static Block willowWood;
-	public static Block willowLeaves;
-	public static BlockHalfSlab willowDoubleSlab;
-	public static BlockHalfSlab willowSingleSlab;
-	public static Block willowStairs;
+	public static Block willowPlank;                       // DONE
+	public static Block willowWood;                        // DONE
+	public static Block willowLeaves;                      // DONE
+	public static BlockHalfSlab willowDoubleSlab;          // DONE
+	public static BlockHalfSlab willowSingleSlab;          // DONE
+	public static Block willowStairs;                      // DONE
 
 	//Fir
-	public static Block firPlank;
-	public static Block firWood;
-	public static Block firLeaves;
-	public static BlockHalfSlab firDoubleSlab;
-	public static BlockHalfSlab firSingleSlab;
-	public static Block firStairs;
+	public static Block firPlank;                          // DONE
+	public static Block firWood;                           // DONE
+	public static Block firLeaves;                         // DONE
+	public static BlockHalfSlab firDoubleSlab;             // DONE
+	public static BlockHalfSlab firSingleSlab;             // DONE
+	public static Block firStairs;                         // DONE
 
 	//Acacia
-	public static Block acaciaPlank;
-	public static Block acaciaWood;
-	public static Block acaciaLeaves;
-	public static BlockHalfSlab acaciaDoubleSlab;
-	public static BlockHalfSlab acaciaSingleSlab;
-	public static Block acaciaStairs;
+	public static Block acaciaPlank;                       // DONE
+	public static Block acaciaWood;                        // DONE
+	public static Block acaciaLeaves;                      // DONE
+	public static BlockHalfSlab acaciaDoubleSlab;          // DONE
+	public static BlockHalfSlab acaciaSingleSlab;          // DONE
+	public static Block acaciaStairs;                      // DONE
 
 	//Cherry
-	public static Block cherryPlank;
-	public static Block cherryWood;
-	public static BlockHalfSlab cherryDoubleSlab;
-	public static BlockHalfSlab cherrySingleSlab;
-	public static Block cherryStairs;
+	public static Block cherryPlank;                       // DONE
+	public static Block cherryWood;                        // DONE
+	public static BlockHalfSlab cherryDoubleSlab;          // DONE
+	public static BlockHalfSlab cherrySingleSlab;          // DONE
+	public static Block cherryStairs;                      // DONE
 
 	//Dark
-	public static Block darkPlank;
-	public static Block darkWood;
-	public static Block darkLeaves;
-	public static BlockHalfSlab darkDoubleSlab;
-	public static BlockHalfSlab darkSingleSlab;
-	public static Block darkStairs;
+	public static Block darkPlank;                         // DONE
+	public static Block darkWood;                          // DONE
+	public static Block darkLeaves;                        // DONE
+	public static BlockHalfSlab darkDoubleSlab;            // DONE
+	public static BlockHalfSlab darkSingleSlab;            // DONE
+	public static Block darkStairs;                        // DONE
 
 	//Magic
-	public static Block magicPlank;
-	public static Block magicWood;
-	public static BlockHalfSlab magicDoubleSlab;
-	public static BlockHalfSlab magicSingleSlab;
-	public static Block magicStairs;
+	public static Block magicPlank;                        // DONE
+	public static Block magicWood;                         // DONE
+	public static BlockHalfSlab magicDoubleSlab;           // DONE
+	public static BlockHalfSlab magicSingleSlab;           // DONE
+	public static Block magicStairs;                       // DONE
 
 	//Palm
-	public static Block palmPlank;
-	public static Block palmWood;
-	public static Block palmLeaves;
-	public static BlockHalfSlab palmDoubleSlab;
-	public static BlockHalfSlab palmSingleSlab;
-	public static Block palmStairs;
+	public static Block palmPlank;                         // DONE
+	public static Block palmWood;                          // DONE
+	public static Block palmLeaves;                        // DONE
+	public static BlockHalfSlab palmDoubleSlab;            // DONE
+	public static BlockHalfSlab palmSingleSlab;            // DONE
+	public static Block palmStairs;                        // DONE
 
 	//Mangrove
-	public static Block mangrovePlank;
-	public static Block mangroveWood;
-	public static Block mangroveLeaves;
-	public static BlockHalfSlab mangroveDoubleSlab;
-	public static BlockHalfSlab mangroveSingleSlab;
-	public static Block mangroveStairs;
+	public static Block mangrovePlank;                     // DONE
+	public static Block mangroveWood;                      // DONE
+	public static Block mangroveLeaves;                    // DONE
+	public static BlockHalfSlab mangroveDoubleSlab;        // DONE
+	public static BlockHalfSlab mangroveSingleSlab;        // DONE
+	public static Block mangroveStairs;                    // DONE
 
 	//Holy
-	public static Block holyPlank;
-	public static Block holyWood;
-	public static Block holyLeaves;
-	public static BlockHalfSlab holyDoubleSlab;
-	public static BlockHalfSlab holySingleSlab;
-	public static Block holyStairs;
+	public static Block holyPlank;                         // DONE
+	public static Block holyWood;                          // DONE
+	public static Block holyLeaves;                        // DONE
+	public static BlockHalfSlab holyDoubleSlab;            // DONE
+	public static BlockHalfSlab holySingleSlab;            // DONE
+	public static Block holyStairs;                        // DONE
 	
 	public static void init()
 	{
@@ -488,20 +489,21 @@ public class BOPBlocks {
         Blocks.flowers = Optional.of((new BlockBOPFlower(2002)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers"));
 		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
 		
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,0), "Swampflower");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,1), "Deathbloom");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,2), "Glowflower");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,3), "Hydrangea");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,4), "Daisy");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,5), "Tulip");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,6), "Wildflower");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Violet");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,8), "Anemone");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Toadstool");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Tiny Cactus");
+		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,0), "Clover");
+		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,1), "Swampflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,2), "Deathbloom");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,3), "Glowflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,4), "Hydrangea");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,5), "Daisy");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,6), "Tulip");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Wildflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,8), "Violet");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Anemone");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Toadstool");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,11), "Tiny Cactus");
 
         // Leaves - WORKING!
-        Blocks.leaves = Optional.of((new BlockBOPLeaves(2000)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leaves"));
+        Blocks.leaves = Optional.of((new BlockBOPLeaves(2000)).setUnlocalizedName("leaves"));
 		GameRegistry.registerBlock(Blocks.leaves.get(), ItemBOPLeaves.class, "leaves");
 		
 		LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,0), "Autumn Leaves");
@@ -517,7 +519,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,10), "Maple Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves.get(),1,11), "Cherry Leaves");
         
-        Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(2001)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leavesColorized"));
+        Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(2001)).setUnlocalizedName("leavesColorized"));
         GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBOPColorizedLeaves.class, "leavesColorized");
         
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,0), "Acacia Leaves");
@@ -552,11 +554,12 @@ public class BOPBlocks {
 		Blocks.foliage = Optional.of((new BlockBOPFoliage(1988)).setUnlocalizedName("foliage"));
 		GameRegistry.registerBlock(Blocks.foliage.get(), ItemBOPFoliage.class, "foliage");
 		
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Short Grass");
-        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Medium Grass");
-        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,2), "High Grass");
-        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "Bush");
-        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Sprout");
+		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Short Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,2), "Medium Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "High Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Bush");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,5), "Sprout");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Algae");
 
 		// Plants - Semi working
 		Blocks.plants = Optional.of((new BlockBOPPlant(1987)).setUnlocalizedName("plants"));
@@ -568,6 +571,8 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,3), "Dune Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,6), "Barley");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,7), "Cattail");
 
 		// Saplings - WORKING!
 		Blocks.saplings = Optional.of((new BlockBOPSapling(1986)).setUnlocalizedName("saplings"));
@@ -594,7 +599,14 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
+
+        Blocks.petals = Optional.of((new BlockBOPPetals(2084)).setUnlocalizedName("petals"));
+        GameRegistry.registerBlock(Blocks.petals.get(), ItemBOPPetals.class, "petals");
+        
+        LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
+        LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
 */
+        
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");
 		GameRegistry.registerBlock(driedDirt, "driedDirt");
