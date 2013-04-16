@@ -19,9 +19,9 @@ public class ItemSprout extends Item
         this.spawnID = par2Block.blockID;
     }
     
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:sprout");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:sprout");
 	}
 	
     /**

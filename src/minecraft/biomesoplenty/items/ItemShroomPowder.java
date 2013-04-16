@@ -10,8 +10,8 @@ public class ItemShroomPowder extends ItemFood
 		super(par1, par2, par3, par4);
 	}
 	
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:shroompowder");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:shroompowder");
 	}
 }

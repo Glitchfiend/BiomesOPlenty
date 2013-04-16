@@ -193,7 +193,7 @@ public class TeleporterPromised extends Teleporter
 			var12 = 1;
 			var13 = 31;
 			var14 = 0;
-			var20.field_85087_d = this.worldServerInstance.getTotalWorldTime();
+			var20.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
 			var19 = false;
 		}
 		else
@@ -264,11 +264,11 @@ public class TeleporterPromised extends Teleporter
 				var50 = 1;
 			}
 
-			int var30 = par1Entity.func_82148_at();
+			int var30 = par1Entity.getTeleportDirection();
 
 		if (var50 > -1)
 		{
-			int var31 = Direction.field_71578_g[var50];
+			int var31 = Direction.rotateLeft[var50];
 			int var32 = Direction.offsetX[var50];
 			int var33 = Direction.offsetZ[var50];
 			int var34 = Direction.offsetX[var31];
@@ -278,8 +278,8 @@ public class TeleporterPromised extends Teleporter
 
 			if (var36 && var37)
 			{
-				var50 = Direction.footInvisibleFaceRemap[var50];
-				var31 = Direction.footInvisibleFaceRemap[var31];
+				var50 = Direction.rotateOpposite[var50];
+				var31 = Direction.rotateOpposite[var31];
 				var32 = Direction.offsetX[var50];
 				var33 = Direction.offsetZ[var50];
 				var34 = Direction.offsetX[var31];
@@ -320,12 +320,12 @@ public class TeleporterPromised extends Teleporter
 				var40 = 1.0F;
 				var41 = 1.0F;
 			}
-			else if (var50 == Direction.footInvisibleFaceRemap[var30])
+			else if (var50 == Direction.rotateOpposite[var30])
 			{
 				var40 = -1.0F;
 				var41 = -1.0F;
 			}
-			else if (var50 == Direction.enderEyeMetaToDirection[var30])
+			else if (var50 == Direction.rotateRight[var30])
 			{
 				var42 = 1.0F;
 				var43 = -1.0F;
@@ -783,7 +783,7 @@ public class TeleporterPromised extends Teleporter
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void func_85189_a(long par1)
+	public void removeStalePortalLocations(long par1)
 	{
 		if (par1 % 100L == 0L)
 		{
@@ -795,7 +795,7 @@ public class TeleporterPromised extends Teleporter
 				Long var6 = (Long) var3.next();
 				PortalPosition var7 = (PortalPosition) this.field_85191_c.getValueByKey(var6.longValue());
 
-				if (var7 == null || var7.field_85087_d < var4)
+				if (var7 == null || var7.lastUpdateTime < var4)
 				{
 					var3.remove();
 					this.field_85191_c.remove(var6.longValue());

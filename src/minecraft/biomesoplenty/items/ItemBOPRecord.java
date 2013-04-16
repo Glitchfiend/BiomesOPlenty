@@ -36,9 +36,9 @@ public class ItemBOPRecord extends ItemRecord
         records.put(par2Str, this);
     }
 
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:boprecord");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:boprecord");
 	}
 	
     /**

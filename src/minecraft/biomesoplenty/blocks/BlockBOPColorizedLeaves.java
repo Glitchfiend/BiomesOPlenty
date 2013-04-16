@@ -91,7 +91,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     
     @Override
     @SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
+    public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= textures[0].length)
             meta = 0;

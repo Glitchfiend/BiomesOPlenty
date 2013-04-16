@@ -57,7 +57,7 @@ public class BlockBOPSapling extends BlockSapling
     
     @Override
     @SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
+    public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= saplings.length)
             meta = 0;

@@ -14,10 +14,10 @@ public class ItemBOPSword extends ItemSword
 		TextureID = texture;
 	}
 	
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	if(TextureID==0){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudsword"); }
-    	else if(TextureID==1){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethystsword"); }
-    	else { iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+    	if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudsword"); }
+    	else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystsword"); }
+    	else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
 	}
 }

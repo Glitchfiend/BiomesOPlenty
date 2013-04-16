@@ -292,7 +292,7 @@ public class BlockMoss extends Block
 
             var9 = par1World.getBlockMetadata(par2, par3, par4);
             var10 = par1World.rand.nextInt(6);
-            var11 = Direction.vineGrowth[var10];
+            var11 = Direction.facingToDirection[var10];
             int var12;
             int var13;
 

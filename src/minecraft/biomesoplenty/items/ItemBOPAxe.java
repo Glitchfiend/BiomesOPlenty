@@ -14,10 +14,10 @@ public class ItemBOPAxe extends ItemAxe
 		TextureID = texture;
 	}
 	
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	if(TextureID==0){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudaxe"); }
-    	else if(TextureID==1){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethystaxe"); }
-    	else { iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+    	if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudaxe"); }
+    	else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystaxe"); }
+    	else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
 	}
 }

@@ -36,9 +36,9 @@ public class ItemBOPRecordMud extends ItemRecord
         records.put(par2Str, this);
     }
 
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudrecord");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudrecord");
 	}
 
     /**

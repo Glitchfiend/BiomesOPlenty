@@ -47,7 +47,7 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
+    public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= textures.length)
             meta = 0;

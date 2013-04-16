@@ -31,6 +31,6 @@ public class ItemBOPPlant extends ItemBlock
     @Override
     public Icon getIconFromDamage(int meta)
     {
-        return Block.blocksList[this.itemID].getBlockTextureFromSideAndMetadata(0, meta);
+        return Block.blocksList[this.itemID].getIcon(0, meta);
     }
 }

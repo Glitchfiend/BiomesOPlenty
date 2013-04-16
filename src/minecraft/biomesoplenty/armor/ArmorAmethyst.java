@@ -28,12 +28,12 @@ public class ArmorAmethyst extends ItemArmor implements IArmorTextureProvider
 		return null;
 	}
 	
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	if(textureID==0){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethysthelmet"); }
-    	else if(textureID==1){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethystchestplate"); }
-    	else if(textureID==2){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethystleggings"); }
-    	else if(textureID==3){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethystboots"); }
-    	else { iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+    	if(textureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethysthelmet"); }
+    	else if(textureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystchestplate"); }
+    	else if(textureID==2){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystleggings"); }
+    	else if(textureID==3){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystboots"); }
+    	else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
 	}
 }

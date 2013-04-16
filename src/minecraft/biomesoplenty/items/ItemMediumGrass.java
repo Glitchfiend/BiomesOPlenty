@@ -19,9 +19,9 @@ public class ItemMediumGrass extends Item
         this.spawnID = par2Block.blockID;
     }
 
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:mediumgrass");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:mediumgrass");
 	}    
     
     /**

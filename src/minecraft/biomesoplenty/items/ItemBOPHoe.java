@@ -14,10 +14,10 @@ public class ItemBOPHoe extends ItemHoe
 		TextureID = texture;
 	}
 	
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	if(TextureID==0){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudhoe"); }
-    	else if(TextureID==1){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethysthoe"); }
-    	else { iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+    	if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudhoe"); }
+    	else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethysthoe"); }
+    	else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
 	}
 }

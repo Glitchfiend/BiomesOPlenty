@@ -22,9 +22,9 @@ public class ItemAncientStaff extends Item
         return true;
     }
     
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
 	}
 
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

@@ -33,6 +33,6 @@ private static final String[] saplings = new String[] {"yellow", "bamboo", "magi
     @Override
     public Icon getIconFromDamage(int meta)
     {
-        return Block.blocksList[this.itemID].getBlockTextureFromSideAndMetadata(0, meta);
+        return Block.blocksList[this.itemID].getIcon(0, meta);
     }
 }

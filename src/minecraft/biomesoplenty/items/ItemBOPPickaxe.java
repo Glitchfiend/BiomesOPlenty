@@ -14,10 +14,10 @@ public class ItemBOPPickaxe extends ItemPickaxe
 		TextureID = texture;
 	}
 	
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	if(TextureID==0){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudpickaxe"); }
-    	else if(TextureID==1){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethystpickaxe"); }
-    	else { iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+    	if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudpickaxe"); }
+    	else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystpickaxe"); }
+    	else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
 	}
 }

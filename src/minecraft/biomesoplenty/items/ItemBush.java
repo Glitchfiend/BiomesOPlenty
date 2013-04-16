@@ -19,9 +19,9 @@ public class ItemBush extends Item
         this.spawnID = par2Block.blockID;
     }
 
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:bush");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:bush");
 	}
 
     /**

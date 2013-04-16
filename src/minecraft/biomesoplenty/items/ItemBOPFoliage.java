@@ -24,7 +24,7 @@ public class ItemBOPFoliage extends ItemBlock
     }
     
     @SideOnly(Side.CLIENT)
-    public void updateIcons(IconRegister iconRegister)
+    public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[foliageTypes.length - 1];
         

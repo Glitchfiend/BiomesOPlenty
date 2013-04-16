@@ -19,9 +19,9 @@ public class ItemCattail extends Item
         this.spawnID = par2Block.blockID;
     }
     
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:cattail");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:cattail");
 	}
 	
     /**

@@ -19,17 +19,17 @@ public class ItemBOP extends Item
 		boptextureid = texture;
 	}
 
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		if(boptextureid==0){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
-		else if(boptextureid==1){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudbrick"); }
-		else if(boptextureid==2){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:moss"); }
-		else if(boptextureid==3){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:ash"); }
-		else if(boptextureid==4){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:amethyst"); }
-		else if(boptextureid==5){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:staffhandle"); }
-		else if(boptextureid==6){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:staffpole"); }
-		else if(boptextureid==7){ iconIndex = iconRegister.registerIcon("BiomesOPlenty:stafftopper"); }
-		else { iconIndex = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		if(boptextureid==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		else if(boptextureid==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudbrick"); }
+		else if(boptextureid==2){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:moss"); }
+		else if(boptextureid==3){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:ash"); }
+		else if(boptextureid==4){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethyst"); }
+		else if(boptextureid==5){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:staffhandle"); }
+		else if(boptextureid==6){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:staffpole"); }
+		else if(boptextureid==7){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:stafftopper"); }
+		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
 	}
 
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)

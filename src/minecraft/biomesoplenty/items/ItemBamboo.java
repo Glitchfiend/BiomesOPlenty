@@ -18,9 +18,9 @@ public class ItemBamboo extends Item
         this.spawnID = par2Block.blockID;
     }
     
-	public void updateIcons(IconRegister iconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-    	iconIndex = iconRegister.registerIcon("BiomesOPlenty:bamboo");
+    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:bamboo");
 	}
 	
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)

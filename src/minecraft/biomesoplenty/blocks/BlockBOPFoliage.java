@@ -57,7 +57,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int side, int meta)
+    public Icon getIcon(int side, int meta)
     {
         if (meta >= textures.length)
             meta = 0;
