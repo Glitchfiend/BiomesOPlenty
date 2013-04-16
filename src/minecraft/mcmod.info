@@ -1,6 +1,4 @@
-{
-  "modinfoversion": 2,
-  "modlist": [{
+[{
     "modid": "BiomesOPlenty",
     "name": "Biomes O' Plenty",
     "description": "Adds 72 new, unique biomes!",
@@ -9,7 +7,7 @@
     "url": "www.minecraftforum.net/topic/1495041-",
     "updateUrl": "",
     "authors": [ "Adubbz", "Amnet", "ted80" ],
-    "credits": "Forstride, gamax92, enchilado, Tim Rurkowski",
+    "credits": "Originally by Forstride; gamax92, enchilado, Tim Rurkowski",
     "logoFile": "/bop.png",
     "screenshots": [],
     "parent": "",
@@ -17,5 +15,4 @@
     "dependencies": [],
     "dependants": [],
     "useDependencyInformation": "false"
-  }]
-}
+}]
