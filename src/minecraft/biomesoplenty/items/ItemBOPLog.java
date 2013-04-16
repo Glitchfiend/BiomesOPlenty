@@ -20,7 +20,7 @@ public class ItemBOPLog extends ItemBlock
     @Override
     public int getMetadata(int meta)
     {
-        return meta;
+        return meta & 3;
     }
     
     @Override

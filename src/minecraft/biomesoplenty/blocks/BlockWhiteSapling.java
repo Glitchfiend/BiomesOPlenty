@@ -14,6 +14,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+@Deprecated
 public class BlockWhiteSapling extends BlockSapling
 {
     public static final String[] WOOD_TYPES = new String[] {"white"};

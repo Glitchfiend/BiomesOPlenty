@@ -86,6 +86,6 @@ public class BlockBOPFlower extends BlockFlower
     @Override
     public int damageDropped(int meta)
     {
-        return meta;
+        return meta & 15;
     }
 }

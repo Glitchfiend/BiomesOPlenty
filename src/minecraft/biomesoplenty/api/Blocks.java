@@ -7,7 +7,27 @@ import net.minecraft.block.BlockHalfSlab;
 
 public class Blocks
 {
+    // Worldgen Blocks
+    public static Optional<? extends Block> ash                         = Optional.absent();
+    public static Optional<? extends Block> ashStone                    = Optional.absent();
+    public static Optional<? extends Block> cragRock                    = Optional.absent();
+    public static Optional<? extends Block> driedDirt                   = Optional.absent();
+    public static Optional<? extends Block> hardDirt                    = Optional.absent();
+    public static Optional<? extends Block> hardIce                     = Optional.absent();
+    public static Optional<? extends Block> hardSand                    = Optional.absent();
+    public static Optional<? extends Block> holyGrass                   = Optional.absent();
+    public static Optional<? extends Block> holyStone                   = Optional.absent();
+    public static Optional<? extends Block> mud                         = Optional.absent();
+    public static Optional<? extends Block> originGrass                 = Optional.absent();
+    public static Optional<? extends Block> redRock                     = Optional.absent();
+    
+    // Planks and logs
     public static Optional<? extends Block> planks                      = Optional.absent();
+    public static Optional<? extends Block> logs1                       = Optional.absent();
+    public static Optional<? extends Block> logs2                       = Optional.absent();
+    public static Optional<? extends Block> logs3                       = Optional.absent();
+    
+    // Stairs
     public static Optional<? extends Block> acaciaStairs                = Optional.absent();
     public static Optional<? extends Block> cherryStairs                = Optional.absent();
     public static Optional<? extends Block> darkStairs                  = Optional.absent();
@@ -19,18 +39,20 @@ public class Blocks
     public static Optional<? extends Block> redwoodStairs               = Optional.absent();
     public static Optional<? extends Block> willowStairs                = Optional.absent();
     
+    // Slabs
     public static Optional<? extends BlockHalfSlab> woodenSingleSlab1   = Optional.absent();
     public static Optional<? extends BlockHalfSlab> woodenDoubleSlab1   = Optional.absent();
     public static Optional<? extends BlockHalfSlab> woodenSingleSlab2   = Optional.absent();
     public static Optional<? extends BlockHalfSlab> woodenDoubleSlab2   = Optional.absent();
     public static Optional<? extends BlockHalfSlab> stoneSingleSlab     = Optional.absent();
     public static Optional<? extends BlockHalfSlab> stoneDoubleSlab     = Optional.absent();
+    
+    // Plants
     public static Optional<? extends Block> flowers                     = Optional.absent();
     public static Optional<? extends Block> leaves                      = Optional.absent();
     public static Optional<? extends Block> leavesColorized             = Optional.absent();
-    public static Optional<? extends Block> logs1                       = Optional.absent();
-    public static Optional<? extends Block> logs2                       = Optional.absent();
-    public static Optional<? extends Block> logs3                       = Optional.absent();
     public static Optional<? extends Block> foliage                     = Optional.absent();
     public static Optional<? extends Block> plants                      = Optional.absent();
+    public static Optional<? extends Block> saplings                    = Optional.absent();
+    public static Optional<? extends Block> colorizedSaplings           = Optional.absent();
 }

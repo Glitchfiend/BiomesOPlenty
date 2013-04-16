@@ -6,6 +6,7 @@ import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs.WoodCategory;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
+import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPFlower;
 import biomesoplenty.items.ItemBOPFoliage;
 import biomesoplenty.items.ItemBOPLeaves;
@@ -13,6 +14,7 @@ import biomesoplenty.items.ItemBOPLog;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
 import biomesoplenty.items.ItemBOPSlab;
+import biomesoplenty.items.ItemBOPSapling;
 
 import com.google.common.base.Optional;
 
@@ -498,7 +500,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Toadstool");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Tiny Cactus");
 
-        // Leaves - Almost working, will have to fix drops
+        // Leaves - WORKING!
         Blocks.leaves = Optional.of((new BlockBOPLeaves(2000)).setHardness(0.2F).setLightOpacity(1).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("leaves"));
 		GameRegistry.registerBlock(Blocks.leaves.get(), ItemBOPLeaves.class, "leaves");
 		
@@ -566,8 +568,33 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,3), "Dune Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
+
+		// Saplings - WORKING!
+		Blocks.saplings = Optional.of((new BlockBOPSapling(1986)).setUnlocalizedName("saplings"));
+        GameRegistry.registerBlock(Blocks.saplings.get(), ItemBOPSapling.class, "saplings");
+        
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Bamboo Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Magic Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,3), "Dark Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,4), "Dying Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Fir Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Holy Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Origin Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Cherry Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Maple Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,11), "Cherry Sapling");
+        
+        Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(1985)).setUnlocalizedName("colorizedSaplings"));
+        GameRegistry.registerBlock(Blocks.colorizedSaplings.get(), ItemBOPColorizedSapling.class, "colorizedSaplings");
+        
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,1), "Mangrove Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
 */
-		
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");
 		GameRegistry.registerBlock(driedDirt, "driedDirt");

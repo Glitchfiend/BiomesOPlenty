@@ -35,7 +35,7 @@ public class ItemBOPFoliage extends ItemBlock
     @Override
     public int getMetadata(int meta)
     {
-        return meta;
+        return meta & 15;
     }
     
     @Override

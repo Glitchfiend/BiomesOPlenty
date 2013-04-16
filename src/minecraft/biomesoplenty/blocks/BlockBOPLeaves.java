@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import cpw.mods.fml.relauncher.Side;
@@ -67,13 +68,19 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return BOPBlocks.yellowSapling.blockID;
+        return Blocks.saplings.get().blockID;
     }
     
     @Override
     public int damageDropped(int meta)
     {
         return meta & textures[0].length;
+    }
+    
+    @Override
+    public int quantityDropped(Random random)
+    {
+        return random.nextInt(20) == 0 ? 1 : 0;
     }
     
     @Override
@@ -86,7 +93,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune) 
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 3));
+        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 15));
         return ret;
     }
 }
