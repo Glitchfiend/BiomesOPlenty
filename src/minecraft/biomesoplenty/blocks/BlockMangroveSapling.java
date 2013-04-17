@@ -35,7 +35,8 @@ public class BlockMangroveSapling extends BlockSapling
 		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:mangrovesapling");
 	}
     
-    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+	@Override
+    public Icon getIcon(int par1, int par2)
     {
         return this.blockIcon[0];
     }

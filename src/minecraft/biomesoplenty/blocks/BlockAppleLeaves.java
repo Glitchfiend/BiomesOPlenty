@@ -47,8 +47,9 @@ public class BlockAppleLeaves extends BlockLeavesBase implements IShearable
 		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves2");
 	}
     
+	@Override
 	@SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    public Icon getIcon(int par1, int par2)
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }

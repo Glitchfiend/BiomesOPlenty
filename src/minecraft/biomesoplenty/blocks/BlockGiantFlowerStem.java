@@ -32,7 +32,8 @@ public class BlockGiantFlowerStem extends Block
 		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:bigflowerstem");
 	}    
 	
-    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+	@Override
+    public Icon getIcon(int par1, int par2)
     {
     	if(par1 == 0 || par1 == 1)
     	{

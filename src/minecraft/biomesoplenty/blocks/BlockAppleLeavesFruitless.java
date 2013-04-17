@@ -46,9 +46,10 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase implements IShear
 		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves3");
 		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves4");
 	}
-    
+	
+    @Override
 	@SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+    public Icon getIcon(int par1, int par2)
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }

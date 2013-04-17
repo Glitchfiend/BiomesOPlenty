@@ -34,7 +34,8 @@ public class BlockSmolderingGrass extends Block
 		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
 	}
 	
-    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+	@Override
+    public Icon getIcon(int par1, int par2)
     {
         return blockIcon[par1];
     }

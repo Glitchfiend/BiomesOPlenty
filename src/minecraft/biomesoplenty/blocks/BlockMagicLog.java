@@ -32,7 +32,8 @@ public class BlockMagicLog extends Block
 		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:magiclog");
 	}
 	
-    public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)
+	@Override
+    public Icon getIcon(int par1, int par2)
     {
     	int pos = par2 & 12;
         if (pos == 0 && (par1 == 1 || par1 == 0) || pos == 4 && (par1 == 5 || par1 == 4) || pos == 8 && (par1 == 2 || par1 == 3))
