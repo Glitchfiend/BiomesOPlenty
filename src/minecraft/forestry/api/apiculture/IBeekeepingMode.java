@@ -35,6 +35,22 @@ public interface IBeekeepingMode extends IBeeModifier {
 
 	/**
 	 * @param queen
+	 * @param housing
+	 * @return true if the queen is being overworked in the bee housing (with chance). will trigger a negative effect.
+	 */
+	boolean isOverworked(IBee queen, IBeeHousing housing);
+
+	/**
+	 * 
+	 * @param queen
+	 * @param offspring
+	 * @param housing
+	 * @return true if the genetic structure of the queen is breaking down during spawning of the offspring (with chance). will trigger a negative effect.
+	 */
+	boolean isDegenerating(IBee queen, IBee offspring, IBeeHousing housing);
+
+	/**
+	 * @param queen
 	 * @return true if an offspring of this queen is considered a natural
 	 */
 	boolean isNaturalOffspring(IBee queen);
@@ -44,5 +60,6 @@ public interface IBeekeepingMode extends IBeeModifier {
 	 * @return true if this mode allows the passed queen or princess to be multiplied
 	 */
 	boolean mayMultiplyPrincess(IBee queen);
+
 
 }

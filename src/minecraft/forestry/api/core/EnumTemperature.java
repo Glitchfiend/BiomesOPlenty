@@ -48,6 +48,11 @@ public enum EnumTemperature {
 		return this.name;
 	}
 
+	@SideOnly(Side.CLIENT)
+	public Icon getIcon() {
+		return ForestryAPI.textureManager.getDefault(iconIndex);
+	}
+
 	public static ArrayList<Integer> getBiomeIds(EnumTemperature temperature) {
 
 		switch (temperature) {

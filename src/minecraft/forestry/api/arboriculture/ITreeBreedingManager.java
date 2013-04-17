@@ -1,6 +1,7 @@
 package forestry.api.arboriculture;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 import net.minecraft.world.World;
@@ -33,5 +34,9 @@ public interface ITreeBreedingManager {
 	void setTreekeepingMode(World world, String name);
 
 	IAllele[] getRandomTreeTemplate(Random rand);
+
+	void registerTreeMutation(ITreeMutation mutation);
+
+	Collection<ITreeMutation> getMutations(boolean shuffle);
 
 }

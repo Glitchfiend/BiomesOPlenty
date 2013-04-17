@@ -11,4 +11,5 @@ public interface ITextureManager {
 
 	Icon getIcon(short texUID);
 
+	Icon getDefault(String ident);
 }

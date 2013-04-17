@@ -9,4 +9,5 @@ public class ForestryAPI {
 
 	@SideOnly(Side.CLIENT)
 	public static ITextureManager textureManager;
+	
 }

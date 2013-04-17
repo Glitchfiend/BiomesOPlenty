@@ -27,5 +27,7 @@ public interface IFarmLogic {
 	@SideOnly(Side.CLIENT)
 	Icon getIcon();
 
+	String getTextureSheet();
+	
 	String getName();
 }

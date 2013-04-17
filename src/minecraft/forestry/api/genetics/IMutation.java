@@ -40,7 +40,7 @@ public interface IMutation {
 	/**
 	 * @return Unmodified base chance for mutation to fire.
 	 */
-	int getBaseChance();
+	float getBaseChance();
 
 	/**
 	 * @param allele
