@@ -11,17 +11,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPStairs extends BlockStairs
 {
-    public static enum WoodCategory
+    public static enum Category
     {
-      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW;
+      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, RED_COBBLE, RED_BRICKS, MUD_BRICKS;
     }
     
-    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
+    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
-    private final WoodCategory category;
+    private final Category category;
 
-    public BlockBOPStairs(int blockID, Block model, WoodCategory cat)
+    public BlockBOPStairs(int blockID, Block model, Category cat)
     {
         super(blockID, model, 0);
         category = cat;
@@ -34,10 +34,14 @@ public class BlockBOPStairs extends BlockStairs
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[woodTypes.length];
+        textures = new Icon[types.length];
         
-        for (int i = 0; i < woodTypes.length; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+woodTypes[i]+"plank");
+        for (int i = 0; i < types.length; ++i)
+            if (i < types.length - 3)
+                textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]+"plank");
+            else
+                textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]);
+        
     }
     
     @Override

@@ -23,7 +23,7 @@ public class BlockBOPSlab extends BlockHalfSlab
       WOOD1, WOOD2, STONE;
     }
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
-    private static final String[] rockTypes = new String[] {"redbrick", "redcobble", "mudbrick"};
+    private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -119,11 +119,11 @@ public class BlockBOPSlab extends BlockHalfSlab
             switch (getTypeFromMeta(meta))
             {
                 case 0:
-                    hardness = 1.1F;
+                    hardness = 1.6F;
                     break;
                     
                 case 1:
-                    hardness = 1.6F;
+                    hardness = 1.1F;
                     break;
 
                 case 2:
@@ -146,11 +146,11 @@ public class BlockBOPSlab extends BlockHalfSlab
             switch (getTypeFromMeta(meta))
             {
                 case 0:
-                    resistance = 7.5F;
+                    resistance = 7.0F;
                     break;
                     
                 case 1:
-                    resistance = 7.0F;
+                    resistance = 7.5F;
                     break;
 
                 case 2:

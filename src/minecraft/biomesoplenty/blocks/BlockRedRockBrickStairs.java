@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IconRegister;
 
+@Deprecated
 public class BlockRedRockBrickStairs extends BlockStairs
 {
     /** The block that is used as model for the stair. */

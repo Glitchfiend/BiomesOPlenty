@@ -4,7 +4,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.*;
 import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
-import biomesoplenty.blocks.BlockBOPStairs.WoodCategory;
+import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPFlower;
@@ -14,6 +14,7 @@ import biomesoplenty.items.ItemBOPLog;
 import biomesoplenty.items.ItemBOPPetals;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
+import biomesoplenty.items.ItemBOPRedRock;
 import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPSapling;
 
@@ -34,7 +35,7 @@ public class BOPBlocks {
 	// Block declaration
 	public static Block mud;                               // Worldgen
 	public static Block driedDirt;                         // Worldgen
-	public static Block redRock;                           // Worldgen
+	public static Block redRock;                           // DONE (Worldgen)
 	public static Block ash;                               // Worldgen
 	public static Block deadGrass;                         // DONE
 	public static Block desertGrass;                       // DONE
@@ -68,7 +69,7 @@ public class BOPBlocks {
 	public static Block mudBrickBlock;
 	public static BlockHalfSlab mudBrickDoubleSlab;        // DONE
 	public static BlockHalfSlab mudBrickSingleSlab;        // DONE
-	public static Block mudBrickStairs;
+	public static Block mudBrickStairs;                    // DONE
 	public static Block originGrass;                       // Worldgen
 	public static Block originLeaves;                      // DONE
 	public static Block pinkFlower;                        // DONE
@@ -95,14 +96,14 @@ public class BOPBlocks {
 	public static Block darkSapling;                       // DONE
 	public static Block magicSapling;                      // DONE
 	public static Block deathbloom;                        // DONE
-	public static Block redRockCobble;
+	public static Block redRockCobble;                     // DONE
 	public static BlockHalfSlab redRockCobbleDoubleSlab;   // DONE
 	public static BlockHalfSlab redRockCobbleSingleSlab;   // DONE
-	public static Block redRockCobbleStairs;
-	public static Block redRockBrick;
+	public static Block redRockCobbleStairs;               // DONE
+	public static Block redRockBrick;                      // DONE
 	public static BlockHalfSlab redRockBrickDoubleSlab;    // DONE
 	public static BlockHalfSlab redRockBrickSingleSlab;    // DONE
-	public static Block redRockBrickStairs;
+	public static Block redRockBrickStairs;                // DONE
 	public static Block hydrangea;                         // DONE
 	public static Block violet;                            // DONE
 	public static BlockMediumGrass mediumGrass;            // DONE
@@ -380,7 +381,7 @@ public class BOPBlocks {
 		holyDoubleSlab = (BlockHalfSlab)(new BlockHolySlab(BOPConfiguration.holyDoubleSlabID, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
 		holySingleSlab = (BlockHalfSlab)(new BlockHolySlab(BOPConfiguration.holySingleSlabID, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("holySlab");
 		holyStairs = (new BlockHolyStairs(BOPConfiguration.holyStairsID, holyPlank)).setUnlocalizedName("holyStairs");
-		
+
 /*
 		// Planks - WORKING!
 		Blocks.planks = Optional.of((new BlockBOPPlank(1989)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
@@ -396,18 +397,29 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 7), "Palm Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 8), "Redwood Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 9), "Willow Wood Planks");
+
+        // Red Rock
+		Blocks.redRock = Optional.of((new BlockBOPRedRock(1983)).setUnlocalizedName("redRocks"));
+        GameRegistry.registerBlock(Blocks.redRock.get(), ItemBOPRedRock.class, "redRocks");
         
+        LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,0), "Red Rock");
+        LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,1), "Red Rock Cobblestone");
+        LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,2), "Red Rock Bricks");
+		
         // Stairs - WORKING!
-        Blocks.acaciaStairs = Optional.of((new BlockBOPStairs(1990, Blocks.planks.get(), WoodCategory.ACACIA)).setUnlocalizedName("acaciaStairs"));
-        Blocks.cherryStairs = Optional.of((new BlockBOPStairs(1991, Blocks.planks.get(), WoodCategory.CHERRY)).setUnlocalizedName("cherryStairs"));
-        Blocks.darkStairs = Optional.of((new BlockBOPStairs(1992, Blocks.planks.get(), WoodCategory.DARK)).setUnlocalizedName("darkStairs"));
-        Blocks.firStairs = Optional.of((new BlockBOPStairs(1993, Blocks.planks.get(), WoodCategory.FIR)).setUnlocalizedName("firStairs"));
-        Blocks.holyStairs = Optional.of((new BlockBOPStairs(1994, Blocks.planks.get(), WoodCategory.HOLY)).setUnlocalizedName("holyStairs"));
-        Blocks.magicStairs = Optional.of((new BlockBOPStairs(1995, Blocks.planks.get(), WoodCategory.MAGIC)).setUnlocalizedName("magicStairs"));
-        Blocks.mangroveStairs = Optional.of((new BlockBOPStairs(1996, Blocks.planks.get(), WoodCategory.MANGROVE)).setUnlocalizedName("mangroveStairs"));
-        Blocks.palmStairs = Optional.of((new BlockBOPStairs(1997, Blocks.planks.get(), WoodCategory.PALM)).setUnlocalizedName("palmStairs"));
-        Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(1998, Blocks.planks.get(), WoodCategory.REDWOOD)).setUnlocalizedName("redwoodStairs"));
-        Blocks.willowStairs = Optional.of((new BlockBOPStairs(1999, Blocks.planks.get(), WoodCategory.WILLOW)).setUnlocalizedName("willowStairs"));
+        Blocks.acaciaStairs = Optional.of((new BlockBOPStairs(1990, Blocks.planks.get(), Category.ACACIA)).setUnlocalizedName("acaciaStairs"));
+        Blocks.cherryStairs = Optional.of((new BlockBOPStairs(1991, Blocks.planks.get(), Category.CHERRY)).setUnlocalizedName("cherryStairs"));
+        Blocks.darkStairs = Optional.of((new BlockBOPStairs(1992, Blocks.planks.get(), Category.DARK)).setUnlocalizedName("darkStairs"));
+        Blocks.firStairs = Optional.of((new BlockBOPStairs(1993, Blocks.planks.get(), Category.FIR)).setUnlocalizedName("firStairs"));
+        Blocks.holyStairs = Optional.of((new BlockBOPStairs(1994, Blocks.planks.get(), Category.HOLY)).setUnlocalizedName("holyStairs"));
+        Blocks.magicStairs = Optional.of((new BlockBOPStairs(1995, Blocks.planks.get(), Category.MAGIC)).setUnlocalizedName("magicStairs"));
+        Blocks.mangroveStairs = Optional.of((new BlockBOPStairs(1996, Blocks.planks.get(), Category.MANGROVE)).setUnlocalizedName("mangroveStairs"));
+        Blocks.palmStairs = Optional.of((new BlockBOPStairs(1997, Blocks.planks.get(), Category.PALM)).setUnlocalizedName("palmStairs"));
+        Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(1998, Blocks.planks.get(), Category.REDWOOD)).setUnlocalizedName("redwoodStairs"));
+        Blocks.willowStairs = Optional.of((new BlockBOPStairs(1999, Blocks.planks.get(), Category.WILLOW)).setUnlocalizedName("willowStairs"));
+        Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(2000, Blocks.redRock.get(), Category.RED_COBBLE)).setUnlocalizedName("redCobbleStairs"));
+        Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(2001, Blocks.redRock.get(), Category.RED_BRICKS)).setUnlocalizedName("redBricksStairs"));
+        Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(2002, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("mudBricksStairs"));
         
         GameRegistry.registerBlock(Blocks.acaciaStairs.get(), "acaciaStairs1");
         GameRegistry.registerBlock(Blocks.cherryStairs.get(), "cherryStairs1");
@@ -418,7 +430,10 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.mangroveStairs.get(), "mangroveStairs1");
         GameRegistry.registerBlock(Blocks.palmStairs.get(), "palmStairs1");
         GameRegistry.registerBlock(Blocks.redwoodStairs.get(), "redwoodStairs1");
-        GameRegistry.registerBlock(Blocks.willowStairs.get(), "stairs1");
+        GameRegistry.registerBlock(Blocks.willowStairs.get(), "willowStairs1");
+        GameRegistry.registerBlock(Blocks.redCobbleStairs.get(), "redCobbleStairs1");
+        GameRegistry.registerBlock(Blocks.redBricksStairs.get(), "redBricksStairs1");
+        GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "mudBricksStairs1");
         
         LanguageRegistry.addName(Blocks.acaciaStairs.get(), "Acacia Wood Stairs");
         LanguageRegistry.addName(Blocks.cherryStairs.get(), "Cherry Wood Stairs");
@@ -430,6 +445,9 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.palmStairs.get(), "Palm Wood Stairs");
         LanguageRegistry.addName(Blocks.redwoodStairs.get(), "Redwood Wood Stairs");
         LanguageRegistry.addName(Blocks.willowStairs.get(), "Willow Wood Stairs");
+        LanguageRegistry.addName(Blocks.redCobbleStairs.get(), "Red Rock Cobblestone Stairs");
+        LanguageRegistry.addName(Blocks.redBricksStairs.get(), "Red Rock Bricks Stairs");
+        LanguageRegistry.addName(Blocks.mudBricksStairs.get(), "Mud Bricks Stairs");
 
         Blocks.woodenDoubleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2007, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenDoubleSlab1"));
         Blocks.woodenSingleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(2006, false, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenSingleSlab1"));
@@ -477,12 +495,12 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab2");
         GameRegistry.registerBlock(Blocks.stoneSingleSlab.get(), ItemBOPSlab.class, "stoneSingleSlab");
         
-        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Bricks Slab");
-        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,2), "Mud Bricks Slab");
         
-        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Bricks Slab");
-        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,2), "Mud Bricks Slab");
 
 		// Flowers - WORKING! - need a fix for tiny cactus
@@ -600,13 +618,13 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
 
-        Blocks.petals = Optional.of((new BlockBOPPetals(2084)).setUnlocalizedName("petals"));
+        Blocks.petals = Optional.of((new BlockBOPPetals(1984)).setUnlocalizedName("petals"));
         GameRegistry.registerBlock(Blocks.petals.get(), ItemBOPPetals.class, "petals");
         
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
 */
-        
+
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");
 		GameRegistry.registerBlock(driedDirt, "driedDirt");
