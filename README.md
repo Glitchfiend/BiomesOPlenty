@@ -8,27 +8,29 @@
 
 ## Credits ##
 
-- **Forstride**
+- **Forstride** - Original creator
  
--  **gamax92**
+- **gamax92**
  
--  **enchilado**
+- **enchilado**
  
--  **Tim Rurkowski**
+- **Tim Rurkowski** - Music author
 
 
 ## Changelog ##
-      Version 0.5.1
-    - Fixed server crash with mudballs 
-    - fixed forestry beehive spawning as well as giving biomes appropriate temperatures
-    - Removed wrong recipe for mossy cobblestone
-    - Added bamboo saplings
-    - bonemeal now creates the appropriate giant flowers when used on red and yellow flowers
-    - Changed default biome ids
-    - Fixed sapling bugs
+      Version 0.5.X
+    - Updated to Forge 656
     - Changed various things to use IShearable
     - Changed default biome ids to be compatible with mocreatures
-    - Updated to Forge 656
+
+      Version 0.5.1 '17-04-2013'
+    - Fixed server crash with mudballs 
+    - Fixed Forestry beehives spawning, as well as giving biomes appropriate temperatures
+    - Removed wrong recipe for mossy cobblestone
+    - Added bamboo saplings
+    - Bonemeal now creates the appropriate giant flowers when used on red and yellow flowers
+    - Changed default biome ids
+    - Fixed sapling bugs
 
       Version 0.5.0 '09-04-2013'
     - Desert sprouts and Dune Grass now require shears to be harvested
