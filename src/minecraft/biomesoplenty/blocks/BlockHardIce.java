@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 
+@Deprecated
 public class BlockHardIce extends Block
 {
     public BlockHardIce(int par1)

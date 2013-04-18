@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 
+@Deprecated
 public class BlockAmethystBlock extends Block
 {
     public BlockAmethystBlock(int par1)

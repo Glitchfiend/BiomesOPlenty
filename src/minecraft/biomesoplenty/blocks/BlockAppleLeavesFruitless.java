@@ -20,6 +20,7 @@ import net.minecraftforge.common.IShearable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+@Deprecated
 public class BlockAppleLeavesFruitless extends BlockLeavesBase implements IShearable
 {
     /**

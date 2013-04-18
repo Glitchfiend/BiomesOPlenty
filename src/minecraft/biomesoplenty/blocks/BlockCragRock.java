@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 
+@Deprecated
 public class BlockCragRock extends Block
 {
     public BlockCragRock(int par1)

@@ -54,6 +54,7 @@ public class Blocks
     public static Optional<? extends Block> flowers                     = Optional.absent();
     public static Optional<? extends Block> leaves                      = Optional.absent();
     public static Optional<? extends Block> leavesColorized             = Optional.absent();
+    public static Optional<? extends Block> leavesFruit                 = Optional.absent();
     public static Optional<? extends Block> foliage                     = Optional.absent();
     public static Optional<? extends Block> plants                      = Optional.absent();
     public static Optional<? extends Block> flatPlants                  = Optional.absent();
@@ -64,5 +65,8 @@ public class Blocks
     public static Optional<? extends Block> moss                        = Optional.absent();
     public static Optional<? extends Block> petals                      = Optional.absent();
     
-    public static Optional<? extends Block> decorativeBlocks            = Optional.absent();
+    public static Optional<? extends Block> amethystBlock               = Optional.absent();
+    public static Optional<? extends Block> amethystOre                 = Optional.absent();
+    public static Optional<? extends Block> bambooThatching             = Optional.absent();
+    public static Optional<? extends Block> mudBrick             = Optional.absent();
 }

@@ -7,7 +7,8 @@ import net.minecraft.util.Icon;
 
 public class ItemBOPSapling extends ItemBlock
 {
-private static final String[] saplings = new String[] {"yellow", "bamboo", "magic", "dark", "brown", "fir", "holy", "orange", "origin", "pink", "red", "white"};
+    private static final String[] saplings = new String[] {"apple", "yellow", "bamboo", "magic", "dark", "brown", "fir", "holy", "orange", "origin", "pink", "red", "white"};
+    private static final int MAX = 12;
     
     public ItemBOPSapling(int par1)
     {
@@ -25,7 +26,8 @@ private static final String[] saplings = new String[] {"yellow", "bamboo", "magi
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(saplings[itemStack.getItemDamage()]).append("Sapling").toString();
+        int meta = itemStack.getItemDamageForDisplay() > MAX ? 0 : itemStack.getItemDamageForDisplay();
+        return (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
     }
     
     

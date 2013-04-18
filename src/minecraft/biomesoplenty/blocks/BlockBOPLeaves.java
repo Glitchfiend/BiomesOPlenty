@@ -78,7 +78,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public int damageDropped(int meta)
     {
-        return meta & 15;
+        return (meta & 15) + 1;
     }
     
     @Override

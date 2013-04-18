@@ -12,6 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.worldgen.WorldGenApple;
 import biomesoplenty.worldgen.WorldGenAutumn;
 import biomesoplenty.worldgen.WorldGenAutumn2;
 import biomesoplenty.worldgen.WorldGenBambooTree;
@@ -31,7 +32,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPSapling extends BlockSapling
 {
-    private static final String[] saplings = new String[] {"yellow", "bamboo", "magic", "dark", "brown", "fir", "holy", "orange", "origin", "pink", "red", "white"};
+    private static final String[] saplings = new String[] {"apple", "yellow", "bamboo", "magic", "dark", "brown", "fir", "holy", "orange", "origin", "pink", "red", "white"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     private static final int TYPES = 15;
@@ -78,16 +79,20 @@ public class BlockBOPSapling extends BlockSapling
         int meta = world.getBlockMetadata(x, y, z) & TYPES;
         Object obj = null;
         int rnd = random.nextInt(8);
-
+        System.out.println(meta);
         if (obj == null)
         {
             switch (meta)
             {
-                case 0: // Autumn Tree
+                case 0: // Apple Tree
+                    obj = new WorldGenApple(false);
+                    break;
+                    
+                case 1: // Autumn Tree
                     obj = new WorldGenAutumn(false);
                     break;
                     
-                case 1: // Bamboo Tree
+                case 2: // Bamboo Tree
                     rnd = random.nextInt(8);
                     
                     if (rnd == 0)
@@ -96,11 +101,11 @@ public class BlockBOPSapling extends BlockSapling
                         obj = new WorldGenBambooTree2(false);
                     break;
                     
-                case 2: // Magic Tree
+                case 3: // Magic Tree
                     obj = new WorldGenMystic2(false);
                     break;
                     
-                case 3: // Dark Tree
+                case 4: // Dark Tree
                     rnd = random.nextInt(8);
                     
                     if (rnd == 0)
@@ -109,35 +114,35 @@ public class BlockBOPSapling extends BlockSapling
                         obj = new WorldGenOminous1(false);
                     break;
                     
-                case 4: // Dead Tree
+                case 5: // Dead Tree
                     obj = new WorldGenDeadTree2(false);
                     break;
                     
-                case 5: // Fir Tree
+                case 6: // Fir Tree
                     obj = new WorldGenTaiga9(false);
                     break;
                     
-                case 6: // Holy Tree
+                case 7: // Holy Tree
                     obj = new WorldGenPromisedTree(false);
                     break;
                     
-                case 7: // Autumn Tree
+                case 8: // Autumn Tree
                     obj = new WorldGenAutumn2(false);
                     break;
                     
-                case 8: // Origin Tree
+                case 9: // Origin Tree
                     obj = new WorldGenOriginTree(false);
                     break;
                     
-                case 9: // Pink Cherry Tree
+                case 10: // Pink Cherry Tree
                     obj = new WorldGenCherry1(false);
                     break;
                     
-                case 10: // Maple Tree
+                case 11: // Maple Tree
                     obj = new WorldGenMaple(false);
                     break;
                     
-                case 11: // White Cherry Tree
+                case 12: // White Cherry Tree
                     obj = new WorldGenCherry2(false);
                     break;
             }

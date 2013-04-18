@@ -3,6 +3,7 @@ package biomesoplenty.configuration;
 import static com.google.common.base.Preconditions.checkNotNull;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.*;
+import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
 import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
@@ -36,7 +37,7 @@ public class BOPBlocks {
 
 	// Block declaration
 	public static Block mud;                               // Worldgen
-	public static Block driedDirt;                         // Worldgen
+	public static Block driedDirt;                         // DONE (Worldgen)
 	public static Block redRock;                           // DONE (Worldgen)
 	public static Block ash;                               // Worldgen
 	public static Block deadGrass;                         // DONE
@@ -54,7 +55,7 @@ public class BOPBlocks {
 	public static Block toadstool;                         // DONE
 	public static BlockHighGrassBottom highGrassBottom;    // DONE
 	public static BlockHighGrassTop highGrassTop;          // DONE
-	public static Block ashStone;                          // Worldgen
+	public static Block ashStone;                          // DONE (Worldgen)
 	public static Block hardIce;                           // DONE
 	public static Block redLeaves;                         // DONE
 	public static Block orangeLeaves;                      // DONE
@@ -63,12 +64,12 @@ public class BOPBlocks {
 	public static Block whiteLeaves;                       // DONE
 	public static Block deadLeaves;                        // DONE
 	public static BlockShortGrass shortGrass;              // DONE
-	public static Block appleLeaves;
+	public static Block appleLeaves;                       // DONE
 	public static BlockSprout sprout;                      // DONE
 	public static BlockBush bush;                          // DONE
 	public static Block bamboo;
 	public static Block bambooLeaves;                      // DONE
-	public static Block mudBrickBlock;
+	public static Block mudBrickBlock;                     // DONE
 	public static BlockHalfSlab mudBrickDoubleSlab;        // DONE
 	public static BlockHalfSlab mudBrickSingleSlab;        // DONE
 	public static Block mudBrickStairs;                    // DONE
@@ -77,7 +78,7 @@ public class BOPBlocks {
 	public static Block pinkFlower;                        // DONE
 	public static Block treeMoss;                          // Leave
 	public static Block deadWood;                          // DONE
-	public static Block appleLeavesFruitless;
+	public static Block appleLeavesFruitless;              // DONE
 	public static Block barley;                            // DONE
 	public static Block giantFlowerStem;
 	public static Block giantFlowerRed;                    // DONE
@@ -91,7 +92,7 @@ public class BOPBlocks {
 	public static Block yellowSapling;                     // DONE
 	public static Block brownSapling;                      // DONE
 	public static Block willowSapling;                     // DONE
-	public static Block appleSapling;                      
+	public static Block appleSapling;                      // DONE
 	public static Block originSapling;                     // DONE
 	public static Block pinkSapling;                       // DONE
 	public static Block whiteSapling;                      // DONE
@@ -112,21 +113,21 @@ public class BOPBlocks {
 	public static Block duneGrass;                         // DONE
 	public static Block desertSprouts;                     // DONE
 	public static Block mangroveSapling;                   // DONE
-	public static Block hardSand;                          // Worldgen
+	public static Block hardSand;                          // DONE (Worldgen)
 	public static Block acaciaSapling;                     // DONE
-	public static Block hardDirt;                          // Worldgen
+	public static Block hardDirt;                          // DONE (Worldgen)
 	public static Block holyGrass;                         // Worldgen
-	public static Block holyStone;                         // Worldgen
+	public static Block holyStone;                         // DONE (Worldgen)
 	public static Block holyTallGrass;                     // DONE
 	public static Block promisedPortal;                    // Leave
 	public static Block holySapling;                       // DONE
-	public static Block amethystOre;
-	public static Block amethystBlock;
-	public static Block bambooThatching;
+	public static Block amethystOre;                       // DONE
+	public static Block amethystBlock;                     // DONE
+	public static Block bambooThatching;                   // DONE
 	public static Block moss;                              // Leave
 	public static Block algae;                             // DONE
 	public static Block smolderingGrass;
-	public static Block cragRock;                          // Worldgen
+	public static Block cragRock;                          // DONE (Worldgen)
 	public static Block quicksand;
 	public static Block bambooSapling;                     // DONE
 
@@ -547,7 +548,12 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,3), "Redwood Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,4), "Willow Leaves");
+*/
+        Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(2000)).setUnlocalizedName("leavesFruit"));
+        GameRegistry.registerBlock(Blocks.leavesFruit.get(), "leavesFruit");
         
+        LanguageRegistry.addName(Blocks.leavesFruit.get(), "Apple Leaves");
+/*        
         // Logs - WORKING!
         Blocks.logs1 = Optional.of((new BlockBOPLog(2003,LogCategory.CAT1)).setUnlocalizedName("wood1"));
         Blocks.logs2 = Optional.of((new BlockBOPLog(2004,LogCategory.CAT2)).setUnlocalizedName("wood2"));
@@ -593,24 +599,25 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,6), "Barley");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,7), "Cattail");
-
+*/
 		// Saplings - WORKING!
 		Blocks.saplings = Optional.of((new BlockBOPSapling(1986)).setUnlocalizedName("saplings"));
         GameRegistry.registerBlock(Blocks.saplings.get(), ItemBOPSapling.class, "saplings");
         
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Autumn Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Bamboo Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Magic Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,3), "Dark Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,4), "Dying Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Fir Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Holy Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Autumn Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Origin Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Cherry Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Maple Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,11), "Cherry Sapling");
-        
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Apple Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Bamboo Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,3), "Magic Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,4), "Dark Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Dying Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Fir Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Origin Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Cherry Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,11), "Maple Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,12), "Cherry Sapling");
+/*        
         Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(1985)).setUnlocalizedName("colorizedSaplings"));
         GameRegistry.registerBlock(Blocks.colorizedSaplings.get(), ItemBOPColorizedSapling.class, "colorizedSaplings");
         
@@ -626,6 +633,49 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
 */
+        Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(1960, Material.iron, BlockType.AMETHYST_BLOCK));
+        GameRegistry.registerBlock(Blocks.amethystBlock.get(), "amethystBlock2");
+        LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
+        
+        Blocks.amethystOre = Optional.of(new BlockBOPGeneric(1961, Material.rock, BlockType.AMETHYST_ORE));
+        GameRegistry.registerBlock(Blocks.amethystOre.get(), "amethystOre2");
+        LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
+        
+        Blocks.ashStone = Optional.of(new BlockBOPGeneric(1962, Material.rock, BlockType.ASH_STONE));
+        GameRegistry.registerBlock(Blocks.ashStone.get(), "ashStone2");
+        LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
+        
+        Blocks.bambooThatching = Optional.of(new BlockBOPGeneric(1963, Material.wood, BlockType.BAMBOO_THATCHING));
+        GameRegistry.registerBlock(Blocks.bambooThatching.get(), "bambooThatching2");
+        LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
+        
+        Blocks.driedDirt = Optional.of(new BlockBOPGeneric(1964, Material.rock, BlockType.DRIED_DIRT));
+        GameRegistry.registerBlock(Blocks.driedDirt.get(), "driedDirt2");
+        LanguageRegistry.addName(Blocks.driedDirt.get(), "Dried Dirt");
+        
+        Blocks.hardDirt = Optional.of(new BlockBOPGeneric(1965, Material.rock, BlockType.HARD_DIRT));
+        GameRegistry.registerBlock(Blocks.hardDirt.get(), "hardDirt2");
+        LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
+        
+        Blocks.hardIce = Optional.of(new BlockBOPGeneric(1966, Material.rock, BlockType.HARD_ICE));
+        GameRegistry.registerBlock(Blocks.hardIce.get(), "hardIce2");
+        LanguageRegistry.addName(Blocks.hardIce.get(), "Hard Ice");
+        
+        Blocks.hardSand = Optional.of(new BlockBOPGeneric(1967, Material.sand, BlockType.HARD_SAND));
+        GameRegistry.registerBlock(Blocks.hardSand.get(), "hardSand2");
+        LanguageRegistry.addName(Blocks.hardSand.get(), "Hard Sand");
+        
+        Blocks.holyStone = Optional.of(new BlockBOPGeneric(1968, Material.rock, BlockType.HOLY_STONE));
+        GameRegistry.registerBlock(Blocks.holyStone.get(), "holyStone2");
+        LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
+        
+        Blocks.cragRock = Optional.of(new BlockBOPGeneric(1969, Material.rock, BlockType.CRAG_ROCK));
+        GameRegistry.registerBlock(Blocks.cragRock.get(), "cragRock2");
+        LanguageRegistry.addName(Blocks.cragRock.get(), "Crag Rock");
+        
+        Blocks.mudBrick = Optional.of(new BlockBOPGeneric(1970, Material.rock, BlockType.MUD_BRICK));
+        GameRegistry.registerBlock(Blocks.mudBrick.get(), "mudBrick2");
+        LanguageRegistry.addName(Blocks.mudBrick.get(), "Mud Bricks");
 
 		// Add block registration
 		GameRegistry.registerBlock(mud, "mud");

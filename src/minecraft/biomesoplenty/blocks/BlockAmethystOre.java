@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+@Deprecated
 public class BlockAmethystOre extends Block
 {
     public BlockAmethystOre(int par1)
