@@ -1,10 +1,12 @@
 package biomesoplenty.configuration;
 
+import static com.google.common.base.Preconditions.checkNotNull;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.*;
 import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
+import biomesoplenty.helpers.FurnaceFuel;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPFlower;
@@ -990,6 +992,8 @@ public class BOPBlocks {
 		//Block tool strength, 0 is Wood and Gold, 1 is Stone, 2 is Iron and 3 is Diamond
 		//Leaves can be obtained from using shears, however they arn't instantly broken by them (unsure how to do this)
 
+		GameRegistry.registerFuelHandler(checkNotNull(new FurnaceFuel()));
+		
 		MinecraftForge.setBlockHarvestLevel(smolderingGrass, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(mud, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(ash, "shovel", 0);
