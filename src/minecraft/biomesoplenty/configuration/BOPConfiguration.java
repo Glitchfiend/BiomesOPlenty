@@ -426,13 +426,13 @@ public class BOPConfiguration {
 
 			skyColors = true;
 			biomeSize = config.get("Biome Settings", "Biome Size", 4, null).getInt();
-			achievements = config.get("Achievement Settings", "Add Biomes O Plenty Achievemnets (Currently Broken)", false).getBoolean(false);
+			achievements = config.get("Achievement Settings", "Add Biomes O Plenty Achievemnets", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
 			if (!isClient)
 			{
-				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
+				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(false);
 			}
 			else
 			{
