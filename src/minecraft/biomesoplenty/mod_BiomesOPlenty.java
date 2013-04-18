@@ -113,6 +113,36 @@ public class mod_BiomesOPlenty
 		BOPBlocks.dependantinit();
 		
 		BOPBiomes.init();
+		
+		// Achievement declaration
+        if (BOPConfiguration.achievements == true)
+        {
+            achFlower2 = (new Achievement(3057, "achFlower2", 0, 0, Block.plantRed, null)).registerAchievement();
+            achRedRock2 = (new Achievement(3058, "achRedRock2", -1, 2, BOPBlocks.redRock, achFlower2)).registerAchievement();
+            achThorn2 = (new Achievement(3059, "achThorn2", 2, 1, BOPBlocks.thorn, achFlower2)).registerAchievement();
+            achAsh2 = (new Achievement(3060, "achAsh2", 1, 3, BOPItems.ashes, achFlower2)).registerAchievement();
+            achOrigin2 = (new Achievement(3061, "achOrigin2", 0, 5, BOPBlocks.originGrass, achFlower2)).setSpecial().registerAchievement();
+            achPromised2 = (new Achievement(3062, "achPromised2", 0, -5, BOPBlocks.holyGrass, achFlower2)).setSpecial().registerAchievement();
+            achMud2 = (new Achievement(3063, "achMud2", -2, -1, BOPItems.mudBall, achFlower2)).registerAchievement();
+            achShroom2 = (new Achievement(3064, "achShroom2", 1, -2, BOPBlocks.toadstool, achFlower2)).registerAchievement();
+            achBarley2 = (new Achievement(3065, "achBarley2", -2, 4, BOPItems.barleyItem, achFlower2)).registerAchievement();
+            achMoss2 = (new Achievement(3066, "achMoss2", -1, -3, BOPItems.mossItem, achFlower2)).registerAchievement();
+
+            pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower2, achRedRock2, achThorn2, achAsh2, achOrigin2, achPromised2, achMud2, achShroom2, achBarley2, achMoss2});
+            AchievementPage.registerAchievementPage(pageBOP);
+            
+         // Add Achievement registration
+            addAchievementDesc("achFlower2", "Flower Child", "Pick some flowers!");
+            addAchievementDesc("achRedRock2", "Red Rocky Mountain High", "Dig out some red rocks.");
+            addAchievementDesc("achThorn2", "Rather Thorny...", "Don\'t get cut!");
+            addAchievementDesc("achAsh2", "Ash-ievement", "Get it?  \'Cause it\'s ash.");
+            addAchievementDesc("achOrigin2", "Alpha...", "Get some grass from the Origin Valley.");
+            addAchievementDesc("achPromised2", "...Omega", "Welcome to the Promised Land!");
+            addAchievementDesc("achMud2", "Sticky Situation", "I just had these boots cleaned!");
+            addAchievementDesc("achShroom2", "Trippin\'", "Don\'t try this at home, kids!");
+            addAchievementDesc("achBarley2", "Fields Of Gold", "Upon the fields of barley.");
+            addAchievementDesc("achMoss2", "Mossman", "Mothman's long-lost cousin.");
+        }
 	}
 
 	@Init
@@ -121,41 +151,7 @@ public class mod_BiomesOPlenty
 		
 		BOPCrossIntegration.init();
 
-		// Achievement declaration
-		if (BOPConfiguration.achievements == true)
-		{
-			achFlower2 = (new Achievement(3057, "achFlower2", 0, 0, Block.plantRed, null)).registerAchievement();
-			achRedRock2 = (new Achievement(3058, "achRedRock2", -1, 2, BOPBlocks.redRock, achFlower2)).registerAchievement();
-			achThorn2 = (new Achievement(3059, "achThorn2", 2, 1, BOPBlocks.thorn, achFlower2)).registerAchievement();
-			achAsh2 = (new Achievement(3060, "achAsh2", 1, 3, BOPItems.ashes, achFlower2)).registerAchievement();
-			achOrigin2 = (new Achievement(3061, "achOrigin2", 0, 5, BOPBlocks.originGrass, achFlower2)).setSpecial().registerAchievement();
-			achPromised2 = (new Achievement(3062, "achPromised2", 0, -5, BOPBlocks.holyGrass, achFlower2)).setSpecial().registerAchievement();
-			achMud2 = (new Achievement(3063, "achMud2", -2, -1, BOPItems.mudBall, achFlower2)).registerAchievement();
-			achShroom2 = (new Achievement(3064, "achShroom2", 1, -2, BOPBlocks.toadstool, achFlower2)).registerAchievement();
-			achBarley2 = (new Achievement(3065, "achBarley2", -2, 4, BOPItems.barleyItem, achFlower2)).registerAchievement();
-			achMoss2 = (new Achievement(3066, "achMoss2", -1, -3, BOPItems.mossItem, achFlower2)).registerAchievement();
-
-			pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower2, achRedRock2, achThorn2, achAsh2, achOrigin2, achPromised2, achMud2, achShroom2, achBarley2, achMoss2});
-			AchievementPage.registerAchievementPage(pageBOP);
-		}
-
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabBiomesOPlenty", "en_US", "Biomes O\' Plenty");
-
-		if (BOPConfiguration.achievements == true)
-		{
-			// Add Achievement registration
-			addAchievementDesc("achFlower2", "Flower Child", "Pick some flowers!");
-			addAchievementDesc("achRedRock2", "Red Rocky Mountain High", "Dig out some red rocks.");
-			addAchievementDesc("achThorn2", "Rather Thorny...", "Don\'t get cut!");
-			addAchievementDesc("achAsh2", "Ash-ievement", "Get it?  \'Cause it\'s ash.");
-			addAchievementDesc("achOrigin2", "Alpha...", "Get some grass from the Origin Valley.");
-			addAchievementDesc("achPromised2", "...Omega", "Welcome to the Promised Land!");
-			addAchievementDesc("achMud2", "Sticky Situation", "I just had these boots cleaned!");
-			addAchievementDesc("achShroom2", "Trippin\'", "Don\'t try this at home, kids!");
-			addAchievementDesc("achBarley2", "Fields Of Gold", "Upon the fields of barley.");
-			addAchievementDesc("achMoss2", "Mossman", "Mothman's long-lost cousin.");
-		}
-
 		LanguageRegistry.instance().addStringLocalization("generator.BIOMESOP", "en_US", "Biomes O\' Plenty");
 
 		// Add helpers for compatibility
