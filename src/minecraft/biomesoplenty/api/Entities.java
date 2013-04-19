@@ -24,14 +24,6 @@ public class Entities {
 		{
 			e.printStackTrace();
 		}
-		
-		if (foundclass != null)
-		{
-			return foundclass;
-		}
-		else
-		{
-			return null;
-		}
+		return foundclass;
 	}
 }
