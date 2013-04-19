@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import biomesoplenty.ClientProxy;
 import biomesoplenty.mod_BiomesOPlenty;
 
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLLog;
 

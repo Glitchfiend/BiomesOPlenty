@@ -94,6 +94,18 @@ public class BOPBiomes {
 	
 	public static WTBiomesOP WTBiomesOP;
 	
+	public static int getLastBiomeID()
+	{
+		int x;
+		for(x = 255; x >= 0; x--) {
+			if (BiomeGenBase.biomeList[x] == null) 
+			{
+				break;
+			}
+		}
+		return x;
+	}
+	
 	public static void init()
 	{
 		// Initialize biomes

@@ -23,7 +23,9 @@ import biomesoplenty.api.Biomes;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPItems;
+import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
@@ -109,6 +111,10 @@ public class mod_BiomesOPlenty
 		
 		BOPBiomes.init();
 		
+		BOPEntities.init();
+		
+		BOPVanillaCompat.init();
+		
 		// Achievement declaration
         if (BOPConfiguration.achievements == true)
         {
@@ -132,93 +138,10 @@ public class mod_BiomesOPlenty
 
 		proxy.registerRenderers();
 
-		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, this, 80, 3, true);
-		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.JungleSpider.name", "en_US", "Jungle Spider");
-		if (Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
-			EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
-		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
-
-		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, this, 80, 3, true);
-		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Rosester.name", "en_US", "Rosester");
-		if (Biomes.garden.isPresent())
-			EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, Biomes.garden.get());    
-		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
-		
-		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", EntityRegistry.findGlobalUniqueEntityId(), this, 80, 3, true); 
-		
-		// Dispenser behavior for mud balls
-		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.mudBall, new DispenserBehaviorMudball());
-
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
-
-		dungeon = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
-		mineshaft = ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR);
-		strongholdCorridor = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR);
-		strongholdCrossing = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING);
-		village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
-
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.bopDisc), 1, 1, 2));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mossItem), 2, 8, 50));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 2), 4, 12, 75));
-
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.ashes), 2, 8, 25));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.thorn), 4, 6, 15));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mudBall), 2, 8, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 3), 4, 12, 75));
-
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mossItem), 2, 8, 50));
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.glowFlower), 1, 4, 25));
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.deathbloom), 1, 4, 25));
-
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mossItem), 2, 8, 50));
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.glowFlower), 1, 4, 25));
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.deathbloom), 1, 4, 25));
-
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.barleyItem), 4, 10, 75));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.shroomPowder), 1, 5, 50));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.thorn), 2, 6, 25));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 2), 4, 12, 75));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 3), 4, 12, 75));
 	}
-
-	//Find the first available egg ID after our egg ID counter
-	public static int getUniqueEntityEggId() {
-		do {
-			eggIdCounter++;
-		} while (EntityList.getStringFromID(eggIdCounter) != null);
-
-		return eggIdCounter;
-	}
-
-	@SuppressWarnings("unchecked")
-	public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) {
-		int id = getUniqueEntityEggId();
-		EntityList.IDtoClassMapping.put(id, entity);
-		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
-	}
-
-	//Eggs
-	public static int eggIdCounter = 300;
 
 	public static CreativeTabs tabBiomesOPlenty;
-
-	public static ChestGenHooks dungeon;
-	public static ChestGenHooks mineshaft;
-	public static ChestGenHooks strongholdCorridor;
-	public static ChestGenHooks strongholdCrossing;
-	public static ChestGenHooks village;
-
-	public static int getLastBiomeID()
-	{
-		int x;
-		for(x = 255; x >= 0; x--) {
-			if (BiomeGenBase.biomeList[x] == null) 
-			{
-				break;
-			}
-		}
-		return x;
-	}
 }
