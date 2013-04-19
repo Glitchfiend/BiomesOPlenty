@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.worldgen.WorldGenAcacia;
 import biomesoplenty.worldgen.WorldGenAutumn;
 import biomesoplenty.worldgen.WorldGenAutumn2;
@@ -47,7 +47,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
         super(par1);
         setHardness(0.0F);
         setStepSound(Block.soundGrassFootstep);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override

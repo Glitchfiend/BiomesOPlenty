@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 
 import net.minecraft.block.Block;
@@ -42,7 +42,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
         setHardness(0.0F);
         setStepSound(Block.soundGrassFootstep);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override

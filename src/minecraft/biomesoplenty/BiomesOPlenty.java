@@ -20,6 +20,7 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Biomes;
+import biomesoplenty.api.Entities;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
@@ -50,11 +51,11 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.1")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
-public class mod_BiomesOPlenty
+public class BiomesOPlenty
 {	    
 	// The instance of your mod that Forge uses.
 	@Instance("BiomesOPlenty")
-	public static mod_BiomesOPlenty instance;
+	public static BiomesOPlenty instance;
 
 	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide="biomesoplenty.ClientProxy", serverSide="biomesoplenty.CommonProxy")

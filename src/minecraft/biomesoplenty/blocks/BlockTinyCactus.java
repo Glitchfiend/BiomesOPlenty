@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ public class BlockTinyCactus extends Block
         this.setTickRandomly(true);
         float var4 = 0.2F;
         this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
     public BlockTinyCactus(int par1)

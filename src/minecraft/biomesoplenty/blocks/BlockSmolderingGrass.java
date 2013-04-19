@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,7 +20,7 @@ public class BlockSmolderingGrass extends Block
     {
         super(par1, Material.grass);
         this.setTickRandomly(true);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

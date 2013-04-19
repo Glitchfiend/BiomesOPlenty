@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -28,7 +28,7 @@ public class BlockBOPGeneric extends Block
     {
         super(id, material);
         this.type = type;
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         
         switch (type)
         {

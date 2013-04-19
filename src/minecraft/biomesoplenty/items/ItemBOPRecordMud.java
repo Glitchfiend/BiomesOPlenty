@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukeBox;
@@ -32,7 +32,7 @@ public class ItemBOPRecordMud extends ItemRecord
         super(par1, par2Str);
         this.recordName = par2Str;
         this.maxStackSize = 1;
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         records.put(par2Str, this);
     }
 

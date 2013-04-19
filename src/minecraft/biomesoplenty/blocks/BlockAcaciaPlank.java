@@ -1,6 +1,6 @@
 package biomesoplenty.blocks;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,7 +15,7 @@ public class BlockAcaciaPlank extends Block
     {
         super(par1, Material.wood); 
 		this.setBurnProperties(this.blockID, 5, 20);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
 	@Override

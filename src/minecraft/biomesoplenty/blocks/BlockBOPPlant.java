@@ -17,7 +17,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.configuration.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
@@ -38,7 +38,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
         setHardness(0.0F);
         setStepSound(Block.soundGrassFootstep);
         setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
-        setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override

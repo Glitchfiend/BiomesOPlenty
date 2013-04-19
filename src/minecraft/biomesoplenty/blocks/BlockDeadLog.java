@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -23,7 +23,7 @@ public class BlockDeadLog extends Block
     {
         super(par1, Material.wood);
 		this.setBurnProperties(this.blockID, 5, 5);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
 	@Override

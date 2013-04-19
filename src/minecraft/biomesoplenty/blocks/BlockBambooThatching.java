@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -15,7 +15,7 @@ public class BlockBambooThatching extends Block
     public BlockBambooThatching(int par1)
     {
         super(par1, Material.wood);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
 	@Override

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
@@ -36,7 +36,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         setHardness(0.2F);
         setLightOpacity(1);
         setStepSound(Block.soundGrassFootstep);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override

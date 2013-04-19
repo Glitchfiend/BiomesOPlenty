@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.logging.Level;
 
 import biomesoplenty.ClientProxy;
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
@@ -417,7 +417,7 @@ public class BOPConfiguration {
 
 	public static void init(File configFile) 
 	{
-		boolean isClient = mod_BiomesOPlenty.proxy instanceof ClientProxy;
+		boolean isClient = BiomesOPlenty.proxy instanceof ClientProxy;
 		
 		config = new Configuration(configFile);
 

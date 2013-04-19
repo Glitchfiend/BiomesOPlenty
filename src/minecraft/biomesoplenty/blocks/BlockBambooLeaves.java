@@ -3,7 +3,7 @@ package biomesoplenty.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -36,7 +36,7 @@ public class BlockBambooLeaves extends BlockLeavesBase implements IShearable
         super(par1, Material.leaves, false);
         this.setTickRandomly(true);
 		this.setBurnProperties(this.blockID, 30, 60);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

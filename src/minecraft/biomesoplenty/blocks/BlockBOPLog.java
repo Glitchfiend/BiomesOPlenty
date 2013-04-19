@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -36,7 +36,7 @@ public class BlockBOPLog extends Block
         setHardness(2.0F);
         setResistance(5.0F);
         setStepSound(Block.soundWoodFootstep);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override

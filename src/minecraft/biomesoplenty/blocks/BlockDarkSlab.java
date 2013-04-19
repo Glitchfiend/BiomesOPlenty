@@ -3,7 +3,7 @@ package biomesoplenty.blocks;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.BlockHalfSlab;
@@ -22,7 +22,7 @@ public class BlockDarkSlab extends BlockHalfSlab
     public BlockDarkSlab(int par1, boolean par2)
     {
         super(par1, par2, Material.wood);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		this.setBurnProperties(this.blockID, 5, 20);
 		this.useNeighborBrightness[blockID] = true;
     }

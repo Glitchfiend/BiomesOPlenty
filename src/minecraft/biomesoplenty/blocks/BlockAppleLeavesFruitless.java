@@ -3,7 +3,7 @@ package biomesoplenty.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -37,7 +37,7 @@ public class BlockAppleLeavesFruitless extends BlockLeavesBase implements IShear
         super(par1, Material.leaves, false);
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

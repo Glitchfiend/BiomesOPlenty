@@ -1,6 +1,6 @@
 package biomesoplenty.blocks;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
@@ -17,7 +17,7 @@ public class BlockMagicStairs extends BlockStairs
         super(par1, par2Block, 0);
         this.modelBlock = par2Block;
         this.setLightOpacity(0);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

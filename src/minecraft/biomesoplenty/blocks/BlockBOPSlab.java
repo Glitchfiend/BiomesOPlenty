@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
@@ -43,7 +43,7 @@ public class BlockBOPSlab extends BlockHalfSlab
         else if (material == Material.rock)
             setStepSound(Block.soundStoneFootstep);
             
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         useNeighborBrightness[blockID] = true;
     }
     

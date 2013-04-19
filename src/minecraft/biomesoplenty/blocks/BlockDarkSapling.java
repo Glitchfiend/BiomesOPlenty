@@ -3,7 +3,7 @@ package biomesoplenty.blocks;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.worldgen.WorldGenOminous1;
 import biomesoplenty.worldgen.WorldGenOminous2;
 
@@ -26,7 +26,7 @@ public class BlockDarkSapling extends BlockSapling
         super(par1);
         float var3 = 0.4F;
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, var3 * 2.0F, 0.5F + var3);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

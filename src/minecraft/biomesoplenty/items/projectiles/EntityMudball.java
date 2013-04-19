@@ -1,7 +1,7 @@
 package biomesoplenty.items.projectiles;
 
 import biomesoplenty.ClientProxy;
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class EntityMudball extends EntityThrowable 
 {
-	boolean isClient = mod_BiomesOPlenty.proxy instanceof ClientProxy;
+	boolean isClient = BiomesOPlenty.proxy instanceof ClientProxy;
 	
 	public EntityMudball(World par1World)
 	{
@@ -42,7 +42,7 @@ public class EntityMudball extends EntityThrowable
 
 			for (int i = 0; i < 16; ++i)
 			{
-				mod_BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+				BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
 			}
 
 		if (!this.worldObj.isRemote)

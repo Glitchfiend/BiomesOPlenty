@@ -1,6 +1,6 @@
 package biomesoplenty.blocks;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -13,7 +13,7 @@ public class BlockAshStone extends Block
     public BlockAshStone(int par1)
     {
         super(par1, Material.rock);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 	
 	@Override

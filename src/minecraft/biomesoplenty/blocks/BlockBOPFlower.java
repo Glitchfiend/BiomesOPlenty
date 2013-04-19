@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 
 import net.minecraft.block.Block;
@@ -31,7 +31,7 @@ public class BlockBOPFlower extends BlockFlower
         this.setTickRandomly(true);
         float var4 = 0.2F;
         this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
     public BlockBOPFlower(int blockID)

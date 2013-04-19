@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPItems;
 
 import net.minecraft.block.Block;
@@ -17,7 +17,7 @@ public class BlockAmethystOre extends Block
     public BlockAmethystOre(int par1)
     {
         super(par1, Material.rock);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
     @Override

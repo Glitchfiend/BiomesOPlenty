@@ -3,7 +3,7 @@ package biomesoplenty.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -23,7 +23,7 @@ public class BlockTreeMoss extends Block implements IShearable
         super(par1, Material.vine);
         this.setTickRandomly(true);
 		this.setBurnProperties(this.blockID, 15, 100);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

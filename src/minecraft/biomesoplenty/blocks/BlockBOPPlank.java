@@ -2,7 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.mod_BiomesOPlenty;
+import biomesoplenty.BiomesOPlenty;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -24,7 +24,7 @@ public class BlockBOPPlank extends Block
         super(blockID, Material.wood); 
         setBurnProperties(this.blockID, 5, 20);
         setHardness(2.0F);
-        this.setCreativeTab(mod_BiomesOPlenty.tabBiomesOPlenty);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override
