@@ -91,25 +91,74 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             list.add(new ItemStack(blockID, 1, i));
     }
     
-    @Override
-    public boolean canPlaceBlockAt(World world, int x, int y, int z)
-    {
-        return super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-    }
+//    @Override
+//    public boolean canPlaceBlockAt(World world, int x, int y, int z)
+//    {
+//        return true;//super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+//    }
     
     protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
     {
         // TODO 
-        if (meta == 0)
-            return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
-        else if (meta == 1)    
-            return id == Blocks.redRock.get().blockID;
-        else if (meta == 2 || meta == 3)
-            return id == Block.sand.blockID;
-        else if (meta == 4)
-            return id == Blocks.holyGrass.get().blockID;
+        switch (meta)
+        {
+            case 0: // Dead Grass
+                return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
+                
+            case 1: // Desert Grass
+                return id == Blocks.redRock.get().blockID;
+                
+            case 2: // Desert Sprouts
+            case 3: // Dune Grass
+                return id == Block.sand.blockID;
+                
+            case 4: // Holy Tall Grass
+                return id == Blocks.holyGrass.get().blockID;
+                
+            case 5:
+                return true;
+                
+            case 7:
+                return id == Block.grass.blockID;
+                
+            default:
+                return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+        }
+    }
+    
+    @Override
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+    {
+        int id = world.getBlockId(x, y - 1, z);
+        int meta = itemStack.getItemDamage();
+        
+        if (itemStack.itemID == this.blockID)
+            switch (meta)
+            {
+                case 0: // Dead Grass
+                    return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
+                    
+                case 1: // Desert Grass
+                    return id == Blocks.redRock.get().blockID;
+                    
+                case 2: // Desert Sprouts
+                case 3: // Dune Grass
+                    return id == Block.sand.blockID;
+                    
+                case 4: // Holy Tall Grass
+                    return id == Blocks.holyGrass.get().blockID;
+                    
+                case 5: // Thorns
+                    return true;
+                    
+                case 7: // Cattail
+                    return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
+                    
+                default:
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+            }
         else
-            return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+            return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
 
     @Override

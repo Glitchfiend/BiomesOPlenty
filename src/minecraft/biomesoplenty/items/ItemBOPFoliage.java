@@ -29,7 +29,7 @@ public class ItemBOPFoliage extends ItemBlock
         textures = new Icon[foliageTypes.length - 1];
         
         for (int i = 0; i < foliageTypes.length - 1; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:item" + foliageTypes[i]);
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:item_" + foliageTypes[i]);
     }
 
     @Override
