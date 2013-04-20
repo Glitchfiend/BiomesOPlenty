@@ -19,7 +19,7 @@ public class WorldGenApple extends WorldGenerator
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
         int var6 = par2Random.nextInt(3) + 5;
-        boolean var7 = true;
+        boolean flag = true;
 
         if (par4 >= 1 && par4 + var6 + 1 <= 256)
         {
@@ -43,28 +43,30 @@ public class WorldGenApple extends WorldGenerator
                     var9 = 2;
                 }
 
-                for (var10 = par3 - var9; var10 <= par3 + var9 && var7; ++var10)
+                for (var10 = par3 - var9; var10 <= par3 + var9 && flag; ++var10)
                 {
-                    for (var11 = par5 - var9; var11 <= par5 + var9 && var7; ++var11)
+                    for (var11 = par5 - var9; var11 <= par5 + var9 && flag; ++var11)
                     {
                         if (var8 >= 0 && var8 < 256)
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
+                            
+                            Block block = Block.blocksList[var12];
 
-                            if (var12 != 0 && var12 != Blocks.leavesFruit.get().blockID)
+                            if (var12 != 0 && (block != null && !block.isLeaves(par1World, var10,  var8, var11)))
                             {
-                                var7 = false;
+                                flag = false;
                             }
                         }
                         else
                         {
-                            var7 = false;
+                            flag = false;
                         }
                     }
                 }
             }
 
-            if (!var7)
+            if (!flag)
             {
                 return false;
             }
@@ -110,8 +112,10 @@ public class WorldGenApple extends WorldGenerator
                     for (var16 = 0; var16 < var6; ++var16)
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
+                        
+                        Block block = Block.blocksList[var10];
 
-                        if (var10 == 0 || var10 == Blocks.leavesFruit.get().blockID)
+                        if (var10 == 0 || block == null || block.isLeaves(par1World, par3, par4 + var16, par5))
                         {
                             this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 0);
                         }

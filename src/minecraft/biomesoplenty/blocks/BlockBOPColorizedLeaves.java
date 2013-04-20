@@ -155,4 +155,10 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
         return true;
     }
+    
+    @Override
+    public boolean isLeaves(World world, int x, int y, int z)
+    {
+        return true;
+    }
 }

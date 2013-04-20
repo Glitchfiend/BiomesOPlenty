@@ -145,4 +145,10 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     {
         return true;
     }
+    
+    @Override
+    public boolean isLeaves(World world, int x, int y, int z)
+    {
+        return true;
+    }
 }

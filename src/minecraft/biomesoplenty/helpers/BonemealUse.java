@@ -5,6 +5,7 @@ import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.blocks.BlockBOPSapling;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
@@ -15,6 +16,7 @@ public class BonemealUse
 	@ForgeSubscribe
 	public void onUseBonemeal(BonemealEvent event)
 	{
+		int meta = event.world.getBlockMetadata(event.X, event.Y, event.Z);
 		
 		if (event.ID == Blocks.saplings.get().blockID)
 		{
@@ -22,50 +24,45 @@ public class BonemealUse
 			
 			if (!event.world.isRemote)
 			{
+			    
+			    switch (meta) 
+			    {
+			        case 3: // Magic Sapling
+			            if ((double)event.world.rand.nextFloat() < 0.10D)
+		                    ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			            break;
+			            
+			        case 7: // Holy Sapling
+			            if ((double)event.world.rand.nextFloat() < 0.15D)
+		                    ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			            break;
+			            
+			        case 9: // Origin Sapling
+			            ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			            break;
+			            
+			        default:
+			            if ((double)event.world.rand.nextFloat() < 0.45D)
+		                    ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+			            break;
+			    }
+			    
+				
+			}
+		}
+		else if (event.ID == Blocks.colorizedSaplings.get().blockID)
+		{
+			event.setResult(Result.ALLOW);
+			
+			if (!event.world.isRemote)
+			{
 				if ((double)event.world.rand.nextFloat() < 0.45D)
 				{
-					((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					((BlockBOPColorizedSapling)Blocks.colorizedSaplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
 			}
 		}
-		
-		if (event.ID == Blocks.saplings.get().blockID) // Origin
-		{
-			event.setResult(Result.ALLOW);
-
-			if (!event.world.isRemote)
-			{
-				((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-			}
-		}
-		
-		if (event.ID == Blocks.saplings.get().blockID) // Holy
-		{
-			event.setResult(Result.ALLOW);
-			
-			if (!event.world.isRemote)
-			{
-				if ((double)event.world.rand.nextFloat() < 0.15D)
-				{
-					((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-				}
-			}
-		}
-		
-		if (event.ID == Blocks.saplings.get().blockID) // MAGIC
-		{
-			event.setResult(Result.ALLOW);
-			
-			if (!event.world.isRemote)
-			{
-				if ((double)event.world.rand.nextFloat() < 0.10D)
-				{
-					((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-				}
-			}
-		}
-
-		if (event.ID == Block.plantRed.blockID)
+		else if (event.ID == Block.plantRed.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -78,8 +75,7 @@ public class BonemealUse
 				}
 			}
 		}
-		
-		if (event.ID == Block.plantYellow.blockID)
+		else if (event.ID == Block.plantYellow.blockID)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -92,8 +88,7 @@ public class BonemealUse
 				}
 			}
 		}
-		
-		if (event.ID == Blocks.holyGrass.get().blockID)
+		else if (event.ID == Blocks.holyGrass.get().blockID)
 		{
 			int var13 = event.X;
 			int var14 = event.Y + 1;
