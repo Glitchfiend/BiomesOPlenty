@@ -91,15 +91,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             list.add(new ItemStack(blockID, 1, i));
     }
     
-//    @Override
-//    public boolean canPlaceBlockAt(World world, int x, int y, int z)
-//    {
-//        return true;//super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-//    }
-    
     protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
     {
-        // TODO 
         switch (meta)
         {
             case 0: // Dead Grass

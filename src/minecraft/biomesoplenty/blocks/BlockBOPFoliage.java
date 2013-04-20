@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 
 import net.minecraft.block.Block;
@@ -74,15 +75,30 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     }
     
     @Override
-    public boolean canPlaceBlockAt(World world, int x, int y, int z)
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
     {
-        return super.canPlaceBlockAt(world, x, y, z) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-    }
+        int id = world.getBlockId(x, y - 1, z);
+        int meta = itemStack.getItemDamage();
+        
+        if (itemStack.itemID == this.blockID)
+            switch (meta)
+            {
+                case ALGAE: // Dead Grass
+                    return id == Block.waterStill.blockID;
     
+                default:
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+            }
+        else
+            return this.canPlaceBlockOnSide(world, x, y, z, side);
+    }
+
     protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
     {
         if (metadata == GRASSTOP)
             return blockID == this.blockID;
+        else if (metadata == ALGAE)
+            return blockID == Block.waterStill.blockID;
         else
             return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
     }
@@ -90,7 +106,8 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
-        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+                && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }   
     
     @Override
@@ -98,6 +115,10 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
         super.onNeighborBlockChange(world, x, y, z, neighborID);
         this.checkFlowerChange(world, x, y, z);
+        if (world.getBlockMetadata(x, y, z) == GRASSTOP && world.getBlockId(x, y - 1, z) == this.blockID && world.getBlockMetadata(x, y - 1, z) != GRASSBOTTOM)
+                world.setBlockToAir(x, y, z);
+        if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
+            world.setBlockToAir(x, y, z);
     }
     
     @Override

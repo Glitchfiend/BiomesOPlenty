@@ -3,6 +3,7 @@ package biomesoplenty.blocks;
 import java.util.List;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 
 import net.minecraft.block.Block;
@@ -103,6 +104,50 @@ public class BlockBOPFlower extends BlockFlower
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < plants.length; ++i)
             list.add(new ItemStack(blockID, 1, i));
+    }
+    
+    protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
+    {
+        switch (meta)
+        {
+            case 10: // Toadstool
+                return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+                
+            case 11: // Cactus
+                return id == Block.sand.blockID;
+
+            default:
+                return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+        }
+    }
+    
+    @Override
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+    {
+        int id = world.getBlockId(x, y - 1, z);
+        int meta = itemStack.getItemDamage();
+        
+        if (itemStack.itemID == this.blockID)
+            switch (meta)
+            {
+                case 10: // Toadstool
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+                    
+                case 11: // Cactus
+                    return id == Block.sand.blockID;
+
+                default:
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+            }
+        else
+            return this.canPlaceBlockOnSide(world, x, y, z, side);
+    }
+    
+    @Override
+    public boolean canBlockStay(World world, int x, int y, int z)
+    {
+        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+                && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
     
     @Override

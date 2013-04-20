@@ -56,6 +56,7 @@ public class ItemBOPPlant extends ItemBlock
             return Block.blocksList[this.itemID].getIcon(0, meta);
     }
     
+    @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
         int id = world.getBlockId(x, y, z);
