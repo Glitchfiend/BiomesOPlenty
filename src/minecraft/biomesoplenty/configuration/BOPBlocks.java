@@ -341,6 +341,12 @@ public class BOPBlocks {
 		//Other
 //		OreDictionary.registerOre("treeLeaves", new ItemStack(bambooLeaves));
 		
+		//Shears VS Blocks
+		Blocks.shearBlockIds.put(Blocks.leaves1.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leaves2.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leavesColorized.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leavesFruit.get().blockID, 15.0F);
+		
 		GameRegistry.addRecipe(new ItemStack(Blocks.redRock.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.redRock.get(),1,0)});
 
 		// TODO
