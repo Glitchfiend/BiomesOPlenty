@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -50,7 +51,7 @@ public class WorldGenApple extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != BOPBlocks.appleLeaves.blockID && var12 != BOPBlocks.appleLeavesFruitless.blockID)
+                            if (var12 != 0 && var12 != Blocks.leavesFruit.get().blockID)
                             {
                                 var7 = false;
                             }
@@ -95,11 +96,11 @@ public class WorldGenApple extends WorldGenerator
 									
 									if (var99 == 0)
 										{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.appleLeaves.blockID, 0);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 3);
 										}
 									else
 										{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.appleLeavesFruitless.blockID, 0);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 0);
 										}
                                 }
                             }
@@ -110,7 +111,7 @@ public class WorldGenApple extends WorldGenerator
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var10 == 0 || var10 == BOPBlocks.appleLeaves.blockID || var10 == BOPBlocks.appleLeavesFruitless.blockID)
+                        if (var10 == 0 || var10 == Blocks.leavesFruit.get().blockID)
                         {
                             this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 0);
                         }

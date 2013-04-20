@@ -3,6 +3,7 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
@@ -26,8 +27,8 @@ public class BiomeGenPromisedLand extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)BOPBlocks.holyGrass.blockID;
-        this.fillerBlock = (byte)BOPBlocks.holyStone.blockID;
+		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
+        this.fillerBlock = (byte)Blocks.holyStone.get().blockID;
         this.customBiomeDecorator.treesPerChunk = 8;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
@@ -75,7 +76,7 @@ public class BiomeGenPromisedLand extends BiomeGenBase
 
             if (var10 == Block.stone.blockID)
             {
-                par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.blockID, 0, 2);
+                par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 0, 2);
             }
         }
 

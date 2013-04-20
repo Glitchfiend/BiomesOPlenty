@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -51,7 +52,7 @@ public class WorldGenWillow extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != BOPBlocks.willowLeaves.blockID)
+                            if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID)
                             {
                                 if (var12 != Block.waterStill.blockID && var12 != Block.waterMoving.blockID)
                                 {
@@ -100,7 +101,7 @@ public class WorldGenWillow extends WorldGenerator
 
                                 if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.willowLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesColorized.get().blockID, 4);
                                 }
                             }
                         }
@@ -110,9 +111,9 @@ public class WorldGenWillow extends WorldGenerator
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var10 == 0 || var10 == BOPBlocks.willowLeaves.blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
+                        if (var10 == 0 || var10 == Blocks.leavesColorized.get().blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
                         {
-                            this.setBlock(par1World, par3, par4 + var16, par5, BOPBlocks.willowWood.blockID);
+                            this.setBlock(par1World, par3, par4 + var16, par5, Blocks.logs3.get().blockID);
                         }
                     }
 
@@ -125,7 +126,7 @@ public class WorldGenWillow extends WorldGenerator
                         {
                             for (var13 = par5 - var11; var13 <= par5 + var11; ++var13)
                             {
-                                if (par1World.getBlockId(var12, var16, var13) == BOPBlocks.willowLeaves.blockID)
+                                if (par1World.getBlockId(var12, var16, var13) == Blocks.leavesColorized.get().blockID)
                                 {
                                     if (par2Random.nextInt(2) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
                                     {
@@ -170,7 +171,7 @@ public class WorldGenWillow extends WorldGenerator
      */
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
+        this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
         int var6 = 7;
 
         while (true)
@@ -182,7 +183,7 @@ public class WorldGenWillow extends WorldGenerator
                 return;
             }
 
-            this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
+            this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
             --var6;
         }
     }

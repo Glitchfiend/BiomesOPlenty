@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -336,19 +338,19 @@ public class WorldGenDeadTree3 extends WorldGenerator
         int var4 = this.basePos[2];
         int[] var5 = new int[] {var1, var2, var4};
         int[] var6 = new int[] {var1, var3, var4};
-        this.placeBlockLine(var5, var6, BOPBlocks.deadWood.blockID);
+        this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
 
         if (this.trunkSize == 2)
         {
             ++var5[0];
             ++var6[0];
-            this.placeBlockLine(var5, var6, BOPBlocks.deadWood.blockID);
+            this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
             ++var5[2];
             ++var6[2];
-            this.placeBlockLine(var5, var6, BOPBlocks.deadWood.blockID);
+            this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
             var5[0] += -1;
             var6[0] += -1;
-            this.placeBlockLine(var5, var6, BOPBlocks.deadWood.blockID);
+            this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
         }
     }
 
@@ -369,7 +371,7 @@ public class WorldGenDeadTree3 extends WorldGenerator
 
             if (this.leafNodeNeedsBase(var6))
             {
-                this.placeBlockLine(var3, var5, BOPBlocks.deadWood.blockID);
+                this.placeBlockLine(var3, var5, Blocks.logs3.get().blockID);
             }
         }
     }
@@ -446,7 +448,7 @@ public class WorldGenDeadTree3 extends WorldGenerator
         int[] var2 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
         int var3 = this.worldObj.getBlockId(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 
-        if (var3 != 2 && var3 != 3 && var3 != BOPBlocks.smolderingGrass.blockID && var3 != BOPBlocks.ash.blockID)
+        if (var3 != 2 && var3 != 3 && var3 != Blocks.smolderingGrass.get().blockID && var3 != Blocks.ash.get().blockID)
         {
             return false;
         }

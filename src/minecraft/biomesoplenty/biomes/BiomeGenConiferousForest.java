@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenTaiga3;
 import biomesoplenty.worldgen.WorldGenTaiga4;
@@ -45,7 +46,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(BOPBlocks.mediumGrass.blockID, 1);
+        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)

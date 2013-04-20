@@ -2,6 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 
@@ -107,8 +108,8 @@ public class BlockHighGrassBottom extends BlockFlower
     
     public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
     {
-        par1World.setBlock(par2, par3, par4, BOPBlocks.highGrassBottom.blockID, 2, par9);
-        par1World.setBlock(par2, par3 + 1, par4, BOPBlocks.highGrassTop.blockID, 2, par9);
+        par1World.setBlock(par2, par3, par4, Blocks.foliage.get().blockID, 3, 2);
+        par1World.setBlock(par2, par3 + 1, par4, Blocks.foliage.get().blockID, 6, 2);
         return par9;
     }
 }

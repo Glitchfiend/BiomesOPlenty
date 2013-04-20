@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -174,7 +175,7 @@ public class WorldGenFungi3 extends WorldGenerator
      */
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
+        this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
         int var6 = 4;
 
         while (true)
@@ -186,7 +187,7 @@ public class WorldGenFungi3 extends WorldGenerator
                 return;
             }
 
-            this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
+            this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
             --var6;
         }
     }

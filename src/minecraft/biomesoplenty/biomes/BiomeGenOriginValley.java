@@ -3,6 +3,7 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenOriginTree;
@@ -19,7 +20,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)BOPBlocks.originGrass.blockID;
+		this.topBlock = (byte)Blocks.originGrass.get().blockID;
         this.customBiomeDecorator.treesPerChunk = 4;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.generatePumpkins = false;

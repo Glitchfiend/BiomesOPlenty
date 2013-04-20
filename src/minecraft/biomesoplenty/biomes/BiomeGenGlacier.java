@@ -1,5 +1,6 @@
 package biomesoplenty.biomes;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.world.biome.BiomeGenBase;
@@ -12,8 +13,8 @@ public class BiomeGenGlacier extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)BOPBlocks.hardIce.blockID;
-        this.fillerBlock = (byte)BOPBlocks.hardIce.blockID;
+        this.topBlock = (byte)Blocks.hardIce.get().blockID;
+        this.fillerBlock = (byte)Blocks.hardIce.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = -999;

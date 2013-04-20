@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -166,22 +167,22 @@ public class WorldGenFungi1 extends WorldGenerator
                             {
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 - 1, par4 + var11, par5))
                                 {
-                                    this.setBlockAndMetadata(par1World, par3 - 1, par4 + var11, par5, BOPBlocks.willow.blockID, 8);
+                                    this.setBlockAndMetadata(par1World, par3 - 1, par4 + var11, par5, Blocks.willow.get().blockID, 8);
                                 }
 
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3 + 1, par4 + var11, par5))
                                 {
-                                    this.setBlockAndMetadata(par1World, par3 + 1, par4 + var11, par5, BOPBlocks.willow.blockID, 2);
+                                    this.setBlockAndMetadata(par1World, par3 + 1, par4 + var11, par5, Blocks.willow.get().blockID, 2);
                                 }
 
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + var11, par5 - 1))
                                 {
-                                    this.setBlockAndMetadata(par1World, par3, par4 + var11, par5 - 1, BOPBlocks.willow.blockID, 1);
+                                    this.setBlockAndMetadata(par1World, par3, par4 + var11, par5 - 1, Blocks.willow.get().blockID, 1);
                                 }
 
                                 if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(par3, par4 + var11, par5 + 1))
                                 {
-                                    this.setBlockAndMetadata(par1World, par3, par4 + var11, par5 + 1, BOPBlocks.willow.blockID, 4);
+                                    this.setBlockAndMetadata(par1World, par3, par4 + var11, par5 + 1, Blocks.willow.get().blockID, 4);
                                 }
                             }
                         }
@@ -244,7 +245,7 @@ public class WorldGenFungi1 extends WorldGenerator
      */
     private void growVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
+        this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
         int var6 = 4;
 
         while (true)
@@ -256,7 +257,7 @@ public class WorldGenFungi1 extends WorldGenerator
                 return;
             }
 
-            this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.willow.blockID, par5);
+            this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
             --var6;
         }
     }

@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.util.Direction;
@@ -21,9 +22,9 @@ public class WorldGenMoss extends WorldGenerator
             {
                 for (int var8 = 2; var8 <= 5; ++var8)
                 {
-                    if (BOPBlocks.moss.canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
+                    if (Blocks.moss.get().canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
                     {
-                        par1World.setBlock(par3, par4, par5, BOPBlocks.moss.blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+                        par1World.setBlock(par3, par4, par5, Blocks.moss.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
                         break;
                     }
                 }

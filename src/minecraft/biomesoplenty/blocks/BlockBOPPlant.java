@@ -18,6 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.configuration.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
@@ -100,13 +101,13 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     {
         // TODO 
         if (meta == 0)
-            return id == BOPBlocks.driedDirt.blockID || id == Block.sand.blockID;
+            return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
         else if (meta == 1)    
-            return id == BOPBlocks.redRock.blockID;
+            return id == Blocks.redRock.get().blockID;
         else if (meta == 2 || meta == 3)
             return id == Block.sand.blockID;
         else if (meta == 4)
-            return id == BOPBlocks.holyGrass.blockID;
+            return id == Blocks.holyGrass.get().blockID;
         else
             return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
     }

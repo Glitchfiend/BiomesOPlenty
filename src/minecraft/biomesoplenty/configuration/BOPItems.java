@@ -1,6 +1,7 @@
 package biomesoplenty.configuration;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.armor.ArmorAmethyst;
 import biomesoplenty.armor.ArmorMuddy;
 import biomesoplenty.items.ItemAncientStaff;
@@ -40,12 +41,12 @@ public class BOPItems {
 	public static Item shroomPowder;
 	public static Item mudBall;
 	public static Item mudBrick;
-	public static Item cattailItem;
-	public static Item barleyItem;
-	public static Item shortGrassItem;
-	public static Item mediumGrassItem;
-	public static Item bushItem;
-	public static Item sproutItem;
+//	public static Item cattailItem;
+//	public static Item barleyItem;
+//	public static Item shortGrassItem;
+//	public static Item mediumGrassItem;
+//	public static Item bushItem;
+//	public static Item sproutItem;
 	public static Item mossItem;
 	public static Item ashes;
 	public static Item bambooItem;
@@ -96,13 +97,13 @@ public class BOPItems {
 		shroomPowder = (new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.5F, false)).setPotionEffect(Potion.confusion.id, 30, 0, 0.6F).setAlwaysEdible().setUnlocalizedName("shroomPowder").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		mudBall = (new ItemBOP(BOPConfiguration.mudBallID, 0)).setUnlocalizedName("mudBall").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		mudBrick = (new ItemBOP(BOPConfiguration.mudBrickID, 1)).setUnlocalizedName("mudBrick").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		bambooItem = (new ItemBamboo(BOPConfiguration.bambooItemID, BOPBlocks.bamboo)).setUnlocalizedName("bambooItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		cattailItem = (new ItemCattail(BOPConfiguration.cattailItemID, BOPBlocks.cattail)).setUnlocalizedName("cattailItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		barleyItem = (new ItemBarley(BOPConfiguration.barleyItemID, BOPBlocks.barley)).setUnlocalizedName("barleyItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		shortGrassItem = (new ItemShortGrass(BOPConfiguration.shortGrassItemID, BOPBlocks.shortGrass)).setUnlocalizedName("shortGrassItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		mediumGrassItem = (new ItemMediumGrass(BOPConfiguration.mediumGrassItemID, BOPBlocks.mediumGrass)).setUnlocalizedName("mediumGrassItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		bushItem = (new ItemBush(BOPConfiguration.bushItemID, BOPBlocks.bush)).setUnlocalizedName("bushItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		sproutItem = (new ItemSprout(BOPConfiguration.sproutItemID, BOPBlocks.sprout)).setUnlocalizedName("sproutItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		bambooItem = (new ItemBamboo(BOPConfiguration.bambooItemID, Blocks.bamboo.get())).setUnlocalizedName("bambooItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+//		cattailItem = (new ItemCattail(BOPConfiguration.cattailItemID, BOPBlocks.cattail)).setUnlocalizedName("cattailItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+//		barleyItem = (new ItemBarley(BOPConfiguration.barleyItemID, BOPBlocks.barley)).setUnlocalizedName("barleyItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+//		shortGrassItem = (new ItemShortGrass(BOPConfiguration.shortGrassItemID, BOPBlocks.shortGrass)).setUnlocalizedName("shortGrassItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+//		mediumGrassItem = (new ItemMediumGrass(BOPConfiguration.mediumGrassItemID, BOPBlocks.mediumGrass)).setUnlocalizedName("mediumGrassItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+//		bushItem = (new ItemBush(BOPConfiguration.bushItemID, BOPBlocks.bush)).setUnlocalizedName("bushItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+//		sproutItem = (new ItemSprout(BOPConfiguration.sproutItemID, BOPBlocks.sprout)).setUnlocalizedName("sproutItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		mossItem = (new ItemBOP(BOPConfiguration.mossItemID, 2)).setUnlocalizedName("mossItem").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		ancientStaff = new ItemAncientStaff(BOPConfiguration.ancientStaffID).setUnlocalizedName("ancientStaff").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		enderporter = new ItemEnderporter(BOPConfiguration.enderporterID).setUnlocalizedName("enderporter").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
@@ -161,19 +162,19 @@ public class BOPItems {
 		GameRegistry.addRecipe(new ItemStack(bootsAmethyst, 1), new Object [] {"# #", "# #", Character.valueOf('#'), amethyst});
 		
 		//Other
-		GameRegistry.addRecipe(new ItemStack(Item.wheat, 1), new Object[] {"###", '#', BOPItems.barleyItem});
+//		GameRegistry.addRecipe(new ItemStack(Item.wheat, 1), new Object[] {"###", '#', BOPItems.barleyItem});
 		GameRegistry.addRecipe(new ItemStack(ancientStaff, 1, 0), new Object[] {"T", "P", "H", 'T', ancientStaffTopper, 'P', ancientStaffPole, 'H', ancientStaffHandle});
 		GameRegistry.addRecipe(new ItemStack(ancientStaffHandle, 1, 0), new Object[] {"ISI", "ISI", " E ", 'I', Item.ingotIron, 'S', Block.whiteStone, 'E', Item.emerald});
 		GameRegistry.addRecipe(new ItemStack(ancientStaffPole, 1, 0), new Object[] {"ISI", "IRI", "ISI", 'I', Item.ingotIron, 'S', Block.whiteStone, 'R', Item.redstone});
 		GameRegistry.addRecipe(new ItemStack(ancientStaffTopper, 1, 0), new Object[] {" N ", "IDI", "ISI", 'I', Item.ingotIron, 'S', Block.whiteStone, 'D', Item.diamond, 'N', Item.netherStar});
-		GameRegistry.addRecipe(new ItemStack(enderporter, 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', BOPBlocks.amethystBlock});
+		GameRegistry.addRecipe(new ItemStack(enderporter, 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', Blocks.amethystBlock.get()});
 		GameRegistry.addRecipe(new ItemStack(bopDiscMud, 1), new Object[] {" M ", "MDM", " M ", 'M', mudBall, 'D', bopDisc});
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(bambooItem, 9), new Object[] {BOPBlocks.bambooThatching});
-		GameRegistry.addShapelessRecipe(new ItemStack(amethyst, 9), new Object[] {BOPBlocks.amethystBlock});
+		GameRegistry.addShapelessRecipe(new ItemStack(bambooItem, 9), new Object[] {Blocks.bambooThatching.get()});
+		GameRegistry.addShapelessRecipe(new ItemStack(amethyst, 9), new Object[] {Blocks.amethystBlock.get()});
 		
 		//Plants
-		GameRegistry.addShapelessRecipe(new ItemStack(shroomPowder, 2), new Object[] {BOPBlocks.toadstool});
+		GameRegistry.addShapelessRecipe(new ItemStack(shroomPowder, 2), new Object[] {new ItemStack(Blocks.flowers.get(),1,10)});
 		
 		GameRegistry.addSmelting(mudBall.itemID, new ItemStack(mudBrick, 1), 0F);
 		
@@ -181,13 +182,13 @@ public class BOPItems {
 		LanguageRegistry.addName(mudBall, "Mud Ball");
 		LanguageRegistry.addName(mudBrick, "Mud Brick");
 		LanguageRegistry.addName(bambooItem, "Bamboo");
-		LanguageRegistry.addName(cattailItem, "Cattail");
-		LanguageRegistry.addName(shortGrassItem, "Short Grass");
-		LanguageRegistry.addName(mediumGrassItem, "Medium Grass");
-		LanguageRegistry.addName(bushItem, "Bush");
-		LanguageRegistry.addName(sproutItem, "Sprout");
+//		LanguageRegistry.addName(cattailItem, "Cattail");
+//		LanguageRegistry.addName(shortGrassItem, "Short Grass");
+//		LanguageRegistry.addName(mediumGrassItem, "Medium Grass");
+//		LanguageRegistry.addName(bushItem, "Bush");
+//		LanguageRegistry.addName(sproutItem, "Sprout");
 		LanguageRegistry.addName(mossItem, "Moss");
-		LanguageRegistry.addName(barleyItem, "Barley");
+//		LanguageRegistry.addName(barleyItem, "Barley");
 		LanguageRegistry.addName(ashes, "Pile of Ashes");
 		LanguageRegistry.addName(pickaxeMud, "Muddy Pickaxe");
 		LanguageRegistry.addName(axeMud, "Muddy Axe");

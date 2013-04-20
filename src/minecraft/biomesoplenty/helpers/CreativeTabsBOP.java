@@ -1,5 +1,6 @@
 package biomesoplenty.helpers;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,6 +16,6 @@ public class CreativeTabsBOP extends CreativeTabs
 	@Override
 	public ItemStack getIconItemStack()
 	{
-		return new ItemStack(BOPBlocks.firSapling);
+		return new ItemStack(Blocks.saplings.get(),1,6);
 	}
 }

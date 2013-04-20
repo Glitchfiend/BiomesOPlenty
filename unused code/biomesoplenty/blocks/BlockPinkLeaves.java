@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -20,31 +21,31 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Deprecated
-public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
+public class BlockPinkLeaves extends BlockLeavesBase implements IShearable
 {
     /**
      * The base index in terrain.png corresponding to the fancy version of the leaf texture. This is stored so we can
      * switch the displayed version between fancy and fast graphics (fast is this index + 1).
      */
     private int baseIndexInPNG;
-    public static final String[] LEAF_TYPES = new String[] {"magic"};
+    public static final String[] LEAF_TYPES = new String[] {"pink"};
     int[] adjacentTreeBlocks;
     private Icon[] blockIcon = new Icon[2];
 
-    public BlockBlueLeaves(int par1)
+    public BlockPinkLeaves(int par1)
     {
         super(par1, Material.leaves, false);
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
-
+    
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:blueleaves1");
-		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:blueleaves2");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:pinkleaves1");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:pinkleaves2");
 	}
     
 	@Override
@@ -53,7 +54,7 @@ public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
-	
+
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
      */
@@ -72,7 +73,7 @@ public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == BOPBlocks.blueLeaves.blockID)
+                        if (var12 == Blocks.leaves2.get().blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
                             par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
@@ -121,11 +122,11 @@ public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
                             {
                                 var15 = par1World.getBlockId(par2 + var12, par3 + var13, par4 + var14);
 
-                                if (var15 == BOPBlocks.magicWood.blockID)
+                                if (var15 == BOPBlocks.cherryWood.blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = 0;
                                 }
-                                else if (var15 == BOPBlocks.blueLeaves.blockID)
+                                else if (var15 == Blocks.leaves2.get().blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = -2;
                                 }
@@ -215,7 +216,7 @@ public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlock(par2, par3, par4, 0);
+        par1World.setBlockToAir(par2, par3, par4);
     }
 
     /**
@@ -231,7 +232,7 @@ public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return BOPBlocks.magicSapling.blockID;
+        return BOPBlocks.pinkSapling.blockID;
     }
 
     /**
@@ -262,7 +263,7 @@ public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-        super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+            super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
     }
 
     /**

@@ -3,6 +3,7 @@ package biomesoplenty.blocks;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -13,16 +14,15 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 @Deprecated
-public class BlockCherryLog extends Block
+public class BlockMagicLog extends Block
 {
     /** The type of tree this log came from. */
-    public static final String[] woodType = new String[] {"cherry"};
+    public static final String[] woodType = new String[] {"magic"};
     private Icon[] blockIcon = new Icon[2];
 
-    public BlockCherryLog(int par1)
+    public BlockMagicLog(int par1)
     {
         super(par1, Material.wood);
-		this.setBurnProperties(this.blockID, 5, 5);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
@@ -30,7 +30,7 @@ public class BlockCherryLog extends Block
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:logTopBottum");
-		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:cherrylog");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:magiclog");
 	}
 	
 	@Override
@@ -63,7 +63,7 @@ public class BlockCherryLog extends Block
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return BOPBlocks.cherryWood.blockID;
+        return BOPBlocks.magicWood.blockID;
     }
 
     /**
@@ -84,7 +84,7 @@ public class BlockCherryLog extends Block
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == BOPBlocks.pinkLeaves.blockID || var12 == BOPBlocks.whiteLeaves.blockID)
+                        if (var12 == Blocks.leaves1.get().blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
 
@@ -131,7 +131,7 @@ public class BlockCherryLog extends Block
     {
         int var3 = par2 & 12;
         int var4 = par2 & 3;
-        return var3 == 0 && (par1 == 1 || par1 == 0) ? 255 : (var3 == 4 && (par1 == 5 || par1 == 4) ? 255 : (var3 == 8 && (par1 == 2 || par1 == 3) ? 255 : (var4 == 1 ? 116 : (var4 == 2 ? 117 : (var4 == 3 ? 153 : 35)))));
+        return var3 == 0 && (par1 == 1 || par1 == 0) ? 255 : (var3 == 4 && (par1 == 5 || par1 == 4) ? 255 : (var3 == 8 && (par1 == 2 || par1 == 3) ? 255 : (var4 == 1 ? 116 : (var4 == 2 ? 117 : (var4 == 3 ? 153 : 55)))));
     }*/
 
     /**
@@ -157,17 +157,5 @@ public class BlockCherryLog extends Block
     protected ItemStack createStackedBlock(int par1)
     {
         return new ItemStack(this.blockID, 1, limitToValidMetadata(par1));
-    }
-	
-    @Override
-    public boolean canSustainLeaves(World world, int x, int y, int z)
-    {
-        return true;
-    }
-
-    @Override
-    public boolean isWood(World world, int x, int y, int z)
-    {
-        return true;
     }
 }

@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -76,18 +77,18 @@ public class WorldGenPromisedTree3 extends WorldGenerator
                 var13 = var1.getBlockId(var3, var4 - 1, var5 - 1);
                 var14 = var1.getBlockId(var3 - 1, var4 - 1, var5 - 1);
 
-                if ((var11 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                if ((var11 == Blocks.holyGrass.get().blockID) && var4 < 256 - var6 - 1)
                 {
-                    if ((var24 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                    if ((var24 == Blocks.holyGrass.get().blockID) && var4 < 256 - var6 - 1)
                     {
-                        if ((var13 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                        if ((var13 == Blocks.holyGrass.get().blockID) && var4 < 256 - var6 - 1)
                         {
-                            if ((var14 == BOPBlocks.holyGrass.blockID) && var4 < 256 - var6 - 1)
+                            if ((var14 == Blocks.holyGrass.get().blockID) && var4 < 256 - var6 - 1)
                             {
-                                var1.setBlock(var3, var4 - 1, var5, BOPBlocks.holyGrass.blockID);
-                                var1.setBlock(var3 - 1, var4 - 1, var5, BOPBlocks.holyGrass.blockID);
-                                var1.setBlock(var3, var4 - 1, var5 - 1, BOPBlocks.holyGrass.blockID);
-                                var1.setBlock(var3 - 1, var4 - 1, var5 - 1, BOPBlocks.holyGrass.blockID);
+                                var1.setBlock(var3, var4 - 1, var5, Blocks.holyGrass.get().blockID);
+                                var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.holyGrass.get().blockID);
+                                var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.holyGrass.get().blockID);
+                                var1.setBlock(var3 - 1, var4 - 1, var5 - 1, Blocks.holyGrass.get().blockID);
                                 var15 = var2.nextInt(2);
                                 int var16 = 1;
                                 boolean var17 = false;

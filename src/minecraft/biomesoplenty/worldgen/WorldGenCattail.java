@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -25,9 +26,9 @@ public class WorldGenCattail extends WorldGenerator
             int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var8, var9, var10) && BOPBlocks.cattail.canBlockStay(par1World, var8, var9, var10))
+            if (par1World.isAirBlock(var8, var9, var10) && Blocks.plants.get().canBlockStay(par1World, var8, var9, var10))
             {
-                par1World.setBlock(var8, var9, var10, BOPBlocks.cattail.blockID);
+                par1World.setBlock(var8, var9, var10, Blocks.plants.get().blockID, 7, 2);
             }
         }
 

@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -112,16 +113,16 @@ public class WorldGenMarsh extends WorldGenerator
 					
 					if (par2Random.nextInt(3) == 0)
 						{
-						par1World.setBlock(par3, par4 + 1, par5, BOPBlocks.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 2, par5, BOPBlocks.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3 - 1, par4 + 1, par5, BOPBlocks.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3 - 1, par4 + 2, par5, BOPBlocks.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3 + 1, par4 + 1, par5, BOPBlocks.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3 + 1, par4 + 2, par5, BOPBlocks.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 1, par5 - 1, BOPBlocks.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 2, par5 - 1, BOPBlocks.highGrassTop.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 1, par5 + 1, BOPBlocks.highGrassBottom.blockID, 1, 2);
-						par1World.setBlock(par3, par4 + 2, par5 + 1, BOPBlocks.highGrassTop.blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3 - 1, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3 - 1, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3 + 1, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3 + 1, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3, par4 + 1, par5 - 1, Blocks.foliage.get().blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5 - 1, Blocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3, par4 + 1, par5 + 1, Blocks.foliage.get().blockID, 1, 2);
+						par1World.setBlock(par3, par4 + 2, par5 + 1, Blocks.foliage.get().blockID, 6, 2);
 						}
 					else
 						{

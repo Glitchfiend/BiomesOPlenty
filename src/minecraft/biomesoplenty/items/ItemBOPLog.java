@@ -1,15 +1,12 @@
 package biomesoplenty.items;
 
-import biomesoplenty.blocks.BlockBOPLog;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import biomesoplenty.blocks.BlockBOPLog;
 
 public class ItemBOPLog extends ItemBlock
 {
-    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead"};
-
     public ItemBOPLog(int par1)
     {
         super(par1);
@@ -26,7 +23,7 @@ public class ItemBOPLog extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        BlockBOPLog wood = (BlockBOPLog)Block.blocksList[itemStack.itemID];
-        return (new StringBuilder()).append(woodTypes[wood.getWoodType(itemStack.getItemDamage())]).append("Wood").toString();
+        BlockBOPLog block = (BlockBOPLog)Block.blocksList[itemStack.itemID];
+        return block.getWoodType(itemStack.getItemDamage());
     }
 }

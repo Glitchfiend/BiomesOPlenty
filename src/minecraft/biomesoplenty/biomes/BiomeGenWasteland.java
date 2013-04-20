@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.awt.Color;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 
@@ -14,8 +15,8 @@ public class BiomeGenWasteland extends BiomeGenBase
     public BiomeGenWasteland(int par1)
     {
         super(par1);
-        this.topBlock = (byte)BOPBlocks.driedDirt.blockID;
-        this.fillerBlock = (byte)BOPBlocks.driedDirt.blockID;
+        this.topBlock = (byte)Blocks.driedDirt.get().blockID;
+        this.fillerBlock = (byte)Blocks.driedDirt.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.customBiomeDecorator.treesPerChunk = -999;

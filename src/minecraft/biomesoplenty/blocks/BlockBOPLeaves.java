@@ -4,14 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
@@ -21,16 +13,27 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 {
+    public static enum LeafCategory
+    {
+      CAT1, CAT2;
+    }
+    
     private static final String[] leaves = new String[] {"autumn", "bamboo", "blue", "dark", "dead", "fir", "holy", "orange", "origin", "pink", "red", "white"};
     @SideOnly(Side.CLIENT)
     private Icon[][] textures;
+    private final LeafCategory category;
     
-    public BlockBOPLeaves(int blockID)
+    public BlockBOPLeaves(int blockID, LeafCategory cat)
     {
         super(blockID, Material.leaves, false);
+        category = cat;
         setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         setHardness(0.2F);
@@ -56,17 +59,15 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
-        if (meta < 0 || meta >= textures[0].length)
-            meta = 0;
-
-        return textures[(!isOpaqueCube() ? 0 : 1)][meta];
+        return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta) + (this.category.ordinal() * 8)];
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < textures[0].length; ++i)
-            list.add(new ItemStack(blockID, 1, i));
+        for (int i = 0; i < 8; ++i)
+            if (category != LeafCategory.CAT2 || i < 4)
+                list.add(new ItemStack(blockID, 1, i));
     }
     
     @Override
@@ -78,7 +79,13 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public int damageDropped(int meta)
     {
-        return (meta & 15) + 1;
+        return (getTypeFromMeta(meta) + this.category.ordinal() * 8) + 1;
+    }
+    
+    @Override
+    public int getDamageValue(World par1World, int par2, int par3, int par4)
+    {
+        return getTypeFromMeta(par1World.getBlockMetadata(par2, par3, par4));
     }
     
     @Override
@@ -97,7 +104,17 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune) 
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 15));
+        ret.add(new ItemStack(this, 1, getTypeFromMeta(world.getBlockMetadata(x, y, z))));
         return ret;
+    }
+    
+    public String getLeafType(int meta)
+    {
+      return leaves[getTypeFromMeta(meta) + category.ordinal() * 8];
+    }
+    
+    private static int getTypeFromMeta(int meta)
+    {
+      return meta & 7;
     }
 }

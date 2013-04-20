@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -40,18 +41,18 @@ public class WorldGenQuicksand2 extends WorldGenerator
                 }
             }
 
-			var1.setBlock(var3, var4 - 2, var5, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3, var4 - 1, var5, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3, var4, var5, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3, var4 - 2, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4 - 1, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4, var5, Blocks.quicksand.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 - 1, var5, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3 + 1, var4 - 1, var5, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3, var4 - 1, var5 - 1, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3, var4 - 1, var5 + 1, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3 - 1, var4, var5, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3 + 1, var4, var5, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3, var4, var5 - 1, BOPBlocks.quicksand.blockID);
-			var1.setBlock(var3, var4, var5 + 1, BOPBlocks.quicksand.blockID);
+			var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3 + 1, var4 - 1, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4 - 1, var5 + 1, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3 - 1, var4, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3 + 1, var4, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4, var5 - 1, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4, var5 + 1, Blocks.quicksand.get().blockID);
             return true;
         }
     }

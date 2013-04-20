@@ -1,12 +1,12 @@
 package biomesoplenty.items;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import biomesoplenty.blocks.BlockBOPLeaves;
 
 public class ItemBOPLeaves extends ItemBlock
 {
-    private static final String[] leaves = new String[] {"autumn", "bamboo", "blue", "dark", "dead", "fir", "holy", "orange", "origin", "pink", "red", "white"};
-    
     public ItemBOPLeaves(int par1)
     {
         super(par1);
@@ -17,12 +17,13 @@ public class ItemBOPLeaves extends ItemBlock
     @Override
     public int getMetadata(int meta)
     {
-        return meta & 15;
+        return meta | 8;
     }
     
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(leaves[itemStack.getItemDamage()]).append("Leaves").toString();
+        BlockBOPLeaves block = (BlockBOPLeaves)Block.blocksList[itemStack.itemID];
+        return block.getLeafType(itemStack.getItemDamage());
     }
 }

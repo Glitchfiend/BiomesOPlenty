@@ -93,10 +93,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
-        if (meta < 0 || meta >= textures[0].length)
-            meta = 0;
-
-        return textures[(!isOpaqueCube() ? 0 : 1)][meta];
+        return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta)];
     }
     
     @Override
@@ -115,7 +112,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     @Override
     public int damageDropped(int meta)
     {
-        return meta & 15;
+        return getTypeFromMeta(meta);
     }
     
     @Override
@@ -134,7 +131,17 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune) 
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 15));
+        ret.add(new ItemStack(this, 1, getTypeFromMeta(world.getBlockMetadata(x, y, z))));
         return ret;
+    }
+    
+    public String getLeafType(int meta)
+    {
+      return leaves[getTypeFromMeta(meta)];
+    }
+    
+    private static int getTypeFromMeta(int meta)
+    {
+      return meta & 7;
     }
 }

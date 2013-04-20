@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -49,7 +51,7 @@ public class WorldGenPromisedTree2 extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != BOPBlocks.blueLeaves.blockID)
+                            if (var12 != 0 && var12 != Blocks.leaves1.get().blockID)
                             {
                                 var7 = false;
                             }
@@ -70,9 +72,9 @@ public class WorldGenPromisedTree2 extends WorldGenerator
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var8 == BOPBlocks.holyGrass.blockID) && par4 < 256 - var6 - 1)
+                if ((var8 == Blocks.holyGrass.get().blockID) && par4 < 256 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, BOPBlocks.holyGrass.blockID);
+                    this.setBlock(par1World, par3, par4 - 1, par5, Blocks.holyGrass.get().blockID);
                     int var16;
 
                     for (var16 = par4 - 3 + var6; var16 <= par4 + var6; ++var16)
@@ -90,7 +92,7 @@ public class WorldGenPromisedTree2 extends WorldGenerator
 
                                 if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.blueLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leaves1.get().blockID, 2);
                                 }
                             }
                         }
@@ -100,9 +102,9 @@ public class WorldGenPromisedTree2 extends WorldGenerator
                     {
                         var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var10 == 0 || var10 == BOPBlocks.blueLeaves.blockID)
+                        if (var10 == 0 || var10 == Blocks.leaves1.get().blockID)
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, BOPBlocks.magicWood.blockID, 0);
+                            this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Blocks.logs2.get().blockID,1);
                         }
                     }
 

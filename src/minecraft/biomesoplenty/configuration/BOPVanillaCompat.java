@@ -1,5 +1,6 @@
 package biomesoplenty.configuration;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.Item;
@@ -31,21 +32,21 @@ public class BOPVanillaCompat {
 		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 2), 4, 12, 75));
 
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.ashes), 2, 8, 25));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.thorn), 4, 6, 15));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 4, 6, 15));
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mudBall), 2, 8, 10));
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 3), 4, 12, 75));
 
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mossItem), 2, 8, 50));
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.glowFlower), 1, 4, 25));
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.deathbloom), 1, 4, 25));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
+		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.mossItem), 2, 8, 50));
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.glowFlower), 1, 4, 25));
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.deathbloom), 1, 4, 25));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
+		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.barleyItem), 4, 10, 75));
+//		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.barleyItem), 4, 10, 75));
 		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.shroomPowder), 1, 5, 50));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.thorn), 2, 6, 25));
+		village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
 		village.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 2), 4, 12, 75));
 		village.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 3), 4, 12, 75));
 	}

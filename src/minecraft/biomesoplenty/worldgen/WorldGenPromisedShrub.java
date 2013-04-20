@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -30,7 +31,7 @@ public class WorldGenPromisedShrub extends WorldGenerator
 
         int var7 = par1World.getBlockId(par3, par4, par5);
 
-        if (var7 == BOPBlocks.holyGrass.blockID)
+        if (var7 == Blocks.holyGrass.get().blockID)
         {
             ++par4;
             this.setBlockAndMetadata(par1World, par3, par4, par5, Block.wood.blockID, this.field_76526_b);

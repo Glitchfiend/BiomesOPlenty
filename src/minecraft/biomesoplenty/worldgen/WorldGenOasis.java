@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -47,7 +48,7 @@ public class WorldGenOasis extends WorldGenerator
                         {
                             int var13 = par1World.getBlockId(var8, var12, var9);
 
-                            if (var13 == Block.sand.blockID || var13 == BOPBlocks.redRock.blockID)
+                            if (var13 == Block.sand.blockID || var13 == Blocks.redRock.get().blockID)
                             {
                                 par1World.setBlock(var8, var12, var9, this.sandID);
                             }

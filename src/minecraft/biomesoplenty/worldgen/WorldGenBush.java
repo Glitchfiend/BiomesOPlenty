@@ -10,10 +10,12 @@ public class WorldGenBush extends WorldGenerator
 {
     /** The ID of the plant block used in this plant generator. */
     private int plantBlockId;
+    private int plantBlockMeta;
 
-    public WorldGenBush(int par1)
+    public WorldGenBush(int par1, int meta)
     {
         this.plantBlockId = par1;
+        this.plantBlockMeta = meta;
     }
 
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
@@ -26,7 +28,7 @@ public class WorldGenBush extends WorldGenerator
 
             if (par1World.isAirBlock(var7, var8, var9) && (!par1World.provider.hasNoSky || var8 < 127) && Block.blocksList[this.plantBlockId].canBlockStay(par1World, var7, var8, var9))
             {
-                par1World.setBlock(var7, var8, var9, this.plantBlockId, 1, 2);
+                par1World.setBlock(var7, var8, var9, this.plantBlockId, this.plantBlockMeta, 2);
             }
         }
 

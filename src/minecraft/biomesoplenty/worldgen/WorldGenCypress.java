@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -51,7 +52,7 @@ public class WorldGenCypress extends WorldGenerator
                         {
                             var15 = var1.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != BOPBlocks.willowLeaves.blockID)
+                            if (var15 != 0 && var15 != Blocks.leavesColorized.get().blockID)
                             {
                                 var10 = false;
                             }
@@ -97,7 +98,7 @@ public class WorldGenCypress extends WorldGenerator
                                 {
 									if (var2.nextInt(3) != 0)
 										{
-										this.setBlockAndMetadata(var1, var17, var16, var19, BOPBlocks.willowLeaves.blockID, 0);
+										this.setBlockAndMetadata(var1, var17, var16, var19, Blocks.leavesColorized.get().blockID, 4);
 										}
                                 }
                             }
@@ -126,19 +127,19 @@ public class WorldGenCypress extends WorldGenerator
                     {
                         var17 = var1.getBlockId(var3, var4 + var16, var5);
 
-                        if (var17 == 0 || var17 == BOPBlocks.willowLeaves.blockID)
+                        if (var17 == 0 || var17 == Blocks.leavesColorized.get().blockID)
                         {
-                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, BOPBlocks.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, BOPBlocks.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 2, var5, BOPBlocks.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 1, var5, BOPBlocks.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, BOPBlocks.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5, BOPBlocks.willowWood.blockID, 0);
-							this.setBlockAndMetadata(var1, var3 - 1, (var4 + var6) + 1, var5, BOPBlocks.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3 + 1, (var4 + var6) + 1, var5, BOPBlocks.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 - 1, BOPBlocks.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 + 1, BOPBlocks.willowLeaves.blockID, 0);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 2, var5, BOPBlocks.willowLeaves.blockID, 0);
+                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.logs3.get().blockID, 1);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, Blocks.logs3.get().blockID, 1);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 2, var5, Blocks.logs3.get().blockID, 1);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 1, var5, Blocks.logs3.get().blockID, 1);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, Blocks.logs3.get().blockID, 1);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5, Blocks.logs3.get().blockID, 1);
+							this.setBlockAndMetadata(var1, var3 - 1, (var4 + var6) + 1, var5, Blocks.leavesColorized.get().blockID, 4);
+							this.setBlockAndMetadata(var1, var3 + 1, (var4 + var6) + 1, var5, Blocks.leavesColorized.get().blockID, 4);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 - 1, Blocks.leavesColorized.get().blockID, 4);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 + 1, Blocks.leavesColorized.get().blockID, 4);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 2, var5, Blocks.leavesColorized.get().blockID, 4);
                         }
                     }
 

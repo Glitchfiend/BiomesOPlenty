@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -52,7 +53,7 @@ public class WorldGenTaiga3 extends WorldGenerator
                         {
                             var15 = var1.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != BOPBlocks.firLeaves.blockID)
+                            if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
                             {
                                 var10 = false;
                             }
@@ -109,10 +110,10 @@ public class WorldGenTaiga3 extends WorldGenerator
 
                                             if ((Math.abs(var21) != var15 || Math.abs(var23) != var15 || var15 <= 0) && !Block.opaqueCubeLookup[var1.getBlockId(var20, var19, var22)])
                                             {
-                                                this.setBlockAndMetadata(var1, var20, var19, var22, BOPBlocks.firLeaves.blockID, 0);
-                                                this.setBlockAndMetadata(var1, var20 - 1, var19, var22, BOPBlocks.firLeaves.blockID, 0);
-                                                this.setBlockAndMetadata(var1, var20, var19, var22 - 1, BOPBlocks.firLeaves.blockID, 0);
-                                                this.setBlockAndMetadata(var1, var20 - 1, var19, var22 - 1, BOPBlocks.firLeaves.blockID, 0);
+                                                this.setBlockAndMetadata(var1, var20, var19, var22, Blocks.leaves1.get().blockID, 5);
+                                                this.setBlockAndMetadata(var1, var20 - 1, var19, var22, Blocks.leaves1.get().blockID, 5);
+                                                this.setBlockAndMetadata(var1, var20, var19, var22 - 1, Blocks.leaves1.get().blockID, 5);
+                                                this.setBlockAndMetadata(var1, var20 - 1, var19, var22 - 1, Blocks.leaves1.get().blockID, 5);
                                             }
                                         }
                                     }
@@ -140,12 +141,12 @@ public class WorldGenTaiga3 extends WorldGenerator
                                 {
                                     var20 = var1.getBlockId(var3, var4 + var19, var5);
 
-                                    if (var20 == 0 || var20 == BOPBlocks.firLeaves.blockID)
+                                    if (var20 == 0 || var20 == Blocks.leaves1.get().blockID)
                                     {
-                                        this.setBlockAndMetadata(var1, var3, var4 + var19, var5, BOPBlocks.firWood.blockID, 0);
-                                        this.setBlockAndMetadata(var1, var3 - 1, var4 + var19, var5, BOPBlocks.firWood.blockID, 0);
-                                        this.setBlockAndMetadata(var1, var3, var4 + var19, var5 - 1, BOPBlocks.firWood.blockID, 0);
-                                        this.setBlockAndMetadata(var1, var3 - 1, var4 + var19, var5 - 1, BOPBlocks.firWood.blockID, 0);
+                                        this.setBlockAndMetadata(var1, var3, var4 + var19, var5, Blocks.logs1.get().blockID, 3);
+                                        this.setBlockAndMetadata(var1, var3 - 1, var4 + var19, var5, Blocks.logs1.get().blockID, 3);
+                                        this.setBlockAndMetadata(var1, var3, var4 + var19, var5 - 1, Blocks.logs1.get().blockID, 3);
+                                        this.setBlockAndMetadata(var1, var3 - 1, var4 + var19, var5 - 1, Blocks.logs1.get().blockID, 3);
                                     }
                                 }
 

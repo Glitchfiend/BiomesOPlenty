@@ -2,9 +2,11 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
@@ -42,6 +44,6 @@ public class BiomeGenTaigaNew extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return new WorldGenTallGrass(BOPBlocks.shortGrass.blockID, 1);
+        return new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
     }
 }

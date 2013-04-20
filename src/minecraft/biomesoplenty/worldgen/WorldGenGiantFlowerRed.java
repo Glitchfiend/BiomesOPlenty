@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -37,43 +39,43 @@ public class WorldGenGiantFlowerRed extends WorldGenerator
             }
 
             var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-            var1.setBlock(var3, var4 + 1, var5, BOPBlocks.giantFlowerStem.blockID, 0, 2);
-            var1.setBlock(var3, var4 + 2, var5, BOPBlocks.giantFlowerStem.blockID, 0, 2);
-            var1.setBlock(var3, var4 + 3, var5, BOPBlocks.giantFlowerStem.blockID, 0, 2);
-            var1.setBlock(var3, var4 + 4, var5, BOPBlocks.giantFlowerStem.blockID, 0, 2);
-            var1.setBlock(var3, var4 + 5, var5, BOPBlocks.giantFlowerStem.blockID, 0, 2);
+            var1.setBlock(var3, var4 + 1, var5, Blocks.logs3.get().blockID, 3, 2);
+            var1.setBlock(var3, var4 + 2, var5, Blocks.logs3.get().blockID, 3, 2);
+            var1.setBlock(var3, var4 + 3, var5, Blocks.logs3.get().blockID, 3, 2);
+            var1.setBlock(var3, var4 + 4, var5, Blocks.logs3.get().blockID, 3, 2);
+            var1.setBlock(var3, var4 + 5, var5, Blocks.logs3.get().blockID, 3, 2);
 			
-			var1.setBlock(var3 - 1, var4 + 5, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 1, var4 + 5, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3, var4 + 5, var5 - 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3, var4 + 5, var5 + 1, BOPBlocks.giantFlowerRed.blockID);
+			var1.setBlock(var3 - 1, var4 + 5, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 1, var4 + 5, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3, var4 + 5, var5 - 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3, var4 + 5, var5 + 1, Blocks.petals.get().blockID, 3, 2);
 			
-			var1.setBlock(var3, var4 + 6, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 1, var4 + 6, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 1, var4 + 6, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3, var4 + 6, var5 - 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3, var4 + 6, var5 + 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 2, var4 + 6, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 2, var4 + 6, var5, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3, var4 + 6, var5 - 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3, var4 + 6, var5 + 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 1, var4 + 6, var5 - 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 1, var4 + 6, var5 + 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 1, var4 + 6, var5 - 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 1, var4 + 6, var5 + 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 2, var4 + 6, var5 - 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 2, var4 + 6, var5 + 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 2, var4 + 6, var5 - 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 2, var4 + 6, var5 + 2, BOPBlocks.giantFlowerRed.blockID);
+			var1.setBlock(var3, var4 + 6, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 1, var4 + 6, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 1, var4 + 6, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3, var4 + 6, var5 - 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3, var4 + 6, var5 + 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 2, var4 + 6, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 2, var4 + 6, var5, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3, var4 + 6, var5 - 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3, var4 + 6, var5 + 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 1, var4 + 6, var5 - 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 1, var4 + 6, var5 + 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 1, var4 + 6, var5 - 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 1, var4 + 6, var5 + 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 2, var4 + 6, var5 - 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 2, var4 + 6, var5 + 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 2, var4 + 6, var5 - 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 2, var4 + 6, var5 + 2, Blocks.petals.get().blockID, 3, 2);
 			
-			var1.setBlock(var3 - 1, var4 + 7, var5 - 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 1, var4 + 7, var5 + 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 1, var4 + 7, var5 - 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 1, var4 + 7, var5 + 2, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 2, var4 + 7, var5 - 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 - 2, var4 + 7, var5 + 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 2, var4 + 7, var5 - 1, BOPBlocks.giantFlowerRed.blockID);
-			var1.setBlock(var3 + 2, var4 + 7, var5 + 1, BOPBlocks.giantFlowerRed.blockID);
+			var1.setBlock(var3 - 1, var4 + 7, var5 - 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 1, var4 + 7, var5 + 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 1, var4 + 7, var5 - 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 1, var4 + 7, var5 + 2, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 2, var4 + 7, var5 - 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 - 2, var4 + 7, var5 + 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 2, var4 + 7, var5 - 1, Blocks.petals.get().blockID, 3, 2);
+			var1.setBlock(var3 + 2, var4 + 7, var5 + 1, Blocks.petals.get().blockID, 3, 2);
 			
             return true;
         }

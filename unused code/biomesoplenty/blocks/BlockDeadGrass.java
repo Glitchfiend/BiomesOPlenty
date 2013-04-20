@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -55,7 +56,7 @@ public class BlockDeadGrass extends Block implements IShearable
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == BOPBlocks.driedDirt.blockID || par1 == Block.sand.blockID;
+        return par1 == Blocks.driedDirt.get().blockID || par1 == Block.sand.blockID;
     }
 
     /**

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -20,31 +21,31 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Deprecated
-public class BlockAutumnLeaves extends BlockLeavesBase implements IShearable
+public class BlockBlueLeaves extends BlockLeavesBase implements IShearable
 {
     /**
      * The base index in terrain.png corresponding to the fancy version of the leaf texture. This is stored so we can
      * switch the displayed version between fancy and fast graphics (fast is this index + 1).
      */
     private int baseIndexInPNG;
-    public static final String[] LEAF_TYPES = new String[] {"autumn"};
+    public static final String[] LEAF_TYPES = new String[] {"magic"};
     int[] adjacentTreeBlocks;
     private Icon[] blockIcon = new Icon[2];
 
-    public BlockAutumnLeaves(int par1)
+    public BlockBlueLeaves(int par1)
     {
         super(par1, Material.leaves, false);
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:autumnleaves1");
-		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:autumnleaves2");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:blueleaves1");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:blueleaves2");
 	}
     
 	@Override
@@ -72,7 +73,7 @@ public class BlockAutumnLeaves extends BlockLeavesBase implements IShearable
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == BOPBlocks.autumnLeaves.blockID)
+                        if (var12 == Blocks.leaves1.get().blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
                             par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
@@ -121,11 +122,11 @@ public class BlockAutumnLeaves extends BlockLeavesBase implements IShearable
                             {
                                 var15 = par1World.getBlockId(par2 + var12, par3 + var13, par4 + var14);
 
-                                if (var15 == Block.wood.blockID)
+                                if (var15 == BOPBlocks.magicWood.blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = 0;
                                 }
-                                else if (var15 == BOPBlocks.autumnLeaves.blockID)
+                                else if (var15 == Blocks.leaves1.get().blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = -2;
                                 }
@@ -231,7 +232,7 @@ public class BlockAutumnLeaves extends BlockLeavesBase implements IShearable
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return BOPBlocks.yellowSapling.blockID;
+        return BOPBlocks.magicSapling.blockID;
     }
 
     /**
@@ -292,7 +293,7 @@ public class BlockAutumnLeaves extends BlockLeavesBase implements IShearable
         this.graphicsLevel = par1;
     }
     
-    @Override
+	@Override
 	public boolean isShearable(ItemStack item, World world, int x, int y, int z) 
 	{
 		return true;

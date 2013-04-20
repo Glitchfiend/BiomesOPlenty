@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -11,6 +12,7 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -20,31 +22,31 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @Deprecated
-public class BlockRedLeaves extends BlockLeavesBase implements IShearable
+public class BlockAppleLeaves extends BlockLeavesBase implements IShearable
 {
     /**
      * The base index in terrain.png corresponding to the fancy version of the leaf texture. This is stored so we can
      * switch the displayed version between fancy and fast graphics (fast is this index + 1).
      */
     private int baseIndexInPNG;
-    public static final String[] LEAF_TYPES = new String[] {"red"};
+    public static final String[] LEAF_TYPES = new String[] {"apple"};
     int[] adjacentTreeBlocks;
     private Icon[] blockIcon = new Icon[2];
 
-    public BlockRedLeaves(int par1)
+    public BlockAppleLeaves(int par1)
     {
         super(par1, Material.leaves, false);
         this.setTickRandomly(true);
 		this.setBurnProperties(this.blockID, 30, 60);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
-
+    
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:redleaves1");
-		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:redleaves2");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves1");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:appleleaves2");
 	}
     
 	@Override
@@ -53,7 +55,7 @@ public class BlockRedLeaves extends BlockLeavesBase implements IShearable
     {
 		return blockIcon[(!isOpaqueCube() ? 0 : 1)];
     }
-	
+
     /**
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
      */
@@ -72,7 +74,7 @@ public class BlockRedLeaves extends BlockLeavesBase implements IShearable
                     {
                         int var12 = par1World.getBlockId(par2 + var9, par3 + var10, par4 + var11);
 
-                        if (var12 == BOPBlocks.redLeaves.blockID)
+                        if (var12 == Blocks.leavesFruit.get().blockID)
                         {
                             int var13 = par1World.getBlockMetadata(par2 + var9, par3 + var10, par4 + var11);
                             par1World.setBlockMetadataWithNotify(par2 + var9, par3 + var10, par4 + var11, var13 | 8, 2);
@@ -125,7 +127,7 @@ public class BlockRedLeaves extends BlockLeavesBase implements IShearable
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = 0;
                                 }
-                                else if (var15 == BOPBlocks.redLeaves.blockID)
+                                else if (var15 == Blocks.leavesFruit.get().blockID)
                                 {
                                     this.adjacentTreeBlocks[(var12 + var11) * var10 + (var13 + var11) * var9 + var14 + var11] = -2;
                                 }
@@ -215,7 +217,7 @@ public class BlockRedLeaves extends BlockLeavesBase implements IShearable
     private void removeLeaves(World par1World, int par2, int par3, int par4)
     {
         this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-        par1World.setBlockToAir(par2, par3, par4);
+        par1World.setBlock(par2, par3, par4, 0);
     }
 
     /**
@@ -231,7 +233,7 @@ public class BlockRedLeaves extends BlockLeavesBase implements IShearable
      */
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return BOPBlocks.redSapling.blockID;
+        return BOPBlocks.appleSapling.blockID;
     }
 
     /**
@@ -252,6 +254,11 @@ public class BlockRedLeaves extends BlockLeavesBase implements IShearable
             {
                 int var9 = this.idDropped(par5, par1World.rand, par7);
                 this.dropBlockAsItem_do(par1World, par2, par3, par4, new ItemStack(var9, 1, this.damageDropped(par5)));
+            }
+
+            if ((par5 & 3) == 0 && par1World.rand.nextInt(2) == 0)
+            {
+                this.dropBlockAsItem_do(par1World, par2, par3, par4, new ItemStack(Item.appleRed, 1, 0));
             }
         }
     }

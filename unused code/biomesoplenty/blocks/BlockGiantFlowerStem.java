@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
+@Deprecated
 public class BlockGiantFlowerStem extends Block
 {
     /** The type of tree this log came from. */

@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -35,9 +37,9 @@ public class WorldGenSprout extends WorldGenerator
             int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var8, var9, var10) && BOPBlocks.sprout.canBlockStay(par1World, var8, var9, var10))
+            if (par1World.isAirBlock(var8, var9, var10) && Blocks.foliage.get().canBlockStay(par1World, var8, var9, var10))
             {
-                par1World.setBlock(var8, var9, var10, BOPBlocks.sprout.blockID, 1, 2);
+                par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 5, 2);
             }
         }
 

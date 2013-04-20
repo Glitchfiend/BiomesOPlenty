@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenOriginTree;
 
@@ -82,7 +83,7 @@ public class BlockOriginSapling extends BlockSapling
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID  || par1 == BOPBlocks.originGrass.blockID;
+        return par1 == Block.grass.blockID || par1 == Block.dirt.blockID || par1 == Block.tilledField.blockID  || par1 == Blocks.originGrass.get().blockID;
     }
 
     /**

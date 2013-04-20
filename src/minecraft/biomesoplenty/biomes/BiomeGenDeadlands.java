@@ -3,11 +3,6 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenDeadTree3;
-import biomesoplenty.worldgen.WorldGenDeadlands;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityBat;
@@ -16,6 +11,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenDeadTree3;
+import biomesoplenty.worldgen.WorldGenDeadlands;
 
 public class BiomeGenDeadlands extends BiomeGenBase
 {
@@ -26,8 +25,8 @@ public class BiomeGenDeadlands extends BiomeGenBase
 	public BiomeGenDeadlands(int par1)
     {
         super(par1);
-        this.topBlock = (byte)BOPBlocks.ash.blockID;
-        this.fillerBlock = (byte)BOPBlocks.ash.blockID;
+        this.topBlock = (byte)Blocks.ash.get().blockID;
+        this.fillerBlock = (byte)Blocks.ash.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 1;

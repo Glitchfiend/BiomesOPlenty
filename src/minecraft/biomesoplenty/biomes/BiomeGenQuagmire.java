@@ -3,12 +3,11 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenDeadTree;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenDeadTree;
 
 public class BiomeGenQuagmire extends BiomeGenBase
 {
@@ -19,8 +18,8 @@ public class BiomeGenQuagmire extends BiomeGenBase
         super(par1);
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.topBlock = (byte)BOPBlocks.mud.blockID;
-        this.fillerBlock = (byte)BOPBlocks.mud.blockID;
+        this.topBlock = (byte)Blocks.mud.get().blockID;
+        this.fillerBlock = (byte)Blocks.mud.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 0;

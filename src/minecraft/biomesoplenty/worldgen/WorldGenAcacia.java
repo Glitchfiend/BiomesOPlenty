@@ -2,9 +2,13 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.registry.LanguageRegistry;
+
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -72,7 +76,7 @@ public class WorldGenAcacia extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != BOPBlocks.acaciaLeaves.blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != BOPBlocks.acaciaWood.blockID)
+                            if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != Blocks.logs1.get().blockID)
                             {
                                 var7 = false;
                             }
@@ -117,7 +121,7 @@ public class WorldGenAcacia extends WorldGenerator
 
                                 if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var14, var11, var16)])
                                 {
-									this.setBlockAndMetadata(par1World, var14, var11, var16, BOPBlocks.acaciaLeaves.blockID, 0);
+									this.setBlockAndMetadata(par1World, var14, var11, var16, Blocks.leavesColorized.get().blockID, 0);
                                 }
                             }
                         }
@@ -127,9 +131,9 @@ public class WorldGenAcacia extends WorldGenerator
                     {
                         var12 = par1World.getBlockId(par3, par4 + var11, par5);
 
-                        if (var12 == 0 || var12 == BOPBlocks.acaciaLeaves.blockID)
+                        if (var12 == 0 || var12 == Blocks.leavesColorized.get().blockID)
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, BOPBlocks.acaciaWood.blockID, 0);
+                            this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, Blocks.logs1.get().blockID,0);
 
                             if (this.vinesGrow && var11 > 0)
                             {
@@ -167,7 +171,7 @@ public class WorldGenAcacia extends WorldGenerator
                             {
                                 for (var15 = par5 - var13; var15 <= par5 + var13; ++var15)
                                 {
-                                    if (par1World.getBlockId(var14, var11, var15) == BOPBlocks.acaciaLeaves.blockID)
+                                    if (par1World.getBlockId(var14, var11, var15) == Blocks.leavesColorized.get().blockID)
                                     {
                                         if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var14 - 1, var11, var15) == 0)
                                         {

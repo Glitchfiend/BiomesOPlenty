@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenOutbackShrub;
 import biomesoplenty.worldgen.WorldGenOutbackTree;
@@ -19,8 +20,8 @@ public class BiomeGenOutback extends BiomeGenBase
         this.spawnableCreatureList.clear();
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)BOPBlocks.hardSand.blockID;
-        this.fillerBlock = (byte)BOPBlocks.hardSand.blockID;
+		this.topBlock = (byte)Blocks.hardSand.get().blockID;
+        this.fillerBlock = (byte)Blocks.hardSand.get().blockID;
         this.customBiomeDecorator.treesPerChunk = 3;
 		this.customBiomeDecorator.flowersPerChunk = -999;
         this.customBiomeDecorator.outbackPerChunk = 10;

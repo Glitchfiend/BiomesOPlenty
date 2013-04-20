@@ -3,6 +3,7 @@ package biomesoplenty.blocks;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -123,7 +124,7 @@ public class BlockOriginGrass extends Block
 
                     if (par1World.getBlockId(var7, var8, var9) == Block.dirt.blockID && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
                     {
-                        par1World.setBlock(var7, var8, var9, BOPBlocks.originGrass.blockID);
+                        par1World.setBlock(var7, var8, var9, Blocks.originGrass.get().blockID);
                     }
                 }
             }

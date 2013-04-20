@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.awt.Color;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 
@@ -18,8 +19,8 @@ public class BiomeGenMesa extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)BOPBlocks.redRock.blockID;
-        this.fillerBlock = (byte)BOPBlocks.redRock.blockID;
+        this.topBlock = (byte)Blocks.redRock.get().blockID;
+        this.fillerBlock = (byte)Blocks.redRock.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = -999;

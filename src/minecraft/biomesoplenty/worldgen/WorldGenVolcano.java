@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -19,7 +20,7 @@ public class WorldGenVolcano extends WorldGenerator
 
         int var6 = var1.getBlockId(var3, var4, var5);
 
-        if (var6 != BOPBlocks.ashStone.blockID)
+        if (var6 != Blocks.ashStone.get().blockID)
         {
             return false;
         }

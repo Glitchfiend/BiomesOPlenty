@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -37,8 +38,8 @@ public class WorldGenHighGrass extends WorldGenerator
 
             if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[this.tallGrassID].canBlockStay(par1World, var8, var9, var10))
             {
-                par1World.setBlock(var8, var9, var10, BOPBlocks.highGrassBottom.blockID, 1, 2);
-				par1World.setBlock(var8, var9 + 1, var10, BOPBlocks.highGrassTop.blockID, 1, 2);
+                par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 3, 2);
+				par1World.setBlock(var8, var9 + 1, var10, Blocks.foliage.get().blockID, 6, 2);
             }
         }
 

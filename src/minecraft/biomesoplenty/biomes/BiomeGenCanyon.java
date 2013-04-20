@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenCanyonShrub;
 import biomesoplenty.worldgen.WorldGenCanyonTree;
@@ -19,8 +20,8 @@ public class BiomeGenCanyon extends BiomeGenBase
         this.spawnableCreatureList.clear();
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)BOPBlocks.hardDirt.blockID;
-        this.fillerBlock = (byte)BOPBlocks.hardDirt.blockID;
+		this.topBlock = (byte)Blocks.hardDirt.get().blockID;
+        this.fillerBlock = (byte)Blocks.hardDirt.get().blockID;
         this.customBiomeDecorator.treesPerChunk = 10;
 		this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.tinyCactiPerChunk = 2;

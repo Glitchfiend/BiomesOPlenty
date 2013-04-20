@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -51,7 +53,7 @@ public class WorldGenFen2 extends WorldGenerator
                         {
                             var15 = par1World.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != BOPBlocks.deadLeaves.blockID)
+                            if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
                             {
                                 var10 = false;
                             }
@@ -95,7 +97,7 @@ public class WorldGenFen2 extends WorldGenerator
 
                                 if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var17, var16, var19)])
                                 {
-                                    this.setBlock(par1World, var17, var16, var19, BOPBlocks.deadLeaves.blockID);
+                                    this.setBlockAndMetadata(par1World, var17, var16, var19, Blocks.leaves1.get().blockID, 4);
                                 }
                             }
                         }
@@ -123,7 +125,7 @@ public class WorldGenFen2 extends WorldGenerator
                     {
                         var17 = par1World.getBlockId(par3, par4 + var16, par5);
 
-                        if (var17 == 0 || var17 == BOPBlocks.deadLeaves.blockID)
+                        if (var17 == 0 || var17 == Blocks.leaves1.get().blockID)
                         {
                             this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 0);
                         }

@@ -1,6 +1,7 @@
 package biomesoplenty.helpers;
 
 import biomesoplenty.api.Biomes;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 
@@ -67,7 +68,7 @@ public class WorldProviderPromised extends WorldProvider
     public boolean canCoordinateBeSpawn(int par1, int par2)
     {
         int var3 = this.worldObj.getFirstUncoveredBlock(par1, par2);
-        return var3 == BOPBlocks.holyGrass.blockID;
+        return var3 == Blocks.holyGrass.get().blockID;
     }
 
     /**

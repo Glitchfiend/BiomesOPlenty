@@ -21,7 +21,7 @@ public class BlockBOPLog extends Block
       CAT1, CAT2, CAT3;
     }
     
-    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead"};
+    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     private Icon[] logHearts;
@@ -43,14 +43,17 @@ public class BlockBOPLog extends Block
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[woodTypes.length];
-        logHearts = new Icon[woodTypes.length];
+        textures = new Icon[types.length];
+        logHearts = new Icon[types.length];
 
-        for (int i = 0; i < woodTypes.length; ++i)
+        for (int i = 0; i < types.length - 1; ++i)
         {
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+woodTypes[i]+"log");
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]+"log");
             logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:logTopBottum");
         }
+        
+        textures[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem");
+        logHearts[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:stemTopBottum");
     }
     
     @Override
@@ -67,10 +70,7 @@ public class BlockBOPLog extends Block
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < 4; ++i)
-            if (category != LogCategory.CAT3 || i < 3)
-//                return;
-//            else
-                list.add(new ItemStack(this, 1, i));
+            list.add(new ItemStack(this, 1, i));
     }
     
     @Override
@@ -147,9 +147,9 @@ public class BlockBOPLog extends Block
       return true;
     }
     
-    public int getWoodType(int meta)
+    public String getWoodType(int meta)
     {
-      return getTypeFromMeta(meta) + category.ordinal() * 4;
+      return types[getTypeFromMeta(meta) + category.ordinal() * 4];
     }
     
     private static int getTypeFromMeta(int meta)

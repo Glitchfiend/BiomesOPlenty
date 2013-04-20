@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -51,7 +53,7 @@ public class WorldGenMystic2 extends WorldGenerator
                         {
                             var15 = var1.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != BOPBlocks.blueLeaves.blockID)
+                            if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
                             {
                                 var10 = false;
                             }
@@ -72,7 +74,7 @@ public class WorldGenMystic2 extends WorldGenerator
             {
                 var11 = var1.getBlockId(var3, var4 - 1, var5);
 
-                if ((var11 == BOPBlocks.holyGrass.blockID || var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && var4 < 256 - var6 - 1)
+                if ((var11 == Blocks.holyGrass.get().blockID || var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && var4 < 256 - var6 - 1)
                 {
                     var1.setBlock(var3, var4 - 1, var5, Block.dirt.blockID);
                     var21 = var2.nextInt(2);
@@ -95,7 +97,7 @@ public class WorldGenMystic2 extends WorldGenerator
 
                                 if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[var1.getBlockId(var17, var16, var19)])
                                 {
-                                    this.setBlock(var1, var17, var16, var19, BOPBlocks.blueLeaves.blockID);
+                                    this.setBlockAndMetadata(var1, var17, var16, var19, Blocks.leaves1.get().blockID, 2);
                                 }
                             }
                         }
@@ -123,9 +125,9 @@ public class WorldGenMystic2 extends WorldGenerator
                     {
                         var17 = var1.getBlockId(var3, var4 + var16, var5);
 
-                        if (var17 == 0 || var17 == BOPBlocks.blueLeaves.blockID)
+                        if (var17 == 0 || var17 == Blocks.leaves1.get().blockID)
                         {
-                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, BOPBlocks.magicWood.blockID, 0);
+                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.logs2.get().blockID,1);
                         }
                     }
 

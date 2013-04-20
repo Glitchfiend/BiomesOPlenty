@@ -3,6 +3,7 @@ package biomesoplenty.helpers;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -167,7 +168,7 @@ public class ChunkProviderPromised implements IChunkProvider
                             if (var7 <= 0)
                             {
                                 var9 = 0;
-                                var10 = (byte)BOPBlocks.holyStone.blockID;
+                                var10 = (byte)Blocks.holyStone.get().blockID;
                             }
 							else if (var11 >= var98 - 4 && var11 <= var98 + 1)
 							{

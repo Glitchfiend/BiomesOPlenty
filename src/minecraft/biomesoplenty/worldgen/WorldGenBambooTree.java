@@ -2,9 +2,11 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -71,7 +73,7 @@ public class WorldGenBambooTree extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != BOPBlocks.bambooLeaves.blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != BOPBlocks.bamboo.blockID)
+                            if (var12 != 0 && var12 != Blocks.leaves1.get().blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != Blocks.bamboo.get().blockID)
                             {
                                 var7 = false;
                             }
@@ -115,7 +117,7 @@ public class WorldGenBambooTree extends WorldGenerator
 
                                 if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var14, var11, var16)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var14, var11, var16, BOPBlocks.bambooLeaves.blockID, 0);
+                                    this.setBlockAndMetadata(par1World, var14, var11, var16, Blocks.leaves1.get().blockID, 1);
                                 }
                             }
                         }
@@ -125,42 +127,42 @@ public class WorldGenBambooTree extends WorldGenerator
                     {
                         var12 = par1World.getBlockId(par3, par4 + var11, par5);
 
-                        if (var12 == 0 || var12 == BOPBlocks.bambooLeaves.blockID)
+                        if (var12 == 0 || var12 == Blocks.leaves1.get().blockID)
                         {
-                            this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, BOPBlocks.bamboo.blockID, 0);
+                            this.setBlockAndMetadata(par1World, par3, par4 + var11, par5, Blocks.bamboo.get().blockID, 0);
 							
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 4), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 4), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 4), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 4), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 4), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 4), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 4), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 4), par5 + 1, Blocks.leaves1.get().blockID, 1);
 							
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 5), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 5), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 5), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 5), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 5), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 5), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 5), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 5), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 5), par5 + 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 5), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 5), par5 + 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 5), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 5), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 5), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 5), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 5), par5 + 1, Blocks.leaves1.get().blockID, 1);
 							
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 6), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 6), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 6), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 6), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 6), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 6), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 6), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 6), par5 + 1, Blocks.leaves1.get().blockID, 1);
 							
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 7), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 7), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 7), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 7), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 7), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 7), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 7), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 7), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 7), par5 + 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 7), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 7), par5 + 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 7), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 7), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 7), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 7), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 7), par5 + 1, Blocks.leaves1.get().blockID, 1);
 							
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 8), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 8), par5, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 8), par5 - 1, BOPBlocks.bambooLeaves.blockID, 0);
-							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 8), par5 + 1, BOPBlocks.bambooLeaves.blockID, 0);
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 + (var6 - 8), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 + (var6 - 8), par5, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 8), par5 - 1, Blocks.leaves1.get().blockID, 1);
+							this.setBlockAndMetadata(par1World, par3, par4 + (var6 - 8), par5 + 1, Blocks.leaves1.get().blockID, 1);
 
                             if (this.vinesGrow && var11 > 0)
                             {
@@ -198,7 +200,7 @@ public class WorldGenBambooTree extends WorldGenerator
                             {
                                 for (var15 = par5 - var13; var15 <= par5 + var13; ++var15)
                                 {
-                                    if (par1World.getBlockId(var14, var11, var15) == BOPBlocks.bambooLeaves.blockID)
+                                    if (par1World.getBlockId(var14, var11, var15) == Blocks.leaves1.get().blockID)
                                     {
                                         if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var14 - 1, var11, var15) == 0)
                                         {

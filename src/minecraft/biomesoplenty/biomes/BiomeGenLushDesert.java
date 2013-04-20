@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenAcacia;
 
@@ -16,8 +17,8 @@ public class BiomeGenLushDesert extends BiomeGenBase
 	public BiomeGenLushDesert(int par1)
     {
         super(par1);
-        this.topBlock = (byte)BOPBlocks.redRock.blockID;
-        this.fillerBlock = (byte)BOPBlocks.redRock.blockID;
+        this.topBlock = (byte)Blocks.redRock.get().blockID;
+        this.fillerBlock = (byte)Blocks.redRock.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 8;

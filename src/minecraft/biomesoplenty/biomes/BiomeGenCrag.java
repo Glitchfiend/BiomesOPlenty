@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.awt.Color;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 
@@ -19,8 +20,8 @@ public class BiomeGenCrag extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = -999;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
-        this.topBlock = (byte)BOPBlocks.cragRock.blockID;
-        this.fillerBlock = (byte)BOPBlocks.cragRock.blockID;
+        this.topBlock = (byte)Blocks.cragRock.get().blockID;
+        this.fillerBlock = (byte)Blocks.cragRock.get().blockID;
 		this.waterColorMultiplier = 944693;
     }
 	

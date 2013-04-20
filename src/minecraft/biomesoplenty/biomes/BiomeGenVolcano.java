@@ -3,6 +3,7 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenVolcano;
@@ -18,8 +19,8 @@ public class BiomeGenVolcano extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)BOPBlocks.ashStone.blockID;
-        this.fillerBlock = (byte)BOPBlocks.ashStone.blockID;
+        this.topBlock = (byte)Blocks.ashStone.get().blockID;
+        this.fillerBlock = (byte)Blocks.ashStone.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = 1;

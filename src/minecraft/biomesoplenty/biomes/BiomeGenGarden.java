@@ -2,12 +2,14 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.mobs.EntityRosester;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
@@ -44,7 +46,7 @@ public class BiomeGenGarden extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(BOPBlocks.shortGrass.blockID, 1) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+        return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
     }
 	
     /**

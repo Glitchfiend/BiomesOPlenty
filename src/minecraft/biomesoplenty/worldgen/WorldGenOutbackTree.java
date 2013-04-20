@@ -2,6 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.Block;
@@ -19,7 +20,7 @@ public class WorldGenOutbackTree extends WorldGenerator
 
         int var6 = var1.getBlockId(var3, var4, var5);
 
-        if (var6 != BOPBlocks.hardSand.blockID)
+        if (var6 != Blocks.hardSand.get().blockID)
         {
             return false;
         }
@@ -37,14 +38,14 @@ public class WorldGenOutbackTree extends WorldGenerator
             }
 
             var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-            var1.setBlock(var3, var4 + 1, var5, BOPBlocks.acaciaWood.blockID);
-			var1.setBlock(var3, var4 + 2, var5, BOPBlocks.acaciaWood.blockID);
-			var1.setBlock(var3, var4 + 3, var5, BOPBlocks.acaciaWood.blockID);
-			var1.setBlock(var3 + 1, var4 + 3, var5, BOPBlocks.acaciaLeaves.blockID);
-			var1.setBlock(var3 - 1, var4 + 3, var5, BOPBlocks.acaciaLeaves.blockID);
-			var1.setBlock(var3, var4 + 3, var5 + 1, BOPBlocks.acaciaLeaves.blockID);
-			var1.setBlock(var3, var4 + 3, var5 - 1, BOPBlocks.acaciaLeaves.blockID);
-			var1.setBlock(var3, var4 + 4, var5, BOPBlocks.acaciaLeaves.blockID);
+            var1.setBlock(var3, var4 + 1, var5, Blocks.logs1.get().blockID,0,2);
+			var1.setBlock(var3, var4 + 2, var5, Blocks.logs1.get().blockID,0,2);
+			var1.setBlock(var3, var4 + 3, var5, Blocks.logs1.get().blockID,0,2);
+			var1.setBlock(var3 + 1, var4 + 3, var5, Blocks.leavesColorized.get().blockID, 0, 2);
+			var1.setBlock(var3 - 1, var4 + 3, var5, Blocks.leavesColorized.get().blockID, 0, 2);
+			var1.setBlock(var3, var4 + 3, var5 + 1, Blocks.leavesColorized.get().blockID, 0, 2);
+			var1.setBlock(var3, var4 + 3, var5 - 1, Blocks.leavesColorized.get().blockID, 0, 2);
+			var1.setBlock(var3, var4 + 4, var5, Blocks.leavesColorized.get().blockID, 0, 2);
             return true;
         }
     }

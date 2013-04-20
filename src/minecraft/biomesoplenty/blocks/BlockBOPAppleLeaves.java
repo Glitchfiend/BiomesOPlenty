@@ -23,7 +23,6 @@ import net.minecraftforge.common.IShearable;
 
 public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 {
-    private static final String[] leaves = new String[] {"apple"};
     @SideOnly(Side.CLIENT)
     private Icon[][] textures;
     
@@ -42,29 +41,26 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[2][2];
+        textures = new Icon[2][4];
         
-        textures[0][0] = iconRegister.registerIcon("BiomesOPlenty:" + leaves[0] + "leaves3");
-        textures[1][0] = iconRegister.registerIcon("BiomesOPlenty:" + leaves[0] + "leaves4");
-        textures[0][1] = iconRegister.registerIcon("BiomesOPlenty:" + leaves[0] + "leaves1");
-        textures[1][1] = iconRegister.registerIcon("BiomesOPlenty:" + leaves[0] + "leaves2");
-
+        for (int i = 0; i < 4; ++i)
+        {
+            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:appleleaves" + i + "_fancy");
+            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:appleleaves" + i + "_fast");
+        }
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
-        if (meta < 0 || meta >= textures[0].length)
-            meta = 0;
-
-        return textures[(!isOpaqueCube() ? 0 : 1)][meta];
+        return textures[(!isOpaqueCube() ? 0 : 1)][meta & 7];
     }
     
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-        list.add(new ItemStack(blockID, 1, 0));
+        list.add(new ItemStack(blockID, 1, 0));        
     }
     
     @Override
@@ -76,7 +72,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 //        if (random1.nextInt(20) == 0 && world.getBlockLightValue(x, y, z) >= 8)
 //        {
             int meta = world.getBlockMetadata(x, y, z);
-            if (meta < 1)
+            if ((meta & 3) < 3)
                 world.setBlock(x, y, z, blockID, meta + 1, 3);
 //        }
     }
@@ -88,14 +84,16 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
             return false;
 
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 1)
+        if ((meta & 3) == 3)
         {
-            world.setBlock(x, y, z, blockID, 0, 3);
+            world.setBlock(x, y, z, blockID, meta - 3, 3);
             EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Item.appleRed, 1, 0));
             world.spawnEntityInWorld(entityitem);
             entityitem.onCollideWithPlayer(player);
+            return true;
         }
-        return true;
+        else
+            return false;
     }
     
     @Override
@@ -115,6 +113,12 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     {
         return random.nextInt(20) == 0 ? 1 : 0;
     }
+    
+//    @Override
+//    public int getDamageValue(World par1World, int par2, int par3, int par4)
+//    {
+//        return par1World.getBlockMetadata(par2, par3, par4) / 4;
+//    }
     
     @Override
     public boolean isShearable(ItemStack item, World world, int x, int y, int z) 

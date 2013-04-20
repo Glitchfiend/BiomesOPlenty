@@ -2,6 +2,7 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.block.BlockFlower;
@@ -34,7 +35,7 @@ public class BlockHighGrassTop extends BlockFlower
      */
     protected boolean canThisPlantGrowOnThisBlockID(int par1)
     {
-        return par1 == BOPBlocks.highGrassBottom.blockID;
+        return par1 == Blocks.foliage.get().blockID;
     }
 
     public int getBlockColor()
