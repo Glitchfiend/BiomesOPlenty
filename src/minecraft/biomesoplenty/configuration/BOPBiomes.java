@@ -1,5 +1,6 @@
 package biomesoplenty.configuration;
 
+import ted80.api.DefaultBiomeList;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 
@@ -88,6 +89,7 @@ import biomesoplenty.worldtype.WTBiomesOP;
 
 import com.google.common.base.Optional;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPBiomes {
@@ -192,6 +194,12 @@ public class BOPBiomes {
 
 		//Initialize new world type
 		WTBiomesOP = new WTBiomesOP();
+		
+		if (Loader.isModLoaded("BWG4"))
+		{
+			/* ==== biometypes: 4=hot, 3=wet, 2=norm, 1=cold, 0=tech, 5=island ==== */
+			//DefaultBiomeList.addBiome("Alps", Biomes.alps, 1);
+		}
 
 		//Spawning
 		addSpawnBiome(Biomes.alps);
