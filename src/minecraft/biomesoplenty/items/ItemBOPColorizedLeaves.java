@@ -17,7 +17,7 @@ public class ItemBOPColorizedLeaves extends ItemBlock
     @Override
     public int getMetadata(int meta)
     {
-        return meta | 8;
+        return meta;
     }
     
     @Override
