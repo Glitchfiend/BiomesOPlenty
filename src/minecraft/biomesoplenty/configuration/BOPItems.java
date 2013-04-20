@@ -1,5 +1,8 @@
 package biomesoplenty.configuration;
 
+import java.util.Map;
+import java.util.logging.Level;
+
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.armor.ArmorAmethyst;
@@ -22,8 +25,10 @@ import biomesoplenty.items.ItemMediumGrass;
 import biomesoplenty.items.ItemShortGrass;
 import biomesoplenty.items.ItemShroomPowder;
 import biomesoplenty.items.ItemSprout;
+import biomesoplenty.items.overrides.ItemShears;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
@@ -33,10 +38,14 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPItems {
+	public static Item shears;
 	
 	public static Item shroomPowder;
 	public static Item mudBall;
@@ -85,6 +94,39 @@ public class BOPItems {
 	public static EnumArmorMaterial EnumArmorMaterialAmethyst;
 	public static EnumToolMaterial EnumToolMaterialAmethyst;
 	
+    public static int clearItem(Item var1)
+    {
+        return clearItem(var1.itemID);
+    }
+
+    public static int clearItem(Item var1, boolean var2)
+    {
+        return clearItem(var1.itemID, var2);
+    }
+
+    public static int clearItem(int var1)
+    {
+        return clearItem(var1, true);
+    }
+
+    public static int clearItem(int var1, boolean var2)
+    {
+        if (var1 < 0 || var1 >= Item.itemsList.length)
+        {
+            FMLLog.log(Level.SEVERE, "BiomesOPlenty has an invalid item ID (%i)", new Object[] {Integer.valueOf(var1)});
+        }
+
+        if (var2 && Item.itemsList[var1] == null)
+        {
+            FMLLog.log(Level.WARNING, "BiomesOPlenty tried clearing an already cleared item (%i)", new Object[] {Integer.valueOf(var1)});
+        }
+
+        Item.itemsList[var1] = null;
+        Map var3 = (Map)ReflectionHelper.getPrivateValue(GameData.class, null, new String[] {"idMap"});
+        var3.remove(Integer.valueOf(var1));
+        return var1 - 256;
+    }
+	
 	public static void init()
 	{
 		// Material declaration
@@ -92,6 +134,9 @@ public class BOPItems {
 		EnumToolMaterialMud = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0, 1);
 		EnumArmorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[]{6, 12, 10, 6}, 20);
 		EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
+		
+		//Override Items
+        shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("shears").setCreativeTab(CreativeTabs.tabTools);
 		
 		// Item declaration
 		shroomPowder = (new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.5F, false)).setPotionEffect(Potion.confusion.id, 30, 0, 0.6F).setAlwaysEdible().setUnlocalizedName("shroomPowder").setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);

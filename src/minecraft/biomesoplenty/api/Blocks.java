@@ -1,5 +1,9 @@
 package biomesoplenty.api;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.common.base.Optional;
 
 import net.minecraft.block.Block;
@@ -75,4 +79,9 @@ public class Blocks
     public static Optional<? extends Block> quicksand                   = Optional.absent();
     
     public static Optional<? extends Block> promisedPortal              = Optional.absent();
+    
+	/**
+	 * Populated by Biomes O Plenty with default Biomes O Plenty leaves. Add additional leaves here (E.g. "Blocks.shearBlockIds.put(acaciaLeaves.blockID, 15.0F);")
+	 */
+	public static Map shearBlockIds = new HashMap();
 }
