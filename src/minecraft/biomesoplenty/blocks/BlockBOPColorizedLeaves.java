@@ -144,4 +144,15 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
       return meta & 7;
     }
+    
+    @SideOnly(Side.CLIENT)
+    public void setGraphicsLevel(boolean par1)
+    {
+        this.graphicsLevel = par1;
+    }
+    
+    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+        return true;
+    }
 }

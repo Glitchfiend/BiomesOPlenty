@@ -32,7 +32,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 
     private static final int GRASSTOP = 6;
     private static final int ALGAE = 0;
-    private static final int GRASSBOTTOM = 1;
+    private static final int GRASSBOTTOM = 3;
     
     public BlockBOPFoliage(int blockID)
     {

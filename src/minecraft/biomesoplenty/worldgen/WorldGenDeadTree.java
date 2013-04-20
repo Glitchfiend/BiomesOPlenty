@@ -289,11 +289,11 @@ public class WorldGenDeadTree extends WorldGenerator
                 {
                     if (var18 == var20)
                     {
-                        var17 = 4;
+                        var17 = 6;
                     }
                     else if (var19 == var20)
                     {
-                        var17 = 8;
+                        var17 = 10;
                     }
                 }
 

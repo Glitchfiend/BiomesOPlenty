@@ -18,6 +18,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 
@@ -132,5 +133,16 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(new ItemStack(this, 1, 0));
         return ret;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void setGraphicsLevel(boolean par1)
+    {
+        this.graphicsLevel = par1;
+    }
+    
+    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+        return true;
     }
 }
