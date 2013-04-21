@@ -9,6 +9,7 @@ import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.helpers.FurnaceFuel;
+import biomesoplenty.items.ItemBamboo;
 import biomesoplenty.items.ItemBOPAppleLeaves;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
@@ -16,12 +17,14 @@ import biomesoplenty.items.ItemBOPFlower;
 import biomesoplenty.items.ItemBOPFoliage;
 import biomesoplenty.items.ItemBOPLeaves;
 import biomesoplenty.items.ItemBOPLog;
+import biomesoplenty.items.ItemBOPMoss;
 import biomesoplenty.items.ItemBOPPetals;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
 import biomesoplenty.items.ItemBOPRedRock;
 import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPSapling;
+import biomesoplenty.items.ItemBOPWillow;
 
 import com.google.common.base.Optional;
 
@@ -106,14 +109,14 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.ash.get(), "ash");
 		GameRegistry.registerBlock(Blocks.plants.get(), ItemBOPPlant.class, "plants");
 		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
-		GameRegistry.registerBlock(Blocks.willow.get(), "willow");
+		GameRegistry.registerBlock(Blocks.willow.get(), ItemBOPWillow.class, "willow");
 		GameRegistry.registerBlock(Blocks.leaves1.get(), ItemBOPLeaves.class, "leaves1");
 		GameRegistry.registerBlock(Blocks.leaves2.get(), ItemBOPLeaves.class, "leaves2");
 		GameRegistry.registerBlock(Blocks.foliage.get(), ItemBOPFoliage.class, "foliage");
 		GameRegistry.registerBlock(Blocks.ashStone.get(), "ashStone");
 		GameRegistry.registerBlock(Blocks.hardIce.get(), "hardIce");
 		GameRegistry.registerBlock(Blocks.leavesFruit.get(), ItemBOPAppleLeaves.class, "leavesFruit");
-		GameRegistry.registerBlock(Blocks.bamboo.get(), "bamboo");
+		GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBamboo.class, "bamboo");
 		GameRegistry.registerBlock(Blocks.mudBrick.get(), "mudBrick");
 		GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "mudBricksStairs");
         GameRegistry.registerBlock(Blocks.originGrass.get(), "originGrass");
@@ -134,7 +137,7 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.amethystOre.get(), "amethystOre");
         GameRegistry.registerBlock(Blocks.amethystBlock.get(), "amethystBlock");
         GameRegistry.registerBlock(Blocks.bambooThatching.get(), "bambooThatching");
-        GameRegistry.registerBlock(Blocks.moss.get(), "moss");
+        GameRegistry.registerBlock(Blocks.moss.get(), ItemBOPMoss.class, "moss");
         GameRegistry.registerBlock(Blocks.smolderingGrass.get(), "smolderingGrass");
         GameRegistry.registerBlock(Blocks.cragRock.get(), "cragRock");
         GameRegistry.registerBlock(Blocks.quicksand.get(), "quicksand");
@@ -547,8 +550,8 @@ public class BOPBlocks {
 		GameRegistry.addRecipe(new ItemStack(Blocks.amethystBlock.get(), 1), new Object[] {"AAA", "AAA", "AAA", 'A', BOPItems.amethyst});
 		GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', BOPItems.ashes});
 		GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', BOPItems.mudBrick});
-		GameRegistry.addRecipe(new ItemStack(Blocks.bambooThatching.get(), 1), new Object[] {"###", "###", "###", '#', BOPItems.bambooItem});
-		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', BOPItems.mossItem, 'C', Block.cobblestone});
-		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', BOPItems.mossItem, 'S', Block.stoneBrick});
+		GameRegistry.addRecipe(new ItemStack(Blocks.bambooThatching.get(), 1), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
+		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
+		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
 	}
 }

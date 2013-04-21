@@ -3,6 +3,8 @@ package biomesoplenty.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
+import biomesoplenty.BiomesOPlenty;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -20,8 +22,9 @@ public class BlockWillow extends Block implements IShearable
     public BlockWillow(int par1)
     {
         super(par1, Material.vine);
-		this.setBurnProperties(this.blockID, 15, 100);
+		setBurnProperties(this.blockID, 15, 100);
         this.setTickRandomly(true);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
 	@Override

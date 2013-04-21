@@ -2,10 +2,6 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -14,14 +10,18 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPItems;
 
 public class BlockMoss extends Block
 {
     public BlockMoss(int par1)
     {
         super(par1, Material.vine);
-		this.setBurnProperties(this.blockID, 15, 100);
+		setBurnProperties(this.blockID, 15, 100);
         this.setTickRandomly(true);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
 	@Override
@@ -456,10 +456,10 @@ public class BlockMoss extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return BOPItems.mossItem.itemID;
-    }
+//    public int idDropped(int par1, Random par2Random, int par3)
+//    {
+//        return BOPItems.mossItem.itemID;
+//    }
 
     /**
      * Returns the quantity of items to drop on block destruction.
@@ -472,10 +472,10 @@ public class BlockMoss extends Block
     /**
      * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
      */
-    public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-        return BOPItems.mossItem.itemID;
-    }
+//    public int idPicked(World par1World, int par2, int par3, int par4)
+//    {
+//        return BOPItems.mossItem.itemID;
+//    }
     
     @Override
     public boolean isBlockReplaceable(World world, int x, int y, int z)

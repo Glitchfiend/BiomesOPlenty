@@ -1,13 +1,12 @@
 package biomesoplenty.api;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.common.base.Optional;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
+
+import com.google.common.base.Optional;
 
 public class Blocks
 {

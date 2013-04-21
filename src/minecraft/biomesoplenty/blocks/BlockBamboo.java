@@ -15,7 +15,7 @@ public class BlockBamboo extends Block
     {
         super(par1, Material.plants);
         float var3 = 0.15F;
-		this.setBurnProperties(this.blockID, 5, 5);
+		setBurnProperties(this.blockID, 5, 5);
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
         this.setTickRandomly(true);
     }
@@ -106,10 +106,10 @@ public class BlockBamboo extends Block
     /**
      * Returns the ID of the items to drop on destruction.
      */
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return BOPItems.bambooItem.itemID;
-    }
+//    public int idDropped(int par1, Random par2Random, int par3)
+//    {
+//        return BOPItems.bambooItem.itemID;
+//    }
 
     /**
      * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
@@ -139,10 +139,10 @@ public class BlockBamboo extends Block
     /**
      * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
      */
-    public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-        return BOPItems.bambooItem.itemID;
-    }
+//    public int idPicked(World par1World, int par2, int par3, int par4)
+//    {
+//        return BOPItems.bambooItem.itemID;
+//    }
     
     @Override
     public boolean canSustainLeaves(World world, int x, int y, int z)

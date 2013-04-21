@@ -8,7 +8,6 @@ import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.configuration.BOPItems;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -24,7 +23,7 @@ public class AchievementHelper
     private static Achievement achPromised;
     private static Achievement achMud;
     private static Achievement achShroom;
-//    private static Achievement achBarley;
+    private static Achievement achBarley;
     private static Achievement achMoss;
     
     public static AchievementPage pageBOP;
@@ -45,10 +44,10 @@ public class AchievementHelper
         achPromised = (new Achievement(3062, "achPromised", 0, -5, Blocks.holyGrass.get(), achFlower)).setSpecial().registerAchievement();
         achMud = (new Achievement(3063, "achMud", -2, -1, BOPItems.mudBall, achFlower)).registerAchievement();
         achShroom = (new Achievement(3064, "achShroom", 1, -2, new ItemStack(Blocks.flowers.get(),1,10), achFlower)).registerAchievement();
-//        achBarley = (new Achievement(3065, "achBarley", -2, 4, BOPItems.barleyItem, achFlower)).registerAchievement();
-        achMoss = (new Achievement(3066, "achMoss", -1, -3, BOPItems.mossItem, achFlower)).registerAchievement();
+        achBarley = (new Achievement(3065, "achBarley", -2, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
+        achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
 
-        pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, /*achBarley,*/ achMoss});
+        pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss});
         AchievementPage.registerAchievementPage(pageBOP);
         
      // Add Achievement registration
@@ -101,11 +100,11 @@ public class AchievementHelper
             {
                 player.addStat(achShroom, 1);
             }
-//            if (item.itemID == BOPItems.barleyItem.itemID)
-//            {
-//                player.addStat(achBarley, 1);
-//            }
-            if (item.itemID == BOPItems.mossItem.itemID)
+            if (item.itemID == Blocks.planks.get().blockID && item.getItemDamage() == 6)
+            {
+                player.addStat(achBarley, 1);
+            }
+            if (item.itemID == Blocks.moss.get().blockID)
             {
                 player.addStat(achMoss, 1);
             }

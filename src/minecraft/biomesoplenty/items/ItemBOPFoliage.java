@@ -5,16 +5,17 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import biomesoplenty.api.Blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBOPFoliage extends ItemBlock
+public class ItemBOPFoliage extends ItemColored
 {
     private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrass", "bush", "sprout", "highgrasstop"};
     @SideOnly(Side.CLIENT)
@@ -22,7 +23,7 @@ public class ItemBOPFoliage extends ItemBlock
     
     public ItemBOPFoliage(int par1)
     {
-        super(par1);
+        super(par1, true);
         setMaxDamage(0);
         setHasSubtypes(true);
     }
@@ -33,7 +34,18 @@ public class ItemBOPFoliage extends ItemBlock
         textures = new Icon[foliageTypes.length - 1];
         
         for (int i = 0; i < foliageTypes.length - 1; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:item_" + foliageTypes[i]);
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + foliageTypes[i]);
+        
+        textures[3] = iconRegister.registerIcon("BiomesOPlenty:item_highgrass");
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack itemStack, int par2)
+    {
+        if (itemStack.getItemDamage() == 3)
+            return 16777215;
+        else
+            return Blocks.foliage.get().getRenderColor(itemStack.getItemDamage());
     }
 
     @Override
