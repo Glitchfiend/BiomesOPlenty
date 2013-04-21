@@ -175,7 +175,7 @@ public class WorldGenCherry1 extends WorldGenerator
                     }
                     else
                     {
-                        this.setBlockAndMetadata(this.worldObj, var11[0], var11[1], var11[2], par6, 0);
+                        this.setBlockAndMetadata(this.worldObj, var11[0], var11[1], var11[2], par6, 1);
                         ++var13;
                     }
                 }
@@ -279,7 +279,7 @@ public class WorldGenCherry1 extends WorldGenerator
                 var14[var6] = MathHelper.floor_double((double)(par1ArrayOfInteger[var6] + var15) + 0.5D);
                 var14[var7] = MathHelper.floor_double((double)par1ArrayOfInteger[var7] + (double)var15 * var10 + 0.5D);
                 var14[var8] = MathHelper.floor_double((double)par1ArrayOfInteger[var8] + (double)var15 * var12 + 0.5D);
-                byte var17 = 0;
+                byte var17 = 1;
                 int var18 = Math.abs(var14[0] - par1ArrayOfInteger[0]);
                 int var19 = Math.abs(var14[2] - par1ArrayOfInteger[2]);
                 int var20 = Math.max(var18, var19);
@@ -288,11 +288,11 @@ public class WorldGenCherry1 extends WorldGenerator
                 {
                     if (var18 == var20)
                     {
-                        var17 = 4;
+                        var17 = 5;
                     }
                     else if (var19 == var20)
                     {
-                        var17 = 8;
+                        var17 = 9;
                     }
                 }
 

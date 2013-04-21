@@ -119,6 +119,12 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
         }
     }
     
+    protected boolean canThisPlantGrowOnThisBlockID(int id)
+    {
+        return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holyGrass.get().blockID 
+                || id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+    }
+    
     @Override
     public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
     {
@@ -157,7 +163,11 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
-        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+        if (world.getBlockId(x, y, z) != this.blockID)
+            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+                    && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+        else
+            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
 
@@ -179,7 +189,27 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return -1;
+        if (par1 > 5)
+            return this.blockID;
+        else
+            return -1;
+    }
+    
+    @Override
+    public int damageDropped(int meta)
+    {
+        return meta;
+    }
+    
+    @Override
+    public int quantityDropped(int meta, int fortune, Random random)
+    {
+        if (meta == 6)
+            return random.nextInt(5) == 0 ? 1 : 0;
+        else if (meta == 7)
+            return 1;
+        else
+            return 0;
     }
     
     @Override

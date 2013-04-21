@@ -5,6 +5,7 @@ import java.util.Random;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -18,7 +19,7 @@ public class WorldGenAlgae extends WorldGenerator
             int var8 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
             int var9 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-            if (par1World.isAirBlock(var7, var8, var9) && Blocks.foliage.get().canPlaceBlockAt(par1World, var7, var8, var9))
+            if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == Block.waterStill.blockID)
             {
                 par1World.setBlock(var7, var8, var9, Blocks.foliage.get().blockID, 0, 2);
             }

@@ -92,6 +92,11 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         else
             return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
+    
+    protected boolean canThisPlantGrowOnThisBlockID(int id)
+    {
+        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+    }
 
     protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
     {
@@ -106,6 +111,10 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
+        if (world.getBlockId(x, y, z) != this.blockID)
+            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+                    && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+        else
         return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }   

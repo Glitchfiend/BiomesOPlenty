@@ -232,7 +232,7 @@ public class BlockWillow extends Block implements IShearable
      */
     public int getRenderColor(int par1)
     {
-        return ColorizerFoliage.getFoliageColorBasic();
+        return ColorizerFoliage.getFoliageColorBirch();
     }
 
     /**

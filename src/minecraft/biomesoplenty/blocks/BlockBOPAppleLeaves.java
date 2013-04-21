@@ -56,7 +56,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
-        return textures[(!isOpaqueCube() ? 0 : 1)][meta & 7];
+        return textures[(!isOpaqueCube() ? 0 : 1)][meta & 3];
     }
     
     @Override

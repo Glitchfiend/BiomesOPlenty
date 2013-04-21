@@ -67,7 +67,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         switch (par1)
         {
             case 0:
-            case 4:
                 return ColorizerFoliage.getFoliageColorBirch();
                 
             case 3:

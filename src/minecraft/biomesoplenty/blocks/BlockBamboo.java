@@ -143,4 +143,11 @@ public class BlockBamboo extends Block
     {
         return BOPItems.bambooItem.itemID;
     }
+    
+    @Override
+    public boolean canSustainLeaves(World world, int x, int y, int z)
+    {
+      return true;
+    }
+
 }

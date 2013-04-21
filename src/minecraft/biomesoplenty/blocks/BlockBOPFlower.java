@@ -106,6 +106,11 @@ public class BlockBOPFlower extends BlockFlower
             list.add(new ItemStack(blockID, 1, i));
     }
     
+    protected boolean canThisPlantGrowOnThisBlockID(int id)
+    {
+        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID;
+    }
+    
     protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
     {
         switch (meta)
@@ -146,6 +151,10 @@ public class BlockBOPFlower extends BlockFlower
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
+        if (world.getBlockId(x, y, z) != this.blockID)
+            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
+                    && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+        else
         return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
