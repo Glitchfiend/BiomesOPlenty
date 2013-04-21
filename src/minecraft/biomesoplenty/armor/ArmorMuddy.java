@@ -1,13 +1,13 @@
 package biomesoplenty.armor;
 
-import biomesoplenty.CommonProxy;
-import biomesoplenty.configuration.BOPItems;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.CommonProxy;
+import biomesoplenty.api.Items;
 
 public class ArmorMuddy extends ItemArmor implements IArmorTextureProvider
 {
@@ -16,13 +16,14 @@ public class ArmorMuddy extends ItemArmor implements IArmorTextureProvider
 	public ArmorMuddy(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par1, par2EnumArmorMaterial, par3, par4);
 		textureID = par4;
+		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
 	public String getArmorTextureFile(ItemStack par1) {
-		if(par1.itemID == BOPItems.helmetMud.itemID||par1.itemID == BOPItems.chestplateMud.itemID||par1.itemID == BOPItems.bootsMud.itemID){
+		if(par1.itemID == Items.helmetMud.get().itemID||par1.itemID == Items.chestplateMud.get().itemID||par1.itemID == Items.bootsMud.get().itemID){
 			return CommonProxy.ARMOR_MUD1_PNG;
 		}
-		if(par1.itemID == BOPItems.leggingsMud.itemID){
+		if(par1.itemID == Items.leggingsMud.get().itemID){
 			return CommonProxy.ARMOR_MUD2_PNG;
 		}
 		return null;

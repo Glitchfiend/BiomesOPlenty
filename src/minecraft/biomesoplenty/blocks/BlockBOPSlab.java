@@ -79,6 +79,7 @@ public class BlockBOPSlab extends BlockHalfSlab
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         int max = 0;
         

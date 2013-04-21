@@ -2,15 +2,14 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.configuration.BOPItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 
 public class BlockMud extends Block
 {
@@ -40,7 +39,13 @@ public class BlockMud extends Block
 
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return BOPItems.mudBall.itemID;
+        return Items.miscItems.get().itemID;
+    }
+    
+    @Override
+    public int damageDropped(int meta)
+    {
+        return 0;
     }
 
     public int quantityDropped(Random par1Random)

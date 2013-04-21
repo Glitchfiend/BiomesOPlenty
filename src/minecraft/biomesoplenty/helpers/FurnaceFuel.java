@@ -2,8 +2,7 @@ package biomesoplenty.helpers;
 
 import net.minecraft.item.ItemStack;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPItems;
+import biomesoplenty.api.Items;
 import cpw.mods.fml.common.IFuelHandler;
 
 public class FurnaceFuel implements IFuelHandler {
@@ -72,7 +71,7 @@ public class FurnaceFuel implements IFuelHandler {
         {
             return 300;
         }
-        if(par1 == BOPItems.ashes.itemID)
+        if(par1 == Items.miscItems.get().itemID && par2 == 1)
         {
             return 400;
         }

@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.renderers.FoliageRenderer;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -21,6 +17,8 @@ import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -68,6 +66,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
     {
         for (int i = 0; i < GRASSTOP; ++i)

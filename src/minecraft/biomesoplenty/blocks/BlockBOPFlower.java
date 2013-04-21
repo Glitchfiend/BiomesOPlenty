@@ -2,10 +2,6 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.renderers.FoliageRenderer;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -17,6 +13,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -101,6 +99,7 @@ public class BlockBOPFlower extends BlockFlower
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < plants.length; ++i)
             list.add(new ItemStack(blockID, 1, i));

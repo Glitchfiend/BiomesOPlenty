@@ -1,5 +1,6 @@
 package biomesoplenty.items;
 
+import biomesoplenty.BiomesOPlenty;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -16,6 +17,8 @@ public class ItemEnderporter extends Item
         super(par1);
         this.maxStackSize = 1;
 		this.setMaxDamage(9);
+		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		setUnlocalizedName("enderporter");
     }
 	
 	public void registerIcons(IconRegister iconRegister)

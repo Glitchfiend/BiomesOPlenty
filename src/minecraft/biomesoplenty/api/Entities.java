@@ -1,11 +1,5 @@
 package biomesoplenty.api;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.world.biome.BiomeGenBase;
-
-import com.google.common.base.Optional;
-
-import cpw.mods.fml.common.Loader;
 
 public class Entities {
 	

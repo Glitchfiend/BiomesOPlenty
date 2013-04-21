@@ -2,6 +2,7 @@ package biomesoplenty.configuration;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 import biomesoplenty.blocks.*;
 import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
 import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
@@ -9,7 +10,7 @@ import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.helpers.FurnaceFuel;
-import biomesoplenty.items.ItemBamboo;
+import biomesoplenty.items.ItemBOPBamboo;
 import biomesoplenty.items.ItemBOPAppleLeaves;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
@@ -33,6 +34,7 @@ import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -116,7 +118,7 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.ashStone.get(), "ashStone");
 		GameRegistry.registerBlock(Blocks.hardIce.get(), "hardIce");
 		GameRegistry.registerBlock(Blocks.leavesFruit.get(), ItemBOPAppleLeaves.class, "leavesFruit");
-		GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBamboo.class, "bamboo");
+		GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBOPBamboo.class, "bamboo");
 		GameRegistry.registerBlock(Blocks.mudBrick.get(), "mudBrick");
 		GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "mudBricksStairs");
         GameRegistry.registerBlock(Blocks.originGrass.get(), "originGrass");
@@ -354,8 +356,8 @@ public class BOPBlocks {
 
 		// TODO
 		GameRegistry.addSmelting(Block.dirt.blockID, new ItemStack(Blocks.driedDirt.get(), 1), 0F);
-//		GameRegistry.addSmelting(redRockCobble.blockID, new ItemStack(Blocks.redRock.get(), 1, 0), 0.1F);
-//		GameRegistry.addSmelting(new ItemStack(Blocks.flowers.get(),1,11), new ItemStack(Item.dyePowder, 1, 2), 0.2F);
+		FurnaceRecipes.smelting().addSmelting(Blocks.redRock.get().blockID, 1, new ItemStack(Blocks.redRock.get(), 1, 0), 0.1F);
+		FurnaceRecipes.smelting().addSmelting(Blocks.flowers.get().blockID, 11, new ItemStack(Item.dyePowder, 1, 2), 0.2F);
 		
 		//Block tool strength, 0 is Wood and Gold, 1 is Stone, 2 is Iron and 3 is Diamond
 		//Leaves can be obtained from using shears, however they arn't instantly broken by them (unsure how to do this)
@@ -541,15 +543,15 @@ public class BOPBlocks {
 	public static void dependantinit()
 	{
 		//Plants
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 8), new Object[] {BOPItems.ashes});
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 8), new Object[] {new ItemStack(Items.miscItems.get(), 1, 1)});
 		
 		//Other
-//		GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', BOPItems.cattailItem});
-		GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', BOPItems.ashes});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mud.get(), 1), new Object[] {"MM", "MM", 'M', BOPItems.mudBall});
-		GameRegistry.addRecipe(new ItemStack(Blocks.amethystBlock.get(), 1), new Object[] {"AAA", "AAA", "AAA", 'A', BOPItems.amethyst});
-		GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', BOPItems.ashes});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', BOPItems.mudBrick});
+		GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
+		GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.mud.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystBlock.get(), 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 3)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.bambooThatching.get(), 1), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
 		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});

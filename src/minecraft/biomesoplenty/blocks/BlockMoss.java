@@ -12,7 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPItems;
 
 public class BlockMoss extends Block
 {

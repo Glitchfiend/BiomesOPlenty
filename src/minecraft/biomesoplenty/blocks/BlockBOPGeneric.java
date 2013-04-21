@@ -2,16 +2,16 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.configuration.BOPItems;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPGeneric extends Block
 {
@@ -146,7 +146,13 @@ public class BlockBOPGeneric extends Block
     @Override
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return type == BlockType.AMETHYST_ORE ? BOPItems.amethyst.itemID : this.blockID;
+        return type == BlockType.AMETHYST_ORE ? Items.miscItems.get().itemID : this.blockID;
+    }
+    
+    @Override
+    public int damageDropped(int meta)
+    {
+        return type == BlockType.AMETHYST_ORE ? 2 : 0;
     }
     
     @Override

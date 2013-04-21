@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
@@ -17,6 +13,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import biomesoplenty.BiomesOPlenty;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 {
@@ -57,6 +56,7 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < textures.length; ++i)
             list.add(new ItemStack(blockID, 1, i));

@@ -22,7 +22,7 @@ public class BlockTreeMoss extends Block implements IShearable
     {
         super(par1, Material.vine);
         this.setTickRandomly(true);
-		this.setBurnProperties(this.blockID, 15, 100);
+		setBurnProperties(this.blockID, 15, 100);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     

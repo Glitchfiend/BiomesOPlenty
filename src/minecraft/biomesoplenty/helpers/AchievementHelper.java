@@ -8,8 +8,8 @@ import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.configuration.BOPItems;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class AchievementHelper
@@ -39,10 +39,10 @@ public class AchievementHelper
 	    achFlower = (new Achievement(3057, "achFlower", 0, 0, Block.plantRed, null)).registerAchievement();
         achRedRock = (new Achievement(3058, "achRedRock", -1, 2, new ItemStack(Blocks.redRock.get(),1,0), achFlower)).registerAchievement();
         achThorn = (new Achievement(3059, "achThorn", 2, 1, new ItemStack(Blocks.plants.get(),1,5), achFlower)).registerAchievement();
-        achAsh = (new Achievement(3060, "achAsh", 1, 3, BOPItems.ashes, achFlower)).registerAchievement();
+        achAsh = (new Achievement(3060, "achAsh", 1, 3, new ItemStack(Items.miscItems.get(), 1, 1), achFlower)).registerAchievement();
         achOrigin = (new Achievement(3061, "achOrigin", 0, 5, Blocks.originGrass.get(), achFlower)).setSpecial().registerAchievement();
         achPromised = (new Achievement(3062, "achPromised", 0, -5, Blocks.holyGrass.get(), achFlower)).setSpecial().registerAchievement();
-        achMud = (new Achievement(3063, "achMud", -2, -1, BOPItems.mudBall, achFlower)).registerAchievement();
+        achMud = (new Achievement(3063, "achMud", -2, -1, new ItemStack(Items.miscItems.get(), 1, 0), achFlower)).registerAchievement();
         achShroom = (new Achievement(3064, "achShroom", 1, -2, new ItemStack(Blocks.flowers.get(),1,10), achFlower)).registerAchievement();
         achBarley = (new Achievement(3065, "achBarley", -2, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
         achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
@@ -80,7 +80,7 @@ public class AchievementHelper
             {
                 player.addStat(achThorn, 1);
             }
-            if (item.itemID == BOPItems.ashes.itemID)
+            if (item.itemID == Items.miscItems.get().itemID && item.getItemDamage() == 1)
             {
                 player.addStat(achAsh, 1);
             }
@@ -92,7 +92,7 @@ public class AchievementHelper
             {
                 player.addStat(achPromised, 1);
             }
-            if (item.itemID == BOPItems.mudBall.itemID)
+            if (item.itemID == Items.miscItems.get().itemID && item.getItemDamage() == 0)
             {
                 player.addStat(achMud, 1);
             }

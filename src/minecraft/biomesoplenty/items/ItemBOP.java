@@ -1,44 +1,66 @@
 package biomesoplenty.items;
 
-import biomesoplenty.configuration.BOPItems;
-import biomesoplenty.items.projectiles.EntityMudball;
+import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.items.projectiles.EntityMudball;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOP extends Item
 {
-	public int boptextureid = 0;
+    private static String[] items = {"mudball", "ash", "amethyst", "mudbrick"};
+    @SideOnly(Side.CLIENT)
+    private Icon[] textures;
 
-	public ItemBOP(int id, int texture)
+	public ItemBOP(int id)
 	{
 		super(id);
-		boptextureid = texture;
+		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if(boptextureid==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
-		else if(boptextureid==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudbrick"); }
-		else if(boptextureid==2){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:moss"); }
-		else if(boptextureid==3){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:ash"); }
-		else if(boptextureid==4){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethyst"); }
-		else if(boptextureid==5){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:staffhandle"); }
-		else if(boptextureid==6){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:staffpole"); }
-		else if(boptextureid==7){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:stafftopper"); }
-		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+	    textures = new Icon[items.length];
+        
+        for (int i = 0; i < items.length; ++i)
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+items[i]);
 	}
+	
+	@Override
+    public String getUnlocalizedName(ItemStack itemStack)
+    {
+        return items[itemStack.getItemDamage()];
+    }
+    
+    @Override
+    public Icon getIconFromDamage(int meta)
+    {
+        return textures[meta];
+    }
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @Override
+    public void getSubItems(int itemId, CreativeTabs creativeTab, List subTypes)
+    {
+        for(int meta = 0; meta < items.length; ++meta)
+            subTypes.add(new ItemStack(itemId, 1, meta));
+    }
 
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack itemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
-		if (par1ItemStack.isItemEqual(new ItemStack(BOPItems.mudBall)))
+		if (itemStack.getItemDamage() == 0)
 		{
 			if (!par3EntityPlayer.capabilities.isCreativeMode)
 			{
-				--par1ItemStack.stackSize;
+				--itemStack.stackSize;
 			}
 
 			par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
@@ -48,6 +70,6 @@ public class ItemBOP extends Item
 				par2World.spawnEntityInWorld(new EntityMudball(par2World, par3EntityPlayer));
 			}
 		}
-		return par1ItemStack;
+		return itemStack;
 	} 
 }

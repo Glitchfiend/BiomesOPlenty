@@ -13,24 +13,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.worldgen.WorldGenAcacia;
-import biomesoplenty.worldgen.WorldGenAutumn;
-import biomesoplenty.worldgen.WorldGenAutumn2;
-import biomesoplenty.worldgen.WorldGenBambooTree;
-import biomesoplenty.worldgen.WorldGenBambooTree2;
-import biomesoplenty.worldgen.WorldGenCherry1;
-import biomesoplenty.worldgen.WorldGenCherry2;
-import biomesoplenty.worldgen.WorldGenDeadTree2;
 import biomesoplenty.worldgen.WorldGenMangrove;
-import biomesoplenty.worldgen.WorldGenMaple;
-import biomesoplenty.worldgen.WorldGenMystic2;
-import biomesoplenty.worldgen.WorldGenOminous1;
-import biomesoplenty.worldgen.WorldGenOminous2;
-import biomesoplenty.worldgen.WorldGenOriginTree;
 import biomesoplenty.worldgen.WorldGenPalmTree1;
 import biomesoplenty.worldgen.WorldGenPalmTree3;
-import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenRedwoodTree2;
-import biomesoplenty.worldgen.WorldGenTaiga9;
 import biomesoplenty.worldgen.WorldGenWillow;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -73,6 +59,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < saplings.length; ++i)
             list.add(new ItemStack(blockID, 1, i));

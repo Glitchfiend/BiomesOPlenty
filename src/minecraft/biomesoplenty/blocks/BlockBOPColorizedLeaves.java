@@ -114,6 +114,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < textures[0].length; ++i)
             list.add(new ItemStack(blockID, 1, i));

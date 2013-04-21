@@ -1,5 +1,6 @@
 package biomesoplenty.items;
 
+import biomesoplenty.BiomesOPlenty;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemPickaxe;
@@ -12,6 +13,7 @@ public class ItemBOPPickaxe extends ItemPickaxe
 	{
 		super(par1, par2);
 		TextureID = texture;
+		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
 	public void registerIcons(IconRegister iconRegister)

@@ -32,6 +32,7 @@ public class ItemBOPRecordMud extends ItemRecord
         super(par1, par2Str);
         this.recordName = par2Str;
         this.maxStackSize = 1;
+        setUnlocalizedName("bopDiscMud");
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         records.put(par2Str, this);
     }

@@ -68,6 +68,7 @@ public class BlockBOPLog extends Block
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < 4; ++i)
             list.add(new ItemStack(this, 1, i));

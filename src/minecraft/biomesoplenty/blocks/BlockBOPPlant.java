@@ -20,7 +20,6 @@ import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
-import biomesoplenty.configuration.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -86,6 +85,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < plants.length; ++i)
             list.add(new ItemStack(blockID, 1, i));

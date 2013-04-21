@@ -54,6 +54,7 @@ public class BlockBOPRedRock extends Block
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < types.length; ++i)
             list.add(new ItemStack(blockID, 1, i));

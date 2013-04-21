@@ -67,6 +67,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     
     @Override
     @SideOnly(Side.CLIENT)
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         list.add(new ItemStack(blockID, 1, 0));        
     }

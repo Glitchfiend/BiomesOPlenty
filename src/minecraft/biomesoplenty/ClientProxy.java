@@ -1,16 +1,15 @@
 package biomesoplenty;
 
-import biomesoplenty.blocks.renderers.FoliageRenderer;
-import biomesoplenty.blocks.renderers.PlantsRenderer;
-import biomesoplenty.configuration.BOPItems;
-import biomesoplenty.items.projectiles.EntityMudball;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
+import biomesoplenty.api.Items;
+import biomesoplenty.blocks.renderers.FoliageRenderer;
+import biomesoplenty.blocks.renderers.PlantsRenderer;
+import biomesoplenty.items.projectiles.EntityMudball;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -25,7 +24,7 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST1_PNG);
 		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST2_PNG);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPItems.mudBall)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.miscItems.get(), 0)); 
 		
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
@@ -36,7 +35,7 @@ public class ClientProxy extends CommonProxy {
 	{
         EntityFX entityfx = null;
         
-        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, BOPItems.mudBall, mc.renderEngine);
+        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.miscItems.get(), mc.renderEngine);
 		mc.effectRenderer.addEffect(entityfx);
 	}   
 

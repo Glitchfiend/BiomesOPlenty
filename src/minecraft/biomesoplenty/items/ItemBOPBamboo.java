@@ -4,9 +4,9 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.Icon;
 
-public class ItemBamboo extends ItemBlock
+public class ItemBOPBamboo extends ItemBlock
 {
-    public ItemBamboo(int par1)
+    public ItemBOPBamboo(int par1)
     {
         super(par1);
     }

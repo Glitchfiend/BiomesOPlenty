@@ -2,8 +2,6 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.configuration.BOPItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
