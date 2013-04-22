@@ -34,6 +34,8 @@
     - Biomes O Plenty saplings now work in the Forestry fermenter
     - Biomes O Plenty flowers can now be used with bees 
     - Added a config option for generating vanilla ocean biomes
+    - Gave the different types Autumn and Cherry Leaves their own names
+    - Added Biome Dictionary support
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
