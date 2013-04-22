@@ -49,7 +49,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.1")
+@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.6.0")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {	    
