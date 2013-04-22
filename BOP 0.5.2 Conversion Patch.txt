@@ -20,14 +20,11 @@
 4025 -> 1921:9 //Anenome
 4015 -> 1921:10 //Toadstool
 4012 -> 1921:11 //Tiny Cactus
-
-4012 -> 1923 //Yellow Autumn Leaves
-4012 -> 1923:1 //Bamboo Leaves
-4012 -> 1923:2 //Magic Leaves
-4012 -> 1923:3 //Dark Leaves
-4012 -> 1923:4 //Dying Leaves
-
+4017 -> 1923 //Yellow Autumn Leaves
+4028 -> 1923:1 //Bamboo Leaves
+4036 -> 1923:2 //Magic Leaves
+4050 -> 1923:3 //Dark Leaves
+4034 -> 1923:4 //Dying Leaves
 4056 -> 1923:5 //Fir Leaves
-
-4012 -> 1923:6 //Holy Leaves
-4012 -> 1923:7 //Orange Autumn Leaves
+3969 -> 1923:6 //Holy Leaves
+4038 -> 1923:7 //Orange Autumn Leaves
