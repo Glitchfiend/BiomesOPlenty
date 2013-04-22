@@ -1,14 +1,30 @@
 package biomesoplenty.integration;
 
+import org.objectweb.asm.tree.analysis.Value;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.liquids.LiquidStack;
+import net.minecraftforge.oredict.OreDictionary;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.helpers.BonemealUse;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
+import forestry.api.core.ItemInterface;
+import forestry.api.fuels.FuelManager;
+import forestry.api.recipes.RecipeManagers;
+import forestry.api.storage.BackpackManager;
+import forestry.api.storage.BackpackStowEvent;
 
 public class ForestryIntegration
 {
     protected static void init()
     {
         addClimates();
+        addFermenterRecipes();
     }
     
     private static void addClimates()
@@ -203,4 +219,21 @@ public class ForestryIntegration
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.swamplandNewID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.jungleNewID);
     }
+    
+    private static void addFermenterRecipes()
+    {
+		addFermenterRecipeSapling(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+    }
+    
+	private static void addFermenterRecipeSapling(ItemStack resource) {
+		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
+				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
+				new LiquidStack(Block.waterStill, 1));
+		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
+				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
+				new LiquidStack(ItemInterface.getItem("liquidJuice").itemID, 1, ItemInterface.getItem("liquidJuice").getItemDamage()));
+		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
+				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
+				new LiquidStack(ItemInterface.getItem("liquidHoney").itemID, 1, ItemInterface.getItem("liquidHoney").getItemDamage()));
+	}
 }

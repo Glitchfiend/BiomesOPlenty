@@ -32,6 +32,7 @@
     - Made shears instantly destroy Biomes O Plenty leaves
     - Adjusted high grass hitbox to cover both blocks
     - Fixed an issue causing sound files to be created on the desktop
+    - Biomes O Plenty saplings now work in the Forestry fermenter
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
