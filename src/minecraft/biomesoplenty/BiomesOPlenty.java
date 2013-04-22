@@ -75,7 +75,6 @@ public class BiomesOPlenty
 		{
 			for (String soundFile : soundFiles) try
 			{
-				System.out.println(Minecraft.getMinecraftDir().getAbsolutePath().toString() + "/resources/mod/streaming/" + soundFile);
 				File file = new File(Minecraft.getMinecraftDir().getAbsolutePath() + "/resources/mod/streaming/" + soundFile);
 				if (!file.exists()) {
 					System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
