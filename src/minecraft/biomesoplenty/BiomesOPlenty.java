@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 
 import net.minecraft.block.BlockDispenser;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
@@ -69,12 +70,13 @@ public class BiomesOPlenty
 		boolean isClient = proxy instanceof ClientProxy;
 		
 		String[] soundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
-
+		
 		if (isClient)
 		{
 			for (String soundFile : soundFiles) try
 			{
-				File file = new File("resources/mod/streaming/" + soundFile);
+				System.out.println(Minecraft.getMinecraftDir().getAbsolutePath().toString() + "/resources/mod/streaming/" + soundFile);
+				File file = new File(Minecraft.getMinecraftDir().getAbsolutePath() + "/resources/mod/streaming/" + soundFile);
 				if (!file.exists()) {
 					System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
 					file.getParentFile().mkdirs();
