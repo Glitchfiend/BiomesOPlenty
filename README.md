@@ -18,7 +18,7 @@
 
 
 ## Changelog ##
-      Version 0.5.3 (Unreleased)
+      Version 0.5.2 (Unreleased)
     - Added an API for other mod developers
     - Added support for Biomes O Plenty woods in Thermal Expansion sawmills
     - Significantly compressed the amount of Block IDs used, however breaks existing worlds (Sorry, we are looking into ways of converting them)
@@ -33,6 +33,7 @@
     - Fixed an issue causing sound files to be created on the desktop
     - Biomes O Plenty saplings now work in the Forestry fermenter
     - Biomes O Plenty flowers can now be used with bees 
+    - Added a config option for generating vanilla ocean biomes
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 

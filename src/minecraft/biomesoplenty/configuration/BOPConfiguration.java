@@ -92,6 +92,8 @@ public class BOPConfiguration {
 	public static boolean wastelandGen;
 	public static boolean wetlandGen;
 	public static boolean woodlandGen;
+	
+	public static boolean oceanGen;
 
 	public static boolean plainsGen;
 	public static boolean desertGen;
@@ -413,6 +415,8 @@ public class BOPConfiguration {
 			wastelandGen = config.get("Biomes To Generate", "Wasteland", true).getBoolean(false);
 			wetlandGen = config.get("Biomes To Generate", "Wetland", true).getBoolean(false);
 			woodlandGen = config.get("Biomes To Generate", "Woodland", true).getBoolean(false);
+			
+			oceanGen = config.get("Vanilla Biomes To Generate", "Ocean", true).getBoolean(false);
 
 			// Get Terrain Block ID's
 			mudID = config.getTerrainBlock("Terrain Block IDs", "Mud ID", 160, null).getInt();

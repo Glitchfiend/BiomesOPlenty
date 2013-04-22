@@ -1,5 +1,6 @@
 package biomesoplenty.worldtype;
 
+import biomesoplenty.configuration.BOPConfiguration;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -31,5 +32,9 @@ public class WorldTypeBase extends WorldType
 		this.removeBiome(BiomeGenBase.taiga);
 		this.removeBiome(BiomeGenBase.swampland);
 		this.removeBiome(BiomeGenBase.jungle);
+		if (BOPConfiguration.oceanGen)
+		{
+			this.removeBiome(BiomeGenBase.ocean);
+		}
 	}
 }

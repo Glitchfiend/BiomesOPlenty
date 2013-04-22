@@ -19,6 +19,10 @@ public class WTBiomesOP extends WorldTypeBase
         this.removeBiome(BiomeGenBase.taiga);
         this.removeBiome(BiomeGenBase.swampland);
         this.removeBiome(BiomeGenBase.jungle);
+		if (BOPConfiguration.oceanGen)
+		{
+			this.removeBiome(BiomeGenBase.ocean);
+		}
 
 		if (BOPConfiguration.alpsGen == true)
 		{
