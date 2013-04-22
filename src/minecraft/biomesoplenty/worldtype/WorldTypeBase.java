@@ -5,6 +5,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.chunk.IChunkProvider;
 
 public class WorldTypeBase extends WorldType
 {
@@ -18,10 +19,10 @@ public class WorldTypeBase extends WorldType
         return new WorldChunkManagerBOP(var1);
     }
 	
-   /* public IChunkProvider getChunkGenerator(World world, String generatorOptions)
+    public IChunkProvider getChunkGenerator(World world, String generatorOptions)
     {
         return new ChunkProviderBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
-    }*/
+    }
 	
 	public void removeAllBiomes()
 	{
