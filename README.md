@@ -18,10 +18,19 @@
 
 
 ## Changelog ##
-      Version 0.5.X
-    - Updated to Forge 656
+      Version 0.6.0 (Unreleased)
+	- Added an API for other mod developers
+	- Added support for Biomes O Plenty woods in Thermal Expansion sawmills
+	- Significantly compressed the amount of Block IDs used, however breaks existing worlds (Sorry, we are looking into ways of converting 
+	  them)
+    - Updated to the latest Forge
     - Changed various things to use IShearable
-    - Changed default biome ids to be compatible with mocreatures
+    - Changed default biome ids to be compatible with Mo Creatures
+    - Bamboo Thatching is now equivalent to wood planks (giving it a use, yay :D)
+    - Made a proper fix for achievements and made them enabled by default (The config option is still there though for those that want it)
+    - Added Better World Generation 4 support
+    - Made shears instantly destroy Biomes O Plenty leaves
+    - Adjusted high grass hitbox to cover both blocks
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
