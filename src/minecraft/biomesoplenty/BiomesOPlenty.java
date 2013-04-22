@@ -6,25 +6,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Level;
 
-import net.minecraft.block.BlockDispenser;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityEggInfo;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
-import biomesoplenty.api.Biomes;
-import biomesoplenty.api.Entities;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.BOPCrafting;
 import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPVanillaCompat;
@@ -34,10 +23,6 @@ import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.WorldProviderPromised;
 import biomesoplenty.helpers.WorldTypeSize;
 import biomesoplenty.integration.BOPCrossIntegration;
-import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
-import biomesoplenty.items.projectiles.EntityMudball;
-import biomesoplenty.mobs.EntityJungleSpider;
-import biomesoplenty.mobs.EntityRosester;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -45,9 +30,9 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.6.0")
@@ -62,7 +47,7 @@ public class BiomesOPlenty
 	@SidedProxy(clientSide="biomesoplenty.ClientProxy", serverSide="biomesoplenty.CommonProxy")
 	public static CommonProxy proxy;
 
-//	public static int promisedLandDim = 20;
+	public static CreativeTabs tabBiomesOPlenty;
 
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
@@ -108,8 +93,8 @@ public class BiomesOPlenty
 		BOPBlocks.init();
 		
 		BOPItems.init();
-		
-		BOPBlocks.dependantinit();
+
+		BOPCrafting.init();
 		
 		BOPBiomes.init();
 		
@@ -127,9 +112,6 @@ public class BiomesOPlenty
 	@Init
 	public void load(FMLInitializationEvent event)
 	{
-		
-		BOPCrossIntegration.init();
-
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabBiomesOPlenty", "en_US", "Biomes O\' Plenty");
 		LanguageRegistry.instance().addStringLocalization("generator.BIOMESOP", "en_US", "Biomes O\' Plenty");
 
@@ -141,9 +123,11 @@ public class BiomesOPlenty
 		proxy.registerRenderers();
 
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
-
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
 	}
-
-	public static CreativeTabs tabBiomesOPlenty;
+	
+	public void postInit(FMLPostInitializationEvent event)
+	{
+	    BOPCrossIntegration.init();
+	}
 }

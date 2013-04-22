@@ -1,17 +1,44 @@
 package biomesoplenty.configuration;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
-import biomesoplenty.blocks.*;
+import biomesoplenty.blocks.BlockAsh;
+import biomesoplenty.blocks.BlockBOPAppleLeaves;
+import biomesoplenty.blocks.BlockBOPColorizedLeaves;
+import biomesoplenty.blocks.BlockBOPColorizedSapling;
+import biomesoplenty.blocks.BlockBOPFlower;
+import biomesoplenty.blocks.BlockBOPFoliage;
+import biomesoplenty.blocks.BlockBOPGeneric;
 import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
+import biomesoplenty.blocks.BlockBOPLeaves;
 import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
+import biomesoplenty.blocks.BlockBOPLog;
 import biomesoplenty.blocks.BlockBOPLog.LogCategory;
+import biomesoplenty.blocks.BlockBOPPetals;
+import biomesoplenty.blocks.BlockBOPPlank;
+import biomesoplenty.blocks.BlockBOPPlant;
+import biomesoplenty.blocks.BlockBOPRedRock;
+import biomesoplenty.blocks.BlockBOPSapling;
+import biomesoplenty.blocks.BlockBOPSlab;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
+import biomesoplenty.blocks.BlockBOPStairs;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
-import biomesoplenty.helpers.FurnaceFuel;
-import biomesoplenty.items.ItemBOPBamboo;
+import biomesoplenty.blocks.BlockBamboo;
+import biomesoplenty.blocks.BlockHolyGrass;
+import biomesoplenty.blocks.BlockMoss;
+import biomesoplenty.blocks.BlockMud;
+import biomesoplenty.blocks.BlockOriginGrass;
+import biomesoplenty.blocks.BlockPromisedPortal;
+import biomesoplenty.blocks.BlockQuicksand;
+import biomesoplenty.blocks.BlockSmolderingGrass;
+import biomesoplenty.blocks.BlockTreeMoss;
+import biomesoplenty.blocks.BlockWillow;
 import biomesoplenty.items.ItemBOPAppleLeaves;
+import biomesoplenty.items.ItemBOPBamboo;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPFlower;
@@ -23,44 +50,62 @@ import biomesoplenty.items.ItemBOPPetals;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
 import biomesoplenty.items.ItemBOPRedRock;
-import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPSapling;
+import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPWillow;
 
 import com.google.common.base.Optional;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockHalfSlab;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BOPBlocks {
 	public static void init()
 	{
-		// Block declaration
-	    Blocks.mud = Optional.of((new BlockMud(BOPConfiguration.mudID)).setHardness(0.6F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("mud"));
-	    Blocks.driedDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.driedDirtID, Material.rock, BlockType.DRIED_DIRT));
-	    Blocks.redRock = Optional.of((new BlockBOPRedRock(BOPConfiguration.redRockID)).setUnlocalizedName("redRocks"));
-	    Blocks.ash = Optional.of((new BlockAsh(BOPConfiguration.ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("ash"));
-	    Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfiguration.plantsID)).setUnlocalizedName("plants"));
-	    Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfiguration.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers"));
-	    Blocks.willow = Optional.of((new BlockWillow(BOPConfiguration.willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willow"));
-	    Blocks.leaves1 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves1ID, LeafCategory.CAT1)).setUnlocalizedName("leaves1"));
-	    Blocks.leaves2 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves2ID, LeafCategory.CAT2)).setUnlocalizedName("leaves2"));
-	    Blocks.foliage = Optional.of((new BlockBOPFoliage(BOPConfiguration.foliageID)).setUnlocalizedName("foliage"));
-	    Blocks.ashStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.ashStoneID, Material.rock, BlockType.ASH_STONE));
-	    Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardIceID, Material.rock, BlockType.HARD_ICE));
-	    Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.leavesFruitID)).setUnlocalizedName("leavesFruit"));
-	    Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bamboo"));
-	    Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
-	    Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("mudBricksStairs"));
-	    Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneDoubleSlab"));
+		initializeBlocks();
+		registerBlocks();
+
+		//Shears VS Blocks
+		Blocks.shearBlockIds.put(Blocks.leaves1.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leaves2.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leavesColorized.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leavesFruit.get().blockID, 15.0F);
+
+		MinecraftForge.setBlockHarvestLevel(Blocks.smolderingGrass.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.mud.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.ash.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
+
+		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), "pickaxe", 3);		
+		MinecraftForge.setBlockHarvestLevel(Blocks.amethystBlock.get(), "pickaxe", 3);
+		
+		registerNames();
+	}
+	
+	private static void initializeBlocks()
+	{
+	    // Block declaration
+        Blocks.mud = Optional.of((new BlockMud(BOPConfiguration.mudID)).setHardness(0.6F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("mud"));
+        Blocks.driedDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.driedDirtID, Material.rock, BlockType.DRIED_DIRT));
+        Blocks.redRock = Optional.of((new BlockBOPRedRock(BOPConfiguration.redRockID)).setUnlocalizedName("redRocks"));
+        Blocks.ash = Optional.of((new BlockAsh(BOPConfiguration.ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("ash"));
+        Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfiguration.plantsID)).setUnlocalizedName("plants"));
+        Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfiguration.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers"));
+        Blocks.willow = Optional.of((new BlockWillow(BOPConfiguration.willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willow"));
+        Blocks.leaves1 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves1ID, LeafCategory.CAT1)).setUnlocalizedName("leaves1"));
+        Blocks.leaves2 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves2ID, LeafCategory.CAT2)).setUnlocalizedName("leaves2"));
+        Blocks.foliage = Optional.of((new BlockBOPFoliage(BOPConfiguration.foliageID)).setUnlocalizedName("foliage"));
+        Blocks.ashStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.ashStoneID, Material.rock, BlockType.ASH_STONE));
+        Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardIceID, Material.rock, BlockType.HARD_ICE));
+        Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.leavesFruitID)).setUnlocalizedName("leavesFruit"));
+        Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bamboo"));
+        Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
+        Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("mudBricksStairs"));
+        Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneDoubleSlab"));
         Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("stoneSingleSlab"));
         Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfiguration.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("originGrass"));
         Blocks.treeMoss = Optional.of((new BlockTreeMoss(BOPConfiguration.treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("treeMoss"));
@@ -80,14 +125,14 @@ public class BOPBlocks {
         Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
         Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystBlockID, Material.iron, BlockType.AMETHYST_BLOCK));
         Blocks.bambooThatching = Optional.of(new BlockBOPGeneric(BOPConfiguration.bambooThatchingID, Material.wood, BlockType.BAMBOO_THATCHING));
-	    Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("moss"));
-	    Blocks.smolderingGrass = Optional.of((BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass"));
-	    Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
-	    Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
-	    
-	    Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
-	    
-	    Blocks.woodenDoubleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenDoubleSlab1ID, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenDoubleSlab1"));
+        Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("moss"));
+        Blocks.smolderingGrass = Optional.of((BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass"));
+        Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
+        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
+        
+        Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
+        
+        Blocks.woodenDoubleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenDoubleSlab1ID, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenDoubleSlab1"));
         Blocks.woodenSingleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenSingleSlab1ID, false, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("woodenSingleSlab1"));
         Blocks.woodenDoubleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenDoubleSlab2ID, true, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("woodenDoubleSlab2"));
         Blocks.woodenSingleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenSingleSlab2ID, false, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("woodenSingleSlab2"));
@@ -103,24 +148,27 @@ public class BOPBlocks {
         Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redwoodStairsID, Blocks.planks.get(), Category.REDWOOD)).setUnlocalizedName("redwoodStairs"));
         Blocks.willowStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.willowStairsID, Blocks.planks.get(), Category.WILLOW)).setUnlocalizedName("willowStairs"));
         Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(BOPConfiguration.colourizedLeavesID)).setUnlocalizedName("leavesColorized"));
-        
-		// Add block registration
-		GameRegistry.registerBlock(Blocks.mud.get(), "mud");
-		GameRegistry.registerBlock(Blocks.driedDirt.get(), "driedDirt");
-		GameRegistry.registerBlock(Blocks.redRock.get(), ItemBOPRedRock.class, "redRock");
-		GameRegistry.registerBlock(Blocks.ash.get(), "ash");
-		GameRegistry.registerBlock(Blocks.plants.get(), ItemBOPPlant.class, "plants");
-		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
-		GameRegistry.registerBlock(Blocks.willow.get(), ItemBOPWillow.class, "willow");
-		GameRegistry.registerBlock(Blocks.leaves1.get(), ItemBOPLeaves.class, "leaves1");
-		GameRegistry.registerBlock(Blocks.leaves2.get(), ItemBOPLeaves.class, "leaves2");
-		GameRegistry.registerBlock(Blocks.foliage.get(), ItemBOPFoliage.class, "foliage");
-		GameRegistry.registerBlock(Blocks.ashStone.get(), "ashStone");
-		GameRegistry.registerBlock(Blocks.hardIce.get(), "hardIce");
-		GameRegistry.registerBlock(Blocks.leavesFruit.get(), ItemBOPAppleLeaves.class, "leavesFruit");
-		GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBOPBamboo.class, "bamboo");
-		GameRegistry.registerBlock(Blocks.mudBrick.get(), "mudBrick");
-		GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "mudBricksStairs");
+	}
+	
+	private static void registerBlocks()
+	{
+	    // Add block registration
+        GameRegistry.registerBlock(Blocks.mud.get(), "mud");
+        GameRegistry.registerBlock(Blocks.driedDirt.get(), "driedDirt");
+        GameRegistry.registerBlock(Blocks.redRock.get(), ItemBOPRedRock.class, "redRock");
+        GameRegistry.registerBlock(Blocks.ash.get(), "ash");
+        GameRegistry.registerBlock(Blocks.plants.get(), ItemBOPPlant.class, "plants");
+        GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
+        GameRegistry.registerBlock(Blocks.willow.get(), ItemBOPWillow.class, "willow");
+        GameRegistry.registerBlock(Blocks.leaves1.get(), ItemBOPLeaves.class, "leaves1");
+        GameRegistry.registerBlock(Blocks.leaves2.get(), ItemBOPLeaves.class, "leaves2");
+        GameRegistry.registerBlock(Blocks.foliage.get(), ItemBOPFoliage.class, "foliage");
+        GameRegistry.registerBlock(Blocks.ashStone.get(), "ashStone");
+        GameRegistry.registerBlock(Blocks.hardIce.get(), "hardIce");
+        GameRegistry.registerBlock(Blocks.leavesFruit.get(), ItemBOPAppleLeaves.class, "leavesFruit");
+        GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBOPBamboo.class, "bamboo");
+        GameRegistry.registerBlock(Blocks.mudBrick.get(), "mudBrick");
+        GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "mudBricksStairs");
         GameRegistry.registerBlock(Blocks.originGrass.get(), "originGrass");
         GameRegistry.registerBlock(Blocks.treeMoss.get(), "treeMoss");
         GameRegistry.registerBlock(Blocks.logs1.get(), ItemBOPLog.class, "wood1");
@@ -167,313 +215,105 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.redwoodStairs.get(), "redwoodStairs");
         GameRegistry.registerBlock(Blocks.willowStairs.get(), "willowStairs");
         
-        GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBOPColorizedLeaves.class, "leavesColorized");        
-		// Add crafting recipes.
-
-		//Plants
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 6), new Object[] {new ItemStack(Blocks.flowers.get(),1,1)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 13), new Object[] {new ItemStack(Blocks.flowers.get(),1,7)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 14), new Object[] {new ItemStack(Blocks.flowers.get(),1,5)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 9), new Object[] {new ItemStack(Blocks.flowers.get(),1,6)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 7), new Object[] {new ItemStack(Blocks.flowers.get(),1,9)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 12), new Object[] {new ItemStack(Blocks.flowers.get(),1,4)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 5), new Object[] {new ItemStack(Blocks.flowers.get(),1,8)});
-
-		//Brick stairs and slabs
-		GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 0), new Object[] {"RRR", 'R', new ItemStack(Blocks.redRock.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redCobbleStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.redRock.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redCobbleStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.redRock.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 1), new Object[] {"RRR", 'R', new ItemStack(Blocks.redRock.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redBricksStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.redRock.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redBricksStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.redRock.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 2), new Object[] {"RRR", 'R', Blocks.mudBrick.get()});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mudBricksStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', Blocks.mudBrick.get()});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mudBricksStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', Blocks.mudBrick.get()});
-
-		//Redwood
-		OreDictionary.registerOre("plankWood", new ItemStack(Blocks.planks.get()));
-//		OreDictionary.registerOre("logWood", new ItemStack(redwoodWood));
-		OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenSingleSlab2.get()));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.redwoodStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesColorized.get()));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(redwoodSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 8), new Object[] {new ItemStack(Blocks.logs3.get(),1,0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 0), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redwoodStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redwoodStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
-
-		//Willow
-//		OreDictionary.registerOre("plankWood", new ItemStack(willowPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(willowWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(willowSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.willowStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(willowLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(willowSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 9), new Object[] {new ItemStack(Blocks.logs3.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(),6,1), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.willowStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.willowStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
-
-		//Acacia
-//		OreDictionary.registerOre("plankWood", new ItemStack(acaciaPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(acaciaWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(acaciaSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.acaciaStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(acaciaLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(acaciaSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 0), new Object[] {new ItemStack(Blocks.logs1.get(),1,0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,0), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.acaciaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.acaciaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
-
-		//Fir
-//		OreDictionary.registerOre("plankWood", new ItemStack(firPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(firWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(firSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.firStairs.get()));
-		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves1.get()));
-		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get()));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 3), new Object[] {new ItemStack(Blocks.logs1.get(),1,3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,3), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.firStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.firStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
-
-		//Cherry
-//		OreDictionary.registerOre("plankWood", new ItemStack(cherryPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(cherryWood));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.cherryStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(pinkLeaves));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(whiteLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(pinkSapling));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(whiteSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 1), new Object[] {new ItemStack(Blocks.logs1.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,1), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.cherryStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.cherryStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
-
-		//Dark
-//		OreDictionary.registerOre("plankWood", new ItemStack(darkPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(darkWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(darkSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.darkStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(darkLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(darkSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 2), new Object[] {new ItemStack(Blocks.logs1.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,2), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
-
-		//Magic
-//		OreDictionary.registerOre("plankWood", new ItemStack(magicPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(magicWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(magicSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.magicStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(blueLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(magicSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 1, 5), new Object[] {new ItemStack(Blocks.logs2.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,5), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
-
-		//Palm
-//		OreDictionary.registerOre("plankWood", new ItemStack(palmPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(palmWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(palmSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.palmStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(palmLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(palmSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 7), new Object[] {new ItemStack(Blocks.logs2.get(),1,3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,7), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.palmStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.palmStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
-
-		//Mangrove
-//		OreDictionary.registerOre("plankWood", new ItemStack(mangrovePlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(mangroveWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(mangroveSingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.mangroveStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(mangroveLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(mangroveSapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 6), new Object[] {new ItemStack(Blocks.logs2.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,6), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
-
-		//Holy
-//		OreDictionary.registerOre("plankWood", new ItemStack(holyPlank));
-//		OreDictionary.registerOre("logWood", new ItemStack(holyWood));
-//		OreDictionary.registerOre("slabWood", new ItemStack(holySingleSlab));
-		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.holyStairs.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(holyLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(holySapling));
-
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.woodenDoubleSlab1.get(),4,4), new Object[] {new ItemStack(Blocks.logs2.get(),1,0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,4), new Object[] {"RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
-
-		//Autumn
-		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves1.get()));
-		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves2.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(orangeLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(yellowSapling));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(redSapling));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(orangeSapling));
-		
-		//Dead
-		OreDictionary.registerOre("woodLog", new ItemStack(Blocks.logs3.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(deadLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(brownSapling));
-		
-		//Apple
-		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesFruit.get()));
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(appleLeavesFruitless));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(appleSapling));
-		
-		//Origin
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(originLeaves));
-//		OreDictionary.registerOre("treeSapling", new ItemStack(originSapling));
-		
-		//Other
-//		OreDictionary.registerOre("treeLeaves", new ItemStack(bambooLeaves));
-		
-		OreDictionary.registerOre("plankWood", new ItemStack(Blocks.bambooThatching.get()));
-		
-		//Shears VS Blocks
-		Blocks.shearBlockIds.put(Blocks.leaves1.get().blockID, 15.0F);
-		Blocks.shearBlockIds.put(Blocks.leaves2.get().blockID, 15.0F);
-		Blocks.shearBlockIds.put(Blocks.leavesColorized.get().blockID, 15.0F);
-		Blocks.shearBlockIds.put(Blocks.leavesFruit.get().blockID, 15.0F);
-		
-		GameRegistry.addRecipe(new ItemStack(Blocks.redRock.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.redRock.get(),1,0)});
-
-		// TODO
-		GameRegistry.addSmelting(Block.dirt.blockID, new ItemStack(Blocks.driedDirt.get(), 1), 0F);
-		FurnaceRecipes.smelting().addSmelting(Blocks.redRock.get().blockID, 1, new ItemStack(Blocks.redRock.get(), 1, 0), 0.1F);
-		FurnaceRecipes.smelting().addSmelting(Blocks.flowers.get().blockID, 11, new ItemStack(Item.dyePowder, 1, 2), 0.2F);
-		
-		//Block tool strength, 0 is Wood and Gold, 1 is Stone, 2 is Iron and 3 is Diamond
-		//Leaves can be obtained from using shears, however they arn't instantly broken by them (unsure how to do this)
-
-		GameRegistry.registerFuelHandler(checkNotNull(new FurnaceFuel()));
-		
-		MinecraftForge.setBlockHarvestLevel(Blocks.smolderingGrass.get(), "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.mud.get(), "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.ash.get(), "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
-
-		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), "pickaxe", 3);		
-		MinecraftForge.setBlockHarvestLevel(Blocks.amethystBlock.get(), "pickaxe", 3);
-		
-//		MinecraftForge.setBlockHarvestLevel(acaciaLeaves, "shears", 0);
-		
-		// Add block names
-		LanguageRegistry.addName(Blocks.mud.get(), "Mud");
-		LanguageRegistry.addName(Blocks.driedDirt.get(), "Dried Dirt");
-		LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,0), "Red Rock");
-		LanguageRegistry.addName(Blocks.ash.get(), "Ash Block");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,0), "Dead Grass");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,1), "Desert Grass");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Anenome");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,1), "Swampflower");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Wildflower");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,5), "Daisy");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,0), "Clover");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,3), "Glowflower");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,7), "Cattail");
-		LanguageRegistry.addName(Blocks.willow.get(), "Willow");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,0), "Autumn Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Toadstool");
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "High Grass");
-		LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
-		LanguageRegistry.addName(Blocks.hardIce.get(), "Hard Ice");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,2), "Maple Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Autumn Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,1), "Cherry Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,2), "Magic Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,3), "Cherry Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,4), "Dying Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Short Grass");
-		LanguageRegistry.addName(Blocks.leavesFruit.get(), "Apple Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,5), "Sprout");
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Bush");
-		LanguageRegistry.addName(Blocks.bamboo.get(), "Bamboo");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,1), "Bamboo Leaves");
-		LanguageRegistry.addName(Blocks.mudBrick.get(), "Mud Bricks");
-		LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Cobblestone Slab");
+        GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBOPColorizedLeaves.class, "leavesColorized");   
+	}
+	
+	private static void registerNames()
+	{
+	    // Add block names
+        LanguageRegistry.addName(Blocks.mud.get(), "Mud");
+        LanguageRegistry.addName(Blocks.driedDirt.get(), "Dried Dirt");
+        LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,0), "Red Rock");
+        LanguageRegistry.addName(Blocks.ash.get(), "Ash Block");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,0), "Dead Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,1), "Desert Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Anenome");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,1), "Swampflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Wildflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,5), "Daisy");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,0), "Clover");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,3), "Glowflower");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,7), "Cattail");
+        LanguageRegistry.addName(Blocks.willow.get(), "Willow");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,0), "Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Toadstool");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "High Grass");
+        LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
+        LanguageRegistry.addName(Blocks.hardIce.get(), "Hard Ice");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,2), "Maple Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,1), "Cherry Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,2), "Magic Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,3), "Cherry Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,4), "Dying Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Short Grass");
+        LanguageRegistry.addName(Blocks.leavesFruit.get(), "Apple Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,5), "Sprout");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Bush");
+        LanguageRegistry.addName(Blocks.bamboo.get(), "Bamboo");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,1), "Bamboo Leaves");
+        LanguageRegistry.addName(Blocks.mudBrick.get(), "Mud Bricks");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,2), "Mud Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,2), "Mud Bricks Slab");
-		LanguageRegistry.addName(Blocks.mudBricksStairs.get(), "Mud Bricks Stairs");
-		LanguageRegistry.addName(Blocks.originGrass.get(), "Origin Grass");
-		LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,0), "Origin Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,6), "Tulip");
-		LanguageRegistry.addName(Blocks.treeMoss.get(), "Tree Moss");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,6), "Barley");
-		LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,3), "Giant Flower Stem");
-		LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
-		LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,11), "Tiny Cactus");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Fir Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,11), "Maple Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Autumn Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Autumn Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Dying Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Apple Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Origin Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Cherry Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,12), "Cherry Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,4), "Dark Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,3), "Magic Sapling");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,2), "Deathbloom");
-		LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,1), "Red Rock Cobblestone");
-		LanguageRegistry.addName(Blocks.redCobbleStairs.get(), "Red Rock Cobblestone Stairs");
-		LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,2), "Red Rock Bricks");
-		LanguageRegistry.addName(Blocks.redBricksStairs.get(), "Red Rock Bricks Stairs");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,4), "Hydrangea");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,8), "Violet");
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,2), "Medium Grass");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,3), "Dune Grass");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,2), "Desert Sprouts");
-		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,1), "Mangrove Sapling");
-		LanguageRegistry.addName(Blocks.hardSand.get(), "Hard Sand");
-		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
-		LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
-		LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
-		LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
-		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
-		LanguageRegistry.addName(Blocks.promisedPortal.get(), "Promised Land Portal");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
-		LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
-		LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
-		LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
-		LanguageRegistry.addName(Blocks.moss.get(), "Moss");
-		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Algae");
-		LanguageRegistry.addName(Blocks.smolderingGrass.get(), "Smoldering Grass");
-		LanguageRegistry.addName(Blocks.cragRock.get(), "Crag Rock");
-		LanguageRegistry.addName(Blocks.quicksand.get(), "Quicksand");
-		LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Bamboo Sapling");
+        LanguageRegistry.addName(Blocks.mudBricksStairs.get(), "Mud Bricks Stairs");
+        LanguageRegistry.addName(Blocks.originGrass.get(), "Origin Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,0), "Origin Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,6), "Tulip");
+        LanguageRegistry.addName(Blocks.treeMoss.get(), "Tree Moss");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,6), "Barley");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,3), "Giant Flower Stem");
+        LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
+        LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,11), "Tiny Cactus");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Fir Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,11), "Maple Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Dying Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Apple Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Origin Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Cherry Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,12), "Cherry Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,4), "Dark Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,3), "Magic Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,2), "Deathbloom");
+        LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,1), "Red Rock Cobblestone");
+        LanguageRegistry.addName(Blocks.redCobbleStairs.get(), "Red Rock Cobblestone Stairs");
+        LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,2), "Red Rock Bricks");
+        LanguageRegistry.addName(Blocks.redBricksStairs.get(), "Red Rock Bricks Stairs");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,4), "Hydrangea");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,8), "Violet");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,2), "Medium Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,3), "Dune Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,2), "Desert Sprouts");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,1), "Mangrove Sapling");
+        LanguageRegistry.addName(Blocks.hardSand.get(), "Hard Sand");
+        LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
+        LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
+        LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
+        LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
+        LanguageRegistry.addName(Blocks.promisedPortal.get(), "Promised Land Portal");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
+        LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
+        LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
+        LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
+        LanguageRegistry.addName(Blocks.moss.get(), "Moss");
+        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Algae");
+        LanguageRegistry.addName(Blocks.smolderingGrass.get(), "Smoldering Grass");
+        LanguageRegistry.addName(Blocks.cragRock.get(), "Crag Rock");
+        LanguageRegistry.addName(Blocks.quicksand.get(), "Quicksand");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Bamboo Sapling");
 
-		LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 2), "Dark Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 3), "Fir Wood Planks");
@@ -483,7 +323,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 7), "Palm Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 8), "Redwood Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 9), "Willow Wood Planks");
-		
+        
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,0), "Acacia Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,1), "Cherry Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,2), "Dark Wood");
@@ -540,22 +380,5 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Holy Leaves");
-	}
-	
-	public static void dependantinit()
-	{
-		//Plants
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 8), new Object[] {new ItemStack(Items.miscItems.get(), 1, 1)});
-		
-		//Other
-		GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mud.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.amethystBlock.get(), 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.bambooThatching.get(), 1), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
-		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
-		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
 	}
 }

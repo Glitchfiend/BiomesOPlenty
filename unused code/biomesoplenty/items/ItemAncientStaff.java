@@ -1,14 +1,12 @@
 package biomesoplenty.items;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import biomesoplenty.api.Blocks;
 
 public class ItemAncientStaff extends Item
 {

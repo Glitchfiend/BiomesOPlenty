@@ -1,10 +1,7 @@
 package biomesoplenty.configuration;
 
-import ted80.api.DefaultBiomeList;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
-
 import biomesoplenty.api.Biomes;
 import biomesoplenty.biomes.BiomeGenAlps;
 import biomesoplenty.biomes.BiomeGenArctic;
@@ -90,7 +87,6 @@ import biomesoplenty.worldtype.WTBiomesOP;
 
 import com.google.common.base.Optional;
 
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPBiomes {

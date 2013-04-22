@@ -3,11 +3,9 @@ package biomesoplenty.configuration;
 import java.io.File;
 import java.util.logging.Level;
 
-import biomesoplenty.ClientProxy;
-import biomesoplenty.BiomesOPlenty;
-
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.ClientProxy;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfiguration {

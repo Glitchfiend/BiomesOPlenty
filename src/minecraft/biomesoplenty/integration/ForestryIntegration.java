@@ -1,35 +1,27 @@
 package biomesoplenty.integration;
 
-import org.objectweb.asm.tree.analysis.Value;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.liquids.LiquidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.helpers.BonemealUse;
 import forestry.api.apiculture.FlowerManager;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.ItemInterface;
-import forestry.api.fuels.FuelManager;
 import forestry.api.recipes.RecipeManagers;
-import forestry.api.storage.BackpackManager;
-import forestry.api.storage.BackpackStowEvent;
 
 public class ForestryIntegration
 {
     protected static void init()
     {
-        addClimates();
+        addClimateInfo();
         addFermenterRecipes();
         addFlowers();
     }
     
-    private static void addClimates()
+    private static void addClimateInfo()
     {
         //Hot - Arid
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.badlandsID);
@@ -225,6 +217,7 @@ public class ForestryIntegration
     private static void addFermenterRecipes()
     {
 		addFermenterRecipeSapling(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+		addFermenterRecipeSapling(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
     }
     
 	private static void addFermenterRecipeSapling(ItemStack resource) {
@@ -241,6 +234,7 @@ public class ForestryIntegration
 	
 	private static void addFlowers()
 	{
-		FlowerManager.plainFlowers.add(new ItemStack(Blocks.flowers.get(), 1, OreDictionary.WILDCARD_VALUE));
+	    for (int i = 0; i < 10; ++i)
+	        FlowerManager.plainFlowers.add(new ItemStack(Blocks.flowers.get(), 1, i));
 	}
 }
