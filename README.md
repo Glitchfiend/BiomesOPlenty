@@ -16,6 +16,36 @@
  
 - **Tim Rurkowski** - Music author
 
+## World Conversion (Don't use yet!)##
+As of Biomes O Plenty 0.5.2, changes have been made so that the number of block ids used by the mod are drastically reduced. However, as a side-effect of these changes, existing worlds will no longer work.
+
+However, thanks to the wonderful folks who made Midas Gold, we have a work-around for this. 
+
+
+----------
+
+
+1. Grab a copy of Midas Gold from here:
+
+	[https://code.google.com/p/midas-gold/downloads/list](https://code.google.com/p/midas-gold/downloads/list)
+
+2. Extract it.
+
+3. Grab a copy of "BOP 0.5.2 Conversion Patch.txt" from our Git Repo (Right click it and do "Save link as").
+
+4. Launch the Midas Gold jar file.
+
+5. Click on "Add Savegame" and select the folder of the world you want converted.
+
+6. Click on "Load Patch File" and select the "BOP 0.5.2 Conversion Patch.txt" file that you saved earlier.
+
+7. Hit start!
+
+8. You're done :)
+
+----------
+
+
 
 ## Changelog ##
       Version 0.5.2 (Unreleased)
