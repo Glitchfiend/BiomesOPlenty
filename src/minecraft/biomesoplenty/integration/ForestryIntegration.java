@@ -11,6 +11,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.helpers.BonemealUse;
+import forestry.api.apiculture.FlowerManager;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
 import forestry.api.core.ItemInterface;
@@ -25,6 +26,7 @@ public class ForestryIntegration
     {
         addClimates();
         addFermenterRecipes();
+        addFlowers();
     }
     
     private static void addClimates()
@@ -235,5 +237,10 @@ public class ForestryIntegration
 		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
 				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
 				new LiquidStack(ItemInterface.getItem("liquidHoney").itemID, 1, ItemInterface.getItem("liquidHoney").getItemDamage()));
+	}
+	
+	private static void addFlowers()
+	{
+		FlowerManager.plainFlowers.add(new ItemStack(Blocks.flowers.get(), 1, OreDictionary.WILDCARD_VALUE));
 	}
 }
