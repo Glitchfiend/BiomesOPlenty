@@ -26,6 +26,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
       CAT1, CAT2;
     }
     
+    //Autumn - Orange = Leaves 1, Origin - White = Leaves 2
     private static final String[] leaves = new String[] {"autumn", "bamboo", "blue", "dark", "dead", "fir", "holy", "orange", "origin", "pink", "red", "white"};
     private Icon[][] textures;
     private final LeafCategory category;
