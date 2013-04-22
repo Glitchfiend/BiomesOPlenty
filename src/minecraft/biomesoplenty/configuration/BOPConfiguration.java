@@ -107,174 +107,70 @@ public class BOPConfiguration {
 	public static int driedDirtID;
 	public static int redRockID;
 	public static int ashID;
-	public static int deadGrassID;
-	public static int desertGrassID;
-	public static int whiteFlowerID;
-	public static int blueFlowerID;
-	public static int purpleFlowerID;
-	public static int orangeFlowerID;
-	public static int tinyFlowerID;
-	public static int glowFlowerID;
-	public static int cattailID;
-	public static int willowID;
-	public static int autumnLeavesID;
-	public static int thornID;
-	public static int toadstoolID;
-	public static int highGrassBottomID;
-	public static int highGrassTopID;
 	public static int ashStoneID;
 	public static int hardIceID;
-	public static int redLeavesID;
-	public static int orangeLeavesID;
-	public static int pinkLeavesID;
-	public static int blueLeavesID;
-	public static int whiteLeavesID;
-	public static int deadLeavesID;
-	public static int shortGrassID;
-	public static int appleLeavesID;
-	public static int sproutID;
-	public static int bushID;
-	public static int bambooID;
-	public static int bambooLeavesID;
-	public static int mudBrickBlockID;
-	public static int mudBrickDoubleSlabID;
-	public static int mudBrickSingleSlabID;
-	public static int mudBrickStairsID;
 	public static int originGrassID;
-	public static int originLeavesID;
-	public static int pinkFlowerID;
-	public static int treeMossID;
-	public static int deadWoodID;
-	public static int appleLeavesFruitlessID;
-	public static int barleyID;
-	public static int giantFlowerStemID;
-	public static int giantFlowerRedID;
-	public static int giantFlowerYellowID;
-	public static int tinyCactusID;
-	public static int firSaplingID;
-	public static int redwoodSaplingID;
-	public static int palmSaplingID;
-	public static int redSaplingID;
-	public static int orangeSaplingID;
-	public static int yellowSaplingID;
-	public static int brownSaplingID;
-	public static int willowSaplingID;
-	public static int appleSaplingID;
-	public static int originSaplingID;
-	public static int pinkSaplingID;
-	public static int whiteSaplingID;
-	public static int darkSaplingID;
-	public static int magicSaplingID;
-	public static int deathbloomID;
-	public static int redRockCobbleID;
-	public static int redRockCobbleDoubleSlabID;
-	public static int redRockCobbleSingleSlabID;
-	public static int redRockCobbleStairsID;
-	public static int redRockBrickID;
-	public static int redRockBrickDoubleSlabID;
-	public static int redRockBrickSingleSlabID;
-	public static int redRockBrickStairsID;
-	public static int hydrangeaID;
-	public static int violetID;
-	public static int mediumGrassID;
-	public static int duneGrassID;
-	public static int desertSproutsID;
-	public static int mangroveSaplingID;
 	public static int hardSandID;
-	public static int acaciaSaplingID;
 	public static int hardDirtID;
 	public static int holyGrassID;
 	public static int holyStoneID;
-	public static int holyTallGrassID;
+	public static int cragRockID;
+
+	public static int plantsID;
+	public static int flowersID;
+	public static int willowID;
+	
+	public static int leaves1ID;
+	public static int leaves2ID;
+	public static int foliageID;
+	
+	public static int leavesFruitID;
+	public static int bambooID;
+	public static int mudBrickBlockID;
+	public static int mudBrickStairsID;
+	public static int stoneDoubleSlabID;
+	public static int stoneSingleSlabID;
+	
+	public static int treeMossID;
+	
+	public static int logs1ID;
+	public static int logs2ID;
+	public static int logs3ID;
+	public static int petalsID;
+	public static int saplingsID;
+	public static int colourizedSaplingsID;
+	public static int redCobbleStairsID;
+	public static int redBrickStairsID;
+	
 	public static int promisedLandPortalID;
-	public static int holySaplingID;
 	public static int amethystOreID;
 	public static int amethystBlockID;
 	public static int bambooThatchingID;
+	
 	public static int mossID;
-	public static int algaeID;
 	public static int smolderingGrassID;
-	public static int cragRockID;
+	
 	public static int quicksandID;
-	public static int bambooSaplingID;
-
-	//Redwood
-	public static int redwoodPlankID;
-	public static int redwoodWoodID;
-	public static int redwoodLeavesID;
-	public static int redwoodDoubleSlabID;
-	public static int redwoodSingleSlabID;
-	public static int redwoodStairsID;
-
-	//Willow
-	public static int willowPlankID;
-	public static int willowWoodID;
-	public static int willowLeavesID;
-	public static int willowDoubleSlabID;
-	public static int willowSingleSlabID;
-	public static int willowStairsID;
-
-	//Fir
-	public static int firPlankID;
-	public static int firWoodID;
-	public static int firLeavesID;
-	public static int firDoubleSlabID;
-	public static int firSingleSlabID;
-	public static int firStairsID;
-
-	//Acacia
-	public static int acaciaPlankID;
-	public static int acaciaWoodID;
-	public static int acaciaLeavesID;
-	public static int acaciaDoubleSlabID;
-	public static int acaciaSingleSlabID;
+	
+	public static int planksID;
+	
+	public static int woodenDoubleSlab1ID;
+	public static int woodenSingleSlab1ID;
+	public static int woodenDoubleSlab2ID;
+	public static int woodenSingleSlab2ID;
+	
 	public static int acaciaStairsID;
-
-	//Cherry
-	public static int cherryPlankID;
-	public static int cherryWoodID;
-	public static int cherryDoubleSlabID;
-	public static int cherrySingleSlabID;
 	public static int cherryStairsID;
-
-	//Dark
-	public static int darkPlankID;
-	public static int darkWoodID;
-	public static int darkLeavesID;
-	public static int darkDoubleSlabID;
-	public static int darkSingleSlabID;
 	public static int darkStairsID;
-
-	//Magic
-	public static int magicPlankID;
-	public static int magicWoodID;
-	public static int magicDoubleSlabID;
-	public static int magicSingleSlabID;
-	public static int magicStairsID;
-
-	//Palm
-	public static int palmPlankID;
-	public static int palmWoodID;
-	public static int palmLeavesID;
-	public static int palmDoubleSlabID;
-	public static int palmSingleSlabID;
-	public static int palmStairsID;
-
-	//Mangrove
-	public static int mangrovePlankID;
-	public static int mangroveWoodID;
-	public static int mangroveLeavesID;
-	public static int mangroveDoubleSlabID;
-	public static int mangroveSingleSlabID;
-	public static int mangroveStairsID;
-
-	//Holy
-	public static int holyPlankID;
-	public static int holyWoodID;
-	public static int holyLeavesID;
-	public static int holyDoubleSlabID;
-	public static int holySingleSlabID;
+	public static int firStairsID;
 	public static int holyStairsID;
+	public static int magicStairsID;
+	public static int mangroveStairsID;
+	public static int palmStairsID;
+	public static int redwoodStairsID;
+	public static int willowStairsID;
+	
+	public static int colourizedLeavesID;
 
 	public static int shroomPowderID;
 	public static int mudBallID;
@@ -535,146 +431,61 @@ public class BOPConfiguration {
 			cragRockID = config.getTerrainBlock("Terrain Block IDs", "Crag Rock ID", 171, null).getInt();
 
 			// Get Crafted Block ID's
-			mudBrickBlockID = config.getBlock("Mud Bricks ID", 256, null).getInt();
-			redwoodPlankID = config.getBlock("Redwood Plank ID", 257, null).getInt();
-			redwoodDoubleSlabID = config.getBlock("Redwood Double Slab ID", 258, null).getInt();
-			redwoodSingleSlabID = config.getBlock("Redwood Single Slab ID", 259, null).getInt();
-			redwoodStairsID = config.getBlock("Redwood Stairs ID", 260, null).getInt();
-			willowPlankID = config.getBlock("Willow Plank ID", 261, null).getInt();
-			willowDoubleSlabID = config.getBlock("Willow Double Slab ID", 262, null).getInt();
-			willowSingleSlabID = config.getBlock("Willow Single Slab ID", 263, null).getInt();
-			willowStairsID = config.getBlock("Willow Stairs ID", 264, null).getInt();
-			firPlankID = config.getBlock("Fir Plank ID", 265, null).getInt();
-			firDoubleSlabID = config.getBlock("Fir Double Slab ID", 266, null).getInt();
-			firSingleSlabID = config.getBlock("Fir Single Slab ID", 267, null).getInt();
-			firStairsID = config.getBlock("Fir Stairs ID", 268, null).getInt();
-			acaciaPlankID = config.getBlock("Acacia Plank ID", 269, null).getInt();
-			acaciaDoubleSlabID = config.getBlock("Acacia Double Slab ID", 270, null).getInt();
-			acaciaSingleSlabID = config.getBlock("Acacia Single Slab ID", 271, null).getInt();
-			acaciaStairsID = config.getBlock("Acacia Stairs ID", 272, null).getInt();
-			cherryPlankID = config.getBlock("Cherry Plank ID", 273, null).getInt();
-			cherryDoubleSlabID = config.getBlock("Cherry Double Slab ID", 274, null).getInt();
-			cherrySingleSlabID = config.getBlock("Cherry Single Slab ID", 275, null).getInt();
-			cherryStairsID = config.getBlock("Cherry Stairs ID", 276, null).getInt();
-			darkPlankID = config.getBlock("Dark Plank ID", 277, null).getInt();
-			darkDoubleSlabID = config.getBlock("Dark Double Slab ID", 278, null).getInt();
-			darkSingleSlabID = config.getBlock("Dark Single Slab ID", 279, null).getInt();
-			darkStairsID = config.getBlock("Dark Stairs ID", 280, null).getInt();
-			magicPlankID = config.getBlock("Magic Plank ID", 281, null).getInt();
-			magicDoubleSlabID = config.getBlock("Magic Double Slab ID", 282, null).getInt();
-			magicSingleSlabID = config.getBlock("Magic Single Slab ID", 283, null).getInt();
-			magicStairsID = config.getBlock("Magic Stairs ID", 284, null).getInt();
-			palmPlankID = config.getBlock("Palm Plank ID", 285, null).getInt();
-			palmDoubleSlabID = config.getBlock("Palm Double Slab ID", 286, null).getInt();
-			palmSingleSlabID = config.getBlock("Palm Single Slab ID", 287, null).getInt();
-			palmStairsID = config.getBlock("Palm Stairs ID", 288, null).getInt();
-			originLeavesID = config.getBlock("Origin Leaves ID", 289, null).getInt();
-			redwoodWoodID = config.getBlock("Redwood Log ID", 290, null).getInt();
-			redwoodLeavesID = config.getBlock("Redwood Leaves ID", 291, null).getInt();
-			willowWoodID = config.getBlock("Willow Log ID", 292, null).getInt();
-			willowLeavesID = config.getBlock("Willow Leaves ID", 293, null).getInt();
-			firWoodID = config.getBlock("Fir Log ID", 294, null).getInt();
-			firLeavesID = config.getBlock("Fir Leaves ID", 295, null).getInt();
-			acaciaWoodID = config.getBlock("Acacia Log ID", 296, null).getInt();
-			acaciaLeavesID = config.getBlock("Acacia Leaves ID", 297, null).getInt();
-			cherryWoodID = config.getBlock("Cherry Log ID", 298, null).getInt();
-			pinkFlowerID = config.getBlock("Pink Flower ID", 299, null).getInt();
-			darkWoodID = config.getBlock("Dark Log ID", 300, null).getInt();
-			darkLeavesID = config.getBlock("Dark Leaves ID", 301, null).getInt();
-			treeMossID = config.getBlock("Tree Moss ID", 302, null).getInt();
-			magicWoodID = config.getBlock("Magic Log ID", 303, null).getInt();
-			deadWoodID = config.getBlock("Dead Log ID", 304, null).getInt();
-			appleLeavesFruitlessID = config.getBlock("Fruitless Apple Leaves ID", 305, null).getInt();
-			barleyID = config.getBlock("Barley ID", 306, null).getInt();
-			palmWoodID = config.getBlock("Palm Log ID", 307, null).getInt();
-			palmLeavesID = config.getBlock("Palm Leaves ID", 308, null).getInt();
-			giantFlowerRedID = config.getBlock("Giant Red Flower ID", 309, null).getInt();
-			giantFlowerStemID = config.getBlock("Giant Flower Stem ID", 310, null).getInt();
-			giantFlowerYellowID = config.getBlock("Giant Yellow Flower ID", 311, null).getInt();
-			redLeavesID = config.getBlock("Maple Leaves ID", 312, null).getInt();
-			orangeLeavesID = config.getBlock("Orange Autumn Leaves ID", 313, null).getInt();
-			pinkLeavesID = config.getBlock("Pink Cherry Leaves ID", 314, null).getInt();
-			blueLeavesID = config.getBlock("Magic Leaves ID", 315, null).getInt();
-			whiteLeavesID = config.getBlock("White Cherry Leaves ID", 316, null).getInt();
-			deadLeavesID = config.getBlock("Dying Leaves ID", 317, null).getInt();
-			shortGrassID = config.getBlock("Short Grass ID", 318, null).getInt();
-			appleLeavesID = config.getBlock("Apple Leaves ID", 319, null).getInt();
-			sproutID = config.getBlock("Sprout ID", 320, null).getInt();
-			bushID = config.getBlock("Bush ID", 321, null).getInt();
-			bambooID = config.getBlock("Bamboo ID", 322, null).getInt();
-			bambooLeavesID = config.getBlock("Bamboo Leaves ID", 323, null).getInt();
-			deadGrassID = config.getBlock("Dead Grass ID", 324, null).getInt();
-			desertGrassID = config.getBlock("Desert Grass ID", 325, null).getInt();
-			whiteFlowerID = config.getBlock("Anenome ID", 326, null).getInt();
-			blueFlowerID = config.getBlock("Swampflower ID", 327, null).getInt();
-			purpleFlowerID = config.getBlock("Wildflower ID", 328, null).getInt();
-			orangeFlowerID = config.getBlock("Daisy ID", 329, null).getInt();
-			tinyFlowerID = config.getBlock("Clover ID", 330, null).getInt();
-			glowFlowerID = config.getBlock("Glowflower ID", 331, null).getInt();
-			cattailID = config.getBlock("Cattail ID", 332, null).getInt();
-			willowID = config.getBlock("Willow ID", 333, null).getInt();
-			autumnLeavesID = config.getBlock("Yellow Autumn Leaves ID", 334, null).getInt();
-			thornID = config.getBlock("Thorns ID", 335, null).getInt();
-			toadstoolID = config.getBlock("Toadstool ID", 336, null).getInt();
-			highGrassBottomID = config.getBlock("High Grass Bottom ID", 337, null).getInt();
-			highGrassTopID = config.getBlock("High Grass Top ID", 338, null).getInt();
-			tinyCactusID = config.getBlock("Tiny Cactus ID", 339, null).getInt();
-			firSaplingID = config.getBlock("Fir Sapling ID", 340, null).getInt();
-			redwoodSaplingID = config.getBlock("Redwood Sapling ID", 341, null).getInt();
-			palmSaplingID = config.getBlock("Palm Sapling ID", 342, null).getInt();
-			redSaplingID = config.getBlock("Maple Sapling ID", 343, null).getInt();
-			orangeSaplingID = config.getBlock("Orange Autumn Sapling ID", 344, null).getInt();
-			yellowSaplingID = config.getBlock("Yellow Autumn Sapling ID", 345, null).getInt();
-			brownSaplingID = config.getBlock("Dying Sapling ID", 346, null).getInt();
-			willowSaplingID = config.getBlock("Willow Sapling ID", 347, null).getInt();
-			appleSaplingID = config.getBlock("Apple Sapling ID", 348, null).getInt();
-			originSaplingID = config.getBlock("Origin Sapling ID", 349, null).getInt();
-			pinkSaplingID = config.getBlock("Pink Cherry Sapling ID", 350, null).getInt();
-			whiteSaplingID = config.getBlock("White Cherry Sapling ID", 351, null).getInt();
-			darkSaplingID = config.getBlock("Dark Sapling ID", 352, null).getInt();
-			magicSaplingID = config.getBlock("Magic Sapling ID", 353, null).getInt();
-			deathbloomID = config.getBlock("Deathbloom ID", 354, null).getInt();
-			redRockCobbleID = config.getBlock("Red Rock Cobblestone ID", 355, null).getInt();
-			redRockBrickID = config.getBlock("Red Rock Bricks ID", 356, null).getInt();
-			hydrangeaID = config.getBlock("Hydrangea ID", 357, null).getInt();
-			violetID = config.getBlock("Violet ID", 358, null).getInt();
-			mediumGrassID = config.getBlock("Medium Grass ID", 359, null).getInt();
-			duneGrassID = config.getBlock("Dune Grass ID", 360, null).getInt();
-			desertSproutsID = config.getBlock("Desert Sprouts ID", 361, null).getInt();
-			redRockCobbleDoubleSlabID = config.getBlock("Red Rock Cobblestone Double Slab ID", 362, null).getInt();
-			redRockCobbleSingleSlabID = config.getBlock("Red Rock Cobblestone Single Slab ID", 363, null).getInt();
-			redRockCobbleStairsID = config.getBlock("Red Rock Cobblestone Stairs ID", 364, null).getInt();
-			redRockBrickDoubleSlabID = config.getBlock("Red Rock Brick Double Slab ID", 365, null).getInt();
-			redRockBrickSingleSlabID = config.getBlock("Red Rock Brick Single Slab ID", 366, null).getInt();
-			redRockBrickStairsID = config.getBlock("Red Rock Brick Stairs ID", 367, null).getInt();
-			mudBrickDoubleSlabID = config.getBlock("Mud Brick Double Slab ID", 368, null).getInt();
-			mudBrickSingleSlabID = config.getBlock("Mud Brick Single Slab ID", 369, null).getInt();
-			mudBrickStairsID = config.getBlock("Mud Brick Stairs ID", 370, null).getInt();
-			mangroveWoodID = config.getBlock("Mangrove Log ID", 371, null).getInt();
-			mangroveLeavesID = config.getBlock("Mangrove Leaves ID", 372, null).getInt();
-			mangroveSaplingID = config.getBlock("Mangrove Sapling ID", 373, null).getInt();
-			mangrovePlankID = config.getBlock("Mangrove Plank ID", 374, null).getInt();
-			mangroveDoubleSlabID = config.getBlock("Mangrove Double Slab ID", 375, null).getInt();
-			mangroveSingleSlabID = config.getBlock("Mangrove Single Slab ID", 376, null).getInt();
-			mangroveStairsID = config.getBlock("Mangrove Stairs ID", 377, null).getInt();
-			acaciaSaplingID = config.getBlock("Acacia Sapling ID", 378, null).getInt();
-			holyTallGrassID = config.getBlock("Holy Tall Grass ID", 379, null).getInt();
-			promisedLandPortalID = config.getBlock("Promised Land Portal ID", 380, null).getInt();
-			holyWoodID = config.getBlock("Holy Log ID", 381, null).getInt();
-			holyLeavesID = config.getBlock("Holy Leaves ID", 382, null).getInt();
-			holySaplingID = config.getBlock("Holy Sapling ID", 383, null).getInt();
-			holyPlankID = config.getBlock("Holy Plank ID", 384, null).getInt();
-			holyDoubleSlabID = config.getBlock("Holy Double Slab ID", 385, null).getInt();
-			holySingleSlabID = config.getBlock("Holy Single Slab ID", 386, null).getInt();
-			holyStairsID = config.getBlock("Holy Stairs ID", 387, null).getInt();
-			amethystOreID = config.getBlock("Amethyst Ore ID", 388, null).getInt();
-			amethystBlockID = config.getBlock("Block of Amethyst ID", 389, null).getInt();
-			bambooThatchingID = config.getBlock("Bamboo Thatching ID", 390, null).getInt();
+			plantsID = config.getBlock("Plant ID", 1920, null).getInt();
+			flowersID = config.getBlock("Flower ID", 1921, null).getInt();
+			willowID = config.getBlock("Willow ID", 1922, null).getInt();
+			
+			leaves1ID = config.getBlock("Leaf Block ID 1", 1923, null).getInt();
+			leaves2ID = config.getBlock("Leaf Block ID 2", 1924, null).getInt();
+			foliageID = config.getBlock("Foliage ID", 1925, null).getInt();
+			
+			leavesFruitID = config.getBlock("Fruit Leaf Block ID", 1926, null).getInt();
+			bambooID = config.getBlock("Bamboo ID", 1927, null).getInt();
+			mudBrickBlockID = config.getBlock("Mud Bricks ID", 1928, null).getInt();
+			mudBrickStairsID = config.getBlock("Mud Brick Stairs ID", 1929, null).getInt();
+			stoneDoubleSlabID = config.getBlock("Stone Double Slab ID", 1930, null).getInt();
+			stoneSingleSlabID = config.getBlock("Stone Single Slab ID", 1931, null).getInt();
+			
+			treeMossID = config.getBlock("Tree Moss ID", 1932, null).getInt();
+			
+			logs1ID = config.getBlock("Log Block ID 1", 1933, null).getInt();
+			logs2ID = config.getBlock("Log Block ID 2", 1934, null).getInt();
+			logs3ID = config.getBlock("Log Block ID 3", 1935, null).getInt();
+			petalsID = config.getBlock("Petal ID", 1936, null).getInt();
+			saplingsID = config.getBlock("Sapling ID", 1937, null).getInt();
+			colourizedSaplingsID = config.getBlock("Colourized Sapling ID", 1938, null).getInt();
+			redCobbleStairsID = config.getBlock("Red Cobble Stairs ID", 1939, null).getInt();
+			redBrickStairsID = config.getBlock("Red Brick Stairs ID", 1940, null).getInt();
+			
+			promisedLandPortalID = config.getBlock("Promised Land Portal ID", 1941, null).getInt();
+			amethystOreID = config.getBlock("Amethyst Ore ID", 1942, null).getInt();
+			amethystBlockID = config.getBlock("Block of Amethyst ID", 1943, null).getInt();
+			bambooThatchingID = config.getBlock("Bamboo Thatching ID", 1944, null).getInt();
+			
 			mossID = config.getBlock("Moss ID", 391, null).getInt();
-			algaeID = config.getBlock("Algae ID", 392, null).getInt();
-			smolderingGrassID = config.getBlock("Smoldering Grass ID", 393, null).getInt();
-			quicksandID = config.getBlock("Quicksand ID", 394, null).getInt();
-			bambooSaplingID = config.getBlock("Bamboo Sapling ID", 395, null).getInt();
+			smolderingGrassID = config.getBlock("Smoldering Grass ID", 1945, null).getInt();
+			
+			quicksandID = config.getBlock("Quicksand ID", 1946, null).getInt();
+			
+			planksID = config.getBlock("Planks ID", 1947, null).getInt();
+			
+			woodenDoubleSlab1ID = config.getBlock("Wooden Double Slab 1 ID", 1948, null).getInt();
+			woodenSingleSlab1ID = config.getBlock("Wooden Single Slab 1 ID", 1949, null).getInt();
+			woodenDoubleSlab2ID = config.getBlock("Wooden Double Slab 2 ID", 1950, null).getInt();
+			woodenSingleSlab2ID = config.getBlock("Wooden Single Slab 2 ID", 1951, null).getInt();
+			
+			acaciaStairsID = config.getBlock("Acacia Stairs ID", 1952, null).getInt();
+			cherryStairsID = config.getBlock("Cherry Stairs ID", 1953, null).getInt();
+			darkStairsID = config.getBlock("Dark Stairs ID", 1954, null).getInt();
+			firStairsID = config.getBlock("Fir Stairs ID", 1955, null).getInt();
+			holyStairsID = config.getBlock("Holy Stairs ID", 1956, null).getInt();
+			magicStairsID = config.getBlock("Magic Stairs ID", 1957, null).getInt();
+			mangroveStairsID = config.getBlock("Mangrove Stairs ID", 1958, null).getInt();
+			palmStairsID = config.getBlock("Palm Stairs ID", 1959, null).getInt();
+			redwoodStairsID = config.getBlock("Redwood Stairs ID", 1960, null).getInt();
+			willowStairsID = config.getBlock("Willow Stairs ID", 1961, null).getInt();
+			
+			colourizedLeavesID = config.getBlock("Colourized Leaves ID", 1962, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 1001, null).getInt();
