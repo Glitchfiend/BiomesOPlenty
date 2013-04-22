@@ -18,11 +18,10 @@
 
 
 ## Changelog ##
-      Version 0.6.0 (Unreleased)
-	- Added an API for other mod developers
-	- Added support for Biomes O Plenty woods in Thermal Expansion sawmills
-	- Significantly compressed the amount of Block IDs used, however breaks existing worlds (Sorry, we are looking into ways of converting 
-	  them)
+      Version 0.5.3 (Unreleased)
+    - Added an API for other mod developers
+    - Added support for Biomes O Plenty woods in Thermal Expansion sawmills
+    - Significantly compressed the amount of Block IDs used, however breaks existing worlds (Sorry, we are looking into ways of converting them)
     - Updated to the latest Forge
     - Changed various things to use IShearable
     - Changed default biome ids to be compatible with Mo Creatures
