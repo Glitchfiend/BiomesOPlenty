@@ -27,7 +27,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
     
     private static final String[] leaves = new String[] {"autumn", "bamboo", "blue", "dark", "dead", "fir", "holy", "orange", "origin", "pink", "red", "white"};
-    @SideOnly(Side.CLIENT)
     private Icon[][] textures;
     private final LeafCategory category;
     int[] adjacentTreeBlocks;
@@ -45,7 +44,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[2][leaves.length];
@@ -58,7 +56,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta) + (this.category.ordinal() * 8)];
@@ -71,7 +68,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < 8; ++i)

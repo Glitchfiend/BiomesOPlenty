@@ -22,7 +22,6 @@ public class BlockBOPLog extends Block
     }
     
     private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
     private Icon[] logHearts;
     
@@ -40,7 +39,6 @@ public class BlockBOPLog extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[types.length];
@@ -57,7 +55,6 @@ public class BlockBOPLog extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         int pos = meta & 12;
@@ -67,7 +64,6 @@ public class BlockBOPLog extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < 4; ++i)

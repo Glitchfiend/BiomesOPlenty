@@ -20,7 +20,6 @@ public class BlockBOPGeneric extends Block
         ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, AMETHYST_ORE, AMETHYST_BLOCK, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK;
     }
     
-    @SideOnly(Side.CLIENT)
     private Icon texture;
     private BlockType type;
 
@@ -82,7 +81,6 @@ public class BlockBOPGeneric extends Block
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         switch (type)
@@ -137,7 +135,6 @@ public class BlockBOPGeneric extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         return texture;

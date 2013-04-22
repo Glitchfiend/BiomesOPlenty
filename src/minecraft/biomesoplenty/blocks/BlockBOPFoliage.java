@@ -26,7 +26,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 {
     private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop"};
     
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
 
     private static final int GRASSTOP = 6;
@@ -45,7 +44,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[foliageTypes.length];
@@ -55,7 +53,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         if (meta >= textures.length)
@@ -65,7 +62,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
     {

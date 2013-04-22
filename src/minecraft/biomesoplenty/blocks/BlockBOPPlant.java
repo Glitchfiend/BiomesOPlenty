@@ -26,7 +26,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
     private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
     public BlockBOPPlant(int par1)
@@ -42,7 +41,6 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[plants.length];
@@ -52,7 +50,6 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= textures.length)
@@ -84,7 +81,6 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < plants.length; ++i)

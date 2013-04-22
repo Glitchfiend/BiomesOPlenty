@@ -24,7 +24,6 @@ import net.minecraftforge.common.IShearable;
 
 public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 {
-    @SideOnly(Side.CLIENT)
     private Icon[][] textures;
     int[] adjacentTreeBlocks;
     
@@ -40,7 +39,6 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[2][4];
@@ -53,7 +51,6 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         return textures[(!isOpaqueCube() ? 0 : 1)][meta & 3];
@@ -66,7 +63,6 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         list.add(new ItemStack(blockID, 1, 0));        

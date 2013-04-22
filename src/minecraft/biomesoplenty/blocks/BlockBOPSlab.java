@@ -24,7 +24,6 @@ public class BlockBOPSlab extends BlockHalfSlab
     }
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
     private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
     private final SlabCategory category;
@@ -48,7 +47,6 @@ public class BlockBOPSlab extends BlockHalfSlab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         if (category == SlabCategory.STONE)
@@ -68,7 +66,6 @@ public class BlockBOPSlab extends BlockHalfSlab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         if (category == SlabCategory.STONE)
@@ -78,7 +75,6 @@ public class BlockBOPSlab extends BlockHalfSlab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         int max = 0;

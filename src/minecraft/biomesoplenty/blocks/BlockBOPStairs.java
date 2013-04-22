@@ -17,7 +17,6 @@ public class BlockBOPStairs extends BlockStairs
     }
     
     private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
     private final Category category;
 
@@ -31,7 +30,6 @@ public class BlockBOPStairs extends BlockStairs
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[types.length];
@@ -45,7 +43,6 @@ public class BlockBOPStairs extends BlockStairs
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         return textures[category.ordinal()];

@@ -24,7 +24,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPColorizedSapling extends BlockSapling
 {
     private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
     private static final int TYPES = 15;
     
@@ -37,7 +36,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[saplings.length];
@@ -58,7 +56,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < saplings.length; ++i)

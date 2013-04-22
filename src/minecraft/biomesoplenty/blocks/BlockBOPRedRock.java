@@ -17,7 +17,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPRedRock extends Block
 {
     private static final String[] types = new String[] {"redrock", "redcobble", "redbrick"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures = {null, null, null};
     
     public BlockBOPRedRock(int par1)
@@ -37,7 +36,6 @@ public class BlockBOPRedRock extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= textures.length)
@@ -46,14 +44,12 @@ public class BlockBOPRedRock extends Block
         return textures[meta];
     }
     
-    @SideOnly(Side.CLIENT)
     @Override
     public int getDamageValue(World world, int x, int y, int z) {
         return world.getBlockMetadata(x, y, z);
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < types.length; ++i)

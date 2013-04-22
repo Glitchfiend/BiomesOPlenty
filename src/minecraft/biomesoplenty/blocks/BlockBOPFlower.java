@@ -21,7 +21,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPFlower extends BlockFlower
 {
     private static final String[] plants = new String[] {"tinyflower", "swampflower", "deadbloom", "glowflower", "hydrangea", "orangeflower", "pinkflower", "purpleflower", "violet", "whiteflower", "toadstool", "cactus"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
     protected BlockBOPFlower(int blockID, Material material)
@@ -39,7 +38,6 @@ public class BlockBOPFlower extends BlockFlower
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[plants.length];
@@ -49,7 +47,6 @@ public class BlockBOPFlower extends BlockFlower
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= textures.length)

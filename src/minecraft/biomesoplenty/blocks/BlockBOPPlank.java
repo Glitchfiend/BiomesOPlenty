@@ -16,7 +16,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPPlank extends Block
 {
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
-    @SideOnly(Side.CLIENT)
     private Icon[] textures;
 
     public BlockBOPPlank(int blockID)
@@ -28,7 +27,6 @@ public class BlockBOPPlank extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[woodTypes.length];
@@ -38,7 +36,6 @@ public class BlockBOPPlank extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         if (meta < 0 || meta >= textures.length)
@@ -48,7 +45,6 @@ public class BlockBOPPlank extends Block
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < woodTypes.length; ++i)

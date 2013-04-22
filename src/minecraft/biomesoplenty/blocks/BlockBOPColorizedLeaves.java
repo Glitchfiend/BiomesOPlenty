@@ -23,7 +23,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
 {
     private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow"};
-    @SideOnly(Side.CLIENT)
     private Icon[][] textures;
     int[] adjacentTreeBlocks;
     
@@ -39,7 +38,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[2][leaves.length];
@@ -52,7 +50,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public int getBlockColor()
     {
         double temperature = 0.5D;
@@ -61,7 +58,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public int getRenderColor(int par1)
     {
         switch (par1)
@@ -78,7 +74,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
         int var6 = 0;
@@ -100,7 +95,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
     
     @Override
-    @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta)
     {
         return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta)];
