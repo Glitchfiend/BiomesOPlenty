@@ -1,0 +1,33 @@
+3996 -> 162:1 //Red Rock Cobblestone
+3995 -> 162:2 //Red Rock Bricks
+4027 -> 1920 //Dead Grass
+4026 -> 1920:1 //Desert Grass
+3990 -> 1920:2 //Desert Sprouts
+3991 -> 1920:3 //Dune Grass
+3972 -> 1920:4 //Holy Tall Grass
+4016 -> 1920:5 //Thorns
+4045 -> 1920:6 //Barley
+4019 -> 1920:7 //Cattail
+4021 -> 1921 //Clover
+4024 -> 1921:1 //Swampflower
+3997 -> 1921:2 //Deathbloom
+4020 -> 1921:3 //Glowflower
+3994 -> 1921:4 //Hydrangea
+4022 -> 1921:5 //Daisy
+4052 -> 1921:6 //Tulip
+4023 -> 1921:7 //Wildflower
+3993 -> 1921:8 //Violet
+4025 -> 1921:9 //Anenome
+4015 -> 1921:10 //Toadstool
+4012 -> 1921:11 //Tiny Cactus
+
+4012 -> 1923 //Yellow Autumn Leaves
+4012 -> 1923:1 //Bamboo Leaves
+4012 -> 1923:2 //Magic Leaves
+4012 -> 1923:3 //Dark Leaves
+4012 -> 1923:4 //Dying Leaves
+
+4056 -> 1923:5 //Fir Leaves
+
+4012 -> 1923:6 //Holy Leaves
+4012 -> 1923:7 //Orange Autumn Leaves
