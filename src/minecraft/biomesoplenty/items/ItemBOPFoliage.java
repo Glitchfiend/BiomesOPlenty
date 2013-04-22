@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPFoliage extends ItemColored
 {
-    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrass", "bush", "sprout", "highgrasstop"};
+    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "item_highgrass", "bush", "sprout", "highgrasstop"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
