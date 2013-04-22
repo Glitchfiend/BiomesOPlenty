@@ -106,8 +106,9 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
             return;
 
         int meta = world.getBlockMetadata(x, y, z);
-        if ((meta & 4) < 3)
-            world.setBlock(x, y, z, blockID, ++meta, 3);
+        if (random.nextInt(5) == 0)
+            if ((meta & 4) < 3)
+                world.setBlock(x, y, z, blockID, ++meta, 3);
         
         if ((meta & 8) != 0 && (meta & 4) == 0)
         {
