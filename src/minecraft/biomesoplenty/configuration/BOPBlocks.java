@@ -275,14 +275,14 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,11), "Maple Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Autumn Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,8), "Orange Autumn Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Yellow Autumn Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Dying Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Apple Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Origin Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Cherry Sapling");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,12), "Cherry Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Pink Cherry Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,12), "White Cherry Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,4), "Dark Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,3), "Magic Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,2), "Deathbloom");
