@@ -111,7 +111,7 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Blocks.amethystBlock.get(), 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
         GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
         GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 3)});
-        GameRegistry.addRecipe(new ItemStack(Blocks.bambooThatching.get(), 1), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
+        GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
         GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
         GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
         
@@ -146,7 +146,7 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', Blocks.amethystBlock.get()});
         GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', new ItemStack(Items.miscItems.get(), 1, 0), 'D', Items.bopDisc.get()});
         
-        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.bamboo.get(), 9), new Object[] {Blocks.bambooThatching.get()});
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.bamboo.get(), 9), new Object[] {new ItemStack(Blocks.planks.get(), 1, 10)});
         GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {Blocks.amethystBlock.get()});
         
         //Plants
@@ -166,8 +166,9 @@ public class BOPCrafting
     private static void addOreRegistration()
     {
       //Ore Registration
-        OreDictionary.registerOre("plankWood", new ItemStack(Blocks.planks.get(), 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("plankWood", new ItemStack(Blocks.bambooThatching.get()));
+        for (int i = 0; i < 10; ++i)
+            OreDictionary.registerOre("plankWood", new ItemStack(Blocks.planks.get(), 1, i));
+//        OreDictionary.registerOre("plankWood", new ItemStack(Blocks.bambooThatching.get()));
         
         OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));

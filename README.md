@@ -55,7 +55,6 @@ However, thanks to the wonderful folks who made Midas Gold, we have a work-aroun
     - Updated to the latest Forge
     - Changed various things to use IShearable
     - Changed default biome ids to be compatible with Mo Creatures
-    - Bamboo Thatching is now equivalent to wood planks (giving it a use, yay :D)
     - Made a proper fix for achievements and made them enabled by default (The config option is still there though for those that want it)
     - Added Better World Generation 4 support
     - Made shears instantly destroy Biomes O Plenty leaves
@@ -63,7 +62,6 @@ However, thanks to the wonderful folks who made Midas Gold, we have a work-aroun
     - Fixed an issue causing sound files to be created on the desktop
     - Biomes O Plenty saplings now work in the Forestry fermenter
     - Biomes O Plenty flowers can now be used with bees 
-    - Added a config option for generating vanilla ocean biomes
     - Gave the different types Autumn and Cherry Leaves their own names
     - Added Biome Dictionary support
 

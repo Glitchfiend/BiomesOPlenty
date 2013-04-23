@@ -2,12 +2,10 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 
 public class WorldGenQuicksand extends WorldGenerator
 {
@@ -41,19 +39,19 @@ public class WorldGenQuicksand extends WorldGenerator
                 }
             }
 
-			var1.setBlock(var3, var4 - 3, var5, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3, var4 - 2, var5, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3, var4 - 1, var5, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3, var4 - 3, var5, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3, var4 - 2, var5, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3, var4 - 1, var5, Blocks.mud.get().blockID, 1, 2);
             var1.setBlock(var3, var4, var5, 0);
 			
-			var1.setBlock(var3 - 1, var4 - 2, var5, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3 + 1, var4 - 2, var5, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3, var4 - 2, var5 - 1, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3, var4 - 2, var5 + 1, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3 + 1, var4 - 1, var5, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.quicksand.get().blockID);
-			var1.setBlock(var3, var4 - 1, var5 + 1, Blocks.quicksand.get().blockID);
+			var1.setBlock(var3 - 1, var4 - 2, var5, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3 + 1, var4 - 2, var5, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3, var4 - 2, var5 - 1, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3, var4 - 2, var5 + 1, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3 + 1, var4 - 1, var5, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.mud.get().blockID, 1, 2);
+			var1.setBlock(var3, var4 - 1, var5 + 1, Blocks.mud.get().blockID, 1, 2);
 			var1.setBlock(var3 - 1, var4, var5, 0);
 			var1.setBlock(var3 + 1, var4, var5, 0);
 			var1.setBlock(var3, var4, var5 - 1, 0);

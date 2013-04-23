@@ -2,6 +2,8 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
+import biomesoplenty.BiomesOPlenty;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -16,6 +18,7 @@ public class BlockBamboo extends Block
 		setBurnProperties(this.blockID, 5, 5);
         this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
         this.setTickRandomly(true);
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
 	@Override

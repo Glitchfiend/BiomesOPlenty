@@ -46,6 +46,7 @@ import biomesoplenty.items.ItemBOPFoliage;
 import biomesoplenty.items.ItemBOPLeaves;
 import biomesoplenty.items.ItemBOPLog;
 import biomesoplenty.items.ItemBOPMoss;
+import biomesoplenty.items.ItemBOPMud;
 import biomesoplenty.items.ItemBOPPetals;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
@@ -77,7 +78,7 @@ public class BOPBlocks {
 		MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
+//		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
 
 		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), "pickaxe", 3);		
@@ -124,11 +125,11 @@ public class BOPBlocks {
         Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
         Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
         Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystBlockID, Material.iron, BlockType.AMETHYST_BLOCK));
-        Blocks.bambooThatching = Optional.of(new BlockBOPGeneric(BOPConfiguration.bambooThatchingID, Material.wood, BlockType.BAMBOO_THATCHING));
+//        Blocks.bambooThatching = Optional.of(new BlockBOPGeneric(BOPConfiguration.bambooThatchingID, Material.wood, BlockType.BAMBOO_THATCHING));
         Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("moss"));
         Blocks.smolderingGrass = Optional.of((BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass"));
         Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
-        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
+//        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
         
         Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
         
@@ -153,7 +154,7 @@ public class BOPBlocks {
 	private static void registerBlocks()
 	{
 	    // Add block registration
-        GameRegistry.registerBlock(Blocks.mud.get(), "mud");
+        GameRegistry.registerBlock(Blocks.mud.get(), ItemBOPMud.class, "mud");
         GameRegistry.registerBlock(Blocks.driedDirt.get(), "driedDirt");
         GameRegistry.registerBlock(Blocks.redRock.get(), ItemBOPRedRock.class, "redRock");
         GameRegistry.registerBlock(Blocks.ash.get(), "ash");
@@ -186,11 +187,11 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.promisedPortal.get(), "promisedPortal");
         GameRegistry.registerBlock(Blocks.amethystOre.get(), "amethystOre");
         GameRegistry.registerBlock(Blocks.amethystBlock.get(), "amethystBlock");
-        GameRegistry.registerBlock(Blocks.bambooThatching.get(), "bambooThatching");
+//        GameRegistry.registerBlock(Blocks.bambooThatching.get(), "bambooThatching");
         GameRegistry.registerBlock(Blocks.moss.get(), ItemBOPMoss.class, "moss");
         GameRegistry.registerBlock(Blocks.smolderingGrass.get(), "smolderingGrass");
         GameRegistry.registerBlock(Blocks.cragRock.get(), "cragRock");
-        GameRegistry.registerBlock(Blocks.quicksand.get(), "quicksand");
+//        GameRegistry.registerBlock(Blocks.quicksand.get(), "quicksand");
         
         ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
         GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab");
@@ -221,7 +222,7 @@ public class BOPBlocks {
 	private static void registerNames()
 	{
 	    // Add block names
-        LanguageRegistry.addName(Blocks.mud.get(), "Mud");
+        LanguageRegistry.addName(new ItemStack(Blocks.mud.get(), 1, 0), "Mud");
         LanguageRegistry.addName(Blocks.driedDirt.get(), "Dried Dirt");
         LanguageRegistry.addName(new ItemStack(Blocks.redRock.get(),1,0), "Red Rock");
         LanguageRegistry.addName(Blocks.ash.get(), "Ash Block");
@@ -305,12 +306,13 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
         LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
         LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
-        LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
+//        LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
         LanguageRegistry.addName(Blocks.moss.get(), "Moss");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Algae");
         LanguageRegistry.addName(Blocks.smolderingGrass.get(), "Smoldering Grass");
         LanguageRegistry.addName(Blocks.cragRock.get(), "Crag Rock");
-        LanguageRegistry.addName(Blocks.quicksand.get(), "Quicksand");
+//        LanguageRegistry.addName(Blocks.quicksand.get(), "Quicksand");
+        LanguageRegistry.addName(new ItemStack(Blocks.mud.get(), 1, 1), "Quicksand");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Bamboo Sapling");
 
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
@@ -323,6 +325,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 7), "Palm Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 8), "Redwood Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 9), "Willow Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 10), "Bamboo Thatching");
         
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,0), "Acacia Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,1), "Cherry Wood");

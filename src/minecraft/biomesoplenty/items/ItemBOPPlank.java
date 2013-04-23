@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBOPPlank extends ItemBlock
 {
-    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
+    private static final String[] woodTypes = new String[] {"acaciaPlank", "cherryPlank", "darkPlank", "firPlank", "holyPlank", "magicPlank", "mangrovePlank", "palmPlank", "redwoodPlank", "willowPlank", "bambooThatching"};
 
     public ItemBOPPlank(int par1)
     {
@@ -23,6 +23,6 @@ public class ItemBOPPlank extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(woodTypes[itemStack.getItemDamage()]).append("Planks").toString();
+        return woodTypes[itemStack.getItemDamage()];
     }
 }

@@ -2,20 +2,17 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPPlank extends Block
 {
-    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
+    private static final String[] woodTypes = new String[] {"acaciaPlank", "cherryPlank", "darkPlank", "firPlank", "holyPlank", "magicPlank", "mangrovePlank", "palmPlank", "redwoodPlank", "willowPlank", "bambooThatching"};
     private Icon[] textures;
 
     public BlockBOPPlank(int blockID)
@@ -32,7 +29,7 @@ public class BlockBOPPlank extends Block
         textures = new Icon[woodTypes.length];
         
         for (int i = 0; i < woodTypes.length; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+woodTypes[i]+"plank");
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+woodTypes[i]);
     }
     
     @Override
