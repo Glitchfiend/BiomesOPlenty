@@ -28,3 +28,15 @@
 4056 -> 1923:5 //Fir Leaves
 3969 -> 1923:6 //Holy Leaves
 4038 -> 1923:7 //Orange Autumn Leaves
+4062 -> 1924 //Origin Leaves
+4037 -> 1924:1 //Pink Cherry Leaves
+4039 -> 1924:2 //Maple Leaves
+4035 -> 1924:3 //White Cherry Leaves
+3959 -> 1925 //Algae
+4033 -> 1925:1 //Short Grass
+3992 -> 1925:2 //Medium Grass
+4014 -> 1925:3 //High Grass Bottom
+4030 -> 1925:4 //Bush
+4031 -> 1925:5//Sprout
+4013 -> 1925:6 //High Grass Top
+4032 -> 1926 //Apple Leaves
