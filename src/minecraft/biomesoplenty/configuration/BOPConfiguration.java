@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.logging.Level;
 
 import net.minecraftforge.common.Configuration;
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.ClientProxy;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfiguration {
@@ -18,6 +16,7 @@ public class BOPConfiguration {
 	public static boolean addToDefault;
 	public static boolean achievements;
 	public static boolean vanillaEnhanced;
+	
 	public static int promisedLandDimID;
 
 	public static boolean alpsGen;
@@ -93,8 +92,7 @@ public class BOPConfiguration {
 	public static boolean wetlandGen;
 	public static boolean woodlandGen;
 	
-	public static boolean oceanGen;
-
+	// Vanilla biomes
 	public static boolean plainsGen;
 	public static boolean desertGen;
 	public static boolean extremeHillsGen;
@@ -173,24 +171,15 @@ public class BOPConfiguration {
 	public static int colourizedLeavesID;
 
 	public static int shroomPowderID;
-	public static int mudBallID;
-	public static int mudBrickID;
-	public static int cattailItemID;
-	public static int bambooItemID;
-	public static int barleyItemID;
-	public static int shortGrassItemID;
-	public static int mediumGrassItemID;
-	public static int bushItemID;
-	public static int sproutItemID;
-	public static int mossItemID;
-	public static int ashesID;
+
 	public static int ancientStaffID;
-	public static int ancientStaffHandleID;
-	public static int ancientStaffPoleID;
-	public static int ancientStaffTopperID;
 	public static int enderporterID;
+
 	public static int bopDiscID;
 	public static int bopDiscMudID;
+	
+	public static int miscItemsID;
+	
 	public static int swordMudID;
 	public static int shovelMudID;
 	public static int pickaxeMudID;
@@ -200,7 +189,8 @@ public class BOPConfiguration {
 	public static int chestplateMudID;
 	public static int leggingsMudID;
 	public static int bootsMudID;
-	public static int amethystID;
+	
+
 	public static int swordAmethystID;
 	public static int shovelAmethystID;
 	public static int pickaxeAmethystID;
@@ -313,8 +303,6 @@ public class BOPConfiguration {
 
 	public static void init(File configFile) 
 	{
-		boolean isClient = BiomesOPlenty.proxy instanceof ClientProxy;
-		
 		config = new Configuration(configFile);
 
 		try 
@@ -323,18 +311,11 @@ public class BOPConfiguration {
 
 			skyColors = true;
 			biomeSize = config.get("Biome Settings", "Biome Size", 4, null).getInt();
-			achievements = config.get("Achievement Settings", "Add Biomes O Plenty Achievemnets", true).getBoolean(false);
+			achievements = config.get("Achievement Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
-			if (!isClient)
-			{
-				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(false);
-			}
-			else
-			{
-				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(false);
-			}
+			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
 
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 			arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);
@@ -353,13 +334,10 @@ public class BOPConfiguration {
 			deadSwampGen = config.get("Biomes To Generate", "DeadSwamp", true).getBoolean(false);
 			deadlandsGen = config.get("Biomes To Generate", "Deadlands", true).getBoolean(false);
 			deciduousForestGen = config.get("Biomes To Generate", "DeciduousForest", true).getBoolean(false);
-			desertGen = config.get("Biomes To Generate", "Desert", true).getBoolean(false);
 			drylandsGen = config.get("Biomes To Generate", "Drylands", true).getBoolean(false);
 			dunesGen = config.get("Biomes To Generate", "Dunes", true).getBoolean(false);
-			extremeHillsGen = config.get("Biomes To Generate", "ExtremeHills", true).getBoolean(false);
 			fenGen = config.get("Biomes To Generate", "Fen", true).getBoolean(false);
 			fieldGen = config.get("Biomes To Generate", "Field", true).getBoolean(false);
-			forestGen = config.get("Biomes To Generate", "Forest", true).getBoolean(false);
 			frostForestGen = config.get("Biomes To Generate", "FrostForest", true).getBoolean(false);
 			fungiForestGen = config.get("Biomes To Generate", "FungiForest", true).getBoolean(false);
 			gardenGen = config.get("Biomes To Generate", "Garden", true).getBoolean(false);
@@ -371,7 +349,6 @@ public class BOPConfiguration {
 			iceSheetGen = config.get("Biomes To Generate", "IcySheet", true).getBoolean(false);
 			icyHillsGen = config.get("Biomes To Generate", "IcyHills", true).getBoolean(false);
 			jadeCliffsGen = config.get("Biomes To Generate", "JadeCliffs", true).getBoolean(false);
-			jungleGen = config.get("Biomes To Generate", "Jungle", true).getBoolean(false);
 			lushDesertGen = config.get("Biomes To Generate", "LushDesert", true).getBoolean(false);
 			lushSwampGen = config.get("Biomes To Generate", "LushSwamp", true).getBoolean(false);
 			mangroveGen = config.get("Biomes To Generate", "Mangrove", true).getBoolean(false);
@@ -389,7 +366,6 @@ public class BOPConfiguration {
 			originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
 			outbackGen = config.get("Biomes To Generate", "Outback", true).getBoolean(false);
 			pastureGen = config.get("Biomes To Generate", "Pasture", true).getBoolean(false);
-			plainsGen = config.get("Biomes To Generate", "Plains", true).getBoolean(false);
 			prairieGen = config.get("Biomes To Generate", "Prairie", true).getBoolean(false);
 			quagmireGen = config.get("Biomes To Generate", "Quagmire", true).getBoolean(false);
 			rainforestGen = config.get("Biomes To Generate", "Rainforest", true).getBoolean(false);
@@ -403,9 +379,7 @@ public class BOPConfiguration {
 			snowyWoodsGen = config.get("Biomes To Generate", "SnowyWoods", true).getBoolean(false);
 			spruceWoodsGen = config.get("Biomes To Generate", "SpruceWoods", true).getBoolean(false);
 			steppeGen = config.get("Biomes To Generate", "Steppe", true).getBoolean(false);
-			swamplandGen = config.get("Biomes To Generate", "Swampland", true).getBoolean(false);
 			swampwoodsGen = config.get("Biomes To Generate", "Swampwoods", true).getBoolean(false);
-			taigaGen = config.get("Biomes To Generate", "Taiga", true).getBoolean(false);
 			temperateRainforestGen = config.get("Biomes To Generate", "TemperateRainforest", true).getBoolean(false);
 			thicketGen = config.get("Biomes To Generate", "Thicket", true).getBoolean(false);
 			tropicalRainforestGen = config.get("Biomes To Generate", "TropicalRainforest", true).getBoolean(false);
@@ -416,7 +390,14 @@ public class BOPConfiguration {
 			wetlandGen = config.get("Biomes To Generate", "Wetland", true).getBoolean(false);
 			woodlandGen = config.get("Biomes To Generate", "Woodland", true).getBoolean(false);
 			
-			oceanGen = config.get("Vanilla Biomes To Generate", "Ocean", true).getBoolean(false);
+			// Vanilla biomes
+			desertGen = config.get("Vanilla Biomes To Generate", "Desert", true).getBoolean(true);
+			extremeHillsGen = config.get("Vanilla Biomes To Generate", "ExtremeHills", true).getBoolean(true);
+			forestGen = config.get("Vanilla Biomes To Generate", "Forest", true).getBoolean(true);
+			jungleGen = config.get("Vanilla Biomes To Generate", "Jungle", true).getBoolean(true);
+			plainsGen = config.get("Vanilla Biomes To Generate", "Plains", true).getBoolean(true);
+			swamplandGen = config.get("Vanilla Biomes To Generate", "Swampland", true).getBoolean(true);
+			taigaGen = config.get("Vanilla Biomes To Generate", "Taiga", true).getBoolean(true);
 
 			// Get Terrain Block ID's
 			mudID = config.getTerrainBlock("Terrain Block IDs", "Mud ID", 160, null).getInt();
@@ -490,44 +471,35 @@ public class BOPConfiguration {
 			colourizedLeavesID = config.getBlock("Colourized Leaves ID", 1962, null).getInt();
 
 			// Get Item ID's
-			shroomPowderID = config.getItem("Shroom Powder ID", 1001, null).getInt();
-			mudBallID = config.getItem("Mud Ball ID", 1002, null).getInt();
-			mudBrickID = config.getItem("Mud Brick ID", 1003, null).getInt();
-			bambooItemID = config.getItem("Bamboo ID", 1004).getInt();
-			cattailItemID = config.getItem("Cattail ID", 1005).getInt();
-			ancientStaffID = config.getItem("Ancient Staff ID", 1006).getInt();
-			enderporterID = config.getItem("Enderporter ID", 1007).getInt();
-			ashesID = config.getItem("Pile of Ashes ID", 1008, null).getInt();
-			barleyItemID = config.getItem("Barley ID", 1009).getInt();
-			amethystID = config.getItem("Amethyst ID", 1010).getInt();
-			ancientStaffHandleID = config.getItem("Ancient Staff Handle ID", 1011, null).getInt();
-			ancientStaffPoleID = config.getItem("Ancient Staff Pole ID", 1012, null).getInt();
-			ancientStaffTopperID = config.getItem("Ancient Staff Topper ID", 1013, null).getInt();
-			shortGrassItemID = config.getItem("Short Grass (Item) ID", 1014, null).getInt();
-			mediumGrassItemID = config.getItem("Medium Grass (Item) ID", 1015, null).getInt();
-			bushItemID = config.getItem("Bush (Item) ID", 1016, null).getInt();
-			sproutItemID = config.getItem("Sprout (Item) ID", 1017, null).getInt();
-			mossItemID = config.getItem("Moss (Item) ID", 1018, null).getInt();
-			bopDiscID = config.getItem("Traversia Music Disc ID", 1019, null).getInt();
-			bopDiscMudID = config.getItem("Muddy Music Disc ID", 1020, null).getInt();
-			swordMudID = config.getItem("Muddy Sword ID", 1060, null).getInt();
-			shovelMudID = config.getItem("Muddy Shovel ID", 1061, null).getInt();
-			pickaxeMudID = config.getItem("Muddy Pickaxe ID", 1062, null).getInt();
-			axeMudID = config.getItem("Muddy Axe ID", 1063, null).getInt();
-			hoeMudID = config.getItem("Muddy Hoe ID", 1064, null).getInt();
-			helmetMudID = config.getItem("Muddy Helmet ID", 1065, null).getInt();
-			chestplateMudID = config.getItem("Muddy Chestplate ID", 1066, null).getInt();
-			leggingsMudID = config.getItem("Muddy Leggings ID", 1067, null).getInt();
-			bootsMudID = config.getItem("Muddy Boots ID", 1068, null).getInt();
-			swordAmethystID = config.getItem("Amethyst Sword ID", 1069, null).getInt();
-			shovelAmethystID = config.getItem("Amethyst Shovel ID", 1070, null).getInt();
-			pickaxeAmethystID = config.getItem("Amethyst Pickaxe ID", 1071, null).getInt();
-			axeAmethystID = config.getItem("Amethyst Axe ID", 1072, null).getInt();
-			hoeAmethystID = config.getItem("Amethyst Hoe ID", 1073, null).getInt();
-			helmetAmethystID = config.getItem("Amethyst Helmet ID", 1074, null).getInt();
-			chestplateAmethystID = config.getItem("Amethyst Chestplate ID", 1075, null).getInt();
-			leggingsAmethystID = config.getItem("Amethyst Leggings ID", 1076, null).getInt();
-			bootsAmethystID = config.getItem("Amethyst Boots ID", 1077, null).getInt();
+			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
+
+			ancientStaffID = config.getItem("Ancient Staff ID", 21006).getInt();
+			enderporterID = config.getItem("Enderporter ID", 21007).getInt();
+
+			miscItemsID = config.getItem("Misc Items ID", 21010).getInt();
+			
+			bopDiscID = config.getItem("Traversia Music Disc ID", 21019, null).getInt();
+			bopDiscMudID = config.getItem("Muddy Music Disc ID", 21020, null).getInt();
+			
+			swordMudID = config.getItem("Muddy Sword ID", 21060, null).getInt();
+			shovelMudID = config.getItem("Muddy Shovel ID", 21061, null).getInt();
+			pickaxeMudID = config.getItem("Muddy Pickaxe ID", 21062, null).getInt();
+			axeMudID = config.getItem("Muddy Axe ID", 21063, null).getInt();
+			hoeMudID = config.getItem("Muddy Hoe ID", 21064, null).getInt();
+			helmetMudID = config.getItem("Muddy Helmet ID", 21065, null).getInt();
+			chestplateMudID = config.getItem("Muddy Chestplate ID", 21066, null).getInt();
+			leggingsMudID = config.getItem("Muddy Leggings ID", 21067, null).getInt();
+			bootsMudID = config.getItem("Muddy Boots ID", 21068, null).getInt();
+			
+			swordAmethystID = config.getItem("Amethyst Sword ID", 21069, null).getInt();
+			shovelAmethystID = config.getItem("Amethyst Shovel ID", 21070, null).getInt();
+			pickaxeAmethystID = config.getItem("Amethyst Pickaxe ID", 21071, null).getInt();
+			axeAmethystID = config.getItem("Amethyst Axe ID", 21072, null).getInt();
+			hoeAmethystID = config.getItem("Amethyst Hoe ID", 21073, null).getInt();
+			helmetAmethystID = config.getItem("Amethyst Helmet ID", 21074, null).getInt();
+			chestplateAmethystID = config.getItem("Amethyst Chestplate ID", 21075, null).getInt();
+			leggingsAmethystID = config.getItem("Amethyst Leggings ID", 21076, null).getInt();
+			bootsAmethystID = config.getItem("Amethyst Boots ID", 21077, null).getInt();
 
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();

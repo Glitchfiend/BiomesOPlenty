@@ -100,7 +100,7 @@ public class BOPItems {
 	{
 	    // Item declaration
         Items.shroomPowder = Optional.of(new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.5F, false));
-        Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.amethystID));
+        Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID));
         
         Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfiguration.ancientStaffID));
         

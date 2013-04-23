@@ -113,7 +113,7 @@ public class BiomesOPlenty
 	public void load(FMLInitializationEvent event)
 	{
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabBiomesOPlenty", "en_US", "Biomes O\' Plenty");
-		LanguageRegistry.instance().addStringLocalization("generator.BIOMESOP", "en_US", "Biomes O\' Plenty");
+		//LanguageRegistry.instance().addStringLocalization("generator.BIOMESOP", "en_US", "Biomes O\' Plenty");
 
 		// Add helpers for compatibility
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());

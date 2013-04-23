@@ -27,8 +27,6 @@ import biomesoplenty.worldgen.WorldGenOminous2;
 import biomesoplenty.worldgen.WorldGenOriginTree;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenTaiga9;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPSapling extends BlockSapling
 {
@@ -76,7 +74,7 @@ public class BlockBOPSapling extends BlockSapling
         int meta = world.getBlockMetadata(x, y, z) & TYPES;
         Object obj = null;
         int rnd = random.nextInt(8);
-        System.out.println(meta);
+
         if (obj == null)
         {
             switch (meta)
