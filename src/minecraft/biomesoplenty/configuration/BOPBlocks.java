@@ -242,7 +242,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
         LanguageRegistry.addName(Blocks.hardIce.get(), "Hard Ice");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,2), "Maple Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Orang Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Orange Autumn Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,1), "Pink Cherry Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,2), "Magic Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,3), "White Cherry Leaves");
