@@ -101,6 +101,7 @@ public class BOPConfiguration {
 	public static boolean swamplandGen;
 	public static boolean jungleGen;
 
+	//Block IDS
 	public static int mudID;
 	public static int driedDirtID;
 	public static int redRockID;
@@ -170,6 +171,7 @@ public class BOPConfiguration {
 	
 	public static int colourizedLeavesID;
 
+	//Item IDs
 	public static int shroomPowderID;
 
 	public static int ancientStaffID;
@@ -201,6 +203,7 @@ public class BOPConfiguration {
 	public static int leggingsAmethystID;
 	public static int bootsAmethystID;
 
+	//Biome IDS
 	public static int alpsID;
 	public static int arcticID;
 	public static int arcticForestID;

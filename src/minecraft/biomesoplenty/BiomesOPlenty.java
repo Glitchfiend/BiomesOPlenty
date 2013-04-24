@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
+import biomesoplenty.api.BlockReferences;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
