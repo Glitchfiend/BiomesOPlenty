@@ -69,6 +69,18 @@ public class BlockBOPSapling extends BlockSapling
     }
     
     @Override
+    public void updateTick(World world, int x, int y, int z, Random random)
+    {
+        if (world.isRemote)
+            return;
+
+        this.checkFlowerChange(world, x, y, z);
+        
+        if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0)
+            this.growTree(world, x, y, z, random);
+    }
+    
+    @Override
     public void growTree(World world, int x, int y, int z, Random random)
     {
         int meta = world.getBlockMetadata(x, y, z) & TYPES;
