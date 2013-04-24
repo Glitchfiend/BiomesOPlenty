@@ -86,7 +86,7 @@ public class BlockMud extends Block
     public int idDropped(int par1, Random par2Random, int par3)
     {
         if (par1 == 0)
-            return Items.miscItems.get().itemID;
+            return Items.mudball.get().itemID;
         else
             return this.blockID;
     }

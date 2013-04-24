@@ -181,6 +181,7 @@ public class BOPConfiguration {
 	public static int bopDiscMudID;
 	
 	public static int miscItemsID;
+	public static int mudballID;
 	
 	public static int swordMudID;
 	public static int shovelMudID;
@@ -480,6 +481,7 @@ public class BOPConfiguration {
 			enderporterID = config.getItem("Enderporter ID", 21007).getInt();
 
 			miscItemsID = config.getItem("Misc Items ID", 21010).getInt();
+			mudballID = config.getItem("Mud Ball ID", 21011).getInt();
 			
 			bopDiscID = config.getItem("Traversia Music Disc ID", 21019, null).getInt();
 			bopDiscMudID = config.getItem("Muddy Music Disc ID", 21020, null).getInt();

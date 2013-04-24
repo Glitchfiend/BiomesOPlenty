@@ -10,12 +10,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
@@ -67,6 +69,38 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
         for (int i = 0; i < GRASSTOP; ++i)
             list.add(new ItemStack(blockID, 1, i));
+    }
+    
+    @Override
+    public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int meta, int fortune)
+    {
+        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+
+        switch (meta)
+        {
+            case 1:
+            case 2:
+            case 3:
+                if (world.rand.nextInt(8) != 0)
+                    return ret;
+        
+                ItemStack item = ForgeHooks.getGrassSeed(world);
+                if (item != null)
+                    ret.add(item);
+                break;
+                
+            case 5:
+                if (world.rand.nextInt(50) != 0)
+                    return ret;
+                
+                if (world.rand.nextInt(2) == 0)
+                    ret.add(new ItemStack(Item.carrot,1));
+                else
+                    ret.add(new ItemStack(Item.potato,1));
+                break;
+        }
+
+        return ret;
     }
     
     @Override

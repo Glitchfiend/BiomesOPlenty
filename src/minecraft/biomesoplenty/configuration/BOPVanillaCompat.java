@@ -14,7 +14,7 @@ public class BOPVanillaCompat {
 	public static void init()
 	{
 		// Dispenser behavior for mud balls
-		BlockDispenser.dispenseBehaviorRegistry.putObject(new ItemStack(Items.miscItems.get(), 1, 0), new DispenserBehaviorMudball());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.mudball.get(), new DispenserBehaviorMudball());
 		
 		ChestGenHooks dungeon;
 		ChestGenHooks mineshaft;
@@ -34,7 +34,7 @@ public class BOPVanillaCompat {
 
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 4, 6, 15));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 0), 2, 8, 10));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.mudball.get(), 1, 0), 2, 8, 10));
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 3), 4, 12, 75));
 
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.moss.get()), 2, 8, 50));

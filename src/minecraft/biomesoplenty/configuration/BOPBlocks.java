@@ -84,6 +84,8 @@ public class BOPBlocks {
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), "pickaxe", 3);		
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystBlock.get(), "pickaxe", 3);
 		
+		addGrassPlants();
+		
 		registerNames();
 	}
 	
@@ -383,5 +385,21 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Holy Leaves");
+	}
+
+	private static void addGrassPlants()
+	{
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 0, 10);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 1, 3);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 2, 1);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 3, 1);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 4, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 5, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 6, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 7, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 8, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 9, 5);
+	    
+	    MinecraftForge.addGrassPlant(Blocks.foliage.get(), 5, 10);
 	}
 }
