@@ -1,23 +1,16 @@
 package biomesoplenty.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPGeneric extends Block
 {
     public enum BlockType 
     {
-        ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, AMETHYST_ORE, AMETHYST_BLOCK, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK;
+        ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK;
     }
     
     private Icon texture;
@@ -30,15 +23,7 @@ public class BlockBOPGeneric extends Block
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         
         switch (type)
-        {
-            case AMETHYST_BLOCK:
-                setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("amethystBlock");
-                break;
-                
-            case AMETHYST_ORE:
-                setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("amethystOre");
-                break;
-                
+        {      
             case ASH_STONE:
                 setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("ashStone");
                 break;
@@ -84,15 +69,7 @@ public class BlockBOPGeneric extends Block
     public void registerIcons(IconRegister iconRegister)
     {
         switch (type)
-        {
-            case AMETHYST_BLOCK:
-                texture = iconRegister.registerIcon("BiomesOPlenty:amethystblock");
-                break;
-                
-            case AMETHYST_ORE:
-                texture = iconRegister.registerIcon("BiomesOPlenty:amethystore");
-                break;
-                
+        { 
             case ASH_STONE:
                 texture = iconRegister.registerIcon("BiomesOPlenty:ashstone");
                 break;
@@ -138,51 +115,5 @@ public class BlockBOPGeneric extends Block
     public Icon getIcon(int side, int meta)
     {
         return texture;
-    }
-    
-    @Override
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return type == BlockType.AMETHYST_ORE ? Items.miscItems.get().itemID : this.blockID;
-    }
-    
-    @Override
-    public int damageDropped(int meta)
-    {
-        return type == BlockType.AMETHYST_ORE ? 2 : 0;
-    }
-    
-    @Override
-    public int quantityDropped(Random par1Random)
-    {
-        return type == BlockType.AMETHYST_ORE ? 1 + par1Random.nextInt(2) : 1;
-    }
-    
-    @Override
-    public int quantityDroppedWithBonus(int bonus, Random par2Random)
-    {
-        if (bonus > 0 && this.blockID != this.idDropped(0, par2Random, bonus))
-        {
-            int rnd = par2Random.nextInt(bonus + 2) - 1;
-
-            if (rnd < 0)
-                rnd = 0;
-
-            return this.quantityDropped(par2Random) * (rnd + 1);
-        }
-        else
-            return this.quantityDropped(par2Random);
-    }
-    
-    @Override
-    public void dropBlockAsItemWithChance(World world, int par2, int par3, int par4, int par5, float par6, int par7)
-    {
-        super.dropBlockAsItemWithChance(world, par2, par3, par4, par5, par6, par7);
-
-        if (this.idDropped(par5, world.rand, par7) != this.blockID)
-        {
-            int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
-            this.dropXpOnBlockBreak(world, par2, par3, par4, var8);
-        }
     }
 }

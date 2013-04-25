@@ -70,12 +70,13 @@ public class Blocks
     public static Optional<? extends Block> petals                      = Optional.absent();
     public static Optional<? extends Block> bamboo                      = Optional.absent();
     
-    public static Optional<? extends Block> amethystBlock               = Optional.absent();
+//    public static Optional<? extends Block> amethystBlock               = Optional.absent();
     public static Optional<? extends Block> amethystOre                 = Optional.absent();
 //    public static Optional<? extends Block> bambooThatching             = Optional.absent();
     public static Optional<? extends Block> mudBrick                    = Optional.absent();
-    public static Optional<? extends Block> smolderingGrass             = Optional.absent();
+//    public static Optional<? extends Block> smolderingGrass             = Optional.absent();
 //    public static Optional<? extends Block> quicksand                   = Optional.absent();
+//    public static Optional<? extends Block> grass                       = Optional.absent();
     
     public static Optional<? extends Block> promisedPortal              = Optional.absent();
     

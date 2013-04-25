@@ -88,7 +88,7 @@ public class BonemealUse
 				}
 			}
 		}
-		else if (event.ID == Blocks.holyGrass.get().blockID)
+		else if (event.ID == Blocks.holyGrass.get().blockID && event.world.getBlockMetadata(event.X, event.Y, event.Z) == 0)
 		{
 			int var13 = event.X;
 			int var14 = event.Y + 1;

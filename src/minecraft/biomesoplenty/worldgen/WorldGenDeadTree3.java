@@ -448,7 +448,7 @@ public class WorldGenDeadTree3 extends WorldGenerator
         int[] var2 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
         int var3 = this.worldObj.getBlockId(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 
-        if (var3 != 2 && var3 != 3 && var3 != Blocks.smolderingGrass.get().blockID && var3 != Blocks.ash.get().blockID)
+        if (var3 != 2 && var3 != 3 && var3 != Blocks.holyGrass.get().blockID && var3 != Blocks.ash.get().blockID)
         {
             return false;
         }

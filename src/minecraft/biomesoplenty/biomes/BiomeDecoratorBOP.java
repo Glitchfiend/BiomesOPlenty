@@ -332,7 +332,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.clayInStoneGen = new WorldGenMinable(Block.blockClay.blockID, 32);
         this.quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
 		this.canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
-		this.smolderingGrassGen = new WorldGenSmolderingGrass(Blocks.smolderingGrass.get().blockID, 32);
+		this.smolderingGrassGen = new WorldGenSmolderingGrass(Blocks.holyGrass.get().blockID, 1, 32);
         this.driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
         this.coalGen = new WorldGenMinable(Block.oreCoal.blockID, 16);
         this.ironGen = new WorldGenMinable(Block.oreIron.blockID, 8);

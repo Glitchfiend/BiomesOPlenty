@@ -145,13 +145,13 @@ public class BOPConfiguration {
 	
 	public static int promisedLandPortalID;
 	public static int amethystOreID;
-	public static int amethystBlockID;
-	public static int bambooThatchingID;
+//	public static int amethystBlockID;
+//	public static int bambooThatchingID;
 	
 	public static int mossID;
-	public static int smolderingGrassID;
+//	public static int smolderingGrassID;
 	
-	public static int quicksandID;
+//	public static int quicksandID;
 	
 	public static int planksID;
 	
@@ -452,13 +452,13 @@ public class BOPConfiguration {
 			
 			promisedLandPortalID = config.getBlock("Promised Land Portal ID", 1941, null).getInt();
 			amethystOreID = config.getBlock("Amethyst Ore ID", 1942, null).getInt();
-			amethystBlockID = config.getBlock("Block of Amethyst ID", 1943, null).getInt();
-			bambooThatchingID = config.getBlock("Bamboo Thatching ID", 1944, null).getInt();
+//			amethystBlockID = config.getBlock("Block of Amethyst ID", 1943, null).getInt();
+//			bambooThatchingID = config.getBlock("Bamboo Thatching ID", 1944, null).getInt();
 			
 			mossID = config.getBlock("Moss ID", 391, null).getInt();
-			smolderingGrassID = config.getBlock("Smoldering Grass ID", 1945, null).getInt();
+//			smolderingGrassID = config.getBlock("Smoldering Grass ID", 1945, null).getInt();
 			
-			quicksandID = config.getBlock("Quicksand ID", 1946, null).getInt();
+//			quicksandID = config.getBlock("Quicksand ID", 1946, null).getInt();
 			
 			planksID = config.getBlock("Planks ID", 1947, null).getInt();
 			

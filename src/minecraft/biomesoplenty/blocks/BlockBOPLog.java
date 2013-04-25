@@ -46,12 +46,12 @@ public class BlockBOPLog extends Block
 
         for (int i = 0; i < types.length - 1; ++i)
         {
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]+"log");
-            logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:logTopBottum");
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_side");
+            logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_heart");
         }
         
-        textures[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem");
-        logHearts[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:stemTopBottum");
+        textures[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem_side");
+        logHearts[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem_heart");
     }
     
     @Override

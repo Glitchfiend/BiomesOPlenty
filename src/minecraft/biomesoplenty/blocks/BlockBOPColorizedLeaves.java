@@ -44,8 +44,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         
         for (int i = 0; i < leaves.length; ++i)
         {
-            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:" + leaves[i] + "leaves1");
-            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:" + leaves[i] + "leaves2");
+            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_" + leaves[i] + "_fancy");
+            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_" + leaves[i] + "_fast");
         }
     }
     

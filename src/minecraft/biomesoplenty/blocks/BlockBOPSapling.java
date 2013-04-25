@@ -30,7 +30,7 @@ import biomesoplenty.worldgen.WorldGenTaiga9;
 
 public class BlockBOPSapling extends BlockSapling
 {
-    private static final String[] saplings = new String[] {"apple", "yellow", "bamboo", "magic", "dark", "brown", "fir", "holy", "orange", "origin", "pink", "red", "white"};
+    private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry"};
     private Icon[] textures;
     private static final int TYPES = 15;
     
@@ -48,7 +48,7 @@ public class BlockBOPSapling extends BlockSapling
         textures = new Icon[saplings.length];
         
         for (int i = 0; i < saplings.length; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + saplings[i] + "sapling");
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:sapling_" + saplings[i]);
 
     }
     

@@ -41,7 +41,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
         textures = new Icon[saplings.length];
         
         for (int i = 0; i < saplings.length; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + saplings[i] + "sapling");
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:sapling_" + saplings[i]);
 
     }
     

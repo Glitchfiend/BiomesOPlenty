@@ -45,8 +45,8 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
         
         for (int i = 0; i < 4; ++i)
         {
-            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:appleleaves" + i + "_fancy");
-            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:appleleaves" + i + "_fast");
+            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_apple" + i + "_fancy");
+            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_apple" + i + "_fast");
         }
     }
     

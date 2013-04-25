@@ -108,7 +108,7 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
         GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
         GameRegistry.addRecipe(new ItemStack(Blocks.mud.get(), 1), new Object[] {"MM", "MM", 'M', Items.mudball.get()});
-        GameRegistry.addRecipe(new ItemStack(Blocks.amethystBlock.get(), 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
         GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
         GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 3)});
 //        GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
@@ -143,13 +143,13 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 1), new Object[] {"ISI", "ISI", " E ", 'I', Item.ingotIron, 'S', Block.whiteStone, 'E', Item.emerald});
         GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 2), new Object[] {"ISI", "IRI", "ISI", 'I', Item.ingotIron, 'S', Block.whiteStone, 'R', Item.redstone});
         GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 3), new Object[] {" N ", "IDI", "ISI", 'I', Item.ingotIron, 'S', Block.whiteStone, 'D', Item.diamond, 'N', Item.netherStar});
-        GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', Blocks.amethystBlock.get()});
+        GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
         GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
         
         GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
         
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.bamboo.get(), 4), new Object[] {new ItemStack(Blocks.planks.get(), 1, 10)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {Blocks.amethystBlock.get()});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 1)});
         
         //Plants
         GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.flowers.get(),1,10)});
