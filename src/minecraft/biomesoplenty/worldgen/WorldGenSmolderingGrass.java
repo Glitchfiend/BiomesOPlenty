@@ -16,11 +16,14 @@ public class WorldGenSmolderingGrass extends WorldGenerator
 
     /** The number of blocks to generate. */
     private int numberOfBlocks;
+    
+    private int blockMeta;
 
-    public WorldGenSmolderingGrass(int par1, int par2)
+    public WorldGenSmolderingGrass(int par1, int meta, int par2)
     {
         this.minableBlockId = par1;
         this.numberOfBlocks = par2;
+        this.blockMeta = meta;
     }
 
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
@@ -66,7 +69,7 @@ public class WorldGenSmolderingGrass extends WorldGenerator
 
                                 if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Blocks.ash.get().blockID)
                                 {
-                                    par1World.setBlock(var38, var41, var44, this.minableBlockId);
+                                    par1World.setBlock(var38, var41, var44, this.minableBlockId, this.blockMeta, 2);
                                 }
                             }
                         }

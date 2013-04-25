@@ -7,7 +7,7 @@ import net.minecraft.util.Icon;
 
 public class ItemBOPSapling extends ItemBlock
 {
-    private static final String[] saplings = new String[] {"apple", "yellow", "bamboo", "magic", "dark", "brown", "fir", "holy", "orange", "origin", "pink", "red", "white"};
+    private static final String[] saplings = new String[] {"apple", "yellowAutumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeAutumn", "origin", "pinkCherry", "maple", "whiteCherry"};
     private static final int MAX = 12;
     
     public ItemBOPSapling(int par1)

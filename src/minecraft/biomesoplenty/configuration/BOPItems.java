@@ -18,6 +18,7 @@ import biomesoplenty.items.ItemBOP;
 import biomesoplenty.items.ItemBOPAncientStaff;
 import biomesoplenty.items.ItemBOPAxe;
 import biomesoplenty.items.ItemBOPHoe;
+import biomesoplenty.items.ItemBOPMudball;
 import biomesoplenty.items.ItemBOPPickaxe;
 import biomesoplenty.items.ItemBOPRecord;
 import biomesoplenty.items.ItemBOPRecordMud;
@@ -101,6 +102,7 @@ public class BOPItems {
 	    // Item declaration
         Items.shroomPowder = Optional.of(new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.5F, false));
         Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID));
+        Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID));
         
         Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfiguration.ancientStaffID));
         
@@ -133,8 +135,8 @@ public class BOPItems {
 	private static void registerNames()
 	{
 	    LanguageRegistry.addName(Items.shroomPowder.get(), "Shroom Powder");
-        LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 0), "Mud Ball");
-        LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 3), "Mud Brick");
+	    LanguageRegistry.addName(Items.mudball.get(), "Mud Ball");
+        LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 0), "Mud Brick");
         LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 2), "Amethyst");
         LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 1), "Pile of Ashes");
         

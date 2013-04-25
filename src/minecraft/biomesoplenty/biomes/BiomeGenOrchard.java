@@ -39,4 +39,9 @@ public class BiomeGenOrchard extends BiomeGenBase
     {
         return 14024557;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 14024557;
+    }
 }

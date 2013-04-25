@@ -1,5 +1,6 @@
 package biomesoplenty.integration;
 
+import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
@@ -14,6 +15,7 @@ public class ThaumcraftIntegration {
 	protected static void init()
 	{
 		addAspects();
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.leavesFruit.get(), 1, 3));
 	}
 
 	private static void addAspects()

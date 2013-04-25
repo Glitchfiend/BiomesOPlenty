@@ -36,7 +36,7 @@ public class BlockBOPStairs extends BlockStairs
         
         for (int i = 0; i < types.length; ++i)
             if (i < types.length - 3)
-                textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]+"plank");
+                textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+types[i]);
             else
                 textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]);
         

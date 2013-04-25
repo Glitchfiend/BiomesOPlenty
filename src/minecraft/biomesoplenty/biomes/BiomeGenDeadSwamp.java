@@ -59,6 +59,11 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
     {
         return 6713420;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 6713420;
+    }
 	
     /**
      * takes temperature, returns color

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockAsh;
+import biomesoplenty.blocks.BlockBOPAmethyst;
 import biomesoplenty.blocks.BlockBOPAppleLeaves;
 import biomesoplenty.blocks.BlockBOPColorizedLeaves;
 import biomesoplenty.blocks.BlockBOPColorizedSapling;
@@ -14,6 +15,7 @@ import biomesoplenty.blocks.BlockBOPFlower;
 import biomesoplenty.blocks.BlockBOPFoliage;
 import biomesoplenty.blocks.BlockBOPGeneric;
 import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
+import biomesoplenty.blocks.BlockBOPGrass;
 import biomesoplenty.blocks.BlockBOPLeaves;
 import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
 import biomesoplenty.blocks.BlockBOPLog;
@@ -28,21 +30,20 @@ import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.blocks.BlockBamboo;
-import biomesoplenty.blocks.BlockHolyGrass;
 import biomesoplenty.blocks.BlockMoss;
 import biomesoplenty.blocks.BlockMud;
 import biomesoplenty.blocks.BlockOriginGrass;
 import biomesoplenty.blocks.BlockPromisedPortal;
-import biomesoplenty.blocks.BlockQuicksand;
-import biomesoplenty.blocks.BlockSmolderingGrass;
 import biomesoplenty.blocks.BlockTreeMoss;
 import biomesoplenty.blocks.BlockWillow;
+import biomesoplenty.items.ItemBOPAmethyst;
 import biomesoplenty.items.ItemBOPAppleLeaves;
 import biomesoplenty.items.ItemBOPBamboo;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPFlower;
 import biomesoplenty.items.ItemBOPFoliage;
+import biomesoplenty.items.ItemBOPGrass;
 import biomesoplenty.items.ItemBOPLeaves;
 import biomesoplenty.items.ItemBOPLog;
 import biomesoplenty.items.ItemBOPMoss;
@@ -72,17 +73,18 @@ public class BOPBlocks {
 		Blocks.shearBlockIds.put(Blocks.leavesColorized.get().blockID, 15.0F);
 		Blocks.shearBlockIds.put(Blocks.leavesFruit.get().blockID, 15.0F);
 
-		MinecraftForge.setBlockHarvestLevel(Blocks.smolderingGrass.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 1, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.mud.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.ash.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 0, "pickaxe", 0);
 //		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
 
 		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), "pickaxe", 3);		
-		MinecraftForge.setBlockHarvestLevel(Blocks.amethystBlock.get(), "pickaxe", 3);
+		
+		addGrassPlants();
 		
 		registerNames();
 	}
@@ -120,16 +122,18 @@ public class BOPBlocks {
         Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setUnlocalizedName("redBricksStairs"));
         Blocks.hardSand = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardSandID, Material.sand, BlockType.HARD_SAND));
         Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardDirtID, Material.rock, BlockType.HARD_DIRT));
-        Blocks.holyGrass = Optional.of((BlockHolyGrass)(new BlockHolyGrass(BOPConfiguration.holyGrassID)).setHardness(1.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("holyGrass"));
-        Blocks.holyStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyStoneID, Material.rock, BlockType.HOLY_STONE));
+        Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.holyGrassID).setUnlocalizedName("holyGrass"));
+        Blocks.holyStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyStoneID, Material.rock, BlockType.HOLY_STONE).setLightValue(0.25F));
         Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
-        Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
-        Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystBlockID, Material.iron, BlockType.AMETHYST_BLOCK));
+//        Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
+//        Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystBlockID, Material.iron, BlockType.AMETHYST_BLOCK));
+        Blocks.amethystOre = Optional.of(new BlockBOPAmethyst(BOPConfiguration.amethystOreID, Material.rock).setUnlocalizedName("amethystOre"));
 //        Blocks.bambooThatching = Optional.of(new BlockBOPGeneric(BOPConfiguration.bambooThatchingID, Material.wood, BlockType.BAMBOO_THATCHING));
         Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("moss"));
-        Blocks.smolderingGrass = Optional.of((BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass"));
+//        Blocks.smolderingGrass = Optional.of((BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("smolderingGrass"));
         Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
 //        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
+//        Blocks.grass = Optional.of(new BlockBOPGrass(3000).setUnlocalizedName("holyGrass"));
         
         Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
         
@@ -182,16 +186,18 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.redBricksStairs.get(), "redBricksStairs");
         GameRegistry.registerBlock(Blocks.hardSand.get(), "hardSand");
         GameRegistry.registerBlock(Blocks.hardDirt.get(), "hardDirt");
-        GameRegistry.registerBlock(Blocks.holyGrass.get(), "holyGrass");
+//        GameRegistry.registerBlock(Blocks.holyGrass.get(), "holyGrass");
+        GameRegistry.registerBlock(Blocks.holyGrass.get(), ItemBOPGrass.class, "holyGrass");
         GameRegistry.registerBlock(Blocks.holyStone.get(), "holyStone");
         GameRegistry.registerBlock(Blocks.promisedPortal.get(), "promisedPortal");
-        GameRegistry.registerBlock(Blocks.amethystOre.get(), "amethystOre");
-        GameRegistry.registerBlock(Blocks.amethystBlock.get(), "amethystBlock");
+        GameRegistry.registerBlock(Blocks.amethystOre.get(), ItemBOPAmethyst.class, "amethystOre");
+//        GameRegistry.registerBlock(Blocks.amethystBlock.get(), "amethystBlock");
 //        GameRegistry.registerBlock(Blocks.bambooThatching.get(), "bambooThatching");
         GameRegistry.registerBlock(Blocks.moss.get(), ItemBOPMoss.class, "moss");
-        GameRegistry.registerBlock(Blocks.smolderingGrass.get(), "smolderingGrass");
+//        GameRegistry.registerBlock(Blocks.smolderingGrass.get(), "smolderingGrass");
         GameRegistry.registerBlock(Blocks.cragRock.get(), "cragRock");
 //        GameRegistry.registerBlock(Blocks.quicksand.get(), "quicksand");
+//        GameRegistry.registerBlock(Blocks.amethyst.get(), ItemBOPAmethyst.class, "amethystOre1");
         
         ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
         GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab");
@@ -228,7 +234,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.ash.get(), "Ash Block");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,0), "Dead Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,1), "Desert Grass");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Anenome");
+        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,9), "Anemone");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,1), "Swampflower");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,7), "Wildflower");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,5), "Daisy");
@@ -299,17 +305,21 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.hardSand.get(), "Hard Sand");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
         LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
-        LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
+//        LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Holy Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 1), "Smoldering Grass");
         LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
         LanguageRegistry.addName(Blocks.promisedPortal.get(), "Promised Land Portal");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
-        LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
-        LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
+//        LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
+//        LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
+        LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(),1,0), "Amethyst Ore");
+        LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(),1,1), "Block of Amethyst");
 //        LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
         LanguageRegistry.addName(Blocks.moss.get(), "Moss");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Algae");
-        LanguageRegistry.addName(Blocks.smolderingGrass.get(), "Smoldering Grass");
+//        LanguageRegistry.addName(Blocks.smolderingGrass.get(), "Smoldering Grass");
         LanguageRegistry.addName(Blocks.cragRock.get(), "Crag Rock");
 //        LanguageRegistry.addName(Blocks.quicksand.get(), "Quicksand");
         LanguageRegistry.addName(new ItemStack(Blocks.mud.get(), 1, 1), "Quicksand");
@@ -383,5 +393,21 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Holy Leaves");
+	}
+
+	private static void addGrassPlants()
+	{
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 0, 10);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 1, 3);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 2, 1);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 3, 1);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 4, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 5, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 6, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 7, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 8, 5);
+	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 9, 5);
+	    
+	    MinecraftForge.addGrassPlant(Blocks.foliage.get(), 5, 10);
 	}
 }

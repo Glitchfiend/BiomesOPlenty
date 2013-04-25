@@ -33,11 +33,11 @@ public class BlockHolyGrass extends Block
 	public void registerIcons(IconRegister par1IconRegister)
 	{
 		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:holystone");
-		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass1");
-		this.blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass2");
-		this.blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass2");
-		this.blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass2");
-		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass2");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass_top");
+		this.blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass_side");
+		this.blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass_side");
+		this.blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass_side");
+		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:holygrass_side");
 	}
 	
     /**

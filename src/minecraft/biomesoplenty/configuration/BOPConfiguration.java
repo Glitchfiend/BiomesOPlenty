@@ -17,6 +17,8 @@ public class BOPConfiguration {
 	public static boolean achievements;
 	public static boolean vanillaEnhanced;
 	
+	public static int villageDistance;
+	
 	public static int promisedLandDimID;
 
 	public static boolean alpsGen;
@@ -143,13 +145,13 @@ public class BOPConfiguration {
 	
 	public static int promisedLandPortalID;
 	public static int amethystOreID;
-	public static int amethystBlockID;
-	public static int bambooThatchingID;
+//	public static int amethystBlockID;
+//	public static int bambooThatchingID;
 	
 	public static int mossID;
-	public static int smolderingGrassID;
+//	public static int smolderingGrassID;
 	
-	public static int quicksandID;
+//	public static int quicksandID;
 	
 	public static int planksID;
 	
@@ -181,6 +183,7 @@ public class BOPConfiguration {
 	public static int bopDiscMudID;
 	
 	public static int miscItemsID;
+	public static int mudballID;
 	
 	public static int swordMudID;
 	public static int shovelMudID;
@@ -319,6 +322,10 @@ public class BOPConfiguration {
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
+			
+			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 24, "In Vanilla it is set to 32").getInt();
+			if (villageDistance < 8)
+			    villageDistance = 8;
 
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 			arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);
@@ -445,13 +452,13 @@ public class BOPConfiguration {
 			
 			promisedLandPortalID = config.getBlock("Promised Land Portal ID", 1941, null).getInt();
 			amethystOreID = config.getBlock("Amethyst Ore ID", 1942, null).getInt();
-			amethystBlockID = config.getBlock("Block of Amethyst ID", 1943, null).getInt();
-			bambooThatchingID = config.getBlock("Bamboo Thatching ID", 1944, null).getInt();
+//			amethystBlockID = config.getBlock("Block of Amethyst ID", 1943, null).getInt();
+//			bambooThatchingID = config.getBlock("Bamboo Thatching ID", 1944, null).getInt();
 			
 			mossID = config.getBlock("Moss ID", 391, null).getInt();
-			smolderingGrassID = config.getBlock("Smoldering Grass ID", 1945, null).getInt();
+//			smolderingGrassID = config.getBlock("Smoldering Grass ID", 1945, null).getInt();
 			
-			quicksandID = config.getBlock("Quicksand ID", 1946, null).getInt();
+//			quicksandID = config.getBlock("Quicksand ID", 1946, null).getInt();
 			
 			planksID = config.getBlock("Planks ID", 1947, null).getInt();
 			
@@ -480,6 +487,7 @@ public class BOPConfiguration {
 			enderporterID = config.getItem("Enderporter ID", 21007).getInt();
 
 			miscItemsID = config.getItem("Misc Items ID", 21010).getInt();
+			mudballID = config.getItem("Mud Ball ID", 21011).getInt();
 			
 			bopDiscID = config.getItem("Traversia Music Disc ID", 21019, null).getInt();
 			bopDiscMudID = config.getItem("Muddy Music Disc ID", 21020, null).getInt();

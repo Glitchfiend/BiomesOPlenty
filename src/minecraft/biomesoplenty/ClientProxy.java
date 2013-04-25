@@ -24,7 +24,7 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST1_PNG);
 		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST2_PNG);
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.miscItems.get(), 0)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0)); 
 		
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
@@ -35,7 +35,7 @@ public class ClientProxy extends CommonProxy {
 	{
         EntityFX entityfx = null;
         
-        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.miscItems.get(), mc.renderEngine);
+        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
 		mc.effectRenderer.addEffect(entityfx);
 	}   
 

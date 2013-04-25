@@ -11,7 +11,7 @@ public class WTBiomesOP extends WorldTypeBase
 {
 	public WTBiomesOP() {
 		super(4, "BIOMESOP");
-		this.removeAllBiomes();
+		//this.removeAllBiomes();
 		this.removeBiome(BiomeGenBase.plains);
         this.removeBiome(BiomeGenBase.desert);
         this.removeBiome(BiomeGenBase.forest);

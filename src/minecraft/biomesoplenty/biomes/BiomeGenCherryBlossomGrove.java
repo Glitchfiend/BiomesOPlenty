@@ -41,4 +41,9 @@ public class BiomeGenCherryBlossomGrove extends BiomeGenBase
     {
         return 10747818;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 10747818;
+    }
 }

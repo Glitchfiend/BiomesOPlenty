@@ -26,12 +26,12 @@ public class BlockSmolderingGrass extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass3");
-		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass1");
-		this.blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
-		this.blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
-		this.blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
-		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass2");
+		this.blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass_bottom");
+		this.blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass_top");
+		this.blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
+		this.blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
+		this.blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
+		this.blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
 	}
 	
 	@Override

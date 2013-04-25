@@ -41,7 +41,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
         textures = new Icon[saplings.length];
         
         for (int i = 0; i < saplings.length; ++i)
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + saplings[i] + "sapling");
+            textures[i] = iconRegister.registerIcon("BiomesOPlenty:sapling_" + saplings[i]);
 
     }
     
@@ -60,6 +60,18 @@ public class BlockBOPColorizedSapling extends BlockSapling
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < saplings.length; ++i)
             list.add(new ItemStack(blockID, 1, i));
+    }
+    
+    @Override
+    public void updateTick(World world, int x, int y, int z, Random random)
+    {
+        if (world.isRemote)
+            return;
+        
+        this.checkFlowerChange(world, x, y, z);
+
+        if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0)
+            this.growTree(world, x, y, z, random);
     }
     
     @Override

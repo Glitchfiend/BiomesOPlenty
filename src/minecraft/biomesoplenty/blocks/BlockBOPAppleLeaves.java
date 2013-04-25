@@ -45,8 +45,8 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
         
         for (int i = 0; i < 4; ++i)
         {
-            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:appleleaves" + i + "_fancy");
-            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:appleleaves" + i + "_fast");
+            textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_apple" + i + "_fancy");
+            textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_apple" + i + "_fast");
         }
     }
     
@@ -257,6 +257,27 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     public int quantityDropped(Random random)
     {
         return random.nextInt(20) == 0 ? 1 : 0;
+    }
+    
+    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int meta, float chance, int par7)
+    {
+        if (world.isRemote)
+            return;
+
+        if (world.rand.nextInt(20) == 0)
+        {
+            int var9 = this.idDropped(meta, world.rand, par7);
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(var9, 1, this.damageDropped(meta)));
+        }
+
+        if ((meta & 3) == 3)
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
+        else if ((meta & 3) == 2 && world.rand.nextInt(2) == 0)
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
+        else if ((meta & 3) == 1 && world.rand.nextInt(5) == 0)
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
+        else if ((meta & 3) == 0 && world.rand.nextInt(10) == 0)
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
     }
     
     @Override

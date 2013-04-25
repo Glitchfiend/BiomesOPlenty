@@ -55,6 +55,11 @@ public class BiomeGenDeadForest extends BiomeGenBase
     {
         return 12362085;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 12362085;
+    }
 	
     /**
      * takes temperature, returns color

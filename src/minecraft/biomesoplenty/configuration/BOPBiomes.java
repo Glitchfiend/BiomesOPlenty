@@ -32,7 +32,7 @@ public class BOPBiomes {
 		initializeBiomes();
 		
 		//Initialize new world type
-		//WTBiomesOP = new WTBiomesOP();
+		WTBiomesOP = new WTBiomesOP();
 		
 		//Biome Dictionary
 		addToBiomeDictionary();
@@ -317,7 +317,39 @@ public class BOPBiomes {
         addVillageBiome(Biomes.forestNew);
         addVillageBiome(Biomes.taigaNew);
         addVillageBiome(Biomes.swamplandNew);
-	}
+        
+        // Additional biomes to spawn villages
+        addVillageBiome(Biomes.alps);
+        addVillageBiome(Biomes.badlands);
+        addVillageBiome(Biomes.bambooForest);
+        addVillageBiome(Biomes.bog);
+        addVillageBiome(Biomes.borealForest);
+        addVillageBiome(Biomes.canyon);
+        addVillageBiome(Biomes.cherryBlossomGrove);
+        addVillageBiome(Biomes.deadSwamp);
+        addVillageBiome(Biomes.deciduousForest);
+        addVillageBiome(Biomes.drylands);
+        addVillageBiome(Biomes.dunes);
+        addVillageBiome(Biomes.fen);
+        addVillageBiome(Biomes.highland);
+        addVillageBiome(Biomes.jadeCliffs);
+        addVillageBiome(Biomes.lushDesert);
+        addVillageBiome(Biomes.meadow);
+        addVillageBiome(Biomes.moor);
+        addVillageBiome(Biomes.mountain);
+        addVillageBiome(Biomes.oasis);
+        addVillageBiome(Biomes.outback);
+        addVillageBiome(Biomes.pasture);
+        addVillageBiome(Biomes.quagmire);
+        addVillageBiome(Biomes.rainforest);
+        addVillageBiome(Biomes.seasonalForest);
+        addVillageBiome(Biomes.swampwoods);
+        addVillageBiome(Biomes.temperateRainforest);
+        addVillageBiome(Biomes.thicket);
+        addVillageBiome(Biomes.tropics);
+        addVillageBiome(Biomes.tundra);
+        addVillageBiome(Biomes.wetland);
+    }
 	
 	private static void addStrongholdBiomes()
 	{
@@ -622,65 +654,79 @@ public class BOPBiomes {
 
             // Vanilla biomes generation
             if (BOPConfiguration.plainsGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.plainsNew);
                     GameRegistry.removeBiome(BiomeGenBase.plains);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.plains);
             
             if (BOPConfiguration.desertGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.desertNew);
                     GameRegistry.removeBiome(BiomeGenBase.desert);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.desert);
             
             if (BOPConfiguration.extremeHillsGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.extremeHillsNew);
                     GameRegistry.removeBiome(BiomeGenBase.extremeHills);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.extremeHills);
             
             if (BOPConfiguration.forestGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.forestNew);
                     GameRegistry.removeBiome(BiomeGenBase.forest);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.forest);
             
             if (BOPConfiguration.taigaGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.taigaNew);
                     GameRegistry.removeBiome(BiomeGenBase.taiga);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.taiga);
             
             if (BOPConfiguration.swamplandGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.swamplandNew);
                     GameRegistry.removeBiome(BiomeGenBase.swampland);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.swampland);
             
             if (BOPConfiguration.jungleGen)
+            {
                 if (BOPConfiguration.vanillaEnhanced)
                 {
                     registerBiome(Biomes.jungleNew);
                     GameRegistry.removeBiome(BiomeGenBase.jungle);
                 }
+            }
             else 
                 GameRegistry.removeBiome(BiomeGenBase.jungle);
         }
