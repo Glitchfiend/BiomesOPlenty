@@ -66,6 +66,11 @@ public class BiomeGenMoor extends BiomeGenBase
     {
         return 6394725;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 6394725;
+    }
 	
     /**
      * takes temperature, returns color

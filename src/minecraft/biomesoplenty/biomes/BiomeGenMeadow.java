@@ -63,4 +63,9 @@ public class BiomeGenMeadow extends BiomeGenBase
     {
         return 6533741;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 6533741;
+    }
 }

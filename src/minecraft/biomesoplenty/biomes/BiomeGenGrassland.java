@@ -76,4 +76,9 @@ public class BiomeGenGrassland extends BiomeGenBase
     {
         return 8379261;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 8379261;
+    }
 }

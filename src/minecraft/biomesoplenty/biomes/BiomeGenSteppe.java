@@ -46,4 +46,9 @@ public class BiomeGenSteppe extends BiomeGenBase
     {
         return 13413215;
     }
+    
+    public int getBiomeFoliageColor()
+    {
+        return 13413215;
+    }
 }
