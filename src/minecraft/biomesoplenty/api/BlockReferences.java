@@ -22,6 +22,18 @@ public class BlockReferences {
 		willowLog (Blocks.logs3, 1),
 		deadLog (Blocks.logs3, 2),
 		bigFlowerStem (Blocks.logs3, 3),
+		
+		acaciaPlank (Blocks.planks, 0),
+		cherryPlank (Blocks.planks, 1),
+		darkPlank (Blocks.planks, 2),
+		firPlank (Blocks.planks, 3),
+		holyPlank (Blocks.planks, 4),
+		magicPlank (Blocks.planks, 5),
+		mangrovePlank (Blocks.planks, 6),
+		palmPlank (Blocks.planks, 7),
+		redwoodPlank (Blocks.planks, 8),
+		willowPlank (Blocks.planks, 9),
+		bambooThatching (Blocks.planks, 10),
 		;
 
 		public Optional<? extends Block> block;

@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.BlockReferences.EnumBlocks;
+import biomesoplenty.api.Items;
 import thaumcraft.api.EnumTag;
 import thaumcraft.api.ObjectTags;
 import thaumcraft.api.ThaumcraftApi;
@@ -115,19 +116,19 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.giantFlowerRed.blockID, -1, (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.giantFlowerStem.blockID, -1, (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.giantFlowerYellow.blockID, -1, (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
-
+*/
 		//Items
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.amethyst.itemID, -1, (new ObjectTags()).add(EnumTag.VALUABLE, 8).add(EnumTag.PURE, 8).add(EnumTag.CRYSTAL, 16));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.barleyItem.itemID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.ashes.itemID, -1, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.cattailItem.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.PLANT, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.bambooItem.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 2).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.mudBrick.itemID, -1, (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.mudBall.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.EARTH, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.shroomPowder.itemID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 2).add(EnumTag.DESTRUCTION, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.bopDisc.itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.CROP, 4));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.bopDiscMud.itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.EARTH, 2).add(EnumTag.WATER, 2));
-
+		/*Amethyst*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.VALUABLE, 8).add(EnumTag.PURE, 8).add(EnumTag.CRYSTAL, 16));
+		//TODO ThaumcraftApi.registerObjectTag(Items.barley.itemID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
+		/*Ashes*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EXCHANGE, 1));
+		//TODO ThaumcraftApi.registerObjectTag(Items.cattail.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.PLANT, 1));
+		//TODO ThaumcraftApi.registerObjectTag(Items.bamboo.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 2).add(EnumTag.PLANT, 2));
+		/*Mudbrick*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 3, (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));
+		/*Mudball*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.EARTH, 2));
+		ThaumcraftApi.registerObjectTag(Items.shroomPowder.get().itemID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 2).add(EnumTag.DESTRUCTION, 1));
+		ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.CROP, 4));
+		ThaumcraftApi.registerObjectTag(Items.bopDiscMud.get().itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.EARTH, 2).add(EnumTag.WATER, 2));
+/*
 		//Plants
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.toadstool.blockID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 4));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.tinyCactus.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2).add(EnumTag.WEAPON, 1));
