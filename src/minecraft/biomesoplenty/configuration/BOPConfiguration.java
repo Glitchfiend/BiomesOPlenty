@@ -17,6 +17,8 @@ public class BOPConfiguration {
 	public static boolean achievements;
 	public static boolean vanillaEnhanced;
 	
+	public static int villageDistance;
+	
 	public static int promisedLandDimID;
 
 	public static boolean alpsGen;
@@ -320,6 +322,10 @@ public class BOPConfiguration {
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
+			
+			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 24, "In Vanilla it is set to 32").getInt();
+			if (villageDistance < 8)
+			    villageDistance = 8;
 
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 			arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);

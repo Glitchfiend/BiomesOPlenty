@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.structure.BOPMapGenVillage;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -59,7 +60,7 @@ public class ChunkProviderBOP implements IChunkProvider
     private double[] stoneNoise = new double[256];
     private MapGenBase caveGenerator = new MapGenCaves();
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
-    private MapGenVillage villageGenerator = new MapGenVillage();
+    private BOPMapGenVillage villageGenerator = new BOPMapGenVillage();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
     private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
     private MapGenBase ravineGenerator = new MapGenRavine();
@@ -80,7 +81,7 @@ public class ChunkProviderBOP implements IChunkProvider
     {
         caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
         strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
-        villageGenerator = (MapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
+        villageGenerator = (BOPMapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
         mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
         scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
         ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
