@@ -62,7 +62,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
       Version 0.5.2 (Unreleased)
     - Added an API for other mod developers
     - Added support for Biomes O Plenty woods in Thermal Expansion sawmills
-    - Significantly compressed the amount of Block IDs used, however breaks existing worlds (Sorry, we are looking into ways of converting them)
+    - Significantly compressed the amount of Block IDs used, however breaks existing worlds
     - Updated to the latest Forge
     - Changed various things to use IShearable
     - Changed default biome ids to be compatible with Mo Creatures
