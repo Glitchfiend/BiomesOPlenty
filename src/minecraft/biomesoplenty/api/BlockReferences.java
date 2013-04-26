@@ -34,6 +34,33 @@ public class BlockReferences {
 		redwoodPlank (Blocks.planks, 8),
 		willowPlank (Blocks.planks, 9),
 		bambooThatching (Blocks.planks, 10),
+		
+		acaciaLeaves (Blocks.leavesColorized, 0),
+		mangroveLeaves (Blocks.leavesColorized, 1),
+		palmLeaves (Blocks.leavesColorized, 2),
+		redwoodLeaves (Blocks.leavesColorized, 3),
+		willowLeaves (Blocks.leavesColorized, 4),
+		
+		yellowAutumnLeaves (Blocks.leaves1, 0),
+		bambooLeaves (Blocks.leaves1, 1),
+		magicLeaves (Blocks.leaves1, 2),
+		darkLeaves (Blocks.leaves1, 3),
+		deadLeaves (Blocks.leaves1, 4),
+		firLeaves (Blocks.leaves1, 5),
+		holyLeaves (Blocks.leaves1, 6),
+		orangeAutumnLeaves (Blocks.leaves1, 7),
+		originLeaves (Blocks.leaves2, 0),
+		pinkCherryLeaves (Blocks.leaves2, 1),
+		mapleLeaves (Blocks.leaves2, 2),
+		whiteCherryLeaves (Blocks.leaves2, 3),
+		
+		appleLeaves (Blocks.leavesFruit, 3),
+		appleLeavesFruitless (Blocks.leavesFruit, 0),
+		
+		bamboo (Blocks.bamboo, 0),
+		
+		barley (Blocks.plants, 6),
+		cattail (Blocks.plants, 7),
 		;
 
 		public Optional<? extends Block> block;

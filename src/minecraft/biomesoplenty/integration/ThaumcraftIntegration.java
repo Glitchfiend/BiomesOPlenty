@@ -43,40 +43,38 @@ public class ThaumcraftIntegration {
 		//Planks
 		ThaumcraftApi.registerObjectTag(getBID("acaciaPlank"), getBMeta("acaciaPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("cherryPlank"), getBMeta("cherryPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
-		ThaumcraftApi.registerObjectTag(getBID("darkPlank"), getBMeta("darkPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2).add(EnumTag.DARK, 1));
+		ThaumcraftApi.registerObjectTag(getBID("darkPlank"), getBMeta("darkPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2)/*.add(EnumTag.DARK, 1)*/);
 		ThaumcraftApi.registerObjectTag(getBID("firPlank"), getBMeta("firPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));		
-		ThaumcraftApi.registerObjectTag(getBID("holyPlank"), getBMeta("holyPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2).add(EnumTag.LIGHT, 1));		
-		ThaumcraftApi.registerObjectTag(getBID("magicPlank"), getBMeta("magicPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2).add(EnumTag.MAGIC, 1));
+		ThaumcraftApi.registerObjectTag(getBID("holyPlank"), getBMeta("holyPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2)/*.add(EnumTag.LIGHT, 1)*/);		
+		ThaumcraftApi.registerObjectTag(getBID("magicPlank"), getBMeta("magicPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2)/*.add(EnumTag.MAGIC, 1)*/);
 		ThaumcraftApi.registerObjectTag(getBID("mangrovePlank"), getBMeta("mangrovePlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("palmPlank"), getBMeta("palmPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("redwoodPlanl"), getBMeta("redwoodPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("willowPlank"), getBMeta("willowPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bambooThatching"), getBMeta("bambooThatching"), (new ObjectTags()).add(EnumTag.WATER, 14).add(EnumTag.PLANT, 14));
 
-/*
 		//Leaves
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.holyLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIGHT, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.blueLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.MAGIC, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.darkLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.DARK, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.deadLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.DEATH, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.appleLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.acaciaLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.firLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.mangroveLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.palmLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redwoodLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.willowLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.autumnLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.orangeLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.pinkLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.whiteLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.bambooLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.originLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.appleLeavesFruitless.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redLeaves.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("holyLeaves"), getBMeta("holyLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIGHT, 1));
+		ThaumcraftApi.registerObjectTag(getBID("magicLeaves"), getBMeta("magicLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.MAGIC, 1));
+		ThaumcraftApi.registerObjectTag(getBID("darkLeaves"), getBMeta("darkLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.DARK, 1));
+		ThaumcraftApi.registerObjectTag(getBID("deadLeaves"), getBMeta("deadLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.DEATH, 1));
+		ThaumcraftApi.registerObjectTag(getBID("appleLeaves"), getBMeta("appleLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
+		ThaumcraftApi.registerObjectTag(getBID("acaciaLeaves"), getBMeta("acaciaLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("firLeaves"), getBMeta("firLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("mangroveLeaves"), getBMeta("mangroveLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("palmLeaves"), getBMeta("palmLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("redwoodLeaves"), getBMeta("redwoodLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("willowLeaves"), getBMeta("willowLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("yellowAutumnLeaves"), getBMeta("yellowAutumnLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("mapleLeaves"), getBMeta("mapleLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("orangeAutumnLeaves"), getBMeta("orangeAutumnLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("pinkCherryLeaves"), getBMeta("pinkCherryLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("whiteCherryLeaves"), getBMeta("whiteCherryLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("bambooLeaves"), getBMeta("bambooLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("originLeaves"), getBMeta("originLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("appleLeavesFruitless"), getBMeta("appleLeavesFruitless"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 
-		//Saplings
+		/*//Saplings
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.holySapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.LIGHT, 2));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.magicSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.MAGIC, 2));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.darkSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.DARK, 2));
@@ -121,15 +119,17 @@ public class ThaumcraftIntegration {
 */
 		//Items
 		/*Amethyst*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.VALUABLE, 8).add(EnumTag.PURE, 8).add(EnumTag.CRYSTAL, 16));
-		//TODO ThaumcraftApi.registerObjectTag(Items.barley.itemID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
 		/*Ashes*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EXCHANGE, 1));
-		//TODO ThaumcraftApi.registerObjectTag(Items.cattail.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.PLANT, 1));
-		//TODO ThaumcraftApi.registerObjectTag(Items.bamboo.itemID, -1, (new ObjectTags()).add(EnumTag.WATER, 2).add(EnumTag.PLANT, 2));
 		/*Mudbrick*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 3, (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));
 		/*Mudball*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(Items.shroomPowder.get().itemID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 2).add(EnumTag.DESTRUCTION, 1));
 		ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.CROP, 4));
 		ThaumcraftApi.registerObjectTag(Items.bopDiscMud.get().itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.EARTH, 2).add(EnumTag.WATER, 2));
+		
+		//Placer Items
+		ThaumcraftApi.registerObjectTag(getBID("barley"), getBMeta("barley"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
+		ThaumcraftApi.registerObjectTag(getBID("cattail"), getBMeta("cattail"), (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.PLANT, 1));
+		ThaumcraftApi.registerObjectTag(getBID("bamboo"), getBMeta("bamboo"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
 /*
 		//Plants
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.toadstool.blockID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 4));
