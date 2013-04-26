@@ -89,6 +89,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
     - Renamed the texture files to reflect the in-game names
     - You can now have different textures for the heart of every log
     - Added Thaumcraft compatibility
+    - Updated the regular BOP music disc file (courtesy of Forstride), may require deleting the old bopdisc.ogg to take effect
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
