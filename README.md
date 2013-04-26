@@ -75,6 +75,20 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
     - Biomes O Plenty flowers can now be used with bees 
     - Gave the different types Autumn and Cherry Leaves their own names
     - Added Biome Dictionary support
+    - Added seeds on destroyed Biomes O Plenty grasses
+    - Carrots and potatoes now have a chance (1%) to be dropped from sprouts
+    - Added a random drop of apples when destroying apple leaves
+    - Added flowers to plants created on bonemeal use
+    - Tweaked the recipe for bamboo thatching
+    - Bamboo now acts as sticks
+    - Hopefully fixed saplings once and for all
+    - Added hardcoded foliage colours
+    - Added configurable spawn distance between villages in the BOP world type
+    - Added more biomes for villages to spawn in
+    - Tweaked cattail generation
+    - Renamed the texture files to reflect the in-game names
+    - You can now have different textures for the heart of every log
+    - Added Thaumcraft compatibility
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
