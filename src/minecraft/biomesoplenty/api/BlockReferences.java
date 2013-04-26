@@ -61,6 +61,25 @@ public class BlockReferences {
 		
 		barley (Blocks.plants, 6),
 		cattail (Blocks.plants, 7),
+
+		holySapling (Blocks.saplings, 7),
+		magicSapling (Blocks.saplings, 3),
+		darkSapling (Blocks.saplings, 4),
+		deadSapling (Blocks.saplings, 5),
+		acaciaSapling (Blocks.colorizedSaplings, 0),
+		firSapling (Blocks.saplings, 6),
+		mangroveSapling (Blocks.colorizedSaplings, 1),
+		palmSapling (Blocks.colorizedSaplings, 2),
+		redwoodSapling (Blocks.colorizedSaplings, 3),
+		willowSapling (Blocks.colorizedSaplings, 4),
+		mapleSapling (Blocks.saplings, 11),
+		orangeAutumnSapling (Blocks.saplings, 8),
+		pinkCherrySapling (Blocks.saplings, 10),
+		whiteCherrySapling (Blocks.saplings, 12),
+		appleSapling (Blocks.saplings, 0),
+		originSapling (Blocks.saplings, 9),
+		yellowAutumnSapling (Blocks.saplings, 1),
+		bambooSapling (Blocks.saplings, 2),
 		;
 
 		public Optional<? extends Block> block;

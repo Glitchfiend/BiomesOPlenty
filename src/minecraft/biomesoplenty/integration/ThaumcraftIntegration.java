@@ -74,27 +74,28 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("originLeaves"), getBMeta("originLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("appleLeavesFruitless"), getBMeta("appleLeavesFruitless"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 
-		/*//Saplings
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.holySapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.LIGHT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.magicSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.MAGIC, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.darkSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.DARK, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.brownSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.DEATH, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.acaciaSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.firSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.mangroveSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.palmSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redwoodSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.willowSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.orangeSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.pinkSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.whiteSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.appleSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.originSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.yellowSapling.blockID, -1, (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		//Saplings
+		ThaumcraftApi.registerObjectTag(getBID("holySapling"), getBMeta("holySapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.LIGHT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("magicSapling"), getBMeta("magicSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.MAGIC, 2));
+		ThaumcraftApi.registerObjectTag(getBID("darkSapling"), getBMeta("darkSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.DARK, 2));
+		ThaumcraftApi.registerObjectTag(getBID("deadSapling"), getBMeta("deadSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.DEATH, 2));
+		ThaumcraftApi.registerObjectTag(getBID("acaciaSapling"), getBMeta("acaciaSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("firSapling"), getBMeta("firSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("mangroveSapling"), getBMeta("mangroveSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("palmSapling"), getBMeta("palmSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("redwoodSapling"), getBMeta("redwoodSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("willowSapling"), getBMeta("willowSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("mapleSapling"), getBMeta("mapleSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("orangeAutumnSapling"), getBMeta("orangeAutumnSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("pinkCherrySapling"), getBMeta("pinkCherrySapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("whiteCherrySapling"), getBMeta("whiteCherrySapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("appleSapling"), getBMeta("appleSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("originSapling"), getBMeta("originSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("yellowAutumnSapling"), getBMeta("yellowAutumnSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		
+		//TODO Bamboo sapling
 
-		//Blocks
+		/*//Blocks
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.mud.blockID, -1, (new ObjectTags()).add(EnumTag.WATER, 3).add(EnumTag.EARTH, 6));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.driedDirt.blockID, -1, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EARTH, 1));
 		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redRock.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 2));
