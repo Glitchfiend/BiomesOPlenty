@@ -86,7 +86,7 @@ public class ItemBOPRecord extends ItemRecord
      */
     public String getRecordTitle()
     {
-        return "Tim Rurkowski - Traversia";
+        return "Tim Rurkowski - Wanderer";
     }
 
     @SideOnly(Side.CLIENT)
