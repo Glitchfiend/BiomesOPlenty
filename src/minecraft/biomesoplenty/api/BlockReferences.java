@@ -80,6 +80,26 @@ public class BlockReferences {
 		originSapling (Blocks.saplings, 9),
 		yellowAutumnSapling (Blocks.saplings, 1),
 		bambooSapling (Blocks.saplings, 2),
+		
+		mud (Blocks.mud, 0),
+		driedDirt (Blocks.driedDirt, 0),
+		redRock (Blocks.redRock, 0),
+		ash (Blocks.ash, 0),
+		ashStone (Blocks.ashStone, 0),
+		hardIce (Blocks.hardIce, 0),
+		originGrass (Blocks.originGrass, 0),
+		hardSand (Blocks.hardSand, 0),
+		hardDirt (Blocks.hardDirt, 0),
+		holyGrass (Blocks.holyGrass, 0),
+		holyStone (Blocks.holyStone, 0),
+		cragRock (Blocks.cragRock, 0),
+		quicksand (Blocks.mud, 1),
+		smolderingGrass (Blocks.holyGrass, 1),
+		amethystBlock (Blocks.amethystOre, 1),
+		amethystOre (Blocks.amethystOre, 0),
+		redRockCobble (Blocks.redRock, 1),
+		giantFlowerRed (Blocks.petals, 0),
+		giantFlowerYellow (Blocks.petals, 1),
 		;
 
 		public Optional<? extends Block> block;

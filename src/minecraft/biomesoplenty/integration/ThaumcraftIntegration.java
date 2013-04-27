@@ -95,29 +95,27 @@ public class ThaumcraftIntegration {
 		
 		//TODO Bamboo sapling
 
-		/*//Blocks
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.mud.blockID, -1, (new ObjectTags()).add(EnumTag.WATER, 3).add(EnumTag.EARTH, 6));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.driedDirt.blockID, -1, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EARTH, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redRock.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.ash.blockID, -1, (new ObjectTags()).add(EnumTag.DESTRUCTION, 3).add(EnumTag.EXCHANGE, 3));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.ashStone.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 1).add(EnumTag.EXCHANGE, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.hardIce.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 2).add(EnumTag.COLD, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.originGrass.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EARTH, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.hardSand.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 1).add(EnumTag.EARTH, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.hardDirt.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 1).add(EnumTag.EARTH, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.holyGrass.blockID, -1, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EARTH, 2).add(EnumTag.LIGHT, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.holyStone.blockID, -1, (new ObjectTags()).add(EnumTag.LIGHT, 1).add(EnumTag.ROCK, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.cragRock.blockID, -1, (new ObjectTags()).add(EnumTag.ROCK, 2));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.quicksand.blockID, -1, (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.TRAP, 4));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.smolderingGrass.blockID, -1, (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.bambooThatching.blockID, -1, (new ObjectTags()).add(EnumTag.WATER, 14).add(EnumTag.PLANT, 14));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.amethystBlock.blockID, -1, (new ObjectTags()).add(EnumTag.VALUABLE, 58).add(EnumTag.PURE, 58).add(EnumTag.CRYSTAL, 87));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.amethystOre.blockID, -1, (new ObjectTags()).add(EnumTag.VALUABLE, 6).add(EnumTag.PURE, 6).add(EnumTag.CRYSTAL, 14).add(EnumTag.ROCK, 4));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.redRockCobble.blockID, -1, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.ROCK, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.giantFlowerRed.blockID, -1, (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.giantFlowerStem.blockID, -1, (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
-		ThaumcraftApi.registerObjectTag(mod_BiomesOPlenty.giantFlowerYellow.blockID, -1, (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
-*/
+		//Blocks
+		ThaumcraftApi.registerObjectTag(getBID("mud"), getBMeta("mud"), (new ObjectTags()).add(EnumTag.WATER, 3).add(EnumTag.EARTH, 6));
+		ThaumcraftApi.registerObjectTag(getBID("driedDirt"), getBMeta("driedDirt"), (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EARTH, 1));
+		ThaumcraftApi.registerObjectTag(getBID("redRock"), getBMeta("redRock"), (new ObjectTags()).add(EnumTag.ROCK, 2));
+		ThaumcraftApi.registerObjectTag(getBID("ash"), getBMeta("ash"), (new ObjectTags()).add(EnumTag.DESTRUCTION, 3).add(EnumTag.EXCHANGE, 3));
+		ThaumcraftApi.registerObjectTag(getBID("ashStone"), getBMeta("ashStone"), (new ObjectTags()).add(EnumTag.ROCK, 1).add(EnumTag.EXCHANGE, 1));
+		ThaumcraftApi.registerObjectTag(getBID("hardIce"), getBMeta("hardIce"), (new ObjectTags()).add(EnumTag.ROCK, 2).add(EnumTag.COLD, 2));
+		ThaumcraftApi.registerObjectTag(getBID("originGrass"), getBMeta("originGrass"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EARTH, 2));
+		ThaumcraftApi.registerObjectTag(getBID("hardSand"), getBMeta("hardSand"), (new ObjectTags()).add(EnumTag.ROCK, 1).add(EnumTag.EARTH, 2));
+		ThaumcraftApi.registerObjectTag(getBID("hardDirt"), getBMeta("hardDirt"), (new ObjectTags()).add(EnumTag.ROCK, 1).add(EnumTag.EARTH, 2));
+		ThaumcraftApi.registerObjectTag(getBID("holyGrass"), getBMeta("holyGrass"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EARTH, 2).add(EnumTag.LIGHT, 1));
+		ThaumcraftApi.registerObjectTag(getBID("holyStone"), getBMeta("holyStone"), (new ObjectTags()).add(EnumTag.LIGHT, 1).add(EnumTag.ROCK, 2));
+		ThaumcraftApi.registerObjectTag(getBID("cragRock"), getBMeta("cragRock"), (new ObjectTags()).add(EnumTag.ROCK, 2));
+		ThaumcraftApi.registerObjectTag(getBID("quicksand"), getBMeta("quicksand"), (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.TRAP, 4));
+		ThaumcraftApi.registerObjectTag(getBID("smolderingGrass"), getBMeta("smolderingGrass"), (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));
+		ThaumcraftApi.registerObjectTag(getBID("amethystBlock"), getBMeta("amethystBlock"), (new ObjectTags()).add(EnumTag.VALUABLE, 58).add(EnumTag.PURE, 58).add(EnumTag.CRYSTAL, 87));
+		ThaumcraftApi.registerObjectTag(getBID("amethystOre"), getBMeta("amethystOre"), (new ObjectTags()).add(EnumTag.VALUABLE, 6).add(EnumTag.PURE, 6).add(EnumTag.CRYSTAL, 14).add(EnumTag.ROCK, 4));
+		ThaumcraftApi.registerObjectTag(getBID("redRockCobble"), getBMeta("redRockCobble"), (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.ROCK, 1));
+		ThaumcraftApi.registerObjectTag(getBID("giantFlowerRed"), getBMeta("giantFlowerRed"), (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
+		ThaumcraftApi.registerObjectTag(getBID("giantFlowerYellow"), getBMeta("giantFlowerYellow"), (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
+		
 		//Items
 		/*Amethyst*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.VALUABLE, 8).add(EnumTag.PURE, 8).add(EnumTag.CRYSTAL, 16));
 		/*Ashes*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.EXCHANGE, 1));
