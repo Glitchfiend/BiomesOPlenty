@@ -4,11 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.liquids.LiquidStack;
 import net.minecraftforge.oredict.OreDictionary;
+import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import forestry.api.apiculture.FlowerManager;
 import forestry.api.core.EnumHumidity;
 import forestry.api.core.EnumTemperature;
+import forestry.api.core.GlobalManager;
 import forestry.api.core.ItemInterface;
 import forestry.api.recipes.RecipeManagers;
 
@@ -212,6 +214,22 @@ public class ForestryIntegration
         EnumHumidity.normalBiomeIds.add(BOPConfiguration.taigaNewID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.swamplandNewID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.jungleNewID);
+        
+        GlobalManager.leafBlockIds.add(Blocks.leaves1.get().blockID);
+        GlobalManager.leafBlockIds.add(Blocks.leaves2.get().blockID);
+        GlobalManager.leafBlockIds.add(Blocks.leavesColorized.get().blockID);
+        GlobalManager.leafBlockIds.add(Blocks.leavesFruit.get().blockID);
+        
+        GlobalManager.dirtBlockIds.add(Blocks.ash.get().blockID);
+        GlobalManager.dirtBlockIds.add(Blocks.hardDirt.get().blockID);
+        GlobalManager.dirtBlockIds.add(Blocks.holyGrass.get().blockID);
+        GlobalManager.dirtBlockIds.add(Blocks.mud.get().blockID);
+        GlobalManager.dirtBlockIds.add(Blocks.originGrass.get().blockID);
+        GlobalManager.dirtBlockIds.add(Blocks.redRock.get().blockID);
+        
+        GlobalManager.sandBlockIds.add(Blocks.hardSand.get().blockID);
+        
+        GlobalManager.snowBlockIds.add(Blocks.hardIce.get().blockID);
     }
     
     private static void addFermenterRecipes()
