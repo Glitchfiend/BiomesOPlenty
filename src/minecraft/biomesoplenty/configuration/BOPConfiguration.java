@@ -62,7 +62,7 @@ public class BOPConfiguration {
 	public static boolean mesaGen;
 	public static boolean moorGen;
 	public static boolean mountainGen;
-	public static boolean mushroomIslandGen;
+//	public static boolean mushroomIslandGen;
 	public static boolean mysticGroveGen;
 	public static boolean oasisGen;
 	public static boolean ominousWoodsGen;
@@ -316,7 +316,7 @@ public class BOPConfiguration {
 			config.load();
 
 			skyColors = true;
-			biomeSize = config.get("Biome Settings", "Biome Size", 4, null).getInt();
+			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 5, "Default World Type has 4. Large Biomes Worl Type has 6.").getInt();
 			achievements = config.get("Achievement Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
@@ -368,7 +368,7 @@ public class BOPConfiguration {
 			mesaGen = config.get("Biomes To Generate", "Mesa", true).getBoolean(false);
 			moorGen = config.get("Biomes To Generate", "Moor", true).getBoolean(false);
 			mountainGen = config.get("Biomes To Generate", "Mountain", true).getBoolean(false);
-			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
+//			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
 			mysticGroveGen = config.get("Biomes To Generate", "MysticGrove", true).getBoolean(false);
 			oasisGen = config.get("Biomes To Generate", "Oasis", true).getBoolean(false);
 			ominousWoodsGen = config.get("Biomes To Generate", "OminousWoods", true).getBoolean(false);
