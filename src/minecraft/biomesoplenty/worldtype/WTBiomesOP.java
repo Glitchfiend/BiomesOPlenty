@@ -1,9 +1,11 @@
 package biomesoplenty.worldtype;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.MinecraftForge;
 
 import biomesoplenty.api.Biomes;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.helpers.WorldTypeSize;
 
 import com.google.common.base.Optional;
 
@@ -11,7 +13,7 @@ public class WTBiomesOP extends WorldTypeBase
 {
 	public WTBiomesOP() {
 		super(4, "BIOMESOP");
-		//this.removeAllBiomes();
+		this.removeAllBiomes();
 		this.removeBiome(BiomeGenBase.plains);
         this.removeBiome(BiomeGenBase.desert);
         this.removeBiome(BiomeGenBase.forest);
@@ -183,10 +185,6 @@ public class WTBiomesOP extends WorldTypeBase
 		if (BOPConfiguration.mountainGen == true)
 		{
 			addNewBiome(Biomes.mountain);
-		}
-		if (BOPConfiguration.mushroomIslandGen == true)
-		{
-			this.addNewBiome(BiomeGenBase.mushroomIsland);
 		}
 		if (BOPConfiguration.mysticGroveGen == true)
 		{
