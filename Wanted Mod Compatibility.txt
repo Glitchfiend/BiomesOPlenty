@@ -1,5 +1,5 @@
-1. Thaumcraft
-2. Ars Magica  
+1. Thaumcraft - In Progress
+2. Ars Magica
 3. Thermal Expansion - Woods in sawmill - DONE
 4. Forestry - Wood in backpacks - In Progress
 5. Better World Generation 4 - In Progress

@@ -90,6 +90,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
     - You can now have different textures for the heart of every log
     - Added Thaumcraft compatibility
     - Updated the regular BOP music disc file (courtesy of Forstride), may require deleting the old bopdisc.ogg to take effect
+    - Allowed Forestry beehives to spawn on Biomes O Plenty certain blocks
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
