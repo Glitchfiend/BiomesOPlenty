@@ -16,7 +16,7 @@
  
 - **Tim Rurkowski** - Music author
 
-## World Conversion (Don't use yet!)##
+## World Conversion##
 As of Biomes O Plenty 0.5.2, changes have been made so that the number of block ids used by the mod are drastically reduced. However, as a side-effect of these changes, existing worlds will no longer work.
 
 However, thanks to a little Java application I (Adubbz) whipped up, as well as the lovely folks who made Midas gold, this should hopefully be easy.
