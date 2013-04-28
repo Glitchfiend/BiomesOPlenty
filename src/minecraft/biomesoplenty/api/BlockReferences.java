@@ -18,9 +18,9 @@ public class BlockReferences {
 		magicLog (Blocks.logs2, 1),
 		mangroveLog (Blocks.logs2, 2),
 		palmLog (Blocks.logs2, 3),
-		redwoodLog (Blocks.logs3, 0),
+		redwoodLog (Blocks.logs3, 0), 
 		willowLog (Blocks.logs3, 1),
-		deadLog (Blocks.logs3, 2),
+		deadLog (Blocks.logs3, 2), 
 		bigFlowerStem (Blocks.logs3, 3),
 		
 		acaciaPlank (Blocks.planks, 0),
