@@ -21,14 +21,14 @@ public class BOPMapGenVillage extends MapGenStructure
 
     /** World terrain type, 0 for normal, 1 for flat map */
     private int terrainType;
-    private int distance;
-    private int field_82666_h;
+    private int maxDistance;
+    private int minDistance;
 
     public BOPMapGenVillage()
     {
         this.terrainType = 0;
-        this.distance = BOPConfiguration.villageDistance;
-        this.field_82666_h = BOPConfiguration.villageDistance / 4;
+        this.maxDistance = BOPConfiguration.villageDistance;
+        this.minDistance = BOPConfiguration.villageDistance / 4;
         villageSpawnBiomes = MapGenVillage.villageSpawnBiomes;
     }
 
@@ -47,7 +47,7 @@ public class BOPMapGenVillage extends MapGenStructure
             }
             else if (((String)entry.getKey()).equals("distance"))
             {
-                this.distance = MathHelper.parseIntWithDefaultAndMax((String)entry.getValue(), this.distance, this.field_82666_h + 1);
+                this.maxDistance = MathHelper.parseIntWithDefaultAndMax((String)entry.getValue(), this.maxDistance, this.minDistance + 1);
             }
         }
     }
@@ -59,21 +59,21 @@ public class BOPMapGenVillage extends MapGenStructure
 
         if (par1 < 0)
         {
-            par1 -= this.distance - 1;
+            par1 -= this.maxDistance - 1;
         }
 
         if (par2 < 0)
         {
-            par2 -= this.distance - 1;
+            par2 -= this.maxDistance - 1;
         }
 
-        int i1 = par1 / this.distance;
-        int j1 = par2 / this.distance;
+        int i1 = par1 / this.maxDistance;
+        int j1 = par2 / this.maxDistance;
         Random random = this.worldObj.setRandomSeed(i1, j1, 10387312);
-        i1 *= this.distance;
-        j1 *= this.distance;
-        i1 += random.nextInt(this.distance - this.field_82666_h);
-        j1 += random.nextInt(this.distance - this.field_82666_h);
+        i1 *= this.maxDistance;
+        j1 *= this.maxDistance;
+        i1 += random.nextInt(this.maxDistance - this.minDistance);
+        j1 += random.nextInt(this.maxDistance - this.minDistance);
 
         if (k == i1 && l == j1)
         {

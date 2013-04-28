@@ -316,7 +316,7 @@ public class BOPConfiguration {
 			config.load();
 
 			skyColors = true;
-			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 5, "Default World Type has 4. Large Biomes Worl Type has 6.").getInt();
+			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 5, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
 			achievements = config.get("Achievement Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();

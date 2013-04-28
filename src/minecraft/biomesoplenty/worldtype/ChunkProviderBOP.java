@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.structure.BOPMapGenScatteredFeature;
 import biomesoplenty.worldgen.structure.BOPMapGenVillage;
 
 import net.minecraft.block.Block;
@@ -32,12 +33,10 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.feature.MapGenScatteredFeature;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
-import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
@@ -62,7 +61,7 @@ public class ChunkProviderBOP implements IChunkProvider
     private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     private BOPMapGenVillage villageGenerator = new BOPMapGenVillage();
     private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
-    private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
+    private BOPMapGenScatteredFeature scatteredFeatureGenerator = new BOPMapGenScatteredFeature();
     private MapGenBase ravineGenerator = new MapGenRavine();
     private BiomeGenBase[] biomesForGeneration;
     double[] noise3;
@@ -83,7 +82,7 @@ public class ChunkProviderBOP implements IChunkProvider
         strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
         villageGenerator = (BOPMapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
         mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
-        scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
+        scatteredFeatureGenerator = (BOPMapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
         ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
     }
 
