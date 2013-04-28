@@ -15,9 +15,9 @@ public class BOPCrafting
 {
     public static void init()
     {
+        addOreRegistration();
         addCraftingRecipes();
         addSmeltingRecipes();
-        addOreRegistration();
     }
     
     private static void addCraftingRecipes()
@@ -116,11 +116,11 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
         
         //Mud Tools and Armor
-        GameRegistry.addRecipe(new ItemStack(Items.pickaxeMud.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(Items.shovelMud.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(Items.swordMud.get(), 1), new Object [] {"#", "#", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(Items.axeMud.get(), 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), Item.stick});
-        GameRegistry.addRecipe(new ItemStack(Items.hoeMud.get(), 1), new Object [] {"##", " X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), Item.stick});
+        GameRegistry.addRecipe(new ItemStack(Items.pickaxeMud.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"});
+        GameRegistry.addRecipe(new ItemStack(Items.shovelMud.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"});
+        GameRegistry.addRecipe(new ItemStack(Items.swordMud.get(), 1), new Object [] {"#", "#", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"});
+        GameRegistry.addRecipe(new ItemStack(Items.axeMud.get(), 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"});
+        GameRegistry.addRecipe(new ItemStack(Items.hoeMud.get(), 1), new Object [] {"##", " X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"});
         GameRegistry.addRecipe(new ItemStack(Items.helmetMud.get(), 1), new Object [] {"###", "# #", Character.valueOf('#'), Items.mudball.get()});
         GameRegistry.addRecipe(new ItemStack(Items.chestplateMud.get(), 1), new Object [] {"# #", "###", "###", Character.valueOf('#'), Items.mudball.get()});
         GameRegistry.addRecipe(new ItemStack(Items.leggingsMud.get(), 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), Items.mudball.get()});
