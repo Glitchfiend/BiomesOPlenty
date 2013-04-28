@@ -24,7 +24,9 @@ import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.WorldProviderPromised;
 import biomesoplenty.helpers.WorldTypeSize;
 import biomesoplenty.integration.BOPCrossIntegration;
+import biomesoplenty.integration.ThaumcraftIntegration;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -125,10 +127,11 @@ public class BiomesOPlenty
 
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
+		
+		BOPCrossIntegration.init();
 	}
 	
 	public void postInit(FMLPostInitializationEvent event)
 	{
-	    BOPCrossIntegration.init();
 	}
 }

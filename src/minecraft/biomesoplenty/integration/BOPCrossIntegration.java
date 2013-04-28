@@ -6,17 +6,17 @@ public class BOPCrossIntegration {
 	
 	public static void init()
 	{
-		if (Loader.isModLoaded("Forestry"))
+		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try {
-				ForestryIntegration.init();
+				ThaumcraftIntegration.init();
 			}
 			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating Forestry with Biomes O' Plenty!");
+				System.out.println("[BiomesOPlenty] There was an error while integrating Thaumcraft with Biomes O' Plenty!");
 				e.printStackTrace(System.err);
 			}
 		}
-		
+
 		if (Loader.isModLoaded("BWG4"))
 		{
 			try {
@@ -28,6 +28,17 @@ public class BOPCrossIntegration {
 			}
 		}
 		
+		if (Loader.isModLoaded("Forestry"))
+		{
+			try {
+				ForestryIntegration.init();
+			}
+			catch (Exception e) {
+				System.out.println("[BiomesOPlenty] There was an error while integrating Forestry with Biomes O' Plenty!");
+				e.printStackTrace(System.err);
+			}
+		}
+		
 		if (Loader.isModLoaded("ThermalExpansion"))
 		{
 			try {
@@ -35,17 +46,6 @@ public class BOPCrossIntegration {
 			}
 			catch (Exception e) {
 				System.out.println("[BiomesOPlenty] There was an error while integrating Thermal Expansion with Biomes O' Plenty!");
-				e.printStackTrace(System.err);
-			}
-		}
-		
-		if (Loader.isModLoaded("Thaumcraft"))
-		{
-			try {
-				ThaumcraftIntegration.init();
-			}
-			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating Thaumcraft with Biomes O' Plenty!");
 				e.printStackTrace(System.err);
 			}
 		}
