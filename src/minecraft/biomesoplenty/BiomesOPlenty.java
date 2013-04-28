@@ -133,6 +133,5 @@ public class BiomesOPlenty
 	
 	public void postInit(FMLPostInitializationEvent event)
 	{
-	    BOPCrossIntegration.postInit();
 	}
 }

@@ -16,21 +16,7 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
-	}
-	
-	public static void postInit()
-	{
-		if (Loader.isModLoaded("Forestry"))
-		{
-			try {
-				ForestryIntegration.init();
-			}
-			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating Forestry with Biomes O' Plenty!");
-				e.printStackTrace(System.err);
-			}
-		}
-		
+
 		if (Loader.isModLoaded("BWG4"))
 		{
 			try {
@@ -38,6 +24,17 @@ public class BOPCrossIntegration {
 			}
 			catch (Exception e) {
 				System.out.println("[BiomesOPlenty] There was an error while integrating Better World Generation 4 with Biomes O' Plenty!");
+				e.printStackTrace(System.err);
+			}
+		}
+		
+		if (Loader.isModLoaded("Forestry"))
+		{
+			try {
+				ForestryIntegration.init();
+			}
+			catch (Exception e) {
+				System.out.println("[BiomesOPlenty] There was an error while integrating Forestry with Biomes O' Plenty!");
 				e.printStackTrace(System.err);
 			}
 		}
