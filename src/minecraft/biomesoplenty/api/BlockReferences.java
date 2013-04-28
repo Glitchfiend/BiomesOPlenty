@@ -61,6 +61,11 @@ public class BlockReferences {
 		
 		barley (Blocks.plants, 6),
 		cattail (Blocks.plants, 7),
+		
+		sproutItem (Blocks.foliage, 5),
+		bushItem (Blocks.foliage, 4),
+		mediumGrassItem (Blocks.foliage, 2),
+		shortGrassItem (Blocks.foliage, 1),
 
 		holySapling (Blocks.saplings, 7),
 		magicSapling (Blocks.saplings, 3),
@@ -100,6 +105,28 @@ public class BlockReferences {
 		redRockCobble (Blocks.redRock, 1),
 		giantFlowerRed (Blocks.petals, 0),
 		giantFlowerYellow (Blocks.petals, 1),
+		
+		toadstool (Blocks.flowers, 10),
+		tinyCactus (Blocks.flowers, 11),
+		holyTallGrass (Blocks.plants, 4),
+		desertSprouts (Blocks.plants, 2),
+		duneGrass (Blocks.plants, 3),
+		thorn (Blocks.plants, 5),
+		desertGrass (Blocks.plants, 1),
+		deadGrass (Blocks.plants, 0),
+		treeMoss (Blocks.treeMoss, 0),	
+		moss (Blocks.moss, 0),
+		
+		violet (Blocks.flowers, 8),
+		hydrangea (Blocks.flowers, 4),
+		deathbloom (Blocks.flowers, 2),
+		glowFlower (Blocks.flowers, 3),
+		anenome (Blocks.flowers, 9),
+		swampFlower (Blocks.flowers, 1),
+		wildFlower (Blocks.flowers, 7),
+		daisy (Blocks.flowers, 5),
+		tulip (Blocks.flowers, 6),
+		clover (Blocks.flowers, 0),
 		;
 
 		public Optional<? extends Block> block;
