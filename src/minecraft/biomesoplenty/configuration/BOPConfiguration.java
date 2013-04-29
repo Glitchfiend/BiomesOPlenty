@@ -512,6 +512,11 @@ public class BOPConfiguration {
 			rosesterID = config.get("Mob IDs", "Rosester ID", 102, null).getInt();
 
 			System.out.println("Generating Biome ID's");
+			
+			//23-79 ExtraBiomesXL
+			
+			//80-169 Better World Generation 4
+			
 			alpsID = config.get("Biome IDs", "Alps ID", 171).getInt();
 			arcticID = config.get("Biome IDs", "Arctic ID", 172).getInt();
 			badlandsID = config.get("Biome IDs", "Badlands ID", 173).getInt();
