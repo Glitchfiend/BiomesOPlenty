@@ -1040,8 +1040,11 @@ public class BOPBiomes {
 	
 	public static Set<WorldType> getWorldTypes() {
         if (worldTypes.isEmpty()) {
-            worldTypes.add(WorldType.DEFAULT);
-            worldTypes.add(WorldType.LARGE_BIOMES);
+            if (BOPConfiguration.addToDefault)
+            {
+                worldTypes.add(WorldType.DEFAULT);
+                worldTypes.add(WorldType.LARGE_BIOMES);
+            }
             worldTypes.add(WTBiomesOP);
         }
         return ImmutableSet.copyOf(worldTypes);
