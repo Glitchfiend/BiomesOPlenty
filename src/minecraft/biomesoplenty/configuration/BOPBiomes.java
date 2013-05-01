@@ -300,67 +300,73 @@ public class BOPBiomes {
 	
 	private static void addVillageBiomes()
 	{
-	    addVillageBiome(Biomes.arctic);                
-        addVillageBiome(Biomes.bayou);
-        addVillageBiome(Biomes.birchForest);
-        addVillageBiome(Biomes.chaparral);
-        addVillageBiome(Biomes.coniferousForest);
-        addVillageBiome(Biomes.deadForest);
-        addVillageBiome(Biomes.field);
-        addVillageBiome(Biomes.frostForest);
-        addVillageBiome(Biomes.grassland);
-        addVillageBiome(Biomes.grove);
-        addVillageBiome(Biomes.heathland);
-        addVillageBiome(Biomes.lushSwamp);
-        addVillageBiome(Biomes.mapleWoods);
-        addVillageBiome(Biomes.orchard);
-        addVillageBiome(Biomes.prairie);
-        addVillageBiome(Biomes.redwoodForest);
-        addVillageBiome(Biomes.savanna);
-        addVillageBiome(Biomes.scrubland);
-        addVillageBiome(Biomes.shield);
-        addVillageBiome(Biomes.shrubland);
-        addVillageBiome(Biomes.snowyWoods);
-        addVillageBiome(Biomes.spruceWoods);
-        addVillageBiome(Biomes.tropicalRainforest);
-        addVillageBiome(Biomes.woodland);
-        addVillageBiome(Biomes.plainsNew);
-        addVillageBiome(Biomes.desertNew);
-        addVillageBiome(Biomes.forestNew);
-        addVillageBiome(Biomes.taigaNew);
-        addVillageBiome(Biomes.swamplandNew);
-        
-        // Additional biomes to spawn villages
-        addVillageBiome(Biomes.alps);
-        addVillageBiome(Biomes.badlands);
-        addVillageBiome(Biomes.bambooForest);
-        addVillageBiome(Biomes.bog);
-        addVillageBiome(Biomes.borealForest);
-        addVillageBiome(Biomes.canyon);
-        addVillageBiome(Biomes.cherryBlossomGrove);
-        addVillageBiome(Biomes.deadSwamp);
-        addVillageBiome(Biomes.deciduousForest);
-        addVillageBiome(Biomes.drylands);
-        addVillageBiome(Biomes.dunes);
-        addVillageBiome(Biomes.fen);
-        addVillageBiome(Biomes.highland);
-        addVillageBiome(Biomes.jadeCliffs);
-        addVillageBiome(Biomes.lushDesert);
-        addVillageBiome(Biomes.meadow);
-        addVillageBiome(Biomes.moor);
-        addVillageBiome(Biomes.mountain);
-        addVillageBiome(Biomes.oasis);
-        addVillageBiome(Biomes.outback);
-        addVillageBiome(Biomes.pasture);
-        addVillageBiome(Biomes.quagmire);
-        addVillageBiome(Biomes.rainforest);
-        addVillageBiome(Biomes.seasonalForest);
-        addVillageBiome(Biomes.swampwoods);
-        addVillageBiome(Biomes.temperateRainforest);
-        addVillageBiome(Biomes.thicket);
-        addVillageBiome(Biomes.tropics);
-        addVillageBiome(Biomes.tundra);
-        addVillageBiome(Biomes.wetland);
+	    addVillageBiome(Biomes.alps, BOPConfiguration.alpsVillage);
+        addVillageBiome(Biomes.arctic, BOPConfiguration.arcticVillage);
+        addVillageBiome(Biomes.badlands, BOPConfiguration.badlandsVillage);
+        addVillageBiome(Biomes.bambooForest, BOPConfiguration.bambooForestVillage);
+        addVillageBiome(Biomes.bayou, BOPConfiguration.bayouVillage);
+        addVillageBiome(Biomes.birchForest, BOPConfiguration.birchForestVillage);
+        addVillageBiome(Biomes.bog, BOPConfiguration.bogVillage);
+        addVillageBiome(Biomes.borealForest, BOPConfiguration.borealForestVillage);
+        addVillageBiome(Biomes.canyon, BOPConfiguration.canyonVillage);
+        addVillageBiome(Biomes.chaparral, BOPConfiguration.chaparralVillage);
+        addVillageBiome(Biomes.cherryBlossomGrove, BOPConfiguration.cherryBlossomGroveVillage);
+        addVillageBiome(Biomes.coniferousForest, BOPConfiguration.coniferousForestVillage);
+        addVillageBiome(Biomes.deadForest, BOPConfiguration.deadForestVillage);
+        addVillageBiome(Biomes.deadSwamp, BOPConfiguration.deadSwampVillage);
+        addVillageBiome(Biomes.deciduousForest, BOPConfiguration.deciduousForestVillage);
+        addVillageBiome(Biomes.drylands, BOPConfiguration.drylandsVillage);
+        addVillageBiome(Biomes.dunes, BOPConfiguration.dunesVillage);
+        addVillageBiome(Biomes.fen, BOPConfiguration.fenVillage);
+        addVillageBiome(Biomes.field, BOPConfiguration.fieldVillage);
+        addVillageBiome(Biomes.frostForest, BOPConfiguration.frostForestVillage);
+        addVillageBiome(Biomes.glacier, BOPConfiguration.glacierVillage);
+        addVillageBiome(Biomes.grassland, BOPConfiguration.grasslandVillage);
+        addVillageBiome(Biomes.grove, BOPConfiguration.groveVillage);
+        addVillageBiome(Biomes.heathland, BOPConfiguration.heathlandVillage);
+        addVillageBiome(Biomes.highland, BOPConfiguration.highlandVillage);
+        addVillageBiome(Biomes.iceSheet, BOPConfiguration.iceSheetVillage);
+        addVillageBiome(Biomes.jadeCliffs, BOPConfiguration.jadeCliffsVillage);
+        addVillageBiome(Biomes.lushDesert, BOPConfiguration.lushDesertVillage);
+        addVillageBiome(Biomes.lushSwamp, BOPConfiguration.lushSwampVillage);
+        addVillageBiome(Biomes.mangrove, BOPConfiguration.mangroveVillage);
+        addVillageBiome(Biomes.mapleWoods, BOPConfiguration.mapleWoodsVillage);
+        addVillageBiome(Biomes.marsh, BOPConfiguration.marshVillage);
+        addVillageBiome(Biomes.meadow, BOPConfiguration.meadowVillage);
+        addVillageBiome(Biomes.mesa, BOPConfiguration.mesaVillage);
+        addVillageBiome(Biomes.moor, BOPConfiguration.moorVillage);
+        addVillageBiome(Biomes.mountain, BOPConfiguration.mountainVillage);
+        addVillageBiome(Biomes.oasis, BOPConfiguration.oasisVillage);
+        addVillageBiome(Biomes.orchard, BOPConfiguration.orchardVillage);
+        addVillageBiome(Biomes.outback, BOPConfiguration.outbackVillage);
+        addVillageBiome(Biomes.pasture, BOPConfiguration.pastureVillage);
+        addVillageBiome(Biomes.prairie, BOPConfiguration.prairieVillage);
+        addVillageBiome(Biomes.quagmire, BOPConfiguration.quagmireVillage);
+        addVillageBiome(Biomes.rainforest, BOPConfiguration.rainforestVillage);
+        addVillageBiome(Biomes.redwoodForest, BOPConfiguration.redwoodForestVillage);
+        addVillageBiome(Biomes.savanna, BOPConfiguration.savannaVillage);
+        addVillageBiome(Biomes.scrubland, BOPConfiguration.scrublandVillage);
+        addVillageBiome(Biomes.seasonalForest, BOPConfiguration.seasonalForestVillage);
+        addVillageBiome(Biomes.shield, BOPConfiguration.shieldVillage);
+        addVillageBiome(Biomes.shrubland, BOPConfiguration.shrublandVillage);
+        addVillageBiome(Biomes.snowyWoods, BOPConfiguration.snowyWoodsVillage);
+        addVillageBiome(Biomes.spruceWoods, BOPConfiguration.spruceWoodsVillage);
+        addVillageBiome(Biomes.swampwoods, BOPConfiguration.swampwoodsVillage);
+        addVillageBiome(Biomes.temperateRainforest, BOPConfiguration.temperateRainforestVillage);
+        addVillageBiome(Biomes.thicket, BOPConfiguration.thicketVillage);
+        addVillageBiome(Biomes.tropicalRainforest, BOPConfiguration.tropicalRainforestVillage);
+        addVillageBiome(Biomes.tropics, BOPConfiguration.tropicsVillage);
+        addVillageBiome(Biomes.tundra, BOPConfiguration.tundraVillage);
+        addVillageBiome(Biomes.volcano, BOPConfiguration.volcanoVillage);
+        addVillageBiome(Biomes.wetland, BOPConfiguration.wetlandVillage);
+        addVillageBiome(Biomes.woodland, BOPConfiguration.woodlandVillage);
+        addVillageBiome(Biomes.plainsNew, BOPConfiguration.plainsVillage);
+        addVillageBiome(Biomes.desertNew, BOPConfiguration.desertVillage);
+        addVillageBiome(Biomes.forestNew, BOPConfiguration.forestVillage);
+        addVillageBiome(Biomes.extremeHillsNew, BOPConfiguration.extremeHillsVillage);
+        addVillageBiome(Biomes.taigaNew, BOPConfiguration.taigaVillage);
+        addVillageBiome(Biomes.swamplandNew, BOPConfiguration.swamplandVillage);
+        addVillageBiome(Biomes.jungleNew, BOPConfiguration.jungleVillage);
     }
 	
 	private static void addStrongholdBiomes()
@@ -1069,10 +1075,10 @@ public class BOPBiomes {
 			BiomeManager.addSpawnBiome(biome.get());
 	}
 	
-	private static void addVillageBiome(Optional<? extends BiomeGenBase> biome)
+	private static void addVillageBiome(Optional<? extends BiomeGenBase> biome, boolean flag)
 	{
 		if (biome.isPresent())
-			BiomeManager.addVillageBiome(biome.get(), true);
+			BiomeManager.addVillageBiome(biome.get(), flag);
 	}
 	
 	private static void addStrongholdBiome(Optional<? extends BiomeGenBase> biome)
