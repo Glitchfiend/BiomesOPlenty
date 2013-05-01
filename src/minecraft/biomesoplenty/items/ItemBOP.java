@@ -20,6 +20,8 @@ public class ItemBOP extends Item
 	public ItemBOP(int id)
 	{
 		super(id);
+		setMaxDamage(0);
+        setHasSubtypes(true);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
