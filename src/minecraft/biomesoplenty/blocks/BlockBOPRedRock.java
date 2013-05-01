@@ -57,6 +57,12 @@ public class BlockBOPRedRock extends Block
     }
     
     @Override
+    public int damageDropped(int meta)
+    {
+        return meta == 0 ? 1 : meta;
+    }
+    
+    @Override
     public float getBlockHardness(World world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
