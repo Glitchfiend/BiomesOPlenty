@@ -71,7 +71,7 @@ public class BiomeGenBambooForest extends BiomeGenBase
      */
     public int getBiomeGrassColor()
     {
-        return 9430372;
+        return 10739795;
     }
 
     /**
@@ -79,6 +79,6 @@ public class BiomeGenBambooForest extends BiomeGenBase
      */
     public int getBiomeFoliageColor()
     {
-        return 9430372;
+        return 10739795;
     }
 }

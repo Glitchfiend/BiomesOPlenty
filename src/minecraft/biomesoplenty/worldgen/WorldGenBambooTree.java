@@ -27,7 +27,7 @@ public class WorldGenBambooTree extends WorldGenerator
 
     public WorldGenBambooTree(boolean par1)
     {
-        this(par1, 18, 0, 0, false);
+        this(par1, 10, 0, 0, false);
     }
 
     public WorldGenBambooTree(boolean par1, int par2, int par3, int par4, boolean par5)
@@ -41,7 +41,7 @@ public class WorldGenBambooTree extends WorldGenerator
 
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
-        int var6 = par2Random.nextInt(3) + this.minTreeHeight;
+        int var6 = par2Random.nextInt(12) + this.minTreeHeight;
         boolean var7 = true;
 
         if (par4 >= 1 && par4 + var6 + 1 <= 256)
