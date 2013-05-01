@@ -13,8 +13,8 @@ public class BlockReferences {
 		acaciaLog (Blocks.logs1, 0),
 		cherryLog (Blocks.logs1, 1),
 		darkLog (Blocks.logs1, 2),
-		firLog (Blocks.logs2, 3),
-		holyLog (Blocks.logs1, 0),
+		firLog (Blocks.logs1, 3),
+		holyLog (Blocks.logs2, 0),
 		magicLog (Blocks.logs2, 1),
 		mangroveLog (Blocks.logs2, 2),
 		palmLog (Blocks.logs2, 3),
@@ -64,8 +64,10 @@ public class BlockReferences {
 		
 		sproutItem (Blocks.foliage, 5),
 		bushItem (Blocks.foliage, 4),
+		highGrassItem (Blocks.foliage, 3),
 		mediumGrassItem (Blocks.foliage, 2),
 		shortGrassItem (Blocks.foliage, 1),
+		algae (Blocks.foliage, 0),
 
 		holySapling (Blocks.saplings, 7),
 		magicSapling (Blocks.saplings, 3),
@@ -116,6 +118,7 @@ public class BlockReferences {
 		deadGrass (Blocks.plants, 0),
 		treeMoss (Blocks.treeMoss, 0),	
 		moss (Blocks.moss, 0),
+		willow (Blocks.willow, 0),
 		
 		violet (Blocks.flowers, 8),
 		hydrangea (Blocks.flowers, 4),

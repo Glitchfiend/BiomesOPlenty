@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -12,6 +13,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenAcacia;
 import biomesoplenty.worldgen.WorldGenMangrove;
 import biomesoplenty.worldgen.WorldGenPalmTree1;
@@ -60,6 +62,25 @@ public class BlockBOPColorizedSapling extends BlockSapling
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < saplings.length; ++i)
             list.add(new ItemStack(blockID, 1, i));
+    }
+    
+    @Override
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+    {
+        int id = world.getBlockId(x, y - 1, z);
+        int meta = itemStack.getItemDamage();
+        
+        if (itemStack.itemID == this.blockID)
+            switch (meta)
+            {
+                case 1: // Mangrove
+                    return id == Block.sand.blockID;
+
+                default:
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+            }
+        else
+            return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
     
     @Override
