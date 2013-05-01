@@ -12,6 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenApple;
 import biomesoplenty.worldgen.WorldGenAutumn;
 import biomesoplenty.worldgen.WorldGenAutumn2;
@@ -66,6 +67,25 @@ public class BlockBOPSapling extends BlockSapling
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < saplings.length; ++i)
             list.add(new ItemStack(blockID, 1, i));
+    }
+    
+    @Override
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+    {
+        int id = world.getBlockId(x, y - 1, z);
+        int meta = itemStack.getItemDamage();
+        
+        if (itemStack.itemID == this.blockID)
+            switch (meta)
+            {
+                case 7: // Holy
+                    return id == Blocks.holyGrass.get().blockID;
+
+                default:
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+            }
+        else
+            return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
     
     @Override
