@@ -13,6 +13,12 @@ public class ItemBOPRedRock extends ItemBlock
         setMaxDamage(0);
         setHasSubtypes(true);
     }
+    
+    @Override
+    public int getMetadata(int meta)
+    {
+        return meta & 15;
+    }
 
     @Override
     public String getUnlocalizedName(ItemStack itemstack) {
