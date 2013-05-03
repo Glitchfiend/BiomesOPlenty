@@ -162,6 +162,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator sproutGen;
     protected WorldGenerator bushGen;
 	protected WorldGenerator tinyCactusGen;
+	protected WorldGenerator yuccaGen;
 	protected WorldGenerator deathbloomGen;
 	protected WorldGenerator hydrangeaGen;
 	protected WorldGenerator violetGen;
@@ -224,6 +225,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected int sproutsPerChunk;
     protected int bushesPerChunk;
 	protected int tinyCactiPerChunk;
+	protected int yuccaPerChunk;
 	protected int deathbloomsPerChunk;
 	protected int hydrangeasPerChunk;
 	protected int violetsPerChunk;
@@ -354,6 +356,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.thornGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 5);
         this.bushGen = new WorldGenBush(Blocks.foliage.get().blockID, 4);
 		this.tinyCactusGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 11);
+		this.yuccaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
 		this.deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
 		this.hydrangeaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 4);
 		this.violetGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 8);
@@ -416,6 +419,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.sproutsPerChunk = 0;
         this.bushesPerChunk = 0;
 		this.tinyCactiPerChunk = 0;
+		this.yuccaPerChunk = 0;
 		this.deathbloomsPerChunk = 0;
 		this.hydrangeasPerChunk = 0;
 		this.violetsPerChunk = 0;
@@ -810,6 +814,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.tinyCactusGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.yuccaPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.yuccaGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 		
         for (var2 = 0; var2 < this.deathbloomsPerChunk; ++var2)

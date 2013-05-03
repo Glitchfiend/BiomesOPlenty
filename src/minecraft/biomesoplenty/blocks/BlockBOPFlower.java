@@ -20,7 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BlockFlower
 {
-    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus"};
+    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "yucca"};
     private Icon[] textures;
     
     protected BlockBOPFlower(int blockID, Material material)
@@ -116,6 +116,9 @@ public class BlockBOPFlower extends BlockFlower
                 
             case 11: // Cactus
                 return id == Block.sand.blockID;
+				
+			case 12: // Yucca
+                return id == Block.sand.blockID;
 
             default:
                 return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
@@ -135,6 +138,9 @@ public class BlockBOPFlower extends BlockFlower
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
                     
                 case 11: // Cactus
+                    return id == Block.sand.blockID;
+					
+				case 12: // Yucca
                     return id == Block.sand.blockID;
 
                 default:

@@ -26,6 +26,7 @@ public class BiomeGenDesertNew extends BiomeGenBase
 		this.customBiomeDecorator.desertSproutsPerChunk = 1;
 		this.customBiomeDecorator.tinyCactiPerChunk = 5;
 		this.customBiomeDecorator.quicksand2PerChunk = 3;
+		this.customBiomeDecorator.yuccaPerChunk = 2;
     }
 
     public void decorate(World par1World, Random par2Random, int par3, int par4)

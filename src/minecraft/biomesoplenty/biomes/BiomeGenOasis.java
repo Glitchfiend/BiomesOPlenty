@@ -32,6 +32,7 @@ public class BiomeGenOasis extends BiomeGenBase
 		this.customBiomeDecorator.generateMelons = true;
 		this.customBiomeDecorator.waterLakesPerChunk = 10;
 		this.customBiomeDecorator.quicksand2PerChunk = 2;
+		this.customBiomeDecorator.yuccaPerChunk = 4;
     }
 
     /**

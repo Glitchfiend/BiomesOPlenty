@@ -110,6 +110,7 @@ public class BlockReferences {
 		
 		toadstool (Blocks.flowers, 10),
 		tinyCactus (Blocks.flowers, 11),
+		yucca (Blocks.flowers, 12),
 		holyTallGrass (Blocks.plants, 4),
 		desertSprouts (Blocks.plants, 2),
 		duneGrass (Blocks.plants, 3),
