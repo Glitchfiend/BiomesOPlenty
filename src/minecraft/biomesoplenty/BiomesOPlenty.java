@@ -42,6 +42,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {	    
+	//The rudder moves when I turn the wheel
 	// The instance of your mod that Forge uses.
 	@Instance("BiomesOPlenty")
 	public static BiomesOPlenty instance;
