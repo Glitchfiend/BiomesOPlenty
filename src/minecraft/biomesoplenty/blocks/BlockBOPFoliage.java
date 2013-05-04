@@ -212,10 +212,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
                 this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
                 break;
                 
-            case GRASSBOTTOM:
-                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 1.9F, 0.9F);
-                break;
-                
             case ALGAE:
                 this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
                 break;

@@ -81,10 +81,6 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
                 this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
                 break;
                 
-            case 9:
-                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 1.9F, 0.9F);
-                break;
-                
             default:
                 this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
                 break;
@@ -99,35 +95,26 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             list.add(new ItemStack(blockID, 1, i));
     }
     
-    protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
+    protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
     {
-        switch (meta)
-        {
-            case 0: // Dead Grass
-                return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
+            //case 2: // Desert Sprouts
                 
-            case 1: // Desert Grass
-                return id == Blocks.redRock.get().blockID;
-                
-            case 2: // Desert Sprouts
-            case 3: // Dune Grass
-                return id == Block.sand.blockID;
-                
-            case 4: // Holy Tall Grass
-                return id == Blocks.holyGrass.get().blockID;
-                
-            case 5:
-                return true;
-                
-            case 7:
-                return id == Block.grass.blockID;
-			
-			case 8:
-				return blockID == this.blockID;
-                
-            default:
-                return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
-        }
+        if (metadata == 0) //Dead Grass
+            return blockID == Blocks.driedDirt.get().blockID || blockID == Block.sand.blockID;
+        else if (metadata == 1) //Desert Grass
+            return blockID == Blocks.redRock.get().blockID;
+        else if (metadata == 3) //Dune Grass
+            return blockID == Block.sand.blockID;
+        else if (metadata == 4) //Holy Tall Grass
+            return blockID == Blocks.holyGrass.get().blockID;
+        else if (metadata == 5)
+            return true;
+        else if (metadata == 7)
+            return blockID == Block.grass.blockID;
+        else if (metadata == 8)
+			return blockID == this.blockID;
+        else
+            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
     }
     
     protected boolean canThisPlantGrowOnThisBlockID(int id)

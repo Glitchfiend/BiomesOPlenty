@@ -375,7 +375,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.toadstoolGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 10);
         this.sproutGen = new WorldGenSprout(Blocks.foliage.get().blockID, 5);
         this.highGrassGen = new WorldGenHighGrass(Blocks.foliage.get().blockID, 3);
-		this.cattailGen = new WorldGenHighCattail();
+		this.highCattailGen = new WorldGenHighCattail(Blocks.plants.get().blockID, 9);
 		this.outbackGen = new WorldGenOutback(Blocks.foliage.get().blockID, 2);
 		this.steppeGen = new WorldGenSteppe(Block.sand.blockID, 0);
         this.carrotGen = new WorldGenCarrots(Block.tallGrass.blockID, 0);
