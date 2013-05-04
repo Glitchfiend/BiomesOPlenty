@@ -26,14 +26,14 @@ public interface IBeeModifier {
 	/**
 	 * @param genome
 	 * @param mate
-	 * @return Fload modifying the production speed of queens.
+	 * @return Float modifying the production speed of queens.
 	 */
 	float getProductionModifier(IBeeGenome genome, float currentModifier);
 
 	/**
 	 * @param genome
 	 * @param mate
-	 * @return Fload modifying the flowering of queens.
+	 * @return Float modifying the flowering of queens.
 	 */
 	float getFloweringModifier(IBeeGenome genome, float currentModifier);
 

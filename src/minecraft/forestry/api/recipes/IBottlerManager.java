@@ -17,7 +17,8 @@ import net.minecraftforge.liquids.LiquidStack;
  */
 public interface IBottlerManager extends ICraftingProvider {
 	/**
-	 * Add a recipe to the bottler
+	 * Add a recipe to the bottler.
+	 * The bottler will populate its recipe list dynamically from the LiquidContainerRegistry. Recipes added explicitely will take precedence.
 	 * 
 	 * @param cyclesPerUnit
 	 *            Amount of work cycles required to run through the conversion once.
@@ -30,5 +31,6 @@ public interface IBottlerManager extends ICraftingProvider {
 	 * @param bottled
 	 *            ItemStack representing the finished product
 	 */
+	@Deprecated
 	public void addRecipe(int cyclesPerUnit, LiquidStack input, ItemStack can, ItemStack bottled);
 }
