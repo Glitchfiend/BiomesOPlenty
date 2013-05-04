@@ -233,9 +233,10 @@ public class BlockWillow extends Block implements IShearable
     /**
      * Returns the color this block should be rendered. Used by leaves.
      */
+    @Override
     public int getRenderColor(int par1)
     {
-        return ColorizerFoliage.getFoliageColorBirch();
+        return ColorizerFoliage.getFoliageColorBasic();
     }
 
     /**
