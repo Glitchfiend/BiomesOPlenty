@@ -25,8 +25,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "cattailtop", "cattailbottom"};
     private Icon[] textures;
+	
+	private static final int CATTAILTOP = 8;
+    private static final int CATTAILBOTTOM = 9;
     
     public BlockBOPPlant(int par1)
     {
@@ -73,6 +76,14 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             case 7:
                 this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
                 break;
+			
+			case 8:
+                this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+                break;
+                
+            case 9:
+                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 1.9F, 0.9F);
+                break;
                 
             default:
                 this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
@@ -82,8 +93,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < plants.length; ++i)
+    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
+    {
+        for (int i = 0; i < CATTAILTOP; ++i)
             list.add(new ItemStack(blockID, 1, i));
     }
     
@@ -109,6 +121,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
                 
             case 7:
                 return id == Block.grass.blockID;
+			
+			case 8:
+				return blockID == this.blockID;
                 
             default:
                 return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
@@ -149,6 +164,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
                 case 7: // Cattail
                     return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
                     
+				case 8: // High Cattail Bottom
+                    return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
+					
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
             }
@@ -166,6 +184,17 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
+	
+    @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+    {
+        super.onNeighborBlockChange(world, x, y, z, neighborID);
+        this.checkFlowerChange(world, x, y, z);
+        if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == this.blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM)
+                world.setBlockToAir(x, y, z);
+        if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
+            world.setBlockToAir(x, y, z);
+    }
 
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
@@ -179,6 +208,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     public int getDamageValue(World world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
+        if (meta == CATTAILTOP)
+            meta = CATTAILBOTTOM;
         return meta;
     }
     
