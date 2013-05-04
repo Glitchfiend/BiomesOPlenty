@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -156,7 +157,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         if (world.getBlockMetadata(x, y, z) == GRASSTOP && world.getBlockId(x, y - 1, z) == this.blockID && world.getBlockMetadata(x, y - 1, z) != GRASSBOTTOM)
                 world.setBlockToAir(x, y, z);
         if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
-            world.setBlockToAir(x, y, z);
+        		world.setBlock(x, y, z, Block.tallGrass.blockID, 1, 2);
     }
     
     @Override
@@ -208,9 +209,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         
         switch (meta)
         {
-            case GRASSTOP:
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
-                break;
                 
             case ALGAE:
                 this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
@@ -243,9 +241,14 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
     {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
-        return ret;
+    	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+
+    	if (world.getBlockMetadata(x, y, z) != 6)
+    		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
+    	else
+    		ret.add(new ItemStack(Block.tallGrass, 1, 1));
+
+    	return ret;
     }
     
     @Override

@@ -76,10 +76,6 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             case 7:
                 this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
                 break;
-			
-			case 8:
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
-                break;
                 
             default:
                 this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
@@ -179,8 +175,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
         this.checkFlowerChange(world, x, y, z);
         if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == this.blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM)
                 world.setBlockToAir(x, y, z);
-        if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
-            world.setBlockToAir(x, y, z);
+        //if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
+    	//	world.setBlock(x, y, z, this.blockID, 7, 2);
     }
 
     @Override
@@ -212,7 +208,10 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public int damageDropped(int meta)
     {
-        return meta;
+    	if (meta == 8)
+    		return 7;
+    	else
+    		return meta;
     }
     
     @Override
@@ -220,7 +219,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     {
         if (meta == 6)
             return random.nextInt(5) == 0 ? 1 : 0;
-        else if (meta == 7)
+        else if (meta == 7 || meta == 8)
             return 1;
         else
             return 0;
@@ -250,9 +249,12 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
     {
-        ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
-        return ret;
+    	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+
+    	if (world.getBlockMetadata(x, y, z) != 8 && world.getBlockMetadata(x, y, z) != 9)
+    		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
+
+    	return ret;
     }
     
     @Override
