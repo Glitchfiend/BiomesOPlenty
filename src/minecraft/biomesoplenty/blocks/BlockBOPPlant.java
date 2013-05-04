@@ -191,8 +191,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     public int getDamageValue(World world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == CATTAILTOP)
-            meta = CATTAILBOTTOM;
+        if (meta == CATTAILTOP || meta == CATTAILBOTTOM)
+            meta = 7;
         return meta;
     }
     
