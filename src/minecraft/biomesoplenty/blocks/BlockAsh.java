@@ -1,5 +1,7 @@
 package biomesoplenty.blocks;
 
+import static net.minecraftforge.common.ForgeDirection.UP;
+
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -8,7 +10,10 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderEnd;
+import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 
 public class BlockAsh extends Block
@@ -46,6 +51,14 @@ public class BlockAsh extends Block
         {
             par1World.spawnParticle("smoke", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.1F), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
         }
+    }
+    
+    @Override
+    public boolean isFireSource(World world, int x, int y, int z, int metadata, ForgeDirection side)
+    {
+        if (blockID == Blocks.ash.get().blockID && side == UP)
+            return true;
+        return false;
     }
 
     /**
