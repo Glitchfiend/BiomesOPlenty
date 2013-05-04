@@ -30,6 +30,7 @@ public class BiomeGenFen extends BiomeGenBase
 		this.customBiomeDecorator.highGrassPerChunk = 1;
 		this.customBiomeDecorator.waterlilyPerChunk = 1;
 		this.customBiomeDecorator.cattailsPerChunk = 1;
+		this.customBiomeDecorator.highCattailsPerChunk = 1;
 		this.customBiomeDecorator.pondsPerChunk = 99;
 		this.customBiomeDecorator.toadstoolsPerChunk = 2;
 		this.customBiomeDecorator.mushroomsPerChunk = 8;

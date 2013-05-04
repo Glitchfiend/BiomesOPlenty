@@ -26,6 +26,7 @@ public class BiomeGenLushSwamp extends BiomeGenBase
         this.customBiomeDecorator.mushroomsPerChunk = 8;
         this.customBiomeDecorator.reedsPerChunk = 16;
 		this.customBiomeDecorator.cattailsPerChunk = 10;
+		this.customBiomeDecorator.highCattailsPerChunk = 5;
         this.customBiomeDecorator.waterlilyPerChunk = 3;
 		this.customBiomeDecorator.hydrangeasPerChunk = 1;
 		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
