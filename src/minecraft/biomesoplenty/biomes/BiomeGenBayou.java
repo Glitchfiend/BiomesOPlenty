@@ -33,6 +33,7 @@ public class BiomeGenBayou extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk2 = -999;
         this.customBiomeDecorator.waterlilyPerChunk = 2;
         this.customBiomeDecorator.cattailsPerChunk = 1;
+		this.customBiomeDecorator.highCattailsPerChunk = 1;
 		this.customBiomeDecorator.algaePerChunk = 1;
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.waterColorMultiplier = 16767282;
