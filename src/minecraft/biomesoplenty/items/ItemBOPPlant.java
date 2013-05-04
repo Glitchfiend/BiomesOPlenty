@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ItemBOPPlant extends ItemBlock
 {
-    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "cattailtop", "cattailbottom"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     

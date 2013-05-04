@@ -36,6 +36,7 @@ import biomesoplenty.worldgen.WorldGenDesertCactus;
 import biomesoplenty.worldgen.WorldGenDriedDirt;
 import biomesoplenty.worldgen.WorldGenGravel;
 import biomesoplenty.worldgen.WorldGenHighGrass;
+import biomesoplenty.worldgen.WorldGenHighCattail;
 import biomesoplenty.worldgen.WorldGenMelon;
 import biomesoplenty.worldgen.WorldGenMesa;
 import biomesoplenty.worldgen.WorldGenMud;
@@ -152,6 +153,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator plantDeadGen;
     protected WorldGenerator plantDesertGen;
     protected WorldGenerator cattailGen;
+	protected WorldGenerator highCattailGen;
 	protected WorldGenerator outbackGen;
 	protected WorldGenerator steppeGen;
     protected WorldGenerator thornGen;
@@ -218,6 +220,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected int deadGrassPerChunk;
     protected int desertGrassPerChunk;
     protected int cattailsPerChunk;
+	protected int highCattailsPerChunk;
     protected int carrotsPerChunk;
     protected int potatoesPerChunk;
     protected int thornsPerChunk;
@@ -372,6 +375,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.toadstoolGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 10);
         this.sproutGen = new WorldGenSprout(Blocks.foliage.get().blockID, 5);
         this.highGrassGen = new WorldGenHighGrass(Blocks.foliage.get().blockID, 3);
+		this.highCattailGen = new WorldGenHighCattail(Blocks.plants.get().blockID, 9);
 		this.outbackGen = new WorldGenOutback(Blocks.foliage.get().blockID, 2);
 		this.steppeGen = new WorldGenSteppe(Block.sand.blockID, 0);
         this.carrotGen = new WorldGenCarrots(Block.tallGrass.blockID, 0);
@@ -412,6 +416,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.deadGrassPerChunk = 0;
         this.desertGrassPerChunk = 0;
         this.cattailsPerChunk = 0;
+		this.highCattailsPerChunk = 0;
         this.carrotsPerChunk = 0;
         this.potatoesPerChunk = 0;
         this.thornsPerChunk = 0;
@@ -961,6 +966,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.cattailGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+        for (var2 = 0; var2 < this.highCattailsPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.highCattailGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 		
         for (var2 = 0; doGen && var2 < this.algaePerChunk; ++var2)
