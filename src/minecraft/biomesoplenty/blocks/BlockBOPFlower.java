@@ -105,7 +105,7 @@ public class BlockBOPFlower extends BlockFlower
     
     protected boolean canThisPlantGrowOnThisBlockID(int id)
     {
-        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID;
+        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID;
     }
     
     protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
