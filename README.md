@@ -59,7 +59,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 
 
 ## Changelog ##
-      Version 0.5.2 (Unreleased)
+      Version 0.5.2 '05-05-13'
     - Added an API for other mod developers
     - Added support for Biomes O Plenty woods in Thermal Expansion sawmills
     - Significantly compressed the amount of Block IDs used, however breaks existing worlds
@@ -72,7 +72,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
     - Adjusted high grass hitbox to cover both blocks
     - Fixed an issue causing sound files to be created on the desktop
     - Biomes O Plenty saplings now work in the Forestry fermenter
-    - Biomes O Plenty flowers can now be used with bees 
+    - Biomes O Plenty flowers can now be used with bees
     - Gave the different types Autumn and Cherry Leaves their own names
     - Added Biome Dictionary support
     - Added seeds on destroyed Biomes O Plenty grasses
@@ -92,6 +92,20 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
     - Updated the regular BOP music disc file (courtesy of Forstride), may require deleting the old bopdisc.ogg to take effect
     - Allowed Forestry beehives to spawn on Biomes O Plenty certain blocks
     - Fixed registering biomes for world types - BOP biomes now accessible in Large Biomes World Type
+    - Fixed leaf decay
+    - Fixed config option for adding biomes to vanilla world types
+    - Fixed Red Rock
+    - Fixed BOP Items
+    - Fixed placing of Mangrove and Holy Saplings
+    - Finished the Thaumcraft aspects
+    - Changed the styling of Bamboo Forests to that of Forstrides liking
+    - Added Yucca flower to desert biomes
+    - Added High Cattails
+    - Seperated High Grass into two blocks
+    - Fire now burns infinitely on ashes
+    - Fixed willow colouring
+    - Adjust the Canyon Biome slightly
+    - Adjusted the Lush Desert biome slightly
 
       Version 0.5.1 '17-04-2013'
     - Fixed server crash with mudballs 
