@@ -76,7 +76,7 @@ public class WorldGenAcacia extends WorldGenerator
                         {
                             var12 = par1World.getBlockId(var10, var8, var11);
 
-                            if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != Blocks.logs1.get().blockID)
+                            if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID && var12 != Block.grass.blockID && var12 != Blocks.redRock.get().blockID && var12 != Block.dirt.blockID && var12 != Blocks.logs1.get().blockID)
                             {
                                 var7 = false;
                             }
@@ -97,7 +97,7 @@ public class WorldGenAcacia extends WorldGenerator
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+                if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID || var8 == Blocks.redRock.get().blockID) && par4 < 256 - var6 - 1)
                 {
                     this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
                     var9 = 2;
