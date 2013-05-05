@@ -240,7 +240,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     public boolean isBlockReplaceable(World world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 5)
+        if (meta == 5 || meta == 8)
             return false;
         return true;
     }

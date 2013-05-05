@@ -23,9 +23,9 @@ public class WorldGenReedBOP extends WorldGenerator
             {
                 int l1 = 2 + par2Random.nextInt(par2Random.nextInt(2) + 2);
 
-                for (int i2 = 0; i2 < l1; ++i2)
+                if (Blocks.plants.get().canBlockStay(par1World, i1, j1, k1))
                 {
-                    if (Blocks.plants.get().canBlockStay(par1World, i1, j1 + i2, k1))
+                    for (int i2 = 0; i2 < l1; ++i2)
                     {
                         par1World.setBlock(i1, j1 + i2, k1, Blocks.plants.get().blockID, 8, 2);
                     }
