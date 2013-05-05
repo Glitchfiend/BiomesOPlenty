@@ -105,25 +105,19 @@ public class BlockBOPFlower extends BlockFlower
     
     protected boolean canThisPlantGrowOnThisBlockID(int id)
     {
-        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID;
+        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID;
     }
     
-    protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
+    protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
     {
-        switch (meta)
-        {
-            case 10: // Toadstool
-                return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
-                
-            case 11: // Cactus
-                return id == Block.sand.blockID;
-				
-			case 12: // Yucca
-                return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
-
-            default:
-                return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
-        }
+    	if (metadata == 10) //Toadstool
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+    	if (metadata == 11) //Cactus
+    		return id == Block.sand.blockID;
+    	if (metadata == 12) //Yucca
+    		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+    	else
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
     }
     
     @Override
