@@ -41,8 +41,8 @@ public class WorldGenHighCattail extends WorldGenerator
             {
                 if (par1World.getBlockMaterial(var8 - 1, var9 - 1, var10) == Material.water ? true : (par1World.getBlockMaterial(var8 + 1, var9 - 1, var10) == Material.water ? true : (par1World.getBlockMaterial(var8, var9 - 1, var10 - 1) == Material.water ? true : par1World.getBlockMaterial(var8, var9 - 1, var10 + 1) == Material.water)))
                 {
-                    par1World.setBlock(var8, var9, var10, Blocks.plants.get().blockID, 9, 2);
-    				par1World.setBlock(var8, var9 + 1, var10, Blocks.plants.get().blockID, 8, 2);
+                    par1World.setBlock(var8, var9, var10, Blocks.plants.get().blockID, 10, 2);
+    				par1World.setBlock(var8, var9 + 1, var10, Blocks.plants.get().blockID, 9, 2);
 				}
             }
         }

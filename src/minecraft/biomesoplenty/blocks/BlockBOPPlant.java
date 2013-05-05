@@ -25,11 +25,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "cattailtop", "cattailbottom"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom"};
     private Icon[] textures;
 	
-	private static final int CATTAILTOP = 8;
-    private static final int CATTAILBOTTOM = 9;
+	private static final int CATTAILTOP = 9;
+    private static final int CATTAILBOTTOM = 10;
     
     public BlockBOPPlant(int par1)
     {
@@ -107,7 +107,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             return true;
         else if (metadata == 7)
             return blockID == Block.grass.blockID;
-        else if (metadata == 8)
+		else if (metadata == 8)
+			return blockID == this.blockID || blockID == Block.grass.blockID;
+        else if (metadata == 9)
 			return blockID == this.blockID;
         else
             return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
@@ -147,7 +149,10 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
                 case 7: // Cattail
                     return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
                     
-				case 8: // High Cattail Bottom
+				case 8: //Reed
+					return id == this.blockID || id == Block.grass.blockID;
+					
+				case 10: // High Cattail Bottom
                     return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 					
                 default:
@@ -208,7 +213,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public int damageDropped(int meta)
     {
-    	if (meta == 8)
+    	if (meta == 9)
     		return 7;
     	else
     		return meta;
@@ -219,7 +224,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     {
         if (meta == 6)
             return random.nextInt(5) == 0 ? 1 : 0;
-        else if (meta == 7 || meta == 8)
+        else if (meta == 7 || meta == 9)
             return 1;
         else
             return 0;

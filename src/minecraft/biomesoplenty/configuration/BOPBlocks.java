@@ -241,6 +241,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,0), "Clover");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,3), "Glowflower");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,7), "Cattail");
+		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,8), "Reed");
         LanguageRegistry.addName(Blocks.willow.get(), "Willow");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,0), "Yellow Autumn Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");

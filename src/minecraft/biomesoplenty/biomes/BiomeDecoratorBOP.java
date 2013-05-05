@@ -50,6 +50,7 @@ import biomesoplenty.worldgen.WorldGenPromisedWillow;
 import biomesoplenty.worldgen.WorldGenQuagmire;
 import biomesoplenty.worldgen.WorldGenQuicksand;
 import biomesoplenty.worldgen.WorldGenQuicksand2;
+import biomesoplenty.worldgen.WorldGenReedBOP;
 import biomesoplenty.worldgen.WorldGenShield;
 import biomesoplenty.worldgen.WorldGenSmolderingGrass;
 import biomesoplenty.worldgen.WorldGenSprout;
@@ -188,6 +189,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
     /** Field that holds WorldGenReed */
     protected WorldGenerator reedGen;
+	protected WorldGenerator reedBOPGen;
 
     /** Field that holds WorldGenCactus */
     protected WorldGenerator cactusGen;
@@ -263,6 +265,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
      * The number of reeds to generate per chunk. Reeds won't generate if the randomly selected placement is unsuitable.
      */
     protected int reedsPerChunk;
+	protected int reedsBOPPerChunk;
 
     /**
      * The number of cactus plants to generate per chunk. Cacti only work on sand.
@@ -386,6 +389,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.potatoGen = new WorldGenPotatoes(Block.tallGrass.blockID, 0);
         this.bigMushroomGen = new WorldGenBigMushroom();
         this.reedGen = new WorldGenReed();
+		this.reedBOPGen = new WorldGenReedBOP();
         this.cactusGen = new WorldGenCactus();
         this.desertCactusGen = new WorldGenDesertCactus();
         this.waterlilyGen = new WorldGenWaterlily();
@@ -398,6 +402,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.deadBushPerChunk = 0;
         this.mushroomsPerChunk = 0;
         this.reedsPerChunk = 0;
+		this.reedsBOPPerChunk = 0;
         this.cactiPerChunk = 0;
         this.sandPerChunk = 1;
         this.sandPerChunk2 = 3;
@@ -963,6 +968,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.potatoGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+        for (var2 = 0; var2 < this.reedsBOPPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            var5 = this.randomGenerator.nextInt(128);
+            this.reedBOPGen.generate(this.currentWorld, this.randomGenerator, var3, var5, var4);
         }
 
         for (var2 = 0; var2 < this.thornsPerChunk; ++var2)

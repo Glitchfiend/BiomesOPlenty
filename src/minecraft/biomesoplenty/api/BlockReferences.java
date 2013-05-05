@@ -61,6 +61,7 @@ public class BlockReferences {
 		
 		barley (Blocks.plants, 6),
 		cattail (Blocks.plants, 7),
+		reed (Blocks.plants, 8),
 		
 		sproutItem (Blocks.foliage, 5),
 		bushItem (Blocks.foliage, 4),

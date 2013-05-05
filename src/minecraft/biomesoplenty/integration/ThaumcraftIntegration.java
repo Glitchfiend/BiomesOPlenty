@@ -128,6 +128,7 @@ public class ThaumcraftIntegration {
 		//Placer Items
 		ThaumcraftApi.registerObjectTag(getBID("barley"), getBMeta("barley"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("cattail"), getBMeta("cattail"), (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.PLANT, 1));
+		ThaumcraftApi.registerObjectTag(getBID("reed"), getBMeta("reed"), (new ObjectTags()).add(EnumTag.WOOD, 1).add(EnumTag.PLANT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("bamboo"), getBMeta("bamboo"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("sproutItem"), getBMeta("sproutItem"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bushItem"), getBMeta("bushItem"), (new ObjectTags()).add(EnumTag.PLANT, 2));

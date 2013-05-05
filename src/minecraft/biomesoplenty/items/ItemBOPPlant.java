@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ItemBOPPlant extends ItemBlock
 {
-    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "cattailtop", "cattailbottom"};
+    private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "cattailtop", "cattailbottom", "reed"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -33,10 +33,11 @@ public class ItemBOPPlant extends ItemBlock
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[2];
+        textures = new Icon[3];
 
         textures[0] = iconRegister.registerIcon("BiomesOPlenty:item_barley");
         textures[1] = iconRegister.registerIcon("BiomesOPlenty:item_cattail");
+		textures[2] = iconRegister.registerIcon("BiomesOPlenty:item_reed");
     }
     
     @Override
@@ -52,6 +53,8 @@ public class ItemBOPPlant extends ItemBlock
             return textures[0];
         else if (meta == 7)
             return textures[1];
+		else if (meta == 8)
+            return textures[2];
         else
             return Block.blocksList[this.itemID].getIcon(0, meta);
     }
