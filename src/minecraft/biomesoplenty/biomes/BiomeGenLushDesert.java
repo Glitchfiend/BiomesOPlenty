@@ -5,6 +5,7 @@ import java.util.Random;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenAcacia;
+import biomesoplenty.worldgen.WorldGenDeadTree3;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
@@ -21,7 +22,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
         this.fillerBlock = (byte)Blocks.redRock.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 8;
+        this.customBiomeDecorator.treesPerChunk = 12;
         this.customBiomeDecorator.grassPerChunk = 8;
         this.customBiomeDecorator.oasesPerChunk = 999;
         this.customBiomeDecorator.oasesPerChunk2 = 999;
@@ -31,7 +32,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		this.customBiomeDecorator.desertCactiPerChunk = 10;
         this.customBiomeDecorator.cactiPerChunk = 20;
 		this.customBiomeDecorator.tinyCactiPerChunk = 5;
-		this.customBiomeDecorator.yuccaPerChunk = 5;
+		this.customBiomeDecorator.yuccaPerChunk = 3;
         this.customBiomeDecorator.generateGrass = true;
         this.customBiomeDecorator.generateSand = true;
 		this.customBiomeDecorator.generatePumpkins = false;
@@ -42,6 +43,6 @@ public class BiomeGenLushDesert extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenAcacia(false) : new WorldGenShrub(0, 0));
+		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenAcacia(false) : (par1Random.nextInt(12) == 0 ? new WorldGenDeadTree3(false) : (par1Random.nextInt(2) == 0 ? this.worldGeneratorTrees : new WorldGenShrub(0,0))));
     }
 }

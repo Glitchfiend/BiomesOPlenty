@@ -105,7 +105,7 @@ public class BlockBOPFlower extends BlockFlower
     
     protected boolean canThisPlantGrowOnThisBlockID(int id)
     {
-        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID;
+        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID;
     }
     
     protected boolean canThisPlantGrowOnThisBlockID(int id, int meta)
@@ -116,7 +116,7 @@ public class BlockBOPFlower extends BlockFlower
                 return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
                 
             case 11: // Cactus
-                return id == Block.sand.blockID;
+                return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 				
 			case 12: // Yucca
                 return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
@@ -139,7 +139,7 @@ public class BlockBOPFlower extends BlockFlower
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
                     
                 case 11: // Cactus
-                    return id == Block.sand.blockID;
+                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 12: // Yucca
                     return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;

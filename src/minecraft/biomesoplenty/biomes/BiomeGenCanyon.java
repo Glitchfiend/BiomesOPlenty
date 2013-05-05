@@ -24,7 +24,6 @@ public class BiomeGenCanyon extends BiomeGenBase
         this.fillerBlock = (byte)Blocks.hardDirt.get().blockID;
         this.customBiomeDecorator.treesPerChunk = 10;
 		this.customBiomeDecorator.flowersPerChunk = -999;
-		this.customBiomeDecorator.tinyCactiPerChunk = 2;
 		this.customBiomeDecorator.canyonGrassPerChunk = 5;
 		this.customBiomeDecorator.yuccaPerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
