@@ -31,6 +31,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		this.customBiomeDecorator.desertCactiPerChunk = 10;
         this.customBiomeDecorator.cactiPerChunk = 20;
 		this.customBiomeDecorator.tinyCactiPerChunk = 5;
+		this.customBiomeDecorator.yuccaPerChunk = 5;
         this.customBiomeDecorator.generateGrass = true;
         this.customBiomeDecorator.generateSand = true;
 		this.customBiomeDecorator.generatePumpkins = false;

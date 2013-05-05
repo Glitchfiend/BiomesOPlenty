@@ -14,6 +14,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -118,7 +119,7 @@ public class BlockBOPFlower extends BlockFlower
                 return id == Block.sand.blockID;
 				
 			case 12: // Yucca
-                return id == Block.sand.blockID;
+                return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 
             default:
                 return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
@@ -141,7 +142,7 @@ public class BlockBOPFlower extends BlockFlower
                     return id == Block.sand.blockID;
 					
 				case 12: // Yucca
-                    return id == Block.sand.blockID;
+                    return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;

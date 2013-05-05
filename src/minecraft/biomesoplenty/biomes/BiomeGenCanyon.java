@@ -25,8 +25,10 @@ public class BiomeGenCanyon extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = 10;
 		this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.tinyCactiPerChunk = 2;
+		this.customBiomeDecorator.canyonGrassPerChunk = 5;
+		this.customBiomeDecorator.yuccaPerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
-		//this.customBiomeDecorator.generateCanyon = true;
+		this.customBiomeDecorator.generateCanyon = true;
     }
 	
     /**
@@ -41,6 +43,14 @@ public class BiomeGenCanyon extends BiomeGenBase
      * Provides the basic foliage color based on the biome temperature and rainfall
      */
     public int getBiomeFoliageColor()
+    {
+        return 11123300;
+    }
+	
+    /**
+     * Provides the basic foliage color based on the biome temperature and rainfall
+     */
+    public int getBiomeGrassColor()
     {
         return 11123300;
     }
