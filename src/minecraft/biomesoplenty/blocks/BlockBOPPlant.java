@@ -191,8 +191,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     public int getDamageValue(World world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == CATTAILTOP)
-            meta = CATTAILBOTTOM;
+        if (meta == CATTAILTOP || meta == CATTAILBOTTOM)
+            meta = 7;
         return meta;
     }
     
@@ -243,7 +243,10 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public boolean isShearable(ItemStack item, World world, int x, int y, int z)
     {
-        return true;
+    	if (world.getBlockMetadata(x, y, z) == 7 || world.getBlockMetadata(x, y, z) == 8 || world.getBlockMetadata(x, y, z) == 9)
+    		return false;
+    	else
+    		return true;
     }
 
     @Override
@@ -251,9 +254,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     {
     	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-    	if (world.getBlockMetadata(x, y, z) != 8 && world.getBlockMetadata(x, y, z) != 9)
-    		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
-
+    	ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
     	return ret;
     }
     

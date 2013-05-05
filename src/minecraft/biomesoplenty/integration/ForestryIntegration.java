@@ -97,6 +97,7 @@ public class ForestryIntegration
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.quagmireID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.swampwoodsID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.wetlandID);
+        EnumTemperature.normalBiomeIds.add(BOPConfiguration.fenID);
         
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.bayouID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.bogID);
@@ -111,6 +112,7 @@ public class ForestryIntegration
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.quagmireID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.swampwoodsID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.wetlandID);
+        EnumHumidity.dampBiomeIds.add(BOPConfiguration.fenID);
         
         //Normal
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.birchForestID);
@@ -138,6 +140,7 @@ public class ForestryIntegration
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.shoreID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.spruceWoodsID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.temperateRainforestID);
+        EnumTemperature.normalBiomeIds.add(BOPConfiguration.heathlandID);
 
         EnumHumidity.normalBiomeIds.add(BOPConfiguration.birchForestID);
         EnumHumidity.normalBiomeIds.add(BOPConfiguration.borealForestID);
@@ -164,11 +167,10 @@ public class ForestryIntegration
         EnumHumidity.normalBiomeIds.add(BOPConfiguration.shoreID);
         EnumHumidity.normalBiomeIds.add(BOPConfiguration.spruceWoodsID);
         EnumHumidity.normalBiomeIds.add(BOPConfiguration.temperateRainforestID);
+        EnumHumidity.normalBiomeIds.add(BOPConfiguration.heathlandID);
         
         //Normal - Arid
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.cragID);
-        EnumTemperature.normalBiomeIds.add(BOPConfiguration.fenID);
-        EnumTemperature.normalBiomeIds.add(BOPConfiguration.heathlandID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.jadeCliffsID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.mountainID);
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.outbackID);
@@ -176,8 +178,6 @@ public class ForestryIntegration
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.thicketID);
         
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.cragID);
-        EnumHumidity.aridBiomeIds.add(BOPConfiguration.fenID);
-        EnumHumidity.aridBiomeIds.add(BOPConfiguration.heathlandID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.jadeCliffsID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.mountainID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.outbackID);
