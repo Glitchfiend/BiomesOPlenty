@@ -397,14 +397,14 @@ public class BOPConfiguration {
 			config.load();
 
 			skyColors = true;
-			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 5, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
+			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
 			achievements = config.get("Achievement Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
 			
-			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 24, "In Vanilla it is set to 32").getInt();
+			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8)
 			    villageDistance = 8;
 
@@ -491,25 +491,25 @@ public class BOPConfiguration {
             taigaGen = config.get("Vanilla Biomes To Generate", "Taiga", true).getBoolean(true);
             
 			// Biomes with villages
-			alpsVillage = config.get("Allow Villages", "Alps", true).getBoolean(false);
+			alpsVillage = config.get("Allow Villages", "Alps", false).getBoolean(false);
             arcticVillage = config.get("Allow Villages", "Arctic", true).getBoolean(false);
-            badlandsVillage = config.get("Allow Villages", "Badlands", true).getBoolean(false);
+            badlandsVillage = config.get("Allow Villages", "Badlands", false).getBoolean(false);
             bambooForestVillage = config.get("Allow Villages", "BambooForest", true).getBoolean(false);
             bayouVillage = config.get("Allow Villages", "Bayou", true).getBoolean(false);
             birchForestVillage = config.get("Allow Villages", "BirchForest", true).getBoolean(false);
-            bogVillage = config.get("Allow Villages", "Bog", true).getBoolean(false);
+            bogVillage = config.get("Allow Villages", "Bog", false).getBoolean(false);
             borealForestVillage = config.get("Allow Villages", "BorealForest", true).getBoolean(false);
-            canyonVillage = config.get("Allow Villages", "Canyon", true).getBoolean(false);
+            canyonVillage = config.get("Allow Villages", "Canyon", false).getBoolean(false);
             chaparralVillage = config.get("Allow Villages", "Chaparral", true).getBoolean(false);
             cherryBlossomGroveVillage = config.get("Allow Villages", "CherryBlossomGrove", true).getBoolean(false);
             coniferousForestVillage = config.get("Allow Villages", "ConiferousForest", true).getBoolean(false);
             cragVillage = config.get("Allow Villages", "Crag", false).getBoolean(false);
             deadForestVillage = config.get("Allow Villages", "DeadForest", true).getBoolean(false);
-            deadSwampVillage = config.get("Allow Villages", "DeadSwamp", true).getBoolean(false);
+            deadSwampVillage = config.get("Allow Villages", "DeadSwamp", false).getBoolean(false);
             deadlandsVillage = config.get("Allow Villages", "Deadlands", false).getBoolean(false);
             deciduousForestVillage = config.get("Allow Villages", "DeciduousForest", true).getBoolean(false);
             drylandsVillage = config.get("Allow Villages", "Drylands", true).getBoolean(false);
-            dunesVillage = config.get("Allow Villages", "Dunes", true).getBoolean(false);
+            dunesVillage = config.get("Allow Villages", "Dunes", false).getBoolean(false);
             fenVillage = config.get("Allow Villages", "Fen", false).getBoolean(false);
             fieldVillage = config.get("Allow Villages", "Field", true).getBoolean(false);
             frostForestVillage = config.get("Allow Villages", "FrostForest", true).getBoolean(false);
@@ -519,10 +519,10 @@ public class BOPConfiguration {
             grasslandVillage = config.get("Allow Villages", "Grassland", true).getBoolean(false);
             groveVillage = config.get("Allow Villages", "Grove", true).getBoolean(false);
             heathlandVillage = config.get("Allow Villages", "Heathland", true).getBoolean(false);
-            highlandVillage = config.get("Allow Villages", "Highland", true).getBoolean(false);
+            highlandVillage = config.get("Allow Villages", "Highland", false).getBoolean(false);
             iceSheetVillage = config.get("Allow Villages", "IcySheet", false).getBoolean(false);
             icyHillsVillage = config.get("Allow Villages", "IcyHills", false).getBoolean(false);
-            jadeCliffsVillage = config.get("Allow Villages", "JadeCliffs", true).getBoolean(false);
+            jadeCliffsVillage = config.get("Allow Villages", "JadeCliffs", false).getBoolean(false);
             lushDesertVillage = config.get("Allow Villages", "LushDesert", true).getBoolean(false);
             lushSwampVillage = config.get("Allow Villages", "LushSwamp", true).getBoolean(false);
             mangroveVillage = config.get("Allow Villages", "Mangrove", false).getBoolean(false);
@@ -530,8 +530,8 @@ public class BOPConfiguration {
             marshVillage = config.get("Allow Villages", "Marsh", false).getBoolean(false);
             meadowVillage = config.get("Allow Villages", "Meadow", true).getBoolean(false);
             mesaVillage = config.get("Allow Villages", "Mesa", false).getBoolean(false);
-            moorVillage = config.get("Allow Villages", "Moor", true).getBoolean(false);
-            mountainVillage = config.get("Allow Villages", "Mountain", true).getBoolean(false);
+            moorVillage = config.get("Allow Villages", "Moor", false).getBoolean(false);
+            mountainVillage = config.get("Allow Villages", "Mountain", false).getBoolean(false);
 //          mushroomIslandVillage = config.get("Allow Villages", "MushroomIsland", false).getBoolean(false);
             mysticGroveVillage = config.get("Allow Villages", "MysticGrove", false).getBoolean(false);
             oasisVillage = config.get("Allow Villages", "Oasis", true).getBoolean(false);
@@ -539,10 +539,10 @@ public class BOPConfiguration {
             orchardVillage = config.get("Allow Villages", "Orchard", true).getBoolean(false);
             originValleyVillage = config.get("Allow Villages", "OriginValley", false).getBoolean(false);
             outbackVillage = config.get("Allow Villages", "Outback", true).getBoolean(false);
-            pastureVillage = config.get("Allow Villages", "Pasture", true).getBoolean(false);
+            pastureVillage = config.get("Allow Villages", "Pasture", false).getBoolean(false);
             prairieVillage = config.get("Allow Villages", "Prairie", true).getBoolean(false);
-            quagmireVillage = config.get("Allow Villages", "Quagmire", true).getBoolean(false);
-            rainforestVillage = config.get("Allow Villages", "Rainforest", true).getBoolean(false);
+            quagmireVillage = config.get("Allow Villages", "Quagmire", false).getBoolean(false);
+            rainforestVillage = config.get("Allow Villages", "Rainforest", false).getBoolean(false);
             redwoodForestVillage = config.get("Allow Villages", "RedwoodForest", true).getBoolean(false);
             sacredSpringsVillage = config.get("Allow Villages", "SacredSprings", false).getBoolean(false);
             savannaVillage = config.get("Allow Villages", "Savanna", true).getBoolean(false);
@@ -552,12 +552,12 @@ public class BOPConfiguration {
             shrublandVillage = config.get("Allow Villages", "Shrubland", true).getBoolean(false);
             snowyWoodsVillage = config.get("Allow Villages", "SnowyWoods", true).getBoolean(false);
             spruceWoodsVillage = config.get("Allow Villages", "SpruceWoods", true).getBoolean(false);
-            steppeVillage = config.get("Allow Villages", "Steppe", false).getBoolean(false);
-            swampwoodsVillage = config.get("Allow Villages", "Swampwoods", true).getBoolean(false);
+            steppeVillage = config.get("Allow Villages", "Steppe", true).getBoolean(false);
+            swampwoodsVillage = config.get("Allow Villages", "Swampwoods", false).getBoolean(false);
             temperateRainforestVillage = config.get("Allow Villages", "TemperateRainforest", true).getBoolean(false);
             thicketVillage = config.get("Allow Villages", "Thicket", true).getBoolean(false);
             tropicalRainforestVillage = config.get("Allow Villages", "TropicalRainforest", true).getBoolean(false);
-            tropicsVillage = config.get("Allow Villages", "Tropics", true).getBoolean(false);
+            tropicsVillage = config.get("Allow Villages", "Tropics", false).getBoolean(false);
             tundraVillage = config.get("Allow Villages", "Tundra", true).getBoolean(false);
             volcanoVillage = config.get("Allow Villages", "Volcano", false).getBoolean(false);
             wastelandVillage = config.get("Allow Villages", "Wasteland", false).getBoolean(false);
@@ -568,7 +568,7 @@ public class BOPConfiguration {
             desertVillage = config.get("Allow Villages", "Desert", true).getBoolean(true);
             extremeHillsVillage = config.get("Allow Villages", "ExtremeHills", false).getBoolean(false);
             forestVillage = config.get("Allow Villages", "Forest", true).getBoolean(false);
-            jungleVillage = config.get("Allow Villages", "Jungle", false).getBoolean(false);
+            jungleVillage = config.get("Allow Villages", "Jungle", true).getBoolean(false);
             plainsVillage = config.get("Allow Villages", "Plains", true).getBoolean(true);
             swamplandVillage = config.get("Allow Villages", "Swampland", true).getBoolean(false);
             taigaVillage = config.get("Allow Villages", "Taiga", true).getBoolean(false);

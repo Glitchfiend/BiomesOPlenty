@@ -35,6 +35,7 @@ public class BiomeGenOminousWoods extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
         this.customBiomeDecorator.thornsPerChunk = 9;
+		this.customBiomeDecorator.poisonIvyPerChunk = 3;
         this.waterColorMultiplier = 1973030;
 		this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
