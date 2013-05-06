@@ -30,6 +30,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -57,9 +58,9 @@ public class BiomesOPlenty
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		boolean isClient = proxy instanceof ClientProxy;
-		
+
 		String[] soundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
-		
+
 		if (isClient)
 		{
 			for (String soundFile : soundFiles) try
@@ -89,28 +90,28 @@ public class BiomesOPlenty
 				e.printStackTrace();
 			}
 		}
-		
+
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
-		
+
 		BOPBlocks.init();
-		
+
 		BOPItems.init();
 
 		BOPCrafting.init();
-		
+
 		BOPBiomes.init();
-		
+
 		BOPEntities.init();
-		
+
 		BOPVanillaCompat.init();
-		
+
 		// Achievement declaration
-        if (BOPConfiguration.achievements == true)
-        {
-            AchievementHelper.init();
-        }
+		if (BOPConfiguration.achievements == true)
+		{
+			AchievementHelper.init();
+		}
 	}
 
 	@Init
@@ -128,11 +129,11 @@ public class BiomesOPlenty
 
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
-		
-		BOPCrossIntegration.init();
 	}
-	
+
+	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		BOPCrossIntegration.init();
 	}
 }
