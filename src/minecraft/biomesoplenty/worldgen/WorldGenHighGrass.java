@@ -39,7 +39,7 @@ public class WorldGenHighGrass extends WorldGenerator
             if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[this.tallGrassID].canBlockStay(par1World, var8, var9, var10))
             {
                 par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 3, 2);
-				par1World.setBlock(var8, var9 + 1, var10, Blocks.foliage.get().blockID, 6, 2);
+				par1World.setBlock(var8, var9 + 1, var10, Blocks.foliage.get().blockID, 7, 2);
             }
         }
 

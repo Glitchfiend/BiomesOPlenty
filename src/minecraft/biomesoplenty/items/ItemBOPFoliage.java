@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPFoliage extends ItemColored
 {
-    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop"};
+    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "poisonivy", "highgrasstop"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -63,7 +63,7 @@ public class ItemBOPFoliage extends ItemColored
     @Override
     public Icon getIconFromDamage(int meta)
     {
-        if (meta == 6)
+        if (meta == 7)
             meta = 3;
         return textures[meta];
     }
@@ -154,7 +154,7 @@ public class ItemBOPFoliage extends ItemColored
                 if (world.setBlock(x, y, z, this.getBlockID(), itemStack.getItemDamage(), 3))
                 {
                     if (itemStack.getItemDamage() == 3 && world.getBlockMaterial(x, y + 1, z).isReplaceable())
-                        world.setBlock(x, y + 1, z, this.getBlockID(), 6, 2);
+                        world.setBlock(x, y + 1, z, this.getBlockID(), 7, 2);
                     
                     if (world.getBlockId(x, y, z) == this.getBlockID())
                     {

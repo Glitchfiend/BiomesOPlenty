@@ -25,6 +25,7 @@ public class BiomeGenBirchForest extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 3;
         this.customBiomeDecorator.flowersPerChunk = -999;
         this.customBiomeDecorator.tinyFlowersPerChunk = 6;
+		this.customBiomeDecorator.poisonIvyPerChunk = 3;
     }
 
     /**

@@ -179,6 +179,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator promisedWillowGen;
 	protected WorldGenerator quicksandGen;
 	protected WorldGenerator quicksand2Gen;
+	protected WorldGenerator poisonIvyGen;
 
     /** Field that holds mushroomBrown WorldGenFlowers */
     protected WorldGenerator mushroomBrownGen;
@@ -246,6 +247,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int promisedWillowPerChunk;
 	protected int quicksandPerChunk;
 	protected int quicksand2PerChunk;
+	protected int poisonIvyPerChunk;
 
     /** The amount of tall grass to generate per chunk. */
     protected int grassPerChunk;
@@ -376,6 +378,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.duneGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 3);
 		this.holyTallGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 4);
 		this.desertSproutsGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 2);
+		this.poisonIvyGen = new WorldGenBush(Blocks.foliage.get().blockID, 6);
 		this.promisedWillowGen = new WorldGenPromisedWillow();
 		this.quicksandGen = new WorldGenQuicksand();
 		this.quicksand2Gen = new WorldGenQuicksand2();
@@ -441,6 +444,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.sproutsPerChunk = 0;
         this.bushesPerChunk = 0;
 		this.tinyCactiPerChunk = 0;
+		this.poisonIvyPerChunk = 0;
 		this.yuccaPerChunk = 0;
 		this.deathbloomsPerChunk = 0;
 		this.hydrangeasPerChunk = 0;
@@ -821,6 +825,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.bushGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.poisonIvyPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.poisonIvyGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 
         for (var2 = 0; var2 < this.orangeFlowersPerChunk; ++var2)

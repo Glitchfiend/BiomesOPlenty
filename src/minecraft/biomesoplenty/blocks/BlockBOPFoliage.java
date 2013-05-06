@@ -9,9 +9,13 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
@@ -27,11 +31,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFoliage extends BlockFlower implements IShearable
 {
-    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop"};
+    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "poisonivy", "highgrasstop"};
     
     private Icon[] textures;
 
-    private static final int GRASSTOP = 6;
+    private static final int GRASSTOP = 7;
     private static final int ALGAE = 0;
     private static final int GRASSBOTTOM = 3;
     
@@ -159,6 +163,13 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
         		world.setBlock(x, y, z, Block.tallGrass.blockID, 1, 2);
     }
+	
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, EntityLiving entity)
+    {
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta == 6)
+            entity.addPotionEffect(new PotionEffect(Potion.poison.id, 200));
+    }
     
     @Override
     @SideOnly(Side.CLIENT)
@@ -243,7 +254,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
     	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-    	if (world.getBlockMetadata(x, y, z) != 6)
+    	if (world.getBlockMetadata(x, y, z) != 7)
     		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
     	else
     		ret.add(new ItemStack(Block.tallGrass, 1, 1));

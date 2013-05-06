@@ -132,6 +132,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("bamboo"), getBMeta("bamboo"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("sproutItem"), getBMeta("sproutItem"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bushItem"), getBMeta("bushItem"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("poisonIvyItem"), getBMeta("poisonIvyItem"), (new ObjectTags()).add(EnumTag.PLANT, 2).add(EnumTag.WEAPON, 1));
 		ThaumcraftApi.registerObjectTag(getBID("mediumGrassItem"), getBMeta("mediumGrassItem"), (new ObjectTags()).add(EnumTag.PLANT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("shortGrassItem"), getBMeta("shortGrassItem"), (new ObjectTags()).add(EnumTag.PLANT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("highGrassItem"), getBMeta("highGrassItem"), (new ObjectTags()).add(EnumTag.PLANT, 2));
