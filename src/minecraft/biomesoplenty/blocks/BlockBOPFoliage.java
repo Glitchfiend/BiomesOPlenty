@@ -164,11 +164,15 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         		world.setBlock(x, y, z, Block.tallGrass.blockID, 1, 2);
     }
 	
-    public void onEntityCollidedWithBlock(World world, int x, int y, int z, EntityLiving entity)
+    @Override
+    public void onEntityCollidedWithBlock(World par1World, int x, int y, int z, Entity par5Entity)
     {
-        int meta = world.getBlockMetadata(x, y, z);
+        int meta = par1World.getBlockMetadata(x, y, z);
+        
         if (meta == 6)
-            entity.addPotionEffect(new PotionEffect(Potion.poison.id, 200));
+        {
+			((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 200));
+        }
     }
     
     @Override
