@@ -34,6 +34,7 @@ public class BiomeGenJungleNew extends BiomeGenBase
         this.customBiomeDecorator.flowersPerChunk = 4;
 		this.customBiomeDecorator.orangeFlowersPerChunk = 5;
 		this.customBiomeDecorator.quicksandPerChunk = 1;
+		this.customBiomeDecorator.poisonIvyPerChunk = 1;
 		this.customBiomeDecorator.generateMelons = true;
 		this.waterColorMultiplier = 10745289;
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));

@@ -36,6 +36,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 		this.customBiomeDecorator.generateMelons = true;
 		this.customBiomeDecorator.sproutsPerChunk = 2;
 		this.customBiomeDecorator.quicksandPerChunk = 3;
+		this.customBiomeDecorator.poisonIvyPerChunk = 4;
 		this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
         this.waterColorMultiplier = 6160128;
     }
