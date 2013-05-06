@@ -13,6 +13,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
@@ -129,33 +130,34 @@ public class BlockBOPFlower extends BlockFlower
     {
         int id = world.getBlockId(x, y - 1, z);
         int meta = itemStack.getItemDamage();
+        boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
         
         if (itemStack.itemID == this.blockID)
             switch (meta)
             {
                 case 10: // Toadstool
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
                     
                 case 11: // Cactus
-                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+                    return sky && id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 12: // Yucca
-                    return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+                    return sky && id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 13: // Portobello
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
 					
 				case 14: // Blue Milk Cap
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 
                 default:
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
             }
         else
-            return this.canPlaceBlockOnSide(world, x, y, z, side);
+            return sky && this.canPlaceBlockOnSide(world, x, y, z, side);
     }
     
-    @Override
+    /*@Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
         if (world.getBlockId(x, y, z) != this.blockID)
@@ -164,7 +166,7 @@ public class BlockBOPFlower extends BlockFlower
         else
         return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-    }
+    }*/
     
     @Override
     public int damageDropped(int meta)
