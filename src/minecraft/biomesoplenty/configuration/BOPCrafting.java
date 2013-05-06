@@ -178,6 +178,7 @@ public class BOPCrafting
             OreDictionary.registerOre("plankWood", new ItemStack(Blocks.planks.get(), 1, i));
         
         OreDictionary.registerOre("stickWood", new ItemStack(Blocks.bamboo.get()));
+		OreDictionary.registerOre("stickWood", new ItemStack(Blocks.plants.get(), 1, 8));
         
         OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));

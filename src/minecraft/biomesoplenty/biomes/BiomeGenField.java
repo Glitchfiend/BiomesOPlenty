@@ -21,6 +21,7 @@ public class BiomeGenField extends BiomeGenBase
 		this.customBiomeDecorator.treesPerChunk = 1;
         this.customBiomeDecorator.flowersPerChunk = 1;
         this.customBiomeDecorator.grassPerChunk = 25;
+		this.customBiomeDecorator.portobellosPerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	

@@ -13,7 +13,7 @@ public class WorldGenReedBOP extends WorldGenerator
 {
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
-        for (int l = 0; l < 50; ++l)
+        for (int l = 0; l < 30; ++l)
         {
             int i1 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
             int j1 = par4;
@@ -21,7 +21,7 @@ public class WorldGenReedBOP extends WorldGenerator
 
             if (par1World.isAirBlock(i1, par4, k1))
             {
-                int l1 = 2 + par2Random.nextInt(par2Random.nextInt(2) + 2);
+                int l1 = 2 + par2Random.nextInt(par2Random.nextInt(2) + 1);
 
                 if (Blocks.plants.get().canBlockStay(par1World, i1, j1, k1))
                 {

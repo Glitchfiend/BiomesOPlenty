@@ -21,7 +21,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BlockFlower
 {
-    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "yucca"};
+    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "yucca", "portobello", "bluemilk"};
     private Icon[] textures;
     
     protected BlockBOPFlower(int blockID, Material material)
@@ -116,6 +116,10 @@ public class BlockBOPFlower extends BlockFlower
     		return id == Block.sand.blockID;
     	if (metadata == 12) //Yucca
     		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+		if (metadata == 13) //Portobello
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+		if (metadata == 14) //Blue Milk Cap
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
     	else
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
     }
@@ -137,6 +141,12 @@ public class BlockBOPFlower extends BlockFlower
 					
 				case 12: // Yucca
                     return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+					
+				case 13: // Portobello
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+					
+				case 14: // Blue Milk Cap
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;

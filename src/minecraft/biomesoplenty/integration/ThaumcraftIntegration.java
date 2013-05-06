@@ -140,6 +140,8 @@ public class ThaumcraftIntegration {
 
 		//Plants
 		ThaumcraftApi.registerObjectTag(getBID("toadstool"), getBMeta("toadstool"), (new ObjectTags()).add(EnumTag.FUNGUS, 4));
+		ThaumcraftApi.registerObjectTag(getBID("portobello"), getBMeta("portobello"), (new ObjectTags()).add(EnumTag.FUNGUS, 4));
+		ThaumcraftApi.registerObjectTag(getBID("bluemilk"), getBMeta("bluemilk"), (new ObjectTags()).add(EnumTag.FUNGUS, 4));
 		ThaumcraftApi.registerObjectTag(getBID("tinyCactus"), getBMeta("tinyCactus"), (new ObjectTags()).add(EnumTag.PLANT, 2).add(EnumTag.WEAPON, 1));
 		ThaumcraftApi.registerObjectTag(getBID("holyTallGrass"), getBMeta("holyTallGrass"), (new ObjectTags()).add(EnumTag.WIND, 1).add(EnumTag.PLANT, 1).add(EnumTag.LIGHT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("desertSprouts"), getBMeta("desertSprouts"), (new ObjectTags()).add(EnumTag.PLANT, 1));

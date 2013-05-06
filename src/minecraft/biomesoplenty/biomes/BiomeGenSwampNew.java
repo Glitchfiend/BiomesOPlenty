@@ -33,6 +33,8 @@ public class BiomeGenSwampNew extends BiomeGenBase
         this.customBiomeDecorator.waterlilyPerChunk = 4;
 		this.customBiomeDecorator.mudPerChunk = 9;
         this.customBiomeDecorator.mudPerChunk2 = 9;
+		this.customBiomeDecorator.reedsBOPPerChunk = 10;
+		this.customBiomeDecorator.portobellosPerChunk = 1;
         this.waterColorMultiplier = 14745456;
         this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
     }

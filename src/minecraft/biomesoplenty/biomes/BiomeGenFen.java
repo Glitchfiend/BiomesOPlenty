@@ -38,7 +38,9 @@ public class BiomeGenFen extends BiomeGenBase
         this.customBiomeDecorator.mudPerChunk2 = 1;
 		this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
+		this.customBiomeDecorator.reedsBOPPerChunk = 5;
 		this.customBiomeDecorator.algaePerChunk = 1;
+		this.customBiomeDecorator.portobellosPerChunk = 1;
     }
 	
     /**

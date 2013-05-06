@@ -224,7 +224,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     {
         if (meta == 6)
             return random.nextInt(5) == 0 ? 1 : 0;
-        else if (meta == 7 || meta == 9)
+        else if (meta == 7 || meta == 8 || meta == 9)
             return 1;
         else
             return 0;

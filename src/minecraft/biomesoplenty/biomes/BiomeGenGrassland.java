@@ -35,6 +35,8 @@ public class BiomeGenGrassland extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
 		this.customBiomeDecorator.waterLakesPerChunk = 15;
+		this.customBiomeDecorator.portobellosPerChunk = 3;
+		this.customBiomeDecorator.reedsBOPPerChunk = 3;
 		this.customBiomeDecorator.generatePumpkins = false;
         this.spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 14, 4, 4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 12, 4, 4));

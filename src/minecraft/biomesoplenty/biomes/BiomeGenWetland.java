@@ -37,6 +37,8 @@ public class BiomeGenWetland extends BiomeGenBase
         this.customBiomeDecorator.cattailsPerChunk = 20;
 		this.customBiomeDecorator.highCattailsPerChunk = 10;
         this.customBiomeDecorator.blueFlowersPerChunk = 6;
+		this.customBiomeDecorator.blueMilksPerChunk = 1;
+		this.customBiomeDecorator.portobellosPerChunk = 1;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.waterColorMultiplier = 6512772;

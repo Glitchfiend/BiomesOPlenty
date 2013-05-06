@@ -31,6 +31,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 10;
 		this.customBiomeDecorator.toadstoolsPerChunk = 3;
 		this.customBiomeDecorator.violetsPerChunk = 2;
+		this.customBiomeDecorator.blueMilksPerChunk = 1;
     }
 
     /**

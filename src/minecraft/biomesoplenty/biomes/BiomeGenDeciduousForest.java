@@ -26,6 +26,7 @@ public class BiomeGenDeciduousForest extends BiomeGenBase
 		this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.toadstoolsPerChunk = 1;
 		this.customBiomeDecorator.bushesPerChunk = 8;
+		this.customBiomeDecorator.blueMilksPerChunk = 2;
     }
 
     /**
