@@ -83,12 +83,12 @@ public class WorldProviderPromised extends WorldProvider
 
     public int getAverageGroundLevel()
     {
-        return 50;
+        return 64;
     }
 	
     public double getHorizon(World world)
     {
-        return 0.6D;
+        return 0.0D;
     }
 	
 	@SideOnly(Side.CLIENT)
