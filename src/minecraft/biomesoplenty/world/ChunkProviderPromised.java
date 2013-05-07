@@ -5,6 +5,7 @@ import java.util.Random;
 
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
+import biomesoplenty.world.noise.NoiseOctaves;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -26,13 +27,13 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 public class ChunkProviderPromised implements IChunkProvider
 {
     private Random endRNG;
-    private BOPNoiseOctaves field_912_k;
-    private BOPNoiseOctaves field_911_l;
-    private BOPNoiseOctaves field_910_m;
-    private BOPNoiseOctaves field_909_n;
-    private BOPNoiseOctaves field_908_o;
-    public BOPNoiseOctaves field_922_a;
-    public BOPNoiseOctaves field_921_b;
+    private NoiseOctaves field_912_k;
+    private NoiseOctaves field_911_l;
+    private NoiseOctaves field_910_m;
+    private NoiseOctaves field_909_n;
+    private NoiseOctaves field_908_o;
+    public NoiseOctaves field_922_a;
+    public NoiseOctaves field_921_b;
     private World endWorld;
     private double[] densities;
 
@@ -49,13 +50,13 @@ public class ChunkProviderPromised implements IChunkProvider
     {
         this.endWorld = par1World;
         this.endRNG = new Random(par2);
-        field_912_k = new BOPNoiseOctaves(endRNG, 16);
-        field_911_l = new BOPNoiseOctaves(endRNG, 16);
-        field_910_m = new BOPNoiseOctaves(endRNG, 8);
-        field_909_n = new BOPNoiseOctaves(endRNG, 4);
-        field_908_o = new BOPNoiseOctaves(endRNG, 4);
-        field_922_a = new BOPNoiseOctaves(endRNG, 10);
-        field_921_b = new BOPNoiseOctaves(endRNG, 16);
+        field_912_k = new NoiseOctaves(endRNG, 16);
+        field_911_l = new NoiseOctaves(endRNG, 16);
+        field_910_m = new NoiseOctaves(endRNG, 8);
+        field_909_n = new NoiseOctaves(endRNG, 4);
+        field_908_o = new NoiseOctaves(endRNG, 4);
+        field_922_a = new NoiseOctaves(endRNG, 10);
+        field_921_b = new NoiseOctaves(endRNG, 16);
 
         //NoiseGeneratorOctaves[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5};
         //noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.endRNG, noiseGens);

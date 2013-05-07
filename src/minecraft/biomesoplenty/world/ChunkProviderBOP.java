@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.world.noise.NoiseOctaves;
 import biomesoplenty.worldgen.structure.BOPMapGenScatteredFeature;
 import biomesoplenty.worldgen.structure.BOPMapGenVillage;
 
@@ -70,7 +71,7 @@ public class ChunkProviderBOP implements IChunkProvider
     double[] noise5;
     double[] noise6;
     
-    private BOPNoiseOctaves beachnoise;
+    private NoiseOctaves beachnoise;
     private double[] sandNoise = new double[256];
     private double[] gravelNoise = new double[256];
 
@@ -99,7 +100,7 @@ public class ChunkProviderBOP implements IChunkProvider
         this.noiseGen6 = new NoiseGeneratorOctaves(this.rand, 16);
         this.mobSpawnerNoise = new NoiseGeneratorOctaves(this.rand, 8);
         
-        this.beachnoise = new BOPNoiseOctaves(this.rand, 4);
+        this.beachnoise = new NoiseOctaves(this.rand, 4);
 
         NoiseGeneratorOctaves[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5, noiseGen6, mobSpawnerNoise};
         noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.rand, noiseGens);

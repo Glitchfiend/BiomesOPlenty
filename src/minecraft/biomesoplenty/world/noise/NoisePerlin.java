@@ -1,18 +1,18 @@
-package biomesoplenty.world;
+package biomesoplenty.world.noise;
 
 import java.util.Random;
 
 import net.minecraft.world.gen.NoiseGenerator;
 
-public class BOPNoisePerlin extends NoiseGenerator
+public class NoisePerlin extends NoiseGenerator
 {
 
-    public BOPNoisePerlin()
+    public NoisePerlin()
     {
         this(new Random());
     }
 
-    public BOPNoisePerlin(Random random)
+    public NoisePerlin(Random random)
     {
         permutations = new int[512];
         xCoord = random.nextDouble() * 256D;

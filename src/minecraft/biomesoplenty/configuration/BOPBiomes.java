@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.biomes.*;
-import biomesoplenty.world.WTBiomesOP;
+import biomesoplenty.world.WorldTypeBOP;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import com.google.common.base.Optional;
@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPBiomes {
 	
-	public static WTBiomesOP WTBiomesOP;
+	public static WorldTypeBOP WTBiomesOP;
 	
 	private static final Set<WorldType> worldTypes = new HashSet();
 	
@@ -41,7 +41,7 @@ public class BOPBiomes {
 		initializeBiomes();
 		
 		//Initialize new world type
-		WTBiomesOP = new WTBiomesOP();
+		WTBiomesOP = new WorldTypeBOP();
 		
 		// Adding biomes to World Types
 		addBiomes();
