@@ -1,11 +1,10 @@
-package biomesoplenty.worldtype;
+package biomesoplenty.world;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 
 import biomesoplenty.api.Biomes;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.helpers.WorldTypeSize;
 
 import com.google.common.base.Optional;
 

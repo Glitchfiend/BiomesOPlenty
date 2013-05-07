@@ -1,112 +1,58 @@
-package biomesoplenty.worldtype;
+package biomesoplenty.world;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import biomesoplenty.api.Biomes;
+import biomesoplenty.helpers.BiomeCachePromised;
 
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.WorldTypeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-import biomesoplenty.api.Biomes;
-
-import com.google.common.base.Optional;
-
-public class WorldChunkManagerBOP extends WorldChunkManager
+public class WorldChunkManagerPromised extends WorldChunkManager
 {
+    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(Biomes.promisedLand.get()));
     private GenLayer genBiomes;
 
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
     private GenLayer biomeIndexLayer;
 
     /** The BiomeCache object for this world. */
-    private BiomeCache biomeCache;
+    private BiomeCachePromised biomeCache;
 
     /** A list of biomes that the player can spawn in. */
-    private List<BiomeGenBase> biomesToSpawnIn;
+    @SuppressWarnings("rawtypes")
+	private List biomesToSpawnIn;
 
-    protected WorldChunkManagerBOP()
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	protected WorldChunkManagerPromised()
     {
-        this.biomeCache = new BiomeCache(this);
-        this.biomesToSpawnIn = new ArrayList<BiomeGenBase>();
-        this.biomesToSpawnIn.add(BiomeGenBase.forest);
-        this.biomesToSpawnIn.add(BiomeGenBase.plains);
-        this.biomesToSpawnIn.add(BiomeGenBase.taiga);
-        this.biomesToSpawnIn.add(BiomeGenBase.taigaHills);
-        this.biomesToSpawnIn.add(BiomeGenBase.forestHills);
-        this.biomesToSpawnIn.add(BiomeGenBase.jungle);
-        this.biomesToSpawnIn.add(BiomeGenBase.jungleHills);
-		
-		addSpawnBiomes(Biomes.alps);
-        addSpawnBiomes(Biomes.arctic);
-		addSpawnBiomes(Biomes.badlands);
-		addSpawnBiomes(Biomes.bambooForest);
-        addSpawnBiomes(Biomes.bayou);
-        addSpawnBiomes(Biomes.birchForest);
-        addSpawnBiomes(Biomes.bog);
-        addSpawnBiomes(Biomes.borealForest);
-		addSpawnBiomes(Biomes.chaparral);
-        addSpawnBiomes(Biomes.cherryBlossomGrove);
-        addSpawnBiomes(Biomes.coniferousForest);
-        addSpawnBiomes(Biomes.crag);
-		addSpawnBiomes(Biomes.deadForest);
-        addSpawnBiomes(Biomes.deciduousForest);
-		addSpawnBiomes(Biomes.drylands);
-		addSpawnBiomes(Biomes.dunes);
-        addSpawnBiomes(Biomes.frostForest);
-        addSpawnBiomes(Biomes.glacier);
-		addSpawnBiomes(Biomes.grassland);
-        addSpawnBiomes(Biomes.grove);
-        addSpawnBiomes(Biomes.heathland);
-        addSpawnBiomes(Biomes.highland);
-        addSpawnBiomes(Biomes.lushDesert);
-		addSpawnBiomes(Biomes.lushSwamp);
-        addSpawnBiomes(Biomes.mangrove);
-		addSpawnBiomes(Biomes.mapleWoods);
-        addSpawnBiomes(Biomes.marsh);
-		addSpawnBiomes(Biomes.meadow);
-        addSpawnBiomes(Biomes.mesa);
-        addSpawnBiomes(Biomes.mountain);
-        addSpawnBiomes(Biomes.oasis);
-        addSpawnBiomes(Biomes.orchard);
-        addSpawnBiomes(Biomes.pasture);
-        addSpawnBiomes(Biomes.prairie);
-        addSpawnBiomes(Biomes.quagmire);
-        addSpawnBiomes(Biomes.rainforest);
-        addSpawnBiomes(Biomes.redwoodForest);
-        addSpawnBiomes(Biomes.savanna);
-        addSpawnBiomes(Biomes.scrubland);
-        addSpawnBiomes(Biomes.seasonalForest);
-        addSpawnBiomes(Biomes.shrubland);
-        addSpawnBiomes(Biomes.steppe);
-		addSpawnBiomes(Biomes.temperateRainforest);
-		addSpawnBiomes(Biomes.tropicalRainforest);
-        addSpawnBiomes(Biomes.tropics);
-        addSpawnBiomes(Biomes.tundra);
-		addSpawnBiomes(Biomes.volcano);
-        addSpawnBiomes(Biomes.wetland);
-        addSpawnBiomes(Biomes.woodland);
-		
-        addSpawnBiomes(Biomes.forestNew);
-        addSpawnBiomes(Biomes.plainsNew);
-        addSpawnBiomes(Biomes.taigaNew);
-        addSpawnBiomes(Biomes.jungleNew);
+        this.biomeCache = new BiomeCachePromised(this);
+        this.biomesToSpawnIn = new ArrayList();
+        this.biomesToSpawnIn.addAll(allowedBiomes);
     }
 
-    public WorldChunkManagerBOP(long par1, WorldType par3WorldType)
+    public WorldChunkManagerPromised(long par1, WorldType par3WorldType)
     {
         this();
         GenLayer[] var4 = GenLayer.initializeAllBiomeGenerators(par1, par3WorldType);
-        this.genBiomes = (GenLayer) var4[0];
-        this.biomeIndexLayer = (GenLayer) var4[1];
+        var4 = getModdedBiomeGenerators(par3WorldType, par1, var4);
+        this.genBiomes = var4[0];
+        this.biomeIndexLayer = var4[1];
     }
 
-    public WorldChunkManagerBOP(World par1World)
+    public WorldChunkManagerPromised(World par1World)
     {
         this(par1World.getSeed(), par1World.getWorldInfo().getTerrainType());
     }
@@ -114,7 +60,8 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     /**
      * Gets the list of valid biomes for the player to spawn in.
      */
-    public List<BiomeGenBase> getBiomesToSpawnIn()
+    @SuppressWarnings("rawtypes")
+	public List getBiomesToSpawnIn()
     {
         return this.biomesToSpawnIn;
     }
@@ -155,6 +102,8 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 
         return par1ArrayOfFloat;
     }
+
+    @SideOnly(Side.CLIENT)
 
     /**
      * Return an adjusted version of a given temperature based on the y height
@@ -302,7 +251,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         ChunkPosition var13 = null;
         int var14 = 0;
 
-        for (int var15 = 0; var15 < var12.length; ++var15)
+        for (int var15 = 0; var15 < var10 * var11; ++var15)
         {
             int var16 = var6 + var15 % var10 << 2;
             int var17 = var7 + var15 / var10 << 2;
@@ -325,10 +274,11 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     {
         this.biomeCache.cleanupCache();
     }
-    
-    private void addSpawnBiomes(Optional<? extends BiomeGenBase> biome)
+
+    public GenLayer[] getModdedBiomeGenerators(WorldType worldType, long seed, GenLayer[] original)
     {
-    	if (biome.isPresent())
-    		this.biomesToSpawnIn.add(biome.get());
+        WorldTypeEvent.InitBiomeGens event = new WorldTypeEvent.InitBiomeGens(worldType, seed, original);
+        MinecraftForge.TERRAIN_GEN_BUS.post(event);
+        return event.newBiomeGens;
     }
 }

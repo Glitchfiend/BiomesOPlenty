@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.world;
 
 import java.util.List;
 import java.util.Random;

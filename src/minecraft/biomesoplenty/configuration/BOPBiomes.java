@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.biomes.*;
-import biomesoplenty.worldtype.WTBiomesOP;
+import biomesoplenty.world.WTBiomesOP;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import com.google.common.base.Optional;

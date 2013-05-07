@@ -3,6 +3,8 @@ package biomesoplenty.helpers;
 import java.util.ArrayList;
 import java.util.List;
 
+import biomesoplenty.world.WorldChunkManagerPromised;
+
 import net.minecraft.util.LongHashMap;
 import net.minecraft.world.biome.BiomeGenBase;
 

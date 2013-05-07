@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.world;
 
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;

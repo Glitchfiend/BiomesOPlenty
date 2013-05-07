@@ -1,4 +1,4 @@
-package biomesoplenty.worldtype;
+package biomesoplenty.world;
 
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;

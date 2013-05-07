@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.world;
 
 import biomesoplenty.configuration.BOPConfiguration;
 
