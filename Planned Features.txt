@@ -1,0 +1,37 @@
+ITEMS:
+
+Dart Blower:		Used to shoot darts.  Crafted from reeds.  Allows for rapid firing of darts, but with half the uses of a bow.
+
+Dart:				Similar to arrows, but dealing less damage.  Poisons your hunger for 30 seconds.  Crafted from poison, thorns, and reeds.
+
+---
+
+BLOCKS:
+
+Rock: 				Small rock that has a random size.  Uses the vanilla stone texture.
+
+---
+
+PROMISED LAND BIOMES:
+
+Wonderous Woods:  	The current Promised Land biome, with lots of trees and shrubs.
+
+Blessed Bog:		Tall willow trees over an area with lots of water ponds.
+
+Purified Plain:		Only tall grass and flowers.
+
+Majestic Mountain: 	No trees, minimal tall grass, and [hopefully] tall mountains.
+
+Divine Desert:		Holy Sand, big/tiny cacti, yucca plants.
+
+---
+
+NETHER BIOMES:
+
+Undergarden:		Ivy, nether wart, giant/small mushrooms, hellstem plant.
+
+Deathly Desert:		Soulsand, thorns, dead bushes.
+
+Lethal Lavafalls:	Lots of lavafalls and lava ponds.
+
+Glowpines:			A forest with pine trees made of glowstone.
