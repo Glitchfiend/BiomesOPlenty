@@ -11,21 +11,21 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class EntityMudball extends EntityThrowable 
+public class EntityDart extends EntityThrowable 
 {
 	boolean isClient = BiomesOPlenty.proxy instanceof ClientProxy;
 	
-	public EntityMudball(World par1World)
+	public EntityDart(World par1World)
 	{
 		super(par1World);
 	}
 
-	public EntityMudball(World par1World, EntityLiving par2EntityLiving)
+	public EntityDart(World par1World, EntityLiving par2EntityLiving)
 	{
 		super(par1World, par2EntityLiving);
 	}
 
-	public EntityMudball(World par1World, double par2, double par4, double par6)
+	public EntityDart(World par1World, double par2, double par4, double par6)
 	{
 		super(par1World, par2, par4, par6);
 	}
@@ -36,13 +36,13 @@ public class EntityMudball extends EntityThrowable
         
 		if (par1MovingObjectPosition.entityHit != null)
 		{
-			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0);
-			((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 200, 4));
+			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 2);
+			//((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300));
 		}
 
 			for (int i = 0; i < 16; ++i)
 			{
-				BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+				//BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
 			}
 
 		if (!this.worldObj.isRemote)

@@ -9,6 +9,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
+import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -25,6 +26,7 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST2_PNG);
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderSnowball(Items.dart.get(), 0)); 
 		
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());

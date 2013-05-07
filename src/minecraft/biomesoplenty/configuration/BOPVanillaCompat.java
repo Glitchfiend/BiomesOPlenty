@@ -2,6 +2,7 @@ package biomesoplenty.configuration;
 
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.items.projectiles.DispenserBehaviorDart;
 import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.Item;
@@ -15,6 +16,7 @@ public class BOPVanillaCompat {
 	{
 		// Dispenser behavior for mud balls
 		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.mudball.get(), new DispenserBehaviorMudball());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.dart.get(), new DispenserBehaviorDart());
 		
 		ChestGenHooks dungeon;
 		ChestGenHooks mineshaft;

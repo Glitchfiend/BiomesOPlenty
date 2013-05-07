@@ -5,6 +5,7 @@ import com.google.common.base.Optional;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Entities;
+import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.mobs.EntityJungleSpider;
 import biomesoplenty.mobs.EntityRosester;
@@ -39,6 +40,7 @@ public class BOPEntities {
 	public static void init()
 	{	
 		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", EntityRegistry.findGlobalUniqueEntityId(), BiomesOPlenty.instance, 80, 3, true); 	
+		EntityRegistry.registerModEntity(EntityDart.class, "Dart", EntityRegistry.findGlobalUniqueEntityId(), BiomesOPlenty.instance, 80, 3, true); 	
 		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, BiomesOPlenty.instance, 80, 3, true);	
 		
