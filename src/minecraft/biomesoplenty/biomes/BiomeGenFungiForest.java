@@ -7,7 +7,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.WorldGenSwampTall;
-import biomesoplenty.worldgen.WorldGenTaiga5;
+import biomesoplenty.worldgen.WorldGenPrairie;
 import biomesoplenty.worldgen.WorldGenThickTree;
 import biomesoplenty.worldgen.WorldGenWillow;
 
@@ -34,9 +34,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
 		this.customBiomeDecorator.sproutsPerChunk = 2;
 		this.customBiomeDecorator.bushesPerChunk = 2;
 		this.customBiomeDecorator.highGrassPerChunk = 1;
-        this.customBiomeDecorator.flowersPerChunk = -999;
         this.customBiomeDecorator.mushroomsPerChunk = 8;
-		this.customBiomeDecorator.poisonIvyPerChunk = 2;
         this.customBiomeDecorator.bigMushroomsPerChunk = 8;
 		this.customBiomeDecorator.toadstoolsPerChunk = 5;
 		this.customBiomeDecorator.portobellosPerChunk = 7;
@@ -44,8 +42,10 @@ public class BiomeGenFungiForest extends BiomeGenBase
         this.customBiomeDecorator.blueFlowersPerChunk = 3;
 		this.customBiomeDecorator.cattailsPerChunk = 1;
 		this.customBiomeDecorator.highCattailsPerChunk = 2;
+		this.customBiomeDecorator.reedsBOPPerChunk = 1;
         this.customBiomeDecorator.generateMycelium = true;
-		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.generatePumpkins = true;
+		this.customBiomeDecorator.generateMelons = true;
         this.waterColorMultiplier = 65326;
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
@@ -71,7 +71,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenThickTree(false) : (par1Random.nextInt(4) == 0 ? new WorldGenWillow() : (par1Random.nextInt(6) == 0 ? new WorldGenTaiga5(false) : new WorldGenSwampTall())));
+        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenThickTree(false) : (par1Random.nextInt(5) == 0 ? new WorldGenWillow() : (par1Random.nextInt(3) == 0 ? new WorldGenPrairie(false) : new WorldGenSwampTall())));
     }
 	
     /**

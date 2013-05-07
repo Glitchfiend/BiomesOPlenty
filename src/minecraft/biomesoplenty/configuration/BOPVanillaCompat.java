@@ -47,7 +47,6 @@ public class BOPVanillaCompat {
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
 		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 
-		village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(), 1, 6), 4, 10, 75));
 		village.addItem(new WeightedRandomChestContent(new ItemStack(Items.shroomPowder.get()), 1, 5, 50));
 		village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
 		village.addItem(new WeightedRandomChestContent(new ItemStack(Item.dyePowder, 1, 2), 4, 12, 75));
