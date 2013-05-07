@@ -150,31 +150,31 @@ public class BlockBOPFlower extends BlockFlower
     {
         int id = world.getBlockId(x, y - 1, z);
         int meta = itemStack.getItemDamage();
-        boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
+        //boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
         
         if (itemStack.itemID == this.blockID)
             switch (meta)
             {
                 case 10: // Toadstool
-                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
                     
                 case 11: // Cactus
-                    return sky && id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 12: // Yucca
-                    return sky && id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+                    return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 13: // Portobello
-                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
 					
 				case 14: // Blue Milk Cap
-                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 
                 default:
-                    return sky && id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
             }
         else
-            return sky && this.canPlaceBlockOnSide(world, x, y, z, side);
+            return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
     
     /*@Override

@@ -144,7 +144,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
                     return id == Blocks.holyGrass.get().blockID;
                     
                 case 5: // Thorns
-                    return true;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID;
                     
                 case 7: // Cattail
                     return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
@@ -162,7 +162,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
             return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
 
-    @Override
+    /*@Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
         if (world.getBlockId(x, y, z) != this.blockID)
@@ -171,7 +171,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
         else
             return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-    }
+    }*/
 	
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)

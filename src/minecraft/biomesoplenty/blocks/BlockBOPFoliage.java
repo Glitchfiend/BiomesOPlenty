@@ -169,9 +169,8 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
         int meta = par1World.getBlockMetadata(x, y, z);
         
-        if (!par1World.isRemote)
-        	if (meta == 6)
-        		((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 200));
+        if (!par1World.isRemote && meta == 6)
+        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 200));
     }
     
     @Override
