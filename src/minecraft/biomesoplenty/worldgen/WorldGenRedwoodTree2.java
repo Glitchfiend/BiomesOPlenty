@@ -154,7 +154,7 @@ public class WorldGenRedwoodTree2 extends WorldGenerator
                     for (var11 = par4 - var9 + var6; var11 <= par4 + var6; ++var11)
                     {
                         var12 = var11 - (par4 + var6);
-                        var13 = var18 + 1 - var12 / 8;
+                        var13 = var18 + 1 - var12 / 6;
 
                         for (var14 = par3 - var13; var14 <= par3 + var13; ++var14)
                         {
