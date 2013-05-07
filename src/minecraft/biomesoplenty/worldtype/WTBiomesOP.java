@@ -138,10 +138,6 @@ public class WTBiomesOP extends WorldTypeBase
 		{
 			addNewBiome(Biomes.highland);
 		}
-		if (BOPConfiguration.iceSheetGen == true)
-		{
-			addNewBiome(Biomes.iceSheet);
-		}
 		if (BOPConfiguration.icyHillsGen == true)
 		{
 			addNewBiome(Biomes.icyHills);
@@ -213,6 +209,10 @@ public class WTBiomesOP extends WorldTypeBase
 		if (BOPConfiguration.pastureGen == true)
 		{
 			addNewBiome(Biomes.pasture);
+		}
+		if (BOPConfiguration.polarGen == true)
+		{
+			addNewBiome(Biomes.polar);
 		}
 		if (BOPConfiguration.prairieGen == true)
 		{

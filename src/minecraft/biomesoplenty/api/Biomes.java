@@ -35,7 +35,6 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> grove				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> heathland			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> highland				 = Optional.absent();
-	public static Optional<? extends BiomeGenBase> iceSheet				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> icyHills				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> jadeCliffs			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> lushDesert			 = Optional.absent();
@@ -54,6 +53,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> originValley			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> outback				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> pasture				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> polar				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> prairie				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> promisedLand			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> quagmire				 = Optional.absent();

@@ -33,24 +33,24 @@ public class BiomeGenMoor extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk2 = -999;
 		this.customBiomeDecorator.mudPerChunk = 1;
         this.customBiomeDecorator.mudPerChunk2 = 1;
-		this.customBiomeDecorator.waterLakesPerChunk = 5;
+		this.customBiomeDecorator.waterLakesPerChunk = 10;
 		this.waterColorMultiplier = 5800566;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	
-    public void decorate(World par1World, Random par2Random, int par3, int par4)
-    {
-        super.decorate(par1World, par2Random, par3, par4);
-        WorldGenMoor var5 = new WorldGenMoor();
-
-        for (int var6 = 0; var6 < 16; ++var6)
-        {
-            int var7 = par3 + par2Random.nextInt(16) + 8;
-            byte var8 = 64;
-            int var9 = par4 + par2Random.nextInt(16) + 8;
-            var5.generate(par1World, par2Random, var7, var8, var9);
-        }
-    }
+    //public void decorate(World par1World, Random par2Random, int par3, int par4)
+    //{
+    //    super.decorate(par1World, par2Random, par3, par4);
+    //    WorldGenMoor var5 = new WorldGenMoor();
+	//
+    //    for (int var6 = 0; var6 < 16; ++var6)
+    //    {
+    //        int var7 = par3 + par2Random.nextInt(16) + 8;
+    //        byte var8 = 64;
+    //        int var9 = par4 + par2Random.nextInt(16) + 8;
+    //        var5.generate(par1World, par2Random, var7, var8, var9);
+    //    }
+    //}
 	
     /**
      * Gets a WorldGen appropriate for this biome.

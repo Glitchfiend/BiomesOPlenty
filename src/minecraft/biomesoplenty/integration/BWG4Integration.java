@@ -35,6 +35,7 @@ public class BWG4Integration
 	    if(Biomes.rainforest.isPresent()) { DefaultBiomeList.addBiome("BoP: Rainforest", Biomes.rainforest.get(), 3); }
 	    if(Biomes.quagmire.isPresent()) { DefaultBiomeList.addBiome("BoP: Quagmire", Biomes.quagmire.get(), 4); }
 	    if(Biomes.prairie.isPresent()) { DefaultBiomeList.addBiome("BoP: Prairie", Biomes.prairie.get(), 2); }
+		if(Biomes.polar.isPresent()) { DefaultBiomeList.addBiome("BoP: Polar", Biomes.polar.get(), 1); }
 	    if(Biomes.pasture.isPresent()) { DefaultBiomeList.addBiome("BoP: Pasture", Biomes.pasture.get(), 2); }
 	    if(Biomes.outback.isPresent()) { DefaultBiomeList.addBiome("BoP: Outback", Biomes.outback.get(), 4); }
 	    if(Biomes.originValley.isPresent()) { DefaultBiomeList.addBiome("BoP: Origin Valley", Biomes.originValley.get(), 2); }
@@ -53,7 +54,6 @@ public class BWG4Integration
         if(Biomes.lushDesert.isPresent()) { DefaultBiomeList.addBiome("BoP: Lush Desert", Biomes.lushDesert.get(), 4); }
         if(Biomes.jadeCliffs.isPresent()) { DefaultBiomeList.addBiome("BoP: Jade Cliffs", Biomes.jadeCliffs.get(), 2); }
         if(Biomes.icyHills.isPresent()) { DefaultBiomeList.addBiome("BoP: Icy Hills", Biomes.icyHills.get(), 1); }
-        if(Biomes.iceSheet.isPresent()) { DefaultBiomeList.addBiome("BoP: Ice Sheet", Biomes.iceSheet.get(), 1); }
         if(Biomes.highland.isPresent()) { DefaultBiomeList.addBiome("BoP: Highland", Biomes.highland.get(), 2); }
         if(Biomes.heathland.isPresent()) { DefaultBiomeList.addBiome("BoP: Heathland", Biomes.heathland.get(), 4); }
         if(Biomes.grove.isPresent()) { DefaultBiomeList.addBiome("BoP: Grove", Biomes.grove.get(), 2); }

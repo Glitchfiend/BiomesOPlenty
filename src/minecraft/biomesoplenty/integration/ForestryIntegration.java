@@ -196,15 +196,15 @@ public class ForestryIntegration
         EnumTemperature.icyBiomeIds.add(BOPConfiguration.arcticID);
         EnumTemperature.icyBiomeIds.add(BOPConfiguration.frostForestID);
         EnumTemperature.icyBiomeIds.add(BOPConfiguration.glacierID);
-        EnumTemperature.icyBiomeIds.add(BOPConfiguration.iceSheetID);
         EnumTemperature.icyBiomeIds.add(BOPConfiguration.icyHillsID);
+		EnumTemperature.icyBiomeIds.add(BOPConfiguration.polarID);
         
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.alpsID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.arcticID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.frostForestID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.glacierID);
-        EnumHumidity.aridBiomeIds.add(BOPConfiguration.iceSheetID);
         EnumHumidity.aridBiomeIds.add(BOPConfiguration.icyHillsID);
+		EnumHumidity.aridBiomeIds.add(BOPConfiguration.polarID);
         
         //New vanilla biomes
         EnumTemperature.normalBiomeIds.add(BOPConfiguration.plainsNewID);
