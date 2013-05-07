@@ -21,7 +21,9 @@ public class WorldProviderPromised extends WorldProvider
 	public void registerWorldChunkManager()
 	{
 		if (Biomes.promisedLand.isPresent())
+		{
 			this.worldChunkMgr = new WorldChunkManagerHell(Biomes.promisedLand.get(), 0.8F, 0.1F);
+		}
 		//this.worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		this.dimensionId = BOPConfiguration.promisedLandDimID;
 	}

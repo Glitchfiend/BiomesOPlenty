@@ -16,6 +16,11 @@ public abstract class BiomeLayer
     {
     	BiomeLayer obj = new BiomeLayerCreate(1L);
     	
+    	for(int i = 0; i < 4; i++)
+    	{
+    		obj = new BiomeLayerZoom(2000L + i, (BiomeLayer)(obj));
+    	}
+    	
     	return new BiomeLayer[] {};
     }
     
