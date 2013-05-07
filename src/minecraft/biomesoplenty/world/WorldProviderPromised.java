@@ -86,13 +86,13 @@ public class WorldProviderPromised extends WorldProvider
         return 64;
     }
 	
-    public double getHorizon(World world)
+    @Override
+    public double getHorizon()
     {
         return 0.0D;
     }
 	
 	@SideOnly(Side.CLIENT)
-	
     public boolean hasVoidParticles(boolean var1)
     {
         return false;
