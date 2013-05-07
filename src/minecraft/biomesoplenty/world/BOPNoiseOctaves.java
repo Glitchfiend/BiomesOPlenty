@@ -4,18 +4,18 @@ import java.util.Random;
 
 import net.minecraft.world.gen.NoiseGenerator;
 
-public class BeachNoiseOctaves extends NoiseGenerator
+public class BOPNoiseOctaves extends NoiseGenerator
 {
-    private BeachNoisePerlin generatorCollection[];
+    private BOPNoisePerlin generatorCollection[];
     private int octaves;
 
-    public BeachNoiseOctaves(Random random, int i)
+    public BOPNoiseOctaves(Random random, int i)
     {
         octaves = i;
-        generatorCollection = new BeachNoisePerlin[i];
+        generatorCollection = new BOPNoisePerlin[i];
         for (int j = 0; j < i; j++)
         {
-            generatorCollection[j] = new BeachNoisePerlin(random);
+            generatorCollection[j] = new BOPNoisePerlin(random);
         }
     }
 
