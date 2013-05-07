@@ -33,6 +33,7 @@ public class BiomeGenMoor extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk2 = -999;
 		this.customBiomeDecorator.mudPerChunk = 1;
         this.customBiomeDecorator.mudPerChunk2 = 1;
+		this.customBiomeDecorator.waterLakesPerChunk = 5;
 		this.waterColorMultiplier = 5800566;
 		this.customBiomeDecorator.generatePumpkins = false;
     }

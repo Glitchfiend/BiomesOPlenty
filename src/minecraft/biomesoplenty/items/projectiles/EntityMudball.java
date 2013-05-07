@@ -37,7 +37,7 @@ public class EntityMudball extends EntityThrowable
 		if (par1MovingObjectPosition.entityHit != null)
 		{
 			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0);
-			((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 200, 4));
+			((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 400, 2));
 		}
 
 			for (int i = 0; i < 16; ++i)

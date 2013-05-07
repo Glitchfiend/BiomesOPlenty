@@ -37,7 +37,7 @@ public class BiomeGenSteppe extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-		return (par1Random.nextInt(8) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1)));
+		return new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
     }
 	
     /**
