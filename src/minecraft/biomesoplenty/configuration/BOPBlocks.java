@@ -282,6 +282,7 @@ public class BOPBlocks {
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,12), "Yucca");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,13), "Portobello");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,14), "Blue Milk Cap");
+		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,15), "Dandelion");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Fir Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");
@@ -412,6 +413,7 @@ public class BOPBlocks {
 	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 7, 5);
 	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 8, 5);
 	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 9, 5);
+		MinecraftForge.addGrassPlant(Blocks.flowers.get(), 15, 20);
 	    
 	    MinecraftForge.addGrassPlant(Blocks.foliage.get(), 5, 10);
 	}

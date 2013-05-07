@@ -142,6 +142,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
     /** Field that holds one of the plantYellow WorldGenFlowers */
     protected WorldGenerator plantYellowGen;
+	protected WorldGenerator dandelionGen;
 
     /** Field that holds one of the plantRed WorldGenFlowers */
     protected WorldGenerator plantRedGen;
@@ -358,6 +359,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.diamondGen = new WorldGenMinable(Block.oreDiamond.blockID, 7);
         this.lapisGen = new WorldGenMinable(Block.oreLapis.blockID, 6);
         this.plantYellowGen = new WorldGenBOPFlowers(Block.plantYellow.blockID, 0);
+		this.dandelionGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 15);
         this.plantRedGen = new WorldGenBOPFlowers(Block.plantRed.blockID, 0);
         this.plantWhiteGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 9);
         this.plantBlueGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 1);
@@ -721,6 +723,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.plantYellowGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+			
+			if (this.randomGenerator.nextInt(6) == 0)
+            {
+                var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+                var4 = this.randomGenerator.nextInt(128);
+                var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+                this.dandelionGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+            }
 
             if (this.randomGenerator.nextInt(4) == 0)
             {

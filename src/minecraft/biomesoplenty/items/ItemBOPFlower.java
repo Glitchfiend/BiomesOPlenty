@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class ItemBOPFlower extends ItemBlock
 {
-    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "yucca", "portobello", "bluemilk"};
+    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "yucca", "portobello", "bluemilk", "dandelion"};
     
     public ItemBOPFlower(int par1)
     {

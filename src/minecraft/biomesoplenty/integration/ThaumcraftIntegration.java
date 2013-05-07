@@ -163,6 +163,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("swampFlower"), getBMeta("swampFlower"), (new ObjectTags()).add(EnumTag.FLOWER, 4));
 		ThaumcraftApi.registerObjectTag(getBID("wildFlower"), getBMeta("wildFlower"), (new ObjectTags()).add(EnumTag.FLOWER, 4)); 
 		ThaumcraftApi.registerObjectTag(getBID("daisy"), getBMeta("daisy"), (new ObjectTags()).add(EnumTag.FLOWER, 4));
+		ThaumcraftApi.registerObjectTag(getBID("dandelion"), getBMeta("dandelion"), (new ObjectTags()).add(EnumTag.FLOWER, 4));
 		ThaumcraftApi.registerObjectTag(getBID("tulip"), getBMeta("tulip"), (new ObjectTags()).add(EnumTag.FLOWER, 4));
 		ThaumcraftApi.registerObjectTag(getBID("yucca"), getBMeta("yucca"), (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("clover"), getBMeta("clover"), (new ObjectTags()).add(EnumTag.FLOWER, 1).add(EnumTag.PLANT, 1));

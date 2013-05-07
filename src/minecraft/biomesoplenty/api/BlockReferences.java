@@ -115,6 +115,7 @@ public class BlockReferences {
 		yucca (Blocks.flowers, 12),
 		portobello (Blocks.flowers, 13),
 		bluemilk (Blocks.flowers, 14),
+		dandelion (Blocks.flowers, 15),
 		holyTallGrass (Blocks.plants, 4),
 		desertSprouts (Blocks.plants, 2),
 		duneGrass (Blocks.plants, 3),
