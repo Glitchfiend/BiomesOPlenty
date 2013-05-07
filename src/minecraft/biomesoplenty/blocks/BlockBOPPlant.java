@@ -104,7 +104,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
         else if (metadata == 4) //Holy Tall Grass
             return blockID == Blocks.holyGrass.get().blockID;
         else if (metadata == 5)
-            return true;
+            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID;
         else if (metadata == 7)
             return blockID == Block.grass.blockID;
 		else if (metadata == 8)
