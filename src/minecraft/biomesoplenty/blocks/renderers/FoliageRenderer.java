@@ -1,5 +1,6 @@
 package biomesoplenty.blocks.renderers;
 
+import biomesoplenty.api.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -71,17 +72,19 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         double d1 = (double)par3;
         double d2 = (double)par4;
 
-        long i1;
-        if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == GRASSTOP) // High Grass Top
-            i1 = (long)(par2 * 3129871) ^ (long)par4 * 116129781L ^ (long)(par3 - 1);
-        else
-            i1 = (long)(par2 * 3129871) ^ (long)par4 * 116129781L ^ (long)par3;
-        
-        i1 = i1 * i1 * 42317861L + i1 * 11L;
-        d0 += ((double)((float)(i1 >> 16 & 15L) / 15.0F) - 0.5D) * 0.5D;
-        d1 += ((double)((float)(i1 >> 20 & 15L) / 15.0F) - 1.0D) * 0.2D;
-        d2 += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D;
-
+        if (par1Block == Blocks.foliage.get())
+        {
+            long i1;
+            if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == GRASSTOP) // High Grass Top
+                i1 = (long)(par2 * 3129871) ^ (long)par4 * 116129781L ^ (long)(par3 - 1);
+            else
+                i1 = (long)(par2 * 3129871) ^ (long)par4 * 116129781L ^ (long)par3;
+            
+            i1 = i1 * i1 * 42317861L + i1 * 11L;
+            d0 += ((double)((float)(i1 >> 16 & 15L) / 15.0F) - 0.5D) * 0.5D;
+            d1 += ((double)((float)(i1 >> 20 & 15L) / 15.0F) - 1.0D) * 0.2D;
+            d2 += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D;
+        }
 
         renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
         return true;
