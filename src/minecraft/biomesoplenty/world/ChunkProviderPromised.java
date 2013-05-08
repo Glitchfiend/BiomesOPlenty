@@ -502,7 +502,7 @@ public class ChunkProviderPromised implements IChunkProvider
         int var4 = par2 * 16;
         int var5 = par3 * 16;
         BiomeGenBase var6 = this.endWorld.getBiomeGenForCoords(var4 + 16, var5 + 16);
-        //var6.decorate(this.endWorld, this.endWorld.rand, var4, var5);
+        var6.decorate(this.endWorld, this.endWorld.rand, var4, var5);
 
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));
 

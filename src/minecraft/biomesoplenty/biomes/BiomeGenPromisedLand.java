@@ -36,11 +36,14 @@ public class BiomeGenPromisedLand extends BiomeGenBase
 		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
         this.customBiomeDecorator.glowFlowersPerChunk = 3;
 		this.customBiomeDecorator.blueMilksPerChunk = 5;
+		//this.customBiomeDecorator.pondsPerChunk = -999;
+		this.customBiomeDecorator.waterLakesPerChunk = 5;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
+		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenMinable(Block.waterMoving.blockID, 8);
     }
 	
@@ -81,7 +84,7 @@ public class BiomeGenPromisedLand extends BiomeGenBase
             }
         }
 
-        for (var5 = 0; var5 < 12; ++var5)
+        for (var5 = 0; var5 < 5; ++var5)
         {
             var6 = par3 + par2Random.nextInt(16);
             var7 = par2Random.nextInt(60);
