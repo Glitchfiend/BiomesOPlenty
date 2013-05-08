@@ -18,7 +18,7 @@ public class ItemDartBlower extends Item
     {
         super(par1);
 		this.maxStackSize = 1;
-		this.setMaxDamage(192);
+		this.setMaxDamage(63);
         setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         setUnlocalizedName("dartblower");
     }
@@ -35,7 +35,7 @@ public class ItemDartBlower extends Item
         if (flag || par3EntityPlayer.inventory.hasItem(Items.dart.get().itemID))
         {
             EntityArrow entitydart = new EntityArrow(par2World, par3EntityPlayer, 2.0F);
-//            EntityDart entitydart = new EntityDart(par2World, par3EntityPlayer, 2.0F);
+            //EntityDart entitydart = new EntityDart(par2World, par3EntityPlayer, 2.0F);
             
             itemStack.damageItem(1, par3EntityPlayer);
             par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 2.0F / (1.0F * 0.4F + 1.2F) + 1.0F * 0.5F);

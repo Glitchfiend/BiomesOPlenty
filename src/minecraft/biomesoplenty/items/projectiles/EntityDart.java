@@ -11,6 +11,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.network.packet.Packet70GameEvent;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -184,6 +186,7 @@ public class EntityDart extends EntityArrow
                     if (this.isBurning() && !(movingobjectposition.entityHit instanceof EntityEnderman))
                     {
                         movingobjectposition.entityHit.setFire(5);
+						//movingobjectposition.entityHit.addPotionEffect(new PotionEffect(Potion.poison.id, 100));
                     }
 
                     if (movingobjectposition.entityHit.attackEntityFrom(damagesource, i1))
@@ -282,7 +285,7 @@ public class EntityDart extends EntityArrow
             this.motionZ *= (double)f4;
             this.motionY -= (double)f1;
             this.setPosition(this.posX, this.posY, this.posZ);
-            this.doBlockCollisions();
+            //this.doBlockCollisions();
         }
     }
 
