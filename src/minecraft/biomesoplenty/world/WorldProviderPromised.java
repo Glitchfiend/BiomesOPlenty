@@ -21,7 +21,9 @@ public class WorldProviderPromised extends WorldProvider
 	public void registerWorldChunkManager()
 	{
 		if (Biomes.promisedLand.isPresent())
+		{
 			this.worldChunkMgr = new WorldChunkManagerHell(Biomes.promisedLand.get(), 0.8F, 0.1F);
+		}
 		//this.worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		this.dimensionId = BOPConfiguration.promisedLandDimID;
 	}
@@ -81,16 +83,16 @@ public class WorldProviderPromised extends WorldProvider
 
     public int getAverageGroundLevel()
     {
-        return 50;
+        return 64;
     }
 	
-    public double getHorizon(World world)
+    @Override
+    public double getHorizon()
     {
-        return 0.6D;
+        return 0.0D;
     }
 	
 	@SideOnly(Side.CLIENT)
-	
     public boolean hasVoidParticles(boolean var1)
     {
         return false;

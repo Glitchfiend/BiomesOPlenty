@@ -1,21 +1,21 @@
-package biomesoplenty.world;
+package biomesoplenty.world.noise;
 
 import java.util.Random;
 
 import net.minecraft.world.gen.NoiseGenerator;
 
-public class BeachNoiseOctaves extends NoiseGenerator
+public class NoiseOctaves extends NoiseGenerator
 {
-    private BeachNoisePerlin generatorCollection[];
+    private NoisePerlin generatorCollection[];
     private int octaves;
 
-    public BeachNoiseOctaves(Random random, int i)
+    public NoiseOctaves(Random random, int i)
     {
         octaves = i;
-        generatorCollection = new BeachNoisePerlin[i];
+        generatorCollection = new NoisePerlin[i];
         for (int j = 0; j < i; j++)
         {
-            generatorCollection[j] = new BeachNoisePerlin(random);
+            generatorCollection[j] = new NoisePerlin(random);
         }
     }
 

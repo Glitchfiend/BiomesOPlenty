@@ -5,6 +5,7 @@ import java.util.Random;
 
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
+import biomesoplenty.world.noise.NoiseOctaves;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
@@ -25,45 +26,45 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkProviderPromised implements IChunkProvider
 {
-	@SuppressWarnings("unused")
-	private Random rand;
     private Random endRNG;
-    private NoiseGeneratorOctaves noiseGen1;
-    private NoiseGeneratorOctaves noiseGen2;
-    private NoiseGeneratorOctaves noiseGen3;
-    public NoiseGeneratorOctaves noiseGen4;
-    public NoiseGeneratorOctaves noiseGen5;
+    private NoiseOctaves field_912_k;
+    private NoiseOctaves field_911_l;
+    private NoiseOctaves field_910_m;
+    private NoiseOctaves field_909_n;
+    private NoiseOctaves field_908_o;
+    public NoiseOctaves field_922_a;
+    public NoiseOctaves field_921_b;
     private World endWorld;
     private double[] densities;
 
-    /** The biomes that are used to generate the chunk */
     private BiomeGenBase[] biomesForGeneration;
-    double[] noiseData1;
-    double[] noiseData2;
-    double[] noiseData3;
-    double[] noiseData4;
-    double[] noiseData5;
-	@SuppressWarnings("unused")
-	private double[] stoneNoise = new double[256];
+    double field_4185_d[];
+    double field_4184_e[];
+    double field_4183_f[];
+    double field_4182_g[];
+    double field_4181_h[];
+
     int[][] field_73203_h = new int[32][32];
 
     public ChunkProviderPromised(World par1World, long par2)
     {
         this.endWorld = par1World;
         this.endRNG = new Random(par2);
-        this.noiseGen1 = new NoiseGeneratorOctaves(this.endRNG, 16);
-        this.noiseGen2 = new NoiseGeneratorOctaves(this.endRNG, 16);
-        this.noiseGen3 = new NoiseGeneratorOctaves(this.endRNG, 8);
-        this.noiseGen4 = new NoiseGeneratorOctaves(this.endRNG, 10);
-        this.noiseGen5 = new NoiseGeneratorOctaves(this.endRNG, 16);
+        field_912_k = new NoiseOctaves(endRNG, 16);
+        field_911_l = new NoiseOctaves(endRNG, 16);
+        field_910_m = new NoiseOctaves(endRNG, 8);
+        field_909_n = new NoiseOctaves(endRNG, 4);
+        field_908_o = new NoiseOctaves(endRNG, 4);
+        field_922_a = new NoiseOctaves(endRNG, 10);
+        field_921_b = new NoiseOctaves(endRNG, 16);
 
-        NoiseGeneratorOctaves[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5};
-        noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.endRNG, noiseGens);
-        this.noiseGen1 = noiseGens[0];
-        this.noiseGen2 = noiseGens[1];
-        this.noiseGen3 = noiseGens[2];
-        this.noiseGen4 = noiseGens[3];
-        this.noiseGen5 = noiseGens[4];
+        //NoiseGeneratorOctaves[] noiseGens = {noiseGen1, noiseGen2, noiseGen3, noiseGen4, noiseGen5};
+        //noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.endRNG, noiseGens);
+        //this.noiseGen1 = noiseGens[0];
+        //this.noiseGen2 = noiseGens[1];
+        //this.noiseGen3 = noiseGens[2];
+        //this.noiseGen4 = noiseGens[3];
+        //this.noiseGen5 = noiseGens[4];
    }
 
     public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte, BiomeGenBase[] par4ArrayOfBiomeGenBase)
@@ -238,6 +239,109 @@ public class ChunkProviderPromised implements IChunkProvider
      * generates a subset of the level's terrain data. Takes 7 arguments: the [empty] noise array, the position, and the
      * size.
      */
+    
+    private double[] initializeNoiseField(double ad[], int i, int j, int k, int l, int i1, int j1)
+    {
+        if(ad == null)
+        {
+            ad = new double[l * i1 * j1];
+        }
+        double d = 684.41200000000003D;
+        double d1 = 684.41200000000003D;
+        field_4182_g = field_922_a.generateNoiseOctaves(field_4182_g, i, k, l, j1, 1.121D, 1.121D, 0.5D);
+        field_4181_h = field_921_b.generateNoiseOctaves(field_4181_h, i, k, l, j1, 200D, 200D, 0.5D);
+        d *= 2D;
+        field_4185_d = field_910_m.generateNoiseOctaves(field_4185_d, i, j, k, l, i1, j1, d / 80D, d1 / 160D, d / 80D);
+        field_4184_e = field_912_k.generateNoiseOctaves(field_4184_e, i, j, k, l, i1, j1, d, d1, d);
+        field_4183_f = field_911_l.generateNoiseOctaves(field_4183_f, i, j, k, l, i1, j1, d, d1, d);
+        int k1 = 0;
+        int l1 = 0;
+        int i2 = 16 / l;
+        for(int j2 = 0; j2 < l; j2++)
+        {
+            int k2 = j2 * i2 + i2 / 2;
+            for(int l2 = 0; l2 < j1; l2++)
+            {
+                int i3 = l2 * i2 + i2 / 2;
+				double d3;
+				d3 = 0.5D;
+                double d4 = 1.0D - d3;
+                d4 *= d4;
+                d4 *= d4;
+                d4 = 1.0D - d4;
+                double d5 = (field_4182_g[l1] + 256D) / 512D;
+                d5 *= d4;
+                if(d5 > 1.0D)
+                {
+                    d5 = 1.0D;
+                }
+                double d6 = field_4181_h[l1] / 8000D;
+                if(d6 < 0.0D)
+                {
+                    d6 = -d6 * 0.29999999999999999D;
+                }
+                d6 = d6 * 3D - 2D;
+                if(d6 > 1.0D)
+                {
+                    d6 = 1.0D;
+                }
+                d6 /= 8D;
+                d6 = 0.0D;
+                if(d5 < 0.0D)
+                {
+                    d5 = 0.0D;
+                }
+                d5 += 0.5D;
+                d6 = (d6 * (double)i1) / 16D;
+                l1++;
+                double d7 = (double)i1 / 2D;
+                for(int j3 = 0; j3 < i1; j3++)
+                {
+                    double d8 = 0.0D;
+                    double d9 = (((double)j3 - d7) * 8D) / d5;
+                    if(d9 < 0.0D)
+                    {
+                        d9 *= -1D;
+                    }
+                    double d10 = field_4184_e[k1] / 512D;
+                    double d11 = field_4183_f[k1] / 512D;
+                    double d12 = (field_4185_d[k1] / 10D + 1.0D) / 2D;
+                    if(d12 < 0.0D)
+                    {
+                        d8 = d10;
+                    } else
+                    if(d12 > 1.0D)
+                    {
+                        d8 = d11;
+                    } else
+                    {
+                        d8 = d10 + (d11 - d10) * d12;
+                    }
+                    d8 -= 8D;
+                    int k3 = 32;
+                    if(j3 > i1 - k3)
+                    {
+                        double d13 = (float)(j3 - (i1 - k3)) / ((float)k3 - 1.0F);
+                        d8 = d8 * (1.0D - d13) + -30D * d13;
+                    }
+                    k3 = 8;
+                    if(j3 < k3)
+                    {
+                        double d14 = (float)(k3 - j3) / ((float)k3 - 1.0F);
+                        d8 = d8 * (1.0D - d14) + -30D * d14;
+                    }
+                    ad[k1] = d8;
+                    k1++;
+                }
+
+            }
+
+        }
+
+        return ad;
+    }
+    
+    /*
     private double[] initializeNoiseField(double[] par1ArrayOfDouble, int par2, int par3, int par4, int par5, int par6, int par7)
     {
         ChunkProviderEvent.InitNoiseField event = new ChunkProviderEvent.InitNoiseField(this, par1ArrayOfDouble, par2, par3, par4, par5, par6, par7);
@@ -376,6 +480,7 @@ public class ChunkProviderPromised implements IChunkProvider
 
         return par1ArrayOfDouble;
     }
+    */
 
     /**
      * Checks to see if a chunk exists at x, y
@@ -397,7 +502,7 @@ public class ChunkProviderPromised implements IChunkProvider
         int var4 = par2 * 16;
         int var5 = par3 * 16;
         BiomeGenBase var6 = this.endWorld.getBiomeGenForCoords(var4 + 16, var5 + 16);
-        var6.decorate(this.endWorld, this.endWorld.rand, var4, var5);
+        //var6.decorate(this.endWorld, this.endWorld.rand, var4, var5);
 
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));
 

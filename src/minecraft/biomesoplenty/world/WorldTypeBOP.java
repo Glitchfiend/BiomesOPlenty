@@ -1,6 +1,10 @@
 package biomesoplenty.world;
 
+import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.MinecraftForge;
 
 import biomesoplenty.api.Biomes;
@@ -8,18 +12,11 @@ import biomesoplenty.configuration.BOPConfiguration;
 
 import com.google.common.base.Optional;
 
-public class WTBiomesOP extends WorldTypeBase
+public class WorldTypeBOP extends WorldType
 {
-	public WTBiomesOP() {
+	public WorldTypeBOP() {
 		super(4, "BIOMESOP");
 		this.removeAllBiomes();
-		this.removeBiome(BiomeGenBase.plains);
-        this.removeBiome(BiomeGenBase.desert);
-        this.removeBiome(BiomeGenBase.forest);
-        this.removeBiome(BiomeGenBase.extremeHills);
-        this.removeBiome(BiomeGenBase.taiga);
-        this.removeBiome(BiomeGenBase.swampland);
-        this.removeBiome(BiomeGenBase.jungle);
 
 		if (BOPConfiguration.alpsGen == true)
 		{
@@ -384,6 +381,27 @@ public class WTBiomesOP extends WorldTypeBase
 				this.addNewBiome(BiomeGenBase.jungle);
 				}
 		}
+	}
+	
+	public WorldChunkManager getChunkManager(World var1)
+    {
+        return new WorldChunkManagerBOP(var1);
+    }
+	
+    public IChunkProvider getChunkGenerator(World world, String generatorOptions)
+    {
+        return new ChunkProviderBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
+    }
+	
+	public void removeAllBiomes()
+	{
+		this.removeBiome(BiomeGenBase.plains);
+		this.removeBiome(BiomeGenBase.desert);
+		this.removeBiome(BiomeGenBase.forest);
+		this.removeBiome(BiomeGenBase.extremeHills);
+		this.removeBiome(BiomeGenBase.taiga);
+		this.removeBiome(BiomeGenBase.swampland);
+		this.removeBiome(BiomeGenBase.jungle);
 	}
 
 	public void addNewBiome(Optional<? extends BiomeGenBase> biome)
