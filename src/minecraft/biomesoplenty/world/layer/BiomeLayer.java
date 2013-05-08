@@ -16,12 +16,20 @@ public abstract class BiomeLayer
     {
     	BiomeLayer obj = new BiomeLayerCreate(1L);
     	
-    	for(int i = 0; i < 4; i++)
+    	for(int i = 0; i < 3; i++)
     	{
     		obj = new BiomeLayerZoom(2000L + i, (BiomeLayer)(obj));
     	}
     	
-    	return new BiomeLayer[] {};
+    	BiomeLayer obj2 = obj;
+    	obj2 = new BiomeLayerZoom(1000L, (BiomeLayer)(obj2));
+    	obj2 = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj2)), worldtype);
+    	
+    	BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((BiomeLayer)(obj2)));
+		((BiomeLayer)(obj2)).initWorldGenSeed(seed);
+		genlayervoronoizoom.initWorldGenSeed(seed);
+    	
+		return (new BiomeLayer[] { obj2, genlayervoronoizoom });	
     }
     
     public BiomeLayer(long seed)
