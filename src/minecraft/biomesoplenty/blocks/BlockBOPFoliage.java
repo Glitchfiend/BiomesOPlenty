@@ -31,11 +31,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFoliage extends BlockFlower implements IShearable
 {
-    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "poisonivy", "highgrasstop"};
+    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy"};
     
     private Icon[] textures;
 
-    private static final int GRASSTOP = 7;
+    private static final int GRASSTOP = 6;
     private static final int ALGAE = 0;
     private static final int GRASSBOTTOM = 3;
     
@@ -72,8 +72,9 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
     {
-        for (int i = 0; i < GRASSTOP; ++i)
-            list.add(new ItemStack(blockID, 1, i));
+        for (int i = 0; i < foliageTypes.length; ++i)
+            if (i != GRASSTOP)
+                list.add(new ItemStack(blockID, 1, i));
     }
     
     @Override
@@ -256,7 +257,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
     	ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-    	if (world.getBlockMetadata(x, y, z) != 7)
+    	if (world.getBlockMetadata(x, y, z) != GRASSTOP)
     		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
     	else
     		ret.add(new ItemStack(Block.tallGrass, 1, 1));

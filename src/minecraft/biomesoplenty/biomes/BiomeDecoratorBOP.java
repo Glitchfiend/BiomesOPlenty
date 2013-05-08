@@ -380,7 +380,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.duneGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 3);
 		this.holyTallGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 4);
 		this.desertSproutsGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 2);
-		this.poisonIvyGen = new WorldGenBush(Blocks.foliage.get().blockID, 6);
+		this.poisonIvyGen = new WorldGenBush(Blocks.foliage.get().blockID, 7);
 		this.promisedWillowGen = new WorldGenPromisedWillow();
 		this.quicksandGen = new WorldGenQuicksand();
 		this.quicksand2Gen = new WorldGenQuicksand2();

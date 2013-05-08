@@ -157,7 +157,7 @@ public class BOPCrafting
         
         //Plants
         GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.flowers.get(),1,10)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,6)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
     }
     
     private static void addSmeltingRecipes()

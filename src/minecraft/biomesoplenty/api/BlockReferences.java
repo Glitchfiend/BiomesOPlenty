@@ -63,7 +63,7 @@ public class BlockReferences {
 		cattail (Blocks.plants, 7),
 		reed (Blocks.plants, 8),
 		
-		poisonIvyItem (Blocks.foliage, 6),
+		poisonIvyItem (Blocks.foliage, 7),
 		sproutItem (Blocks.foliage, 5),
 		bushItem (Blocks.foliage, 4),
 		highGrassItem (Blocks.foliage, 3),

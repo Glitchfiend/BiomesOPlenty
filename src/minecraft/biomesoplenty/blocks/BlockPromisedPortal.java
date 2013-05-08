@@ -1,5 +1,6 @@
 package biomesoplenty.blocks;
 
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.helpers.TeleporterPromised;
 

@@ -13,7 +13,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
     public static int render = RenderingRegistry.getNextAvailableRenderId();
-    private final int GRASSTOP = 7;
+    private final int GRASSTOP = 6;
 
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)

@@ -348,7 +348,7 @@ public class TeleporterPromised extends Teleporter
 			par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
 		}
 
-			par1Entity.setLocationAndAngles(var49 + 3, var25, var27 + 3, par1Entity.rotationYaw, par1Entity.rotationPitch);
+			par1Entity.setLocationAndAngles(var49 + 1, var25, var27 + 1, par1Entity.rotationYaw, par1Entity.rotationPitch);
 			return true;
 		}
 		else

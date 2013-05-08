@@ -114,15 +114,15 @@ public class WorldGenMarsh extends WorldGenerator
 					if (par2Random.nextInt(3) == 0)
 						{
 						par1World.setBlock(par3, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3, par4 + 2, par5, Blocks.foliage.get().blockID, 7, 2);
+						par1World.setBlock(par3, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
 						par1World.setBlock(par3 - 1, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3 - 1, par4 + 2, par5, Blocks.foliage.get().blockID, 7, 2);
+						par1World.setBlock(par3 - 1, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
 						par1World.setBlock(par3 + 1, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3 + 1, par4 + 2, par5, Blocks.foliage.get().blockID, 7, 2);
+						par1World.setBlock(par3 + 1, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
 						par1World.setBlock(par3, par4 + 1, par5 - 1, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3, par4 + 2, par5 - 1, Blocks.foliage.get().blockID, 7, 2);
+						par1World.setBlock(par3, par4 + 2, par5 - 1, Blocks.foliage.get().blockID, 6, 2);
 						par1World.setBlock(par3, par4 + 1, par5 + 1, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3, par4 + 2, par5 + 1, Blocks.foliage.get().blockID, 7, 2);
+						par1World.setBlock(par3, par4 + 2, par5 + 1, Blocks.foliage.get().blockID, 6, 2);
 						}
 					else
 						{

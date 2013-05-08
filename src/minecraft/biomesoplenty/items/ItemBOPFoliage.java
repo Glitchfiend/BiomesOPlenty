@@ -17,9 +17,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPFoliage extends ItemColored
 {
-    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "poisonivy", "highgrasstop"};
+    private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
+    private static final int GRASSTOP = 6;
     
     public ItemBOPFoliage(int par1)
     {
@@ -31,9 +32,9 @@ public class ItemBOPFoliage extends ItemColored
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[foliageTypes.length - 1];
+        textures = new Icon[foliageTypes.length];
         
-        for (int i = 0; i < foliageTypes.length - 1; ++i)
+        for (int i = 0; i < foliageTypes.length; ++i)
             textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + foliageTypes[i]);
         
         textures[3] = iconRegister.registerIcon("BiomesOPlenty:item_highgrass");
@@ -63,7 +64,7 @@ public class ItemBOPFoliage extends ItemColored
     @Override
     public Icon getIconFromDamage(int meta)
     {
-        if (meta == 7)
+        if (meta == GRASSTOP)
             meta = 3;
         return textures[meta];
     }
@@ -154,7 +155,7 @@ public class ItemBOPFoliage extends ItemColored
                 if (world.setBlock(x, y, z, this.getBlockID(), itemStack.getItemDamage(), 3))
                 {
                     if (itemStack.getItemDamage() == 3 && world.getBlockMaterial(x, y + 1, z).isReplaceable())
-                        world.setBlock(x, y + 1, z, this.getBlockID(), 7, 2);
+                        world.setBlock(x, y + 1, z, this.getBlockID(), GRASSTOP, 2);
                     
                     if (world.getBlockId(x, y, z) == this.getBlockID())
                     {
