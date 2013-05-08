@@ -36,6 +36,7 @@ public class BiomeGenPromisedLand extends BiomeGenBase
 		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
         this.customBiomeDecorator.glowFlowersPerChunk = 3;
 		this.customBiomeDecorator.blueMilksPerChunk = 5;
+		this.customBiomeDecorator.generateLakes = false;
 		//this.customBiomeDecorator.pondsPerChunk = -999;
 		this.customBiomeDecorator.waterLakesPerChunk = 5;
 		this.spawnableCreatureList.clear();
