@@ -149,6 +149,7 @@ public class BOPCrafting
 		
 		//Dart Blower
 		GameRegistry.addRecipe(new ItemStack(Items.dartBlower.get(), 1), new Object[] {"R R", "R R", "R R", Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});
+		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4), new Object[] {"P", "T", "R", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});
         
         GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
         
@@ -157,7 +158,7 @@ public class BOPCrafting
         
         //Plants
         GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.flowers.get(),1,10)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 1, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
     }
     
     private static void addSmeltingRecipes()
