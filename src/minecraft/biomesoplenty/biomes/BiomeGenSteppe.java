@@ -28,7 +28,7 @@ public class BiomeGenSteppe extends BiomeGenBase
 		this.customBiomeDecorator.tinyCactiPerChunk = 1;
 		this.customBiomeDecorator.quicksandPerChunk = 1;
 		this.customBiomeDecorator.steppePerChunk = 6;
-		this.customBiomeDecorator.yuccaPerChunk = 2;
+		this.customBiomeDecorator.aloePerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	

@@ -112,7 +112,7 @@ public class BlockReferences {
 		
 		toadstool (Blocks.flowers, 10),
 		tinyCactus (Blocks.flowers, 11),
-		yucca (Blocks.flowers, 12),
+		aloe (Blocks.flowers, 12),
 		portobello (Blocks.flowers, 13),
 		bluemilk (Blocks.flowers, 14),
 		dandelion (Blocks.flowers, 15),

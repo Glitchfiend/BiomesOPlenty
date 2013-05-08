@@ -25,7 +25,7 @@ public class BiomeGenCanyon extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = 10;
 		this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.canyonGrassPerChunk = 5;
-		this.customBiomeDecorator.yuccaPerChunk = 2;
+		this.customBiomeDecorator.aloePerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.customBiomeDecorator.generateCanyon = true;
     }

@@ -279,7 +279,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,11), "Tiny Cactus");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,12), "Yucca");
+		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,12), "Aloe");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,13), "Portobello");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,14), "Blue Milk Cap");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,15), "Dandelion");
