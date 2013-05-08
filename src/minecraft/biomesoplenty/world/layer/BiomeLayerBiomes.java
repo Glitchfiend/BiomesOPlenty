@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeLayerBiomes extends BiomeLayer
 {
-	public static ArrayList<BiomeGenBase> Biomes = new ArrayList<BiomeGenBase>();
+	public static ArrayList<BiomeGenBase> AllowedBiomes = new ArrayList<BiomeGenBase>();
 	
     public BiomeLayerBiomes(long par1, BiomeLayer par3GenLayer, WorldType par4WorldType)
     {
@@ -18,7 +18,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 		
 		if (Biomes.promisedLand.isPresent())
 		{
-			Biomes.add(Biomes.promisedLand.get());
+			AllowedBiomes.add(Biomes.promisedLand.get());
 		}
 	} 
 
@@ -33,7 +33,7 @@ public class BiomeLayerBiomes extends BiomeLayer
             {
                 this.initChunkSeed((long)(var8 + par1), (long)(var7 + par2));
                 int var9 = var5[var8 + var7 * par3];
-				var6[var8 + var7 * par3] = Biomes.get(this.nextInt(Biomes.size())).biomeID;
+				var6[var8 + var7 * par3] = AllowedBiomes.get(this.nextInt(AllowedBiomes.size())).biomeID;
             }
         }
         return var6;

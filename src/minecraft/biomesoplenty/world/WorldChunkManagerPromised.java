@@ -7,6 +7,7 @@ import java.util.Random;
 
 import biomesoplenty.api.Biomes;
 import biomesoplenty.helpers.BiomeCachePromised;
+import biomesoplenty.world.layer.BiomeLayer;
 
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
@@ -23,10 +24,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class WorldChunkManagerPromised extends WorldChunkManager
 {
     public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(Biomes.promisedLand.get()));
-    private GenLayer genBiomes;
+    private BiomeLayer genBiomes;
 
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
-    private GenLayer biomeIndexLayer;
+    private BiomeLayer biomeIndexLayer;
 
     /** The BiomeCache object for this world. */
     private BiomeCachePromised biomeCache;
@@ -46,8 +47,8 @@ public class WorldChunkManagerPromised extends WorldChunkManager
     public WorldChunkManagerPromised(long par1, WorldType par3WorldType)
     {
         this();
-        GenLayer[] var4 = GenLayer.initializeAllBiomeGenerators(par1, par3WorldType);
-        var4 = getModdedBiomeGenerators(par3WorldType, par1, var4);
+        BiomeLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType);
+        //var4 = getModdedBiomeGenerators(par3WorldType, par1, var4);
         this.genBiomes = var4[0];
         this.biomeIndexLayer = var4[1];
     }
@@ -275,10 +276,10 @@ public class WorldChunkManagerPromised extends WorldChunkManager
         this.biomeCache.cleanupCache();
     }
 
-    public GenLayer[] getModdedBiomeGenerators(WorldType worldType, long seed, GenLayer[] original)
-    {
-        WorldTypeEvent.InitBiomeGens event = new WorldTypeEvent.InitBiomeGens(worldType, seed, original);
-        MinecraftForge.TERRAIN_GEN_BUS.post(event);
-        return event.newBiomeGens;
-    }
+    //public GenLayer[] getModdedBiomeGenerators(WorldType worldType, long seed, GenLayer[] original)
+    //{
+    //    WorldTypeEvent.InitBiomeGens event = new WorldTypeEvent.InitBiomeGens(worldType, seed, original);
+    //    MinecraftForge.TERRAIN_GEN_BUS.post(event);
+    //    return event.newBiomeGens;
+    //}
 }

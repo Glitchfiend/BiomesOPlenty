@@ -1181,17 +1181,9 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             this.desertCactusGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 
-        for (var2 = 0; var2 < this.pondsPerChunk; ++var2)
-        {
-            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-            var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(120) + 8);
-            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-            (new WorldGenLiquids(Block.waterMoving.blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
-        }
-
         if (this.generateLakes)
         {
-            for (var2 = 0; var2 < 50; ++var2)
+            for (var2 = 0; var2 < 50 + pondsPerChunk; ++var2)
             {
                 var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
                 var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(120) + 8);
