@@ -1,18 +1,25 @@
 package biomesoplenty.world.layer;
 
+import java.util.ArrayList;
+
+import biomesoplenty.api.Biomes;
+
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeLayerBiomes extends BiomeLayer
 {
-	public static BiomeGenBase[] Biomes;
+	public static ArrayList<BiomeGenBase> Biomes = new ArrayList<BiomeGenBase>();
 	
     public BiomeLayerBiomes(long par1, BiomeLayer par3GenLayer, WorldType par4WorldType)
     {
         super(par1);
 		parent = par3GenLayer;
 		
-		Biomes = new BiomeGenBase[] { };
+		if (Biomes.promisedLand.isPresent())
+		{
+			Biomes.add(Biomes.promisedLand.get());
+		}
 	} 
 
     public int[] getInts(int par1, int par2, int par3, int par4)
@@ -26,7 +33,7 @@ public class BiomeLayerBiomes extends BiomeLayer
             {
                 this.initChunkSeed((long)(var8 + par1), (long)(var7 + par2));
                 int var9 = var5[var8 + var7 * par3];
-				var6[var8 + var7 * par3] = this.Biomes[this.nextInt(this.Biomes.length)].biomeID;
+				var6[var8 + var7 * par3] = Biomes.get(this.nextInt(Biomes.size())).biomeID;
             }
         }
         return var6;
