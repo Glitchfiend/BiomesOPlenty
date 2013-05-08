@@ -1,8 +1,11 @@
 package biomesoplenty.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
@@ -25,12 +28,14 @@ public class BlockBOPSlab extends BlockHalfSlab
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
     private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick"};
     private Icon[] textures;
+    protected final boolean isDoubleSlab;
     
     private final SlabCategory category;
     
     public BlockBOPSlab(int par1, boolean par2, Material material, SlabCategory cat)
     {
         super(par1, par2, material);
+        isDoubleSlab = par2;
         category = cat;
         if (material == Material.wood)
         {
@@ -41,8 +46,10 @@ public class BlockBOPSlab extends BlockHalfSlab
         }
         else if (material == Material.rock)
             setStepSound(Block.soundStoneFootstep);
-            
-        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+
+        if (!par2)
+            this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+        
         useNeighborBrightness[blockID] = true;
     }
     
@@ -103,6 +110,22 @@ public class BlockBOPSlab extends BlockHalfSlab
     public int damageDropped(int meta)
     {
         return meta;
+    }
+    
+    @Override
+    public int idDropped(int meta, Random par2Random, int par3)
+    {
+        if (isDoubleSlab)
+        {
+            if (this.blockID == Blocks.woodenDoubleSlab1.get().blockID)
+                return Blocks.woodenSingleSlab1.get().blockID;
+            if (this.blockID == Blocks.woodenDoubleSlab2.get().blockID)
+                return Blocks.woodenSingleSlab2.get().blockID;
+            else
+                return Blocks.stoneSingleSlab.get().blockID;
+        }
+        else
+            return this.blockID;
     }
     
     @Override

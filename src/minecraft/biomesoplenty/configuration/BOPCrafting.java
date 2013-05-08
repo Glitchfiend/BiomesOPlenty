@@ -81,7 +81,7 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
         
         //Magic
-        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 1, 5), new Object[] {new ItemStack(Blocks.logs2.get(),1,1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 5), new Object[] {new ItemStack(Blocks.logs2.get(),1,1)});
         GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,5), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
         GameRegistry.addRecipe(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
         GameRegistry.addRecipe(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
@@ -99,7 +99,7 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
         
         //Holy
-        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.woodenDoubleSlab1.get(),4,4), new Object[] {new ItemStack(Blocks.logs2.get(),1,0)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 4), new Object[] {new ItemStack(Blocks.logs2.get(),1,0)});
         GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,4), new Object[] {"RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
         GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
         GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
