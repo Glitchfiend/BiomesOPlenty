@@ -404,17 +404,12 @@ public class BOPBlocks {
 	private static void addGrassPlants()
 	{
 	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 0, 10);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 1, 3);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 2, 1);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 3, 1);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 4, 5);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 5, 5);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 6, 5);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 7, 5);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 8, 5);
-	    MinecraftForge.addGrassPlant(Blocks.flowers.get(), 9, 5);
-		MinecraftForge.addGrassPlant(Blocks.flowers.get(), 15, 20);
-	    
-	    MinecraftForge.addGrassPlant(Blocks.foliage.get(), 5, 10);
+		MinecraftForge.addGrassPlant(Blocks.flowers.get(), 4, 10);
+		MinecraftForge.addGrassPlant(Blocks.flowers.get(), 9, 10);
+		MinecraftForge.addGrassPlant(Blocks.flowers.get(), 15, 25);
+		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 1, 50);
+		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 2, 100);
+		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 4, 15);
+	    MinecraftForge.addGrassPlant(Blocks.foliage.get(), 5, 15);
 	}
 }
