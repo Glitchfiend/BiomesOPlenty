@@ -58,7 +58,7 @@ public class ForestryIntegration
 		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandPlainsID);
 		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandDesertID);
 		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandSwampID);
-		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandCrystalsID);
+		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandMushroomID);
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.rainforestID);
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.tropicsID);
         
@@ -67,7 +67,7 @@ public class ForestryIntegration
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandPlainsID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandDesertID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandSwampID);
-		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandCrystalsID);
+		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandMushroomID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.rainforestID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.tropicsID);
         
@@ -279,6 +279,7 @@ public class ForestryIntegration
 	{
 	    // Miner's Backpack
 	    BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.holyDirt.get(), 1, 0));
 	    BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.holyStone.get(), 1, 0));
 	    BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.redRock.get(), 1, OreDictionary.WILDCARD_VALUE));
 	    BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.driedDirt.get(), 1, 0));

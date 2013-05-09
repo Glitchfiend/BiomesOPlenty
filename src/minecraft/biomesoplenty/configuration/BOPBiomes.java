@@ -116,7 +116,7 @@ public class BOPBiomes {
         Biomes.promisedLandPlains = Optional.of((new BiomeGenPromisedLandPlains(BOPConfiguration.promisedLandPlainsID)).setColor(112).setBiomeName("Purified Plains").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 		Biomes.promisedLandDesert = Optional.of((new BiomeGenPromisedLandDesert(BOPConfiguration.promisedLandDesertID)).setColor(112).setBiomeName("Divine Desert").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 		Biomes.promisedLandSwamp = Optional.of((new BiomeGenPromisedLandSwamp(BOPConfiguration.promisedLandSwampID)).setColor(112).setBiomeName("Blessed Bog").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
-		Biomes.promisedLandCrystals = Optional.of((new BiomeGenPromisedLandCrystals(BOPConfiguration.promisedLandCrystalsID)).setColor(112).setBiomeName("Celestial Crystals").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
+		Biomes.promisedLandMushroom = Optional.of((new BiomeGenPromisedLandMushroom(BOPConfiguration.promisedLandMushroomID)).setColor(112).setBiomeName("Majestic Mushrooms").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 		Biomes.quagmire = Optional.of((new BiomeGenQuagmire(BOPConfiguration.quagmireID)).setColor(522674).setBiomeName("Quagmire").func_76733_a(9154376).setMinMaxHeight(-0.1F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.rainforest = Optional.of((new BiomeGenRainforest(BOPConfiguration.rainforestID)).setColor(5470985).setBiomeName("Rainforest").func_76733_a(5470985).setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.7F, 1.8F));
         Biomes.redwoodForest = Optional.of((new BiomeGenRedwoodForest(BOPConfiguration.redwoodForestID)).setColor(747097).setBiomeName("Redwood Forest").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.0F, 0.4F));
@@ -203,7 +203,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandPlains.get(), Type.PLAINS, Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandDesert.get(), Type.DESERT, Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandSwamp.get(), Type.SWAMP, Type.MAGICAL);
-		BiomeDictionary.registerBiomeType(Biomes.promisedLandCrystals.get(), Type.MAGICAL);
+		BiomeDictionary.registerBiomeType(Biomes.promisedLandMushroom.get(), Type.MUSHROOM, Type.MAGICAL);
         BiomeDictionary.registerBiomeType(Biomes.quagmire.get(), Type.WASTELAND);
         BiomeDictionary.registerBiomeType(Biomes.rainforest.get(), Type.JUNGLE, Type.HILLS, Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.redwoodForest.get(), Type.FOREST);

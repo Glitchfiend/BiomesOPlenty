@@ -10,7 +10,7 @@ public class BlockBOPGeneric extends Block
 {
     public enum BlockType 
     {
-        ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK;
+        ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, HOLY_SAND;
     }
     
     private Icon texture;
@@ -59,6 +59,14 @@ public class BlockBOPGeneric extends Block
             case MUD_BRICK:
                 setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrick");
                 break;
+				
+			case HOLY_DIRT:
+                setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("holyDirt");
+                break;
+				
+			case HOLY_SAND:
+                setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("holySand");
+                break;
                 
             default:
                 break;
@@ -104,6 +112,14 @@ public class BlockBOPGeneric extends Block
                 
             case MUD_BRICK:
                 texture = iconRegister.registerIcon("BiomesOPlenty:mudbrick");
+                break;
+				
+			case HOLY_DIRT:
+                texture = iconRegister.registerIcon("BiomesOPlenty:holydirt");
+                break;
+				
+			case HOLY_SAND:
+                texture = iconRegister.registerIcon("BiomesOPlenty:holysand");
                 break;
                 
             default:

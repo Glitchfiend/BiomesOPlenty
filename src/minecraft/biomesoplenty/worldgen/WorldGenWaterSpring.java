@@ -10,7 +10,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenMycelium extends WorldGenerator
+public class WorldGenWaterSpring extends WorldGenerator
 {
     /** The block ID of the ore to be placed using this generator. */
     private int minableBlockId;
@@ -18,7 +18,7 @@ public class WorldGenMycelium extends WorldGenerator
     /** The number of blocks to generate. */
     private int numberOfBlocks;
 
-    public WorldGenMycelium(int par1, int par2)
+    public WorldGenWaterSpring(int par1, int par2)
     {
         this.minableBlockId = par1;
         this.numberOfBlocks = par2;
@@ -65,7 +65,7 @@ public class WorldGenMycelium extends WorldGenerator
                             {
                                 double var45 = ((double)var44 + 0.5D - var24) / (var28 / 2.0D);
 
-                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Block.grass.blockID || par1World.getBlockId(var38, var41, var44) == Blocks.holyGrass.get().blockID)
+                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Blocks.holyStone.get().blockID)
                                 {
                                     par1World.setBlock(var38, var41, var44, this.minableBlockId);
                                 }

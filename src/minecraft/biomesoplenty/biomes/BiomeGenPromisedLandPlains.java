@@ -6,10 +6,12 @@ import java.util.Random;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenPromisedBush;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenPromisedTree2;
 import biomesoplenty.worldgen.WorldGenPromisedTree3;
+import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -28,21 +30,30 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
-        this.fillerBlock = (byte)Blocks.holyStone.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = -999;
+        this.fillerBlock = (byte)Blocks.holyDirt.get().blockID;
+        this.customBiomeDecorator.treesPerChunk = 4;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.holyTallGrassPerChunk = 999;
-		this.customBiomeDecorator.promisedWillowPerChunk = 20;
+		this.customBiomeDecorator.promisedWillowPerChunk = 80;
 		this.customBiomeDecorator.blueMilksPerChunk = 1;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
+		this.customBiomeDecorator.waterLakesPerChunk = 4;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
 		//this.customBiomeDecorator.generateLakes = false;
-		this.theWorldGenerator = new WorldGenMinable(Block.waterMoving.blockID, 8);
+		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
+    }
+	
+    /**
+     * Gets a WorldGen appropriate for this biome.
+     */
+    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+    {
+		return new WorldGenPromisedBush();
     }
 	
     /**
@@ -61,7 +72,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
         int var7;
         int var8;
 
-        for (var5 = 0; var5 < 5; ++var5)
+        for (var5 = 0; var5 < 10; ++var5)
         {
             var6 = par3 + par2Random.nextInt(16);
             var7 = par2Random.nextInt(60);

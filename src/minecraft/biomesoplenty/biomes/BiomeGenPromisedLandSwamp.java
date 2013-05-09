@@ -8,11 +8,11 @@ import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
 import biomesoplenty.worldgen.WorldGenPromisedWillowTree;
+import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenPromisedLandSwamp extends BiomeGenBase
@@ -26,24 +26,23 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
-        this.fillerBlock = (byte)Blocks.holyStone.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = 4;
+        this.fillerBlock = (byte)Blocks.holyDirt.get().blockID;
+        this.customBiomeDecorator.treesPerChunk = 24;
         this.customBiomeDecorator.grassPerChunk = -999;
-		this.customBiomeDecorator.holyTallGrassPerChunk = 25;
+		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
 		this.customBiomeDecorator.promisedWillowPerChunk = 80;
 		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
-        this.customBiomeDecorator.glowFlowersPerChunk = 3;
 		this.customBiomeDecorator.blueMilksPerChunk = 15;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
-		this.customBiomeDecorator.waterLakesPerChunk = 10;
+		this.customBiomeDecorator.waterLakesPerChunk = 17;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
 		//this.customBiomeDecorator.generateLakes = false;
-		this.theWorldGenerator = new WorldGenMinable(Block.waterMoving.blockID, 8);
+		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
 	
     /**
