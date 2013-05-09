@@ -17,34 +17,31 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeGenPromisedLand extends BiomeGenBase
+public class BiomeGenPromisedLandDesert extends BiomeGenBase
 {
 	private WorldGenerator theWorldGenerator;
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenPromisedLand(int par1)
+    public BiomeGenPromisedLandDesert(int par1)
     {
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
-        this.fillerBlock = (byte)Blocks.holyStone.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = 8;
+		this.topBlock = (byte)Block.sand.blockID;
+        this.fillerBlock = (byte)Block.sand.blockID;
+        this.customBiomeDecorator.treesPerChunk = -999;
         this.customBiomeDecorator.grassPerChunk = -999;
-		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
-		this.customBiomeDecorator.promisedWillowPerChunk = 80;
-		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
-        this.customBiomeDecorator.glowFlowersPerChunk = 3;
-		this.customBiomeDecorator.blueMilksPerChunk = 5;
+		this.customBiomeDecorator.cactiPerChunk = 5;
+		this.customBiomeDecorator.tinyCactiPerChunk = 10;
+		this.customBiomeDecorator.aloePerChunk = 2;
 		this.customBiomeDecorator.generateLakes = false;
-		//this.customBiomeDecorator.pondsPerChunk = -999;
-		this.customBiomeDecorator.waterLakesPerChunk = 5;
+		this.customBiomeDecorator.pondsPerChunk = -999;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
-		//this.customBiomeDecorator.generateLakes = false;
+		this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenMinable(Block.waterMoving.blockID, 8);
     }
 	

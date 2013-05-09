@@ -20,7 +20,7 @@ public class WorldProviderPromised extends WorldProvider
 {
 	public void registerWorldChunkManager()
 	{
-		if (Biomes.promisedLand.isPresent())
+		if (Biomes.promisedLandForest.isPresent())
 		{
 			this.worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 			//this.worldChunkMgr = new WorldChunkManagerHell(Biomes.promisedLand.get(), 0.8F, 0.1F);

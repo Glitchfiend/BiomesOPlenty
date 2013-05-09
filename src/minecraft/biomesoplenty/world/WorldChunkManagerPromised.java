@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldChunkManagerPromised extends WorldChunkManager
 {
-    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(Biomes.promisedLand.get()));
+    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(Biomes.promisedLandForest.get()));
     private BiomeLayer genBiomes;
 
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */

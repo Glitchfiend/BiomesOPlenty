@@ -16,9 +16,29 @@ public class BiomeLayerBiomes extends BiomeLayer
         super(par1);
 		parent = par3GenLayer;
 		
-		if (Biomes.promisedLand.isPresent())
+		if (Biomes.promisedLandForest.isPresent())
 		{
-			AllowedBiomes.add(Biomes.promisedLand.get());
+			AllowedBiomes.add(Biomes.promisedLandForest.get());
+		}
+		
+		if (Biomes.promisedLandPlains.isPresent())
+		{
+			AllowedBiomes.add(Biomes.promisedLandPlains.get());
+		}
+		
+		if (Biomes.promisedLandDesert.isPresent())
+		{
+			AllowedBiomes.add(Biomes.promisedLandDesert.get());
+		}
+		
+		if (Biomes.promisedLandSwamp.isPresent())
+		{
+			AllowedBiomes.add(Biomes.promisedLandSwamp.get());
+		}
+		
+		if (Biomes.promisedLandCrystals.isPresent())
+		{
+			AllowedBiomes.add(Biomes.promisedLandCrystals.get());
 		}
 	} 
 
