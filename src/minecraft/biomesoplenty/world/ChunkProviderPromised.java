@@ -113,7 +113,7 @@ public class ChunkProviderPromised implements IChunkProvider
 
                                 if (var46 > 0.0D)
                                 {
-                                    var51 = Block.stone.blockID;
+                                    var51 = Blocks.holyStone.get().blockID;
                                 }
 
                                 par3ArrayOfByte[var42] = (byte)var51;
@@ -162,7 +162,7 @@ public class ChunkProviderPromised implements IChunkProvider
                     {
                         var8 = -1;
                     }
-                    else if (var13 == Block.stone.blockID)
+                    else if (var13 == (byte)Blocks.holyStone.get().blockID)
                     {
                         if (var8 == -1)
                         {
@@ -502,6 +502,20 @@ public class ChunkProviderPromised implements IChunkProvider
         int var4 = par2 * 16;
         int var5 = par3 * 16;
         BiomeGenBase var6 = this.endWorld.getBiomeGenForCoords(var4 + 16, var5 + 16);
+        
+        for (int a = 0; a < 100; ++a)
+        {
+            int x = var4 + endWorld.rand.nextInt(16);
+            int y = endWorld.rand.nextInt(30) + 30;
+            int z = var5 + endWorld.rand.nextInt(16);
+            int b = endWorld.getBlockId(x, y, z);
+
+            if (b == Blocks.holyStone.get().blockID)
+            {
+            	endWorld.setBlock(x, y, z, Blocks.amethystOre.get().blockID, 0, 2);
+            }
+        }
+        
         var6.decorate(this.endWorld, this.endWorld.rand, var4, var5);
 
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));

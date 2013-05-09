@@ -511,6 +511,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     /**
      * The method that does the work of actually decorating chunks
      */
+    
+    @Override
     protected void decorate()
     {
 		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(currentWorld, randomGenerator, chunk_X, chunk_Z));
@@ -1180,7 +1182,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.desertCactusGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
-
+        
         if (this.generateLakes)
         {
             for (var2 = 0; var2 < 50 + pondsPerChunk; ++var2)

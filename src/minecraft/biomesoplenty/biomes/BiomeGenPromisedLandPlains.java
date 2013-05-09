@@ -35,7 +35,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		this.customBiomeDecorator.promisedWillowPerChunk = 20;
 		this.customBiomeDecorator.blueMilksPerChunk = 1;
 		this.customBiomeDecorator.generateLakes = false;
-		//this.customBiomeDecorator.pondsPerChunk = -999;
+		this.customBiomeDecorator.pondsPerChunk = -100;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
@@ -60,19 +60,6 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
         int var6;
         int var7;
         int var8;
-
-        for (var6 = 0; var6 < var5; ++var6)
-        {
-            var7 = par3 + par2Random.nextInt(16);
-            var8 = par2Random.nextInt(30) + 30;
-            int var9 = par4 + par2Random.nextInt(16);
-            int var10 = par1World.getBlockId(var7, var8, var9);
-
-            if (var10 == Block.stone.blockID)
-            {
-                par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 0, 2);
-            }
-        }
 
         for (var5 = 0; var5 < 5; ++var5)
         {
