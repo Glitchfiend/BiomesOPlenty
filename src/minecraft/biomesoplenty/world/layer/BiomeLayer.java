@@ -17,7 +17,7 @@ public abstract class BiomeLayer
     	BiomeLayer obj = new BiomeLayerCreate(1L);
     	obj = new BiomeLayerFuzzyZoom(2000L, (BiomeLayer)(obj));
     	
-    	for(int i = 0; i < 3; i++)
+    	for(int i = 1; i < 4; i++)
     	{
     		obj = new BiomeLayerZoom(2000L + i, (BiomeLayer)(obj));
     	}
@@ -25,6 +25,11 @@ public abstract class BiomeLayer
     	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 0);
     	obj = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj)), worldtype);
     	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 2);
+    	
+    	for(int j = 0; j < 4; j++)
+    	{
+    		obj = new BiomeLayerZoom(1000L + j, (BiomeLayer)(obj));
+    	}
     	
     	BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((BiomeLayer)(obj)));
 		((BiomeLayer)(obj)).initWorldGenSeed(seed);
