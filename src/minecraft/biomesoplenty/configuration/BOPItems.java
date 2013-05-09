@@ -13,6 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
 import biomesoplenty.armor.ArmorAmethyst;
+import biomesoplenty.armor.ArmorFlowerBand;
 import biomesoplenty.armor.ArmorMuddy;
 import biomesoplenty.items.ItemBOP;
 import biomesoplenty.items.ItemBOPAncientStaff;
@@ -45,6 +46,7 @@ public class BOPItems {
 	public static EnumToolMaterial EnumToolMaterialMud;
 	public static EnumArmorMaterial EnumArmorMaterialAmethyst;
 	public static EnumToolMaterial EnumToolMaterialAmethyst;
+	public static EnumArmorMaterial EnumArmorMaterialFlowerBand;
 	
     public static int clearItem(Item var1)
     {
@@ -86,6 +88,7 @@ public class BOPItems {
 		EnumToolMaterialMud = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0, 1);
 		EnumArmorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[]{6, 12, 10, 6}, 20);
 		EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
+	    EnumArmorMaterialFlowerBand = EnumHelper.addArmorMaterial("FLOWERBAND", -1, new int[]{0, 0, 0, 0}, 0);
 		
 		//Override Items
         shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("shears").setCreativeTab(CreativeTabs.tabTools);
@@ -134,6 +137,8 @@ public class BOPItems {
         Items.chestplateAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.chestplateAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 1)).setUnlocalizedName("chestplateAmethyst"));
         Items.leggingsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.leggingsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 2)).setUnlocalizedName("leggingsAmethyst"));
         Items.bootsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.bootsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 3)).setUnlocalizedName("bootsAmethyst"));
+        
+        Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfiguration.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty));
 	}
 	
 	private static void registerNames()
@@ -176,5 +181,10 @@ public class BOPItems {
         LanguageRegistry.addName(Items.chestplateAmethyst.get(), "Amethyst Chestplate");
         LanguageRegistry.addName(Items.leggingsAmethyst.get(), "Amethyst Leggings");
         LanguageRegistry.addName(Items.bootsAmethyst.get(), "Amethyst Boots");  
+        
+        LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 0), "Dull Flower Band");  
+        LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 1), "Plain Flower Band");  
+        LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 2), "Lush Flower Band");  
+        LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 3), "Exotic Flower Band");  
 	}
 }

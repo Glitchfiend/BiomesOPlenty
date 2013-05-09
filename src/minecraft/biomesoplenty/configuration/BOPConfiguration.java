@@ -207,6 +207,8 @@ public class BOPConfiguration {
 	public static int chestplateAmethystID;
 	public static int leggingsAmethystID;
 	public static int bootsAmethystID;
+	
+	public static int flowerBandID;
 
 	//Biome IDS
 	public static int alpsID;
@@ -675,6 +677,8 @@ public class BOPConfiguration {
 			chestplateAmethystID = config.getItem("Amethyst Chestplate ID", 21075, null).getInt();
 			leggingsAmethystID = config.getItem("Amethyst Leggings ID", 21076, null).getInt();
 			bootsAmethystID = config.getItem("Amethyst Boots ID", 21077, null).getInt();
+			
+			flowerBandID = config.getItem("Flower Band ID", 21078, null).getInt();
 
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
