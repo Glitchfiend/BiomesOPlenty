@@ -358,7 +358,6 @@ public class ChunkProviderBOP implements IChunkProvider
      * generates a subset of the level's terrain data. Takes 7 arguments: the [empty] noise array, the position, and the
      * size.
      */
-    @SuppressWarnings("unused")
 	private double[] initializeNoiseField(double[] par1ArrayOfDouble, int par2, int par3, int par4, int par5, int par6, int par7)
     {
         ChunkProviderEvent.InitNoiseField event = new ChunkProviderEvent.InitNoiseField(this, par1ArrayOfDouble, par2, par3, par4, par5, par6, par7);
@@ -585,6 +584,28 @@ public class ChunkProviderBOP implements IChunkProvider
         biomegenbase.decorate(this.worldObj, this.rand, k, l);
         SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
 
+        k += 8;
+        l += 8;
+
+        doGen = TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, ICE);
+        for (k1 = 0; doGen && k1 < 16; ++k1)
+        {
+        	for (l1 = 0; l1 < 16; ++l1)
+        	{
+        		i2 = this.worldObj.getPrecipitationHeight(k + k1, l + l1);
+
+        		if (this.worldObj.isBlockFreezable(k1 + k, i2 - 1, l1 + l))
+        		{
+        			this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Block.ice.blockID, 0, 2);
+        		}
+
+        		if (this.worldObj.canSnowAt(k1 + k, i2, l1 + l))
+        		{
+        			this.worldObj.setBlock(k1 + k, i2, l1 + l, Block.snow.blockID, 0, 2);
+        		}
+        	}
+        }
+        
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, rand, par2, par3, flag));
         
         BlockSand.fallInstantly = false;

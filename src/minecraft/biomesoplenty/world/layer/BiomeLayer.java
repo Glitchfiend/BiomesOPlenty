@@ -15,21 +15,22 @@ public abstract class BiomeLayer
     public static BiomeLayer[] initializeAllBiomeGenerators(long seed, WorldType worldtype)
     {
     	BiomeLayer obj = new BiomeLayerCreate(1L);
+    	obj = new BiomeLayerFuzzyZoom(2000L, (BiomeLayer)(obj));
     	
     	for(int i = 0; i < 3; i++)
     	{
     		obj = new BiomeLayerZoom(2000L + i, (BiomeLayer)(obj));
     	}
     	
-    	BiomeLayer obj2 = obj;
-    	obj2 = new BiomeLayerZoom(1000L, (BiomeLayer)(obj2));
-    	obj2 = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj2)), worldtype);
+    	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 0);
+    	obj = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj)), worldtype);
+    	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 2);
     	
-    	BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((BiomeLayer)(obj2)));
-		((BiomeLayer)(obj2)).initWorldGenSeed(seed);
+    	BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((BiomeLayer)(obj)));
+		((BiomeLayer)(obj)).initWorldGenSeed(seed);
 		genlayervoronoizoom.initWorldGenSeed(seed);
     	
-		return (new BiomeLayer[] { obj2, genlayervoronoizoom });	
+		return (new BiomeLayer[] { obj, genlayervoronoizoom }); //genlayervoronoizoom	
     }
     
     public BiomeLayer(long seed)
