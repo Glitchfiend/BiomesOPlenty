@@ -10,6 +10,7 @@ import biomesoplenty.worldgen.WorldGenPromisedShrub;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenPromisedTree2;
 import biomesoplenty.worldgen.WorldGenPromisedTree3;
+import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -28,24 +29,23 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
-        this.fillerBlock = (byte)Blocks.holyStone.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = 8;
+        this.fillerBlock = (byte)Blocks.holyDirt.get().blockID;
+        this.customBiomeDecorator.treesPerChunk = 12;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
-		this.customBiomeDecorator.promisedWillowPerChunk = 40;
+		this.customBiomeDecorator.promisedWillowPerChunk = 80;
 		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
-        this.customBiomeDecorator.glowFlowersPerChunk = 3;
 		this.customBiomeDecorator.blueMilksPerChunk = 5;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
-		this.customBiomeDecorator.waterLakesPerChunk = 5;
+		this.customBiomeDecorator.waterLakesPerChunk = 8;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
 		//this.customBiomeDecorator.generateLakes = false;
-		this.theWorldGenerator = new WorldGenMinable(Block.waterMoving.blockID, 8);
+		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
 	
     /**
@@ -72,7 +72,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
         int var7;
         int var8;
 
-        for (var5 = 0; var5 < 5; ++var5)
+        for (var5 = 0; var5 < 10; ++var5)
         {
             var6 = par3 + par2Random.nextInt(16);
             var7 = par2Random.nextInt(60);

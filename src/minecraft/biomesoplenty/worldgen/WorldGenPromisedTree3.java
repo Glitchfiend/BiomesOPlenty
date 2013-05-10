@@ -85,10 +85,10 @@ public class WorldGenPromisedTree3 extends WorldGenerator
                         {
                             if ((var14 == Blocks.holyGrass.get().blockID) && var4 < 256 - var6 - 1)
                             {
-                                var1.setBlock(var3, var4 - 1, var5, Blocks.holyGrass.get().blockID, 0, 2);
-                                var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.holyGrass.get().blockID, 0, 2);
-                                var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.holyGrass.get().blockID, 0, 2);
-                                var1.setBlock(var3 - 1, var4 - 1, var5 - 1, Blocks.holyGrass.get().blockID, 0, 2);
+                                var1.setBlock(var3, var4 - 1, var5, Blocks.holyDirt.get().blockID, 0, 2);
+                                var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.holyDirt.get().blockID, 0, 2);
+                                var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.holyDirt.get().blockID, 0, 2);
+                                var1.setBlock(var3 - 1, var4 - 1, var5 - 1, Blocks.holyDirt.get().blockID, 0, 2);
                                 var15 = var2.nextInt(2);
                                 int var16 = 1;
                                 boolean var17 = false;

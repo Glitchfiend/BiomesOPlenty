@@ -16,7 +16,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
     {
         int var6;
 
-        for (var6 = par2Random.nextInt(5) + 8; par1World.getBlockMaterial(par3, par4 - 1, par5) == Material.water; --par4)
+        for (var6 = par2Random.nextInt(12) + 4; par1World.getBlockMaterial(par3, par4 - 1, par5) == Material.water; --par4)
         {
             ;
         }

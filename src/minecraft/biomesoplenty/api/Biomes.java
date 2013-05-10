@@ -59,7 +59,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> promisedLandPlains	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> promisedLandDesert	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> promisedLandSwamp	 = Optional.absent();
-	public static Optional<? extends BiomeGenBase> promisedLandCrystals	 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> promisedLandMushroom	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> quagmire				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> rainforest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> redwoodForest		 = Optional.absent();

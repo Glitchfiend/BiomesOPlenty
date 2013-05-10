@@ -114,7 +114,9 @@ public class BOPConfiguration {
 	public static int hardSandID;
 	public static int hardDirtID;
 	public static int holyGrassID;
+	public static int holyDirtID;
 	public static int holyStoneID;
+	public static int holySandID;
 	public static int cragRockID;
 
 	public static int plantsID;
@@ -268,7 +270,7 @@ public class BOPConfiguration {
 	public static int promisedLandPlainsID;
 	public static int promisedLandDesertID;
 	public static int promisedLandSwampID;
-	public static int promisedLandCrystalsID;
+	public static int promisedLandMushroomID;
 	public static int quagmireID;
 	public static int rainforestID;
 	public static int redwoodForestID;
@@ -589,8 +591,10 @@ public class BOPConfiguration {
 			hardSandID = config.getTerrainBlock("Terrain Block IDs", "Hard Sand ID", 167, null).getInt();
 			hardDirtID = config.getTerrainBlock("Terrain Block IDs", "Hard Dirt ID", 168, null).getInt();
 			holyGrassID = config.getTerrainBlock("Terrain Block IDs", "Holy Grass ID", 169, null).getInt();
-			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Holy Stone ID", 170, null).getInt();
-			cragRockID = config.getTerrainBlock("Terrain Block IDs", "Crag Rock ID", 171, null).getInt();
+			holyDirtID = config.getTerrainBlock("Terrain Block IDs", "Holy Dirt ID", 170, null).getInt();
+			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Holy Stone ID", 171, null).getInt();
+			holySandID = config.getTerrainBlock("Terrain Block IDs", "Holy Sand ID", 172, null).getInt();
+			cragRockID = config.getTerrainBlock("Terrain Block IDs", "Crag Rock ID", 173, null).getInt();
 
 			// Get Crafted Block ID's
 			plantsID = config.getBlock("Plant ID", 1920, null).getInt();
@@ -688,11 +692,11 @@ public class BOPConfiguration {
 			
 			//23-79 ExtraBiomesXL
 			
-			promisedLandForestID = config.get("Biome IDs", "Promised Land Forest ID", 75).getInt();
-			promisedLandPlainsID = config.get("Biome IDs", "Promised Land Plains ID", 76).getInt();
-			promisedLandDesertID = config.get("Biome IDs", "Promised Land Desert ID", 77).getInt();
-			promisedLandSwampID = config.get("Biome IDs", "Promised Land Swamp ID", 78).getInt();
-			promisedLandCrystalsID = config.get("Biome IDs", "Promised Land Crystals ID", 79).getInt();
+			promisedLandForestID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 75).getInt();
+			promisedLandPlainsID = config.get("Biome IDs", "Purified Plains (Promised Land) ID", 76).getInt();
+			promisedLandDesertID = config.get("Biome IDs", "Divine Desert (Promised Land) ID", 77).getInt();
+			promisedLandSwampID = config.get("Biome IDs", "Blessed Bog (Promised Land) ID", 78).getInt();
+			promisedLandMushroomID = config.get("Biome IDs", "Majestic Mushrooms (Promised Land) ID", 79).getInt();
 			
 			//80-169 Better World Generation 4
 			

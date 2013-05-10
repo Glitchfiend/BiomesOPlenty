@@ -20,7 +20,7 @@ public class WorldGenPalmTree3 extends WorldGenerator
 
         int var6 = var1.getBlockId(var3, var4, var5);
 
-        if (var6 != Block.grass.blockID)
+        if (var6 != Block.grass.blockID && var6 != Blocks.holySand.get().blockID)
         {
             return false;
         }

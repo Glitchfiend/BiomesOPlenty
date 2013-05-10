@@ -36,9 +36,9 @@ public class BiomeLayerBiomes extends BiomeLayer
 			AllowedBiomes.add(Biomes.promisedLandSwamp.get());
 		}
 		
-		if (Biomes.promisedLandCrystals.isPresent())
+		if (Biomes.promisedLandMushroom.isPresent())
 		{
-			AllowedBiomes.add(Biomes.promisedLandCrystals.get());
+			AllowedBiomes.add(Biomes.promisedLandMushroom.get());
 		}
 	} 
 

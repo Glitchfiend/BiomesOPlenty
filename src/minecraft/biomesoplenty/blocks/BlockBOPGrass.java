@@ -30,13 +30,13 @@ public class BlockBOPGrass extends Block
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         setStepSound(Block.soundGrassFootstep);
         setHardness(0.6F);
-        setLightValue(0.25F);
+        //setLightValue(0.25F);
     }
     
     @Override
     public void registerIcons(IconRegister iconRegister)
     {
-        this.blockIcon[0][0] = iconRegister.registerIcon("BiomesOPlenty:holystone");
+        this.blockIcon[0][0] = iconRegister.registerIcon("BiomesOPlenty:holydirt");
         this.blockIcon[0][1] = iconRegister.registerIcon("BiomesOPlenty:holygrass_top");
         this.blockIcon[0][2] = iconRegister.registerIcon("BiomesOPlenty:holygrass_side");
         this.blockIcon[0][3] = iconRegister.registerIcon("BiomesOPlenty:holygrass_side");
@@ -136,7 +136,7 @@ public class BlockBOPGrass extends Block
             {
                 if (world.getBlockLightValue(x, y + 1, z) < 4 && Block.lightOpacity[world.getBlockId(x, y + 1, z)] > 2)
                 {
-                    world.setBlock(x, y, z, Blocks.holyStone.get().blockID);
+                    world.setBlock(x, y, z, Blocks.holyDirt.get().blockID);
                 }
                 else if (world.getBlockLightValue(x, y + 1, z) >= 9)
                 {
@@ -147,7 +147,7 @@ public class BlockBOPGrass extends Block
                         int var9 = z + random.nextInt(3) - 1;
                         int var10 = world.getBlockId(var7, var8 + 1, var9);
     
-                        if (world.getBlockId(var7, var8, var9) == Blocks.holyStone.get().blockID && world.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
+                        if (world.getBlockId(var7, var8, var9) == Blocks.holyDirt.get().blockID && world.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
                         {
                             world.setBlock(var7, var8, var9, Blocks.holyGrass.get().blockID, 0, 2);
                         }
@@ -179,7 +179,7 @@ public class BlockBOPGrass extends Block
     @Override
     public int idDropped(int meta, Random par2Random, int par3)
     {
-        return meta == 0 ? Blocks.holyStone.get().blockID : Block.dirt.blockID;
+        return meta == 0 ? Blocks.holyDirt.get().blockID : Block.dirt.blockID;
     }
 
 }

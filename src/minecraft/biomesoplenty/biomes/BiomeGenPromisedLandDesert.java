@@ -6,10 +6,13 @@ import java.util.Random;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenPalmTree1;
+import biomesoplenty.worldgen.WorldGenPalmTree3;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenPromisedTree2;
 import biomesoplenty.worldgen.WorldGenPromisedTree3;
+import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -27,22 +30,25 @@ public class BiomeGenPromisedLandDesert extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)Block.sand.blockID;
-        this.fillerBlock = (byte)Block.sand.blockID;
-        this.customBiomeDecorator.treesPerChunk = -999;
+		this.topBlock = (byte)Blocks.holySand.get().blockID;
+        this.fillerBlock = (byte)Blocks.holySand.get().blockID;
+        this.customBiomeDecorator.treesPerChunk = 4;
         this.customBiomeDecorator.grassPerChunk = -999;
-		this.customBiomeDecorator.cactiPerChunk = 5;
+		//this.customBiomeDecorator.cactiPerChunk = 5;
+		this.customBiomeDecorator.promisedWillowPerChunk = 80;
 		this.customBiomeDecorator.tinyCactiPerChunk = 10;
 		this.customBiomeDecorator.aloePerChunk = 2;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
+		this.customBiomeDecorator.waterLakesPerChunk = 2;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
-		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.generatePumpkins = true;
+		this.customBiomeDecorator.generateMelons = true;
 		this.customBiomeDecorator.generateLakes = false;
-		this.theWorldGenerator = new WorldGenMinable(Block.waterMoving.blockID, 8);
+		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
 	
     /**
@@ -50,7 +56,7 @@ public class BiomeGenPromisedLandDesert extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenPromisedShrub(0, 0) : (par1Random.nextInt(4) == 0 ? new WorldGenPromisedTree3(false) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false))));
+        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenPalmTree3() : new WorldGenPalmTree1());
     }
 	
     /**
@@ -69,7 +75,7 @@ public class BiomeGenPromisedLandDesert extends BiomeGenBase
         int var7;
         int var8;
 
-        for (var5 = 0; var5 < 5; ++var5)
+        for (var5 = 0; var5 < 10; ++var5)
         {
             var6 = par3 + par2Random.nextInt(16);
             var7 = par2Random.nextInt(60);
