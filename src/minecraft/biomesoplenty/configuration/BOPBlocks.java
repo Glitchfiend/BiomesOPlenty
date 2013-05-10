@@ -30,6 +30,7 @@ import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.blocks.BlockBamboo;
+import biomesoplenty.blocks.BlockCloud;
 import biomesoplenty.blocks.BlockMoss;
 import biomesoplenty.blocks.BlockMud;
 import biomesoplenty.blocks.BlockOriginGrass;
@@ -136,6 +137,7 @@ public class BOPBlocks {
         Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
 //        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
 //        Blocks.grass = Optional.of(new BlockBOPGrass(3000).setUnlocalizedName("holyGrass"));
+		Blocks.cloud = Optional.of((new BlockCloud(BOPConfiguration.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("cloud"));
         
         Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
         
@@ -202,6 +204,7 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.cragRock.get(), "cragRock");
 //        GameRegistry.registerBlock(Blocks.quicksand.get(), "quicksand");
 //        GameRegistry.registerBlock(Blocks.amethyst.get(), ItemBOPAmethyst.class, "amethystOre1");
+		GameRegistry.registerBlock(Blocks.cloud.get(), "cloud");
         
         ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
         GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab");
@@ -334,6 +337,7 @@ public class BOPBlocks {
 //        LanguageRegistry.addName(Blocks.smolderingGrass.get(), "Smoldering Grass");
         LanguageRegistry.addName(Blocks.cragRock.get(), "Crag Rock");
 //        LanguageRegistry.addName(Blocks.quicksand.get(), "Quicksand");
+		LanguageRegistry.addName(Blocks.cloud.get(), "Cloud Block");
         LanguageRegistry.addName(new ItemStack(Blocks.mud.get(), 1, 1), "Quicksand");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Bamboo Sapling");
 

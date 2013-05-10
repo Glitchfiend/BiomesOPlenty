@@ -105,6 +105,7 @@ public class BlockReferences {
 		crystal (Blocks.crystal, 0),
 		cragRock (Blocks.cragRock, 0),
 		quicksand (Blocks.mud, 1),
+		cloud (Blocks.cloud, 0),
 		smolderingGrass (Blocks.holyGrass, 1),
 		amethystBlock (Blocks.amethystOre, 1),
 		amethystOre (Blocks.amethystOre, 0),

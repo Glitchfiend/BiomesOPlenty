@@ -361,7 +361,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
 		this.smolderingGrassGen = new WorldGenSmolderingGrass(Blocks.holyGrass.get().blockID, 1, 32);
         this.driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
-		this.cloudGen = new WorldGenCloud(Block.cloth.blockID, 48);
+		this.cloudGen = new WorldGenCloud(Blocks.cloud.get().blockID, 48);
         this.coalGen = new WorldGenMinable(Block.oreCoal.blockID, 16);
         this.ironGen = new WorldGenMinable(Block.oreIron.blockID, 8);
         this.goldGen = new WorldGenMinable(Block.oreGold.blockID, 8);
@@ -625,7 +625,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		
 		if (this.generateClouds)
         {
-            this.genCloudMain(1, this.cloudGen, 0, 30);
+            this.genCloudMain(1, this.cloudGen, 0, 50);
         }
 
         if (this.generatePits)
@@ -1255,6 +1255,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			if (var999 == 0)
 			{
 				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6, var7, var8);
+				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6, var7, var8 + 8);
+				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6 + 8, var7, var8 + 8);
 			}
         }
     }

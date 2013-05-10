@@ -175,6 +175,7 @@ public class BOPConfiguration {
 	public static int colourizedLeavesID;
 	
 	public static int crystalID;
+	public static int cloudID;
 
 	//Item IDs
 	public static int shroomPowderID;
@@ -647,6 +648,7 @@ public class BOPConfiguration {
 			colourizedLeavesID = config.getBlock("Colourized Leaves ID", 1962, null).getInt();
 			
 			crystalID = config.getBlock("Crystal ID", 1963, null).getInt();
+			cloudID = config.getBlock("Cloud ID", 1964, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

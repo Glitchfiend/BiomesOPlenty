@@ -31,8 +31,8 @@ public class WorldGenCloud extends WorldGenerator
         double var9 = (double)((float)(par3 + 8) - MathHelper.sin(var6) * (float)this.numberOfBlocks / 8.0F);
         double var11 = (double)((float)(par5 + 8) + MathHelper.cos(var6) * (float)this.numberOfBlocks / 8.0F);
         double var13 = (double)((float)(par5 + 8) - MathHelper.cos(var6) * (float)this.numberOfBlocks / 8.0F);
-        double var15 = (double)(par4 + par2Random.nextInt(3) - 2);
-        double var17 = (double)(par4 + par2Random.nextInt(3) - 2);
+        double var15 = (double)(par4 + par2Random.nextInt(9) - 2);
+        double var17 = (double)(par4 + par2Random.nextInt(9) - 2);
 
         for (int var19 = 0; var19 <= this.numberOfBlocks; ++var19)
         {
@@ -67,7 +67,12 @@ public class WorldGenCloud extends WorldGenerator
 
                                 if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.isAirBlock(var38, var41, var44))
                                 {
-                                    par1World.setBlock(var38, var41, var44, this.minableBlockId);
+									int var999 = par2Random.nextInt(45);
+									
+									if (var999 == 0)
+									{
+										par1World.setBlock(var38, var41, var44, this.minableBlockId);
+									}
                                 }
                             }
                         }
