@@ -19,6 +19,7 @@ import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.helpers.AchievementHelper;
+import biomesoplenty.helpers.BOPCraft;
 import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.integration.BOPCrossIntegration;
@@ -37,6 +38,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.2")
@@ -112,6 +114,8 @@ public class BiomesOPlenty
 		{
 			AchievementHelper.init();
 		}
+		
+		GameRegistry.registerCraftingHandler(new BOPCraft());
 	}
 
 	@Init

@@ -138,6 +138,12 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Items.leggingsAmethyst.get(), 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2)});
         GameRegistry.addRecipe(new ItemStack(Items.bootsAmethyst.get(), 1), new Object [] {"# #", "# #", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2)});
         
+        //Flower Bands
+        GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 0), new Object [] {"CCC", "C C", "CCC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0)});
+        GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 1), new Object [] {"CDC", "D D", "CDC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0), Character.valueOf('D'), new ItemStack(Blocks.flowers.get(), 1, 5)});
+        GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 2), new Object [] {"CDC", "V V", "CDC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0),Character.valueOf('D'), new ItemStack(Blocks.flowers.get(), 1, 5), Character.valueOf('V'), new ItemStack(Blocks.flowers.get(), 1, 8)});
+        GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 3), new Object [] {"CDT", "V V", "TDC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0),Character.valueOf('D'), new ItemStack(Blocks.flowers.get(), 1, 5), Character.valueOf('V'), new ItemStack(Blocks.flowers.get(), 1, 8), Character.valueOf('T'), new ItemStack(Blocks.flowers.get(), 1, 6)});
+        
         //Other
         GameRegistry.addRecipe(new ItemStack(Item.wheat, 1), new Object[] {"###", '#', new ItemStack(Blocks.plants.get(),1,6)});
         GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new Object[] {"T", "P", "H", 'T', new ItemStack(Items.ancientStaff.get(), 1, 3), 'P', new ItemStack(Items.ancientStaff.get(), 1, 2), 'H', new ItemStack(Items.ancientStaff.get(), 1, 1)});

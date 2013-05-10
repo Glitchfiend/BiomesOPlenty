@@ -2,6 +2,8 @@ package biomesoplenty.helpers;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
@@ -10,6 +12,7 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
+import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class AchievementHelper
@@ -25,7 +28,7 @@ public class AchievementHelper
     private static Achievement achShroom;
     private static Achievement achBarley;
     private static Achievement achMoss;
-    private static Achievement achFlowerP;
+    static Achievement achFlowerP;
     
     public static AchievementPage pageBOP;
 
