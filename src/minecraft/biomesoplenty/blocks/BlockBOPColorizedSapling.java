@@ -124,8 +124,9 @@ public class BlockBOPColorizedSapling extends BlockSapling
                     break;
                     
                 case 3: // Redwood Tree
-                    obj = new WorldGenRedwoodTree2(false);
-                    break;
+                	if (this.isSameSapling(world, x + 1, y, z, 3) && this.isSameSapling(world, x - 1, y, z, 3) && this.isSameSapling(world, x, y, z + 1, 3) && this.isSameSapling(world, x, y, z - 1, 3) && this.isSameSapling(world, x + 1, y, z + 1, 3) && this.isSameSapling(world, x + 1, y, z - 1, 3) && this.isSameSapling(world, x - 1, y, z + 1, 3) && this.isSameSapling(world, x - 1, y, z - 1, 3))
+                		obj = new WorldGenRedwoodTree2(false);
+                	break;
                     
                 case 4: // Willow Tree
                     obj = new WorldGenWillow();
