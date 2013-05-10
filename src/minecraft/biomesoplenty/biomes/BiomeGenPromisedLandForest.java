@@ -30,20 +30,23 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
         this.fillerBlock = (byte)Blocks.holyDirt.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = 12;
+        this.customBiomeDecorator.treesPerChunk = 20;
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
 		this.customBiomeDecorator.promisedWillowPerChunk = 80;
-		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
+		this.customBiomeDecorator.pinkFlowersPerChunk = 12;
 		this.customBiomeDecorator.blueMilksPerChunk = 5;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
-		this.customBiomeDecorator.waterLakesPerChunk = 8;
+		this.customBiomeDecorator.waterLakesPerChunk = 10;
+		this.customBiomeDecorator.crystalsPerChunk = 25;
+		this.customBiomeDecorator.crystals2PerChunk = 50;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
@@ -53,7 +56,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenPromisedTree3(false) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false)));
+		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenPromisedTree3(false) : (par1Random.nextInt(2) == 0 ? new WorldGenPromisedShrub(0,0) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false))));
     }
 	
     /**
@@ -61,7 +64,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
      */
     public int getBiomeFoliageColor()
     {
-        return 4583331;
+        return 7925125;
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)

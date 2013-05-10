@@ -124,8 +124,8 @@ public class BOPBlocks {
         Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardDirtID, Material.rock, BlockType.HARD_DIRT));
         Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.holyGrassID).setUnlocalizedName("holyGrass"));
 		Blocks.holyDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyDirtID, Material.sand, BlockType.HOLY_DIRT));
-		Blocks.holySand = Optional.of(new BlockBOPGeneric(BOPConfiguration.holySandID, Material.sand, BlockType.HOLY_SAND));
         Blocks.holyStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyStoneID, Material.rock, BlockType.HOLY_STONE));
+		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.crystalID, Material.glass, BlockType.CRYSTAL));
         Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
 //        Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
 //        Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystBlockID, Material.iron, BlockType.AMETHYST_BLOCK));
@@ -188,10 +188,10 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.redBricksStairs.get(), "redBricksStairs");
         GameRegistry.registerBlock(Blocks.hardSand.get(), "hardSand");
         GameRegistry.registerBlock(Blocks.hardDirt.get(), "hardDirt");
+		GameRegistry.registerBlock(Blocks.crystal.get(), "crystal");
 //        GameRegistry.registerBlock(Blocks.holyGrass.get(), "holyGrass");
         GameRegistry.registerBlock(Blocks.holyGrass.get(), ItemBOPGrass.class, "holyGrass");
 		GameRegistry.registerBlock(Blocks.holyDirt.get(), "holyDirt");
-		GameRegistry.registerBlock(Blocks.holySand.get(), "holySand");
         GameRegistry.registerBlock(Blocks.holyStone.get(), "holyStone");
         GameRegistry.registerBlock(Blocks.promisedPortal.get(), "promisedPortal");
         GameRegistry.registerBlock(Blocks.amethystOre.get(), ItemBOPAmethyst.class, "amethystOre");
@@ -319,8 +319,8 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Holy Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 1), "Smoldering Grass");
 		LanguageRegistry.addName(Blocks.holyDirt.get(), "Holy Dirt");
-		LanguageRegistry.addName(Blocks.holySand.get(), "Holy Sand");
         LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
+		LanguageRegistry.addName(Blocks.crystal.get(), "Celestial Crystal");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
         LanguageRegistry.addName(Blocks.promisedPortal.get(), "Promised Land Portal");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");

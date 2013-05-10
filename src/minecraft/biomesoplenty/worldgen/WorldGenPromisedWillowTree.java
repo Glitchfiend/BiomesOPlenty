@@ -16,7 +16,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
     {
         int var6;
 
-        for (var6 = par2Random.nextInt(12) + 4; par1World.getBlockMaterial(par3, par4 - 1, par5) == Material.water; --par4)
+        for (var6 = par2Random.nextInt(4) + 5; par1World.getBlockMaterial(par3, par4 - 1, par5) == Material.water; --par4)
         {
             ;
         }
@@ -172,7 +172,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
         this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.willow.get().blockID, par5);
-        int var6 = 7;
+        int var6 = 16;
 
         while (true)
         {

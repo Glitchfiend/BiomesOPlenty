@@ -26,19 +26,9 @@ public class BiomeLayerBiomes extends BiomeLayer
 			AllowedBiomes.add(Biomes.promisedLandPlains.get());
 		}
 		
-		if (Biomes.promisedLandDesert.isPresent())
-		{
-			AllowedBiomes.add(Biomes.promisedLandDesert.get());
-		}
-		
 		if (Biomes.promisedLandSwamp.isPresent())
 		{
 			AllowedBiomes.add(Biomes.promisedLandSwamp.get());
-		}
-		
-		if (Biomes.promisedLandMushroom.isPresent())
-		{
-			AllowedBiomes.add(Biomes.promisedLandMushroom.get());
 		}
 	} 
 

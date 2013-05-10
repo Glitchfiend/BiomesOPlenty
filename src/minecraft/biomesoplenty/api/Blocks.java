@@ -21,10 +21,10 @@ public class Blocks
     public static Optional<? extends Block> holyGrass                   = Optional.absent();
 	public static Optional<? extends Block> holyDirt                   	= Optional.absent();
     public static Optional<? extends Block> holyStone                   = Optional.absent();
-	public static Optional<? extends Block> holySand	                = Optional.absent();
     public static Optional<? extends Block> mud                         = Optional.absent();
     public static Optional<? extends Block> originGrass                 = Optional.absent();
     public static Optional<? extends Block> redRock                     = Optional.absent();
+	public static Optional<? extends Block> crystal                     = Optional.absent();
     
     // Planks and logs
     public static Optional<? extends Block> planks                      = Optional.absent();

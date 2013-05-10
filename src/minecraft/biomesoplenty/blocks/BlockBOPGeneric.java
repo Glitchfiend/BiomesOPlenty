@@ -1,16 +1,22 @@
 package biomesoplenty.blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 
 public class BlockBOPGeneric extends Block
 {
     public enum BlockType 
     {
-        ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, HOLY_SAND;
+        ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;
     }
     
     private Icon texture;
@@ -64,8 +70,8 @@ public class BlockBOPGeneric extends Block
                 setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("holyDirt");
                 break;
 				
-			case HOLY_SAND:
-                setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("holySand");
+			case CRYSTAL:
+                setHardness(0.15F).setResistance(5.0F).setLightValue(1.0F).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("crystal");
                 break;
                 
             default:
@@ -118,12 +124,51 @@ public class BlockBOPGeneric extends Block
                 texture = iconRegister.registerIcon("BiomesOPlenty:holydirt");
                 break;
 				
-			case HOLY_SAND:
-                texture = iconRegister.registerIcon("BiomesOPlenty:holysand");
+            case CRYSTAL:
+                texture = iconRegister.registerIcon("BiomesOPlenty:crystal");
                 break;
                 
             default:
                 break;
+        }
+    }
+	
+	@Override
+    public int idDropped(int par1, Random par2Random, int par3)
+    {		
+	switch (type)
+        { 
+            case CRYSTAL:
+                return Items.miscItems.get().itemID;
+                
+            default:
+                return this.blockID;
+        }
+    }
+	
+    @Override
+    public int damageDropped(int meta)
+    {
+	switch (type)
+        { 
+            case CRYSTAL:
+                return 4;
+                
+            default:
+                return meta;
+        }
+    }
+	
+	@Override
+    public int quantityDropped(int meta, int fortune, Random random)
+    {
+	switch (type)
+        { 
+            case CRYSTAL:
+                return 4;
+                
+            default:
+                return 1;
         }
     }
     

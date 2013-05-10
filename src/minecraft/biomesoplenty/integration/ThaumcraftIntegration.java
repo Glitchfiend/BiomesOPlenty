@@ -108,6 +108,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("holyGrass"), getBMeta("holyGrass"), (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EARTH, 2).add(EnumTag.LIGHT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("holyDirt"), getBMeta("holyDirt"), (new ObjectTags()).add(EnumTag.LIGHT, 1).add(EnumTag.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(getBID("holyStone"), getBMeta("holyStone"), (new ObjectTags()).add(EnumTag.LIGHT, 1).add(EnumTag.ROCK, 2));
+		ThaumcraftApi.registerObjectTag(getBID("crystal"), getBMeta("crystal"), (new ObjectTags()).add(EnumTag.VALUABLE, 58).add(EnumTag.LIGHT, 15).add(EnumTag.MAGIC, 20).add(EnumTag.CRYSTAL, 50));
 		ThaumcraftApi.registerObjectTag(getBID("cragRock"), getBMeta("cragRock"), (new ObjectTags()).add(EnumTag.ROCK, 2));
 		ThaumcraftApi.registerObjectTag(getBID("quicksand"), getBMeta("quicksand"), (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.TRAP, 4));
 		ThaumcraftApi.registerObjectTag(getBID("smolderingGrass"), getBMeta("smolderingGrass"), (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));

@@ -56,18 +56,14 @@ public class ForestryIntegration
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.oasisID);
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandForestID);
 		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandPlainsID);
-		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandDesertID);
 		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandSwampID);
-		EnumTemperature.hotBiomeIds.add(BOPConfiguration.promisedLandMushroomID);
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.rainforestID);
         EnumTemperature.hotBiomeIds.add(BOPConfiguration.tropicsID);
         
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.oasisID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandForestID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandPlainsID);
-		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandDesertID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandSwampID);
-		EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandMushroomID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.rainforestID);
         EnumHumidity.dampBiomeIds.add(BOPConfiguration.tropicsID);
         

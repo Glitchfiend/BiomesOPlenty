@@ -30,13 +30,15 @@ public class BiomeGenGarden extends BiomeGenBase
         this.customBiomeDecorator.flowersPerChunk = 20;
         this.customBiomeDecorator.whiteFlowersPerChunk = 25;
 		this.customBiomeDecorator.tinyFlowersPerChunk = 15;
-		this.customBiomeDecorator.sproutsPerChunk = 1;
+		this.customBiomeDecorator.hydrangeasPerChunk = 10;
+		this.customBiomeDecorator.sproutsPerChunk = 5;
         this.customBiomeDecorator.rosesPerChunk = 20;
         this.customBiomeDecorator.grassPerChunk = 25;
         this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
 		this.customBiomeDecorator.bushesPerChunk = 10;
-		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.generatePumpkins = true;
+		this.customBiomeDecorator.generateMelons = true;
         this.spawnableCreatureList.clear();
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityRosester.class, 10, 4, 4));
     }
@@ -46,7 +48,7 @@ public class BiomeGenGarden extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+		return (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1))));
     }
 	
     /**

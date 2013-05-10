@@ -18,10 +18,10 @@ public class WorldGenPromisedTree3 extends WorldGenerator
 
     public boolean generate(World var1, Random var2, int var3, int var4, int var5)
     {
-        int var6 = var2.nextInt(15) + 20;
-        int var7 = var2.nextInt(5) + 5;
+        int var6 = var2.nextInt(20) + 30;
+        int var7 = var2.nextInt(5) + 10;
         int var8 = var6 - var7;
-        int var9 = 2 + var2.nextInt(2);
+        int var9 = 2 + var2.nextInt(3);
         boolean var10 = true;
 
         if (var4 >= 1 && var4 + var6 + 1 <= 256)
