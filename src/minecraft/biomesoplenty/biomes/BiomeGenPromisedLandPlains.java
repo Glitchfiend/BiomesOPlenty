@@ -35,15 +35,17 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = -999;
 		this.customBiomeDecorator.holyTallGrassPerChunk = 999;
 		this.customBiomeDecorator.promisedWillowPerChunk = 80;
-		this.customBiomeDecorator.blueMilksPerChunk = 1;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
-		this.customBiomeDecorator.waterLakesPerChunk = 4;
+		this.customBiomeDecorator.waterLakesPerChunk = 6;
+		this.customBiomeDecorator.crystalsPerChunk = 25;
+		this.customBiomeDecorator.crystals2PerChunk = 50;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
@@ -61,7 +63,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
      */
     public int getBiomeFoliageColor()
     {
-        return 4583331;
+        return 11266663;
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)

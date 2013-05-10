@@ -45,7 +45,6 @@ public class BiomeGenFungiForest extends BiomeGenBase
 		this.customBiomeDecorator.reedsBOPPerChunk = 1;
         this.customBiomeDecorator.generateMycelium = true;
 		this.customBiomeDecorator.generatePumpkins = true;
-		this.customBiomeDecorator.generateMelons = true;
         this.waterColorMultiplier = 65326;
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

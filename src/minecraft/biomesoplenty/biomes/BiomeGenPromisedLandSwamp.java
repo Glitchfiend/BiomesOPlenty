@@ -7,6 +7,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
+import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenPromisedWillowTree;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
 
@@ -27,20 +28,25 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Blocks.holyGrass.get().blockID;
         this.fillerBlock = (byte)Blocks.holyDirt.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = 24;
+        this.customBiomeDecorator.treesPerChunk = 12;
         this.customBiomeDecorator.grassPerChunk = -999;
-		this.customBiomeDecorator.holyTallGrassPerChunk = 50;
+		this.customBiomeDecorator.holyTallGrassPerChunk = 100;
 		this.customBiomeDecorator.promisedWillowPerChunk = 80;
 		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
 		this.customBiomeDecorator.blueMilksPerChunk = 15;
+		this.customBiomeDecorator.toadstoolsPerChunk = 10;
+		this.customBiomeDecorator.portobellosPerChunk = 5;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
-		this.customBiomeDecorator.waterLakesPerChunk = 17;
+		this.customBiomeDecorator.waterLakesPerChunk = 20;
+		this.customBiomeDecorator.crystalsPerChunk = 25;
+		this.customBiomeDecorator.crystals2PerChunk = 50;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
+		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
@@ -50,7 +56,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenPromisedShrub(0, 0) : new WorldGenPromisedWillowTree());
+		return (WorldGenerator)(par1Random.nextInt(6) == 0 ? new WorldGenPromisedTree(false) : new WorldGenPromisedWillowTree());
     }
 	
     /**

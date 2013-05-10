@@ -33,6 +33,9 @@ import biomesoplenty.worldgen.WorldGenCanyon;
 import biomesoplenty.worldgen.WorldGenCanyonGrass;
 import biomesoplenty.worldgen.WorldGenCarrots;
 import biomesoplenty.worldgen.WorldGenCattail;
+import biomesoplenty.worldgen.WorldGenCloud;
+import biomesoplenty.worldgen.WorldGenCrystal1;
+import biomesoplenty.worldgen.WorldGenCrystal2;
 import biomesoplenty.worldgen.WorldGenDesertCactus;
 import biomesoplenty.worldgen.WorldGenDriedDirt;
 import biomesoplenty.worldgen.WorldGenGravel;
@@ -125,6 +128,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator quagmireGen;
 	protected WorldGenerator canyonGen;
 	protected WorldGenerator smolderingGrassGen;
+	protected WorldGenerator cloudGen;
     protected WorldGenerator coalGen;
     protected WorldGenerator ironGen;
 
@@ -181,6 +185,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator quicksandGen;
 	protected WorldGenerator quicksand2Gen;
 	protected WorldGenerator poisonIvyGen;
+	protected WorldGenerator crystalGen;
+	protected WorldGenerator crystalGen2;
 
     /** Field that holds mushroomBrown WorldGenFlowers */
     protected WorldGenerator mushroomBrownGen;
@@ -207,6 +213,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     /** Amount of waterlilys per chunk. */
     protected int waterlilyPerChunk;
 	protected int algaePerChunk;
+	protected int crystalsPerChunk;
+	protected int crystals2PerChunk;
 
     /**
      * The number of trees to attempt to generate per chunk. Up to 10 in forests, none in deserts.
@@ -328,6 +336,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     public boolean generateMelons;
     public boolean generateBoulders;
 	public boolean generateSmolderingGrass;
+	public boolean generateClouds;
 
     public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
     {
@@ -352,6 +361,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
 		this.smolderingGrassGen = new WorldGenSmolderingGrass(Blocks.holyGrass.get().blockID, 1, 32);
         this.driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
+		this.cloudGen = new WorldGenCloud(Blocks.cloud.get().blockID, 48);
         this.coalGen = new WorldGenMinable(Block.oreCoal.blockID, 16);
         this.ironGen = new WorldGenMinable(Block.oreIron.blockID, 8);
         this.goldGen = new WorldGenMinable(Block.oreGold.blockID, 8);
@@ -385,6 +395,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.quicksandGen = new WorldGenQuicksand();
 		this.quicksand2Gen = new WorldGenQuicksand2();
         this.cattailGen = new WorldGenCattail();
+		this.crystalGen = new WorldGenCrystal1();
+		this.crystalGen2 = new WorldGenCrystal2();
         this.mushroomBrownGen = new WorldGenBOPFlowers(Block.mushroomBrown.blockID, 0);
         this.mushroomRedGen = new WorldGenBOPFlowers(Block.mushroomRed.blockID, 0);
         this.toadstoolGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 10);
@@ -466,6 +478,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.lavaLakesPerChunk = 0;
 		this.quicksandPerChunk = 0;
 		this.quicksand2PerChunk = 0;
+		this.crystalsPerChunk = 0;
+		this.crystals2PerChunk = 0;
         this.generateLakes = true;
         this.generateAsh = false;
         this.generateMycelium = false;
@@ -481,6 +495,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.generateMelons = false;
         this.generateBoulders = false;
 		this.generateSmolderingGrass = false;
+		this.generateClouds = false;
         this.biome = par1BiomeGenBase;
     }
 
@@ -606,6 +621,11 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		if (this.generateSmolderingGrass)
         {
             this.genStandardOre1(15, this.smolderingGrassGen, 64, 128);
+        }
+		
+		if (this.generateClouds)
+        {
+            this.genCloudMain(1, this.cloudGen, 0, 50);
         }
 
         if (this.generatePits)
@@ -749,6 +769,22 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.plantRedGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+        for (var2 = 0; var2 < this.crystalsPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(50);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.crystalGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.crystals2PerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(50);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.crystalGen2.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 		
 		for (var2 = 0; var2 < this.promisedWillowPerChunk; ++var2)
@@ -1203,6 +1239,26 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         }
 		
 		MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(currentWorld, randomGenerator, chunk_X, chunk_Z));
+    }
+	
+    /**
+     * Standard ore generation helper. Generates most ores.
+     */
+    protected void genCloudMain(int par1, WorldGenerator par2WorldGenerator, int par3, int par4)
+    {
+        for (int var5 = 0; var5 < par1; ++var5)
+        {
+            int var6 = this.chunk_X + this.randomGenerator.nextInt(16);
+            int var7 = this.randomGenerator.nextInt(par4 - par3) + par3;
+            int var8 = this.chunk_Z + this.randomGenerator.nextInt(16);
+			int var999 = this.randomGenerator.nextInt(5);
+			if (var999 == 0)
+			{
+				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6, var7, var8);
+				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6, var7, var8 + 8);
+				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6 + 8, var7, var8 + 8);
+			}
+        }
     }
 
     /**

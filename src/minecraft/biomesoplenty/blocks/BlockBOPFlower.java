@@ -131,12 +131,14 @@ public class BlockBOPFlower extends BlockFlower
     
     protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
     {
+		if (metadata == 6) //Tulip
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
     	if (metadata == 10) //Toadstool
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
     	if (metadata == 11) //Cactus
-    		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holySand.get().blockID;
+    		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID;
     	if (metadata == 12) //Yucca
-    		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID || id == Blocks.holySand.get().blockID;
+    		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 		if (metadata == 13) //Portobello
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID | id == Blocks.holyGrass.get().blockID;
 		if (metadata == 14) //Blue Milk Cap
@@ -155,14 +157,17 @@ public class BlockBOPFlower extends BlockFlower
         if (itemStack.itemID == this.blockID)
             switch (meta)
             {
+				case 6: // Tulip
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
+					
                 case 10: // Toadstool
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
                     
                 case 11: // Cactus
-                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID || id == Blocks.holySand.get().blockID;
+                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 12: // Yucca
-                    return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID || id == Blocks.holySand.get().blockID;
+                    return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
 				case 13: // Portobello
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
