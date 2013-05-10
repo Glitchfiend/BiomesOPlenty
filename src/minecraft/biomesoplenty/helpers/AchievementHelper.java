@@ -25,6 +25,7 @@ public class AchievementHelper
     private static Achievement achShroom;
     private static Achievement achBarley;
     private static Achievement achMoss;
+    private static Achievement achFlowerP;
     
     public static AchievementPage pageBOP;
 
@@ -46,8 +47,9 @@ public class AchievementHelper
         achShroom = (new Achievement(3064, "achShroom", 1, -2, new ItemStack(Blocks.flowers.get(),1,10), achFlower)).registerAchievement();
         achBarley = (new Achievement(3065, "achBarley", -2, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
         achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
+        achFlowerP = (new Achievement(3067, "achFlowerP", 2, -1, new ItemStack(Items.flowerBand.get(), 1, 3), achFlower)).registerAchievement();
 
-        pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss});
+        pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
         AchievementPage.registerAchievementPage(pageBOP);
         
      // Add Achievement registration
@@ -61,6 +63,7 @@ public class AchievementHelper
         addAchievementDesc("achShroom", "Trippin\'", "Don\'t try this at home, kids!");
         addAchievementDesc("achBarley", "Fields Of Gold", "Upon the fields of barley.");
         addAchievementDesc("achMoss", "Mossman", "Mothman's long-lost cousin.");
+        addAchievementDesc("achFlowerP", "Flower Power", "Stop the corporations dude.");
 	}
 	
 	// Achievement checker
