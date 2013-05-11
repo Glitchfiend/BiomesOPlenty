@@ -23,13 +23,13 @@ public class EntityAITemptArmour extends EntityAIBase
      * A counter that is decremented each time the shouldExecute method is called. The shouldExecute method will always
      * return false if delayTemptCounter is greater than 0.
      */
-    private int delayTemptCounter = 0;
     private boolean field_75287_j;
 
     /**
      * This field saves the ID of the items that can be used to breed entities with this behaviour.
      */
-    private int breedingFood;
+    private int armourID;
+    private int meta;
 
     /**
      * Whether the entity using this AI will be scared by the tempter's sudden movement.
@@ -37,12 +37,13 @@ public class EntityAITemptArmour extends EntityAIBase
     private boolean scaredByPlayerMovement;
     private boolean field_75286_m;
 
-    public EntityAITemptArmour(EntityCreature par1EntityCreature, float par2, int par3, boolean par4)
+    public EntityAITemptArmour(EntityCreature par1EntityCreature, float par2, int par3, int par4, boolean par5)
     {
         this.temptedEntity = par1EntityCreature;
         this.field_75282_b = par2;
-        this.breedingFood = par3;
-        this.scaredByPlayerMovement = par4;
+        this.armourID = par3;
+        this.meta = par4;
+        this.scaredByPlayerMovement = par5;
         this.setMutexBits(3);
     }
 
@@ -51,24 +52,16 @@ public class EntityAITemptArmour extends EntityAIBase
      */
     public boolean shouldExecute()
     {
-        if (this.delayTemptCounter > 0)
+        this.temptingPlayer = this.temptedEntity.worldObj.getClosestPlayerToEntity(this.temptedEntity, 10.0D);
+
+        if (this.temptingPlayer == null)
         {
-            --this.delayTemptCounter;
             return false;
         }
         else
         {
-            this.temptingPlayer = this.temptedEntity.worldObj.getClosestPlayerToEntity(this.temptedEntity, 10.0D);
-
-            if (this.temptingPlayer == null)
-            {
-                return false;
-            }
-            else
-            {
-                ItemStack itemstack = this.temptingPlayer.inventory.armorInventory[3];
-                return itemstack == null ? false : itemstack.itemID == this.breedingFood;
-            }
+            ItemStack itemstack = this.temptingPlayer.inventory.armorInventory[3];
+            return itemstack == null ? false : (itemstack.itemID == this.armourID) && (itemstack.getItemDamage() >= this.meta);
         }
     }
 
@@ -125,7 +118,6 @@ public class EntityAITemptArmour extends EntityAIBase
     {
         this.temptingPlayer = null;
         this.temptedEntity.getNavigator().clearPathEntity();
-        this.delayTemptCounter = 100;
         this.field_75287_j = false;
         this.temptedEntity.getNavigator().setAvoidsWater(this.field_75286_m);
     }

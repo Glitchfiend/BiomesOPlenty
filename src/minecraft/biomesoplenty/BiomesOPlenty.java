@@ -22,6 +22,7 @@ import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.BOPCraft;
 import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
+import biomesoplenty.helpers.EntitiesHelper;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.integration.ThaumcraftIntegration;
 import biomesoplenty.world.WorldProviderPromised;
@@ -128,6 +129,7 @@ public class BiomesOPlenty
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
 		MinecraftForge.EVENT_BUS.register(new BonemealUse());
+		MinecraftForge.EVENT_BUS.register(new EntitiesHelper());
 
 		proxy.registerRenderers();
 
