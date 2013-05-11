@@ -503,7 +503,7 @@ public class ChunkProviderPromised implements IChunkProvider
         int var5 = par3 * 16;
         BiomeGenBase var6 = this.endWorld.getBiomeGenForCoords(var4 + 16, var5 + 16);
         
-        for (int a = 0; a < 100; ++a)
+        for (int a = 0; a < 25; ++a)
         {
             int x = var4 + endWorld.rand.nextInt(16);
             int y = endWorld.rand.nextInt(30) + 30;
