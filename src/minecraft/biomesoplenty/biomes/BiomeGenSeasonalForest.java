@@ -6,8 +6,10 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenAutumn;
 import biomesoplenty.worldgen.WorldGenAutumn2;
+import biomesoplenty.worldgen.WorldGenAutumn2Big;
 import biomesoplenty.worldgen.WorldGenDeadTree2;
 import biomesoplenty.worldgen.WorldGenMaple;
+import biomesoplenty.worldgen.WorldGenMapleBig;
 
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.ItemStack;
@@ -47,7 +49,7 @@ public class BiomeGenSeasonalForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenAutumn2(false) : (par1Random.nextInt(3) == 0 ? new WorldGenAutumn(false) : (par1Random.nextInt(3) == 0 ? new WorldGenMaple(false) : (par1Random.nextInt(5) == 0 ? new WorldGenDeadTree2(false) : this.worldGeneratorTrees))));
+        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenAutumn2(false) : (par1Random.nextInt(3) == 0 ? new WorldGenAutumn(false) : (par1Random.nextInt(6) == 0 ? new WorldGenAutumn2Big(false) : (par1Random.nextInt(6) == 0 ? new WorldGenMapleBig(false) : (par1Random.nextInt(3) == 0 ? new WorldGenMaple(false) : (par1Random.nextInt(5) == 0 ? new WorldGenDeadTree2(false) : (par1Random.nextInt(6) == 0 ? this.worldGeneratorBigTree : this.worldGeneratorTrees)))))));
     }
 	
     /**

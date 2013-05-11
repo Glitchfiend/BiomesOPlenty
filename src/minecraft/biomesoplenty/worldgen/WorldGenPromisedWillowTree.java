@@ -80,9 +80,9 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
             {
                 var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if ((var8 == Blocks.holyGrass.get().blockID || var8 == Blocks.holyStone.get().blockID) && par4 < 128 - var6 - 1)
+                if ((var8 == Blocks.holyGrass.get().blockID || var8 == Blocks.holyDirt.get().blockID) && par4 < 128 - var6 - 1)
                 {
-                    this.setBlock(par1World, par3, par4 - 1, par5, Blocks.holyStone.get().blockID);
+                    this.setBlock(par1World, par3, par4 - 1, par5, Blocks.holyDirt.get().blockID);
                     int var13;
                     int var16;
 
