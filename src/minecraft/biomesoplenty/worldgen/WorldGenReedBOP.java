@@ -21,7 +21,7 @@ public class WorldGenReedBOP extends WorldGenerator
 
             if (par1World.isAirBlock(i1, par4, k1))
             {
-                int l1 = 2 + par2Random.nextInt(par2Random.nextInt(2) + 1);
+                int l1 = 1 + par2Random.nextInt(par2Random.nextInt(3) + 1);
 
                 if (Blocks.plants.get().canBlockStay(par1World, i1, j1, k1))
                 {
