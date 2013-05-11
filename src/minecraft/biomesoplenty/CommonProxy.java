@@ -21,5 +21,10 @@ public class CommonProxy {
     public void spawnMud(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
     {
 
+    }  
+    
+    public void spawnDart(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
+    {
+
     }   
 }

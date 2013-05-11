@@ -75,31 +75,31 @@ public class EntityDart extends EntityArrow
             }
         }
 
-//        if (this.inGround)
-//        {
-//            int j = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
-//            int k = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-//
-//            if (j == this.inTile && k == this.inData)
-//            {
-//                ++this.ticksInGround;
-//
-//                if (this.ticksInGround == 1)
-//                {
-//                    this.setDead();
-//                }
-//            }
-//            else
-//            {
-//                this.inGround = false;
-//                this.motionX *= (double)(this.rand.nextFloat() * 0.2F);
-//                this.motionY *= (double)(this.rand.nextFloat() * 0.2F);
-//                this.motionZ *= (double)(this.rand.nextFloat() * 0.2F);
-//                this.ticksInGround = 0;
-//                this.ticksInAir = 0;
-//            }
-//        }
-//        else
+        if (this.inGround)
+        {
+            int j = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
+            int k = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
+
+            if (j == this.inTile && k == this.inData)
+            {
+                ++this.ticksInGround;
+
+                if (this.ticksInGround == 1)
+                {
+                    this.setDead();
+                }
+            }
+            else
+            {
+                this.inGround = false;
+                this.motionX *= (double)(this.rand.nextFloat() * 0.2F);
+                this.motionY *= (double)(this.rand.nextFloat() * 0.2F);
+                this.motionZ *= (double)(this.rand.nextFloat() * 0.2F);
+                this.ticksInGround = 0;
+                this.ticksInAir = 0;
+            }
+        }
+        else
         {
             ++this.ticksInAir;
             Vec3 vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
@@ -216,11 +216,11 @@ public class EntityDart extends EntityArrow
                 }
                 else
                 {
-//                    this.xTile = movingobjectposition.blockX;
-//                    this.yTile = movingobjectposition.blockY;
-//                    this.zTile = movingobjectposition.blockZ;
-//                    this.inTile = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
-//                    this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
+                    this.xTile = movingobjectposition.blockX;
+                    this.yTile = movingobjectposition.blockY;
+                    this.zTile = movingobjectposition.blockZ;
+                    this.inTile = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
+                    this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
                     this.motionX = (double)((float)(movingobjectposition.hitVec.xCoord - this.posX));
                     this.motionY = (double)((float)(movingobjectposition.hitVec.yCoord - this.posY));
                     this.motionZ = (double)((float)(movingobjectposition.hitVec.zCoord - this.posZ));
@@ -228,13 +228,19 @@ public class EntityDart extends EntityArrow
                     this.posX -= this.motionX / (double)f2 * 0.05000000074505806D;
                     this.posY -= this.motionY / (double)f2 * 0.05000000074505806D;
                     this.posZ -= this.motionZ / (double)f2 * 0.05000000074505806D;
+                    
+        			for (int p = 0; i < 16; ++i)
+        			{
+        				BiomesOPlenty.proxy.spawnDart(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+        			}
+                    
                     this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
                     this.setDead();
 
-//                    if (this.inTile != 0)
-//                    {
-//                        Block.blocksList[this.inTile].onEntityCollidedWithBlock(this.worldObj, this.xTile, this.yTile, this.zTile, this);
-//                    }
+                    if (this.inTile != 0)
+                    {
+                        Block.blocksList[this.inTile].onEntityCollidedWithBlock(this.worldObj, this.xTile, this.yTile, this.zTile, this);
+                    }
                 }
             }
 
@@ -285,28 +291,7 @@ public class EntityDart extends EntityArrow
             this.motionZ *= (double)f4;
             this.motionY -= (double)f1;
             this.setPosition(this.posX, this.posY, this.posZ);
-            //this.doBlockCollisions();
+            this.doBlockCollisions();
         }
     }
-
-//	@Override
-//	protected void onImpact(MovingObjectPosition par1MovingObjectPosition) 
-//	{
-//        
-//		if (par1MovingObjectPosition.entityHit != null)
-//		{
-//			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 2);
-//			//((EntityLiving)par1MovingObjectPosition.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 300));
-//		}
-//
-//			for (int i = 0; i < 16; ++i)
-//			{
-//				//BiomesOPlenty.proxy.spawnMud(this.worldObj, this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
-//			}
-//
-//		if (!this.worldObj.isRemote)
-//		{
-//			this.setDead();
-//		}
-//	}
 } 

@@ -39,8 +39,8 @@ public class BOPEntities {
 	
 	public static void init()
 	{	
-		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", EntityRegistry.findGlobalUniqueEntityId(), BiomesOPlenty.instance, 80, 3, true); 	
-		EntityRegistry.registerModEntity(EntityDart.class, "Dart", EntityRegistry.findGlobalUniqueEntityId(), BiomesOPlenty.instance, 80, 3, true); 	
+		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfiguration.entityMudballID, BiomesOPlenty.instance, 80, 3, true); 	
+		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfiguration.entityDartID, BiomesOPlenty.instance, 80, 3, true); 	
 		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, BiomesOPlenty.instance, 80, 3, true);	
 		

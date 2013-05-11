@@ -5,12 +5,12 @@ import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
+import biomesoplenty.items.projectiles.RenderDart;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -20,13 +20,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers() 
 	{
-		MinecraftForgeClient.preloadTexture(ARMOR_MUD1_PNG);
-		MinecraftForgeClient.preloadTexture(ARMOR_MUD2_PNG);
-		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST1_PNG);
-		MinecraftForgeClient.preloadTexture(ARMOR_AMETHYST2_PNG);
-
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0)); 
-		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderSnowball(Items.dart.get(), 0)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart()); 
 		
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
@@ -38,6 +33,15 @@ public class ClientProxy extends CommonProxy {
         EntityFX entityfx = null;
         
         entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
+		mc.effectRenderer.addEffect(entityfx);
+	} 
+	
+	@Override
+	public void spawnDart(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
+	{
+        EntityFX entityfx = null;
+        
+        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
 		mc.effectRenderer.addEffect(entityfx);
 	}   
 

@@ -311,6 +311,9 @@ public class BOPConfiguration {
 	public static int jungleNewID;
 	public static int jungleHillsNewID;
 
+	public static int entityMudballID;
+	public static int entityDartID;
+	
 	public static int jungleSpiderID;
 	public static int rosesterID;
 	
@@ -689,6 +692,10 @@ public class BOPConfiguration {
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
 			rosesterID = config.get("Mob IDs", "Rosester ID", 102, null).getInt();
+			
+			//Projectile IDs
+			entityMudballID = config.get("Entity IDs", "Mudball ID", 103, null).getInt();;
+			entityDartID = config.get("Entity IDs", "Dart ID", 104, null).getInt();;
 
 			System.out.println("Generating Biome ID's");
 			
