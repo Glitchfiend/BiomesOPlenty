@@ -91,7 +91,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return 50175;
+        return BOPConfiguration.pLForestSkyColour;
 		}	
 		else
 		{

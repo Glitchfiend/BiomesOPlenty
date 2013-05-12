@@ -20,6 +20,10 @@ public class BOPConfiguration {
 	public static int villageDistance;
 	
 	public static int promisedLandDimID;
+	
+	public static int pLSwampSkyColour;
+	public static int pLPlainsSkyColour;
+	public static int pLForestSkyColour;
 
 	public static boolean alpsGen;
 	public static boolean arcticGen;
@@ -406,7 +410,6 @@ public class BOPConfiguration {
 		{
 			config.load();
 
-			skyColors = true;
 			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
 			achievements = config.get("Achievement Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
@@ -417,7 +420,15 @@ public class BOPConfiguration {
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8)
 			    villageDistance = 8;
+			
+			//Sky colour
+			skyColors = config.get("Sky Colours", "Enable Sky Colours", true).getBoolean(false);
+			
+			pLSwampSkyColour = config.get("Sky Colours", "Promised Land Swamp Sky Colour", 50175, null).getInt();
+			pLPlainsSkyColour = config.get("Sky Colours", "Promised Land Plains Sky Colour", 50175, null).getInt();
+			pLForestSkyColour = config.get("Sky Colours", "Promised Land Forest Sky Colour", 50175, null).getInt();
 
+			//Biome generation
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 			arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);
 			badlandsGen = config.get("Biomes To Generate", "Badlands", true).getBoolean(false);

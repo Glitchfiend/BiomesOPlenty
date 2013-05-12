@@ -91,7 +91,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return 50175;
+        return BOPConfiguration.pLSwampSkyColour;
 		}	
 		else
 		{
