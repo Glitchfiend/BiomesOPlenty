@@ -3,17 +3,23 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import cpw.mods.fml.common.Loader;
+
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.integration.ThaumcraftIntegration;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenPromisedWillowTree;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenPromisedLandSwamp extends BiomeGenBase
@@ -49,6 +55,18 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
+		this.spawnableMonsterList.add(new SpawnListEntry(EntityPig.class, 4, 1, 4));
+		
+		if (Loader.isModLoaded("TwilightForest"))
+		{
+			try {
+				this.spawnableMonsterList.add(new SpawnListEntry(Class.forName("twilightforest.entity.passive.EntityTFBird"), 2, 1, 3));
+				this.spawnableMonsterList.add(new SpawnListEntry(Class.forName("twilightforest.entity.passive.EntityTFRaven"), 1, 1, 2));
+			} catch (ClassNotFoundException e) {
+				System.out.println("[BiomesOPlenty] There was an error while integrating Twilight Forest with Biomes O' Plenty!");
+				e.printStackTrace();
+			}
+		}
     }
 	
     /**

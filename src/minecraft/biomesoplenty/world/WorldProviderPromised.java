@@ -137,6 +137,12 @@ public class WorldProviderPromised extends WorldProvider
         var6 *= var3 * 0.91F + 0.09F;
 		return this.worldObj.getWorldVec3Pool().getVecFromPool((double)var4, (double)var5, (double)var6);
     }
+    
+    @Override
+    public void setAllowedSpawnTypes(boolean allowHostile, boolean allowPeaceful)
+    {
+        allowPeaceful = true;
+    }
 	
 	@Override
     public String getWelcomeMessage()
