@@ -317,6 +317,7 @@ public class BOPConfiguration {
 
 	public static int entityMudballID;
 	public static int entityDartID;
+	public static int entityPoisonDartID;
 	
 	public static int jungleSpiderID;
 	public static int rosesterID;
@@ -707,6 +708,7 @@ public class BOPConfiguration {
 			//Projectile IDs
 			entityMudballID = config.get("Entity IDs", "Mudball ID", 103, null).getInt();;
 			entityDartID = config.get("Entity IDs", "Dart ID", 104, null).getInt();;
+			entityPoisonDartID = config.get("Entity IDs", "Poison Dart ID", 105, null).getInt();;
 
 			System.out.println("Generating Biome ID's");
 			

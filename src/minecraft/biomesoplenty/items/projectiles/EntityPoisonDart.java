@@ -51,7 +51,6 @@ public class EntityPoisonDart extends EntityArrow
 		super(par1World, par2, par4, par6);
 	}
 	
-	@Override
 	public void onUpdate()
     {
         super.onUpdate();
@@ -169,7 +168,6 @@ public class EntityPoisonDart extends EntityArrow
                     int i1 = MathHelper.ceiling_double_int((double)f2 * this.damage);
                     
 					((EntityLiving)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
-					System.out.println("HIIIIII");
 
                     if (this.getIsCritical())
                     {

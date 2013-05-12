@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
 import biomesoplenty.items.projectiles.EntityDart;
+import biomesoplenty.items.projectiles.EntityPoisonDart;
 
 public class ItemDartBlower extends Item
 {
@@ -32,10 +33,9 @@ public class ItemDartBlower extends Item
     {
         boolean flag = par3EntityPlayer.capabilities.isCreativeMode;
 
-        if (flag || par3EntityPlayer.inventory.hasItem(Items.dart.get().itemID))
+        if (par3EntityPlayer.inventory.hasItem(Items.dart.get().itemID))
         {
             //EntityArrow entitydart = new EntityArrow(par2World, par3EntityPlayer, 2.0F);
-            EntityDart entitydart = new EntityDart(par2World, par3EntityPlayer, 2.0F);
             
             itemStack.damageItem(1, par3EntityPlayer);
             par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 2.0F / (1.0F * 0.4F + 1.2F) + 1.0F * 0.5F);
@@ -43,9 +43,11 @@ public class ItemDartBlower extends Item
             if (!flag)
                 par3EntityPlayer.inventory.consumeInventoryItem(Items.dart.get().itemID);
 
-
             if (!par2World.isRemote)
-                par2World.spawnEntityInWorld(entitydart);
+            	if (par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.dart.get().itemID, 1, 0)))
+                    par2World.spawnEntityInWorld(new EntityDart(par2World, par3EntityPlayer, 2.0F));
+            	else
+                    par2World.spawnEntityInWorld(new EntityPoisonDart(par2World, par3EntityPlayer, 2.0F));
         }
 
         return itemStack;

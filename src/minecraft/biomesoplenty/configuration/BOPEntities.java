@@ -7,6 +7,7 @@ import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Entities;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
+import biomesoplenty.items.projectiles.EntityPoisonDart;
 import biomesoplenty.mobs.EntityJungleSpider;
 import biomesoplenty.mobs.EntityRosester;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -41,6 +42,7 @@ public class BOPEntities {
 	{	
 		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfiguration.entityMudballID, BiomesOPlenty.instance, 80, 3, true); 	
 		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfiguration.entityDartID, BiomesOPlenty.instance, 80, 3, true); 	
+		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfiguration.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true); 	
 		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, BiomesOPlenty.instance, 80, 3, true);	
 		

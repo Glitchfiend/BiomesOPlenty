@@ -1,5 +1,6 @@
 package biomesoplenty.items.projectiles;
 
+import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,9 +14,19 @@ import org.lwjgl.opengl.GL12;
 @SideOnly(Side.CLIENT)
 public class RenderDart extends Render
 {
+	private static int dartMeta;
+	
+    public RenderDart(int meta)
+    {
+    	dartMeta = meta;
+    }
+    
     public void renderArrow(EntityArrow par1EntityArrow, double par2, double par4, double par6, float par8, float par9)
     {
-        this.loadTexture("/mods/BiomesOPlenty/textures/projectiles/dart.png");
+    	if (dartMeta == 0)
+    		this.loadTexture("/mods/BiomesOPlenty/textures/projectiles/dart.png");
+    	if (dartMeta == 1)
+    		this.loadTexture("/mods/BiomesOPlenty/textures/projectiles/poisondart.png");
         GL11.glPushMatrix();
         GL11.glTranslatef((float)par2, (float)par4, (float)par6);
         GL11.glRotatef(par1EntityArrow.prevRotationYaw + (par1EntityArrow.rotationYaw - par1EntityArrow.prevRotationYaw) * par9 - 90.0F, 0.0F, 1.0F, 0.0F);
