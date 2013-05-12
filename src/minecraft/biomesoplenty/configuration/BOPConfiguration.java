@@ -145,6 +145,8 @@ public class BOPConfiguration {
 	public static int colourizedSaplingsID;
 	public static int redCobbleStairsID;
 	public static int redBrickStairsID;
+	public static int holyCobbleStairsID;
+	public static int holyBrickStairsID;
 	
 	public static int promisedLandPortalID;
 	public static int amethystOreID;
@@ -603,7 +605,7 @@ public class BOPConfiguration {
 			hardDirtID = config.getTerrainBlock("Terrain Block IDs", "Hard Dirt ID", 168, null).getInt();
 			holyGrassID = config.getTerrainBlock("Terrain Block IDs", "Holy Grass ID", 169, null).getInt();
 			holyDirtID = config.getTerrainBlock("Terrain Block IDs", "Holy Dirt ID", 170, null).getInt();
-			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Holy Stone ID", 171, null).getInt();
+			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Skystone ID", 171, null).getInt();
 			cragRockID = config.getTerrainBlock("Terrain Block IDs", "Crag Rock ID", 172, null).getInt();
 
 			// Get Crafted Block ID's
@@ -660,6 +662,9 @@ public class BOPConfiguration {
 			
 			crystalID = config.getBlock("Crystal ID", 1963, null).getInt();
 			cloudID = config.getBlock("Cloud ID", 1964, null).getInt();
+			
+			holyCobbleStairsID = config.getBlock("Skystone Cobble Stairs ID", 1965, null).getInt();
+			holyBrickStairsID = config.getBlock("Skystone Brick Stairs ID", 1966, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

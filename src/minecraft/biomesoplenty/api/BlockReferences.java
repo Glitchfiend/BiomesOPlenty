@@ -102,6 +102,7 @@ public class BlockReferences {
 		holyGrass (Blocks.holyGrass, 0),
 		holyDirt (Blocks.holyDirt, 0),
 		holyStone (Blocks.holyStone, 0),
+		holyStoneCobble (Blocks.holyStone, 1),
 		crystal (Blocks.crystal, 0),
 		cragRock (Blocks.cragRock, 0),
 		quicksand (Blocks.mud, 1),

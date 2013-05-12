@@ -26,7 +26,7 @@ public class BlockBOPSlab extends BlockHalfSlab
       WOOD1, WOOD2, STONE;
     }
     private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow"};
-    private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick"};
+    private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
     private Icon[] textures;
     protected final boolean isDoubleSlab;
     
@@ -91,7 +91,7 @@ public class BlockBOPSlab extends BlockHalfSlab
         else if (category == SlabCategory.WOOD2)
             max = 2;
         else if (category == SlabCategory.STONE)
-            max = 3;
+            max = 5;
             
             for (int i = 0; i < max; ++i)
                 list.add(new ItemStack(blockID, 1, i));
@@ -149,6 +149,14 @@ public class BlockBOPSlab extends BlockHalfSlab
                 case 2:
                     hardness = 1.0F;
                     break;
+					
+				case 3:
+                    hardness = 1.6F;
+                    break;
+                    
+                case 4:
+                    hardness = 1.1F;
+                    break;
             }
         }
 
@@ -175,6 +183,14 @@ public class BlockBOPSlab extends BlockHalfSlab
 
                 case 2:
                     resistance = 2.0F;
+                    break;
+					
+				case 3:
+                    resistance = 7.0F;
+                    break;
+                    
+                case 4:
+                    resistance = 7.5F;
                     break;
             }
         }

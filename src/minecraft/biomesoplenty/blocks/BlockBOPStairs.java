@@ -13,10 +13,10 @@ public class BlockBOPStairs extends BlockStairs
 {
     public static enum Category
     {
-      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, RED_COBBLE, RED_BRICKS, MUD_BRICKS;
+      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, RED_COBBLE, RED_BRICKS, MUD_BRICKS, HOLY_COBBLE, HOLY_BRICKS;
     }
     
-    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick"};
+    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
     private Icon[] textures;
     private final Category category;
 
