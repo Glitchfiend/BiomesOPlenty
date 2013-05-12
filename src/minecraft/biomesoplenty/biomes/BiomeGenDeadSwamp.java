@@ -9,7 +9,9 @@ import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenDeadTree;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -35,6 +37,7 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.waterColorMultiplier = 10661201;
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 
     /**

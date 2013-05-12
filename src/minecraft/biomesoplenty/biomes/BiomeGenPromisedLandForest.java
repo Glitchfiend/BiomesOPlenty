@@ -15,6 +15,7 @@ import biomesoplenty.worldgen.WorldGenWaterSpring;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -91,7 +92,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return BOPConfiguration.pLForestSkyColour;
+        return BOPConfiguration.promisedLandSkyColor;
 		}	
 		else
 		{

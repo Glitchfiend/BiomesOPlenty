@@ -14,8 +14,10 @@ import biomesoplenty.worldgen.WorldGenPromisedTree3;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -48,6 +50,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 4));
     }
 	
     /**
@@ -90,7 +93,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return BOPConfiguration.pLPlainsSkyColour;
+        return BOPConfiguration.promisedLandSkyColor;
 		}	
 		else
 		{

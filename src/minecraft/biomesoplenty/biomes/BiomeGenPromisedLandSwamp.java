@@ -12,8 +12,10 @@ import biomesoplenty.worldgen.WorldGenPromisedWillowTree;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenPromisedLandSwamp extends BiomeGenBase
@@ -47,6 +49,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.customBiomeDecorator.generateClouds = true;
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 10, 4, 4));
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
     }
@@ -91,7 +94,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return BOPConfiguration.pLSwampSkyColour;
+        return BOPConfiguration.promisedLandSkyColor;
 		}	
 		else
 		{

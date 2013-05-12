@@ -21,9 +21,7 @@ public class BOPConfiguration {
 	
 	public static int promisedLandDimID;
 	
-	public static int pLSwampSkyColour;
-	public static int pLPlainsSkyColour;
-	public static int pLForestSkyColour;
+	public static int promisedLandSkyColor;
 
 	public static boolean alpsGen;
 	public static boolean arcticGen;
@@ -422,12 +420,10 @@ public class BOPConfiguration {
 			if (villageDistance < 8)
 			    villageDistance = 8;
 			
-			//Sky colour
-			skyColors = config.get("Sky Colours", "Enable Sky Colours", true).getBoolean(false);
+			//Hard-Coded Colors
+			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
 			
-			pLSwampSkyColour = config.get("Sky Colours", "Promised Land Swamp Sky Colour", 50175, null).getInt();
-			pLPlainsSkyColour = config.get("Sky Colours", "Promised Land Plains Sky Colour", 50175, null).getInt();
-			pLForestSkyColour = config.get("Sky Colours", "Promised Land Forest Sky Colour", 50175, null).getInt();
+			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 50175, null).getInt();
 
 			//Biome generation
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);

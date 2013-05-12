@@ -156,9 +156,8 @@ public class BOPCrafting
 		
 		//Dart Blower
 		GameRegistry.addRecipe(new ItemStack(Items.dartBlower.get(), 1), new Object[] {"R R", "R R", "R R", Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});
-		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 0), new Object[] {"T", "R", Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 1), new Object[] {"P", "T", "R", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 1), new Object[] {" D ", "DPD", " D ", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('D'), new ItemStack(Items.dart.get(), 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 0), new Object[] {"T", "R", "F", Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8), Character.valueOf('F'), Item.feather});
+		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 1, 1), new Object[] {"P", "D", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('D'), new ItemStack(Items.dart.get(), 1, 0)});
         
         GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
         

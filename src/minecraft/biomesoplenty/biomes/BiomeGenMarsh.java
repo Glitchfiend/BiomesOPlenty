@@ -7,9 +7,11 @@ import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenMarsh;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -29,6 +31,7 @@ public class BiomeGenMarsh extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 65;
 		this.customBiomeDecorator.highGrassPerChunk = 25;
 		this.customBiomeDecorator.generatePumpkins = false;
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)
