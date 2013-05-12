@@ -813,7 +813,7 @@ public class BOPConfiguration {
 		}
 		finally 
 		{
-			config.save();
+			if (config.hasChanged()) config.save();
 		}
 	}
 }

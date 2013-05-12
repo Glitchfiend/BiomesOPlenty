@@ -139,23 +139,17 @@ public class BlockBOPSlab extends BlockHalfSlab
             switch (getTypeFromMeta(meta))
             {
                 case 0:
+                case 3:
                     hardness = 1.6F;
                     break;
                     
                 case 1:
+                case 4:
                     hardness = 1.1F;
                     break;
 
                 case 2:
                     hardness = 1.0F;
-                    break;
-					
-				case 3:
-                    hardness = 1.6F;
-                    break;
-                    
-                case 4:
-                    hardness = 1.1F;
                     break;
             }
         }
@@ -174,28 +168,27 @@ public class BlockBOPSlab extends BlockHalfSlab
             switch (getTypeFromMeta(meta))
             {
                 case 0:
+                case 3:
                     resistance = 7.0F;
                     break;
                     
                 case 1:
+                case 4:
                     resistance = 7.5F;
                     break;
 
                 case 2:
                     resistance = 2.0F;
                     break;
-					
-				case 3:
-                    resistance = 7.0F;
-                    break;
-                    
-                case 4:
-                    resistance = 7.5F;
-                    break;
             }
         }
 
         return resistance / 5.0F;
+    }
+    
+    public int idPicked(World par1World, int par2, int par3, int par4)
+    {
+        return !isDoubleSlab ? this.blockID : (this.blockID == Blocks.woodenDoubleSlab1.get().blockID ? Blocks.woodenSingleSlab1.get().blockID : (this.blockID == Blocks.woodenDoubleSlab2.get().blockID ? Blocks.woodenSingleSlab2.get().blockID : Blocks.stoneSingleSlab.get().blockID));
     }
     
     protected ItemStack createStackedBlock(int par1)

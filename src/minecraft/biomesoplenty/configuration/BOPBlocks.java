@@ -279,9 +279,13 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,2), "Mud Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,3), "Skystone Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,4), "Skystone Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,2), "Mud Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,3), "Skystone Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,4), "Skystone Bricks Slab");
         LanguageRegistry.addName(Blocks.mudBricksStairs.get(), "Mud Bricks Stairs");
         LanguageRegistry.addName(Blocks.originGrass.get(), "Origin Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,0), "Origin Leaves");
