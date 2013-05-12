@@ -319,14 +319,14 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
         LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
 //        LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
-        LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Holy Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Purified Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 1), "Smoldering Grass");
-		LanguageRegistry.addName(Blocks.holyDirt.get(), "Holy Dirt");
-        LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
+		LanguageRegistry.addName(Blocks.holyDirt.get(), "Purified Dirt");
+        LanguageRegistry.addName(Blocks.holyStone.get(), "Skystone");
 		LanguageRegistry.addName(Blocks.crystal.get(), "Celestial Crystal");
-        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Purified Tall Grass");
         LanguageRegistry.addName(Blocks.promisedPortal.get(), "Promised Land Portal");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Loftwood Sapling");
 //        LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
 //        LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
         LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(),1,0), "Amethyst Ore");
@@ -345,7 +345,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 2), "Dark Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 3), "Fir Wood Planks");
-        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 4), "Holy Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 4), "Loftwood Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 5), "Magic Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 6), "Mangrove Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 7), "Palm Wood Planks");
@@ -358,7 +358,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,2), "Dark Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,3), "Fir Wood");
         
-        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,0), "Holy Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,0), "Loftwood Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,1), "Magic Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,2), "Mangrove Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,3), "Palm Wood");
@@ -372,7 +372,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,1), "Cherry Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,2), "Dark Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,3), "Fir Wood Slab");
-        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4), "Loftwood Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,5), "Magic Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,6), "Mangrove Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,7), "Palm Wood Slab");
@@ -383,7 +383,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,1), "Cherry Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,2), "Dark Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,3), "Fir Wood Slab");
-        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,4), "Loftwood Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,5), "Magic Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,6), "Mangrove Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,7), "Palm Wood Slab");
@@ -394,7 +394,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.cherryStairs.get(), "Cherry Wood Stairs");
         LanguageRegistry.addName(Blocks.darkStairs.get(), "Dark Wood Stairs");
         LanguageRegistry.addName(Blocks.firStairs.get(), "Fir Wood Stairs");
-        LanguageRegistry.addName(Blocks.holyStairs.get(), "Holy Wood Stairs");
+        LanguageRegistry.addName(Blocks.holyStairs.get(), "Loftwood Wood Stairs");
         LanguageRegistry.addName(Blocks.magicStairs.get(), "Magic Wood Stairs");
         LanguageRegistry.addName(Blocks.mangroveStairs.get(), "Mangrove Wood Stairs");
         LanguageRegistry.addName(Blocks.palmStairs.get(), "Palm Wood Stairs");
@@ -408,7 +408,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,3), "Dark Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Holy Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Loftwood Leaves");
 	}
 
 	private static void addGrassPlants()
