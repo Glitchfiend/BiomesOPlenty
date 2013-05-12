@@ -34,7 +34,7 @@ public class EntityDart extends EntityArrow
     private boolean inGround = false;
     private int ticksInGround;
 	private int ticksInAir = 0;
-	private double damage = 0.5D;
+	private double damage = 0.1D;
 	
 	public EntityDart(World par1World)
 	{
