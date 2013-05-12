@@ -4,15 +4,15 @@
 
 - **Amnet** - "Foreign Affairs" - General, Technical, Mod Compatibility
 
-- **ted80** - "Biome Fanatic" - Biome Design, Biome Execution, General
+- **Forstride** - "World Painter" - Founder, Art, Biome Design, General
 
-- **Forstride** - "World Painter" - Art, Biome Design, Biome Execution, General
+- **ted80** - "Biome Fanatic" - Biome Execution, General
 
 ## Credits ##
  
-- **gamax92**
+- **gamax92** - Initial Forge Conversion
  
-- **enchilado**
+- **enchilado** - Mud Tool and Armour Textures
  
 - **Tim Rurkowski** - Music author
 

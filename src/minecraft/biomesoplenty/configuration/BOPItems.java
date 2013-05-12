@@ -146,7 +146,8 @@ public class BOPItems {
 	    LanguageRegistry.addName(Items.shroomPowder.get(), "Shroom Powder");
 	    LanguageRegistry.addName(Items.mudball.get(), "Mud Ball");
 		LanguageRegistry.addName(Items.dartBlower.get(), "Dart Blower");
-		LanguageRegistry.addName(Items.dart.get(), "Dart");
+		LanguageRegistry.addName(new ItemStack(Items.dart.get(), 1, 0), "Dart");
+		LanguageRegistry.addName(new ItemStack(Items.dart.get(), 1, 1), "Poison Dart");
         LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 0), "Mud Brick");
         LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 2), "Amethyst");
         LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 1), "Pile of Ashes");
