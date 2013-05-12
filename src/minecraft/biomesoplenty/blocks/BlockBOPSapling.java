@@ -78,7 +78,7 @@ public class BlockBOPSapling extends BlockSapling
         if (itemStack.itemID == this.blockID)
             switch (meta)
             {
-                case 7: // Holy
+                case 7: // Loftwood
                     return id == Blocks.holyGrass.get().blockID;
 
                 default:

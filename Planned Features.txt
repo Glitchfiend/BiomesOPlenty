@@ -1,37 +1,51 @@
-ITEMS:
-
-Dart Blower:		Used to shoot darts.  Crafted from reeds.  Allows for rapid firing of darts, but with half the uses of a bow.
-
-Dart:				Similar to arrows, but dealing less damage.  Poisons your hunger for 30 seconds.  Crafted from poison, thorns, and reeds.
-
----
-
 BLOCKS:
 
 Rock: 				Small rock that has a random size.  Uses the vanilla stone texture.
 
+Pinecone:			Pinecone that grows under spruce and fir leaves.  No use yet.
+
+Coconut:			Grows on palm trees.  Drops 2 coconut halves when broken with an axe.
+
+Berry Bush:			Drops a berry when broken or right clicked.
+
+Glowshroom:			Appears in the Mystic Grove and Fungi Forest, both above and below ground.
+
 ---
 
-PROMISED LAND BIOMES:
+ITEMS:
 
-Wonderous Woods:  	The current Promised Land biome, with lots of trees and shrubs.
+Coconut Halves:		Coconuts drop 2 when broken with an axe.  Restores 2 hunger points each.
 
-Blessed Bog:		Tall willow trees over an area with lots of water ponds.
+Berry:				Dropped from berry bushes.  Restores 1/2 a hunger point.
 
-Purified Plain:		Only tall grass and flowers.
-
-Majestic Mountain: 	No trees, minimal tall grass, and [hopefully] tall mountains.
-
-Divine Desert:		Holy Sand, big/tiny cacti, yucca plants.
+Cherry:				Dropped from cherry tree leaves when broken or right clicked.
 
 ---
 
 NETHER BIOMES:
 
-Undergarden:		Ivy, nether wart, giant/small mushrooms, hellstem plant.
+Undergarden:		Bramble, nether wart, giant/small mushrooms, hellstem plant.
 
 Deathly Desert:		Soulsand, thorns, dead bushes.
 
 Lethal Lavafalls:	Lots of lavafalls and lava ponds.
 
-Glowpines:			A forest with pine trees made of glowstone.
+Glowpines:			A forest with pine trees made of glowstone hanging from the ceiling, with some scattered on the surface.
+
+---
+
+OCEAN BIOMES:
+
+Coral Reef:			Different types of coral, with reef stone on the ocean floor.
+
+Kelp Forest:		Lots and lots of kelp with varying heights.
+
+---
+
+UNDERGROUND BIOMES (If possible):
+
+Crystal Caverns:	Purple, translucent crystals growing around the cavern.
+
+Flooded Caverns:	Lots of water springs and ponds.
+
+Overgrown Caverns:	Vines hanging from the ceiling, small shrubs, and lots of mushrooms.

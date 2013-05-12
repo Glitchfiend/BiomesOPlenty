@@ -106,7 +106,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return BOPConfiguration.pLPlainsSkyColour;
+        return BOPConfiguration.promisedLandSkyColor;
 		}	
 		else
 		{

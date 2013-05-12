@@ -17,8 +17,8 @@ public class BiomeGenBadlands extends BiomeGenBase
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.topBlock = (byte)Block.sandStone.blockID;
-        this.fillerBlock = (byte)Blocks.hardSand.get().blockID;
+        this.topBlock = (byte)Blocks.hardSand.get().blockID;
+        this.fillerBlock = (byte)Block.blockClay.blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
         this.customBiomeDecorator.treesPerChunk = -999;
@@ -37,7 +37,7 @@ public class BiomeGenBadlands extends BiomeGenBase
     {
 		if (BOPConfiguration.skyColors = true)
 		{
-        return 13421723;
+        return 9814727;
 		}	
 		else
 		{

@@ -7,8 +7,10 @@ import biomesoplenty.worldgen.WorldGenTaiga5;
 import biomesoplenty.worldgen.WorldGenWillow;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -41,6 +43,7 @@ public class BiomeGenWetland extends BiomeGenBase
 		this.customBiomeDecorator.portobellosPerChunk = 1;
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 		this.waterColorMultiplier = 6512772;
     }
 

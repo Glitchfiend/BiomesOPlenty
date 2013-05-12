@@ -3,7 +3,9 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
@@ -29,6 +31,7 @@ public class BiomeGenQuagmire extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk2 = -999;
         this.waterColorMultiplier = 13390080;
 		this.customBiomeDecorator.generateQuagmire = true;
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 	
     /**

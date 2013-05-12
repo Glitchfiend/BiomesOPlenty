@@ -25,6 +25,7 @@ import biomesoplenty.blocks.BlockBOPPlank;
 import biomesoplenty.blocks.BlockBOPPlant;
 import biomesoplenty.blocks.BlockBOPRedRock;
 import biomesoplenty.blocks.BlockBOPSapling;
+import biomesoplenty.blocks.BlockBOPSkystone;
 import biomesoplenty.blocks.BlockBOPSlab;
 import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs;
@@ -54,6 +55,7 @@ import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
 import biomesoplenty.items.ItemBOPRedRock;
 import biomesoplenty.items.ItemBOPSapling;
+import biomesoplenty.items.ItemBOPSkystone;
 import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPWillow;
 
@@ -125,7 +127,9 @@ public class BOPBlocks {
         Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardDirtID, Material.rock, BlockType.HARD_DIRT));
         Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.holyGrassID).setUnlocalizedName("holyGrass"));
 		Blocks.holyDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyDirtID, Material.sand, BlockType.HOLY_DIRT));
-        Blocks.holyStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyStoneID, Material.rock, BlockType.HOLY_STONE));
+        Blocks.holyStone = Optional.of((new BlockBOPSkystone(BOPConfiguration.holyStoneID)).setUnlocalizedName("holyStone"));
+		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setUnlocalizedName("holyCobbleStairs"));
+        Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setUnlocalizedName("holyBricksStairs"));
 		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.crystalID, Material.glass, BlockType.CRYSTAL));
         Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
 //        Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
@@ -194,7 +198,9 @@ public class BOPBlocks {
 //        GameRegistry.registerBlock(Blocks.holyGrass.get(), "holyGrass");
         GameRegistry.registerBlock(Blocks.holyGrass.get(), ItemBOPGrass.class, "holyGrass");
 		GameRegistry.registerBlock(Blocks.holyDirt.get(), "holyDirt");
-        GameRegistry.registerBlock(Blocks.holyStone.get(), "holyStone");
+        GameRegistry.registerBlock(Blocks.holyStone.get(), ItemBOPSkystone.class, "holyStone");
+		GameRegistry.registerBlock(Blocks.holyCobbleStairs.get(), "holyCobbleStairs");
+        GameRegistry.registerBlock(Blocks.holyBricksStairs.get(), "holyBricksStairs");
         GameRegistry.registerBlock(Blocks.promisedPortal.get(), "promisedPortal");
         GameRegistry.registerBlock(Blocks.amethystOre.get(), ItemBOPAmethyst.class, "amethystOre");
 //        GameRegistry.registerBlock(Blocks.amethystBlock.get(), "amethystBlock");
@@ -273,9 +279,13 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,2), "Mud Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,3), "Skystone Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,4), "Skystone Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,1), "Red Rock Bricks Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,2), "Mud Bricks Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,3), "Skystone Cobblestone Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.stoneSingleSlab.get(),1,4), "Skystone Bricks Slab");
         LanguageRegistry.addName(Blocks.mudBricksStairs.get(), "Mud Bricks Stairs");
         LanguageRegistry.addName(Blocks.originGrass.get(), "Origin Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,0), "Origin Leaves");
@@ -319,14 +329,18 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
         LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
 //        LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
-        LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Holy Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Purified Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 1), "Smoldering Grass");
-		LanguageRegistry.addName(Blocks.holyDirt.get(), "Holy Dirt");
-        LanguageRegistry.addName(Blocks.holyStone.get(), "Holy Stone");
+		LanguageRegistry.addName(Blocks.holyDirt.get(), "Purified Dirt");
+        LanguageRegistry.addName(new ItemStack(Blocks.holyStone.get(),1,0), "Skystone");
+		LanguageRegistry.addName(new ItemStack(Blocks.holyStone.get(),1,1), "Skystone Cobblestone");
+        LanguageRegistry.addName(Blocks.holyCobbleStairs.get(), "Skystone Cobblestone Stairs");
+        LanguageRegistry.addName(new ItemStack(Blocks.holyStone.get(),1,2), "Skystone Bricks");
+        LanguageRegistry.addName(Blocks.holyBricksStairs.get(), "Skystone Bricks Stairs");
 		LanguageRegistry.addName(Blocks.crystal.get(), "Celestial Crystal");
-        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Holy Tall Grass");
+        LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,4), "Purified Tall Grass");
         LanguageRegistry.addName(Blocks.promisedPortal.get(), "Promised Land Portal");
-        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Holy Sapling");
+        LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,7), "Loftwood Sapling");
 //        LanguageRegistry.addName(Blocks.amethystOre.get(), "Amethyst Ore");
 //        LanguageRegistry.addName(Blocks.amethystBlock.get(), "Block of Amethyst");
         LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(),1,0), "Amethyst Ore");
@@ -345,7 +359,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 2), "Dark Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 3), "Fir Wood Planks");
-        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 4), "Holy Wood Planks");
+        LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 4), "Loftwood Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 5), "Magic Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 6), "Mangrove Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 7), "Palm Wood Planks");
@@ -358,7 +372,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,2), "Dark Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs1.get(),1,3), "Fir Wood");
         
-        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,0), "Holy Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,0), "Loftwood Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,1), "Magic Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,2), "Mangrove Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs2.get(),1,3), "Palm Wood");
@@ -372,7 +386,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,1), "Cherry Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,2), "Dark Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,3), "Fir Wood Slab");
-        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4), "Loftwood Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,5), "Magic Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,6), "Mangrove Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,7), "Palm Wood Slab");
@@ -383,7 +397,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,1), "Cherry Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,2), "Dark Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,3), "Fir Wood Slab");
-        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,4), "Holy Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,4), "Loftwood Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,5), "Magic Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,6), "Mangrove Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,7), "Palm Wood Slab");
@@ -394,7 +408,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.cherryStairs.get(), "Cherry Wood Stairs");
         LanguageRegistry.addName(Blocks.darkStairs.get(), "Dark Wood Stairs");
         LanguageRegistry.addName(Blocks.firStairs.get(), "Fir Wood Stairs");
-        LanguageRegistry.addName(Blocks.holyStairs.get(), "Holy Wood Stairs");
+        LanguageRegistry.addName(Blocks.holyStairs.get(), "Loftwood Wood Stairs");
         LanguageRegistry.addName(Blocks.magicStairs.get(), "Magic Wood Stairs");
         LanguageRegistry.addName(Blocks.mangroveStairs.get(), "Mangrove Wood Stairs");
         LanguageRegistry.addName(Blocks.palmStairs.get(), "Palm Wood Stairs");
@@ -408,7 +422,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,3), "Dark Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Holy Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Loftwood Leaves");
 	}
 
 	private static void addGrassPlants()

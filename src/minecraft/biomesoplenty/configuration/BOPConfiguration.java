@@ -21,9 +21,7 @@ public class BOPConfiguration {
 	
 	public static int promisedLandDimID;
 	
-	public static int pLSwampSkyColour;
-	public static int pLPlainsSkyColour;
-	public static int pLForestSkyColour;
+	public static int promisedLandSkyColor;
 
 	public static boolean alpsGen;
 	public static boolean arcticGen;
@@ -147,6 +145,8 @@ public class BOPConfiguration {
 	public static int colourizedSaplingsID;
 	public static int redCobbleStairsID;
 	public static int redBrickStairsID;
+	public static int holyCobbleStairsID;
+	public static int holyBrickStairsID;
 	
 	public static int promisedLandPortalID;
 	public static int amethystOreID;
@@ -422,12 +422,10 @@ public class BOPConfiguration {
 			if (villageDistance < 8)
 			    villageDistance = 8;
 			
-			//Sky colour
-			skyColors = config.get("Sky Colours", "Enable Sky Colours", true).getBoolean(false);
+			//Hard-Coded Colors
+			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
 			
-			pLSwampSkyColour = config.get("Sky Colours", "Promised Land Swamp Sky Colour", 50175, null).getInt();
-			pLPlainsSkyColour = config.get("Sky Colours", "Promised Land Plains Sky Colour", 50175, null).getInt();
-			pLForestSkyColour = config.get("Sky Colours", "Promised Land Forest Sky Colour", 50175, null).getInt();
+			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 50175, null).getInt();
 
 			//Biome generation
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
@@ -607,7 +605,7 @@ public class BOPConfiguration {
 			hardDirtID = config.getTerrainBlock("Terrain Block IDs", "Hard Dirt ID", 168, null).getInt();
 			holyGrassID = config.getTerrainBlock("Terrain Block IDs", "Holy Grass ID", 169, null).getInt();
 			holyDirtID = config.getTerrainBlock("Terrain Block IDs", "Holy Dirt ID", 170, null).getInt();
-			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Holy Stone ID", 171, null).getInt();
+			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Skystone ID", 171, null).getInt();
 			cragRockID = config.getTerrainBlock("Terrain Block IDs", "Crag Rock ID", 172, null).getInt();
 
 			// Get Crafted Block ID's
@@ -664,6 +662,9 @@ public class BOPConfiguration {
 			
 			crystalID = config.getBlock("Crystal ID", 1963, null).getInt();
 			cloudID = config.getBlock("Cloud ID", 1964, null).getInt();
+			
+			holyCobbleStairsID = config.getBlock("Skystone Cobble Stairs ID", 1965, null).getInt();
+			holyBrickStairsID = config.getBlock("Skystone Brick Stairs ID", 1966, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
@@ -812,7 +813,7 @@ public class BOPConfiguration {
 		}
 		finally 
 		{
-			config.save();
+			if (config.hasChanged()) config.save();
 		}
 	}
 }

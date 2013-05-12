@@ -43,6 +43,12 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 2), new Object[] {"RRR", 'R', Blocks.mudBrick.get()});
         GameRegistry.addRecipe(new ItemStack(Blocks.mudBricksStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', Blocks.mudBrick.get()});
         GameRegistry.addRecipe(new ItemStack(Blocks.mudBricksStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', Blocks.mudBrick.get()});
+		GameRegistry.addRecipe(new ItemStack(Blocks.holyCobbleStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.holyStone.get(),1,1)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.holyCobbleStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.holyStone.get(),1,1)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.holyBricksStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.holyStone.get(),1,2)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.holyBricksStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.holyStone.get(),1,2)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 3), new Object[] {"RRR", 'R', new ItemStack(Blocks.holyStone.get(),1,1)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 4), new Object[] {"RRR", 'R', new ItemStack(Blocks.holyStone.get(),1,2)});
         
         //Redwood
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 8), new Object[] {new ItemStack(Blocks.logs3.get(),1,0)});
@@ -105,6 +111,7 @@ public class BOPCrafting
         GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.woodenDoubleSlab1.get(),1,4)});
         
         GameRegistry.addRecipe(new ItemStack(Blocks.redRock.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.redRock.get(),1,0)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.holyStone.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.holyStone.get(),1,0)});
         
         GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
         GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
@@ -156,9 +163,8 @@ public class BOPCrafting
 		
 		//Dart Blower
 		GameRegistry.addRecipe(new ItemStack(Items.dartBlower.get(), 1), new Object[] {"R R", "R R", "R R", Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});
-		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 0), new Object[] {"T", "R", Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 1), new Object[] {"P", "T", "R", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 1), new Object[] {" D ", "DPD", " D ", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('D'), new ItemStack(Items.dart.get(), 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 0), new Object[] {"T", "R", "F", Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8), Character.valueOf('F'), Item.feather});
+		GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 1, 1), new Object[] {"P", "D", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('D'), new ItemStack(Items.dart.get(), 1, 0)});
         
         GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
         

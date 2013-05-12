@@ -13,10 +13,10 @@ public class BlockBOPStairs extends BlockStairs
 {
     public static enum Category
     {
-      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, RED_COBBLE, RED_BRICKS, MUD_BRICKS;
+      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, RED_COBBLE, RED_BRICKS, MUD_BRICKS, HOLY_COBBLE, HOLY_BRICKS;
     }
     
-    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick"};
+    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
     private Icon[] textures;
     private final Category category;
 
@@ -35,7 +35,7 @@ public class BlockBOPStairs extends BlockStairs
         textures = new Icon[types.length];
         
         for (int i = 0; i < types.length; ++i)
-            if (i < types.length - 3)
+            if (i < types.length - 5)
                 textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+types[i]);
             else
                 textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]);

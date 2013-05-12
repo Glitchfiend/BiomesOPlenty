@@ -1248,13 +1248,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     {
         for (int var5 = 0; var5 < par1; ++var5)
         {
-            int var6 = this.chunk_X + this.randomGenerator.nextInt(16);
+            int var6 = this.chunk_X + this.randomGenerator.nextInt(8);
             int var7 = this.randomGenerator.nextInt(par4 - par3) + par3;
-            int var8 = this.chunk_Z + this.randomGenerator.nextInt(16);
+            int var8 = this.chunk_Z + this.randomGenerator.nextInt(8);
 			int var999 = this.randomGenerator.nextInt(5);
 			if (var999 == 0)
 			{
 				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6, var7, var8);
+				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6 + 8, var7, var8);
 				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6, var7, var8 + 8);
 				par2WorldGenerator.generate(this.currentWorld, this.randomGenerator, var6 + 8, var7, var8 + 8);
 			}

@@ -9,8 +9,10 @@ import biomesoplenty.worldgen.WorldGenBayou2;
 import biomesoplenty.worldgen.WorldGenBayou3;
 import biomesoplenty.worldgen.WorldGenMoss;
 
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenBayou extends BiomeGenBase
@@ -39,6 +41,7 @@ public class BiomeGenBayou extends BiomeGenBase
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.waterColorMultiplier = 16767282;
         this.spawnableWaterCreatureList.clear();
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 	
     /**

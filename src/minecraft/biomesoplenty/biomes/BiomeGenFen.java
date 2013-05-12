@@ -10,9 +10,11 @@ import biomesoplenty.worldgen.WorldGenFen2;
 import biomesoplenty.worldgen.WorldGenMoss;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -41,6 +43,7 @@ public class BiomeGenFen extends BiomeGenBase
 		this.customBiomeDecorator.reedsBOPPerChunk = 5;
 		this.customBiomeDecorator.algaePerChunk = 1;
 		this.customBiomeDecorator.portobellosPerChunk = 1;
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 	
     /**
