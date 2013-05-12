@@ -42,16 +42,13 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.2")
+@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.3")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {	    
-	//The rudder moves when I turn the wheel
-	// The instance of your mod that Forge uses.
 	@Instance("BiomesOPlenty")
 	public static BiomesOPlenty instance;
 
-	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide="biomesoplenty.ClientProxy", serverSide="biomesoplenty.CommonProxy")
 	public static CommonProxy proxy;
 

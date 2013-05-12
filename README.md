@@ -1,14 +1,14 @@
 ## Authors 
 
-- **Adubbz** - Madman
+- **Adubbz** - "Madman" - General, Technical, Mod Compatibility
 
-- **Amnet** - Foreign Affairs
+- **Amnet** - "Foreign Affairs" - General, Technical, Mod Compatibility
 
-- **ted80** - Biome Fanatic
+- **ted80** - "Biome Fanatic" - Biome Design, Biome Execution, General
+
+- **Forstride** - "World Painter" - Art, Biome Design, Biome Execution, General
 
 ## Credits ##
-
-- **Forstride** - Original creator
  
 - **gamax92**
  
@@ -59,6 +59,37 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 
 
 ## Changelog ##
+	  Version 0.5.3 (Unreleased)
+	- Added reeds
+	- Added 2 new mushrooms (Portobello and Blue Milk Cap)
+	- Adjusted and fixed mod compatibility with Thermal Expansion
+	- Adjusted hitboxes for some flowers
+	- Added poison ivy
+	- Changed default distance between villages
+	- Tweaked the Fungi Forest
+	- Fixed High Grass generation in the Marsh
+	- Removed Barley from blacksmith chests
+	- Added white dandelions
+	- Improved Redwood Forest Biome and thin Redwood tree generation
+	- Replaced the old Ice Sheet Biome with a Polar biome
+	- Added random offset for foliage
+	- Renamed Yucca to Aloe
+	- Changed the moss texture
+	- Added the dart blower
+	- Fixed a few crafting recipes
+	- Added a new Promised Land generator
+	- Added Promised Land Sub-Biomes
+	- Adjusted which plants grow from bonemeal
+	- Made the Promised Lands use holy stone
+	- Adjusted Amethyst Ore texture
+	- Added hippy flower bands
+	- Added cloud blocks
+	- Redwood trees now require a 3x3 of redwood saplings
+	- Tweaked spider spawn weights in the Ominous Woods
+	- Added big tree variants of the red and orange trees to the Seasonal Forest
+	- Made the sky colour of the Promised Lands configurable
+	- Added Celestial Crystal
+
       Version 0.5.2 '05-05-13'
     - Added an API for other mod developers
     - Added support for Biomes O Plenty woods in Thermal Expansion sawmills
