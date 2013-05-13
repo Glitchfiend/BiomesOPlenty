@@ -35,6 +35,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 		this.customBiomeDecorator.sproutsPerChunk = 3;
 		this.customBiomeDecorator.hydrangeasPerChunk = 3;
 		this.customBiomeDecorator.blueMilksPerChunk = 4;
+		this.customBiomeDecorator.glowshroomsPerChunk = 2;
         this.waterColorMultiplier = 15349914;
 		this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();

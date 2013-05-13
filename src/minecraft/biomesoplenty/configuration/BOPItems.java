@@ -156,6 +156,8 @@ public class BOPItems {
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 5), "Blue Dye");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 6), "Brown Dye");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 7), "Green Dye");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 8), "White Dye");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 9), "Black Dye");
         
         LanguageRegistry.addName(Items.pickaxeMud.get(), "Muddy Pickaxe");
         LanguageRegistry.addName(Items.axeMud.get(), "Muddy Axe");

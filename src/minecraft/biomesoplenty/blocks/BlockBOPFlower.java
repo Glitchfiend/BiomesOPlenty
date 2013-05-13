@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BlockFlower
 {
-    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "aloe", "portobello", "bluemilk", "dandelion"};
+    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "toadstool", "cactus", "aloe", "portobello", "bluemilk", "dandelion", "glowshroom"};
     private Icon[] textures;
     
     protected BlockBOPFlower(int blockID, Material material)
@@ -68,6 +68,8 @@ public class BlockBOPFlower extends BlockFlower
         int meta = world.getBlockMetadata(x, y, z);
         if (meta == 3)
             return 9;
+		if (meta == 16)
+            return 6;
         else
             return 0;
     }
@@ -143,6 +145,8 @@ public class BlockBOPFlower extends BlockFlower
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID | id == Blocks.holyGrass.get().blockID;
 		if (metadata == 14) //Blue Milk Cap
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+		if (metadata == 16) //Glowshroom
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID;
     	else
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
     }
@@ -174,6 +178,9 @@ public class BlockBOPFlower extends BlockFlower
 					
 				case 14: // Blue Milk Cap
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+					
+				case 16: // Glowshroom
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID;
 
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;

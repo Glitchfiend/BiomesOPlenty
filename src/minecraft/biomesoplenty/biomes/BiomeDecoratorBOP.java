@@ -168,6 +168,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator toadstoolGen;
 	protected WorldGenerator portobelloGen;
 	protected WorldGenerator blueMilkGen;
+	protected WorldGenerator glowshroomGen;
     protected WorldGenerator highGrassGen;
     protected WorldGenerator carrotGen;
     protected WorldGenerator potatoGen;
@@ -243,6 +244,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected int toadstoolsPerChunk;
 	protected int portobellosPerChunk;
 	protected int blueMilksPerChunk;
+	protected int glowshroomsPerChunk;
     protected int sproutsPerChunk;
     protected int bushesPerChunk;
 	protected int tinyCactiPerChunk;
@@ -402,6 +404,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.toadstoolGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 10);
 		this.portobelloGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 13);
 		this.blueMilkGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 14);
+		this.glowshroomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 16);
         this.sproutGen = new WorldGenSprout(Blocks.foliage.get().blockID, 5);
         this.highGrassGen = new WorldGenHighGrass(Blocks.foliage.get().blockID, 3);
 		this.highCattailGen = new WorldGenHighCattail(Blocks.plants.get().blockID, 9);
@@ -455,6 +458,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.toadstoolsPerChunk = 0;
 		this.portobellosPerChunk = 0;
 		this.blueMilksPerChunk = 0;
+		this.glowshroomsPerChunk = 0;
         this.sproutsPerChunk = 0;
         this.bushesPerChunk = 0;
 		this.tinyCactiPerChunk = 0;
@@ -937,6 +941,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.blueMilkGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.glowshroomsPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(80);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.glowshroomGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 
         for (var2 = 0; var2 < this.sproutsPerChunk; ++var2)

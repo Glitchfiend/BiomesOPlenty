@@ -39,6 +39,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
 		this.customBiomeDecorator.toadstoolsPerChunk = 5;
 		this.customBiomeDecorator.portobellosPerChunk = 7;
 		this.customBiomeDecorator.blueMilksPerChunk = 4;
+		this.customBiomeDecorator.glowshroomsPerChunk = 2;
         this.customBiomeDecorator.blueFlowersPerChunk = 3;
 		this.customBiomeDecorator.cattailsPerChunk = 1;
 		this.customBiomeDecorator.highCattailsPerChunk = 2;

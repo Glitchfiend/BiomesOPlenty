@@ -120,6 +120,7 @@ public class BlockReferences {
 		portobello (Blocks.flowers, 13),
 		bluemilk (Blocks.flowers, 14),
 		dandelion (Blocks.flowers, 15),
+		glowshroom (Blocks.flowers, 16),
 		holyTallGrass (Blocks.plants, 4),
 		desertSprouts (Blocks.plants, 2),
 		duneGrass (Blocks.plants, 3),
