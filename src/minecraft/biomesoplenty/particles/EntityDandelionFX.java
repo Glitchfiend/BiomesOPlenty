@@ -29,50 +29,45 @@ public class EntityDandelionFX extends EntityFX {
 		this.particleMaxAge = (int)((float)this.particleMaxAge * par8);
 		this.noClip = false;
 		
-        this.setParticleTextureIndex(0);
+	    this.setSize(0.01F, 0.01F);
+	}
+	
+	@Override
+	public int getFXLayer()
+	{
+		return 1;
+	}
+	
+	@Override
+	public void setParticleTextureIndex(int par1)
+	{
 	}
 
-	public void renderParticle(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5)
+	@Override
+	public void setParticleIcon(RenderEngine par1RenderEngine, Icon par2Icon)
+	{
+	}
+
+	@Override
+    public void renderParticle(Tessellator par1Tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
 	{	
-        tessellator.draw();
-        GL11.glPushMatrix();
-
-        GL11.glDepthMask(false);
-        GL11.glEnable(3042);
-        GL11.glBlendFunc(770, blendmode);
-
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
-
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-
-        float f10 = 0.1F * particleScale;
-        float f11 = (float) ((prevPosX + (posX - prevPosX) * f) - interpPosX);
-        float f12 = (float) ((prevPosY + (posY - prevPosY) * f) - interpPosY);
-        float f13 = (float) ((prevPosZ + (posZ - prevPosZ) * f) - interpPosZ);
-
-        // GL11.glRotatef(this.rand.nextFloat(), 0.0F, 1.0F, 0.0F);
-        tessellator.startDrawingQuads();
-        tessellator.setBrightness(0x0000f0);
-
-        tessellator.setColorRGBA_F(particleRed, particleGreen, particleBlue, 1.0F);
-        tessellator.addVertexWithUV(f11 - f1 * f10 - f4 * f10, f12 - f2 * f10, f13 - f3 * f10 - f5 * f10, 0, 1);
-        tessellator.addVertexWithUV((f11 - f1 * f10) + f4 * f10, f12 + f2 * f10, (f13 - f3 * f10) + f5 * f10, 1, 1);
-        tessellator.addVertexWithUV(f11 + f1 * f10 + f4 * f10, f12 + f2 * f10, f13 + f3 * f10 + f5 * f10, 1, 0);
-        tessellator.addVertexWithUV((f11 + f1 * f10) - f4 * f10, f12 - f2 * f10, (f13 + f3 * f10) - f5 * f10, 0, 0);
-
-        tessellator.draw();
-
-        GL11.glDisable(3042);
-        GL11.glDepthMask(true);
-
-        GL11.glPopMatrix();
-        GL11.glBindTexture(3553 /* GL_TEXTURE_2D *//* GL_TEXTURE_2D */, GL11.GL_TEXTURE_2D);
-        tessellator.startDrawingQuads();
+	    FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
+	    float sizeFactor = 0.1F * this.particleScale;
+	    float var13 = (float)(this.prevPosX + (this.posX - this.prevPosX) * par2 - EntityFX.interpPosX);
+	    float var14 = (float)(this.prevPosY + (this.posY - this.prevPosY) * par2 - EntityFX.interpPosY);
+	    float var15 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * par2 - EntityFX.interpPosZ);
+	    float var16 = 1.2F - (float)Math.random() * 0.5F;
+	    par1Tessellator.setColorRGBA_F(this.particleRed * var16, this.particleGreen * var16, this.particleBlue * var16, 1.0F);
+	    par1Tessellator.addVertexWithUV(var13 - par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 - par5 * sizeFactor - par7 * sizeFactor, 0.0D, 1.0D);
+	    par1Tessellator.addVertexWithUV(var13 - par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 - par5 * sizeFactor + par7 * sizeFactor, 1.0D, 1.0D);
+	    par1Tessellator.addVertexWithUV(var13 + par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 + par5 * sizeFactor + par7 * sizeFactor, 1.0D, 0.0D);
+	    par1Tessellator.addVertexWithUV(var13 + par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 + par5 * sizeFactor - par7 * sizeFactor, 0.0D, 0.0D);
 	}
 
 	/**
 	 * Called to update the entity's position/logic.
 	 */
+	@Override
 	 public void onUpdate()
 	{
 		this.prevPosX = this.posX;
