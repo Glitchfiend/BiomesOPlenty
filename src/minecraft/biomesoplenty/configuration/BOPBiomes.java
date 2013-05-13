@@ -1081,8 +1081,8 @@ public class BOPBiomes {
 	
 	private static void addVillageBiome(Optional<? extends BiomeGenBase> biome, boolean flag)
 	{
-		if (biome.isPresent())
-			BiomeManager.addVillageBiome(biome.get(), flag);
+		if (biome.isPresent() && flag)
+			BiomeManager.addVillageBiome(biome.get(), true);
 	}
 	
 	private static void addStrongholdBiome(Optional<? extends BiomeGenBase> biome)
