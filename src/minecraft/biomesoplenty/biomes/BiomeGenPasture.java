@@ -22,6 +22,7 @@ public class BiomeGenPasture extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = 0;
         this.customBiomeDecorator.grassPerChunk = 999;
         this.customBiomeDecorator.flowersPerChunk = -999;
+		this.spawnableCreatureList.clear();
     }
 	
     /**

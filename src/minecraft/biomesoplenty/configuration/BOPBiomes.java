@@ -109,7 +109,7 @@ public class BOPBiomes {
         Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfiguration.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
         Biomes.originValley = Optional.of((new BiomeGenOriginValley(BOPConfiguration.originValleyID)).setColor(353825).setBiomeName("Origin Valley").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(-0.1F, 0.6F));
         Biomes.outback = Optional.of((new BiomeGenOutback(BOPConfiguration.outbackID)).setColor(9286496).setBiomeName("Outback").setTemperatureRainfall(0.8F, 0.0F).setMinMaxHeight(0.1F, 0.1F));
-        Biomes.pasture = Optional.of((new BiomeGenPasture(BOPConfiguration.pastureID)).setColor(9286496).setBiomeName("Pasture").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.1F, 0.2F));
+        Biomes.pasture = Optional.of((new BiomeGenPasture(BOPConfiguration.pastureID)).setColor(9286496).setBiomeName("Pasture").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.1F, 0.1F));
         Biomes.polar = Optional.of((new BiomeGenPolar(BOPConfiguration.polarID)).setColor(6316128).setBiomeName("Polar").setMinMaxHeight(-0.5F, 0.0F).setTemperatureRainfall(0.2F, 0.8F));
         Biomes.prairie = Optional.of((new BiomeGenPrairie(BOPConfiguration.prairieID)).setColor(353825).setBiomeName("Prairie").func_76733_a(5159473).setTemperatureRainfall(0.9F, 0.6F).setMinMaxHeight(0.1F, 0.1F));
         Biomes.promisedLandForest = Optional.of((new BiomeGenPromisedLandForest(BOPConfiguration.promisedLandForestID)).setColor(112).setBiomeName("Wonderous Woods").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));

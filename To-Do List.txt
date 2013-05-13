@@ -2,8 +2,6 @@
  - Fix poison darts applying the poison effect.
  - Try to fix Promised Land lag.
  - Add Acacia trees from BWG4.
- - Fix villages generating in biomes that have the option set to false.
  - Add cooked portobellos.
- - Give Barley a render method with a random offset.
  - Give waterlilies a proper render method and hitbox.
  - Add sunflowers.

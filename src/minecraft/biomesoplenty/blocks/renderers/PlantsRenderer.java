@@ -62,8 +62,8 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
         long i1 = (long)(par2 * 3129871) ^ (long)par4 * 116129781L ^ (long)par3;
         
         i1 = i1 * i1 * 42317861L + i1 * 11L;
-        d0 += ((double)((float)(i1 >> 16 & 15L) / 15.0F) - 0.5D) * 0.5D;
-        d2 += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D;
+        d0 += ((double)((float)(i1 >> 16 & 15L) / 15.0F) - 0.5D) * 0.125D;
+        d2 += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * 0.125D;
         
         renderer.renderBlockCropsImpl(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, (double)((float)par3 - 0.0625F), d2);
         return true;
