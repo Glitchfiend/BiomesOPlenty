@@ -51,6 +51,7 @@ import biomesoplenty.items.ItemBOPLeaves;
 import biomesoplenty.items.ItemBOPLog;
 import biomesoplenty.items.ItemBOPMoss;
 import biomesoplenty.items.ItemBOPMud;
+import biomesoplenty.items.ItemBOPMushroom;
 import biomesoplenty.items.ItemBOPPetals;
 import biomesoplenty.items.ItemBOPPlank;
 import biomesoplenty.items.ItemBOPPlant;
@@ -174,7 +175,7 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.ash.get(), "ash");
         GameRegistry.registerBlock(Blocks.plants.get(), ItemBOPPlant.class, "plants");
         GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
-		GameRegistry.registerBlock(Blocks.mushrooms.get(), ItemBOPFlower.class, "mushrooms");
+		GameRegistry.registerBlock(Blocks.mushrooms.get(), ItemBOPMushroom.class, "mushrooms");
         GameRegistry.registerBlock(Blocks.willow.get(), ItemBOPWillow.class, "willow");
         GameRegistry.registerBlock(Blocks.leaves1.get(), ItemBOPLeaves.class, "leaves1");
         GameRegistry.registerBlock(Blocks.leaves2.get(), ItemBOPLeaves.class, "leaves2");

@@ -59,16 +59,14 @@ public class BlockBOPMushroom extends BlockFlower
     
     public int getRenderType ()
     {
-        return FoliageRenderer.render;
+        return 1;
     }
     
     @Override
     public int getLightValue(IBlockAccess world, int x, int y, int z)
     {
         int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 3)
-            return 9;
-		if (meta == 16)
+		if (meta == 3)
             return 6;
         else
             return 0;

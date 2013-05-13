@@ -68,8 +68,6 @@ public class BlockBOPFlower extends BlockFlower
         int meta = world.getBlockMetadata(x, y, z);
         if (meta == 3)
             return 9;
-		if (meta == 16)
-            return 6;
         else
             return 0;
     }
