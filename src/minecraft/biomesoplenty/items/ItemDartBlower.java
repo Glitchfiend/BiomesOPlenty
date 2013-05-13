@@ -45,9 +45,9 @@ public class ItemDartBlower extends Item
 
             if (!par2World.isRemote)
             	if (par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.dart.get().itemID, 1, 0)))
-                    par2World.spawnEntityInWorld(new EntityDart(par2World, par3EntityPlayer, 2.0F));
+                    par2World.spawnEntityInWorld(new EntityDart(par2World, par3EntityPlayer, 1.0F));
             	else
-                    par2World.spawnEntityInWorld(new EntityPoisonDart(par2World, par3EntityPlayer, 2.0F));
+                    par2World.spawnEntityInWorld(new EntityPoisonDart(par2World, par3EntityPlayer, 1.0F));
         }
 
         return itemStack;

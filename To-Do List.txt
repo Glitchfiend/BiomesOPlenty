@@ -1,5 +1,5 @@
+ - Redo the Promised Land portal, allowing for multiple portals.
  - Fix darts moving too fast and doing too much damage.
- - Fix poison darts applying the poison effect.
  - Try to fix Promised Land lag.
  - Add Acacia trees from BWG4.
  - Add cooked portobellos.
