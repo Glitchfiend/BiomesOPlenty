@@ -32,6 +32,10 @@ public class BOPCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 12), new Object[] {new ItemStack(Blocks.flowers.get(),1,4)});
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 5), new Object[] {new ItemStack(Blocks.flowers.get(),1,8)});
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 8), new Object[] {new ItemStack(Items.miscItems.get(), 1, 1)});
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 5), new Object[] {new ItemStack(Blocks.flowers.get(),1,14)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 6), new Object[] {new ItemStack(Items.mudball.get(),1,0)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 7), new Object[] {new ItemStack(Blocks.moss.get(),1,0)});
 
         //Brick stairs and slabs
         GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 0), new Object[] {"RRR", 'R', new ItemStack(Blocks.redRock.get(),1,1)});
@@ -199,6 +203,10 @@ public class BOPCrafting
         
         OreDictionary.registerOre("stickWood", new ItemStack(Blocks.bamboo.get()));
 		OreDictionary.registerOre("stickWood", new ItemStack(Blocks.plants.get(), 1, 8));
+		
+		OreDictionary.registerOre("dyeBlue", new ItemStack(Items.miscItems.get(), 1, 5));
+		OreDictionary.registerOre("dyeBrown", new ItemStack(Items.miscItems.get(), 1, 6));
+		OreDictionary.registerOre("dyeGreen", new ItemStack(Items.miscItems.get(), 1, 7));
         
         OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));

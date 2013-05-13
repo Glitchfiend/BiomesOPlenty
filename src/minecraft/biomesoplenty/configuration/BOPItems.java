@@ -153,6 +153,9 @@ public class BOPItems {
         LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 1), "Pile of Ashes");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 3), "Poison");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 4), "Celestial Crystal Shard");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 5), "Blue Dye");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 6), "Brown Dye");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 7), "Green Dye");
         
         LanguageRegistry.addName(Items.pickaxeMud.get(), "Muddy Pickaxe");
         LanguageRegistry.addName(Items.axeMud.get(), "Muddy Axe");
