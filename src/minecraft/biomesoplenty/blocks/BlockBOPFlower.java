@@ -89,6 +89,10 @@ public class BlockBOPFlower extends BlockFlower
             case 6:
                 this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
                 break;
+				
+			case 10:
+                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
+                break;
                 
             case 11:
                 this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
@@ -125,6 +129,8 @@ public class BlockBOPFlower extends BlockFlower
     {
 		if (metadata == 6) //Tulip
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
+		if (metadata == 10) //Lily Flower
+    		return id == Block.waterlily.blockID;
     	if (metadata == 11) //Cactus
     		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID;
     	if (metadata == 12) //Yucca
@@ -145,6 +151,9 @@ public class BlockBOPFlower extends BlockFlower
             {
 				case 6: // Tulip
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
+					
+				case 10: // Lily Flower
+                    return id == Block.waterlily.blockID;
                     
                 case 11: // Cactus
                     return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
