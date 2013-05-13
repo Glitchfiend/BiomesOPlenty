@@ -1,51 +1,53 @@
 BLOCKS:
 
-Rock: 				Small rock that has a random size.  Uses the vanilla stone texture.
+Rock: 						Small rock that has a random size.  Uses the vanilla stone texture.
 
-Pinecone:			Pinecone that grows under spruce and fir leaves.  No use yet.
+Pinecone:					Pinecone that grows under spruce and fir leaves.  No use yet.
 
-Coconut:			Grows on palm trees.  Drops 2 coconut halves when broken with an axe.
+Coconut:					Grows on palm trees.  Drops 2 coconut halves when broken with an axe.
 
-Berry Bush:			Drops a berry when broken or right clicked.
+Berry Bush:					Drops a berry when broken or right clicked.
 
-Glowshroom:			Appears in the Mystic Grove and Fungi Forest, both above and below ground.
+Glowshroom:					Appears in the Mystic Grove and Fungi Forest, both above and below ground.
 
 ---
 
 ITEMS:
 
-Coconut Halves:		Coconuts drop 2 when broken with an axe.  Restores 2 hunger points each.
+Coconut Halves:				Coconuts drop 2 when broken with an axe.  Restores 2 hunger points each.
 
-Berry:				Dropped from berry bushes.  Restores 1/2 a hunger point.
+Berry:						Dropped from berry bushes.  Restores 1/2 a hunger point.
 
-Cherry:				Dropped from cherry tree leaves when broken or right clicked.
+Cherry:						Dropped from cherry tree leaves when broken or right clicked.
 
 ---
 
 NETHER BIOMES:
 
-Undergarden:		Bramble, nether wart, giant/small mushrooms, hellstem plant.
+Undergarden:				Bramble, nether wart, giant/small mushrooms, hellstem plant, glowpines.
 
-Deathly Desert:		Soulsand, thorns, dead bushes.
+Corrupted Sands:			Soulsand, thorns, dead bushes.
 
-Lethal Lavafalls:	Lots of lavafalls and lava ponds.
+Phantasmagoric Inferno:		Lots of lavafalls and lava ponds.
 
-Glowpines:			A forest with pine trees made of glowstone hanging from the ceiling, with some scattered on the surface.
+Aphotic Abyss:				Large, empty pits that go into the void.  Lots of mobs will spawn here.
+
+Parasitic Heap:				A living, breathing biome where a parasitic block slowly engulfs netherrack.
 
 ---
 
 OCEAN BIOMES:
 
-Coral Reef:			Different types of coral, with reef stone on the ocean floor.
+Coral Reef:					Different types of coral, with reef stone on the ocean floor.
 
-Kelp Forest:		Lots and lots of kelp with varying heights.
+Kelp Forest:				Lots and lots of kelp with varying heights.
 
 ---
 
 UNDERGROUND BIOMES (If possible):
 
-Crystal Caverns:	Purple, translucent crystals growing around the cavern.
+Crystal Caverns:			Purple, translucent crystals growing around the cavern.
 
-Flooded Caverns:	Lots of water springs and ponds.
+Flooded Caverns:			Lots of water springs and ponds.
 
-Overgrown Caverns:	Vines hanging from the ceiling, small shrubs, and lots of mushrooms.
+Overgrown Caverns:			Vines hanging from the ceiling, small shrubs, and lots of mushrooms.

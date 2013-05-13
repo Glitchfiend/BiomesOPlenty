@@ -98,7 +98,7 @@ public class WorldGenApple extends WorldGenerator
 									
 									if (var99 == 0)
 										{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 3);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 1);
 										}
 									else
 										{
