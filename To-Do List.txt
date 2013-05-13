@@ -6,3 +6,5 @@
  - Add cooked portobellos.
  - Move mushrooms to their own class.
  - Give Barley a render method with a random offset.
+ - Give waterlilies a proper render method and hitbox.
+ - Add sunflowers.
