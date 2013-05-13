@@ -1,5 +1,7 @@
 package biomesoplenty.particles;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
@@ -9,8 +11,9 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class EntityDandelionFX extends EntityFX {
-
-	float reddustParticleScale;
+	
+    public int blendmode = 1;
+    private static final String texture = "/mods/BiomesOPlenty/textures/particles/dandelion.png";
 
 	public EntityDandelionFX(World par1World, double par2, double par4, double par6, float par8)
 	{
@@ -22,52 +25,49 @@ public class EntityDandelionFX extends EntityFX {
 		float f4 = (float)Math.random() * 0.4F + 0.6F;
 		this.particleScale *= 0.75F;
 		this.particleScale *= par8;
-		this.reddustParticleScale = this.particleScale;
 		this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
 		this.particleMaxAge = (int)((float)this.particleMaxAge * par8);
 		this.noClip = false;
 		
-		this.particleTextureIndexX = 0;
-		this.particleTextureIndexY = 0;
-	}
-	
-	@Override
-	public int getFXLayer()
-	{
-		return 1;
-	}
-	
-	@Override
-	public void setParticleTextureIndex(int par1)
-	{
+        this.setParticleTextureIndex(0);
 	}
 
-	@Override
-	public void setParticleIcon(RenderEngine par1RenderEngine, Icon par2Icon)
-	{		
-		final String[] textures = new String[] {"/mods/BiomesOPlenty/textures/particles/dandelion.png"};
-		
-        Icon[] icon = new Icon[textures.length];
-        par2Icon = icon[0];
-		//Icon = par1RenderEngine.bindTexture("/mods/BiomesOPlenty/textures/particles/dandelion.png");
-	}
-
-	public void renderParticle(Tessellator par1Tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
+	public void renderParticle(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5)
 	{	
-		float f6 = ((float)this.particleAge + par2) / (float)this.particleMaxAge * 32.0F;
+        tessellator.draw();
+        GL11.glPushMatrix();
 
-		if (f6 < 0.0F)
-		{
-			f6 = 0.0F;
-		}
+        GL11.glDepthMask(false);
+        GL11.glEnable(3042);
+        GL11.glBlendFunc(770, blendmode);
 
-		if (f6 > 1.0F)
-		{
-			f6 = 1.0F;
-		}
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 
-		this.particleScale = this.reddustParticleScale * f6;
-		super.renderParticle(par1Tessellator, par2, par3, par4, par5, par6, par7);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+
+        float f10 = 0.1F * particleScale;
+        float f11 = (float) ((prevPosX + (posX - prevPosX) * f) - interpPosX);
+        float f12 = (float) ((prevPosY + (posY - prevPosY) * f) - interpPosY);
+        float f13 = (float) ((prevPosZ + (posZ - prevPosZ) * f) - interpPosZ);
+
+        // GL11.glRotatef(this.rand.nextFloat(), 0.0F, 1.0F, 0.0F);
+        tessellator.startDrawingQuads();
+        tessellator.setBrightness(0x0000f0);
+
+        tessellator.setColorRGBA_F(particleRed, particleGreen, particleBlue, 1.0F);
+        tessellator.addVertexWithUV(f11 - f1 * f10 - f4 * f10, f12 - f2 * f10, f13 - f3 * f10 - f5 * f10, 0, 1);
+        tessellator.addVertexWithUV((f11 - f1 * f10) + f4 * f10, f12 + f2 * f10, (f13 - f3 * f10) + f5 * f10, 1, 1);
+        tessellator.addVertexWithUV(f11 + f1 * f10 + f4 * f10, f12 + f2 * f10, f13 + f3 * f10 + f5 * f10, 1, 0);
+        tessellator.addVertexWithUV((f11 + f1 * f10) - f4 * f10, f12 - f2 * f10, (f13 + f3 * f10) - f5 * f10, 0, 0);
+
+        tessellator.draw();
+
+        GL11.glDisable(3042);
+        GL11.glDepthMask(true);
+
+        GL11.glPopMatrix();
+        GL11.glBindTexture(3553 /* GL_TEXTURE_2D *//* GL_TEXTURE_2D */, GL11.GL_TEXTURE_2D);
+        tessellator.startDrawingQuads();
 	}
 
 	/**
@@ -84,7 +84,6 @@ public class EntityDandelionFX extends EntityFX {
 			this.setDead();
 		}
 
-		this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
 		this.moveEntity(this.motionX, this.motionY, this.motionZ);
 
 		if (this.posY == this.prevPosY)
