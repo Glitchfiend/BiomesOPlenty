@@ -29,31 +29,21 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 	}
-
+	
 	@Override
-	public void spawnMud(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
+	public void spawnParticle(String string, double x, double y, double z)
 	{
         EntityFX entityfx = null;
         
-        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
-		mc.effectRenderer.addEffect(entityfx);
+         if (string == "mud")
+             entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
+         else if (string == "dart")
+             entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
+         else if (string == "dandelion")
+             entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 1.0F);
+         
+ 		mc.effectRenderer.addEffect(entityfx);
 	} 
-	
-	@Override
-	public void spawnDart(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
-	{
-        EntityFX entityfx = null;
-        
-        entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
-		mc.effectRenderer.addEffect(entityfx);
-	}   
-	
-	@Override
-	public void spawnDandelion(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
-	{   
-        EntityDandelionFX entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 1.0F);
-		mc.effectRenderer.addEffect(entityfx);
-	}   
 
 	@Override
 	public int addArmor(String armor)

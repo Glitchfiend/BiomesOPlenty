@@ -1,5 +1,8 @@
 package biomesoplenty;
 
+import biomesoplenty.api.Items;
+import net.minecraft.client.particle.EntityBreakingFX;
+import net.minecraft.client.particle.EntityFX;
 import net.minecraft.world.World;
 
 public class CommonProxy {
@@ -17,19 +20,8 @@ public class CommonProxy {
     {
         return 0;
     }
-
-    public void spawnMud(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
-    {
-
-    }  
     
-    public void spawnDart(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
-    {
-
-    }   
-    
-    public void spawnDandelion(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
-    {
-
-    }   
+	public void spawnParticle(String string, double x, double y, double z)
+	{
+	}
 }
