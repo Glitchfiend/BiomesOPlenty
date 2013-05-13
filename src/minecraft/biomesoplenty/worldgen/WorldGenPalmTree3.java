@@ -30,50 +30,176 @@ public class WorldGenPalmTree3 extends WorldGenerator
             {
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
-                    if (var1.isAirBlock(var3 + var7, var4 - 1, var5 + var8) && var1.isAirBlock(var3 + var7, var4 - 2, var5 + var8))
+                    if (var1.isAirBlock(var3 + var7, var4 - 1, var5 + var8) && var1.isAirBlock(var3 + var7, var4 - 2, var5 + var8) && !var1.isAirBlock(var3 + var7, var4, var5 + var8))
                     {
                         return false;
                     }
                 }
             }
-
-            var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-            var1.setBlock(var3, var4 + 1, var5, Blocks.logs2.get().blockID, 3, 2);
-            var1.setBlock(var3, var4 + 2, var5, Blocks.logs2.get().blockID, 3, 2);
-            var1.setBlock(var3, var4 + 3, var5, Blocks.logs2.get().blockID, 3, 2);
-            var1.setBlock(var3, var4 + 4, var5, Blocks.logs2.get().blockID, 3, 2);
-            var1.setBlock(var3, var4 + 5, var5, Blocks.logs2.get().blockID, 3, 2);
-            var1.setBlock(var3, var4 + 6, var5, Blocks.logs2.get().blockID, 3, 2);
-			var1.setBlock(var3, var4 + 7, var5, Blocks.logs2.get().blockID, 3, 2);
-			var1.setBlock(var3, var4 + 8, var5, Blocks.logs2.get().blockID, 3, 2);
 			
-			var1.setBlock(var3 - 2, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 2, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3, var4 + 7, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3, var4 + 7, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+			int var99 = var2.nextInt(4);
 			
-			var1.setBlock(var3 - 1, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 1, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3, var4 + 8, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3, var4 + 8, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+			if (var99 == 0)
+			{
+				var1.setBlock(var3, var4, var5, Block.dirt.blockID);
+				var1.setBlock(var3, var4 + 1, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 2, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 3, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 4, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 + 1, var4 + 5, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 + 1, var4 + 6, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 + 2, var4 + 7, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5, Blocks.logs2.get().blockID, 3, 2);
+				
+				var1.setBlock(var3, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 4, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 7, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 7, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+		
+				var1.setBlock(var3 + 1, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 3, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 4, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 4, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 + 1, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 3, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 3, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 + 2, var4 + 9, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 4, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 10, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 10, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+			}
+				
+			if (var99 == 1)
+			{
+				var1.setBlock(var3, var4, var5, Block.dirt.blockID);
+				var1.setBlock(var3, var4 + 1, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 2, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 3, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 4, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 - 1, var4 + 5, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 - 1, var4 + 6, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 - 2, var4 + 7, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3 - 2, var4 + 8, var5, Blocks.logs2.get().blockID, 3, 2);
+				
+				var1.setBlock(var3 - 4, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 7, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 7, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 3, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 1, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 8, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 8, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 4, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 4, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 3, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 1, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 3, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 1, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 9, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 4, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 10, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 10, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+			}
 			
-			var1.setBlock(var3 - 2, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 2, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 - 2, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 2, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+			if (var99 == 2)
+			{
+				var1.setBlock(var3, var4, var5, Block.dirt.blockID);
+				var1.setBlock(var3, var4 + 1, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 2, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 3, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 4, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 5, var5 + 1, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 6, var5 + 1, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 7, var5 + 2, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 8, var5 + 2, Blocks.logs2.get().blockID, 3, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 7, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 7, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 7, var5 + 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 1, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 8, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 + 3, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 8, var5 + 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5 + 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 1, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 1, var4 + 9, var5 + 3, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 9, var5 + 3, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3, var4 + 9, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 10, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 10, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 10, var5 + 4, Blocks.leavesColorized.get().blockID, 2, 2);
+			}
 			
-			var1.setBlock(var3 - 1, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 1, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 - 1, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 1, var4 + 9, var5 + 1, Blocks.leavesColorized.get().blockID, 2, 2);
+			if (var99 == 3)
+			{
+				var1.setBlock(var3, var4, var5, Block.dirt.blockID);
+				var1.setBlock(var3, var4 + 1, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 2, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 3, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 4, var5, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 5, var5 - 1, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 6, var5 - 1, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 7, var5 - 2, Blocks.logs2.get().blockID, 3, 2);
+				var1.setBlock(var3, var4 + 8, var5 - 2, Blocks.logs2.get().blockID, 3, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 7, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 7, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 7, var5 - 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 7, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 1, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 8, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 - 3, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 8, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 8, var5 - 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5 - 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 2, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 8, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 1, var4 + 9, var5 - 3, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 9, var5 - 3, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 - 1, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 1, var4 + 9, var5 - 1, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3, var4 + 9, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				
+				var1.setBlock(var3 - 2, var4 + 10, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3 + 2, var4 + 10, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 10, var5 - 4, Blocks.leavesColorized.get().blockID, 2, 2);
+				var1.setBlock(var3, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
+			}
 			
-            var1.setBlock(var3, var4 + 9, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			
-			var1.setBlock(var3 - 2, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3 + 2, var4 + 10, var5, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3, var4 + 10, var5 - 2, Blocks.leavesColorized.get().blockID, 2, 2);
-			var1.setBlock(var3, var4 + 10, var5 + 2, Blocks.leavesColorized.get().blockID, 2, 2);
-            return true;
+			return true;
         }
     }
 }
