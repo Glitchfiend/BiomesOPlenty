@@ -122,6 +122,7 @@ public class BOPConfiguration {
 
 	public static int plantsID;
 	public static int flowersID;
+	public static int mushroomsID;
 	public static int willowID;
 	
 	public static int leaves1ID;
@@ -665,6 +666,8 @@ public class BOPConfiguration {
 			
 			holyCobbleStairsID = config.getBlock("Skystone Cobble Stairs ID", 1965, null).getInt();
 			holyBrickStairsID = config.getBlock("Skystone Brick Stairs ID", 1966, null).getInt();
+			
+			mushroomsID = config.getBlock("Mushroom ID", 1967, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

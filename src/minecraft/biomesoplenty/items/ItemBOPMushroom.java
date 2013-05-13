@@ -8,11 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class ItemBOPFlower extends ItemBlock
+public class ItemBOPMushroom extends ItemBlock
 {
-    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "cactus", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
+    private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom"};
     
-    public ItemBOPFlower(int par1)
+    public ItemBOPMushroom(int par1)
     {
         super(par1);
         setMaxDamage(0);

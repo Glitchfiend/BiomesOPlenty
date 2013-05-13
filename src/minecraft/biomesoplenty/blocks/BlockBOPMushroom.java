@@ -20,21 +20,21 @@ import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower extends BlockFlower
+public class BlockBOPMushroom extends BlockFlower
 {
-    private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "cactus", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
+    private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom"};
     private Icon[] textures;
     
-    protected BlockBOPFlower(int blockID, Material material)
+    protected BlockBOPMushroom(int blockID, Material material)
     {
         super(blockID, material);
         this.setTickRandomly(true);
         float var4 = 0.2F;
-        this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+        this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
-    public BlockBOPFlower(int blockID)
+    public BlockBOPMushroom(int blockID)
     {
         this(blockID, Material.plants);
     }
@@ -79,35 +79,15 @@ public class BlockBOPFlower extends BlockFlower
         int meta = world.getBlockMetadata(par2, par3, par4);
         
         switch (meta)
-        {
+        {         
             case 0:
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
-                break;
-                
-            case 5:
-                this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.8F, 0.7F);
-                break;
-                
-            case 6:
-                this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
-                break;
-                
-            case 11:
                 this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
                 break;
                 
             default:
-                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+                this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
                 break;
         }
-    }
-    
-    @Override
-    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
-    {
-        int meta = world.getBlockMetadata(x, y, z);
-        if (meta == 11)
-            entity.attackEntityFrom(DamageSource.cactus, 1);
     }
     
     @Override
@@ -120,19 +100,21 @@ public class BlockBOPFlower extends BlockFlower
     
     protected boolean canThisPlantGrowOnThisBlockID(int id)
     {
-        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID;
+        return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
     }
     
     protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
     {
-		if (metadata == 6) //Tulip
-    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
-    	if (metadata == 11) //Cactus
-    		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID;
-    	if (metadata == 12) //Yucca
-    		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+    	if (metadata == 0) //Toadstool
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+		if (metadata == 1) //Portobello
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID | id == Blocks.holyGrass.get().blockID;
+		if (metadata == 2) //Blue Milk Cap
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+		if (metadata == 3) //Glowshroom
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID;
     	else
-    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
     }
     
     @Override
@@ -145,17 +127,20 @@ public class BlockBOPFlower extends BlockFlower
         if (itemStack.itemID == this.blockID)
             switch (meta)
             {
-				case 6: // Tulip
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
-                    
-                case 11: // Cactus
-                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+                case 0: // Toadstool
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 					
-				case 12: // Yucca
-                    return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+				case 1: // Portobello
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+					
+				case 2: // Blue Milk Cap
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+					
+				case 3: // Glowshroom
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID;
 
                 default:
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
             }
         else
             return this.canPlaceBlockOnSide(world, x, y, z, side);

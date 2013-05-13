@@ -20,6 +20,7 @@ import biomesoplenty.blocks.BlockBOPLeaves;
 import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
 import biomesoplenty.blocks.BlockBOPLog;
 import biomesoplenty.blocks.BlockBOPLog.LogCategory;
+import biomesoplenty.blocks.BlockBOPMushroom;
 import biomesoplenty.blocks.BlockBOPPetals;
 import biomesoplenty.blocks.BlockBOPPlank;
 import biomesoplenty.blocks.BlockBOPPlant;
@@ -101,6 +102,7 @@ public class BOPBlocks {
         Blocks.ash = Optional.of((new BlockAsh(BOPConfiguration.ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("ash"));
         Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfiguration.plantsID)).setUnlocalizedName("plants"));
         Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfiguration.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("flowers"));
+		Blocks.mushrooms = Optional.of((new BlockBOPMushroom(BOPConfiguration.mushroomsID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mushrooms"));
         Blocks.willow = Optional.of((new BlockWillow(BOPConfiguration.willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("willow"));
         Blocks.leaves1 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves1ID, LeafCategory.CAT1)).setUnlocalizedName("leaves1"));
         Blocks.leaves2 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves2ID, LeafCategory.CAT2)).setUnlocalizedName("leaves2"));
@@ -172,6 +174,7 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.ash.get(), "ash");
         GameRegistry.registerBlock(Blocks.plants.get(), ItemBOPPlant.class, "plants");
         GameRegistry.registerBlock(Blocks.flowers.get(), ItemBOPFlower.class, "flowers");
+		GameRegistry.registerBlock(Blocks.mushrooms.get(), ItemBOPFlower.class, "mushrooms");
         GameRegistry.registerBlock(Blocks.willow.get(), ItemBOPWillow.class, "willow");
         GameRegistry.registerBlock(Blocks.leaves1.get(), ItemBOPLeaves.class, "leaves1");
         GameRegistry.registerBlock(Blocks.leaves2.get(), ItemBOPLeaves.class, "leaves2");
@@ -258,7 +261,6 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.willow.get(), "Willow");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,0), "Yellow Autumn Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
-        LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Toadstool");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "High Grass");
         LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
         LanguageRegistry.addName(Blocks.hardIce.get(), "Hard Ice");
@@ -297,10 +299,13 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,11), "Tiny Cactus");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,12), "Aloe");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,13), "Portobello");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,14), "Blue Milk Cap");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,15), "Dandelion");
-		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,16), "Glowshroom");
+		
+		LanguageRegistry.addName(new ItemStack(Blocks.mushrooms.get(),1,0), "Toadstool");
+		LanguageRegistry.addName(new ItemStack(Blocks.mushrooms.get(),1,1), "Portobello");
+		LanguageRegistry.addName(new ItemStack(Blocks.mushrooms.get(),1,2), "Blue Milk Cap");
+		LanguageRegistry.addName(new ItemStack(Blocks.mushrooms.get(),1,3), "Glowshroom");
+		
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Fir Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,2), "Palm Sapling");

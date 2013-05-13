@@ -31,10 +31,10 @@ public class BOPCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 7), new Object[] {new ItemStack(Blocks.flowers.get(),1,15)});
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 12), new Object[] {new ItemStack(Blocks.flowers.get(),1,4)});
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 5), new Object[] {new ItemStack(Blocks.flowers.get(),1,8)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 10), new Object[] {new ItemStack(Blocks.flowers.get(),1,16)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 10), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,3)});
         GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 8), new Object[] {new ItemStack(Items.miscItems.get(), 1, 1)});
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 5), new Object[] {new ItemStack(Blocks.flowers.get(),1,14)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 5), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,2)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 6), new Object[] {new ItemStack(Blocks.plants.get(),1,7)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 7), new Object[] {new ItemStack(Blocks.moss.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 8), new Object[] {new ItemStack(Blocks.flowers.get(),1,9)});
@@ -179,7 +179,7 @@ public class BOPCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 1)});
         
         //Plants
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.flowers.get(),1,10)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 1, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
     }
     

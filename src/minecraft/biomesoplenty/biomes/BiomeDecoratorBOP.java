@@ -401,10 +401,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.crystalGen2 = new WorldGenCrystal2();
         this.mushroomBrownGen = new WorldGenBOPFlowers(Block.mushroomBrown.blockID, 0);
         this.mushroomRedGen = new WorldGenBOPFlowers(Block.mushroomRed.blockID, 0);
-        this.toadstoolGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 10);
-		this.portobelloGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 13);
-		this.blueMilkGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 14);
-		this.glowshroomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 16);
+        this.toadstoolGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 0);
+		this.portobelloGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 1);
+		this.blueMilkGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 2);
+		this.glowshroomGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 3);
         this.sproutGen = new WorldGenSprout(Blocks.foliage.get().blockID, 5);
         this.highGrassGen = new WorldGenHighGrass(Blocks.foliage.get().blockID, 3);
 		this.highCattailGen = new WorldGenHighCattail(Blocks.plants.get().blockID, 9);
