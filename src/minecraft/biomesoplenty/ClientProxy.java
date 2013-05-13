@@ -12,6 +12,7 @@ import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.EntityPoisonDart;
 import biomesoplenty.items.projectiles.RenderDart;
+import biomesoplenty.particles.EntityDandelionFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -44,6 +45,13 @@ public class ClientProxy extends CommonProxy {
         EntityFX entityfx = null;
         
         entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
+		mc.effectRenderer.addEffect(entityfx);
+	}   
+	
+	@Override
+	public void spawnDandelion(World world, double x, double y, double z, double xVel, double yVel, double zVel) 
+	{   
+        EntityDandelionFX entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 1.0F);
 		mc.effectRenderer.addEffect(entityfx);
 	}   
 
