@@ -231,7 +231,7 @@ public class EntityDart extends EntityArrow
                     
         			for (int p = 0; i < 16; ++i)
         			{
-        				BiomesOPlenty.proxy.spawnParticle("dandelion", this.posX, this.posY, this.posZ);
+        				BiomesOPlenty.proxy.spawnParticle("dart", this.posX, this.posY, this.posZ);
         			}
                     
                     this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));

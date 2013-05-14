@@ -1,8 +1,12 @@
 package biomesoplenty.items;
 
+import biomesoplenty.BiomesOPlenty;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -37,6 +41,46 @@ public class ItemBOPFlower extends ItemBlock
         return Block.blocksList[this.itemID].getIcon(0, meta);
     }
     
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D()
+    {
+        return true;
+    }
+    
+    @Override
+    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    {
+    	if (par1ItemStack.getItemDamage() == 15)
+    		return EnumAction.block;
+    	else
+    		return null;
+    }
+    
+    @Override
+    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    {
+        return 72000;
+    }
+    
+    @Override
+    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+    {
+    	if (par1ItemStack.getItemDamage() == 15) {
+    		double x = par3EntityPlayer.posX;
+    		double y = par3EntityPlayer.posY;
+    		double z = par3EntityPlayer.posZ;
+    		
+			for (int p = 0; p < 20; ++p)
+			{
+				BiomesOPlenty.proxy.spawnParticle("dandelion", x, y, z);
+			};
+    		
+    		par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+    	}
+        return par1ItemStack;
+    }
+
+    
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
@@ -64,7 +108,7 @@ public class ItemBOPFlower extends ItemBlock
             if (side == 5)
                 ++x;
         }
-
+        
         if (!player.canPlayerEdit(x, y, z, side, itemStack))
         {
             return false;

@@ -5,3 +5,4 @@
  - Add cooked portobellos.
  - Give waterlilies a proper render method and hitbox.
  - Add sunflowers.
+ - Reduce excessive amounts of mobs in the Promised Lands.
