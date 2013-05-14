@@ -4,6 +4,7 @@ import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
@@ -15,7 +16,10 @@ import net.minecraft.world.World;
 public class ItemBOPFlower extends ItemBlock
 {
     private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "cactus", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
-    
+    @SideOnly(Side.CLIENT)
+    private Icon[] textures;    
+	private static final int SUNFLOWERTOP = 14;
+
     public ItemBOPFlower(int par1)
     {
         super(par1);
@@ -28,17 +32,28 @@ public class ItemBOPFlower extends ItemBlock
     {
         return meta & 15;
     }
+	
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister)
+    {
+        textures = new Icon[1];
+
+        textures[0] = iconRegister.registerIcon("BiomesOPlenty:item_sunflower");
+    }
     
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
         return (new StringBuilder()).append(plants[itemStack.getItemDamage()]).toString();
     }
-    
+	
     @Override
     public Icon getIconFromDamage(int meta)
     {
-        return Block.blocksList[this.itemID].getIcon(0, meta);
+        if (meta == 13)
+            return textures[0];
+        else
+            return Block.blocksList[this.itemID].getIcon(0, meta);
     }
     
     @SideOnly(Side.CLIENT)
@@ -126,6 +141,9 @@ public class ItemBOPFlower extends ItemBlock
 
                 if (world.setBlock(x, y, z, this.getBlockID(), itemStack.getItemDamage(), 3))
                 {
+					if (itemStack.getItemDamage() == 13 && world.getBlockMaterial(x, y + 1, z).isReplaceable())
+                        world.setBlock(x, y + 1, z, this.getBlockID(), SUNFLOWERTOP, 2);
+				
                     if (world.getBlockId(x, y, z) == this.getBlockID())
                     {
                         Block.blocksList[this.getBlockID()].onBlockPlacedBy(world, x, y, z, player, itemStack);

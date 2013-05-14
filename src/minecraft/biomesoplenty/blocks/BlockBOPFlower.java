@@ -1,5 +1,6 @@
 package biomesoplenty.blocks;
 
+import java.util.Random;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -24,6 +25,9 @@ public class BlockBOPFlower extends BlockFlower
 {
     private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "cactus", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
     private Icon[] textures;
+	
+	private static final int SUNFLOWERTOP = 14;
+    private static final int SUNFLOWERBOTTOM = 13;
     
     protected BlockBOPFlower(int blockID, Material material)
     {
@@ -117,7 +121,12 @@ public class BlockBOPFlower extends BlockFlower
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < plants.length; ++i)
-            list.add(new ItemStack(blockID, 1, i));
+		{
+			if (i != 14)
+			{
+				list.add(new ItemStack(blockID, 1, i));
+			}
+		}
     }
     
     protected boolean canThisPlantGrowOnThisBlockID(int id)
@@ -133,8 +142,10 @@ public class BlockBOPFlower extends BlockFlower
     		return id == Block.waterlily.blockID;
     	if (metadata == 11) //Cactus
     		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID;
-    	if (metadata == 12) //Yucca
+    	if (metadata == 12) //Aloe
     		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+		if (metadata == 14) //Sunflower Top
+    		return id == this.blockID;
     	else
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
     }
@@ -158,8 +169,11 @@ public class BlockBOPFlower extends BlockFlower
                 case 11: // Cactus
                     return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 					
-				case 12: // Yucca
+				case 12: // Aloe
                     return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+					
+				case 14: // Sunflower Top
+                    return id == this.blockID;
 
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
@@ -167,7 +181,49 @@ public class BlockBOPFlower extends BlockFlower
         else
             return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
+	
+    @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+    {
+        super.onNeighborBlockChange(world, x, y, z, neighborID);
+        this.checkFlowerChange(world, x, y, z);
+        if (world.getBlockMetadata(x, y, z) == SUNFLOWERTOP && world.getBlockId(x, y - 1, z) == this.blockID && world.getBlockMetadata(x, y - 1, z) != SUNFLOWERBOTTOM)
+                world.setBlockToAir(x, y, z);
+        //if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
+    	//	world.setBlock(x, y, z, this.blockID, 7, 2);
+    }
     
+    @Override
+    public int getDamageValue(World world, int x, int y, int z)
+    {
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta == SUNFLOWERTOP)
+            meta = 13;
+        return meta;
+    }	
+	
+    @Override
+    public int damageDropped(int meta)
+    {
+    	if (meta == 14)
+		{
+    		return 13 & 15;
+		}
+    	else
+		{
+    		return meta & 15;
+		}
+    }
+	
+    @Override
+    public int quantityDropped(int meta, int fortune, Random random)
+    {
+        if (meta == 13)
+            return 0;
+        else
+            return 1;
+    }
+	
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
@@ -177,11 +233,5 @@ public class BlockBOPFlower extends BlockFlower
         else
         return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-    }
-    
-    @Override
-    public int damageDropped(int meta)
-    {
-        return meta & 15;
     }
 }

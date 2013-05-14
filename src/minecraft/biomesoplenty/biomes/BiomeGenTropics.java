@@ -29,6 +29,7 @@ public class BiomeGenTropics extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk2 = 50;
         this.customBiomeDecorator.orangeFlowersPerChunk = 10;
 		this.customBiomeDecorator.whiteFlowersPerChunk = 4;
+		this.customBiomeDecorator.sunflowersPerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
         this.spawnableCreatureList.clear();
