@@ -10,6 +10,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class ItemBOPFlower extends ItemBlock
@@ -66,16 +67,17 @@ public class ItemBOPFlower extends ItemBlock
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
     	if (par1ItemStack.getItemDamage() == 15) {
-    		double x = par3EntityPlayer.posX;
-    		double y = par3EntityPlayer.posY;
-    		double z = par3EntityPlayer.posZ;
+    		Vec3 vec = par3EntityPlayer.getLookVec();
     		
 			for (int p = 0; p < 20; ++p)
 			{
-				BiomesOPlenty.proxy.spawnParticle("dandelion", x, y, z);
+				BiomesOPlenty.proxy.spawnParticle("dandelion", par3EntityPlayer.posX + vec.xCoord, par3EntityPlayer.posY + vec.yCoord + par3EntityPlayer.getEyeHeight(), par3EntityPlayer.posZ + vec.zCoord);
 			};
     		
-    		par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
+
+			if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote)
+				--par1ItemStack.stackSize;
     	}
         return par1ItemStack;
     }
