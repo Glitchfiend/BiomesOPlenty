@@ -2,17 +2,15 @@ package biomesoplenty.helpers;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
+import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
-import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class AchievementHelper
@@ -102,7 +100,7 @@ public class AchievementHelper
             {
                 player.addStat(achMud, 1);
             }
-            if (item.itemID == Blocks.flowers.get().blockID && item.getItemDamage() == 10)
+            if (item.itemID == Blocks.mushrooms.get().blockID && item.getItemDamage() == 0)
             {
                 player.addStat(achShroom, 1);
             }
@@ -115,6 +113,9 @@ public class AchievementHelper
                 player.addStat(achMoss, 1);
             }
         }
+        
+        if (item.itemID == Blocks.logs1.get().blockID || item.itemID == Blocks.logs2.get().blockID || (item.itemID == Blocks.logs3.get().blockID && item.getItemDamage() < 3))
+            player.addStat(AchievementList.mineWood, 1);
     }
     
     private static void addAchievementDesc(String ach, String name, String desc)
