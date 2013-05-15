@@ -42,9 +42,64 @@ public class WorldGenAcacia extends WorldGenerator
         this.vinesGrow = par5;
     }
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    public boolean generate(World par1World, Random par2Random, int x, int y, int z)
     {
-        int var6 = par2Random.nextInt(6) + this.minTreeHeight;
+		int var5 = par1World.getBlockId(x, y - 1, z);
+		if (var5 != Block.grass.blockID) { return false; }
+		int rand = 4 + par2Random.nextInt(3);
+		for(int i = 0; i < rand; i++) { par1World.setBlock(x, y + i, z, Block.wood.blockID); }
+		
+		if(par2Random.nextInt(4) == 0) { //branch1
+		par1World.setBlock(x + 0, y + rand + 1, z + 1, Block.wood.blockID);
+		par1World.setBlock(x + 1, y + rand + 2, z + 2, Block.wood.blockID);
+		createAcaciaLeaves(par1World, par2Random, x + 1, y + rand + 2, z + 2, 3);
+		createAcaciaLeaves(par1World, par2Random, x + 1, y + rand + 3, z + 2, 2);
+		}
+		
+		if(par2Random.nextInt(4) == 0) { //branch2
+		par1World.setBlock(x + 1, y + rand + 0, z + 0, Block.wood.blockID);
+		par1World.setBlock(x + 2, y + rand + 1, z + 0, Block.wood.blockID);
+		par1World.setBlock(x + 3, y + rand + 2, z - 1, Block.wood.blockID);
+		createAcaciaLeaves(par1World, par2Random, x + 3, y + rand + 3, z - 1, 3);
+		createAcaciaLeaves(par1World, par2Random, x + 3, y + rand + 4, z - 1, 2);
+		}
+		
+		if(par2Random.nextInt(4) == 0) { //branch3
+		par1World.setBlock(x - 1, y + rand + 0, z + 0, Block.wood.blockID);
+		par1World.setBlock(x - 2, y + rand + 1, z + 0, Block.wood.blockID);
+		par1World.setBlock(x - 3, y + rand + 2, z - 1, Block.wood.blockID);
+		par1World.setBlock(x - 4, y + rand + 3, z - 2, Block.wood.blockID);
+		createAcaciaLeaves(par1World, par2Random, x - 4, y + rand + 4, z - 2, 3);
+		createAcaciaLeaves(par1World, par2Random, x - 4, y + rand + 5, z - 2, 2);
+		}
+		
+		if(par2Random.nextInt(4) == 0) { //branch4
+		par1World.setBlock(x + 0, y + rand + 0, z - 1, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x + 1, y + rand + 1, z - 2, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x + 2, y + rand + 2, z - 2, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x + 3, y + rand + 3, z - 2, Blocks.logs1.get().blockID, 0, 2);
+		createAcaciaLeaves(par1World, par2Random, x + 3, y + rand + 3, z - 2, 3);
+		createAcaciaLeaves(par1World, par2Random, x + 3, y + rand + 4, z - 2, 2);
+		}
+		
+		if(par2Random.nextInt(4) == 0) { //branch5
+		par1World.setBlock(x + 0, y + rand + 0, z - 1, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x + 0, y + rand + 0, z - 2, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x + 1, y + rand + 1, z - 3, Blocks.logs1.get().blockID, 0, 2);
+		createAcaciaLeaves(par1World, par2Random, x + 1, y + rand + 1, z - 3, 3);
+		createAcaciaLeaves(par1World, par2Random, x + 1, y + rand + 2, z - 3, 2);
+		}
+		
+		//branch6
+		par1World.setBlock(x - 0, y + rand + 0, z + 0, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x - 0, y + rand + 1, z + 0, Blocks.logs1.get().blockID, 0, 2);
+		par1World.setBlock(x - 0, y + rand + 2, z - 0, Blocks.logs1.get().blockID, 0, 2);
+		createAcaciaLeaves(par1World, par2Random, x + 0, y + rand + 3, z - 0, 3);
+		createAcaciaLeaves(par1World, par2Random, x + 0, y + rand + 4, z - 0, 2);
+		
+		return true;
+    	
+        /*int var6 = par2Random.nextInt(6) + this.minTreeHeight;
         boolean var7 = true;
 
         if (par4 >= 1 && par4 + var6 + 1 <= 256)
@@ -209,13 +264,13 @@ public class WorldGenAcacia extends WorldGenerator
         else
         {
             return false;
-        }
+        }*/
     }
 
     /**
      * Grows vines downward from the given block for a given length. Args: World, x, starty, z, vine-length
      */
-    private void growVines(World par1World, int par2, int par3, int par4, int par5)
+    /*private void growVines(World par1World, int par2, int par3, int par4, int par5)
     {
         this.setBlockAndMetadata(par1World, par2, par3, par4, Block.vine.blockID, par5);
         int var6 = 4;
@@ -232,5 +287,22 @@ public class WorldGenAcacia extends WorldGenerator
             this.setBlockAndMetadata(par1World, par2, par3, par4, Block.vine.blockID, par5);
             --var6;
         }
-    }
+    }*/
+    
+	private void createAcaciaLeaves(World par1World, Random par2Random, int x, int y, int z, int size)
+	{
+		for(int x1 = -size + x; x1 < size + 1 + x; x1++) 
+		{
+			for(int z1 = -size + z; z1 < size + 1 + z; z1++) 
+			{			
+				int var5 = par1World.getBlockId(x1, y, z1);
+				if (var5 == 0)  
+				{
+					if(x1 == -size + x && z1 == -size + z ){} else if(x1 == -size + x && z1 == size + z ){} else if(x1 == size + x && z1 == -size + z ){} else if(x1 == size + x && z1 == size + z ){}
+					else { par1World.setBlock(x1, y, z1, Blocks.leavesColorized.get().blockID, 0, 2); }	
+				}
+			}
+		}
+		if(size==3){par1World.setBlock(x, y, z, Blocks.logs1.get().blockID, 0, 2);}
+	}
 }
