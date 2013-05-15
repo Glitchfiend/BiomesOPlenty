@@ -38,6 +38,7 @@ public class BiomeGenSwampwoods extends BiomeGenBase
 		this.customBiomeDecorator.waterlilyPerChunk = 4;
 		this.customBiomeDecorator.reedsBOPPerChunk = 8;
 		this.customBiomeDecorator.blueMilksPerChunk = 1;
+		this.customBiomeDecorator.lilyflowersPerChunk = 2;	
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	

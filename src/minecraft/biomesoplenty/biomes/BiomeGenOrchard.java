@@ -23,6 +23,7 @@ public class BiomeGenOrchard extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 15;
 		this.customBiomeDecorator.portobellosPerChunk = 2;
 		this.customBiomeDecorator.sunflowersPerChunk = 1;
+		this.customBiomeDecorator.lilyflowersPerChunk = 2;
     }
 	
     /**

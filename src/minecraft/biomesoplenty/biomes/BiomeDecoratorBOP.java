@@ -41,6 +41,7 @@ import biomesoplenty.worldgen.WorldGenDriedDirt;
 import biomesoplenty.worldgen.WorldGenGravel;
 import biomesoplenty.worldgen.WorldGenHighGrass;
 import biomesoplenty.worldgen.WorldGenHighCattail;
+import biomesoplenty.worldgen.WorldGenLilyflower;
 import biomesoplenty.worldgen.WorldGenMelon;
 import biomesoplenty.worldgen.WorldGenMesa;
 import biomesoplenty.worldgen.WorldGenMud;
@@ -210,11 +211,13 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
     /** The water lily generation! */
     protected WorldGenerator waterlilyGen;
+	protected WorldGenerator lilyflowerGen;
 	protected WorldGenerator algaeGen;
     protected WorldGenerator pitGen;
 
     /** Amount of waterlilys per chunk. */
     protected int waterlilyPerChunk;
+	protected int lilyflowersPerChunk;
 	protected int algaePerChunk;
 	protected int crystalsPerChunk;
 	protected int crystals2PerChunk;
@@ -389,6 +392,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.bushGen = new WorldGenBush(Blocks.foliage.get().blockID, 4);
 		this.tinyCactusGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 11);
 		this.aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
+		this.lilyflowerGen = new WorldGenLilyflower();
 		this.deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
 		this.hydrangeaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 4);
 		this.violetGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 8);
@@ -426,6 +430,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.algaeGen = new WorldGenAlgae();
         this.pitGen = new WorldGenPit(Blocks.ash.get().blockID);
         this.waterlilyPerChunk = 0;
+		this.lilyflowersPerChunk = 0;
         this.treesPerChunk = 0;
         this.flowersPerChunk = 2;
         this.grassPerChunk = 1;
@@ -1242,6 +1247,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.desertCactusGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+        for (var2 = 0; var2 < this.lilyflowersPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.lilyflowerGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
         
         if (this.generateLakes)
