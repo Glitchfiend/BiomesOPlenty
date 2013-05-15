@@ -12,6 +12,7 @@ import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.EntityPoisonDart;
 import biomesoplenty.items.projectiles.RenderDart;
+import biomesoplenty.items.projectiles.RenderPoisonDart;
 import biomesoplenty.particles.EntityDandelionFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -23,8 +24,8 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderers() 
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0)); 
-		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(0)); 
-		RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderDart(1)); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart()); 
+		RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart()); 
 		
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
