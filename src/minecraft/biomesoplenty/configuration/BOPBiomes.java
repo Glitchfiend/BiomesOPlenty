@@ -94,7 +94,7 @@ public class BOPBiomes {
         Biomes.highland = Optional.of((new BiomeGenHighland(BOPConfiguration.highlandID)).setColor(6316128).setBiomeName("Highland").setMinMaxHeight(0.9F, 1.9F).setTemperatureRainfall(0.5F, 0.5F));
         Biomes.icyHills = Optional.of((new BiomeGenIcyHills(BOPConfiguration.icyHillsID)).setColor(14090235).setBiomeName("Icy Hills").setEnableSnow().setTemperatureRainfall(0.0F, 0.0F).setMinMaxHeight(0.1F, 0.8F));
         Biomes.jadeCliffs = Optional.of((new BiomeGenJadeCliffs(BOPConfiguration.jadeCliffsID)).setColor(14090235).setBiomeName("Jade Cliffs").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(0.1F, 2.0F));
-        Biomes.lushDesert = Optional.of((new BiomeGenLushDesert(BOPConfiguration.lushDesertID)).setColor(16421912).setBiomeName("Lush Desert").setTemperatureRainfall(0.8F, 0.2F).setMinMaxHeight(0.1F, 1.5F));
+        Biomes.lushDesert = Optional.of((new BiomeGenLushDesert(BOPConfiguration.lushDesertID)).setColor(16421912).setBiomeName("Lush Desert").setTemperatureRainfall(0.8F, 0.2F).setMinMaxHeight(0.1F, 0.9F));
         Biomes.lushSwamp = Optional.of((new BiomeGenLushSwamp(BOPConfiguration.lushSwampID)).setColor(522674).setBiomeName("Lush Swamp").func_76733_a(9154376).setMinMaxHeight(-0.2F, 0.1F).setTemperatureRainfall(0.7F, 1.0F));
         Biomes.mangrove = Optional.of((new BiomeGenMangrove(BOPConfiguration.mangroveID)).setColor(16440917).setBiomeName("Mangrove").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.mapleWoods = Optional.of((new BiomeGenMapleWoods(BOPConfiguration.mapleWoodsID)).setColor(747097).setBiomeName("Maple Woods").func_76733_a(5159473).setTemperatureRainfall(0.2F, 0.8F).setMinMaxHeight(0.1F, 0.6F));

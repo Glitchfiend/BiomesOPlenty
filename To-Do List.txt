@@ -1,5 +1,4 @@
  - Redo the Promised Land portal, allowing for multiple portals.
  - Fix darts moving too fast and doing too much damage.
- - Try to fix Promised Land lag.
- - Add Acacia trees from BWG4.
  - Reduce excessive amounts of mobs in the Promised Lands.
+ - Fix sunflowers and lilyflowers dropping clovers.

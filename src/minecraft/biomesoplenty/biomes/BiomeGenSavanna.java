@@ -22,11 +22,12 @@ public class BiomeGenSavanna extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 1;
+        this.customBiomeDecorator.treesPerChunk = 2;
         this.customBiomeDecorator.flowersPerChunk = -999;
         this.customBiomeDecorator.purpleFlowersPerChunk = 10;
         this.customBiomeDecorator.tinyFlowersPerChunk = 2;
         this.customBiomeDecorator.grassPerChunk = 25;
+		this.customBiomeDecorator.bushesPerChunk = 10;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 
@@ -35,7 +36,7 @@ public class BiomeGenSavanna extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenShrub(0, 0) : new WorldGenAcacia(false));
+        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenAcacia(false) : new WorldGenShrub(0,0));
     }
 	
     /**
