@@ -17,7 +17,7 @@ public class BiomeGenCherryBlossomGrove extends BiomeGenBase
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 5;
+        this.customBiomeDecorator.treesPerChunk = 3;
         this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.pinkFlowersPerChunk = 15;
         this.customBiomeDecorator.whiteFlowersPerChunk = 30;

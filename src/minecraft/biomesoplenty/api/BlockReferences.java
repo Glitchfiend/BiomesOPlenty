@@ -139,8 +139,10 @@ public class BlockReferences {
 		wildFlower (Blocks.flowers, 7),
 		violet (Blocks.flowers, 8),
 		anenome (Blocks.flowers, 9),
+		lilyflower (Blocks.flowers, 10),
 		tinyCactus (Blocks.flowers, 11),
 		aloe (Blocks.flowers, 12),
+		sunflower (Blocks.flowers, 13),
 		dandelion (Blocks.flowers, 15),
 		;
 

@@ -47,10 +47,10 @@ public class AchievementHelper
         achOrigin = (new Achievement(3061, "achOrigin", 0, 5, Blocks.originGrass.get(), achFlower)).setSpecial().registerAchievement();
         achPromised = (new Achievement(3062, "achPromised", 0, -5, Blocks.holyGrass.get(), achFlower)).setSpecial().registerAchievement();
         achMud = (new Achievement(3063, "achMud", -2, -1, Items.mudball.get(), achFlower)).registerAchievement();
-        achShroom = (new Achievement(3064, "achShroom", 1, -2, new ItemStack(Blocks.flowers.get(),1,10), achFlower)).registerAchievement();
+        achShroom = (new Achievement(3064, "achShroom", 1, -2, new ItemStack(Blocks.mushrooms.get(),1,0), achFlower)).registerAchievement();
         achBarley = (new Achievement(3065, "achBarley", -2, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
         achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
-        achFlowerP = (new Achievement(3067, "achFlowerP", 2, -1, new ItemStack(Items.flowerBand.get(), 1, 3), achFlower)).registerAchievement();
+        achFlowerP = (new Achievement(3067, "achFlowerP", 2, -3, new ItemStack(Items.flowerBand.get(), 1, 3), achFlower)).registerAchievement();
 
         pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
         AchievementPage.registerAchievementPage(pageBOP);
@@ -59,14 +59,14 @@ public class AchievementHelper
         addAchievementDesc("achFlower", "Flower Child", "Pick some flowers!");
         addAchievementDesc("achRedRock", "Red Rocky Mountain High", "Dig out some red rocks.");
         addAchievementDesc("achThorn", "Rather Thorny...", "Don\'t get cut!");
-        addAchievementDesc("achAsh", "Ash-ievement", "Get it?  \'Cause it\'s ash.");
-        addAchievementDesc("achOrigin", "Alpha...", "Get some grass from the Origin Valley.");
+        addAchievementDesc("achAsh", "Ashes, Ashes...", "Man, this song is creepy.");
+        addAchievementDesc("achOrigin", "Alpha...", "Where it all began.");
         addAchievementDesc("achPromised", "...Omega", "Welcome to the Promised Land!");
         addAchievementDesc("achMud", "Sticky Situation", "I just had these boots cleaned!");
         addAchievementDesc("achShroom", "Trippin\'", "Don\'t try this at home, kids!");
         addAchievementDesc("achBarley", "Fields Of Gold", "Upon the fields of barley.");
-        addAchievementDesc("achMoss", "Mossman", "Mothman's long-lost cousin.");
-        addAchievementDesc("achFlowerP", "Flower Power", "Stop the corporations dude.");
+        addAchievementDesc("achMoss", "A Rolling Stone Gathers No Moss", "Wait, cubes can't roll...");
+        addAchievementDesc("achFlowerP", "Flower Power!", "Groovy, man.");
 	}
 	
 	// Achievement checker
