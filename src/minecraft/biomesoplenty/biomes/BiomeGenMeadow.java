@@ -26,6 +26,7 @@ public class BiomeGenMeadow extends BiomeGenBase
 		this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
 		this.customBiomeDecorator.hydrangeasPerChunk = 3;
+		this.customBiomeDecorator.sunflowersPerChunk = 1;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	

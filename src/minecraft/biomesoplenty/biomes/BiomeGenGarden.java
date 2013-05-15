@@ -30,8 +30,9 @@ public class BiomeGenGarden extends BiomeGenBase
         this.customBiomeDecorator.flowersPerChunk = 20;
         this.customBiomeDecorator.whiteFlowersPerChunk = 25;
 		this.customBiomeDecorator.tinyFlowersPerChunk = 15;
-		this.customBiomeDecorator.hydrangeasPerChunk = 10;
-		this.customBiomeDecorator.sproutsPerChunk = 5;
+		this.customBiomeDecorator.hydrangeasPerChunk = 3;
+		this.customBiomeDecorator.sproutsPerChunk = 2;
+		this.customBiomeDecorator.sunflowersPerChunk = 4;
         this.customBiomeDecorator.rosesPerChunk = 20;
         this.customBiomeDecorator.grassPerChunk = 25;
         this.customBiomeDecorator.sandPerChunk = -999;
@@ -48,7 +49,7 @@ public class BiomeGenGarden extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-		return (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1))));
+		return new WorldGenTallGrass(Block.tallGrass.blockID, 1);
     }
 	
     /**

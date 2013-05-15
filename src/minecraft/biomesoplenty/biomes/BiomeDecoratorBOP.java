@@ -58,6 +58,7 @@ import biomesoplenty.worldgen.WorldGenShield;
 import biomesoplenty.worldgen.WorldGenSmolderingGrass;
 import biomesoplenty.worldgen.WorldGenSprout;
 import biomesoplenty.worldgen.WorldGenSteppe;
+import biomesoplenty.worldgen.WorldGenSunflower;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -186,6 +187,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator quicksandGen;
 	protected WorldGenerator quicksand2Gen;
 	protected WorldGenerator poisonIvyGen;
+	protected WorldGenerator sunflowerGen;
 	protected WorldGenerator crystalGen;
 	protected WorldGenerator crystalGen2;
 
@@ -259,6 +261,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int quicksandPerChunk;
 	protected int quicksand2PerChunk;
 	protected int poisonIvyPerChunk;
+	protected int sunflowersPerChunk;
 
     /** The amount of tall grass to generate per chunk. */
     protected int grassPerChunk;
@@ -393,6 +396,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.holyTallGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 4);
 		this.desertSproutsGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 2);
 		this.poisonIvyGen = new WorldGenBush(Blocks.foliage.get().blockID, 7);
+		this.sunflowerGen = new WorldGenSunflower(Blocks.flowers.get().blockID, 13);
 		this.promisedWillowGen = new WorldGenPromisedWillow();
 		this.quicksandGen = new WorldGenQuicksand();
 		this.quicksand2Gen = new WorldGenQuicksand2();
@@ -459,6 +463,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.portobellosPerChunk = 0;
 		this.blueMilksPerChunk = 0;
 		this.glowshroomsPerChunk = 0;
+		this.sunflowersPerChunk = 0;
         this.sproutsPerChunk = 0;
         this.bushesPerChunk = 0;
 		this.tinyCactiPerChunk = 0;
@@ -773,6 +778,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.plantRedGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+        for (var2 = 0; var2 < this.sunflowersPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.sunflowerGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 		
         for (var2 = 0; var2 < this.crystalsPerChunk; ++var2)
