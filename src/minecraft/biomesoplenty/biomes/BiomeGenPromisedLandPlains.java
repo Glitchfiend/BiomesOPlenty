@@ -53,7 +53,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
 		
-		if (Loader.isModLoaded("TwilightForest"))
+		/*if (Loader.isModLoaded("TwilightForest"))
 		{
 			try {
 				this.spawnableMonsterList.add(new SpawnListEntry(Class.forName("twilightforest.entity.passive.EntityTFBird"), 2, 1, 3));
@@ -63,7 +63,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 				System.out.println("[BiomesOPlenty] There was an error while integrating Twilight Forest with Biomes O' Plenty!");
 				e.printStackTrace();
 			}
-		}
+		}*/
     }
 	
     /**

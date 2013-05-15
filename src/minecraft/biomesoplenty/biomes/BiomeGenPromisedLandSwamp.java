@@ -55,7 +55,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
-		this.spawnableMonsterList.add(new SpawnListEntry(EntityPig.class, 4, 1, 4));
+		/*this.spawnableMonsterList.add(new SpawnListEntry(EntityPig.class, 4, 1, 4));
 		
 		if (Loader.isModLoaded("TwilightForest"))
 		{
@@ -66,7 +66,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 				System.out.println("[BiomesOPlenty] There was an error while integrating Twilight Forest with Biomes O' Plenty!");
 				e.printStackTrace();
 			}
-		}
+		}*/
     }
 	
     /**
