@@ -24,9 +24,10 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
     {
+        int meta = world.getBlockMetadata(x, y, z);
+    	
         if (modelId == render)
         {
-            int meta = world.getBlockMetadata(x, y, z);
             if (meta == 0)
                 return renderer.renderBlockLilyPad(block, x, y, z);
             else
@@ -86,7 +87,10 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
             d2 += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D;
         }
 
-        renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
+        if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10)
+        	renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
+        else
+        	renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
         return true;
     }
 }

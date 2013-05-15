@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
@@ -91,11 +92,16 @@ public class BlockBOPFlower extends BlockFlower
                 break;
 				
 			case 10:
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
+                //this.setBlockBounds(0.3F, -1.0F, 0.3F, 0.7F, -0.4F, 0.7F);
+                this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
                 break;
                 
             case 11:
                 this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+                break;
+                
+            case 15:
+                this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
                 break;
                 
             default:
@@ -177,6 +183,19 @@ public class BlockBOPFlower extends BlockFlower
         else
         return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
                 && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+    }
+    
+    @Override
+    public boolean isBlockReplaceable(World world, int x, int y, int z)
+    {
+    	//ItemStack itemstack = new ItemStack(Blocks.flowers.get(), 1, 10);
+    	
+    	if (world.getBlockMetadata(x, y, z) == 10) {
+    		//if (!world.isRemote)
+    			//world.spawnEntityInWorld(new EntityItem(world, x, y, z, itemstack));
+    		return true;
+    	}
+    	return false;
     }
     
     @Override
