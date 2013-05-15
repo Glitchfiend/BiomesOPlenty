@@ -41,16 +41,16 @@ public class AchievementHelper
 	public static void init()
 	{
 	    achFlower = (new Achievement(3057, "achFlower", 0, 0, Block.plantRed, null)).registerAchievement();
-        achRedRock = (new Achievement(3058, "achRedRock", -1, 2, new ItemStack(Blocks.redRock.get(),1,0), achFlower)).registerAchievement();
+        achRedRock = (new Achievement(3058, "achRedRock", -2, 2, new ItemStack(Blocks.redRock.get(),1,0), achFlower)).registerAchievement();
         achThorn = (new Achievement(3059, "achThorn", 2, 1, new ItemStack(Blocks.plants.get(),1,5), achFlower)).registerAchievement();
         achAsh = (new Achievement(3060, "achAsh", 1, 3, new ItemStack(Items.miscItems.get(), 1, 1), achFlower)).registerAchievement();
         achOrigin = (new Achievement(3061, "achOrigin", 0, 5, Blocks.originGrass.get(), achFlower)).setSpecial().registerAchievement();
         achPromised = (new Achievement(3062, "achPromised", 0, -5, Blocks.holyGrass.get(), achFlower)).setSpecial().registerAchievement();
         achMud = (new Achievement(3063, "achMud", -2, -1, Items.mudball.get(), achFlower)).registerAchievement();
-        achShroom = (new Achievement(3064, "achShroom", 1, -2, new ItemStack(Blocks.mushrooms.get(),1,0), achFlower)).registerAchievement();
-        achBarley = (new Achievement(3065, "achBarley", -2, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
+        achShroom = (new Achievement(3064, "achShroom", 2, -2, new ItemStack(Blocks.mushrooms.get(),1,0), achFlower)).registerAchievement();
+        achBarley = (new Achievement(3065, "achBarley", -1, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
         achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
-        achFlowerP = (new Achievement(3067, "achFlowerP", 2, -3, new ItemStack(Items.flowerBand.get(), 1, 3), achFlower)).registerAchievement();
+        achFlowerP = (new Achievement(3067, "achFlowerP", 1, -4, new ItemStack(Items.flowerBand.get(), 1, 0), achFlower)).registerAchievement();
 
         pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
         AchievementPage.registerAchievementPage(pageBOP);
