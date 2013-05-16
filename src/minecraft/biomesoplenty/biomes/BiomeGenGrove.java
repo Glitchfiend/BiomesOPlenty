@@ -2,8 +2,16 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPBlocks;
+import biomesoplenty.worldgen.WorldGenPoplar;
+import biomesoplenty.worldgen.WorldGenPoplar2;
+import biomesoplenty.worldgen.WorldGenChaparral2;
+
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenGrove extends BiomeGenBase
@@ -17,9 +25,10 @@ public class BiomeGenGrove extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.customBiomeDecorator.treesPerChunk = 3;
         this.customBiomeDecorator.flowersPerChunk = 5;
-        this.customBiomeDecorator.grassPerChunk = 10;
-		this.customBiomeDecorator.sproutsPerChunk = 2;
-		this.customBiomeDecorator.poisonIvyPerChunk = 2;
+		this.customBiomeDecorator.tinyFlowersPerChunk = 80;
+		this.customBiomeDecorator.whiteFlowersPerChunk = 15;
+        this.customBiomeDecorator.grassPerChunk = 8;
+		this.customBiomeDecorator.sproutsPerChunk = 1;
 		this.customBiomeDecorator.lilyflowersPerChunk = 3;
 		this.customBiomeDecorator.berryBushesPerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
@@ -30,8 +39,16 @@ public class BiomeGenGrove extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenShrub(2,2) : this.worldGeneratorBigTree);
+		return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenChaparral2() : par1Random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar());
         //return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenNorwaySpruce1() : new WorldGenNorwaySpruce2());
+    }
+	
+    /**
+     * Gets a WorldGen appropriate for this biome.
+     */
+    public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+    {
+        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
     }
 	
     /**
@@ -39,7 +56,7 @@ public class BiomeGenGrove extends BiomeGenBase
      */
     public int getBiomeGrassColor()
     {
-        return 8298592;
+        return 5341009;
     }
 
     /**
@@ -47,6 +64,6 @@ public class BiomeGenGrove extends BiomeGenBase
      */
     public int getBiomeFoliageColor()
     {
-        return 7445333;
+        return 6396257;
     }
 }
