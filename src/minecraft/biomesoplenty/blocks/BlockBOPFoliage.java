@@ -73,7 +73,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
     {
         for (int i = 0; i < foliageTypes.length; ++i)
-            if (i != GRASSTOP)
+            if (i != GRASSTOP && i != 8)
                 list.add(new ItemStack(blockID, 1, i));
     }
     
