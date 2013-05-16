@@ -25,6 +25,7 @@ public class BiomeGenPrairie extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 999;
         this.customBiomeDecorator.whiteFlowersPerChunk = 45;
 		this.customBiomeDecorator.portobellosPerChunk = 2;
+		this.customBiomeDecorator.berryBushesPerChunk = 2;
     }
 
     /**

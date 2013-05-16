@@ -22,6 +22,7 @@ public class BiomeGenHeathland extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 10;
         this.customBiomeDecorator.purpleFlowersPerChunk = 30;
         this.customBiomeDecorator.deadBushPerChunk = 2;
+		this.customBiomeDecorator.berryBushesPerChunk = 1;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 

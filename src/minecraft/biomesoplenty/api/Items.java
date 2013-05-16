@@ -33,6 +33,7 @@ public class Items
     public static Optional<? extends Item> enderporter          = Optional.absent();
     public static Optional<? extends Item> shroomPowder         = Optional.absent();
 	public static Optional<? extends Item> sunflowerSeeds       = Optional.absent();
+	public static Optional<? extends Item> berries			    = Optional.absent();
     public static Optional<? extends Item> miscItems            = Optional.absent();
     public static Optional<? extends Item> mudball              = Optional.absent();
 	public static Optional<? extends Item> poison         		= Optional.absent();

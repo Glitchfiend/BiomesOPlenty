@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -25,6 +26,7 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -73,7 +75,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
     {
         for (int i = 0; i < foliageTypes.length; ++i)
-            if (i != GRASSTOP && i != 8)
+            if (i != GRASSTOP)
                 list.add(new ItemStack(blockID, 1, i));
     }
     
@@ -238,6 +240,25 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
     {
         super.harvestBlock(world, player, x, y, z, meta);
+    }
+	
+    @Override
+    public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+    {
+        if (world.isRemote)
+            return false;
+
+        int meta = world.getBlockMetadata(x, y, z);
+        if (meta == 8)
+        {
+            world.setBlock(x, y, z, blockID, 4, 3);
+            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Items.berries.get(), 1, 0));
+            world.spawnEntityInWorld(entityitem);
+            entityitem.onCollideWithPlayer(player);
+            return true;
+        }
+        else
+            return false;
     }
     
     @Override

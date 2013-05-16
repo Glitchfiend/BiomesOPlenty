@@ -185,6 +185,7 @@ public class BOPConfiguration {
 	//Item IDs
 	public static int shroomPowderID;
 	public static int sunflowerSeedsID;
+	public static int berriesID;
 
 	public static int ancientStaffID;
 	public static int enderporterID;
@@ -673,6 +674,7 @@ public class BOPConfiguration {
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
 			sunflowerSeedsID = config.getItem("Sunflower Seeds ID", 21002, null).getInt();
+			berriesID = config.getItem("Berries ID", 21003, null).getInt();
 
 			ancientStaffID = config.getItem("Ancient Staff ID", 21006).getInt();
 			enderporterID = config.getItem("Enderporter ID", 21007).getInt();
