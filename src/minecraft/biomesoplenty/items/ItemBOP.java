@@ -36,12 +36,19 @@ public class ItemBOP extends Item
 	@Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return items[itemStack.getItemDamage()];
+	    int meta = itemStack.getItemDamage();
+	    if (meta < 0 || meta >= items.length)
+            meta = 0;
+	    
+        return items[meta];
     }
     
     @Override
     public Icon getIconFromDamage(int meta)
     {
+        if (meta < 0 || meta >= textures.length)
+            meta = 0;
+        
         return textures[meta];
     }
     

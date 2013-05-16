@@ -23,6 +23,10 @@ public class ItemBOPPetals extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(petals[itemStack.getItemDamage()]).toString();
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= petals.length)
+            meta = 0;
+        
+        return petals[meta];
     }
 }
