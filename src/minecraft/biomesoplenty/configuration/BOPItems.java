@@ -29,6 +29,7 @@ import biomesoplenty.items.ItemDart;
 import biomesoplenty.items.ItemDartBlower;
 import biomesoplenty.items.ItemEnderporter;
 import biomesoplenty.items.ItemShroomPowder;
+import biomesoplenty.items.ItemSunflowerSeeds;
 import biomesoplenty.items.overrides.ItemShears;
 
 import com.google.common.base.Optional;
@@ -106,6 +107,7 @@ public class BOPItems {
 	{
 	    // Item declaration
         Items.shroomPowder = Optional.of(new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.5F, false));
+		Items.sunflowerSeeds = Optional.of(new ItemSunflowerSeeds(BOPConfiguration.sunflowerSeedsID, 1, 1.5F, false));
         Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID));
         Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID));
 		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.dartBlowerID));
@@ -144,6 +146,7 @@ public class BOPItems {
 	private static void registerNames()
 	{
 	    LanguageRegistry.addName(Items.shroomPowder.get(), "Shroom Powder");
+		LanguageRegistry.addName(Items.sunflowerSeeds.get(), "Sunflower Seeds");
 	    LanguageRegistry.addName(Items.mudball.get(), "Mud Ball");
 		LanguageRegistry.addName(Items.dartBlower.get(), "Dart Blower");
 		LanguageRegistry.addName(new ItemStack(Items.dart.get(), 1, 0), "Dart");
