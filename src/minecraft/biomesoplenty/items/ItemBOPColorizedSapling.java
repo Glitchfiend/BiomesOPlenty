@@ -25,10 +25,12 @@ public class ItemBOPColorizedSapling extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(saplings[itemStack.getItemDamage()]).append("Sapling").toString();
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= saplings.length)
+            meta = 0;
+        
+        return (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
     }
-    
-    
     
     @Override
     public Icon getIconFromDamage(int meta)

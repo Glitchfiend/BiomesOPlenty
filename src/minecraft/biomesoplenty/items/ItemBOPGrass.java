@@ -22,6 +22,10 @@ public class ItemBOPGrass extends ItemBlock
 
     @Override
     public String getUnlocalizedName(ItemStack itemstack) {
-        return types[itemstack.getItemDamage() & 15];
+        int meta = itemstack.getItemDamage();
+        if (meta < 0 || meta >= types.length)
+            meta = 0;
+        
+        return types[meta];
     }
 }

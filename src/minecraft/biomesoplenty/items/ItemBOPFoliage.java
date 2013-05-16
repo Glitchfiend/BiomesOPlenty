@@ -59,7 +59,11 @@ public class ItemBOPFoliage extends ItemColored
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(foliageTypes[itemStack.getItemDamage()]).toString();
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= foliageTypes.length)
+            meta = 0;
+        
+        return foliageTypes[meta];
     }
     
     @Override

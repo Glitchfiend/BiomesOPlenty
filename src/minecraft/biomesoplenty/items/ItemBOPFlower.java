@@ -45,7 +45,11 @@ public class ItemBOPFlower extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(plants[itemStack.getItemDamage()]).toString();
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= plants.length)
+            meta = 0;
+        
+        return plants[meta];
     }
 	
     @Override

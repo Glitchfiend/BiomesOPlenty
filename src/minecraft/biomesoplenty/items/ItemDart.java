@@ -24,6 +24,7 @@ public class ItemDart extends Item
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
@@ -36,7 +37,11 @@ public class ItemDart extends Item
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return (new StringBuilder()).append(dartTypes[itemStack.getItemDamage()]).toString();
+	    int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= dartTypes.length)
+            meta = 0;
+        
+		return dartTypes[meta];
 	}
 
 	@SideOnly(Side.CLIENT)
