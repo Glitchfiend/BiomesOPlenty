@@ -273,6 +273,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,4), "Dying Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Short Grass");
         LanguageRegistry.addName(Blocks.leavesFruit.get(), "Apple Leaves");
+		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,8), "Berry Bush");
 		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,7), "Poison Ivy");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,5), "Sprout");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Bush");
