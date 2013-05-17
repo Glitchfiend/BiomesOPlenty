@@ -38,7 +38,6 @@ public class BiomeGenBog extends BiomeGenBase
         this.customBiomeDecorator.mudPerChunk2 = 5;
         this.customBiomeDecorator.deadBushPerChunk = 5;
 		this.customBiomeDecorator.algaePerChunk = 2;
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
         this.waterColorMultiplier = 11506176;
     }
 

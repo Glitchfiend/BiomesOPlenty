@@ -37,7 +37,6 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
 		this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 		this.waterColorMultiplier = 10661201;
-		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 
     /**
