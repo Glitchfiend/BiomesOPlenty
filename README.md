@@ -59,7 +59,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 
 
 ## Changelog ##
-	  Version 0.5.3 (Unreleased)
+	  Version 0.5.3 '17-05-13'
 	- Added reeds
 	- Added 2 new mushrooms (Portobello and Blue Milk Cap)
 	- Adjusted and fixed mod compatibility with Thermal Expansion
