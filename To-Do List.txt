@@ -1,4 +1,4 @@
  - Redo the Promised Land portal, allowing for multiple portals.
- - Fix darts moving too fast and doing too much damage.
- - Reduce excessive amounts of mobs in the Promised Lands.
- - Fix sunflowers and lilyflowers dropping clovers.
+ - Add the Originator and Origin ____ blocks.
+ - Add Nether biomes.
+ - Add other planned features.

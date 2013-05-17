@@ -6,15 +6,15 @@ Pinecone:					Pinecone that grows under spruce and fir leaves.  No use yet.
 
 Coconut:					Grows on palm trees.  Drops 2 coconut halves when broken with an axe.
 
-Berry Bush:					Drops a berry when broken or right clicked.
+Origin Blocks:					Planks, Gravel, Cobblestone, Mossy Cobblestone, Bricks, Block of Diamond, Block of Gold, Block of Iron, Lapis Lazuli Block
+
+Originator:					Used to turn certain blocks into previous forms.  Requires Origin Essence to use.
 
 ---
 
 ITEMS:
 
 Coconut Halves:					Coconuts drop 2 when broken with an axe.  Restores 2 hunger points each.
-
-Berry:						Dropped from berry bushes.  Restores 1/2 a hunger point.
 
 ---
 

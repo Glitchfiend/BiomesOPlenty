@@ -1,17 +1,14 @@
 package biomesoplenty.items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
 import biomesoplenty.items.projectiles.EntityDart;
-import biomesoplenty.items.projectiles.EntityPoisonDart;
+import biomesoplenty.items.projectiles.EntityDart.DartType;
 
 public class ItemDartBlower extends Item
 {
@@ -33,21 +30,43 @@ public class ItemDartBlower extends Item
     {
         boolean flag = par3EntityPlayer.capabilities.isCreativeMode;
 
-        if (par3EntityPlayer.inventory.hasItem(Items.dart.get().itemID))
+        if (flag || par3EntityPlayer.inventory.hasItem(Items.dart.get().itemID))
         {
             //EntityArrow entitydart = new EntityArrow(par2World, par3EntityPlayer, 2.0F);
+            EntityDart entityDart = new EntityDart(par2World, par3EntityPlayer, 1.25F);
             
             itemStack.damageItem(1, par3EntityPlayer);
             par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 1.0F, 2.0F / (1.0F * 0.4F + 1.2F) + 1.0F * 0.5F);
 
-            if (!flag)
-                par3EntityPlayer.inventory.consumeInventoryItem(Items.dart.get().itemID);
-
-            if (!par2World.isRemote)
-            	if (par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.dart.get().itemID, 1, 0)))
-                    par2World.spawnEntityInWorld(new EntityDart(par2World, par3EntityPlayer, 1.0F));
-            	else
-                    par2World.spawnEntityInWorld(new EntityPoisonDart(par2World, par3EntityPlayer, 1.0F));
+            int slot = -1;
+        	if (par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.dart.get().itemID, 1, 1)))
+        	{
+        	    entityDart.setDartType(DartType.POISON);
+            
+                for (int k = 0; k < par3EntityPlayer.inventory.mainInventory.length; ++k)
+                    if (par3EntityPlayer.inventory.mainInventory[k] != null && par3EntityPlayer.inventory.mainInventory[k].itemID == Items.dart.get().itemID && par3EntityPlayer.inventory.mainInventory[k].getItemDamage() == 1)
+                    {
+                        slot = k;
+                        break;
+                    }
+        	}
+        	else if (par3EntityPlayer.inventory.hasItemStack(new ItemStack(Items.dart.get().itemID, 1, 0)))
+        	{
+        	    entityDart.setDartType(DartType.NORMAL);
+        	    
+        	    for (int k = 0; k < par3EntityPlayer.inventory.mainInventory.length; ++k)
+                    if (par3EntityPlayer.inventory.mainInventory[k] != null && par3EntityPlayer.inventory.mainInventory[k].itemID == Items.dart.get().itemID && par3EntityPlayer.inventory.mainInventory[k].getItemDamage() == 0)
+                    {
+                        slot = k;
+                        break;
+                    }
+        	}
+        	
+        	if (!par2World.isRemote)
+                par2World.spawnEntityInWorld(entityDart);
+        	
+        	if (!flag && slot >= 0)
+        	        par3EntityPlayer.inventory.decrStackSize(slot, 1);
         }
 
         return itemStack;

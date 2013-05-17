@@ -27,6 +27,7 @@ public class BiomeGenChaparral extends BiomeGenBase
         this.customBiomeDecorator.treesPerChunk = 8;
         this.customBiomeDecorator.grassPerChunk = 20;
 		this.customBiomeDecorator.bushesPerChunk = 10;
+		this.customBiomeDecorator.berryBushesPerChunk = 2;
 		this.customBiomeDecorator.generateStoneInGrass = true;
 		this.customBiomeDecorator.generatePumpkins = false;
     }

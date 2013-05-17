@@ -264,7 +264,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "High Grass");
         LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
-        LanguageRegistry.addName(Blocks.hardIce.get(), "Hard Ice");
+        LanguageRegistry.addName(Blocks.hardIce.get(), "Hardened Ice");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,2), "Maple Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Orange Autumn Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,1), "Pink Cherry Leaves");
@@ -273,6 +273,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,4), "Dying Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Short Grass");
         LanguageRegistry.addName(Blocks.leavesFruit.get(), "Apple Leaves");
+		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,8), "Berry Bush");
 		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,7), "Poison Ivy");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,5), "Sprout");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Bush");
@@ -334,9 +335,9 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,3), "Dune Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,2), "Desert Sprouts");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,1), "Mangrove Sapling");
-        LanguageRegistry.addName(Blocks.hardSand.get(), "Hard Sand");
+        LanguageRegistry.addName(Blocks.hardSand.get(), "Hardened Sand");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,0), "Acacia Sapling");
-        LanguageRegistry.addName(Blocks.hardDirt.get(), "Hard Dirt");
+        LanguageRegistry.addName(Blocks.hardDirt.get(), "Hardened Dirt");
 //        LanguageRegistry.addName(Blocks.holyGrass.get(), "Holy Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 0), "Purified Grass");
         LanguageRegistry.addName(new ItemStack(Blocks.holyGrass.get(), 1, 1), "Smoldering Grass");

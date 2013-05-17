@@ -45,7 +45,11 @@ public class ItemBOPFlower extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return (new StringBuilder()).append(plants[itemStack.getItemDamage()]).toString();
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= plants.length)
+            meta = 0;
+        
+        return plants[meta];
     }
 	
     @Override
@@ -84,9 +88,9 @@ public class ItemBOPFlower extends ItemBlock
     	if (par1ItemStack.getItemDamage() == 15) {
     		Vec3 vec = par3EntityPlayer.getLookVec();
     		
-			for (int p = 0; p < 20; ++p)
+			for (int p = 0; p < 32; ++p)
 			{
-				BiomesOPlenty.proxy.spawnParticle("dandelion", par3EntityPlayer.posX + vec.xCoord, par3EntityPlayer.posY + vec.yCoord + par3EntityPlayer.getEyeHeight(), par3EntityPlayer.posZ + vec.zCoord);
+				BiomesOPlenty.proxy.spawnParticle("dandelion", par3EntityPlayer.posX + (vec.xCoord / 2), par3EntityPlayer.posY + (vec.yCoord / 2) + par3EntityPlayer.getEyeHeight(), par3EntityPlayer.posZ + (vec.zCoord / 2));
 			};
     		
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));

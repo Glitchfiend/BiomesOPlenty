@@ -272,11 +272,11 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
         if ((meta & 3) == 3)
             this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
-        else if ((meta & 3) == 2 && world.rand.nextInt(2) == 0)
+        else if ((meta & 3) == 2 && world.rand.nextInt(8) == 0)
             this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
-        else if ((meta & 3) == 1 && world.rand.nextInt(5) == 0)
+        else if ((meta & 3) == 1 && world.rand.nextInt(16) == 0)
             this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
-        else if ((meta & 3) == 0 && world.rand.nextInt(10) == 0)
+        else if ((meta & 3) == 0 && world.rand.nextInt(32) == 0)
             this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
     }
     

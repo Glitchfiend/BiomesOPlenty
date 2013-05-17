@@ -191,12 +191,12 @@ public class BlockBOPFlower extends BlockFlower
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
     {
-        super.onNeighborBlockChange(world, x, y, z, neighborID);
+        //super.onNeighborBlockChange(world, x, y, z, neighborID);
         this.checkFlowerChange(world, x, y, z);
         if (world.getBlockMetadata(x, y, z) == SUNFLOWERTOP && world.getBlockId(x, y - 1, z) == this.blockID && world.getBlockMetadata(x, y - 1, z) != SUNFLOWERBOTTOM)
                 world.setBlockToAir(x, y, z);
-        //if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
-    	//	world.setBlock(x, y, z, this.blockID, 7, 2);
+		if (world.getBlockMetadata(x, y, z) == SUNFLOWERBOTTOM && world.getBlockId(x, y + 1, z) != this.blockID)
+    		world.setBlockToAir(x, y, z);
     }
     
     @Override

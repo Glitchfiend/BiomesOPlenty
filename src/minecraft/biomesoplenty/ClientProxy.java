@@ -28,7 +28,7 @@ public class ClientProxy extends CommonProxy {
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0)); 
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart()); 
-		RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart()); 
+		//RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart()); 
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F)); 
 		
@@ -46,7 +46,7 @@ public class ClientProxy extends CommonProxy {
          else if (string == "dart")
              entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
          else if (string == "dandelion")
-             entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 1.0F);
+             entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
          
  		mc.effectRenderer.addEffect(entityfx);
 	} 

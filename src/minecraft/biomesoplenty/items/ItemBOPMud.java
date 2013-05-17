@@ -23,6 +23,10 @@ public class ItemBOPMud extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return types[itemStack.getItemDamage()];
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= types.length)
+            meta = 0;
+        
+        return types[meta];
     }
 }

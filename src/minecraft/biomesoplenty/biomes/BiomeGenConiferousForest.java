@@ -33,6 +33,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 		this.customBiomeDecorator.violetsPerChunk = 2;
 		this.customBiomeDecorator.blueMilksPerChunk = 1;
 		this.customBiomeDecorator.poisonIvyPerChunk = 1;
+		this.customBiomeDecorator.berryBushesPerChunk = 1;
     }
 
     /**

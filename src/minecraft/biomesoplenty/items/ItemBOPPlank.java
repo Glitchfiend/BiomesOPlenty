@@ -23,6 +23,10 @@ public class ItemBOPPlank extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return woodTypes[itemStack.getItemDamage()];
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= woodTypes.length)
+            meta = 0;
+        
+        return woodTypes[meta];
     }
 }

@@ -2,8 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenTaiga5;
-import biomesoplenty.worldgen.WorldGenTaiga8;
+import biomesoplenty.worldgen.WorldGenLargeTree;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
@@ -20,8 +19,7 @@ public class BiomeGenField extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.customBiomeDecorator.treesPerChunk = 1;
         this.customBiomeDecorator.flowersPerChunk = 1;
-        this.customBiomeDecorator.grassPerChunk = 25;
-		this.customBiomeDecorator.portobellosPerChunk = 2;
+        this.customBiomeDecorator.grassPerChunk = 999;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	
@@ -30,7 +28,7 @@ public class BiomeGenField extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenTaiga5(false) : (par1Random.nextInt(8) == 0 ? new WorldGenTaiga8(false) : (par1Random.nextInt(2) == 0 ? this.worldGeneratorTrees : new WorldGenShrub(0,0))));
+        return new WorldGenLargeTree(false);
     }
 	
     /**
@@ -38,7 +36,7 @@ public class BiomeGenField extends BiomeGenBase
      */
     public int getBiomeGrassColor()
     {
-        return 11186770;
+        return 10878796;
     }
 
     /**
@@ -46,6 +44,6 @@ public class BiomeGenField extends BiomeGenBase
      */
     public int getBiomeFoliageColor()
     {
-        return 10467150;
+        return 10878796;
     }
 }

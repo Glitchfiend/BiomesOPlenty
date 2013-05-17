@@ -49,12 +49,19 @@ public class ItemBOPAncientStaff extends Item
     @Override
     public String getUnlocalizedName(ItemStack itemStack)
     {
-        return parts[itemStack.getItemDamage()];
+        int meta = itemStack.getItemDamage();
+        if (meta < 0 || meta >= parts.length)
+            meta = 0;
+        
+        return parts[meta];
     }
     
     @Override
     public Icon getIconFromDamage(int meta)
     {
+        if (meta < 0 || meta >= textures.length)
+            meta = 0;
+        
         return textures[meta];
     }
     
