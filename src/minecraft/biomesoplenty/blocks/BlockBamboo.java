@@ -54,6 +54,12 @@ public class BlockBamboo extends Block
             }
         }
     }
+    
+    @Override
+    public boolean canBeReplacedByLeaves(World world, int x, int y, int z)
+    {
+        return false;
+    }
 
     /**
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
