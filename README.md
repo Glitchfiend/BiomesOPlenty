@@ -69,7 +69,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 	- Tweaked the Fungi Forest
 	- Fixed High Grass generation in the Marsh
 	- Removed Barley from blacksmith chests
-	- Added white dandelions
+	- Added white dandelions (they can be blown into the air too!)
 	- Improved Redwood Forest Biome and thin Redwood tree generation
 	- Replaced the old Ice Sheet Biome with a Polar biome
 	- Added random offset for foliage
@@ -89,6 +89,24 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 	- Added big tree variants of the red and orange trees to the Seasonal Forest
 	- Made the sky colour of the Promised Lands configurable
 	- Added Celestial Crystal
+	- Fixed a crash bug with mudballs
+	- Tweaked apple leaves
+	- Adjusted palm tree generation
+	- Added alternative blue, brown and green, black and white dyes
+	- Added glowshrooms
+	- Made Icy Hills hillier
+	- Gave barley a random offset
+	- Added sunflowers
+	- Added lilyflowers
+	- Adjusted some achievement descriptions
+	- Switched to using BWG4 Acacia Trees
+	- Tweaked the Savanna
+	- BOP woods now trigger the "Get Wood" achievement
+	- Added berry bushes
+	- Added sunflower seeds
+	- Overhauled the Grove Biome
+	- Overhauled the Field Biome
+	- Added the "Glob"
 
       Version 0.5.2 '05-05-13'
     - Added an API for other mod developers
