@@ -322,6 +322,7 @@ public class BOPConfiguration {
 	
 	public static int jungleSpiderID;
 	public static int rosesterID;
+	public static int globID;
 	
 	// Village biomes
 	public static boolean alpsVillage;
@@ -708,6 +709,7 @@ public class BOPConfiguration {
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
 			rosesterID = config.get("Mob IDs", "Rosester ID", 102, null).getInt();
+			globID = config.get("Mob IDs", "Glob ID", 106, null).getInt();
 			
 			//Projectile IDs
 			entityMudballID = config.get("Entity IDs", "Mudball ID", 103, null).getInt();;

@@ -8,6 +8,7 @@ import biomesoplenty.api.Entities;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.EntityPoisonDart;
+import biomesoplenty.mobs.EntityGlob;
 import biomesoplenty.mobs.EntityJungleSpider;
 import biomesoplenty.mobs.EntityRosester;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -43,11 +44,14 @@ public class BOPEntities {
 		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfiguration.entityMudballID, BiomesOPlenty.instance, 80, 3, true); 	
 		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfiguration.entityDartID, BiomesOPlenty.instance, 80, 3, true); 	
 		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfiguration.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true); 	
+		
 		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, BiomesOPlenty.instance, 80, 3, true);	
+		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfiguration.globID, BiomesOPlenty.instance, 80, 3, true);	
 		
 		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
+		registerEntityEgg(EntityGlob.class, 14831439, 16756224);
 		
 		if (Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
 		{
@@ -61,5 +65,6 @@ public class BOPEntities {
 		
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.JungleSpider.name", "en_US", "Jungle Spider");
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Rosester.name", "en_US", "Rosester");
+		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Glob.name", "en_US", "Glob");
 	}
 }
