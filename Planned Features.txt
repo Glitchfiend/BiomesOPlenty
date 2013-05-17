@@ -4,17 +4,21 @@ Rock: 						Small rock that has a random size.  Uses the vanilla stone texture.
 
 Pinecone:					Pinecone that grows under spruce and fir leaves.  No use yet.
 
-Coconut:					Grows on palm trees.  Drops 2 coconut halves when broken with an axe.
-
 Origin Blocks:					Planks, Gravel, Cobblestone, Mossy Cobblestone, Bricks, Block of Diamond, Block of Gold, Block of Iron, Lapis Lazuli Block
 
 Originator:					Used to turn certain blocks into previous forms.  Requires Origin Essence to use.
+
+Alpha Essence Ore:				Found in the Promised Land.  Requires an Amethyst pickaxe to mine.
+
+Omega Essence Ore:				Found in the Nether.  Requires and Amethyst pickaxe to mine.
 
 ---
 
 ITEMS:
 
-Coconut Halves:					Coconuts drop 2 when broken with an axe.  Restores 2 hunger points each.
+Alpha Essence:					Mined from Alpha Essence Ore.
+
+Omega Essence:					Mined from Omega Essence Ore.
 
 ---
 
