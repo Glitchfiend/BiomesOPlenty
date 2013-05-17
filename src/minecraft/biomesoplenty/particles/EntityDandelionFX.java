@@ -18,12 +18,12 @@ public class EntityDandelionFX extends EntityFX {
 	public EntityDandelionFX(World par1World, double par2, double par4, double par6, float par8)
 	{
 		super(par1World, par2, par4, par6, 0.0D, 0.0D, 0.0D);
-		this.motionX *= 0.10000000149011612D;
+		this.motionX *= 0.20000000149011612D;
 		this.motionY *= 0.10000000149011612D;
-		this.motionZ *= 0.10000000149011612D;
+		this.motionZ *= 0.20000000149011612D;
 
 		float f4 = (float)Math.random() * 0.4F + 0.6F;
-		this.particleScale *= 0.75F;
+		this.particleScale *= 0.25F;
 		this.particleScale *= par8;
 		this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
 		this.particleMaxAge = (int)((float)this.particleMaxAge * par8);
@@ -56,7 +56,8 @@ public class EntityDandelionFX extends EntityFX {
 	    float var13 = (float)(this.prevPosX + (this.posX - this.prevPosX) * par2 - EntityFX.interpPosX);
 	    float var14 = (float)(this.prevPosY + (this.posY - this.prevPosY) * par2 - EntityFX.interpPosY);
 	    float var15 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * par2 - EntityFX.interpPosZ);
-	    float var16 = 1.2F - (float)Math.random() * 0.5F;
+	    //float var16 = 1.2F - (float)Math.random() * 0.5F;
+		float var16 = 1.2F * 0.5F;
 	    par1Tessellator.setColorRGBA_F(this.particleRed * var16, this.particleGreen * var16, this.particleBlue * var16, 1.0F);
 	    par1Tessellator.addVertexWithUV(var13 - par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 - par5 * sizeFactor - par7 * sizeFactor, 0.0D, 1.0D);
 	    par1Tessellator.addVertexWithUV(var13 - par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 - par5 * sizeFactor + par7 * sizeFactor, 1.0D, 1.0D);
