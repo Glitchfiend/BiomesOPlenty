@@ -49,7 +49,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		this.spawnableMonsterList.clear();
 		this.spawnableCaveCreatureList.clear();
 		this.customBiomeDecorator.generatePumpkins = false;
-		this.customBiomeDecorator.generateClouds = true;
+		//this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
 		
