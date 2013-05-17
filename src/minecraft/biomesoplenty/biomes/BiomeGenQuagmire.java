@@ -31,7 +31,6 @@ public class BiomeGenQuagmire extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk2 = -999;
         this.waterColorMultiplier = 13390080;
 		this.customBiomeDecorator.generateQuagmire = true;
-		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
     }
 	
     /**

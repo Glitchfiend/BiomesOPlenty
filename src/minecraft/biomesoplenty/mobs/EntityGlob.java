@@ -276,7 +276,7 @@ public class EntityGlob extends EntityLiving implements IMob
      */
     protected int getDropItemId()
     {
-        return this.getGlobSize() == 1 ? Items.mudball.get().itemID : 0;
+        return this.getGlobSize() == 1 ? Item.slimeBall.itemID : Items.mudball.get().itemID;
     }
 
     /**
