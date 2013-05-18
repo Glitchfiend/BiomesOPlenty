@@ -40,11 +40,6 @@ public class WorldProviderBOPhell extends WorldProvider
         }
     }
 
-    public IChunkProvider createChunkGenerator()
-    {
-        return new ChunkProviderHell(this.worldObj, this.worldObj.getSeed());
-    }
-
     public boolean isSurfaceWorld()
     {
         return false;
@@ -75,4 +70,10 @@ public class WorldProviderBOPhell extends WorldProvider
     {
         return "Nether";
     }
+    
+	@Override
+	public IChunkProvider createChunkGenerator()
+	{
+		return new ChunkProviderBOPhell(this.worldObj, this.worldObj.getSeed());
+	}
 }

@@ -551,9 +551,10 @@ public class ChunkProviderBOPhell implements IChunkProvider
             (new WorldGenHellLava(Block.lavaMoving.blockID, true)).generate(this.worldObj, this.hellRNG, l1, i2, j2);
         }
         
-        var6.decorate(worldObj, hellRNG, k, l);
-
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, k, l));
+
+        var6.decorate(worldObj, hellRNG, k, l);
+        
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
 
         BlockSand.fallInstantly = false;
