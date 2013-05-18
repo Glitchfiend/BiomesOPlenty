@@ -12,30 +12,21 @@ public abstract class BiomeLayer
 	private long chunkSeed;
 	private long baseSeed;
 	
-    public static BiomeLayer[] initializeAllBiomeGenerators(long seed, WorldType worldtype)
+	//dim: 0 = surface, 1 = hell, 2 = promised
+    public static BiomeLayer[] initializeAllBiomeGenerators(long seed, WorldType worldtype, int dim)
     {
+    	//Hell and promised biome gen
     	BiomeLayer obj = new BiomeLayerCreate(1L);
     	obj = new BiomeLayerFuzzyZoom(2000L, (BiomeLayer)(obj));
-    	
-    	for(int i = 1; i < 3; i++)
-    	{
-    		obj = new BiomeLayerZoom(2000L + i, (BiomeLayer)(obj));
-    	}
-    	
+    	for(int i = 1; i < 3; i++) { obj = new BiomeLayerZoom(2000L + i, (BiomeLayer)(obj)); }
     	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 0);
-    	obj = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj)), worldtype);
+    	obj = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj)), worldtype, dim);
     	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 2);
-    	
-    	for(int j = 0; j < 3; j++)
-    	{
-    		obj = new BiomeLayerZoom(1000L + j, (BiomeLayer)(obj));
-    	}
-    	
+    	for(int j = 0; j < 3; j++) { obj = new BiomeLayerZoom(1000L + j, (BiomeLayer)(obj)); }	
     	BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((BiomeLayer)(obj)));
 		((BiomeLayer)(obj)).initWorldGenSeed(seed);
 		genlayervoronoizoom.initWorldGenSeed(seed);
-    	
-		return (new BiomeLayer[] { obj, genlayervoronoizoom }); //genlayervoronoizoom	
+		return (new BiomeLayer[] { obj, genlayervoronoizoom }); 	
     }
     
     public BiomeLayer(long seed)

@@ -25,7 +25,9 @@ import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.EntitiesHelper;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.integration.ThaumcraftIntegration;
+import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
+import biomesoplenty.world.WorldTypeBOP;
 import biomesoplenty.world.WorldTypeSize;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
@@ -92,7 +94,7 @@ public class BiomesOPlenty
 		}
 
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
-
+			
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
 		BOPBlocks.init();
@@ -130,6 +132,8 @@ public class BiomesOPlenty
 
 		proxy.registerRenderers();
 
+		DimensionManager.unregisterProviderType(-1);
+		DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
 	}

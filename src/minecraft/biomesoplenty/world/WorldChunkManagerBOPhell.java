@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.Biomes;
+import biomesoplenty.helpers.BiomeCacheBOPhell;
 import biomesoplenty.helpers.BiomeCachePromised;
 import biomesoplenty.world.layer.BiomeLayer;
 
@@ -21,36 +22,55 @@ import net.minecraftforge.event.terraingen.WorldTypeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class WorldChunkManagerPromised extends WorldChunkManager
+public class WorldChunkManagerBOPhell extends WorldChunkManager
 {
     private BiomeLayer genBiomes;
     private BiomeLayer biomeIndexLayer;
-    private BiomeCachePromised biomeCache;
+    private BiomeCacheBOPhell biomeCache;
+
+    @SuppressWarnings("rawtypes")
+	private List biomesToSpawnIn;
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	protected WorldChunkManagerPromised()
+	protected WorldChunkManagerBOPhell()
     {
-        this.biomeCache = new BiomeCachePromised(this);
+        this.biomeCache = new BiomeCacheBOPhell(this);
     }
 
-    public WorldChunkManagerPromised(long par1, WorldType par3WorldType)
+    public WorldChunkManagerBOPhell(long par1, WorldType par3WorldType)
     {
         this();
-        BiomeLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 2);
+        BiomeLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 1);
+        //var4 = getModdedBiomeGenerators(par3WorldType, par1, var4);
         this.genBiomes = var4[0];
         this.biomeIndexLayer = var4[1];
     }
 
-    public WorldChunkManagerPromised(World par1World)
+    public WorldChunkManagerBOPhell(World par1World)
     {
         this(par1World.getSeed(), par1World.getWorldInfo().getTerrainType());
     }
 
+    /**
+     * Gets the list of valid biomes for the player to spawn in.
+     */
+    @SuppressWarnings("rawtypes")
+	public List getBiomesToSpawnIn()
+    {
+        return this.biomesToSpawnIn;
+    }
+
+    /**
+     * Returns the BiomeGenBase related to the x, z position on the world.
+     */
     public BiomeGenBase getBiomeGenAt(int par1, int par2)
     {
         return this.biomeCache.getBiomeGenAt(par1, par2);
     }
 
+    /**
+     * Returns a list of rainfall values for the specified blocks. Args: listToReuse, x, z, width, length.
+     */
     public float[] getRainfall(float[] par1ArrayOfFloat, int par2, int par3, int par4, int par5)
     {
         IntCache.resetIntCache();

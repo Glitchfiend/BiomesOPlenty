@@ -14,24 +14,19 @@ import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-//import tdwp_ftw.biomesop.helpers.WorldChunkManagerPromised;
 
 public class WorldProviderPromised extends WorldProvider
 {
+    public boolean hasNoSky = false;
+    
 	public void registerWorldChunkManager()
 	{
-		if (Biomes.promisedLandForest.isPresent())
+		if (Biomes.promisedLandForest.isPresent() || Biomes.promisedLandPlains.isPresent() || Biomes.promisedLandSwamp.isPresent())
 		{
 			this.worldChunkMgr = new WorldChunkManagerPromised(worldObj);
-			//this.worldChunkMgr = new WorldChunkManagerHell(Biomes.promisedLand.get(), 0.8F, 0.1F);
 		}
 		this.dimensionId = BOPConfiguration.promisedLandDimID;
 	}
-	
-    /**
-     * A boolean that tells if a world does not have a sky. Used in calculating weather and skylight
-     */
-    public boolean hasNoSky = false;
 	
 	public String getDimensionName() 
 	{
@@ -42,18 +37,12 @@ public class WorldProviderPromised extends WorldProvider
 	{
 		return false;
 	}
-	
-    /**
-     * Calculates the angle of sun and moon in the sky relative to a specified time (usually worldTime)
-     */
+
     public float calculateCelestialAngle(long par1, float par3)
     {
         return 1.0F;
     }
-	
-    /**
-     * the y level at which clouds are rendered.
-     */
+
     public float getCloudHeight()
     {
         return 0.0F;
@@ -63,19 +52,13 @@ public class WorldProviderPromised extends WorldProvider
     {
         return false;
     }
-	
-    /**
-     * Will check if the x, z position specified is alright to be set as the map spawn point
-     */
+
     public boolean canCoordinateBeSpawn(int par1, int par2)
     {
         int var3 = this.worldObj.getFirstUncoveredBlock(par1, par2);
         return var3 == Blocks.holyGrass.get().blockID;
     }
 
-    /**
-     * Gets the hard-coded portal location to use when entering this dimension.
-     */
     public ChunkCoordinates getEntrancePortalLocation()
     {
         return new ChunkCoordinates(100, 50, 0);
@@ -111,10 +94,6 @@ public class WorldProviderPromised extends WorldProvider
     }
 	
     @SideOnly(Side.CLIENT)
-
-    /**
-     * Return Vec3D with biome specific fog color
-     */
 	public Vec3 getFogColor(float par1, float par2)
     {
         float var3 = MathHelper.cos(par1 * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
