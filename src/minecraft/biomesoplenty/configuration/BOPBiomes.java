@@ -191,7 +191,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.oasis.get(), Type.DESERT, Type.PLAINS);
-        BiomeDictionary.registerBiomeType(Biomes.ominousWoods.get(), Type.NETHER, Type.MAGICAL);
+        BiomeDictionary.registerBiomeType(Biomes.ominousWoods.get(), Type.MAGICAL);
         BiomeDictionary.registerBiomeType(Biomes.orchard.get(), Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.outback.get(), Type.DESERT, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.pasture.get(), Type.PLAINS);
