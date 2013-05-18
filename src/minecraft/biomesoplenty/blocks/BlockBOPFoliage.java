@@ -245,16 +245,15 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     @Override
     public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
     {
-        if (world.isRemote)
-            return false;
-
         int meta = world.getBlockMetadata(x, y, z);
         if (meta == 8)
         {
             world.setBlock(x, y, z, blockID, 4, 3);
             EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Items.berries.get(), 1, 0));
-            world.spawnEntityInWorld(entityitem);
-            entityitem.onCollideWithPlayer(player);
+            if (!world.isRemote) {
+            	world.spawnEntityInWorld(entityitem);
+            	entityitem.onCollideWithPlayer(player);
+            }
             return true;
         }
         else
