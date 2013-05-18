@@ -15,6 +15,12 @@ public abstract class BiomeLayer
 	//dim: 0 = surface, 1 = hell, 2 = promised
     public static BiomeLayer[] initializeAllBiomeGenerators(long seed, WorldType worldtype, int dim)
     {
+    	int biomesize = 3;
+    	if(dim == 1)
+    	{
+    		biomesize = 2;
+    	}
+    	
     	//Hell and promised biome gen
     	BiomeLayer obj = new BiomeLayerCreate(1L);
     	obj = new BiomeLayerFuzzyZoom(2000L, (BiomeLayer)(obj));
@@ -22,7 +28,7 @@ public abstract class BiomeLayer
     	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 0);
     	obj = new BiomeLayerBiomes(200L, ((BiomeLayer)(obj)), worldtype, dim);
     	obj = BiomeLayerZoom.func_75915_a(1000L, ((BiomeLayer)(obj)), 2);
-    	for(int j = 0; j < 3; j++) { obj = new BiomeLayerZoom(1000L + j, (BiomeLayer)(obj)); }	
+    	for(int j = 0; j < biomesize; j++) { obj = new BiomeLayerZoom(1000L + j, (BiomeLayer)(obj)); }	
     	BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((BiomeLayer)(obj)));
 		((BiomeLayer)(obj)).initWorldGenSeed(seed);
 		genlayervoronoizoom.initWorldGenSeed(seed);
