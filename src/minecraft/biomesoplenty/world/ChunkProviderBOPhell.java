@@ -465,6 +465,8 @@ public class ChunkProviderBOPhell implements IChunkProvider
 
         int k = par2 * 16;
         int l = par3 * 16;
+        BiomeGenBase var6 = this.worldObj.getBiomeGenForCoords(k + 16, l + 16);
+        
         this.genNetherBridge.generateStructuresInChunk(this.worldObj, this.hellRNG, par2, par3);
         int i1;
         int j1;
@@ -548,6 +550,8 @@ public class ChunkProviderBOPhell implements IChunkProvider
             j2 = l + this.hellRNG.nextInt(16);
             (new WorldGenHellLava(Block.lavaMoving.blockID, true)).generate(this.worldObj, this.hellRNG, l1, i2, j2);
         }
+        
+        var6.decorate(worldObj, hellRNG, k, l);
 
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, k, l));
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
