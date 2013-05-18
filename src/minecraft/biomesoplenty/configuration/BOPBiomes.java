@@ -104,6 +104,12 @@ public class BOPBiomes {
         Biomes.moor = Optional.of((new BiomeGenMoor(BOPConfiguration.moorID)).setColor(16421912).setBiomeName("Moor").setTemperatureRainfall(0.5F, 1.0F).setMinMaxHeight(0.7F, 0.8F));
         Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfiguration.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.2F, 1.2F));
         Biomes.mysticGrove = Optional.of((new BiomeGenMysticGrove(BOPConfiguration.mysticGroveID)).setColor(353825).setBiomeName("Mystic Grove").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F));
+		
+		Biomes.netherGarden = Optional.of((new BiomeGenNetherGarden(BOPConfiguration.netherGardenID)).setColor(16711680).setBiomeName("Undergarden").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
+		Biomes.netherDesert = Optional.of((new BiomeGenNetherDesert(BOPConfiguration.netherDesertID)).setColor(16711680).setBiomeName("Corrupted Sands").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
+		Biomes.netherLava = Optional.of((new BiomeGenNetherLava(BOPConfiguration.netherLavaID)).setColor(16711680).setBiomeName("Phantasmagoric Inferno").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
+		Biomes.netherAbyss = Optional.of((new BiomeGenNetherAbyss(BOPConfiguration.netherAbyssID)).setColor(16711680).setBiomeName("Aphotic Abyss").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
+		
         Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfiguration.oasisID)).setColor(16421912).setBiomeName("Oasis").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 0.2F));
         Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfiguration.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfiguration.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
@@ -190,6 +196,12 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.moor.get(), Type.PLAINS, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
+		
+		BiomeDictionary.registerBiomeType(Biomes.netherGarden.get(), Type.NETHER, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.netherDesert.get(), Type.NETHER, Type.DESERT);
+		BiomeDictionary.registerBiomeType(Biomes.netherLava.get(), Type.NETHER);
+		BiomeDictionary.registerBiomeType(Biomes.netherAbyss.get(), Type.NETHER);
+		
         BiomeDictionary.registerBiomeType(Biomes.oasis.get(), Type.DESERT, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.ominousWoods.get(), Type.MAGICAL);
         BiomeDictionary.registerBiomeType(Biomes.orchard.get(), Type.FOREST, Type.PLAINS);

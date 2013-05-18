@@ -267,6 +267,12 @@ public class BOPConfiguration {
 	public static int moorID;
 	public static int mountainID;
 	public static int mysticGroveID;
+	
+	public static int netherGardenID;
+	public static int netherDesertID;
+	public static int netherLavaID;
+	public static int netherAbyssID;
+	
 	public static int oasisID;
 	public static int ominousWoodsID;
 	public static int orchardID;
@@ -723,6 +729,11 @@ public class BOPConfiguration {
 			System.out.println("Generating Biome ID's");
 			
 			//23-79 ExtraBiomesXL
+			
+			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 76).getInt();
+			netherDesertID = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 77).getInt();
+			netherLavaID = config.get("Biome IDs", "Phantasmagoric Inferno (Nether) ID", 78).getInt();
+			netherAbyssID = config.get("Biome IDs", "Aphotic Abyss (Nether) ID", 79).getInt();
 			
 			//80-169 Better World Generation 4
 			

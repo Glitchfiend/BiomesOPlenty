@@ -47,6 +47,12 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> moor					 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> mountain				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> mysticGrove			 = Optional.absent();
+	
+	public static Optional<? extends BiomeGenBase> netherGarden			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> netherDesert			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> netherLava			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> netherAbyss			 = Optional.absent();
+	
 	public static Optional<? extends BiomeGenBase> oasis				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> ominousWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> orchard				 = Optional.absent();
