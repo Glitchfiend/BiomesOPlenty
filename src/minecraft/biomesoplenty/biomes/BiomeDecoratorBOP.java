@@ -46,6 +46,7 @@ import biomesoplenty.worldgen.WorldGenMelon;
 import biomesoplenty.worldgen.WorldGenMesa;
 import biomesoplenty.worldgen.WorldGenMud;
 import biomesoplenty.worldgen.WorldGenMycelium;
+import biomesoplenty.worldgen.WorldGenNetherVines;
 import biomesoplenty.worldgen.WorldGenOasis;
 import biomesoplenty.worldgen.WorldGenOutback;
 import biomesoplenty.worldgen.WorldGenPit;
@@ -186,6 +187,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator holyTallGrassGen;
 	protected WorldGenerator desertSproutsGen;
 	protected WorldGenerator promisedWillowGen;
+	protected WorldGenerator netherVineGen;
 	protected WorldGenerator quicksandGen;
 	protected WorldGenerator quicksand2Gen;
 	protected WorldGenerator poisonIvyGen;
@@ -263,6 +265,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int holyTallGrassPerChunk;
 	protected int desertSproutsPerChunk;
 	protected int promisedWillowPerChunk;
+	protected int netherVinesPerChunk;
 	protected int quicksandPerChunk;
 	protected int quicksand2PerChunk;
 	protected int poisonIvyPerChunk;
@@ -405,6 +408,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.poisonIvyGen = new WorldGenBush(Blocks.foliage.get().blockID, 7);
 		this.sunflowerGen = new WorldGenSunflower(Blocks.flowers.get().blockID, 13);
 		this.promisedWillowGen = new WorldGenPromisedWillow();
+		this.netherVineGen = new WorldGenNetherVines();
 		this.quicksandGen = new WorldGenQuicksand();
 		this.quicksand2Gen = new WorldGenQuicksand2();
         this.cattailGen = new WorldGenCattail();
@@ -490,6 +494,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.canyonGrassPerChunk = 0;
 		this.steppePerChunk = 0;
 		this.promisedWillowPerChunk = 0;
+		this.netherVinesPerChunk = 0;
 		this.algaePerChunk = 0;
         this.pondsPerChunk = 0;
 		this.waterLakesPerChunk = 0;
@@ -819,6 +824,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(70);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.promisedWillowGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.netherVinesPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.netherVineGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 
         for (var2 = 0; var2 < this.whiteFlowersPerChunk; ++var2)

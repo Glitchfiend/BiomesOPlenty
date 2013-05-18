@@ -9,25 +9,25 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenBOPBigMushroom extends WorldGenerator
+public class WorldGenNetherMushroom extends WorldGenerator
 {
     /** The mushroom type. 0 for brown, 1 for red. */
     private int mushroomType = 1;
 
-    public WorldGenBOPBigMushroom(int par1)
+    public WorldGenNetherMushroom(int par1)
     {
         super(true);
         this.mushroomType = par1;
     }
 
-    public WorldGenBOPBigMushroom()
+    public WorldGenNetherMushroom()
     {
         super(false);
     }
 
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
-        int l = 1;
+        int l = par2Random.nextInt(2);
 
         if (this.mushroomType >= 0)
         {
@@ -84,7 +84,7 @@ public class WorldGenBOPBigMushroom extends WorldGenerator
             {
                 j1 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if (j1 != Block.dirt.blockID && j1 != Block.grass.blockID && j1 != Block.mycelium.blockID  && j1 != Blocks.holyGrass.get().blockID)
+                if (j1 != Block.netherrack.blockID)
                 {
                     return false;
                 }
