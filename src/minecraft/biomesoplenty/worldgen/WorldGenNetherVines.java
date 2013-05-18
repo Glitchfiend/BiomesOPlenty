@@ -61,6 +61,46 @@ public class WorldGenNetherVines extends WorldGenerator
 				{
 				var1.setBlock(var3 - 1, var4 - 5, var5, Block.vine.blockID, 8, 2);
 				}
+			if (var1.isAirBlock(var3 - 1, var4 - 6, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 6, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 7, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 7, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 8, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 8, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 9, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 9, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 10, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 10, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 11, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 11, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 12, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 12, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 13, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 13, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 14, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 14, var5, Block.vine.blockID, 8, 2);
+				}
+			if (var1.isAirBlock(var3 - 1, var4 - 15, var5))
+				{
+				var1.setBlock(var3 - 1, var4 - 15, var5, Block.vine.blockID, 8, 2);
+				}
 				
 			if (var1.isAirBlock(var3 + 1, var4, var5))
 				{
@@ -105,6 +145,46 @@ public class WorldGenNetherVines extends WorldGenerator
 			if (var1.isAirBlock(var3 + 1, var4 - 10, var5))
 				{
 				var1.setBlock(var3 + 1, var4 - 10, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 11, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 11, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 12, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 12, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 13, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 13, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 14, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 14, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 15, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 15, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 16, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 16, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 17, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 17, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 18, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 18, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 19, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 19, var5, Block.vine.blockID, 2, 2);
+				}
+			if (var1.isAirBlock(var3 + 1, var4 - 20, var5))
+				{
+				var1.setBlock(var3 + 1, var4 - 20, var5, Block.vine.blockID, 2, 2);
 				}
 				
 			if (var1.isAirBlock(var3, var4, var5 - 1))
@@ -170,6 +250,46 @@ public class WorldGenNetherVines extends WorldGenerator
 			if (var1.isAirBlock(var3, var4 - 15, var5 - 1))
 				{
 				var1.setBlock(var3, var4 - 15, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 16, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 16, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 17, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 17, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 18, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 18, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 19, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 19, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 20, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 20, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 21, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 21, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 22, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 22, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 23, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 23, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 24, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 24, var5 - 1, Block.vine.blockID, 1, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 25, var5 - 1))
+				{
+				var1.setBlock(var3, var4 - 25, var5 - 1, Block.vine.blockID, 1, 2);
 				}
 				
 			if (var1.isAirBlock(var3, var4, var5 + 1))
@@ -255,6 +375,46 @@ public class WorldGenNetherVines extends WorldGenerator
 			if (var1.isAirBlock(var3, var4 - 20, var5 + 1))
 				{
 				var1.setBlock(var3, var4 - 20, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 21, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 21, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 22, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 22, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 23, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 23, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 24, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 24, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 25, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 25, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 26, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 26, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 27, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 27, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 28, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 28, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 29, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 29, var5 + 1, Block.vine.blockID, 4, 2);
+				}
+			if (var1.isAirBlock(var3, var4 - 30, var5 + 1))
+				{
+				var1.setBlock(var3, var4 - 30, var5 + 1, Block.vine.blockID, 4, 2);
 				}
 				
             return true;

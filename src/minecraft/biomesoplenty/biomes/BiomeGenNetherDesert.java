@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import biomesoplenty.configuration.BOPConfiguration;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.entity.monster.EntityGhast;
@@ -17,6 +18,8 @@ public class BiomeGenNetherDesert extends BiomeGenBase
         super(par1);
 		this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		this.topBlock = (byte)Block.slowSand.blockID;
+        this.fillerBlock = (byte)Block.slowSand.blockID;
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

@@ -1,34 +1,40 @@
+GENERATION:
+
+Jacaranda Tree:					Purple-leafed trees that generate in the Extreme Hills, Heathland, and Mystic Grove.
+
+Pine Tree:						Pine trees that generate in the Canyon, Jade Cliffs, and Mountain.
+
+---
+
 BLOCKS:
 
-Rock: 						Small rock that has a random size.  Uses the vanilla stone texture.
+Pebbles: 						Small rocks scattered around forest biomes.
 
-Pinecone:					Pinecone that grows under spruce and fir leaves.  No use yet.
+Pinecone:						Pinecone that grows under spruce and fir leaves.
 
-Origin Blocks:					Planks, Gravel, Cobblestone, Mossy Cobblestone, Bricks, Block of Diamond, Block of Gold, Block of Iron, Lapis Lazuli Block
-
-Originator:					Used to turn certain blocks into previous forms.  Requires Origin Essence to use.
+Origin Blocks:					Planks, Gravel, Cobblestone, Mossy Cobblestone, Bricks, Block of Diamond, Block of Gold, Block of Iron, Lapis Lazuli Block.
 
 Alpha Essence Ore:				Found in the Promised Land.  Requires an Amethyst pickaxe to mine.
 
-Omega Essence Ore:				Found in the Nether.  Requires and Amethyst pickaxe to mine.
+Omega Essence Ore:				Found in the Nether.  Requires an Amethyst pickaxe to mine.
 
 ---
 
 ITEMS:
 
-Alpha Essence:					Mined from Alpha Essence Ore.
+Alpha Essence:					Mined from Alpha Essence Ore.  Used to turn certain blocks into their Origin counterparts.
 
-Omega Essence:					Mined from Omega Essence Ore.
+Omega Essence:					Mined from Omega Essence Ore.  Used to turn Origin blocks back to their normal counterparts.
 
 ---
 
 NETHER BIOMES:
 
-Undergarden:					Bramble, nether wart, giant/small mushrooms, hellstem plant, glowpines.
+Undergarden:					Vines, nether wart, giant/small mushrooms, hellstem plant.
 
-Corrupted Sands:				Soulsand, thorns, dead bushes.
+Corrupted Sands:				Soulsand, bramble, thorns.
 
-Phantasmagoric Inferno:				Lots of lavafalls and lava ponds.
+Phantasmagoric Inferno:			Lots of lavafalls and lava ponds.
 
 Aphotic Abyss:					Large, empty pits that go into the void.  Lots of mobs will spawn here.
 
@@ -38,9 +44,9 @@ Parasitic Heap:					A living, breathing biome where a parasitic block slowly eng
 
 BEACH BIOMES:
 
-Gravel Beach:					A beach covered in gravel
+Gravel Beach:					A beach covered in gravel.
 
-Lush Beach:					A beach with dune grass, and patches of leaves and grass
+Lush Beach:						A beach with dune grass, and patches of leaves and grass.
 
 Forested Beach:					A beach with trees.
 
@@ -50,7 +56,7 @@ Rocky Beach:					A beach with jagged rocks.
 
 OCEAN BIOMES:
 
-Coral Reef:					Different types of coral, with reef stone on the ocean floor.
+Coral Reef:						Different types of coral, with reef stone on the ocean floor.
 
 Kelp Forest:					Lots and lots of kelp with varying heights.
 

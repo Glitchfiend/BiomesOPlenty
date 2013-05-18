@@ -27,7 +27,8 @@ public class WorldGenNetherMushroom extends WorldGenerator
 
     public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
-        int l = par2Random.nextInt(2);
+        //int l = par2Random.nextInt(2);
+		int l = 1;
 
         if (this.mushroomType >= 0)
         {

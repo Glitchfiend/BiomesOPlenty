@@ -5,6 +5,7 @@ import java.util.Random;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenNetherMushroom;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -21,9 +22,13 @@ public class BiomeGenNetherGarden extends BiomeGenBase
         super(par1);
 		this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.customBiomeDecorator.treesPerChunk = 3;
-		this.customBiomeDecorator.netherVinesPerChunk = 40;
+		this.topBlock = (byte)Block.netherrack.blockID;
+        this.fillerBlock = (byte)Block.netherrack.blockID;
+		this.customBiomeDecorator.treesPerChunk = 15;
+		this.customBiomeDecorator.netherVinesPerChunk = 80;
 		this.customBiomeDecorator.mushroomsPerChunk = 20;
+		this.customBiomeDecorator.bigMushroomsPerChunk = 10;
+		this.customBiomeDecorator.netherWartPerChunk = 3;
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
