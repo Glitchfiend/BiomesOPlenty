@@ -36,6 +36,18 @@ Parasitic Heap:					A living, breathing biome where a parasitic block slowly eng
 
 ---
 
+BEACH BIOMES:
+
+Gravel Beach:					A beach covered in gravel
+
+Lush Beach:					A beach with dune grass, and patches of leaves and grass
+
+Forested Beach:					A beach with trees.
+
+Rocky Beach:					A beach with jagged rocks.
+
+---
+
 OCEAN BIOMES:
 
 Coral Reef:					Different types of coral, with reef stone on the ocean floor.
