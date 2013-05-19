@@ -249,10 +249,10 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         if (meta == 8)
         {
             world.setBlock(x, y, z, blockID, 4, 3);
-            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Items.berries.get(), 1, 0));
+            EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.berries.get(), 1, 0));
             if (!world.isRemote) {
             	world.spawnEntityInWorld(entityitem);
-            	entityitem.onCollideWithPlayer(player);
+            	//entityitem.onCollideWithPlayer(player);
             }
             return true;
         }
