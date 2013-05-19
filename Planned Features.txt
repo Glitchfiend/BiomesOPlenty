@@ -28,6 +28,14 @@ Omega Essence:					Mined from Omega Essence Ore.  Used to turn Origin blocks bac
 
 ---
 
+OVERWORLD BIOMES:
+
+Hot Springs:					Geysers, pools of water and lava, and decaying spruce trees.
+
+Temperate Forest:				Tall, decaying deciduous trees, thorns, and small bushes.
+
+---
+
 NETHER BIOMES:
 
 Undergarden:					Vines, nether wart, giant/small mushrooms, hellstem plant.

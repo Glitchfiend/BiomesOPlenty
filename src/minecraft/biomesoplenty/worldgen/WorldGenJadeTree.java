@@ -93,7 +93,7 @@ public class WorldGenJadeTree extends WorldGenerator
 
                                 if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var17, var16, var19)])
                                 {
-                                    this.setBlockAndMetadata(par1World, var17, var16, var19, Block.leaves.blockID, 4);
+                                    this.setBlockAndMetadata(par1World, var17, var16, var19, Block.leaves.blockID, 0);
                                 }
                             }
                         }

@@ -85,7 +85,7 @@ public class WorldGenNetherMushroom extends WorldGenerator
             {
                 j1 = par1World.getBlockId(par3, par4 - 1, par5);
 
-                if (j1 != Block.netherrack.blockID)
+                if (j1 != Block.netherrack.blockID && j1 != Block.grass.blockID)
                 {
                     return false;
                 }

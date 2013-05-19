@@ -104,13 +104,13 @@ public class BlockBOPMushroom extends BlockFlower
     protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
     {
     	if (metadata == 0) //Toadstool
-    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID;
 		if (metadata == 1) //Portobello
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID | id == Blocks.holyGrass.get().blockID;
 		if (metadata == 2) //Blue Milk Cap
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 		if (metadata == 3) //Glowshroom
-    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID;
+    		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID || id == Block.netherrack.blockID;
     	else
     		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
     }
@@ -126,7 +126,7 @@ public class BlockBOPMushroom extends BlockFlower
             switch (meta)
             {
                 case 0: // Toadstool
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID;
 					
 				case 1: // Portobello
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
@@ -135,7 +135,7 @@ public class BlockBOPMushroom extends BlockFlower
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 					
 				case 3: // Glowshroom
-                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID || id == Block.netherrack.blockID;
 
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID;
@@ -147,12 +147,7 @@ public class BlockBOPMushroom extends BlockFlower
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
-        if (world.getBlockId(x, y, z) != this.blockID)
-            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
-                    && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-        else
-        return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
-                && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+        return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
     }
     
     @Override
