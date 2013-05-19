@@ -15,6 +15,7 @@ public class ThaumcraftIntegration {
 	public static void init()
 	{
 		addAspects();
+		
 		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.leavesFruit.get(), 1, 3));
 		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.foliage.get(), 1, 8));
 	}

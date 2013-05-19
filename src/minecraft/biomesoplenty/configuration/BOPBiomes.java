@@ -169,7 +169,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.coniferousForest.get(), Type.FOREST, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.crag.get(), Type.WASTELAND, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(Biomes.deadForest.get(), Type.WASTELAND, Type.FOREST);
-        BiomeDictionary.registerBiomeType(Biomes.deadlands.get(), Type.WASTELAND, Type.NETHER);
+        BiomeDictionary.registerBiomeType(Biomes.deadlands.get(), Type.WASTELAND);
         BiomeDictionary.registerBiomeType(Biomes.deadSwamp.get(), Type.SWAMP);
         BiomeDictionary.registerBiomeType(Biomes.deciduousForest.get(), Type.FOREST, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.drylands.get(), Type.DESERT);
@@ -230,7 +230,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.tropicalRainforest.get(), Type.JUNGLE);
         BiomeDictionary.registerBiomeType(Biomes.tropics.get(), Type.JUNGLE);
         BiomeDictionary.registerBiomeType(Biomes.tundra.get(), Type.FROZEN);
-        BiomeDictionary.registerBiomeType(Biomes.volcano.get(), Type.WASTELAND, Type.MOUNTAIN, Type.NETHER);
+        BiomeDictionary.registerBiomeType(Biomes.volcano.get(), Type.WASTELAND, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(Biomes.wasteland.get(), Type.WASTELAND);
         BiomeDictionary.registerBiomeType(Biomes.wetland.get(), Type.SWAMP);
         BiomeDictionary.registerBiomeType(Biomes.woodland.get(), Type.FOREST);
