@@ -229,10 +229,10 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
         if ((meta & 3) == 3)
         {
             world.setBlock(x, y, z, blockID, meta - 3, 3);
-            EntityItem entityitem = new EntityItem(world, player.posX, player.posY - 1.0D, player.posZ, new ItemStack(Item.appleRed, 1, 0));
+            EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
             if (!world.isRemote) {
             	world.spawnEntityInWorld(entityitem);
-            	entityitem.onCollideWithPlayer(player);
+            	//entityitem.onCollideWithPlayer(player);
             }
             return true;
         }

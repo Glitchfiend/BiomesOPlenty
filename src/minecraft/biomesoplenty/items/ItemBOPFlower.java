@@ -1,5 +1,7 @@
 package biomesoplenty.items;
 
+import java.util.Random;
+
 import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -79,28 +81,50 @@ public class ItemBOPFlower extends ItemBlock
     @Override
     public int getMaxItemUseDuration(ItemStack par1ItemStack)
     {
-        return 72000;
+        return 20;
     }
     
     @Override
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
     	if (par1ItemStack.getItemDamage() == 15) {
-    		Vec3 vec = par3EntityPlayer.getLookVec();
-    		
-			for (int p = 0; p < 32; ++p)
-			{
-				BiomesOPlenty.proxy.spawnParticle("dandelion", par3EntityPlayer.posX + (vec.xCoord / 2), par3EntityPlayer.posY + (vec.yCoord / 2) + par3EntityPlayer.getEyeHeight(), par3EntityPlayer.posZ + (vec.zCoord / 2));
-			};
+//    		Vec3 vec = par3EntityPlayer.getLookVec();
+//    		
+//			for (int p = 0; p < 32; ++p)
+//			{
+//				BiomesOPlenty.proxy.spawnParticle("dandelion", par3EntityPlayer.posX + (vec.xCoord / 2), par3EntityPlayer.posY + (vec.yCoord / 2) + par3EntityPlayer.getEyeHeight(), par3EntityPlayer.posZ + (vec.zCoord / 2));
+//			};
     		
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
 
-			if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote)
-				--par1ItemStack.stackSize;
+//			if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote)
+//				--par1ItemStack.stackSize;
     	}
         return par1ItemStack;
     }
+    
+    @Override
+    public void onUsingItemTick(ItemStack stack, EntityPlayer player, int count)
+    {
+        Vec3 vec = player.getLook(0.5F);
+        Random rnd = player.getRNG();
+        
+        for (int p = 0; p < 4; ++p)
+        {
+            float pos = (rnd.nextFloat() - 0.5F) / 8;
+            BiomesOPlenty.proxy.spawnParticle("dandelion", player.posX + vec.xCoord + pos, player.posY + vec.yCoord + player.getEyeHeight() + pos, player.posZ + vec.zCoord + pos);
+        }
 
+        if (count < 10)
+          player.stopUsingItem();
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4) 
+    {
+        if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote)
+            --par1ItemStack.stackSize;
+    }
     
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
