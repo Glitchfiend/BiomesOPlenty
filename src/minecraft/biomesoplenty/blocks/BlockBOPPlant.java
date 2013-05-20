@@ -104,7 +104,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
         else if (metadata == 4) //Holy Tall Grass
             return blockID == Blocks.holyGrass.get().blockID;
         else if (metadata == 5)
-            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID;
+            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.slowSand.blockID;
         else if (metadata == 7)
             return blockID == Block.grass.blockID;
 		else if (metadata == 8)
@@ -144,7 +144,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
                     return id == Blocks.holyGrass.get().blockID;
                     
                 case 5: // Thorns
-                    return id == Block.grass.blockID || id == Block.dirt.blockID;
+                    return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.slowSand.blockID;
                     
                 case 7: // Cattail
                     return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));

@@ -147,7 +147,7 @@ public class BlockBOPFlower extends BlockFlower
 		if (metadata == 10) //Lily Flower
     		return id == Block.waterlily.blockID;
     	if (metadata == 11) //Cactus
-    		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID;
+    		return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
     	if (metadata == 12) //Aloe
     		return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 		if (metadata == 14) //Sunflower Top
@@ -173,7 +173,7 @@ public class BlockBOPFlower extends BlockFlower
                     return id == Block.waterlily.blockID;
                     
                 case 11: // Cactus
-                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+                    return id == Blocks.redRock.get().blockID || id == Block.sand.blockID || id == Block.slowSand.blockID;
 					
 				case 12: // Aloe
                     return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
