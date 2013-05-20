@@ -2,6 +2,9 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPBlocks;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
@@ -125,22 +128,22 @@ public class WorldGenSwampTall extends WorldGenerator
                             {
                                 if (par1World.getBlockId(var12, var16, var13) == Block.leaves.blockID)
                                 {
-                                    if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
+                                    if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
                                     {
                                         this.generateVines(par1World, var12 - 1, var16, var13, 8);
                                     }
 
-                                    if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12 + 1, var16, var13) == 0)
+                                    if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12 + 1, var16, var13) == 0)
                                     {
                                         this.generateVines(par1World, var12 + 1, var16, var13, 2);
                                     }
 
-                                    if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12, var16, var13 - 1) == 0)
+                                    if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12, var16, var13 - 1) == 0)
                                     {
                                         this.generateVines(par1World, var12, var16, var13 - 1, 1);
                                     }
 
-                                    if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12, var16, var13 + 1) == 0)
+                                    if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12, var16, var13 + 1) == 0)
                                     {
                                         this.generateVines(par1World, var12, var16, var13 + 1, 4);
                                     }
@@ -168,7 +171,7 @@ public class WorldGenSwampTall extends WorldGenerator
      */
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.setBlockAndMetadata(par1World, par2, par3, par4, Block.vine.blockID, par5);
+        this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.ivy.get().blockID, par5);
         int var6 = 8;
 
         while (true)
@@ -180,7 +183,7 @@ public class WorldGenSwampTall extends WorldGenerator
                 return;
             }
 
-            this.setBlockAndMetadata(par1World, par2, par3, par4, Block.vine.blockID, par5);
+            this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.ivy.get().blockID, par5);
             --var6;
         }
     }

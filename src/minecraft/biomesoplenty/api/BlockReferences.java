@@ -128,6 +128,7 @@ public class BlockReferences {
 		treeMoss (Blocks.treeMoss, 0),	
 		moss (Blocks.moss, 0),
 		willow (Blocks.willow, 0),
+		ivy (Blocks.ivy, 0),
 		
 		clover (Blocks.flowers, 0),
 		swampFlower (Blocks.flowers, 1),

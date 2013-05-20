@@ -47,6 +47,7 @@ import biomesoplenty.worldgen.WorldGenMesa;
 import biomesoplenty.worldgen.WorldGenMud;
 import biomesoplenty.worldgen.WorldGenMycelium;
 import biomesoplenty.worldgen.WorldGenNetherGrass;
+import biomesoplenty.worldgen.WorldGenNetherLava;
 import biomesoplenty.worldgen.WorldGenNetherVines;
 import biomesoplenty.worldgen.WorldGenNetherWart;
 import biomesoplenty.worldgen.WorldGenOasis;
@@ -335,6 +336,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected int pondsPerChunk;
 	protected int waterLakesPerChunk;
 	protected int lavaLakesPerChunk;
+	protected int netherLavaPerChunk;
 
     /** True if decorator should generate surface lava & water */
     public boolean generateLakes;
@@ -509,6 +511,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.pondsPerChunk = 0;
 		this.waterLakesPerChunk = 0;
 		this.lavaLakesPerChunk = 0;
+		this.netherLavaPerChunk = 0;
 		this.quicksandPerChunk = 0;
 		this.quicksand2PerChunk = 0;
 		this.crystalsPerChunk = 0;
@@ -589,6 +592,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
 			var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
 			(new WorldGenLakes(Block.lavaMoving.blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+		}
+		
+		for (var2 = 0; var2 < netherLavaPerChunk; ++var2)
+		{
+			var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+			var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
+			var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+			(new WorldGenNetherLava(Block.lavaMoving.blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
 		}
 
         if (this.generateAsh)

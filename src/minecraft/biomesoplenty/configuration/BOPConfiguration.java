@@ -124,6 +124,7 @@ public class BOPConfiguration {
 	public static int flowersID;
 	public static int mushroomsID;
 	public static int willowID;
+	public static int ivyID;
 	
 	public static int leaves1ID;
 	public static int leaves2ID;
@@ -647,6 +648,8 @@ public class BOPConfiguration {
 			
 			promisedLandPortalID = config.getBlock("Promised Land Portal ID", 1941, null).getInt();
 			amethystOreID = config.getBlock("Amethyst Ore ID", 1942, null).getInt();
+			
+			ivyID = config.getBlock("Ivy ID", 1943, null).getInt();
 			
 			mossID = config.getBlock("Moss ID", 391, null).getInt();
 

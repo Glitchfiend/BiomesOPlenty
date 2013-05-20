@@ -38,7 +38,7 @@ public class BiomeGenLushSwamp extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenSwampTall() : this.worldGeneratorSwamp);
+        return new WorldGenSwampTall();
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)
