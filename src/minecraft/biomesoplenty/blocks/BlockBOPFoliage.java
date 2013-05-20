@@ -241,6 +241,18 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
         super.harvestBlock(world, player, x, y, z, meta);
     }
+    
+    @Override
+    public void updateTick(World world, int x, int y, int z, Random random)
+    {
+        if (world.isRemote)
+            return;
+
+        int meta = world.getBlockMetadata(x, y, z);
+        if (random.nextInt(13) == 0)
+            if (meta == 4)
+                world.setBlock(x, y, z, blockID, 8, 3);
+    }
 	
     @Override
     public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
