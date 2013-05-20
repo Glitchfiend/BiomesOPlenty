@@ -32,7 +32,9 @@ OVERWORLD BIOMES:
 
 Hot Springs:					Geysers, pools of water and lava, and decaying spruce trees.
 
-Temperate Forest:				Tall, decaying deciduous trees, thorns, and small bushes.
+Timber:							Tall, decaying deciduous trees, thorns, and small bushes.
+
+Burning Brush:					A smokey forest with burnt trees, smoldering grass, and ash.
 
 ---
 
