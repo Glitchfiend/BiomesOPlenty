@@ -3,7 +3,8 @@ package biomesoplenty.biomes;
 import java.util.Random;
 
 import biomesoplenty.worldgen.WorldGenAutumn;
-import biomesoplenty.worldgen.WorldGenTaiga5;
+import biomesoplenty.worldgen.WorldGenRainforestTree1;
+import biomesoplenty.worldgen.WorldGenTaiga10;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
@@ -24,7 +25,7 @@ public class BiomeGenBorealForest extends BiomeGenBase
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 25;
+        this.customBiomeDecorator.treesPerChunk = 20;
         this.customBiomeDecorator.grassPerChunk = 50;
     }
 	
@@ -41,7 +42,8 @@ public class BiomeGenBorealForest extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? this.worldGeneratorTrees : (par1Random.nextInt(5) == 0 ? new WorldGenShrub(0,0) : (par1Random.nextInt(3) == 0 ? new WorldGenAutumn(false) : (par1Random.nextInt(3) == 0 ? this.worldGeneratorForest : new WorldGenTaiga5(false)))));
+		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenRainforestTree1(false) : (par1Random.nextInt(5) == 0 ? new WorldGenShrub(0,0) : (par1Random.nextInt(3) == 0 ? new WorldGenAutumn(false) : (par1Random.nextInt(3) == 0 ? this.worldGeneratorForest : new WorldGenTaiga10(false)))));
+        //return (WorldGenerator)(par1Random.nextInt(2) == 0 ? this.worldGeneratorTrees : (par1Random.nextInt(5) == 0 ? new WorldGenShrub(0,0) : (par1Random.nextInt(3) == 0 ? new WorldGenAutumn(false) : (par1Random.nextInt(3) == 0 ? this.worldGeneratorForest : new WorldGenTaiga10(false)))));
     }
 	
     /**
