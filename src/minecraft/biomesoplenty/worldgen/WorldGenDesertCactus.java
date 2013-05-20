@@ -29,7 +29,7 @@ public class WorldGenDesertCactus extends WorldGenerator
                         {
                             if (!par1World.isAirBlock(var7, var8 - 1, var9 + 1))
                             {
-                                int var10 = 1 + par2Random.nextInt(par2Random.nextInt(2) + 2);
+                                int var10 = 2 + par2Random.nextInt(par2Random.nextInt(2) + 2);
 
                                 for (int var11 = 0; var11 < var10; ++var11)
                                 {
