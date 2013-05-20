@@ -2,8 +2,6 @@ package forestry.api.apiculture;
 
 import java.util.ArrayList;
 
-import forestry.api.genetics.IFlowerProvider;
-
 import net.minecraft.item.ItemStack;
 
 public class FlowerManager {
