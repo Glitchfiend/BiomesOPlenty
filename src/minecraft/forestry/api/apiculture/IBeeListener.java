@@ -1,6 +1,7 @@
 package forestry.api.apiculture;
 
 import net.minecraft.item.ItemStack;
+import forestry.api.genetics.IIndividual;
 
 public interface IBeeListener {
 
@@ -33,4 +34,5 @@ public interface IBeeListener {
 	 */
 	void onPostQueenDeath(IBee queen);
 
+	boolean onPollenRetrieved(IBee queen, IIndividual pollen, boolean isHandled);
 }

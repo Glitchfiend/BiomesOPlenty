@@ -10,6 +10,11 @@ import forestry.api.genetics.IAlleleSpecies;
 
 public interface IAlleleBeeSpecies extends IAlleleSpecies {
 
+	/**
+	 * @return the IBeeRoot
+	 */
+	IBeeRoot getRoot();
+
 	// / Products, Chance
 	HashMap<ItemStack, Integer> getProducts();
 

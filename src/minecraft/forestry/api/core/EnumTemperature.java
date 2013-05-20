@@ -3,7 +3,6 @@ package forestry.api.core;
 import java.util.ArrayList;
 
 import net.minecraft.util.Icon;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

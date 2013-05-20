@@ -4,6 +4,7 @@ import forestry.api.genetics.IAlleleEffect;
 import forestry.api.genetics.IEffectData;
 
 public interface IAlleleBeeEffect extends IAlleleEffect {
+	
 	/**
 	 * Called by apiaries to cause an effect in the world.
 	 * 
@@ -34,14 +35,5 @@ public interface IAlleleBeeEffect extends IAlleleEffect {
 	 * @return storedData, may have been manipulated.
 	 */
 	IEffectData doFX(IBeeGenome genome, IEffectData storedData, IBeeHousing housing);
-
-	/**
-	 * @return A texture file containing an icon representing the effect
-	 */
-	String getIconTextureFile();
-
-	/**
-	 * @return Icon index of the effect's icon, return -1 if there isn't one
-	 */
-	int getIconIndex();
+	
 }

@@ -9,8 +9,28 @@ import forestry.api.genetics.IClassification.EnumClassLevel;
 
 public interface IAlleleRegistry {
 
+	/* SPECIES CLASSES */
+	/**
+	 * Register a {@link ISpeciesRoot}.
+	 * @param {@link ISpeciesRoot} to register.
+	 */
+	void registerSpeciesRoot(ISpeciesRoot root);
+	
+	/**
+	 * Retrieve the {@link ISpeciesRoot} with the given uid.
+	 * @param uid Unique id for the species class, i.e. "rootBees", "rootTrees", "rootButterflies".
+	 * @return {@link ISpeciesRoot} if it exists, null otherwise.
+	 */
+	ISpeciesRoot getSpeciesRoot(String uid);
+	
+	/**
+	 * Retrieve a matching {@link ISpeciesRoot} for the given itemstack.
+	 * @param stack An itemstack possibly containing NBT data which can be converted by a species root.
+	 * @return {@link ISpeciesRoot} if found, null otherwise.
+	 */
+	ISpeciesRoot getSpeciesRoot(ItemStack stack);
+	
 	/* INDIVIDUAL */
-
 	/**
 	 * Tests the itemstack for genetic information.
 	 * 

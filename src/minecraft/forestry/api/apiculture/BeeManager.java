@@ -8,11 +8,9 @@ import forestry.api.genetics.IMutation;
 
 public class BeeManager {
 
-	/**
-	 * See {@link IBeeInterface} for details
-	 */
-	public static IBeeInterface beeInterface;
-
+	@Deprecated
+	public static IBeeRoot beeInterface;
+	
 	/**
 	 * Species templates for bees that can drop from hives.
 	 * 
@@ -26,11 +24,6 @@ public class BeeManager {
 	 * 0 - Common Village Bees 1 - Uncommon Village Bees (20 % of spawns)
 	 */
 	public static ArrayList<IBeeGenome>[] villageBees;
-
-	/**
-	 * Access to Forestry's breeding manager for breeding information.
-	 */
-	public static IBreedingManager breedingManager;
 
 	/**
 	 * List of items that can induce swarming. Integer denotes x in 1000 chance.

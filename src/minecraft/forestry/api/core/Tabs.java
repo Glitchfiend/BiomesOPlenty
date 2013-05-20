@@ -6,5 +6,6 @@ public class Tabs {
 
 	public static CreativeTabs tabApiculture;
 	public static CreativeTabs tabArboriculture;
+	public static CreativeTabs tabLepidopterology;
 
 }

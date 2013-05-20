@@ -1,6 +1,7 @@
 package forestry.api.apiculture;
 
 import forestry.api.genetics.EnumTolerance;
+import forestry.api.genetics.IFlowerProvider;
 import forestry.api.genetics.IGenome;
 
 /**
@@ -11,15 +12,19 @@ import forestry.api.genetics.IGenome;
  */
 public interface IBeeGenome extends IGenome {
 
-	IAlleleBeeSpecies getPrimaryAsBee();
-
-	IAlleleBeeSpecies getSecondaryAsBee();
+	IAlleleBeeSpecies getPrimary();
+	
+	IAlleleBeeSpecies getSecondary();
 
 	float getSpeed();
 
 	int getLifespan();
 
 	int getFertility();
+
+	EnumTolerance getToleranceTemp();
+
+	EnumTolerance getToleranceHumid();
 
 	boolean getNocturnal();
 
@@ -34,9 +39,5 @@ public interface IBeeGenome extends IGenome {
 	int[] getTerritory();
 
 	IAlleleBeeEffect getEffect();
-
-	EnumTolerance getToleranceTemp();
-
-	EnumTolerance getToleranceHumid();
 
 }

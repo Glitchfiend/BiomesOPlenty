@@ -7,9 +7,9 @@ import forestry.api.genetics.IGenome;
 
 public interface ITreeGenome extends IGenome {
 
-	IAlleleTreeSpecies getPrimaryAsTree();
+	IAlleleTreeSpecies getPrimary();
 
-	IAlleleTreeSpecies getSecondaryAsTree();
+	IAlleleTreeSpecies getSecondary();
 
 	IFruitProvider getFruitProvider();
 
@@ -35,4 +35,6 @@ public interface ITreeGenome extends IGenome {
 	int getMaturationTime();
 
 	int getGirth();
+
+	IAlleleLeafEffect getEffect();
 }

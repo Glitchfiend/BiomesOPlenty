@@ -1,6 +1,5 @@
-package forestry.api.apiculture;
+package forestry.api.genetics;
 
-import forestry.api.genetics.IAllele;
 
 public interface IAlleleFlowers extends IAllele {
 

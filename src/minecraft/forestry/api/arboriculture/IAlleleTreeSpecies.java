@@ -13,6 +13,8 @@ import forestry.api.genetics.IFruitFamily;
 
 public interface IAlleleTreeSpecies extends IAlleleSpecies {
 
+	ITreeRoot getRoot();
+	
 	/**
 	 * @return Native plant type of this species.
 	 */

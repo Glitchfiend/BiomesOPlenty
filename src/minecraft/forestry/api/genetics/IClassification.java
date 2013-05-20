@@ -7,8 +7,8 @@ public interface IClassification {
 
 	public enum EnumClassLevel {
 
-		DOMAIN(0x777fff, true), KINGDOM(0x77c3ff), PHYLUM(0x77ffb6, true), DIVISION(0x77ffb6, true), CLASS(0x7bff77), ORDER(0xbeff77), FAMILY(0xfffd77), TRIBE(
-				0xfffd77), GENUS(0xffba77);
+		DOMAIN(0x777fff, true), KINGDOM(0x77c3ff), PHYLUM(0x77ffb6, true), DIVISION(0x77ffb6, true), CLASS(0x7bff77), ORDER(0xbeff77), FAMILY(0xfffd77),
+		SUBFAMILY(0xfffd77), TRIBE(0xfffd77), GENUS(0xffba77);
 
 		private int colour;
 		private boolean isDroppable;

@@ -7,6 +7,12 @@ import forestry.api.core.EnumTemperature;
 import forestry.api.core.IIconProvider;
 
 public interface IAlleleSpecies extends IAllele {
+	
+	/**
+	 * @return the {@link ISpeciesRoot} associated with this species.
+	 */
+	ISpeciesRoot getRoot();
+	
 	/**
 	 * @return Localized short, human-readable identifier used in tooltips and beealyzer.
 	 */

@@ -47,7 +47,7 @@ public enum EnumTreeChromosome {
 	 */
 	EFFECT,
 	/**
-	 * Amount of random ticks that need to elapse before a sapling will grow into a tree.
+	 * Amount of random ticks which need to elapse before a sapling will grow into a tree.
 	 */
 	MATURATION,
 

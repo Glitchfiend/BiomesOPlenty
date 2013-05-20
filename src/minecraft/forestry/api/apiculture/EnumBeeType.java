@@ -5,6 +5,8 @@ import java.util.Locale;
 public enum EnumBeeType {
 	NONE, PRINCESS, QUEEN, DRONE;
 
+	public static final EnumBeeType[] VALUES = values();
+
 	String name;
 
 	private EnumBeeType() {

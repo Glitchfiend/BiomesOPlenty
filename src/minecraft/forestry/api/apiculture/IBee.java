@@ -3,16 +3,26 @@ package forestry.api.apiculture;
 import java.util.ArrayList;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import forestry.api.genetics.IEffectData;
 import forestry.api.genetics.IIndividual;
+import forestry.api.genetics.IIndividualLiving;
 
 /**
  * Other implementations than Forestry's default one are not supported.
  * 
  * @author SirSengir
  */
-public interface IBee extends IIndividual {
+public interface IBee extends IIndividualLiving {
+
+	/**
+	 * @return Bee's genetic information.
+	 */
+	IBeeGenome getGenome();
+
+	/**
+	 * @return Genetic information of the bee's mate, null if unmated.
+	 */
+	IBeeGenome getMate();
 
 	/**
 	 * @return true if the individual is originally of natural origin.
@@ -24,23 +34,20 @@ public interface IBee extends IIndividual {
 	 */
 	int getGeneration();
 
-	IBee setNatural(boolean flag);
-
-	boolean isIrregularMating();
-
-	void age(World world, float ageModifier);
-
-	void mate(IBee drone);
-
+	/**
+	 * Set the natural flag on this bee.
+	 * @param flag
+	 */
 	void setIsNatural(boolean flag);
+
+	/**
+	 * @return true if the bee is mated with another whose isNatural() doesn't match.
+	 */
+	boolean isIrregularMating();
 
 	IEffectData[] doEffect(IEffectData[] storedData, IBeeHousing housing);
 
 	IEffectData[] doFX(IEffectData[] storedData, IBeeHousing housing);
-
-	boolean isAlive();
-
-	boolean isPureBred(EnumBeeChromosome chromosome);
 
 	/**
 	 * @return true if the bee may spawn offspring
@@ -77,14 +84,6 @@ public interface IBee extends IIndividual {
 	IBee[] spawnDrones(IBeeHousing housing);
 
 	void plantFlowerRandom(IBeeHousing housing);
-
-	int getHealth();
-
-	int getMaxHealth();
-
-	IBeeGenome getGenome();
-
-	IBeeGenome getMate();
 
 	IIndividual retrievePollen(IBeeHousing housing);
 

@@ -232,15 +232,20 @@ public class ForestryIntegration
     {
 		addFermenterRecipeSapling(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 		addFermenterRecipeSapling(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+		
+		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.berries.get(), 1)}, new LiquidStack(ItemInterface.getItem("liquidJuice").itemID, 50), ItemInterface.getItem("mulch"), 5); 
     }
     
 	private static void addFermenterRecipeSapling(ItemStack resource) {
+		
 		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
 				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
 				new LiquidStack(Block.waterStill, 1));
+		
 		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
 				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
 				new LiquidStack(ItemInterface.getItem("liquidJuice").itemID, 1, ItemInterface.getItem("liquidJuice").getItemDamage()));
+		
 		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f, 
 				new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()), 
 				new LiquidStack(ItemInterface.getItem("liquidHoney").itemID, 1, ItemInterface.getItem("liquidHoney").getItemDamage()));
