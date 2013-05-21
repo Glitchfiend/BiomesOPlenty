@@ -82,6 +82,14 @@ public class BlockBOPColorizedSapling extends BlockSapling
         else
             return this.canPlaceBlockOnSide(world, x, y, z, side);
     }
+	
+    protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
+    {     
+        if (metadata == 1) //Mangrove
+            return blockID == Block.sand.blockID;
+        else
+            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
+    }
     
     @Override
     public void updateTick(World world, int x, int y, int z, Random random)

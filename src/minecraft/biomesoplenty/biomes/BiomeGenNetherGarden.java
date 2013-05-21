@@ -29,7 +29,7 @@ public class BiomeGenNetherGarden extends BiomeGenBase
 		this.customBiomeDecorator.mushroomsPerChunk = 30;
 		this.customBiomeDecorator.bigMushroomsPerChunk = 30;
 		this.customBiomeDecorator.netherWartPerChunk = 3;
-		this.customBiomeDecorator.netherGrassPerChunk = 8;
+		this.customBiomeDecorator.netherGrassPerChunk = 10;
 		this.customBiomeDecorator.glowshroomsPerChunk = 3;
 		this.customBiomeDecorator.toadstoolsPerChunk = 5;
         this.spawnableMonsterList.clear();

@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.WorldGenFire;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
@@ -27,7 +28,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Block.netherrack.blockID;
         this.fillerBlock = (byte)Block.netherrack.blockID;
-		this.customBiomeDecorator.grassPerChunk = 15;
+		this.customBiomeDecorator.grassPerChunk = 8;
 		this.customBiomeDecorator.netherLavaPerChunk = 20;
 		this.customBiomeDecorator.generateAsh = true;
         this.spawnableMonsterList.clear();
@@ -45,7 +46,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
     {
-        return new WorldGenDeadlands();
+        return new WorldGenFire();
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)

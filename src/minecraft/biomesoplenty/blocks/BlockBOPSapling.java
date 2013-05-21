@@ -79,13 +79,21 @@ public class BlockBOPSapling extends BlockSapling
             switch (meta)
             {
                 case 7: // Loftwood
-                    return id == Blocks.holyGrass.get().blockID;
+                    return id == Blocks.holyGrass.get().blockID || id == Block.grass.blockID;
 
                 default:
                     return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
             }
         else
             return this.canPlaceBlockOnSide(world, x, y, z, side);
+    }
+	
+    protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
+    {     
+        if (metadata == 7) //Loftwood
+            return blockID == Blocks.holyGrass.get().blockID || blockID == Block.grass.blockID;
+        else
+            return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
     }
     
     @Override
