@@ -38,7 +38,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherDesert.isPresent())
 		{
-			netherBiomes.add(Biomes.netherDesert.get());
+			//netherBiomes.add(Biomes.netherDesert.get());
 		}
 		if (Biomes.netherLava.isPresent())
 		{
@@ -46,7 +46,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherAbyss.isPresent())
 		{
-			netherBiomes.add(Biomes.netherAbyss.get());
+			//netherBiomes.add(Biomes.netherAbyss.get());
 		}
 		
 		//PROMISED BIOMES

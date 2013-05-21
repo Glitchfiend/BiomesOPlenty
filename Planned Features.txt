@@ -40,15 +40,13 @@ Burning Brush:					A smokey forest with burnt trees, smoldering grass, and ash.
 
 NETHER BIOMES:
 
-Undergarden:					Vines, nether wart, giant/small mushrooms, hellstem plant.
+Undergarden:					Vines, nether wart, giant/small mushrooms.
 
 Corrupted Sands:				Soulsand, bramble, thorns.
 
 Phantasmagoric Inferno:			Lots of lavafalls and lava ponds.
 
-Aphotic Abyss:					Large, empty pits that go into the void.  Lots of mobs will spawn here.
-
-Parasitic Heap:					A living, breathing biome where a parasitic block slowly engulfs netherrack.
+Boneyard:						Skulls, bones sticking out of the ground, large bone structures, and graves.
 
 ---
 

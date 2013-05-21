@@ -24,7 +24,7 @@ public class BiomeGenNetherGarden extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Block.netherrack.blockID;
         this.fillerBlock = (byte)Block.netherrack.blockID;
-		this.customBiomeDecorator.treesPerChunk = 60;
+		this.customBiomeDecorator.treesPerChunk = 80;
 		this.customBiomeDecorator.netherVinesPerChunk = 60;
 		this.customBiomeDecorator.mushroomsPerChunk = 30;
 		this.customBiomeDecorator.bigMushroomsPerChunk = 30;
@@ -46,6 +46,6 @@ public class BiomeGenNetherGarden extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return new WorldGenNetherMushroom();
+		return new WorldGenNetherMushroom();
     }
 }

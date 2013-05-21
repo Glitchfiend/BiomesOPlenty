@@ -6,6 +6,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 
 import net.minecraft.util.MathHelper;
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -64,7 +65,7 @@ public class WorldGenAsh extends WorldGenerator
                             {
                                 double var45 = ((double)var44 + 0.5D - var24) / (var28 / 2.0D);
 
-                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Blocks.ashStone.get().blockID)
+                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Blocks.ashStone.get().blockID || par1World.getBlockId(var38, var41, var44) == Block.netherrack.blockID)
                                 {
                                     par1World.setBlock(var38, var41, var44, this.minableBlockId);
                                 }
