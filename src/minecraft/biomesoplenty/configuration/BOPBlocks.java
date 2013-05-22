@@ -44,6 +44,7 @@ import biomesoplenty.blocks.BlockWillow;
 import biomesoplenty.items.ItemBOPAmethyst;
 import biomesoplenty.items.ItemBOPAppleLeaves;
 import biomesoplenty.items.ItemBOPBamboo;
+import biomesoplenty.items.ItemBOPBones;
 import biomesoplenty.items.ItemBOPColorizedLeaves;
 import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPFlower;
@@ -223,7 +224,7 @@ public class BOPBlocks {
 //        GameRegistry.registerBlock(Blocks.amethyst.get(), ItemBOPAmethyst.class, "amethystOre1");
 		GameRegistry.registerBlock(Blocks.cloud.get(), "cloud");
 		
-		GameRegistry.registerBlock(Blocks.bones.get(), "bones");
+		GameRegistry.registerBlock(Blocks.bones.get(), ItemBOPBones.class, "bones");
         
         ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
         GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab");
