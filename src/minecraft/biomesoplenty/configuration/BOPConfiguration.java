@@ -182,6 +182,8 @@ public class BOPConfiguration {
 	
 	public static int crystalID;
 	public static int cloudID;
+	
+	public static int bonesID;
 
 	//Item IDs
 	public static int shroomPowderID;
@@ -680,6 +682,8 @@ public class BOPConfiguration {
 			holyBrickStairsID = config.getBlock("Skystone Brick Stairs ID", 1966, null).getInt();
 			
 			mushroomsID = config.getBlock("Mushroom ID", 1967, null).getInt();
+			
+			bonesID = config.getBlock("Bones ID", 1968, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

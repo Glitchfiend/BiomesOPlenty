@@ -32,6 +32,7 @@ import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.blocks.BlockBOPStairs;
 import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.blocks.BlockBamboo;
+import biomesoplenty.blocks.BlockBones;
 import biomesoplenty.blocks.BlockCloud;
 import biomesoplenty.blocks.BlockIvy;
 import biomesoplenty.blocks.BlockMoss;
@@ -148,6 +149,8 @@ public class BOPBlocks {
 //        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("quicksand"));
 //        Blocks.grass = Optional.of(new BlockBOPGrass(3000).setUnlocalizedName("holyGrass"));
 		Blocks.cloud = Optional.of((new BlockCloud(BOPConfiguration.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("cloud"));
+		
+		Blocks.bones = Optional.of((new BlockBones(BOPConfiguration.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bones"));
         
         Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
         
@@ -219,6 +222,8 @@ public class BOPBlocks {
 //        GameRegistry.registerBlock(Blocks.quicksand.get(), "quicksand");
 //        GameRegistry.registerBlock(Blocks.amethyst.get(), ItemBOPAmethyst.class, "amethystOre1");
 		GameRegistry.registerBlock(Blocks.cloud.get(), "cloud");
+		
+		GameRegistry.registerBlock(Blocks.bones.get(), "bones");
         
         ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
         GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab");
@@ -369,6 +374,10 @@ public class BOPBlocks {
 		LanguageRegistry.addName(Blocks.cloud.get(), "Cloud Block");
         LanguageRegistry.addName(new ItemStack(Blocks.mud.get(), 1, 1), "Quicksand");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,2), "Bamboo Sapling");
+        
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 0), "Small Bone Segment");
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 1), "Medium Bone Segment");
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 2), "Large Bone Segment");
 
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");

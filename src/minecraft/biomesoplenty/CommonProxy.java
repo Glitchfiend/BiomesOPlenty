@@ -1,9 +1,7 @@
 package biomesoplenty;
 
-import biomesoplenty.api.Items;
-import net.minecraft.client.particle.EntityBreakingFX;
-import net.minecraft.client.particle.EntityFX;
-import net.minecraft.world.World;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderBlocks;
 
 public class CommonProxy {
 	public static String ARMOR_MUD1_PNG = "/mods/BiomesOPlenty/textures/armor/mud_1.png";
@@ -22,6 +20,10 @@ public class CommonProxy {
     }
     
 	public void spawnParticle(String string, double x, double y, double z)
+	{
+	}
+	
+    public void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
 	{
 	}
 }

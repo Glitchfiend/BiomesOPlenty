@@ -46,8 +46,8 @@ public class Blocks
     public static Optional<? extends Block> redCobbleStairs             = Optional.absent();
     public static Optional<? extends Block> redBricksStairs             = Optional.absent();
     public static Optional<? extends Block> mudBricksStairs             = Optional.absent();
-	public static Optional<? extends Block> holyCobbleStairs             = Optional.absent();
-    public static Optional<? extends Block> holyBricksStairs             = Optional.absent();
+	public static Optional<? extends Block> holyCobbleStairs            = Optional.absent();
+    public static Optional<? extends Block> holyBricksStairs            = Optional.absent();
     
     // Slabs
     public static Optional<? extends BlockHalfSlab> woodenSingleSlab1   = Optional.absent();
@@ -70,13 +70,16 @@ public class Blocks
     public static Optional<? extends Block> saplings                    = Optional.absent();
     public static Optional<? extends Block> colorizedSaplings           = Optional.absent();
     public static Optional<? extends Block> willow                      = Optional.absent();
-	public static Optional<? extends Block> ivy                      = Optional.absent();
+	public static Optional<? extends Block> ivy                         = Optional.absent();
     public static Optional<? extends Block> treeMoss                    = Optional.absent();
     public static Optional<? extends Block> moss                        = Optional.absent();
     public static Optional<? extends Block> petals                      = Optional.absent();
     public static Optional<? extends Block> bamboo                      = Optional.absent();
-	public static Optional<? extends Block> cloud                      = Optional.absent();
-    
+	public static Optional<? extends Block> cloud                       = Optional.absent();
+	
+	//Nether
+	public static Optional<? extends Block> bones                       = Optional.absent();
+	
 //    public static Optional<? extends Block> amethystBlock               = Optional.absent();
     public static Optional<? extends Block> amethystOre                 = Optional.absent();
 //    public static Optional<? extends Block> bambooThatching             = Optional.absent();
