@@ -123,6 +123,7 @@ public class BOPConfiguration {
 	public static int plantsID;
 	public static int flowersID;
 	public static int mushroomsID;
+	public static int coralID;
 	public static int willowID;
 	public static int ivyID;
 	
@@ -684,6 +685,7 @@ public class BOPConfiguration {
 			mushroomsID = config.getBlock("Mushroom ID", 1967, null).getInt();
 			
 			bonesID = config.getBlock("Bones ID", 1968, null).getInt();
+			coralID = config.getBlock("Coral ID", 1969, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

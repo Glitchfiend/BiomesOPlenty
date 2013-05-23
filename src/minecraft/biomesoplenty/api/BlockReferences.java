@@ -110,6 +110,8 @@ public class BlockReferences {
 		giantFlowerRed (Blocks.petals, 0),
 		giantFlowerYellow (Blocks.petals, 1),
 		
+		seaweed (Blocks.coral, 0),
+		
 		toadstool (Blocks.mushrooms, 0),
 		portobello (Blocks.mushrooms, 1),
 		bluemilk (Blocks.mushrooms, 2),
