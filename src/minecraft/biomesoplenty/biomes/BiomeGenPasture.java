@@ -46,7 +46,7 @@ public class BiomeGenPasture extends BiomeGenBase
      */
     public int getBiomeGrassColor()
     {
-        return 15259456;
+        return 13166666;
     }
 
     /**
