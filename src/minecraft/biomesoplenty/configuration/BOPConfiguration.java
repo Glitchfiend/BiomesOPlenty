@@ -35,8 +35,10 @@ public class BOPConfiguration {
 	public static boolean chaparralGen;
 	public static boolean cherryBlossomGroveGen;
 	public static boolean coniferousForestGen;
+	public static boolean coniferousForestSnowGen;
 	public static boolean cragGen;
 	public static boolean deadForestGen;
+	public static boolean deadForestSnowGen;
 	public static boolean deadSwampGen;
 	public static boolean deadlandsGen;
 	public static boolean deciduousForestGen;
@@ -82,7 +84,6 @@ public class BOPConfiguration {
 	public static boolean seasonalForestGen;
 	public static boolean shieldGen;
 	public static boolean shrublandGen;
-	public static boolean snowyWoodsGen;
 	public static boolean spruceWoodsGen;
 	public static boolean steppeGen;
 	public static boolean swampwoodsGen;
@@ -228,7 +229,6 @@ public class BOPConfiguration {
 	//Biome IDS
 	public static int alpsID;
 	public static int arcticID;
-	public static int arcticForestID;
 	public static int badlandsID;
 	public static int bambooForestID;
 	public static int bayouID;
@@ -239,9 +239,10 @@ public class BOPConfiguration {
 	public static int chaparralID;
 	public static int cherryBlossomGroveID;
 	public static int coniferousForestID;
-	public static int coniferousForestThinID;
+	public static int coniferousForestSnowID;
 	public static int cragID;
 	public static int deadForestID;
+	public static int deadForestSnowID;
 	public static int deadSwampID;
 	public static int deadlandsID;
 	public static int deciduousForestID;
@@ -255,7 +256,6 @@ public class BOPConfiguration {
 	public static int glacierID;
 	public static int grasslandID;
 	public static int groveID;
-	public static int groveThinID;
 	public static int heathlandID;
 	public static int highlandID;
 	public static int icyHillsID;
@@ -266,7 +266,6 @@ public class BOPConfiguration {
 	public static int mapleWoodsID;
 	public static int marshID;
 	public static int meadowID;
-	public static int meadowForestID;
 	public static int mesaID;
 	public static int moorID;
 	public static int mountainID;
@@ -275,7 +274,7 @@ public class BOPConfiguration {
 	public static int netherGardenID;
 	public static int netherDesertID;
 	public static int netherLavaID;
-	public static int netherAbyssID;
+	public static int netherBoneID;
 	
 	public static int oasisID;
 	public static int ominousWoodsID;
@@ -285,22 +284,22 @@ public class BOPConfiguration {
 	public static int pastureID;
 	public static int polarID;
 	public static int prairieID;
+	
 	public static int promisedLandForestID;
 	public static int promisedLandPlainsID;
 	public static int promisedLandSwampID;
+	
 	public static int quagmireID;
 	public static int rainforestID;
 	public static int redwoodForestID;
 	public static int reefID;
 	public static int sacredSpringsID;
 	public static int savannaID;
-	public static int savannaThickID;
 	public static int scrublandID;
 	public static int seasonalForestID;
 	public static int shieldID;
 	public static int shoreID;
 	public static int shrublandID;
-	public static int snowyWoodsID;
 	public static int spruceWoodsID;
 	public static int steppeID;
 	public static int swampwoodsID;
@@ -309,12 +308,11 @@ public class BOPConfiguration {
 	public static int tropicalRainforestID;
 	public static int tropicsID;
 	public static int tundraID;
-	public static int tundraDryID;
 	public static int volcanoID;
 	public static int wastelandID;
-	public static int wastelandTreesID;
 	public static int wetlandID;
 	public static int woodlandID;
+
 	public static int plainsNewID;
 	public static int desertNewID;
 	public static int desertHillsNewID;
@@ -349,8 +347,10 @@ public class BOPConfiguration {
     public static boolean chaparralVillage;
     public static boolean cherryBlossomGroveVillage;
     public static boolean coniferousForestVillage;
+	public static boolean coniferousForestSnowVillage;
     public static boolean cragVillage;
     public static boolean deadForestVillage;
+	public static boolean deadForestSnowVillage;
     public static boolean deadSwampVillage;
     public static boolean deadlandsVillage;
     public static boolean deciduousForestVillage;
@@ -396,7 +396,6 @@ public class BOPConfiguration {
     public static boolean seasonalForestVillage;
     public static boolean shieldVillage;
     public static boolean shrublandVillage;
-    public static boolean snowyWoodsVillage;
     public static boolean spruceWoodsVillage;
     public static boolean steppeVillage;
     public static boolean swampwoodsVillage;
@@ -454,8 +453,10 @@ public class BOPConfiguration {
 			chaparralGen = config.get("Biomes To Generate", "Chaparral", true).getBoolean(false);
 			cherryBlossomGroveGen = config.get("Biomes To Generate", "CherryBlossomGrove", true).getBoolean(false);
 			coniferousForestGen = config.get("Biomes To Generate", "ConiferousForest", true).getBoolean(false);
+			coniferousForestSnowGen = config.get("Biomes To Generate", "ConiferousForestSnow", true).getBoolean(false);
 			cragGen = config.get("Biomes To Generate", "Crag", true).getBoolean(false);
 			deadForestGen = config.get("Biomes To Generate", "DeadForest", true).getBoolean(false);
+			deadForestSnowGen = config.get("Biomes To Generate", "DeadForestSnow", true).getBoolean(false);
 			deadSwampGen = config.get("Biomes To Generate", "DeadSwamp", true).getBoolean(false);
 			deadlandsGen = config.get("Biomes To Generate", "Deadlands", true).getBoolean(false);
 			deciduousForestGen = config.get("Biomes To Generate", "DeciduousForest", true).getBoolean(false);
@@ -501,7 +502,6 @@ public class BOPConfiguration {
 			seasonalForestGen = config.get("Biomes To Generate", "SeasonalForest", true).getBoolean(false);
 			shieldGen = config.get("Biomes To Generate", "Shield", true).getBoolean(false);
 			shrublandGen = config.get("Biomes To Generate", "Shrubland", true).getBoolean(false);
-			snowyWoodsGen = config.get("Biomes To Generate", "SnowyWoods", true).getBoolean(false);
 			spruceWoodsGen = config.get("Biomes To Generate", "SpruceWoods", true).getBoolean(false);
 			steppeGen = config.get("Biomes To Generate", "Steppe", true).getBoolean(false);
 			swampwoodsGen = config.get("Biomes To Generate", "Swampwoods", true).getBoolean(false);
@@ -537,8 +537,10 @@ public class BOPConfiguration {
             chaparralVillage = config.get("Allow Villages", "Chaparral", true).getBoolean(false);
             cherryBlossomGroveVillage = config.get("Allow Villages", "CherryBlossomGrove", true).getBoolean(false);
             coniferousForestVillage = config.get("Allow Villages", "ConiferousForest", true).getBoolean(false);
+			coniferousForestSnowVillage = config.get("Allow Villages", "ConiferousForestSnow", true).getBoolean(false);
             cragVillage = config.get("Allow Villages", "Crag", false).getBoolean(false);
             deadForestVillage = config.get("Allow Villages", "DeadForest", true).getBoolean(false);
+			deadForestSnowVillage = config.get("Allow Villages", "DeadForestSnow", true).getBoolean(false);
             deadSwampVillage = config.get("Allow Villages", "DeadSwamp", false).getBoolean(false);
             deadlandsVillage = config.get("Allow Villages", "Deadlands", false).getBoolean(false);
             deciduousForestVillage = config.get("Allow Villages", "DeciduousForest", true).getBoolean(false);
@@ -584,7 +586,6 @@ public class BOPConfiguration {
             seasonalForestVillage = config.get("Allow Villages", "SeasonalForest", true).getBoolean(false);
             shieldVillage = config.get("Allow Villages", "Shield", true).getBoolean(false);
             shrublandVillage = config.get("Allow Villages", "Shrubland", true).getBoolean(false);
-            snowyWoodsVillage = config.get("Allow Villages", "SnowyWoods", true).getBoolean(false);
             spruceWoodsVillage = config.get("Allow Villages", "SpruceWoods", true).getBoolean(false);
             steppeVillage = config.get("Allow Villages", "Steppe", true).getBoolean(false);
             swampwoodsVillage = config.get("Allow Villages", "Swampwoods", false).getBoolean(false);
@@ -739,80 +740,81 @@ public class BOPConfiguration {
 			
 			//23-79 ExtraBiomesXL
 			
+			promisedLandForestID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 73).getInt();
+			promisedLandPlainsID = config.get("Biome IDs", "Majestic Meadow (Promised Land) ID", 74).getInt();
+			promisedLandSwampID = config.get("Biome IDs", "Blessed Bog (Promised Land) ID", 75).getInt();
+			
 			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 76).getInt();
 			netherDesertID = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 77).getInt();
 			netherLavaID = config.get("Biome IDs", "Phantasmagoric Inferno (Nether) ID", 78).getInt();
-			netherAbyssID = config.get("Biome IDs", "Aphotic Abyss (Nether) ID", 79).getInt();
+			netherBoneID = config.get("Biome IDs", "Boneyard (Nether) ID", 79).getInt();
 			
 			//80-169 Better World Generation 4
 			
-			promisedLandForestID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 170).getInt();
-			promisedLandPlainsID = config.get("Biome IDs", "Majestic Meadow (Promised Land) ID", 171).getInt();
-			promisedLandSwampID = config.get("Biome IDs", "Blessed Bog (Promised Land) ID", 172).getInt();
-			
-			alpsID = config.get("Biome IDs", "Alps ID", 173).getInt();
-			arcticID = config.get("Biome IDs", "Arctic ID", 174).getInt();
-			badlandsID = config.get("Biome IDs", "Badlands ID", 175).getInt();
-			bambooForestID = config.get("Biome IDs", "Bamboo Forest ID", 176).getInt();
-			bayouID = config.get("Biome IDs", "Bayou ID", 177).getInt();
-			birchForestID = config.get("Biome IDs", "Birch Forest ID", 178).getInt();
-			bogID = config.get("Biome IDs", "Bog ID", 179).getInt();
-			borealForestID = config.get("Biome IDs", "Boreal Forest ID", 180).getInt();
-			canyonID = config.get("Biome IDs", "Canyon ID", 181).getInt();
-			chaparralID = config.get("Biome IDs", "Chaparral ID", 182).getInt();
-			cherryBlossomGroveID = config.get("Biome IDs", "Cherry Blossom Grove ID", 183).getInt();
-			coniferousForestID = config.get("Biome IDs", "Coniferous Forest ID", 184).getInt();
+			alpsID = config.get("Biome IDs", "Alps ID", 172).getInt();
+			arcticID = config.get("Biome IDs", "Arctic ID", 173).getInt();
+			badlandsID = config.get("Biome IDs", "Badlands ID", 174).getInt();
+			bambooForestID = config.get("Biome IDs", "Bamboo Forest ID", 175).getInt();
+			bayouID = config.get("Biome IDs", "Bayou ID", 176).getInt();
+			birchForestID = config.get("Biome IDs", "Birch Forest ID", 177).getInt();
+			bogID = config.get("Biome IDs", "Bog ID", 178).getInt();
+			borealForestID = config.get("Biome IDs", "Boreal Forest ID", 179).getInt();
+			canyonID = config.get("Biome IDs", "Canyon ID", 180).getInt();
+			chaparralID = config.get("Biome IDs", "Chaparral ID", 181).getInt();
+			cherryBlossomGroveID = config.get("Biome IDs", "Cherry Blossom Grove ID", 182).getInt();
+			coniferousForestID = config.get("Biome IDs", "Coniferous Forest ID", 183).getInt();
+			coniferousForestSnowID = config.get("Biome IDs", "Coniferous Forest (Snow) ID", 184).getInt();
 			cragID = config.get("Biome IDs", "Crag ID", 185).getInt();
 			deadForestID = config.get("Biome IDs", "Dead Forest ID", 186).getInt();
-			deadSwampID = config.get("Biome IDs", "Dead Swamp ID", 187).getInt();
-			deadlandsID = config.get("Biome IDs", "Deadlands ID", 188).getInt();
-			deciduousForestID = config.get("Biome IDs", "Deciduous Forest ID", 189).getInt();
-			drylandsID = config.get("Biome IDs", "Drylands ID", 190).getInt();
-			dunesID = config.get("Biome IDs", "Dunes ID", 191).getInt();
-			fenID = config.get("Biome IDs", "Fen ID", 192).getInt();
-			fieldID = config.get("Biome IDs", "Field ID", 193).getInt();
-			frostForestID = config.get("Biome IDs", "Frost Forest ID", 194).getInt();
-			fungiForestID = config.get("Biome IDs", "Fungi Forest ID", 195).getInt();
-			gardenID = config.get("Biome IDs", "Garden ID", 196).getInt();
-			glacierID = config.get("Biome IDs", "Glacier ID", 197).getInt();
-			grasslandID = config.get("Biome IDs", "Grassland ID", 198).getInt();
-			groveID = config.get("Biome IDs", "Grove ID", 199).getInt();
-			heathlandID = config.get("Biome IDs", "Heathland ID", 200).getInt();
-			highlandID = config.get("Biome IDs", "Highland ID", 201).getInt();
-			icyHillsID = config.get("Biome IDs", "Icy Hills ID", 202).getInt();
-			jadeCliffsID = config.get("Biome IDs", "Jade Cliffs ID", 203).getInt();
-			lushDesertID = config.get("Biome IDs", "Lush Desert ID", 204).getInt();
-			lushSwampID = config.get("Biome IDs", "Lush Swamp ID", 205).getInt();
-			mangroveID = config.get("Biome IDs", "Mangrove ID", 206).getInt();
+			deadForestSnowID = config.get("Biome IDs", "Dead Forest (Snow) ID", 187).getInt();
+			deadSwampID = config.get("Biome IDs", "Dead Swamp ID", 188).getInt();
+			deadlandsID = config.get("Biome IDs", "Deadlands ID", 189).getInt();
+			deciduousForestID = config.get("Biome IDs", "Deciduous Forest ID", 190).getInt();
+			drylandsID = config.get("Biome IDs", "Drylands ID", 191).getInt();
+			dunesID = config.get("Biome IDs", "Dunes ID", 192).getInt();
+			fenID = config.get("Biome IDs", "Fen ID", 193).getInt();
+			fieldID = config.get("Biome IDs", "Field ID", 194).getInt();
+			frostForestID = config.get("Biome IDs", "Frost Forest ID", 195).getInt();
+			fungiForestID = config.get("Biome IDs", "Fungi Forest ID", 196).getInt();
+			gardenID = config.get("Biome IDs", "Garden ID", 197).getInt();
+			glacierID = config.get("Biome IDs", "Glacier ID", 198).getInt();
+			grasslandID = config.get("Biome IDs", "Grassland ID", 199).getInt();
+			groveID = config.get("Biome IDs", "Grove ID", 200).getInt();
+			heathlandID = config.get("Biome IDs", "Heathland ID", 201).getInt();
+			highlandID = config.get("Biome IDs", "Highland ID", 202).getInt();
+			icyHillsID = config.get("Biome IDs", "Icy Hills ID", 203).getInt();
+			jadeCliffsID = config.get("Biome IDs", "Jade Cliffs ID", 204).getInt();
+			lushDesertID = config.get("Biome IDs", "Lush Desert ID", 205).getInt();
+			lushSwampID = config.get("Biome IDs", "Lush Swamp ID", 206).getInt();
 			
 			//207-209 left for Mo Creatures
 			
-			mapleWoodsID = config.get("Biome IDs", "Maple Woods ID", 210).getInt();
-			marshID = config.get("Biome IDs", "Marsh ID", 211).getInt();
-			meadowID = config.get("Biome IDs", "Meadow ID", 212).getInt();
-			mesaID = config.get("Biome IDs", "Mesa ID", 213).getInt();
-			moorID = config.get("Biome IDs", "Moor ID", 214).getInt();
-			mountainID = config.get("Biome IDs", "Mountain ID", 215).getInt();
-			mysticGroveID = config.get("Biome IDs", "Mystic Grove ID", 216).getInt();
-			oasisID = config.get("Biome IDs", "Oasis ID", 217).getInt();
-			ominousWoodsID = config.get("Biome IDs", "Ominous Woods ID", 218).getInt();
-			orchardID = config.get("Biome IDs", "Orchard ID", 219).getInt();
-			originValleyID = config.get("Biome IDs", "Origin Valley ID", 220).getInt();
-			outbackID = config.get("Biome IDs", "Outback ID", 221).getInt();
-			pastureID = config.get("Biome IDs", "Pasture ID", 222).getInt();
-			polarID = config.get("Biome IDs", "Polar ID", 223).getInt();
-			prairieID = config.get("Biome IDs", "Prairie ID", 224).getInt();
-			quagmireID = config.get("Biome IDs", "Quagmire ID", 225).getInt();
-			rainforestID = config.get("Biome IDs", "Rainforest ID", 226).getInt();
-			redwoodForestID = config.get("Biome IDs", "Redwood Forest ID", 227).getInt();
-			sacredSpringsID = config.get("Biome IDs", "Sacred Springs ID", 228).getInt();
-			savannaID = config.get("Biome IDs", "Savanna ID", 229).getInt();
-			scrublandID = config.get("Biome IDs", "Scrubland ID", 230).getInt();
-			seasonalForestID = config.get("Biome IDs", "Seasonal Forest ID", 231).getInt();
-			shieldID = config.get("Biome IDs", "Shield ID", 232).getInt();
-			shoreID = config.get("Biome IDs", "Shore ID", 233).getInt();
-			shrublandID = config.get("Biome IDs", "Shrubland ID", 234).getInt();
-			snowyWoodsID = config.get("Biome IDs", "Snowy Woods ID", 235).getInt();
+			mangroveID = config.get("Biome IDs", "Mangrove ID", 210).getInt();
+			mapleWoodsID = config.get("Biome IDs", "Maple Woods ID", 211).getInt();
+			marshID = config.get("Biome IDs", "Marsh ID", 212).getInt();
+			meadowID = config.get("Biome IDs", "Meadow ID", 213).getInt();
+			mesaID = config.get("Biome IDs", "Mesa ID", 214).getInt();
+			moorID = config.get("Biome IDs", "Moor ID", 215).getInt();
+			mountainID = config.get("Biome IDs", "Mountain ID", 216).getInt();
+			mysticGroveID = config.get("Biome IDs", "Mystic Grove ID", 217).getInt();
+			oasisID = config.get("Biome IDs", "Oasis ID", 218).getInt();
+			ominousWoodsID = config.get("Biome IDs", "Ominous Woods ID", 219).getInt();
+			orchardID = config.get("Biome IDs", "Orchard ID", 220).getInt();
+			originValleyID = config.get("Biome IDs", "Origin Valley ID", 221).getInt();
+			outbackID = config.get("Biome IDs", "Outback ID", 222).getInt();
+			pastureID = config.get("Biome IDs", "Pasture ID", 223).getInt();
+			polarID = config.get("Biome IDs", "Polar ID", 224).getInt();
+			prairieID = config.get("Biome IDs", "Prairie ID", 225).getInt();
+			quagmireID = config.get("Biome IDs", "Quagmire ID", 226).getInt();
+			rainforestID = config.get("Biome IDs", "Rainforest ID", 227).getInt();
+			redwoodForestID = config.get("Biome IDs", "Redwood Forest ID", 228).getInt();
+			sacredSpringsID = config.get("Biome IDs", "Sacred Springs ID", 229).getInt();
+			savannaID = config.get("Biome IDs", "Savanna ID", 230).getInt();
+			scrublandID = config.get("Biome IDs", "Scrubland ID", 231).getInt();
+			seasonalForestID = config.get("Biome IDs", "Seasonal Forest ID", 232).getInt();
+			shieldID = config.get("Biome IDs", "Shield ID", 233).getInt();
+			shoreID = config.get("Biome IDs", "Shore ID", 234).getInt();
+			shrublandID = config.get("Biome IDs", "Shrubland ID", 235).getInt();
 			spruceWoodsID = config.get("Biome IDs", "Spruce Woods ID", 236).getInt();
 			steppeID = config.get("Biome IDs", "Steppe ID", 237).getInt();
 			swampwoodsID = config.get("Biome IDs", "Swampwoods ID", 238).getInt();

@@ -9,11 +9,11 @@ import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
 
-public class BiomeGenNetherAbyss extends BiomeGenBase
+public class BiomeGenNetherBone extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 	
-    public BiomeGenNetherAbyss(int par1)
+    public BiomeGenNetherBone(int par1)
     {
         super(par1);
 		this.theBiomeDecorator = new BiomeDecoratorBOP(this);

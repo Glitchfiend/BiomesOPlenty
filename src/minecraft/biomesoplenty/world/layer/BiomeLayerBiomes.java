@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.google.common.base.Optional;
 
 import biomesoplenty.api.Biomes;
-import biomesoplenty.biomes.BiomeGenNetherAbyss;
+import biomesoplenty.biomes.BiomeGenNetherBone;
 import biomesoplenty.biomes.BiomeGenNetherDesert;
 import biomesoplenty.biomes.BiomeGenNetherGarden;
 import biomesoplenty.biomes.BiomeGenNetherLava;
@@ -38,15 +38,15 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherDesert.isPresent())
 		{
-			//netherBiomes.add(Biomes.netherDesert.get());
+			netherBiomes.add(Biomes.netherDesert.get());
 		}
 		if (Biomes.netherLava.isPresent())
 		{
 			netherBiomes.add(Biomes.netherLava.get());
 		}
-		if (Biomes.netherAbyss.isPresent())
+		if (Biomes.netherBone.isPresent())
 		{
-			//netherBiomes.add(Biomes.netherAbyss.get());
+			netherBiomes.add(Biomes.netherBone.get());
 		}
 		
 		//PROMISED BIOMES

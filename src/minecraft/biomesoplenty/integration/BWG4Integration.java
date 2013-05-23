@@ -24,7 +24,6 @@ public class BWG4Integration
 	    if(Biomes.swampwoods.isPresent()) { DefaultBiomeList.addBiome("BoP: Swampwoods", Biomes.swampwoods.get(), 3); }
 	    if(Biomes.steppe.isPresent()) { DefaultBiomeList.addBiome("BoP: Steppe", Biomes.steppe.get(), 4); }
 	    if(Biomes.spruceWoods.isPresent()) { DefaultBiomeList.addBiome("BoP: Spruce Woods", Biomes.spruceWoods.get(), 2); }
-	    if(Biomes.snowyWoods.isPresent()) { DefaultBiomeList.addBiome("BoP: Snowy Woods", Biomes.snowyWoods.get(), 1); }
 	    if(Biomes.shrubland.isPresent()) { DefaultBiomeList.addBiome("BoP: Shrubland", Biomes.shrubland.get(), 2); }
 	    if(Biomes.shield.isPresent()) { DefaultBiomeList.addBiome("BoP: Shield", Biomes.shield.get(), 2); }
 	    if(Biomes.seasonalForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Seasonal Forest", Biomes.seasonalForest.get(), 2); }
@@ -69,8 +68,10 @@ public class BWG4Integration
         if(Biomes.deciduousForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Deciduous Forest", Biomes.deciduousForest.get(), 2); }
         if(Biomes.deadlands.isPresent()) { DefaultBiomeList.addBiome("BoP: Deadlands", Biomes.deadlands.get(), 4); }
         if(Biomes.deadSwamp.isPresent()) { DefaultBiomeList.addBiome("BoP: Dead Swamp", Biomes.deadSwamp.get(), 2); }
+		if(Biomes.deadForestSnow.isPresent()) { DefaultBiomeList.addBiome("BoP: Dead Forest (Snow)", Biomes.deadForestSnow.get(), 1); }
         if(Biomes.deadForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Dead Forest", Biomes.deadForest.get(), 2); }
         if(Biomes.crag.isPresent()) { DefaultBiomeList.addBiome("BoP: Crag", Biomes.crag.get(), 2); }
+		if(Biomes.coniferousForestSnow.isPresent()) { DefaultBiomeList.addBiome("BoP: Coniferous Forest (Snow)", Biomes.coniferousForestSnow.get(), 1); }
         if(Biomes.coniferousForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Coniferous Forest", Biomes.coniferousForest.get(), 2); }
         if(Biomes.cherryBlossomGrove.isPresent()) { DefaultBiomeList.addBiome("BoP: Cherry Blossom Grove", Biomes.cherryBlossomGrove.get(), 2); }
         if(Biomes.chaparral.isPresent()) { DefaultBiomeList.addBiome("BoP: Chaparral", Biomes.chaparral.get(), 2); }

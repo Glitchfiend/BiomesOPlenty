@@ -66,6 +66,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.coniferousForest);
 		}
+		if (BOPConfiguration.coniferousForestSnowGen == true)
+		{
+			addNewBiome(Biomes.coniferousForestSnow);
+		}
 		if (BOPConfiguration.cragGen == true)
 		{
 			addNewBiome(Biomes.crag);
@@ -73,6 +77,10 @@ public class WorldTypeBOP extends WorldType
 		if (BOPConfiguration.deadForestGen == true)
 		{
 			addNewBiome(Biomes.deadForest);
+		}
+		if (BOPConfiguration.deadForestSnowGen == true)
+		{
+			addNewBiome(Biomes.deadForestSnow);
 		}
 		if (BOPConfiguration.deadSwampGen == true)
 		{
@@ -249,10 +257,6 @@ public class WorldTypeBOP extends WorldType
 		if (BOPConfiguration.shrublandGen == true)
 		{
 			addNewBiome(Biomes.shrubland);
-		}
-		if (BOPConfiguration.snowyWoodsGen == true)
-		{
-			addNewBiome(Biomes.snowyWoods);
 		}
 		if (BOPConfiguration.spruceWoodsGen == true)
 		{
