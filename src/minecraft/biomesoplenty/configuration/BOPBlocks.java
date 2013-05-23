@@ -325,7 +325,7 @@ public class BOPBlocks {
 		LanguageRegistry.addName(new ItemStack(Blocks.mushrooms.get(),1,2), "Blue Milk Cap");
 		LanguageRegistry.addName(new ItemStack(Blocks.mushrooms.get(),1,3), "Glowshroom");
 		
-		LanguageRegistry.addName(new ItemStack(Blocks.coral.get(),1,0), "Seaweed");
+		LanguageRegistry.addName(new ItemStack(Blocks.coral.get(),1,0), "Kelp");
 		
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,6), "Fir Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,3), "Redwood Sapling");

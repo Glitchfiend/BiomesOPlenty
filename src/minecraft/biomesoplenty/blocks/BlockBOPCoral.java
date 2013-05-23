@@ -24,7 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPCoral extends BlockFlower
 {
-    private static final String[] coral = new String[] {"seaweed"};
+    private static final String[] coral = new String[] {"kelp"};
     private Icon[] textures;
     
     protected BlockBOPCoral(int blockID, Material material)

@@ -18,7 +18,7 @@ import net.minecraft.world.World;
 
 public class ItemBOPCoral extends ItemBlock
 {
-    private static final String[] coral = new String[] {"coral"};
+    private static final String[] coral = new String[] {"kelp"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;    
 
