@@ -29,7 +29,17 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			}
 			else if (meta == 1)
 			{
-				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 0.75F, 0.875F);
+				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.0F, 0.875F);
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+			else if (meta == 3)
+			{
+				renderer.setRenderBounds(0.125F, 0.125F, 0.0F, 0.875F, 0.875F, 1.0F);
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+			else if (meta == 4)
+			{
+				renderer.setRenderBounds(0.0F, 0.125F, 0.125F, 1.0F, 0.875F, 0.875F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else
@@ -47,8 +57,32 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 		if (modelID == bonesModel)
 		{
 			Tessellator tessellator = Tessellator.instance;
-			renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
-			BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			
+			if (metadata == 0)
+			{
+				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
+			else if (metadata == 1)
+			{
+				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.0F, 0.875F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
+			else if (metadata == 3)
+			{
+				renderer.setRenderBounds(0.125F, 0.125F, 0.0F, 0.875F, 0.875F, 1.0F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
+			else if (metadata == 4)
+			{
+				renderer.setRenderBounds(0.0F, 0.125F, 0.125F, 1.0F, 0.875F, 0.875F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
+			else
+			{
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
 		}
 	}
 
