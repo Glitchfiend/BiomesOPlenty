@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBones extends Block {
-	//Meta 3 & 4 used by alternate medium bone rotations
+	//Meta 3 & 4 used by alternate small bone rotations, 5 & 6 are used by alternate medium bone rotations
     private static final String[] boneTypes = new String[] {"bones_small", "bones_medium", "bones_large"};
     private Icon[] textures;
 
@@ -64,22 +64,22 @@ public class BlockBones extends Block {
 		switch (meta)
 		{
 			case 0:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 1.0D, (double) z + 0.75D);
+				return AxisAlignedBB.getBoundingBox((double) x + 0.374D, y, (double) z + 0.374D, (double) x + 0.626D, (double) y + 1.0D, (double) z + 0.626D);
 				
 			case 1:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D, (double) y + 1.0D, (double) z + 0.875D);
+				return AxisAlignedBB.getBoundingBox((double) x + 0.187D, y, (double) z + 0.187D, (double) x + 0.813D, (double) y + 1.0D, (double) z + 0.813D);
 				
 			case 3:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y + 0.25D, (double) z, (double) x + 0.75D, (double) y + 0.75D, (double) z + 1.00D);
+				return AxisAlignedBB.getBoundingBox((double) x + 0.374D, y + 0.374D, (double) z, (double) x + 0.626D, (double) y + 0.626D, (double) z + 1.00D);
 				
 			case 4:
-				return AxisAlignedBB.getBoundingBox((double) x, y + 0.25D, (double) z + 0.25D, (double) x + 1.00D, (double) y + 0.75D, (double) z + 0.75D);
+				return AxisAlignedBB.getBoundingBox((double) x, y + 0.374D, (double) z + 0.374D, (double) x + 1.00D, (double) y + 0.626D, (double) z + 0.626D);
 				
 			case 5:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y + 0.125D, (double) z, (double) x + 0.875D, (double) y + 0.875D, (double) z + 1.00D);
+				return AxisAlignedBB.getBoundingBox((double) x + 0.187D, y + 0.187D, (double) z, (double) x + 0.813D, (double) y + 0.813D, (double) z + 1.00D);
 				
 			case 6:
-				return AxisAlignedBB.getBoundingBox((double) x, y + 0.125D, (double) z + 0.125D, (double) x + 1.00D, (double) y + 0.875D, (double) z + 0.875D);
+				return AxisAlignedBB.getBoundingBox((double) x, y + 0.187D, (double) z + 0.187D, (double) x + 1.00D, (double) y + 0.813D, (double) z + 0.813D);
 				
 			default:
 				return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
@@ -94,22 +94,22 @@ public class BlockBones extends Block {
 		switch (meta)
 		{
 			case 0:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 1.0D, (double) z + 0.75D);
-				
+				return AxisAlignedBB.getBoundingBox((double) x + 0.374D, y, (double) z + 0.374D, (double) x + 0.626D, (double) y + 1.0D, (double) z + 0.626D);
+			
 			case 1:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y, (double) z + 0.125D, (double) x + 0.875D, (double) y + 1.0D, (double) z + 0.875D);
-				
+				return AxisAlignedBB.getBoundingBox((double) x + 0.187D, y, (double) z + 0.187D, (double) x + 0.813D, (double) y + 1.0D, (double) z + 0.813D);
+			
 			case 3:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y + 0.25D, (double) z, (double) x + 0.75D, (double) y + 0.75D, (double) z + 1.00D);
-				
+				return AxisAlignedBB.getBoundingBox((double) x + 0.374D, y + 0.374D, (double) z, (double) x + 0.626D, (double) y + 0.626D, (double) z + 1.00D);
+			
 			case 4:
-				return AxisAlignedBB.getBoundingBox((double) x, y + 0.25D, (double) z + 0.25D, (double) x + 1.00D, (double) y + 0.75D, (double) z + 0.75D);
-				
+				return AxisAlignedBB.getBoundingBox((double) x, y + 0.374D, (double) z + 0.374D, (double) x + 1.00D, (double) y + 0.626D, (double) z + 0.626D);
+			
 			case 5:
-				return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y + 0.125D, (double) z, (double) x + 0.875D, (double) y + 0.875D, (double) z + 1.00D);
-				
+				return AxisAlignedBB.getBoundingBox((double) x + 0.187D, y + 0.187D, (double) z, (double) x + 0.813D, (double) y + 0.813D, (double) z + 1.00D);
+			
 			case 6:
-				return AxisAlignedBB.getBoundingBox((double) x, y + 0.125D, (double) z + 0.125D, (double) x + 1.00D, (double) y + 0.875D, (double) z + 0.875D);
+				return AxisAlignedBB.getBoundingBox((double) x, y + 0.187D, (double) z + 0.187D, (double) x + 1.00D, (double) y + 0.813D, (double) z + 0.813D);
 				
 			default:
 				return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D);
@@ -132,44 +132,44 @@ public class BlockBones extends Block {
 		{
 			case 0:
 				minY = 0F;
-				minX = minZ = 0.25F;
-				maxX = maxZ = 0.75F;
+				minX = minZ = 0.374F;
+				maxX = maxZ = 0.626F;
 				maxY = 1.0F;
 				break;
 				
 			case 1:
 				minY = 0F;
-				minX = minZ = 0.125F;
-				maxX = maxZ = 0.875F;
+				minX = minZ = 0.187F;
+				maxX = maxZ = 0.813F;
 				maxY = 1.00F;
 				break;
 				
 			case 3:
-				minX = minY = 0.25F;
+				minX = minY = 0.374F;
 				minZ = 0F;
-				maxX = maxY = 0.75F;
+				maxX = maxY = 0.626F;
 				maxZ = 1.00F;
 				break;
 				
 			case 4:
 				minX = 0F;
-				minY = minZ = 0.25F;
+				minY = minZ = 0.374F;
 				maxX = 1.00F;
-				maxY = maxZ = 0.75F;
+				maxY = maxZ = 0.626F;
 				break;
 				
 			case 5:
-				minX = minY = 0.125F;
+				minX = minY = 0.187F;
 				minZ = 0F;
-				maxX = maxY = 0.875F;
+				maxX = maxY = 0.813F;
 				maxZ = 1.00F;
 				break;
 				
 			case 6:
 				minX = 0F;
-				minY = minZ = 0.125F;
+				minY = minZ = 0.187F;
 				maxX = 1.00F;
-				maxY = maxZ = 0.875F;
+				maxY = maxZ = 0.813F;
 				break;
 				
 			default:
