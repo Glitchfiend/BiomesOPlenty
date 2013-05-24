@@ -14,6 +14,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> birchForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> bog					 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> borealForest			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> brushland			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> canyon				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> chaparral			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> cherryBlossomGrove	 = Optional.absent();
@@ -25,7 +26,6 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> deadSwamp			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> deadlands			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> deciduousForest		 = Optional.absent();
-	public static Optional<? extends BiomeGenBase> drylands				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> dunes				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> fen					 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> field				 = Optional.absent();
@@ -50,6 +50,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> mountain				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> mysticGrove			 = Optional.absent();
 	
+	public static Optional<? extends BiomeGenBase> netherBase			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> netherGarden			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> netherDesert			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> netherLava			 = Optional.absent();

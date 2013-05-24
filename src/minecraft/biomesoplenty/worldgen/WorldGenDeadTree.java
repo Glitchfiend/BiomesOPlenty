@@ -27,9 +27,9 @@ public class WorldGenDeadTree extends WorldGenerator
     int[] basePos = new int[] {0, 0, 0};
     int heightLimit = 0;
     int height;
-    double heightAttenuation = 0.618D;
-    double branchDensity = 1.0D;
-    double branchSlope = 0.381D;
+    double heightAttenuation = 0.45D;
+    double branchDensity = 0.25D;
+    double branchSlope = 0.2D;
     double scaleWidth = 1.0D;
     double leafDensity = 1.0D;
 

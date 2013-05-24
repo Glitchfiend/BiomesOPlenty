@@ -50,6 +50,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
         addSpawnBiomes(Biomes.birchForest);
         addSpawnBiomes(Biomes.bog);
         addSpawnBiomes(Biomes.borealForest);
+		addSpawnBiomes(Biomes.brushland);
 		addSpawnBiomes(Biomes.chaparral);
         addSpawnBiomes(Biomes.cherryBlossomGrove);
         addSpawnBiomes(Biomes.coniferousForest);
@@ -58,7 +59,6 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 		addSpawnBiomes(Biomes.deadForest);
 		addSpawnBiomes(Biomes.deadForestSnow);
         addSpawnBiomes(Biomes.deciduousForest);
-		addSpawnBiomes(Biomes.drylands);
 		addSpawnBiomes(Biomes.dunes);
         addSpawnBiomes(Biomes.frostForest);
         addSpawnBiomes(Biomes.glacier);

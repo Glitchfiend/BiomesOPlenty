@@ -2,23 +2,27 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.worldgen.WorldGenBrush1;
+import biomesoplenty.worldgen.WorldGenBrush2;
+import biomesoplenty.worldgen.WorldGenChaparral2;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeGenDrylands extends BiomeGenBase
+public class BiomeGenBrushland extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenDrylands(int par1)
+    public BiomeGenBrushland(int par1)
     {
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.customBiomeDecorator.treesPerChunk = 4;
+		this.customBiomeDecorator.treesPerChunk = 10;
+		this.customBiomeDecorator.grassPerChunk = 6;
 		this.customBiomeDecorator.thornsPerChunk = 4;
 		this.customBiomeDecorator.flowersPerChunk = -999;
-		this.customBiomeDecorator.quicksandPerChunk = 4;
     }
 	
     /**
@@ -26,7 +30,7 @@ public class BiomeGenDrylands extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(5) == 0 ? new WorldGenShrub(0, 0) : this.worldGeneratorTrees);
+        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenBrush2() : (par1Random.nextInt(5) == 0 ?  new WorldGenBrush1() : new WorldGenChaparral2()));
     }
 
     /**
@@ -34,7 +38,7 @@ public class BiomeGenDrylands extends BiomeGenBase
      */
     public int getBiomeGrassColor()
     {
-        return 13404780;
+        return 13222271;
     }
 
     /**
@@ -42,6 +46,6 @@ public class BiomeGenDrylands extends BiomeGenBase
      */
     public int getBiomeFoliageColor()
     {
-        return 13407596;
+        return 11716223;
     }
 }

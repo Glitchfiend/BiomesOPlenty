@@ -1,12 +1,16 @@
 package biomesoplenty.biomes;
 
 import java.awt.Color;
+import java.util.Random;
+
+import biomesoplenty.worldgen.WorldGenDeadTree3;
 
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenWasteland extends BiomeGenBase
 {
@@ -19,11 +23,19 @@ public class BiomeGenWasteland extends BiomeGenBase
         this.fillerBlock = (byte)Blocks.driedDirt.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.customBiomeDecorator.treesPerChunk = -999;
+		this.customBiomeDecorator.treesPerChunk = 0;
         this.customBiomeDecorator.deadGrassPerChunk = 14;
         this.waterColorMultiplier = 15073024;
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
+    }
+	
+    /**
+     * Gets a WorldGen appropriate for this biome.
+     */
+    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+    {
+        return new WorldGenDeadTree3(false);
     }
 
     /**

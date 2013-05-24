@@ -32,6 +32,10 @@ public class BiomeLayerBiomes extends BiomeLayer
 		surfaceBiomes = par4WorldType.getBiomesForWorldType();
 
 		//NETHER BIOMES
+		if (Biomes.netherBase.isPresent())
+		{
+			netherBiomes.add(Biomes.netherBase.get());
+		}
 		if (Biomes.netherGarden.isPresent())
 		{
 			netherBiomes.add(Biomes.netherGarden.get());

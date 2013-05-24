@@ -71,6 +71,7 @@ public class BOPBiomes {
         Biomes.birchForest = Optional.of((new BiomeGenBirchForest(BOPConfiguration.birchForestID)).setColor(353825).setBiomeName("Birch Forest").func_76733_a(5159473).setTemperatureRainfall(0.4F, 0.3F));
         Biomes.bog = Optional.of((new BiomeGenBog(BOPConfiguration.bogID)).setColor(522674).setBiomeName("Bog").func_76733_a(9154376).setMinMaxHeight(-0.3F, -0.1F).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.borealForest = Optional.of((new BiomeGenBorealForest(BOPConfiguration.borealForestID)).setColor(353825).setBiomeName("Boreal Forest").func_76733_a(5159473).setMinMaxHeight(0.0F, 1.0F).setTemperatureRainfall(0.6F, 0.7F));
+        Biomes.brushland = Optional.of((new BiomeGenBrushland(BOPConfiguration.brushlandID)).setColor(16421912).setBiomeName("Brushland").setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.0F, 0.5F));
         Biomes.canyon = Optional.of((new BiomeGenCanyon(BOPConfiguration.canyonID)).setColor(9286496).setBiomeName("Canyon").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(3.0F, 5.0F));
         Biomes.chaparral = Optional.of((new BiomeGenChaparral(BOPConfiguration.chaparralID)).setColor(9286496).setBiomeName("Chaparral").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.3F, 0.6F));
         Biomes.cherryBlossomGrove = Optional.of((new BiomeGenCherryBlossomGrove(BOPConfiguration.cherryBlossomGroveID)).setColor(9286496).setBiomeName("Cherry Blossom Grove").setMinMaxHeight(0.1F, 0.2F).setTemperatureRainfall(0.7F, 0.8F));
@@ -82,7 +83,6 @@ public class BOPBiomes {
         Biomes.deadSwamp = Optional.of((new BiomeGenDeadSwamp(BOPConfiguration.deadSwampID)).setColor(522674).setBiomeName("Dead Swamp").func_76733_a(9154376).setMinMaxHeight(-0.2F, 0.1F).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.deadlands = Optional.of((new BiomeGenDeadlands(BOPConfiguration.deadlandsID)).setColor(522674).setBiomeName("Deadlands").setDisableRain().func_76733_a(9154376).setMinMaxHeight(0.1F, 0.5F).setTemperatureRainfall(2.0F, 0.0F));
         Biomes.deciduousForest = Optional.of((new BiomeGenDeciduousForest(BOPConfiguration.deciduousForestID)).setColor(353825).setBiomeName("Deciduous Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F));
-        Biomes.drylands = Optional.of((new BiomeGenDrylands(BOPConfiguration.drylandsID)).setColor(16421912).setBiomeName("Drylands").setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.0F, 0.5F));
         Biomes.dunes = Optional.of((new BiomeGenDunes(BOPConfiguration.dunesID)).setColor(13786898).setBiomeName("Dunes").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.5F, 1.3F));
         Biomes.fen = Optional.of((new BiomeGenFen(BOPConfiguration.fenID)).setColor(9286496).setBiomeName("Fen").setTemperatureRainfall(0.4F, 0.0F).setMinMaxHeight(-0.2F, 0.1F));
         Biomes.field = Optional.of((new BiomeGenField(BOPConfiguration.fieldID)).setColor(9286496).setBiomeName("Field").setTemperatureRainfall(0.4F, 0.8F).setMinMaxHeight(0.0F, 0.1F));
@@ -106,7 +106,8 @@ public class BOPBiomes {
         Biomes.moor = Optional.of((new BiomeGenMoor(BOPConfiguration.moorID)).setColor(16421912).setBiomeName("Moor").setTemperatureRainfall(0.5F, 1.0F).setMinMaxHeight(0.7F, 0.8F));
         Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfiguration.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.2F, 1.2F));
         Biomes.mysticGrove = Optional.of((new BiomeGenMysticGrove(BOPConfiguration.mysticGroveID)).setColor(353825).setBiomeName("Mystic Grove").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F));
-		
+
+		Biomes.netherBase = Optional.of((new BiomeGenNetherBase(BOPConfiguration.netherBaseID)).setColor(16711680).setBiomeName("Nether").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));		
 		Biomes.netherGarden = Optional.of((new BiomeGenNetherGarden(BOPConfiguration.netherGardenID)).setColor(16711680).setBiomeName("Undergarden").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherDesert = Optional.of((new BiomeGenNetherDesert(BOPConfiguration.netherDesertID)).setColor(16711680).setBiomeName("Corrupted Sands").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherLava = Optional.of((new BiomeGenNetherLava(BOPConfiguration.netherLavaID)).setColor(16711680).setBiomeName("Phantasmagoric Inferno").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
@@ -167,6 +168,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.birchForest.get(), Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.bog.get(), Type.SWAMP);
         BiomeDictionary.registerBiomeType(Biomes.borealForest.get(), Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.brushland.get(), Type.DESERT, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.canyon.get(), Type.DESERT, Type.MOUNTAIN, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.chaparral.get(), Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.cherryBlossomGrove.get(), Type.MAGICAL, Type.FOREST);
@@ -178,7 +180,6 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.deadlands.get(), Type.WASTELAND);
         BiomeDictionary.registerBiomeType(Biomes.deadSwamp.get(), Type.SWAMP);
         BiomeDictionary.registerBiomeType(Biomes.deciduousForest.get(), Type.FOREST, Type.HILLS);
-        BiomeDictionary.registerBiomeType(Biomes.drylands.get(), Type.DESERT);
         BiomeDictionary.registerBiomeType(Biomes.dunes.get(), Type.BEACH, Type.DESERT);
         BiomeDictionary.registerBiomeType(Biomes.fen.get(), Type.FOREST, Type.SWAMP);
         BiomeDictionary.registerBiomeType(Biomes.field.get(), Type.PLAINS);
@@ -203,6 +204,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
 		
+		BiomeDictionary.registerBiomeType(Biomes.netherBase.get(), Type.NETHER);
 		BiomeDictionary.registerBiomeType(Biomes.netherGarden.get(), Type.NETHER, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.netherDesert.get(), Type.NETHER, Type.DESERT);
 		BiomeDictionary.registerBiomeType(Biomes.netherLava.get(), Type.NETHER);
@@ -261,6 +263,7 @@ public class BOPBiomes {
         addSpawnBiome(Biomes.birchForest);
         addSpawnBiome(Biomes.bog);
         addSpawnBiome(Biomes.borealForest);
+		addSpawnBiome(Biomes.brushland);
         addSpawnBiome(Biomes.canyon);
         addSpawnBiome(Biomes.chaparral);
         addSpawnBiome(Biomes.cherryBlossomGrove);
@@ -270,7 +273,6 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.deadForestSnow);
         addSpawnBiome(Biomes.deadSwamp);
         addSpawnBiome(Biomes.deciduousForest);
-        addSpawnBiome(Biomes.drylands);
         addSpawnBiome(Biomes.dunes);
         addSpawnBiome(Biomes.fen);
         addSpawnBiome(Biomes.field);
@@ -334,6 +336,7 @@ public class BOPBiomes {
         addVillageBiome(Biomes.birchForest, BOPConfiguration.birchForestVillage);
         addVillageBiome(Biomes.bog, BOPConfiguration.bogVillage);
         addVillageBiome(Biomes.borealForest, BOPConfiguration.borealForestVillage);
+		addVillageBiome(Biomes.brushland, BOPConfiguration.brushlandVillage);
         addVillageBiome(Biomes.canyon, BOPConfiguration.canyonVillage);
         addVillageBiome(Biomes.chaparral, BOPConfiguration.chaparralVillage);
         addVillageBiome(Biomes.cherryBlossomGrove, BOPConfiguration.cherryBlossomGroveVillage);
@@ -343,7 +346,6 @@ public class BOPBiomes {
 		addVillageBiome(Biomes.deadForestSnow, BOPConfiguration.deadForestSnowVillage);
         addVillageBiome(Biomes.deadSwamp, BOPConfiguration.deadSwampVillage);
         addVillageBiome(Biomes.deciduousForest, BOPConfiguration.deciduousForestVillage);
-        addVillageBiome(Biomes.drylands, BOPConfiguration.drylandsVillage);
         addVillageBiome(Biomes.dunes, BOPConfiguration.dunesVillage);
         addVillageBiome(Biomes.fen, BOPConfiguration.fenVillage);
         addVillageBiome(Biomes.field, BOPConfiguration.fieldVillage);
@@ -407,6 +409,7 @@ public class BOPBiomes {
         addStrongholdBiome(Biomes.birchForest);
         addStrongholdBiome(Biomes.bog);
         addStrongholdBiome(Biomes.borealForest);
+		addStrongholdBiome(Biomes.brushland);
         addStrongholdBiome(Biomes.canyon);
         addStrongholdBiome(Biomes.chaparral);
         addStrongholdBiome(Biomes.cherryBlossomGrove);
@@ -418,7 +421,6 @@ public class BOPBiomes {
         addStrongholdBiome(Biomes.deadSwamp);
         addStrongholdBiome(Biomes.deadlands);
         addStrongholdBiome(Biomes.deciduousForest);
-        addStrongholdBiome(Biomes.drylands);
         addStrongholdBiome(Biomes.dunes);
         addStrongholdBiome(Biomes.fen);
         addStrongholdBiome(Biomes.field);
@@ -507,6 +509,9 @@ public class BOPBiomes {
 
             if (BOPConfiguration.borealForestGen)
                 registerBiome(Biomes.borealForest);
+				
+			if (BOPConfiguration.brushlandGen)
+                registerBiome(Biomes.brushland);
 
             if (BOPConfiguration.canyonGen)
                 registerBiome(Biomes.canyon);
@@ -540,9 +545,6 @@ public class BOPBiomes {
 
             if (BOPConfiguration.deciduousForestGen)
                 registerBiome(Biomes.deciduousForest);
-
-            if (BOPConfiguration.drylandsGen)
-                registerBiome(Biomes.drylands);
 
             if (BOPConfiguration.dunesGen)
                 registerBiome(Biomes.dunes);
@@ -808,6 +810,9 @@ public class BOPBiomes {
 
         if (BOPConfiguration.borealForestGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.borealForest);
+			
+		if (BOPConfiguration.brushlandGen)
+            addBiomeToWorldTypes(getWorldTypes(), Biomes.brushland);
 
         if (BOPConfiguration.canyonGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.canyon);
@@ -841,9 +846,6 @@ public class BOPBiomes {
 
         if (BOPConfiguration.deciduousForestGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.deciduousForest);
-
-        if (BOPConfiguration.drylandsGen)
-            addBiomeToWorldTypes(getWorldTypes(), Biomes.drylands);
 
         if (BOPConfiguration.dunesGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.dunes);

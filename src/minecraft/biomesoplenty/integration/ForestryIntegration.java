@@ -36,8 +36,8 @@ public class ForestryIntegration
     	//Hot - Arid	
     	//Desert Hives		
     	EnumTemperature.hotBiomeIds.add(BOPConfiguration.badlandsID);
+		EnumTemperature.hotBiomeIds.add(BOPConfiguration.brushlandID);
     	EnumTemperature.hotBiomeIds.add(BOPConfiguration.deadlandsID);
-    	EnumTemperature.hotBiomeIds.add(BOPConfiguration.drylandsID);
     	EnumTemperature.hotBiomeIds.add(BOPConfiguration.dunesID);
     	EnumTemperature.hotBiomeIds.add(BOPConfiguration.mesaID);
     	EnumTemperature.hotBiomeIds.add(BOPConfiguration.steppeID);
@@ -48,8 +48,8 @@ public class ForestryIntegration
     	EnumTemperature.hotBiomeIds.add(BOPConfiguration.desertNewID);
 
     	EnumHumidity.aridBiomeIds.add(BOPConfiguration.badlandsID);
+		EnumHumidity.aridBiomeIds.add(BOPConfiguration.brushlandID);
     	EnumHumidity.aridBiomeIds.add(BOPConfiguration.deadlandsID);
-    	EnumHumidity.aridBiomeIds.add(BOPConfiguration.drylandsID);
     	EnumHumidity.aridBiomeIds.add(BOPConfiguration.dunesID);
     	EnumHumidity.aridBiomeIds.add(BOPConfiguration.mesaID);
     	EnumHumidity.aridBiomeIds.add(BOPConfiguration.steppeID);

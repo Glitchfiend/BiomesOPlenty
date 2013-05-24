@@ -64,7 +64,6 @@ public class BWG4Integration
         if(Biomes.field.isPresent()) { DefaultBiomeList.addBiome("BoP: Field", Biomes.field.get(), 2); }
         if(Biomes.fen.isPresent()) { DefaultBiomeList.addBiome("BoP: Fen", Biomes.fen.get(), 2); }
         if(Biomes.dunes.isPresent()) { DefaultBiomeList.addBiome("BoP: Dunes", Biomes.dunes.get(), 4); }
-        if(Biomes.drylands.isPresent()) { DefaultBiomeList.addBiome("BoP: Drylands", Biomes.drylands.get(), 4); }
         if(Biomes.deciduousForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Deciduous Forest", Biomes.deciduousForest.get(), 2); }
         if(Biomes.deadlands.isPresent()) { DefaultBiomeList.addBiome("BoP: Deadlands", Biomes.deadlands.get(), 4); }
         if(Biomes.deadSwamp.isPresent()) { DefaultBiomeList.addBiome("BoP: Dead Swamp", Biomes.deadSwamp.get(), 2); }
@@ -76,6 +75,7 @@ public class BWG4Integration
         if(Biomes.cherryBlossomGrove.isPresent()) { DefaultBiomeList.addBiome("BoP: Cherry Blossom Grove", Biomes.cherryBlossomGrove.get(), 2); }
         if(Biomes.chaparral.isPresent()) { DefaultBiomeList.addBiome("BoP: Chaparral", Biomes.chaparral.get(), 2); }
         if(Biomes.canyon.isPresent()) { DefaultBiomeList.addBiome("BoP: Canyon", Biomes.canyon.get(), 4); }
+		if(Biomes.brushland.isPresent()) { DefaultBiomeList.addBiome("BoP: Brushland", Biomes.brushland.get(), 4); }
         if(Biomes.borealForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Boreal Forest", Biomes.borealForest.get(), 2); }
         if(Biomes.bog.isPresent()) { DefaultBiomeList.addBiome("BoP: Bog", Biomes.bog.get(), 3); }
         if(Biomes.birchForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Birch Forest", Biomes.birchForest.get(), 2); }

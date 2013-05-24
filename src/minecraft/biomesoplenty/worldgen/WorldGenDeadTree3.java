@@ -27,9 +27,9 @@ public class WorldGenDeadTree3 extends WorldGenerator
     int[] basePos = new int[] {0, 0, 0};
     int heightLimit = 0;
     int height;
-    double heightAttenuation = 0.618D;
-    double branchDensity = 1.0D;
-    double branchSlope = 0.381D;
+    double heightAttenuation = 0.45D;
+    double branchDensity = 0.25D;
+    double branchSlope = 0.2D;
     double scaleWidth = 1.0D;
     double leafDensity = 1.0D;
 
@@ -448,7 +448,7 @@ public class WorldGenDeadTree3 extends WorldGenerator
         int[] var2 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
         int var3 = this.worldObj.getBlockId(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 
-        if (var3 != 2 && var3 != 3 && var3 != Blocks.holyGrass.get().blockID && var3 != Blocks.ash.get().blockID && var3 != Blocks.redRock.get().blockID)
+        if (var3 != 2 && var3 != 3 && var3 != Blocks.holyGrass.get().blockID && var3 != Blocks.driedDirt.get().blockID && var3 != Blocks.redRock.get().blockID)
         {
             return false;
         }

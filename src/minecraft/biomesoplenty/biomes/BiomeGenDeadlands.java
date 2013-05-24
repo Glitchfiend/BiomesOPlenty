@@ -29,7 +29,7 @@ public class BiomeGenDeadlands extends BiomeGenBase
         this.fillerBlock = (byte)Blocks.ash.get().blockID;
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 1;
+        this.customBiomeDecorator.treesPerChunk = -999;
         this.customBiomeDecorator.grassPerChunk = 15;
         this.customBiomeDecorator.flowersPerChunk = -999;
         this.customBiomeDecorator.mushroomsPerChunk = -999;
@@ -44,14 +44,6 @@ public class BiomeGenDeadlands extends BiomeGenBase
         this.spawnableCreatureList.add(new SpawnListEntry(EntityCreeper.class, 30, 1, 7));
 		this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityBat.class, 10, 8, 8));
 		this.theWorldGenerator = new WorldGenMinable(Block.silverfish.blockID, 8);
-    }
-	
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return new WorldGenDeadTree3(false);
     }
 	
     /**

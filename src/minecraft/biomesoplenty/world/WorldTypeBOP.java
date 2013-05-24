@@ -50,6 +50,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.borealForest);
 		}
+		if (BOPConfiguration.brushlandGen == true)
+		{
+			addNewBiome(Biomes.brushland);
+		}
 		if (BOPConfiguration.canyonGen == true)
 		{
 			addNewBiome(Biomes.canyon);
@@ -93,10 +97,6 @@ public class WorldTypeBOP extends WorldType
 		if (BOPConfiguration.deciduousForestGen == true)
 		{
 			addNewBiome(Biomes.deciduousForest);
-		}
-		if (BOPConfiguration.drylandsGen == true)
-		{
-			addNewBiome(Biomes.drylands);
 		}
 		if (BOPConfiguration.dunesGen == true)
 		{
