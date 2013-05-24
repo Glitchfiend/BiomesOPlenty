@@ -220,6 +220,15 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
         return -1;
     }
 	
+    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int meta, float chance, int par7)
+    {
+        if (world.isRemote)
+            return;
+
+        if (meta == 8)
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.berries.get(), 1, 0));
+    }
+	
 	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
 	{

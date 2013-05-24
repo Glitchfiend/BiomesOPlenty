@@ -232,6 +232,10 @@ public class BOPConfiguration {
 	public static int badlandsID;
 	public static int bambooForestID;
 	public static int bayouID;
+	
+	public static int beachGravelID;
+	public static int beachOvergrownID;
+	
 	public static int birchForestID;
 	public static int bogID;
 	public static int borealForestID;
@@ -740,6 +744,9 @@ public class BOPConfiguration {
 			System.out.println("Generating Biome ID's");
 			
 			//23-79 ExtraBiomesXL
+			
+			beachGravelID = config.get("Biome IDs", "Gravel Beach ID", 60).getInt();
+			beachOvergrownID = config.get("Biome IDs", "Overgrown Beach ID", 61).getInt();
 			
 			promisedLandForestID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 62).getInt();
 			promisedLandPlainsID = config.get("Biome IDs", "Majestic Meadow (Promised Land) ID", 63).getInt();
