@@ -70,63 +70,91 @@ public class ItemBOPCoral extends ItemBlock
     }
     
     @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        int id = world.getBlockId(x, y, z);
+    	int id = world.getBlockId(x, y, z);
 
-        if (id == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1)
-            side = 1;
-        else if (!Block.blocksList[id].isBlockReplaceable(world, x, y, z))
-        {
-            if (side == 0)
-                --y;
+    	if (id == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1)
+    	{
+    		side = 1;
+    	}
+    	else if (id != Block.vine.blockID && id != Block.tallGrass.blockID && id != Block.deadBush.blockID && (Block.blocksList[id] == null || !Block.blocksList[id].isBlockReplaceable(world, x, y, z)))
+    	{
+    		if (side == 0)
+    		{
+    			--y;
+    		}
 
-            if (side == 1)
-                ++y;
+    		if (side == 1)
+    		{
+    			++y;
+    		}
 
-            if (side == 2)
-                --z;
+    		if (side == 2)
+    		{
+    			--z;
+    		}
 
-            if (side == 3)
-                ++z;
+    		if (side == 3)
+    		{
+    			++z;
+    		}
 
-            if (side == 4)
-                --x;
+    		if (side == 4)
+    		{
+    			--x;
+    		}
 
-            if (side == 5)
-                ++x;
-        }
-        
-        if (!player.canPlayerEdit(x, y, z, side, itemStack))
-        {
-            return false;
-        }
-        else if (itemStack.stackSize == 0)
-        {
-            return false;
-        }
-        else
-        {
-            if (world.canPlaceEntityOnSide(this.getBlockID(), x, y, z, false, side, (Entity)null, itemStack))
-            {
-                Block block = Block.blocksList[this.getBlockID()];
-                int j1 = block.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, 0);
+    		if (side == 5)
+    		{
+    			++x;
+    		}
+    	}
 
-                if (world.setBlock(x, y, z, this.getBlockID(), itemStack.getItemDamage(), 3))
-                {
-				
-                    if (world.getBlockId(x, y, z) == this.getBlockID())
-                    {
-                        Block.blocksList[this.getBlockID()].onBlockPlacedBy(world, x, y, z, player, itemStack);
-                        Block.blocksList[this.getBlockID()].onPostBlockPlaced(world, x, y, z, j1);
-                    }
+    	if (itemstack.stackSize == 0)
+    	{
+    		return false;
+    	}
+    	else if (!player.canPlayerEdit(x, y, z, side, itemstack))
+    	{
+    		return false;
+    	}
+    	else if (y == 255 && Block.blocksList[this.itemID].blockMaterial.isSolid())
+    	{
+    		return false;
+    	}
+    	else if (world.canPlaceEntityOnSide(this.itemID, x, y, z, false, side, player, itemstack))
+    	{	
+    		if (itemstack.getItemDamage() == 0) 
+    		{
+    			if (world.getBlockId(x, y + 1, z) == Block.waterStill.blockID || world.getBlockId(x, y + 1, z) == Block.waterMoving.blockID)
+    			{
+    	    		onItemUsePlaceBlock(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
+    	    		
+    				return true;
+    			}
+    		}
+    		else
+    		{
+    			onItemUsePlaceBlock(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
 
-                    world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), block.stepSound.getPlaceSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
-                    --itemStack.stackSize;
-                }
-            }
+    			return true;
+    		}
+    	}
 
-            return true;
-        }
+    	return false;
+    }
+    
+    public void onItemUsePlaceBlock(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    {
+		Block block = Block.blocksList[this.itemID];
+		int j1 = this.getMetadata(itemstack.getItemDamage());
+		int k1 = Block.blocksList[this.itemID].onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, j1);
+
+		if (placeBlockAt(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ, k1))
+		{	
+			world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), block.stepSound.getPlaceSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
+			--itemstack.stackSize;
+		}
     }
 }
