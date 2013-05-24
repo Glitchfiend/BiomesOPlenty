@@ -19,6 +19,19 @@ public class ArmorAmethyst extends ItemArmor implements IArmorTextureProvider
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
+	@Override
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+    {
+		if (par2ItemStack.itemID == Items.miscItems.get().itemID && par2ItemStack.getItemDamage() == 2)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+    }
+	
 	public String getArmorTextureFile(ItemStack par1) {
 		if(par1.itemID == Items.helmetAmethyst.get().itemID||par1.itemID == Items.chestplateAmethyst.get().itemID||par1.itemID == Items.bootsAmethyst.get().itemID){
 			return CommonProxy.ARMOR_AMETHYST1_PNG;
