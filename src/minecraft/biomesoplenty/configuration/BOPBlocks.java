@@ -385,8 +385,10 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 0), "Small Bone Segment");
         LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 1), "Medium Bone Segment");
         LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 2), "Large Bone Segment");
-        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 3), "Medium Bone Segment");
-        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 4), "Medium Bone Segment");
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 3), "Small Bone Segment");
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 4), "Small Bone Segment");
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 5), "Medium Bone Segment");
+        LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 6), "Medium Bone Segment");
 
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
         LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");

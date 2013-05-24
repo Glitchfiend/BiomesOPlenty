@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
@@ -218,23 +219,52 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
     {
         return -1;
     }
-    
-    public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
-    {
-        int meta = world.getBlockMetadata(par2, par3, par4);
-        
-        switch (meta)
-        {
-                
-            case ALGAE:
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
-                break;
-                
-            default:
-                this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
-                break;
-        }
-    }
+	
+	@Override
+	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
+	{
+		int meta = world.getBlockMetadata(x, y, z);
+
+		switch (meta)
+		{
+			case ALGAE:
+				return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 0.015625D, (double) z + 1.0D);
+
+			default:
+				return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, (double) x + 0.9D, (double) y + 0.8D, (double) z + 0.9D);
+		}
+	}
+
+	@Override
+	public void setBlockBoundsBasedOnState(IBlockAccess iblockaccess, int x, int y, int z)
+	{
+		int meta = iblockaccess.getBlockMetadata(x, y, z);
+
+		float minX;
+		float minY;
+		float minZ;
+		float maxX;
+		float maxY;
+		float maxZ;
+
+		switch (meta)
+		{
+			case ALGAE:
+				minX = minY = minZ = 0F;
+				maxX = maxZ = 1.0F;
+				maxY = 0.015625F;
+				break;
+
+			default:
+				minX = minZ = 0.1F;
+				minY = 0.0F;
+				maxX = maxZ = 0.9F;
+				maxY = 0.8F;
+				break;
+		}
+
+		setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
+	}
     
     @Override
     public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)

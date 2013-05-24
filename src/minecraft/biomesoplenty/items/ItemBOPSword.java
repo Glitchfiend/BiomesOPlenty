@@ -1,8 +1,10 @@
 package biomesoplenty.items;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
 public class ItemBOPSword extends ItemSword
@@ -15,6 +17,19 @@ public class ItemBOPSword extends ItemSword
 		TextureID = texture;
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
+	
+	@Override
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+    {
+		if (TextureID == 1 && par2ItemStack.itemID == Items.miscItems.get().itemID && par2ItemStack.getItemDamage() == 2)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+    }
 	
 	public void registerIcons(IconRegister iconRegister)
 	{

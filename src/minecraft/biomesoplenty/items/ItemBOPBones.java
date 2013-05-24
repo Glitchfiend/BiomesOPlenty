@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class ItemBOPBones extends ItemBlock
 {
-    private static final String[] types = new String[] {"bones_small", "bones_medium", "bones_large", "bones_medium_side_1", "bones_medium_side_2"};
+    private static final String[] types = new String[] {"bones_small", "bones_medium", "bones_large", "bones_small_side_1", "bones_small_side_2", "bones_medium_side_1", "bones_medium_side_2"};
     
     public ItemBOPBones(int par1)
     {
@@ -91,20 +91,23 @@ public class ItemBOPBones extends ItemBlock
         {	
         	Block block = Block.blocksList[this.itemID];
         	int j1 = this.getMetadata(itemstack.getItemDamage());
-        	
-        	if (itemstack.getItemDamage() == 1)
-        	{
-        		if (side == 2 || side == 3)
-        		{
-        			j1 = 3;
-        		}
 
-        		if (side == 4 || side == 5)
-        		{
-        			j1 = 4;
-        		}
+        	if (side == 2 || side == 3)
+        	{
+        		if (itemstack.getItemDamage() == 0)
+        			j1 = 3;
+        		else if (itemstack.getItemDamage() == 1)
+        			j1 = 5;
         	}
-        	
+
+        	if (side == 4 || side == 5)
+        	{
+        		if (itemstack.getItemDamage() == 0)
+        			j1 = 4;
+        		else if (itemstack.getItemDamage() == 1)
+        			j1 = 6;
+        	}
+
         	int k1 = Block.blocksList[this.itemID].onBlockPlaced(world, x, y, z, side, par8, par9, par10, j1);
 
         	if (placeBlockAt(itemstack, player, world, x, y, z, side, par8, par9, par10, k1))

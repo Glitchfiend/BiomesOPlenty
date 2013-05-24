@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -77,6 +78,7 @@ public class BlockBOPFlower extends BlockFlower
             return 0;
     }
     
+    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
     {
         int meta = world.getBlockMetadata(par2, par3, par4);
@@ -94,10 +96,14 @@ public class BlockBOPFlower extends BlockFlower
             case 6:
                 this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
                 break;
+                
+            case 9:
+                this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
+                break;
 				
 			case 10:
-                //this.setBlockBounds(0.3F, -1.0F, 0.3F, 0.7F, -0.4F, 0.7F);
-                this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+                this.setBlockBounds(0.3F, -0.97F, 0.3F, 0.7F, -0.7F, 0.7F);
+                //this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
                 break;
                 
             case 11:
