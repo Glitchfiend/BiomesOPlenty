@@ -149,6 +149,7 @@ public class BOPBiomes {
         Biomes.steppe = Optional.of((new BiomeGenSteppe(BOPConfiguration.steppeID)).setColor(9286496).setBiomeName("Steppe").setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.1F, 0.2F));
         Biomes.temperateRainforest = Optional.of((new BiomeGenTemperateRainforest(BOPConfiguration.temperateRainforestID)).setColor(353825).setBiomeName("Temperate Rainforest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.2F, 1.2F));
         Biomes.thicket = Optional.of((new BiomeGenThicket(BOPConfiguration.thicketID)).setColor(353825).setBiomeName("Thicket").func_76733_a(5159473).setTemperatureRainfall(0.6F, 0.2F).setMinMaxHeight(0.0F, 0.2F));
+        Biomes.timber = Optional.of((new BiomeGenTimber(BOPConfiguration.timberID)).setColor(353825).setBiomeName("Timber").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.0F, 0.2F));
         Biomes.tropicalRainforest = Optional.of((new BiomeGenTropicalRainforest(BOPConfiguration.tropicalRainforestID)).setColor(9286496).setBiomeName("Tropical Rainforest").setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.3F, 0.7F));
         Biomes.tropics = Optional.of((new BiomeGenTropics(BOPConfiguration.tropicsID)).setColor(9286496).setBiomeName("Tropics").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 1.5F));
         Biomes.tundra = Optional.of((new BiomeGenTundra(BOPConfiguration.tundraID)).setColor(14090235).setBiomeName("Tundra").setTemperatureRainfall(0.2F, 0.8F).setMinMaxHeight(-0.2F, 0.4F));
@@ -252,6 +253,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.steppe.get(), Type.PLAINS, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(Biomes.temperateRainforest.get(), Type.FOREST, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.thicket.get(), Type.PLAINS, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.timber.get(), Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.tropicalRainforest.get(), Type.JUNGLE);
         BiomeDictionary.registerBiomeType(Biomes.tropics.get(), Type.JUNGLE);
         BiomeDictionary.registerBiomeType(Biomes.tundra.get(), Type.FROZEN, Type.WASTELAND);
@@ -326,6 +328,7 @@ public class BOPBiomes {
         addSpawnBiome(Biomes.spruceWoods);
         addSpawnBiome(Biomes.temperateRainforest);
         addSpawnBiome(Biomes.thicket);
+		addSpawnBiome(Biomes.timber);
         addSpawnBiome(Biomes.tropicalRainforest);
         addSpawnBiome(Biomes.tropics);
         addSpawnBiome(Biomes.tundra);
@@ -399,6 +402,7 @@ public class BOPBiomes {
         addVillageBiome(Biomes.spruceWoods, BOPConfiguration.spruceWoodsVillage);
         addVillageBiome(Biomes.temperateRainforest, BOPConfiguration.temperateRainforestVillage);
         addVillageBiome(Biomes.thicket, BOPConfiguration.thicketVillage);
+		addVillageBiome(Biomes.timber, BOPConfiguration.timberVillage);
         addVillageBiome(Biomes.tropicalRainforest, BOPConfiguration.tropicalRainforestVillage);
         addVillageBiome(Biomes.tropics, BOPConfiguration.tropicsVillage);
         addVillageBiome(Biomes.tundra, BOPConfiguration.tundraVillage);
@@ -481,6 +485,7 @@ public class BOPBiomes {
         addStrongholdBiome(Biomes.steppe);
         addStrongholdBiome(Biomes.temperateRainforest);
         addStrongholdBiome(Biomes.thicket);
+		addStrongholdBiome(Biomes.timber);
         addStrongholdBiome(Biomes.tropicalRainforest);
         addStrongholdBiome(Biomes.tropics);
         addStrongholdBiome(Biomes.tundra);
@@ -699,6 +704,9 @@ public class BOPBiomes {
 
             if (BOPConfiguration.thicketGen)
                 registerBiome(Biomes.thicket);
+				
+			if (BOPConfiguration.timberGen)
+                registerBiome(Biomes.timber);
 
             if (BOPConfiguration.tropicalRainforestGen)
                 registerBiome(Biomes.tropicalRainforest);
@@ -997,6 +1005,9 @@ public class BOPBiomes {
 
         if (BOPConfiguration.thicketGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.thicket);
+			
+		if (BOPConfiguration.timberGen)
+            addBiomeToWorldTypes(getWorldTypes(), Biomes.timber);
 
         if (BOPConfiguration.tropicalRainforestGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.tropicalRainforest);

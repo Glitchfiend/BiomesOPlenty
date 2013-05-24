@@ -19,6 +19,7 @@ public class BWG4Integration
 	    if(Biomes.tundra.isPresent()) { DefaultBiomeList.addBiome("BoP: Tundra", Biomes.tundra.get(), 1); }
 	    if(Biomes.tropics.isPresent()) { DefaultBiomeList.addBiome("BoP: Tropics", Biomes.tropics.get(), 3); }
 	    if(Biomes.tropicalRainforest.isPresent()) { DefaultBiomeList.addBiome("BoP: Tropical Rainforest", Biomes.tropicalRainforest.get(), 3); }
+		if(Biomes.timber.isPresent()) { DefaultBiomeList.addBiome("BoP: Timber", Biomes.timber.get(), 2); }
 	    if(Biomes.thicket.isPresent()) { DefaultBiomeList.addBiome("BoP: Thicket", Biomes.thicket.get(), 2); }
 	    if(Biomes.temperateRainforest.isPresent()) { DefaultBiomeList.addBiome("BoP: Temperate Rainforest", Biomes.temperateRainforest.get(), 3); }
 	    if(Biomes.steppe.isPresent()) { DefaultBiomeList.addBiome("BoP: Steppe", Biomes.steppe.get(), 4); }

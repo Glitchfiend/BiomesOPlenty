@@ -278,6 +278,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.thicket);
 		}
+		if (BOPConfiguration.timberGen == true)
+		{
+			addNewBiome(Biomes.timber);
+		}
 		if (BOPConfiguration.tropicalRainforestGen == true)
 		{
 			addNewBiome(Biomes.tropicalRainforest);

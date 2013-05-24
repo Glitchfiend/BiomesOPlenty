@@ -92,6 +92,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> steppe				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> temperateRainforest	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> thicket				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> timber				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tropicalRainforest	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tropics				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tundra				 = Optional.absent();
