@@ -22,9 +22,11 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 		if (modelId == bonesModel)
 		{
 			int meta = world.getBlockMetadata(x, y, z);
+			
+			//0.062 Approx (Per pixel)
 			if (meta == 0)
 			{
-				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
+				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 1)
@@ -34,10 +36,20 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			}
 			else if (meta == 3)
 			{
-				renderer.setRenderBounds(0.125F, 0.125F, 0.0F, 0.875F, 0.875F, 1.0F);
+				renderer.setRenderBounds(0.25F, 0.25F, 0.0F, 0.75F, 0.75F, 1.0F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 4)
+			{
+				renderer.setRenderBounds(0.0F, 0.25F, 0.25F, 1.0F, 0.75F, 0.75F);
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+			else if (meta == 5)
+			{
+				renderer.setRenderBounds(0.125F, 0.125F, 0.0F, 0.875F, 0.875F, 1.0F);
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+			else if (meta == 6)
 			{
 				renderer.setRenderBounds(0.0F, 0.125F, 0.125F, 1.0F, 0.875F, 0.875F);
 				renderer.renderStandardBlock(block, x, y, z);
@@ -60,7 +72,7 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			
 			if (metadata == 0)
 			{
-				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
+				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
 				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 1)
@@ -70,10 +82,20 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			}
 			else if (metadata == 3)
 			{
-				renderer.setRenderBounds(0.125F, 0.125F, 0.0F, 0.875F, 0.875F, 1.0F);
+				renderer.setRenderBounds(0.25F, 0.25F, 0.0F, 0.75F, 0.75F, 1.0F);
 				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 4)
+			{
+				renderer.setRenderBounds(0.0F, 0.25F, 0.25F, 1.0F, 0.75F, 0.875F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
+			else if (metadata == 5)
+			{
+				renderer.setRenderBounds(0.125F, 0.125F, 0.0F, 0.875F, 0.875F, 1.0F);
+				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+			}
+			else if (metadata == 6)
 			{
 				renderer.setRenderBounds(0.0F, 0.125F, 0.125F, 1.0F, 0.875F, 0.875F);
 				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);

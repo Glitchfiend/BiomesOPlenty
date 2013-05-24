@@ -49,8 +49,8 @@ public class BlockBones extends Block {
     {
         if (meta < 0 || meta >= textures.length)
             meta = 0;
-
-        if (meta == 3 || meta == 4)
+        
+        if (meta == 4 || meta == 5)
         	meta = 1;
         	
         return textures[meta];
@@ -63,7 +63,7 @@ public class BlockBones extends Block {
 
 		if (meta == 0)
 		{
-			return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
+			return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 1.0D, (double) z + 0.75D);
 		}
 		else if (meta == 1)
 		{
@@ -71,9 +71,17 @@ public class BlockBones extends Block {
 		}
 		else if (meta == 3)
 		{
-			return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y + 0.125D, (double) z, (double) x + 0.875D, (double) y + 0.875D, (double) z + 1.00D);
+			return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y + 0.25D, (double) z, (double) x + 0.75D, (double) y + 0.75D, (double) z + 1.00D);
 		}
 		else if (meta == 4)
+		{
+			return AxisAlignedBB.getBoundingBox((double) x, y + 0.25D, (double) z + 0.25D, (double) x + 1.00D, (double) y + 0.75D, (double) z + 0.75D);
+		}
+		else if (meta == 5)
+		{
+			return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y + 0.125D, (double) z, (double) x + 0.875D, (double) y + 0.875D, (double) z + 1.00D);
+		}
+		else if (meta == 6)
 		{
 			return AxisAlignedBB.getBoundingBox((double) x, y + 0.125D, (double) z + 0.125D, (double) x + 1.00D, (double) y + 0.875D, (double) z + 0.875D);
 		}
@@ -87,10 +95,10 @@ public class BlockBones extends Block {
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		
+
 		if (meta == 0)
 		{
-			return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 0.5D, (double) z + 0.75D);
+			return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y, (double) z + 0.25D, (double) x + 0.75D, (double) y + 1.0D, (double) z + 0.75D);
 		}
 		else if (meta == 1)
 		{
@@ -98,9 +106,17 @@ public class BlockBones extends Block {
 		}
 		else if (meta == 3)
 		{
-			return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y + 0.125D, (double) z, (double) x + 0.875D, (double) y + 0.875D, (double) z + 1.00D);
+			return AxisAlignedBB.getBoundingBox((double) x + 0.25D, y + 0.25D, (double) z, (double) x + 0.75D, (double) y + 0.75D, (double) z + 1.00D);
 		}
 		else if (meta == 4)
+		{
+			return AxisAlignedBB.getBoundingBox((double) x, y + 0.25D, (double) z + 0.25D, (double) x + 1.00D, (double) y + 0.75D, (double) z + 0.75D);
+		}
+		else if (meta == 5)
+		{
+			return AxisAlignedBB.getBoundingBox((double) x + 0.125D, y + 0.125D, (double) z, (double) x + 0.875D, (double) y + 0.875D, (double) z + 1.00D);
+		}
+		else if (meta == 6)
 		{
 			return AxisAlignedBB.getBoundingBox((double) x, y + 0.125D, (double) z + 0.125D, (double) x + 1.00D, (double) y + 0.875D, (double) z + 0.875D);
 		}
@@ -127,7 +143,7 @@ public class BlockBones extends Block {
 			minY = 0F;
 			minX = minZ = 0.25F;
 			maxX = maxZ = 0.75F;
-			maxY = 0.5F;
+			maxY = 1.0F;
 		}
 		else if (meta == 1)
 		{
@@ -135,6 +151,34 @@ public class BlockBones extends Block {
 			minX = minZ = 0.125F;
 			maxX = maxZ = 0.875F;
 			maxY = 1.00F;
+		}
+		else if (meta == 3)
+		{
+			minX = minY = 0.25F;
+			minZ = 0F;
+			maxX = maxY = 0.75F;
+			maxZ = 1.00F;
+		}
+		else if (meta == 4)
+		{
+			minX = 0F;
+			minY = minZ = 0.25F;
+			maxX = 1.00F;
+			maxY = maxZ = 0.75F;
+		}
+		else if (meta == 5)
+		{
+			minX = minY = 0.125F;
+			minZ = 0F;
+			maxX = maxY = 0.875F;
+			maxZ = 1.00F;
+		}
+		else if (meta == 6)
+		{
+			minX = 0F;
+			minY = minZ = 0.125F;
+			maxX = 1.00F;
+			maxY = maxZ = 0.875F;
 		}
 		else
 		{
