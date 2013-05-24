@@ -14,7 +14,7 @@ public class WorldProviderBOPhell extends WorldProvider
 {
     public void registerWorldChunkManager()
     {
-		if (Biomes.netherGarden.isPresent() || Biomes.netherDesert.isPresent() || Biomes.netherLava.isPresent() || Biomes.netherAbyss.isPresent())
+		if (Biomes.netherGarden.isPresent() || Biomes.netherDesert.isPresent() || Biomes.netherLava.isPresent() || Biomes.netherBone.isPresent())
 		{
 			this.worldChunkMgr = new WorldChunkManagerBOPhell(worldObj);
 		}

@@ -15,11 +15,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BiomeGenSnowyWoods extends BiomeGenBase
+public class BiomeGenDeadForestSnow extends BiomeGenBase
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
-	public BiomeGenSnowyWoods(int par1)
+	public BiomeGenDeadForestSnow(int par1)
     {
         super(par1);
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
