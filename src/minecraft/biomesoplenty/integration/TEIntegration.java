@@ -1,5 +1,6 @@
 package biomesoplenty.integration;
 
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import thermalexpansion.api.crafting.CraftingHelpers;
 import thermalexpansion.api.crafting.CraftingManagers;
@@ -43,5 +44,9 @@ public class TEIntegration
         CraftingManagers.pulverizerManager.addRecipe(160, new ItemStack(Blocks.logs3.get(), 1, 0), woodchips);
         CraftingManagers.pulverizerManager.addRecipe(160, new ItemStack(Blocks.logs3.get(), 1, 1), woodchips);
         CraftingManagers.pulverizerManager.addRecipe(160, new ItemStack(Blocks.logs3.get(), 1, 2), woodchips);
+        
+        CraftingManagers.pulverizerManager.addRecipe(160, new ItemStack(Blocks.bones.get(), 1, 0), new ItemStack(Item.dyePowder, 6, 15));
+        CraftingManagers.pulverizerManager.addRecipe(220, new ItemStack(Blocks.bones.get(), 1, 1), new ItemStack(Item.dyePowder, 12, 15));
+        CraftingManagers.pulverizerManager.addRecipe(280, new ItemStack(Blocks.bones.get(), 1, 2), new ItemStack(Item.dyePowder, 24, 15));
     }
 }

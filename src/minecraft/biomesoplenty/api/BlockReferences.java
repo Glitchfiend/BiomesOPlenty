@@ -110,6 +110,10 @@ public class BlockReferences {
 		giantFlowerRed (Blocks.petals, 0),
 		giantFlowerYellow (Blocks.petals, 1),
 		
+		smallBoneSegment (Blocks.bones, 0),
+		mediumBoneSegment (Blocks.bones, 1),
+		largeBoneSegment (Blocks.bones, 2),
+		
 		kelp (Blocks.coral, 0),
 		
 		toadstool (Blocks.mushrooms, 0),

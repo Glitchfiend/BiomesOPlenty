@@ -179,6 +179,11 @@ public class BOPCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.bamboo.get(), 4), new Object[] {new ItemStack(Blocks.planks.get(), 1, 10)});
         GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 1)});
         
+        //Bone Segments > Bonemeal
+        GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 3, 15), new Object[] {new ItemStack(Blocks.bones.get(), 1, 0)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 6, 15), new Object[] {new ItemStack(Blocks.bones.get(), 1, 1)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 12, 15), new Object[] {new ItemStack(Blocks.bones.get(), 1, 2)});
+        
         //Plants
         GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 1, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});

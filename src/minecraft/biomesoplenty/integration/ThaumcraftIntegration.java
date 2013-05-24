@@ -119,6 +119,9 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("redRockCobble"), getBMeta("redRockCobble"), (new ObjectTags()).add(EnumTag.DESTRUCTION, 1).add(EnumTag.ROCK, 1));
 		ThaumcraftApi.registerObjectTag(getBID("giantFlowerRed"), getBMeta("giantFlowerRed"), (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
 		ThaumcraftApi.registerObjectTag(getBID("giantFlowerYellow"), getBMeta("giantFlowerYellow"), (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));
+		ThaumcraftApi.registerObjectTag(getBID("smallBoneSegment"), getBMeta("smallBoneSegment"), (new ObjectTags()).add(EnumTag.FLESH, 1).add(EnumTag.DEATH, 3));
+		ThaumcraftApi.registerObjectTag(getBID("mediumBoneSegment"), getBMeta("mediumBoneSegment"), (new ObjectTags()).add(EnumTag.FLESH, 2).add(EnumTag.DEATH, 6));
+		ThaumcraftApi.registerObjectTag(getBID("largeBoneSegment"), getBMeta("largeBoneSegment"), (new ObjectTags()).add(EnumTag.FLESH, 4).add(EnumTag.DEATH, 12));
 		
 		//Items
 		/*Amethyst*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new ObjectTags()).add(EnumTag.VALUABLE, 8).add(EnumTag.PURE, 8).add(EnumTag.CRYSTAL, 16));
