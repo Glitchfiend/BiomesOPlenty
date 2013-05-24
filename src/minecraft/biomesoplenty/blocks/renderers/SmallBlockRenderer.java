@@ -26,12 +26,14 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			//0.062 Approx (Per pixel)
 			if (meta == 0)
 			{
-				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
+				//renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
+				renderer.setRenderBounds(0.312F, 0.0F, 0.312F, 0.688F, 1.0F, 0.688F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 1)
 			{
-				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.0F, 0.875F);
+				//renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.0F, 0.875F);
+				renderer.setRenderBounds(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 3)
