@@ -133,7 +133,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator clayInStoneGen;
     protected WorldGenerator quagmireGen;
 	protected WorldGenerator canyonGen;
-	protected WorldGenerator smolderingGrassGen;
 	protected WorldGenerator cloudGen;
     protected WorldGenerator coalGen;
     protected WorldGenerator ironGen;
@@ -168,6 +167,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator cattailGen;
 	protected WorldGenerator highCattailGen;
 	protected WorldGenerator outbackGen;
+	protected WorldGenerator smolderingGrassGen;
 	protected WorldGenerator canyonGrassGen;
 	protected WorldGenerator netherGrassGen;
 	protected WorldGenerator netherWartGen;
@@ -279,6 +279,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     /** The amount of tall grass to generate per chunk. */
     protected int grassPerChunk;
 	protected int outbackPerChunk;
+	protected int smolderingGrassPerChunk;
 	protected int netherGrassPerChunk;
 	protected int netherWartPerChunk;
 	protected int canyonGrassPerChunk;
@@ -356,7 +357,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     public boolean generatePumpkins;
     public boolean generateMelons;
     public boolean generateBoulders;
-	public boolean generateSmolderingGrass;
 	public boolean generateClouds;
 
     public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
@@ -380,7 +380,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.clayInStoneGen = new WorldGenMinable(Block.blockClay.blockID, 32);
         this.quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
 		this.canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
-		this.smolderingGrassGen = new WorldGenSmolderingGrass(Blocks.holyGrass.get().blockID, 1, 32);
         this.driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
 		this.cloudGen = new WorldGenCloud(Blocks.cloud.get().blockID, 48);
         this.coalGen = new WorldGenMinable(Block.oreCoal.blockID, 16);
@@ -432,6 +431,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.highGrassGen = new WorldGenHighGrass(Blocks.foliage.get().blockID, 3);
 		this.highCattailGen = new WorldGenHighCattail(Blocks.plants.get().blockID, 9);
 		this.outbackGen = new WorldGenOutback(Blocks.foliage.get().blockID, 2);
+		this.smolderingGrassGen = new WorldGenSmolderingGrass(Blocks.holyGrass.get().blockID, 1);
 		this.netherGrassGen = new WorldGenNetherGrass(Block.tallGrass.blockID, 1);
 		this.netherWartGen = new WorldGenNetherWart(Block.netherStalk.blockID, 0);
 		this.canyonGrassGen = new WorldGenCanyonGrass(Blocks.foliage.get().blockID, 2);
@@ -501,6 +501,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.desertCactiPerChunk = 0;
         this.highGrassPerChunk = 0;
 		this.outbackPerChunk = 0;
+		this.smolderingGrassPerChunk = 0;
 		this.netherGrassPerChunk = 0;
 		this.netherWartPerChunk = 0;
 		this.canyonGrassPerChunk = 0;
@@ -530,7 +531,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.generatePumpkins = true;
         this.generateMelons = false;
         this.generateBoulders = false;
-		this.generateSmolderingGrass = false;
 		this.generateClouds = false;
         this.biome = par1BiomeGenBase;
     }
@@ -660,11 +660,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		if (this.generateCanyon)
         {
             this.genStandardOre1(15, this.canyonGen, 64, 128);
-        }
-		
-		if (this.generateSmolderingGrass)
-        {
-            this.genStandardOre1(15, this.smolderingGrassGen, 64, 128);
         }
 		
 		if (this.generateClouds)
@@ -1088,6 +1083,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.outbackGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+        for (var2 = 0; var2 < this.smolderingGrassPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.smolderingGrassGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 		
         for (var2 = 0; var2 < this.netherGrassPerChunk; ++var2)

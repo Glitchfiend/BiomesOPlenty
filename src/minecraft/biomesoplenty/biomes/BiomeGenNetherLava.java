@@ -30,6 +30,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
         this.fillerBlock = (byte)Block.netherrack.blockID;
 		this.customBiomeDecorator.grassPerChunk = 8;
 		this.customBiomeDecorator.netherLavaPerChunk = 20;
+		this.customBiomeDecorator.smolderingGrassPerChunk = 2;
 		this.customBiomeDecorator.generateAsh = true;
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();

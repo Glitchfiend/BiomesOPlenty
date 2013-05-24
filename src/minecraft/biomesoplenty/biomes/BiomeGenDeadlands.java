@@ -36,8 +36,8 @@ public class BiomeGenDeadlands extends BiomeGenBase
         this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
 		this.customBiomeDecorator.lavaLakesPerChunk = 25;
+		this.customBiomeDecorator.smolderingGrassPerChunk = 5;
 		this.customBiomeDecorator.generatePits = true;
-		this.customBiomeDecorator.generateSmolderingGrass = true;
         this.waterColorMultiplier = 16711680;
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
