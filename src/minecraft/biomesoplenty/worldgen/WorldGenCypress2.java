@@ -9,17 +9,17 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenCypress extends WorldGenerator
+public class WorldGenCypress2 extends WorldGenerator
 {
-    public WorldGenCypress(boolean var1)
+    public WorldGenCypress2(boolean var1)
     {
         super(var1);
     }
 
     public boolean generate(World var1, Random var2, int var3, int var4, int var5)
     {
-        int var6 = var2.nextInt(10) + 15;
-        int var7 = var2.nextInt(3) + 5;
+        int var6 = var2.nextInt(4) + 4;
+        int var7 = 2;
         int var8 = var6 - var7;
         int var9 = 1;
         boolean var10 = true;
@@ -52,7 +52,7 @@ public class WorldGenCypress extends WorldGenerator
                         {
                             var15 = var1.getBlockId(var13, var11, var14);
 
-                            if (var15 != 0 && var15 != Blocks.leavesColorized.get().blockID)
+                            if (var15 != 0 && var15 != Block.leaves.blockID)
                             {
                                 var10 = false;
                             }
@@ -98,7 +98,7 @@ public class WorldGenCypress extends WorldGenerator
                                 {
 									if (var2.nextInt(3) != 0)
 										{
-										this.setBlockAndMetadata(var1, var17, var16, var19, Blocks.leavesColorized.get().blockID, 4);
+										this.setBlockAndMetadata(var1, var17, var16, var19, Block.leaves.blockID, 2);
 										}
                                 }
                             }
@@ -127,19 +127,19 @@ public class WorldGenCypress extends WorldGenerator
                     {
                         var17 = var1.getBlockId(var3, var4 + var16, var5);
 
-                        if (var17 == 0 || var17 == Blocks.leavesColorized.get().blockID)
+                        if (var17 == 0 || var17 == Block.leaves.blockID)
                         {
-                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.logs3.get().blockID, 1);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, Blocks.logs3.get().blockID, 1);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 2, var5, Blocks.logs3.get().blockID, 1);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 1, var5, Blocks.logs3.get().blockID, 1);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, Blocks.logs3.get().blockID, 1);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5, Blocks.logs3.get().blockID, 1);
-							this.setBlockAndMetadata(var1, var3 - 1, (var4 + var6) + 1, var5, Blocks.leavesColorized.get().blockID, 4);
-							this.setBlockAndMetadata(var1, var3 + 1, (var4 + var6) + 1, var5, Blocks.leavesColorized.get().blockID, 4);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 - 1, Blocks.leavesColorized.get().blockID, 4);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 + 1, Blocks.leavesColorized.get().blockID, 4);
-							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 2, var5, Blocks.leavesColorized.get().blockID, 4);
+                            this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Block.wood.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, Block.wood.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 2, var5, Block.wood.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) - 1, var5, Block.wood.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6), var5, Block.wood.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5, Block.wood.blockID, 2);
+							this.setBlockAndMetadata(var1, var3 - 1, (var4 + var6) + 1, var5, Block.leaves.blockID, 2);
+							this.setBlockAndMetadata(var1, var3 + 1, (var4 + var6) + 1, var5, Block.leaves.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 - 1, Block.leaves.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 1, var5 + 1, Block.leaves.blockID, 2);
+							this.setBlockAndMetadata(var1, var3, (var4 + var6) + 2, var5, Block.leaves.blockID, 2);
                         }
                     }
 

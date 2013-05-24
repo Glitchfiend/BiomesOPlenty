@@ -21,9 +21,9 @@ public class BWG4Integration
 	    if(Biomes.tropicalRainforest.isPresent()) { DefaultBiomeList.addBiome("BoP: Tropical Rainforest", Biomes.tropicalRainforest.get(), 3); }
 	    if(Biomes.thicket.isPresent()) { DefaultBiomeList.addBiome("BoP: Thicket", Biomes.thicket.get(), 2); }
 	    if(Biomes.temperateRainforest.isPresent()) { DefaultBiomeList.addBiome("BoP: Temperate Rainforest", Biomes.temperateRainforest.get(), 3); }
-	    if(Biomes.swampwoods.isPresent()) { DefaultBiomeList.addBiome("BoP: Swampwoods", Biomes.swampwoods.get(), 3); }
 	    if(Biomes.steppe.isPresent()) { DefaultBiomeList.addBiome("BoP: Steppe", Biomes.steppe.get(), 4); }
 	    if(Biomes.spruceWoods.isPresent()) { DefaultBiomeList.addBiome("BoP: Spruce Woods", Biomes.spruceWoods.get(), 2); }
+		if(Biomes.sludgepit.isPresent()) { DefaultBiomeList.addBiome("BoP: Sludgepit", Biomes.sludgepit.get(), 3); }
 	    if(Biomes.shrubland.isPresent()) { DefaultBiomeList.addBiome("BoP: Shrubland", Biomes.shrubland.get(), 2); }
 	    if(Biomes.shield.isPresent()) { DefaultBiomeList.addBiome("BoP: Shield", Biomes.shield.get(), 2); }
 	    if(Biomes.seasonalForest.isPresent()) { DefaultBiomeList.addBiome("BoP: Seasonal Forest", Biomes.seasonalForest.get(), 2); }

@@ -61,6 +61,10 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> netherBone			 = Optional.absent();
 	
 	public static Optional<? extends BiomeGenBase> oasis				 = Optional.absent();
+	
+	public static Optional<? extends BiomeGenBase> oceanCoral			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> oceanKelp			 = Optional.absent();
+	
 	public static Optional<? extends BiomeGenBase> ominousWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> orchard				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> originValley			 = Optional.absent();
@@ -83,9 +87,9 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> shield				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shore				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shrubland			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> sludgepit			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> spruceWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> steppe				 = Optional.absent();
-	public static Optional<? extends BiomeGenBase> swampwoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> temperateRainforest	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> thicket				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tropicalRainforest	 = Optional.absent();

@@ -30,23 +30,13 @@ Omega Essence:					Mined from Omega Essence Ore.  Used to turn Origin blocks bac
 
 BIOMES CHANGES:
 
-Arctic:							Rename to Snowy Coniferous Forest.
-
 Bayou:							Trees in the water.
 
-Bog:							More realistic (Based on this picture: http://i.imgur.com/hTBmiKo.jpg).
-
 Canyon:							Tweak the tree generation.
-
-Drylands:						Change tree generation and grass/foliage color.
 
 Heathland:						Change tree generation.
 
 Mangrove:						Tweak the tree generation.  Change height values.
-
-Snowy Woods:					Rename to Snowy Dead Forest.
-
-Tundra:							Change current tudra to Arctic.  New one more realistic (Based on this picture: http://i.imgur.com/Wg7keZ0.jpg).
 
 ---
 
@@ -56,17 +46,11 @@ Hot Springs:					Geysers, pools of water and lava, and decaying spruce trees.
 
 Timber:							Tall, decaying deciduous trees, thorns, and small bushes.
 
-Burning Brush:					A smokey forest with burnt trees, smoldering grass, and ash.
-
 ---
 
 NETHER BIOMES:
 
-Undergarden:					Vines, nether wart, giant/small mushrooms.
-
 Corrupted Sands:				Soulsand, bramble, thorns.
-
-Phantasmagoric Inferno:			Lots of lavafalls and lava ponds.
 
 Boneyard:						Skulls, bones sticking out of the ground, large bone structures, and graves.
 
@@ -76,11 +60,7 @@ BEACH BIOMES:
 
 Gravel Beach:					A beach covered in gravel.
 
-Lush Beach:						A beach with dune grass, and patches of leaves and grass.
-
-Forested Beach:					A beach with trees.
-
-Rocky Beach:					A beach with jagged rocks.
+Overgrown Beach:				A beach with small trees and shrubs, dune grass, and patches of medium grass.
 
 ---
 

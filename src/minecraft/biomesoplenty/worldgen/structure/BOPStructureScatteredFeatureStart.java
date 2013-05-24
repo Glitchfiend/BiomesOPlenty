@@ -20,7 +20,7 @@ public class BOPStructureScatteredFeatureStart extends StructureStart
                 biome != Biomes.temperateRainforest.get() && biome != Biomes.tropicalRainforest.get() && biome != Biomes.jungleNew.get())
         {
             if (biome == BiomeGenBase.swampland || biome == Biomes.bayou.get() || biome == Biomes.bog.get()
-                    || biome == Biomes.deadSwamp.get() || biome == Biomes.fen.get() || biome == Biomes.swampwoods.get()
+                    || biome == Biomes.deadSwamp.get() || biome == Biomes.fen.get() || biome == Biomes.sludgepit.get()
                     || biome == Biomes.swamplandNew.get())
             {
                 ComponentScatteredFeatureSwampHut componentscatteredfeatureswamphut = new ComponentScatteredFeatureSwampHut(random, x * 16, z * 16);

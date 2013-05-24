@@ -73,7 +73,7 @@ public class BOPBiomes {
 		Biomes.beachOvergrown = Optional.of((new BiomeGenBeachOvergrown(BOPConfiguration.beachOvergrownID)).setColor(16440917).setBiomeName("Overgrown Beach").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.0F, 0.1F));
 
 		Biomes.birchForest = Optional.of((new BiomeGenBirchForest(BOPConfiguration.birchForestID)).setColor(353825).setBiomeName("Birch Forest").func_76733_a(5159473).setTemperatureRainfall(0.4F, 0.3F));
-        Biomes.bog = Optional.of((new BiomeGenBog(BOPConfiguration.bogID)).setColor(522674).setBiomeName("Bog").func_76733_a(9154376).setMinMaxHeight(-0.3F, -0.1F).setTemperatureRainfall(0.8F, 0.9F));
+        Biomes.bog = Optional.of((new BiomeGenBog(BOPConfiguration.bogID)).setColor(522674).setBiomeName("Bog").func_76733_a(9154376).setMinMaxHeight(-0.1F, 0.1F).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.borealForest = Optional.of((new BiomeGenBorealForest(BOPConfiguration.borealForestID)).setColor(353825).setBiomeName("Boreal Forest").func_76733_a(5159473).setMinMaxHeight(0.0F, 1.0F).setTemperatureRainfall(0.6F, 0.7F));
         Biomes.brushland = Optional.of((new BiomeGenBrushland(BOPConfiguration.brushlandID)).setColor(16421912).setBiomeName("Brushland").setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.0F, 0.5F));
         Biomes.canyon = Optional.of((new BiomeGenCanyon(BOPConfiguration.canyonID)).setColor(9286496).setBiomeName("Canyon").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(3.0F, 5.0F));
@@ -118,7 +118,11 @@ public class BOPBiomes {
 		Biomes.netherBone = Optional.of((new BiomeGenNetherBone(BOPConfiguration.netherBoneID)).setColor(16711680).setBiomeName("Boneyard").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		
         Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfiguration.oasisID)).setColor(16421912).setBiomeName("Oasis").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 0.2F));
-        Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfiguration.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
+
+		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfiguration.oceanCoralID)).setColor(10486015).setBiomeName("Coral Reef").setMinMaxHeight(-0.1F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
+		Biomes.oceanKelp = Optional.of((new BiomeGenOceanKelp(BOPConfiguration.oceanKelpID)).setColor(10486015).setBiomeName("Kelp Forest").setMinMaxHeight(-0.1F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
+		
+		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfiguration.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfiguration.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
         Biomes.originValley = Optional.of((new BiomeGenOriginValley(BOPConfiguration.originValleyID)).setColor(353825).setBiomeName("Origin Valley").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(-0.1F, 0.6F));
         Biomes.outback = Optional.of((new BiomeGenOutback(BOPConfiguration.outbackID)).setColor(9286496).setBiomeName("Outback").setTemperatureRainfall(0.8F, 0.0F).setMinMaxHeight(0.1F, 0.1F));
@@ -140,9 +144,9 @@ public class BOPBiomes {
         Biomes.shield = Optional.of((new BiomeGenShield(BOPConfiguration.shieldID)).setColor(522674).setBiomeName("Shield").func_76733_a(9154376).setMinMaxHeight(-0.2F, 0.4F).setTemperatureRainfall(0.5F, 0.8F));
         Biomes.shore = Optional.of((new BiomeGenShore(BOPConfiguration.shoreID)).setColor(9286496).setBiomeName("Shore").setMinMaxHeight(-1.0F, 0.4F).setTemperatureRainfall(0.8F, 0.4F));
         Biomes.shrubland = Optional.of((new BiomeGenShrubland(BOPConfiguration.shrublandID)).setColor(9286496).setBiomeName("Shrubland").setMinMaxHeight(0.1F, 0.2F).setTemperatureRainfall(0.6F, 0.0F));
-        Biomes.spruceWoods = Optional.of((new BiomeGenSpruceWoods(BOPConfiguration.spruceWoodsID)).setColor(353825).setBiomeName("Spruce Woods").func_76733_a(5159473).setTemperatureRainfall(0.6F, 0.7F));
+		Biomes.sludgepit = Optional.of((new BiomeGenSludgepit(BOPConfiguration.sludgepitID)).setColor(522674).setBiomeName("Sludgepit").func_76733_a(9154376).setMinMaxHeight(-0.3F, -0.1F).setTemperatureRainfall(0.8F, 0.9F));
+		Biomes.spruceWoods = Optional.of((new BiomeGenSpruceWoods(BOPConfiguration.spruceWoodsID)).setColor(353825).setBiomeName("Spruce Woods").func_76733_a(5159473).setTemperatureRainfall(0.6F, 0.7F));
         Biomes.steppe = Optional.of((new BiomeGenSteppe(BOPConfiguration.steppeID)).setColor(9286496).setBiomeName("Steppe").setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.1F, 0.2F));
-        Biomes.swampwoods = Optional.of((new BiomeGenSwampwoods(BOPConfiguration.swampwoodsID)).setColor(522674).setBiomeName("Swampwoods").func_76733_a(9154376).setMinMaxHeight(-0.2F, 0.2F).setTemperatureRainfall(0.8F, 0.9F));
         Biomes.temperateRainforest = Optional.of((new BiomeGenTemperateRainforest(BOPConfiguration.temperateRainforestID)).setColor(353825).setBiomeName("Temperate Rainforest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.2F, 1.2F));
         Biomes.thicket = Optional.of((new BiomeGenThicket(BOPConfiguration.thicketID)).setColor(353825).setBiomeName("Thicket").func_76733_a(5159473).setTemperatureRainfall(0.6F, 0.2F).setMinMaxHeight(0.0F, 0.2F));
         Biomes.tropicalRainforest = Optional.of((new BiomeGenTropicalRainforest(BOPConfiguration.tropicalRainforestID)).setColor(9286496).setBiomeName("Tropical Rainforest").setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.3F, 0.7F));
@@ -174,7 +178,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.beachOvergrown.get(), Type.BEACH, Type.FOREST);
 		
         BiomeDictionary.registerBiomeType(Biomes.birchForest.get(), Type.FOREST);
-        BiomeDictionary.registerBiomeType(Biomes.bog.get(), Type.SWAMP);
+        BiomeDictionary.registerBiomeType(Biomes.bog.get(), Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.borealForest.get(), Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.brushland.get(), Type.DESERT, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.canyon.get(), Type.DESERT, Type.MOUNTAIN, Type.HILLS);
@@ -203,7 +207,7 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.jadeCliffs.get(), Type.FOREST, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(Biomes.lushDesert.get(), Type.DESERT, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.lushSwamp.get(), Type.SWAMP);
-        BiomeDictionary.registerBiomeType(Biomes.mangrove.get(), Type.WATER);
+        BiomeDictionary.registerBiomeType(Biomes.mangrove.get(), Type.WATER, Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.mapleWoods.get(), Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.marsh.get(), Type.SWAMP, Type.WATER);
         BiomeDictionary.registerBiomeType(Biomes.meadow.get(), Type.FOREST, Type.PLAINS);
@@ -219,6 +223,10 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.netherBone.get(), Type.NETHER, Type.WASTELAND);
 		
         BiomeDictionary.registerBiomeType(Biomes.oasis.get(), Type.DESERT, Type.PLAINS);
+		
+		BiomeDictionary.registerBiomeType(Biomes.oceanCoral.get(), Type.WATER);
+		BiomeDictionary.registerBiomeType(Biomes.oceanKelp.get(), Type.WATER, Type.FOREST);
+		
         BiomeDictionary.registerBiomeType(Biomes.ominousWoods.get(), Type.MAGICAL);
         BiomeDictionary.registerBiomeType(Biomes.orchard.get(), Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(Biomes.outback.get(), Type.DESERT, Type.PLAINS);
@@ -239,9 +247,9 @@ public class BOPBiomes {
         BiomeDictionary.registerBiomeType(Biomes.seasonalForest.get(), Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.shield.get(), Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.shrubland.get(), Type.PLAINS);
+		BiomeDictionary.registerBiomeType(Biomes.sludgepit.get(), Type.SWAMP, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(Biomes.spruceWoods.get(), Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.steppe.get(), Type.PLAINS, Type.WASTELAND);
-        BiomeDictionary.registerBiomeType(Biomes.swampwoods.get(), Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.temperateRainforest.get(), Type.FOREST, Type.HILLS);
         BiomeDictionary.registerBiomeType(Biomes.thicket.get(), Type.PLAINS, Type.FOREST);
         BiomeDictionary.registerBiomeType(Biomes.tropicalRainforest.get(), Type.JUNGLE);
@@ -314,8 +322,8 @@ public class BOPBiomes {
         addSpawnBiome(Biomes.seasonalForest);
         addSpawnBiome(Biomes.shield);
         addSpawnBiome(Biomes.shrubland);
+		addSpawnBiome(Biomes.sludgepit);
         addSpawnBiome(Biomes.spruceWoods);
-        addSpawnBiome(Biomes.swampwoods);
         addSpawnBiome(Biomes.temperateRainforest);
         addSpawnBiome(Biomes.thicket);
         addSpawnBiome(Biomes.tropicalRainforest);
@@ -387,8 +395,8 @@ public class BOPBiomes {
         addVillageBiome(Biomes.seasonalForest, BOPConfiguration.seasonalForestVillage);
         addVillageBiome(Biomes.shield, BOPConfiguration.shieldVillage);
         addVillageBiome(Biomes.shrubland, BOPConfiguration.shrublandVillage);
+		addVillageBiome(Biomes.sludgepit, BOPConfiguration.sludgepitVillage);
         addVillageBiome(Biomes.spruceWoods, BOPConfiguration.spruceWoodsVillage);
-        addVillageBiome(Biomes.swampwoods, BOPConfiguration.swampwoodsVillage);
         addVillageBiome(Biomes.temperateRainforest, BOPConfiguration.temperateRainforestVillage);
         addVillageBiome(Biomes.thicket, BOPConfiguration.thicketVillage);
         addVillageBiome(Biomes.tropicalRainforest, BOPConfiguration.tropicalRainforestVillage);
@@ -468,9 +476,9 @@ public class BOPBiomes {
         addStrongholdBiome(Biomes.seasonalForest);
         addStrongholdBiome(Biomes.shield);
         addStrongholdBiome(Biomes.shrubland);
+		addStrongholdBiome(Biomes.sludgepit);
         addStrongholdBiome(Biomes.spruceWoods);
         addStrongholdBiome(Biomes.steppe);
-        addStrongholdBiome(Biomes.swampwoods);
         addStrongholdBiome(Biomes.temperateRainforest);
         addStrongholdBiome(Biomes.thicket);
         addStrongholdBiome(Biomes.tropicalRainforest);
@@ -676,15 +684,15 @@ public class BOPBiomes {
 
             if (BOPConfiguration.shrublandGen)
                 registerBiome(Biomes.shrubland);
+				
+			if (BOPConfiguration.sludgepitGen)
+                registerBiome(Biomes.sludgepit);
 
             if (BOPConfiguration.spruceWoodsGen)
                 registerBiome(Biomes.spruceWoods);
 
             if (BOPConfiguration.steppeGen)
                 registerBiome(Biomes.steppe);
-
-            if (BOPConfiguration.swampwoodsGen)
-                registerBiome(Biomes.swampwoods);
 
             if (BOPConfiguration.temperateRainforestGen)
                 registerBiome(Biomes.temperateRainforest);
@@ -974,15 +982,15 @@ public class BOPBiomes {
 
         if (BOPConfiguration.shrublandGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.shrubland);
+			
+		if (BOPConfiguration.sludgepitGen)
+            addBiomeToWorldTypes(getWorldTypes(), Biomes.sludgepit);
 
         if (BOPConfiguration.spruceWoodsGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.spruceWoods);
 
         if (BOPConfiguration.steppeGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.steppe);
-
-        if (BOPConfiguration.swampwoodsGen)
-            addBiomeToWorldTypes(getWorldTypes(), Biomes.swampwoods);
 
         if (BOPConfiguration.temperateRainforestGen)
             addBiomeToWorldTypes(getWorldTypes(), Biomes.temperateRainforest);

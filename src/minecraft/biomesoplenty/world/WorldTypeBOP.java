@@ -258,6 +258,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.shrubland);
 		}
+		if (BOPConfiguration.sludgepitGen == true)
+		{
+			addNewBiome(Biomes.sludgepit);
+		}
 		if (BOPConfiguration.spruceWoodsGen == true)
 		{
 			addNewBiome(Biomes.spruceWoods);
@@ -265,10 +269,6 @@ public class WorldTypeBOP extends WorldType
 		if (BOPConfiguration.steppeGen == true)
 		{
 			addNewBiome(Biomes.steppe);
-		}
-		if (BOPConfiguration.swampwoodsGen == true)
-		{
-			addNewBiome(Biomes.swampwoods);
 		}
 		if (BOPConfiguration.temperateRainforestGen == true)
 		{
