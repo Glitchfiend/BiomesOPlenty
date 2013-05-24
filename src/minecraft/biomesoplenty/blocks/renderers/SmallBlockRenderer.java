@@ -27,7 +27,7 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			if (meta == 0)
 			{
 				//renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
-				renderer.setRenderBounds(0.312F, 0.0F, 0.312F, 0.688F, 1.0F, 0.688F);
+				renderer.setRenderBounds(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 1)
