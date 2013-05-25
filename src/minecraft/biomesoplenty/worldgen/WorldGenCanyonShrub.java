@@ -34,7 +34,7 @@ public class WorldGenCanyonShrub extends WorldGenerator
         if (var7 == Blocks.hardDirt.get().blockID)
         {
             ++par4;
-			if (par4 < 96)
+			if (par4 < 96 && par4 > 86)
 			{
 				this.setBlockAndMetadata(par1World, par3, par4, par5, Blocks.logs1.get().blockID,0);
 

@@ -5,7 +5,7 @@ import java.util.Random;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenCanyonShrub;
-import biomesoplenty.worldgen.WorldGenCanyonTree;
+import biomesoplenty.worldgen.WorldGenPineTree;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -22,7 +22,7 @@ public class BiomeGenCanyon extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Blocks.hardDirt.get().blockID;
         this.fillerBlock = (byte)Blocks.hardDirt.get().blockID;
-        this.customBiomeDecorator.treesPerChunk = 10;
+        this.customBiomeDecorator.treesPerChunk = 7;
 		this.customBiomeDecorator.flowersPerChunk = -999;
 		this.customBiomeDecorator.canyonGrassPerChunk = 5;
 		this.customBiomeDecorator.aloePerChunk = 2;
@@ -35,7 +35,7 @@ public class BiomeGenCanyon extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenCanyonTree() : new WorldGenCanyonShrub(0,0));
+		return (WorldGenerator)(par1Random.nextInt(9) == 0 ? new WorldGenPineTree() : new WorldGenCanyonShrub(0,0));
     }
 
     /**

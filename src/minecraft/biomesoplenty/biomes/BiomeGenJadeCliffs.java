@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.Random;
 
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenJadeTree;
+import biomesoplenty.worldgen.WorldGenPineTree;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -30,7 +30,7 @@ public class BiomeGenJadeCliffs extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenShrub(0, 1) : new WorldGenJadeTree(false));
+		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? new WorldGenShrub(0, 1) : new WorldGenPineTree());
     }
 	
     public void decorate(World par1World, Random par2Random, int par3, int par4)
