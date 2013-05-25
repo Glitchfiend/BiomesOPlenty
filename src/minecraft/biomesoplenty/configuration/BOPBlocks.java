@@ -458,6 +458,7 @@ public class BOPBlocks {
         
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,3), "Redwood Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,4), "Willow Leaves");
+		LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,5), "Pine Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,5), "Fir Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,0), "Acacia Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,3), "Dark Leaves");

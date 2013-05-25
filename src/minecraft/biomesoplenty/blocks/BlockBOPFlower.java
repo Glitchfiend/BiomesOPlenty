@@ -10,7 +10,11 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
@@ -124,8 +128,31 @@ public class BlockBOPFlower extends BlockFlower
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
     {
         int meta = world.getBlockMetadata(x, y, z);
+		if (!world.isRemote && meta == 2 && entity instanceof EntityLiving) 
+        	((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
+		
         if (meta == 11)
             entity.attackEntityFrom(DamageSource.cactus, 1);
+    }
+	
+    /**
+     * A randomly called display update to be able to add particles or other items for display
+     */
+    public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    {
+        super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
+		int meta = par1World.getBlockMetadata(par2, par3, par4);
+		if (meta == 2)
+		{
+			if (par5Random.nextInt(4) != 0)
+			{
+				par1World.spawnParticle("townaura", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + par5Random.nextFloat()), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
+			}
+			if (par5Random.nextInt(4) == 0)
+			{
+				par1World.spawnParticle("smoke", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
+			}
+		}
     }
     
     @Override
