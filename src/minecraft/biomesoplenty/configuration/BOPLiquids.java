@@ -1,5 +1,7 @@
 package biomesoplenty.configuration;
 
+import com.google.common.base.Optional;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
@@ -10,6 +12,7 @@ import net.minecraftforge.liquids.LiquidContainerData;
 import net.minecraftforge.liquids.LiquidContainerRegistry;
 import net.minecraftforge.liquids.LiquidDictionary;
 import net.minecraftforge.liquids.LiquidStack;
+import biomesoplenty.api.Liquids;
 import biomesoplenty.items.ItemBOPBucket;
 import biomesoplenty.liquids.BlockSpringWaterFlowing;
 import biomesoplenty.liquids.BlockSpringWaterStill;
@@ -20,13 +23,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BOPLiquids 
 {
-	public static Block springWaterFlowing;
-	public static Block springWaterStill;
-
-	public static Item bucketSpringWater;
-
-	public static LiquidStack springWaterLiquid;
-
 	public static void init()
 	{
 		initializeLiquids();
@@ -38,33 +34,33 @@ public class BOPLiquids
 
 	private static void initializeLiquids()
 	{
-		springWaterFlowing = (new BlockSpringWaterFlowing(BOPConfiguration.springWaterStillID - 1).setUnlocalizedName("springWaterFlowing"));
-		springWaterStill = (new BlockSpringWaterStill(BOPConfiguration.springWaterStillID).setUnlocalizedName("springWaterStill"));	
+		Liquids.springWaterFlowing = Optional.of(new BlockSpringWaterFlowing(BOPConfiguration.springWaterStillID - 1).setUnlocalizedName("springWaterFlowing"));
+		Liquids.springWaterStill = Optional.of(new BlockSpringWaterStill(BOPConfiguration.springWaterStillID).setUnlocalizedName("springWaterStill"));	
 		
-		springWaterLiquid = LiquidDictionary.getOrCreateLiquid("Spring Water", new LiquidStack(springWaterStill, 1));
+		Liquids.springWaterLiquid = Optional.of(LiquidDictionary.getOrCreateLiquid("Spring Water", new LiquidStack(Liquids.springWaterStill.get(), 1)));
 	}
 
 	private static void initializeContainers()
 	{
-		bucketSpringWater = (new ItemBOPBucket(BOPConfiguration.springWaterBucketID, springWaterStill.blockID)).setMaxStackSize(1).setUnlocalizedName("bucketSpringWater").setContainerItem(Item.bucketEmpty);
+		Liquids.bucketSpringWater = Optional.of((new ItemBOPBucket(BOPConfiguration.springWaterBucketID, Liquids.springWaterStill.get().blockID)).setMaxStackSize(1).setUnlocalizedName("bucketSpringWater").setContainerItem(Item.bucketEmpty));
 		
-		LiquidContainerRegistry.registerLiquid(new LiquidContainerData(LiquidDictionary.getLiquid("Spring Water", LiquidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucketSpringWater), new ItemStack(Item.bucketEmpty)));
+		LiquidContainerRegistry.registerLiquid(new LiquidContainerData(LiquidDictionary.getLiquid("Spring Water", LiquidContainerRegistry.BUCKET_VOLUME), new ItemStack(Liquids.bucketSpringWater.get()), new ItemStack(Item.bucketEmpty)));
 	}
 
 	private static void registerLiquids()
 	{
-		GameRegistry.registerBlock(springWaterFlowing, "springWaterFlowing");
-		GameRegistry.registerBlock(springWaterStill, "springWaterStill");
+		GameRegistry.registerBlock(Liquids.springWaterFlowing.get(), "springWaterFlowing");
+		GameRegistry.registerBlock(Liquids.springWaterStill.get(), "springWaterStill");
 	}
 
 	private static void registerContainerNames()
 	{
-		LanguageRegistry.addName(bucketSpringWater, "Spring Water Bucket");
+		LanguageRegistry.addName(Liquids.bucketSpringWater.get(), "Spring Water Bucket");
 	}
 
 	private static void registerLiquidNames()
 	{
-		LanguageRegistry.addName(springWaterFlowing, "Spring Water");
-		LanguageRegistry.addName(springWaterStill, "Spring Water");
+		LanguageRegistry.addName(Liquids.springWaterFlowing.get(), "Spring Water");
+		LanguageRegistry.addName(Liquids.springWaterStill.get(), "Spring Water");
 	}
 }
