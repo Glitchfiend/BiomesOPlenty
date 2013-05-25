@@ -19,6 +19,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.ClientProxy;
+import biomesoplenty.api.Potions;
 
 public class EntityDart extends EntityArrow
 {
@@ -155,7 +156,8 @@ public class EntityDart extends EntityArrow
                 {
                     this.damage = 1;
                     if (movingobjectposition.entityHit instanceof EntityLiving)
-                        ((EntityLiving)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+//                        ((EntityLiving)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+                        ((EntityLiving)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potions.paralysis.get().id, 100));
                 }
 
                 if (movingobjectposition.entityHit.attackEntityFrom(damagesource, this.damage))
