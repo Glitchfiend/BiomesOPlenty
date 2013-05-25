@@ -2,8 +2,6 @@ package biomesoplenty.blocks;
 
 import java.util.List;
 
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -11,8 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPLog extends Block 
 {
@@ -46,7 +43,7 @@ public class BlockBOPLog extends Block
 
         for (int i = 0; i < types.length; ++i)
         {
-        	if (1 != 11)
+        	if (i != 11)
         	{
         		textures[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_side");
         		logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_heart");
@@ -61,20 +58,10 @@ public class BlockBOPLog extends Block
     public Icon getIcon(int side, int meta)
     {
         int pos = meta & 12;
-        if (category != LogCategory.CAT4)
-        {
-        	if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
-        		return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
-        	else
-        		return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
-        }
+    	if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
+    		return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
     	else
-    	{
-        	if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
-        		return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 3)];
-        	else
-        		return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 3)];
-    	}
+    		return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
     }
     
     @Override
@@ -168,14 +155,7 @@ public class BlockBOPLog extends Block
     
     public String getWoodType(int meta)
     {
-    	if (category != LogCategory.CAT4)
-    	{
-    		return types[getTypeFromMeta(meta) + category.ordinal() * 4];
-    	}
-    	else
-    	{
-    		return types[getTypeFromMeta(meta) + category.ordinal() * 3];
-    	}
+  		return types[getTypeFromMeta(meta) + category.ordinal() * 4];
     }
     
     private static int getTypeFromMeta(int meta)
