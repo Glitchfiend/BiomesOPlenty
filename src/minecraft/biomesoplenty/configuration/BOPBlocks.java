@@ -129,6 +129,7 @@ public class BOPBlocks {
         Blocks.logs1 = Optional.of((new BlockBOPLog(BOPConfiguration.logs1ID,LogCategory.CAT1)).setUnlocalizedName("wood1"));
         Blocks.logs2 = Optional.of((new BlockBOPLog(BOPConfiguration.logs2ID,LogCategory.CAT2)).setUnlocalizedName("wood2"));
         Blocks.logs3 = Optional.of((new BlockBOPLog(BOPConfiguration.logs3ID,LogCategory.CAT3)).setUnlocalizedName("wood3"));
+        Blocks.logs4 = Optional.of((new BlockBOPLog(BOPConfiguration.logs4ID,LogCategory.CAT4)).setUnlocalizedName("wood4"));
         Blocks.petals = Optional.of((new BlockBOPPetals(BOPConfiguration.petalsID)).setUnlocalizedName("petals"));
         Blocks.saplings = Optional.of((new BlockBOPSapling(BOPConfiguration.saplingsID)).setUnlocalizedName("saplings"));
         Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(BOPConfiguration.colourizedSaplingsID)).setUnlocalizedName("colorizedSaplings"));
@@ -203,6 +204,7 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.logs1.get(), ItemBOPLog.class, "wood1");
         GameRegistry.registerBlock(Blocks.logs2.get(), ItemBOPLog.class, "wood2");
         GameRegistry.registerBlock(Blocks.logs3.get(), ItemBOPLog.class, "wood3");
+        GameRegistry.registerBlock(Blocks.logs4.get(), ItemBOPLog.class, "wood4");
         GameRegistry.registerBlock(Blocks.petals.get(), ItemBOPPetals.class, "petals");
         GameRegistry.registerBlock(Blocks.saplings.get(), ItemBOPSapling.class, "saplings");
         GameRegistry.registerBlock(Blocks.colorizedSaplings.get(), ItemBOPColorizedSapling.class, "colorizedSaplings");
@@ -416,6 +418,10 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,1), "Willow Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,2), "Dead Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,3), "Giant Flower Stem");
+        
+        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,0), "Pine Wood");    
+        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,1), "Hellbark");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,2), "Jacaranda Wood");
         
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,0), "Acacia Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,1), "Cherry Wood Slab");

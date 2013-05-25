@@ -18,10 +18,10 @@ public class BlockBOPLog extends Block
 {
     public static enum LogCategory
     {
-      CAT1, CAT2, CAT3;
+      CAT1, CAT2, CAT3, CAT4;
     }
     
-    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem"};
+    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda"};
     private Icon[] textures;
     private Icon[] logHearts;
     
@@ -44,30 +44,52 @@ public class BlockBOPLog extends Block
         textures = new Icon[types.length];
         logHearts = new Icon[types.length];
 
-        for (int i = 0; i < types.length - 1; ++i)
+        for (int i = 0; i < types.length; ++i)
         {
-            textures[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_side");
-            logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_heart");
+        	if (1 != 11)
+        	{
+        		textures[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_side");
+        		logHearts[i] = iconRegister.registerIcon("BiomesOPlenty:log_"+types[i]+"_heart");
+        	}
         }
         
-        textures[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem_side");
-        logHearts[types.length - 1] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem_heart");
+        textures[11] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem_side");
+        logHearts[11] = iconRegister.registerIcon("BiomesOPlenty:bigflowerstem_heart");
     }
     
     @Override
     public Icon getIcon(int side, int meta)
     {
         int pos = meta & 12;
-        if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
-            return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
-        return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
+        if (category != LogCategory.CAT4)
+        {
+        	if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
+        		return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
+        	else
+        		return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 4)];
+        }
+    	else
+    	{
+        	if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
+        		return logHearts[(getTypeFromMeta(meta) + this.category.ordinal() * 3)];
+        	else
+        		return textures[(getTypeFromMeta(meta) + this.category.ordinal() * 3)];
+    	}
     }
     
     @Override
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < 4; ++i)
-            list.add(new ItemStack(this, 1, i));
+        if (category != LogCategory.CAT4)
+        {
+        	for (int i = 0; i < 4; ++i)
+        		list.add(new ItemStack(this, 1, i));
+        }
+        else
+        {
+        	for (int i = 0; i < 3; ++i)
+        		list.add(new ItemStack(this, 1, i));
+        }
     }
     
     @Override
@@ -146,7 +168,14 @@ public class BlockBOPLog extends Block
     
     public String getWoodType(int meta)
     {
-      return types[getTypeFromMeta(meta) + category.ordinal() * 4];
+    	if (category != LogCategory.CAT4)
+    	{
+    		return types[getTypeFromMeta(meta) + category.ordinal() * 4];
+    	}
+    	else
+    	{
+    		return types[getTypeFromMeta(meta) + category.ordinal() * 3];
+    	}
     }
     
     private static int getTypeFromMeta(int meta)

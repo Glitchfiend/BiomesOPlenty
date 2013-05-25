@@ -146,6 +146,7 @@ public class BOPConfiguration {
 	public static int logs1ID;
 	public static int logs2ID;
 	public static int logs3ID;
+	public static int logs4ID;
 	public static int petalsID;
 	public static int saplingsID;
 	public static int colourizedSaplingsID;
@@ -714,6 +715,8 @@ public class BOPConfiguration {
 			coralID = config.getBlock("Coral ID", 1969, null).getInt();
 			
 			//1970, 1971, 1972 & 1973 used by Liquids
+			
+			logs4ID = config.getBlock("Log Block ID 4", 1974, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
