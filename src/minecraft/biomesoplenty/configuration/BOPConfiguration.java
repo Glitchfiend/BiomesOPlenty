@@ -227,8 +227,11 @@ public class BOPConfiguration {
 	public static int bootsAmethystID;
 	
 	public static int flowerBandID;
+	
+	//Liquid IDs
+	public static int springWaterStillID;
 
-	//Biome IDS
+	//Biome IDs
 	public static int alpsID;
 	public static int arcticID;
 	public static int badlandsID;
@@ -706,6 +709,8 @@ public class BOPConfiguration {
 			
 			bonesID = config.getBlock("Bones ID", 1968, null).getInt();
 			coralID = config.getBlock("Coral ID", 1969, null).getInt();
+			
+			//1970 & 1971 used by Liquids
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
@@ -744,7 +749,10 @@ public class BOPConfiguration {
 			bootsAmethystID = config.getItem("Amethyst Boots ID", 21077, null).getInt();
 			
 			flowerBandID = config.getItem("Flower Band ID", 21078, null).getInt();
-
+			
+			//Liquid Ids
+			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();
+			
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
 			rosesterID = config.get("Mob IDs", "Rosester ID", 102, null).getInt();

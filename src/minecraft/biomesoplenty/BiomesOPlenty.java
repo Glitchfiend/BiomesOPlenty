@@ -10,13 +10,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
-import biomesoplenty.api.BlockReferences;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.configuration.BOPCrafting;
 import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPItems;
+import biomesoplenty.configuration.BOPLiquids;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.BOPCraft;
@@ -24,13 +24,10 @@ import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.EntitiesHelper;
 import biomesoplenty.integration.BOPCrossIntegration;
-import biomesoplenty.integration.ThaumcraftIntegration;
 import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
-import biomesoplenty.world.WorldTypeBOP;
 import biomesoplenty.world.WorldTypeSize;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -100,6 +97,8 @@ public class BiomesOPlenty
 		BOPBlocks.init();
 
 		BOPItems.init();
+		
+		BOPLiquids.init();
 
 		BOPCrafting.init();
 
