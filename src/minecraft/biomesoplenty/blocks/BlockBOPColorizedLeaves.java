@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
 {
-    private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow"};
+    private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
     private Icon[][] textures;
     int[] adjacentTreeBlocks;
     

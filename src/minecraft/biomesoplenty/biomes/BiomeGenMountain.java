@@ -2,7 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenTaiga7;
+import biomesoplenty.worldgen.WorldGenPineTree;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
@@ -27,6 +27,6 @@ public class BiomeGenMountain extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-		return (WorldGenerator)(par1Random.nextInt(8) == 0 ? new WorldGenTaiga2(false) : (par1Random.nextInt(4) == 0 ? new WorldGenTaiga7(false) : this.worldGeneratorTrees));
+		return (WorldGenerator)(par1Random.nextInt(4) == 0 ? this.worldGeneratorTrees : new WorldGenPineTree());
     }
 }
