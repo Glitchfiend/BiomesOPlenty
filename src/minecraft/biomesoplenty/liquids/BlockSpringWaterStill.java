@@ -22,7 +22,6 @@ public class BlockSpringWaterStill extends BlockStationary
         
         this.blockHardness = 100F;
         this.setLightOpacity(0);
-        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         this.disableStats();
     }
     

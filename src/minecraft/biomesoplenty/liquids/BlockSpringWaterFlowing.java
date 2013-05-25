@@ -21,7 +21,6 @@ public class BlockSpringWaterFlowing extends BlockFlowing
         
         this.blockHardness = 100F;
         this.setLightOpacity(0);
-        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
     @Override
