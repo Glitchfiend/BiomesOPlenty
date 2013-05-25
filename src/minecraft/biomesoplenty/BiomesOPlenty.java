@@ -18,7 +18,6 @@ import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPLiquids;
 import biomesoplenty.configuration.BOPPotions;
-import biomesoplenty.configuration.BOPReflection;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.BOPCraft;
@@ -96,8 +95,6 @@ public class BiomesOPlenty
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
 			
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
-		
-		BOPReflection.init();
 		
 		BOPPotions.init();
 
