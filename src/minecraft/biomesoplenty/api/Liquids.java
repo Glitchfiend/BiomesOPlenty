@@ -11,7 +11,11 @@ public class Liquids
     public static Optional<? extends Block> springWaterFlowing        = Optional.absent();
     public static Optional<? extends Block> springWaterStill          = Optional.absent();
     
-    public static Optional<? extends Item> 	bucketSpringWater         = Optional.absent();
+    public static Optional<? extends Block> liquidPoisonFlowing       = Optional.absent();
+    public static Optional<? extends Block> liquidPoisonStill         = Optional.absent();
+    
+    public static Optional<? extends Item> 	bopBucket         		  = Optional.absent();
     
     public static Optional<? extends LiquidStack> springWaterLiquid   = Optional.absent();
+    public static Optional<? extends LiquidStack> liquidPoisonLiquid   = Optional.absent();
 }

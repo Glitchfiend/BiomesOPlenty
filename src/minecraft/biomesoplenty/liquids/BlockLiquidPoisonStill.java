@@ -18,14 +18,14 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Potions;
 import biomesoplenty.configuration.BOPPotions;
 
-public class BlockSpringWaterStill extends BlockStationary 
+public class BlockLiquidPoisonStill extends BlockStationary 
 {
-    public BlockSpringWaterStill(int id) 
+    public BlockLiquidPoisonStill(int id) 
     {
         super(id, Material.water);
         
         this.blockHardness = 100F;
-        this.setLightOpacity(0);
+        this.setLightOpacity(3);
         this.disableStats();
     }
     
@@ -55,16 +55,16 @@ public class BlockSpringWaterStill extends BlockStationary
         int meta = par1World.getBlockMetadata(x, y, z);
         
         if (par5Entity instanceof EntityLiving) 
-        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 100));
-        
-        if (par5Entity instanceof EntityPlayer)
-        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 100));
+        {
+        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 100));
+        }  
     }
     
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister) 
 	{
-		this.theIcon = new Icon[]{iconRegister.registerIcon("BiomesOPlenty:spring_water_still"), iconRegister.registerIcon("BiomesOPlenty:spring_water_flowing")};
+		this.theIcon = new Icon[]{iconRegister.registerIcon("BiomesOPlenty:liquid_poison_still"), iconRegister.registerIcon("BiomesOPlenty:liquid_poison_flowing")};
 	}
 }

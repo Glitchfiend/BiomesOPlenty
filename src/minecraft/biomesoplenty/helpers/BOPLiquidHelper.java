@@ -19,6 +19,7 @@ public class BOPLiquidHelper
 	public void textureHook(TextureStitchEvent.Post event) 
 	{
 		LiquidDictionary.getCanonicalLiquid("Spring Water").setRenderingIcon(Liquids.springWaterStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
+		LiquidDictionary.getCanonicalLiquid("Liquid Poison").setRenderingIcon(Liquids.liquidPoisonStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
 	}
 	
 	@ForgeSubscribe
@@ -43,7 +44,13 @@ public class BOPLiquidHelper
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
-			return new ItemStack(Liquids.bucketSpringWater.get());
+			return new ItemStack(Liquids.bopBucket.get(), 1, 0);
+		} 
+		if ((blockID == Liquids.liquidPoisonStill.get().blockID || blockID == Liquids.liquidPoisonFlowing.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
+		{
+			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+
+			return new ItemStack(Liquids.bopBucket.get(), 1, 1);
 		} 
 		else
 		{
