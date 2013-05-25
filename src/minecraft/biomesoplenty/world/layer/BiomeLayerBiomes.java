@@ -19,7 +19,6 @@ public class BiomeLayerBiomes extends BiomeLayer
 	private int dimension = 0; 
 	
 	private BiomeGenBase[] surfaceBiomes;
-	private static ArrayList<BiomeGenBase> oceanBiomes = new ArrayList<BiomeGenBase>();
 	private static ArrayList<BiomeGenBase> netherBiomes = new ArrayList<BiomeGenBase>();
 	private static ArrayList<BiomeGenBase> promisedBiomes = new ArrayList<BiomeGenBase>();
 	
@@ -31,17 +30,6 @@ public class BiomeLayerBiomes extends BiomeLayer
 		
 		//SURFACE BIOMES
 		surfaceBiomes = par4WorldType.getBiomesForWorldType();
-		
-		//OCEAN BIOMES
-		oceanBiomes.add(BiomeGenBase.ocean);
-		if (Biomes.oceanCoral.isPresent())
-		{
-			oceanBiomes.add(Biomes.oceanCoral.get());
-		}
-		if (Biomes.oceanKelp.isPresent())
-		{
-			oceanBiomes.add(Biomes.oceanKelp.get());
-		}
 
 		//NETHER BIOMES
 		if (Biomes.netherBase.isPresent())
@@ -91,17 +79,6 @@ public class BiomeLayerBiomes extends BiomeLayer
             {
                 this.initChunkSeed((long)(var8 + par1), (long)(var7 + par2));
                 int var9 = var5[var8 + var7 * par3];
-				if(dimension == 0) //SURFACE BIOMES
-				{
-					if (var9 == 0)
-					{
-						var6[var8 + var7 * par3] = oceanBiomes.get(this.nextInt(oceanBiomes.size())).biomeID;
-					}
-					else 
-					{
-						var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
-					}
-				}
 				if(dimension == 1) //HELL BIOMES
 				{
 					var6[var8 + var7 * par3] = netherBiomes.get(this.nextInt(netherBiomes.size())).biomeID;
@@ -112,14 +89,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 				}
 				else
 				{
-					if (var9 == 0)
-					{
-						var6[var8 + var7 * par3] = oceanBiomes.get(this.nextInt(oceanBiomes.size())).biomeID;
-					}
-					else 
-					{
-						var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
-					}
+					var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
 				}
             }
         }
