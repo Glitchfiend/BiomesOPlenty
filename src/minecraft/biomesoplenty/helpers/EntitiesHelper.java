@@ -1,23 +1,18 @@
 package biomesoplenty.helpers;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
-import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.Event.HasResult;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingPackSizeEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
@@ -47,14 +42,21 @@ public class EntitiesHelper
     }
     
     @ForgeSubscribe
-    public void canEntitySpawn(LivingSpawnEvent event)
+    public void canEntitySpawn(CheckSpawn event)
     {
-    	
-        int i = MathHelper.floor_double(event.entity.posX);
-        int j = MathHelper.floor_double(event.entity.boundingBox.minY);
-        int k = MathHelper.floor_double(event.entity.posZ);
-        
-        if (event.entity.worldObj.getBlockId(i, j - 1, k) == Blocks.holyGrass.get().blockID && event.entity.worldObj.getFullBlockLightValue(i, j, k) > 8)
-        	event.setResult(Result.ALLOW);
+    	if (event.entityLiving instanceof EntityAnimal)
+    	{
+            int i = MathHelper.floor_double(event.entityLiving.posX);
+            int j = MathHelper.floor_double(event.entityLiving.boundingBox.minY);
+            int k = MathHelper.floor_double(event.entityLiving.posZ);
+            
+            if (event.entityLiving.getMaxSpawnedInChunk() <= event.world.getEntitiesWithinAABB(event.entityLiving.getClass(), AxisAlignedBB.getAABBPool().getAABB((double)(i - 16), (double)(j - 4), (double)(k - 16), (double)(i + 17), (double)(j + 5), (double)(k + 17))).size())
+                return;
+            
+            if (event.entityLiving.worldObj.getBlockId(i, j - 1, k) == Blocks.holyGrass.get().blockID && event.entityLiving.worldObj.getFullBlockLightValue(i, j, k) > 8
+                    && event.entityLiving.worldObj.checkNoEntityCollision(event.entity.boundingBox) && !event.entityLiving.worldObj.isAnyLiquid(event.entityLiving.boundingBox)
+                    && event.entityLiving.worldObj.getCollidingBoundingBoxes(event.entityLiving, event.entityLiving.boundingBox).isEmpty())
+            	event.setResult(Result.ALLOW);
+    	}
     }
 }
