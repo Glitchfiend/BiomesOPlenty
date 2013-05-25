@@ -31,7 +31,7 @@ public class BOPPotions
 	private static void intializePotions()
 	{
 		Potions.nourishment = Optional.of((new PotionNourishment(potionOffset + 0, false, 0)).setPotionName("potion.nourishment"));
-		Potions.paralysis = Optional.of((new PotionParalysis(potionOffset + 1, true, 1052800)).setPotionName("potion.paralysis"));
+		Potions.paralysis = Optional.of((new PotionParalysis(potionOffset + 1, true, 16767262)).setPotionName("potion.paralysis"));
 	}
 	
 	private static void registerPotionNames()

@@ -17,7 +17,7 @@ public class PotionParalysis extends Potion
     public int getStatusIconIndex()
     {
         Minecraft.getMinecraft().renderEngine.bindTexture("/mods/BiomesOPlenty/textures/potions/BOPPotionFX.png");
-        return 0;
+        return 1;
     }
     
     @Override
