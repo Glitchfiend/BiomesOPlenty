@@ -16,6 +16,7 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenAcacia;
 import biomesoplenty.worldgen.WorldGenMangrove;
+import biomesoplenty.worldgen.WorldGenNetherBush;
 import biomesoplenty.worldgen.WorldGenPalmTree1;
 import biomesoplenty.worldgen.WorldGenPalmTree3;
 import biomesoplenty.worldgen.WorldGenPineTree;
@@ -26,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
-    private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
+    private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine", "hellbark"};
     private Icon[] textures;
     private static final int TYPES = 15;
     
@@ -143,6 +144,10 @@ public class BlockBOPColorizedSapling extends BlockSapling
 					
 				case 5: // Pine Tree
                     obj = new WorldGenPineTree();
+                    break;
+					
+				case 6: // Hellbark
+                    obj = new WorldGenNetherBush();
                     break;
             }
         }

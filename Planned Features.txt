@@ -1,11 +1,3 @@
-GENERATION:
-
-Jacaranda Tree:					Purple-leafed trees that generate in the Extreme Hills, Heathland, and Mystic Grove.
-
-Pine Tree:						Pine trees that generate in the Canyon, Jade Cliffs, and Mountain.
-
----
-
 BLOCKS:
 
 Pebbles: 						Small rocks scattered around forest biomes.
@@ -32,8 +24,6 @@ BIOMES CHANGES:
 
 Bayou:							Trees in the water.
 
-Canyon:							Tweak the tree generation.
-
 Heathland:						Change tree generation.
 
 Mangrove:						Tweak the tree generation.  Change height values.
@@ -44,8 +34,6 @@ OVERWORLD BIOMES:
 
 Hot Springs:					Geysers, pools of water and lava, and decaying spruce trees.
 
-Timber:							Tall, decaying deciduous trees, thorns, and small bushes.
-
 ---
 
 NETHER BIOMES:
@@ -53,14 +41,6 @@ NETHER BIOMES:
 Corrupted Sands:				Soulsand, bramble, thorns.
 
 Boneyard:						Skulls, bones sticking out of the ground, large bone structures, and graves.
-
----
-
-BEACH BIOMES:
-
-Gravel Beach:					A beach covered in gravel.
-
-Overgrown Beach:				A beach with small trees and shrubs, dune grass, and patches of medium grass.
 
 ---
 

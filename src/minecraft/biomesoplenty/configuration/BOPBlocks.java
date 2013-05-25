@@ -337,6 +337,8 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,1), "Yellow Autumn Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,5), "Dying Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,4), "Willow Sapling");
+		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,5), "Pine Sapling");
+		LanguageRegistry.addName(new ItemStack(Blocks.colorizedSaplings.get(),1,6), "Hellbark Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,0), "Apple Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,9), "Origin Sapling");
         LanguageRegistry.addName(new ItemStack(Blocks.saplings.get(),1,10), "Pink Cherry Sapling");
@@ -420,7 +422,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,3), "Giant Flower Stem");
         
         LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,0), "Pine Wood");    
-        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,1), "Hellbark");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,1), "Hellbark Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,2), "Jacaranda Wood");
         
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,0), "Acacia Wood Slab");
@@ -459,6 +461,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,3), "Redwood Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,4), "Willow Leaves");
 		LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,5), "Pine Leaves");
+		LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,6), "Hellbark Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,5), "Fir Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,0), "Acacia Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,3), "Dark Leaves");

@@ -44,6 +44,7 @@ public class BlockReferences {
 		redwoodLeaves (Blocks.leavesColorized, 3),
 		willowLeaves (Blocks.leavesColorized, 4),
 		pineLeaves (Blocks.leavesColorized, 5),
+		hellbarkLeaves (Blocks.leavesColorized, 6),
 		
 		yellowAutumnLeaves (Blocks.leaves1, 0),
 		bambooLeaves (Blocks.leaves1, 1),
@@ -82,6 +83,7 @@ public class BlockReferences {
 		redwoodSapling (Blocks.colorizedSaplings, 3),
 		willowSapling (Blocks.colorizedSaplings, 4),
 		pineSapling (Blocks.colorizedSaplings, 5),
+		hellbarkSapling (Blocks.colorizedSaplings, 6),
 		mapleSapling (Blocks.saplings, 11),
 		orangeAutumnSapling (Blocks.saplings, 8),
 		pinkCherrySapling (Blocks.saplings, 10),

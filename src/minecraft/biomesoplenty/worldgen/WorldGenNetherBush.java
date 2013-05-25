@@ -21,7 +21,7 @@ public class WorldGenNetherBush extends WorldGenerator
         int var6 = var1.getBlockId(var3, var4, var5);
 		int var99 = var1.getBlockId(var3, var4 + 1, var5);
 
-        if (var6 != Block.netherrack.blockID && var99 != 0)
+        if (var6 != Block.netherrack.blockID && var6 != Block.grass.blockID && var99 != 0)
         {
             return false;
         }
@@ -39,13 +39,13 @@ public class WorldGenNetherBush extends WorldGenerator
             }
 
             var1.setBlock(var3, var4, var5, Block.netherrack.blockID);
-            this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Block.wood.blockID,0);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5, Block.wood.blockID,0);
-			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Block.leaves.blockID, 0);
-			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Block.leaves.blockID, 0);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Block.leaves.blockID, 0);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Block.leaves.blockID, 0);
-			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Block.leaves.blockID, 0);
+            this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.logs4.get().blockID, 1);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5, Blocks.logs4.get().blockID, 1);
+			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Blocks.leavesColorized.get().blockID, 6);
+			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Blocks.leavesColorized.get().blockID, 6);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Blocks.leavesColorized.get().blockID, 6);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Blocks.leavesColorized.get().blockID, 6);
+			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Blocks.leavesColorized.get().blockID, 6);
             return true;
         }
     }
