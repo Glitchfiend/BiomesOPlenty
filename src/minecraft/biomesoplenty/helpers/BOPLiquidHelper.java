@@ -1,15 +1,26 @@
 package biomesoplenty.helpers;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import biomesoplenty.configuration.BOPLiquids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.liquids.LiquidDictionary;
 
-public class BOPBucketHelper 
+public class BOPLiquidHelper 
 {
+	@ForgeSubscribe
+	@SideOnly(Side.CLIENT)
+	public void textureHook(TextureStitchEvent.Post event) 
+	{
+		LiquidDictionary.getCanonicalLiquid("Spring Water").setRenderingIcon(BOPLiquids.springWaterStill.getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
+	}
+	
 	@ForgeSubscribe
 	public void onBucketFill(FillBucketEvent event) 
 	{

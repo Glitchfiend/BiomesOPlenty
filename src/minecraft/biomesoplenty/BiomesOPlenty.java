@@ -17,10 +17,12 @@ import biomesoplenty.configuration.BOPCrafting;
 import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPLiquids;
+import biomesoplenty.configuration.BOPPotions;
+import biomesoplenty.configuration.BOPReflection;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.helpers.AchievementHelper;
-import biomesoplenty.helpers.BOPBucketHelper;
 import biomesoplenty.helpers.BOPCraft;
+import biomesoplenty.helpers.BOPLiquidHelper;
 import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.EntitiesHelper;
@@ -94,6 +96,10 @@ public class BiomesOPlenty
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
 			
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
+		
+		BOPReflection.init();
+		
+		BOPPotions.init();
 
 		BOPBlocks.init();
 
@@ -129,7 +135,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
 		MinecraftForge.EVENT_BUS.register(new BonemealUse());
 		MinecraftForge.EVENT_BUS.register(new EntitiesHelper());
-		MinecraftForge.EVENT_BUS.register(new BOPBucketHelper());
+		MinecraftForge.EVENT_BUS.register(new BOPLiquidHelper());
 
 		proxy.registerRenderers();
 

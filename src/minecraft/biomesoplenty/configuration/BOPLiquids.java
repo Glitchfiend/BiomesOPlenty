@@ -1,9 +1,11 @@
 package biomesoplenty.configuration;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.liquids.LiquidContainerData;
 import net.minecraftforge.liquids.LiquidContainerRegistry;
 import net.minecraftforge.liquids.LiquidDictionary;
@@ -13,6 +15,8 @@ import biomesoplenty.liquids.BlockSpringWaterFlowing;
 import biomesoplenty.liquids.BlockSpringWaterStill;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BOPLiquids 
 {
