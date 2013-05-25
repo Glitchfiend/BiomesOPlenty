@@ -20,7 +20,7 @@ public class BlockSpringWaterFlowing extends BlockFlowing
         super(id, Material.water);
         
         this.blockHardness = 100F;
-        this.setLightOpacity(3);
+        this.setLightOpacity(0);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     

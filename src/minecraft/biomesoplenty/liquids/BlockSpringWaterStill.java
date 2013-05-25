@@ -21,10 +21,24 @@ public class BlockSpringWaterStill extends BlockStationary
         super(id, Material.water);
         
         this.blockHardness = 100F;
-        this.setLightOpacity(3);
+        this.setLightOpacity(0);
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
         this.disableStats();
     }
+    
+    @Override
+    public void onBlockAdded(World par1World, int x, int y, int z)
+    {
+        this.setSpringWaterNotStationary(par1World, x, y, z);;
+    }
+    
+    public void setSpringWaterNotStationary(World par1World, int par2, int par3, int par4)
+    {
+        int l = par1World.getBlockMetadata(par2, par3, par4);
+        par1World.setBlock(par2, par3, par4, this.blockID - 1, l, 2);
+        par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID - 1, this.tickRate(par1World));
+    }
+
     
     @Override
     public void onEntityCollidedWithBlock(World par1World, int x, int y, int z, Entity par5Entity)

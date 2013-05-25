@@ -205,6 +205,8 @@ public class BOPConfiguration {
 	public static int dartBlowerID;
 	public static int dartID;
 	
+	public static int springWaterBucketID;
+	
 	public static int swordMudID;
 	public static int shovelMudID;
 	public static int pickaxeMudID;
@@ -749,6 +751,8 @@ public class BOPConfiguration {
 			bootsAmethystID = config.getItem("Amethyst Boots ID", 21077, null).getInt();
 			
 			flowerBandID = config.getItem("Flower Band ID", 21078, null).getInt();
+			
+			springWaterBucketID = config.getItem("Spring Water Bucket ID", 21079, null).getInt();
 			
 			//Liquid Ids
 			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();
