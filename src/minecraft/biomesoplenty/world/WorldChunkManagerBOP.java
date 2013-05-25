@@ -14,15 +14,16 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
 import biomesoplenty.api.Biomes;
+import biomesoplenty.world.layer.BiomeLayer;
 
 import com.google.common.base.Optional;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {
-    private GenLayer genBiomes;
+    private BiomeLayer genBiomes;
 
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
-    private GenLayer biomeIndexLayer;
+    private BiomeLayer biomeIndexLayer;
 
     /** The BiomeCache object for this world. */
     private BiomeCache biomeCache;
@@ -103,9 +104,9 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     public WorldChunkManagerBOP(long par1, WorldType par3WorldType)
     {
         this();
-        GenLayer[] var4 = GenLayer.initializeAllBiomeGenerators(par1, par3WorldType);
-        this.genBiomes = (GenLayer) var4[0];
-        this.biomeIndexLayer = (GenLayer) var4[1];
+        BiomeLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 0);
+        this.genBiomes = (BiomeLayer) var4[0];
+        this.biomeIndexLayer = (BiomeLayer) var4[1];
     }
 
     public WorldChunkManagerBOP(World par1World)
