@@ -15,6 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Potions;
 import biomesoplenty.configuration.BOPPotions;
 
 public class BlockSpringWaterStill extends BlockStationary 
@@ -57,7 +58,7 @@ public class BlockSpringWaterStill extends BlockStationary
         	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
         
         if (par5Entity instanceof EntityPlayer)
-        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(BOPPotions.nourishment.id, 1));
+        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 1));
     }
     
 	@Override

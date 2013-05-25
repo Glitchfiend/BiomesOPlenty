@@ -1,6 +1,9 @@
 package biomesoplenty.configuration;
 
+import com.google.common.base.Optional;
+
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import biomesoplenty.api.Potions;
 import biomesoplenty.helpers.BOPLiquidHelper;
 import biomesoplenty.potions.PotionEventHandler;
 import biomesoplenty.potions.PotionNourishment;
@@ -9,8 +12,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class BOPPotions 
 {
-	public static Potion nourishment;
-	
 	public static void init()
 	{
 		intializePotions();
@@ -21,7 +22,7 @@ public class BOPPotions
 
 	private static void intializePotions()
 	{
-		nourishment = (new PotionNourishment(32, false, 0)).setPotionName("potion.nourishment");
+		Potions.nourishment = Optional.of((new PotionNourishment(32, false, 0)).setPotionName("potion.nourishment"));
 	}
 	
 	private static void registerPotionNames()

@@ -12,6 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Potions;
 import biomesoplenty.configuration.BOPPotions;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,7 +42,7 @@ public class BlockSpringWaterFlowing extends BlockFlowing
         	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
         
         if (par5Entity instanceof EntityPlayer)
-        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(BOPPotions.nourishment.id, 1));
+        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 1));
     }
     
 	@Override
