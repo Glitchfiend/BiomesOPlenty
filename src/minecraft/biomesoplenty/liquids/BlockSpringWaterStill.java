@@ -13,12 +13,14 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.liquids.ILiquid;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Liquids;
 import biomesoplenty.api.Potions;
 import biomesoplenty.configuration.BOPPotions;
 
-public class BlockSpringWaterStill extends BlockStationary 
+public class BlockSpringWaterStill extends BlockStationary implements ILiquid
 {
     public BlockSpringWaterStill(int id) 
     {
@@ -66,5 +68,23 @@ public class BlockSpringWaterStill extends BlockStationary
 	public void registerIcons(IconRegister iconRegister) 
 	{
 		this.theIcon = new Icon[]{iconRegister.registerIcon("BiomesOPlenty:spring_water_still"), iconRegister.registerIcon("BiomesOPlenty:spring_water_flowing")};
+	}
+	
+	@Override
+	public int stillLiquidId() 
+	{
+		return Liquids.springWaterStill.get().blockID;
+	}
+
+	@Override
+	public boolean isMetaSensitive() 
+	{
+		return false;
+	}
+
+	@Override
+	public int stillLiquidMeta() 
+	{
+		return 0;
 	}
 }
