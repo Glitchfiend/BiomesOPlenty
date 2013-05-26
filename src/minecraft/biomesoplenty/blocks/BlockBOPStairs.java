@@ -1,23 +1,42 @@
 package biomesoplenty.blocks;
 
+import java.util.Arrays;
+import java.util.List;
+
+import com.google.common.base.Optional;
+
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BlockReferences.EnumBlocks;
+import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPStairs extends BlockStairs
 {
-    public static enum Category
-    {
-      ACACIA, CHERRY, DARK, FIR, HOLY, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, RED_COBBLE, RED_BRICKS, MUD_BRICKS, HOLY_COBBLE, HOLY_BRICKS;
-    }
+	public static enum Category
+	{
+		ACACIA ("wood"), CHERRY ("wood"), DARK ("wood"), FIR ("wood"), HOLY ("wood"), MAGIC ("wood"), MANGROVE ("wood"), PALM ("wood"), REDWOOD ("wood"), WILLOW ("wood"), PINE ("wood"), HELL_BARK ("wood"), JACARANDA ("wood"), RED_COBBLE ("stone"), RED_BRICKS ("stone"), MUD_BRICKS ("stone"), HOLY_COBBLE ("stone"), HOLY_BRICKS ("stone");
+
+		private final List<String> values;
+		private String type;
+
+		private Category(String type) 
+		{
+			this.type = type;
+	        this.values = Arrays.asList(type);
+		}
+	}
     
-    private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
+    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda"};
+    private static final String[] stoneTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
     private Icon[] textures;
+    
     private final Category category;
 
     public BlockBOPStairs(int blockID, Block model, Category cat)
@@ -32,20 +51,83 @@ public class BlockBOPStairs extends BlockStairs
     @Override
     public void registerIcons(IconRegister iconRegister)
     {
-        textures = new Icon[types.length];
+        if (isStoneCategory(category.toString()))
+        {
+            textures = new Icon[stoneTypes.length];
+            
+            for (int i = 0; i < stoneTypes.length; ++i)
+                textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+stoneTypes[i]);
+        }
+        else
+        {
+            textures = new Icon[woodTypes.length];
+            
+            for (int i = 0; i < woodTypes.length; ++i)
+                textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+woodTypes[i]);
+        }
+    }
+    
+    public boolean isWoodCategory(String block)
+    {
+    	String type = Category.valueOf(block).type;
+    	
+    	if (type == "wood")    	
+    		return true;
+    	else
+    		return false;
+    }
+    
+    public boolean isStoneCategory(String block)
+    {
+    	String type = Category.valueOf(block).type;
+    	
+    	if (type == "stone")    	
+    		return true;
+    	else
+    		return false;
+    }
+    
+    public static int getWoodCategoryAmount()
+    {
+    	int woodCatNo = 0;
+    	
+        for (Category cat : Category.values()) 
+        {
+            if (cat.values.contains("wood")) 
+            {
+                ++woodCatNo;
+            }
+        }
         
-        for (int i = 0; i < types.length; ++i)
-            if (i < types.length - 5)
-                textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+types[i]);
-            else
-                textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]);
+        return woodCatNo;
+    }
+    
+    public static int getStoneCategoryAmount()
+    {
+    	int woodCatNo = 0;
+    	
+        for (Category cat : Category.values()) 
+        {
+            if (cat.values.contains("stone")) 
+            {
+                ++woodCatNo;
+            }
+        }
         
+        return woodCatNo;
     }
     
     @Override
     public Icon getIcon(int side, int meta)
-    {
-        return textures[category.ordinal()];
+    {    	
+    	int adjCat = category.ordinal();
+
+    	if (isStoneCategory(category.toString()))
+    	{
+    		adjCat = adjCat - getWoodCategoryAmount();
+    	}
+
+    	return textures[adjCat];
     }
     
     @Override

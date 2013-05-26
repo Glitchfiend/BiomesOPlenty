@@ -242,6 +242,9 @@ public class BOPCrafting
         OreDictionary.registerOre("stairWood", new ItemStack(Blocks.palmStairs.get()));
         OreDictionary.registerOre("stairWood", new ItemStack(Blocks.mangroveStairs.get()));
         OreDictionary.registerOre("stairWood", new ItemStack(Blocks.holyStairs.get()));
+        OreDictionary.registerOre("stairWood", new ItemStack(Blocks.pineStairs.get()));
+        OreDictionary.registerOre("stairWood", new ItemStack(Blocks.hellBarkStairs.get()));
+        OreDictionary.registerOre("stairWood", new ItemStack(Blocks.jacarandaStairs.get()));
 
         OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesColorized.get(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));

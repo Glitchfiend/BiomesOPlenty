@@ -182,6 +182,9 @@ public class BOPConfiguration {
 	public static int palmStairsID;
 	public static int redwoodStairsID;
 	public static int willowStairsID;
+	public static int pineStairsID;
+	public static int hellBarkStairsID;
+	public static int jacarandaStairsID;
 	
 	public static int colourizedLeavesID;
 	
@@ -717,6 +720,10 @@ public class BOPConfiguration {
 			//1970, 1971, 1972 & 1973 used by Liquids
 			
 			logs4ID = config.getBlock("Log Block ID 4", 1974, null).getInt();
+			
+			pineStairsID = config.getBlock("Pine Stairs ID", 1975, null).getInt();
+			hellBarkStairsID = config.getBlock("Hell Bark Stairs ID", 1976, null).getInt();
+			jacarandaStairsID = config.getBlock("Jacaranda ID", 1977, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

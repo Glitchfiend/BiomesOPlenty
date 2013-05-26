@@ -49,6 +49,9 @@ public class Blocks
     public static Optional<? extends Block> mudBricksStairs             = Optional.absent();
 	public static Optional<? extends Block> holyCobbleStairs            = Optional.absent();
     public static Optional<? extends Block> holyBricksStairs            = Optional.absent();
+    public static Optional<? extends Block> pineStairs                  = Optional.absent();
+    public static Optional<? extends Block> hellBarkStairs              = Optional.absent();
+    public static Optional<? extends Block> jacarandaStairs             = Optional.absent();
     
     // Slabs
     public static Optional<? extends BlockHalfSlab> woodenSingleSlab1   = Optional.absent();

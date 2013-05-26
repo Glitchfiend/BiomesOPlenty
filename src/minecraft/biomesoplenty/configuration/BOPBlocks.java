@@ -174,6 +174,9 @@ public class BOPBlocks {
         Blocks.palmStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.palmStairsID, Blocks.planks.get(), Category.PALM)).setUnlocalizedName("palmStairs"));
         Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redwoodStairsID, Blocks.planks.get(), Category.REDWOOD)).setUnlocalizedName("redwoodStairs"));
         Blocks.willowStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.willowStairsID, Blocks.planks.get(), Category.WILLOW)).setUnlocalizedName("willowStairs"));
+        Blocks.pineStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.pineStairsID, Blocks.planks.get(), Category.PINE)).setUnlocalizedName("pineStairs"));
+        Blocks.hellBarkStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.hellBarkStairsID, Blocks.planks.get(), Category.HELL_BARK)).setUnlocalizedName("hellBarkStairs"));
+        Blocks.jacarandaStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.jacarandaStairsID, Blocks.planks.get(), Category.JACARANDA)).setUnlocalizedName("jacarandaStairs"));
         Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(BOPConfiguration.colourizedLeavesID)).setUnlocalizedName("leavesColorized"));
 	}
 	
@@ -254,6 +257,9 @@ public class BOPBlocks {
         GameRegistry.registerBlock(Blocks.palmStairs.get(), "palmStairs");
         GameRegistry.registerBlock(Blocks.redwoodStairs.get(), "redwoodStairs");
         GameRegistry.registerBlock(Blocks.willowStairs.get(), "willowStairs");
+        GameRegistry.registerBlock(Blocks.pineStairs.get(), "pineStairs");
+        GameRegistry.registerBlock(Blocks.hellBarkStairs.get(), "hellBarkStairs");
+        GameRegistry.registerBlock(Blocks.jacarandaStairs.get(), "jacarandaStairs");
         
         GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBOPColorizedLeaves.class, "leavesColorized");   
 	}
@@ -306,7 +312,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,6), "Barley");
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,0), "Giant Red Flower");
         LanguageRegistry.addName(new ItemStack(Blocks.petals.get(),1,1), "Giant Yellow Flower");
-
+        
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,10), "Waterlily");
         LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,11), "Tiny Cactus");
 		LanguageRegistry.addName(new ItemStack(Blocks.flowers.get(),1,12), "Aloe");
@@ -435,7 +441,7 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,3), "White Cherry Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,4), "Hell Bark Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,5), "Jacaranda Leaves");
-
+        
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,0), "Acacia Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,1), "Cherry Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,2), "Dark Wood Slab");
@@ -474,17 +480,16 @@ public class BOPBlocks {
         LanguageRegistry.addName(Blocks.palmStairs.get(), "Palm Wood Stairs");
         LanguageRegistry.addName(Blocks.redwoodStairs.get(), "Redwood Wood Stairs");
         LanguageRegistry.addName(Blocks.willowStairs.get(), "Willow Wood Stairs");
+        LanguageRegistry.addName(Blocks.pineStairs.get(), "Pine Wood Stairs");
+        LanguageRegistry.addName(Blocks.hellBarkStairs.get(), "Hell Bark Stairs");
+        LanguageRegistry.addName(Blocks.jacarandaStairs.get(), "Jacaranda Wood Stairs");
         
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,3), "Redwood Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,4), "Willow Leaves");
 		LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,5), "Pine Leaves");
-		LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,6), "Hellbark Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,5), "Fir Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,0), "Acacia Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,3), "Dark Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,2), "Palm Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.leavesColorized.get(),1,1), "Mangrove Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Loftwood Leaves");
 	}
 
 	private static void addGrassPlants()
