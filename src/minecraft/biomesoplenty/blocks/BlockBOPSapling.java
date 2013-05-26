@@ -31,7 +31,7 @@ import biomesoplenty.worldgen.WorldGenTaiga9;
 
 public class BlockBOPSapling extends BlockSapling
 {
-    private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry"};
+    private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
     private Icon[] textures;
     private static final int TYPES = 15;
     

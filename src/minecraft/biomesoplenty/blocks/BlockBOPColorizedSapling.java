@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
-    private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine", "hellbark"};
+    private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
     private Icon[] textures;
     private static final int TYPES = 15;
     
