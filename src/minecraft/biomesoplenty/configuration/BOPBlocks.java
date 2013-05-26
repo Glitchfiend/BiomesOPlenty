@@ -446,6 +446,9 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,7), "Palm Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,0), "Redwood Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,1), "Willow Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,2), "Pine Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,3), "Hell Bark Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab2.get(),1,4), "Jacaranda Wood Slab");
         
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,0), "Acacia Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,1), "Cherry Wood Slab");
@@ -457,6 +460,9 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab1.get(),1,7), "Palm Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,0), "Redwood Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,1), "Willow Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,2), "Pine Wood Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,3), "Hell Bark Slab");
+        LanguageRegistry.addName(new ItemStack(Blocks.woodenSingleSlab2.get(),1,4), "Jacaranda Wood Slab");
         
         LanguageRegistry.addName(Blocks.acaciaStairs.get(), "Acacia Wood Stairs");
         LanguageRegistry.addName(Blocks.cherryStairs.get(), "Cherry Wood Stairs");
