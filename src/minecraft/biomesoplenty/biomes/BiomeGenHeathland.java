@@ -2,7 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenHeath;
+import biomesoplenty.worldgen.WorldGenJacarandaShrub;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
@@ -18,7 +18,7 @@ public class BiomeGenHeathland extends BiomeGenBase
         this.spawnableCreatureList.clear();
         this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 2;
+        this.customBiomeDecorator.treesPerChunk = 3;
         this.customBiomeDecorator.grassPerChunk = 10;
         this.customBiomeDecorator.purpleFlowersPerChunk = 30;
         this.customBiomeDecorator.deadBushPerChunk = 2;
@@ -31,7 +31,7 @@ public class BiomeGenHeathland extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenShrub(0, 0) : new WorldGenHeath(false));
+        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenJacarandaShrub(0, 0) : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : this.worldGeneratorTrees));
     }
 
     /**

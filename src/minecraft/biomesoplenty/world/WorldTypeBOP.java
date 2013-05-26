@@ -142,6 +142,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.highland);
 		}
+		if (BOPConfiguration.hotSpringsGen == true)
+		{
+			addNewBiome(Biomes.hotSprings);
+		}
 		if (BOPConfiguration.icyHillsGen == true)
 		{
 			addNewBiome(Biomes.icyHills);

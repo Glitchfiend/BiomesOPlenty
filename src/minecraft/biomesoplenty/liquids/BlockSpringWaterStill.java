@@ -1,5 +1,7 @@
 package biomesoplenty.liquids;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockStationary;
@@ -36,6 +38,19 @@ public class BlockSpringWaterStill extends BlockStationary implements ILiquid
     {
     	return 16777215;
     }
+	
+    /**
+     * A randomly called display update to be able to add particles or other items for display
+     */
+    public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    {
+        super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
+
+        if (par5Random.nextInt(6) == 0)
+        {
+            par1World.spawnParticle("smoke", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.0F), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
+        }
+    }
     
     @Override
     public void onBlockAdded(World par1World, int x, int y, int z)
@@ -49,7 +64,6 @@ public class BlockSpringWaterStill extends BlockStationary implements ILiquid
         par1World.setBlock(par2, par3, par4, this.blockID - 1, l, 2);
         par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID - 1, this.tickRate(par1World));
     }
-
     
     @Override
     public void onEntityCollidedWithBlock(World par1World, int x, int y, int z, Entity par5Entity)

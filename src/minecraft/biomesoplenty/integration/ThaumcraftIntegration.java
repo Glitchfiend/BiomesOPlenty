@@ -40,6 +40,9 @@ public class ThaumcraftIntegration {
 		
 		ThaumcraftApi.registerObjectTag(getBID("redwoodLog"), getBMeta("redwoodLog"), (new ObjectTags()).add(EnumTag.WOOD, 8));
 		ThaumcraftApi.registerObjectTag(getBID("willowLog"), getBMeta("willowLog"), (new ObjectTags()).add(EnumTag.WOOD, 8));
+		ThaumcraftApi.registerObjectTag(getBID("pineLog"), getBMeta("pineLog"), (new ObjectTags()).add(EnumTag.WOOD, 8));
+		ThaumcraftApi.registerObjectTag(getBID("hellBarkLog"), getBMeta("hellBarkLog"), (new ObjectTags()).add(EnumTag.WOOD, 8).add(EnumTag.FIRE, 2));
+		ThaumcraftApi.registerObjectTag(getBID("jacarandaLog"), getBMeta("jacarandaLog"), (new ObjectTags()).add(EnumTag.WOOD, 8));
 		ThaumcraftApi.registerObjectTag(getBID("deadLog"), getBMeta("deadLog"), (new ObjectTags()).add(EnumTag.WOOD, 8)); ///Working
 		ThaumcraftApi.registerObjectTag(getBID("bigFlowerStem"), getBMeta("bigFlowerStem"), (new ObjectTags()).add(EnumTag.FLOWER, 4).add(EnumTag.MAGIC, 1));	
 
@@ -54,6 +57,9 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("palmPlank"), getBMeta("palmPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("redwoodPlank"), getBMeta("redwoodPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("willowPlank"), getBMeta("willowPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
+		ThaumcraftApi.registerObjectTag(getBID("pinePlank"), getBMeta("pinePlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
+		ThaumcraftApi.registerObjectTag(getBID("hellBarkPlank"), getBMeta("hellBarkPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2).add(EnumTag.FIRE, 2));
+		ThaumcraftApi.registerObjectTag(getBID("jacarandaPlank"), getBMeta("jacarandaPlank"), (new ObjectTags()).add(EnumTag.WOOD, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bambooThatching"), getBMeta("bambooThatching"), (new ObjectTags()).add(EnumTag.WATER, 14).add(EnumTag.PLANT, 14));
 
 		//Leaves
@@ -73,6 +79,9 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("orangeAutumnLeaves"), getBMeta("orangeAutumnLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("pinkCherryLeaves"), getBMeta("pinkCherryLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("whiteCherryLeaves"), getBMeta("whiteCherryLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("pineLeaves"), getBMeta("pineLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("hellBarkLeaves"), getBMeta("hellBarkLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("jacarandaLeaves"), getBMeta("jacarandaLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2).add(EnumTag.FIRE, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bambooLeaves"), getBMeta("bambooLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("originLeaves"), getBMeta("originLeaves"), (new ObjectTags()).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("appleLeavesFruitless"), getBMeta("appleLeavesFruitless"), (new ObjectTags()).add(EnumTag.PLANT, 2));
@@ -95,6 +104,9 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("appleSapling"), getBMeta("appleSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("originSapling"), getBMeta("originSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("yellowAutumnSapling"), getBMeta("yellowAutumnSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("pineSapling"), getBMeta("pineSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("hellBarkSapling"), getBMeta("hellBarkSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2).add(EnumTag.FIRE, 2));
+		ThaumcraftApi.registerObjectTag(getBID("jacarandaSapling"), getBMeta("jacarandaSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bambooSapling"), getBMeta("bambooSapling"), (new ObjectTags()).add(EnumTag.WOOD, 4).add(EnumTag.PLANT, 2));
 
 		//Blocks

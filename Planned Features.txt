@@ -20,22 +20,6 @@ Omega Essence:					Mined from Omega Essence Ore.  Used to turn Origin blocks bac
 
 ---
 
-BIOMES CHANGES:
-
-Bayou:							Trees in the water.
-
-Heathland:						Change tree generation.
-
-Mangrove:						Tweak the tree generation.  Change height values.
-
----
-
-OVERWORLD BIOMES:
-
-Hot Springs:					Geysers, pools of water and lava, and decaying spruce trees.
-
----
-
 NETHER BIOMES:
 
 Corrupted Sands:				Soulsand, bramble, thorns.

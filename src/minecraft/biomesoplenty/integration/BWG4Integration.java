@@ -54,6 +54,7 @@ public class BWG4Integration
         if(Biomes.lushDesert.isPresent()) { DefaultBiomeList.addBiome("BoP: Lush Desert", Biomes.lushDesert.get(), 4); }
         if(Biomes.jadeCliffs.isPresent()) { DefaultBiomeList.addBiome("BoP: Jade Cliffs", Biomes.jadeCliffs.get(), 2); }
         if(Biomes.icyHills.isPresent()) { DefaultBiomeList.addBiome("BoP: Icy Hills", Biomes.icyHills.get(), 1); }
+		if(Biomes.hotSprings.isPresent()) { DefaultBiomeList.addBiome("BoP: Hot Springs", Biomes.hotSprings.get(), 2); }
         if(Biomes.highland.isPresent()) { DefaultBiomeList.addBiome("BoP: Highland", Biomes.highland.get(), 2); }
         if(Biomes.heathland.isPresent()) { DefaultBiomeList.addBiome("BoP: Heathland", Biomes.heathland.get(), 4); }
         if(Biomes.grove.isPresent()) { DefaultBiomeList.addBiome("BoP: Grove", Biomes.grove.get(), 2); }

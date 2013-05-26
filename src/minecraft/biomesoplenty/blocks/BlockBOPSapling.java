@@ -21,8 +21,10 @@ import biomesoplenty.worldgen.WorldGenBambooTree2;
 import biomesoplenty.worldgen.WorldGenCherry1;
 import biomesoplenty.worldgen.WorldGenCherry2;
 import biomesoplenty.worldgen.WorldGenDeadTree2;
+import biomesoplenty.worldgen.WorldGenJacaranda;
 import biomesoplenty.worldgen.WorldGenMaple;
 import biomesoplenty.worldgen.WorldGenMystic2;
+import biomesoplenty.worldgen.WorldGenNetherBush;
 import biomesoplenty.worldgen.WorldGenOminous1;
 import biomesoplenty.worldgen.WorldGenOminous2;
 import biomesoplenty.worldgen.WorldGenOriginTree;
@@ -179,6 +181,14 @@ public class BlockBOPSapling extends BlockSapling
                     
                 case 12: // White Cherry Tree
                     obj = new WorldGenCherry2(false);
+                    break;
+					
+				case 13: // Hellbark
+                    obj = new WorldGenNetherBush();
+                    break;
+					
+				case 14: // Jacaranda
+                    obj = new WorldGenJacaranda(false);
                     break;
             }
         }

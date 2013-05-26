@@ -66,6 +66,7 @@ public class ForestryIntegration
     	//Warm - Damp
     	//Jungle Hives
     	EnumTemperature.warmBiomeIds.add(BOPConfiguration.bambooForestID);
+		EnumTemperature.warmBiomeIds.add(BOPConfiguration.hotSpringsID);
     	EnumTemperature.warmBiomeIds.add(BOPConfiguration.sacredSpringsID);
     	EnumTemperature.warmBiomeIds.add(BOPConfiguration.tropicalRainforestID);
     	EnumTemperature.warmBiomeIds.add(BOPConfiguration.promisedLandSwampID);
@@ -76,6 +77,7 @@ public class ForestryIntegration
     	EnumTemperature.warmBiomeIds.add(BOPConfiguration.jungleNewID);
 
     	EnumHumidity.dampBiomeIds.add(BOPConfiguration.bambooForestID);
+		EnumHumidity.dampBiomeIds.add(BOPConfiguration.hotSpringsID);
     	EnumHumidity.dampBiomeIds.add(BOPConfiguration.sacredSpringsID);
     	EnumHumidity.dampBiomeIds.add(BOPConfiguration.tropicalRainforestID);
     	EnumHumidity.dampBiomeIds.add(BOPConfiguration.promisedLandSwampID);
@@ -309,6 +311,7 @@ public class ForestryIntegration
 	    BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs1.get(), 1, OreDictionary.WILDCARD_VALUE));
 	    BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs2.get(), 1, OreDictionary.WILDCARD_VALUE));
 	    BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs3.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs4.get(), 1, OreDictionary.WILDCARD_VALUE));
 	    BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 	    BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 	    BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));

@@ -23,6 +23,7 @@ import static net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.Ev
 import java.util.Random;
 
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Liquids;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
@@ -338,6 +339,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int waterLakesPerChunk;
 	protected int lavaLakesPerChunk;
 	protected int netherLavaPerChunk;
+	protected int hotSpringsPerChunk;
 
     /** True if decorator should generate surface lava & water */
     public boolean generateLakes;
@@ -513,6 +515,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.waterLakesPerChunk = 0;
 		this.lavaLakesPerChunk = 0;
 		this.netherLavaPerChunk = 0;
+		this.hotSpringsPerChunk = 0;
 		this.quicksandPerChunk = 0;
 		this.quicksand2PerChunk = 0;
 		this.crystalsPerChunk = 0;
@@ -600,6 +603,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
 			var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
 			(new WorldGenNetherLava(Block.lavaMoving.blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+		}
+		
+		for (var2 = 0; var2 < hotSpringsPerChunk; ++var2)
+		{
+			var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+			var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
+			var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+			(new WorldGenLakes(Liquids.springWaterFlowing.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
 		}
 
         if (this.generateAsh)

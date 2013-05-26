@@ -41,6 +41,19 @@ public class BlockSpringWaterFlowing extends BlockFlowing implements ILiquid
 		int l = par1World.getBlockMetadata(par2, par3, par4);
 		par1World.setBlock(par2, par3, par4, this.blockID + 1, l, 2);
 	}
+	
+    /**
+     * A randomly called display update to be able to add particles or other items for display
+     */
+    public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    {
+        super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
+
+        if (par5Random.nextInt(6) == 0)
+        {
+            par1World.spawnParticle("smoke", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.0F), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
+        }
+    }
 
 	@Override
     public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)

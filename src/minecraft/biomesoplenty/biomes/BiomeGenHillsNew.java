@@ -2,6 +2,8 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.worldgen.WorldGenJacaranda;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -18,8 +20,17 @@ public class BiomeGenHillsNew extends BiomeGenBase
         super(par1);
 		this.theBiomeDecorator = new BiomeDecoratorBOP(this);
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		this.customBiomeDecorator.treesPerChunk = 1;
 		this.customBiomeDecorator.violetsPerChunk = 5;
         this.theWorldGenerator = new WorldGenMinable(Block.silverfish.blockID, 8);
+    }
+	
+    /**
+     * Gets a WorldGen appropriate for this biome.
+     */
+    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+    {
+        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenJacaranda(false) : this.worldGeneratorTrees);
     }
 
     public void decorate(World par1World, Random par2Random, int par3, int par4)
