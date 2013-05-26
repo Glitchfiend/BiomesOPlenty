@@ -65,23 +65,23 @@ public class WorldGenNetherGrass extends WorldGenerator
 					}
 					if (par1World.isAirBlock(var8 + 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 + 1, var9 + 1, var10, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8 + 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8 - 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 - 1, var9 + 1, var10, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8 - 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 + 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 + 1, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8, var9 + 1, var10 + 1, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 - 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 - 1, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8, var9 + 1, var10 - 1, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 2, var10))
 					{
-						par1World.setBlock(var8, var9 + 2, var10, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8, var9 + 2, var10, Blocks.leaves2.get().blockID, 4, 2);
 					}
 				}
 				
@@ -94,23 +94,23 @@ public class WorldGenNetherGrass extends WorldGenerator
 					}
 					if (par1World.isAirBlock(var8 + 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 + 1, var9 + 1, var10, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8 + 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8 - 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 - 1, var9 + 1, var10, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8 - 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 + 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 + 1, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8, var9 + 1, var10 + 1, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 - 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 - 1, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8, var9 + 1, var10 - 1, Blocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 2, var10))
 					{
-						par1World.setBlock(var8, var9 + 2, var10, Blocks.leavesColorized.get().blockID, 6, 2);
+						par1World.setBlock(var8, var9 + 2, var10, Blocks.leaves2.get().blockID, 4, 2);
 					}
 				}
             }
