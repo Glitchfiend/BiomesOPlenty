@@ -1,5 +1,7 @@
 package biomesoplenty.world.layer;
 
+import net.minecraft.world.gen.layer.IntCache;
+
 public class BiomeLayerZoom extends BiomeLayer
 {
     public BiomeLayerZoom(long par1, BiomeLayer par3GenLayer)
@@ -15,7 +17,7 @@ public class BiomeLayerZoom extends BiomeLayer
         int k1 = (par3 >> 1) + 3;
         int l1 = (par4 >> 1) + 3;
         int[] aint = this.parent.getInts(i1, j1, k1, l1);
-        int[] aint1 = LayerIntCache.getIntCache(k1 * 2 * l1 * 2);
+        int[] aint1 = IntCache.getIntCache(k1 * 2 * l1 * 2);
         int i2 = k1 << 1;
         int j2;
 
@@ -40,7 +42,7 @@ public class BiomeLayerZoom extends BiomeLayer
             }
         }
 
-        int[] aint2 = LayerIntCache.getIntCache(par3 * par4);
+        int[] aint2 = IntCache.getIntCache(par3 * par4);
 
         for (j2 = 0; j2 < par4; ++j2)
         {

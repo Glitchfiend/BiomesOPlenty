@@ -1,5 +1,7 @@
 package biomesoplenty.world.layer;
 
+import net.minecraft.world.gen.layer.IntCache;
+
 	public class BiomeLayerVoronoiZoom extends BiomeLayer
 	{
 	    public BiomeLayerVoronoiZoom(long par1, BiomeLayer par3GenLayer)
@@ -25,7 +27,7 @@ package biomesoplenty.world.layer;
 	        int[] aint = this.parent.getInts(j1, k1, l1, i2);
 	        int j2 = l1 << b0;
 	        int k2 = i2 << b0;
-	        int[] aint1 = LayerIntCache.getIntCache(j2 * k2);
+	        int[] aint1 = IntCache.getIntCache(j2 * k2);
 	        int l2;
 
 	        for (int i3 = 0; i3 < i2 - 1; ++i3)
@@ -86,7 +88,7 @@ package biomesoplenty.world.layer;
 	            }
 	        }
 
-	        int[] aint2 = LayerIntCache.getIntCache(par3 * par4);
+	        int[] aint2 = IntCache.getIntCache(par3 * par4);
 
 	        for (l2 = 0; l2 < par4; ++l2)
 	        {
