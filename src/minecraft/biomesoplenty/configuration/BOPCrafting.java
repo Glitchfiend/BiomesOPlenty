@@ -207,8 +207,7 @@ public class BOPCrafting
     private static void addOreRegistration()
     {
       //Ore Registration
-        for (int i = 0; i < 10; ++i)
-            OreDictionary.registerOre("plankWood", new ItemStack(Blocks.planks.get(), 1, i));
+        OreDictionary.registerOre("plankWood", new ItemStack(Blocks.planks.get(), 1, OreDictionary.WILDCARD_VALUE));
         
         OreDictionary.registerOre("stickWood", new ItemStack(Blocks.bamboo.get()));
 		OreDictionary.registerOre("stickWood", new ItemStack(Blocks.plants.get(), 1, 8));
@@ -224,8 +223,8 @@ public class BOPCrafting
         
         OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs1.get(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs2.get(), 1, OreDictionary.WILDCARD_VALUE));
-        for (int i = 0; i < 3; ++i)
-            OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs3.get(), 1, i));
+        OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs3.get(), 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs4.get(), 1, OreDictionary.WILDCARD_VALUE));
         
         OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenSingleSlab1.get(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenSingleSlab2.get(), 1, OreDictionary.WILDCARD_VALUE));
