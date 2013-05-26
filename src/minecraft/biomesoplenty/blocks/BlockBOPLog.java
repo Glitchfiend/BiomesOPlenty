@@ -8,8 +8,11 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
 
 public class BlockBOPLog extends Block 
 {
@@ -28,7 +31,6 @@ public class BlockBOPLog extends Block
     {
         super(blockID, Material.wood);
         category = cat;
-        setBurnProperties(this.blockID, 5, 5);
         setHardness(2.0F);
         setResistance(5.0F);
         setStepSound(Block.soundWoodFootstep);
@@ -121,6 +123,36 @@ public class BlockBOPLog extends Block
         }
 
         return type | orientation;
+    }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    {
+    	if (category == LogCategory.CAT4 && metadata == 1)
+    		return 0;
+    	else
+    	{
+            super.setBurnProperties(this.blockID, 5, 5);
+    		return blockFlammability[blockID];
+    	}
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(World world, int x, int y, int z, int metadata, ForgeDirection face)
+    {
+    	if (category == LogCategory.CAT4 && metadata == 1)
+    		return 0;
+    	else
+    		return blockFireSpreadSpeed[blockID];
+    }
+    
+    @Override
+    public boolean isFlammable(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    {
+    	if (category == LogCategory.CAT4 && metadata == 1)
+    			return false;
+    	else
+    		return getFlammability(world, x, y, z, metadata, face) > 0;
     }
     
     @Override
