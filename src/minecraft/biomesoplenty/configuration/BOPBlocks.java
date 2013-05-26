@@ -277,25 +277,16 @@ public class BOPBlocks {
 		LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,8), "Reed");
         LanguageRegistry.addName(Blocks.willow.get(), "Willow");
 		LanguageRegistry.addName(Blocks.ivy.get(), "Ivy");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,0), "Yellow Autumn Leaves");
         LanguageRegistry.addName(new ItemStack(Blocks.plants.get(),1,5), "Thorns");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,3), "High Grass");
         LanguageRegistry.addName(Blocks.ashStone.get(), "Ash Stone");
         LanguageRegistry.addName(Blocks.hardIce.get(), "Hardened Ice");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,2), "Maple Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Orange Autumn Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,1), "Pink Cherry Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,2), "Magic Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,3), "White Cherry Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,4), "Dying Leaves");
-        LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,1), "Short Grass");
         LanguageRegistry.addName(Blocks.leavesFruit.get(), "Apple Leaves");
 		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,8), "Berry Bush");
 		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,7), "Poison Ivy");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,5), "Sprout");
         LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,4), "Bush");
         LanguageRegistry.addName(Blocks.bamboo.get(), "Bamboo");
-        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,1), "Bamboo Leaves");
         LanguageRegistry.addName(Blocks.mudBrick.get(), "Mud Bricks");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,0), "Red Rock Cobblestone Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.stoneDoubleSlab.get(),1,1), "Red Rock Bricks Slab");
@@ -422,9 +413,25 @@ public class BOPBlocks {
         LanguageRegistry.addName(new ItemStack(Blocks.logs3.get(),1,3), "Giant Flower Stem");
         
         LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,0), "Pine Wood");    
-        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,1), "Hellbark Wood");
+        LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,1), "Hell Bark Wood");
         LanguageRegistry.addName(new ItemStack(Blocks.logs4.get(),1,2), "Jacaranda Wood");
         
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,0), "Yellow Autumn Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,1), "Bamboo Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,2), "Magic Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,3), "Dark Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,4), "Dying Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,5), "Fir Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,6), "Loftwood Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves1.get(),1,7), "Orange Autumn Leaves");
+
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,0), "Origin Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,1), "Pink Cherry Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,2), "Maple Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,3), "White Cherry Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,4), "Hell Bark Leaves");
+        LanguageRegistry.addName(new ItemStack(Blocks.leaves2.get(),1,5), "Jacaranda Leaves");
+
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,0), "Acacia Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,1), "Cherry Wood Slab");
         LanguageRegistry.addName(new ItemStack(Blocks.woodenDoubleSlab1.get(),1,2), "Dark Wood Slab");

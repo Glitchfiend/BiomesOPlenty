@@ -13,9 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -27,7 +29,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
     
     //Autumn - Orange = Leaves 1, Origin - White = Leaves 2
-    private static final String[] leaves = new String[] {"yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry"};
+    private static final String[] leaves = new String[] {"yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
     private Icon[][] textures;
     private final LeafCategory category;
     int[] adjacentTreeBlocks;
@@ -36,7 +38,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     {
         super(blockID, Material.leaves, false);
         category = cat;
-        setBurnProperties(this.blockID, 30, 60);
         this.setTickRandomly(true);
         setHardness(0.2F);
         setLightOpacity(1);
@@ -72,7 +73,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
         for (int i = 0; i < 8; ++i)
-            if (category != LeafCategory.CAT2 || i < 4)
+            if (category != LeafCategory.CAT2 || i < 6)
                 list.add(new ItemStack(blockID, 1, i));
     }
     
@@ -226,6 +227,37 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
         world.setBlockToAir(x, y, z);
     }
+    
+    @Override
+    public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    {
+    	if (category == LeafCategory.CAT2 && metadata == 4)
+    		return 0;
+    	else
+    	{
+            super.setBurnProperties(this.blockID, 30, 60);
+    		return blockFlammability[blockID];
+    	}
+    }
+    
+    @Override
+    public int getFireSpreadSpeed(World world, int x, int y, int z, int metadata, ForgeDirection face)
+    {
+    	if (category == LeafCategory.CAT2 && metadata == 4)
+    		return 0;
+    	else
+    		return blockFireSpreadSpeed[blockID];
+    }
+    
+    @Override
+    public boolean isFlammable(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+    {
+    	if (category == LeafCategory.CAT2 && metadata == 4)
+    			return false;
+    	else
+    		return getFlammability(world, x, y, z, metadata, face) > 0;
+    }
+    
     
     @Override
     public int idDropped(int par1, Random par2Random, int par3)
