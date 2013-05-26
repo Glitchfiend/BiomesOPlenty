@@ -45,118 +45,120 @@ public class BlockLiquidPoisonFlowing extends BlockFlowing implements ILiquid
 	}
 
 	@Override
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
-    {
-        int l = this.getFlowDecay(par1World, par2, par3, par4);
-        byte b0 = 1;
+	public void updateTick(World world, int x, int y, int z, Random random) 
+	{
+		int oldDecay = this.getFlowDecay(world, x, y, z);
+		byte viscosity = 2;
+		int flowDecay;
 
-        boolean flag = true;
-        int i1;
+		if (oldDecay > 0) 
+		{
+			this.numAdjacentSources = 0;
+			int minFlowDecay = this.getSmallestFlowDecay(world, x - 1, y, z, -100);
+			minFlowDecay = this.getSmallestFlowDecay(world, x + 1, y, z, minFlowDecay);
+			minFlowDecay = this.getSmallestFlowDecay(world, x, y, z - 1, minFlowDecay);
+			minFlowDecay = this.getSmallestFlowDecay(world, x, y, z + 1, minFlowDecay);
+			flowDecay = minFlowDecay + viscosity;
 
-        if (l > 0)
-        {
-            byte b1 = -100;
-            this.numAdjacentSources = 0;
-            int j1 = this.getSmallestFlowDecay(par1World, par2 - 1, par3, par4, b1);
-            j1 = this.getSmallestFlowDecay(par1World, par2 + 1, par3, par4, j1);
-            j1 = this.getSmallestFlowDecay(par1World, par2, par3, par4 - 1, j1);
-            j1 = this.getSmallestFlowDecay(par1World, par2, par3, par4 + 1, j1);
-            i1 = j1 + b0;
+			if (flowDecay >= 8 || minFlowDecay < 0) 
+			{
+				flowDecay = -1;
+			}
 
-            if (i1 >= 7 || j1 < 0)
-            {
-                i1 = -1;
-            }
+			int decayAbove = getFlowDecay(world, x, y + 1, z);
+			if (decayAbove >= 0) 
+			{
+				if (decayAbove >= 8) 
+				{
+					flowDecay = decayAbove;
+				} 
+				else 
+				{
+					flowDecay = decayAbove + 8;
+				}
+			}
 
-            if (this.getFlowDecay(par1World, par2, par3 + 1, par4) >= 0)
-            {
-                int k1 = this.getFlowDecay(par1World, par2, par3 + 1, par4);
+			boolean update = true;
+			if (oldDecay < 8 && flowDecay < 8 && flowDecay > oldDecay && random.nextDouble() < 0.2) 
+			{
+				flowDecay = oldDecay;
+				update = false;
+			}
 
-                if (k1 >= 7)
-                {
-                    i1 = k1;
-                }
-                else
-                {
-                    i1 = k1 + 7;
-                }
-            }
+			if (flowDecay == oldDecay) 
+			{
+				if (update) 
+				{
+					this.updateFlow(world, x, y, z);
+				}
+			} 
+			else 
+			{
+				oldDecay = flowDecay;
 
-            if (i1 == l)
-            {
-                if (flag)
-                {
-                    this.updateFlow(par1World, par2, par3, par4);
-                }
-            }
-            else
-            {
-                l = i1;
+				if (flowDecay < 0) 
+				{
+					world.setBlockToAir(x, y, z);
+				} 
+				else 
+				{
+					world.setBlockMetadataWithNotify(x, y, z, flowDecay, 2);
+					world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
+					world.notifyBlocksOfNeighborChange(x, y, z, this.blockID);
+				}
+			}
+		} 
+		else 
+		{
+			this.updateFlow(world, x, y, z);
+		}
 
-                if (i1 < 0)
-                {
-                    par1World.setBlockToAir(par2, par3, par4);
-                }
-                else
-                {
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, i1, 2);
-                    par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, this.tickRate(par1World));
-                    par1World.notifyBlocksOfNeighborChange(par2, par3, par4, this.blockID);
-                }
-            }
-        }
-        else
-        {
-            this.updateFlow(par1World, par2, par3, par4);
-        }
+		if (this.liquidCanDisplaceBlock(world, x, y - 1, z)) 
+		{
+			if (oldDecay >= 8) 
+			{
+				this.flowIntoBlock(world, x, y - 1, z, oldDecay);
+			}
+			else 
+			{
+				this.flowIntoBlock(world, x, y - 1, z, oldDecay + 8);
+			}
+		} else if (oldDecay >= 0 && (oldDecay == 0 || this.blockBlocksFlow(world, x, y - 1, z))) 
+		{
+			boolean[] flowDirection = this.getOptimalFlowDirections(world, x, y, z);
+			flowDecay = oldDecay + viscosity;
 
-        if (this.liquidCanDisplaceBlock(par1World, par2, par3 - 1, par4))
-        {
-            if (l >= 7)
-            {
-                this.flowIntoBlock(par1World, par2, par3 - 1, par4, l);
-            }
-            else
-            {
-                this.flowIntoBlock(par1World, par2, par3 - 1, par4, l + 7);
-            }
-        }
-        else if (l >= 0 && (l == 0 || this.blockBlocksFlow(par1World, par2, par3 - 1, par4)))
-        {
-            boolean[] aboolean = this.getOptimalFlowDirections(par1World, par2, par3, par4);
-            i1 = l + b0;
+			if (oldDecay >= 8) 
+			{
+				flowDecay = 1;
+			}
 
-            if (l >= 7)
-            {
-                i1 = 1;
-            }
+			if (flowDecay >= 8) 
+			{
+				return;
+			}
 
-            if (i1 >= 7)
-            {
-                return;
-            }
+			if (flowDirection[0]) 
+			{
+				this.flowIntoBlock(world, x - 1, y, z, flowDecay);
+			}
 
-            if (aboolean[0])
-            {
-                this.flowIntoBlock(par1World, par2 - 1, par3, par4, i1);
-            }
+			if (flowDirection[1]) 
+			{
+				this.flowIntoBlock(world, x + 1, y, z, flowDecay);
+			}
 
-            if (aboolean[1])
-            {
-                this.flowIntoBlock(par1World, par2 + 1, par3, par4, i1);
-            }
+			if (flowDirection[2]) 
+			{
+				this.flowIntoBlock(world, x, y, z - 1, flowDecay);
+			}
 
-            if (aboolean[2])
-            {
-                this.flowIntoBlock(par1World, par2, par3, par4 - 1, i1);
-            }
-
-            if (aboolean[3])
-            {
-                this.flowIntoBlock(par1World, par2, par3, par4 + 1, i1);
-            }
-        }
-    }
+			if (flowDirection[3]) 
+			{
+				this.flowIntoBlock(world, x, y, z + 1, flowDecay);
+			}
+		}
+	}
 
 	private void flowIntoBlock(World world, int i, int j, int k, int l) 
 	{
