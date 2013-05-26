@@ -54,7 +54,7 @@ public class BlockLiquidPoisonStill extends BlockStationary implements ILiquid
         if (par5Entity instanceof EntityLiving) 
         {
         	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
-        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.confusion.id, 100));
+        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 100));
         }  
     }
     

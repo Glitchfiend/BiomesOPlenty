@@ -57,10 +57,10 @@ public class BlockSpringWaterStill extends BlockStationary implements ILiquid
         int meta = par1World.getBlockMetadata(x, y, z);
         
         if (par5Entity instanceof EntityLiving) 
-        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 100));
+        	((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
         
         if (par5Entity instanceof EntityPlayer)
-        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 100));
+        	((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 1));
     }
     
 	@Override
