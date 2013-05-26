@@ -114,7 +114,7 @@ public class AchievementHelper
             }
         }
         
-        if (item.itemID == Blocks.logs1.get().blockID || item.itemID == Blocks.logs2.get().blockID || (item.itemID == Blocks.logs3.get().blockID && item.getItemDamage() < 3))
+        if (item.itemID == Blocks.logs1.get().blockID || item.itemID == Blocks.logs2.get().blockID || (item.itemID == Blocks.logs3.get().blockID && item.getItemDamage() < 3) || item.itemID == Blocks.logs4.get().blockID)
             player.addStat(AchievementList.mineWood, 1);
     }
     
