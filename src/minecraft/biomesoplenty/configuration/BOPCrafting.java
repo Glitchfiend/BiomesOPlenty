@@ -120,6 +120,24 @@ public class BOPCrafting
         
         GameRegistry.addRecipe(new ItemStack(Blocks.redRock.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.redRock.get(),1,0)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.holyStone.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.holyStone.get(),1,0)});
+		
+		//Pine
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 11), new Object[] {new ItemStack(Blocks.logs4.get(), 1, 0)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 2), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.pineStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.pineStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
+		
+		//Hellbark
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 12), new Object[] {new ItemStack(Blocks.logs4.get(), 1, 1)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 3), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.hellBarkStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.hellBarkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
+		
+		//Jacaranda
+        GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 13), new Object[] {new ItemStack(Blocks.logs4.get(), 1, 2)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 4), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
+        GameRegistry.addRecipe(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
         
         GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
         GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
