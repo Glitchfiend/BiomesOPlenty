@@ -1,11 +1,7 @@
 package biomesoplenty.integration;
 
-import thaumcraft.api.EnumTag;
-import thaumcraft.api.ObjectTags;
-import thaumcraft.api.ThaumcraftApi;
-import net.minecraft.item.ItemStack;
+import biomesoplenty.api.Biomes;
 import biomesoplenty.api.BlockReferences;
-import biomesoplenty.api.Blocks;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class BCIntegration {
@@ -13,6 +9,20 @@ public class BCIntegration {
 	public static void init()
 	{
 		addFacades();
+		excludeOilGeneration();
+	}
+	
+	private static void excludeOilGeneration()
+	{
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandForest.get().biomeID));
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandPlains.get().biomeID));
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandSwamp.get().biomeID));
+	    
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBase.get().biomeID));
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBone.get().biomeID));
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherDesert.get().biomeID));
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherGarden.get().biomeID));
+	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherLava.get().biomeID));
 	}
 	
 	private static void addFacades()
