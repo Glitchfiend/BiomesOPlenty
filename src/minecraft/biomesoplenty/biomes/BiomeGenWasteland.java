@@ -25,6 +25,7 @@ public class BiomeGenWasteland extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.customBiomeDecorator.treesPerChunk = 0;
         this.customBiomeDecorator.deadGrassPerChunk = 14;
+		this.customBiomeDecorator.poisonWaterPerChunk = 10;
         this.waterColorMultiplier = 15073024;
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

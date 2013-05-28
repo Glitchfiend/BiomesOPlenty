@@ -27,6 +27,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 4;
 		this.customBiomeDecorator.waterlilyPerChunk = 5;
 		this.customBiomeDecorator.violetsPerChunk = 1;
+		this.customBiomeDecorator.hotSpringsPerChunk = 1;
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
     }
