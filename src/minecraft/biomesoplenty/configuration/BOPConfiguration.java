@@ -454,7 +454,7 @@ public class BOPConfiguration {
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
-			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", true).getBoolean(true);
+			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 			
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8)

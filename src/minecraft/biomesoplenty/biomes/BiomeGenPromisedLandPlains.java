@@ -6,6 +6,7 @@ import java.util.Random;
 import cpw.mods.fml.common.Loader;
 
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Liquids;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenPromisedBush;
@@ -41,7 +42,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		this.customBiomeDecorator.promisedWillowPerChunk = 80;
 		this.customBiomeDecorator.generateLakes = false;
 		this.customBiomeDecorator.pondsPerChunk = -100;
-		this.customBiomeDecorator.waterLakesPerChunk = 6;
+		this.customBiomeDecorator.hotSpringsPerChunk = 6;
 		this.customBiomeDecorator.crystalsPerChunk = 25;
 		this.customBiomeDecorator.crystals2PerChunk = 50;
 		this.spawnableCreatureList.clear();
@@ -51,7 +52,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		this.customBiomeDecorator.generatePumpkins = false;
 		//this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
-		this.theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
+		this.theWorldGenerator = new WorldGenWaterSpring(Liquids.springWaterFlowing.get().blockID, 8);
 		
 		/*if (Loader.isModLoaded("TwilightForest"))
 		{
