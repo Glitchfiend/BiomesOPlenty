@@ -610,7 +610,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
 			var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
 			var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			(new WorldGenLakes(Liquids.springWaterFlowing.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+			(new WorldGenLakes(Liquids.springWater.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
 		}
 
         if (this.generateAsh)

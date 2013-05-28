@@ -18,8 +18,8 @@ public class BOPLiquidHelper
 	@SideOnly(Side.CLIENT)
 	public void textureHook(TextureStitchEvent.Post event) 
 	{
-		LiquidDictionary.getCanonicalLiquid("Spring Water").setRenderingIcon(Liquids.springWaterStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
-		LiquidDictionary.getCanonicalLiquid("Liquid Poison").setRenderingIcon(Liquids.liquidPoisonStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
+		//LiquidDictionary.getCanonicalLiquid("Spring Water").setRenderingIcon(Liquids.springWaterStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
+		//LiquidDictionary.getCanonicalLiquid("Liquid Poison").setRenderingIcon(Liquids.liquidPoisonStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
 	}
 	
 	@ForgeSubscribe
@@ -40,13 +40,13 @@ public class BOPLiquidHelper
 	{
 		int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
 
-		if ((blockID == Liquids.springWaterStill.get().blockID || blockID == Liquids.springWaterFlowing.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
+		if ((blockID == Liquids.springWater.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
 			return new ItemStack(Liquids.bopBucket.get(), 1, 0);
 		} 
-		if ((blockID == Liquids.liquidPoisonStill.get().blockID || blockID == Liquids.liquidPoisonFlowing.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
+		if ((blockID == Liquids.liquidPoison.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 

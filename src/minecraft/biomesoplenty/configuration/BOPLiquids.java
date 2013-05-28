@@ -1,17 +1,23 @@
 package biomesoplenty.configuration;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.liquids.LiquidContainerData;
 import net.minecraftforge.liquids.LiquidContainerRegistry;
 import net.minecraftforge.liquids.LiquidDictionary;
 import net.minecraftforge.liquids.LiquidStack;
+import biomesoplenty.api.Items;
 import biomesoplenty.api.Liquids;
 import biomesoplenty.items.ItemBOPBucket;
-import biomesoplenty.liquids.BlockLiquidPoisonFlowing;
-import biomesoplenty.liquids.BlockLiquidPoisonStill;
-import biomesoplenty.liquids.BlockSpringWaterFlowing;
-import biomesoplenty.liquids.BlockSpringWaterStill;
+import biomesoplenty.items.ItemShroomPowder;
+import biomesoplenty.liquids.BlockFluidLiquidPoison;
+import biomesoplenty.liquids.BlockFluidSpringWater;
+import biomesoplenty.liquids.LiquidPoisonFluid;
+import biomesoplenty.liquids.SpringWaterFluid;
 
 import com.google.common.base.Optional;
 
@@ -19,42 +25,51 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BOPLiquids 
-{
+{	
 	public static void init()
 	{
+		registerFluids();
 		initializeLiquids();
 		initializeContainers();
-		registerLiquids();
+		registerBlocks();
 		registerContainerNames();
 		registerLiquidNames();
+	}
+	
+	private static void registerFluids()
+	{
+		Liquids.springWaterFluid = Optional.of(new SpringWaterFluid("Spring Water").setBlockID(BOPConfiguration.springWaterStillID));
+		
+		FluidRegistry.registerFluid(Liquids.springWaterFluid.get());
+		
+		Liquids.liquidPoisonFluid = Optional.of(new LiquidPoisonFluid("Liquid Poison").setBlockID(BOPConfiguration.liquidPoisonStillID));
+		
+		FluidRegistry.registerFluid(Liquids.liquidPoisonFluid.get());
 	}
 
 	private static void initializeLiquids()
 	{
-		Liquids.springWaterFlowing = Optional.of(new BlockSpringWaterFlowing(BOPConfiguration.springWaterStillID - 1).setUnlocalizedName("springWaterFlowing"));
-		Liquids.springWaterStill = Optional.of(new BlockSpringWaterStill(BOPConfiguration.springWaterStillID).setUnlocalizedName("springWaterStill"));	
-		Liquids.liquidPoisonFlowing = Optional.of(new BlockLiquidPoisonFlowing(BOPConfiguration.liquidPoisonStillID - 1).setUnlocalizedName("liquidPoisonFlowing"));
-		Liquids.liquidPoisonStill = Optional.of(new BlockLiquidPoisonStill(BOPConfiguration.liquidPoisonStillID).setUnlocalizedName("liquidPoisonStill"));	
+		Liquids.springWater = Optional.of(new BlockFluidSpringWater(BOPConfiguration.springWaterStillID, Liquids.springWaterFluid.get(), Material.water).setUnlocalizedName("Spring Water"));
 		
-		Liquids.springWaterLiquid = Optional.of(LiquidDictionary.getOrCreateLiquid("Spring Water", new LiquidStack(Liquids.springWaterStill.get(), 1)));
-		Liquids.liquidPoisonLiquid = Optional.of(LiquidDictionary.getOrCreateLiquid("Liquid Poison", new LiquidStack(Liquids.liquidPoisonStill.get(), 1)));
+		Liquids.springWaterLiquidStack = Optional.of(LiquidDictionary.getOrCreateLiquid("Spring Water", new LiquidStack(Liquids.springWaterFluid.get().getBlockID(), 1)));
+		
+		Liquids.liquidPoison = Optional.of(new BlockFluidLiquidPoison(BOPConfiguration.liquidPoisonStillID, Liquids.liquidPoisonFluid.get(), Material.water).setUnlocalizedName("Liquid Poison"));
+		
+		Liquids.liquidPoisonLiquidStack = Optional.of(LiquidDictionary.getOrCreateLiquid("Liquid Poison", new LiquidStack(Liquids.liquidPoisonFluid.get().getBlockID(), 1)));
 	}
 
 	private static void initializeContainers()
 	{
 		Liquids.bopBucket = Optional.of((new ItemBOPBucket(BOPConfiguration.bopBucketID).setMaxStackSize(1).setUnlocalizedName("bopBucket").setContainerItem(Item.bucketEmpty)));
 		
-		LiquidContainerRegistry.registerLiquid(new LiquidContainerData(LiquidDictionary.getLiquid("Spring Water", LiquidContainerRegistry.BUCKET_VOLUME), new ItemStack(Liquids.bopBucket.get(), 1, 0), new ItemStack(Item.bucketEmpty)));
-		LiquidContainerRegistry.registerLiquid(new LiquidContainerData(LiquidDictionary.getLiquid("Liquid Poison", LiquidContainerRegistry.BUCKET_VOLUME), new ItemStack(Liquids.bopBucket.get(), 1, 1), new ItemStack(Item.bucketEmpty)));
+		FluidContainerRegistry.registerFluidContainer(Liquids.springWaterFluid.get(), new ItemStack(Liquids.bopBucket.get(), 1, 0), new ItemStack(Item.bucketEmpty));
+		FluidContainerRegistry.registerFluidContainer(Liquids.liquidPoisonFluid.get(), new ItemStack(Liquids.bopBucket.get(), 1, 1), new ItemStack(Item.bucketEmpty));
 	}
 
-	private static void registerLiquids()
+	private static void registerBlocks()
 	{
-		GameRegistry.registerBlock(Liquids.springWaterFlowing.get(), "springWaterFlowing");
-		GameRegistry.registerBlock(Liquids.springWaterStill.get(), "springWaterStill");
-		
-		GameRegistry.registerBlock(Liquids.liquidPoisonFlowing.get(), "liquidPoisonFlowing");
-		GameRegistry.registerBlock(Liquids.liquidPoisonStill.get(), "liquidPoisonStill");
+		GameRegistry.registerBlock(Liquids.springWater.get(), "springWater");		
+		GameRegistry.registerBlock(Liquids.liquidPoison.get(), "liquidPoison");
 	}
 
 	private static void registerContainerNames()
@@ -65,10 +80,7 @@ public class BOPLiquids
 
 	private static void registerLiquidNames()
 	{
-		LanguageRegistry.addName(Liquids.springWaterFlowing.get(), "Spring Water");
-		LanguageRegistry.addName(Liquids.springWaterStill.get(), "Spring Water");
-		
-		LanguageRegistry.addName(Liquids.liquidPoisonFlowing.get(), "Liquid Poison");
-		LanguageRegistry.addName(Liquids.liquidPoisonStill.get(), "Liquid Poison");
+		LanguageRegistry.addName(Liquids.springWater.get(), "Spring Water");	
+		LanguageRegistry.addName(Liquids.liquidPoison.get(), "Liquid Poison");
 	}
 }

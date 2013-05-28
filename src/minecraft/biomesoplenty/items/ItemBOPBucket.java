@@ -4,6 +4,7 @@ import java.util.List;
 
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Liquids;
+import biomesoplenty.configuration.BOPLiquids;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -242,13 +243,13 @@ public class ItemBOPBucket extends Item
     	switch (meta)
     	{
     		case 0:
-    			return Liquids.springWaterStill.get().blockID;
+    			return Liquids.springWater.get().blockID;
     			
     		case 1:
-    			return Liquids.liquidPoisonStill.get().blockID;
+    			return Liquids.liquidPoison.get().blockID;
     			
 			default:
-    			return Liquids.springWaterStill.get().blockID;
+    			return Liquids.springWater.get().blockID;
     	}
     }
 
