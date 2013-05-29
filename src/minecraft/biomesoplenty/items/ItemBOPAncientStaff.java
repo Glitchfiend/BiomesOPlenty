@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPAncientStaff extends Item
 {
-    private static String[] parts = {"ancientstaff", "staffhandle", "staffpole", "stafftopper"};
+    private static String[] parts = {"ancientstaff", "staffhandle", "staffpole", "stafftopper", "ancientstaffbroken"};
     @SideOnly(Side.CLIENT)
     private Icon[] textures;
     
@@ -42,8 +42,10 @@ public class ItemBOPAncientStaff extends Item
     {
         textures = new Icon[parts.length];
         
-        for (int i = 0; i < parts.length; ++i)
+        for (int i = 0; i < parts.length - 1; ++i)
             textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+parts[i]);
+        
+        textures[parts.length - 1] = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
     }
     
     @Override
@@ -193,6 +195,8 @@ public class ItemBOPAncientStaff extends Item
                 par2World.setBlock(2, 66 - var99, 2, 0);
                 par2World.setBlock(2, 66 - var99, -2, 0);
                 par2World.setBlock(-2, 66 - var99, -2, 0);
+                
+                par1ItemStack.setItemDamage(4);
             }
         }
 

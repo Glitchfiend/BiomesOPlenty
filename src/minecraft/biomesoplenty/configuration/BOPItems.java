@@ -179,6 +179,7 @@ public class BOPItems {
         LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 1), "Ancient Staff Handle");
         LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 2), "Ancient Staff Pole");
         LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 3), "Ancient Staff Topper");
+        LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 4), "Depleted Ancient Staff");
         
         LanguageRegistry.addName(Items.enderporter.get(), "Enderporter");
         
