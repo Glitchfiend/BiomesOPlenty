@@ -26,7 +26,6 @@ public class BiomeGenOutback extends BiomeGenBase
         this.customBiomeDecorator.deadBushPerChunk = 7;
 		this.customBiomeDecorator.tinyCactiPerChunk = 2;
 		this.customBiomeDecorator.bushesPerChunk = 5;
-		this.customBiomeDecorator.quicksandPerChunk = 1;
 		this.customBiomeDecorator.generatePumpkins = false;
     }
 	

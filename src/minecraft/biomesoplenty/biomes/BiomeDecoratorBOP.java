@@ -77,7 +77,6 @@ import biomesoplenty.worldgen.WorldGenPotatoes;
 import biomesoplenty.worldgen.WorldGenPromisedWillow;
 import biomesoplenty.worldgen.WorldGenQuagmire;
 import biomesoplenty.worldgen.WorldGenQuicksand;
-import biomesoplenty.worldgen.WorldGenQuicksand2;
 import biomesoplenty.worldgen.WorldGenReedBOP;
 import biomesoplenty.worldgen.WorldGenShield;
 import biomesoplenty.worldgen.WorldGenSmolderingGrass;
@@ -129,6 +128,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     protected WorldGenerator driedDirtInSandGen;
     protected WorldGenerator clayInStoneGen;
     protected WorldGenerator quagmireGen;
+	protected WorldGenerator quicksandGen;
 	protected WorldGenerator canyonGen;
 	protected WorldGenerator cloudGen;
     protected WorldGenerator coalGen;
@@ -190,8 +190,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator desertSproutsGen;
 	protected WorldGenerator promisedWillowGen;
 	protected WorldGenerator netherVineGen;
-	protected WorldGenerator quicksandGen;
-	protected WorldGenerator quicksand2Gen;
 	protected WorldGenerator poisonIvyGen;
 	protected WorldGenerator sunflowerGen;
 	protected WorldGenerator crystalGen;
@@ -268,8 +266,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int desertSproutsPerChunk;
 	protected int promisedWillowPerChunk;
 	protected int netherVinesPerChunk;
-	protected int quicksandPerChunk;
-	protected int quicksand2PerChunk;
 	protected int poisonIvyPerChunk;
 	protected int sunflowersPerChunk;
 
@@ -357,6 +353,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
     public boolean generateMelons;
     public boolean generateBoulders;
 	public boolean generateClouds;
+	public boolean generateQuicksand;
 
     public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
     {
@@ -378,6 +375,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.sandInStoneGen = new WorldGenMinable(Block.sand.blockID, 32);
         this.clayInStoneGen = new WorldGenMinable(Block.blockClay.blockID, 32);
         this.quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
+		this.quicksandGen = new WorldGenQuicksand(Blocks.mud.get().blockID, 24);
 		this.canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
         this.driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
 		this.cloudGen = new WorldGenCloud(Blocks.cloud.get().blockID, 48);
@@ -415,8 +413,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.sunflowerGen = new WorldGenSunflower(Blocks.flowers.get().blockID, 13);
 		this.promisedWillowGen = new WorldGenPromisedWillow();
 		this.netherVineGen = new WorldGenNetherVines();
-		this.quicksandGen = new WorldGenQuicksand();
-		this.quicksand2Gen = new WorldGenQuicksand2();
         this.cattailGen = new WorldGenCattail();
 		this.crystalGen = new WorldGenCrystal1();
 		this.crystalGen2 = new WorldGenCrystal2();
@@ -514,8 +510,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.netherLavaPerChunk = 0;
 		this.hotSpringsPerChunk = 0;
 		this.poisonWaterPerChunk = 0;
-		this.quicksandPerChunk = 0;
-		this.quicksand2PerChunk = 0;
 		this.crystalsPerChunk = 0;
 		this.crystals2PerChunk = 0;
         this.generateLakes = true;
@@ -533,6 +527,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
         this.generateMelons = false;
         this.generateBoulders = false;
 		this.generateClouds = false;
+		this.generateQuicksand = false;
         this.biome = par1BiomeGenBase;
     }
 
@@ -611,6 +606,19 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			(new WorldGenLakes(Liquids.springWater.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
 		}
 		
+		for (var2 = 0; var2 < 5; ++var2)
+		{
+			int var9999 = this.randomGenerator.nextInt(32);
+			
+			if (var9999 == 1)
+				{
+				var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+				var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(32) + 8) + 8);
+				var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+				(new WorldGenLakes(Liquids.springWaterFlowing.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+				}
+		}
+		
 		for (var2 = 0; var2 < poisonWaterPerChunk; ++var2)
 		{
 			var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
@@ -677,6 +685,11 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		if (this.generateCanyon)
         {
             this.genStandardOre1(15, this.canyonGen, 64, 128);
+        }
+		
+		if (this.generateQuicksand)
+        {
+            this.genStandardOre1(5, this.quicksandGen, 64, 128);
         }
 		
 		if (this.generateClouds)
@@ -1065,22 +1078,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.plantDesertGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
-        }
-		
-		for (var2 = 0; var2 < this.quicksandPerChunk; ++var2)
-        {
-            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-            var4 = this.randomGenerator.nextInt(128);
-            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-            this.quicksandGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
-        }
-		
-		for (var2 = 0; var2 < this.quicksand2PerChunk; ++var2)
-        {
-            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-            var4 = this.randomGenerator.nextInt(128);
-            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-            this.quicksand2Gen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 
         //Added

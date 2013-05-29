@@ -163,12 +163,30 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     @Override
     public boolean canBlockStay(World world, int x, int y, int z)
     {
+		int meta = world.getBlockMetadata(x, y, z);
+	
         if (world.getBlockId(x, y, z) != this.blockID)
-            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
-                    && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+		{
+			if (meta == 5)
+			{
+				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+			}
+			else
+			{
+				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+			}
+		}
         else
-            return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) 
-                && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+		{
+			if (meta == 5)
+			{
+				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+			}
+			else
+			{
+				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+			}
+		}
     }
 	
     @Override
