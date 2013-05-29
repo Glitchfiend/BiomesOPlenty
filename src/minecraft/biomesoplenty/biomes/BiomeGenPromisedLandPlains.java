@@ -3,26 +3,14 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import cpw.mods.fml.common.Loader;
-
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Liquids;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenPromisedBush;
-import biomesoplenty.worldgen.WorldGenPromisedShrub;
-import biomesoplenty.worldgen.WorldGenPromisedTree;
-import biomesoplenty.worldgen.WorldGenPromisedTree2;
-import biomesoplenty.worldgen.WorldGenPromisedTree3;
-import biomesoplenty.worldgen.WorldGenWaterSpring;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Liquids;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenPromisedBush;
+import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 public class BiomeGenPromisedLandPlains extends BiomeGenBase
 {
@@ -52,7 +40,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		this.customBiomeDecorator.generatePumpkins = false;
 		//this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
-		this.theWorldGenerator = new WorldGenWaterSpring(Liquids.springWaterFlowing.get().blockID, 8);
+		this.theWorldGenerator = new WorldGenWaterSpring(Liquids.springWater.get().blockID, 8);
 		
 		/*if (Loader.isModLoaded("TwilightForest"))
 		{

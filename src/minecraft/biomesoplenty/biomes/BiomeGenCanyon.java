@@ -2,13 +2,11 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.worldgen.WorldGenCanyonShrub;
-import biomesoplenty.worldgen.WorldGenPineTree;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenCanyonShrub;
+import biomesoplenty.worldgen.WorldGenPineTree;
 
 public class BiomeGenCanyon extends BiomeGenBase
 {

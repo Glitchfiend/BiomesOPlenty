@@ -22,9 +22,28 @@ import static net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.Ev
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeDecorator;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenBigMushroom;
+import net.minecraft.world.gen.feature.WorldGenCactus;
+import net.minecraft.world.gen.feature.WorldGenClay;
+import net.minecraft.world.gen.feature.WorldGenDeadBush;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenPumpkin;
+import net.minecraft.world.gen.feature.WorldGenReed;
+import net.minecraft.world.gen.feature.WorldGenSand;
+import net.minecraft.world.gen.feature.WorldGenWaterlily;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.OreGenEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Liquids;
-import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
 import biomesoplenty.worldgen.WorldGenBOPFlowers;
@@ -40,8 +59,8 @@ import biomesoplenty.worldgen.WorldGenCrystal2;
 import biomesoplenty.worldgen.WorldGenDesertCactus;
 import biomesoplenty.worldgen.WorldGenDriedDirt;
 import biomesoplenty.worldgen.WorldGenGravel;
-import biomesoplenty.worldgen.WorldGenHighGrass;
 import biomesoplenty.worldgen.WorldGenHighCattail;
+import biomesoplenty.worldgen.WorldGenHighGrass;
 import biomesoplenty.worldgen.WorldGenLilyflower;
 import biomesoplenty.worldgen.WorldGenMelon;
 import biomesoplenty.worldgen.WorldGenMesa;
@@ -65,29 +84,6 @@ import biomesoplenty.worldgen.WorldGenSmolderingGrass;
 import biomesoplenty.worldgen.WorldGenSprout;
 import biomesoplenty.worldgen.WorldGenSteppe;
 import biomesoplenty.worldgen.WorldGenSunflower;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenBigMushroom;
-import net.minecraft.world.gen.feature.WorldGenCactus;
-import net.minecraft.world.gen.feature.WorldGenClay;
-import net.minecraft.world.gen.feature.WorldGenDeadBush;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
-import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenLiquids;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenPumpkin;
-import net.minecraft.world.gen.feature.WorldGenReed;
-import net.minecraft.world.gen.feature.WorldGenSand;
-import net.minecraft.world.gen.feature.WorldGenWaterlily;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import net.minecraftforge.event.terraingen.OreGenEvent;
-import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class BiomeDecoratorBOP extends BiomeDecorator
 {
@@ -620,7 +616,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
 			var4 = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
 			var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-			(new WorldGenLakes(Liquids.liquidPoisonFlowing.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+			(new WorldGenLakes(Liquids.liquidPoison.get().blockID)).generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
 		}
 
         if (this.generateAsh)

@@ -2,10 +2,6 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenLog;
-import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenWillow;
-
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
@@ -13,6 +9,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenLog;
+import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.WorldGenWillow;
 
 public class BiomeGenSwampNew extends BiomeGenBase
 {

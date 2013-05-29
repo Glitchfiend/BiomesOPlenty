@@ -2,12 +2,11 @@ package biomesoplenty.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
 
 public class BlockBamboo extends Block
 {

@@ -2,11 +2,10 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenCherry1;
-import biomesoplenty.worldgen.WorldGenCherry2;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenCherry1;
+import biomesoplenty.worldgen.WorldGenCherry2;
 
 public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 {

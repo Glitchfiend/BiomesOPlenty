@@ -10,9 +10,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-
 import biomesoplenty.api.Biomes;
 import biomesoplenty.world.layer.BiomeLayer;
 

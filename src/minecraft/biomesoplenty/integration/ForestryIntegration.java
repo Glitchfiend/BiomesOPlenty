@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.liquids.LiquidStack;
 import net.minecraftforge.oredict.OreDictionary;
-import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;

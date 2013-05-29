@@ -1,14 +1,11 @@
 package biomesoplenty.particles;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.RenderEngine;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityDandelionFX extends EntityFX {
 	

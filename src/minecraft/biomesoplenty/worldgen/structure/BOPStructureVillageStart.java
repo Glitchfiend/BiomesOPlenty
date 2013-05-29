@@ -3,6 +3,7 @@ package biomesoplenty.worldgen.structure;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.ComponentVillageRoadPiece;
 import net.minecraft.world.gen.structure.ComponentVillageStartPiece;

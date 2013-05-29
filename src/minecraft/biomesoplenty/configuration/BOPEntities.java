@@ -1,10 +1,11 @@
 package biomesoplenty.configuration;
 
-import com.google.common.base.Optional;
-
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.api.Entities;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.EntityPoisonDart;
@@ -13,10 +14,6 @@ import biomesoplenty.mobs.EntityJungleSpider;
 import biomesoplenty.mobs.EntityRosester;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityEggInfo;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
 
 public class BOPEntities {
 	

@@ -2,10 +2,9 @@ package biomesoplenty.helpers;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenPromisedLandPortal;
-
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import biomesoplenty.worldgen.WorldGenPromisedLandPortal;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGeneratorPromisedLandPortal implements IWorldGenerator 

@@ -12,7 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
 
 public class BlockBOPLog extends Block 
 {

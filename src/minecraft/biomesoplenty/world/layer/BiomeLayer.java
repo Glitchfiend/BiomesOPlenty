@@ -1,7 +1,6 @@
 package biomesoplenty.world.layer;
 
 import net.minecraft.world.WorldType;
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.WorldTypeEvent;
 

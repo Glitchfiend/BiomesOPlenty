@@ -1,10 +1,6 @@
 package biomesoplenty.biomes;
 
-import java.awt.Color;
 import java.util.Random;
-
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.mobs.EntityJungleSpider;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityChicken;
@@ -18,6 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.mobs.EntityJungleSpider;
 
 public class BiomeGenJungleNew extends BiomeGenBase
 {

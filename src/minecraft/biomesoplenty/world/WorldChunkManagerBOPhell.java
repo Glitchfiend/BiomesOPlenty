@@ -1,24 +1,16 @@
 package biomesoplenty.world;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
-import biomesoplenty.api.Biomes;
-import biomesoplenty.helpers.BiomeCacheBOPhell;
-import biomesoplenty.helpers.BiomeCachePromised;
-import biomesoplenty.world.layer.BiomeLayer;
 
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.WorldTypeEvent;
+import biomesoplenty.helpers.BiomeCacheBOPhell;
+import biomesoplenty.world.layer.BiomeLayer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

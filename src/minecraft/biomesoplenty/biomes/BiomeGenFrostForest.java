@@ -3,10 +3,9 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeGenFrostForest extends BiomeGenBase
 {

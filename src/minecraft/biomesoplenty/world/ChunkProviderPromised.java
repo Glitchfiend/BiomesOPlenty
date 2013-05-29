@@ -3,26 +3,21 @@ package biomesoplenty.world;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.world.noise.NoiseOctaves;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
-import net.minecraftforge.event.terraingen.TerrainGen;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.world.noise.NoiseOctaves;
 
 public class ChunkProviderPromised implements IChunkProvider
 {

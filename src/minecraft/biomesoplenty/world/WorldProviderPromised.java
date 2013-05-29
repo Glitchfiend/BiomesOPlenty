@@ -1,17 +1,13 @@
 package biomesoplenty.world;
 
-import biomesoplenty.api.Biomes;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+import biomesoplenty.api.Biomes;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

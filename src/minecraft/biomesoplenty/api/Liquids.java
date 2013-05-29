@@ -1,11 +1,11 @@
 package biomesoplenty.api;
 
-import com.google.common.base.Optional;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.liquids.LiquidStack;
+import biomesoplenty.ftfluidsapi.Fluid;
+
+import com.google.common.base.Optional;
 
 public class Liquids 
 {    

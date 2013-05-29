@@ -2,15 +2,11 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Liquids;
+import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenPineTree;
 import biomesoplenty.worldgen.WorldGenTaiga6;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenTaiga2;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenHotSprings extends BiomeGenBase
 {

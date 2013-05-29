@@ -15,6 +15,8 @@ import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
+import biomesoplenty.ftfluidsapi.FluidRegistry;
+import biomesoplenty.ftfluidsapi.RenderBlockFluid;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.RenderDart;
@@ -39,6 +41,9 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
+		
+		FluidRegistry.renderIdFluid = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(RenderBlockFluid.instance);
 	}
 	
 	@Override

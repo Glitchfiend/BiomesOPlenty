@@ -1,9 +1,8 @@
 package biomesoplenty.world;
 
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.terraingen.WorldTypeEvent;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class WorldTypeSize
 {

@@ -2,17 +2,14 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTaiga1;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 
 public class BiomeGenTaigaNew extends BiomeGenBase
 {

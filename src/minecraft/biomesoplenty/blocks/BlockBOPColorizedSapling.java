@@ -5,7 +5,6 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -13,7 +12,6 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenAcacia;
 import biomesoplenty.worldgen.WorldGenMangrove;
 import biomesoplenty.worldgen.WorldGenNetherBush;

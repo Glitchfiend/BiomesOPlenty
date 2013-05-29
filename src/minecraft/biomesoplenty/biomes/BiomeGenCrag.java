@@ -2,11 +2,9 @@ package biomesoplenty.biomes;
 
 import java.awt.Color;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeGenCrag extends BiomeGenBase
 {

@@ -13,7 +13,6 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenDeadTree3;
 import biomesoplenty.worldgen.WorldGenDeadlands;
 
 public class BiomeGenDeadlands extends BiomeGenBase

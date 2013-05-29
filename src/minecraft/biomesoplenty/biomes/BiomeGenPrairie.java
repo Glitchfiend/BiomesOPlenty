@@ -2,15 +2,12 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.worldgen.WorldGenPrairie;
-
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenPrairie;
 
 public class BiomeGenPrairie extends BiomeGenBase
 {

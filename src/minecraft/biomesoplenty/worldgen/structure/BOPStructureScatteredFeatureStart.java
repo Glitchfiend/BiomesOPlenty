@@ -2,13 +2,13 @@ package biomesoplenty.worldgen.structure;
 
 import java.util.Random;
 
-import biomesoplenty.api.Biomes;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.ComponentScatteredFeatureDesertPyramid;
 import net.minecraft.world.gen.structure.ComponentScatteredFeatureJunglePyramid;
 import net.minecraft.world.gen.structure.ComponentScatteredFeatureSwampHut;
 import net.minecraft.world.gen.structure.StructureStart;
+import biomesoplenty.api.Biomes;
 
 public class BOPStructureScatteredFeatureStart extends StructureStart
 {

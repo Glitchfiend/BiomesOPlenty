@@ -2,10 +2,9 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenApple;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenApple;
 
 public class BiomeGenOrchard extends BiomeGenBase
 {

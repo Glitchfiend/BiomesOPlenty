@@ -1,6 +1,5 @@
 package biomesoplenty.blocks.renderers;
 
-import biomesoplenty.api.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;

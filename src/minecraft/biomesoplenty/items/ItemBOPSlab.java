@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
-
 import biomesoplenty.blocks.BlockBOPSlab;
 
 import com.google.common.base.Optional;

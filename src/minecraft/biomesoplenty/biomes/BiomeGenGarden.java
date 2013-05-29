@@ -2,19 +2,15 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.mobs.EntityRosester;
-import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
-import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
-
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.mobs.EntityRosester;
+import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
+import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 
 public class BiomeGenGarden extends BiomeGenBase
 {

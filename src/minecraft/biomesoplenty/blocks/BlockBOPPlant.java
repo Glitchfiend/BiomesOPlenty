@@ -20,8 +20,6 @@ import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {

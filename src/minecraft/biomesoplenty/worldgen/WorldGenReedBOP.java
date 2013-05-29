@@ -1,13 +1,10 @@
 package biomesoplenty.worldgen;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import java.util.Random;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 
 public class WorldGenReedBOP extends WorldGenerator
 {

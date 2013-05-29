@@ -1,9 +1,5 @@
 package biomesoplenty.blocks;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.helpers.TeleporterPromised;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -12,6 +8,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.helpers.TeleporterPromised;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

@@ -2,11 +2,10 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenMangrove;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenMangrove;
 
 public class BiomeGenMangrove extends BiomeGenBase
 {

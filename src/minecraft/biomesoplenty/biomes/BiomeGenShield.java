@@ -2,13 +2,12 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenTaiga5;
-
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.WorldGenTaiga5;
 
 public class BiomeGenShield extends BiomeGenBase
 {

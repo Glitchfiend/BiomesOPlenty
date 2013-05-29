@@ -2,8 +2,6 @@ package biomesoplenty.armor;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
@@ -11,9 +9,8 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraftforge.common.IArmorTextureProvider;
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.CommonProxy;
-import biomesoplenty.api.Items;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ArmorFlowerBand extends ItemArmor implements IArmorTextureProvider
 {

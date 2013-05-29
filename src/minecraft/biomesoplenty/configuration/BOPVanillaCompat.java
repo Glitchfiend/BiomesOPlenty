@@ -1,14 +1,13 @@
 package biomesoplenty.configuration;
 
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.items.projectiles.DispenserBehaviorDart;
 import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraftforge.common.ChestGenHooks;
 
 public class BOPVanillaCompat {
 	

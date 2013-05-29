@@ -1,20 +1,17 @@
 package biomesoplenty.biomes;
 
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenLavaSpring;
-import biomesoplenty.worldgen.WorldGenDeadlands;
-
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraft.world.gen.feature.WorldGenFire;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenFire;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenLavaSpring;
 
 public class BiomeGenNetherLava extends BiomeGenBase
 {

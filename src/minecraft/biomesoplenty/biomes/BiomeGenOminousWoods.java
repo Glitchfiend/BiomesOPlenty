@@ -3,10 +3,6 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenOminous1;
-import biomesoplenty.worldgen.WorldGenOminous2;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityEnderman;
@@ -16,6 +12,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenOminous1;
+import biomesoplenty.worldgen.WorldGenOminous2;
 
 public class BiomeGenOminousWoods extends BiomeGenBase
 {

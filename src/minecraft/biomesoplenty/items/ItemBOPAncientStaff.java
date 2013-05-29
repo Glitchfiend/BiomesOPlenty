@@ -2,10 +2,6 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,6 +10,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPAncientStaff extends Item
 {

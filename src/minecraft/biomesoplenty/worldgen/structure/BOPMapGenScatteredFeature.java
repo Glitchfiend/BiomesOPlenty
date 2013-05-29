@@ -8,14 +8,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import biomesoplenty.api.Biomes;
-
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureStart;
+import biomesoplenty.api.Biomes;
 
 public class BOPMapGenScatteredFeature extends MapGenStructure
 {

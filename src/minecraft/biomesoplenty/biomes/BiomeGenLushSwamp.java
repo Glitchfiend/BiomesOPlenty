@@ -2,14 +2,13 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenSwampTall;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenSwampTall;
 
 public class BiomeGenLushSwamp extends BiomeGenBase
 {

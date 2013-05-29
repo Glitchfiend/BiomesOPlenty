@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockJukeBox;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -14,6 +12,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

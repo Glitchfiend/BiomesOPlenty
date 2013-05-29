@@ -1,9 +1,8 @@
 package biomesoplenty.items;
 
-import biomesoplenty.BiomesOPlenty;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
-import net.minecraft.potion.Potion;
+import biomesoplenty.BiomesOPlenty;
 
 public class ItemBerries extends ItemFood
 {

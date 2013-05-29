@@ -1,5 +1,6 @@
 package biomesoplenty.helpers;
 
+import net.minecraft.block.BlockFluid;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -7,8 +8,8 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
-import net.minecraftforge.liquids.LiquidDictionary;
 import biomesoplenty.api.Liquids;
+import biomesoplenty.ftfluidsapi.FluidRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,8 +19,8 @@ public class BOPLiquidHelper
 	@SideOnly(Side.CLIENT)
 	public void textureHook(TextureStitchEvent.Post event) 
 	{
-		//LiquidDictionary.getCanonicalLiquid("Spring Water").setRenderingIcon(Liquids.springWaterStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
-		//LiquidDictionary.getCanonicalLiquid("Liquid Poison").setRenderingIcon(Liquids.liquidPoisonStill.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
+		FluidRegistry.WATER.setIcons(BlockFluid.func_94424_b("water"), BlockFluid.func_94424_b("water_flow"));
+		FluidRegistry.LAVA.setIcons(BlockFluid.func_94424_b("lava"), BlockFluid.func_94424_b("lava_flow"));
 	}
 	
 	@ForgeSubscribe
@@ -39,14 +40,16 @@ public class BOPLiquidHelper
 	public ItemStack fillCustomBucket(World world, MovingObjectPosition pos) 
 	{
 		int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
+		int meta = world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ);
 
-		if ((blockID == Liquids.springWater.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
+		if ((blockID == Liquids.springWater.get().blockID) && meta == 0) 
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
 			return new ItemStack(Liquids.bopBucket.get(), 1, 0);
 		} 
-		if ((blockID == Liquids.liquidPoison.get().blockID) && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
+		
+		if ((blockID == Liquids.liquidPoison.get().blockID) && meta == 0) 
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 

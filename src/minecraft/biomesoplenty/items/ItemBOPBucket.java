@@ -2,26 +2,21 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Liquids;
-import biomesoplenty.configuration.BOPLiquids;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Liquids;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -104,7 +99,7 @@ public class ItemBOPBucket extends Item
                         return par1ItemStack;
                     }
 
-                    if (par2World.getBlockMaterial(i, j, k) == Material.water && par2World.getBlockMetadata(i, j, k) == 0)
+                    if (par2World.getBlockMaterial(i, j, k) == Material.water && (par2World.getBlockMetadata(i, j, k) == 0))
                     {
                         par2World.setBlockToAir(i, j, k);
 
@@ -123,6 +118,11 @@ public class ItemBOPBucket extends Item
                             par3EntityPlayer.dropPlayerItem(new ItemStack(Item.bucketWater.itemID, 1, 0));
                         }
 
+                        return par1ItemStack;
+                    }
+                    
+                    if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
+                    {
                         return par1ItemStack;
                     }
 
@@ -196,11 +196,7 @@ public class ItemBOPBucket extends Item
                     }
                 }
             }
-            else if (this.isFull == 0 && movingobjectposition.entityHit instanceof EntityCow)
-            {
-                return new ItemStack(Item.bucketMilk);
-            }
-
+            
             return par1ItemStack;
         }
     }
@@ -220,7 +216,7 @@ public class ItemBOPBucket extends Item
         }
         else
         {
-            if (par1World.provider.isHellWorld && this.isFull == Block.waterMoving.blockID)
+            if (par1World.provider.isHellWorld && this.isFull == Liquids.springWater.get().blockID)
             {
                 par1World.playSoundEffect(par2 + 0.5D, par4 + 0.5D, par6 + 0.5D, "random.fizz", 0.5F, 2.6F + (par1World.rand.nextFloat() - par1World.rand.nextFloat()) * 0.8F);
 
@@ -231,7 +227,7 @@ public class ItemBOPBucket extends Item
             }
             else
             {
-                par1World.setBlock(par8, par9, par10, this.isFull, 0, 3);
+            	par1World.setBlock(par8, par9, par10, this.isFull, 0, 3);
             }
 
             return true;

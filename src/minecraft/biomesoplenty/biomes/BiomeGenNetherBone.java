@@ -1,13 +1,11 @@
 package biomesoplenty.biomes;
 
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraft.block.Block;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 
 public class BiomeGenNetherBone extends BiomeGenBase
 {

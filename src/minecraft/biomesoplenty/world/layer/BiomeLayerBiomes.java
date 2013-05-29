@@ -2,18 +2,10 @@ package biomesoplenty.world.layer;
 
 import java.util.ArrayList;
 
-import com.google.common.base.Optional;
-
-import biomesoplenty.api.Biomes;
-import biomesoplenty.biomes.BiomeGenNetherBone;
-import biomesoplenty.biomes.BiomeGenNetherDesert;
-import biomesoplenty.biomes.BiomeGenNetherGarden;
-import biomesoplenty.biomes.BiomeGenNetherLava;
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
+import biomesoplenty.api.Biomes;
 
 public class BiomeLayerBiomes extends BiomeLayer
 {

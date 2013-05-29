@@ -3,8 +3,6 @@ package biomesoplenty.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -16,6 +14,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import biomesoplenty.BiomesOPlenty;
 
 public class BlockIvy extends Block implements IShearable
 {

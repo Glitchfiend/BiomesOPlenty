@@ -2,13 +2,11 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenBrush1;
 import biomesoplenty.worldgen.WorldGenBrush2;
 import biomesoplenty.worldgen.WorldGenChaparral2;
-
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenBrushland extends BiomeGenBase
 {

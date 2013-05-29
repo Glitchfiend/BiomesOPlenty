@@ -2,10 +2,6 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenAutumn;
-import biomesoplenty.worldgen.WorldGenRainforestTree1;
-import biomesoplenty.worldgen.WorldGenTaiga10;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -13,6 +9,9 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenAutumn;
+import biomesoplenty.worldgen.WorldGenRainforestTree1;
+import biomesoplenty.worldgen.WorldGenTaiga10;
 
 public class BiomeGenBorealForest extends BiomeGenBase
 {

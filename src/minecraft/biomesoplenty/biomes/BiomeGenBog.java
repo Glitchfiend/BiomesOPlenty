@@ -2,20 +2,16 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenBogBush;
 import biomesoplenty.worldgen.WorldGenCypress1;
 import biomesoplenty.worldgen.WorldGenCypress2;
 import biomesoplenty.worldgen.WorldGenMarsh;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenBog extends BiomeGenBase
 {

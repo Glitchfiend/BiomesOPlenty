@@ -1,9 +1,7 @@
 package biomesoplenty.biomes;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.Blocks;
 
 public class BiomeGenGlacier extends BiomeGenBase
 {

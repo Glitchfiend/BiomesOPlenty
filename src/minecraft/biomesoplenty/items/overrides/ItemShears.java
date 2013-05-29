@@ -1,26 +1,8 @@
 package biomesoplenty.items.overrides;
 
-import java.util.ArrayList;
-
-import cpw.mods.fml.common.registry.LanguageRegistry;
-
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumMovingObjectType;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event;
-import net.minecraftforge.event.entity.player.FillBucketEvent;
-import net.minecraftforge.oredict.OreDictionary;
+import biomesoplenty.api.Blocks;
 
 public class ItemShears extends net.minecraft.item.ItemShears
 {

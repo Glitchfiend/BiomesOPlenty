@@ -3,13 +3,11 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenVolcano;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenVolcano;
 
 public class BiomeGenVolcano extends BiomeGenBase
 {

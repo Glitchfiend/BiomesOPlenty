@@ -1,14 +1,13 @@
 package biomesoplenty.integration;
 
-import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.item.ItemStack;
-import biomesoplenty.api.BlockReferences;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.BlockReferences.EnumBlocks;
-import biomesoplenty.api.Items;
 import thaumcraft.api.EnumTag;
 import thaumcraft.api.ObjectTags;
 import thaumcraft.api.ThaumcraftApi;
+import biomesoplenty.api.BlockReferences;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
+import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class ThaumcraftIntegration {
 

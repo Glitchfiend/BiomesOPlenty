@@ -3,17 +3,13 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenDeadTree;
-
 import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenDeadTree;
 
 public class BiomeGenDeadSwamp extends BiomeGenBase
 {

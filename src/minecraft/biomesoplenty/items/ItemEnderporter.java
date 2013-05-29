@@ -1,6 +1,5 @@
 package biomesoplenty.items;
 
-import biomesoplenty.BiomesOPlenty;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -8,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
 
 public class ItemEnderporter extends Item
 {

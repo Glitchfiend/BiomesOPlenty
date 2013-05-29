@@ -5,9 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
@@ -17,6 +14,7 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
+import biomesoplenty.api.Blocks;
 
 public class TeleporterPromised extends Teleporter
 {

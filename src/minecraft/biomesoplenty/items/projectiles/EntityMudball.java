@@ -1,8 +1,5 @@
 package biomesoplenty.items.projectiles;
 
-import biomesoplenty.ClientProxy;
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.potion.Potion;
@@ -10,6 +7,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.ClientProxy;
 
 public class EntityMudball extends EntityThrowable 
 {

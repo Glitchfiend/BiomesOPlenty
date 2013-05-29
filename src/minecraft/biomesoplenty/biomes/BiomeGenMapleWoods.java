@@ -2,11 +2,10 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenMaple;
-import biomesoplenty.worldgen.WorldGenTaiga5;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenMaple;
+import biomesoplenty.worldgen.WorldGenTaiga5;
 
 public class BiomeGenMapleWoods extends BiomeGenBase
 {

@@ -2,21 +2,18 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenAutumn;
 import biomesoplenty.worldgen.WorldGenAutumn2;
 import biomesoplenty.worldgen.WorldGenAutumn2Big;
 import biomesoplenty.worldgen.WorldGenDeadTree2;
 import biomesoplenty.worldgen.WorldGenMaple;
 import biomesoplenty.worldgen.WorldGenMapleBig;
-
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenSeasonalForest extends BiomeGenBase
 {

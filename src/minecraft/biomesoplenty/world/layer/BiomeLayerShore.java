@@ -1,10 +1,6 @@
 package biomesoplenty.world.layer;
 
-import biomesoplenty.api.Biomes;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
 
 public class BiomeLayerShore extends BiomeLayer
 {

@@ -1,7 +1,5 @@
 package biomesoplenty.blocks;
 
-import biomesoplenty.BiomesOPlenty;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -9,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
 
 public class BlockQuicksand extends Block
 {

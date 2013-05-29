@@ -1,12 +1,11 @@
 package biomesoplenty.blocks.renderers;
 
-import biomesoplenty.api.Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
+import biomesoplenty.api.Blocks;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

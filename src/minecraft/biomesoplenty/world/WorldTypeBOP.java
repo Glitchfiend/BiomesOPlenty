@@ -5,8 +5,6 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraftforge.common.MinecraftForge;
-
 import biomesoplenty.api.Biomes;
 import biomesoplenty.configuration.BOPConfiguration;
 

@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Map.Entry;
+import java.util.Random;
 
-import biomesoplenty.configuration.BOPConfiguration;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraft.world.gen.structure.StructureStart;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BOPMapGenVillage extends MapGenStructure
 {

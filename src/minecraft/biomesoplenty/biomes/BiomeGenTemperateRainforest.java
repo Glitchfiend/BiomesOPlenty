@@ -2,20 +2,17 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenTemperate;
-import biomesoplenty.worldgen.WorldGenThickTree;
-import biomesoplenty.worldgen.WorldGenWillow;
-
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.WorldGenTemperate;
+import biomesoplenty.worldgen.WorldGenThickTree;
+import biomesoplenty.worldgen.WorldGenWillow;
 
 public class BiomeGenTemperateRainforest extends BiomeGenBase
 {

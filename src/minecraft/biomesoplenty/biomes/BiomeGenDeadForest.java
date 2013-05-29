@@ -3,18 +3,15 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenDeadTree;
 import biomesoplenty.worldgen.WorldGenDeadTree2;
 import biomesoplenty.worldgen.WorldGenTaiga5;
-
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenDeadForest extends BiomeGenBase
 {

@@ -2,13 +2,12 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.worldgen.WorldGenMoss;
-
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.worldgen.WorldGenMoss;
 
 public class BiomeGenForestNew extends BiomeGenBase
 {

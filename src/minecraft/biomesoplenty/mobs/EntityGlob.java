@@ -1,7 +1,5 @@
 package biomesoplenty.mobs;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,9 +8,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 
 public class EntityGlob extends EntityLiving implements IMob
 {

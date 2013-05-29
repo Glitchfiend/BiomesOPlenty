@@ -3,10 +3,6 @@ package biomesoplenty.blocks;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
@@ -16,8 +12,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 
 public class BlockBOPSlab extends BlockHalfSlab
 {

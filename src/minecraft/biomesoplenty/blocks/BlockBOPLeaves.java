@@ -17,7 +17,6 @@ import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

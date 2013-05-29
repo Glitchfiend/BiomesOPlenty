@@ -2,17 +2,14 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.worldgen.WorldGenPoplar;
-import biomesoplenty.worldgen.WorldGenPoplar2;
-import biomesoplenty.worldgen.WorldGenChaparral2;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenChaparral2;
+import biomesoplenty.worldgen.WorldGenPoplar;
+import biomesoplenty.worldgen.WorldGenPoplar2;
 
 public class BiomeGenGrove extends BiomeGenBase
 {

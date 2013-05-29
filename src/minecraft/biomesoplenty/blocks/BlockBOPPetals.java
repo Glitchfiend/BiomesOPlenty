@@ -14,8 +14,6 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 {

@@ -2,10 +2,9 @@ package biomesoplenty.biomes;
 
 import java.awt.Color;
 
-import biomesoplenty.configuration.BOPConfiguration;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeGenDunes extends BiomeGenBase
 {

@@ -3,19 +3,11 @@ package biomesoplenty.blocks;
 import java.util.Arrays;
 import java.util.List;
 
-import com.google.common.base.Optional;
-
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BlockReferences.EnumBlocks;
-import biomesoplenty.blocks.BlockBOPSlab.SlabCategory;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
-import net.minecraftforge.oredict.OreDictionary;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPStairs extends BlockStairs
 {

@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProviderEnd;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;

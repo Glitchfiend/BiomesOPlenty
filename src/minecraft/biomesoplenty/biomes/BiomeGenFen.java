@@ -2,21 +2,18 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.worldgen.WorldGenDeadTree;
-import biomesoplenty.worldgen.WorldGenFen1;
-import biomesoplenty.worldgen.WorldGenFen2;
-import biomesoplenty.worldgen.WorldGenMoss;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenDeadTree;
+import biomesoplenty.worldgen.WorldGenFen1;
+import biomesoplenty.worldgen.WorldGenFen2;
+import biomesoplenty.worldgen.WorldGenMoss;
 
 public class BiomeGenFen extends BiomeGenBase
 {

@@ -1,7 +1,15 @@
 package biomesoplenty.world;
 
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.SHROOM;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETHER_BRIDGE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETHER_CAVE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.FIRE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.GLOWSTONE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.NETHER_LAVA;
+
 import java.util.List;
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
@@ -21,13 +29,12 @@ import net.minecraft.world.gen.feature.WorldGenGlowStone2;
 import net.minecraft.world.gen.feature.WorldGenHellLava;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.structure.MapGenNetherBridge;
-
-import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.*;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.*;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
-import net.minecraftforge.common.*;
-import net.minecraftforge.event.Event.*;
-import net.minecraftforge.event.terraingen.*;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.Event.Result;
+import net.minecraftforge.event.terraingen.ChunkProviderEvent;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class ChunkProviderBOPhell implements IChunkProvider
 {
