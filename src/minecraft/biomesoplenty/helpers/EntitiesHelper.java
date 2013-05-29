@@ -8,14 +8,18 @@ import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.mobs.ai.EntityAITemptArmour;
 
 public class EntitiesHelper
@@ -58,5 +62,23 @@ public class EntitiesHelper
                     && event.entityLiving.worldObj.getCollidingBoundingBoxes(event.entityLiving, event.entityLiving.boundingBox).isEmpty())
             	event.setResult(Result.ALLOW);
     	}
+    }
+    
+    @ForgeSubscribe
+    public void fallingFromPromisedLand(LivingHurtEvent event)
+    {
+        if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfiguration.promisedLandDimID)
+        {
+            event.setCanceled(true);
+            
+            if (!event.entityLiving.worldObj.isRemote && !event.entityLiving.isDead)
+            {
+                if (event.entityLiving instanceof EntityPlayerMP)
+                {
+                    EntityPlayerMP thePlayer = (EntityPlayerMP) event.entityLiving;
+                    thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterFall(thePlayer.mcServer.worldServerForDimension(0)));
+                }
+            }
+        }
     }
 }
