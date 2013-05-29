@@ -26,7 +26,7 @@ public class BiomeGenSteppe extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = 15;
         this.customBiomeDecorator.deadBushPerChunk = 7;
 		this.customBiomeDecorator.tinyCactiPerChunk = 1;
-		this.customBiomeDecorator.quicksandPerChunk = 1;
+		this.customBiomeDecorator.generateQuicksand = true;
 		this.customBiomeDecorator.steppePerChunk = 6;
 		this.customBiomeDecorator.aloePerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;

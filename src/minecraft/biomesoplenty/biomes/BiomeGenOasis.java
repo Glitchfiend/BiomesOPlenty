@@ -30,8 +30,8 @@ public class BiomeGenOasis extends BiomeGenBase
 		this.customBiomeDecorator.tinyCactiPerChunk = 2;
 		this.customBiomeDecorator.generatePumpkins = false;
 		this.customBiomeDecorator.generateMelons = true;
+		this.customBiomeDecorator.generateQuicksand = true;
 		this.customBiomeDecorator.waterLakesPerChunk = 10;
-		this.customBiomeDecorator.quicksand2PerChunk = 2;
 		this.customBiomeDecorator.aloePerChunk = 4;
 		this.customBiomeDecorator.hotSpringsPerChunk = 2;
     }

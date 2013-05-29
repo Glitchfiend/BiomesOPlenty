@@ -25,7 +25,7 @@ public class BiomeGenDesertNew extends BiomeGenBase
         this.customBiomeDecorator.cactiPerChunk = 10;
 		this.customBiomeDecorator.desertSproutsPerChunk = 1;
 		this.customBiomeDecorator.tinyCactiPerChunk = 5;
-		this.customBiomeDecorator.quicksand2PerChunk = 3;
+		this.customBiomeDecorator.generateQuicksand = true;
 		this.customBiomeDecorator.aloePerChunk = 2;
     }
 

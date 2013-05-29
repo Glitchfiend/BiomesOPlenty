@@ -24,7 +24,7 @@ public class BiomeGenAlps extends BiomeGenBase
         this.customBiomeDecorator.grassPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk = -999;
         this.customBiomeDecorator.sandPerChunk2 = -999;
-		this.customBiomeDecorator.hotSpringsPerChunk = 2;
+		this.customBiomeDecorator.hotSpringsPerChunk = 4;
     }
 	
     /**
