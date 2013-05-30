@@ -1,5 +1,5 @@
 
-package biomesoplenty.ftfluidsapi;
+package net.minecraftforge.fluids;
 
 import java.util.HashMap;
 import java.util.Map;

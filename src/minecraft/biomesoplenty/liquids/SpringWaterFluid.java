@@ -1,6 +1,6 @@
 package biomesoplenty.liquids;
 
-import biomesoplenty.ftfluidsapi.Fluid;
+import net.minecraftforge.fluids.Fluid;
 
 public class SpringWaterFluid extends Fluid 
 {

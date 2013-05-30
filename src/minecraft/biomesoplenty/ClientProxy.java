@@ -8,6 +8,8 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.RenderBlockFluid;
 
 import org.lwjgl.opengl.GL11;
 
@@ -15,8 +17,6 @@ import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
-import biomesoplenty.ftfluidsapi.FluidRegistry;
-import biomesoplenty.ftfluidsapi.RenderBlockFluid;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.RenderDart;

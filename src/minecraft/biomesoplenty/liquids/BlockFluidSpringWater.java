@@ -13,13 +13,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.BlockFluidClassic;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Liquids;
 import biomesoplenty.api.Potions;
-import biomesoplenty.ftfluidsapi.BlockFluidClassic;
-import biomesoplenty.ftfluidsapi.Fluid;
-import biomesoplenty.ftfluidsapi.FluidContainerRegistry;
-import biomesoplenty.ftfluidsapi.FluidStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
