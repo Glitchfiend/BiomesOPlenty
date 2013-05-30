@@ -114,6 +114,12 @@ public class WorldGenMangrove extends WorldGenerator
                                 if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var14, var11, var16)])
                                 {
                                     this.setBlockAndMetadata(par1World, var14, var11, var16, Blocks.leavesColorized.get().blockID, 1);
+									this.setBlockAndMetadata(par1World, var14, var11 - 1, var16, Blocks.leavesColorized.get().blockID, 1);
+									
+									this.setBlockAndMetadata(par1World, par3 + 1, (par4 + var6) - 3, par5, Blocks.leavesColorized.get().blockID, 1);
+									this.setBlockAndMetadata(par1World, par3 - 1, (par4 + var6) - 3, par5, Blocks.leavesColorized.get().blockID, 1);
+									this.setBlockAndMetadata(par1World, par3, (par4 + var6) - 3, par5 + 1, Blocks.leavesColorized.get().blockID, 1);
+									this.setBlockAndMetadata(par1World, par3, (par4 + var6) - 3, par5 - 1, Blocks.leavesColorized.get().blockID, 1);
                                 }
                             }
                         }
@@ -129,30 +135,35 @@ public class WorldGenMangrove extends WorldGenerator
                             this.setBlockAndMetadata(par1World, par3, par4 - 1, par5, Blocks.logs2.get().blockID, 2);
                             this.setBlockAndMetadata(par1World, par3, par4 - 2, par5, Blocks.logs2.get().blockID, 2);
 							
+							this.setBlockAndMetadata(par1World, par3 - 1, par4, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4, par5 - 1, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4, par5 + 1, Blocks.logs2.get().blockID, 2);
+							
+							this.setBlockAndMetadata(par1World, par3 - 1, par4 - 1, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3 + 1, par4 - 1, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4 - 1, par5 - 1, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4 - 1, par5 + 1, Blocks.logs2.get().blockID, 2);
+							
 							this.setBlockAndMetadata(par1World, par3 - 1, par4 - 2, par5, Blocks.logs2.get().blockID, 2);
 							this.setBlockAndMetadata(par1World, par3 + 1, par4 - 2, par5, Blocks.logs2.get().blockID, 2);
 							this.setBlockAndMetadata(par1World, par3, par4 - 2, par5 - 1, Blocks.logs2.get().blockID, 2);
 							this.setBlockAndMetadata(par1World, par3, par4 - 2, par5 + 1, Blocks.logs2.get().blockID, 2);
 							
-							this.setBlockAndMetadata(par1World, par3 - 1, par4 - 3, par5, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3 + 1, par4 - 3, par5, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3, par4 - 3, par5 - 1, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3, par4 - 3, par5 + 1, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3 - 2, par4 - 3, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3 + 2, par4 - 3, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4 - 3, par5 - 2, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4 - 3, par5 + 2, Blocks.logs2.get().blockID, 2);
 							
 							this.setBlockAndMetadata(par1World, par3 - 2, par4 - 4, par5, Blocks.logs2.get().blockID, 2);
 							this.setBlockAndMetadata(par1World, par3 + 2, par4 - 4, par5, Blocks.logs2.get().blockID, 2);
 							this.setBlockAndMetadata(par1World, par3, par4 - 4, par5 - 2, Blocks.logs2.get().blockID, 2);
 							this.setBlockAndMetadata(par1World, par3, par4 - 4, par5 + 2, Blocks.logs2.get().blockID, 2);
 							
-							this.setBlockAndMetadata(par1World, par3 - 2, par4 - 5, par5, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3 + 2, par4 - 5, par5, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3, par4 - 5, par5 - 2, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3, par4 - 5, par5 + 2, Blocks.logs2.get().blockID, 2);
-							
-							this.setBlockAndMetadata(par1World, par3 - 3, par4 - 6, par5, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3 + 3, par4 - 6, par5, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3, par4 - 6, par5 - 3, Blocks.logs2.get().blockID, 2);
-							this.setBlockAndMetadata(par1World, par3, par4 - 6, par5 + 3, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3 - 3, par4 - 5, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3 + 3, par4 - 5, par5, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4 - 5, par5 - 3, Blocks.logs2.get().blockID, 2);
+							this.setBlockAndMetadata(par1World, par3, par4 - 5, par5 + 3, Blocks.logs2.get().blockID, 2);
 
                             if (this.vinesGrow && var11 > 0)
                             {

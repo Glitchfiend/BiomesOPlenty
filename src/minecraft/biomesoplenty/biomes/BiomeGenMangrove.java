@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenMangrove;
+import biomesoplenty.worldgen.WorldGenMangrove2;
 
 public class BiomeGenMangrove extends BiomeGenBase
 {
@@ -25,6 +26,7 @@ public class BiomeGenMangrove extends BiomeGenBase
         this.customBiomeDecorator.reedsPerChunk = -999;
         this.customBiomeDecorator.cactiPerChunk = -999;
 		this.customBiomeDecorator.desertSproutsPerChunk = 1;
+		this.customBiomeDecorator.waterLakesPerChunk = 10;
     }
 
     /**
@@ -32,6 +34,6 @@ public class BiomeGenMangrove extends BiomeGenBase
      */
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return new WorldGenMangrove(false);
+        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenMangrove2(0,0) : new WorldGenMangrove(false));
     }
 }
