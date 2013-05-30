@@ -1,7 +1,6 @@
 package biomesoplenty.helpers;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -23,163 +22,53 @@ public class TeleporterPromised extends Teleporter
 	private final LongHashMap field_85191_c = new LongHashMap();
 	@SuppressWarnings("rawtypes")
 	private final List field_85190_d = new ArrayList();
+	private final boolean falling;
 
-	public TeleporterPromised(WorldServer par1WorldServer)
+	public TeleporterPromised(WorldServer worldServer)
 	{
-		super(par1WorldServer);
-		this.worldServerInstance = par1WorldServer;
-		this.random = new Random(par1WorldServer.getSeed());
+	    super(worldServer);
+        this.falling = false;
+        this.worldServerInstance = worldServer;
+        this.random = new Random(worldServer.getSeed());
+	}
+	
+	public TeleporterPromised(WorldServer worldServer, boolean fall)
+	{
+	    super(worldServer);
+	    this.falling = fall;
+	    this.worldServerInstance = worldServer;
+        this.random = new Random(worldServer.getSeed());
 	}
 
-	@SuppressWarnings("unused")
 	@Override
-	public void placeInPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
+	public void placeInPortal(Entity par1Entity, double x, double y, double z, float par8)
 	{
-		if (this.worldServerInstance.provider.dimensionId != 1)
+		if (!this.falling)
 		{
-			if (!this.placeInExistingPortal(par1Entity, par2, par4, par6, par8))
+			if (!this.placeInExistingPortal(par1Entity, x, y, z, par8))
 			{
 				this.makePortal(par1Entity);
-				this.placeInExistingPortal(par1Entity, par2, par4, par6, par8);
+				this.placeInExistingPortal(par1Entity, x, y, z, par8);
 			}
 		}
 		else
 		{
-			int var9 = 1;
-			int var10 = 31;
-			int var11 = 0;
-			byte var12 = 1;
-			byte var13 = 0;
-
-			for (int var14 = -2; var14 <= 2; ++var14)
-			{
-				for (int var15 = -2; var15 <= 2; ++var15)
-				{
-					for (int var16 = -1; var16 < 3; ++var16)
-					{
-						int var17 = var9 + var15 * var12 + var14 * var13;
-						int var18 = var10 + var16;
-						int var19 = var11 + var15 * var13 - var14 * var12;
-						boolean var20 = var16 < 0;
-						//this.worldServerInstance.setBlockWithNotify(var17, var18, var19, var20 ? Block.whiteStone.blockID : 0);
-						
-						int var99 = 32;
-	
-						this.worldServerInstance.setBlock(-1, 62 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 62 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 62 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 62 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 62 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 62 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 62 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 62 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 62 - var99, 0, Block.whiteStone.blockID);
-					
-						this.worldServerInstance.setBlock(-1, 63 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 63 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 63 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 63 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 63 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 63 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 63 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 63 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 63 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 63 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 63 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 63 - var99, 1, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 64 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 64 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 64 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 64 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 64 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 64 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 64 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 64 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 64 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 64 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 64 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 64 - var99, 1, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 65 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 65 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 65 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 65 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 65 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 65 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 65 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 65 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 65 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 65 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 65 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 65 - var99, 1, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 66 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 66 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 66 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 66 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 66 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 66 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 66 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 66 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 66 - var99, 0, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 63 - var99, 1, 0);
-						this.worldServerInstance.setBlock(0, 63 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 63 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 63 - var99, 0, 0);
-						this.worldServerInstance.setBlock(1, 63 - var99, -1, 0);
-						this.worldServerInstance.setBlock(0, 63 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 63 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 63 - var99, 0, 0);
-						this.worldServerInstance.setBlock(0, 63 - var99, 0, 0);
-						
-						this.worldServerInstance.setBlock(-1, 64 - var99, 1, 0);
-						this.worldServerInstance.setBlock(0, 64 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 64 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 64 - var99, 0, 0);
-						this.worldServerInstance.setBlock(1, 64 - var99, -1, 0);
-						this.worldServerInstance.setBlock(0, 64 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 64 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 64 - var99, 0, 0);
-						
-						this.worldServerInstance.setBlock(-1, 65 - var99, 1, 0);
-						this.worldServerInstance.setBlock(0, 65 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 65 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 65 - var99, 0, 0);
-						this.worldServerInstance.setBlock(1, 65 - var99, -1, 0);
-						this.worldServerInstance.setBlock(0, 65 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 65 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 65 - var99, 0, 0);
-						this.worldServerInstance.setBlock(0, 65 - var99, 0, 0);
-						
-						this.worldServerInstance.setBlock(3, 64 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 63 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 62 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 61 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 60 - var99, 3, 0);
-						
-						this.worldServerInstance.setBlock(0, 64 - var99, 0, Blocks.promisedPortal.get().blockID);
-					}
-				}
-			}
-
-			par1Entity.setLocationAndAngles((double) var9, (double) var10, (double) var11, par1Entity.rotationYaw, 0.0F);
-			par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
+		    par1Entity.setLocationAndAngles(x, 256.0, z, par1Entity.rotationYaw, 0.0F);
+	        par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
 		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
+	public boolean placeInExistingPortal(Entity par1Entity, double x, double y, double z, float par8)
 	{
 		short var9 = 128;
 		double var10 = -1.0D;
-		int var12 = 0;
-		int var13 = 0;
-		int var14 = 0;
-		int var15 = MathHelper.floor_double(1);
-		int var16 = MathHelper.floor_double(0);
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		int var15 = MathHelper.floor_double(par1Entity.posX);
+		int var16 = MathHelper.floor_double(par1Entity.posZ);
 		long var17 = ChunkCoordIntPair.chunkXZ2Int(var15, var16);
 		boolean var19 = true;
 		double var27;
@@ -187,12 +76,12 @@ public class TeleporterPromised extends Teleporter
 
 		if (this.field_85191_c.containsItem(var17))
 		{
-			PortalPosition var20 = (PortalPosition) this.field_85191_c.getValueByKey(var17);
+			PortalPosition portalposition = (PortalPosition) this.field_85191_c.getValueByKey(var17);
 			var10 = 0.0D;
-			var12 = 1;
-			var13 = 31;
-			var14 = 0;
-			var20.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
+			i = portalposition.posX;
+			j = 131;
+			k = portalposition.posZ;
+			portalposition.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
 			var19 = false;
 		}
 		else
@@ -220,9 +109,9 @@ public class TeleporterPromised extends Teleporter
 							if (var10 < 0.0D || var29 < var10)
 							{
 								var10 = var29;
-								var12 = var48;
-								var13 = var26;
-								var14 = var23;
+								i = var48;
+								j = var26;
+								k = var23;
 							}
 						}
 					}
@@ -234,31 +123,31 @@ public class TeleporterPromised extends Teleporter
 		{
 			if (var19)
 			{
-			this.field_85191_c.add(var17, new PortalPosition(this, var12, var13, var14, this.worldServerInstance.getTotalWorldTime()));
+			this.field_85191_c.add(var17, new PortalPosition(this, i, j, k, this.worldServerInstance.getTotalWorldTime()));
 			this.field_85190_d.add(Long.valueOf(var17));
 			}
 
-			double var49 = (double) var12 + 0.5D;
-			double var25 = (double) var13 + 0.5D;
-			var27 = (double) var14 + 0.5D;
+			double var49 = (double) i + 0.5D;
+			double var25 = (double) j + 0.5D;
+			var27 = (double) k + 0.5D;
 			int var50 = -1;
 
-			if (this.worldServerInstance.getBlockId(var12 - 1, var13, var14) == Blocks.promisedPortal.get().blockID)
+			if (this.worldServerInstance.getBlockId(i - 1, j, k) == Blocks.promisedPortal.get().blockID)
 			{
 				var50 = 2;
 			}
 
-			if (this.worldServerInstance.getBlockId(var12 + 1, var13, var14) == Blocks.promisedPortal.get().blockID)
+			if (this.worldServerInstance.getBlockId(i + 1, j, k) == Blocks.promisedPortal.get().blockID)
 			{
 				var50 = 0;
 			}
 
-			if (this.worldServerInstance.getBlockId(var12, var13, var14 - 1) == Blocks.promisedPortal.get().blockID)
+			if (this.worldServerInstance.getBlockId(i, j, k - 1) == Blocks.promisedPortal.get().blockID)
 			{
 				var50 = 3;
 			}
 
-			if (this.worldServerInstance.getBlockId(var12, var13, var14 + 1) == Blocks.promisedPortal.get().blockID)
+			if (this.worldServerInstance.getBlockId(i, j, k + 1) == Blocks.promisedPortal.get().blockID)
 			{
 				var50 = 1;
 			}
@@ -272,8 +161,8 @@ public class TeleporterPromised extends Teleporter
 			int var33 = Direction.offsetZ[var50];
 			int var34 = Direction.offsetX[var31];
 			int var35 = Direction.offsetZ[var31];
-			boolean var36 = !this.worldServerInstance.isAirBlock(var12 + var32 + var34, var13, var14 + var33 + var35) || !this.worldServerInstance.isAirBlock(var12 + var32 + var34, var13 + 1, var14 + var33 + var35);
-			boolean var37 = !this.worldServerInstance.isAirBlock(var12 + var32, var13, var14 + var33) || !this.worldServerInstance.isAirBlock(var12 + var32, var13 + 1, var14 + var33);
+			boolean var36 = !this.worldServerInstance.isAirBlock(i + var32 + var34, j, k + var33 + var35) || !this.worldServerInstance.isAirBlock(i + var32 + var34, j + 1, k + var33 + var35);
+			boolean var37 = !this.worldServerInstance.isAirBlock(i + var32, j, k + var33) || !this.worldServerInstance.isAirBlock(i + var32, j + 1, k + var33);
 
 			if (var36 && var37)
 			{
@@ -283,12 +172,12 @@ public class TeleporterPromised extends Teleporter
 				var33 = Direction.offsetZ[var50];
 				var34 = Direction.offsetX[var31];
 				var35 = Direction.offsetZ[var31];
-				var48 = var12 - var34;
+				var48 = i - var34;
 				var49 -= (double) var34;
-				int var22 = var14 - var35;
+				int var22 = k - var35;
 				var27 -= (double) var35;
-				var36 = !this.worldServerInstance.isAirBlock(var48 + var32 + var34, var13, var22 + var33 + var35) || !this.worldServerInstance.isAirBlock(var48 + var32 + var34, var13 + 1, var22 + var33 + var35);
-				var37 = !this.worldServerInstance.isAirBlock(var48 + var32, var13, var22 + var33) || !this.worldServerInstance.isAirBlock(var48 + var32, var13 + 1, var22 + var33);
+				var36 = !this.worldServerInstance.isAirBlock(var48 + var32 + var34, j, var22 + var33 + var35) || !this.worldServerInstance.isAirBlock(var48 + var32 + var34, j + 1, var22 + var33 + var35);
+				var37 = !this.worldServerInstance.isAirBlock(var48 + var32, j, var22 + var33) || !this.worldServerInstance.isAirBlock(var48 + var32, j + 1, var22 + var33);
 			}
 
 			float var38 = 0.5F;
@@ -355,452 +244,189 @@ public class TeleporterPromised extends Teleporter
 		}
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public boolean makePortal(Entity par1Entity)
-	{
-		byte var2 = 16;
-		double var3 = -1.0D;
-		int var5 = MathHelper.floor_double(1);
-		int var6 = MathHelper.floor_double(31);
-		int var7 = MathHelper.floor_double(0);
-		int var8 = var5;
-		int var9 = var6;
-		int var10 = var7;
-		int var11 = 0;
-		int var12 = this.random.nextInt(4);
-		int var13;
-		double var14;
-		double var17;
-		int var16;
-		int var19;
-		int var21;
-		int var20;
-		int var23;
-		int var22;
-		int var25;
-		int var24;
-		int var27;
-		int var26;
-		double var31;
-		double var32;
+    {
+        byte b0 = 16;
+        double d0 = -1.0D;
+        int i = MathHelper.floor_double(par1Entity.posX);
+        int j = 130;
+        int k = MathHelper.floor_double(par1Entity.posZ);
+        int l = i;
+        int i1 = j;
+        int j1 = k;
+        int k1 = 0;
+        int l1 = this.random.nextInt(4);
+        int i2;
+        double d1;
+        double d2;
+        int j2;
+        int k2;
+        int l2;
+        int i3;
+        int j3;
+        int k3;
+        int l3;
+        int i4;
+        int j4;
+        int k4;
+        double d3;
+        double d4;
 
-		for (var13 = var5 - var2; var13 <= var5 + var2; ++var13)
-		{
-			var14 = (double) var13 + 0.5D - par1Entity.posX;
+        for (i2 = i - b0; i2 <= i + b0; ++i2)
+        {
+            d1 = (double)i2 + 0.5D - par1Entity.posX;
 
-			for (var16 = var7 - var2; var16 <= var7 + var2; ++var16)
-			{
-				var17 = (double) var16 + 0.5D - par1Entity.posZ;
-				label274:
+            for (j2 = k - b0; j2 <= k + b0; ++j2)
+            {
+                d2 = (double)j2 + 0.5D - par1Entity.posZ;
+                label274:
 
-				for (var19 = this.worldServerInstance.getActualHeight() - 1; var19 >= 0; --var19)
-				{
-					if (this.worldServerInstance.isAirBlock(var13, var19, var16))
-					{
-						while (var19 > 0 && this.worldServerInstance.isAirBlock(var13, var19 - 1, var16))
-						{
-							--var19;
-						}
+                for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2)
+                {
+                    if (this.worldServerInstance.isAirBlock(i2, k2, j2))
+                    {
+                        while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2))
+                        {
+                            --k2;
+                        }
 
-						for (var20 = var12; var20 < var12 + 4; ++var20)
-						{
-							var21 = var20 % 2;
-							var22 = 1 - var21;
+                        for (i3 = l1; i3 < l1 + 4; ++i3)
+                        {
+                            l2 = i3 % 2;
+                            k3 = 1 - l2;
 
-							if (var20 % 4 >= 2)
-							{
-								var21 = -var21;
-								var22 = -var22;
-							}
+                            if (i3 % 4 >= 2)
+                            {
+                                l2 = -l2;
+                                k3 = -k3;
+                            }
 
-							for (var23 = 0; var23 < 3; ++var23)
-							{
-								for (var24 = 0; var24 < 4; ++var24)
-								{
-									for (var25 = -1; var25 < 4; ++var25)
-									{
-										var26 = var13 + (var24 - 1) * var21 + var23 * var22;
-										var27 = var19 + var25;
-										int var28 = var16 + (var24 - 1) * var22 - var23 * var21;
+                            for (j3 = 0; j3 < 3; ++j3)
+                            {
+                                for (i4 = 0; i4 < 4; ++i4)
+                                {
+                                    for (l3 = -1; l3 < 4; ++l3)
+                                    {
+                                        k4 = i2 + (i4 - 1) * l2 + j3 * k3;
+                                        j4 = k2 + l3;
+                                        int l4 = j2 + (i4 - 1) * k3 - j3 * l2;
 
-										if (var25 < 0 && !this.worldServerInstance.getBlockMaterial(var26, var27, var28).isSolid() || var25 >= 0 && !this.worldServerInstance.isAirBlock(var26, var27, var28))
-										{
-											continue label274;
-										}
-									}
-								}
-							}
+                                        if (l3 < 0 && !this.worldServerInstance.getBlockMaterial(k4, j4, l4).isSolid() || l3 >= 0 && !this.worldServerInstance.isAirBlock(k4, j4, l4))
+                                        {
+                                            continue label274;
+                                        }
+                                    }
+                                }
+                            }
 
-							var32 = (double) var19 + 0.5D - par1Entity.posY;
-							var31 = var14 * var14 + var32 * var32 + var17 * var17;
+                            d4 = (double)k2 + 0.5D - par1Entity.posY;
+                            d3 = d1 * d1 + d4 * d4 + d2 * d2;
 
-							if (var3 < 0.0D || var31 < var3)
-							{
-								var3 = var31;
-								var8 = var13;
-								var9 = var19;
-								var10 = var16;
-								var11 = var20 % 4;
-							}
-						}
-					}
-				}
-			}
-		}
+                            if (d0 < 0.0D || d3 < d0)
+                            {
+                                d0 = d3;
+                                l = i2;
+                                i1 = k2;
+                                j1 = j2;
+                                k1 = i3 % 4;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		if (var3 < 0.0D)
-		{
-			for (var13 = var5 - var2; var13 <= var5 + var2; ++var13)
-			{
-				var14 = (double) var13 + 0.5D - par1Entity.posX;
+        if (d0 < 0.0D)
+        {
+            for (i2 = i - b0; i2 <= i + b0; ++i2)
+            {
+                d1 = (double)i2 + 0.5D - par1Entity.posX;
 
-				for (var16 = var7 - var2; var16 <= var7 + var2; ++var16)
-				{
-					var17 = (double) var16 + 0.5D - par1Entity.posZ;
-					label222:
+                for (j2 = k - b0; j2 <= k + b0; ++j2)
+                {
+                    d2 = (double)j2 + 0.5D - par1Entity.posZ;
+                    label222:
 
-					for (var19 = this.worldServerInstance.getActualHeight() - 1; var19 >= 0; --var19)
-					{
-						if (this.worldServerInstance.isAirBlock(var13, var19, var16))
-						{
-							while (var19 > 0 && this.worldServerInstance.isAirBlock(var13, var19 - 1, var16))
-							{
-								--var19;
-							}
+                    for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2)
+                    {
+                        if (this.worldServerInstance.isAirBlock(i2, k2, j2))
+                        {
+                            while (k2 > 0 && this.worldServerInstance.isAirBlock(i2, k2 - 1, j2))
+                            {
+                                --k2;
+                            }
 
-							for (var20 = var12; var20 < var12 + 2; ++var20)
-							{
-								var21 = var20 % 2;
-								var22 = 1 - var21;
+                            for (i3 = l1; i3 < l1 + 2; ++i3)
+                            {
+                                l2 = i3 % 2;
+                                k3 = 1 - l2;
 
-								for (var23 = 0; var23 < 4; ++var23)
-								{
-									for (var24 = -1; var24 < 4; ++var24)
-									{
-										var25 = var13 + (var23 - 1) * var21;
-										var26 = var19 + var24;
-										var27 = var16 + (var23 - 1) * var22;
+                                for (j3 = 0; j3 < 4; ++j3)
+                                {
+                                    for (i4 = -1; i4 < 4; ++i4)
+                                    {
+                                        l3 = i2 + (j3 - 1) * l2;
+                                        k4 = k2 + i4;
+                                        j4 = j2 + (j3 - 1) * k3;
 
-										if (var24 < 0 && !this.worldServerInstance.getBlockMaterial(var25, var26, var27).isSolid() || var24 >= 0 && !this.worldServerInstance.isAirBlock(var25, var26, var27))
-										{
-											continue label222;
-										}
-									}
-								}
+                                        if (i4 < 0 && !this.worldServerInstance.getBlockMaterial(l3, k4, j4).isSolid() || i4 >= 0 && !this.worldServerInstance.isAirBlock(l3, k4, j4))
+                                        {
+                                            continue label222;
+                                        }
+                                    }
+                                }
 
-								var32 = (double) var19 + 0.5D - par1Entity.posY;
-								var31 = var14 * var14 + var32 * var32 + var17 * var17;
+                                d4 = (double)k2 + 0.5D - par1Entity.posY;
+                                d3 = d1 * d1 + d4 * d4 + d2 * d2;
 
-								if (var3 < 0.0D || var31 < var3)
-								{
-									var3 = var31;
-									var8 = var13;
-									var9 = var19;
-									var10 = var16;
-									var11 = var20 % 2;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+                                if (d0 < 0.0D || d3 < d0)
+                                {
+                                    d0 = d3;
+                                    l = i2;
+                                    i1 = k2;
+                                    j1 = j2;
+                                    k1 = i3 % 2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		int var29 = var8;
-		int var15 = var9;
-		var16 = var10;
-		int var30 = var11 % 2;
-		int var18 = 1 - var30;
+        int i5 = l;
+        int j5 = i1;
+        j2 = j1;
+        int k5 = k1 % 2;
+        int l5 = 1 - k5;
 
-		if (var11 % 4 >= 2)
-		{
-			var30 = -var30;
-			var18 = -var18;
-		}
+        if (k1 % 4 >= 2)
+        {
+            k5 = -k5;
+            l5 = -l5;
+        }
 
-		boolean var33;
+        boolean flag;
 
-		if (var3 < 0.0D)
-		{
-			if (var9 < 70)
-			{
-				var9 = 70;
-			}
+        for (int iy = -1; iy < 4; iy++)
+        {
+            for (int ix = -2; ix < 3; ix++)
+                for (int iz = -2; iz < 3; iz++)
+                {
+                    flag = ix == -2 || ix == 2 || iz == -2 || iz == 2 || iy == -1 || iy == 3;
+                    this.worldServerInstance.setBlock(i5 + ix, j5 + iy, j2 + iz, flag ? Block.whiteStone.blockID : 0);
+                }
+            
+            for (int ix = -2; ix < 3; ix++)
+                for (int iz = -2; iz < 3; iz++)
+                {
+                    this.worldServerInstance.notifyBlocksOfNeighborChange(i5 + ix, j5 + iy, j2 + iz, this.worldServerInstance.getBlockId(i5 + ix, j5 + iy, j2 + iz));
+                }
+        }
 
-			if (var9 > this.worldServerInstance.getActualHeight() - 10)
-			{
-				var9 = this.worldServerInstance.getActualHeight() - 10;
-			}
+        this.worldServerInstance.setBlock(i, j + 1, k, Blocks.promisedPortal.get().blockID);
 
-			var15 = var9;
-
-			for (var19 = -1; var19 <= 1; ++var19)
-			{
-				for (var20 = 1; var20 < 3; ++var20)
-				{
-					for (var21 = -1; var21 < 3; ++var21)
-					{
-						var22 = var29 + (var20 - 1) * var30 + var19 * var18;
-						var23 = var15 + var21;
-						var24 = var16 + (var20 - 1) * var18 - var19 * var30;
-						var33 = var21 < 0;
-						//this.worldServerInstance.setBlockWithNotify(var22, var23, var24, var33 ? Block.whiteStone.blockID : 0);
-						
-						int var99 = 32;
-	
-						this.worldServerInstance.setBlock(-1, 62 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 62 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 62 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 62 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 62 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 62 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 62 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 62 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 62 - var99, 0, Block.whiteStone.blockID);
-					
-						this.worldServerInstance.setBlock(-1, 63 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 63 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 63 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 63 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 63 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 63 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 63 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 63 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 63 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 63 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 63 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 63 - var99, 1, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 64 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 64 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 64 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 64 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 64 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 64 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 64 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 64 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 64 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 64 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 64 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 64 - var99, 1, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 65 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 65 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 65 - var99, 2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 65 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 65 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(2, 65 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 65 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 65 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 65 - var99, -2, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 65 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 65 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-2, 65 - var99, 1, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 66 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 66 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 66 - var99, 1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 66 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(1, 66 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 66 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 66 - var99, -1, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(-1, 66 - var99, 0, Block.whiteStone.blockID);
-						this.worldServerInstance.setBlock(0, 66 - var99, 0, Block.whiteStone.blockID);
-						
-						this.worldServerInstance.setBlock(-1, 63 - var99, 1, 0);
-						this.worldServerInstance.setBlock(0, 63 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 63 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 63 - var99, 0, 0);
-						this.worldServerInstance.setBlock(1, 63 - var99, -1, 0);
-						this.worldServerInstance.setBlock(0, 63 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 63 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 63 - var99, 0, 0);
-						this.worldServerInstance.setBlock(0, 63 - var99, 0, 0);
-						
-						this.worldServerInstance.setBlock(-1, 64 - var99, 1, 0);
-						this.worldServerInstance.setBlock(0, 64 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 64 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 64 - var99, 0, 0);
-						this.worldServerInstance.setBlock(1, 64 - var99, -1, 0);
-						this.worldServerInstance.setBlock(0, 64 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 64 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 64 - var99, 0, 0);
-						
-						this.worldServerInstance.setBlock(-1, 65 - var99, 1, 0);
-						this.worldServerInstance.setBlock(0, 65 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 65 - var99, 1, 0);
-						this.worldServerInstance.setBlock(1, 65 - var99, 0, 0);
-						this.worldServerInstance.setBlock(1, 65 - var99, -1, 0);
-						this.worldServerInstance.setBlock(0, 65 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 65 - var99, -1, 0);
-						this.worldServerInstance.setBlock(-1, 65 - var99, 0, 0);
-						this.worldServerInstance.setBlock(0, 65 - var99, 0, 0);
-						
-						this.worldServerInstance.setBlock(3, 64 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 63 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 62 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 61 - var99, 3, 0);
-						this.worldServerInstance.setBlock(3, 60 - var99, 3, 0);
-						
-						this.worldServerInstance.setBlock(0, 64 - var99, 0, Blocks.promisedPortal.get().blockID);
-					}
-				}
-			}
-		}
-
-		for (var19 = 0; var19 < 4; ++var19)
-		{
-			//this.worldServerInstance.editingBlocks = true;
-
-			for (var20 = 0; var20 < 4; ++var20)
-			{
-				for (var21 = -1; var21 < 4; ++var21)
-				{
-					var22 = var29 + (var20 - 1) * var30;
-					var23 = var15 + var21;
-					var24 = var16 + (var20 - 1) * var18;
-					var33 = var20 == 0 || var20 == 3 || var21 == -1 || var21 == 3;
-					//this.worldServerInstance.setBlockWithNotify(var22, var23, var24, var33 ? Block.whiteStone.blockID : BOPBlocks.promisedPortal.blockID);
-					
-					int var99 = 32;
-
-					this.worldServerInstance.setBlock(-1, 62 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 62 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 62 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 62 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 62 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 62 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 62 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 62 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 62 - var99, 0, Block.whiteStone.blockID);
-				
-					this.worldServerInstance.setBlock(-1, 63 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 63 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 63 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 63 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 63 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 63 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 63 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 63 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 63 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 63 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 63 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 63 - var99, 1, Block.whiteStone.blockID);
-					
-					this.worldServerInstance.setBlock(-1, 64 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 64 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 64 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 64 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 64 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 64 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 64 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 64 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 64 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 64 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 64 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 64 - var99, 1, Block.whiteStone.blockID);
-					
-					this.worldServerInstance.setBlock(-1, 65 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 65 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 65 - var99, 2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 65 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 65 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(2, 65 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 65 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 65 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 65 - var99, -2, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 65 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 65 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-2, 65 - var99, 1, Block.whiteStone.blockID);
-					
-					this.worldServerInstance.setBlock(-1, 66 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 66 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 66 - var99, 1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 66 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(1, 66 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 66 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 66 - var99, -1, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(-1, 66 - var99, 0, Block.whiteStone.blockID);
-					this.worldServerInstance.setBlock(0, 66 - var99, 0, Block.whiteStone.blockID);
-					
-					this.worldServerInstance.setBlock(-1, 63 - var99, 1, 0);
-					this.worldServerInstance.setBlock(0, 63 - var99, 1, 0);
-					this.worldServerInstance.setBlock(1, 63 - var99, 1, 0);
-					this.worldServerInstance.setBlock(1, 63 - var99, 0, 0);
-					this.worldServerInstance.setBlock(1, 63 - var99, -1, 0);
-					this.worldServerInstance.setBlock(0, 63 - var99, -1, 0);
-					this.worldServerInstance.setBlock(-1, 63 - var99, -1, 0);
-					this.worldServerInstance.setBlock(-1, 63 - var99, 0, 0);
-					this.worldServerInstance.setBlock(0, 63 - var99, 0, 0);
-					
-					this.worldServerInstance.setBlock(-1, 64 - var99, 1, 0);
-					this.worldServerInstance.setBlock(0, 64 - var99, 1, 0);
-					this.worldServerInstance.setBlock(1, 64 - var99, 1, 0);
-					this.worldServerInstance.setBlock(1, 64 - var99, 0, 0);
-					this.worldServerInstance.setBlock(1, 64 - var99, -1, 0);
-					this.worldServerInstance.setBlock(0, 64 - var99, -1, 0);
-					this.worldServerInstance.setBlock(-1, 64 - var99, -1, 0);
-					this.worldServerInstance.setBlock(-1, 64 - var99, 0, 0);
-					
-					this.worldServerInstance.setBlock(-1, 65 - var99, 1, 0);
-					this.worldServerInstance.setBlock(0, 65 - var99, 1, 0);
-					this.worldServerInstance.setBlock(1, 65 - var99, 1, 0);
-					this.worldServerInstance.setBlock(1, 65 - var99, 0, 0);
-					this.worldServerInstance.setBlock(1, 65 - var99, -1, 0);
-					this.worldServerInstance.setBlock(0, 65 - var99, -1, 0);
-					this.worldServerInstance.setBlock(-1, 65 - var99, -1, 0);
-					this.worldServerInstance.setBlock(-1, 65 - var99, 0, 0);
-					this.worldServerInstance.setBlock(0, 65 - var99, 0, 0);
-					
-					this.worldServerInstance.setBlock(3, 64 - var99, 3, 0);
-					this.worldServerInstance.setBlock(3, 63 - var99, 3, 0);
-					this.worldServerInstance.setBlock(3, 62 - var99, 3, 0);
-					this.worldServerInstance.setBlock(3, 61 - var99, 3, 0);
-					this.worldServerInstance.setBlock(3, 60 - var99, 3, 0);
-					
-					this.worldServerInstance.setBlock(0, 64 - var99, 0, Blocks.promisedPortal.get().blockID);
-				}
-			}
-
-			//this.worldServerInstance.editingBlocks = false;
-
-			for (var20 = 0; var20 < 4; ++var20)
-			{
-				for (var21 = -1; var21 < 4; ++var21)
-				{
-					var22 = var29 + (var20 - 1) * var30;
-					var23 = var15 + var21;
-					var24 = var16 + (var20 - 1) * var18;
-					this.worldServerInstance.notifyBlocksOfNeighborChange(var22, var23, var24, this.worldServerInstance.getBlockId(var22, var23, var24));
-				}
-			}
-		}
-
-		return true;
-	}
-
-	@SuppressWarnings("rawtypes")
-	@Override
-	public void removeStalePortalLocations(long par1)
-	{
-		if (par1 % 100L == 0L)
-		{
-			Iterator var3 = this.field_85190_d.iterator();
-			long var4 = par1 - 600L;
-
-			while (var3.hasNext())
-			{
-				Long var6 = (Long) var3.next();
-				PortalPosition var7 = (PortalPosition) this.field_85191_c.getValueByKey(var6.longValue());
-
-				if (var7 == null || var7.lastUpdateTime < var4)
-				{
-					var3.remove();
-					this.field_85191_c.remove(var6.longValue());
-				}
-			}
-		}
-	}
-
+        return true;
+    }
 }

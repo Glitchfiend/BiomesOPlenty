@@ -76,7 +76,7 @@ public class EntitiesHelper
                 if (event.entityLiving instanceof EntityPlayerMP)
                 {
                     EntityPlayerMP thePlayer = (EntityPlayerMP) event.entityLiving;
-                    thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterFall(thePlayer.mcServer.worldServerForDimension(0)));
+                    thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(0), true));
                 }
             }
         }

@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
@@ -80,121 +81,51 @@ public class ItemBOPAncientStaff extends Item
     {
         if (par3EntityPlayer.dimension == 0)
         {
+            int i = MathHelper.floor_double(par3EntityPlayer.posX);
+            int j = 130;
+            int k = MathHelper.floor_double(par3EntityPlayer.posZ);
+            
+            boolean isAir = true;
+            
+            for (int iy = -1; iy < 4; iy++)
+            {
+                for (int ix = -2; ix < 3; ix++)
+                    for (int iz = -2; iz < 3; iz++)
+                        if (!par2World.isAirBlock(i + ix, j + iy, k + iz))
+                        {
+                            isAir = false;
+                        }
+            }
 
-            if (par2World.getBlockId(0, 64 - 32, 0) != Blocks.promisedPortal.get().blockID)
+            if (isAir)
             {
 
                 if (!par3EntityPlayer.worldObj.isRemote)
                 {
-                    par3EntityPlayer.addChatMessage("\u00a75A gateway to the \u00a76\u00a7l\u00a7nPromised Land\u00a75 has been buried at the origin of this world.");
+                    par3EntityPlayer.addChatMessage("\u00a75A gateway to the \u00a76\u00a7l\u00a7nPromised Land\u00a75 has been created in the sky.");
+                }
+                
+                
+                
+                boolean flag;
+
+                for (int iy = -1; iy < 4; iy++)
+                {
+                    for (int ix = -2; ix < 3; ix++)
+                        for (int iz = -2; iz < 3; iz++)
+                        {
+                            flag = ix == -2 || ix == 2 || iz == -2 || iz == 2 || iy == -1 || iy == 3;
+                            par2World.setBlock(i + ix, j + iy, k + iz, flag ? Block.whiteStone.blockID : 0);
+                        }
+                    
+                    for (int ix = -2; ix < 3; ix++)
+                        for (int iz = -2; iz < 3; iz++)
+                        {
+                            par2World.notifyBlocksOfNeighborChange(i + ix, j + iy, k + iz, par2World.getBlockId(i + ix, j + iy, k + iz));
+                        }
                 }
 
-                int var99 = 32;
-
-                par2World.setBlock(-1, 62 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(0, 62 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 62 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 62 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(1, 62 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(0, 62 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 62 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 62 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(0, 62 - var99, 0, Block.whiteStone.blockID);
-
-                par2World.setBlock(-1, 63 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(0, 63 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(1, 63 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(2, 63 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(2, 63 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(2, 63 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 63 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(0, 63 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 63 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 63 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 63 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 63 - var99, 1, Block.whiteStone.blockID);
-
-                par2World.setBlock(-1, 64 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(0, 64 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(1, 64 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(2, 64 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(2, 64 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(2, 64 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 64 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(0, 64 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 64 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 64 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 64 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 64 - var99, 1, Block.whiteStone.blockID);
-
-                par2World.setBlock(-1, 65 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(0, 65 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(1, 65 - var99, 2, Block.whiteStone.blockID);
-                par2World.setBlock(2, 65 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(2, 65 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(2, 65 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 65 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(0, 65 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 65 - var99, -2, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 65 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 65 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(-2, 65 - var99, 1, Block.whiteStone.blockID);
-
-                par2World.setBlock(-1, 66 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(0, 66 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 66 - var99, 1, Block.whiteStone.blockID);
-                par2World.setBlock(1, 66 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(1, 66 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(0, 66 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 66 - var99, -1, Block.whiteStone.blockID);
-                par2World.setBlock(-1, 66 - var99, 0, Block.whiteStone.blockID);
-                par2World.setBlock(0, 66 - var99, 0, Block.whiteStone.blockID);
-
-                par2World.setBlock(-1, 63 - var99, 1, 0);
-                par2World.setBlock(0, 63 - var99, 1, 0);
-                par2World.setBlock(1, 63 - var99, 1, 0);
-                par2World.setBlock(1, 63 - var99, 0, 0);
-                par2World.setBlock(1, 63 - var99, -1, 0);
-                par2World.setBlock(0, 63 - var99, -1, 0);
-                par2World.setBlock(-1, 63 - var99, -1, 0);
-                par2World.setBlock(-1, 63 - var99, 0, 0);
-                par2World.setBlock(0, 63 - var99, 0, 0);
-
-                par2World.setBlock(-1, 64 - var99, 1, 0);
-                par2World.setBlock(0, 64 - var99, 1, 0);
-                par2World.setBlock(1, 64 - var99, 1, 0);
-                par2World.setBlock(1, 64 - var99, 0, 0);
-                par2World.setBlock(1, 64 - var99, -1, 0);
-                par2World.setBlock(0, 64 - var99, -1, 0);
-                par2World.setBlock(-1, 64 - var99, -1, 0);
-                par2World.setBlock(-1, 64 - var99, 0, 0);
-
-                par2World.setBlock(-1, 65 - var99, 1, 0);
-                par2World.setBlock(0, 65 - var99, 1, 0);
-                par2World.setBlock(1, 65 - var99, 1, 0);
-                par2World.setBlock(1, 65 - var99, 0, 0);
-                par2World.setBlock(1, 65 - var99, -1, 0);
-                par2World.setBlock(0, 65 - var99, -1, 0);
-                par2World.setBlock(-1, 65 - var99, -1, 0);
-                par2World.setBlock(-1, 65 - var99, 0, 0);
-                par2World.setBlock(0, 65 - var99, 0, 0);
-
-                par2World.setBlock(0, 64 - var99, 0, Blocks.promisedPortal.get().blockID);
-
-                par2World.setBlock(-2, 64 - var99, 2, 0);
-                par2World.setBlock(2, 64 - var99, 2, 0);
-                par2World.setBlock(2, 64 - var99, -2, 0);
-                par2World.setBlock(-2, 64 - var99, -2, 0);
-
-                par2World.setBlock(-2, 65 - var99, 2, 0);
-                par2World.setBlock(2, 65 - var99, 2, 0);
-                par2World.setBlock(2, 65 - var99, -2, 0);
-                par2World.setBlock(-2, 65 - var99, -2, 0);
-
-                par2World.setBlock(-2, 66 - var99, 2, 0);
-                par2World.setBlock(2, 66 - var99, 2, 0);
-                par2World.setBlock(2, 66 - var99, -2, 0);
-                par2World.setBlock(-2, 66 - var99, -2, 0);
+                par2World.setBlock(i, j + 1, k, Blocks.promisedPortal.get().blockID);
                 
                 par1ItemStack.setItemDamage(4);
             }
