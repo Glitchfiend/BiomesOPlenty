@@ -303,7 +303,10 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     
     private static int getTypeFromMeta(int meta)
     {
-      return meta & 7;
+        meta = meta & 7;
+        if (meta < 0 || meta >= leaves.length)
+            meta = 0;
+        return meta;
     }
     
     @SideOnly(Side.CLIENT)

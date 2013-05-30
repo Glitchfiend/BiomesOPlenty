@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.worldgen.WorldGenAcacia;
 import biomesoplenty.worldgen.WorldGenMangrove;
@@ -89,6 +90,18 @@ public class BlockBOPColorizedSapling extends BlockSapling
             return blockID == Block.sand.blockID;
         else
             return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
+    }
+    
+    @Override
+    public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+    {
+        Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
+        if (par1World.getBlockMetadata(par2, par3, par4) != 1)
+            return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
+                    (soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this));
+        else
+            return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
+                    (soil != null && (soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this) || soil.blockID == Block.sand.blockID));
     }
     
     @Override
