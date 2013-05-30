@@ -23,6 +23,7 @@ import biomesoplenty.items.projectiles.RenderDart;
 import biomesoplenty.mobs.EntityGlob;
 import biomesoplenty.mobs.RenderGlob;
 import biomesoplenty.particles.EntityDandelionFX;
+import biomesoplenty.particles.EntitySteamFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -42,6 +43,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
 		
+		//TODO: Remove upon Fluid API being integrated into Forge
 		FluidRegistry.renderIdFluid = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(RenderBlockFluid.instance);
 	}
@@ -58,7 +60,7 @@ public class ClientProxy extends CommonProxy {
          else if (string == "dandelion")
              entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
          
- 		mc.effectRenderer.addEffect(entityfx);
+		mc.effectRenderer.addEffect(entityfx);
 	} 
 
 	@Override

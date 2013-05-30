@@ -19,6 +19,7 @@ public class BOPLiquidHelper
 	@SideOnly(Side.CLIENT)
 	public void textureHook(TextureStitchEvent.Post event) 
 	{
+		//TODO: Remove upon Fluid API being integrated into Forge
 		FluidRegistry.WATER.setIcons(BlockFluid.func_94424_b("water"), BlockFluid.func_94424_b("water_flow"));
 		FluidRegistry.LAVA.setIcons(BlockFluid.func_94424_b("lava"), BlockFluid.func_94424_b("lava_flow"));
 	}

@@ -13,6 +13,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Liquids;
 import biomesoplenty.api.Potions;
 import biomesoplenty.ftfluidsapi.BlockFluidClassic;
@@ -48,7 +49,7 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 
         if (par5Random.nextInt(6) == 0)
         {
-            par1World.spawnParticle("smoke", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.0F), (double)((float)par4 + par5Random.nextFloat()), 0.0D, 0.0D, 0.0D);
+            BiomesOPlenty.proxy.spawnParticle("steam", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.0F), (double)((float)par4 + par5Random.nextFloat()));
         }
     }
 	
