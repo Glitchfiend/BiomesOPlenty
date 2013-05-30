@@ -47,7 +47,7 @@ public class BlockFluidSpringWater extends BlockFluidClassic
     {
         super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
 
-        if (par5Random.nextInt(6) == 0)
+        if (par5Random.nextInt(1) == 0)
         {
             BiomesOPlenty.proxy.spawnParticle("steam", (double)((float)par2 + par5Random.nextFloat()), (double)((float)par3 + 1.0F), (double)((float)par4 + par5Random.nextFloat()));
         }

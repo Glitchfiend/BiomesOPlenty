@@ -43,10 +43,10 @@ public class ItemBOPAncientStaff extends Item
     {
         textures = new Icon[parts.length];
         
-        for (int i = 0; i < parts.length - 1; ++i)
+        for (int i = 0; i < parts.length; ++i)
             textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+parts[i]);
         
-        textures[parts.length - 1] = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
+        //textures[parts.length - 1] = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
     }
     
     @Override
@@ -102,7 +102,7 @@ public class ItemBOPAncientStaff extends Item
 
                 if (!par3EntityPlayer.worldObj.isRemote)
                 {
-                    par3EntityPlayer.addChatMessage("\u00a75A gateway to the \u00a76\u00a7l\u00a7nPromised Land\u00a75 has been created in the sky.");
+                    par3EntityPlayer.addChatMessage("A gateway to the Promised Land has appeared in the sky above.");
                 }
                 
                 
