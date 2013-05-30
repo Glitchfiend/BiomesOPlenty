@@ -23,6 +23,8 @@ public class EntitySteamFX extends EntityFX
 	public EntitySteamFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12, float par14)
 	{
 		super(par1World, par2, par4, par6, 0.0D, 0.0D, 0.0D);
+		this.setParticleTextureIndex(9);
+	    this.noClip = false;
 		this.motionX *= 0.10000000149011612D;
 		this.motionY *= 0.10000000149011612D;
 		this.motionZ *= 0.10000000149011612D;
@@ -33,26 +35,9 @@ public class EntitySteamFX extends EntityFX
 		this.particleScale *= par14;
 		this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
 		this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
-		this.noClip = false;
-	}
-	
-	@Override
-	public int getFXLayer()
-	{
-		return 1;
-	}
-	
-	@Override
-	public void setParticleTextureIndex(int par1)
-	{
 	}
 
-	@Override
-	public void setParticleIcon(RenderEngine par1RenderEngine, Icon par2Icon)
-	{
-	}
-
-	public void renderParticle(Tessellator par1Tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
+	public void renderParticle(Tessellator tessellator, float par2, float par3, float par4, float par5, float par6, float par7)
 	{
         float f6 = ((float)this.particleAge + par2) / (float)this.particleMaxAge * 32.0F;
 
@@ -67,6 +52,13 @@ public class EntitySteamFX extends EntityFX
         }
         
         this.particleScale = this.particleScale * f6;
+        
+	    tessellator.draw();
+	    GL11.glPushMatrix();
+
+	    GL11.glDepthMask(false);
+	    GL11.glEnable(3042);
+	    GL11.glBlendFunc(770, 1);
 		
 	    FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 
@@ -74,13 +66,25 @@ public class EntitySteamFX extends EntityFX
 	    float var13 = (float)(this.prevPosX + (this.posX - this.prevPosX) * par2 - EntityFX.interpPosX);
 	    float var14 = (float)(this.prevPosY + (this.posY - this.prevPosY) * par2 - EntityFX.interpPosY);
 	    float var15 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * par2 - EntityFX.interpPosZ);
-	    //float var16 = 1.2F - (float)Math.random() * 0.5F;
-		float var16 = 1.2F * 0.5F;
-	    par1Tessellator.setColorRGBA_F(this.particleRed * var16, this.particleGreen * var16, this.particleBlue * var16, 1.0F);
-	    par1Tessellator.addVertexWithUV(var13 - par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 - par5 * sizeFactor - par7 * sizeFactor, 0.0D, 1.0D);
-	    par1Tessellator.addVertexWithUV(var13 - par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 - par5 * sizeFactor + par7 * sizeFactor, 1.0D, 1.0D);
-	    par1Tessellator.addVertexWithUV(var13 + par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 + par5 * sizeFactor + par7 * sizeFactor, 1.0D, 0.0D);
-	    par1Tessellator.addVertexWithUV(var13 + par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 + par5 * sizeFactor - par7 * sizeFactor, 0.0D, 0.0D);
+		
+	    tessellator.startDrawingQuads();
+	    tessellator.setBrightness(10);
+		
+	    tessellator.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, 1.0F);
+	    tessellator.addVertexWithUV(var13 - par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 - par5 * sizeFactor - par7 * sizeFactor, 0.0D, 1.0D);
+	    tessellator.addVertexWithUV(var13 - par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 - par5 * sizeFactor + par7 * sizeFactor, 1.0D, 1.0D);
+	    tessellator.addVertexWithUV(var13 + par3 * sizeFactor + par6 * sizeFactor, var14 + par4 * sizeFactor, var15 + par5 * sizeFactor + par7 * sizeFactor, 1.0D, 0.0D);
+	    tessellator.addVertexWithUV(var13 + par3 * sizeFactor - par6 * sizeFactor, var14 - par4 * sizeFactor, var15 + par5 * sizeFactor - par7 * sizeFactor, 0.0D, 0.0D);
+	    
+	    tessellator.draw();
+
+	    GL11.glDisable(3042);
+	    GL11.glDepthMask(true);
+
+	    GL11.glPopMatrix();
+
+	    FMLClientHandler.instance().getClient().renderEngine.bindTexture("/particles.png");
+	    tessellator.startDrawingQuads();
 	}
 
 	/**
@@ -97,6 +101,7 @@ public class EntitySteamFX extends EntityFX
 			this.setDead();
 		}
 
+        this.setParticleTextureIndex(7 - this.particleAge * 8 / this.particleMaxAge);
 		this.motionY += 0.004D;
 		this.moveEntity(this.motionX, this.motionY, this.motionZ);
 

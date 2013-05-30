@@ -59,6 +59,8 @@ public class ClientProxy extends CommonProxy {
              entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
          else if (string == "dandelion")
              entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
+         else if (string == "steam")
+             entityfx = new EntitySteamFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
          
 		mc.effectRenderer.addEffect(entityfx);
 	} 
