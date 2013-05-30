@@ -1,5 +1,5 @@
 
-package biomesoplenty.ftfluidsapi;
+package net.minecraftforge.fluids;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

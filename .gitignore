@@ -17,7 +17,14 @@ conf/*
 bin/*
 
 src/minecraft/cpw/*
-src/minecraft/net/*
+src/minecraft/net/minecraft/*
+src/minecraft/net/minecraftforge/classloading/*
+src/minecraft/net/minecraftforge/common/*
+src/minecraft/net/minecraftforge/client/*
+src/minecraft/net/minecraftforge/event/*
+src/minecraft/net/minecraftforge/liquids/*
+src/minecraft/net/minecraftforge/oredict/*
+src/minecraft/net/minecraftforge/transformers/*
 src/minecraft/paulscode/*
 src/minecraft/ibxm/*
 

@@ -1,5 +1,5 @@
 
-package biomesoplenty.ftfluidsapi;
+package net.minecraftforge.fluids;
 
 /**
  * A tank is the unit of interaction with Fluid inventories.

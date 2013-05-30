@@ -1,5 +1,5 @@
 
-package biomesoplenty.ftfluidsapi;
+package net.minecraftforge.fluids;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;

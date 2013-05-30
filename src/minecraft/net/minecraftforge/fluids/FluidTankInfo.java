@@ -1,5 +1,5 @@
 
-package biomesoplenty.ftfluidsapi;
+package net.minecraftforge.fluids;
 
 /**
  * Wrapper class used to encapsulate information about an IFluidTank.

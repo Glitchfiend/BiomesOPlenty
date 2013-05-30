@@ -8,8 +8,8 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import biomesoplenty.api.Liquids;
-import biomesoplenty.ftfluidsapi.FluidRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
