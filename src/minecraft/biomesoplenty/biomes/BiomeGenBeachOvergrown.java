@@ -5,7 +5,8 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenBogBush;
+import biomesoplenty.worldgen.WorldGenChaparral2;
+import biomesoplenty.worldgen.WorldGenChaparral3;
 
 public class BiomeGenBeachOvergrown extends BiomeGenBase
 {
@@ -19,20 +20,19 @@ public class BiomeGenBeachOvergrown extends BiomeGenBase
 		spawnableCreatureList.clear();
 		topBlock = (byte)Block.sand.blockID;
 		fillerBlock = (byte)Block.sand.blockID;
-		theBiomeDecorator.treesPerChunk = 15;
-		theBiomeDecorator.deadBushPerChunk = 1;
+		theBiomeDecorator.treesPerChunk = 32;
+		theBiomeDecorator.deadBushPerChunk = 3;
 		customBiomeDecorator.duneGrassPerChunk = 25;
-		theBiomeDecorator.reedsPerChunk = -999;
-		theBiomeDecorator.cactiPerChunk = 1;
-		customBiomeDecorator.outbackPerChunk = 5;
+		theBiomeDecorator.cactiPerChunk = 10;
+		customBiomeDecorator.outbackPerChunk = 7;
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
-	 @Override
-	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	 {
-		 return new WorldGenBogBush();
-	 }
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(3) == 0 ? new WorldGenChaparral2() : new WorldGenChaparral3();
+	}
 }
