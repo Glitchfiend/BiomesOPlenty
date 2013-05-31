@@ -1,11 +1,16 @@
 package biomesoplenty.biomes;
 
+import java.util.Random;
+
+import biomesoplenty.worldgen.WorldGenBoneSpine;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenNetherBone extends BiomeGenBase
 {
@@ -18,6 +23,8 @@ public class BiomeGenNetherBone extends BiomeGenBase
         this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		this.topBlock = (byte)Block.netherrack.blockID;
         this.fillerBlock = (byte)Block.netherrack.blockID;
+		this.customBiomeDecorator.boneSpinesPerChunk = 6;
+		this.customBiomeDecorator.boneSpines2PerChunk = 9;
         this.spawnableMonsterList.clear();
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

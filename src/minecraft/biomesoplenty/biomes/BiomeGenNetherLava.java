@@ -36,7 +36,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
         this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 50, 4, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 4, 4, 4));
-		this.theWorldGenerator = new WorldGenLavaSpring(Block.lavaMoving.blockID, 8);
+		this.theWorldGenerator = new WorldGenLavaSpring(Block.lavaMoving.blockID, 4);
     }
 	
     /**
@@ -55,7 +55,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
         int var7;
         int var8;
 
-        for (var5 = 0; var5 < 5; ++var5)
+        for (var5 = 0; var5 < 3; ++var5)
         {
             var6 = par3 + par2Random.nextInt(16);
             var7 = 64 + par2Random.nextInt(64);

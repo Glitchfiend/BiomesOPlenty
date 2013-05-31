@@ -46,6 +46,8 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Liquids;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
+import biomesoplenty.worldgen.WorldGenBoneSpine;
+import biomesoplenty.worldgen.WorldGenBoneSpine2;
 import biomesoplenty.worldgen.WorldGenBOPFlowers;
 import biomesoplenty.worldgen.WorldGenBoulder;
 import biomesoplenty.worldgen.WorldGenBush;
@@ -194,6 +196,9 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator sunflowerGen;
 	protected WorldGenerator crystalGen;
 	protected WorldGenerator crystalGen2;
+	
+	protected WorldGenerator boneSpineGen;
+	protected WorldGenerator boneSpine2Gen;
 
     /** Field that holds mushroomBrown WorldGenFlowers */
     protected WorldGenerator mushroomBrownGen;
@@ -268,6 +273,9 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int netherVinesPerChunk;
 	protected int poisonIvyPerChunk;
 	protected int sunflowersPerChunk;
+	
+	protected int boneSpinesPerChunk;
+	protected int boneSpines2PerChunk;
 
     /** The amount of tall grass to generate per chunk. */
     protected int grassPerChunk;
@@ -413,6 +421,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.sunflowerGen = new WorldGenSunflower(Blocks.flowers.get().blockID, 13);
 		this.promisedWillowGen = new WorldGenPromisedWillow();
 		this.netherVineGen = new WorldGenNetherVines();
+		this.boneSpineGen = new WorldGenBoneSpine();
+		this.boneSpine2Gen = new WorldGenBoneSpine2();
         this.cattailGen = new WorldGenCattail();
 		this.crystalGen = new WorldGenCrystal1();
 		this.crystalGen2 = new WorldGenCrystal2();
@@ -512,6 +522,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		this.poisonWaterPerChunk = 0;
 		this.crystalsPerChunk = 0;
 		this.crystals2PerChunk = 0;
+		this.boneSpinesPerChunk = 0;
+		this.boneSpines2PerChunk = 0;
         this.generateLakes = true;
         this.generateAsh = false;
         this.generateMycelium = false;
@@ -846,6 +858,22 @@ public class BiomeDecoratorBOP extends BiomeDecorator
             var4 = this.randomGenerator.nextInt(128);
             var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
             this.sunflowerGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.boneSpinesPerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(128);
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.boneSpineGen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
+        }
+		
+		for (var2 = 0; var2 < this.boneSpines2PerChunk; ++var2)
+        {
+            var3 = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
+            var4 = this.randomGenerator.nextInt(64) + 64;
+            var5 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
+            this.boneSpine2Gen.generate(this.currentWorld, this.randomGenerator, var3, var4, var5);
         }
 		
         for (var2 = 0; var2 < this.crystalsPerChunk; ++var2)
