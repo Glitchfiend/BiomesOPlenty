@@ -100,6 +100,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 	- Improved the Mangrove biome
 	- Added steam particles
 	- Tweaked grass bounding boxes
+	- Added beach variations
 
 	  Version 0.5.3 '17-05-13'
 	- Added reeds
