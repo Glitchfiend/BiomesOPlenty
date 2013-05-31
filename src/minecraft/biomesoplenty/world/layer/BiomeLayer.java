@@ -40,7 +40,7 @@ public abstract class BiomeLayer
 			obj2 = BiomeLayerZoom.func_75915_a(1000L, ((obj2)), 2);
 			//obj2 = new BWG4LayerHills(1000L, ((BiomeLayer)(obj2)), generatorSettings);
 			obj2 = new BiomeLayerZoom(1000, ((obj2)));
-			//obj2 = new BiomeLayerShore(1000L, ((BiomeLayer)(obj2)));
+			obj2 = new BiomeLayerShore(1000L, ((BiomeLayer)(obj2)));
 
 			for (int i = 0 + 1; i < size; i++)
 			{

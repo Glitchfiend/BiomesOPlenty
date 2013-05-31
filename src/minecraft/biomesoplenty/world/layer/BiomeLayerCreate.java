@@ -18,8 +18,8 @@ public class BiomeLayerCreate extends BiomeLayer
 	{
 		int[] var5 = IntCache.getIntCache(par3 * par4);
 
-		boolean coral = Biomes.oceanCoral.isPresent();
-		boolean kelp = Biomes.oceanKelp.isPresent();
+		//boolean coral = Biomes.oceanCoral.isPresent();
+		//boolean kelp = Biomes.oceanKelp.isPresent();
 
 		for (int var6 = 0; var6 < par4; ++var6)
 		{
@@ -28,9 +28,9 @@ public class BiomeLayerCreate extends BiomeLayer
 				this.initChunkSeed(par1 + var7, par2 + var6);
 				if(ocean)
 				{
-					if(coral) { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : Biomes.oceanCoral.get().biomeID; }
+					/*if(coral) { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : Biomes.oceanCoral.get().biomeID; }
 					else if(kelp) { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : Biomes.oceanKelp.get().biomeID; }
-					else { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : 0; }
+					else {*/ var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : 0; //}
 				}
 				else
 				{
