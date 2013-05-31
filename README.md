@@ -59,6 +59,48 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 
 
 ## Changelog ##
+	  Version 0.5.4 (Unreleased)'
+	- Added use animation to berry bushes
+	- Tweaked apple leaf textures
+	- Removed nether tags from overworld biomes
+	- Added several Nether Biomes
+	- Tweaked dandelion particles
+	- Apples and berries from leaves and bushes no longer spawn directly on the player
+	- Fixed a bug with trees in the Jade Cliffs
+	- Added ivy
+	- Nerfed apple tree growth
+	- Tweaked algae generation
+	- Tweaked algae texture
+	- Adjusted the Boreal Forest
+	- Added Bone Segments
+	- Added kelp
+	- Made amethyst tools and armour repairable
+	- Overhauled the Bog biome
+	- Renamed the Swampwoods to the Sludegpit and made it like the old Bog
+	- Adjusted the Deadlands and how Smoldering Grass generates
+	- Added the Timber biome
+	- Added Spring Water
+	- Added Liquid Poison
+	- Added the Nourishment potion effect (from Spring Wtaer)
+	- Added the Paralysis potion effect (from Poison Darts)
+	- Gave the deathbloom a particle effect
+	- Made the deathbloom apply the wither effect on contact
+	- Added pine trees
+	- Tweaked the Canyon
+	- Tweaked hard dirt texture
+	- Tweaked aloe texture
+	- Tweaked fir leaf texture
+	- Added pine, hellbark and jacaranda wood, leaves, planks, stairs and slabs
+	- Added the Hot Springs biome
+	- Added Jacaranda trees
+	- Disabled oil generation in the Promised Land
+	- Adjusted quicksand generation
+	- Allowed tiny cacti and thorns to live in any light level
+	- Reworked the Promised Lands portal
+	- Improved the Mangrove biome
+	- Added steam particles
+	- Tweaked grass bounding boxes
+
 	  Version 0.5.3 '17-05-13'
 	- Added reeds
 	- Added 2 new mushrooms (Portobello and Blue Milk Cap)
