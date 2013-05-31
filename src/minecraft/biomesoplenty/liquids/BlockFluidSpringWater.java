@@ -17,13 +17,14 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.liquids.ILiquid;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Liquids;
 import biomesoplenty.api.Potions;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFluidSpringWater extends BlockFluidClassic
+public class BlockFluidSpringWater extends BlockFluidClassic implements ILiquid
 {
 	public static Icon springWaterStillIcon;
 	public static Icon springWaterFlowingIcon;
@@ -98,5 +99,23 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 	public Icon getIcon(int par1, int par2)
 	{
 		return par1 != 0 && par1 != 1 ? springWaterFlowingIcon : springWaterStillIcon;
+	}
+
+	@Override
+	public int stillLiquidId() 
+	{
+		return this.blockID;
+	}
+
+	@Override
+	public boolean isMetaSensitive() 
+	{
+		return false;
+	}
+
+	@Override
+	public int stillLiquidMeta() 
+	{
+		return 0;
 	}
 }
