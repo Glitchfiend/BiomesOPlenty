@@ -237,6 +237,12 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		{
 			case ALGAE:
 				return AxisAlignedBB.getBoundingBox(x, y, z, (double) x + 1.0D, (double) y + 0.015625D, (double) z + 1.0D);
+				
+			case 1: // Short Grass
+			    return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, (double) x + 0.9D, (double) y + 0.25D, (double) z + 0.9D);
+			    
+			case 2: // Medium Grass
+                return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, (double) x + 0.9D, (double) y + 0.6D, (double) z + 0.9D);
 
 			default:
 				return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, (double) x + 0.9D, (double) y + 0.8D, (double) z + 0.9D);
@@ -262,6 +268,20 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 				maxX = maxZ = 1.0F;
 				maxY = 0.015625F;
 				break;
+				
+			case 1: // Short grass
+			    minX = minZ = 0.1F;
+                minY = 0.0F;
+                maxX = maxZ = 0.9F;
+                maxY = 0.25F;
+                break;
+                
+			case 2: // Medium grass
+                minX = minZ = 0.1F;
+                minY = 0.0F;
+                maxX = maxZ = 0.9F;
+                maxY = 0.6F;
+                break;
 
 			default:
 				minX = minZ = 0.1F;
