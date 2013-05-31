@@ -9,22 +9,22 @@ import biomesoplenty.api.Biomes;
 
 public class BiomeLayerBiomes extends BiomeLayer
 {
-	private int dimension = 0;
-
+	private int dimension = 0; 
+	
 	private BiomeGenBase[] surfaceBiomes;
 	private static ArrayList<BiomeGenBase> oceanBiomes = new ArrayList<BiomeGenBase>();
 	private static ArrayList<BiomeGenBase> netherBiomes = new ArrayList<BiomeGenBase>();
 	private static ArrayList<BiomeGenBase> promisedBiomes = new ArrayList<BiomeGenBase>();
-
-	public BiomeLayerBiomes(long par1, BiomeLayer par3GenLayer, WorldType par4WorldType, int dim)
-	{
-		super(par1);
+	
+    public BiomeLayerBiomes(long par1, BiomeLayer par3GenLayer, WorldType par4WorldType, int dim)
+    {
+        super(par1);
 		parent = par3GenLayer;
 		dimension = dim;
-
+		
 		//SURFACE BIOMES
 		surfaceBiomes = par4WorldType.getBiomesForWorldType();
-
+		
 		//OCEAN BIOMES
 		oceanBiomes.add(BiomeGenBase.ocean);
 		if (Biomes.oceanCoral.isPresent())
@@ -57,7 +57,11 @@ public class BiomeLayerBiomes extends BiomeLayer
 		{
 			netherBiomes.add(Biomes.netherBone.get());
 		}
-
+		if (Biomes.netherBiomes.size() > 0)
+		{
+		    netherBiomes.addAll(Biomes.netherBiomes);
+		}
+		
 		//PROMISED BIOMES
 		if (Biomes.promisedLandForest.isPresent())
 		{
@@ -71,34 +75,33 @@ public class BiomeLayerBiomes extends BiomeLayer
 		{
 			promisedBiomes.add(Biomes.promisedLandSwamp.get());
 		}
-	}
+	} 
 
-	@Override
-	public int[] getInts(int par1, int par2, int par3, int par4)
-	{
-		int[] var5 = parent.getInts(par1, par2, par3, par4);
-		int[] var6 = IntCache.getIntCache(par3 * par4);
-
-		boolean coral = Biomes.oceanCoral.isPresent();
-		boolean kelp = Biomes.oceanKelp.isPresent();
-
-		for (int var7 = 0; var7 < par4; ++var7)
-		{
-			for (int var8 = 0; var8 < par3; ++var8)
-			{
-				this.initChunkSeed(var8 + par1, var7 + par2);
-				int var9 = var5[var8 + var7 * par3];
+    public int[] getInts(int par1, int par2, int par3, int par4)
+    {
+        int[] var5 = this.parent.getInts(par1, par2, par3, par4);
+        int[] var6 = IntCache.getIntCache(par3 * par4);
+        
+        boolean coral = Biomes.oceanCoral.isPresent();
+        boolean kelp = Biomes.oceanKelp.isPresent();
+        
+        for (int var7 = 0; var7 < par4; ++var7)
+        {
+            for (int var8 = 0; var8 < par3; ++var8)
+            {
+                this.initChunkSeed((long)(var8 + par1), (long)(var7 + par2));
+                int var9 = var5[var8 + var7 * par3];
 				if(dimension == 0) //SURFACE BIOMES
 				{
 					if (var9 == 0)
 					{
 						var6[var8 + var7 * par3] = 0;
 					}
-					else
+					else 
 					{
 						var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
 					}
-
+					
 					if (coral)
 					{
 						if(var9 == Biomes.oceanCoral.get().biomeID)
@@ -106,7 +109,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 							var6[var8 + var7 * par3] = oceanBiomes.get(this.nextInt(oceanBiomes.size())).biomeID;
 						}
 					}
-
+					
 					if (kelp)
 					{
 						if(var9 == Biomes.oceanKelp.get().biomeID)
@@ -128,8 +131,8 @@ public class BiomeLayerBiomes extends BiomeLayer
 				{
 					var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
 				}
-			}
-		}
-		return var6;
-	}
+            }
+        }
+        return var6;
+    }
 }
