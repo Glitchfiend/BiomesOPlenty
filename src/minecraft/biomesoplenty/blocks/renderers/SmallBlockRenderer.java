@@ -18,7 +18,7 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 		if (modelId == bonesModel)
 		{
 			int meta = world.getBlockMetadata(x, y, z);
-			
+
 			//0.062 Approx (Per pixel)
 			if (meta == 0)
 			{
@@ -71,7 +71,7 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 		if (modelID == bonesModel)
 		{
 			Tessellator tessellator = Tessellator.instance;
-			
+
 			if (metadata == 0)
 			{
 				renderer.setRenderBounds(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);

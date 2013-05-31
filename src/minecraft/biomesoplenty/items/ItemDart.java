@@ -37,25 +37,28 @@ public class ItemDart extends Item
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-	    int meta = itemStack.getItemDamage();
-        if (meta < 0 || meta >= dartTypes.length)
-            meta = 0;
-        
+		int meta = itemStack.getItemDamage();
+		if (meta < 0 || meta >= dartTypes.length) {
+			meta = 0;
+		}
+
 		return dartTypes[meta];
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
 		textures = new Icon[dartTypes.length];
 
-		for (int i = 0; i < dartTypes.length; ++i)
+		for (int i = 0; i < dartTypes.length; ++i) {
 			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + dartTypes[i]);
+		}
 	}
-	
-    @Override
-    public Icon getIconFromDamage(int meta)
-    {
-        return textures[meta];
-    }
+
+	@Override
+	public Icon getIconFromDamage(int meta)
+	{
+		return textures[meta];
+	}
 }

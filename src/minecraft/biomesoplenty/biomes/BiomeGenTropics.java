@@ -13,44 +13,44 @@ import biomesoplenty.worldgen.WorldGenPalmTree3;
 
 public class BiomeGenTropics extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
-    @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public BiomeGenTropics(int par1)
-    {
-        super(par1);
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 8;
-        this.customBiomeDecorator.grassPerChunk = 7;
-        this.customBiomeDecorator.flowersPerChunk = 10;
-        this.customBiomeDecorator.sandPerChunk = 50;
-        this.customBiomeDecorator.sandPerChunk2 = 50;
-        this.customBiomeDecorator.orangeFlowersPerChunk = 10;
-		this.customBiomeDecorator.whiteFlowersPerChunk = 4;
-		this.customBiomeDecorator.sunflowersPerChunk = 2;
-		this.customBiomeDecorator.generatePumpkins = false;
-		this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
-        this.spawnableCreatureList.clear();
-    }
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 8;
+		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.flowersPerChunk = 10;
+		customBiomeDecorator.sandPerChunk = 50;
+		customBiomeDecorator.sandPerChunk2 = 50;
+		customBiomeDecorator.orangeFlowersPerChunk = 10;
+		customBiomeDecorator.whiteFlowersPerChunk = 4;
+		customBiomeDecorator.sunflowersPerChunk = 2;
+		customBiomeDecorator.generatePumpkins = false;
+		spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
+		spawnableCreatureList.clear();
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenPalmTree1() : new WorldGenPalmTree3());
-    }
-	
-    /**
-     * takes temperature, returns color
-     */
-    public int getSkyColorByTemp(float par1)
-    {
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(3) == 0 ? new WorldGenPalmTree1() : new WorldGenPalmTree3();
+	}
+
+	/**
+	 * takes temperature, returns color
+	 */
+	@Override
+	public int getSkyColorByTemp(float par1)
+	{
 		if (BOPConfiguration.skyColors = true)
-		{
-        return 3333631;
-		}	
+			return 3333631;
 		else
 		{
 			par1 /= 3.0F;
@@ -67,5 +67,5 @@ public class BiomeGenTropics extends BiomeGenBase
 
 			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		}
-    }
+	}
 }

@@ -46,7 +46,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.4")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
-{	    
+{
 	@Instance("BiomesOPlenty")
 	public static BiomesOPlenty instance;
 
@@ -64,44 +64,48 @@ public class BiomesOPlenty
 
 		if (isClient)
 		{
-			for (String soundFile : soundFiles) try
-			{
-				File file = new File(Minecraft.getMinecraftDir().getAbsolutePath() + "/resources/mod/streaming/" + soundFile);
-				if (!file.exists()) {
-					System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
-					file.getParentFile().mkdirs();
-					file.createNewFile();
-					InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
-					OutputStream out = new FileOutputStream(file);
-					byte[] buf = new byte[1024];
-					int size = 0;
-					int len;
-					while ((len = istream.read(buf)) > 0) {
-						out.write(buf, 0, len);
-						size += len;
+			for (String soundFile : soundFiles) {
+				try
+				{
+					File file = new File(Minecraft.getMinecraftDir().getAbsolutePath() + "/resources/mod/streaming/" + soundFile);
+					if (!file.exists()) {
+						System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
+						file.getParentFile().mkdirs();
+						file.createNewFile();
+						InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
+						OutputStream out = new FileOutputStream(file);
+						byte[] buf = new byte[1024];
+						int size = 0;
+						int len;
+						while ((len = istream.read(buf)) > 0) {
+							out.write(buf, 0, len);
+							size += len;
+						}
+						out.close();
+						istream.close();
+						if (size == 0) {
+							file.delete();
+						}
 					}
-					out.close();
-					istream.close();
-					if (size == 0) file.delete();
 				}
-			}
-			catch (Exception e)
-			{
-				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed to load sound file: " + soundFile);
-				e.printStackTrace();
+				catch (Exception e)
+				{
+					FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed to load sound file: " + soundFile);
+					e.printStackTrace();
+				}
 			}
 		}
 
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
-			
+
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
-		
+
 		BOPPotions.init();
 
 		BOPBlocks.init();
 
 		BOPItems.init();
-		
+
 		BOPLiquids.init();
 
 		BOPCrafting.init();
@@ -117,7 +121,7 @@ public class BiomesOPlenty
 		{
 			AchievementHelper.init();
 		}
-		
+
 		GameRegistry.registerCraftingHandler(new BOPCraft());
 	}
 

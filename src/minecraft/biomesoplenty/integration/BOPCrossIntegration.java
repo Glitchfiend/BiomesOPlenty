@@ -3,7 +3,7 @@ package biomesoplenty.integration;
 import cpw.mods.fml.common.Loader;
 
 public class BOPCrossIntegration {
-	
+
 	public static void init()
 	{
 		if (Loader.isModLoaded("BuildCraft|Transport"))
@@ -16,7 +16,7 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
-		
+
 		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try {
@@ -38,7 +38,7 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
-		
+
 		if (Loader.isModLoaded("Forestry"))
 		{
 			try {
@@ -49,7 +49,7 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
-		
+
 		if (Loader.isModLoaded("ThermalExpansion"))
 		{
 			try {

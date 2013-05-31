@@ -12,9 +12,10 @@ public class ItemSunflowerSeeds extends ItemFood
 		setAlwaysEdible().setUnlocalizedName("sunflowerSeeds");
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-	
+
+	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:sunflowerseeds");
+		itemIcon = iconRegister.registerIcon("BiomesOPlenty:sunflowerseeds");
 	}
 }

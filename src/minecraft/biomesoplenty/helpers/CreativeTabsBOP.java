@@ -10,7 +10,7 @@ public class CreativeTabsBOP extends CreativeTabs
 	{
 		super(position, tabID); //The constructor for your tab
 	}
-	
+
 	@Override
 	public ItemStack getIconItemStack()
 	{

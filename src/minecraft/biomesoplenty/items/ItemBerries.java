@@ -12,9 +12,10 @@ public class ItemBerries extends ItemFood
 		setAlwaysEdible().setUnlocalizedName("berries");
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-	
+
+	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:berries");
+		itemIcon = iconRegister.registerIcon("BiomesOPlenty:berries");
 	}
 }

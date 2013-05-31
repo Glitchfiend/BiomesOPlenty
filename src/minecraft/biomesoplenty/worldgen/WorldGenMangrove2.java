@@ -9,29 +9,30 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenMangrove2 extends WorldGenerator
 {
-    private int field_76527_a;
-    private int field_76526_b;
+	private int field_76527_a;
+	private int field_76526_b;
 
-    public WorldGenMangrove2(int par1, int par2)
-    {
-        this.field_76526_b = par1;
-        this.field_76527_a = par2;
-    }
+	public WorldGenMangrove2(int par1, int par2)
+	{
+		field_76526_b = par1;
+		field_76527_a = par2;
+	}
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
-    {
-        int var15;
+	@Override
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	{
+		int var15;
 
-        for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized.get().blockID) && par4 > 0; --par4)
-        {
-            ;
-        }
+		for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized.get().blockID) && par4 > 0; --par4)
+		{
+			;
+		}
 
-        int var7 = par1World.getBlockId(par3, par4, par5);
+		int var7 = par1World.getBlockId(par3, par4, par5);
 
-        if (var7 == Block.sand.blockID)
-        {
-            ++par4;
+		if (var7 == Block.sand.blockID)
+		{
+			++par4;
 			this.setBlockAndMetadata(par1World, par3, par4, par5, Blocks.logs2.get().blockID,2);
 
 			for (int var8 = par4; var8 <= par4 + 1; ++var8)
@@ -54,8 +55,8 @@ public class WorldGenMangrove2 extends WorldGenerator
 					}
 				}
 			}
-        }
+		}
 
-        return true;
-    }
+		return true;
+	}
 }

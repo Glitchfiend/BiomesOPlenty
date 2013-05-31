@@ -2,13 +2,13 @@ package biomesoplenty.liquids;
 
 import net.minecraftforge.fluids.Fluid;
 
-public class SpringWaterFluid extends Fluid 
+public class SpringWaterFluid extends Fluid
 {
-	public SpringWaterFluid(String fluidName) 
+	public SpringWaterFluid(String fluidName)
 	{
 		super(fluidName);
-		
-		this.stillIcon = BlockFluidSpringWater.springWaterStillIcon;
-		this.flowingIcon = BlockFluidSpringWater.springWaterFlowingIcon;
-	}	
+
+		stillIcon = BlockFluidSpringWater.springWaterStillIcon;
+		flowingIcon = BlockFluidSpringWater.springWaterFlowingIcon;
+	}
 }

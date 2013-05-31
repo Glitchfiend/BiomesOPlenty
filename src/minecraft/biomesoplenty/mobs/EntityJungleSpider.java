@@ -9,68 +9,70 @@ import net.minecraft.world.World;
 
 public class EntityJungleSpider extends EntitySpider
 {
-    public EntityJungleSpider(World par1World)
-    {
-        super(par1World);
-        this.texture = "/mods/BiomesOPlenty/textures/mobs/junglespider.png";
-        this.setSize(0.4F, 0.3F);
-		this.moveSpeed = 1.1F;
-    }
+	public EntityJungleSpider(World par1World)
+	{
+		super(par1World);
+		texture = "/mods/BiomesOPlenty/textures/mobs/junglespider.png";
+		this.setSize(0.4F, 0.3F);
+		moveSpeed = 1.1F;
+	}
 
-    public int getMaxHealth()
-    {
-        return 8;
-    }
+	@Override
+	public int getMaxHealth()
+	{
+		return 8;
+	}
 
-    /**
-     * How large the spider should be scaled.
-     */
-    public float spiderScaleAmount()
-    {
-        return 0.4F;
-    }
-	
-    public float getShadowSize()
-    {
-        return 0.0F;
-    }
+	/**
+	 * How large the spider should be scaled.
+	 */
+	@Override
+	public float spiderScaleAmount()
+	{
+		return 0.4F;
+	}
 
-    public boolean attackEntityAsMob(Entity par1Entity)
-    {
-        if (super.attackEntityAsMob(par1Entity))
-        {
-            if (par1Entity instanceof EntityLiving)
-            {
-                byte var2 = 0;
+	@Override
+	public float getShadowSize()
+	{
+		return 0.0F;
+	}
 
-                if (this.worldObj.difficultySetting > 1)
-                {
-                    if (this.worldObj.difficultySetting == 2)
-                    {
-                        var2 = 7;
-                    }
-                    else if (this.worldObj.difficultySetting == 3)
-                    {
-                        var2 = 15;
-                    }
-                }
+	@Override
+	public boolean attackEntityAsMob(Entity par1Entity)
+	{
+		if (super.attackEntityAsMob(par1Entity))
+		{
+			if (par1Entity instanceof EntityLiving)
+			{
+				byte var2 = 0;
 
-                if (var2 > 0)
-                {
-                    ((EntityLiving)par1Entity).addPotionEffect(new PotionEffect(Potion.blindness.id, var2 * 20, 0));
-                }
-            }
+				if (worldObj.difficultySetting > 1)
+				{
+					if (worldObj.difficultySetting == 2)
+					{
+						var2 = 7;
+					}
+					else if (worldObj.difficultySetting == 3)
+					{
+						var2 = 15;
+					}
+				}
 
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+				if (var2 > 0)
+				{
+					((EntityLiving)par1Entity).addPotionEffect(new PotionEffect(Potion.blindness.id, var2 * 20, 0));
+				}
+			}
 
-    /**
-     * Initialize this creature.
-     */
-    public void initCreature() {}
+			return true;
+		} else
+			return false;
+	}
+
+	/**
+	 * Initialize this creature.
+	 */
+	 @Override
+	 public void initCreature() {}
 }

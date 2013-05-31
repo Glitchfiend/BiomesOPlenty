@@ -12,51 +12,54 @@ import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 
 public class BonemealUse
 {
-	
+
 	@ForgeSubscribe
 	public void onUseBonemeal(BonemealEvent event)
 	{
 		int meta = event.world.getBlockMetadata(event.X, event.Y, event.Z);
-		
+
 		if (event.ID == Blocks.saplings.get().blockID)
 		{
 			event.setResult(Result.ALLOW);
-			
+
 			if (!event.world.isRemote)
 			{
-			    
-			    switch (meta) 
-			    {
-			        case 3: // Magic Sapling
-			            if ((double)event.world.rand.nextFloat() < 0.10D)
-		                    ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-			            break;
-			            
-			        case 7: // Holy Sapling
-			            if ((double)event.world.rand.nextFloat() < 0.15D)
-		                    ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-			            break;
-			            
-			        case 9: // Origin Sapling
-			            ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-			            break;
-			            
-			        default:
-			            if ((double)event.world.rand.nextFloat() < 0.45D)
-		                    ((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
-			            break;
-			    }
-			    
-				
+
+				switch (meta)
+				{
+				case 3: // Magic Sapling
+					if (event.world.rand.nextFloat() < 0.10D) {
+						((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					}
+					break;
+
+				case 7: // Holy Sapling
+					if (event.world.rand.nextFloat() < 0.15D) {
+						((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					}
+					break;
+
+				case 9: // Origin Sapling
+					((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					break;
+
+				default:
+					if (event.world.rand.nextFloat() < 0.45D) {
+						((BlockBOPSapling)Blocks.saplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+					}
+					break;
+				}
+
+
 			}
 		}
 		else if (event.ID == Blocks.colorizedSaplings.get().blockID)
 		{
 			event.setResult(Result.ALLOW);
-			
+
 			if (!event.world.isRemote)
 			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
+				if (event.world.rand.nextFloat() < 0.45D)
 				{
 					((BlockBOPColorizedSapling)Blocks.colorizedSaplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
 				}
@@ -65,26 +68,26 @@ public class BonemealUse
 		else if (event.ID == Block.plantRed.blockID)
 		{
 			event.setResult(Result.ALLOW);
-			
+
 			if (!event.world.isRemote)
 			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
+				if (event.world.rand.nextFloat() < 0.45D)
 				{
-		           WorldGenGiantFlowerRed worldgengiantflowerred = new WorldGenGiantFlowerRed();
-		           worldgengiantflowerred.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
+					WorldGenGiantFlowerRed worldgengiantflowerred = new WorldGenGiantFlowerRed();
+					worldgengiantflowerred.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
 				}
 			}
 		}
 		else if (event.ID == Block.plantYellow.blockID)
 		{
 			event.setResult(Result.ALLOW);
-			
+
 			if (!event.world.isRemote)
 			{
-				if ((double)event.world.rand.nextFloat() < 0.45D)
+				if (event.world.rand.nextFloat() < 0.45D)
 				{
-		           WorldGenGiantFlowerYellow worldgengiantfloweryellow = new WorldGenGiantFlowerYellow();
-		           worldgengiantfloweryellow.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
+					WorldGenGiantFlowerYellow worldgengiantfloweryellow = new WorldGenGiantFlowerYellow();
+					worldgengiantfloweryellow.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
 				}
 			}
 		}
@@ -113,7 +116,7 @@ public class BonemealUse
 						if (!event.world.isRemote)
 						{
 							event.world.setBlock(var13, var14, var15, Blocks.plants.get().blockID, 4, 0x02);
-						}      
+						}
 					}
 				}
 			}

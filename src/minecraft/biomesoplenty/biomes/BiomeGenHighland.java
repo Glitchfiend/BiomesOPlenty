@@ -4,17 +4,17 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenHighland extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenHighland(int par1)
-    {
-        super(par1);
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = -999;
-		this.customBiomeDecorator.highGrassPerChunk = 25;
-        this.customBiomeDecorator.grassPerChunk = 25;
-		this.customBiomeDecorator.potatoesPerChunk = -999;
-		this.customBiomeDecorator.generateBoulders = true;
-    }
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = -999;
+		customBiomeDecorator.highGrassPerChunk = 25;
+		customBiomeDecorator.grassPerChunk = 25;
+		customBiomeDecorator.potatoesPerChunk = -999;
+		customBiomeDecorator.generateBoulders = true;
+	}
 }

@@ -15,76 +15,79 @@ import biomesoplenty.worldgen.WorldGenMystic2;
 
 public class BiomeGenMysticGrove extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
-    @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public BiomeGenMysticGrove(int par1)
-    {
-        super(par1);
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 8;
-        this.customBiomeDecorator.grassPerChunk = 7;
-        this.customBiomeDecorator.flowersPerChunk = 8;
-		this.customBiomeDecorator.pinkFlowersPerChunk = 6;
-        this.customBiomeDecorator.glowFlowersPerChunk = 15;
-        this.customBiomeDecorator.rosesPerChunk = 8;
-        this.customBiomeDecorator.sandPerChunk = -999;
-        this.customBiomeDecorator.sandPerChunk2 = -999;
-		this.customBiomeDecorator.sproutsPerChunk = 3;
-		this.customBiomeDecorator.hydrangeasPerChunk = 3;
-		this.customBiomeDecorator.blueMilksPerChunk = 4;
-		this.customBiomeDecorator.glowshroomsPerChunk = 2;
-		this.customBiomeDecorator.lilyflowersPerChunk = 3;
-		this.customBiomeDecorator.hotSpringsPerChunk = 2;
-        this.waterColorMultiplier = 15349914;
-		this.spawnableMonsterList.clear();
-        this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
-		this.spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));
-    }
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 8;
+		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.flowersPerChunk = 8;
+		customBiomeDecorator.pinkFlowersPerChunk = 6;
+		customBiomeDecorator.glowFlowersPerChunk = 15;
+		customBiomeDecorator.rosesPerChunk = 8;
+		customBiomeDecorator.sandPerChunk = -999;
+		customBiomeDecorator.sandPerChunk2 = -999;
+		customBiomeDecorator.sproutsPerChunk = 3;
+		customBiomeDecorator.hydrangeasPerChunk = 3;
+		customBiomeDecorator.blueMilksPerChunk = 4;
+		customBiomeDecorator.glowshroomsPerChunk = 2;
+		customBiomeDecorator.lilyflowersPerChunk = 3;
+		customBiomeDecorator.hotSpringsPerChunk = 2;
+		waterColorMultiplier = 15349914;
+		spawnableMonsterList.clear();
+		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
+		spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : new WorldGenMystic1(false));
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : new WorldGenMystic1(false);
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-    {
-        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	{
+		return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+	}
 
-    /**
-     * Provides the basic grass color based on the biome temperature and rainfall
-     */
-    public int getBiomeGrassColor()
-    {
-        return 7004860;
-    }
-	
-    /**
-     * Provides the basic foliage color based on the biome temperature and rainfall
-     */
-    public int getBiomeFoliageColor()
-    {
-        return 3530896;
-    }
-	
-    /**
-     * takes temperature, returns color
-     */
-    public int getSkyColorByTemp(float par1)
-    {
+	/**
+	 * Provides the basic grass color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 7004860;
+	}
+
+	/**
+	 * Provides the basic foliage color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeFoliageColor()
+	{
+		return 3530896;
+	}
+
+	/**
+	 * takes temperature, returns color
+	 */
+	@Override
+	public int getSkyColorByTemp(float par1)
+	{
 		if (BOPConfiguration.skyColors = true)
-		{
-        return 16751558;
-		}	
+			return 16751558;
 		else
 		{
 			par1 /= 3.0F;
@@ -101,5 +104,5 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 
 			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		}
-    }
+	}
 }

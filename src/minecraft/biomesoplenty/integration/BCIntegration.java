@@ -5,26 +5,26 @@ import biomesoplenty.api.BlockReferences;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class BCIntegration {
-	
+
 	public static void init()
 	{
 		addFacades();
 		excludeOilGeneration();
 	}
-	
+
 	private static void excludeOilGeneration()
 	{
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandForest.get().biomeID));
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandPlains.get().biomeID));
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandSwamp.get().biomeID));
-	    
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBase.get().biomeID));
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBone.get().biomeID));
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherDesert.get().biomeID));
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherGarden.get().biomeID));
-	    FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherLava.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandForest.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandPlains.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandSwamp.get().biomeID));
+
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBase.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBone.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherDesert.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherGarden.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherLava.get().biomeID));
 	}
-	
+
 	private static void addFacades()
 	{
 		//Wood
@@ -43,7 +43,7 @@ public class BCIntegration {
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("willowLog") + "@" + getBMeta("willowLog"));
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("deadLog") + "@" + getBMeta("deadLog"));
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("bigFlowerStem") + "@" + getBMeta("bigFlowerStem"));
-		
+
 		//Planks
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("acaciaPlank") + "@" + getBMeta("acaciaPlank"));
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("cherryPlank") + "@" + getBMeta("cherryPlank"));
@@ -80,11 +80,11 @@ public class BCIntegration {
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("giantFlowerRed") + "@" + getBMeta("giantFlowerRed"));
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("giantFlowerYellow") + "@" + getBMeta("giantFlowerYellow"));
 	}
-	
+
 	private static int getBID(String name) {
 		return BlockReferences.getBlockID(name);
 	}
-	
+
 	private static int getBMeta(String name) {
 		return BlockReferences.getBlockMeta(name);
 	}

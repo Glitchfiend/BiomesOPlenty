@@ -18,113 +18,115 @@ public class BlockBOPStairs extends BlockStairs
 		private final List<String> values;
 		private String type;
 
-		private Category(String type) 
+		private Category(String type)
 		{
 			this.type = type;
-	        this.values = Arrays.asList(type);
+			values = Arrays.asList(type);
 		}
 	}
-    
-    private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda"};
-    private static final String[] stoneTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
-    private Icon[] textures;
-    
-    private final Category category;
 
-    public BlockBOPStairs(int blockID, Block model, Category cat)
-    {
-        super(blockID, model, 0);
-        category = cat;
-        setBurnProperties(this.blockID, 5, 20);
-        this.setLightOpacity(0);
-        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-    }
-    
-    @Override
-    public void registerIcons(IconRegister iconRegister)
-    {
-        if (isStoneCategory(category.toString()))
-        {
-            textures = new Icon[stoneTypes.length];
-            
-            for (int i = 0; i < stoneTypes.length; ++i)
-                textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+stoneTypes[i]);
-        }
-        else
-        {
-            textures = new Icon[woodTypes.length];
-            
-            for (int i = 0; i < woodTypes.length; ++i)
-                textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+woodTypes[i]);
-        }
-    }
-    
-    public boolean isWoodCategory(String block)
-    {
-    	String type = Category.valueOf(block).type;
-    	
-    	if (type == "wood")    	
-    		return true;
-    	else
-    		return false;
-    }
-    
-    public boolean isStoneCategory(String block)
-    {
-    	String type = Category.valueOf(block).type;
-    	
-    	if (type == "stone")    	
-    		return true;
-    	else
-    		return false;
-    }
-    
-    public static int getWoodCategoryAmount()
-    {
-    	int woodCatNo = 0;
-    	
-        for (Category cat : Category.values()) 
-        {
-            if (cat.values.contains("wood")) 
-            {
-                ++woodCatNo;
-            }
-        }
-        
-        return woodCatNo;
-    }
-    
-    public static int getStoneCategoryAmount()
-    {
-    	int woodCatNo = 0;
-    	
-        for (Category cat : Category.values()) 
-        {
-            if (cat.values.contains("stone")) 
-            {
-                ++woodCatNo;
-            }
-        }
-        
-        return woodCatNo;
-    }
-    
-    @Override
-    public Icon getIcon(int side, int meta)
-    {    	
-    	int adjCat = category.ordinal();
+	private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda"};
+	private static final String[] stoneTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
+	private Icon[] textures;
 
-    	if (isStoneCategory(category.toString()))
-    	{
-    		adjCat = adjCat - getWoodCategoryAmount();
-    	}
+	private final Category category;
 
-    	return textures[adjCat];
-    }
-    
-    @Override
-    public int damageDropped(int meta)
-    {
-        return meta;
-    }
+	public BlockBOPStairs(int blockID, Block model, Category cat)
+	{
+		super(blockID, model, 0);
+		category = cat;
+		setBurnProperties(this.blockID, 5, 20);
+		this.setLightOpacity(0);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+	}
+
+	@Override
+	public void registerIcons(IconRegister iconRegister)
+	{
+		if (isStoneCategory(category.toString()))
+		{
+			textures = new Icon[stoneTypes.length];
+
+			for (int i = 0; i < stoneTypes.length; ++i) {
+				textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+stoneTypes[i]);
+			}
+		}
+		else
+		{
+			textures = new Icon[woodTypes.length];
+
+			for (int i = 0; i < woodTypes.length; ++i) {
+				textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+woodTypes[i]);
+			}
+		}
+	}
+
+	public boolean isWoodCategory(String block)
+	{
+		String type = Category.valueOf(block).type;
+
+		if (type == "wood")
+			return true;
+		else
+			return false;
+	}
+
+	public boolean isStoneCategory(String block)
+	{
+		String type = Category.valueOf(block).type;
+
+		if (type == "stone")
+			return true;
+		else
+			return false;
+	}
+
+	public static int getWoodCategoryAmount()
+	{
+		int woodCatNo = 0;
+
+		for (Category cat : Category.values())
+		{
+			if (cat.values.contains("wood"))
+			{
+				++woodCatNo;
+			}
+		}
+
+		return woodCatNo;
+	}
+
+	public static int getStoneCategoryAmount()
+	{
+		int woodCatNo = 0;
+
+		for (Category cat : Category.values())
+		{
+			if (cat.values.contains("stone"))
+			{
+				++woodCatNo;
+			}
+		}
+
+		return woodCatNo;
+	}
+
+	@Override
+	public Icon getIcon(int side, int meta)
+	{
+		int adjCat = category.ordinal();
+
+		if (isStoneCategory(category.toString()))
+		{
+			adjCat = adjCat - getWoodCategoryAmount();
+		}
+
+		return textures[adjCat];
+	}
+
+	@Override
+	public int damageDropped(int meta)
+	{
+		return meta;
+	}
 }

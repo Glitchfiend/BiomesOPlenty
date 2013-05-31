@@ -11,37 +11,38 @@ import biomesoplenty.BiomesOPlenty;
 
 public class ItemEnderporter extends Item
 {
-	
-    public ItemEnderporter(int par1)
-    {
-        super(par1);
-        this.maxStackSize = 1;
+
+	public ItemEnderporter(int par1)
+	{
+		super(par1);
+		maxStackSize = 1;
 		this.setMaxDamage(9);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		setUnlocalizedName("enderporter");
-    }
-	
+	}
+
+	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:enderporter");
-	}    
-    
-    public boolean hasEffect(ItemStack par1ItemStack)
-    {
-        return true;
-    }
+		itemIcon = iconRegister.registerIcon("BiomesOPlenty:enderporter");
+	}
 
-    /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {	
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack)
+	{
+		return true;
+	}
+
+	/**
+	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+	 */
+	@Override
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
 		if (par3EntityPlayer.ridingEntity != null)
-        {
-            return par1ItemStack;
-        }
-        else
-        {
+			return par1ItemStack;
+		else
+		{
 			if (par3EntityPlayer.dimension == 0)
 			{
 				par1ItemStack.damageItem(1, par3EntityPlayer);
@@ -52,7 +53,7 @@ public class ItemEnderporter extends Item
 				par3EntityPlayer.setPosition(par2World.getSpawnPoint().posX, 256, par2World.getSpawnPoint().posZ);
 				par2World.playSoundAtEntity(par3EntityPlayer, "random.levelup", 1.0F, 5.0F);
 			}
-			else 
+			else
 			{
 				if (!par3EntityPlayer.worldObj.isRemote)
 				{
@@ -60,7 +61,7 @@ public class ItemEnderporter extends Item
 				}
 			}
 
-            return par1ItemStack;
-        }
-    }
+			return par1ItemStack;
+		}
+	}
 }

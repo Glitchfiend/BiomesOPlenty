@@ -7,8 +7,9 @@ import net.minecraft.world.World;
 
 public class DispenserBehaviorDart extends BehaviorProjectileDispense
 {
+	@Override
 	protected IProjectile getProjectileEntity(World par1World, IPosition par2IPosition)
-    {
-        return new EntityDart(par1World, par2IPosition.getX(), par2IPosition.getY(), par2IPosition.getZ());
-    }
+	{
+		return new EntityDart(par1World, par2IPosition.getX(), par2IPosition.getY(), par2IPosition.getZ());
+	}
 }

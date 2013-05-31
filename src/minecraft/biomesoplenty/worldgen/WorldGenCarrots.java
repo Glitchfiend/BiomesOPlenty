@@ -9,33 +9,34 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenCarrots extends WorldGenerator
 {
-    /** Stores ID for WorldGenTallGrass */
-    private int tallGrassID;
-    private int tallGrassMetadata;
+	/** Stores ID for WorldGenTallGrass */
+	private int tallGrassID;
+	private int tallGrassMetadata;
 
-    public WorldGenCarrots(int par1, int par2)
-    {
-        this.tallGrassID = par1;
-        this.tallGrassMetadata = par2;
-    }
+	public WorldGenCarrots(int par1, int par2)
+	{
+		tallGrassID = par1;
+		tallGrassMetadata = par2;
+	}
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
-    {
-        int var11;
+	@Override
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	{
+		int var11;
 
-        for (boolean var6 = false; ((var11 = par1World.getBlockId(par3, par4, par5)) == 0 || var11 == Block.leaves.blockID) && par4 > 0; --par4)
-        {
-            ;
-        }
+		for (boolean var6 = false; ((var11 = par1World.getBlockId(par3, par4, par5)) == 0 || var11 == Block.leaves.blockID) && par4 > 0; --par4)
+		{
+			;
+		}
 
-        for (int var7 = 0; var7 < 128; ++var7)
-        {
-            int var8 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
-            int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
-            int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
+		for (int var7 = 0; var7 < 128; ++var7)
+		{
+			int var8 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
+			int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
+			int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 			int var99 = par2Random.nextInt(7);
-			
-			
+
+
 			if (par1World.getBlockMaterial(var8 - 1, var9 - 1, var10) != Material.water)
 			{
 				if (par1World.getBlockMaterial(var8 + 1, var9 - 1, var10) != Material.water)
@@ -43,20 +44,18 @@ public class WorldGenCarrots extends WorldGenerator
 					if (par1World.getBlockMaterial(var8, var9 - 1, var10 - 1) != Material.water)
 					{
 						if (par1World.getBlockMaterial(var8, var9 - 1, var10 + 1) != Material.water)
-						{
 							return false;
-						}
 					}
 				}
 			}
 
-            if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[this.tallGrassID].canBlockStay(par1World, var8, var9, var10))
-            {
+			if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[tallGrassID].canBlockStay(par1World, var8, var9, var10))
+			{
 				par1World.setBlock(var8, var9 - 1, var10, Block.tilledField.blockID);
 				par1World.setBlock(var8, var9, var10, Block.carrot.blockID, var99, 2);
-            }
-        }
+			}
+		}
 
-        return true;
-    }
+		return true;
+	}
 }

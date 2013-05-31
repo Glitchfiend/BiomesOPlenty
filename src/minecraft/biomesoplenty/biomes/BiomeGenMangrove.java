@@ -10,30 +10,31 @@ import biomesoplenty.worldgen.WorldGenMangrove2;
 
 public class BiomeGenMangrove extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenMangrove(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.clear();
-        this.topBlock = (byte)Block.sand.blockID;
-        this.fillerBlock = (byte)Block.sand.blockID;
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 6;
-        this.customBiomeDecorator.deadBushPerChunk = 1;
-		this.customBiomeDecorator.deadGrassPerChunk = 9;
-        this.customBiomeDecorator.reedsPerChunk = -999;
-        this.customBiomeDecorator.cactiPerChunk = -999;
-		this.customBiomeDecorator.desertSproutsPerChunk = 1;
-		this.customBiomeDecorator.waterLakesPerChunk = 10;
-    }
+	{
+		super(par1);
+		spawnableCreatureList.clear();
+		topBlock = (byte)Block.sand.blockID;
+		fillerBlock = (byte)Block.sand.blockID;
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 6;
+		customBiomeDecorator.deadBushPerChunk = 1;
+		customBiomeDecorator.deadGrassPerChunk = 9;
+		customBiomeDecorator.reedsPerChunk = -999;
+		customBiomeDecorator.cactiPerChunk = -999;
+		customBiomeDecorator.desertSproutsPerChunk = 1;
+		customBiomeDecorator.waterLakesPerChunk = 10;
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenMangrove2(0,0) : new WorldGenMangrove(false));
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	 @Override
+	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	 {
+		 return par1Random.nextInt(3) == 0 ? new WorldGenMangrove2(0,0) : new WorldGenMangrove(false);
+	 }
 }

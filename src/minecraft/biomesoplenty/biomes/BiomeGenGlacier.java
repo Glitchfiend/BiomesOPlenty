@@ -5,20 +5,20 @@ import biomesoplenty.api.Blocks;
 
 public class BiomeGenGlacier extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenGlacier(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.clear();
-        this.topBlock = (byte)Blocks.hardIce.get().blockID;
-        this.fillerBlock = (byte)Blocks.hardIce.get().blockID;
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = -999;
-        this.customBiomeDecorator.flowersPerChunk = -999;
-        this.customBiomeDecorator.grassPerChunk = -999;
-        this.customBiomeDecorator.sandPerChunk = -999;
-        this.customBiomeDecorator.sandPerChunk2 = -999;
-    }
+	{
+		super(par1);
+		spawnableCreatureList.clear();
+		topBlock = (byte)Blocks.hardIce.get().blockID;
+		fillerBlock = (byte)Blocks.hardIce.get().blockID;
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = -999;
+		customBiomeDecorator.flowersPerChunk = -999;
+		customBiomeDecorator.grassPerChunk = -999;
+		customBiomeDecorator.sandPerChunk = -999;
+		customBiomeDecorator.sandPerChunk2 = -999;
+	}
 }

@@ -9,24 +9,25 @@ import biomesoplenty.worldgen.WorldGenTaiga5;
 
 public class BiomeGenMapleWoods extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenMapleWoods(int par1)
-    {
-        super(par1);
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 9;
-        this.customBiomeDecorator.grassPerChunk = 1;
-		this.customBiomeDecorator.violetsPerChunk = 1;
-		this.customBiomeDecorator.poisonIvyPerChunk = 1;
-    }
-	
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(6) == 0 ? new WorldGenTaiga5(false) : new WorldGenMaple(false));
-    }
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 9;
+		customBiomeDecorator.grassPerChunk = 1;
+		customBiomeDecorator.violetsPerChunk = 1;
+		customBiomeDecorator.poisonIvyPerChunk = 1;
+	}
+
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(6) == 0 ? new WorldGenTaiga5(false) : new WorldGenMaple(false);
+	}
 }

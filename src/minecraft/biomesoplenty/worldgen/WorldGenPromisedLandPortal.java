@@ -8,8 +8,9 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenPromisedLandPortal extends WorldGenerator
 {
-    public boolean generate(World var1, Random var2, int var3, int var4, int var5)
-    {
+	@Override
+	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
+	{
 		var1.setBlock(0, 64, 0, Blocks.promisedPortal.get().blockID);
 		var1.setBlock(0, 64, 1, Blocks.promisedPortal.get().blockID);
 		var1.setBlock(1, 64, 0, Blocks.promisedPortal.get().blockID);
@@ -54,7 +55,7 @@ public class WorldGenPromisedLandPortal extends WorldGenerator
 		var1.setBlock(0, 74, 1, 0);
 		var1.setBlock(1, 74, 0, 0);
 		var1.setBlock(0, 74, 1, 0);
-		
+
 		return true;
-    }
+	}
 }

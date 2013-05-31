@@ -8,40 +8,43 @@ import biomesoplenty.worldgen.WorldGenLargeTree;
 
 public class BiomeGenField extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenField(int par1)
-    {
-        super(par1);
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.customBiomeDecorator.treesPerChunk = 1;
-        this.customBiomeDecorator.flowersPerChunk = 1;
-        this.customBiomeDecorator.grassPerChunk = 999;
-		this.customBiomeDecorator.generatePumpkins = false;
-    }
-	
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return new WorldGenLargeTree(false);
-    }
-	
-    /**
-     * Provides the basic grass color based on the biome temperature and rainfall
-     */
-    public int getBiomeGrassColor()
-    {
-        return 10878796;
-    }
+	public BiomeGenField(int par1)
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 1;
+		customBiomeDecorator.flowersPerChunk = 1;
+		customBiomeDecorator.grassPerChunk = 999;
+		customBiomeDecorator.generatePumpkins = false;
+	}
 
-    /**
-     * Provides the basic foliage color based on the biome temperature and rainfall
-     */
-    public int getBiomeFoliageColor()
-    {
-        return 10878796;
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return new WorldGenLargeTree(false);
+	}
+
+	/**
+	 * Provides the basic grass color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 10878796;
+	}
+
+	/**
+	 * Provides the basic foliage color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeFoliageColor()
+	{
+		return 10878796;
+	}
 }

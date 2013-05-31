@@ -11,21 +11,22 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenOceanKelp(int par1)
-    {
-        super(par1);
-		this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.customBiomeDecorator.grassPerChunk = 50;
-        this.spawnableCreatureList.clear();
-    }
-	
+	public BiomeGenOceanKelp(int par1)
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.grassPerChunk = 50;
+		spawnableCreatureList.clear();
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-    {
-        return new WorldGenTallGrass(Blocks.coral.get().blockID, 0);
-    }
+
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	{
+		return new WorldGenTallGrass(Blocks.coral.get().blockID, 0);
+	}
 }

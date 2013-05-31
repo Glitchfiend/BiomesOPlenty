@@ -9,43 +9,46 @@ import biomesoplenty.worldgen.WorldGenJacarandaShrub;
 
 public class BiomeGenHeathland extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenHeathland(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.clear();
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 3;
-        this.customBiomeDecorator.grassPerChunk = 10;
-        this.customBiomeDecorator.purpleFlowersPerChunk = 30;
-        this.customBiomeDecorator.deadBushPerChunk = 2;
-		this.customBiomeDecorator.berryBushesPerChunk = 1;
-		this.customBiomeDecorator.generatePumpkins = false;
-    }
+	{
+		super(par1);
+		spawnableCreatureList.clear();
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 3;
+		customBiomeDecorator.grassPerChunk = 10;
+		customBiomeDecorator.purpleFlowersPerChunk = 30;
+		customBiomeDecorator.deadBushPerChunk = 2;
+		customBiomeDecorator.berryBushesPerChunk = 1;
+		customBiomeDecorator.generatePumpkins = false;
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenJacarandaShrub(0, 0) : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : this.worldGeneratorTrees));
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(3) == 0 ? new WorldGenJacarandaShrub(0, 0) : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : worldGeneratorTrees);
+	}
 
-    /**
-     * Provides the basic grass color based on the biome temperature and rainfall
-     */
-    public int getBiomeGrassColor()
-    {
-        return 13550967;
-    }
+	/**
+	 * Provides the basic grass color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 13550967;
+	}
 
-    /**
-     * Provides the basic foliage color based on the biome temperature and rainfall
-     */
-    public int getBiomeFoliageColor()
-    {
-        return 11454081;
-    }
+	/**
+	 * Provides the basic foliage color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeFoliageColor()
+	{
+		return 11454081;
+	}
 }

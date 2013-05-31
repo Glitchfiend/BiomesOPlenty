@@ -14,36 +14,37 @@ import biomesoplenty.worldgen.WorldGenNetherMushroom;
 public class BiomeGenNetherGarden extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
-	
-    public BiomeGenNetherGarden(int par1)
-    {
-        super(par1);
-		this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)Block.netherrack.blockID;
-        this.fillerBlock = (byte)Block.netherrack.blockID;
-		this.customBiomeDecorator.treesPerChunk = 80;
-		this.customBiomeDecorator.netherVinesPerChunk = 60;
-		this.customBiomeDecorator.mushroomsPerChunk = 30;
-		this.customBiomeDecorator.bigMushroomsPerChunk = 30;
-		this.customBiomeDecorator.netherWartPerChunk = 3;
-		this.customBiomeDecorator.netherGrassPerChunk = 10;
-		this.customBiomeDecorator.glowshroomsPerChunk = 3;
-		this.customBiomeDecorator.toadstoolsPerChunk = 5;
-        this.spawnableMonsterList.clear();
-        this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
-        this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 50, 4, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 1, 4, 4));
-    }
-	
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-		return new WorldGenNetherMushroom();
-    }
+
+	public BiomeGenNetherGarden(int par1)
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		topBlock = (byte)Block.netherrack.blockID;
+		fillerBlock = (byte)Block.netherrack.blockID;
+		customBiomeDecorator.treesPerChunk = 80;
+		customBiomeDecorator.netherVinesPerChunk = 60;
+		customBiomeDecorator.mushroomsPerChunk = 30;
+		customBiomeDecorator.bigMushroomsPerChunk = 30;
+		customBiomeDecorator.netherWartPerChunk = 3;
+		customBiomeDecorator.netherGrassPerChunk = 10;
+		customBiomeDecorator.glowshroomsPerChunk = 3;
+		customBiomeDecorator.toadstoolsPerChunk = 5;
+		spawnableMonsterList.clear();
+		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
+		spawnableCaveCreatureList.clear();
+		spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 50, 4, 4));
+		spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
+		spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 1, 4, 4));
+	}
+
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	 @Override
+	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	 {
+		 return new WorldGenNetherMushroom();
+	 }
 }

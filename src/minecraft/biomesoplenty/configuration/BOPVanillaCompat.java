@@ -10,19 +10,19 @@ import biomesoplenty.items.projectiles.DispenserBehaviorDart;
 import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
 
 public class BOPVanillaCompat {
-	
+
 	public static void init()
 	{
 		// Dispenser behavior for mud balls
 		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.mudball.get(), new DispenserBehaviorMudball());
 		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.dart.get(), new DispenserBehaviorDart());
-		
+
 		ChestGenHooks dungeon;
 		ChestGenHooks mineshaft;
 		ChestGenHooks strongholdCorridor;
 		ChestGenHooks strongholdCrossing;
 		ChestGenHooks village;
-		
+
 		dungeon = ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST);
 		mineshaft = ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR);
 		strongholdCorridor = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CORRIDOR);

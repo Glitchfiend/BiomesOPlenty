@@ -9,29 +9,30 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenCanyonShrub extends WorldGenerator
 {
-    private int field_76527_a;
-    private int field_76526_b;
+	private int field_76527_a;
+	private int field_76526_b;
 
-    public WorldGenCanyonShrub(int par1, int par2)
-    {
-        this.field_76526_b = par1;
-        this.field_76527_a = par2;
-    }
+	public WorldGenCanyonShrub(int par1, int par2)
+	{
+		field_76526_b = par1;
+		field_76527_a = par2;
+	}
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
-    {
-        int var15;
+	@Override
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	{
+		int var15;
 
-        for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized.get().blockID) && par4 > 0; --par4)
-        {
-            ;
-        }
+		for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized.get().blockID) && par4 > 0; --par4)
+		{
+			;
+		}
 
-        int var7 = par1World.getBlockId(par3, par4, par5);
+		int var7 = par1World.getBlockId(par3, par4, par5);
 
-        if (var7 == Blocks.hardDirt.get().blockID)
-        {
-            ++par4;
+		if (var7 == Blocks.hardDirt.get().blockID)
+		{
+			++par4;
 			if (par4 < 96 && par4 > 86)
 			{
 				this.setBlockAndMetadata(par1World, par3, par4, par5, Blocks.logs1.get().blockID,0);
@@ -57,8 +58,8 @@ public class WorldGenCanyonShrub extends WorldGenerator
 					}
 				}
 			}
-        }
+		}
 
-        return true;
-    }
+		return true;
+	}
 }

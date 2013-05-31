@@ -17,14 +17,14 @@ public class BlockReferences {
 		magicLog (Blocks.logs2, 1),
 		mangroveLog (Blocks.logs2, 2),
 		palmLog (Blocks.logs2, 3),
-		redwoodLog (Blocks.logs3, 0), 
+		redwoodLog (Blocks.logs3, 0),
 		willowLog (Blocks.logs3, 1),
-		deadLog (Blocks.logs3, 2), 
+		deadLog (Blocks.logs3, 2),
 		bigFlowerStem (Blocks.logs3, 3),
-		pine (Blocks.logs4, 0), 
+		pine (Blocks.logs4, 0),
 		hellbark (Blocks.logs4, 1),
-		jacaranda (Blocks.logs4, 2), 
-		
+		jacaranda (Blocks.logs4, 2),
+
 		acaciaPlank (Blocks.planks, 0),
 		cherryPlank (Blocks.planks, 1),
 		darkPlank (Blocks.planks, 2),
@@ -36,7 +36,7 @@ public class BlockReferences {
 		redwoodPlank (Blocks.planks, 8),
 		willowPlank (Blocks.planks, 9),
 		bambooThatching (Blocks.planks, 10),
-		
+
 		acaciaLeaves (Blocks.leavesColorized, 0),
 		mangroveLeaves (Blocks.leavesColorized, 1),
 		palmLeaves (Blocks.leavesColorized, 2),
@@ -44,7 +44,7 @@ public class BlockReferences {
 		willowLeaves (Blocks.leavesColorized, 4),
 		pineLeaves (Blocks.leavesColorized, 5),
 		hellbarkLeaves (Blocks.leavesColorized, 6),
-		
+
 		yellowAutumnLeaves (Blocks.leaves1, 0),
 		bambooLeaves (Blocks.leaves1, 1),
 		magicLeaves (Blocks.leaves1, 2),
@@ -57,12 +57,12 @@ public class BlockReferences {
 		pinkCherryLeaves (Blocks.leaves2, 1),
 		mapleLeaves (Blocks.leaves2, 2),
 		whiteCherryLeaves (Blocks.leaves2, 3),
-		
+
 		appleLeaves (Blocks.leavesFruit, 3),
 		appleLeavesFruitless (Blocks.leavesFruit, 0),
-		
+
 		bamboo (Blocks.bamboo, 0),
-		
+
 		poisonIvyItem (Blocks.foliage, 7),
 		sproutItem (Blocks.foliage, 5),
 		bushItem (Blocks.foliage, 4),
@@ -91,7 +91,7 @@ public class BlockReferences {
 		originSapling (Blocks.saplings, 9),
 		yellowAutumnSapling (Blocks.saplings, 1),
 		bambooSapling (Blocks.saplings, 2),
-		
+
 		mud (Blocks.mud, 0),
 		driedDirt (Blocks.driedDirt, 0),
 		redRock (Blocks.redRock, 0),
@@ -115,18 +115,18 @@ public class BlockReferences {
 		redRockCobble (Blocks.redRock, 1),
 		giantFlowerRed (Blocks.petals, 0),
 		giantFlowerYellow (Blocks.petals, 1),
-		
+
 		smallBoneSegment (Blocks.bones, 0),
 		mediumBoneSegment (Blocks.bones, 1),
 		largeBoneSegment (Blocks.bones, 2),
-		
+
 		kelp (Blocks.coral, 0),
-		
+
 		toadstool (Blocks.mushrooms, 0),
 		portobello (Blocks.mushrooms, 1),
 		bluemilk (Blocks.mushrooms, 2),
 		glowshroom (Blocks.mushrooms, 3),
-		
+
 		deadGrass (Blocks.plants, 0),
 		desertGrass (Blocks.plants, 1),
 		desertSprouts (Blocks.plants, 2),
@@ -136,12 +136,12 @@ public class BlockReferences {
 		barley (Blocks.plants, 6),
 		cattail (Blocks.plants, 7),
 		reed (Blocks.plants, 8),
-		
-		treeMoss (Blocks.treeMoss, 0),	
+
+		treeMoss (Blocks.treeMoss, 0),
 		moss (Blocks.moss, 0),
 		willow (Blocks.willow, 0),
 		ivy (Blocks.ivy, 0),
-		
+
 		clover (Blocks.flowers, 0),
 		swampFlower (Blocks.flowers, 1),
 		deathbloom (Blocks.flowers, 2),
@@ -166,11 +166,11 @@ public class BlockReferences {
 			this.block = block;
 			this.meta = meta;
 		}
-		
+
 		public Optional<? extends Block> getBlock() {
 			return block;
 		}
-		 
+
 		public int getMeta() {
 			return meta;
 		}
@@ -180,24 +180,20 @@ public class BlockReferences {
 	{
 		Optional<? extends Block> stackblock = EnumBlocks.valueOf(string).block;
 		int stackmeta = EnumBlocks.valueOf(string).meta;
-		
+
 		if (stackmeta != 0)
-		{
 			return new ItemStack(stackblock.get(), 1, stackmeta);
-		}
 		else
-		{
 			return new ItemStack(stackblock.get(), 1);
-		}
 	}
-	
+
 	public static int getBlockID(String string)
 	{
 		Optional<? extends Block> stackblock = EnumBlocks.valueOf(string).block;
 
 		return stackblock.get().blockID;
 	}
-	
+
 	public static int getBlockMeta(String string)
 	{
 		int stackmeta = EnumBlocks.valueOf(string).meta;

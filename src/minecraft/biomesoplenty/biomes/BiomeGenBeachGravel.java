@@ -5,15 +5,15 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenBeachGravel extends BiomeGenBase
 {
-    public BiomeGenBeachGravel(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.clear();
-        this.topBlock = (byte)Block.gravel.blockID;
-        this.fillerBlock = (byte)Block.gravel.blockID;
-        this.theBiomeDecorator.treesPerChunk = -999;
-        this.theBiomeDecorator.deadBushPerChunk = -999;
-        this.theBiomeDecorator.reedsPerChunk = -999;
-        this.theBiomeDecorator.cactiPerChunk = -999;
-    }
+	public BiomeGenBeachGravel(int par1)
+	{
+		super(par1);
+		spawnableCreatureList.clear();
+		topBlock = (byte)Block.gravel.blockID;
+		fillerBlock = (byte)Block.gravel.blockID;
+		theBiomeDecorator.treesPerChunk = -999;
+		theBiomeDecorator.deadBushPerChunk = -999;
+		theBiomeDecorator.reedsPerChunk = -999;
+		theBiomeDecorator.cactiPerChunk = -999;
+	}
 }

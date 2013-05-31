@@ -9,37 +9,38 @@ import biomesoplenty.worldgen.WorldGenPalmTree3;
 
 public class BiomeGenOasis extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenOasis(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.clear();
-        this.topBlock = (byte)Block.sand.blockID;
-        this.fillerBlock = (byte)Block.sand.blockID;
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 3;
-        this.customBiomeDecorator.grassPerChunk = 15;
-        this.customBiomeDecorator.reedsPerChunk = 100;
-        this.customBiomeDecorator.oasesPerChunk = 999;
-        this.customBiomeDecorator.oasesPerChunk2 = 999;
-		this.customBiomeDecorator.cactiPerChunk = 7;
-		this.customBiomeDecorator.desertSproutsPerChunk = 3;
-		this.customBiomeDecorator.tinyCactiPerChunk = 2;
-		this.customBiomeDecorator.generatePumpkins = false;
-		this.customBiomeDecorator.generateMelons = true;
-		this.customBiomeDecorator.generateQuicksand = true;
-		this.customBiomeDecorator.waterLakesPerChunk = 10;
-		this.customBiomeDecorator.aloePerChunk = 4;
-		this.customBiomeDecorator.hotSpringsPerChunk = 2;
-    }
+	{
+		super(par1);
+		spawnableCreatureList.clear();
+		topBlock = (byte)Block.sand.blockID;
+		fillerBlock = (byte)Block.sand.blockID;
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 3;
+		customBiomeDecorator.grassPerChunk = 15;
+		customBiomeDecorator.reedsPerChunk = 100;
+		customBiomeDecorator.oasesPerChunk = 999;
+		customBiomeDecorator.oasesPerChunk2 = 999;
+		customBiomeDecorator.cactiPerChunk = 7;
+		customBiomeDecorator.desertSproutsPerChunk = 3;
+		customBiomeDecorator.tinyCactiPerChunk = 2;
+		customBiomeDecorator.generatePumpkins = false;
+		customBiomeDecorator.generateMelons = true;
+		customBiomeDecorator.generateQuicksand = true;
+		customBiomeDecorator.waterLakesPerChunk = 10;
+		customBiomeDecorator.aloePerChunk = 4;
+		customBiomeDecorator.hotSpringsPerChunk = 2;
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return new WorldGenPalmTree3();
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	 @Override
+	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	 {
+		 return new WorldGenPalmTree3();
+	 }
 }

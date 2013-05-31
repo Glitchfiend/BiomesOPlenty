@@ -10,41 +10,44 @@ import biomesoplenty.worldgen.WorldGenChaparral2;
 
 public class BiomeGenBrushland extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
-    public BiomeGenBrushland(int par1)
-    {
-        super(par1);
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.customBiomeDecorator.treesPerChunk = 10;
-		this.customBiomeDecorator.grassPerChunk = 6;
-		this.customBiomeDecorator.thornsPerChunk = 4;
-		this.customBiomeDecorator.flowersPerChunk = -999;
-		this.customBiomeDecorator.generateQuicksand = true;
-    }
-	
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(2) == 0 ? new WorldGenBrush2() : (par1Random.nextInt(5) == 0 ?  new WorldGenBrush1() : new WorldGenChaparral2()));
-    }
+	public BiomeGenBrushland(int par1)
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 10;
+		customBiomeDecorator.grassPerChunk = 6;
+		customBiomeDecorator.thornsPerChunk = 4;
+		customBiomeDecorator.flowersPerChunk = -999;
+		customBiomeDecorator.generateQuicksand = true;
+	}
 
-    /**
-     * Provides the basic grass color based on the biome temperature and rainfall
-     */
-    public int getBiomeGrassColor()
-    {
-        return 13222271;
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(2) == 0 ? new WorldGenBrush2() : (par1Random.nextInt(5) == 0 ?  new WorldGenBrush1() : new WorldGenChaparral2());
+	}
 
-    /**
-     * Provides the basic foliage color based on the biome temperature and rainfall
-     */
-    public int getBiomeFoliageColor()
-    {
-        return 11716223;
-    }
+	/**
+	 * Provides the basic grass color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 13222271;
+	}
+
+	/**
+	 * Provides the basic foliage color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeFoliageColor()
+	{
+		return 11716223;
+	}
 }

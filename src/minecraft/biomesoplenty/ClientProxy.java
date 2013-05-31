@@ -27,52 +27,53 @@ import biomesoplenty.particles.EntitySteamFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
-	
-	  public static Minecraft mc = Minecraft.getMinecraft();
+
+	public static Minecraft mc = Minecraft.getMinecraft();
 
 	@Override
-	public void registerRenderers() 
+	public void registerRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0)); 
-		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart()); 
-		//RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart()); 
-		
-		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F)); 
-		
+		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
+		//RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart());
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
+
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
-		
+
 		//TODO: Remove upon Fluid API being integrated into Forge
 		FluidRegistry.renderIdFluid = RenderingRegistry.getNextAvailableRenderId();
 		RenderingRegistry.registerBlockHandler(RenderBlockFluid.instance);
 	}
-	
+
 	@Override
 	public void spawnParticle(String string, double x, double y, double z)
 	{
-        EntityFX entityfx = null;
-        
-         if (string == "mud")
-             entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
-         else if (string == "dart")
-             entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
-         else if (string == "dandelion")
-             entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
-         else if (string == "steam")
-             entityfx = new EntitySteamFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
-         
+		EntityFX entityfx = null;
+
+		if (string == "mud") {
+			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
+		} else if (string == "dart") {
+			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
+		} else if (string == "dandelion") {
+			entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
+		} else if (string == "steam") {
+			entityfx = new EntitySteamFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
+		}
+
 		mc.effectRenderer.addEffect(entityfx);
-	} 
+	}
 
 	@Override
 	public int addArmor(String armor)
 	{
 		return RenderingRegistry.addNewArmourRendererPrefix(armor);
 	}
-	
+
 	@Override
-    public void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
+	public void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);

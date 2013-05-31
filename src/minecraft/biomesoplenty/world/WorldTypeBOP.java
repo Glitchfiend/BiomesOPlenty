@@ -312,97 +312,99 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.woodland);
 		}
-		
-		
+
+
 		if (BOPConfiguration.plainsGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.plainsNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.plains);
-				}
+			}
 		}
 		if (BOPConfiguration.desertGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.desertNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.desert);
-				}
+			}
 		}
 		if (BOPConfiguration.extremeHillsGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.extremeHillsNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.extremeHills);
-				}
+			}
 		}
 		if (BOPConfiguration.forestGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.forestNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.forest);
-				}
+			}
 		}
 		if (BOPConfiguration.taigaGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.taigaNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.taiga);
-				}
+			}
 		}
 		if (BOPConfiguration.swamplandGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.swamplandNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.swampland);
-				}
+			}
 		}
 		if (BOPConfiguration.jungleGen == true)
 		{
 			if (BOPConfiguration.vanillaEnhanced == true)
-				{
+			{
 				addNewBiome(Biomes.jungleNew);
-				}
+			}
 			else
-				{
+			{
 				this.addNewBiome(BiomeGenBase.jungle);
-				}
+			}
 		}
 	}
-	
+
+	@Override
 	public WorldChunkManager getChunkManager(World var1)
-    {
-        return new WorldChunkManagerBOP(var1);
-    }
-	
-    public IChunkProvider getChunkGenerator(World world, String generatorOptions)
-    {
-        return new ChunkProviderBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
-    }
-	
+	{
+		return new WorldChunkManagerBOP(var1);
+	}
+
+	@Override
+	public IChunkProvider getChunkGenerator(World world, String generatorOptions)
+	{
+		return new ChunkProviderBOP(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
+	}
+
 	public void removeAllBiomes()
 	{
 		this.removeBiome(BiomeGenBase.plains);
@@ -415,8 +417,9 @@ public class WorldTypeBOP extends WorldType
 	}
 
 	public void addNewBiome(Optional<? extends BiomeGenBase> biome)
-    {
-		if (biome.isPresent())
+	{
+		if (biome.isPresent()) {
 			this.addNewBiome(biome.get());
-    }
+		}
+	}
 }

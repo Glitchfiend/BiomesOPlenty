@@ -1,36 +1,31 @@
 package biomesoplenty.biomes;
 
-import java.util.Random;
-
-import biomesoplenty.worldgen.WorldGenBoneSpine;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenNetherBone extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
-	
-    public BiomeGenNetherBone(int par1)
-    {
-        super(par1);
-		this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		this.topBlock = (byte)Block.netherrack.blockID;
-        this.fillerBlock = (byte)Block.netherrack.blockID;
-		this.customBiomeDecorator.boneSpinesPerChunk = 6;
-		this.customBiomeDecorator.boneSpines2PerChunk = 9;
-        this.spawnableMonsterList.clear();
-        this.spawnableCreatureList.clear();
-        this.spawnableWaterCreatureList.clear();
-        this.spawnableCaveCreatureList.clear();
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 50, 4, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 1, 4, 4));
-    }
+
+	public BiomeGenNetherBone(int par1)
+	{
+		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		topBlock = (byte)Block.netherrack.blockID;
+		fillerBlock = (byte)Block.netherrack.blockID;
+		customBiomeDecorator.boneSpinesPerChunk = 6;
+		customBiomeDecorator.boneSpines2PerChunk = 9;
+		spawnableMonsterList.clear();
+		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
+		spawnableCaveCreatureList.clear();
+		spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 50, 4, 4));
+		spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
+		spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 1, 4, 4));
+	}
 }

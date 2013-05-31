@@ -10,33 +10,32 @@ import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeGenMesa extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenMesa(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.clear();
-        this.topBlock = (byte)Blocks.redRock.get().blockID;
-        this.fillerBlock = (byte)Blocks.redRock.get().blockID;
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = -999;
-        this.customBiomeDecorator.deadBushPerChunk = 2;
-        this.customBiomeDecorator.desertGrassPerChunk = 10;
-		this.customBiomeDecorator.tinyCactiPerChunk = 2;
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySpider.class, 15, 2, 6));
-    }
-	
-    /**
-     * takes temperature, returns color
-     */
-    public int getSkyColorByTemp(float par1)
-    {
+	{
+		super(par1);
+		spawnableCreatureList.clear();
+		topBlock = (byte)Blocks.redRock.get().blockID;
+		fillerBlock = (byte)Blocks.redRock.get().blockID;
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = -999;
+		customBiomeDecorator.deadBushPerChunk = 2;
+		customBiomeDecorator.desertGrassPerChunk = 10;
+		customBiomeDecorator.tinyCactiPerChunk = 2;
+		spawnableMonsterList.add(new SpawnListEntry(EntitySpider.class, 15, 2, 6));
+	}
+
+	/**
+	 * takes temperature, returns color
+	 */
+	@Override
+	public int getSkyColorByTemp(float par1)
+	{
 		if (BOPConfiguration.skyColors = true)
-		{
-        return 15898486;
-		}	
+			return 15898486;
 		else
 		{
 			par1 /= 3.0F;
@@ -53,5 +52,5 @@ public class BiomeGenMesa extends BiomeGenBase
 
 			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		}
-    }
+	}
 }

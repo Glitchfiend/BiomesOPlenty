@@ -9,68 +9,77 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderBOPhell extends WorldProvider
 {
-    public void registerWorldChunkManager()
-    {
+	@Override
+	public void registerWorldChunkManager()
+	{
 		if (Biomes.netherGarden.isPresent() || Biomes.netherDesert.isPresent() || Biomes.netherLava.isPresent() || Biomes.netherBone.isPresent())
 		{
-			this.worldChunkMgr = new WorldChunkManagerBOPhell(worldObj);
+			worldChunkMgr = new WorldChunkManagerBOPhell(worldObj);
 		}
-        this.isHellWorld = true;
-        this.hasNoSky = true;
-        this.dimensionId = -1;
-    }
+		isHellWorld = true;
+		hasNoSky = true;
+		dimensionId = -1;
+	}
 
-    @SideOnly(Side.CLIENT)
-    public Vec3 getFogColor(float par1, float par2)
-    {
-        return this.worldObj.getWorldVec3Pool().getVecFromPool(0.20000000298023224D, 0.029999999329447746D, 0.029999999329447746D);
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Vec3 getFogColor(float par1, float par2)
+	{
+		return worldObj.getWorldVec3Pool().getVecFromPool(0.20000000298023224D, 0.029999999329447746D, 0.029999999329447746D);
+	}
 
-    protected void generateLightBrightnessTable()
-    {
-        float f = 0.1F;
+	@Override
+	protected void generateLightBrightnessTable()
+	{
+		float f = 0.1F;
 
-        for (int i = 0; i <= 15; ++i)
-        {
-            float f1 = 1.0F - (float)i / 15.0F;
-            this.lightBrightnessTable[i] = (1.0F - f1) / (f1 * 3.0F + 1.0F) * (1.0F - f) + f;
-        }
-    }
+		for (int i = 0; i <= 15; ++i)
+		{
+			float f1 = 1.0F - i / 15.0F;
+			lightBrightnessTable[i] = (1.0F - f1) / (f1 * 3.0F + 1.0F) * (1.0F - f) + f;
+		}
+	}
 
-    public boolean isSurfaceWorld()
-    {
-        return false;
-    }
+	@Override
+	public boolean isSurfaceWorld()
+	{
+		return false;
+	}
 
-    public boolean canCoordinateBeSpawn(int par1, int par2)
-    {
-        return false;
-    }
+	@Override
+	public boolean canCoordinateBeSpawn(int par1, int par2)
+	{
+		return false;
+	}
 
-    public float calculateCelestialAngle(long par1, float par3)
-    {
-        return 0.5F;
-    }
+	@Override
+	public float calculateCelestialAngle(long par1, float par3)
+	{
+		return 0.5F;
+	}
 
-    public boolean canRespawnHere()
-    {
-        return false;
-    }
+	@Override
+	public boolean canRespawnHere()
+	{
+		return false;
+	}
 
-    @SideOnly(Side.CLIENT)
-    public boolean doesXZShowFog(int par1, int par2)
-    {
-        return true;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean doesXZShowFog(int par1, int par2)
+	{
+		return true;
+	}
 
-    public String getDimensionName()
-    {
-        return "Nether";
-    }
-    
+	@Override
+	public String getDimensionName()
+	{
+		return "Nether";
+	}
+
 	@Override
 	public IChunkProvider createChunkGenerator()
 	{
-		return new ChunkProviderBOPhell(this.worldObj, this.worldObj.getSeed());
+		return new ChunkProviderBOPhell(worldObj, worldObj.getSeed());
 	}
 }

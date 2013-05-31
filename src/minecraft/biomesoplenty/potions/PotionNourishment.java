@@ -7,22 +7,23 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class PotionNourishment extends Potion
 {
-    public PotionNourishment(int par1, boolean par2, int par3)
-    {
-        super(par1, par2, par3);
-        this.setIconIndex(0, 0);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public int getStatusIconIndex()
-    {
-    	Minecraft.getMinecraft().renderEngine.bindTexture("/mods/BiomesOPlenty/textures/potions/BOPPotionFX.png");
-    	return 0;
-    }
+	public PotionNourishment(int par1, boolean par2, int par3)
+	{
+		super(par1, par2, par3);
+		this.setIconIndex(0, 0);
+	}
 
-    @Override
-    public boolean isReady(int par1, int par2)
-    {
-        return par1 >= 1;
-    }
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getStatusIconIndex()
+	{
+		Minecraft.getMinecraft().renderEngine.bindTexture("/mods/BiomesOPlenty/textures/potions/BOPPotionFX.png");
+		return 0;
+	}
+
+	@Override
+	public boolean isReady(int par1, int par2)
+	{
+		return par1 >= 1;
+	}
 }

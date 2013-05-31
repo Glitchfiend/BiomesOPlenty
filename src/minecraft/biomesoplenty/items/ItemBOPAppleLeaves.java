@@ -7,19 +7,19 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPAppleLeaves extends ItemBlock
 {
-    @SideOnly(Side.CLIENT)
-    private Icon texture;
-    
-    public ItemBOPAppleLeaves(int par1)
-    {
-        super(par1);
-        setMaxDamage(0);
-        setHasSubtypes(true);
-    }
-    
-    @Override
-    public int getMetadata(int meta)
-    {
-        return meta;
-    }
+	@SideOnly(Side.CLIENT)
+	private Icon texture;
+
+	public ItemBOPAppleLeaves(int par1)
+	{
+		super(par1);
+		setMaxDamage(0);
+		setHasSubtypes(true);
+	}
+
+	@Override
+	public int getMetadata(int meta)
+	{
+		return meta;
+	}
 }

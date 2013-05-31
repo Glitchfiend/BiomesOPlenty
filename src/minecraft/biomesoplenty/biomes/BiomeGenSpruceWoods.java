@@ -11,27 +11,28 @@ import biomesoplenty.worldgen.WorldGenTaiga5;
 
 public class BiomeGenSpruceWoods extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
+	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenSpruceWoods(int par1)
-    {
-        super(par1);
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
-        this.theBiomeDecorator = new BiomeDecoratorBOP(this);
-        this.customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-        this.customBiomeDecorator.treesPerChunk = 10;
-        this.customBiomeDecorator.grassPerChunk = 6;
-		this.customBiomeDecorator.sproutsPerChunk = 3;
-		this.customBiomeDecorator.poisonIvyPerChunk = 1;
-		this.customBiomeDecorator.berryBushesPerChunk = 3;
-    }
+	{
+		super(par1);
+		spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.treesPerChunk = 10;
+		customBiomeDecorator.grassPerChunk = 6;
+		customBiomeDecorator.sproutsPerChunk = 3;
+		customBiomeDecorator.poisonIvyPerChunk = 1;
+		customBiomeDecorator.berryBushesPerChunk = 3;
+	}
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenTaiga5(false) : new WorldGenTaiga2(false));
-    }
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(3) == 0 ? new WorldGenTaiga5(false) : new WorldGenTaiga2(false);
+	}
 }

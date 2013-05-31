@@ -14,9 +14,10 @@ public class ItemShroomPowder extends ItemFood
 		setAlwaysEdible().setUnlocalizedName("shroomPowder");
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-	
+
+	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-    	itemIcon = iconRegister.registerIcon("BiomesOPlenty:shroompowder");
+		itemIcon = iconRegister.registerIcon("BiomesOPlenty:shroompowder");
 	}
 }
