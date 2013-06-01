@@ -68,6 +68,12 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 	{
 		return par1Random.nextInt(6) == 0 ? new WorldGenPromisedTree(false) : new WorldGenPromisedWillowTree();
 	}
+	
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 7925125;
+	}
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
