@@ -13,6 +13,8 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.worldgen.WorldGenFlowersMeta;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
@@ -67,10 +69,6 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 	private static Block taintedSoil = null;
 	private static Block heatSand = null;
 	private static Block glowshroom = null;
-	
-	private static Constructor flowerGenConstructor = null;
-	
-	private static Class FlowerGen = null;
 
 	{
 		genNetherBridge = (MapGenNetherBridge) TerrainGen.getModdedMapGen(genNetherBridge, NETHER_BRIDGE);
@@ -109,10 +107,6 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 			taintedSoil = (Block) Class.forName("mods.natura.common.NContent").getField("taintedSoil").get(null);
 			heatSand = (Block) Class.forName("mods.natura.common.NContent").getField("heatSand").get(null);
 			glowshroom = (Block) Class.forName("mods.natura.common.NContent").getField("glowshroom").get(null);
-			
-			FlowerGen = Class.forName("mods.natura.worldgen.FlowerGen");
-			
-			flowerGenConstructor = FlowerGen.getConstructor(new Class[]{int.class, int.class});
 		} 
 		catch (Exception e) 
 		{
@@ -604,32 +598,22 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 			 int l2 = k + hellRNG.nextInt(16) + 8;
 			 int k4 = hellRNG.nextInt(128);
 			 int j6 = l + hellRNG.nextInt(16) + 8;
-			 
-			 try 
-			 {
-				Method generate = flowerGenConstructor.newInstance(this.glowshroom.blockID, 0).getClass().getMethod("generate", World.class, Random.class, int.class, int.class, int.class);
-				 
-				generate.invoke(worldObj, hellRNG, l2, k4, j6);
-			 } 
-			 catch (Exception e) 
-			 {
-				e.printStackTrace();
-			 }
+			 (new WorldGenFlowersMeta(this.glowshroom.blockID, 0)).generate(worldObj, hellRNG, l2, k4, j6);
 		 }
-		 /*if (doGen && hellRNG.nextInt(8) == 0)
+		 if (doGen && hellRNG.nextInt(8) == 0)
 		 {
 			 int i3 = k + hellRNG.nextInt(16) + 8;
 			 int l4 = hellRNG.nextInt(128);
 			 int k6 = l + hellRNG.nextInt(16) + 8;
-			 (FlowerGen(NContent.glowshroom.blockID, 1)).generate(worldObj, hellRNG, i3, l4, k6);
+			 (new WorldGenFlowersMeta(this.glowshroom.blockID, 1)).generate(worldObj, hellRNG, i3, l4, k6);
 		 }
 		 if (doGen && hellRNG.nextInt(9) == 0)
 		 {
 			 int i3 = k + hellRNG.nextInt(16) + 8;
 			 int l4 = hellRNG.nextInt(128);
 			 int k6 = l + hellRNG.nextInt(16) + 8;
-			 (new FlowerGen(NContent.glowshroom.blockID, 2)).generate(worldObj, hellRNG, i3, l4, k6);
-		 }*/
+			 (new WorldGenFlowersMeta(this.glowshroom.blockID, 2)).generate(worldObj, hellRNG, i3, l4, k6);
+		 }
 
 		 MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, k, l));
 
