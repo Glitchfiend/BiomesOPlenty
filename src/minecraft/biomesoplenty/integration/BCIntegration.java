@@ -87,12 +87,15 @@ public class BCIntegration {
 	
 	private static void addLiquids()
 	{
-		try {
+		try 
+		{
 			Method method = Class.forName("buildcraft.core.utils.Utils").getMethod("liquidId", int.class);
 			
 			method.invoke(Liquids.springWaterFluid.get().getBlockID());
 			method.invoke(Liquids.liquidPoisonFluid.get().getBlockID());
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
