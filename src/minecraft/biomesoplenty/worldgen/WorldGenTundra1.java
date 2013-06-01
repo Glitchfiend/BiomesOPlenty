@@ -44,6 +44,7 @@ public class WorldGenTundra1 extends WorldGenerator
 				var1.setBlock(var3 + 1, var4, var5, Block.dirt.blockID);
 				var1.setBlock(var3, var4, var5 - 1, Block.dirt.blockID);
 				var1.setBlock(var3, var4, var5 + 1, Block.dirt.blockID);
+				this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Block.stone.blockID, 0);
 				this.setBlockAndMetadata(var1, var3 + 1, var4 + 1, var5, Block.stone.blockID, 0);
 				this.setBlockAndMetadata(var1, var3 - 1, var4 + 1, var5, Block.stone.blockID, 0);
 				this.setBlockAndMetadata(var1, var3, var4 + 1, var5 + 1, Block.stone.blockID, 0);
