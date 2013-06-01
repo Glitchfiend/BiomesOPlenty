@@ -59,7 +59,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 
 
 ## Changelog ##
-	  Version 0.5.4 (Unreleased)'
+	  Version 0.5.4 '01-06-13'
 	- Added use animation to berry bushes
 	- Tweaked apple leaf textures
 	- Removed nether tags from overworld biomes
@@ -106,6 +106,9 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 	- Tweaked grass bounding boxes
 	- Added beach variations
 	- Players now enter the overworld upon falling out of the Promised Lands
+	- The Ancient Staff now depletes on use
+	- Gave the Promised Lands a movement ratio of 16
+	- The Ancient Staff can now be used in the Promised Lands
 
 	  Version 0.5.3 '17-05-13'
 	- Added reeds
