@@ -4,6 +4,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
@@ -36,6 +37,12 @@ public class WorldProviderPromised extends WorldProvider
 	{
 		return false;
 	}
+	
+	@Override
+    public double getMovementFactor()
+    {
+        return 16.0;
+    }
 
 	@Override
 	public float calculateCelestialAngle(long par1, float par3)

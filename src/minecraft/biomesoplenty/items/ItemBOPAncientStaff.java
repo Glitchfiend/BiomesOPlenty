@@ -83,31 +83,38 @@ public class ItemBOPAncientStaff extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
-		if (par3EntityPlayer.dimension == 0)
+		int i = MathHelper.floor_double(par3EntityPlayer.posX - 8);
+		int j = 145;
+		int k = MathHelper.floor_double(par3EntityPlayer.posZ - 8);
+
+		boolean isAir = true;
+
+		for (int iy = -1; iy < 4; iy++)
 		{
-			int i = MathHelper.floor_double(par3EntityPlayer.posX - 8);
-			int j = 145;
-			int k = MathHelper.floor_double(par3EntityPlayer.posZ - 8);
-
-			boolean isAir = true;
-
-			for (int iy = -1; iy < 4; iy++)
-			{
-				for (int ix = -2; ix < 3; ix++) {
-					for (int iz = -2; iz < 3; iz++)
-						if (!par2World.isAirBlock(i + ix, j + iy, k + iz))
-						{
-							isAir = false;
-						}
-				}
+			for (int ix = -2; ix < 3; ix++) {
+				for (int iz = -2; iz < 3; iz++)
+					if (!par2World.isAirBlock(i + ix, j + iy, k + iz))
+					{
+						isAir = false;
+					}
 			}
+		}
 
+		if (par1ItemStack.getItemDamage() == 0)
+		{
 			if (isAir)
 			{
 
 				if (!par3EntityPlayer.worldObj.isRemote)
 				{
-					par3EntityPlayer.addChatMessage("A gateway to the Promised Land has appeared in the sky above.");
+					if (par3EntityPlayer.dimension == 0)
+					{
+						par3EntityPlayer.addChatMessage("A gateway to the Promised Land has appeared in the sky above.");
+					}
+					else
+					{
+						par3EntityPlayer.addChatMessage("A gateway has appeared in the sky above.");
+					}
 				}
 
 
