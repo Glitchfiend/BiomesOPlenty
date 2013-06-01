@@ -21,11 +21,6 @@ public class MystcraftIntegration {
 			method.invoke("biome" + BOPConfiguration.promisedLandForestID);
 			method.invoke("biome" + BOPConfiguration.promisedLandPlainsID);
 			method.invoke("biome" + BOPConfiguration.promisedLandSwampID);
-			
-			method.invoke("biome" + BOPConfiguration.netherBoneID);
-			method.invoke("biome" + BOPConfiguration.netherDesertID);
-			method.invoke("biome" + BOPConfiguration.netherGardenID);
-			method.invoke("biome" + BOPConfiguration.netherLavaID);
 		} 
 		catch (Exception e) 
 		{
