@@ -63,6 +63,12 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 	{
 		return new WorldGenPromisedBush();
 	}
+	
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 7925125;
+	}
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall

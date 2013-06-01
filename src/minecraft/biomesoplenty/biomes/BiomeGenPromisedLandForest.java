@@ -69,6 +69,12 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
 	{
 		return par1Random.nextInt(4) == 0 ? new WorldGenPromisedTree3(false) : (par1Random.nextInt(2) == 0 ? new WorldGenPromisedShrub(0,0) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false)));
 	}
+	
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 7925125;
+	}
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
