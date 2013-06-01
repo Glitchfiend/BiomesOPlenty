@@ -21,7 +21,7 @@ public class BlockReferences {
 		willowLog (Blocks.logs3, 1),
 		deadLog (Blocks.logs3, 2),
 		bigFlowerStem (Blocks.logs3, 3),
-		pine (Blocks.logs4, 0),
+		pineLog (Blocks.logs4, 0),
 		hellbark (Blocks.logs4, 1),
 		jacaranda (Blocks.logs4, 2),
 

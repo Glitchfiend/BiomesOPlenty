@@ -89,10 +89,12 @@ public class BCIntegration {
 	{
 		try 
 		{
-			Method method = Class.forName("buildcraft.core.utils.Utils").getMethod("liquidId", int.class);
+			Class bcUtils = Class.forName("buildcraft.core.utils.Utils");
 			
-			method.invoke(Liquids.springWaterFluid.get().getBlockID());
-			method.invoke(Liquids.liquidPoisonFluid.get().getBlockID());
+			Method method = bcUtils.getMethod("liquidId", int.class);
+			
+			method.invoke(bcUtils, Liquids.springWaterFluid.get().getBlockID());
+			method.invoke(bcUtils, Liquids.liquidPoisonFluid.get().getBlockID());
 		} 
 		catch (Exception e) 
 		{
