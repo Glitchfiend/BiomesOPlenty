@@ -98,6 +98,8 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 		netherrackExculsivityNoiseGen = noiseGens[4];
 		netherNoiseGen6 = noiseGens[5];
 		netherNoiseGen7 = noiseGens[6];
+		
+		naturaReflection();
 	}
 	
 	private static void naturaReflection()
