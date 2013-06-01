@@ -263,7 +263,8 @@ public class ForestryIntegration
 	private static void addFlowers()
 	{
 		for (int i = 0; i < 10; ++i) {
-			FlowerManager.plainFlowers.add(new ItemStack(Blocks.flowers.get(), 1, i));
+			if (i != 2)
+				FlowerManager.plainFlowers.add(new ItemStack(Blocks.flowers.get(), 1, i));
 		}
 	}
 
