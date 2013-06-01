@@ -8,6 +8,8 @@ import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.Ev
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.NETHER_LAVA;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Random;
 
@@ -66,10 +68,9 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 	private static Block heatSand = null;
 	private static Block glowshroom = null;
 	
-	private static Constructor constructor = null;
+	private static Constructor flowerGenConstructor = null;
 	
 	private static Class FlowerGen = null;
-	private static Class FlowerGenConst = null;
 
 	{
 		genNetherBridge = (MapGenNetherBridge) TerrainGen.getModdedMapGen(genNetherBridge, NETHER_BRIDGE);
@@ -109,9 +110,7 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 			
 			FlowerGen = Class.forName("mods.natura.worldgen.FlowerGen");
 			
-			constructor = FlowerGen.getConstructor(new Class[]{int.class, int.class});
-			
-			FlowerGenConst = (Class) constructor.newInstance(1, 1);
+			flowerGenConstructor = FlowerGen.getConstructor(new Class[]{int.class, int.class});
 		} 
 		catch (Exception e) 
 		{
@@ -598,14 +597,24 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 			 (new WorldGenHellLava(Block.lavaMoving.blockID, true)).generate(worldObj, hellRNG, l1, i2, j2);
 		 }
 		 
-		 /*if (doGen && hellRNG.nextInt(7) == 0)
+		 if (doGen && hellRNG.nextInt(7) == 0)
 		 {
 			 int l2 = k + hellRNG.nextInt(16) + 8;
 			 int k4 = hellRNG.nextInt(128);
 			 int j6 = l + hellRNG.nextInt(16) + 8;
-			 (FlowerGenConst(NContent.glowshroom.blockID, 0)).generate(worldObj, hellRNG, l2, k4, j6);
+			 
+			 try 
+			 {
+				Method generate = flowerGenConstructor.newInstance(this.glowshroom.blockID, 0).getClass().getMethod("generate", World.class, Random.class, int.class, int.class, int.class);
+				 
+				generate.invoke(worldObj, hellRNG, l2, k4, j6);
+			 } 
+			 catch (Exception e) 
+			 {
+				e.printStackTrace();
+			 }
 		 }
-		 if (doGen && hellRNG.nextInt(8) == 0)
+		 /*if (doGen && hellRNG.nextInt(8) == 0)
 		 {
 			 int i3 = k + hellRNG.nextInt(16) + 8;
 			 int l4 = hellRNG.nextInt(128);
