@@ -195,7 +195,8 @@ public class BOPCrafting
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
 
-		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.bamboo.get(), 4), new Object[] {new ItemStack(Blocks.planks.get(), 1, 10)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.bamboo.get(), 8), new Object [] {" #", "# ", Character.valueOf('#'), new ItemStack(Blocks.planks.get(), 1, 10)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.bamboo.get(), 8), new Object [] {"# ", " #", Character.valueOf('#'), new ItemStack(Blocks.planks.get(), 1, 10)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 1)});
 
 		//Bone Segments > Bonemeal

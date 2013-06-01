@@ -37,6 +37,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 		customBiomeDecorator.glowshroomsPerChunk = 2;
 		customBiomeDecorator.lilyflowersPerChunk = 3;
 		customBiomeDecorator.hotSpringsPerChunk = 2;
+		customBiomeDecorator.poisonWaterPerChunk = 1;
 		waterColorMultiplier = 15349914;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
