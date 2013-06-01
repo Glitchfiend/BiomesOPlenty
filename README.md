@@ -64,6 +64,10 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 	- Tweaked apple leaf textures
 	- Removed nether tags from overworld biomes
 	- Added several Nether Biomes
+	  - Undergarden
+	  - Corrupted Sands
+	  - Phantasmagoric Inferno
+	  - Boneyard
 	- Tweaked dandelion particles
 	- Apples and berries from leaves and bushes no longer spawn directly on the player
 	- Fixed a bug with trees in the Jade Cliffs
@@ -101,6 +105,7 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 	- Added steam particles
 	- Tweaked grass bounding boxes
 	- Added beach variations
+	- Players now enter the overworld upon falling out of the Promised Lands
 
 	  Version 0.5.3 '17-05-13'
 	- Added reeds
