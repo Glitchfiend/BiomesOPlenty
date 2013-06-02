@@ -13,6 +13,7 @@ import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.mobs.EntityJungleSpider;
 import biomesoplenty.worldgen.WorldGenRainforest1;
 import biomesoplenty.worldgen.WorldGenRainforest2;
+import biomesoplenty.api.Blocks;
 
 public class BiomeGenTropicalRainforest extends BiomeGenBase
 {
@@ -40,21 +41,12 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 		spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
 		waterColorMultiplier = 6160128;
 	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return par1Random.nextInt(5) == 0 ? new WorldGenRainforest2() : new WorldGenRainforest1(false);
-	}
-
+	
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
 		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 3 + par2Random.nextInt(6);
+		int var5 = 12 + par2Random.nextInt(6);
 
 		for (int var6 = 0; var6 < var5; ++var6)
 		{
@@ -65,9 +57,18 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 
 			if (var10 == Block.stone.blockID)
 			{
-				par1World.setBlock(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
+				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 6, 2);
 			}
 		}
+	}
+
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(5) == 0 ? new WorldGenRainforest2() : new WorldGenRainforest1(false);
 	}
 
 	/**

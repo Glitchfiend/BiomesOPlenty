@@ -17,7 +17,7 @@ import biomesoplenty.api.Items;
 
 public class BlockBOPAmethyst extends Block
 {
-	private static final String[] types = new String[] {"amethystore", "amethystblock"};
+	private static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "apatiteore", "apatiteblock"};
 	private Icon[] textures;
 
 	public BlockBOPAmethyst(int par1, Material par2Material)
@@ -75,6 +75,46 @@ public class BlockBOPAmethyst extends Block
 		case 1:
 			hardness = 5.0F;
 			break;
+			
+		case 2:
+			hardness = 3.0F;
+			break;
+
+		case 3:
+			hardness = 5.0F;
+			break;
+			
+		case 4:
+			hardness = 3.0F;
+			break;
+
+		case 5:
+			hardness = 5.0F;
+			break;
+			
+		case 6:
+			hardness = 3.0F;
+			break;
+
+		case 7:
+			hardness = 5.0F;
+			break;
+			
+		case 8:
+			hardness = 3.0F;
+			break;
+
+		case 9:
+			hardness = 5.0F;
+			break;
+			
+		case 10:
+			hardness = 3.0F;
+			break;
+
+		case 11:
+			hardness = 5.0F;
+			break;
 		}
 
 		return hardness;
@@ -95,6 +135,46 @@ public class BlockBOPAmethyst extends Block
 		case 1:
 			resistance = 10.0F;
 			break;
+			
+		case 2:
+			resistance = 5.0F;
+			break;
+
+		case 3:
+			resistance = 10.0F;
+			break;
+			
+		case 4:
+			resistance = 5.0F;
+			break;
+
+		case 5:
+			resistance = 10.0F;
+			break;
+			
+		case 6:
+			resistance = 5.0F;
+			break;
+
+		case 7:
+			resistance = 10.0F;
+			break;
+			
+		case 8:
+			resistance = 5.0F;
+			break;
+
+		case 9:
+			resistance = 10.0F;
+			break;
+			
+		case 10:
+			resistance = 5.0F;
+			break;
+
+		case 11:
+			resistance = 10.0F;
+			break;
 		}
 
 		return resistance / 5.0F;
@@ -103,22 +183,166 @@ public class BlockBOPAmethyst extends Block
 	@Override
 	public int idDropped(int meta, Random par2Random, int par3)
 	{
-		return meta == 0 ? Items.miscItems.get().itemID : blockID;
+		if (meta == 0)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 1)
+		{
+			return this.blockID;
+		}
+		if (meta == 2)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 3)
+		{
+			return this.blockID;
+		}
+		if (meta == 4)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 5)
+		{
+			return this.blockID;
+		}
+		if (meta == 6)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 7)
+		{
+			return this.blockID;
+		}
+		if (meta == 8)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 9)
+		{
+			return this.blockID;
+		}
+		if (meta == 10)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 11)
+		{
+			return this.blockID;
+		}
+		
+		return this.blockID;
 	}
 
 	@Override
 	public int damageDropped(int meta)
 	{
-		return meta == 0 ? 2 : meta;
+		if (meta == 0)
+		{
+			return 2;
+		}
+		if (meta == 1)
+		{
+			return meta;
+		}
+		if (meta == 2)
+		{
+			return 10;
+		}
+		if (meta == 3)
+		{
+			return meta;
+		}
+		if (meta == 4)
+		{
+			return 11;
+		}
+		if (meta == 5)
+		{
+			return meta;
+		}
+		if (meta == 6)
+		{
+			return 12;
+		}
+		if (meta == 7)
+		{
+			return meta;
+		}
+		if (meta == 8)
+		{
+			return 13;
+		}
+		if (meta == 9)
+		{
+			return meta;
+		}
+		if (meta == 10)
+		{
+			return 14;
+		}
+		if (meta == 11)
+		{
+			return meta;
+		}
+		
+		return meta;
 	}
 
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
 		if (meta == 0)
+		{
 			return quantityDroppedWithBonus(fortune, random);
-		else
+		}
+		if (meta == 1)
+		{
 			return quantityDropped(random);
+		}
+		if (meta == 2)
+		{
+			return quantityDroppedWithBonus(fortune, random);
+		}
+		if (meta == 3)
+		{
+			return quantityDropped(random);
+		}
+		if (meta == 4)
+		{
+			return quantityDroppedWithBonus(fortune, random);
+		}
+		if (meta == 5)
+		{
+			return quantityDropped(random);
+		}
+		if (meta == 6)
+		{
+			return quantityDroppedWithBonus(fortune, random);
+		}
+		if (meta == 7)
+		{
+			return quantityDropped(random);
+		}
+		if (meta == 8)
+		{
+			return quantityDroppedWithBonus(fortune, random);
+		}
+		if (meta == 9)
+		{
+			return quantityDropped(random);
+		}
+		if (meta == 10)
+		{
+			return quantityDroppedWithBonus(fortune, random);
+		}
+		if (meta == 11)
+		{
+			return quantityDropped(random);
+		}
+		
+		return quantityDropped(random);
 	}
 
 	@Override
@@ -132,10 +356,10 @@ public class BlockBOPAmethyst extends Block
 				rnd = 0;
 			}
 
-			return (1 + par2Random.nextInt(2)) * (rnd + 1);
+			return (1 + par2Random.nextInt(5)) * (rnd + 1);
 		}
 		else
-			return (1 + par2Random.nextInt(2));
+			return (1 + par2Random.nextInt(5));
 	}
 
 	@Override

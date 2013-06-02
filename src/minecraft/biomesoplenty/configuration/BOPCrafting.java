@@ -143,6 +143,11 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.mud.get(), 1), new Object[] {"MM", "MM", 'M', Items.mudball.get()});
 		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 3), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 10)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 5), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 11)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 7), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 12)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 9), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 13)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 11), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 14)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.crystal.get(), 1), new Object[] {"CC", "CC", 'C', new ItemStack(Items.miscItems.get(), 1, 4)});

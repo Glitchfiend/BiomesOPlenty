@@ -9,6 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenSwampTall;
+import biomesoplenty.api.Blocks;
 
 public class BiomeGenLushSwamp extends BiomeGenBase
 {
@@ -32,21 +33,12 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 		customBiomeDecorator.poisonWaterPerChunk = 2;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
 	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return new WorldGenSwampTall();
-	}
-
+	
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
 		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 3 + par2Random.nextInt(6);
+		int var5 = 12 + par2Random.nextInt(6);
 
 		for (int var6 = 0; var6 < var5; ++var6)
 		{
@@ -57,8 +49,17 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 
 			if (var10 == Block.stone.blockID)
 			{
-				par1World.setBlock(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
+				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 10, 2);
 			}
 		}
+	}
+
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return new WorldGenSwampTall();
 	}
 }

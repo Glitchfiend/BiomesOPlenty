@@ -23,16 +23,7 @@ public class BiomeGenJadeCliffs extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 12;
 		customBiomeDecorator.grassPerChunk = 3;
 	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return par1Random.nextInt(4) == 0 ? new WorldGenShrub(0, 1) : new WorldGenPineTree();
-	}
-
+	
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -51,6 +42,15 @@ public class BiomeGenJadeCliffs extends BiomeGenBase
 				par1World.setBlock(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
 			}
 		}
+	}
+
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(4) == 0 ? new WorldGenShrub(0, 1) : new WorldGenPineTree();
 	}
 
 	/**
