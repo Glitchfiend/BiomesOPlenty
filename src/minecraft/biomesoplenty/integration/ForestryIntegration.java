@@ -32,6 +32,19 @@ public class ForestryIntegration
 
 	private static void addClimateInfo()
 	{
+	    //Hell
+	    EnumTemperature.hellishBiomeIds.add(BOPConfiguration.netherBaseID);
+	    EnumTemperature.hellishBiomeIds.add(BOPConfiguration.netherBoneID);
+	    EnumTemperature.hellishBiomeIds.add(BOPConfiguration.netherDesertID);
+	    EnumTemperature.hellishBiomeIds.add(BOPConfiguration.netherGardenID);
+	    EnumTemperature.hellishBiomeIds.add(BOPConfiguration.netherLavaID);
+	    
+	    EnumHumidity.aridBiomeIds.add(BOPConfiguration.netherBaseID);
+	    EnumHumidity.aridBiomeIds.add(BOPConfiguration.netherBoneID);
+	    EnumHumidity.aridBiomeIds.add(BOPConfiguration.netherDesertID);
+	    EnumHumidity.aridBiomeIds.add(BOPConfiguration.netherGardenID);
+	    EnumHumidity.aridBiomeIds.add(BOPConfiguration.netherLavaID);
+	    
 		//Hot - Arid
 		//Desert Hives
 		EnumTemperature.hotBiomeIds.add(BOPConfiguration.badlandsID);
@@ -209,10 +222,12 @@ public class ForestryIntegration
 		//Cold- Normal
 		//Wintry Bees
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.tundraID);
+		EnumTemperature.coldBiomeIds.add(BOPConfiguration.arcticID);
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.deadForestSnowID);
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.mountainID);
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.taigaNewID);
 
+		EnumHumidity.normalBiomeIds.add(BOPConfiguration.arcticID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.tundraID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.deadForestSnowID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.mountainID);
@@ -221,7 +236,6 @@ public class ForestryIntegration
 		//Icy - Normal
 		//Wintry Bees
 		EnumTemperature.icyBiomeIds.add(BOPConfiguration.alpsID);
-		EnumTemperature.icyBiomeIds.add(BOPConfiguration.arcticID);
 		EnumTemperature.icyBiomeIds.add(BOPConfiguration.coniferousForestSnowID);
 		EnumTemperature.icyBiomeIds.add(BOPConfiguration.frostForestID);
 		EnumTemperature.icyBiomeIds.add(BOPConfiguration.glacierID);
@@ -229,7 +243,6 @@ public class ForestryIntegration
 		EnumTemperature.icyBiomeIds.add(BOPConfiguration.polarID);
 
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.alpsID);
-		EnumHumidity.normalBiomeIds.add(BOPConfiguration.arcticID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.coniferousForestSnowID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.frostForestID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.glacierID);
