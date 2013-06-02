@@ -2,8 +2,12 @@ package biomesoplenty.items;
 
 import java.util.List;
 
+import net.minecraft.block.BlockCloth;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -23,6 +27,73 @@ public class ItemBOP extends Item
 		setMaxDamage(0);
 		setHasSubtypes(true);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+	}
+	
+	@Override
+	public boolean itemInteractionForEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving)
+	{
+		int itemDamage = par1ItemStack.getItemDamage(); 
+
+		if (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9)    
+		{
+			int dyeMeta = convertToDyeMeta(itemDamage);      
+			int i = BlockCloth.getBlockFromDye(dyeMeta);
+
+			if (par2EntityLiving instanceof EntityWolf)
+			{
+				EntityWolf entitywolf = (EntityWolf)par2EntityLiving;
+
+				if (i != entitywolf.getCollarColor())
+				{
+					entitywolf.setCollarColor(i);
+					--par1ItemStack.stackSize;
+
+					return true;
+				}
+			}
+			else if (par2EntityLiving instanceof EntitySheep)
+			{
+				EntitySheep entitysheep = (EntitySheep)par2EntityLiving;
+
+				if (!entitysheep.getSheared() && entitysheep.getFleeceColor() != i)
+				{
+					entitysheep.setFleeceColor(i);
+					--par1ItemStack.stackSize;
+				}
+
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		return false;
+	}
+	
+	private int convertToDyeMeta(int meta)
+	{
+		switch (meta)
+		{
+		case 5:
+			return 4;
+			
+		case 6:
+			return 3;
+			
+		case 7:
+			return 2;
+			
+		case 8:
+			return 15;
+			
+		case 9:
+			return 0;
+		
+		default:
+			return 0;
+		}
 	}
 
 	@Override
