@@ -54,6 +54,9 @@ public class BlockBOPGrass extends Block
 	@Override
 	public Icon getIcon(int side, int meta)
 	{
+	    if (side < 0 || side >= blockIcon.length)
+	        side = 1;
+	    
 		return blockIcon[meta][side];
 	}
 

@@ -41,6 +41,9 @@ public class BlockOriginGrass extends Block
 	@Override
 	public Icon getIcon(int par1, int par2)
 	{
+	    if (par1 < 0 || par1 >= blockIcon.length)
+	        par1 = 1;
+        
 		return blockIcon[par1];
 	}
 
