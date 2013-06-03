@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOP extends Item
 {
-	private static String[] items = {"mudbrick", "ash", "amethyst", "poison", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ruby", "peridot", "topaz", "tanzanite", "apatite"};
+	private static String[] items = {"mudbrick", "ash", "amethyst", "poison", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ruby", "peridot", "topaz", "tanzanite", "apatite", "sapphire"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 

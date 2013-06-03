@@ -169,6 +169,7 @@ public class BOPItems {
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 12), "Topaz");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 13), "Tanzanite");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 14), "Apatite");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 15), "Sapphire");
 
 		LanguageRegistry.addName(Items.pickaxeMud.get(), "Muddy Pickaxe");
 		LanguageRegistry.addName(Items.axeMud.get(), "Muddy Axe");

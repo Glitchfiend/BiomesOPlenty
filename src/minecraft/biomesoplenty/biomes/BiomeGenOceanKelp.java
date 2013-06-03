@@ -37,7 +37,7 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 
 			if (var10 == Block.stone.blockID)
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 6, 2);
+				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
 	}

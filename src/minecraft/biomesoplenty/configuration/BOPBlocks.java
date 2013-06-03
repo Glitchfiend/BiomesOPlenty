@@ -99,6 +99,7 @@ public class BOPBlocks {
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 6, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 8, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 10, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 12, "pickaxe", 2);
 
 		addGrassPlants();
 
@@ -389,6 +390,8 @@ public class BOPBlocks {
 		LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(), 1, 9), "Block of Tanzanite");
 		LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(), 1, 10), "Apatite Ore");
 		LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(), 1, 11), "Block of Apatite");
+		LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(), 1, 12), "Sapphire Ore");
+		LanguageRegistry.addName(new ItemStack(Blocks.amethystOre.get(), 1, 13), "Block of Sapphire");
 		//        LanguageRegistry.addName(Blocks.bambooThatching.get(), "Bamboo Thatching");
 		LanguageRegistry.addName(Blocks.moss.get(), "Moss");
 		LanguageRegistry.addName(new ItemStack(Blocks.foliage.get(),1,0), "Algae");

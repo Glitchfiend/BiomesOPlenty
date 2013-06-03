@@ -30,8 +30,20 @@ public class BOPVanillaCompat {
 		village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 
 		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 2));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 2, 5));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 11), 1, 2, 5));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 12), 1, 2, 5));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 2, 5));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 2, 5));
+		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 2, 5));
 
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 3, 10));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 11), 1, 3, 10));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 12), 1, 3, 10));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 3, 10));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 3, 10));
+		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 3, 10));
 		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 4, 6, 15));
 
 		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));

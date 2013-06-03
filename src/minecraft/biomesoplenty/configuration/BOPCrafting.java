@@ -148,6 +148,7 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 7), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 12)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 9), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 13)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 11), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 14)});
+		GameRegistry.addRecipe(new ItemStack(Blocks.amethystOre.get(), 1, 13), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 15)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.ash.get(), 1), new Object[] {"AA", "AA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.mudBrick.get(), 1), new Object[] {"MM", "MM", 'M', new ItemStack(Items.miscItems.get(), 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.crystal.get(), 1), new Object[] {"CC", "CC", 'C', new ItemStack(Items.miscItems.get(), 1, 4)});
@@ -189,7 +190,7 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new Object[] {"T", "P", "H", 'T', new ItemStack(Items.ancientStaff.get(), 1, 3), 'P', new ItemStack(Items.ancientStaff.get(), 1, 2), 'H', new ItemStack(Items.ancientStaff.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 1), new Object[] {"ETE", "EEE", "EAE", 'E', Block.whiteStone, 'T', new ItemStack(Items.miscItems.get(), 1, 13), 'A', new ItemStack(Items.miscItems.get(), 1, 14)});
 		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 2), new Object[] {"EPE", "EEE", "ETE", 'E', Block.whiteStone, 'P', new ItemStack(Items.miscItems.get(), 1, 11), 'T', new ItemStack(Items.miscItems.get(), 1, 12)});
-		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 3), new Object[] {" N ", "EEE", "ERE", 'E', Block.whiteStone, 'R', new ItemStack(Items.miscItems.get(), 1, 10), 'N', Item.netherStar});
+		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 3), new Object[] {" N ", "ESE", "ERE", 'E', Block.whiteStone, 'R', new ItemStack(Items.miscItems.get(), 1, 10), 'S', new ItemStack(Items.miscItems.get(), 1, 15), 'N', Item.netherStar});
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new ItemStack(Items.ancientStaff.get(), 1, 4), new ItemStack(Item.netherStar, 1));
 		GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
@@ -205,6 +206,12 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Blocks.bamboo.get(), 8), new Object [] {" #", "# ", Character.valueOf('#'), new ItemStack(Blocks.planks.get(), 1, 10)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.bamboo.get(), 8), new Object [] {"# ", " #", Character.valueOf('#'), new ItemStack(Blocks.planks.get(), 1, 10)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 2), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 1)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 10), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 3)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 11), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 5)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 12), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 7)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 13), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 9)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 14), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 11)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 9, 15), new Object[] {new ItemStack(Blocks.amethystOre.get(), 1, 13)});
 
 		//Bone Segments > Bonemeal
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 3, 15), new Object[] {new ItemStack(Blocks.bones.get(), 1, 0)});

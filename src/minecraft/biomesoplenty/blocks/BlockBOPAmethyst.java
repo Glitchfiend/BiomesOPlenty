@@ -17,7 +17,7 @@ import biomesoplenty.api.Items;
 
 public class BlockBOPAmethyst extends Block
 {
-	private static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "apatiteore", "apatiteblock"};
+	private static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "apatiteore", "apatiteblock", "sapphireore", "sapphireblock"};
 	private Icon[] textures;
 
 	public BlockBOPAmethyst(int par1, Material par2Material)
@@ -115,6 +115,14 @@ public class BlockBOPAmethyst extends Block
 		case 11:
 			hardness = 5.0F;
 			break;
+			
+		case 12:
+			hardness = 3.0F;
+			break;
+
+		case 13:
+			hardness = 5.0F;
+			break;
 		}
 
 		return hardness;
@@ -175,6 +183,14 @@ public class BlockBOPAmethyst extends Block
 		case 11:
 			resistance = 10.0F;
 			break;
+			
+		case 12:
+			resistance = 5.0F;
+			break;
+
+		case 13:
+			resistance = 10.0F;
+			break;
 		}
 
 		return resistance / 5.0F;
@@ -228,6 +244,14 @@ public class BlockBOPAmethyst extends Block
 			return Items.miscItems.get().itemID;
 		}
 		if (meta == 11)
+		{
+			return this.blockID;
+		}
+		if (meta == 12)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		if (meta == 13)
 		{
 			return this.blockID;
 		}
@@ -286,6 +310,14 @@ public class BlockBOPAmethyst extends Block
 		{
 			return meta;
 		}
+		if (meta == 12)
+		{
+			return 15;
+		}
+		if (meta == 13)
+		{
+			return meta;
+		}
 		
 		return meta;
 	}
@@ -338,6 +370,14 @@ public class BlockBOPAmethyst extends Block
 			return quantityDroppedWithBonus(fortune, random);
 		}
 		if (meta == 11)
+		{
+			return quantityDropped(random);
+		}
+		if (meta == 12)
+		{
+			return quantityDroppedWithBonus(fortune, random);
+		}
+		if (meta == 13)
 		{
 			return quantityDropped(random);
 		}

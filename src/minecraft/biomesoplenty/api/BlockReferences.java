@@ -131,6 +131,8 @@ public class BlockReferences {
 		tanzaniteBlock (Blocks.amethystOre, 9),
 		apatiteOre (Blocks.amethystOre, 10),
 		apatiteBlock (Blocks.amethystOre, 11),
+		sapphireOre (Blocks.amethystOre, 12),
+		sapphireBlock (Blocks.amethystOre, 13),
 
 		smallBoneSegment (Blocks.bones, 0),
 		mediumBoneSegment (Blocks.bones, 1),

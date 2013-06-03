@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBOPAmethyst extends ItemBlock
 {
-	private static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "apatiteore", "apatiteblock"};
+	private static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "apatiteore", "apatiteblock", "sapphireore", "sapphireblock"};
 
 	public ItemBOPAmethyst(int par1)
 	{

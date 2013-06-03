@@ -48,7 +48,7 @@ public class BiomeGenMarsh extends BiomeGenBase
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 10, 2);
+				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
 

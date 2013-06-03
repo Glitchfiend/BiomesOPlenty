@@ -58,7 +58,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 6, 2);
+				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
 
