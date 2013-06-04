@@ -107,6 +107,13 @@ public class BOPConfiguration {
 	public static boolean taigaGen;
 	public static boolean swamplandGen;
 	public static boolean jungleGen;
+	
+	// Nether biomes
+	
+	public static boolean undergardenGen;
+	public static boolean corruptedSandsGen;
+	public static boolean phantasmagoricInfernoGen;
+	public static boolean boneyardGen;
 
 	//Block IDS
 	public static int mudID;
@@ -551,6 +558,13 @@ public class BOPConfiguration {
 			plainsGen = config.get("Vanilla Biomes To Generate", "Plains", true).getBoolean(true);
 			swamplandGen = config.get("Vanilla Biomes To Generate", "Swampland", true).getBoolean(true);
 			taigaGen = config.get("Vanilla Biomes To Generate", "Taiga", true).getBoolean(true);
+			
+			// Nether biomes
+			
+			undergardenGen = config.get("Nether Biomes To Generate", "Undergarden", true).getBoolean(true);
+			corruptedSandsGen = config.get("Nether Biomes To Generate", "CorruptedSands", true).getBoolean(true);
+			phantasmagoricInfernoGen = config.get("Nether Biomes To Generate", "PhantasmagoricInferno", true).getBoolean(true);
+			boneyardGen = config.get("Nether Biomes To Generate", "Boneyard", true).getBoolean(true);
 
 			// Biomes with villages
 			alpsVillage = config.get("Allow Villages", "Alps", false).getBoolean(false);
