@@ -8,6 +8,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.items.projectiles.DispenserBehaviorDart;
 import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BOPVanillaCompat {
 
@@ -29,30 +30,33 @@ public class BOPVanillaCompat {
 		strongholdCrossing = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING);
 		village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 2));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 2, 5));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 11), 1, 2, 5));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 12), 1, 2, 5));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 2, 5));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 2, 5));
-		dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 2, 5));
+		if (BOPConfiguration.dungeonLoot == true)
+		{
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 2));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 2, 5));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 11), 1, 2, 5));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 12), 1, 2, 5));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 2, 5));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 2, 5));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 2, 5));
 
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 3, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 11), 1, 3, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 12), 1, 3, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 3, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 3, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 3, 10));
-		mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 4, 6, 15));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 3, 10));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 11), 1, 3, 10));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 12), 1, 3, 10));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 3, 10));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 3, 10));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 3, 10));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 4, 6, 15));
 
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
-		strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
-		strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 
-		village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
-		village.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
+		}
 	}
 }

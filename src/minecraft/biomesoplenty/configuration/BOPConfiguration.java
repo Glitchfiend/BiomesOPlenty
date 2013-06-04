@@ -15,6 +15,7 @@ public class BOPConfiguration {
 	public static int biomeSize;
 	public static boolean addToDefault;
 	public static boolean achievements;
+	public static boolean dungeonLoot;
 	public static boolean vanillaEnhanced;
 
 	public static int villageDistance;
@@ -457,7 +458,8 @@ public class BOPConfiguration {
 			config.load();
 
 			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
-			achievements = config.get("Achievement Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
+			achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
+			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 
