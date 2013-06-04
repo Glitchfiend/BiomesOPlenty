@@ -45,11 +45,11 @@ public class BlockBamboo extends Block
 				if (var7 == 15)
 				{
 					par1World.setBlock(par2, par3 + 1, par4, blockID);
-					par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 4);
+					par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 2);
 				}
 				else
 				{
-					par1World.setBlockMetadataWithNotify(par2, par3, par4, var7 + 1, 4);
+					par1World.setBlockMetadataWithNotify(par2, par3, par4, var7 + 1, 2);
 				}
 			}
 		}
