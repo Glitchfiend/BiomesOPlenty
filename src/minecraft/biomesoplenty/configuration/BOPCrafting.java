@@ -252,6 +252,9 @@ public class BOPCrafting
 		OreDictionary.registerOre("dyeGreen", new ItemStack(Items.miscItems.get(), 1, 7));
 		OreDictionary.registerOre("dyeWhite", new ItemStack(Items.miscItems.get(), 1, 8));
 		OreDictionary.registerOre("dyeBlack", new ItemStack(Items.miscItems.get(), 1, 9));
+		
+		OreDictionary.registerOre("gemRuby", new ItemStack(Items.miscItems.get(), 1, 10));
+		OreDictionary.registerOre("gemSapphire", new ItemStack(Items.miscItems.get(), 1, 15));
 
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
