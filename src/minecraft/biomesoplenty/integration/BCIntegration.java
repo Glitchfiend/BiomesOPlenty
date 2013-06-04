@@ -8,12 +8,16 @@ import biomesoplenty.api.Liquids;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class BCIntegration {
-
+	
 	public static void init()
 	{
 		addFacades();
-		addLiquids();
 		excludeOilGeneration();
+	}
+
+	public static void postInit()
+	{
+		addLiquids();
 	}
 
 	private static void excludeOilGeneration()

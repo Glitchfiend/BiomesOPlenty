@@ -145,11 +145,13 @@ public class BiomesOPlenty
 		DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
+		
+		BOPCrossIntegration.init();
 	}
 
 	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		BOPCrossIntegration.init();
+		BOPCrossIntegration.postInit();
 	}
 }
