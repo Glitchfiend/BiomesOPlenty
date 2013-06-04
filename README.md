@@ -59,6 +59,21 @@ However, thanks to a little Java application I (Adubbz) whipped up, as well as t
 
 
 ## Changelog ##
+	  Version 0.5.5 '04-06-13'
+	- Fixed warnings on startup about Thaumcraft compatibility
+	- Fixed tundra boulder generation
+	- Added bamboo thatching > bamboo recipe
+	- Tweaked the Liquid Poison texture
+	- Custom dyes now work on sheep and dog collars
+	- Fixed a bug with connected textures
+	- Updated some temperatures and humidities for Forestry
+	- Added some new gems
+	- Changed the Ancient Staff recipe to use the new gems
+	- Fixed temperature/humidity values for the Hot Springs and Mountain biomes
+	- Added config options for which Nether biomes generate
+	- Added a config option for the custom loot
+	- Fixed a bug with bamboo not decaying
+
 	  Version 0.5.4 '01-06-13'
 	- Added use animation to berry bushes
 	- Tweaked apple leaf textures
