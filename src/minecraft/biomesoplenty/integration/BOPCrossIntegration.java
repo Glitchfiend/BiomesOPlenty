@@ -27,6 +27,17 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
+
+        if (Loader.isModLoaded("TreeCapitator"))
+        {
+            try {
+                TreeCapitatorIntegration.init();
+            }
+            catch (Exception e) {
+                System.out.println("[BiomesOPlenty] There was an error while integrating TreeCapitator with Biomes O' Plenty!");
+                e.printStackTrace(System.err);
+            }
+        }
 	}
 	
 	public static void postInit()
