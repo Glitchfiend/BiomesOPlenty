@@ -26,6 +26,15 @@ public class ItemDartBlower extends Item
 	{
 		itemIcon = iconRegister.registerIcon("BiomesOPlenty:dartblower");
 	}
+	
+    /**
+     * Returns True is the item is renderer in full 3D when hold.
+     */
+	@Override
+    public boolean isFull3D()
+    {
+		return true;
+    }
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World par2World, EntityPlayer par3EntityPlayer)

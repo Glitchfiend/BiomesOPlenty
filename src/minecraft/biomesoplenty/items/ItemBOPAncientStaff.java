@@ -29,6 +29,15 @@ public class ItemBOPAncientStaff extends Item
 		maxStackSize = 1;
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
+	
+    /**
+     * Returns True is the item is renderer in full 3D when hold.
+     */
+	@Override
+    public boolean isFull3D()
+    {
+		return true;
+    }
 
 	@Override
 	public boolean hasEffect(ItemStack itemStack)
