@@ -6,6 +6,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.blocks.BlockAltar;
 import biomesoplenty.blocks.BlockAsh;
 import biomesoplenty.blocks.BlockBOPAmethyst;
 import biomesoplenty.blocks.BlockBOPAppleLeaves;
@@ -16,6 +17,7 @@ import biomesoplenty.blocks.BlockBOPFlower;
 import biomesoplenty.blocks.BlockBOPFoliage;
 import biomesoplenty.blocks.BlockBOPGeneric;
 import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
+import biomesoplenty.blocks.BlockBOPGlass;
 import biomesoplenty.blocks.BlockBOPGrass;
 import biomesoplenty.blocks.BlockBOPLeaves;
 import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
@@ -42,6 +44,7 @@ import biomesoplenty.blocks.BlockOriginGrass;
 import biomesoplenty.blocks.BlockPromisedPortal;
 import biomesoplenty.blocks.BlockTreeMoss;
 import biomesoplenty.blocks.BlockWillow;
+import biomesoplenty.items.ItemBOPAltar;
 import biomesoplenty.items.ItemBOPAmethyst;
 import biomesoplenty.items.ItemBOPAppleLeaves;
 import biomesoplenty.items.ItemBOPBamboo;
@@ -51,6 +54,7 @@ import biomesoplenty.items.ItemBOPColorizedSapling;
 import biomesoplenty.items.ItemBOPCoral;
 import biomesoplenty.items.ItemBOPFlower;
 import biomesoplenty.items.ItemBOPFoliage;
+import biomesoplenty.items.ItemBOPGlass;
 import biomesoplenty.items.ItemBOPGrass;
 import biomesoplenty.items.ItemBOPIvy;
 import biomesoplenty.items.ItemBOPLeaves;
@@ -66,6 +70,7 @@ import biomesoplenty.items.ItemBOPSapling;
 import biomesoplenty.items.ItemBOPSkystone;
 import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPWillow;
+import biomesoplenty.tileentity.TileEntityAltar;
 
 import com.google.common.base.Optional;
 
@@ -77,6 +82,7 @@ public class BOPBlocks {
 	{
 		initializeBlocks();
 		registerBlocks();
+		registerTileEntities();
 
 		//Shears VS Blocks
 		Blocks.shearBlockIds.put(Blocks.leaves1.get().blockID, 15.0F);
@@ -162,6 +168,10 @@ public class BOPBlocks {
 		Blocks.cloud = Optional.of((new BlockCloud(BOPConfiguration.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("cloud"));
 
 		Blocks.bones = Optional.of((new BlockBones(BOPConfiguration.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bones"));
+		
+		Blocks.glass = Optional.of((new BlockBOPGlass(BOPConfiguration.glassID)).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("glass"));
+		
+		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("altar"));
 
 		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("planks"));
 
@@ -240,6 +250,8 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.cloud.get(), "cloud");
 
 		GameRegistry.registerBlock(Blocks.bones.get(), ItemBOPBones.class, "bones");
+		GameRegistry.registerBlock(Blocks.glass.get(), ItemBOPGlass.class, "glass");	
+		GameRegistry.registerBlock(Blocks.altar.get(), ItemBOPAltar.class, "altar");	
 
 		ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
 		GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "stoneDoubleSlab");
@@ -268,6 +280,11 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.jacarandaStairs.get(), "jacarandaStairs");
 
 		GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBOPColorizedLeaves.class, "leavesColorized");
+	}
+	
+	private static void registerTileEntities()
+	{
+        GameRegistry.registerTileEntity(TileEntityAltar.class, "tileEntityAltar");
 	}
 
 	private static void registerNames()
@@ -409,6 +426,11 @@ public class BOPBlocks {
 		LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 4), "Small Bone Segment");
 		LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 5), "Medium Bone Segment");
 		LanguageRegistry.addName(new ItemStack(Blocks.bones.get(), 1, 6), "Medium Bone Segment");
+		
+		LanguageRegistry.addName(new ItemStack(Blocks.glass.get(), 1, 0), "Celestial Lens");
+		LanguageRegistry.addName(new ItemStack(Blocks.glass.get(), 1, 1), "Sacrificial Focus");
+		
+		LanguageRegistry.addName(new ItemStack(Blocks.altar.get(), 1, 0), "Altar Frame");
 
 		LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 0), "Acacia Wood Planks");
 		LanguageRegistry.addName(new ItemStack(Blocks.planks.get(), 1, 1), "Cherry Wood Planks");

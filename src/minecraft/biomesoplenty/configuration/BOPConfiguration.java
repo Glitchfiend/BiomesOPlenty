@@ -200,6 +200,8 @@ public class BOPConfiguration {
 	public static int cloudID;
 
 	public static int bonesID;
+	public static int glassID;
+	public static int altarID;
 
 	//Item IDs
 	public static int shroomPowderID;
@@ -216,6 +218,7 @@ public class BOPConfiguration {
 	public static int mudballID;
 	public static int dartBlowerID;
 	public static int dartID;
+	public static int soulManipulatorID;
 
 	public static int bopBucketID;
 
@@ -741,6 +744,10 @@ public class BOPConfiguration {
 			pineStairsID = config.getBlock("Pine Stairs ID", 1975, null).getInt();
 			hellBarkStairsID = config.getBlock("Hell Bark Stairs ID", 1976, null).getInt();
 			jacarandaStairsID = config.getBlock("Jacaranda ID", 1977, null).getInt();
+			
+			glassID = config.getBlock("Glass ID", 1978, null).getInt();
+			
+			altarID = config.getBlock("Altar ID", 1979, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
@@ -781,6 +788,8 @@ public class BOPConfiguration {
 			flowerBandID = config.getItem("Flower Band ID", 21078, null).getInt();
 
 			bopBucketID = config.getItem("Spring Water Bucket ID", 21079, null).getInt();
+			
+			soulManipulatorID = config.getItem("Soul Manipulator ID", 21080).getInt();
 
 			//Liquid Ids
 			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();

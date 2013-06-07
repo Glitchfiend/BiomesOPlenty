@@ -30,6 +30,7 @@ import biomesoplenty.items.ItemDart;
 import biomesoplenty.items.ItemDartBlower;
 import biomesoplenty.items.ItemEnderporter;
 import biomesoplenty.items.ItemShroomPowder;
+import biomesoplenty.items.ItemSoulManipulator;
 import biomesoplenty.items.ItemSunflowerSeeds;
 import biomesoplenty.items.overrides.ItemShears;
 
@@ -114,6 +115,7 @@ public class BOPItems {
 		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID));
 		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.dartBlowerID));
 		Items.dart = Optional.of(new ItemDart(BOPConfiguration.dartID));
+		Items.soulManipulator = Optional.of(new ItemSoulManipulator(BOPConfiguration.soulManipulatorID));
 
 		Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfiguration.ancientStaffID));
 
@@ -170,6 +172,7 @@ public class BOPItems {
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 13), "Tanzanite");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 14), "Apatite");
 		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 15), "Sapphire");
+		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 16), "Ghastly Soul");
 
 		LanguageRegistry.addName(Items.pickaxeMud.get(), "Muddy Pickaxe");
 		LanguageRegistry.addName(Items.axeMud.get(), "Muddy Axe");
@@ -186,6 +189,8 @@ public class BOPItems {
 		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 2), "Ancient Staff Pole");
 		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 3), "Ancient Staff Topper");
 		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 4), "Depleted Ancient Staff");
+		
+		LanguageRegistry.addName(new ItemStack(Items.soulManipulator.get(), 1, 0), "Soul Manipulator");
 
 		LanguageRegistry.addName(Items.enderporter.get(), "Enderporter");
 

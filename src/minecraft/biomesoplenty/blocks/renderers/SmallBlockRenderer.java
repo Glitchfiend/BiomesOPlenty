@@ -75,37 +75,37 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			if (metadata == 0)
 			{
 				renderer.setRenderBounds(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 1)
 			{
 				renderer.setRenderBounds(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 3)
 			{
 				renderer.setRenderBounds(0.374F, 0.374F, 0.0F, 0.626F, 0.626F, 1.0F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 4)
 			{
 				renderer.setRenderBounds(0.0F, 0.374F, 0.374F, 1.0F, 0.626F, 0.626F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 5)
 			{
 				renderer.setRenderBounds(0.187F, 0.187F, 0.0F, 0.813F, 0.813F, 1.0F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 6)
 			{
 				renderer.setRenderBounds(0.0F, 0.187F, 0.187F, 1.0F, 0.813F, 0.813F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else
 			{
 				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-				BiomesOPlenty.proxy.renderStandardInvBlock(renderer, block, metadata);
+				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 		}
 	}

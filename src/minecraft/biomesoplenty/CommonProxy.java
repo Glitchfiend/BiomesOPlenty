@@ -22,8 +22,4 @@ public class CommonProxy {
 	public void spawnParticle(String string, double x, double y, double z)
 	{
 	}
-
-	public void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
-	{
-	}
 }
