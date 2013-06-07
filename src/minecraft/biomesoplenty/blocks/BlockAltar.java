@@ -1,5 +1,6 @@
 package biomesoplenty.blocks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
@@ -19,6 +20,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.ForgeHooks;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
@@ -104,10 +106,9 @@ public class BlockAltar extends Block
 				{
 					if (!tileentityaltar.getPresent(equippedItem.getItemName()))
 					{
-						tileentityaltar.setPresent(equippedItem.getItemName(), true);
-
 						if (!world.isRemote)
 						{
+							tileentityaltar.setPresent(equippedItem.getItemName(), true);
 							--equippedItem.stackSize;
 						}
 
@@ -150,8 +151,46 @@ public class BlockAltar extends Block
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int meta, int fortune)
 	{
-		return meta;
+		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+		TileEntityAltar tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
+		
+		if (tileentityaltar != null)
+		{
+			if (tileentityaltar.getPresent("ruby"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
+			}
+			
+			if (tileentityaltar.getPresent("peridot"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
+			}
+			
+			if (tileentityaltar.getPresent("topaz"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
+			}
+			
+			if (tileentityaltar.getPresent("tanzanite"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
+			}
+			
+			if (tileentityaltar.getPresent("apatite"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
+			}
+			
+			if (tileentityaltar.getPresent("sapphire"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
+			}
+		}
+		
+		ret.add(new ItemStack(Blocks.altar.get().blockID, 1, 0));
+
+		return ret;
 	}
 }
