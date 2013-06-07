@@ -50,14 +50,14 @@ public class BOPEntities {
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
 		registerEntityEgg(EntityGlob.class, 6836276, 8414787);
 
-		if (Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
+		if (Biomes.bambooForest.isPresent() && Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
 		{
-			EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
+			EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.bambooForest.get(), Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
 		}
 
-		if (Biomes.bog.isPresent() && Biomes.deadSwamp.isPresent() && Biomes.fen.isPresent() && Biomes.moor.isPresent() && Biomes.quagmire.isPresent() && Biomes.swamplandNew.isPresent())
+		if (Biomes.bog.isPresent() && Biomes.deadSwamp.isPresent() && Biomes.fen.isPresent() && Biomes.moor.isPresent() && Biomes.quagmire.isPresent() && Biomes.sludgepit.isPresent() && Biomes.swamplandNew.isPresent())
 		{
-			EntityRegistry.addSpawn(EntityJungleSpider.class, 1, 1, 1, EnumCreatureType.creature, Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.moor.get(), Biomes.quagmire.get(), Biomes.swamplandNew.get());
+			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.moor.get(), Biomes.quagmire.get(), Biomes.sludgepit.get(), Biomes.swamplandNew.get());
 		}
 
 		if (Biomes.garden.isPresent())

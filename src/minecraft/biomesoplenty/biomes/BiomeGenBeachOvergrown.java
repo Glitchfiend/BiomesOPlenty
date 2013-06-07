@@ -22,10 +22,10 @@ public class BiomeGenBeachOvergrown extends BiomeGenBase
 		spawnableCreatureList.clear();
 		topBlock = (byte)Block.sand.blockID;
 		fillerBlock = (byte)Block.sand.blockID;
-		theBiomeDecorator.treesPerChunk = 32;
-		theBiomeDecorator.deadBushPerChunk = 3;
+		customBiomeDecorator.treesPerChunk = 16;
+		customBiomeDecorator.deadBushPerChunk = 3;
 		customBiomeDecorator.duneGrassPerChunk = 25;
-		theBiomeDecorator.cactiPerChunk = 10;
+		customBiomeDecorator.cactiPerChunk = 5;
 		customBiomeDecorator.outbackPerChunk = 7;
 	}
 
