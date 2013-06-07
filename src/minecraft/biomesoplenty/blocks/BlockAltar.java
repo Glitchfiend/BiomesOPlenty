@@ -102,45 +102,24 @@ public class BlockAltar extends Block
 			{
 				if (tileentityaltar != null)
 				{
-					returnStatement = true;
-					
-					if (world.isRemote)
+					if (!tileentityaltar.getPresent(equippedItem.getItemName()))
 					{
-						if (!tileentityaltar.getPresent(equippedItem.getItemName()))
-						{
-							tileentityaltar.setPresent(equippedItem.getItemName(), true);
+						tileentityaltar.setPresent(equippedItem.getItemName(), true);
 
-							world.markBlockForUpdate(x, y, z);
+						if (!world.isRemote)
+						{
+							--equippedItem.stackSize;
 						}
+
+						world.markBlockForUpdate(x, y, z);
+
+						return true;
 					}
 				}
-
-
-			}
-		}
-		
-		if (!world.isRemote)
-		{
-			if (returnStatement == true)
-			{
-				if (!tileentityaltar.getPresent(equippedItem.getItemName()))
-				{
-					tileentityaltar.setPresent(equippedItem.getItemName(), true);
-					--equippedItem.stackSize;
-
-					world.markBlockForUpdate(x, y, z);
-				}
 			}
 		}
 
-		if (returnStatement == true)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 
 
