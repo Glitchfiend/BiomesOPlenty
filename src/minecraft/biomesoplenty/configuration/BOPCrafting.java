@@ -236,6 +236,7 @@ public class BOPCrafting
 
 		FurnaceRecipes.smelting().addSmelting(Blocks.logs1.get().blockID, new ItemStack(Item.coal, 1, 1), 15F);
 		FurnaceRecipes.smelting().addSmelting(Blocks.logs2.get().blockID, new ItemStack(Item.coal, 1, 1), 15F);
+		FurnaceRecipes.smelting().addSmelting(Blocks.logs4.get().blockID, new ItemStack(Item.coal, 1, 1), 15F);
 		for (int i = 0; i < 3; ++i) {
 			FurnaceRecipes.smelting().addSmelting(Blocks.logs3.get().blockID, i, new ItemStack(Item.coal, 1, 1), 15F);
 		}
