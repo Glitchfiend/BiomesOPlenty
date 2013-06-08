@@ -17,6 +17,7 @@ public class BOPConfiguration {
 	public static boolean achievements;
 	public static boolean dungeonLoot;
 	public static boolean vanillaEnhanced;
+	public static boolean netherOverride;
 
 	public static int villageDistance;
 
@@ -465,6 +466,7 @@ public class BOPConfiguration {
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
+			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 
