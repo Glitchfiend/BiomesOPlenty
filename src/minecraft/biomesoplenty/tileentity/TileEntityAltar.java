@@ -12,12 +12,12 @@ import net.minecraft.world.World;
 
 public class TileEntityAltar extends TileEntity 
 {
-    private boolean apatitePresent;
-    private boolean peridotPresent;
-    private boolean rubyPresent;
-    private boolean sapphirePresent;
-    private boolean tanzanitePresent;
-    private boolean topazPresent;
+    private boolean apatitePresent = false;
+    private boolean peridotPresent = false;
+    private boolean rubyPresent = false;
+    private boolean sapphirePresent = false;
+    private boolean tanzanitePresent = false;
+    private boolean topazPresent = false;
 
     @Override
     public void readFromNBT(NBTTagCompound nbt)
@@ -45,25 +45,18 @@ public class TileEntityAltar extends TileEntity
     
 	@Override
     public Packet getDescriptionPacket()
-    {
-        if (this.worldObj.isRemote)
-        {
-            return null;
-        }
-        else
-        {
-            NBTTagCompound nbt = new NBTTagCompound();
-            
-        	nbt.setBoolean("apatitePresent", apatitePresent);
-        	nbt.setBoolean("peridotPresent", peridotPresent);
-        	nbt.setBoolean("rubyPresent", rubyPresent);
-        	nbt.setBoolean("sapphirePresent", sapphirePresent);
-        	nbt.setBoolean("tanzanitePresent", tanzanitePresent);
-        	nbt.setBoolean("topazPresent", topazPresent);
-        	
-            return new Packet132TileEntityData(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
-        }
-    }
+	{
+		NBTTagCompound nbt = new NBTTagCompound();
+
+		nbt.setBoolean("apatitePresent", apatitePresent);
+		nbt.setBoolean("peridotPresent", peridotPresent);
+		nbt.setBoolean("rubyPresent", rubyPresent);
+		nbt.setBoolean("sapphirePresent", sapphirePresent);
+		nbt.setBoolean("tanzanitePresent", tanzanitePresent);
+		nbt.setBoolean("topazPresent", topazPresent);
+
+		return new Packet132TileEntityData(this.xCoord, this.yCoord, this.zCoord, 0, nbt);
+	}
 
 	@Override
     public void onDataPacket(INetworkManager var1, Packet132TileEntityData packet)

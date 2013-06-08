@@ -49,12 +49,10 @@ public class BlockAltar extends Block
 	public static Icon frameSapphire;
 	public static Icon frameTanzanite;
 	public static Icon frameTopaz;
-	
-	public static TileEntityAltar tileentityaltar;
 
 	public BlockAltar(int blockID)
 	{
-		super(blockID, Material.glass);
+		super(blockID, Material.rock);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 
 		this.blockHardness = 0.37F;
@@ -106,20 +104,19 @@ public class BlockAltar extends Block
 		boolean returnStatement = false;
 
 		ItemStack equippedItem = player.getCurrentEquippedItem();
-		tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
+		TileEntityAltar tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
 
 		if (equippedItem != null)
 		{
 			if (equippedItem.itemID == Items.miscItems.get().itemID && (equippedItem.getItemDamage() > 9 && equippedItem.getItemDamage() < 16))
 			{
 				if (tileentityaltar != null)
-				{
+				{	
 					if (!tileentityaltar.getPresent(equippedItem.getItemName()))
 					{
 						if (!world.isRemote)
 						{
 							tileentityaltar.setPresent(equippedItem.getItemName(), true);
-							System.out.println(equippedItem.getItemName());
 							--equippedItem.stackSize;
 						}
 						
@@ -159,47 +156,43 @@ public class BlockAltar extends Block
 	{
 		return RenderUtils.altarModel;
 	}
+	
+	@Override
+    public void onBlockHarvested(World world, int x, int y, int z, int id, EntityPlayer par6EntityPlayer) 
+	{
+		int meta = world.getBlockMetadata(x, y, z);
+		
+		dropBlockAsItem(world, x, y, z, id, meta);
+	}
 
 	@Override
 	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int meta, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		 tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
-		
+		 TileEntityAltar tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
+		 
 		if (tileentityaltar != null)
 		{
-			if (tileentityaltar.getPresent("ruby"));
-			{
+			if (tileentityaltar.getPresent("ruby"))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
-			}
 
-			if (tileentityaltar.getPresent("peridot"));
-			{
+			if (tileentityaltar.getPresent("peridot"))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
-			}
 
-			if (tileentityaltar.getPresent("topaz"));
-			{
+			if (tileentityaltar.getPresent("topaz"))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
-			}
 
-			if (tileentityaltar.getPresent("tanzanite"));
-			{
+			if (tileentityaltar.getPresent("tanzanite"))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
-			}
 
-			if (tileentityaltar.getPresent("apatite"));
-			{
+			if (tileentityaltar.getPresent("apatite"))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
-			}
 
-			if (tileentityaltar.getPresent("sapphire"));
-			{
+			if (tileentityaltar.getPresent("sapphire"))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
-			}
+			
+			ret.add(new ItemStack(Blocks.altar.get().blockID, 1, 0));
 		}
-
-		ret.add(new ItemStack(Blocks.altar.get().blockID, 1, 0));
 
 		return ret;
 	}
