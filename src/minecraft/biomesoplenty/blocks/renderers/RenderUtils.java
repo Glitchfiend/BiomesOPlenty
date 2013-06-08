@@ -2,6 +2,8 @@ package biomesoplenty.blocks.renderers;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -13,6 +15,8 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class RenderUtils 
 {
+	public static int altarModel = -1;
+	
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
 	{
 		Tessellator tessellator = Tessellator.instance;
@@ -671,7 +675,7 @@ public class RenderUtils
     }
     
     private static boolean renderFaceWithColorMultiplier(RenderBlocks renderer, Block block, IBlockAccess world, Icon icon, int x, int y, int z, float r, float g, float b, int brightness, ForgeDirection face) {
-        renderer.enableAO = false;
+        //renderer.enableAO = false;
         Tessellator tessellator = Tessellator.instance;
         boolean flag = false;
         float yMod = 0.5F;

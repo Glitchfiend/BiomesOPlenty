@@ -1,8 +1,12 @@
 package biomesoplenty.blocks;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import cpw.mods.fml.common.network.PacketDispatcher;
+import cpw.mods.fml.common.network.Player;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -16,6 +20,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
@@ -25,6 +32,7 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
 import biomesoplenty.tileentity.TileEntityAltar;
 
@@ -111,9 +119,10 @@ public class BlockAltar extends Block
 						if (!world.isRemote)
 						{
 							tileentityaltar.setPresent(equippedItem.getItemName(), true);
+							System.out.println(equippedItem.getItemName());
 							--equippedItem.stackSize;
 						}
-
+						
 						world.markBlockForUpdate(x, y, z);
 
 						return true;
@@ -124,7 +133,6 @@ public class BlockAltar extends Block
 
 		return false;
 	}
-
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -149,7 +157,7 @@ public class BlockAltar extends Block
 	@Override
 	public int getRenderType()
 	{
-		return AltarRenderer.altarModel;
+		return RenderUtils.altarModel;
 	}
 
 	@Override
@@ -160,40 +168,37 @@ public class BlockAltar extends Block
 		
 		if (tileentityaltar != null)
 		{
-			if (!world.isRemote)
+			if (tileentityaltar.getPresent("ruby"));
 			{
-				if (tileentityaltar.getPresent("ruby"));
-				{
-					ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
-				}
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
+			}
 
-				if (tileentityaltar.getPresent("peridot"));
-				{
-					ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
-				}
+			if (tileentityaltar.getPresent("peridot"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
+			}
 
-				if (tileentityaltar.getPresent("topaz"));
-				{
-					ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
-				}
+			if (tileentityaltar.getPresent("topaz"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
+			}
 
-				if (tileentityaltar.getPresent("tanzanite"));
-				{
-					ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
-				}
+			if (tileentityaltar.getPresent("tanzanite"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
+			}
 
-				if (tileentityaltar.getPresent("apatite"));
-				{
-					ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
-				}
+			if (tileentityaltar.getPresent("apatite"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
+			}
 
-				if (tileentityaltar.getPresent("sapphire"));
-				{
-					ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
-				}
+			if (tileentityaltar.getPresent("sapphire"));
+			{
+				ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
 			}
 		}
-		
+
 		ret.add(new ItemStack(Blocks.altar.get().blockID, 1, 0));
 
 		return ret;

@@ -17,6 +17,7 @@ import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
@@ -34,6 +35,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers()
 	{
+		RenderUtils.altarModel = RenderingRegistry.getNextAvailableRenderId();
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
 		//RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart());
