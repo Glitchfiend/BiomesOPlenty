@@ -99,6 +99,7 @@ public class BOPBlocks {
 		//		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
 
 		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.altar.get(), "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 0, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 2, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 4, "pickaxe", 2);

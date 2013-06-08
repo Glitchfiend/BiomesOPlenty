@@ -55,7 +55,8 @@ public class BlockAltar extends Block
 		super(blockID, Material.rock);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 
-		this.blockHardness = 0.37F;
+		this.setHardness(3.0F);
+		this.setResistance(5.0F);
 	}
 
 	@Override
