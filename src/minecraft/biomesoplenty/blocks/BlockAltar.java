@@ -41,6 +41,8 @@ public class BlockAltar extends Block
 	public static Icon frameSapphire;
 	public static Icon frameTanzanite;
 	public static Icon frameTopaz;
+	
+	public static TileEntityAltar tileentityaltar;
 
 	public BlockAltar(int blockID)
 	{
@@ -96,7 +98,7 @@ public class BlockAltar extends Block
 		boolean returnStatement = false;
 
 		ItemStack equippedItem = player.getCurrentEquippedItem();
-		TileEntityAltar tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
+		tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
 
 		if (equippedItem != null)
 		{
@@ -154,38 +156,41 @@ public class BlockAltar extends Block
 	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int meta, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		TileEntityAltar tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
+		 tileentityaltar = (TileEntityAltar) world.getBlockTileEntity(x, y, z);
 		
 		if (tileentityaltar != null)
 		{
-			if (tileentityaltar.getPresent("ruby"));
+			if (!world.isRemote)
 			{
-				ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
-			}
-			
-			if (tileentityaltar.getPresent("peridot"));
-			{
-				ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
-			}
-			
-			if (tileentityaltar.getPresent("topaz"));
-			{
-				ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
-			}
-			
-			if (tileentityaltar.getPresent("tanzanite"));
-			{
-				ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
-			}
-			
-			if (tileentityaltar.getPresent("apatite"));
-			{
-				ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
-			}
-			
-			if (tileentityaltar.getPresent("sapphire"));
-			{
-				ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
+				if (tileentityaltar.getPresent("ruby"));
+				{
+					ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
+				}
+
+				if (tileentityaltar.getPresent("peridot"));
+				{
+					ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
+				}
+
+				if (tileentityaltar.getPresent("topaz"));
+				{
+					ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
+				}
+
+				if (tileentityaltar.getPresent("tanzanite"));
+				{
+					ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
+				}
+
+				if (tileentityaltar.getPresent("apatite"));
+				{
+					ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
+				}
+
+				if (tileentityaltar.getPresent("sapphire"));
+				{
+					ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
+				}
 			}
 		}
 		

@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 
 public class TileEntityAltar extends TileEntity 
 {
-    public boolean apatitePresent = false;
-    public boolean peridotPresent = false;
-    public boolean rubyPresent = false;
-    public boolean sapphirePresent = false;
-    public boolean tanzanitePresent = false;
-    public boolean topazPresent = false;
+    private boolean apatitePresent;
+    private boolean peridotPresent;
+    private boolean rubyPresent;
+    private boolean sapphirePresent;
+    private boolean tanzanitePresent;
+    private boolean topazPresent;
 
     @Override
     public void readFromNBT(NBTTagCompound nbt)
@@ -93,7 +93,9 @@ public class TileEntityAltar extends TileEntity
     	{
     		return topazPresent;
     	}
-
-    	return false;
+    	else
+    	{
+    		return false;
+    	}
     }
 }
