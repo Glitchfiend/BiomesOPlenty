@@ -45,6 +45,14 @@ public class TreeCapitatorIntegration
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         
+        // Vanilla Jungle additions
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "vanilla_jungle");
+        tree.setString("logs", "");
+        tree.setString("leaves", "");
+        tree.setInteger("maxLeafIDDist", 3);
+        treeList.appendTag(tree);
+        
         /*
          * logs1 trees
          */
@@ -162,7 +170,7 @@ public class TreeCapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "jacaranda");
         tree.setString("logs", String.format("%d,2; %d,6; %d,10", logs4, logs4, logs4));
-        tree.setString("leaves", String.format("%d,5; %d,13", leaves1, leaves1));
+        tree.setString("leaves", String.format("%d,5; %d,13", leaves2, leaves2));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         
