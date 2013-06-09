@@ -48,7 +48,7 @@ public class ItemSoulManipulator extends Item
 			meta = 0;
 		}
 
-		return manipulatorTypes[meta];
+		return super.getUnlocalizedName() + "." + manipulatorTypes[meta];
 	}
 
 	@Override

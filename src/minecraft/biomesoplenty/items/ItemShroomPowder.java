@@ -11,7 +11,7 @@ public class ItemShroomPowder extends ItemFood
 	{
 		super(par1, par2, par3, par4);
 		setPotionEffect(Potion.confusion.id, 30, 0, 0.6F);
-		setAlwaysEdible().setUnlocalizedName("shroomPowder");
+		setAlwaysEdible();
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 

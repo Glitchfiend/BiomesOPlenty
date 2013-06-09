@@ -37,7 +37,7 @@ public class ArmorFlowerBand extends ItemArmor implements IArmorTextureProvider
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		return (new StringBuilder()).append(flowerBandTypes[itemStack.getItemDamage()]).toString();
+		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(flowerBandTypes[itemStack.getItemDamage()]).toString();
 	}
 
 	@Override

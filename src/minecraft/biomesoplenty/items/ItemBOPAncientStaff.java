@@ -68,7 +68,7 @@ public class ItemBOPAncientStaff extends Item
 			meta = 0;
 		}
 
-		return parts[meta];
+		return super.getUnlocalizedName() + "." + parts[meta];
 	}
 
 	@Override
@@ -121,11 +121,11 @@ public class ItemBOPAncientStaff extends Item
 					{
 						if (par3EntityPlayer.dimension == 0)
 						{
-							par3EntityPlayer.addChatMessage("A gateway to the Promised Land has appeared in the sky above.");
+							par3EntityPlayer.addChatMessage("phrase.bop.promisedPortalOverworld");
 						}
 						else
 						{
-							par3EntityPlayer.addChatMessage("A gateway has appeared in the sky above.");
+							par3EntityPlayer.addChatMessage("phrase.bop.promisedPortalOther");
 						}
 					}
 

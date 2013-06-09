@@ -42,7 +42,7 @@ public class ItemDart extends Item
 			meta = 0;
 		}
 
-		return dartTypes[meta];
+		return super.getUnlocalizedName() + "." + dartTypes[meta];
 	}
 
 	@Override

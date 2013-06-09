@@ -18,7 +18,6 @@ public class ItemDartBlower extends Item
 		maxStackSize = 1;
 		this.setMaxDamage(63);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		setUnlocalizedName("dartblower");
 	}
 
 	@Override

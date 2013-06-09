@@ -94,122 +94,54 @@ public class BOPItems {
 		EnumArmorMaterialFlowerBand = EnumHelper.addArmorMaterial("FLOWERBAND", -1, new int[]{0, 0, 0, 0}, 0);
 
 		//Override Items
-		shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("shears").setCreativeTab(CreativeTabs.tabTools);
+		shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("bop.shears").setCreativeTab(CreativeTabs.tabTools);
 
 		initializeItems();
 
 		MinecraftForge.setToolClass(Items.shovelAmethyst.get(), "shovel", 4);
 		MinecraftForge.setToolClass(Items.pickaxeAmethyst.get(), "pickaxe", 4);
 		MinecraftForge.setToolClass(Items.axeAmethyst.get(), "axe", 4);
-
-		registerNames();
 	}
 
 	private static void initializeItems()
 	{
 		// Item declaration
-		Items.shroomPowder = Optional.of(new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.1F, false));
-		Items.sunflowerSeeds = Optional.of(new ItemSunflowerSeeds(BOPConfiguration.sunflowerSeedsID, 2, 0.5F, false));
-		Items.berries = Optional.of(new ItemBerries(BOPConfiguration.berriesID, 3, 0.2F, false));
-		Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID));
-		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID));
-		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.dartBlowerID));
-		Items.dart = Optional.of(new ItemDart(BOPConfiguration.dartID));
-		Items.soulManipulator = Optional.of(new ItemSoulManipulator(BOPConfiguration.soulManipulatorID));
+		Items.shroomPowder = Optional.of(new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.1F, false).setUnlocalizedName("bop.shroomPowder"));
+		Items.sunflowerSeeds = Optional.of(new ItemSunflowerSeeds(BOPConfiguration.sunflowerSeedsID, 2, 0.5F, false).setUnlocalizedName("bop.sunflowerSeeds"));
+		Items.berries = Optional.of(new ItemBerries(BOPConfiguration.berriesID, 3, 0.2F, false).setUnlocalizedName("bop.berries"));
+		Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID).setUnlocalizedName("bop.miscItems"));
+		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID).setUnlocalizedName("bop.mudball"));
+		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.dartBlowerID).setUnlocalizedName("bop.dartblower"));
+		Items.dart = Optional.of(new ItemDart(BOPConfiguration.dartID).setUnlocalizedName("bop.dart"));
+		Items.soulManipulator = Optional.of(new ItemSoulManipulator(BOPConfiguration.soulManipulatorID).setUnlocalizedName("bop.soulManipulator"));
 
-		Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfiguration.ancientStaffID));
+		Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfiguration.ancientStaffID).setUnlocalizedName("bop.ancientStaff"));
 
-		Items.enderporter = Optional.of(new ItemEnderporter(BOPConfiguration.enderporterID));
+		Items.enderporter = Optional.of(new ItemEnderporter(BOPConfiguration.enderporterID).setUnlocalizedName("bop.enderporter"));
 
-		Items.bopDisc = Optional.of(new ItemBOPRecord(BOPConfiguration.bopDiscID, "bopdisc"));
-		Items.bopDiscMud = Optional.of(new ItemBOPRecordMud(BOPConfiguration.bopDiscMudID, "bopdiscmud"));
+		Items.bopDisc = Optional.of(new ItemBOPRecord(BOPConfiguration.bopDiscID, "bopdisc").setUnlocalizedName("bop.bopDisc"));
+		Items.bopDiscMud = Optional.of(new ItemBOPRecordMud(BOPConfiguration.bopDiscMudID, "bopdiscmud").setUnlocalizedName("bop.bopDiscMud"));
 
-		Items.swordMud = Optional.of((new ItemBOPSword(BOPConfiguration.swordMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("swordMud"));
-		Items.shovelMud = Optional.of((new ItemBOPSpade(BOPConfiguration.shovelMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("shovelMud"));
-		Items.pickaxeMud = Optional.of((new ItemBOPPickaxe(BOPConfiguration.pickaxeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("pickaxeMud"));
-		Items.axeMud = Optional.of((new ItemBOPAxe(BOPConfiguration.axeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("hatchetMud"));
-		Items.hoeMud = Optional.of((new ItemBOPHoe(BOPConfiguration.hoeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("hoeMud"));
-		Items.helmetMud = Optional.of((new ArmorMuddy(BOPConfiguration.helmetMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 0)).setUnlocalizedName("helmetMud"));
-		Items.chestplateMud = Optional.of((new ArmorMuddy(BOPConfiguration.chestplateMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 1)).setUnlocalizedName("chestplateMud"));
-		Items.leggingsMud = Optional.of((new ArmorMuddy(BOPConfiguration.leggingsMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 2)).setUnlocalizedName("leggingsMud"));
-		Items.bootsMud = Optional.of((new ArmorMuddy(BOPConfiguration.bootsMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 3)).setUnlocalizedName("bootsMud"));
+		Items.swordMud = Optional.of((new ItemBOPSword(BOPConfiguration.swordMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.swordMud"));
+		Items.shovelMud = Optional.of((new ItemBOPSpade(BOPConfiguration.shovelMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.shovelMud"));
+		Items.pickaxeMud = Optional.of((new ItemBOPPickaxe(BOPConfiguration.pickaxeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.pickaxeMud"));
+		Items.axeMud = Optional.of((new ItemBOPAxe(BOPConfiguration.axeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.hatchetMud"));
+		Items.hoeMud = Optional.of((new ItemBOPHoe(BOPConfiguration.hoeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.hoeMud"));
+		Items.helmetMud = Optional.of((new ArmorMuddy(BOPConfiguration.helmetMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 0)).setUnlocalizedName("bop.helmetMud"));
+		Items.chestplateMud = Optional.of((new ArmorMuddy(BOPConfiguration.chestplateMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 1)).setUnlocalizedName("bop.chestplateMud"));
+		Items.leggingsMud = Optional.of((new ArmorMuddy(BOPConfiguration.leggingsMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 2)).setUnlocalizedName("bop.leggingsMud"));
+		Items.bootsMud = Optional.of((new ArmorMuddy(BOPConfiguration.bootsMudID, EnumArmorMaterialMud, BiomesOPlenty.proxy.addArmor("mud"), 3)).setUnlocalizedName("bop.bootsMud"));
 
-		Items.swordAmethyst = Optional.of((new ItemBOPSword(BOPConfiguration.swordAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("swordAmethyst"));
-		Items.shovelAmethyst = Optional.of((new ItemBOPSpade(BOPConfiguration.shovelAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("shovelAmethyst"));
-		Items.pickaxeAmethyst = Optional.of((new ItemBOPPickaxe(BOPConfiguration.pickaxeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("pickaxeAmethyst"));
-		Items.axeAmethyst = Optional.of((new ItemBOPAxe(BOPConfiguration.axeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("hatchetAmethyst"));
-		Items.hoeAmethyst = Optional.of((new ItemBOPHoe(BOPConfiguration.hoeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("hoeAmethyst"));
-		Items.helmetAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.helmetAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 0)).setUnlocalizedName("helmetAmethyst"));
-		Items.chestplateAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.chestplateAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 1)).setUnlocalizedName("chestplateAmethyst"));
-		Items.leggingsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.leggingsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 2)).setUnlocalizedName("leggingsAmethyst"));
-		Items.bootsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.bootsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 3)).setUnlocalizedName("bootsAmethyst"));
+		Items.swordAmethyst = Optional.of((new ItemBOPSword(BOPConfiguration.swordAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("bop.swordAmethyst"));
+		Items.shovelAmethyst = Optional.of((new ItemBOPSpade(BOPConfiguration.shovelAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("bop.shovelAmethyst"));
+		Items.pickaxeAmethyst = Optional.of((new ItemBOPPickaxe(BOPConfiguration.pickaxeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("bop.pickaxeAmethyst"));
+		Items.axeAmethyst = Optional.of((new ItemBOPAxe(BOPConfiguration.axeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("bop.hatchetAmethyst"));
+		Items.hoeAmethyst = Optional.of((new ItemBOPHoe(BOPConfiguration.hoeAmethystID, EnumToolMaterialAmethyst, 1)).setUnlocalizedName("bop.hoeAmethyst"));
+		Items.helmetAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.helmetAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 0)).setUnlocalizedName("bop.helmetAmethyst"));
+		Items.chestplateAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.chestplateAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 1)).setUnlocalizedName("bop.chestplateAmethyst"));
+		Items.leggingsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.leggingsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 2)).setUnlocalizedName("bop.leggingsAmethyst"));
+		Items.bootsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.bootsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 3)).setUnlocalizedName("bop.bootsAmethyst"));
 
-		Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfiguration.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty));
-	}
-
-	private static void registerNames()
-	{
-		LanguageRegistry.addName(Items.shroomPowder.get(), "Shroom Powder");
-		LanguageRegistry.addName(Items.sunflowerSeeds.get(), "Sunflower Seeds");
-		LanguageRegistry.addName(Items.berries.get(), "Berries");
-		LanguageRegistry.addName(Items.mudball.get(), "Mud Ball");
-		LanguageRegistry.addName(Items.dartBlower.get(), "Dart Blower");
-		LanguageRegistry.addName(new ItemStack(Items.dart.get(), 1, 0), "Dart");
-		LanguageRegistry.addName(new ItemStack(Items.dart.get(), 1, 1), "Poison Dart");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 0), "Mud Brick");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 2), "Amethyst");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 1), "Pile of Ashes");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 3), "Poison");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 4), "Celestial Crystal Shard");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 5), "Blue Dye");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 6), "Brown Dye");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 7), "Green Dye");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 8), "White Dye");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 9), "Black Dye");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 10), "Ruby");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 11), "Peridot");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 12), "Topaz");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 13), "Tanzanite");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 14), "Apatite");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 15), "Sapphire");
-		LanguageRegistry.addName(new ItemStack(Items.miscItems.get(), 1, 16), "Ghastly Soul");
-
-		LanguageRegistry.addName(Items.pickaxeMud.get(), "Muddy Pickaxe");
-		LanguageRegistry.addName(Items.axeMud.get(), "Muddy Axe");
-		LanguageRegistry.addName(Items.shovelMud.get(), "Muddy Shovel");
-		LanguageRegistry.addName(Items.swordMud.get(), "Muddy Sword");
-		LanguageRegistry.addName(Items.hoeMud.get(), "Muddy Hoe");
-		LanguageRegistry.addName(Items.helmetMud.get(), "Muddy Helmet");
-		LanguageRegistry.addName(Items.chestplateMud.get(), "Muddy Chestplate");
-		LanguageRegistry.addName(Items.leggingsMud.get(), "Muddy Leggings");
-		LanguageRegistry.addName(Items.bootsMud.get(), "Muddy Boots");
-
-		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 0), "Ancient Staff");
-		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 1), "Ancient Staff Handle");
-		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 2), "Ancient Staff Pole");
-		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 3), "Ancient Staff Topper");
-		LanguageRegistry.addName(new ItemStack(Items.ancientStaff.get(), 1, 4), "Depleted Ancient Staff");
-		
-		LanguageRegistry.addName(new ItemStack(Items.soulManipulator.get(), 1, 0), "Soul Manipulator");
-
-		LanguageRegistry.addName(Items.enderporter.get(), "Enderporter");
-
-		LanguageRegistry.addName(Items.bopDisc.get(), "Music Disc");
-		LanguageRegistry.addName(Items.bopDiscMud.get(), "Music Disc");
-
-		LanguageRegistry.addName(Items.pickaxeAmethyst.get(), "Amethyst Pickaxe");
-		LanguageRegistry.addName(Items.axeAmethyst.get(), "Amethyst Axe");
-		LanguageRegistry.addName(Items.shovelAmethyst.get(), "Amethyst Shovel");
-		LanguageRegistry.addName(Items.swordAmethyst.get(), "Amethyst Sword");
-		LanguageRegistry.addName(Items.hoeAmethyst.get(), "Amethyst Hoe");
-		LanguageRegistry.addName(Items.helmetAmethyst.get(), "Amethyst Helmet");
-		LanguageRegistry.addName(Items.chestplateAmethyst.get(), "Amethyst Chestplate");
-		LanguageRegistry.addName(Items.leggingsAmethyst.get(), "Amethyst Leggings");
-		LanguageRegistry.addName(Items.bootsAmethyst.get(), "Amethyst Boots");
-
-		LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 0), "Dull Flower Band");
-		LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 1), "Plain Flower Band");
-		LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 2), "Lush Flower Band");
-		LanguageRegistry.addName(new ItemStack(Items.flowerBand.get(), 1, 3), "Exotic Flower Band");
+		Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfiguration.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flowerBand"));
 	}
 }

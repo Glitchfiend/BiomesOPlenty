@@ -114,7 +114,7 @@ public class ItemBOP extends Item
 			meta = 0;
 		}
 
-		return items[meta];
+		return super.getUnlocalizedName() + "." + items[meta];
 	}
 
 	@Override

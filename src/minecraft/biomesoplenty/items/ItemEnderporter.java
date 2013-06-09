@@ -18,7 +18,6 @@ public class ItemEnderporter extends Item
 		maxStackSize = 1;
 		this.setMaxDamage(9);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		setUnlocalizedName("enderporter");
 	}
 
 	@Override

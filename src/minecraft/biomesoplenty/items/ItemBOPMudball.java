@@ -14,7 +14,6 @@ public class ItemBOPMudball extends Item
 	{
 		super(par1);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		setUnlocalizedName("mudball");
 	}
 
 	@Override
