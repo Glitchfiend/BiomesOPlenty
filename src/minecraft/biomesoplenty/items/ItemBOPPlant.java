@@ -49,7 +49,7 @@ public class ItemBOPPlant extends ItemBlock
 			meta = 0;
 		}
 
-		return plants[itemStack.getItemDamage()];
+		return super.getUnlocalizedName() + "." + plants[itemStack.getItemDamage()];
 	}
 
 	@Override

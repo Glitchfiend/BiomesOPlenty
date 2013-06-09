@@ -27,6 +27,6 @@ public class ItemBOPRedRock extends ItemBlock
 			meta = 0;
 		}
 
-		return types[meta];
+		return super.getUnlocalizedName() + "." + types[meta];
 	}
 }

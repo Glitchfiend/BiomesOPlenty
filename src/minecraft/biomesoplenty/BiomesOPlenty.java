@@ -25,6 +25,7 @@ import biomesoplenty.helpers.BOPLiquidHelper;
 import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.EntitiesHelper;
+import biomesoplenty.helpers.Localizations;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
@@ -116,6 +117,8 @@ public class BiomesOPlenty
 		BOPEntities.init();
 
 		BOPVanillaCompat.init();
+		
+        Localizations.loadLanguages();
 
 		// Achievement declaration
 		if (BOPConfiguration.achievements == true)

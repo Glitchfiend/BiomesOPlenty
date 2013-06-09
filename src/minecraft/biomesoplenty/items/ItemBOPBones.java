@@ -30,13 +30,14 @@ public class ItemBOPBones extends ItemBlock
 			meta = 0;
 		}
 
-		return types[meta];
+		return super.getUnlocalizedName() + "." + types[meta];
 	}
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10)
 	{
 		int id = world.getBlockId(x, y, z);
+		System.out.println(itemstack);
 
 		if (id == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1)
 		{

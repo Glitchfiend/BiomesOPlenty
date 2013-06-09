@@ -24,6 +24,6 @@ public class ItemBOPColorizedLeaves extends ItemBlock
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		BlockBOPColorizedLeaves block = (BlockBOPColorizedLeaves)Block.blocksList[itemStack.itemID];
-		return block.getLeafType(itemStack.getItemDamage());
+		return super.getUnlocalizedName() + "." + block.getLeafType(itemStack.getItemDamage());
 	}
 }

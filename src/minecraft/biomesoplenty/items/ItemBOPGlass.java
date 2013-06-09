@@ -28,6 +28,6 @@ public class ItemBOPGlass extends ItemBlock
 			meta = 0;
 		}
 
-		return glassTypes[meta];
+		return super.getUnlocalizedName() + "." + glassTypes[meta];
 	}
 }

@@ -28,6 +28,6 @@ public class ItemBOPAltar extends ItemBlock
 			meta = 0;
 		}
 
-		return altarTypes[meta];
+		return super.getUnlocalizedName() + "." + altarTypes[meta];
 	}
 }

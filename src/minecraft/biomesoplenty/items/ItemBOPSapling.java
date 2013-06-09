@@ -27,7 +27,7 @@ public class ItemBOPSapling extends ItemBlock
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		int meta = itemStack.getItemDamageForDisplay() > MAX ? 0 : itemStack.getItemDamageForDisplay();
-		return (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
+		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
 	}
 
 

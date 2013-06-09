@@ -33,7 +33,7 @@ public class ItemBOPMushroom extends ItemBlock
 			meta = 0;
 		}
 
-		return plants[meta];
+		return super.getUnlocalizedName() + "." + plants[meta];
 	}
 
 	@Override

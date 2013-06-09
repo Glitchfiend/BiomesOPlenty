@@ -30,7 +30,7 @@ public class ItemBOPColorizedSapling extends ItemBlock
 			meta = 0;
 		}
 
-		return (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
+		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
 	}
 
 	@Override

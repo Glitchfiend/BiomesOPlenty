@@ -24,6 +24,6 @@ public class ItemBOPLog extends ItemBlock
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		BlockBOPLog block = (BlockBOPLog)Block.blocksList[itemStack.itemID];
-		return block.getWoodType(itemStack.getItemDamage()) + "Wood";
+		return super.getUnlocalizedName() + "." + block.getWoodType(itemStack.getItemDamage()) + "Wood";
 	}
 }

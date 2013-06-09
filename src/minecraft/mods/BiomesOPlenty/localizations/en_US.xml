@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+	
+	<entry key="tile.bop.mud.mud.name">Mud</entry>
+	<entry key="tile.bop.generic.dried_dirt.name">Dried Dirt</entry>
+	<entry key="tile.bop.redRocks.redrock.name">Red Rock</entry>
+	<entry key="tile.bop.ash.name">Ash Block</entry>
+	<entry key="tile.bop.plants.deadgrass.name">Dead Grass</entry>
+	<entry key="tile.bop.plants.desertgrass.name">Desert Grass</entry>
+	<entry key="tile.cloud.name">Cloud</entry>
+	<entry key="">entry</entry>
+</properties>

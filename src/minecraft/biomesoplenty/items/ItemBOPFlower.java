@@ -53,7 +53,7 @@ public class ItemBOPFlower extends ItemBlock
 			meta = 0;
 		}
 
-		return plants[meta];
+		return super.getUnlocalizedName() + "." + plants[meta];
 	}
 
 	@Override

@@ -67,7 +67,7 @@ public class ItemBOPFoliage extends ItemColored
 			meta = 0;
 		}
 
-		return foliageTypes[meta];
+		return super.getUnlocalizedName() + "." + foliageTypes[meta];
 	}
 
 	@Override

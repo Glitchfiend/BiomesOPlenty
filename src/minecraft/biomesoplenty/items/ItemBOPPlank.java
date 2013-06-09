@@ -28,6 +28,6 @@ public class ItemBOPPlank extends ItemBlock
 			meta = 0;
 		}
 
-		return woodTypes[meta];
+		return super.getUnlocalizedName() + "." + woodTypes[meta];
 	}
 }

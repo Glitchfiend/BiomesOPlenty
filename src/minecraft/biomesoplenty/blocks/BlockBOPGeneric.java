@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
@@ -28,52 +29,58 @@ public class BlockBOPGeneric extends Block
 		switch (type)
 		{
 		case ASH_STONE:
-			setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("ashStone");
+			setHardness(1.0F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case BAMBOO_THATCHING:
-			setHardness(1.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bambooThatching");
+			setHardness(1.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 			break;
 
 		case CRAG_ROCK:
-			setHardness(1.0F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("cragRock");
+			setHardness(1.0F).setStepSound(Block.soundGravelFootstep);
 			break;
 
 		case DRIED_DIRT:
-			setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("driedDirt");
+			setHardness(0.1F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HARD_DIRT:
-			setHardness(0.9F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("hardDirt");
+			setHardness(0.9F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HARD_ICE:
-			setHardness(0.75F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("hardIce");
+			setHardness(0.75F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HARD_SAND:
-			setHardness(0.7F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("hardSand");
+			setHardness(0.7F).setStepSound(Block.soundSandFootstep);
 			break;
 
 		case HOLY_STONE:
-			setHardness(1.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("holyStone");
+			setHardness(1.0F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case MUD_BRICK:
-			setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mudBrick");
+			setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HOLY_DIRT:
-			setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("holyDirt");
+			setHardness(0.6F).setStepSound(Block.soundGravelFootstep);
 			break;
 
 		case CRYSTAL:
-			setHardness(0.15F).setResistance(5.0F).setLightValue(1.0F).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("crystal");
+			setHardness(0.15F).setResistance(5.0F).setLightValue(1.0F).setStepSound(Block.soundGlassFootstep);
 			break;
 
 		default:
 			break;
 		}
+	}
+	
+	@Override
+	public String getUnlocalizedName() 
+	{
+		return super.getUnlocalizedName() + "." + type.toString().toLowerCase();
 	}
 
 	@Override
