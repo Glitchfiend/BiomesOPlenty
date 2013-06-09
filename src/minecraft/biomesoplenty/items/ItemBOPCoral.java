@@ -37,7 +37,7 @@ public class ItemBOPCoral extends ItemBlock
 			meta = 0;
 		}
 
-		return coral[meta];
+		return super.getUnlocalizedName() + "." + coral[meta];
 	}
 
 	@Override

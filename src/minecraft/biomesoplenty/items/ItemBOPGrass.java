@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBOPGrass extends ItemBlock
 {
-	private static final String[] types = new String[] {"holyGrass", "smolderingGrass"};
+	private static final String[] types = new String[] {"holygrass", "smolderinggrass"};
 
 	public ItemBOPGrass(int par1)
 	{
