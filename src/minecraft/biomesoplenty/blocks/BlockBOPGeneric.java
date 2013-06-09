@@ -8,13 +8,14 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 
 public class BlockBOPGeneric extends Block
 {
 	public enum BlockType
 	{
-		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, HOLY_STONE, BAMBOO_THATCHING, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;
+		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;
 	}
 
 	private Icon texture;
@@ -30,10 +31,6 @@ public class BlockBOPGeneric extends Block
 		{
 		case ASH_STONE:
 			setHardness(1.0F).setStepSound(Block.soundStoneFootstep);
-			break;
-
-		case BAMBOO_THATCHING:
-			setHardness(1.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep);
 			break;
 
 		case CRAG_ROCK:
@@ -56,10 +53,6 @@ public class BlockBOPGeneric extends Block
 			setHardness(0.7F).setStepSound(Block.soundSandFootstep);
 			break;
 
-		case HOLY_STONE:
-			setHardness(1.0F).setStepSound(Block.soundStoneFootstep);
-			break;
-
 		case MUD_BRICK:
 			setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep);
 			break;
@@ -80,7 +73,7 @@ public class BlockBOPGeneric extends Block
 	@Override
 	public String getUnlocalizedName() 
 	{
-		return super.getUnlocalizedName() + "." + type.toString().toLowerCase();
+		return "tile.bop.generic" + "." + type.toString().toLowerCase();
 	}
 
 	@Override
@@ -90,10 +83,6 @@ public class BlockBOPGeneric extends Block
 		{
 		case ASH_STONE:
 			texture = iconRegister.registerIcon("BiomesOPlenty:ashstone");
-			break;
-
-		case BAMBOO_THATCHING:
-			texture = iconRegister.registerIcon("BiomesOPlenty:bamboothatching");
 			break;
 
 		case CRAG_ROCK:
@@ -114,10 +103,6 @@ public class BlockBOPGeneric extends Block
 
 		case HARD_SAND:
 			texture = iconRegister.registerIcon("BiomesOPlenty:hardsand");
-			break;
-
-		case HOLY_STONE:
-			texture = iconRegister.registerIcon("BiomesOPlenty:holystone");
 			break;
 
 		case MUD_BRICK:

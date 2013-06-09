@@ -28,6 +28,6 @@ public class ItemBOPPetals extends ItemBlock
 			meta = 0;
 		}
 
-		return petals[meta];
+		return super.getUnlocalizedName() + "." + petals[meta];
 	}
 }
