@@ -660,19 +660,19 @@ public class BOPConfiguration {
 			taigaVillage = config.get("Allow Villages", "Taiga", true).getBoolean(false);
 
 			// Get Terrain Block ID's
-			mudID = config.getTerrainBlock("Terrain Block IDs", "Mud ID", 160, null).getInt();
-			driedDirtID = config.getTerrainBlock("Terrain Block IDs", "Dried Dirt ID", 161, null).getInt();
-			redRockID = config.getTerrainBlock("Terrain Block IDs", "Red Rock ID", 162, null).getInt();
-			ashID = config.getTerrainBlock("Terrain Block IDs", "Ash Block ID", 163, null).getInt();
-			ashStoneID = config.getTerrainBlock("Terrain Block IDs", "Ash Stone ID", 164, null).getInt();
-			hardIceID = config.getTerrainBlock("Terrain Block IDs", "Hard Ice ID", 165, null).getInt();
-			originGrassID = config.getTerrainBlock("Terrain Block IDs", "Origin Grass ID", 166, null).getInt();
-			hardSandID = config.getTerrainBlock("Terrain Block IDs", "Hard Sand ID", 167, null).getInt();
-			hardDirtID = config.getTerrainBlock("Terrain Block IDs", "Hard Dirt ID", 168, null).getInt();
-			holyGrassID = config.getTerrainBlock("Terrain Block IDs", "Holy Grass ID", 169, null).getInt();
-			holyDirtID = config.getTerrainBlock("Terrain Block IDs", "Holy Dirt ID", 170, null).getInt();
-			holyStoneID = config.getTerrainBlock("Terrain Block IDs", "Skystone ID", 171, null).getInt();
-			cragRockID = config.getTerrainBlock("Terrain Block IDs", "Crag Rock ID", 172, null).getInt();
+			mudID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Mud ID", 160, null).getInt();
+			driedDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Dried Dirt ID", 161, null).getInt();
+			redRockID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Red Rock ID", 162, null).getInt();
+			ashID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Ash Block ID", 163, null).getInt();
+			ashStoneID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Ash Stone ID", 164, null).getInt();
+			hardIceID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Hard Ice ID", 165, null).getInt();
+			originGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Origin Grass ID", 166, null).getInt();
+			hardSandID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Hard Sand ID", 167, null).getInt();
+			hardDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Hard Dirt ID", 168, null).getInt();
+			holyGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Holy Grass ID", 169, null).getInt();
+			holyDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Holy Dirt ID", 170, null).getInt();
+			holyStoneID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Skystone ID", 171, null).getInt();
+			cragRockID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Crag Rock ID", 172, null).getInt();
 
 			// Get Crafted Block ID's
 			plantsID = config.getBlock("Plant ID", 1920, null).getInt();
