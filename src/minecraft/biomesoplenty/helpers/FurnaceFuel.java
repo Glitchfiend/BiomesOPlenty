@@ -43,6 +43,12 @@ public class FurnaceFuel implements IFuelHandler {
 			return 300;
 		if(par1 == Blocks.holyStairs.get().blockID)
 			return 300;
+		if(par1 == Blocks.pineStairs.get().blockID)
+            return 300;
+		if(par1 == Blocks.jacarandaStairs.get().blockID)
+            return 300;
+		if(par1 == Blocks.hellBarkStairs.get().blockID)
+            return 300;
 		if(par1 == Items.miscItems.get().itemID && par2 == 1)
 			return 400;
 

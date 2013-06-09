@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
@@ -236,9 +237,11 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 		{
 			world.setBlock(x, y, z, blockID, meta - 3, 3);
 			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Item.appleRed, 1, 0));
+			
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(entityitem);
-				//entityitem.onCollideWithPlayer(player);
+				if (!(player instanceof FakePlayer))
+	                entityitem.onCollideWithPlayer(player);
 			}
 			return true;
 		}

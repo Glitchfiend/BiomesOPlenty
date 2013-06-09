@@ -121,7 +121,7 @@ public class BiomesOPlenty
         Localizations.loadLanguages();
 
 		// Achievement declaration
-		if (BOPConfiguration.achievements == true)
+		if (BOPConfiguration.achievements)
 		{
 			AchievementHelper.init();
 		}
@@ -144,8 +144,11 @@ public class BiomesOPlenty
 
 		proxy.registerRenderers();
 
-		DimensionManager.unregisterProviderType(-1);
-		DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
+		if (BOPConfiguration.netherOverride)
+		{
+        	DimensionManager.unregisterProviderType(-1);
+        	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
+		}
 		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
 		

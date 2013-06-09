@@ -81,7 +81,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
 			return id == Block.sand.blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
