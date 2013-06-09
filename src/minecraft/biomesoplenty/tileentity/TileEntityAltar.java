@@ -77,59 +77,59 @@ public class TileEntityAltar extends TileEntity
 		this.worldObj.markBlockForUpdate(packet.xPosition, packet.yPosition, packet.zPosition);
     }
     
-    public void setPresent(String presentGem, boolean state)
+    public void setPresent(int presentGem, boolean state)
     {	
-    	if (presentGem == "apatite")
-    	{
-    		apatitePresent = state;
-    	}
-    	else if (presentGem == "peridot")
-    	{
-    		peridotPresent = state;
-    	}
-    	else if (presentGem == "ruby")
+    	if (presentGem == 10)
     	{
     		rubyPresent = state;
     	}
-    	else if (presentGem == "sapphire")
+    	else if (presentGem == 11)
     	{
-    		sapphirePresent = state;
+    		peridotPresent = state;
     	}
-    	else if (presentGem == "tanzanite")
-    	{
-    		tanzanitePresent = state;
-    	}
-    	else if (presentGem == "topaz")
+    	else if (presentGem == 12)
     	{
     		topazPresent = state;
     	}
+    	else if (presentGem == 13)
+    	{
+    		tanzanitePresent = state;
+    	}
+    	else if (presentGem == 14)
+    	{
+    		apatitePresent = state;
+    	}
+    	else if (presentGem == 15)
+    	{
+    		sapphirePresent = state;
+    	}
     }
     
-    public boolean getPresent(String presentGem)
+    public boolean getPresent(int presentGem)
     {
-    	if (presentGem == "apatite")
-    	{
-    		return apatitePresent;
-    	}
-    	else if (presentGem == "peridot")
-    	{
-    		return peridotPresent;
-    	}
-    	else if (presentGem == "ruby")
+    	if (presentGem == 10)
     	{
     		return rubyPresent;
     	}
-    	else if (presentGem == "sapphire")
+    	else if (presentGem == 11)
     	{
-    		return sapphirePresent;
+    		return peridotPresent;
     	}
-    	else if (presentGem == "tanzanite")
+    	else if (presentGem == 12)
+    	{
+    		return topazPresent;
+    	}
+    	else if (presentGem == 13)
     	{
     		return tanzanitePresent;
     	}
-    	else if (presentGem == "topaz")
+    	else if (presentGem == 14)
     	{
-    		return topazPresent;
+    		return apatitePresent;
+    	}
+    	else if (presentGem == 15)
+    	{
+    		return sapphirePresent;
     	}
     	else
     	{

@@ -283,7 +283,7 @@ public class BOPBlocks {
 	
 	private static void registerTileEntities()
 	{
-        GameRegistry.registerTileEntity(TileEntityAltar.class, "bop.tileEntityAltar");
+        GameRegistry.registerTileEntity(TileEntityAltar.class, "tileEntityAltar");
 	}
 
 	private static void addGrassPlants()

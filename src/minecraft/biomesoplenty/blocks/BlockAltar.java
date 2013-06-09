@@ -113,11 +113,11 @@ public class BlockAltar extends Block
 			{
 				if (tileentityaltar != null)
 				{	
-					if (!tileentityaltar.getPresent(equippedItem.getItemName()))
+					if (!tileentityaltar.getPresent(equippedItem.getItemDamage()))
 					{
 						if (!world.isRemote)
 						{
-							tileentityaltar.setPresent(equippedItem.getItemName(), true);
+							tileentityaltar.setPresent(equippedItem.getItemDamage(), true);
 							--equippedItem.stackSize;
 						}
 						
@@ -174,22 +174,22 @@ public class BlockAltar extends Block
 		 
 		if (tileentityaltar != null)
 		{
-			if (tileentityaltar.getPresent("ruby"))
+			if (tileentityaltar.getPresent(10))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 10));
 
-			if (tileentityaltar.getPresent("peridot"))
+			if (tileentityaltar.getPresent(11))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 11));
 
-			if (tileentityaltar.getPresent("topaz"))
+			if (tileentityaltar.getPresent(12))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 12));
 
-			if (tileentityaltar.getPresent("tanzanite"))
+			if (tileentityaltar.getPresent(13))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 13));
 
-			if (tileentityaltar.getPresent("apatite"))
+			if (tileentityaltar.getPresent(14))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 14));
 
-			if (tileentityaltar.getPresent("sapphire"))
+			if (tileentityaltar.getPresent(15))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
 			
 			ret.add(new ItemStack(Blocks.altar.get().blockID, 1, 0));

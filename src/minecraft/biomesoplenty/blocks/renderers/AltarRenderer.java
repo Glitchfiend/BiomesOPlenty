@@ -30,35 +30,35 @@ public class AltarRenderer implements ISimpleBlockRenderingHandler
 				renderer.renderStandardBlock(block, x, y, z);
 
 				this.renderAltarSlotFaces(renderer, block, BlockAltar.altarFrame, world, x, y, z);
-
-				if (tileentityaltar.getPresent("apatite"))
-				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameApatite, world, x, y, z);
-				}
-
-				if (tileentityaltar.getPresent("peridot"))
-				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.framePeridot, world, x, y, z);
-				}
-
-				if (tileentityaltar.getPresent("ruby"))
+				
+				if (tileentityaltar.getPresent(10))
 				{
 					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameRuby, world, x, y, z);
 				}
 
-				if (tileentityaltar.getPresent("sapphire"))
+				if (tileentityaltar.getPresent(11))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameSapphire, world, x, y, z);
+					this.renderAltarSlotFaces(renderer, block, BlockAltar.framePeridot, world, x, y, z);
 				}
-
-				if (tileentityaltar.getPresent("tanzanite"))
+				
+				if (tileentityaltar.getPresent(12))
+				{
+					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameTopaz, world, x, y, z);
+				}
+				
+				if (tileentityaltar.getPresent(13))
 				{
 					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameTanzanite, world, x, y, z);
 				}
-
-				if (tileentityaltar.getPresent("topaz"))
+				
+				if (tileentityaltar.getPresent(14))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameTopaz, world, x, y, z);
+					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameApatite, world, x, y, z);
+				}
+
+				if (tileentityaltar.getPresent(15))
+				{
+					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameSapphire, world, x, y, z);
 				}
 			}
 		}
