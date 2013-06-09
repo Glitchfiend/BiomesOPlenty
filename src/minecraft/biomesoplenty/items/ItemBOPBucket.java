@@ -236,7 +236,7 @@ public class ItemBOPBucket extends Item
 			meta = 0;
 		}
 
-		return bucketTypes[meta];
+		return super.getUnlocalizedName() + "." + bucketTypes[meta];
 	}
 
 	@Override

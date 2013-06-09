@@ -51,7 +51,7 @@ public class BOPLiquids
 
 	private static void initializeContainers()
 	{
-		Liquids.bopBucket = Optional.of((new ItemBOPBucket(BOPConfiguration.bopBucketID).setMaxStackSize(1).setUnlocalizedName("bopBucket").setContainerItem(Item.bucketEmpty)));
+		Liquids.bopBucket = Optional.of((new ItemBOPBucket(BOPConfiguration.bopBucketID).setMaxStackSize(1).setUnlocalizedName("bop.bopBucket").setContainerItem(Item.bucketEmpty)));
 
 		//TODO: Remove upon Fluid API being integrated into Forge
 		LiquidContainerRegistry.registerLiquid(new LiquidContainerData(LiquidDictionary.getLiquid("Liquid Poison", LiquidContainerRegistry.BUCKET_VOLUME), new ItemStack(Liquids.bopBucket.get(), 1, 1), new ItemStack(Item.bucketEmpty)));
