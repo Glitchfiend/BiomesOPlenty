@@ -10,5 +10,48 @@
 	<entry key="tile.bop.plants.deadgrass.name">Dead Grass</entry>
 	<entry key="tile.bop.plants.desertgrass.name">Desert Grass</entry>
 	<entry key="tile.cloud.name">Cloud</entry>
+	
+	<entry key="tile.bop.bones.bones_small.name">Small Bone Segment</entry>
+	<entry key="tile.bop.bones.bones_medium.name">Medium Bone Segment</entry>
+	<entry key="tile.bop.bones.bones_large.name">Large Bone Segment</entry>
+	
+	<entry key="tile.bop.glass.celestialLens.name">Celestial Lens</entry>
+	<entry key="tile.bop.glass.sacrificialFocus.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.altar.altarFrame.name">Altar Frame</entry>
+	
+	<entry key="tile.bop.planks.acaciaPlank.name">Acacia Wood Planks</entry>
+	<entry key="tile.bop.planks.cherryPlank.name">Cherry Wood Planks</entry>
+	<entry key="tile.bop.planks.darkPlank.name">Dark Wood Planks</entry>
+	<entry key="tile.bop.planks.firPlank.name">Fir Wood Planks</entry>
+	<entry key="tile.bop.planks.holyPlank.name">Loftwood Wood Planks</entry>
+	<entry key="tile.bop.planks.magicPlank.name">Magic Wood Planks</entry>
+	<entry key="tile.bop.planks.mangrovePlank.name">Mangrove Wood Planks</entry>
+	<entry key="tile.bop.planks.palmPlank.name">Palm Wood Planks</entry>
+	<entry key="tile.bop.planks.redwoodPlank.name">Redwood Wood Planks</entry>
+	<entry key="tile.bop.planks.willowPlank.name">Willow Wood Planks</entry>
+	<entry key="tile.bop.planks.pinePlank.name">Pine Wood Planks</entry>
+	<entry key="tile.bop.planks.hellBarkPlank.name">Hellbark Wood Planks</entry>
+	<entry key="tile.bop.planks.jacarandaPlank.name">Jacaranda Wood Planks</entry>
+	
+	<entry key="tile.bop.acaciaStairs.name">Acacia Wood Stairs</entry>
+	<entry key="tile.bop.cherryStairs.name">Cherry Wood Stairs</entry>
+	<entry key="tile.bop.darkStairs.name">Dark Wood Stairs</entry>
+	<entry key="tile.bop.firStairs.name">Fir Wood Stairs</entry>
+	<entry key="tile.bop.holyStairs.name">Loftwood Wood Stairs</entry>
+	<entry key="tile.bop.magicStairs.name">Magic Wood Stairs</entry>
+	<entry key="tile.bop.mangroveStairs.name">Mangrove Wood Stairs</entry>
+	<entry key="tile.bop.palmStairs.name">Palm Wood Stairs</entry>
+	<entry key="tile.bop.redwoodStairs.name">Redwood Wood Stairs</entry>
+	<entry key="tile.bop.willowStairs.name">Willow Wood Stairs</entry>
+	<entry key="tile.bop.pineStairs.name">Pine Wood Stairs</entry>
+	<entry key="tile.bop.hellBarkStairs.name">Hellbark Wood Stairs</entry>
+	<entry key="tile.bop.jacarandaStairs.name">Jacaranda Wood Stairs</entry>
+	
+	<entry key="tile.bop.leavesColorized.acacia.name">Acacia Leaves</entry>
+	<entry key="tile.bop.leavesColorized.mangrove.name">Mangrove Leaves</entry>
+	<entry key="tile.bop.leavesColorized.palm.name">Palm Leaves</entry>
+	<entry key="tile.bop.leavesColorized.redwood.name">Redwood Leaves</entry>
+	<entry key="tile.bop.leavesColorized.willow.name">Willow Leaves</entry>
+	<entry key="tile.bop.leavesColorized.pine.name">Pine Leaves</entry>
 	<entry key="">entry</entry>
 </properties>
