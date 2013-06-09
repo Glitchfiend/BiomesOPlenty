@@ -6,7 +6,7 @@ public class Localizations
 {
 	private static final String localizationLocation = "/mods/BiomesOPlenty/localizations/";
 
-    public static String[] localeFiles = { localizationLocation + "en_US.xml" };
+    public static String[] localeFiles = { localizationLocation + "en_US.xml", localizationLocation + "de_DE.xml" };
     
     public static boolean isXMLLanguageFile(String fileName) 
     {
@@ -15,6 +15,7 @@ public class Localizations
 
     public static String getLocaleFromFileName(String fileName) 
     {
+    	System.out.println(fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.')));
         return fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.'));
     }
 
