@@ -3,12 +3,39 @@
 <properties version="1.0">
 	<comment>English (en_US) Localization File</comment>
 	
+	<!--Blocks-->
 	<entry key="tile.bop.mud.mud.name">Mud</entry>
 	<entry key="tile.bop.generic.dried_dirt.name">Dried Dirt</entry>
 	<entry key="tile.bop.redRocks.redrock.name">Red Rock</entry>
 	<entry key="tile.bop.ash.name">Ash Block</entry>
+	
 	<entry key="tile.bop.plants.deadgrass.name">Dead Grass</entry>
 	<entry key="tile.bop.plants.desertgrass.name">Desert Grass</entry>
-	<entry key="tile.cloud.name">Cloud</entry>
-	<entry key="">entry</entry>
+	<entry key="tile.bop.plants.desertsprouts.name">Desert Sprouts</entry>
+	<entry key="tile.bop.plants.dunegrass.name">Dune Grass</entry>
+	<entry key="tile.bop.plants.holytallgrass.name">Purified Tall Grass</entry>
+	<entry key="tile.bop.plants.thorn.name">Thorns</entry>
+	<entry key="tile.bop.plants.barley.name">Barley</entry>
+	<entry key="tile.bop.plants.cattail.name">Cattail</entry>
+	<entry key="tile.bop.plants.cattailtop.name">Cattail</entry>
+	<entry key="tile.bop.plants.cattailbottom.name">Cattail</entry>
+	<entry key="tile.bop.plants.reed.name">Reed</entry>
+	
+	<entry key="tile.bop.flowers.clover.name">Clover</entry>
+	<entry key="tile.bop.flowers.swampflower.name">Swampflower</entry>
+	<entry key="tile.bop.flowers.deadbloom.name">Deathbloom</entry>
+	<entry key="tile.bop.flowers.glowflower.name">Glowflower</entry>
+	<entry key="tile.bop.flowers.hydrangea.name">Hydrangea</entry>
+	<entry key="tile.bop.flowers.daisy.name">Daisy</entry>
+	<entry key="tile.bop.flowers.tulip.name">Tulip</entry>
+	<entry key="tile.bop.flowers.wildflower.name">Wildflower</entry>
+	<entry key="tile.bop.flowers.violet.name">Violet</entry>
+	<entry key="tile.bop.flowers.anemone.name">Anemone</entry>
+	<entry key="tile.bop.flowers.lilyflower.name">Waterlily</entry>
+	<entry key="tile.bop.flowers.cactus.name">Tiny Cactus</entry>
+	<entry key="tile.bop.flowers.aloe.name">Aloe</entry>
+	<entry key="tile.bop.flowers.sunflowerbottom.name">Sunflower</entry>
+	<entry key="tile.bop.flowers.sunflowertop.name">Sunflower</entry>
+	<entry key="tile.bop.flowers.dandelion.name">Dandelion</entry>
+
 </properties>

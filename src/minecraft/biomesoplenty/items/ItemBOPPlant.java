@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPPlant extends ItemBlock
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "cattailtop", "cattailbottom", "reed"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
