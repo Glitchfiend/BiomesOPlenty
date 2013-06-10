@@ -271,8 +271,8 @@
 	<entry key="item.bop.mudball.name">Mud Ball</entry>
 
 	<entry key="item.bop.miscItems.mudbrick.name">Mud Brick</entry>
-	<entry key="item.bop.miscItems.ash.name">Amethyst</entry>
-	<entry key="item.bop.miscItems.amethyst.name">Pile of Ashes</entry>
+	<entry key="item.bop.miscItems.ash.name">Pile of Ashes</entry>
+	<entry key="item.bop.miscItems.amethyst.name">Amethyst</entry>
 	<entry key="item.bop.miscItems.poison.name">Poison</entry>
 	<entry key="item.bop.miscItems.crystalshard.name">Celestial Crystal Shard</entry>
 	<entry key="item.bop.miscItems.bluedye.name">Blue Dye</entry>

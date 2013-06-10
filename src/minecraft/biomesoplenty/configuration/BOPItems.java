@@ -94,7 +94,7 @@ public class BOPItems {
 		EnumArmorMaterialFlowerBand = EnumHelper.addArmorMaterial("FLOWERBAND", -1, new int[]{0, 0, 0, 0}, 0);
 
 		//Override Items
-		shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("bop.shears").setCreativeTab(CreativeTabs.tabTools);
+		shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("shears").setCreativeTab(CreativeTabs.tabTools);
 
 		initializeItems();
 
