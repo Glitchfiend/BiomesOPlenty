@@ -1,7 +1,6 @@
 package biomesoplenty.integration;
 
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.EnumTag;
 import thaumcraft.api.ObjectTags;
 import thaumcraft.api.ThaumcraftApi;
@@ -17,6 +16,7 @@ public class ThaumcraftIntegration {
 	public static void init()
 	{
 		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.leavesFruit.get(), 1, 3));
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.leavesFruit.get(), 1, 11));
 		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.foliage.get(), 1, 8));
 	}
 	
