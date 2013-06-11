@@ -12,6 +12,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Entities;
 import biomesoplenty.api.Items;
 import biomesoplenty.integration.minefactoryreloaded.Fertilizable;
+import biomesoplenty.integration.minefactoryreloaded.FruitLeaves;
 import biomesoplenty.integration.minefactoryreloaded.Grindable;
 import biomesoplenty.integration.minefactoryreloaded.Harvestable;
 import biomesoplenty.integration.minefactoryreloaded.Plantable;
@@ -56,7 +57,8 @@ public class MFRIntegration
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static void registerFarmables()
     {
-        Optional[] bopLeaves = { Blocks.leaves1, Blocks.leaves2, Blocks.leavesColorized, Blocks.leavesFruit, Blocks.treeMoss, Blocks.willow, Blocks.ivy, Blocks.moss };
+        Optional[] bopLeaves = { Blocks.leaves1, Blocks.leaves2, Blocks.leavesColorized, Blocks.treeMoss, Blocks.willow, Blocks.ivy, Blocks.moss };
+        Optional[] bopFruitLeaves = { Blocks.leavesFruit };
         Optional[] bopLogs = { Blocks.logs1, Blocks.logs2, Blocks.logs3, Blocks.logs4, Blocks.bamboo };
         Optional[] bopMiscStandardHarvestables = { Blocks.flowers, Blocks.plants, Blocks.foliage, Blocks.mushrooms };
         Optional[] bopSaplings = { Blocks.saplings, Blocks.colorizedSaplings };
@@ -80,6 +82,12 @@ public class MFRIntegration
         {
             FarmingRegistry.registerPlantable(new Plantable(sapling.get().blockID, sapling.get().blockID));
             FarmingRegistry.registerFertilizable(new Fertilizable(sapling.get().blockID));
+        }
+        
+        for(Optional<? extends Block> leaves : bopFruitLeaves)
+        {
+            FarmingRegistry.registerHarvestable(new Harvestable(leaves.get().blockID, HarvestType.TreeLeaf));
+            FarmingRegistry.registerFruit(new FruitLeaves(leaves.get().blockID));
         }
     }
 
