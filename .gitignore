@@ -2,7 +2,6 @@
 *.sh
 
 LICENSE.txt
-CHANGELOG
 
 temp/*
 runtime/*
