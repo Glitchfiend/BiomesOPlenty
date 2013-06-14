@@ -2,6 +2,7 @@ package biomesoplenty.configuration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.logging.Level;
 
 import net.minecraft.potion.Potion;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,6 +13,7 @@ import biomesoplenty.potions.PotionParalysis;
 
 import com.google.common.base.Optional;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BOPPotions
@@ -42,7 +44,7 @@ public class BOPPotions
 
 	private static void extendPotionsArray()
 	{
-		System.out.println("[BiomesOPlenty] Extending Potions Array.");
+		FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Extending Potions Array.");
 		potionOffset = Potion.potionTypes.length;
 
 		Potion[] potionTypes = new Potion[potionOffset + MAXNEWPOTIONS];

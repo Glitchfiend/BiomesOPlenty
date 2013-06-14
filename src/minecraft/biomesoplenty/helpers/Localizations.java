@@ -1,5 +1,8 @@
 package biomesoplenty.helpers;
 
+import java.util.logging.Level;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Localizations 
@@ -15,7 +18,7 @@ public class Localizations
 
     public static String getLocaleFromFileName(String fileName) 
     {
-    	System.out.println("[BiomesOPlenty] Localizations loaded for " + fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.')));
+    	FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Localizations loaded for " + fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.')));
         return fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.'));
     }
 

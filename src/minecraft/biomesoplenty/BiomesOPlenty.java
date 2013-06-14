@@ -26,6 +26,8 @@ import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.EntitiesHelper;
 import biomesoplenty.helpers.Localizations;
+import biomesoplenty.helpers.TickHandlerClient;
+import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
@@ -44,8 +46,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version="0.5.6", dependencies="after:Natura")
+@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version=Version.VERSION, dependencies="after:Natura")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {
@@ -99,6 +103,8 @@ public class BiomesOPlenty
 		}
 
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
+		
+		Version.check();
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
@@ -159,5 +165,7 @@ public class BiomesOPlenty
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		BOPCrossIntegration.postInit();
+		
+		TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
 	}
 }
