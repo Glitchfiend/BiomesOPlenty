@@ -7,9 +7,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import net.minecraft.world.World;
+import net.minecraft.world.WorldSettings;
+import net.minecraft.world.WorldType;
 import net.minecraftforge.common.Property;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 
@@ -52,6 +56,31 @@ public class Version implements Runnable {
 			return false;
 
 		property.set(recommendedVersion);
+		
+		BOPConfiguration.config.save();
+		return true;
+	}
+	
+	public static boolean needsBOPWorldtypeAndMarkAsSeen(World world) 
+	{
+		WorldType terrainType = world.getWorldInfo().getTerrainType();
+		WorldTypeBOP bopType = new WorldTypeBOP();
+		
+		Property property = BOPConfiguration.config.get("Vars", "Seen WorldType Msg", false);
+		String worldTypeProp = property.getString();
+		
+		if (terrainType == null || property.getBoolean(false) == true)
+			return false;
+		
+		if (terrainType.getWorldTypeName().equals(bopType.getWorldTypeName()))
+		{
+			property.set(true);
+			
+			BOPConfiguration.config.save();
+			return false;
+		}
+		
+		property.set(true);
 		
 		BOPConfiguration.config.save();
 		return true;

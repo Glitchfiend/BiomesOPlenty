@@ -24,6 +24,11 @@ public class TickHandlerClient implements ITickHandler
 
 		EntityPlayer player = (EntityPlayer) tickData[0];
 
+		if (Version.needsBOPWorldtypeAndMarkAsSeen(player.worldObj))
+		{
+			player.sendChatToPlayer(String.format("\u00A7cThe Biomes O Plenty world type must be used in order for the new biomes to generate. This message will only display once."));
+		}
+
 		if (Version.needsUpdateNoticeAndMarkAsSeen()) 
 		{
 			player.sendChatToPlayer(String.format("\u00A7cA new version of Biomes O Plenty is available: %s for Minecraft %s", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion()));

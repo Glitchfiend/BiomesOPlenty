@@ -458,6 +458,7 @@ public class BOPConfiguration {
 	public static boolean jungleVillage;
 	
 	public static Property seenVersion;
+	public static Property seenWorldTypeMsg;
 
 	public static void init(File configFile)
 	{
@@ -925,6 +926,7 @@ public class BOPConfiguration {
 			jungleNewID = config.get("Biome IDs", "Jungle (New) ID", 254).getInt();
 			
 			seenVersion = config.get("Vars", "Seen Version", "null");
+			seenWorldTypeMsg = config.get("Vars", "Seen WorldType Msg", false);
 
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
 		}
