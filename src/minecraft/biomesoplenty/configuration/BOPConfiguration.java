@@ -3,7 +3,11 @@ package biomesoplenty.configuration;
 import java.io.File;
 import java.util.logging.Level;
 
+import biomesoplenty.BiomesOPlenty;
+
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.Property;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfiguration {
@@ -452,6 +456,8 @@ public class BOPConfiguration {
 	public static boolean taigaVillage;
 	public static boolean swamplandVillage;
 	public static boolean jungleVillage;
+	
+	public static Property seenVersion;
 
 	public static void init(File configFile)
 	{
@@ -706,7 +712,7 @@ public class BOPConfiguration {
 
 			ivyID = config.getBlock("Ivy ID", 1943, null).getInt();
 
-			mossID = config.getBlock("Moss ID", 391, null).getInt();
+			mossID = config.getBlock("Moss ID", 1944, null).getInt();
 
 			planksID = config.getBlock("Planks ID", 1947, null).getInt();
 
@@ -807,7 +813,7 @@ public class BOPConfiguration {
 			entityDartID = config.get("Entity IDs", "Dart ID", 104, null).getInt();;
 			entityPoisonDartID = config.get("Entity IDs", "Poison Dart ID", 105, null).getInt();;
 
-			System.out.println("Generating Biome ID's");
+			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generating Biome ID's");
 
 			//23-79 ExtraBiomesXL
 
@@ -917,8 +923,10 @@ public class BOPConfiguration {
 			swamplandNewID = config.get("Biome IDs", "Swampland (New) ID", 252).getInt();
 			extremeHillsNewID = config.get("Biome IDs", "Extreme Hills (New) ID", 253).getInt();
 			jungleNewID = config.get("Biome IDs", "Jungle (New) ID", 254).getInt();
+			
+			seenVersion = config.get("Vars", "Seen Version", "null");
 
-			System.out.println("[BiomesOPlenty] Generated Config!");
+			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
 		}
 		catch (Exception e)
 		{
