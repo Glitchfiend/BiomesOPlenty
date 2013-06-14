@@ -1,6 +1,10 @@
 package biomesoplenty.blocks;
 
 import java.util.List;
+import java.util.Random;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -8,6 +12,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPGlass extends Block
@@ -22,6 +27,33 @@ public class BlockBOPGlass extends Block
 
 		this.blockHardness = 0.37F;
 	}
+	
+    public int quantityDropped(Random par1Random)
+    {
+        return 0;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public int getRenderBlockPass()
+    {
+        return 1;
+    }
+    
+    @Override
+    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+        return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, 1 - par5);
+    }
+
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
+
+    protected boolean canSilkHarvest()
+    {
+        return true;
+    }
 
 	@Override
 	public void registerIcons(IconRegister iconRegister)
