@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSoulManipulator extends Item
 {
-	private static String[] manipulatorTypes = {"soulmanipulator_empty"};
+	private static String[] manipulatorTypes = {"soulmanipulator_empty", "soulmanipulator_ghastlysoul"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
@@ -29,6 +29,12 @@ public class ItemSoulManipulator extends Item
 		maxStackSize = 1;
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
+	
+	@Override
+    public boolean isFull3D()
+    {
+		return true;
+    }
 
 	@Override
 	public void registerIcons(IconRegister iconRegister)

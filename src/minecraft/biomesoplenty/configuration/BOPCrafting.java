@@ -195,6 +195,11 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new ItemStack(Items.ancientStaff.get(), 1, 4), new ItemStack(Item.netherStar, 1));
 		GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
+		
+		GameRegistry.addRecipe(new ItemStack(Items.miscItems.get(), 1, 16), new Object[] {"SBS", "GKG", "SBS", 'S', Block.slowSand, 'B', Item.blazePowder, 'G', Item.ghastTear, 'K', new ItemStack(Item.skull, 1, 1)});
+		
+		GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 0), new Object[] {"G", "T", "B", 'G', Block.glass, 'T', Item.ghastTear, 'B', Item.blazeRod});
+		GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 1), new Object[] {"TSA", "PMS", "APT", 'S', new ItemStack(Items.miscItems.get(), 1, 16), 'A', Block.slowSand, 'T', Item.ghastTear, 'P', Item.blazePowder, 'M', new ItemStack(Items.soulManipulator.get(), 1, 0)});
 
 		//Dart Blower
 		GameRegistry.addRecipe(new ItemStack(Items.dartBlower.get(), 1), new Object[] {"R R", "R R", "R R", Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});
