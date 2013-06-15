@@ -26,7 +26,7 @@ public class AchievementHelper
 	private static Achievement achShroom;
 	private static Achievement achBarley;
 	private static Achievement achMoss;
-	static Achievement achFlowerP;
+	public static Achievement achFlowerP;
 
 	public static AchievementPage pageBOP;
 

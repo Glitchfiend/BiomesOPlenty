@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -25,8 +25,9 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
+import biomesoplenty.helpers.TeleporterPromised;
 
-public class EntitiesHelper
+public class EntityEventHandler
 {
 	@ForgeSubscribe
 	public void onEntitySpawn(EntityJoinWorldEvent event)

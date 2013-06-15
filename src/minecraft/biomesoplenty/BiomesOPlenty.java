@@ -19,14 +19,15 @@ import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPLiquids;
 import biomesoplenty.configuration.BOPPotions;
 import biomesoplenty.configuration.BOPVanillaCompat;
+import biomesoplenty.handlers.BOPCraftHandler;
+import biomesoplenty.handlers.BonemealHandler;
+import biomesoplenty.handlers.EntityEventHandler;
+import biomesoplenty.handlers.SoundHandler;
+import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.helpers.AchievementHelper;
-import biomesoplenty.helpers.BOPCraft;
 import biomesoplenty.helpers.BOPLiquidHelper;
-import biomesoplenty.helpers.BonemealUse;
 import biomesoplenty.helpers.CreativeTabsBOP;
-import biomesoplenty.helpers.EntitiesHelper;
 import biomesoplenty.helpers.Localizations;
-import biomesoplenty.helpers.TickHandlerClient;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.world.WorldProviderBOPhell;
@@ -64,64 +65,22 @@ public class BiomesOPlenty
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		boolean isClient = proxy instanceof ClientProxy;
-
-		String[] soundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
-
-		if (isClient)
-		{
-			for (String soundFile : soundFiles) {
-				try
-				{
-					File file = new File(Minecraft.getMinecraftDir().getAbsolutePath() + "/resources/mod/streaming/" + soundFile);
-					if (!file.exists()) {
-						System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
-						file.getParentFile().mkdirs();
-						file.createNewFile();
-						InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
-						OutputStream out = new FileOutputStream(file);
-						byte[] buf = new byte[1024];
-						int size = 0;
-						int len;
-						while ((len = istream.read(buf)) > 0) {
-							out.write(buf, 0, len);
-							size += len;
-						}
-						out.close();
-						istream.close();
-						if (size == 0) {
-							file.delete();
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed to load sound file: " + soundFile);
-					e.printStackTrace();
-				}
-			}
-		}
-
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
+		
+		SoundHandler soundHandler = new SoundHandler();
+		soundHandler.installRecordTracks();
 		
 		Version.check();
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
 		BOPPotions.init();
-
 		BOPBlocks.init();
-
 		BOPItems.init();
-
 		BOPLiquids.init();
-
 		BOPCrafting.init();
-
 		BOPBiomes.init();
-
 		BOPEntities.init();
-
 		BOPVanillaCompat.init();
 		
         Localizations.loadLanguages();
@@ -132,7 +91,7 @@ public class BiomesOPlenty
 			AchievementHelper.init();
 		}
 
-		GameRegistry.registerCraftingHandler(new BOPCraft());
+		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
 	}
 
 	@Init
@@ -144,8 +103,8 @@ public class BiomesOPlenty
 		// Add helpers for compatibility
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
-		MinecraftForge.EVENT_BUS.register(new BonemealUse());
-		MinecraftForge.EVENT_BUS.register(new EntitiesHelper());
+		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
+		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BOPLiquidHelper());
 
 		proxy.registerRenderers();

@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.event.Event.Result;
@@ -10,7 +10,7 @@ import biomesoplenty.blocks.BlockBOPSapling;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 
-public class BonemealUse
+public class BonemealHandler
 {
 
 	@ForgeSubscribe
