@@ -82,7 +82,10 @@ public class BlockBOPGlass extends Block
 			{
 				if (checkAltarStructreIntegrity(world, x, y, z))
 				{
-					player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+					if (!player.capabilities.isCreativeMode)
+					{
+						player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+					}
 
 					world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
 					world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
@@ -125,6 +128,19 @@ public class BlockBOPGlass extends Block
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public int getDamageValue(World world, int x, int y, int z)
+	{
+		int meta = world.getBlockMetadata(x, y, z);
+		
+		if (meta == 2 || meta == 3) 
+		{
+			meta = 1;
+		}
+		
+		return meta;
 	}
 	
     public int quantityDropped(Random par1Random)

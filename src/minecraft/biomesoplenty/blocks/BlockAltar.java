@@ -121,7 +121,11 @@ public class BlockAltar extends Block
 						if (!world.isRemote)
 						{
 							tileentityaltar.setPresent(equippedItem.getItemDamage(), true);
-							--equippedItem.stackSize;
+							
+							if (!player.capabilities.isCreativeMode)
+							{
+								--equippedItem.stackSize;
+							}
 						}
 						
 						world.markBlockForUpdate(x, y, z);
@@ -166,23 +170,26 @@ public class BlockAltar extends Block
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
-        Item item = Item.itemsList[par6EntityPlayer.getCurrentEquippedItem().itemID];
-		
-		if (item instanceof ItemPickaxe)
-		{
-	        if (!world.isRemote && world.getGameRules().getGameRuleBooleanValue("doTileDrops"))
-	        {
-	            float f = 0.7F;
-	            double d0 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-	            double d1 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-	            double d2 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
-	            EntityItem entityitem = new EntityItem(world, (double)x + d0, (double)y + d1, (double)z + d2, new ItemStack(Blocks.altar.get(), 1));
-	            entityitem.delayBeforeCanPickup = 10;
-	            world.spawnEntityInWorld(entityitem);
-	        }
-		}
-		
-		dropBlockAsItem(world, x, y, z, id, meta);
+        if (par6EntityPlayer.getCurrentEquippedItem() != null)
+        {
+        	Item item = Item.itemsList[par6EntityPlayer.getCurrentEquippedItem().itemID];
+
+        	if (item instanceof ItemPickaxe)
+        	{
+        		if (!world.isRemote && world.getGameRules().getGameRuleBooleanValue("doTileDrops"))
+        		{
+        			float f = 0.7F;
+        			double d0 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
+        			double d1 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
+        			double d2 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
+        			EntityItem entityitem = new EntityItem(world, (double)x + d0, (double)y + d1, (double)z + d2, new ItemStack(Blocks.altar.get(), 1));
+        			entityitem.delayBeforeCanPickup = 10;
+        			world.spawnEntityInWorld(entityitem);
+        		}
+        	}
+        }
+
+        dropBlockAsItem(world, x, y, z, id, meta);
 	}
 
 	@Override
