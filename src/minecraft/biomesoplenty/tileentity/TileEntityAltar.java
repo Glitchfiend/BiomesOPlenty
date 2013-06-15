@@ -136,4 +136,16 @@ public class TileEntityAltar extends TileEntity
     		return false;
     	}
     }
+    
+    public boolean getAllPresent()
+    {
+    	if (rubyPresent && peridotPresent && topazPresent && tanzanitePresent && apatitePresent && sapphirePresent)
+    	{
+    		return true;
+    	}
+    	else
+    	{
+    		return false;
+    	}
+    }
 }
