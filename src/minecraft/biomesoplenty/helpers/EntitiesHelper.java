@@ -1,17 +1,21 @@
 package biomesoplenty.helpers;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -20,7 +24,7 @@ import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.mobs.ai.EntityAITemptArmour;
+import biomesoplenty.entities.ai.EntityAITemptArmour;
 
 public class EntitiesHelper
 {
@@ -86,4 +90,52 @@ public class EntitiesHelper
 			}
 		}
 	}
+	
+	@ForgeSubscribe
+	public void lightningStrike(LivingHurtEvent event)
+	{
+		if (event.source == DamageSource.inFire)
+		{
+			AxisAlignedBB axisalignedbb = AxisAlignedBB.getAABBPool().getAABB((double)event.entity.posX, (double)event.entity.posY, (double)event.entity.posZ, (double)(event.entity.posX + 1), (double)(event.entity.posY + 1), (double)(event.entity.posZ + 1)).expand(5, 5, 5);
+
+			if (!event.entity.worldObj.getEntitiesWithinAABB(EntityLightningBolt.class, axisalignedbb).isEmpty());
+			{
+				if (!event.entity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb).isEmpty());
+				{
+					if (isBlockInBB(event.entity.worldObj, axisalignedbb, Blocks.glass.get().blockID, 2))
+					{           	
+						event.setCanceled(true);
+					}
+				}
+			}
+		}
+	}
+	
+    public boolean isBlockInBB(World world, AxisAlignedBB par1AxisAlignedBB, int blockID, int blockMeta)
+    {
+        int i = MathHelper.floor_double(par1AxisAlignedBB.minX);
+        int j = MathHelper.floor_double(par1AxisAlignedBB.maxX + 1.0D);
+        int k = MathHelper.floor_double(par1AxisAlignedBB.minY);
+        int l = MathHelper.floor_double(par1AxisAlignedBB.maxY + 1.0D);
+        int i1 = MathHelper.floor_double(par1AxisAlignedBB.minZ);
+        int j1 = MathHelper.floor_double(par1AxisAlignedBB.maxZ + 1.0D);
+
+        for (int k1 = i; k1 < j; ++k1)
+        {
+            for (int l1 = k; l1 < l; ++l1)
+            {
+                for (int i2 = i1; i2 < j1; ++i2)
+                {
+                    Block block = Block.blocksList[world.getBlockId(k1, l1, i2)];
+
+                    if (block != null && block.blockID == blockID && world.getBlockMetadata(k1, l1, i2) == blockMeta)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
 }

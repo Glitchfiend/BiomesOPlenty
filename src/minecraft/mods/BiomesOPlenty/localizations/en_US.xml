@@ -142,7 +142,8 @@
 	<entry key="tile.bop.bones.bones_large.name">Large Bone Segment</entry>
 
 	<entry key="tile.bop.glass.celestialLens.name">Celestial Lens</entry>
-	<entry key="tile.bop.glass.sacrificialFocus.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialFocus_empty.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialFocus_active.name">Sacrificial Focus</entry>
 	
 	<entry key="tile.bop.altar.altarFrame.name">Altar Frame</entry>
 

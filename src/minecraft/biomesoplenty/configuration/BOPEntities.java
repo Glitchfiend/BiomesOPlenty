@@ -6,12 +6,12 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Biomes;
+import biomesoplenty.entities.EntityGlob;
+import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.entities.EntityRosester;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.EntityPoisonDart;
-import biomesoplenty.mobs.EntityGlob;
-import biomesoplenty.mobs.EntityJungleSpider;
-import biomesoplenty.mobs.EntityRosester;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

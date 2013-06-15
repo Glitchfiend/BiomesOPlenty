@@ -1,4 +1,4 @@
-package biomesoplenty.mobs;
+package biomesoplenty.entities;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.ai.EntityAIFollowParent;

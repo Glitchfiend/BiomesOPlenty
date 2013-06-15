@@ -14,8 +14,8 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.mobs.EntityJungleSpider;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.entities.EntityJungleSpider;
 
 public class BiomeGenJungleNew extends BiomeGenBase
 {

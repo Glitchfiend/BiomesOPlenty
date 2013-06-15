@@ -8,10 +8,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.mobs.EntityRosester;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.entities.EntityRosester;
 
 public class BiomeGenGarden extends BiomeGenBase
 {

@@ -1,4 +1,4 @@
-package biomesoplenty.mobs;
+package biomesoplenty.entities;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;

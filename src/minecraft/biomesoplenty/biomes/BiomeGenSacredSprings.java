@@ -10,7 +10,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.mobs.EntityJungleSpider;
+import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.api.Blocks;
 
 public class BiomeGenSacredSprings extends BiomeGenBase

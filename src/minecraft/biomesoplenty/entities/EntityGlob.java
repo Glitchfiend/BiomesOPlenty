@@ -1,4 +1,4 @@
-package biomesoplenty.mobs;
+package biomesoplenty.entities;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.IMob;

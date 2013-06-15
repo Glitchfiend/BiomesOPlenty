@@ -1,4 +1,4 @@
-package biomesoplenty.mobs.ai;
+package biomesoplenty.entities.ai;
 
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;

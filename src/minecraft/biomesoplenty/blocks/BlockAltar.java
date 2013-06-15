@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
@@ -16,8 +17,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.INetworkManager;
@@ -163,6 +166,22 @@ public class BlockAltar extends Block
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
+        Item item = Item.itemsList[par6EntityPlayer.getCurrentEquippedItem().itemID];
+		
+		if (item instanceof ItemPickaxe)
+		{
+	        if (!world.isRemote && world.getGameRules().getGameRuleBooleanValue("doTileDrops"))
+	        {
+	            float f = 0.7F;
+	            double d0 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
+	            double d1 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
+	            double d2 = (double)(world.rand.nextFloat() * f) + (double)(1.0F - f) * 0.5D;
+	            EntityItem entityitem = new EntityItem(world, (double)x + d0, (double)y + d1, (double)z + d2, new ItemStack(Blocks.altar.get(), 1));
+	            entityitem.delayBeforeCanPickup = 10;
+	            world.spawnEntityInWorld(entityitem);
+	        }
+		}
+		
 		dropBlockAsItem(world, x, y, z, id, meta);
 	}
 
@@ -191,8 +210,6 @@ public class BlockAltar extends Block
 
 			if (tileentityaltar.getPresent(15))
 				ret.add(new ItemStack(Items.miscItems.get(), 1, 15));
-			
-			ret.add(new ItemStack(Blocks.altar.get().blockID, 1, 0));
 		}
 
 		return ret;

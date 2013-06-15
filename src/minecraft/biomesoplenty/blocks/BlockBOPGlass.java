@@ -10,9 +10,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -23,7 +26,7 @@ import biomesoplenty.tileentity.TileEntityAltar;
 
 public class BlockBOPGlass extends Block
 {
-	private static final String[] glassTypes = new String[] {"celestiallens", "sacrificialFocus"};
+	private static final String[] glassTypes = new String[] {"celestiallens", "sacrificialFocus_empty", "sacrificialFocus_active"};
 	private Icon[] textures;
 
 	public BlockBOPGlass(int blockID)
@@ -35,27 +38,61 @@ public class BlockBOPGlass extends Block
 	}
 	
 	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
+	{
+		if (world.getBlockMetadata(x, y, z) == 2)
+		{
+			float var5 = 0.01F;
+			return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - var5, z + 1);
+		}
+		else
+			return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1, z + 1);
+	}
+	
+	@Override
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	{
+		if (world.getBlockMetadata(x, y, z) == 2)
+		{
+			if (checkAltarStructreIntegrity(world, x, y, z))
+			{
+				if (entity instanceof EntityVillager)
+				{
+					world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+					
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
+
+					entity.setDead();
+				}
+			}
+		}
+	}
+	
+	@Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float par7, float par8, float par9)
 	{
 		ItemStack equippedItem = player.getCurrentEquippedItem();
 		
 		if (equippedItem.itemID == Items.soulManipulator.get().itemID && equippedItem.getItemDamage() == 1)
 		{
-			TileEntityAltar tileentityaltar0 = (TileEntityAltar) world.getBlockTileEntity(x + 1, y, z);
-			TileEntityAltar tileentityaltar1 = (TileEntityAltar) world.getBlockTileEntity(x - 1, y, z);
-			TileEntityAltar tileentityaltar2 = (TileEntityAltar) world.getBlockTileEntity(x, y, z + 1);
-			TileEntityAltar tileentityaltar3 = (TileEntityAltar) world.getBlockTileEntity(x, y, z - 1);
-
-			if (checkAltarStructreIntegrity(world, x, y, z))
+			if (world.getBlockMetadata(x, y, z) == 1)
 			{
-				player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+				if (checkAltarStructreIntegrity(world, x, y, z))
+				{
+					player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
 
-				world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
-				world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
-				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
-				world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
+					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
+					
+					world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 
-				return true;
+					return true;
+				}
 			}
 		}
 
@@ -69,6 +106,7 @@ public class BlockBOPGlass extends Block
 		TileEntityAltar tileentityaltar2 = (TileEntityAltar) world.getBlockTileEntity(x, y, z + 1);
 		TileEntityAltar tileentityaltar3 = (TileEntityAltar) world.getBlockTileEntity(x, y, z - 1);
 		
+		if (tileentityaltar0 != null && tileentityaltar1 != null && tileentityaltar2 != null && tileentityaltar3 != null)
 		if (tileentityaltar0.getAllPresent() && tileentityaltar1.getAllPresent() && tileentityaltar2.getAllPresent() && tileentityaltar3.getAllPresent())
 		{
 			if (world.getBlockId(x + 1, y + 1, z) == Blocks.bones.get().blockID && world.getBlockId(x - 1, y + 1, z) == Blocks.bones.get().blockID && world.getBlockId(x, y + 1, z + 1) == Blocks.bones.get().blockID && world.getBlockId(x, y + 1, z - 1) == Blocks.bones.get().blockID)
@@ -138,9 +176,12 @@ public class BlockBOPGlass extends Block
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-		for (int i = 0; i < glassTypes.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) 
+	{
+		for (int i = 0; i < glassTypes.length; ++i) 
+		{
+			if (i != 2)
+				list.add(new ItemStack(blockID, 1, i));
 		}
 	}
 
