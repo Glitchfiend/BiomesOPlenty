@@ -48,5 +48,4 @@ public class FluidIdMapPacket extends ForgePacket {
 
         FluidRegistry.initFluidIDs(fluidIds);
     }
-
 }

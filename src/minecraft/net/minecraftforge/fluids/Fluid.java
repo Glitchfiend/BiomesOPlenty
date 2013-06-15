@@ -98,7 +98,7 @@ public class Fluid {
 
     public Fluid setBlockID(int blockID) {
 
-        if (this.blockID == -1 || this.blockID == blockID) {
+        if ((this.blockID == -1) || (this.blockID == blockID)) {
             this.blockID = blockID;
         } else {
             FMLLog.severe("A mod has attempted to assign BlockID " + blockID + " to the Fluid '" + fluidName + "' but this Fluid has already been linked to BlockID "
