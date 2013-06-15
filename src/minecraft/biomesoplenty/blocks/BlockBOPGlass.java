@@ -26,7 +26,7 @@ import biomesoplenty.tileentity.TileEntityAltar;
 
 public class BlockBOPGlass extends Block
 {
-	private static final String[] glassTypes = new String[] {"celestiallens", "sacrificialFocus_empty", "sacrificialFocus_active"};
+	private static final String[] glassTypes = new String[] {"celestiallens", "sacrificialFocus_empty", "sacrificialFocus_active", "sacrificialFocus_villager"};
 	private Icon[] textures;
 
 	public BlockBOPGlass(int blockID)
@@ -58,7 +58,7 @@ public class BlockBOPGlass extends Block
 			{
 				if (entity instanceof EntityVillager)
 				{
-					world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+					world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 					
 					world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
 					world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
@@ -180,7 +180,7 @@ public class BlockBOPGlass extends Block
 	{
 		for (int i = 0; i < glassTypes.length; ++i) 
 		{
-			if (i != 2)
+			if (i != 2 && i != 3)
 				list.add(new ItemStack(blockID, 1, i));
 		}
 	}

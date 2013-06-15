@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBOPGlass extends ItemBlock
 {
-	private static final String[] glassTypes = new String[] {"celestialLens", "sacrificialFocus_empty", "sacrificialFocus_active"};
+	private static final String[] glassTypes = new String[] {"celestialLens", "sacrificialFocus_empty", "sacrificialFocus_active", "sacrificialFocus_villager"};
 
 	public ItemBOPGlass(int par1)
 	{
