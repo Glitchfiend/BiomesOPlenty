@@ -3,6 +3,7 @@ package biomesoplenty.items;
 import java.util.List;
 
 import net.minecraft.block.BlockCloth;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLiving;
@@ -45,8 +46,12 @@ public class ItemBOP extends Item
 
 				if (i != entitywolf.getCollarColor())
 				{
-					entitywolf.setCollarColor(i);
-					--par1ItemStack.stackSize;
+					entitywolf.setCollarColor(i)
+					;
+					if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
+					{
+						--par1ItemStack.stackSize;
+					}
 
 					return true;
 				}
@@ -58,7 +63,11 @@ public class ItemBOP extends Item
 				if (!entitysheep.getSheared() && entitysheep.getFleeceColor() != i)
 				{
 					entitysheep.setFleeceColor(i);
-					--par1ItemStack.stackSize;
+					
+					if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
+					{
+						--par1ItemStack.stackSize;
+					}
 				}
 
 				return true;

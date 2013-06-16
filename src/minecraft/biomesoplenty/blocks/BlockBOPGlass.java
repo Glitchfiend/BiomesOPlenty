@@ -9,10 +9,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -82,7 +85,21 @@ public class BlockBOPGlass extends Block
 		{
 			if (equippedItem.getItemDamage() == 0)
 			{
-				if (world.getBlockMetadata(x, y, z) == 3)
+				if (world.getBlockMetadata(x, y, z) == 2)
+				{
+					if (checkAltarStructreIntegrity(world, x, y, z))
+					{
+						if (!player.capabilities.isCreativeMode)
+						{
+							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 1));
+						}
+
+						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+
+						return true;
+					}
+				}
+				else if (world.getBlockMetadata(x, y, z) == 3)
 				{
 					if (checkAltarStructreIntegrity(world, x, y, z))
 					{
@@ -90,14 +107,14 @@ public class BlockBOPGlass extends Block
 						{
 							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 2));
 						}
-						
-		                FMLClientHandler.instance().getClient().sndManager.playSound("mods.BiomesOPlenty.audio.villager.no", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
+
+						FMLClientHandler.instance().getClient().sndManager.playSound("mods.BiomesOPlenty.audio.villager.no", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
 
 						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 
 						return true;
 					}
-				}			
+				}	
 			}
 			else if (equippedItem.getItemDamage() == 1)
 			{
@@ -118,6 +135,56 @@ public class BlockBOPGlass extends Block
 						world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 
 						return true;
+					}
+				}
+				if (world.getBlockMetadata(x, y, z) == 3)
+				{
+					if (checkAltarStructreIntegrity(world, x, y, z))
+					{
+						if (!player.capabilities.isCreativeMode)
+						{
+							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+						}
+
+						world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
+						
+						FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
+						FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
+						
+						world.spawnEntityInWorld(new EntityDragon(world));
+
+						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+						
+						Entity entitytnt = new EntityTNTPrimed(world);
+						
+						world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
+
+						return true;
+					}
+				}
+			}
+			if (equippedItem.getItemDamage() == 2)
+			{
+				if (world.getBlockMetadata(x, y, z) == 2)
+				{
+					if (checkAltarStructreIntegrity(world, x, y, z))
+					{						
+						if (player.dimension != 1)
+						{
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
+
+							if (!player.capabilities.isCreativeMode)
+							{
+								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+							}
+
+							world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+
+							return true;
+						}
 					}
 				}
 			}
