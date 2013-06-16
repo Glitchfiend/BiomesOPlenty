@@ -67,9 +67,6 @@ public class BiomesOPlenty
 	{
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
 		
-		SoundHandler soundHandler = new SoundHandler();
-		soundHandler.installRecordTracks();
-		
 		Version.check();
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
@@ -92,6 +89,8 @@ public class BiomesOPlenty
 		}
 
 		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
+		
+		MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
 
 	@Init

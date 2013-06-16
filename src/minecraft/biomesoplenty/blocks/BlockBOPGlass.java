@@ -3,6 +3,7 @@ package biomesoplenty.blocks;
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -72,29 +73,52 @@ public class BlockBOPGlass extends Block
 	}
 	
 	@Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float par7, float par8, float par9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int meta, float par7, float par8, float par9)
 	{
 		ItemStack equippedItem = player.getCurrentEquippedItem();
-		
-		if (equippedItem.itemID == Items.soulManipulator.get().itemID && equippedItem.getItemDamage() == 1)
+		Random rand = new Random();
+
+		if (equippedItem.itemID == Items.soulManipulator.get().itemID)
 		{
-			if (world.getBlockMetadata(x, y, z) == 1)
+			if (equippedItem.getItemDamage() == 0)
 			{
-				if (checkAltarStructreIntegrity(world, x, y, z))
+				if (world.getBlockMetadata(x, y, z) == 3)
 				{
-					if (!player.capabilities.isCreativeMode)
+					if (checkAltarStructreIntegrity(world, x, y, z))
 					{
-						player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+						if (!player.capabilities.isCreativeMode)
+						{
+							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 2));
+						}
+						
+		                FMLClientHandler.instance().getClient().sndManager.playSound("mods.BiomesOPlenty.audio.villager.no", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
+
+						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+
+						return true;
 					}
+				}			
+			}
+			else if (equippedItem.getItemDamage() == 1)
+			{
+				if (world.getBlockMetadata(x, y, z) == 1)
+				{
+					if (checkAltarStructreIntegrity(world, x, y, z))
+					{
+						if (!player.capabilities.isCreativeMode)
+						{
+							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+						}
 
-					world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
-					world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
-					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
-					world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
-					
-					world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+						world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
+						world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
+						world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
+						world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
 
-					return true;
+						world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+
+						return true;
+					}
 				}
 			}
 		}

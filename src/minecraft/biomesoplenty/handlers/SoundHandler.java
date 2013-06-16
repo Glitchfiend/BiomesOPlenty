@@ -7,52 +7,64 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.event.sound.PlayStreamingEvent;
+import net.minecraftforge.client.event.sound.SoundLoadEvent;
+import net.minecraftforge.event.ForgeSubscribe;
 
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.ClientProxy;
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class SoundHandler 
 {
-	static String[] soundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
+	static String[] recordSoundFiles = { "mods/BiomesOPlenty/audio/record/" + "bopdisc.ogg", "mods/BiomesOPlenty/audio/record/" + "bopdiscmud.ogg"};
+	static String[] soundFiles = { "mods/BiomesOPlenty/audio/villager/" + "no.ogg"};
 	
-	public void installRecordTracks()
+	@SideOnly(Side.CLIENT)
+	@ForgeSubscribe
+	public void onSoundLoad(SoundLoadEvent event) 
 	{
-		boolean isClient = BiomesOPlenty.proxy instanceof ClientProxy;
-
-		if (isClient)
+		for (String soundFile : soundFiles) 
 		{
-			for (String soundFile : soundFiles) 
+			try 
 			{
-				try
-				{
-					File file = new File(Minecraft.getMinecraftDir().getAbsolutePath() + "/resources/mod/streaming/" + soundFile);
-					if (!file.exists()) {
-						System.out.println("[BiomesOPlenty] " + soundFile + " doesn't exist, creating...");
-						file.getParentFile().mkdirs();
-						file.createNewFile();
-						InputStream istream = getClass().getResourceAsStream("/mods/BiomesOPlenty/audio/" + soundFile);
-						OutputStream out = new FileOutputStream(file);
-						byte[] buf = new byte[1024];
-						int size = 0;
-						int len;
-						while ((len = istream.read(buf)) > 0) {
-							out.write(buf, 0, len);
-							size += len;
-						}
-						out.close();
-						istream.close();
-						if (size == 0) {
-							file.delete();
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed to load sound file: " + soundFile);
-					e.printStackTrace();
-				}
+				event.manager.soundPoolSounds.addSound(soundFile, this.getClass().getResource("/" + soundFile));
 			}
+
+			catch (Exception e) 
+			{
+				FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed loading sound file: " + soundFile);
+			}
+		}
+		
+		for (String recordSoundFile : recordSoundFiles) 
+        {
+            try 
+            {
+                event.manager.soundPoolStreaming.addSound(recordSoundFile, this.getClass().getResource("/" + recordSoundFile));
+            }
+
+            catch (Exception e) 
+            {
+            	FMLCommonHandler.instance().getFMLLogger().log(Level.WARNING, "[BiomesOPlenty] Failed loading sound file: " + recordSoundFile);
+            }
+        }
+	}
+	
+	@SideOnly(Side.CLIENT)
+	@ForgeSubscribe
+	public void onPlayStreaming(PlayStreamingEvent event) 
+	{
+		if (event.name == "bopdisc")
+		{
+			FMLClientHandler.instance().getClient().sndManager.playStreaming("mods.BiomesOPlenty.audio.record.bopdisc", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
+		}
+		else if (event.name == "bopdiscmud")
+		{
+			FMLClientHandler.instance().getClient().sndManager.playStreaming("mods.BiomesOPlenty.audio.record.bopdiscmud", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
 		}
 	}
 }

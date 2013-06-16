@@ -95,18 +95,15 @@ public class EntityEventHandler
 	@ForgeSubscribe
 	public void lightningStrike(LivingHurtEvent event)
 	{
-		if (event.source == DamageSource.inFire)
-		{
-			AxisAlignedBB axisalignedbb = AxisAlignedBB.getAABBPool().getAABB((double)event.entity.posX, (double)event.entity.posY, (double)event.entity.posZ, (double)(event.entity.posX + 1), (double)(event.entity.posY + 1), (double)(event.entity.posZ + 1)).expand(5, 5, 5);
+		AxisAlignedBB axisalignedbb = AxisAlignedBB.getAABBPool().getAABB((double)event.entity.posX, (double)event.entity.posY, (double)event.entity.posZ, (double)(event.entity.posX + 1), (double)(event.entity.posY + 1), (double)(event.entity.posZ + 1)).expand(5, 5, 5);
 
-			if (!event.entity.worldObj.getEntitiesWithinAABB(EntityLightningBolt.class, axisalignedbb).isEmpty());
+		if (!event.entity.worldObj.getEntitiesWithinAABB(EntityLightningBolt.class, axisalignedbb).isEmpty());
+		{
+			if (!event.entity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb).isEmpty());
 			{
-				if (!event.entity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb).isEmpty());
-				{
-					if (isBlockInBB(event.entity.worldObj, axisalignedbb, Blocks.glass.get().blockID, 2))
-					{           	
-						event.setCanceled(true);
-					}
+				if (isBlockInBB(event.entity.worldObj, axisalignedbb, Blocks.glass.get().blockID, 2) || isBlockInBB(event.entity.worldObj, axisalignedbb, Blocks.glass.get().blockID, 3))
+				{           	
+					event.setCanceled(true);
 				}
 			}
 		}

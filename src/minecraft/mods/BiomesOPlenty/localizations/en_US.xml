@@ -319,6 +319,7 @@
 
 	<entry key="item.bop.soulManipulator.soulmanipulator_empty.name">Soul Manipulator</entry>
 	<entry key="item.bop.soulManipulator.soulmanipulator_ghastlysoul.name">Ghastly Soul Manipulator</entry>
+	<entry key="item.bop.soulManipulator.soulmanipulator_villager.name">Villager Soul Manipulator</entry>
 
 	<entry key="item.bop.enderporter.name">Enderporter</entry>
 

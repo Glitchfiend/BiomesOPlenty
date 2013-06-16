@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSoulManipulator extends Item
 {
-	private static String[] manipulatorTypes = {"soulmanipulator_empty", "soulmanipulator_ghastlysoul"};
+	private static String[] manipulatorTypes = {"soulmanipulator_empty", "soulmanipulator_ghastlysoul", "soulmanipulator_villager"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
