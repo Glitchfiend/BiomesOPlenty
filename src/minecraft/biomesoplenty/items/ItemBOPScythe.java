@@ -44,26 +44,55 @@ public class ItemBOPScythe extends Item
         
         if (toolMaterial == EnumToolMaterial.IRON || toolMaterial == EnumToolMaterial.GOLD)
         {
+        	if (block != null)
+        	{
+        		if (block.isLeaves(world, x, y, z))
+        			height = 2;
+        	}
+        	
         	radius = 2;
         }
         else if (toolMaterial == EnumToolMaterial.EMERALD)
         {
+        	if (block != null)
+        	{
+        		if (block.isLeaves(world, x, y, z))
+        			height = 3;
+        	}
+        	
         	radius = 3;
         }
         else if (toolMaterial == BOPItems.EnumToolMaterialAmethyst)
         {
+        	if (block != null)
+        	{
+        		if (block.isLeaves(world, x, y, z))
+        			height = 4;
+        	}
+        	
         	radius = 4;
+        }
+        else
+        {
+        	if (block != null)
+        	{
+        		if (block.isLeaves(world, x, y, z))
+        			height = 0;
+        	}
         }
     	
     	if (block != null)
     	{
     		if (block.isLeaves(world, x, y, z))
     		{
-    			trimLeaves(world, x, y, z, height, radius);
+        		if (height > 0)
+        		{
+        			trimLeaves(world, x, y, z, height, radius);
 
-    			itemstack.damageItem(1, entity);
+        			itemstack.damageItem(1, entity);
 
-    			return true;
+        			return true;
+        		}
     		}
     		else
     		{
