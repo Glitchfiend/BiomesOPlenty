@@ -155,6 +155,15 @@ public class BOPCrafting
 		//        GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
 		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
+		
+		//Scythes
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheWood.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), "plankWood", Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheStone.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Block.cobblestone, Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheIron.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Item.ingotIron, Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheGold.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Item.ingotGold, Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheDiamond.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Item.diamond, Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheMud.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Items.mudball.get(), Character.valueOf('S'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheAmethyst.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('S'), "stickWood" }));
 
 		//Mud Tools and Armor
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.pickaxeMud.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood" }));

@@ -85,6 +85,8 @@ public class ItemSoulManipulator extends Item
 					}
                   
                 	//entityvillager.playLivingSound();
+					
+					return true;
 				}
 			}
 			else

@@ -85,6 +85,7 @@ public class BOPBlocks {
 		registerTileEntities();
 
 		//Shears VS Blocks
+		Blocks.shearBlockIds.put(Block.leaves.blockID, 15.0F);
 		Blocks.shearBlockIds.put(Blocks.leaves1.get().blockID, 15.0F);
 		Blocks.shearBlockIds.put(Blocks.leaves2.get().blockID, 15.0F);
 		Blocks.shearBlockIds.put(Blocks.leavesColorized.get().blockID, 15.0F);

@@ -310,6 +310,14 @@
 	<entry key="item.bop.chestplateAmethyst.name">Amethyst Chestplate</entry>
 	<entry key="item.bop.leggingsAmethyst.name">Amethyst Leggings</entry>
 	<entry key="item.bop.bootsAmethyst.name">Amethyst Boots</entry>
+	
+	<entry key="item.bop.scytheWood.name">Wooden Scythe</entry>
+	<entry key="item.bop.scytheStone.name">Stone Scythe</entry>
+	<entry key="item.bop.scytheIron.name">Iron Scythe</entry>
+	<entry key="item.bop.scytheGold.name">Gold Scythe</entry>
+	<entry key="item.bop.scytheDiamond.name">Diamond Scythe</entry>
+	<entry key="item.bop.scytheMud.name">Mud Scythe</entry>
+	<entry key="item.bop.scytheAmethyst.name">Amethyst Scythe</entry>
 
 	<entry key="item.bop.ancientStaff.ancientstaff.name">Ancient Staff</entry>
 	<entry key="item.bop.ancientStaff.staffhandle.name">Ancient Staff Handle</entry>

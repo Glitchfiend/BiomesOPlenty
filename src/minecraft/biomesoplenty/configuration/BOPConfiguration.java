@@ -237,7 +237,6 @@ public class BOPConfiguration {
 	public static int leggingsMudID;
 	public static int bootsMudID;
 
-
 	public static int swordAmethystID;
 	public static int shovelAmethystID;
 	public static int pickaxeAmethystID;
@@ -247,6 +246,14 @@ public class BOPConfiguration {
 	public static int chestplateAmethystID;
 	public static int leggingsAmethystID;
 	public static int bootsAmethystID;
+	
+	public static int scytheWoodID;
+	public static int scytheStoneID;
+	public static int scytheIronID;
+	public static int scytheGoldID;
+	public static int scytheDiamondID;
+	public static int scytheMudID;
+	public static int scytheAmethystID;
 
 	public static int flowerBandID;
 
@@ -799,6 +806,15 @@ public class BOPConfiguration {
 			bopBucketID = config.getItem("Spring Water Bucket ID", 21079, null).getInt();
 			
 			soulManipulatorID = config.getItem("Soul Manipulator ID", 21080).getInt();
+			
+			scytheWoodID = config.getItem("Wood Scythe ID", 21081).getInt();
+			scytheStoneID = config.getItem("Stone Scythe ID", 21082).getInt();
+			scytheIronID = config.getItem("Iron Scythe ID", 21083).getInt();
+			scytheGoldID = config.getItem("Gold Scythe ID", 21084).getInt();
+			scytheDiamondID = config.getItem("Diamond Scythe ID", 21085).getInt();
+			scytheMudID = config.getItem("Mud Scythe ID", 21086).getInt();
+			scytheAmethystID = config.getItem("Amethyst Scythe ID", 21087).getInt();
+			
 
 			//Liquid Ids
 			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();

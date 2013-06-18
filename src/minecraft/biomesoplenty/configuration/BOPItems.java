@@ -23,6 +23,7 @@ import biomesoplenty.items.ItemBOPMudball;
 import biomesoplenty.items.ItemBOPPickaxe;
 import biomesoplenty.items.ItemBOPRecord;
 import biomesoplenty.items.ItemBOPRecordMud;
+import biomesoplenty.items.ItemBOPScythe;
 import biomesoplenty.items.ItemBOPSpade;
 import biomesoplenty.items.ItemBOPSword;
 import biomesoplenty.items.ItemBerries;
@@ -141,6 +142,14 @@ public class BOPItems {
 		Items.chestplateAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.chestplateAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 1)).setUnlocalizedName("bop.chestplateAmethyst"));
 		Items.leggingsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.leggingsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 2)).setUnlocalizedName("bop.leggingsAmethyst"));
 		Items.bootsAmethyst = Optional.of((new ArmorAmethyst(BOPConfiguration.bootsAmethystID, EnumArmorMaterialAmethyst, BiomesOPlenty.proxy.addArmor("amethyst"), 3)).setUnlocalizedName("bop.bootsAmethyst"));
+		
+		Items.scytheWood = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheWoodID, 2, EnumToolMaterial.WOOD, 0).setUnlocalizedName("bop.scytheWood")));
+		Items.scytheStone = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheStoneID, 2, EnumToolMaterial.STONE, 1).setUnlocalizedName("bop.scytheStone")));
+		Items.scytheIron = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheIronID, 2, EnumToolMaterial.IRON, 2).setUnlocalizedName("bop.scytheIron")));
+		Items.scytheGold = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheGoldID, 2, EnumToolMaterial.GOLD, 3).setUnlocalizedName("bop.scytheGold")));
+		Items.scytheDiamond = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheDiamondID, 2, EnumToolMaterial.EMERALD, 4).setUnlocalizedName("bop.scytheDiamond")));
+		Items.scytheMud = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheMudID, 2, EnumToolMaterialMud, 5).setUnlocalizedName("bop.scytheMud")));
+		Items.scytheAmethyst = Optional.of((new ItemBOPScythe(BOPConfiguration.scytheAmethystID, 2, EnumToolMaterialAmethyst, 6).setUnlocalizedName("bop.scytheAmethyst")));
 
 		Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfiguration.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flowerBand"));
 	}
