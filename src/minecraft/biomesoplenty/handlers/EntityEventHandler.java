@@ -25,6 +25,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
@@ -96,6 +97,25 @@ public class EntityEventHandler
 					EntityPlayerMP thePlayer = (EntityPlayerMP) event.entityLiving;
 					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(0), true));
 				}
+			}
+		}
+	}
+	
+	@ForgeSubscribe
+	public void chunkEntered(EntityEvent.EnteringChunk event)
+	{
+		if (event.entity != null)
+		{
+			if (event.entity instanceof EntityPlayer)
+			{
+				EntityPlayer player = (EntityPlayer)event.entity;
+				World world = player.worldObj;
+				
+				int x = MathHelper.floor_double(player.posX);
+				int y = MathHelper.floor_double(player.boundingBox.minY);
+				int z = MathHelper.floor_double(player.posZ);
+				
+				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 			}
 		}
 	}
