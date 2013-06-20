@@ -1,17 +1,24 @@
 package biomesoplenty.handlers;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCloth;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -21,6 +28,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
+import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
@@ -92,6 +100,120 @@ public class EntityEventHandler
 		}
 	}
 	
+	@ForgeSubscribe
+	public void entityInteract(EntityInteractEvent event)
+	{
+		ItemStack itemstack = event.entityPlayer.getCurrentEquippedItem();
+		int itemDamage = itemstack.getItemDamage();
+		Entity entity = event.target;
+		EntityPlayer player = event.entityPlayer;
+
+		if (itemstack != null)
+		{
+			if (itemstack.itemID == Items.soulManipulator.get().itemID && itemstack.getItemDamage() == 2)    
+			{
+				if (entity instanceof EntityEnderman)
+				{
+					EntityEnderman entityenderman = (EntityEnderman)entity;
+
+					if (entityenderman.worldObj.rand.nextInt(2) == 0)
+					{
+						entityenderman.attackEntityFrom(DamageSource.causePlayerDamage(player), 1);
+					}
+
+					entityenderman.attackEntityFrom(DamageSource.causePlayerDamage(player), 0);
+
+					if (entityenderman.worldObj.rand.nextInt(6) == 0)
+					{
+						EntityVillager entityvillager = new EntityVillager(entityenderman.worldObj);
+						entityvillager.setLocationAndAngles(entityenderman.posX, entityenderman.posY, entityenderman.posZ, MathHelper.wrapAngleTo180_float(entityenderman.worldObj.rand.nextFloat() * 360.0F), 0.0F);
+						entityvillager.rotationYawHead = entityvillager.rotationYaw;
+						entityvillager.renderYawOffset = entityvillager.rotationYaw;
+
+						if (!entityenderman.worldObj.isRemote)
+						{                        	
+							entityenderman.worldObj.spawnEntityInWorld(entityvillager);
+
+							FMLClientHandler.instance().getClient().sndManager.playSound("mob.endermen.death", (float) entityvillager.posX + 0.5F, (float) entityvillager.posY + 0.5F, (float) entityvillager.posZ + 0.5F, 5.0F, -8.0F);
+							entityenderman.setDead();
+						}
+
+						if (!player.capabilities.isCreativeMode)
+						{
+							itemstack.setItemDamage(0);
+						}
+
+						event.setResult(Result.ALLOW);
+
+						//entityvillager.playLivingSound();
+					}
+				}
+			}
+			else if (itemstack.itemID == Items.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
+			{
+				int dyeMeta = convertToDyeMeta(itemDamage);      
+				int i = BlockCloth.getBlockFromDye(dyeMeta);
+
+				if (entity instanceof EntityWolf)
+				{
+					EntityWolf entitywolf = (EntityWolf)entity;
+
+					if (i != entitywolf.getCollarColor())
+					{
+						entitywolf.setCollarColor(i)
+						;
+						if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
+						{
+							--itemstack.stackSize;
+						}
+
+						event.setResult(Result.ALLOW);
+					}
+				}
+				else if (entity instanceof EntitySheep)
+				{
+					EntitySheep entitysheep = (EntitySheep)entity;
+
+					if (!entitysheep.getSheared() && entitysheep.getFleeceColor() != i)
+					{
+						entitysheep.setFleeceColor(i);
+
+						if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
+						{
+							--itemstack.stackSize;
+						}
+					}
+
+					event.setResult(Result.ALLOW);
+				}
+			}
+		}
+	}
+
+	private int convertToDyeMeta(int meta)
+	{
+		switch (meta)
+		{
+		case 5:
+			return 4;
+
+		case 6:
+			return 3;
+
+		case 7:
+			return 2;
+
+		case 8:
+			return 15;
+
+		case 9:
+			return 0;
+
+		default:
+			return 0;
+		}
+	}
+
 	@ForgeSubscribe
 	public void lightningStrike(LivingHurtEvent event)
 	{

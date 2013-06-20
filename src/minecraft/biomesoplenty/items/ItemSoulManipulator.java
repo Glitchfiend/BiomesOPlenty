@@ -2,27 +2,21 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockCloth;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
-import biomesoplenty.configuration.BOPConfiguration;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -45,58 +39,6 @@ public class ItemSoulManipulator extends Item
     {
 		return true;
     }
-	
-	@Override
-	public boolean itemInteractionForEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving)
-	{
-		int itemDamage = par1ItemStack.getItemDamage(); 
-
-		if (itemDamage == 2)    
-		{
-			if (par2EntityLiving instanceof EntityEnderman)
-			{
-				EntityEnderman entityenderman = (EntityEnderman)par2EntityLiving;
-
-				if (entityenderman.worldObj.rand.nextInt(2) == 0)
-				{
-					entityenderman.attackEntityFrom(DamageSource.causePlayerDamage(Minecraft.getMinecraft().thePlayer), 1);
-				}
-				
-				entityenderman.attackEntityFrom(DamageSource.causePlayerDamage(Minecraft.getMinecraft().thePlayer), 0);
-				
-				if (entityenderman.worldObj.rand.nextInt(6) == 0)
-				{
-                    EntityVillager entityvillager = new EntityVillager(entityenderman.worldObj);
-                    entityvillager.setLocationAndAngles(entityenderman.posX, entityenderman.posY, entityenderman.posZ, MathHelper.wrapAngleTo180_float(entityenderman.worldObj.rand.nextFloat() * 360.0F), 0.0F);
-                    entityvillager.rotationYawHead = entityvillager.rotationYaw;
-                    entityvillager.renderYawOffset = entityvillager.rotationYaw;
-                    
-                    if (!entityenderman.worldObj.isRemote)
-                    {                        	
-                    	entityenderman.worldObj.spawnEntityInWorld(entityvillager);
-
-    					FMLClientHandler.instance().getClient().sndManager.playSound("mob.endermen.death", (float) entityvillager.posX + 0.5F, (float) entityvillager.posY + 0.5F, (float) entityvillager.posZ + 0.5F, 5.0F, -8.0F);
-                    	entityenderman.setDead();
-                    }
-                    
-					if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
-					{
-						par1ItemStack.setItemDamage(0);
-					}
-                  
-                	//entityvillager.playLivingSound();
-					
-					return true;
-				}
-			}
-			else
-			{
-				return false;
-			}
-		}
-
-		return false;
-	}
 
 	@Override
 	public void registerIcons(IconRegister iconRegister)
