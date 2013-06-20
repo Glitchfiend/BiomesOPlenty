@@ -16,16 +16,16 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class AchievementHelper
 {
 	// Achievement declaration
-	private static Achievement achFlower;
-	private static Achievement achRedRock;
-	private static Achievement achThorn;
-	private static Achievement achAsh;
-	private static Achievement achOrigin;
-	private static Achievement achPromised;
-	private static Achievement achMud;
-	private static Achievement achShroom;
-	private static Achievement achBarley;
-	private static Achievement achMoss;
+	public static Achievement achFlower;
+	public static Achievement achRedRock;
+	public static Achievement achThorn;
+	public static Achievement achAsh;
+	public static Achievement achOrigin;
+	public static Achievement achPromised;
+	public static Achievement achMud;
+	public static Achievement achShroom;
+	public static Achievement achBarley;
+	public static Achievement achMoss;
 	public static Achievement achFlowerP;
 
 	public static AchievementPage pageBOP;
