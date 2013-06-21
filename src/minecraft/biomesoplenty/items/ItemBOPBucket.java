@@ -108,24 +108,6 @@ public class ItemBOPBucket extends Item
 
 					if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
 						return par1ItemStack;
-
-					if (par2World.getBlockMaterial(i, j, k) == Material.lava && par2World.getBlockMetadata(i, j, k) == 0)
-					{
-						par2World.setBlockToAir(i, j, k);
-
-						if (par3EntityPlayer.capabilities.isCreativeMode)
-							return par1ItemStack;
-
-						if (--par1ItemStack.stackSize <= 0)
-							return new ItemStack(Item.bucketLava);
-
-						if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.bucketLava)))
-						{
-							par3EntityPlayer.dropPlayerItem(new ItemStack(Item.bucketLava.itemID, 1, 0));
-						}
-
-						return par1ItemStack;
-					}
 				}
 				else
 				{
