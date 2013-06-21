@@ -35,6 +35,7 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
+import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.TeleporterPromised;
 
 public class EntityEventHandler
@@ -117,6 +118,15 @@ public class EntityEventHandler
 				int z = MathHelper.floor_double(player.posZ);
 				
 				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
+				
+				if (biomeID == Biomes.deadlands.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achAsh, 1);
+				}
+				if (biomeID == Biomes.tropics.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achMoss, 1);
+				}
 			}
 		}
 	}
