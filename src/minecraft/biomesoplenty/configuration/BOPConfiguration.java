@@ -4,11 +4,14 @@ import java.io.File;
 import java.util.logging.Level;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.integration.TConstructIntegration;
 
+import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
 
 public class BOPConfiguration {
 
@@ -256,6 +259,35 @@ public class BOPConfiguration {
 	public static int scytheAmethystID;
 
 	public static int flowerBandID;
+	
+	//Tinkers Construct Compat Item IDs
+	
+    public static int bindingID;
+    public static int toughBindingID;
+    public static int toughRodID;
+    public static int heavyPlateID;
+    
+    public static int toolRodID;
+    public static int toolShardID;
+
+    public static int pickaxeHeadID;
+    public static int shovelHeadID;
+    public static int hatchetHeadID;
+    public static int frypanHeadID;
+    public static int signHeadID;
+    public static int chiselHeadID;
+    public static int scytheBladeID;
+    public static int broadAxeHeadID;
+    public static int excavatorHeadID;
+    public static int hammerHeadID;
+
+    public static int swordBladeID;
+    public static int largeSwordBladeID;
+    public static int knifeBladeID;
+
+    public static int wideGuardID;
+    public static int handGuardID;
+    public static int crossbarID;
 
 	//Liquid IDs
 	public static int springWaterStillID;
@@ -814,7 +846,35 @@ public class BOPConfiguration {
 			scytheDiamondID = config.getItem("Diamond Scythe ID", 21085).getInt();
 			scytheMudID = config.getItem("Mud Scythe ID", 21086).getInt();
 			scytheAmethystID = config.getItem("Amethyst Scythe ID", 21087).getInt();
+
+			bindingID = config.get("TC Compat IDs", "Binding ID", 21088).getInt();
+			toughBindingID = config.get("TC Compat IDs", "Tough Binding ID", 21089).getInt();
+			toughRodID = config.get("TC Compat IDs", "Tough Rod ID", 21090).getInt();
+			heavyPlateID = config.get("TC Compat IDs", "Heavy Plate", 21091).getInt();
+
+			toolRodID = config.get("TC Compat IDs", "Tool Rod ID", 21092).getInt();
+			toolShardID = config.get("TC Compat IDs", "Tool Shard ID", 21093).getInt();
 			
+			pickaxeHeadID = config.get("TC Compat IDs", "Pickaxe Head", 21094).getInt();
+			shovelHeadID = config.get("TC Compat IDs", "Shovel Head", 21095).getInt();
+			hatchetHeadID = config.get("TC Compat IDs", "Hatchet Head", 21906).getInt();
+			frypanHeadID = config.get("TC Compat IDs", "Frypan Head", 21097).getInt();
+			signHeadID = config.get("TC Compat IDs", "Sign Head", 21098).getInt();
+			chiselHeadID = config.get("TC Compat IDs", "Chisel Head", 21099).getInt();
+			scytheBladeID = config.get("TC Compat IDs", "Scythe Blade", 21100).getInt();
+			broadAxeHeadID = config.get("TC Compat IDs", "Broad Axe Head", 21101).getInt();
+			excavatorHeadID = config.get("TC Compat IDs", "Excavator Head", 21102).getInt();
+			hammerHeadID = config.get("TC Compat IDs", "Hammer Head", 21103).getInt();
+
+			swordBladeID = config.get("TC Compat IDs", "Sword Blad", 21104).getInt();
+			largeSwordBladeID = config.get("TC Compat IDs", "Large Sword Blade", 21105).getInt();
+			knifeBladeID = config.get("TC Compat IDs", "Knife Blade", 21106).getInt();
+
+			wideGuardID = config.get("TC Compat IDs", "Wide Guard", 21107).getInt();
+			handGuardID = config.get("TC Compat IDs", "Hand Guard", 21108).getInt();
+			crossbarID = config.get("TC Compat IDs", "Crossbar", 21109).getInt();
+			
+			//Reserve 10 Item IDs for future TC items
 
 			//Liquid Ids
 			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();

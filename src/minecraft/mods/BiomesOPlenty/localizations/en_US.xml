@@ -339,6 +339,8 @@
 	<entry key="item.bop.flowerBand.lushflowerband.name">Lush Flower Band</entry>
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
 	
+	<!--Tinker's Construct Items -->
+	
 	<!--Liquids -->
 	<entry key="item.bop.bopBucket.spring_water.name">Spring Water Bucket</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>

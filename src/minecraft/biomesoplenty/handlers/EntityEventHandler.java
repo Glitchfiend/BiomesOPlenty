@@ -30,6 +30,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
+import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;

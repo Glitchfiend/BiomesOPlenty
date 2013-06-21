@@ -3,6 +3,10 @@ package biomesoplenty.integration;
 import cpw.mods.fml.common.Loader;
 
 public class BOPCrossIntegration {
+	
+	public static void preInit()
+	{
+	}
 
 	public static void init()
 	{
@@ -16,7 +20,18 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
-
+		
+		if (Loader.isModLoaded("TConstruct"))
+		{
+			try {
+				TConstructIntegration.init();
+			}
+			catch (Exception e) {
+				System.out.println("[BiomesOPlenty] There was an error while integrating TConstruct with Biomes O' Plenty!");
+				e.printStackTrace(System.err);
+			}
+		}
+		
 		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try {
