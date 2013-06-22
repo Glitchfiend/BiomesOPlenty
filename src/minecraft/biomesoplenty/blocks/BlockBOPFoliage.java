@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import cpw.mods.fml.relauncher.Side;
@@ -348,10 +349,17 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		if (world.getBlockMetadata(x, y, z) != GRASSTOP) {
-			ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
-		} else {
+		if (world.getBlockMetadata(x, y, z) == GRASSTOP) 
+		{
 			ret.add(new ItemStack(Block.tallGrass, 1, 1));
+		} 
+		else if (world.getBlockMetadata(x, y, z) == 8) 
+		{
+			ret.add(new ItemStack(Blocks.foliage.get(), 1, 4));
+		} 
+		else 
+		{
+			ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
 		}
 
 		return ret;
