@@ -1,9 +1,7 @@
 package biomesoplenty.handlers;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCloth;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
@@ -37,6 +35,7 @@ import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.TeleporterPromised;
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityEventHandler
 {
@@ -194,7 +193,7 @@ public class EntityEventHandler
 					{
 						entitywolf.setCollarColor(i)
 						;
-						if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
+						if (!event.entityPlayer.capabilities.isCreativeMode)
 						{
 							--itemstack.stackSize;
 						}
@@ -210,7 +209,7 @@ public class EntityEventHandler
 					{
 						entitysheep.setFleeceColor(i);
 
-						if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode)
+						if (!event.entityPlayer.capabilities.isCreativeMode)
 						{
 							--itemstack.stackSize;
 						}
