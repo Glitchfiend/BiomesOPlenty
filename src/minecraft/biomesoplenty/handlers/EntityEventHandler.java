@@ -135,12 +135,13 @@ public class EntityEventHandler
 	public void entityInteract(EntityInteractEvent event)
 	{
 		ItemStack itemstack = event.entityPlayer.getCurrentEquippedItem();
-		int itemDamage = itemstack.getItemDamage();
 		Entity entity = event.target;
 		EntityPlayer player = event.entityPlayer;
 
 		if (itemstack != null)
 		{
+			int itemDamage = itemstack.getItemDamage();
+			
 			if (itemstack.itemID == Items.soulManipulator.get().itemID && itemstack.getItemDamage() == 2)    
 			{
 				if (entity instanceof EntityEnderman)
