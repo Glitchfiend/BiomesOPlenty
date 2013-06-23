@@ -35,6 +35,7 @@ import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.TeleporterPromised;
+import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityEventHandler
@@ -126,6 +127,20 @@ public class EntityEventHandler
 				{
 					player.addStat(AchievementHelper.achArctic, 1);
 				}
+			}
+		}
+	}
+	
+	@ForgeSubscribe
+	public void playerJoin(EntityJoinWorldEvent event)
+	{
+		if (event.world.provider.terrainType instanceof WorldTypeBOP)
+		{
+			if (event.entity instanceof EntityPlayer)
+			{
+				EntityPlayer player = (EntityPlayer)event.entity;
+
+				player.addStat(AchievementHelper.achBOP, 1);
 			}
 		}
 	}

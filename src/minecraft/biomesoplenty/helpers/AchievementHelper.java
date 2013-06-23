@@ -28,6 +28,7 @@ public class AchievementHelper
 	public static Achievement achMoss;
 	public static Achievement achFlowerP;
 	
+	public static Achievement achBOP;
 	public static Achievement achAlps;
 	public static Achievement achArctic;
 
@@ -54,11 +55,12 @@ public class AchievementHelper
 		achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
 		achFlowerP = (new Achievement(3067, "achFlowerP", 1, -4, new ItemStack(Items.flowerBand.get(), 1, 0), achFlower)).registerAchievement();
 		
-		achAlps = (new Achievement(3080, "achAlps", -7, -7, new ItemStack(Block.sapling, 1, 1), null)).registerAchievement();
-		achArctic = (new Achievement(3081, "achArctic", -6, -7, new ItemStack(Block.blockSnow, 1, 0), null)).registerAchievement();
+		achBOP = (new Achievement(3080, "achBOP", 0, 0, new ItemStack(Blocks.saplings.get(), 1, 6), null)).registerAchievement();
+		achAlps = (new Achievement(3081, "achAlps", -7, -7, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement().setSpecial();
+		achArctic = (new Achievement(3082, "achArctic", -6, -7, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement().setSpecial();
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
-		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achAlps, achArctic});
+		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achBOP, achAlps, achArctic});
 		AchievementPage.registerAchievementPage(pageBOP);
 		AchievementPage.registerAchievementPage(pageBiome);
 
@@ -75,6 +77,7 @@ public class AchievementHelper
 		addAchievementDesc("achMoss", "A Rolling Stone Gathers No Moss", "Wait, cubes can't roll...");
 		addAchievementDesc("achFlowerP", "Flower Power!", "Groovy, man.");
 		
+		addAchievementDesc("achBOP", "Biomes O' Plenty", "Let the fun begin!");
 		addAchievementDesc("achAlps", "Alps", "Biome Found!");
 		addAchievementDesc("achArctic", "Arctic", "Biome Found!");
 	}
