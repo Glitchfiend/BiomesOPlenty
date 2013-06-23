@@ -118,13 +118,13 @@ public class EntityEventHandler
 				
 				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 				
-				if (biomeID == Biomes.deadlands.get().biomeID)
+				if (biomeID == Biomes.alps.get().biomeID)
 				{
-					player.addStat(AchievementHelper.achAsh, 1);
+					player.addStat(AchievementHelper.achAlps, 1);
 				}
-				if (biomeID == Biomes.tropics.get().biomeID)
+				if (biomeID == Biomes.arctic.get().biomeID)
 				{
-					player.addStat(AchievementHelper.achMoss, 1);
+					player.addStat(AchievementHelper.achArctic, 1);
 				}
 			}
 		}

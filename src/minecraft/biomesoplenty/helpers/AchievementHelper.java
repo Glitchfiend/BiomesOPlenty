@@ -27,8 +27,12 @@ public class AchievementHelper
 	public static Achievement achBarley;
 	public static Achievement achMoss;
 	public static Achievement achFlowerP;
+	
+	public static Achievement achAlps;
+	public static Achievement achArctic;
 
 	public static AchievementPage pageBOP;
+	public static AchievementPage pageBiome;
 
 	@ForgeSubscribe
 	public void EntityItemPickupEvent(EntityItemPickupEvent event)
@@ -49,9 +53,14 @@ public class AchievementHelper
 		achBarley = (new Achievement(3065, "achBarley", -1, 4, new ItemStack(Blocks.plants.get(),1,6), achFlower)).registerAchievement();
 		achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
 		achFlowerP = (new Achievement(3067, "achFlowerP", 1, -4, new ItemStack(Items.flowerBand.get(), 1, 0), achFlower)).registerAchievement();
+		
+		achAlps = (new Achievement(3080, "achAlps", -7, -7, new ItemStack(Block.sapling, 1, 1), null)).registerAchievement();
+		achArctic = (new Achievement(3081, "achArctic", -6, -7, new ItemStack(Block.blockSnow, 1, 0), null)).registerAchievement();
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
+		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achAlps, achArctic});
 		AchievementPage.registerAchievementPage(pageBOP);
+		AchievementPage.registerAchievementPage(pageBiome);
 
 		// Add Achievement registration
 		addAchievementDesc("achFlower", "Flower Child", "Pick some flowers!");
@@ -65,6 +74,9 @@ public class AchievementHelper
 		addAchievementDesc("achBarley", "Fields Of Gold", "Upon the fields of barley.");
 		addAchievementDesc("achMoss", "A Rolling Stone Gathers No Moss", "Wait, cubes can't roll...");
 		addAchievementDesc("achFlowerP", "Flower Power!", "Groovy, man.");
+		
+		addAchievementDesc("achAlps", "Alps", "Biome Found!");
+		addAchievementDesc("achArctic", "Arctic", "Biome Found!");
 	}
 
 	// Achievement checker
