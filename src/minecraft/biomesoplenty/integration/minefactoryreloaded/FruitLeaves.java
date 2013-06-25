@@ -38,7 +38,7 @@ public class FruitLeaves implements IFactoryFruit
     @Override
     public ItemStack getReplacementBlock(World world, int x, int y, int z)
     {
-        return null;
+        return new ItemStack(world.getBlockId(x, y, z), 1, world.getBlockMetadata(x,y,z));
     }
     
     @Override
