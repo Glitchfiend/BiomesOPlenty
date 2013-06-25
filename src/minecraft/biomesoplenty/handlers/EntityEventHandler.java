@@ -127,6 +127,46 @@ public class EntityEventHandler
 				{
 					player.addStat(AchievementHelper.achArctic, 1);
 				}
+				if (biomeID == Biomes.badlands.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBadlands, 1);
+				}
+				if (biomeID == Biomes.bambooForest.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBambooForest, 1);
+				}
+				if (biomeID == Biomes.bayou.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBayou, 1);
+				}
+				if (biomeID == Biomes.birchForest.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBirchForest, 1);
+				}
+				if (biomeID == Biomes.bog.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBog, 1);
+				}
+				if (biomeID == Biomes.borealForest.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBorealForest, 1);
+				}
+				if (biomeID == Biomes.brushland.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achBrushland, 1);
+				}
+				if (biomeID == Biomes.canyon.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achCanyon, 1);
+				}
+				if (biomeID == Biomes.chaparral.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achChaparral, 1);
+				}
+				if (biomeID == Biomes.cherryBlossomGrove.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achCherryBlossom, 1);
+				}
 			}
 		}
 	}

@@ -29,8 +29,20 @@ public class AchievementHelper
 	public static Achievement achFlowerP;
 	
 	public static Achievement achBOP;
+	public static Achievement achAllBiomes;
+	
 	public static Achievement achAlps;
 	public static Achievement achArctic;
+	public static Achievement achBadlands;
+	public static Achievement achBambooForest;
+	public static Achievement achBayou;
+	public static Achievement achBirchForest;
+	public static Achievement achBog;
+	public static Achievement achBorealForest;
+	public static Achievement achBrushland;
+	public static Achievement achCanyon;
+	public static Achievement achChaparral;
+	public static Achievement achCherryBlossom;
 
 	public static AchievementPage pageBOP;
 	public static AchievementPage pageBiome;
@@ -55,12 +67,23 @@ public class AchievementHelper
 		achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
 		achFlowerP = (new Achievement(3067, "achFlowerP", 1, -4, new ItemStack(Items.flowerBand.get(), 1, 0), achFlower)).registerAchievement();
 		
-		achBOP = (new Achievement(3080, "achBOP", 0, 0, new ItemStack(Blocks.saplings.get(), 1, 6), null)).registerAchievement();
-		achAlps = (new Achievement(3081, "achAlps", -7, -7, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement().setSpecial();
-		achArctic = (new Achievement(3082, "achArctic", -6, -7, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement().setSpecial();
+		achBOP = (new Achievement(3080, "achBOP", -10, -6, new ItemStack(Blocks.saplings.get(), 1, 6), null)).registerAchievement().setSpecial();
+		achAllBiomes = (new Achievement(3081, "achAllBiomes", 12, 6, new ItemStack(Blocks.saplings.get(), 1, 6), null)).registerAchievement().setSpecial();
+		achAlps = (new Achievement(3082, "achAlps", -8, -6, new ItemStack(Block.stone, 1, 0), achBOP)).registerAchievement();
+		achArctic = (new Achievement(3083, "achArctic", -6, -6, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement();
+		achBadlands = (new Achievement(3084, "achBadlands", -4, -6, new ItemStack(Blocks.hardSand.get(), 1, 0), achBOP)).registerAchievement();
+		achBambooForest = (new Achievement(3085, "achBambooForest", -2, -6, new ItemStack(Blocks.saplings.get(), 1, 2), achBOP)).registerAchievement();
+		achBayou = (new Achievement(3086, "achBayou", 0, -6, new ItemStack(Blocks.logs3.get(), 1, 1), achBOP)).registerAchievement();
+		achBirchForest = (new Achievement(3087, "achBirchForest", 2, -6, new ItemStack(Block.sapling, 1, 2), achBOP)).registerAchievement();
+		achBog = (new Achievement(3088, "achBog", 4, -6, new ItemStack(Blocks.plants.get(), 1, 8), achBOP)).registerAchievement();
+		achBorealForest = (new Achievement(3089, "achBorealForest", 6, -6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achBrushland = (new Achievement(3090, "achBrushland", 8, -6, new ItemStack(Block.leaves, 1, 2), achBOP)).registerAchievement();
+		achCanyon = (new Achievement(3091, "achCanyon", 10, -6, new ItemStack(Blocks.hardDirt.get(), 1, 0), achBOP)).registerAchievement();
+		achChaparral = (new Achievement(3092, "achChaparral", -10, -4, new ItemStack(Blocks.foliage.get(), 1, 4), achBOP)).registerAchievement();
+		achCherryBlossom = (new Achievement(3093, "achCherryBlossom", -8, -4, new ItemStack(Blocks.saplings.get(), 1, 10), achBOP)).registerAchievement();
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
-		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achBOP, achAlps, achArctic});
+		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achBOP, achAllBiomes, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom});
 		AchievementPage.registerAchievementPage(pageBOP);
 		AchievementPage.registerAchievementPage(pageBiome);
 
@@ -77,9 +100,21 @@ public class AchievementHelper
 		addAchievementDesc("achMoss", "A Rolling Stone Gathers No Moss", "Wait, cubes can't roll...");
 		addAchievementDesc("achFlowerP", "Flower Power!", "Groovy, man.");
 		
-		addAchievementDesc("achBOP", "Biomes O' Plenty", "Let the fun begin!");
+		addAchievementDesc("achBOP", "Biomes O\' Plenty", "Let the fun begin!");
+		addAchievementDesc("achAllBiomes", "All Biomes Found!", "You've been to every biome!");
+		
 		addAchievementDesc("achAlps", "Alps", "Biome Found!");
 		addAchievementDesc("achArctic", "Arctic", "Biome Found!");
+		addAchievementDesc("achBadlands", "Badlands", "Biome Found!");
+		addAchievementDesc("achBambooForest", "Bamboo Forest", "Biome Found!");
+		addAchievementDesc("achBayou", "Bayou", "Biome Found!");
+		addAchievementDesc("achBirchForest", "Birch Forest", "Biome Found!");
+		addAchievementDesc("achBog", "Bog", "Biome Found!");
+		addAchievementDesc("achBorealForest", "Boreal Forest", "Biome Found!");
+		addAchievementDesc("achBrushland", "Brushland", "Biome Found!");
+		addAchievementDesc("achCanyon", "Canyon", "Biome Found!");
+		addAchievementDesc("achChaparral", "Chaparral", "Biome Found!");
+		addAchievementDesc("achCherryBlossom", "Cherry Blossom Grove", "Biome Found!");
 	}
 
 	// Achievement checker
