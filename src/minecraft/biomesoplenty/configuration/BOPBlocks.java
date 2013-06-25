@@ -3,7 +3,6 @@ package biomesoplenty.configuration;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockAltar;
@@ -42,6 +41,7 @@ import biomesoplenty.blocks.BlockMoss;
 import biomesoplenty.blocks.BlockMud;
 import biomesoplenty.blocks.BlockOriginGrass;
 import biomesoplenty.blocks.BlockPromisedPortal;
+import biomesoplenty.blocks.BlockPuddle;
 import biomesoplenty.blocks.BlockTreeMoss;
 import biomesoplenty.blocks.BlockWillow;
 import biomesoplenty.items.ItemBOPAltar;
@@ -75,7 +75,6 @@ import biomesoplenty.tileentity.TileEntityAltar;
 import com.google.common.base.Optional;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BOPBlocks {
 	public static void init()
@@ -172,6 +171,8 @@ public class BOPBlocks {
 		Blocks.glass = Optional.of((new BlockBOPGlass(BOPConfiguration.glassID)).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("bop.glass"));
 		
 		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
+		
+		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.puddleID)).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
 
 		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.planks"));
 
@@ -252,6 +253,7 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.bones.get(), ItemBOPBones.class, "bop.bones");
 		GameRegistry.registerBlock(Blocks.glass.get(), ItemBOPGlass.class, "bop.glass");	
 		GameRegistry.registerBlock(Blocks.altar.get(), ItemBOPAltar.class, "bop.altar");	
+		GameRegistry.registerBlock(Blocks.puddle.get(), "bop.puddle");	
 
 		ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
 		GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "bop.stoneDoubleSlab");

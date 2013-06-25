@@ -17,6 +17,7 @@ import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
+import biomesoplenty.blocks.renderers.PuddleRender;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
 import biomesoplenty.entities.EntityGlob;
@@ -47,6 +48,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
 		RenderingRegistry.registerBlockHandler(new AltarRenderer());
+		RenderingRegistry.registerBlockHandler(new PuddleRender());
 
 		//TODO: Remove upon Fluid API being integrated into Forge
 		FluidRegistry.renderIdFluid = RenderingRegistry.getNextAvailableRenderId();

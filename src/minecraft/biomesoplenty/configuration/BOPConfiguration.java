@@ -181,6 +181,8 @@ public class BOPConfiguration {
 	//	public static int smolderingGrassID;
 
 	//	public static int quicksandID;
+	
+	public static int puddleID;
 
 	public static int planksID;
 
@@ -798,6 +800,8 @@ public class BOPConfiguration {
 			glassID = config.getBlock("Glass ID", 1978, null).getInt();
 			
 			altarID = config.getBlock("Altar ID", 1979, null).getInt();
+			
+			puddleID = config.getBlock("Puddle ID", 1980, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();
