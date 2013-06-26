@@ -43,7 +43,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[2][4];
+		textures = new Icon[3][4];
 
 		for (int i = 0; i < 4; ++i)
 		{
