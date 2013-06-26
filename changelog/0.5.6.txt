@@ -1,0 +1,29 @@
+#0.5.6
+
+- Added Treecapacitator compatibility
+- Made the Ancient Staff and Dart Blower render in 3D like other tools
+- Addeed the Altar Frame
+- Added the Sacrificial Focus
+- Added the Celestial Lens
+- Added the Soul Manipulator
+- Added Scythes
+- Fixed alignment on mud/amethyst tool textures
+- Added Globs to the API
+- Fixed Glob spawning
+- Fixed decoration on the Overgrown Beach
+- Coniferous Forest colour changes
+- Fixed a few logs being unable to be burned into charcoal
+- Added option to disable the Nether changes
+- Tweaked picking up apples from apple trees.
+- Tweaked placing saplings.
+- Added new stairs as a valid fuel
+- Switched to a new localizations system (Not that anyone will use it)
+- Fixed Thaumcraft Golem working on Apple Trees
+- Added Minefactory Reloaded compatibility
+- Changed the default Moss ID to shut people up
+- Added a warning to shut people up about there being no biomes
+- New version checking system
+- Added Biome Finder achievements
+- Added Tinkers construct integration for Amethyst tools
+- Added an option to turn Spring Water into Regular Water on pickup
+- Fixed an exploit with shears and berry bushes
