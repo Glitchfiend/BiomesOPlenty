@@ -30,6 +30,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	//Autumn - Orange = Leaves 1, Origin - White = Leaves 2
 	private static final String[] leaves = new String[] {"yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
 	private Icon[][] textures;
+	private Icon[] betterTextures;
 	private final LeafCategory category;
 	int[] adjacentTreeBlocks;
 
@@ -47,13 +48,18 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[2][leaves.length];
-
+		textures = new Icon[3][leaves.length];
 		for (int i = 0; i < leaves.length; ++i)
 		{
 			textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_" + leaves[i] + "_fancy");
 			textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_" + leaves[i] + "_fast");
+			textures[2][i] = iconRegister.registerIcon("BiomesOPlenty:better_leaves_" + leaves[i]);
 		}
+	}
+	
+	public Icon getIconBetterLeaves(int metadata, float randomIndex)
+	{
+		return textures[2][getTypeFromMeta(metadata) + (category.ordinal() * 8)];
 	}
 
 	@Override

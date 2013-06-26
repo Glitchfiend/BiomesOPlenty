@@ -24,6 +24,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 {
 	private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
 	private Icon[][] textures;
+	private Icon[] betterTextures;
 	int[] adjacentTreeBlocks;
 
 	public BlockBOPColorizedLeaves(int blockID)
@@ -40,13 +41,18 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[2][leaves.length];
-
+		textures = new Icon[3][leaves.length];
 		for (int i = 0; i < leaves.length; ++i)
 		{
 			textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_" + leaves[i] + "_fancy");
 			textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_" + leaves[i] + "_fast");
+			textures[2][i] = iconRegister.registerIcon("BiomesOPlenty:better_leaves_" + leaves[i]);
 		}
+	}
+		
+	public Icon getIconBetterLeaves(int metadata, float randomIndex)
+	{
+	  return textures[2][getTypeFromMeta(metadata)];
 	}
 
 	@Override

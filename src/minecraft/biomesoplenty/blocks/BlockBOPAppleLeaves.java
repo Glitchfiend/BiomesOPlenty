@@ -26,6 +26,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 {
 	private Icon[][] textures;
+	private Icon[] betterTextures;
 	int[] adjacentTreeBlocks;
 
 	public BlockBOPAppleLeaves(int blockID)
@@ -48,7 +49,13 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 		{
 			textures[0][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_apple" + i + "_fancy");
 			textures[1][i] = iconRegister.registerIcon("BiomesOPlenty:leaves_apple" + i + "_fast");
+			textures[2][i] = iconRegister.registerIcon("BiomesOPlenty:better_leaves_apple" + i);
 		}
+	}
+	
+	public Icon getIconBetterLeaves(int metadata, float randomIndex)
+	{
+		return textures[2][metadata & 3];
 	}
 
 	@Override
