@@ -27,4 +27,3 @@
 - Added Tinkers construct integration for Amethyst tools
 - Added an option to turn Spring Water into Regular Water on pickup
 - Fixed an exploit with shears and berry bushes
-
