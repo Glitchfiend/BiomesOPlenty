@@ -24,7 +24,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 {
 	private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
 	private Icon[][] textures;
-	private Icon[] betterTextures;
 	int[] adjacentTreeBlocks;
 
 	public BlockBOPColorizedLeaves(int blockID)
