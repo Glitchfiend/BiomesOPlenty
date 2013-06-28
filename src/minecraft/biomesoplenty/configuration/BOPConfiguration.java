@@ -593,7 +593,7 @@ public class BOPConfiguration {
 			seasonalForestGen = config.get("Biomes To Generate", "SeasonalForest", true).getBoolean(false);
 			shieldGen = config.get("Biomes To Generate", "Shield", true).getBoolean(false);
 			shrublandGen = config.get("Biomes To Generate", "Shrubland", true).getBoolean(false);
-			sludgepitGen = config.get("Biomes To Generate", "Swampwoods", true).getBoolean(false);
+			sludgepitGen = config.get("Biomes To Generate", "Sludgepit", true).getBoolean(false);
 			spruceWoodsGen = config.get("Biomes To Generate", "SpruceWoods", true).getBoolean(false);
 			steppeGen = config.get("Biomes To Generate", "Steppe", true).getBoolean(false);
 			temperateRainforestGen = config.get("Biomes To Generate", "TemperateRainforest", true).getBoolean(false);

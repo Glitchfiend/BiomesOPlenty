@@ -20,7 +20,7 @@ public class BOPMapGenScatteredFeature extends MapGenStructure
 {
 	private static List biomelist = Arrays.asList(new BiomeGenBase[] {
 			BiomeGenBase.desert, BiomeGenBase.desertHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.swampland,
-			Biomes.badlands.get(), Biomes.dunes.get(), Biomes.oasis.get(), Biomes.desertNew.get(),
+			Biomes.dunes.get(), Biomes.oasis.get(), Biomes.desertNew.get(),
 			Biomes.bayou.get(), Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.sludgepit.get(), Biomes.swamplandNew.get(),
 			Biomes.rainforest.get(), Biomes.temperateRainforest.get(), Biomes.tropicalRainforest.get(), Biomes.jungleNew.get()
 	});
