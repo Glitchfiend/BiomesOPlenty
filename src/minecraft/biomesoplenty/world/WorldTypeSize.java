@@ -9,7 +9,7 @@ public class WorldTypeSize
 	@ForgeSubscribe
 	public void BiomeSize(WorldTypeEvent.BiomeSize event)
 	{
-		if (event.worldType.getWorldTypeID() == 4) {
+		if (event.worldType.getWorldTypeName() == "BIOMESOP") {
 			event.newSize = (byte)BOPConfiguration.biomeSize;
 		}
 	}

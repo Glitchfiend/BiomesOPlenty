@@ -27,6 +27,7 @@ public abstract class BiomeLayer
 			obj = new BiomeLayerIsland(4L, (obj));
 
 			byte size = 4;
+			size = getModdedBiomeSize(worldtype, size);
 
 			BiomeLayer obj1 = obj;
 			obj1 = BiomeLayerZoom.func_75915_a(1000L, ((obj1)), 0);
