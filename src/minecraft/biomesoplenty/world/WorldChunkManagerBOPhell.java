@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.helpers.BiomeCacheBOPhell;
 import biomesoplenty.world.layer.BiomeLayer;
@@ -16,8 +17,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldChunkManagerBOPhell extends WorldChunkManager
 {
-	private BiomeLayer genBiomes;
-	private BiomeLayer biomeIndexLayer;
+	private GenLayer genBiomes;
+	private GenLayer biomeIndexLayer;
 	private BiomeCacheBOPhell biomeCache;
 
 	@SuppressWarnings("rawtypes")
@@ -32,7 +33,7 @@ public class WorldChunkManagerBOPhell extends WorldChunkManager
 	public WorldChunkManagerBOPhell(long par1, WorldType par3WorldType)
 	{
 		this();
-		BiomeLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 1);
+		GenLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 1);
 		//var4 = getModdedBiomeGenerators(par3WorldType, par1, var4);
 		genBiomes = var4[0];
 		biomeIndexLayer = var4[1];
