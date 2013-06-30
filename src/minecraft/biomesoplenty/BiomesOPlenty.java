@@ -18,6 +18,7 @@ import biomesoplenty.handlers.BreakSpeedHandler;
 import biomesoplenty.handlers.EntityEventHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
+import biomesoplenty.handlers.TickHandlerServer;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.BOPLiquidHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
@@ -120,5 +121,6 @@ public class BiomesOPlenty
 		BOPCrossIntegration.postInit();
 		
 		TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
+		TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);
 	}
 }

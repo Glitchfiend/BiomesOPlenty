@@ -11,7 +11,7 @@ import net.minecraftforge.liquids.LiquidStack;
 import org.lwjgl.opengl.GL11;
 
 import biomesoplenty.BiomesOPlenty;
-
+import biomesoplenty.ClientProxy;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -33,13 +33,18 @@ public class PuddleRender implements ISimpleBlockRenderingHandler
 	{
 		if (modelID == puddleID)
 		{
-			renderer.renderStandardBlock(block, x, y, z);
-			
-			//Liquid
-			renderer.setRenderBounds(0.0, 0.8135, 0.0, 1.0, 0.8880, 1.0);
+			if (ClientProxy.puddleRenderPass == 0)
+			{
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+			else
+			{
+				//Liquid
+				renderer.setRenderBounds(0.0, 0.8135, 0.0, 1.0, 0.8880, 1.0);
 
-			Block liquidBlock = Block.blocksList[Block.waterStill.blockID];
-			BlockSkinRenderHelper.renderMetadataBlock(liquidBlock, 0, x, y, z, renderer, world);
+				Block liquidBlock = Block.blocksList[Block.waterStill.blockID];
+				BlockSkinRenderHelper.renderMetadataBlock(liquidBlock, 0, x, y, z, renderer, world);
+			}
 		}
 		return true;
 	}

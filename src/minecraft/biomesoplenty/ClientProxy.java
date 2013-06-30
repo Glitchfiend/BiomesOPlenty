@@ -32,6 +32,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends CommonProxy {
 
 	public static Minecraft mc = Minecraft.getMinecraft();
+	public static int puddleRenderPass;
 
 	@Override
 	public void registerRenderers()

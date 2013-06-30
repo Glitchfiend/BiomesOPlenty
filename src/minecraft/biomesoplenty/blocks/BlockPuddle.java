@@ -3,8 +3,8 @@ package biomesoplenty.blocks;
 import java.util.Random;
 
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.ClientProxy;
 import biomesoplenty.blocks.renderers.PuddleRender;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -12,6 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
@@ -41,7 +42,7 @@ public class BlockPuddle extends Block
 
     public boolean isOpaqueCube()
     {
-        return false;
+       return false;
     }
 
     public boolean renderAsNormalBlock()
@@ -49,24 +50,25 @@ public class BlockPuddle extends Block
         return false;
     }
     
-    public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+    public void updateTick(World world, int x, int y, int z, Random par5Random)
     {
-        par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 1);
-    	
-        return par9;
+    	if (!world.isRaining() && world.rand.nextInt(750) == 0)
+    	{
+    		world.setBlock(x, y, z, Block.dirt.blockID);
+    	}
     }
     
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+    @Override
+    public int getRenderBlockPass()
     {
-        Material material1 = par1World.getBlockMaterial(par2 + 1, par3, par4);
-        Material material2 = par1World.getBlockMaterial(par2 - 1, par3, par4);
-        Material material3 = par1World.getBlockMaterial(par2, par3, par4 + 1);
-        Material material4 = par1World.getBlockMaterial(par2, par3, par4 - 1);
-        
-        if (!material1.isSolid() || !material2.isSolid() || !material3.isSolid() || !material1.isSolid())
-        {
-            par1World.setBlock(par2, par3, par4, Block.dirt.blockID);
-        }
+    	return 1;
+    }
+    
+    @Override
+    public boolean canRenderInPass(int pass)
+    {
+    	ClientProxy.puddleRenderPass = pass;
+    	return true;
     }
     
     @Override
@@ -80,20 +82,6 @@ public class BlockPuddle extends Block
     public Icon getIcon(int par1, int par2)
     {
         return Block.dirt.getBlockTextureFromSide(par1);
-    }
-    
-
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
-    {
-        super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
-        Material material = par1World.getBlockMaterial(par2, par3 + 1, par4);
-
-        if (material.isSolid())
-        {
-            par1World.setBlock(par2, par3, par4, Block.dirt.blockID);
-        }
-        
-        par1World.scheduleBlockUpdate(par2, par3, par4, this.blockID, 1);
     }
 
     public int idDropped(int par1, Random par2Random, int par3)
