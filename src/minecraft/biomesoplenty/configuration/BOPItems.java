@@ -33,7 +33,6 @@ import biomesoplenty.items.ItemEnderporter;
 import biomesoplenty.items.ItemShroomPowder;
 import biomesoplenty.items.ItemSoulManipulator;
 import biomesoplenty.items.ItemSunflowerSeeds;
-import biomesoplenty.items.overrides.ItemShears;
 
 import com.google.common.base.Optional;
 
@@ -93,9 +92,6 @@ public class BOPItems {
 		EnumArmorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[]{6, 12, 10, 6}, 20);
 		EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
 		EnumArmorMaterialFlowerBand = EnumHelper.addArmorMaterial("FLOWERBAND", -1, new int[]{0, 0, 0, 0}, 0);
-
-		//Override Items
-		shears = (new ItemShears(clearItem(Item.shears))).setUnlocalizedName("shears").setCreativeTab(CreativeTabs.tabTools);
 
 		initializeItems();
 

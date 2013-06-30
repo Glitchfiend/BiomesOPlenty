@@ -1,12 +1,5 @@
 package biomesoplenty;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.logging.Level;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,6 +14,7 @@ import biomesoplenty.configuration.BOPPotions;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.handlers.BOPCraftHandler;
 import biomesoplenty.handlers.BonemealHandler;
+import biomesoplenty.handlers.BreakSpeedHandler;
 import biomesoplenty.handlers.EntityEventHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
@@ -30,12 +24,9 @@ import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Localizations;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
-import biomesoplenty.integration.TConstructIntegration;
 import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
 import biomesoplenty.world.WorldTypeSize;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -108,6 +99,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BOPLiquidHelper());
+		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
 
 		proxy.registerRenderers();
 
