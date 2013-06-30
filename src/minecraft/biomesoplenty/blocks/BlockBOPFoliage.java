@@ -23,6 +23,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
@@ -112,6 +113,10 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 				ret.add(new ItemStack(Item.potato,1));
 			}
 			break;
+			
+		case 8:
+		    ret.add(new ItemStack(Items.berries.get(), 1, 0));
+		    break;
 		}
 
 		return ret;
@@ -232,17 +237,6 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int meta, float chance, int par7)
-	{
-		if (world.isRemote)
-			return;
-
-		if (meta == 8) {
-			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.berries.get(), 1, 0));
-		}
-	}
-
-	@Override
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -324,7 +318,8 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.berries.get(), 1, 0));
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(entityitem);
-				//entityitem.onCollideWithPlayer(player);
+				if (!(player instanceof FakePlayer))
+                    entityitem.onCollideWithPlayer(player);
 			}
 			return true;
 		}
