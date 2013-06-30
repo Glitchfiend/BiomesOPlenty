@@ -16,6 +16,7 @@ import biomesoplenty.handlers.BOPCraftHandler;
 import biomesoplenty.handlers.BonemealHandler;
 import biomesoplenty.handlers.BreakSpeedHandler;
 import biomesoplenty.handlers.EntityEventHandler;
+import biomesoplenty.handlers.MovementHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.handlers.TickHandlerServer;
@@ -101,6 +102,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BOPLiquidHelper());
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
+		MinecraftForge.EVENT_BUS.register(new MovementHandler());
 
 		proxy.registerRenderers();
 
