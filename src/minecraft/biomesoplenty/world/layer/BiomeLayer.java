@@ -1,18 +1,19 @@
 package biomesoplenty.world.layer;
 
 import net.minecraft.world.WorldType;
+import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.WorldTypeEvent;
 
-public abstract class BiomeLayer
+public abstract class BiomeLayer extends GenLayer
 {
-	private long worldGenSeed;
-	protected BiomeLayer parent;
-	private long chunkSeed;
-	private long baseSeed;
+//	private long worldGenSeed;
+//	protected BiomeLayer parent;
+//	private long chunkSeed;
+//	private long baseSeed;
 
 	//dim: 0 = surface, 1 = hell, 2 = promised
-	public static BiomeLayer[] initializeAllBiomeGenerators(long seed, WorldType worldtype, int dim)
+	public static GenLayer[] initializeAllBiomeGenerators(long seed, WorldType worldtype, int dim)
 	{
 		if(dim == 0)
 		{
@@ -54,7 +55,7 @@ public abstract class BiomeLayer
 			BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((obj2)));
 			(obj2).initWorldGenSeed(seed);
 			genlayervoronoizoom.initWorldGenSeed(seed);
-			return (new BiomeLayer[]
+			return (new GenLayer[]
 					{
 					obj2, genlayervoronoizoom, bwg4layerrivermix
 					});
@@ -78,66 +79,67 @@ public abstract class BiomeLayer
 			BiomeLayerVoronoiZoom genlayervoronoizoom = new BiomeLayerVoronoiZoom(10L, ((obj)));
 			(obj).initWorldGenSeed(seed);
 			genlayervoronoizoom.initWorldGenSeed(seed);
-			return (new BiomeLayer[] { obj, genlayervoronoizoom });
+			return (new GenLayer[] { obj, genlayervoronoizoom });
 		}
 	}
 
 	public BiomeLayer(long seed)
 	{
-		baseSeed = seed;
-		baseSeed *= baseSeed * 6364136223846793005L + 1442695040888963407L;
-		baseSeed += seed;
-		baseSeed *= baseSeed * 6364136223846793005L + 1442695040888963407L;
-		baseSeed += seed;
-		baseSeed *= baseSeed * 6364136223846793005L + 1442695040888963407L;
-		baseSeed += seed;
+	    super(seed);
+//		baseSeed = seed;
+//		baseSeed *= baseSeed * 6364136223846793005L + 1442695040888963407L;
+//		baseSeed += seed;
+//		baseSeed *= baseSeed * 6364136223846793005L + 1442695040888963407L;
+//		baseSeed += seed;
+//		baseSeed *= baseSeed * 6364136223846793005L + 1442695040888963407L;
+//		baseSeed += seed;
 	}
 
-	public void initWorldGenSeed(long seed)
-	{
-		worldGenSeed = seed;
-
-		if (parent != null)
-		{
-			parent.initWorldGenSeed(seed);
-		}
-
-		worldGenSeed *= worldGenSeed * 6364136223846793005L + 1442695040888963407L;
-		worldGenSeed += baseSeed;
-		worldGenSeed *= worldGenSeed * 6364136223846793005L + 1442695040888963407L;
-		worldGenSeed += baseSeed;
-		worldGenSeed *= worldGenSeed * 6364136223846793005L + 1442695040888963407L;
-		worldGenSeed += baseSeed;
-	}
-
-	public void initChunkSeed(long par1, long par3)
-	{
-		chunkSeed = worldGenSeed;
-		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
-		chunkSeed += par1;
-		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
-		chunkSeed += par3;
-		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
-		chunkSeed += par1;
-		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
-		chunkSeed += par3;
-	}
-
-	protected int nextInt(int par1)
-	{
-		int j = (int)((chunkSeed >> 24) % par1);
-
-		if (j < 0)
-		{
-			j += par1;
-		}
-
-		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
-		chunkSeed += worldGenSeed;
-		return j;
-	}
-
-	public abstract int[] getInts(int i, int j, int k, int l);
+//	public void initWorldGenSeed(long seed)
+//	{
+//		worldGenSeed = seed;
+//
+//		if (parent != null)
+//		{
+//			parent.initWorldGenSeed(seed);
+//		}
+//
+//		worldGenSeed *= worldGenSeed * 6364136223846793005L + 1442695040888963407L;
+//		worldGenSeed += baseSeed;
+//		worldGenSeed *= worldGenSeed * 6364136223846793005L + 1442695040888963407L;
+//		worldGenSeed += baseSeed;
+//		worldGenSeed *= worldGenSeed * 6364136223846793005L + 1442695040888963407L;
+//		worldGenSeed += baseSeed;
+//	}
+//
+//	public void initChunkSeed(long par1, long par3)
+//	{
+//		chunkSeed = worldGenSeed;
+//		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
+//		chunkSeed += par1;
+//		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
+//		chunkSeed += par3;
+//		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
+//		chunkSeed += par1;
+//		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
+//		chunkSeed += par3;
+//	}
+//
+//	protected int nextInt(int par1)
+//	{
+//		int j = (int)((chunkSeed >> 24) % par1);
+//
+//		if (j < 0)
+//		{
+//			j += par1;
+//		}
+//
+//		chunkSeed *= chunkSeed * 6364136223846793005L + 1442695040888963407L;
+//		chunkSeed += worldGenSeed;
+//		return j;
+//	}
+//
+//	public abstract int[] getInts(int i, int j, int k, int l);
 
 	public static byte getModdedBiomeSize(WorldType worldType, byte original)
 	{

@@ -10,7 +10,10 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.terraingen.WorldTypeEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.world.layer.BiomeLayer;
 
@@ -18,10 +21,10 @@ import com.google.common.base.Optional;
 
 public class WorldChunkManagerBOP extends WorldChunkManager
 {
-	private BiomeLayer genBiomes;
+	private GenLayer genBiomes;
 
 	/** A GenLayer containing the indices into BiomeGenBase.biomeList[] */
-	private BiomeLayer biomeIndexLayer;
+	private GenLayer biomeIndexLayer;
 
 	/** The BiomeCache object for this world. */
 	private BiomeCache biomeCache;
@@ -102,9 +105,15 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 	public WorldChunkManagerBOP(long par1, WorldType par3WorldType)
 	{
 		this();
-		BiomeLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 0);
-		genBiomes = var4[0];
-		biomeIndexLayer = var4[1];
+//		GenLayer[] var4 = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 0);
+		
+		GenLayer[] agenlayer = BiomeLayer.initializeAllBiomeGenerators(par1, par3WorldType, 0);
+		agenlayer = getModdedBiomeGenerators(par3WorldType, par1, agenlayer);
+		
+//        genBiomes = var4[0];
+//		biomeIndexLayer = var4[1];
+		genBiomes = agenlayer[0];
+        biomeIndexLayer = agenlayer[1];
 	}
 
 	public WorldChunkManagerBOP(World par1World)
@@ -342,4 +351,11 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 			 biomesToSpawnIn.add(biome.get());
 		 }
 	 }
+	 
+	 public GenLayer[] getModdedBiomeGenerators(WorldType worldType, long seed, GenLayer[] original)
+    {
+        WorldTypeEvent.InitBiomeGens event = new WorldTypeEvent.InitBiomeGens(worldType, seed, original);
+        MinecraftForge.TERRAIN_GEN_BUS.post(event);
+        return event.newBiomeGens;
+    }
 }
