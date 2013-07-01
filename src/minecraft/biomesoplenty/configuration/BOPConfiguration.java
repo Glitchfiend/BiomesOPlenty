@@ -21,6 +21,7 @@ public class BOPConfiguration {
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
 	public static boolean springWaterPickup;
+	public static boolean rainCreatesPuddles;
 
 	public static int villageDistance;
 
@@ -512,6 +513,7 @@ public class BOPConfiguration {
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
+			rainCreatesPuddles = config.get("Miscellanious Settings", "Puddles have a chance of being spawned during the rain", true).getBoolean(true);
 
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 

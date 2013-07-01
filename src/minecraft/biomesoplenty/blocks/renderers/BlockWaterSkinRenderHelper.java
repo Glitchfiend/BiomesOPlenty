@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockSkinRenderHelper
+public class BlockWaterSkinRenderHelper
 {
 	public static boolean renderMetadataBlock (Block block, int metadata, int x, int y, int z, RenderBlocks renderer, IBlockAccess world)
 	{
@@ -55,10 +55,10 @@ public class BlockSkinRenderHelper
             flag1 = false;
         }
 
-        boolean flag2;
+        /*boolean flag2;
         boolean flag3;
         boolean flag4;
-        boolean flag5;
+        boolean flag5;*/
         float f7;
         int i1;
 
@@ -77,7 +77,7 @@ public class BlockSkinRenderHelper
             render.aoLightValueScratchYZNN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoLightValueScratchYZNP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos + 1);
             render.aoLightValueScratchXYPN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos - 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos - 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos - 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos - 1)];
@@ -124,7 +124,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPNP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos + 1);
                 render.aoBrightnessXYZPNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos + 1);
-            }
+            }*/
 
             if (render.renderMinY <= 0.0D)
             {
@@ -192,7 +192,7 @@ public class BlockSkinRenderHelper
             render.aoLightValueScratchXYPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos);
             render.aoLightValueScratchYZPN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoLightValueScratchYZPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos + 1);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos + 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos - 1)];
@@ -239,7 +239,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos + 1);
                 render.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos + 1);
-            }
+            }*/
 
             if (render.renderMaxY >= 1.0D)
             {
@@ -298,7 +298,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessYZNN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos - 1, zPos);
             render.aoBrightnessYZPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
             render.aoBrightnessXZPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos - 1)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos - 1)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos - 1)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos - 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos - 1)];
@@ -345,7 +345,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos + 1, zPos);
                 render.aoBrightnessXYZPPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos + 1, zPos);
-            }
+            }*/
 
             if (render.renderMinZ <= 0.0D)
             {
@@ -415,7 +415,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessXZPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos);
             render.aoBrightnessYZNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos - 1, zPos);
             render.aoBrightnessYZPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos + 1)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos + 1)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos + 1)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos + 1)];
@@ -462,7 +462,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos + 1, zPos);
                 render.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos + 1, zPos);
-            }
+            }*/
 
             if (render.renderMaxZ >= 1.0D)
             {
@@ -532,7 +532,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessXZNN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoBrightnessXZNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos + 1);
             render.aoBrightnessXYNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos + 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos + 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos - 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos - 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos + 1)];
@@ -579,7 +579,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZNPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos + 1, zPos + 1);
                 render.aoBrightnessXYZNPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos + 1);
-            }
+            }*/
 
             if (render.renderMinX <= 0.0D)
             {
@@ -649,7 +649,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessXZPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoBrightnessXZPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos + 1);
             render.aoBrightnessXYPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos - 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos - 1)];
@@ -696,7 +696,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos + 1, zPos + 1);
                 render.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos + 1);
-            }
+            }*/
 
             if (render.renderMaxX >= 1.0D)
             {
@@ -896,10 +896,10 @@ public class BlockSkinRenderHelper
             flag1 = false;
         }
 
-        boolean flag2;
+        /*boolean flag2;
         boolean flag3;
         boolean flag4;
-        boolean flag5;
+        boolean flag5;*/
         float f7;
         int i1;
 
@@ -918,7 +918,7 @@ public class BlockSkinRenderHelper
             render.aoLightValueScratchYZNN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoLightValueScratchYZNP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos + 1);
             render.aoLightValueScratchXYPN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos - 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos - 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos - 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos - 1)];
@@ -965,7 +965,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPNP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos + 1);
                 render.aoBrightnessXYZPNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos + 1);
-            }
+            }*/
 
             if (render.renderMinY <= 0.0D)
             {
@@ -1033,7 +1033,7 @@ public class BlockSkinRenderHelper
             render.aoLightValueScratchXYPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos);
             render.aoLightValueScratchYZPN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoLightValueScratchYZPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos, zPos + 1);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos + 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos - 1)];
@@ -1080,7 +1080,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos, zPos + 1);
                 render.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos + 1);
-            }
+            }*/
 
             if (render.renderMaxY >= 1.0D)
             {
@@ -1137,7 +1137,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessYZNN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos - 1, zPos);
             render.aoBrightnessYZPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
             render.aoBrightnessXZPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos - 1)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos - 1)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos - 1)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos - 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos - 1)];
@@ -1184,7 +1184,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPN = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos + 1, zPos);
                 render.aoBrightnessXYZPPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos + 1, zPos);
-            }
+            }*/
 
             if (render.renderMinZ <= 0.0D)
             {
@@ -1253,7 +1253,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessXZPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos, zPos);
             render.aoBrightnessYZNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos - 1, zPos);
             render.aoBrightnessYZPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos + 1)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos + 1)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos + 1)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos + 1, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos, yPos - 1, zPos + 1)];
@@ -1300,7 +1300,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos + 1, yPos + 1, zPos);
                 render.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos + 1, yPos + 1, zPos);
-            }
+            }*/
 
             if (render.renderMaxZ >= 1.0D)
             {
@@ -1369,7 +1369,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessXZNN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoBrightnessXZNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos + 1);
             render.aoBrightnessXYNP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos + 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos + 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos - 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos - 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos - 1, yPos, zPos + 1)];
@@ -1416,7 +1416,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZNPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos + 1, zPos + 1);
                 render.aoBrightnessXYZNPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos + 1);
-            }
+            }*/
 
             if (render.renderMinX <= 0.0D)
             {
@@ -1485,7 +1485,7 @@ public class BlockSkinRenderHelper
             render.aoBrightnessXZPN = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos - 1);
             render.aoBrightnessXZPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos, zPos + 1);
             render.aoBrightnessXYPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos);
-            flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
+            /*flag3 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos + 1, zPos)];
             flag2 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos - 1, zPos)];
             flag5 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos + 1)];
             flag4 = Block.canBlockGrass[render.blockAccess.getBlockId(xPos + 1, yPos, zPos - 1)];
@@ -1532,7 +1532,7 @@ public class BlockSkinRenderHelper
             {
                 render.aoLightValueScratchXYZPPP = block.getAmbientOcclusionLightValue(render.blockAccess, xPos, yPos + 1, zPos + 1);
                 render.aoBrightnessXYZPPP = block.getMixedBrightnessForBlock(render.blockAccess, xPos, yPos + 1, zPos + 1);
-            }
+            }*/
 
             if (render.renderMaxX >= 1.0D)
             {

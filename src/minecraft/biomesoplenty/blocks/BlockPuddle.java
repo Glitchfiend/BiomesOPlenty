@@ -57,7 +57,7 @@ public class BlockPuddle extends Block
 	@Override
     public void updateTick(World world, int x, int y, int z, Random par5Random)
     {
-    	if (!world.isRaining() && world.rand.nextInt(750) == 0)
+    	if (!world.isRaining() && world.rand.nextInt(400) == 0)
     	{
     		world.setBlock(x, y, z, Block.dirt.blockID);
     	}

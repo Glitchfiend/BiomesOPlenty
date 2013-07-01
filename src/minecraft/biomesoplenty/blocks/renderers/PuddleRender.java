@@ -31,7 +31,7 @@ public class PuddleRender implements ISimpleBlockRenderingHandler
 				renderer.setRenderBounds(0.0, 0.8135, 0.0, 1.0, 0.8880, 1.0);
 
 				Block liquidBlock = Block.blocksList[Block.waterStill.blockID];
-				BlockSkinRenderHelper.renderMetadataBlock(liquidBlock, 0, x, y, z, renderer, world);
+				BlockWaterSkinRenderHelper.renderMetadataBlock(liquidBlock, 0, x, y, z, renderer, world);
 			}
 		}
 		return true;
