@@ -57,6 +57,7 @@ import biomesoplenty.items.ItemBOPFlower;
 import biomesoplenty.items.ItemBOPFoliage;
 import biomesoplenty.items.ItemBOPGlass;
 import biomesoplenty.items.ItemBOPGrass;
+import biomesoplenty.items.ItemBOPGrave;
 import biomesoplenty.items.ItemBOPIvy;
 import biomesoplenty.items.ItemBOPLeaves;
 import biomesoplenty.items.ItemBOPLog;
@@ -249,7 +250,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.glass.get(), ItemBOPGlass.class, "bop.glass");	
 		GameRegistry.registerBlock(Blocks.altar.get(), ItemBOPAltar.class, "bop.altar");	
 		GameRegistry.registerBlock(Blocks.puddle.get(), "bop.puddle");	
-		GameRegistry.registerBlock(Blocks.grave.get(), "bop.grave");	
+		GameRegistry.registerBlock(Blocks.grave.get(), ItemBOPGrave.class, "bop.grave");	
 
 		ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
 		GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "bop.stoneDoubleSlab");
