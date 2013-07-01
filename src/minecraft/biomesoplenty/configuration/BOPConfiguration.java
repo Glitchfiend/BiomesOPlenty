@@ -18,6 +18,8 @@ public class BOPConfiguration {
 	public static boolean addToDefault;
 	public static boolean achievements;
 	public static boolean dungeonLoot;
+	public static boolean mudCrafting;
+	public static boolean amethystCrafting;
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
 	public static boolean springWaterPickup;
@@ -506,6 +508,8 @@ public class BOPConfiguration {
 			achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
 			springWaterPickup = config.get("Miscellanious Settings", "Enable Spring Water Pickup", true).getBoolean(true);
+			mudCrafting = config.get("Miscellanious Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
+			amethystCrafting = config.get("Miscellanious Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
