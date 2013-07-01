@@ -155,7 +155,7 @@ public class BOPCrafting
 		//        GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
 		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
-		
+
 		//Scythes
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheWood.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), "plankWood", Character.valueOf('S'), "stickWood" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheStone.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Block.cobblestone, Character.valueOf('S'), "stickWood" }));
@@ -165,23 +165,18 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheMud.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Items.mudball.get(), Character.valueOf('S'), "stickWood" }));
 
 		//Mud Tools and Armor
-		if (BOPConfiguration.mudCrafting = true)
-		{
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.pickaxeMud.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood" }));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.shovelMud.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.swordMud.get(), 1), new Object [] {"#", "#", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.axeMud.get(), 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.hoeMud.get(), 1), new Object [] {"##", " X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
-			GameRegistry.addRecipe(new ItemStack(Items.helmetMud.get(), 1), new Object [] {"###", "# #", Character.valueOf('#'), Items.mudball.get()});
-			GameRegistry.addRecipe(new ItemStack(Items.chestplateMud.get(), 1), new Object [] {"# #", "###", "###", Character.valueOf('#'), Items.mudball.get()});
-			GameRegistry.addRecipe(new ItemStack(Items.leggingsMud.get(), 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), Items.mudball.get()});
-			GameRegistry.addRecipe(new ItemStack(Items.bootsMud.get(), 1), new Object [] {"# #", "# #", Character.valueOf('#'), Items.mudball.get()});
-			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheMud.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Items.mudball.get(), Character.valueOf('S'), "stickWood" }));
-		}
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.pickaxeMud.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.shovelMud.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.swordMud.get(), 1), new Object [] {"#", "#", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.axeMud.get(), 1), new Object [] {"##", "#X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.hoeMud.get(), 1), new Object [] {"##", " X", " X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
+		GameRegistry.addRecipe(new ItemStack(Items.helmetMud.get(), 1), new Object [] {"###", "# #", Character.valueOf('#'), Items.mudball.get()});
+		GameRegistry.addRecipe(new ItemStack(Items.chestplateMud.get(), 1), new Object [] {"# #", "###", "###", Character.valueOf('#'), Items.mudball.get()});
+		GameRegistry.addRecipe(new ItemStack(Items.leggingsMud.get(), 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), Items.mudball.get()});
+		GameRegistry.addRecipe(new ItemStack(Items.bootsMud.get(), 1), new Object [] {"# #", "# #", Character.valueOf('#'), Items.mudball.get()});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheMud.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), Items.mudball.get(), Character.valueOf('S'), "stickWood" }));
 
 		//Amethyst Tools and Armor
-		if (BOPConfiguration.amethystCrafting = true)
-		{
 		GameRegistry.addRecipe(new ItemStack(Items.pickaxeAmethyst.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('X'), Item.ingotIron});
 		GameRegistry.addRecipe(new ItemStack(Items.shovelAmethyst.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('X'), Item.ingotIron});
 		GameRegistry.addRecipe(new ItemStack(Items.swordAmethyst.get(), 1), new Object [] {"#", "#", "X", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('X'), Item.ingotIron});
@@ -192,8 +187,7 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Items.leggingsAmethyst.get(), 1), new Object [] {"###", "# #", "# #", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2)});
 		GameRegistry.addRecipe(new ItemStack(Items.bootsAmethyst.get(), 1), new Object [] {"# #", "# #", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2)});
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheAmethyst.get(), 1), new Object [] {"MMS", "XSX", "SXX", Character.valueOf('M'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('S'), Item.ingotIron}));
-		}
-		
+
 		//Flower Bands
 		GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 0), new Object [] {"CCC", "C C", "CCC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 1), new Object [] {"CDC", "D D", "CDC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0), Character.valueOf('D'), new ItemStack(Blocks.flowers.get(), 1, 5)});
@@ -207,18 +201,18 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 1), new Object[] {"ESE", "ETE", " E ", 'E', Block.whiteStone, 'T', new ItemStack(Items.miscItems.get(), 1, 13), 'S', new ItemStack(Items.miscItems.get(), 1, 15)});
 		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 2), new Object[] {"EPE", "EEE", "EAE", 'E', Block.whiteStone, 'P', new ItemStack(Items.miscItems.get(), 1, 11), 'A', new ItemStack(Items.miscItems.get(), 1, 14)});
 		GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 3), new Object[] {" N ", "ERE", "ETE", 'E', Block.whiteStone, 'R', new ItemStack(Items.miscItems.get(), 1, 10), 'T', new ItemStack(Items.miscItems.get(), 1, 12), 'N', Item.netherStar});
-		
+
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new ItemStack(Items.ancientStaff.get(), 1, 4), new ItemStack(Item.netherStar, 1));
 		GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
-		
+
 		GameRegistry.addRecipe(new ItemStack(Items.miscItems.get(), 1, 16), new Object[] {"SBS", "GKG", "SBS", 'S', Block.slowSand, 'B', Item.blazePowder, 'G', Item.ghastTear, 'K', new ItemStack(Item.skull, 1, 1)});
-		
+
 		GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 0), new Object[] {"G", "T", "B", 'G', Block.glass, 'T', Item.ghastTear, 'B', Item.blazeRod});
 		GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 1), new Object[] {"TSA", "PMS", "APT", 'S', new ItemStack(Items.miscItems.get(), 1, 16), 'A', Block.slowSand, 'T', Item.ghastTear, 'P', Item.blazePowder, 'M', new ItemStack(Items.soulManipulator.get(), 1, 0)});
-		
+
 		GameRegistry.addRecipe(new ItemStack(Blocks.altar.get(), 1), new Object[] {"OBO", "BBB", "OBO", 'O', Block.obsidian, 'B', new ItemStack(Blocks.bones.get(), 1, 2)});
-		
+
 		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 1), new Object[] {"PCP", "CSC", "PCP", 'P', Item.blazePowder, 'C', new ItemStack(Blocks.glass.get(), 1, 0), 'S', new ItemStack(Items.miscItems.get(), 1, 16)});
 
 		//Dart Blower
@@ -246,7 +240,7 @@ public class BOPCrafting
 		//Plants
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 1, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
-		
+
 		//Glass
 		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"GGG", "GGG", "GGG", Character.valueOf('G'), Block.glass});
 		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 1), new Object [] {"CGC", "GGG", "CGC", Character.valueOf('G'), new ItemStack(Blocks.glass.get(), 1, 0), Character.valueOf('C'), new ItemStack(Items.miscItems.get(), 1, 4)});
