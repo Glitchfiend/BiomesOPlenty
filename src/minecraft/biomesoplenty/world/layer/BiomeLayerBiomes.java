@@ -90,7 +90,8 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 	} 
 
-    public int[] getInts(int par1, int par2, int par3, int par4)
+    @Override
+	public int[] getInts(int par1, int par2, int par3, int par4)
     {
         int[] var5 = this.parent.getInts(par1, par2, par3, par4);
         int[] var6 = IntCache.getIntCache(par3 * par4);

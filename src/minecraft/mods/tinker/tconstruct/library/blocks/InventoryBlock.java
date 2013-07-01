@@ -27,9 +27,11 @@ public abstract class InventoryBlock extends BlockContainer
     }
 
     /* Logic backend */
-    public TileEntity createNewTileEntity (World var1) 
+    @Override
+	public TileEntity createNewTileEntity (World var1) 
     { return null; }    
-    public abstract TileEntity createTileEntity(World world, int metadata);
+    @Override
+	public abstract TileEntity createTileEntity(World world, int metadata);
     public abstract Integer getGui(World world, int x, int y, int z, EntityPlayer entityplayer);    
     public abstract Object getModInstance();
 
@@ -133,7 +135,8 @@ public abstract class InventoryBlock extends BlockContainer
         return false;
     }
 
-    public int damageDropped (int meta)
+    @Override
+	public int damageDropped (int meta)
     {
         return meta;
     }

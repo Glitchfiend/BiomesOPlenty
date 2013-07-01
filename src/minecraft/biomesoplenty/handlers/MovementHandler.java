@@ -1,13 +1,11 @@
 package biomesoplenty.handlers;
 
-import biomesoplenty.api.Blocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import biomesoplenty.api.Blocks;
 
 public class MovementHandler 
 {

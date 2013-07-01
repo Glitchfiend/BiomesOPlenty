@@ -2,10 +2,9 @@ package biomesoplenty.world.layer;
 
 import java.util.ArrayList;
 
-import biomesoplenty.api.Biomes;
-
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
+import biomesoplenty.api.Biomes;
 
 public class BiomeLayerShore extends BiomeLayer
 {

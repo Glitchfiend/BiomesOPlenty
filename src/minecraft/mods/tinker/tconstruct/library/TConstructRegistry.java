@@ -6,12 +6,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import mods.tinker.tconstruct.library.crafting.*;
-import mods.tinker.tconstruct.library.tools.*;
-import mods.tinker.tconstruct.library.util.*;
+import mods.tinker.tconstruct.library.crafting.Detailing;
+import mods.tinker.tconstruct.library.crafting.LiquidCasting;
+import mods.tinker.tconstruct.library.crafting.ToolBuilder;
+import mods.tinker.tconstruct.library.tools.ToolCore;
+import mods.tinker.tconstruct.library.tools.ToolMaterial;
+import mods.tinker.tconstruct.library.util.TabTools;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.ForgeHooks;
 
 /** A registry to store any relevant API work
  * 
@@ -179,7 +181,8 @@ public class TConstructRegistry
      * @param output The ToolCore to craft
      * @param parts Pieces to make the tool with
      */
-    public static void addToolRecipe(ToolCore output, Item... parts)
+    @SuppressWarnings("static-access")
+	public static void addToolRecipe(ToolCore output, Item... parts)
     {
         ToolBuilder tb = ToolBuilder.instance;
         if (parts.length < 1 || parts.length > 4 || parts.length == 3)

@@ -1,14 +1,14 @@
 package biomesoplenty.world;
 
-import cpw.mods.fml.common.Loader;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.integration.BCIntegration;
+import cpw.mods.fml.common.Loader;
 
 public class WorldProviderBOPhell extends WorldProviderHell
 {
-    public void registerWorldChunkManager()
+    @Override
+	public void registerWorldChunkManager()
     {
 		if (Biomes.netherGarden.isPresent() || Biomes.netherDesert.isPresent() || Biomes.netherLava.isPresent() || Biomes.netherBone.isPresent())
 		{

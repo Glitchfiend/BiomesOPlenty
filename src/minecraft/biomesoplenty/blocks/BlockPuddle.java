@@ -10,7 +10,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.ClientProxy;
-import biomesoplenty.blocks.renderers.PuddleRender;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -30,21 +30,31 @@ public class BlockPuddle extends Block
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
+    @Override
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
     {
         return AxisAlignedBB.getAABBPool().getAABB((double)(par2 + 0), (double)(par3 + 0), (double)(par4 + 0), (double)(par2 + 1), (double)(par3 + 0.8135F), (double)(par4 + 1));
     }
+    
+	@Override
+	public boolean isBlockNormalCube(World world, int x, int y, int z)
+	{
+		return false;
+	}
 
+	@Override
     public boolean isOpaqueCube()
     {
        return false;
     }
 
+	@Override
     public boolean renderAsNormalBlock()
     {
         return false;
     }
     
+	@Override
     public void updateTick(World world, int x, int y, int z, Random par5Random)
     {
     	if (!world.isRaining() && world.rand.nextInt(750) == 0)
@@ -69,28 +79,32 @@ public class BlockPuddle extends Block
     @Override
     public int getRenderType()
     {
-        return PuddleRender.puddleID;
+        return RenderUtils.puddleModel;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
 
     public Icon getIcon(int par1, int par2)
     {
         return Block.dirt.getBlockTextureFromSide(par1);
     }
 
-    public int idDropped(int par1, Random par2Random, int par3)
+    @Override
+	public int idDropped(int par1, Random par2Random, int par3)
     {
         return Block.dirt.idDropped(0, par2Random, par3);
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public int idPicked(World par1World, int par2, int par3, int par4)
     {
         return Block.dirt.blockID;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister)
     {
     }

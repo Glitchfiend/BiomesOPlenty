@@ -47,7 +47,8 @@ public class CoordTuple
         return result;
     }
 
-    public String toString ()
+    @Override
+	public String toString ()
     {
         return "X: " + x + ", Y: " + y + ", Z: " + z;
     }

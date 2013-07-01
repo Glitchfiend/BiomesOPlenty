@@ -3,12 +3,10 @@ package biomesoplenty.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenChaparral2;
 import biomesoplenty.worldgen.WorldGenChaparral3;
-import biomesoplenty.api.Blocks;
 
 public class BiomeGenBeachOvergrown extends BiomeGenBase
 {

@@ -1,15 +1,9 @@
 package biomesoplenty.handlers;
 
-import biomesoplenty.api.Blocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MathHelper;
@@ -17,8 +11,8 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import biomesoplenty.api.Blocks;
 
 public class BreakSpeedHandler 
 {
@@ -33,7 +27,7 @@ public class BreakSpeedHandler
 			item = Item.itemsList[event.entityPlayer.getCurrentEquippedItem().itemID];
 		}
 
-		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(event.entityPlayer.worldObj, event.entityPlayer, true);
+		MovingObjectPosition movingobjectposition = getMovingObjectPositionFromPlayer(event.entityPlayer.worldObj, event.entityPlayer, true);
 
 		if (movingobjectposition != null)
 		{

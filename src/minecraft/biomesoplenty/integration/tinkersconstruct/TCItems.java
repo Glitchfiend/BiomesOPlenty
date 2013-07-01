@@ -1,16 +1,12 @@
 package biomesoplenty.integration.tinkersconstruct;
 
-import java.util.Iterator;
-
 import mods.tinker.tconstruct.library.TConstructRegistry;
 import mods.tinker.tconstruct.library.client.TConstructClientRegistry;
 import mods.tinker.tconstruct.library.crafting.PatternBuilder;
 import mods.tinker.tconstruct.library.crafting.ToolBuilder;
 import mods.tinker.tconstruct.library.tools.ToolCore;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
 
@@ -100,23 +96,22 @@ public class TCItems
             TConstructClientRegistry.addMaterialRenderMapping(150 + partIter, "BiomesOPlenty", partTypes[partIter], true);
         }
 		
-        ToolBuilder tb = ToolBuilder.instance;
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("pickaxe"), pickaxeHead, toolRod, binding);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("broadsword"), swordBlade, toolRod, wideGuard);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("hatchet"), hatchetHead, toolRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("shovel"), shovelHead, toolRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("longsword"), swordBlade, toolRod, handGuard);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("rapier"), swordBlade, toolRod, crossbar);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("frypan"), frypanHead, toolRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("battlesign"), signHead, toolRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("mattock"), hatchetHead, toolRod, shovelHead);
-        //tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("dagger"), knifeBlade, crossbar);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("chisel"), chiselHead, toolRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("scythe"), scytheBlade, toughRod, toughBinding, toughRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("lumberaxe"), broadAxeHead, toughRod, heavyPlate, toughBinding);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("cleaver"), largeSwordBlade, toughRod, heavyPlate, toughRod);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("excavator"), excavatorHead, toughRod, heavyPlate, toughBinding);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("hammer"), hammerHead, toughRod, heavyPlate, heavyPlate);
-        tb.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("battleaxe"), broadAxeHead, toughRod, broadAxeHead, toughBinding);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("pickaxe"), pickaxeHead, toolRod, binding);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("broadsword"), swordBlade, toolRod, wideGuard);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("hatchet"), hatchetHead, toolRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("shovel"), shovelHead, toolRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("longsword"), swordBlade, toolRod, handGuard);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("rapier"), swordBlade, toolRod, crossbar);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("frypan"), frypanHead, toolRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("battlesign"), signHead, toolRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("mattock"), hatchetHead, toolRod, shovelHead);
+        //ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("dagger"), knifeBlade, crossbar);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("chisel"), chiselHead, toolRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("scythe"), scytheBlade, toughRod, toughBinding, toughRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("lumberaxe"), broadAxeHead, toughRod, heavyPlate, toughBinding);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("cleaver"), largeSwordBlade, toughRod, heavyPlate, toughRod);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("excavator"), excavatorHead, toughRod, heavyPlate, toughBinding);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("hammer"), hammerHead, toughRod, heavyPlate, heavyPlate);
+        ToolBuilder.addNormalToolRecipe((ToolCore)TConstructRegistry.getItem("battleaxe"), broadAxeHead, toughRod, broadAxeHead, toughBinding);
 	}
 }

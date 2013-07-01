@@ -1,20 +1,14 @@
 package biomesoplenty.blocks.renderers;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.ForgeDirection;
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockAltar;
 import biomesoplenty.tileentity.TileEntityAltar;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class AltarRenderer implements ISimpleBlockRenderingHandler
 {
@@ -29,36 +23,36 @@ public class AltarRenderer implements ISimpleBlockRenderingHandler
 			{
 				renderer.renderStandardBlock(block, x, y, z);
 
-				this.renderAltarSlotFaces(renderer, block, BlockAltar.altarFrame, world, x, y, z);
+				renderAltarSlotFaces(renderer, block, BlockAltar.altarFrame, world, x, y, z);
 				
 				if (tileentityaltar.getPresent(10))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameRuby, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.frameRuby, world, x, y, z);
 				}
 
 				if (tileentityaltar.getPresent(11))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.framePeridot, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.framePeridot, world, x, y, z);
 				}
 				
 				if (tileentityaltar.getPresent(12))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameTopaz, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.frameTopaz, world, x, y, z);
 				}
 				
 				if (tileentityaltar.getPresent(13))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameTanzanite, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.frameTanzanite, world, x, y, z);
 				}
 				
 				if (tileentityaltar.getPresent(14))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameApatite, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.frameApatite, world, x, y, z);
 				}
 
 				if (tileentityaltar.getPresent(15))
 				{
-					this.renderAltarSlotFaces(renderer, block, BlockAltar.frameSapphire, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.frameSapphire, world, x, y, z);
 				}
 			}
 		}

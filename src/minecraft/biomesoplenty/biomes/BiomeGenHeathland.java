@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenJacarandaShrub;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenJacarandaShrub;
 
 public class BiomeGenHeathland extends BiomeGenBase
 {

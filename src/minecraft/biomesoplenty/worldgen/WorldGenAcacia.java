@@ -16,11 +16,9 @@ public class WorldGenAcacia extends WorldGenerator
 	private final boolean vinesGrow;
 
 	/** The metadata value of the wood to use in tree generation. */
-	@SuppressWarnings("unused")
 	private final int metaWood;
 
 	/** The metadata value of the leaves to use in tree generation. */
-	@SuppressWarnings("unused")
 	private final int metaLeaves;
 
 	public WorldGenAcacia(boolean par1)

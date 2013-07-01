@@ -1,18 +1,12 @@
 package biomesoplenty;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.RenderBlockFluid;
-
-import org.lwjgl.opengl.GL11;
-
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
@@ -38,10 +32,13 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderers()
 	{
 		RenderUtils.altarModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderUtils.foliageModel = RenderingRegistry.getNextAvailableRenderId();;
+		RenderUtils.plantsModel = RenderingRegistry.getNextAvailableRenderId();;
+		RenderUtils.puddleModel = RenderingRegistry.getNextAvailableRenderId();;
+		RenderUtils.bonesModel = RenderingRegistry.getNextAvailableRenderId();;
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
-		//RenderingRegistry.registerEntityRenderingHandler(EntityPoisonDart.class, new RenderPoisonDart());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
 

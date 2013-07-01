@@ -7,11 +7,9 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 import biomesoplenty.api.Blocks;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
-	public static int render = RenderingRegistry.getNextAvailableRenderId();
 	private final int GRASSTOP = 6;
 
 	@Override
@@ -25,7 +23,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		if (modelId == render)
+		if (modelId == RenderUtils.foliageModel)
 		{
 			if (meta == 0)
 				return renderer.renderBlockLilyPad(block, x, y, z);
@@ -44,7 +42,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return render;
+		return RenderUtils.foliageModel;
 	}
 
 	private boolean renderCrossedSquares(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer)

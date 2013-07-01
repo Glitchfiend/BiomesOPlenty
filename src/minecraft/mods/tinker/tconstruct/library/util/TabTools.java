@@ -17,6 +17,7 @@ public class TabTools extends CreativeTabs
 		display = stack;
 	}
 	
+	@Override
 	public ItemStack getIconItemStack()
     {
 		return display;

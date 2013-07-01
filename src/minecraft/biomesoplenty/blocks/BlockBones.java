@@ -12,7 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.blocks.renderers.SmallBlockRenderer;
+import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBones extends Block {
 	//Meta 3 & 4 used by alternate small bone rotations, 5 & 6 are used by alternate medium bone rotations
@@ -214,7 +214,7 @@ public class BlockBones extends Block {
 	@Override
 	public int getRenderType()
 	{
-		return SmallBlockRenderer.bonesModel;
+		return RenderUtils.bonesModel;
 	}
 
 	@Override

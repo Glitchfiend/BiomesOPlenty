@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 
 import net.minecraft.world.World;
-import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.common.Property;
-import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;

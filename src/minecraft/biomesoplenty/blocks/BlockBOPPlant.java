@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.renderers.PlantsRenderer;
+import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
@@ -64,7 +64,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	@Override
 	public int getRenderType ()
 	{
-		return PlantsRenderer.render;
+		return RenderUtils.plantsModel;
 	}
 
 	@Override

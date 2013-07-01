@@ -1,10 +1,7 @@
 package biomesoplenty.integration;
 
 import mods.tinker.tconstruct.library.TConstructRegistry;
-import net.minecraft.item.ItemStack;
-import biomesoplenty.api.Blocks;
 import biomesoplenty.integration.tinkersconstruct.TCItems;
-import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class TConstructIntegration 
 {	

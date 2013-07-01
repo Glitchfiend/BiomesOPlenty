@@ -12,7 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.liquids.ILiquid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,8 +20,6 @@ public class BlockFluidLiquidPoison extends BlockFluidClassic implements ILiquid
 {
 	public static Icon liquidPoisonStillIcon;
 	public static Icon liquidPoisonFlowingIcon;
-
-	private static FluidStack stack;
 
 	public BlockFluidLiquidPoison(int id, Fluid fluid, Material material)
 	{

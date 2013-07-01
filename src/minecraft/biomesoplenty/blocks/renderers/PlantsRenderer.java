@@ -6,12 +6,9 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class PlantsRenderer implements ISimpleBlockRenderingHandler
 {
-	public static int render = RenderingRegistry.getNextAvailableRenderId();
-
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
 	{
@@ -21,7 +18,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
-		if (modelId == render)
+		if (modelId == RenderUtils.plantsModel)
 		{
 			int meta = world.getBlockMetadata(x, y, z);
 			if (meta > 6)
@@ -45,7 +42,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 	@Override
 	public int getRenderId()
 	{
-		return render;
+		return RenderUtils.plantsModel;
 	}
 
 	private boolean renderBlockCrops(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer)

@@ -488,7 +488,8 @@ public abstract class ToolCore extends Item
     static String[] toolMaterialNames = { "Wooden ", "Stone ", "Iron ", "Flint ", "Cactus ", "Bone ", "Obsidian ", "Netherrack ", "Slime ", "Paper ", "Cobalt ", "Ardite ", "Manyullyn ", "Copper ",
             "Bronze ", "Alumite ", "Steel ", "Slime " };
 
-    public void getSubItems (int id, CreativeTabs tab, List list)
+    @Override
+	public void getSubItems (int id, CreativeTabs tab, List list)
     {
         for (int i = 0; i < 18; i++)
         {
@@ -526,7 +527,8 @@ public abstract class ToolCore extends Item
 
     /* Updating */
 
-    public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
+    @Override
+	public void onUpdate (ItemStack stack, World world, Entity entity, int par4, boolean par5)
     {
         for (ActiveToolMod mod : TConstructRegistry.activeModifiers)
         {
@@ -592,7 +594,8 @@ public abstract class ToolCore extends Item
         return 1f;
     }
 
-    public int getDamageVsEntity (Entity par1Entity)
+    @Override
+	public int getDamageVsEntity (Entity par1Entity)
     {
         return this.damageVsEntity;
     }
@@ -614,7 +617,8 @@ public abstract class ToolCore extends Item
     }
 
     //Right-click
-    public boolean onItemUse (ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float clickX, float clickY, float clickZ)
+    @Override
+	public boolean onItemUse (ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float clickX, float clickY, float clickZ)
     {
         /*if (world.isRemote)
             return true;*/
@@ -687,7 +691,8 @@ public abstract class ToolCore extends Item
     }
 
     //Vanilla overrides
-    public boolean isItemTool (ItemStack par1ItemStack)
+    @Override
+	public boolean isItemTool (ItemStack par1ItemStack)
     {
         return false;
     }
@@ -698,23 +703,27 @@ public abstract class ToolCore extends Item
         return false;
     }
 
-    public boolean isRepairable ()
+    @Override
+	public boolean isRepairable ()
     {
         return false;
     }
 
-    public int getItemEnchantability ()
+    @Override
+	public int getItemEnchantability ()
     {
         return 0;
     }
 
-    public boolean isFull3D ()
+    @Override
+	public boolean isFull3D ()
     {
         return true;
     }
 
     /* Proper stack damage */
-    public int getItemDamageFromStack (ItemStack stack)
+    @Override
+	public int getItemDamageFromStack (ItemStack stack)
     {
         NBTTagCompound tags = stack.getTagCompound();
         if (tags == null)
@@ -728,7 +737,8 @@ public abstract class ToolCore extends Item
         return tags.getCompoundTag("InfiTool").getInteger("Damage");
     }
 
-    public int getItemDamageFromStackForDisplay (ItemStack stack)
+    @Override
+	public int getItemDamageFromStackForDisplay (ItemStack stack)
     {
         NBTTagCompound tags = stack.getTagCompound();
         if (tags == null)
@@ -742,7 +752,8 @@ public abstract class ToolCore extends Item
         return tags.getCompoundTag("InfiTool").getInteger("Damage");
     }
 
-    public int getItemMaxDamageFromStack (ItemStack stack)
+    @Override
+	public int getItemMaxDamageFromStack (ItemStack stack)
     {
         NBTTagCompound tags = stack.getTagCompound();
         if (tags == null)

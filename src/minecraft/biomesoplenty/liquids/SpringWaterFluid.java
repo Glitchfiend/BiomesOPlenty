@@ -1,9 +1,9 @@
 package biomesoplenty.liquids;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.Icon;
 import net.minecraftforge.fluids.Fluid;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class SpringWaterFluid extends Fluid
 {
@@ -12,15 +12,17 @@ public class SpringWaterFluid extends Fluid
 		super(fluidName);
 	}
 	
-    @SideOnly(Side.CLIENT)
-    public Icon getStillIcon() {
-
+    @Override
+	@SideOnly(Side.CLIENT)
+    public Icon getStillIcon() 
+    {
         return BlockFluidSpringWater.springWaterStillIcon;
     }
 
-    @SideOnly(Side.CLIENT)
-    public Icon getFlowingIcon() {
-
+    @Override
+	@SideOnly(Side.CLIENT)
+    public Icon getFlowingIcon() 
+    {
         return BlockFluidSpringWater.springWaterFlowingIcon;
     }	
 }

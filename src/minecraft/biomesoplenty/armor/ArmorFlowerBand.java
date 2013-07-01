@@ -4,15 +4,15 @@ import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraftforge.common.IArmorTextureProvider;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ArmorFlowerBand extends ItemArmor implements IArmorTextureProvider
+public class ArmorFlowerBand extends ItemArmor
 {
 	private static final String[] flowerBandTypes = new String[] {"dullflowerband", "plainflowerband", "lushflowerband", "exoticflowerband"};
 	@SideOnly(Side.CLIENT)
@@ -58,18 +58,18 @@ public class ArmorFlowerBand extends ItemArmor implements IArmorTextureProvider
 	}
 
 	@Override
-	public String getArmorTextureFile(ItemStack par1)
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
-		if (par1.getItemDamage() == 0)
+		if (stack.getItemDamage() == 0)
 			return "/mods/BiomesOPlenty/textures/armor/dullflowerband.png";
 
-		if (par1.getItemDamage() == 1)
+		if (stack.getItemDamage() == 1)
 			return "/mods/BiomesOPlenty/textures/armor/plainflowerband.png";
 
-		if (par1.getItemDamage() == 2)
+		if (stack.getItemDamage() == 2)
 			return "/mods/BiomesOPlenty/textures/armor/lushflowerband.png";
 
-		if (par1.getItemDamage() == 3)
+		if (stack.getItemDamage() == 3)
 			return "/mods/BiomesOPlenty/textures/armor/exoticflowerband.png";
 
 		return null;

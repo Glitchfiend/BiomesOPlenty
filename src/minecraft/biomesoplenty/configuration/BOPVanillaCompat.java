@@ -8,7 +8,6 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.items.projectiles.DispenserBehaviorDart;
 import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
-import biomesoplenty.configuration.BOPConfiguration;
 
 public class BOPVanillaCompat {
 

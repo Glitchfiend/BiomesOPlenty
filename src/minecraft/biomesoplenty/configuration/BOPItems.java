@@ -3,11 +3,9 @@ package biomesoplenty.configuration;
 import java.util.Map;
 import java.util.logging.Level;
 
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.BiomesOPlenty;
@@ -38,7 +36,6 @@ import com.google.common.base.Optional;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameData;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPItems {

@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;

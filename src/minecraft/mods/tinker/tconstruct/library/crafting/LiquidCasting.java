@@ -1,9 +1,6 @@
 package mods.tinker.tconstruct.library.crafting;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.liquids.LiquidStack;

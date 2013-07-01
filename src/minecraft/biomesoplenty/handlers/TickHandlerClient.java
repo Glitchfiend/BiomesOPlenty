@@ -2,9 +2,8 @@ package biomesoplenty.handlers;
 
 import java.util.EnumSet;
 
-import biomesoplenty.helpers.Version;
-
 import net.minecraft.entity.player.EntityPlayer;
+import biomesoplenty.helpers.Version;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.TickType;

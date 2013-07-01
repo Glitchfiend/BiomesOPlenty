@@ -7,11 +7,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
@@ -36,7 +33,8 @@ public class ItemBOPScythe extends Item
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
-    public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLiving entity)
+    @Override
+	public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLiving entity)
     {
         Block block = Block.blocksList[world.getBlockId(x, y, z)];
         int radius = 1;

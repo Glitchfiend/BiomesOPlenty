@@ -1,14 +1,8 @@
 package biomesoplenty;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
 
-public class CommonProxy {
-	public static String ARMOR_MUD1_PNG = "/mods/BiomesOPlenty/textures/armor/mud_1.png";
-	public static String ARMOR_MUD2_PNG = "/mods/BiomesOPlenty/textures/armor/mud_2.png";
-	public static String ARMOR_AMETHYST1_PNG = "/mods/BiomesOPlenty/textures/armor/amethyst_1.png";
-	public static String ARMOR_AMETHYST2_PNG = "/mods/BiomesOPlenty/textures/armor/amethyst_2.png";
-
+public class CommonProxy 
+{
 	// Client stuff
 	public void registerRenderers() {
 		// Nothing here as the server doesn't render graphics!

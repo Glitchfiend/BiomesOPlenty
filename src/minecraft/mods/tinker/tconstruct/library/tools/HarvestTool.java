@@ -102,6 +102,7 @@ public abstract class HarvestTool extends ToolCore
 		return super.getStrVsBlock(stack, block, meta);
 	}
 
+	@Override
 	public boolean canHarvestBlock (Block block)
 	{
 		if (block.blockMaterial.isToolNotRequired())

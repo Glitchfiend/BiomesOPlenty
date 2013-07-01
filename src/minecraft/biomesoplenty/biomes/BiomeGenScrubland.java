@@ -8,8 +8,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenScrubland;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenScrubland;
 
 public class BiomeGenScrubland extends BiomeGenBase
 {

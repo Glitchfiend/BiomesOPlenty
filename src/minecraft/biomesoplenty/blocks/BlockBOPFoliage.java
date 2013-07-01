@@ -29,7 +29,7 @@ import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.blocks.renderers.FoliageRenderer;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -210,7 +210,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	@Override
 	public int getRenderType ()
 	{
-		return FoliageRenderer.render;
+		return RenderUtils.foliageModel;
 	}
 
 	@Override

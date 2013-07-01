@@ -1,11 +1,11 @@
 package biomesoplenty.biomes;
 
-import java.util.Random;
 import java.awt.Color;
+import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import biomesoplenty.api.Blocks;

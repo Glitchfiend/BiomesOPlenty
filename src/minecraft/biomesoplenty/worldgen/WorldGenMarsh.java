@@ -9,6 +9,7 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenMarsh extends WorldGenerator
 {
+	@SuppressWarnings("unused")
 	@Override
 	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
 	{

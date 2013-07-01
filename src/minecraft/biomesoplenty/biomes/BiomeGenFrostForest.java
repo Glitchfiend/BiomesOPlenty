@@ -7,8 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeGenFrostForest extends BiomeGenBase
 {

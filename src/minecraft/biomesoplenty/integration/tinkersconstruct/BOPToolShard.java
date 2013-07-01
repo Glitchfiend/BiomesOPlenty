@@ -2,13 +2,12 @@ package biomesoplenty.integration.tinkersconstruct;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BOPToolShard extends BOPToolPart
 {
@@ -19,7 +18,7 @@ public class BOPToolShard extends BOPToolPart
 		this.setMaxDamage(0);
 	}
 	
-	private static String[] buildTextureNames (String textureType)
+	private static String[] buildTextureNames(String textureType)
     {
         String[] names = new String[toolMaterialNames.length];
         for (int i = 0; i < toolMaterialNames.length; i++)
@@ -27,6 +26,7 @@ public class BOPToolShard extends BOPToolPart
         return names;
     }
 	
+	@Override
 	@SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister)
     {
@@ -38,7 +38,8 @@ public class BOPToolShard extends BOPToolPart
         }
     }
 	
-	public void getSubItems (int id, CreativeTabs tab, List list)
+	@Override
+	public void getSubItems(int id, CreativeTabs tab, List list)
 	{
 		for (int i = 0; i < toolMaterialNames.length; i++)
 			list.add(new ItemStack(id, 1, i));

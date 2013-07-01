@@ -8,11 +8,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.worldgen.WorldGenPalmTree1;
 import biomesoplenty.worldgen.WorldGenPalmTree3;
-import biomesoplenty.api.Blocks;
 
 public class BiomeGenTropics extends BiomeGenBase
 {

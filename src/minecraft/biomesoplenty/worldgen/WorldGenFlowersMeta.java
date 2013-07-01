@@ -25,7 +25,8 @@ public class WorldGenFlowersMeta extends WorldGenerator
         this.chances = count;
     }
 
-    public boolean generate(World world, Random random, int x, int y, int z)
+    @Override
+	public boolean generate(World world, Random random, int x, int y, int z)
     {
         for (int iter = 0; iter < chances; ++iter)
         {

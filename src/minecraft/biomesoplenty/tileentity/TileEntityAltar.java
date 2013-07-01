@@ -1,14 +1,10 @@
 package biomesoplenty.tileentity;
 
-import java.lang.reflect.Field;
-
-import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 
 public class TileEntityAltar extends TileEntity 
 {
@@ -143,9 +139,7 @@ public class TileEntityAltar extends TileEntity
     	{
     		return true;
     	}
-    	else
-    	{
-    		return false;
-    	}
+    	
+		return false;
     }
 }

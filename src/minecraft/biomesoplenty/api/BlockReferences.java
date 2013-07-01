@@ -200,9 +200,11 @@ public class BlockReferences {
 		int stackmeta = EnumBlocks.valueOf(string).meta;
 
 		if (stackmeta != 0)
+		{
 			return new ItemStack(stackblock.get(), 1, stackmeta);
-		else
-			return new ItemStack(stackblock.get(), 1);
+		}
+		
+		return new ItemStack(stackblock.get(), 1);
 	}
 
 	public static int getBlockID(String string)

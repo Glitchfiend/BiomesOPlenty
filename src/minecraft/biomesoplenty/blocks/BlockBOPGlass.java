@@ -3,13 +3,8 @@ package biomesoplenty.blocks;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -27,6 +22,9 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.tileentity.TileEntityAltar;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPGlass extends Block
 {
@@ -234,12 +232,14 @@ public class BlockBOPGlass extends Block
 		return meta;
 	}
 	
-    public int quantityDropped(Random par1Random)
+    @Override
+	public int quantityDropped(Random par1Random)
     {
         return 0;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public int getRenderBlockPass()
     {
         return 1;
@@ -251,12 +251,14 @@ public class BlockBOPGlass extends Block
         return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, 1 - par5);
     }
 
-    public boolean isOpaqueCube()
+    @Override
+	public boolean isOpaqueCube()
     {
         return false;
     }
 
-    protected boolean canSilkHarvest()
+    @Override
+	protected boolean canSilkHarvest()
     {
         return true;
     }

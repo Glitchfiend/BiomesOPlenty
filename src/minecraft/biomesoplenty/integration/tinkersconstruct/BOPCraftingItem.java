@@ -29,6 +29,7 @@ public class BOPCraftingItem extends Item
 		this.folder = folder;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamage(int meta)
 	{
@@ -47,13 +48,15 @@ public class BOPCraftingItem extends Item
         }
     }
 	
+	@Override
 	public String getUnlocalizedName(ItemStack stack)
 	{
 		int arr = MathHelper.clamp_int(stack.getItemDamage(), 0, unlocalizedNames.length);
 		return getUnlocalizedName() + "." +unlocalizedNames[arr];
 	}
 
-	public void getSubItems (int id, CreativeTabs tab, List list)
+	@Override
+	public void getSubItems(int id, CreativeTabs tab, List list)
 	{
 		for (int i = 0; i < unlocalizedNames.length; i++)
 			list.add(new ItemStack(id, 1, i));

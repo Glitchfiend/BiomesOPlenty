@@ -1,9 +1,5 @@
 package biomesoplenty.blocks.renderers;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.RenderingRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -13,9 +9,15 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ForgeDirection;
 
+import org.lwjgl.opengl.GL11;
+
 public class RenderUtils 
 {
 	public static int altarModel = -1;
+	public static int foliageModel = -1;
+	public static int plantsModel = -1;
+	public static int puddleModel = -1;
+	public static int bonesModel = -1;
 	
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
 	{

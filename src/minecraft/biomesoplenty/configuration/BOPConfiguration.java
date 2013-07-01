@@ -3,15 +3,10 @@ package biomesoplenty.configuration;
 import java.io.File;
 import java.util.logging.Level;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.integration.TConstructIntegration;
-
-import net.minecraft.item.Item;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
 
 public class BOPConfiguration {
 

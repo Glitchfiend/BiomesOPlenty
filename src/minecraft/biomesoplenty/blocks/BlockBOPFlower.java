@@ -19,7 +19,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.renderers.FoliageRenderer;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -66,9 +66,9 @@ public class BlockBOPFlower extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType ()
+	public int getRenderType()
 	{
-		return FoliageRenderer.render;
+		return RenderUtils.foliageModel;
 	}
 
 	@Override

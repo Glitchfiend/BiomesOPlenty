@@ -77,12 +77,14 @@ public class BlockBOPGrass extends Block
 	@Override
 	public boolean isFireSource(World world, int x, int y, int z, int metadata, ForgeDirection side)
 	{
+		int blockId = world.getBlockId(x, y, z);
+		
 		if (metadata == 0)
 		{
-			if (blockID == Block.netherrack.blockID && side == UP)
+			if (blockId == Block.netherrack.blockID && side == UP)
 				return true;
 
-			if (blockID == blockID && side == UP)
+			if (blockId == this.blockID && side == UP)
 				return true;
 
 			if ((world.provider instanceof WorldProviderEnd) && blockID == Block.bedrock.blockID && side == UP)

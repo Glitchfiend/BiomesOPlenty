@@ -145,18 +145,23 @@ public abstract class InventoryLogic extends TileEntity
     }
     
 	/* Default implementations of hardly used methods */
+	@Override
 	public ItemStack getStackInSlotOnClosing (int slot) { return null; }
+	@Override
 	public void openChest () {}
+	@Override
 	public void closeChest () {}
 	
 	protected abstract String getDefaultName();
 	
+	@Override
 	public String getInvName()
     {
         return this.isInvNameLocalized() ? this.invName : getDefaultName();
     }
 
-    public boolean isInvNameLocalized()
+    @Override
+	public boolean isInvNameLocalized()
     {
         return this.invName != null && this.invName.length() > 0;
     }
