@@ -170,13 +170,8 @@ public class BOPConfiguration {
 
 	public static int promisedLandPortalID;
 	public static int amethystOreID;
-	//	public static int amethystBlockID;
-	//	public static int bambooThatchingID;
 
 	public static int mossID;
-	//	public static int smolderingGrassID;
-
-	//	public static int quicksandID;
 	
 	public static int puddleID;
 
@@ -209,6 +204,7 @@ public class BOPConfiguration {
 	public static int bonesID;
 	public static int glassID;
 	public static int altarID;
+	public static int graveID;
 
 	//Item IDs
 	public static int shroomPowderID;
@@ -799,6 +795,8 @@ public class BOPConfiguration {
 			altarID = config.getBlock("Altar ID", 1979, null).getInt();
 			
 			puddleID = config.getBlock("Puddle ID", 1980, null).getInt();
+			
+			graveID = config.getBlock("Grave ID", 1981, null).getInt();
 
 			// Get Item ID's
 			shroomPowderID = config.getItem("Shroom Powder ID", 21001, null).getInt();

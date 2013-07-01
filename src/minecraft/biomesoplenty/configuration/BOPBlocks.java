@@ -36,6 +36,7 @@ import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.blocks.BlockBamboo;
 import biomesoplenty.blocks.BlockBones;
 import biomesoplenty.blocks.BlockCloud;
+import biomesoplenty.blocks.BlockGrave;
 import biomesoplenty.blocks.BlockIvy;
 import biomesoplenty.blocks.BlockMoss;
 import biomesoplenty.blocks.BlockMud;
@@ -71,6 +72,7 @@ import biomesoplenty.items.ItemBOPSkystone;
 import biomesoplenty.items.ItemBOPSlab;
 import biomesoplenty.items.ItemBOPWillow;
 import biomesoplenty.tileentity.TileEntityAltar;
+import biomesoplenty.tileentity.TileEntityGrave;
 
 import com.google.common.base.Optional;
 
@@ -171,6 +173,7 @@ public class BOPBlocks
 		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
 		
 		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.puddleID)).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
+		Blocks.grave = Optional.of((new BlockGrave(BOPConfiguration.graveID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.grave"));
 
 		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.planks"));
 
@@ -246,6 +249,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.glass.get(), ItemBOPGlass.class, "bop.glass");	
 		GameRegistry.registerBlock(Blocks.altar.get(), ItemBOPAltar.class, "bop.altar");	
 		GameRegistry.registerBlock(Blocks.puddle.get(), "bop.puddle");	
+		GameRegistry.registerBlock(Blocks.grave.get(), "bop.grave");	
 
 		ItemBOPSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
 		GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBOPSlab.class, "bop.stoneDoubleSlab");
@@ -279,6 +283,7 @@ public class BOPBlocks
 	private static void registerTileEntities()
 	{
         GameRegistry.registerTileEntity(TileEntityAltar.class, "tileEntityAltar");
+        GameRegistry.registerTileEntity(TileEntityGrave.class, "tileEntityGrave");
 	}
 
 	private static void addGrassPlants()
