@@ -37,7 +37,6 @@ public class EntityDandelionFX extends EntityFX
 
 		GL11.glDepthMask(false);
 		GL11.glEnable(3042);
-		//GL11.glBlendFunc(770, 1);
 
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 

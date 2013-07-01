@@ -4,7 +4,8 @@ package biomesoplenty;
 public class CommonProxy 
 {
 	// Client stuff
-	public void registerRenderers() {
+	public void registerRenderers() 
+	{
 		// Nothing here as the server doesn't render graphics!
 	}
 

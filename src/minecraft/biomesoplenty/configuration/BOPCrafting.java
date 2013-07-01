@@ -280,7 +280,6 @@ public class BOPCrafting
 		OreDictionary.registerOre("gemPeridot", new ItemStack(Items.miscItems.get(), 1, 11));
 		OreDictionary.registerOre("gemTopaz", new ItemStack(Items.miscItems.get(), 1, 12));
 		OreDictionary.registerOre("gemTanzanite", new ItemStack(Items.miscItems.get(), 1, 13));
-		//OreDictionary.registerOre("gemApatite", new ItemStack(Items.miscItems.get(), 1, 14));
 		OreDictionary.registerOre("gemSapphire", new ItemStack(Items.miscItems.get(), 1, 15));
 
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
@@ -293,9 +292,6 @@ public class BOPCrafting
 
 		OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenSingleSlab1.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenSingleSlab2.get(), 1, OreDictionary.WILDCARD_VALUE));
-
-		//        OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenDoubleSlab1.get()));
-		//        OreDictionary.registerOre("slabWood", new ItemStack(Blocks.woodenDoubleSlab2.get()));
 
 		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.redwoodStairs.get()));
 		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.willowStairs.get()));

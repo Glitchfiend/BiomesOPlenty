@@ -76,7 +76,8 @@ import com.google.common.base.Optional;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BOPBlocks {
+public class BOPBlocks 
+{
 	public static void init()
 	{
 		initializeBlocks();
@@ -96,7 +97,6 @@ public class BOPBlocks {
 		MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 0, "pickaxe", 0);
-		//		MinecraftForge.setBlockHarvestLevel(Blocks.quicksand.get(), "shovel", 0);
 
 		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.altar.get(), "pickaxe", 0);
@@ -155,15 +155,13 @@ public class BOPBlocks {
 		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setUnlocalizedName("bop.holyBricksStairs"));
 		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.crystalID, Material.glass, BlockType.CRYSTAL));
 		Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("bop.promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
-		//        Blocks.amethystOre = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystOreID, Material.rock, BlockType.AMETHYST_ORE));
-		//        Blocks.amethystBlock = Optional.of(new BlockBOPGeneric(BOPConfiguration.amethystBlockID, Material.iron, BlockType.AMETHYST_BLOCK));
+
 		Blocks.amethystOre = Optional.of(new BlockBOPAmethyst(BOPConfiguration.amethystOreID, Material.rock).setUnlocalizedName("bop.amethystOre"));
-		//        Blocks.bambooThatching = Optional.of(new BlockBOPGeneric(BOPConfiguration.bambooThatchingID, Material.wood, BlockType.BAMBOO_THATCHING));
+
 		Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.moss"));
-		//        Blocks.smolderingGrass = Optional.of((BlockSmolderingGrass)(new BlockSmolderingGrass(BOPConfiguration.smolderingGrassID)).setHardness(0.6F).setLightValue(0.25F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.smolderingGrass"));
+		
 		Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
-		//        Blocks.quicksand = Optional.of((new BlockQuicksand(BOPConfiguration.quicksandID)).setHardness(0.3F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("bop.quicksand"));
-		//        Blocks.grass = Optional.of(new BlockBOPGrass(3000).setUnlocalizedName("bop.holyGrass"));
+		
 		Blocks.cloud = Optional.of((new BlockCloud(BOPConfiguration.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("bop.cloud"));
 
 		Blocks.bones = Optional.of((new BlockBones(BOPConfiguration.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.bones"));
@@ -233,7 +231,6 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.hardSand.get(), "bop.hardSand");
 		GameRegistry.registerBlock(Blocks.hardDirt.get(), "bop.hardDirt");
 		GameRegistry.registerBlock(Blocks.crystal.get(), "bop.crystal");
-		//        GameRegistry.registerBlock(Blocks.holyGrass.get(), "bop.holyGrass");
 		GameRegistry.registerBlock(Blocks.holyGrass.get(), ItemBOPGrass.class, "bop.holyGrass");
 		GameRegistry.registerBlock(Blocks.holyDirt.get(), "bop.holyDirt");
 		GameRegistry.registerBlock(Blocks.holyStone.get(), ItemBOPSkystone.class, "bop.holyStone");
@@ -241,13 +238,8 @@ public class BOPBlocks {
 		GameRegistry.registerBlock(Blocks.holyBricksStairs.get(), "bop.holyBricksStairs");
 		GameRegistry.registerBlock(Blocks.promisedPortal.get(), "bop.promisedPortal");
 		GameRegistry.registerBlock(Blocks.amethystOre.get(), ItemBOPAmethyst.class, "bop.amethystOre");
-		//        GameRegistry.registerBlock(Blocks.amethystBlock.get(), "bop.amethystBlock");
-		//        GameRegistry.registerBlock(Blocks.bambooThatching.get(), "bop.bambooThatching");
 		GameRegistry.registerBlock(Blocks.moss.get(), ItemBOPMoss.class, "bop.moss");
-		//        GameRegistry.registerBlock(Blocks.smolderingGrass.get(), "bop.smolderingGrass");
 		GameRegistry.registerBlock(Blocks.cragRock.get(), "bop.cragRock");
-		//        GameRegistry.registerBlock(Blocks.quicksand.get(), "bop.quicksand");
-		//        GameRegistry.registerBlock(Blocks.amethyst.get(), ItemBOPAmethyst.class, "bop.amethystOre1");
 		GameRegistry.registerBlock(Blocks.cloud.get(), "bop.cloud");
 
 		GameRegistry.registerBlock(Blocks.bones.get(), ItemBOPBones.class, "bop.bones");

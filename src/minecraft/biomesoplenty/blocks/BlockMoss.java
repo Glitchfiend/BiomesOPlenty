@@ -455,30 +455,11 @@ public class BlockMoss extends Block
 		return b0 != 0 ? b0 : par9;
 	}
 
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
-	//    public int idDropped(int par1, Random par2Random, int par3)
-	//    {
-	//        return BOPItems.mossItem.itemID;
-	//    }
-
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
 	@Override
 	public int quantityDropped(Random par1Random)
 	{
 		return 1;
 	}
-
-	/**
-	 * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
-	 */
-	//    public int idPicked(World par1World, int par2, int par3, int par4)
-	//    {
-	//        return BOPItems.mossItem.itemID;
-	//    }
 
 	@Override
 	public boolean isBlockReplaceable(World world, int x, int y, int z)
