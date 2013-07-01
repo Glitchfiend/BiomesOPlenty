@@ -18,7 +18,7 @@ import biomesoplenty.BiomesOPlenty;
 public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 {
 	private static final String[] petals = new String[] {"bigflowerred", "bigfloweryellow"};
-	private Icon[] textures;
+	private Icon[][] textures;
 
 	public BlockBOPPetals(int blockID)
 	{
@@ -34,21 +34,23 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[petals.length];
+		textures = new Icon[petals.length][2];
 
 		for (int i = 0; i < petals.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + petals[i]);
+			textures[i][0] = iconRegister.registerIcon("BiomesOPlenty:" + petals[i]);
+			textures[i][1] = iconRegister.registerIcon("BiomesOPlenty:better_" + petals[i]);
 		}
 	}
 
 	@Override
 	public Icon getIcon(int side, int meta)
 	{
-		if (meta < 0 || meta >= textures.length) {
-			meta = 0;
-		}
-
-		return textures[meta];
+		return textures[meta < 0 || meta >= textures.length ? 0 : meta][0];
+	}
+	
+	public Icon getIconBetterLeaves(int meta, float randomIndex)
+	{
+		return textures[meta < 0 || meta >= textures.length ? 0 : meta][1];
 	}
 
 	@Override
