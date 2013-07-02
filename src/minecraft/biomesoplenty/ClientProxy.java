@@ -1,6 +1,7 @@
 package biomesoplenty;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
@@ -19,7 +20,11 @@ import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
 import biomesoplenty.blocks.renderers.TileEntityGraveRenderer;
 import biomesoplenty.entities.EntityGlob;
-import biomesoplenty.entities.RenderGlob;
+import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.entities.EntityRosester;
+import biomesoplenty.entities.render.RenderGlob;
+import biomesoplenty.entities.render.RenderJungleSpider;
+import biomesoplenty.entities.render.RenderRosester;
 import biomesoplenty.items.projectiles.EntityDart;
 import biomesoplenty.items.projectiles.EntityMudball;
 import biomesoplenty.items.projectiles.RenderDart;
@@ -50,6 +55,8 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityJungleSpider.class, new RenderJungleSpider());
+		RenderingRegistry.registerEntityRenderingHandler(EntityRosester.class, new RenderRosester(new ModelChicken(), 0.3F));
 
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
@@ -67,13 +74,20 @@ public class ClientProxy extends CommonProxy {
 	{
 		EntityFX entityfx = null;
 
-		if (string == "mud") {
+		if (string == "mud") 
+		{
 			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get());
-		} else if (string == "dart") {
+		} 
+		else if (string == "dart") 
+		{
 			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get());
-		} else if (string == "dandelion") {
+		} 
+		else if (string == "dandelion") 
+		{
 			entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
-		} else if (string == "steam") {
+		} 
+		else if (string == "steam") 
+		{
 			entityfx = new EntitySteamFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
 

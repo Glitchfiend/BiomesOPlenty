@@ -1,6 +1,7 @@
 package biomesoplenty.entities;
 
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMate;
@@ -54,11 +55,13 @@ public class EntityRosester extends EntityChicken
 		return true;
 	}
 
-	/*@Override
-	public int getMaxHealth()
-	{
-		return 4;
-	}*/
+    @Override
+	protected void func_110147_ax()
+    {
+        super.func_110147_ax();
+        //Max health
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(4.0D);
+    }
 
 	/**
 	 * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons

@@ -1,12 +1,14 @@
-package biomesoplenty.entities;
+package biomesoplenty.entities.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 
 import org.lwjgl.opengl.GL11;
 
+import biomesoplenty.entities.EntityGlob;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -55,10 +57,22 @@ public class RenderGlob extends RenderLiving
 		float f3 = 1.0F / (f2 + 1.0F);
 		GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
 	}
+	
+    @Override
+	protected void preRenderCallback(EntityLivingBase par1EntityLivingBase, float par2)
+    {
+        this.scaleGlob((EntityGlob)par1EntityLivingBase, par2);
+    }
 
 	@Override
 	protected ResourceLocation func_110775_a(Entity entity) 
 	{
-		return new ResourceLocation("mods/BiomesOPlenty/textures/mobs/glob.png");
+		return new ResourceLocation("BiomesOPlenty:textures/mobs/glob.png");
 	}
+	
+    @Override
+	protected int shouldRenderPass(EntityLivingBase par1EntityLivingBase, int par2, float par3)
+    {
+        return this.shouldGlobRenderPass((EntityGlob)par1EntityLivingBase, par2, par3);
+    }
 }

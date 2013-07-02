@@ -2,6 +2,7 @@ package biomesoplenty.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -12,31 +13,18 @@ public class EntityJungleSpider extends EntitySpider
 	public EntityJungleSpider(World par1World)
 	{
 		super(par1World);
-		//texture = "/mods/BiomesOPlenty/textures/mobs/junglespider.png";
 		this.setSize(0.4F, 0.3F);
-		//moveSpeed = 1.1F;
 	}
 
-	/*@Override
-	public int getMaxHealth()
-	{
-		return 8;
-	}*/
-
-	/**
-	 * How large the spider should be scaled.
-	 */
-	/*@Override
-	public float spiderScaleAmount()
-	{
-		return 0.4F;
-	}*/
-
-	@Override
-	public float getShadowSize()
-	{
-		return 0.0F;
-	}
+    @Override
+	protected void func_110147_ax()
+    {
+        super.func_110147_ax();
+        //Max health
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
+        //Movement speed
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(1.1D);
+    }
 
 	@Override
 	public boolean attackEntityAsMob(Entity par1Entity)
@@ -69,10 +57,4 @@ public class EntityJungleSpider extends EntitySpider
 		} else
 			return false;
 	}
-
-	/**
-	 * Initialize this creature.
-	 */
-	 /*@Override
-	 public void initCreature() {}*/
 }

@@ -43,25 +43,19 @@ public class EntityGlob extends EntityLiving implements IMob
 
 	protected void setGlobSize(int par1)
 	{
-		dataWatcher.updateObject(16, new Byte((byte)par1));
-		this.setSize(0.6F * par1, 0.6F * par1);
-		this.setPosition(posX, posY, posZ);
+        this.dataWatcher.updateObject(16, new Byte((byte)par1));
+        this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
+        this.setPosition(this.posX, this.posY, this.posZ);
         this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a((double)(par1 * par1));
         this.setEntityHealth(this.func_110138_aP());
-		experienceValue = par1;
+        this.experienceValue = par1;
 	}
 
-	/**
-	 * Returns the size of the Glob.
-	 */
 	 public int getGlobSize()
 	 {
 		 return dataWatcher.getWatchableObjectByte(16);
 	 }
 
-	 /**
-	  * (abstract) Protected helper method to write subclass entity data to NBT.
-	  */
 	 @Override
 	 public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
 	 {
@@ -69,9 +63,6 @@ public class EntityGlob extends EntityLiving implements IMob
 		 par1NBTTagCompound.setInteger("Size", this.getGlobSize() - 1);
 	 }
 
-	 /**
-	  * (abstract) Protected helper method to read subclass entity data from NBT.
-	  */
 	 @Override
 	 public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
 	 {
@@ -79,9 +70,6 @@ public class EntityGlob extends EntityLiving implements IMob
 		 this.setGlobSize(par1NBTTagCompound.getInteger("Size") + 1);
 	 }
 
-	 /**
-	  * Returns the name of the sound played when the Glob jumps.
-	  */
 	 protected String getJumpSound()
 	 {
 		 return "mob.slime." + (this.getGlobSize() > 1 ? "big" : "small");
@@ -346,3 +334,5 @@ public class EntityGlob extends EntityLiving implements IMob
 		 return this.getGlobSize() > 2;
 	 }
 }
+
+
