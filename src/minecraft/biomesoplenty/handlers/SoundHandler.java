@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SoundHandler 
 {
-	static String[] recordSoundFiles = { "BiomesOPlenty:records/" + "bopdisc.ogg", "BiomesOPlenty:records/" + "bopdiscmud.ogg"};
+	static String[] recordSoundFiles = { "/assets/BiomesOPlenty/records/" + "bopdisc.ogg", "BiomesOPlenty:records/" + "bopdiscmud.ogg"};
 	static String[] soundFiles = { };
 	
 	@SideOnly(Side.CLIENT)
@@ -52,11 +52,11 @@ public class SoundHandler
 	{
 		if (event.name == "bopdisc")
 		{
-			FMLClientHandler.instance().getClient().sndManager.playStreaming("BiomesOPlenty.records.bopdisc", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
+			FMLClientHandler.instance().getClient().sndManager.playStreaming("assets.BiomesOPlenty.records.bopdisc", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
 		}
 		else if (event.name == "bopdiscmud")
 		{
-			FMLClientHandler.instance().getClient().sndManager.playStreaming("BiomesOPlenty.records.bopdiscmud", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
+			FMLClientHandler.instance().getClient().sndManager.playStreaming("assets.BiomesOPlenty.records.bopdiscmud", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
 		}
 	}
 }
