@@ -85,7 +85,7 @@ public class EntityEventHandler
 		}
 	}*/
 
-	/*@ForgeSubscribe
+	@ForgeSubscribe
 	public void fallingFromPromisedLand(LivingHurtEvent event)
 	{
 		if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfiguration.promisedLandDimID)
@@ -101,7 +101,7 @@ public class EntityEventHandler
 				}
 			}
 		}
-	}*/
+	}
 	
 	@ForgeSubscribe
 	public void chunkEntered(EntityEvent.EnteringChunk event)

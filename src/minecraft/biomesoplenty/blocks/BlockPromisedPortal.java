@@ -70,7 +70,7 @@ public class BlockPromisedPortal extends Block
 		return false;
 	}
 
-	/*@Override
+	@Override
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
 	{
 		if (par5Entity.ridingEntity == null && par5Entity.riddenByEntity == null)
@@ -80,14 +80,13 @@ public class BlockPromisedPortal extends Block
 				EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
 				if (par5Entity.dimension != BOPConfiguration.promisedLandDimID)
 				{
-					//getConfigurationManager
-					MinecraftServer.F()..transferPlayerToDimension(thePlayer, BOPConfiguration.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfiguration.promisedLandDimID)));
+					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, BOPConfiguration.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfiguration.promisedLandDimID)));
 				}
 				else
 				{
-					thePlayer.mcServer..transferPlayerToDimension(thePlayer, 0, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(0)));
+					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(0)));
 				}
 			}
 		}
-	}*/
+	}
 }
