@@ -5,14 +5,13 @@ import java.util.logging.Level;
 import net.minecraftforge.client.event.sound.PlayStreamingEvent;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
-import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class SoundHandler 
 {
-	static String[] recordSoundFiles = { "/assets/BiomesOPlenty/records/" + "bopdisc.ogg", "BiomesOPlenty:records/" + "bopdiscmud.ogg"};
+	static String[] recordSoundFiles = { "bopdisc.ogg", "bopdiscmud.ogg"};
 	static String[] soundFiles = { };
 	
 	@SideOnly(Side.CLIENT)
@@ -52,11 +51,11 @@ public class SoundHandler
 	{
 		if (event.name == "bopdisc")
 		{
-			FMLClientHandler.instance().getClient().sndManager.playStreaming("assets.BiomesOPlenty.records.bopdisc", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
+			//FMLClientHandler.instance().getClient().sndManager.playStreaming("records.biomesoplenty.bopdisc", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
 		}
 		else if (event.name == "bopdiscmud")
 		{
-			FMLClientHandler.instance().getClient().sndManager.playStreaming("assets.BiomesOPlenty.records.bopdiscmud", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
+			//FMLClientHandler.instance().getClient().sndManager.playStreaming("records.bopdiscmud", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
 		}
 	}
 }
