@@ -1,6 +1,7 @@
 package biomesoplenty.potions;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.potion.Potion;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,7 +18,7 @@ public class PotionNourishment extends Potion
 	@SideOnly(Side.CLIENT)
 	public int getStatusIconIndex()
 	{
-		Minecraft.getMinecraft().renderEngine.bindTexture("/mods/BiomesOPlenty/textures/potions/BOPPotionFX.png");
+		Minecraft.getMinecraft().renderEngine.func_110577_a(new ResourceLocation("/mods/BiomesOPlenty/textures/potions/BOPPotionFX.png"));
 		return 0;
 	}
 

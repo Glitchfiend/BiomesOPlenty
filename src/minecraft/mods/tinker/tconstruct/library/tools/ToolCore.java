@@ -542,7 +542,7 @@ public abstract class ToolCore extends Item
     public abstract String[] toolCategories ();
 
     //Mining
-    @Override
+    /*@Override
     public boolean onBlockStartBreak (ItemStack stack, int x, int y, int z, EntityPlayer player)
     {
         boolean cancelHarvest = false;
@@ -559,7 +559,7 @@ public abstract class ToolCore extends Item
     public boolean onBlockDestroyed (ItemStack itemstack, World world, int blockID, int x, int y, int z, EntityLiving player)
     {
         return AbilityHelper.onBlockChanged(itemstack, world, blockID, x, y, z, player, random);
-    }
+    }*/
 
     @Override
     public float getStrVsBlock (ItemStack stack, Block block, int meta)
@@ -578,7 +578,7 @@ public abstract class ToolCore extends Item
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean hitEntity (ItemStack stack, EntityLiving mob, EntityLiving player)
     {
         return true;
@@ -598,7 +598,7 @@ public abstract class ToolCore extends Item
 	public int getDamageVsEntity (Entity par1Entity)
     {
         return this.damageVsEntity;
-    }
+    }*/
 
     //Changes how much durability the base tool has
     public float getDurabilityModifier ()
@@ -722,7 +722,7 @@ public abstract class ToolCore extends Item
     }
 
     /* Proper stack damage */
-    @Override
+   /* @Override
 	public int getItemDamageFromStack (ItemStack stack)
     {
         NBTTagCompound tags = stack.getTagCompound();
@@ -764,6 +764,6 @@ public abstract class ToolCore extends Item
             return 0;
         }
         return tags.getCompoundTag("InfiTool").getInteger("TotalDurability");
-    }
+    }*/
 
 }

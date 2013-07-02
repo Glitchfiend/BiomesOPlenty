@@ -23,7 +23,7 @@ public class SoundHandler
 		{
 			try 
 			{
-				event.manager.soundPoolSounds.addSound(soundFile, this.getClass().getResource("/" + soundFile));
+				event.manager.soundPoolSounds.addSound(soundFile);
 			}
 
 			catch (Exception e) 
@@ -36,7 +36,7 @@ public class SoundHandler
         {
             try 
             {
-                event.manager.soundPoolStreaming.addSound(recordSoundFile, this.getClass().getResource("/" + recordSoundFile));
+                event.manager.soundPoolStreaming.addSound(recordSoundFile);
             }
 
             catch (Exception e) 

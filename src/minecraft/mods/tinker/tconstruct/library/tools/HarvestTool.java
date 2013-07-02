@@ -34,11 +34,11 @@ public abstract class HarvestTool extends ToolCore
 		if (hlvl <= tags.getInteger("HarvestLevel"))
 		{
 			boolean cancelHarvest = false;
-			for (ActiveToolMod mod : TConstructRegistry.activeModifiers)
+			/*for (ActiveToolMod mod : TConstructRegistry.activeModifiers)
 			{
 				if (mod.beforeBlockBreak(this, stack, x, y, z, player))
 					cancelHarvest = true;
-			}
+			}*/
 			return cancelHarvest;
 		}
 		else

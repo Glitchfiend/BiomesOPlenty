@@ -41,11 +41,11 @@ public abstract class DualHarvestTool extends HarvestTool
 		if (hlvl <= tags.getInteger("HarvestLevel") && shlvl <= tags.getInteger("HarvestLevel2"))
 		{
 			boolean cancelHarvest = false;
-			for (ActiveToolMod mod : TConstructRegistry.activeModifiers)
+			/*for (ActiveToolMod mod : TConstructRegistry.activeModifiers)
 			{
 				if (mod.beforeBlockBreak(this, stack, x, y, z, player))
 				cancelHarvest = true;
-			}
+			}*/
 
 			return cancelHarvest;
 		}

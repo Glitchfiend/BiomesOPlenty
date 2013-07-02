@@ -69,7 +69,7 @@ public class BlockPromisedPortal extends Block
 		return false;
 	}
 
-	@Override
+	/*@Override
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
 	{
 		if (par5Entity.ridingEntity == null && par5Entity.riddenByEntity == null)
@@ -87,5 +87,5 @@ public class BlockPromisedPortal extends Block
 				}
 			}
 		}
-	}
+	}*/
 }

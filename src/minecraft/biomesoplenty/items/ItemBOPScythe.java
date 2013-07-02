@@ -5,6 +5,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -29,12 +30,12 @@ public class ItemBOPScythe extends Item
         this.maxStackSize = 1;
         this.setMaxDamage(enumtoolmat.getMaxUses());
 		textureID = texture;
-        this.damageVsEntity = damage + enumtoolmat.getDamageVsEntity();
+        this.damageVsEntity = (int) (damage + enumtoolmat.getDamageVsEntity());
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
     @Override
-	public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLiving entity)
+	public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLivingBase entity)
     {
         Block block = Block.blocksList[world.getBlockId(x, y, z)];
         int radius = 1;
@@ -111,7 +112,7 @@ public class ItemBOPScythe extends Item
     }
     
     @Override
-    public int getDamageVsEntity(Entity par1Entity)
+    public float getDamageVsEntity(Entity par1Entity, ItemStack itemstack)
     {
         return this.damageVsEntity;
     }

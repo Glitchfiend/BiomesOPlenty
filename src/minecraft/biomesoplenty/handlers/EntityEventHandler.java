@@ -1,7 +1,7 @@
 package biomesoplenty.handlers;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCloth;
+import net.minecraft.block.BlockColored;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
@@ -65,7 +65,7 @@ public class EntityEventHandler
 		}
 	}
 
-	@ForgeSubscribe
+	/*@ForgeSubscribe
 	public void canEntitySpawn(CheckSpawn event)
 	{
 		if (event.entityLiving instanceof EntityAnimal)
@@ -74,7 +74,7 @@ public class EntityEventHandler
 			int j = MathHelper.floor_double(event.entityLiving.boundingBox.minY);
 			int k = MathHelper.floor_double(event.entityLiving.posZ);
 
-			if (event.entityLiving.getMaxSpawnedInChunk() <= event.world.getEntitiesWithinAABB(event.entityLiving.getClass(), AxisAlignedBB.getAABBPool().getAABB(i - 16, j - 4, k - 16, i + 17, j + 5, k + 17)).size())
+			if (event.entityLiving. <= event.world.getEntitiesWithinAABB(event.entityLiving.getClass(), AxisAlignedBB.getAABBPool().getAABB(i - 16, j - 4, k - 16, i + 17, j + 5, k + 17)).size())
 				return;
 
 			if (event.entityLiving.worldObj.getBlockId(i, j - 1, k) == Blocks.holyGrass.get().blockID && event.entityLiving.worldObj.getFullBlockLightValue(i, j, k) > 8
@@ -83,9 +83,9 @@ public class EntityEventHandler
 				event.setResult(Result.ALLOW);
 			}
 		}
-	}
+	}*/
 
-	@ForgeSubscribe
+	/*@ForgeSubscribe
 	public void fallingFromPromisedLand(LivingHurtEvent event)
 	{
 		if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfiguration.promisedLandDimID)
@@ -101,7 +101,7 @@ public class EntityEventHandler
 				}
 			}
 		}
-	}
+	}*/
 	
 	@ForgeSubscribe
 	public void chunkEntered(EntityEvent.EnteringChunk event)
@@ -238,7 +238,7 @@ public class EntityEventHandler
 			else if (itemstack.itemID == Items.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
 			{
 				int dyeMeta = convertToDyeMeta(itemDamage);      
-				int i = BlockCloth.getBlockFromDye(dyeMeta);
+				int i = BlockColored.getBlockFromDye(dyeMeta);
 
 				if (entity instanceof EntityWolf)
 				{

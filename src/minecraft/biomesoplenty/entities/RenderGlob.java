@@ -2,6 +2,8 @@ package biomesoplenty.entities;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.client.resources.ResourceLocation;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 
 import org.lwjgl.opengl.GL11;
@@ -20,9 +22,6 @@ public class RenderGlob extends RenderLiving
 		scaleAmount = par2ModelBase;
 	}
 
-	/**
-	 * Determines whether Glob Render should pass or not.
-	 */
 	protected int shouldGlobRenderPass(EntityGlob par1EntityGlob, int par2, float par3)
 	{
 		if (par1EntityGlob.isInvisible())
@@ -58,22 +57,9 @@ public class RenderGlob extends RenderLiving
 		GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
 	}
 
-	/**
-	 * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-	 * entityLiving, partialTickTime
-	 */
 	@Override
-	protected void preRenderCallback(EntityLiving par1EntityLiving, float par2)
+	protected ResourceLocation func_110775_a(Entity entity) 
 	{
-		this.scaleGlob((EntityGlob)par1EntityLiving, par2);
-	}
-
-	/**
-	 * Queries whether should render the specified pass or not.
-	 */
-	@Override
-	protected int shouldRenderPass(EntityLiving par1EntityLiving, int par2, float par3)
-	{
-		return this.shouldGlobRenderPass((EntityGlob)par1EntityLiving, par2, par3);
+		return new ResourceLocation("mods/BiomesOPlenty/textures/mobs/glob.png");
 	}
 }

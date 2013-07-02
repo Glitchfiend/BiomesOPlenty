@@ -31,7 +31,7 @@ public class EntityRosester extends EntityChicken
 	public EntityRosester(World par1World)
 	{
 		super(par1World);
-		texture = "/mods/BiomesOPlenty/textures/mobs/rosester.png";
+		//this.texture = "/mods/BiomesOPlenty/textures/mobs/rosester.png";
 		this.setSize(0.3F, 0.7F);
 		timeUntilNextEgg = rand.nextInt(6000) + 6000;
 		float var2 = 0.25F;
@@ -54,11 +54,11 @@ public class EntityRosester extends EntityChicken
 		return true;
 	}
 
-	@Override
+	/*@Override
 	public int getMaxHealth()
 	{
 		return 4;
-	}
+	}*/
 
 	/**
 	 * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons

@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.particle.EntityDiggingFX;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -24,8 +24,9 @@ public class BlockGrave extends Block
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
+
     @Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entity, ItemStack itemstack)
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack)
     {
         int o = ((MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) + 2) % 4;
         int fO;
@@ -60,7 +61,7 @@ public class BlockGrave extends Block
                     double d1 = (double)y + ((double)k1 + 0.5D) / (double)b0;
                     double d2 = (double)z + ((double)l1 + 0.5D) / (double)b0;
                     int i2 = world.rand.nextInt(6);
-                    effectRenderer.addEffect(new EntityDiggingFX(world, d0, d1, d2, d0 - (double)x - 0.5D, d1 - (double)y - 0.5D, d2 - (double)z - 0.5D, Block.stone, i2, meta, FMLClientHandler.instance().getClient().renderEngine).func_70596_a(x, y, z));
+                    effectRenderer.addEffect(new EntityDiggingFX(world, d0, d1, d2, d0 - (double)x - 0.5D, d1 - (double)y - 0.5D, d2 - (double)z - 0.5D, Block.stone, i2, meta).func_70596_a(x, y, z));
                 }
             }
         }

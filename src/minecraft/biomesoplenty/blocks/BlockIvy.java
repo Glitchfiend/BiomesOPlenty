@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -379,7 +380,7 @@ public class BlockIvy extends Block implements IShearable
 	}
 
 	@Override
-	public boolean isLadder(World world, int x, int y, int z)
+	public boolean isLadder(World world, int x, int y, int z, EntityLivingBase entity)
 	{
 		return true;
 	}

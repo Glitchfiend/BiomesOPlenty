@@ -2,6 +2,7 @@ package biomesoplenty.items.projectiles;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.MathHelper;
@@ -15,10 +16,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderPoisonDart extends Render
 {
-
 	public void renderArrow(EntityArrow par1EntityArrow, double par2, double par4, double par6, float par8, float par9)
 	{
-		this.loadTexture("/mods/BiomesOPlenty/textures/projectiles/poisondart.png");
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)par2, (float)par4, (float)par6);
 		GL11.glRotatef(par1EntityArrow.prevRotationYaw + (par1EntityArrow.rotationYaw - par1EntityArrow.prevRotationYaw) * par9 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -87,5 +86,11 @@ public class RenderPoisonDart extends Render
 	public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
 	{
 		this.renderArrow((EntityArrow)par1Entity, par2, par4, par6, par8, par9);
+	}
+
+	@Override
+	protected ResourceLocation func_110775_a(Entity entity) 
+	{
+		return new ResourceLocation("/mods/BiomesOPlenty/textures/projectiles/poisondart.png");
 	}
 }

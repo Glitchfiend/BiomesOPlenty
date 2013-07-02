@@ -2,6 +2,7 @@ package biomesoplenty.items.projectiles;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
@@ -17,12 +18,6 @@ public class RenderDart extends Render
 
 	public void renderArrow(EntityDart par1EntityArrow, double par2, double par4, double par6, float par8, float par9)
 	{
-		if (!par1EntityArrow.isPoisonous()) {
-			this.loadTexture("/mods/BiomesOPlenty/textures/projectiles/dart.png");
-		} else {
-			this.loadTexture("/mods/BiomesOPlenty/textures/projectiles/poisondart.png");
-		}
-
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float)par2, (float)par4, (float)par6);
 		GL11.glRotatef(par1EntityArrow.prevRotationYaw + (par1EntityArrow.rotationYaw - par1EntityArrow.prevRotationYaw) * par9 - 90.0F, 0.0F, 1.0F, 0.0F);
@@ -91,5 +86,18 @@ public class RenderDart extends Render
 	public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9)
 	{
 		this.renderArrow((EntityDart)par1Entity, par2, par4, par6, par8, par9);
+	}
+
+	@Override
+	protected ResourceLocation func_110775_a(Entity entity) 
+	{
+		if (!((EntityDart)entity).isPoisonous()) 
+		{
+			return new ResourceLocation("/mods/BiomesOPlenty/textures/projectiles/dart.png");
+		} 
+		else 
+		{
+			return new ResourceLocation("/mods/BiomesOPlenty/textures/projectiles/poisondart.png");
+		}
 	}
 }

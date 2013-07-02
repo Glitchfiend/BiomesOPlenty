@@ -94,7 +94,7 @@ public class AbilityHelper
 				float knockback = 0;
 				int enchantDamage = 0;
 
-				if (entity instanceof EntityLiving)
+				/*if (entity instanceof EntityLiving)
 				{
 					enchantDamage = EnchantmentHelper.getEnchantmentModifierLiving(player, (EntityLiving) entity);
 					knockback += EnchantmentHelper.getKnockbackModifier(player, (EntityLiving) entity);
@@ -113,7 +113,7 @@ public class AbilityHelper
 						knockback += lunge - 1.0f;
 						damage *= lunge;
 					}
-				}
+				}*/
 				
 				float modKnockback = 0f;
 		    	for (ActiveToolMod mod : TConstructRegistry.activeModifiers)
@@ -156,7 +156,7 @@ public class AbilityHelper
 
 					if (broken)
 						damage = 1;
-					boolean causedDamage = false;
+					/*boolean causedDamage = false;
 					if (tool.pierceArmor() && !broken)
 						causedDamage = entity.attackEntityFrom(causePlayerPiercingDamage(player), damage);
 					else
@@ -200,9 +200,9 @@ public class AbilityHelper
 						{
 							EnchantmentThorns.func_92096_a(player, (EntityLiving) entity, random);
 						}
-					}
+					}*/
 
-					if (entity instanceof EntityLiving)
+					/*if (entity instanceof EntityLiving)
 					{
 						stack.hitEntity((EntityLiving) entity, player);
 						if (entity.isEntityAlive())
@@ -233,7 +233,7 @@ public class AbilityHelper
 
 					player.addExhaustion(0.3F);
 					if (causedDamage)
-					return true;
+					return true;*/
 				}
 			}
 		}
@@ -254,7 +254,7 @@ public class AbilityHelper
 				}
 			}
 
-			if (!(living instanceof EntityPlayer) || player.func_96122_a((EntityPlayer) living))
+			/*if (!(living instanceof EntityPlayer) || player.func_96122_a((EntityPlayer) living))
 			{
 				List var6 = player.worldObj.getEntitiesWithinAABB(EntityWolf.class,
 						AxisAlignedBB.getAABBPool().getAABB(player.posX, player.posY, player.posZ, player.posX + 1.0D, player.posY + 1.0D, player.posZ + 1.0D).expand(16.0D, 4.0D, 16.0D));
@@ -270,7 +270,7 @@ public class AbilityHelper
 						var5.setTarget(living);
 					}
 				}
-			}
+			}*/
 		}
 	}
 
@@ -289,8 +289,8 @@ public class AbilityHelper
 
 	public static void damageTool (ItemStack stack, int dam, NBTTagCompound tags, EntityLiving entity, boolean ignoreCharge)
 	{
-		if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode || tags == null)
-			return;
+		/*if (entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode || tags == null)
+			return;*/
 
 		if (ignoreCharge)
 		{
@@ -376,11 +376,11 @@ public class AbilityHelper
 				return false;
 			}
 
-			if (event.getResult() == Result.ALLOW)
+			/*if (event.getResult() == Result.ALLOW)
 			{
 				onBlockChanged(stack, world, 0, x, y, z, player, random);
 				return true;
-			}
+			}*/
 
 			int bID = world.getBlockId(x, y, z);
 			int bIDabove = world.getBlockId(x, y + 1, z);
@@ -399,14 +399,15 @@ public class AbilityHelper
 				{
 					return true;
 				}
-				else
+				/*else
 				{
 					world.setBlock(x, y, z, block.blockID);
 					onBlockChanged(stack, world, 0, x, y, z, player, random);
 					return true;
-				}
+				}*/
 			}
 		}
+		return false;
 	}
 
 	public static void spawnItemAtPlayer (EntityPlayer player, ItemStack stack)

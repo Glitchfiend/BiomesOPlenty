@@ -1,6 +1,7 @@
 package biomesoplenty.entities;
 
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -27,7 +28,6 @@ public class EntityGlob extends EntityLiving implements IMob
 	public EntityGlob(World par1World)
 	{
 		super(par1World);
-		texture = "/mods/BiomesOPlenty/textures/mobs/glob.png";
 		int i = 1 << rand.nextInt(3);
 		yOffset = 0.0F;
 		GlobJumpDelay = rand.nextInt(20) + 10;
@@ -46,15 +46,9 @@ public class EntityGlob extends EntityLiving implements IMob
 		dataWatcher.updateObject(16, new Byte((byte)par1));
 		this.setSize(0.6F * par1, 0.6F * par1);
 		this.setPosition(posX, posY, posZ);
-		this.setEntityHealth(this.getMaxHealth());
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a((double)(par1 * par1));
+        this.setEntityHealth(this.func_110138_aP());
 		experienceValue = par1;
-	}
-
-	@Override
-	public int getMaxHealth()
-	{
-		int i = this.getGlobSize();
-		return i * i;
 	}
 
 	/**
@@ -211,7 +205,8 @@ public class EntityGlob extends EntityLiving implements IMob
 	 {
 		 int i = this.getGlobSize();
 
-		 if (!worldObj.isRemote && i > 1 && this.getHealth() <= 0)
+		 //func_110143_aJ() == getHealth
+		 if (!worldObj.isRemote && i > 1 && this.func_110143_aJ() <= 0)
 		 {
 			 int j = 2 + rand.nextInt(3);
 
@@ -305,7 +300,7 @@ public class EntityGlob extends EntityLiving implements IMob
 			 {
 				 BiomeGenBase biomegenbase = worldObj.getBiomeGenForCoords(MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
 
-				 if (biomegenbase == BiomeGenBase.swampland && posY > 50.0D && posY < 70.0D && rand.nextFloat() < 0.5F && rand.nextFloat() < spawnChances[worldObj.getMoonPhase()] && worldObj.getBlockLightValue(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ)) <= rand.nextInt(8))
+				 if (biomegenbase == BiomeGenBase.swampland && posY > 50.0D && posY < 70.0D && rand.nextFloat() < 0.5F && rand.nextFloat() < this.worldObj.getMoonPhase() && worldObj.getBlockLightValue(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ)) <= rand.nextInt(8))
 					 return super.getCanSpawnHere();
 
 				 if (rand.nextInt(10) == 0 && chunk.getRandomWithSeed(987234911L).nextInt(10) == 0 && posY < 40.0D)

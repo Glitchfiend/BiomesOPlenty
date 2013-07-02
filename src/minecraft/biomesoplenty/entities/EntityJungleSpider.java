@@ -12,25 +12,25 @@ public class EntityJungleSpider extends EntitySpider
 	public EntityJungleSpider(World par1World)
 	{
 		super(par1World);
-		texture = "/mods/BiomesOPlenty/textures/mobs/junglespider.png";
+		//texture = "/mods/BiomesOPlenty/textures/mobs/junglespider.png";
 		this.setSize(0.4F, 0.3F);
-		moveSpeed = 1.1F;
+		//moveSpeed = 1.1F;
 	}
 
-	@Override
+	/*@Override
 	public int getMaxHealth()
 	{
 		return 8;
-	}
+	}*/
 
 	/**
 	 * How large the spider should be scaled.
 	 */
-	@Override
+	/*@Override
 	public float spiderScaleAmount()
 	{
 		return 0.4F;
-	}
+	}*/
 
 	@Override
 	public float getShadowSize()
@@ -73,6 +73,6 @@ public class EntityJungleSpider extends EntitySpider
 	/**
 	 * Initialize this creature.
 	 */
-	 @Override
-	 public void initCreature() {}
+	 /*@Override
+	 public void initCreature() {}*/
 }

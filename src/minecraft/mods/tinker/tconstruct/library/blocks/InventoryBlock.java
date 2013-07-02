@@ -8,6 +8,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -108,7 +109,7 @@ public abstract class InventoryBlock extends BlockContainer
     /* Placement */
 
     @Override
-    public void onBlockPlacedBy (World world, int x, int y, int z, EntityLiving entityliving, ItemStack stack)
+    public void onBlockPlacedBy (World world, int x, int y, int z, EntityLivingBase entityliving, ItemStack stack)
     {
         TileEntity logic = world.getBlockTileEntity(x, y, z);
         if (logic instanceof IFacingLogic)
@@ -120,7 +121,7 @@ public abstract class InventoryBlock extends BlockContainer
             }
             else
             {
-                direction.setDirection(entityliving.rotationYaw * 4F, entityliving.rotationPitch, entityliving);
+                direction.setDirection(entityliving.rotationYaw * 4F, entityliving.rotationPitch, (EntityLiving)entityliving);
             }
         }
     }
