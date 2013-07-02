@@ -65,6 +65,7 @@ public class EntityEventHandler
 		}
 	}
 
+	//Currently unused, as mobs don't spawn in the Promised Lands *yet*
 	/*@ForgeSubscribe
 	public void canEntitySpawn(CheckSpawn event)
 	{

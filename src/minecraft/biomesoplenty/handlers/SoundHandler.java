@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class SoundHandler 
 {
 	static String[] recordSoundFiles = { "assets/BiomesOPlenty/audio/record/" + "bopdisc.ogg", "assets/BiomesOPlenty/audio/record/" + "bopdiscmud.ogg"};
-	static String[] soundFiles = { "assets/BiomesOPlenty/audio/villager/" + "no.ogg"};
+	static String[] soundFiles = { };
 	
 	@SideOnly(Side.CLIENT)
 	@ForgeSubscribe
