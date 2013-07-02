@@ -230,7 +230,7 @@ public class EntityEventHandler
 
 						event.setResult(Result.ALLOW);
 
-						//entityvillager.playLivingSound();
+						entityvillager.playLivingSound();
 					}
 				}
 			}
