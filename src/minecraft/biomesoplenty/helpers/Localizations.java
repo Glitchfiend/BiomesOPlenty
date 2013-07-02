@@ -2,6 +2,7 @@ package biomesoplenty.helpers;
 
 import java.util.logging.Level;
 
+import net.minecraft.client.resources.ResourceLocation;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -9,17 +10,17 @@ public class Localizations
 {
 	private static final String localizationLocation = "/assets/BiomesOPlenty/lang/";
 
-	public static String[] localeFiles = { localizationLocation + "en_US.xml", localizationLocation + "de_DE.xml", localizationLocation + "nl_NL.xml" };
+	public static ResourceLocation[] localeFiles = { new ResourceLocation(localizationLocation + "en_US.xml"), new ResourceLocation(localizationLocation + "de_DE.xml"), new ResourceLocation(localizationLocation + "nl_NL.xml") };
 
-	public static boolean isXMLLanguageFile(String fileName) 
+	public static boolean isXMLLanguageFile(ResourceLocation fileName) 
 	{
-		return fileName.endsWith(".xml");
+		return fileName.func_110623_a().endsWith(".xml");
 	}
 
-	public static String getLocaleFromFileName(String fileName) 
+	public static String getLocaleFromFileName(ResourceLocation fileName) 
 	{
-		FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Localizations loaded for " + fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.')));
-		return fileName.substring(fileName.lastIndexOf('/') + 1, fileName.lastIndexOf('.'));
+		FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Localizations loaded for " + fileName.func_110623_a().substring(fileName.func_110623_a().lastIndexOf('/') + 1, fileName.func_110623_a().lastIndexOf('.')));
+		return fileName.func_110623_a().substring(fileName.func_110623_a().lastIndexOf('/') + 1, fileName.func_110623_a().lastIndexOf('.'));
 	}
 
 	public String getLocalizedString(String key) 
@@ -29,9 +30,9 @@ public class Localizations
 
 	public static void loadLanguages() 
 	{	
-		for (String localizationFile : localeFiles) 
+		for (ResourceLocation localizationFile : localeFiles) 
 		{
-			LanguageRegistry.instance().loadLocalization(localizationFile, getLocaleFromFileName(localizationFile), isXMLLanguageFile(localizationFile));
+			LanguageRegistry.instance().loadLocalization(localizationFile.func_110623_a(), getLocaleFromFileName(localizationFile), isXMLLanguageFile(localizationFile));
 		}
 
 		for (int mat = 0; mat < materialTypes.length; mat++)

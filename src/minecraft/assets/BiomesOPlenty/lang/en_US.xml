@@ -343,8 +343,6 @@
 	<entry key="item.bop.flowerBand.lushflowerband.name">Lush Flower Band</entry>
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
 	
-	<!--Tinker's Construct Items -->
-	
 	<!--Liquids -->
 	<entry key="item.bop.bopBucket.spring_water.name">Spring Water Bucket</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>
@@ -355,5 +353,11 @@
 	<!--Phrases -->
 	<entry key="phrase.bop.promisedPortalOverworld">A gateway to the Promised Land has appeared in the sky above.</entry>
 	<entry key="phrase.bop.promisedPortalOther">A gateway has appeared in the sky above.</entry>
+	
+	<!--Creative Tab -->
+   <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+	
+	<!--World Type -->
+   <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
 
 </properties>

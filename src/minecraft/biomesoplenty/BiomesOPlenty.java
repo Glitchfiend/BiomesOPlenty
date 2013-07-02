@@ -38,7 +38,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -90,9 +89,6 @@ public class BiomesOPlenty
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
-		LanguageRegistry.instance().addStringLocalization("itemGroup.tabBiomesOPlenty", "en_US", "Biomes O\' Plenty");
-		LanguageRegistry.instance().addStringLocalization("generator.BIOMESOP", "en_US", "Biomes O\' Plenty");
-
 		// Add helpers for compatibility
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
