@@ -94,7 +94,8 @@ public abstract class Weapon extends ToolCore
     	return web;
     }
     
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
 	public int getHeadType ()
 	{
 		return 1;

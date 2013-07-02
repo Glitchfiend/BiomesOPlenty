@@ -1,7 +1,5 @@
 package mods.tinker.tconstruct.library.tools;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 
 import mods.tinker.tconstruct.library.ActiveToolMod;
@@ -9,7 +7,6 @@ import mods.tinker.tconstruct.library.TConstructRegistry;
 import mods.tinker.tconstruct.library.util.PiercingEntityDamage;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentThorns;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
@@ -21,9 +18,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
-import net.minecraft.stats.AchievementList;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
@@ -31,7 +25,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
 public class AbilityHelper

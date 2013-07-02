@@ -28,8 +28,6 @@ import thaumcraft.api.crafting.ShapelessInfusionCraftingRecipes;
 import thaumcraft.api.research.IScanEventHandler;
 import thaumcraft.api.research.ResearchList;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.event.FMLInterModComms;
 
 
 /**

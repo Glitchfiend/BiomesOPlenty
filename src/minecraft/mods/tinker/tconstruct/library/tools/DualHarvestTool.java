@@ -1,7 +1,5 @@
 package mods.tinker.tconstruct.library.tools;
 
-import mods.tinker.tconstruct.library.ActiveToolMod;
-import mods.tinker.tconstruct.library.TConstructRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +17,7 @@ public abstract class DualHarvestTool extends HarvestTool
 		super(itemID, baseDamage);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public int getHeadType ()
 	{

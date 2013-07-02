@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.util.Icon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDummyContainer;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.LoaderException;
 import cpw.mods.fml.relauncher.Side;

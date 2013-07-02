@@ -1,7 +1,5 @@
 package biomesoplenty.blocks.renderers;
 
-import java.io.File;
-
 import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -9,8 +7,8 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import biomesoplenty.blocks.models.ModelGrave0;
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class ItemGraveRenderer implements IItemRenderer
 {

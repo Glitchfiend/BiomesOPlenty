@@ -12,7 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.tileentity.TileEntityGrave;
-import cpw.mods.fml.client.FMLClientHandler;
 
 public class BlockGrave extends Block
 {

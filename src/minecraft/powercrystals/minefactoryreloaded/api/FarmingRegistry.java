@@ -2,9 +2,8 @@ package powercrystals.minefactoryreloaded.api;
 
 import java.lang.reflect.Method;
 
-import powercrystals.minefactoryreloaded.api.rednet.IRedNetLogicCircuit;
-
 import net.minecraft.item.ItemStack;
+import powercrystals.minefactoryreloaded.api.rednet.IRedNetLogicCircuit;
 
 /**
  * @author PowerCrystals

@@ -109,7 +109,8 @@ public class ToolBuilder
         return buildTool(headStack, handleStack, accessoryStack, null, name);
     }
 
-    public ItemStack buildTool (ItemStack headStack, ItemStack handleStack, ItemStack accessoryStack, ItemStack extraStack, String name)
+    @SuppressWarnings("deprecation")
+	public ItemStack buildTool (ItemStack headStack, ItemStack handleStack, ItemStack accessoryStack, ItemStack extraStack, String name)
     {
         if (headStack != null && headStack.getItem() instanceof ToolCore)
             return modifyTool(headStack, handleStack, accessoryStack);

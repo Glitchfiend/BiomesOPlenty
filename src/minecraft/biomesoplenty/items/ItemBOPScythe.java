@@ -3,8 +3,6 @@ package biomesoplenty.items;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
@@ -109,12 +107,6 @@ public class ItemBOPScythe extends Item
     	}
     	
         return false;
-    }
-    
-    @Override
-    public float getDamageVsEntity(Entity par1Entity, ItemStack itemstack)
-    {
-        return this.damageVsEntity;
     }
     
     public void trim(World world, int x, int y, int z, int height, int radius)
