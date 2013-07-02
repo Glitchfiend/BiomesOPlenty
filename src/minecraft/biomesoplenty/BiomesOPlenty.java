@@ -57,7 +57,7 @@ public class BiomesOPlenty
 
 	public static CreativeTabs tabBiomesOPlenty;
 
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		BOPConfiguration.init(event.getSuggestedConfigurationFile());
@@ -90,7 +90,7 @@ public class BiomesOPlenty
 		BOPCrossIntegration.preInit();
 	}
 
-	@Init
+	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
 		LanguageRegistry.instance().addStringLocalization("itemGroup.tabBiomesOPlenty", "en_US", "Biomes O\' Plenty");
@@ -118,7 +118,7 @@ public class BiomesOPlenty
 		BOPCrossIntegration.init();
 	}
 
-	@PostInit
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		BOPCrossIntegration.postInit();
