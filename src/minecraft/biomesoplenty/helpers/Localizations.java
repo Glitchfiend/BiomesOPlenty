@@ -7,7 +7,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Localizations 
 {
-	private static final String localizationLocation = "/mods/BiomesOPlenty/localizations/";
+	private static final String localizationLocation = "/assets/BiomesOPlenty/localizations/";
 
 	public static String[] localeFiles = { localizationLocation + "en_US.xml", localizationLocation + "de_DE.xml", localizationLocation + "nl_NL.xml" };
 
