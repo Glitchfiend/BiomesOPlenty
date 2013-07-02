@@ -61,7 +61,6 @@ public class BlockAltar extends Block
 	@Override
 	public Icon getIcon(int side, int meta)
 	{
-
 		if (side == 1 || side == 0)
 		{
 			return altarFrameTop;

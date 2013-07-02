@@ -150,6 +150,8 @@
 	<entry key="tile.bop.altar.altarFrame.name">Altar Frame</entry>
 	
 	<entry key="tile.bop.puddle.name">Puddle</entry>
+	
+    <entry key="tile.bop.grave.name">Grave</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Red Rock Cobblestone Slab</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Red Rock Bricks Slab</entry>
