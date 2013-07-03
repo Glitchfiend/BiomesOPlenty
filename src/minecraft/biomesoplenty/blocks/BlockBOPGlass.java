@@ -28,7 +28,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPGlass extends Block
 {
-	private static final String[] glassTypes = new String[] {"celestiallens", "sacrificialFocus_empty", "sacrificialFocus_active", "sacrificialFocus_villager"};
+	private static final String[] glassTypes = new String[] {"celestiallens", "sacrificialfocus_empty", "sacrificialfocus_active", "sacrificialfocus_villager"};
 	private Icon[] textures;
 
 	public BlockBOPGlass(int blockID)
