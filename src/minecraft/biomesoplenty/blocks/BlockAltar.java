@@ -19,7 +19,7 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.RenderUtils;
-import biomesoplenty.tileentity.TileEntityAltar;
+import biomesoplenty.tileentities.TileEntityAltar;
 
 public class BlockAltar extends Block
 {

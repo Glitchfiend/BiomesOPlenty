@@ -7,7 +7,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.blocks.BlockAltar;
-import biomesoplenty.tileentity.TileEntityAltar;
+import biomesoplenty.tileentities.TileEntityAltar;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class AltarRenderer implements ISimpleBlockRenderingHandler

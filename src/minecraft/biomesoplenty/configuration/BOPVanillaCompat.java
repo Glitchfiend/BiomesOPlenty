@@ -6,8 +6,8 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.items.projectiles.DispenserBehaviorDart;
-import biomesoplenty.items.projectiles.DispenserBehaviorMudball;
+import biomesoplenty.entities.projectiles.DispenserBehaviorDart;
+import biomesoplenty.entities.projectiles.DispenserBehaviorMudball;
 
 public class BOPVanillaCompat {
 

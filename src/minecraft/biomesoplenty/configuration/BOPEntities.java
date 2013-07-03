@@ -9,9 +9,9 @@ import biomesoplenty.api.Biomes;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityRosester;
-import biomesoplenty.items.projectiles.EntityDart;
-import biomesoplenty.items.projectiles.EntityMudball;
-import biomesoplenty.items.projectiles.EntityPoisonDart;
+import biomesoplenty.entities.projectiles.EntityDart;
+import biomesoplenty.entities.projectiles.EntityMudball;
+import biomesoplenty.entities.projectiles.EntityPoisonDart;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

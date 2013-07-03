@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.items.projectiles.EntityMudball;
+import biomesoplenty.entities.projectiles.EntityMudball;
 
 public class ItemBOPMudball extends Item
 {

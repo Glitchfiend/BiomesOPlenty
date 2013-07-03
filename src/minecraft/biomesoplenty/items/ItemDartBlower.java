@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
-import biomesoplenty.items.projectiles.EntityDart;
-import biomesoplenty.items.projectiles.EntityDart.DartType;
+import biomesoplenty.entities.projectiles.EntityDart;
+import biomesoplenty.entities.projectiles.EntityDart.DartType;
 
 public class ItemDartBlower extends Item
 {

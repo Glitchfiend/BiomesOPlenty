@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import biomesoplenty.blocks.models.ModelGrave0;
-import biomesoplenty.tileentity.TileEntityGrave;
+import biomesoplenty.tileentities.TileEntityGrave;
 import cpw.mods.fml.client.FMLClientHandler;
  
 public class TileEntityGraveRenderer extends TileEntitySpecialRenderer

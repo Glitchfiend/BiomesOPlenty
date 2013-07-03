@@ -14,7 +14,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.tileentity.TileEntityGrave;
+import biomesoplenty.tileentities.TileEntityGrave;
 
 public class BlockGrave extends Block
 {
