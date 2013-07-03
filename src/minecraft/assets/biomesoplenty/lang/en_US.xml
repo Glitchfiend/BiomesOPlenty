@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+
+	<!--Blocks -->
+	<entry key="tile.bop.mud.mud.name">Mud</entry>
+	<entry key="tile.bop.mud.quicksand.name">Quicksand</entry>
+
+	<entry key="tile.bop.generic.ash_stone.name">Ash Stone</entry>
+	<entry key="tile.bop.generic.hard_sand.name">Hardened Sand</entry>
+	<entry key="tile.bop.generic.hard_dirt.name">Hardened Dirt</entry>
+	<entry key="tile.bop.generic.hard_ice.name">Hardened Ice</entry>
+	<entry key="tile.bop.generic.dried_dirt.name">Dried Dirt</entry>
+	<entry key="tile.bop.generic.crag_rock.name">Crag Rock</entry>
+	<entry key="tile.bop.generic.mud_brick.name">Mud Bricks</entry>
+	<entry key="tile.bop.generic.holy_dirt.name">Purified Dirt</entry>
+	<entry key="tile.bop.generic.crystal.name">Celestial Crystal</entry>
+
+	<entry key="tile.bop.redRocks.redrock.name">Red Rock</entry>
+	<entry key="tile.bop.redRocks.redcobble.name">Red Rock Cobblestone</entry>
+	<entry key="tile.bop.redRocks.redbrick.name">Red Rock Bricks</entry>
+	
+	<entry key="tile.bop.ash.name">Ash Block</entry>
+
+	<entry key="tile.bop.plants.deadgrass.name">Dead Grass</entry>
+	<entry key="tile.bop.plants.desertgrass.name">Desert Grass</entry>
+	<entry key="tile.bop.plants.desertsprouts.name">Desert Sprouts</entry>
+	<entry key="tile.bop.plants.dunegrass.name">Dune Grass</entry>
+	<entry key="tile.bop.plants.holytallgrass.name">Purified Tall Grass</entry>
+	<entry key="tile.bop.plants.thorn.name">Thorns</entry>
+	<entry key="tile.bop.plants.barley.name">Barley</entry>
+	<entry key="tile.bop.plants.cattail.name">Cattail</entry>
+	<entry key="tile.bop.plants.cattailtop.name">Cattail</entry>
+	<entry key="tile.bop.plants.cattailbottom.name">Cattail</entry>
+	<entry key="tile.bop.plants.reed.name">Reed</entry>
+
+	<entry key="tile.bop.flowers.clover.name">Clover</entry>
+	<entry key="tile.bop.flowers.swampflower.name">Swampflower</entry>
+	<entry key="tile.bop.flowers.deadbloom.name">Deathbloom</entry>
+	<entry key="tile.bop.flowers.glowflower.name">Glowflower</entry>
+	<entry key="tile.bop.flowers.hydrangea.name">Hydrangea</entry>
+	<entry key="tile.bop.flowers.daisy.name">Daisy</entry>
+	<entry key="tile.bop.flowers.tulip.name">Tulip</entry>
+	<entry key="tile.bop.flowers.wildflower.name">Wildflower</entry>
+	<entry key="tile.bop.flowers.violet.name">Violet</entry>
+	<entry key="tile.bop.flowers.anemone.name">Anemone</entry>
+	<entry key="tile.bop.flowers.lilyflower.name">Waterlily</entry>
+	<entry key="tile.bop.flowers.cactus.name">Tiny Cactus</entry>
+	<entry key="tile.bop.flowers.aloe.name">Aloe</entry>
+	<entry key="tile.bop.flowers.sunflowerbottom.name">Sunflower</entry>
+	<entry key="tile.bop.flowers.sunflowertop.name">Sunflower</entry>
+	<entry key="tile.bop.flowers.dandelion.name">Dandelion</entry>
+
+	<entry key="tile.bop.foliage.algae.name">Algae</entry>
+	<entry key="tile.bop.foliage.shortgrass.name">Short Grass</entry>
+	<entry key="tile.bop.foliage.mediumgrass.name">Medium Grass</entry>
+	<entry key="tile.bop.foliage.highgrassbottom.name">High Grass</entry>
+	<entry key="tile.bop.foliage.bush.name">Bush</entry>
+	<entry key="tile.bop.foliage.sprout.name">Sprout</entry>
+	<entry key="tile.bop.foliage.highgrasstop.name">High Grass</entry>
+	<entry key="tile.bop.foliage.poisonivy.name">Poison Ivy</entry>
+	<entry key="tile.bop.foliage.berrybush.name">Berry Bush</entry>
+	
+	<entry key="tile.bop.petals.bigflowerred.name">Giant Red Flower</entry>
+	<entry key="tile.bop.petals.bigfloweryellow.name">Giant Yellow Flower</entry>
+	
+	<entry key="tile.bop.mushrooms.toadstool.name">Toadstool</entry>
+	<entry key="tile.bop.mushrooms.portobello.name">Portobello</entry>
+	<entry key="tile.bop.mushrooms.bluemilk.name">Blue Milk Cap</entry>
+	<entry key="tile.bop.mushrooms.glowshroom.name">Glowshroom</entry>
+	
+	<entry key="tile.bop.saplings.appleSapling.name">Apple Sapling</entry>
+	<entry key="tile.bop.saplings.yellowautumnSapling.name">Yellow Autumn Sapling</entry>
+	<entry key="tile.bop.saplings.bambooSapling.name">Bamboo Sapling</entry>
+	<entry key="tile.bop.saplings.magicSapling.name">Magic Sapling</entry>
+	<entry key="tile.bop.saplings.darkSapling.name">Dark Sapling</entry>
+	<entry key="tile.bop.saplings.deadSapling.name">Dying Sapling</entry>
+	<entry key="tile.bop.saplings.firSapling.name">Fir Sapling</entry>
+	<entry key="tile.bop.saplings.holySapling.name">Loftwood Sapling</entry>
+	<entry key="tile.bop.saplings.orangeautumnSapling.name">Orange Autumn Sapling</entry>
+	<entry key="tile.bop.saplings.originSapling.name">Origin Sapling</entry>
+	<entry key="tile.bop.saplings.pinkcherrySapling.name">Pink Cherry Sapling</entry>
+	<entry key="tile.bop.saplings.mapleSapling.name">Maple Sapling</entry>
+	<entry key="tile.bop.saplings.whitecherrySapling.name">White Cherry Sapling</entry>
+	<entry key="tile.bop.saplings.hellbarkSapling.name">Hellbark Sapling</entry>
+	<entry key="tile.bop.saplings.jacarandaSapling.name">Jacaranda Sapling</entry>
+
+	<entry key="tile.bop.colorizedSaplings.acaciaSapling.name">Acacia Sapling</entry>
+	<entry key="tile.bop.colorizedSaplings.mangroveSapling.name">Mangrove Sapling</entry>
+	<entry key="tile.bop.colorizedSaplings.palmSapling.name">Palm Sapling</entry>
+	<entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Redwood Sapling</entry>
+	<entry key="tile.bop.colorizedSaplings.willowSapling.name">Willow Sapling</entry>
+	<entry key="tile.bop.colorizedSaplings.pineSapling.name">Pine Sapling</entry>
+	
+	<entry key="tile.bop.willow.name">Willow</entry>
+ 	<entry key="tile.bop.ivy.name">Ivy</entry>
+ 	<entry key="tile.bop.leavesFruit.name">Apple Leaves</entry>
+	<entry key="tile.bop.bamboo.name">Bamboo</entry>
+ 	<entry key="tile.bop.mudBricksStairs.name">Mud Bricks Stairs</entry>
+ 	<entry key="tile.bop.originGrass.name">Origin Grass</entry>
+ 	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
+
+	<entry key="tile.bop.coral.kelp.name">Kelp</entry>
+	
+ 	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
+ 	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
+ 	
+ 	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass</entry>
+ 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass</entry>
+ 	
+ 	<entry key="tile.bop.holyStone.holystone.name">Skystone</entry>
+ 	<entry key="tile.bop.holyStone.holycobble.name">Skystone Cobblestone</entry>
+ 	<entry key="tile.bop.holyStone.holybrick.name">Skystone Bricks</entry>
+ 	
+ 	<entry key="tile.bop.holyCobbleStairs.name">Skystone Cobblestone Stairs</entry>
+ 	<entry key="tile.bop.holyBricksStairs.name">Skystone Bricks Stairs</entry>
+
+	<entry key="tile.bop.promisedPortal.name">Promised Land Portal</entry>
+
+	<entry key="tile.bop.amethystOre.amethystore.name">Amethyst Ore</entry>
+	<entry key="tile.bop.amethystOre.amethystblock.name">Block of Amethyst</entry>
+	<entry key="tile.bop.amethystOre.rubyore.name">Ruby Ore</entry>
+	<entry key="tile.bop.amethystOre.rubyblock.name">Block of Ruby</entry>
+	<entry key="tile.bop.amethystOre.peridotore.name">Peridot Ore</entry>
+	<entry key="tile.bop.amethystOre.peridotblock.name">Block of Peridot</entry>
+	<entry key="tile.bop.amethystOre.topazore.name">Topaz Ore</entry>
+	<entry key="tile.bop.amethystOre.topazblock.name">Block of Topaz</entry>
+	<entry key="tile.bop.amethystOre.tanzaniteore.name">Tanzanite Ore</entry>
+	<entry key="tile.bop.amethystOre.tanzaniteblock.name">Block of Tanzanite</entry>
+	<entry key="tile.bop.amethystOre.apatiteore.name">Apatite Ore</entry>
+	<entry key="tile.bop.amethystOre.apatiteblock.name">Block of Apatite</entry>
+	<entry key="tile.bop.amethystOre.sapphireore.name">Sapphire Ore</entry>
+	<entry key="tile.bop.amethystOre.sapphireblock.name">Block of Sapphire</entry>
+	
+ 	<entry key="tile.bop.moss.name">Moss</entry>
+	 	
+ 	<entry key="tile.bop.cloud.name">Cloud Block</entry>
+
+	<entry key="tile.bop.bones.bones_small.name">Small Bone Segment</entry>
+	<entry key="tile.bop.bones.bones_medium.name">Medium Bone Segment</entry>
+	<entry key="tile.bop.bones.bones_large.name">Large Bone Segment</entry>
+
+	<entry key="tile.bop.glass.celestialLens.name">Celestial Lens</entry>
+	
+	<entry key="tile.bop.glass.sacrificialFocus_empty.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialFocus_active.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialFocus_villager.name">Sacrificial Focus</entry>
+	
+	<entry key="tile.bop.altar.altarFrame.name">Altar Frame</entry>
+	
+	<entry key="tile.bop.puddle.name">Puddle</entry>
+	
+    <entry key="tile.bop.grave.name">Grave</entry>
+
+	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Red Rock Cobblestone Slab</entry>
+	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Red Rock Bricks Slab</entry>
+	<entry key="tile.bop.stoneDoubleSlab.mudbrickSlab.name">Mud Bricks Slab</entry>
+	<entry key="tile.bop.stoneDoubleSlab.holycobbleSlab.name">Skystone Cobblestone Slab</entry>
+	<entry key="tile.bop.stoneDoubleSlab.holybrickSlab.name">Skystone Bricks Slab</entry>
+
+	<entry key="tile.bop.stoneSingleSlab.redcobbleSlab.name">Red Rock Cobblestone Slab</entry>
+	<entry key="tile.bop.stoneSingleSlab.redbrickSlab.name">Red Rock Bricks Slab</entry>
+	<entry key="tile.bop.stoneSingleSlab.mudbrickSlab.name">Mud Bricks Slab</entry>
+	<entry key="tile.bop.stoneSingleSlab.holycobbleSlab.name">Skystone Cobblestone Slab</entry>
+	<entry key="tile.bop.stoneSingleSlab.holybrickSlab.name">Skystone Bricks Slab</entry>
+
+	<entry key="tile.bop.planks.acaciaPlank.name">Acacia Wood Planks</entry>
+	<entry key="tile.bop.planks.cherryPlank.name">Cherry Wood Planks</entry>
+	<entry key="tile.bop.planks.darkPlank.name">Dark Wood Planks</entry>
+	<entry key="tile.bop.planks.firPlank.name">Fir Wood Planks</entry>
+	<entry key="tile.bop.planks.holyPlank.name">Loftwood Wood Planks</entry>
+	<entry key="tile.bop.planks.magicPlank.name">Magic Wood Planks</entry>
+	<entry key="tile.bop.planks.mangrovePlank.name">Mangrove Wood Planks</entry>
+	<entry key="tile.bop.planks.palmPlank.name">Palm Wood Planks</entry>
+	<entry key="tile.bop.planks.redwoodPlank.name">Redwood Wood Planks</entry>
+	<entry key="tile.bop.planks.willowPlank.name">Willow Wood Planks</entry>
+	<entry key="tile.bop.planks.bambooThatching.name">Bamboo Thatching</entry>
+	<entry key="tile.bop.planks.pinePlank.name">Pine Wood Planks</entry>
+	<entry key="tile.bop.planks.hellBarkPlank.name">Hellbark Wood Planks</entry>
+	<entry key="tile.bop.planks.jacarandaPlank.name">Jacaranda Wood Planks</entry>
+
+	<entry key="tile.bop.wood1.acaciaWood.name">Acacia Wood</entry>
+	<entry key="tile.bop.wood1.cherryWood.name">Cherry Wood</entry>
+	<entry key="tile.bop.wood1.darkWood.name">Dark Wood</entry>
+	<entry key="tile.bop.wood1.firWood.name">Fir Wood</entry>
+
+	<entry key="tile.bop.wood2.holyWood.name">Loftwood Wood</entry>
+	<entry key="tile.bop.wood2.magicWood.name">Magic Wood</entry>
+	<entry key="tile.bop.wood2.mangroveWood.name">Mangrove Wood</entry>
+	<entry key="tile.bop.wood2.palmWood.name">Palm Wood</entry>
+
+	<entry key="tile.bop.wood3.redwoodWood.name">Redwood Wood</entry>
+	<entry key="tile.bop.wood3.willowWood.name">Willow Wood</entry>
+	<entry key="tile.bop.wood3.deadWood.name">Dead Wood</entry>
+	<entry key="tile.bop.wood3.bigflowerstemWood.name">Giant Flower Stem</entry>
+
+	<entry key="tile.bop.wood4.pineWood.name">Pine Wood</entry>
+	<entry key="tile.bop.wood4.hellbarkWood.name">Hellbark Wood</entry>
+	<entry key="tile.bop.wood4.jacarandaWood.name">Jacaranda Wood</entry>
+
+	<entry key="tile.bop.leaves1.yellowautumn.name">Yellow Autumn Leaves</entry>
+	<entry key="tile.bop.leaves1.bamboo.name">Bamboo Leaves</entry>
+	<entry key="tile.bop.leaves1.magic.name">Magic Leaves</entry>
+	<entry key="tile.bop.leaves1.dark.name">Dark Leaves</entry>
+	<entry key="tile.bop.leaves1.dead.name">Dying Leaves</entry>
+	<entry key="tile.bop.leaves1.fir.name">Fir Leaves</entry>
+	<entry key="tile.bop.leaves1.holy.name">Loftwood Leaves</entry>
+	<entry key="tile.bop.leaves1.orangeautumn.name">Orange Autumn Leaves</entry>
+
+	<entry key="tile.bop.leaves2.origin.name">Origin Leaves</entry>
+	<entry key="tile.bop.leaves2.pinkcherry.name">Pink Cherry Leaves</entry>
+	<entry key="tile.bop.leaves2.maple.name">Maple Leaves</entry>
+	<entry key="tile.bop.leaves2.whitecherry.name">White Cherry Leaves</entry>
+	<entry key="tile.bop.leaves2.hellbark.name">Hellbark Leaves</entry>
+	<entry key="tile.bop.leaves2.jacaranda.name">Jacaranda Leaves</entry>
+
+	<entry key="tile.bop.woodenDoubleSlab1.acaciaSlab.name">Acacia Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.cherrySlab.name">Cherry Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.darkSlab.name">Dark Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.firSlab.name">Fir Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.holySlab.name">Loftwood Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.magicSlab.name">Magic Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.mangroveSlab.name">Mangrove Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.palmSlab.name">Palm Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.redwoodSlab.name">Redwood Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.willowSlab.name">Willow Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.pineSlab.name">Pine Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.hell_barkSlab.name">Hellbark Wood Slab</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.jacarandaSlab.name">Jacaranda Wood Slab</entry>
+
+	<entry key="tile.bop.woodenSingleSlab1.acaciaSlab.name">Acacia Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.cherrySlab.name">Cherry Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.darkSlab.name">Dark Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.firSlab.name">Fir Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.holySlab.name">Loftwood Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.magicSlab.name">Magic Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.mangroveSlab.name">Mangrove Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab1.palmSlab.name">Palm Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab2.redwoodSlab.name">Redwood Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab2.willowSlab.name">Willow Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab2.pineSlab.name">Pine Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab2.hell_barkSlab.name">Hellbark Wood Slab</entry>
+	<entry key="tile.bop.woodenSingleSlab2.jacarandaSlab.name">Jacaranda Wood Slab</entry>
+
+	<entry key="tile.bop.acaciaStairs.name">Acacia Wood Stairs</entry>
+	<entry key="tile.bop.cherryStairs.name">Cherry Wood Stairs</entry>
+	<entry key="tile.bop.darkStairs.name">Dark Wood Stairs</entry>
+	<entry key="tile.bop.firStairs.name">Fir Wood Stairs</entry>
+	<entry key="tile.bop.holyStairs.name">Loftwood Wood Stairs</entry>
+	<entry key="tile.bop.magicStairs.name">Magic Wood Stairs</entry>
+	<entry key="tile.bop.mangroveStairs.name">Mangrove Wood Stairs</entry>
+	<entry key="tile.bop.palmStairs.name">Palm Wood Stairs</entry>
+	<entry key="tile.bop.redwoodStairs.name">Redwood Wood Stairs</entry>
+	<entry key="tile.bop.willowStairs.name">Willow Wood Stairs</entry>
+	<entry key="tile.bop.pineStairs.name">Pine Wood Stairs</entry>
+	<entry key="tile.bop.hellBarkStairs.name">Hellbark Wood Stairs</entry>
+	<entry key="tile.bop.jacarandaStairs.name">Jacaranda Wood Stairs</entry>
+
+	<entry key="tile.bop.leavesColorized.acacia.name">Acacia Leaves</entry>
+	<entry key="tile.bop.leavesColorized.mangrove.name">Mangrove Leaves</entry>
+	<entry key="tile.bop.leavesColorized.palm.name">Palm Leaves</entry>
+	<entry key="tile.bop.leavesColorized.redwood.name">Redwood Leaves</entry>
+	<entry key="tile.bop.leavesColorized.willow.name">Willow Leaves</entry>
+	<entry key="tile.bop.leavesColorized.pine.name">Pine Leaves</entry>
+	
+	<!--Items -->
+	<entry key="item.bop.shroomPowder.name">Shroom Powder</entry>
+
+	<entry key="item.bop.sunflowerSeeds.name">Sunflower Seeds</entry>
+	
+	<entry key="item.bop.berries.name">Berries</entry>
+
+	<entry key="item.bop.dartblower.name">Dart Blower</entry>
+	<entry key="item.bop.dart.dart.name">Dart</entry>
+	<entry key="item.bop.dart.poisondart.name">Poison Dart</entry>
+	
+	<entry key="item.bop.mudball.name">Mud Ball</entry>
+
+	<entry key="item.bop.miscItems.mudbrick.name">Mud Brick</entry>
+	<entry key="item.bop.miscItems.ash.name">Pile of Ashes</entry>
+	<entry key="item.bop.miscItems.amethyst.name">Amethyst</entry>
+	<entry key="item.bop.miscItems.poison.name">Poison</entry>
+	<entry key="item.bop.miscItems.crystalshard.name">Celestial Crystal Shard</entry>
+	<entry key="item.bop.miscItems.bluedye.name">Blue Dye</entry>
+	<entry key="item.bop.miscItems.browndye.name">Brown Dye</entry>
+	<entry key="item.bop.miscItems.greendye.name">Green Dye</entry>
+	<entry key="item.bop.miscItems.whitedye.name">White Dye</entry>
+	<entry key="item.bop.miscItems.blackdye.name">Black Dye</entry>
+	<entry key="item.bop.miscItems.ruby.name">Ruby</entry>
+	<entry key="item.bop.miscItems.peridot.name">Peridot</entry>
+	<entry key="item.bop.miscItems.topaz.name">Topaz</entry>
+	<entry key="item.bop.miscItems.tanzanite.name">Tanzanite</entry>
+	<entry key="item.bop.miscItems.apatite.name">Apatite</entry>
+	<entry key="item.bop.miscItems.sapphire.name">Sapphire</entry>
+	<entry key="item.bop.miscItems.ghastlysoul.name">Ghastly Soul</entry>
+
+	<entry key="item.bop.pickaxeMud.name">Muddy Pickaxe</entry>
+	<entry key="item.bop.hatchetMud.name">Muddy Axe</entry>
+	<entry key="item.bop.shovelMud.name">Muddy Shovel</entry>
+	<entry key="item.bop.swordMud.name">Muddy Sword</entry>
+	<entry key="item.bop.hoeMud.name">Muddy Hoe</entry>
+	<entry key="item.bop.helmetMud.name">Muddy Helmet</entry>
+	<entry key="item.bop.chestplateMud.name">Muddy Chestplate</entry>
+	<entry key="item.bop.leggingsMud.name">Muddy Leggings</entry>
+	<entry key="item.bop.bootsMud.name">Muddy Boots</entry>
+	
+	<entry key="item.bop.pickaxeAmethyst.name">Amethyst Pickaxe</entry>
+	<entry key="item.bop.hatchetAmethyst.name">Amethyst Axe</entry>
+	<entry key="item.bop.shovelAmethyst.name">Amethyst Shovel</entry>
+	<entry key="item.bop.swordAmethyst.name">Amethyst Sword</entry>
+	<entry key="item.bop.hoeAmethyst.name">Amethyst Hoe</entry>
+	<entry key="item.bop.helmetAmethyst.name">Amethyst Helmet</entry>
+	<entry key="item.bop.chestplateAmethyst.name">Amethyst Chestplate</entry>
+	<entry key="item.bop.leggingsAmethyst.name">Amethyst Leggings</entry>
+	<entry key="item.bop.bootsAmethyst.name">Amethyst Boots</entry>
+	
+	<entry key="item.bop.scytheWood.name">Wooden Scythe</entry>
+	<entry key="item.bop.scytheStone.name">Stone Scythe</entry>
+	<entry key="item.bop.scytheIron.name">Iron Scythe</entry>
+	<entry key="item.bop.scytheGold.name">Gold Scythe</entry>
+	<entry key="item.bop.scytheDiamond.name">Diamond Scythe</entry>
+	<entry key="item.bop.scytheMud.name">Mud Scythe</entry>
+	<entry key="item.bop.scytheAmethyst.name">Amethyst Scythe</entry>
+
+	<entry key="item.bop.ancientStaff.ancientstaff.name">Ancient Staff</entry>
+	<entry key="item.bop.ancientStaff.staffhandle.name">Ancient Staff Handle</entry>
+	<entry key="item.bop.ancientStaff.staffpole.name">Ancient Staff Pole</entry>
+	<entry key="item.bop.ancientStaff.stafftopper.name">Ancient Staff Topper</entry>
+	<entry key="item.bop.ancientStaff.ancientstaffbroken.name">Depleted Ancient Staff</entry>
+
+	<entry key="item.bop.soulManipulator.soulmanipulator_empty.name">Soul Manipulator</entry>
+	<entry key="item.bop.soulManipulator.soulmanipulator_ghastlysoul.name">Ghastly Soul Manipulator</entry>
+	<entry key="item.bop.soulManipulator.soulmanipulator_villager.name">Villager Soul Manipulator</entry>
+
+	<entry key="item.bop.enderporter.name">Enderporter</entry>
+
+	<entry key="item.bop.bopDisc.name">Music Disc</entry>
+	<entry key="item.bop.bopDiscMud.name">Music Disc</entry>
+
+	<entry key="item.bop.flowerBand.dullflowerband.name">Dull Flower Band</entry>
+	<entry key="item.bop.flowerBand.plainflowerband.name">Plain Flower Band</entry>
+	<entry key="item.bop.flowerBand.lushflowerband.name">Lush Flower Band</entry>
+	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
+	
+	<!--Liquids -->
+	<entry key="item.bop.bopBucket.spring_water.name">Spring Water Bucket</entry>
+	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>
+	
+	<entry key="tile.bop.liquidPoison.name">Liquid Poison</entry>
+	<entry key="tile.bop.springWater.name">Spring Water</entry>
+	
+	<!--Phrases -->
+	<entry key="phrase.bop.promisedPortalOverworld">A gateway to the Promised Land has appeared in the sky above.</entry>
+	<entry key="phrase.bop.promisedPortalOther">A gateway has appeared in the sky above.</entry>
+	
+	<!--Creative Tab -->
+   <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+	
+	<!--World Type -->
+   <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
+
+</properties>
