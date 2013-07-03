@@ -8,6 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -43,6 +44,55 @@ public class BlockGrave extends Block
         {
         	world.setBlockMetadataWithNotify(x, y, z, fO, 2);
         }
+    }
+    
+    @Override
+	public boolean addBlockHitEffects(World worldObj, MovingObjectPosition target, EffectRenderer effectRenderer)
+    {
+    	int i1 = worldObj.getBlockId(target.blockX, target.blockY, target.blockZ);
+
+    	if (i1 != 0)
+    	{
+    		Block block = Block.stone;
+    		float f = 0.1F;
+    		double d0 = (double)target.blockX + worldObj.rand.nextDouble() * (block.getBlockBoundsMaxX() - block.getBlockBoundsMinX() - (double)(f * 2.0F)) + (double)f + block.getBlockBoundsMinX();
+    		double d1 = (double)target.blockY + worldObj.rand.nextDouble() * (block.getBlockBoundsMaxY() - block.getBlockBoundsMinY() - (double)(f * 2.0F)) + (double)f + block.getBlockBoundsMinY();
+    		double d2 = (double)target.blockZ + worldObj.rand.nextDouble() * (block.getBlockBoundsMaxZ() - block.getBlockBoundsMinZ() - (double)(f * 2.0F)) + (double)f + block.getBlockBoundsMinZ();
+
+    		if (target.sideHit == 0)
+    		{
+    			d1 = (double)target.blockY + block.getBlockBoundsMinY() - (double)f;
+    		}
+
+    		if (target.sideHit == 1)
+    		{
+    			d1 = (double)target.blockY + block.getBlockBoundsMaxY() + (double)f;
+    		}
+
+    		if (target.sideHit == 2)
+    		{
+    			d2 = (double)target.blockZ + block.getBlockBoundsMinZ() - (double)f;
+    		}
+
+    		if (target.sideHit == 3)
+    		{
+    			d2 = (double)target.blockZ + block.getBlockBoundsMaxZ() + (double)f;
+    		}
+
+    		if (target.sideHit == 4)
+    		{
+    			d0 = (double)target.blockX + block.getBlockBoundsMinX() - (double)f;
+    		}
+
+    		if (target.sideHit == 5)
+    		{
+    			d0 = (double)target.blockX + block.getBlockBoundsMaxX() + (double)f;
+    		}
+
+    		effectRenderer.addEffect((new EntityDiggingFX(worldObj, d0, d1, d2, 0.0D, 0.0D, 0.0D, block, 0)).func_70596_a(target.blockX, target.blockY, target.blockZ).multiplyVelocity(0.2F).multipleParticleScaleBy(0.6F));
+    	}
+    	
+		return true;
     }
     
     @Override
