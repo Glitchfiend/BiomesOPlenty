@@ -19,7 +19,7 @@
 - **Soaryn** - Help making the Altar Frames
 
 
-## Changelog ##	
+## Changelog 
 	  Version 0.5.6 (Unreleased)
 	- Added Treecapacitator compatibility
 	- Made the Ancient Staff and Dart Blower render in 3D like other tools
@@ -48,6 +48,17 @@
 	- Added Tinkers construct integration for Amethyst tools
 	- Added an option to turn Spring Water into Regular Water on pickup
 	- Fixed an exploit with shears and berry bushes
+	- Added support for Better Grass and Leaves
+	- Tweaked the Fungi Forest trees
+	- Tweaked pyramid generation
+	- Made the BOP world type able to have biomes from other mods
+	- Added puddles
+	- Fixed grass not dropping seeds
+	- Added graves
+	- Updated to Minecraft 1.6
+	- Made horses spawn in several biomes
+	- Removed the Nourishment effect, using Vanilla Saturation instead where needed
+	- Removed BWG4 integration (Ted wanted to move it into BWG4 itself)
 
 	  Version 0.5.5 '04-06-13'
 	- Fixed warnings on startup about Thaumcraft compatibility
