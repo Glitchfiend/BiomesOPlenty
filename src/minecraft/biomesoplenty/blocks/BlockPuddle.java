@@ -27,7 +27,6 @@ public class BlockPuddle extends Block
         this.setTickRandomly(true);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8135F, 1.0F);
         this.setLightOpacity(0);
-        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
     @Override
