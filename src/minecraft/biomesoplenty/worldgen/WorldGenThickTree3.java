@@ -6,9 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenThickTree2 extends WorldGenerator
+public class WorldGenThickTree3 extends WorldGenerator
 {
-	public WorldGenThickTree2(boolean var1)
+	public WorldGenThickTree3(boolean var1)
 	{
 		super(var1);
 	}
@@ -16,10 +16,10 @@ public class WorldGenThickTree2 extends WorldGenerator
 	@Override
 	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
 	{
-		int var6 = var2.nextInt(8) + 10;
-		int var7 = var2.nextInt(8) + 0;
+		int var6 = var2.nextInt(15) + 25;
+		int var7 = var2.nextInt(8) + 5;
 		int var8 = var6 - var7;
-		int var9 = 2 + var2.nextInt(2);
+		int var9 = 3 + var2.nextInt(1);
 		boolean var10 = true;
 
 		if (var4 >= 1 && var4 + var6 + 1 <= 256)

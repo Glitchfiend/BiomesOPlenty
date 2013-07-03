@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.world.World;
@@ -39,6 +40,7 @@ public class BiomeGenGrassland extends BiomeGenBase
 		spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 12, 4, 4));
 		spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 12, 4, 4));
 		spawnableCreatureList.add(new SpawnListEntry(EntityCow.class, 10, 4, 4));
+		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	
 	@Override

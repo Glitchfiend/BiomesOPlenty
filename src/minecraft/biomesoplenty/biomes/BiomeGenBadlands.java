@@ -17,7 +17,7 @@ public class BiomeGenBadlands extends BiomeGenBase
 	{
 		super(par1);
 		spawnableCreatureList.clear();
-		topBlock = (byte)Blocks.hardSand.get().blockID;
+		topBlock = (byte)Block.field_111032_cD.blockID;
 		fillerBlock = (byte)Block.blockClay.blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
