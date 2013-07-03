@@ -16,6 +16,6 @@ public class ItemBerries extends ItemFood
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:berries");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:berries");
 	}
 }

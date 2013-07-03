@@ -16,6 +16,6 @@ public class ItemSunflowerSeeds extends ItemFood
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:sunflowerseeds");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:sunflowerseeds");
 	}
 }

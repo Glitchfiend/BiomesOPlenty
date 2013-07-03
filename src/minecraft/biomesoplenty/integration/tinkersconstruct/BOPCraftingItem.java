@@ -44,7 +44,7 @@ public class BOPCraftingItem extends Item
 
         for (int i = 0; i < this.icons.length; ++i)
         {
-            this.icons[i] = iconRegister.registerIcon("BiomesOPlenty:"+folder+textureNames[i]);
+            this.icons[i] = iconRegister.registerIcon("biomesoplenty:"+folder+textureNames[i]);
         }
     }
 	

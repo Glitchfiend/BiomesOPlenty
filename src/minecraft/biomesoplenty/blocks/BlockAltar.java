@@ -47,15 +47,15 @@ public class BlockAltar extends Block
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		altarFrame = iconRegister.registerIcon("BiomesOPlenty:altarframe");
-		altarFrameTop = iconRegister.registerIcon("BiomesOPlenty:altarframetop");
+		altarFrame = iconRegister.registerIcon("biomesoplenty:altarframe");
+		altarFrameTop = iconRegister.registerIcon("biomesoplenty:altarframetop");
 
-		frameApatite = iconRegister.registerIcon("BiomesOPlenty:frameapatite");
-		framePeridot = iconRegister.registerIcon("BiomesOPlenty:frameperidot");
-		frameRuby = iconRegister.registerIcon("BiomesOPlenty:frameruby");
-		frameSapphire = iconRegister.registerIcon("BiomesOPlenty:framesapphire");
-		frameTanzanite = iconRegister.registerIcon("BiomesOPlenty:frametanzanite");
-		frameTopaz = iconRegister.registerIcon("BiomesOPlenty:frametopaz");
+		frameApatite = iconRegister.registerIcon("biomesoplenty:frameapatite");
+		framePeridot = iconRegister.registerIcon("biomesoplenty:frameperidot");
+		frameRuby = iconRegister.registerIcon("biomesoplenty:frameruby");
+		frameSapphire = iconRegister.registerIcon("biomesoplenty:framesapphire");
+		frameTanzanite = iconRegister.registerIcon("biomesoplenty:frametanzanite");
+		frameTopaz = iconRegister.registerIcon("biomesoplenty:frametopaz");
 	}
 
 	@Override

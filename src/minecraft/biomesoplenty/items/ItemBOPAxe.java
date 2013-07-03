@@ -30,8 +30,8 @@ public class ItemBOPAxe extends ItemAxe
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudaxe"); }
-		else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystaxe"); }
-		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		if(TextureID==0){ itemIcon = iconRegister.registerIcon("biomesoplenty:mudaxe"); }
+		else if(TextureID==1){ itemIcon = iconRegister.registerIcon("biomesoplenty:amethystaxe"); }
+		else { itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); }
 	}
 }

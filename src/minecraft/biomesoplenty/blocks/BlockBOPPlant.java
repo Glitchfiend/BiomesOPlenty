@@ -47,7 +47,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		textures = new Icon[plants.length];
 
 		for (int i = 0; i < plants.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + plants[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
 		}
 	}
 

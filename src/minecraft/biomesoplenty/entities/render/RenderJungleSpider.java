@@ -33,6 +33,6 @@ public class RenderJungleSpider extends RenderSpider
 	@Override
 	protected ResourceLocation func_110775_a(Entity entity) 
 	{
-		return new ResourceLocation("BiomesOPlenty:textures/mobs/junglespider.png");
+		return new ResourceLocation("biomesoplenty:textures/mobs/junglespider.png");
 	}
 }

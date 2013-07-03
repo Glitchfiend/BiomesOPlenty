@@ -36,7 +36,7 @@ public class ItemSoulManipulator extends Item
 		textures = new Icon[manipulatorTypes.length];
 
 		for (int i = 0; i < manipulatorTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+manipulatorTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+manipulatorTypes[i]);
 		}
 	}
 

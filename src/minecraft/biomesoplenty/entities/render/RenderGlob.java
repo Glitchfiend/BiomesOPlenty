@@ -67,7 +67,7 @@ public class RenderGlob extends RenderLiving
 	@Override
 	protected ResourceLocation func_110775_a(Entity entity) 
 	{
-		return new ResourceLocation("BiomesOPlenty:textures/mobs/glob.png");
+		return new ResourceLocation("biomesoplenty:textures/mobs/glob.png");
 	}
 	
     @Override

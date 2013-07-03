@@ -34,7 +34,7 @@ public class BOPToolShard extends BOPToolPart
 
         for (int i = 0; i < textureNames.length; ++i)
         {
-            this.icons[i] = iconRegister.registerIcon("BiomesOPlenty:"+folder+textureNames[i]);
+            this.icons[i] = iconRegister.registerIcon("biomesoplenty:"+folder+textureNames[i]);
         }
     }
 	

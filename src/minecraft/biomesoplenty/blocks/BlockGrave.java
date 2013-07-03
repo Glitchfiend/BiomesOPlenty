@@ -31,7 +31,7 @@ public class BlockGrave extends Block
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		blank = iconRegister.registerIcon("BiomesOPlenty:blank");
+		blank = iconRegister.registerIcon("biomesoplenty:blank");
 	}
 
 	@Override

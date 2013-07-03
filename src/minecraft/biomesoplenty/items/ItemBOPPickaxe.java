@@ -36,15 +36,15 @@ public class ItemBOPPickaxe extends ItemPickaxe
 	{
 		if (textureID == 0)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudpickaxe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:mudpickaxe"); 
 		}
 		else if (textureID == 1)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystpickaxe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:amethystpickaxe"); 
 		}
 		else 
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); 
 		}
 	}
 }

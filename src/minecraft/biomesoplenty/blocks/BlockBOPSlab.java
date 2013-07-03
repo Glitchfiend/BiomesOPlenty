@@ -59,7 +59,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 			textures = new Icon[rockTypes.length];
 
 			for (int i = 0; i < rockTypes.length; ++i) {
-				textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+rockTypes[i]);
+				textures[i] = iconRegister.registerIcon("biomesoplenty:"+rockTypes[i]);
 			}
 		}
 		else
@@ -67,7 +67,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 			textures = new Icon[woodTypes.length];
 
 			for (int i = 0; i < woodTypes.length; ++i) {
-				textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+woodTypes[i]);
+				textures[i] = iconRegister.registerIcon("biomesoplenty:plank_"+woodTypes[i]);
 			}
 		}
 	}

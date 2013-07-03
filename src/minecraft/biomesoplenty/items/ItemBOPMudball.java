@@ -19,7 +19,7 @@ public class ItemBOPMudball extends Item
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:mudball");
 	}
 
 	@Override

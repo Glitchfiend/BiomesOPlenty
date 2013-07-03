@@ -29,7 +29,7 @@ public class BlockWillow extends Block implements IShearable
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:willow");
+		blockIcon = par1IconRegister.registerIcon("biomesoplenty:willow");
 	}
 
 	/**

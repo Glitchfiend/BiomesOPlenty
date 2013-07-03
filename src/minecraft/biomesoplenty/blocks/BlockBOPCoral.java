@@ -40,7 +40,7 @@ public class BlockBOPCoral extends BlockFlower
 		textures = new Icon[coral.length];
 
 		for (int i = 0; i < coral.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + coral[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + coral[i]);
 		}
 	}
 

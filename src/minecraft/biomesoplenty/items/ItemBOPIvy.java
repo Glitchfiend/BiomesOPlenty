@@ -22,7 +22,7 @@ public class ItemBOPIvy extends ItemColored
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		texture = iconRegister.registerIcon("BiomesOPlenty:ivy");
+		texture = iconRegister.registerIcon("biomesoplenty:ivy");
 	}
 
 	@Override

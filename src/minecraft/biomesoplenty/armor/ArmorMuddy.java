@@ -23,9 +23,9 @@ public class ArmorMuddy extends ItemArmor
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
 		if (stack.itemID == Items.helmetMud.get().itemID || stack.itemID == Items.chestplateMud.get().itemID || stack.itemID == Items.bootsMud.get().itemID)
-			return "/mods/BiomesOPlenty/textures/armor/mud_1.png";
+			return "biomesoplenty:textures/armor/mud_1.png";
 		if (stack.itemID == Items.leggingsMud.get().itemID)
-			return "/mods/BiomesOPlenty/textures/armor/mud_2.png";
+			return "biomesoplenty:textures/armor/mud_2.png";
 		
 		return null;
 	}
@@ -33,10 +33,10 @@ public class ArmorMuddy extends ItemArmor
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if (textureID == 0) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudhelmet"); }
-		else if (textureID == 1) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudchestplate"); }
-		else if (textureID == 2) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudleggings"); }
-		else if (textureID == 3) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudboots"); }
-		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		if (textureID == 0) { itemIcon = iconRegister.registerIcon("biomesoplenty:mudhelmet"); }
+		else if (textureID == 1) { itemIcon = iconRegister.registerIcon("biomesoplenty:mudchestplate"); }
+		else if (textureID == 2) { itemIcon = iconRegister.registerIcon("biomesoplenty:mudleggings"); }
+		else if (textureID == 3) { itemIcon = iconRegister.registerIcon("biomesoplenty:mudboots"); }
+		else { itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); }
 	}
 }

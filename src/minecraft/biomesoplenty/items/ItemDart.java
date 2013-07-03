@@ -52,7 +52,7 @@ public class ItemDart extends Item
 		textures = new Icon[dartTypes.length];
 
 		for (int i = 0; i < dartTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + dartTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + dartTypes[i]);
 		}
 	}
 

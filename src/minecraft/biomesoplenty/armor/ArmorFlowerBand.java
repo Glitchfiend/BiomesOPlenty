@@ -47,7 +47,7 @@ public class ArmorFlowerBand extends ItemArmor
 		textures = new Icon[flowerBandTypes.length];
 
 		for (int i = 0; i < flowerBandTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + flowerBandTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + flowerBandTypes[i]);
 		}
 	}
 
@@ -61,16 +61,16 @@ public class ArmorFlowerBand extends ItemArmor
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
 		if (stack.getItemDamage() == 0)
-			return "/mods/BiomesOPlenty/textures/armor/dullflowerband.png";
+			return "biomesoplenty:textures/armor/dullflowerband.png";
 
 		if (stack.getItemDamage() == 1)
-			return "/mods/BiomesOPlenty/textures/armor/plainflowerband.png";
+			return "biomesoplenty:textures/armor/plainflowerband.png";
 
 		if (stack.getItemDamage() == 2)
-			return "/mods/BiomesOPlenty/textures/armor/lushflowerband.png";
+			return "biomesoplenty:textures/armor/lushflowerband.png";
 
 		if (stack.getItemDamage() == 3)
-			return "/mods/BiomesOPlenty/textures/armor/exoticflowerband.png";
+			return "biomesoplenty:textures/armor/exoticflowerband.png";
 
 		return null;
 	}

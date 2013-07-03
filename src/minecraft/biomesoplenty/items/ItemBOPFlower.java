@@ -42,7 +42,7 @@ public class ItemBOPFlower extends ItemBlock
 	{
 		textures = new Icon[1];
 
-		textures[0] = iconRegister.registerIcon("BiomesOPlenty:item_sunflower");
+		textures[0] = iconRegister.registerIcon("biomesoplenty:item_sunflower");
 	}
 
 	@Override

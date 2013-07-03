@@ -28,7 +28,7 @@ public class BlockTreeMoss extends Block implements IShearable
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:treemoss");
+		blockIcon = par1IconRegister.registerIcon("biomesoplenty:treemoss");
 	}
 
 	/**

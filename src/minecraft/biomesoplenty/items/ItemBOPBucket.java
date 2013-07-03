@@ -228,7 +228,7 @@ public class ItemBOPBucket extends Item
 		textures = new Icon[bucketTypes.length];
 
 		for (int i = 0; i < bucketTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + "bucket_" + bucketTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + "bucket_" + bucketTypes[i]);
 		}
 	}
 

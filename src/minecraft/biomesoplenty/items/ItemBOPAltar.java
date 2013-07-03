@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBOPAltar extends ItemBlock
 {
-	private static final String[] altarTypes = new String[] {"altarFrame"};
+	private static final String[] altarTypes = new String[] {"altarframe"};
 
 	public ItemBOPAltar(int par1)
 	{

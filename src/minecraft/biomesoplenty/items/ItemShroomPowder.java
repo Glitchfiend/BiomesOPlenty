@@ -18,6 +18,6 @@ public class ItemShroomPowder extends ItemFood
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:shroompowder");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:shroompowder");
 	}
 }

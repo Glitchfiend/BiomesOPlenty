@@ -23,7 +23,7 @@ public class ItemEnderporter extends Item
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:enderporter");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:enderporter");
 	}
 
 	@Override

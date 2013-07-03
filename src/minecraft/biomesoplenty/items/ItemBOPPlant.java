@@ -36,9 +36,9 @@ public class ItemBOPPlant extends ItemBlock
 	{
 		textures = new Icon[3];
 
-		textures[0] = iconRegister.registerIcon("BiomesOPlenty:item_barley");
-		textures[1] = iconRegister.registerIcon("BiomesOPlenty:item_cattail");
-		textures[2] = iconRegister.registerIcon("BiomesOPlenty:item_reed");
+		textures[0] = iconRegister.registerIcon("biomesoplenty:item_barley");
+		textures[1] = iconRegister.registerIcon("biomesoplenty:item_cattail");
+		textures[2] = iconRegister.registerIcon("biomesoplenty:item_reed");
 	}
 
 	@Override

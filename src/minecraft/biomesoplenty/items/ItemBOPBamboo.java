@@ -14,7 +14,7 @@ public class ItemBOPBamboo extends ItemBlock
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:item_bamboo");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:item_bamboo");
 	}
 
 	@Override

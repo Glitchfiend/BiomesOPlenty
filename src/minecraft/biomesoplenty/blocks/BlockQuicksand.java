@@ -20,7 +20,7 @@ public class BlockQuicksand extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:quicksand");
+		blockIcon = par1IconRegister.registerIcon("biomesoplenty:quicksand");
 	}
 
 	@Override

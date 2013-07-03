@@ -27,12 +27,12 @@ public class BlockOriginGrass extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		blockIcon[0] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass3");
-		blockIcon[1] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass1");
-		blockIcon[2] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
-		blockIcon[3] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
-		blockIcon[4] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
-		blockIcon[5] = par1IconRegister.registerIcon("BiomesOPlenty:origingrass2");
+		blockIcon[0] = par1IconRegister.registerIcon("biomesoplenty:origingrass3");
+		blockIcon[1] = par1IconRegister.registerIcon("biomesoplenty:origingrass1");
+		blockIcon[2] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		blockIcon[3] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		blockIcon[4] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		blockIcon[5] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class BlockBOPPlank extends Block
 		textures = new Icon[woodTypes.length];
 
 		for (int i = 0; i < woodTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+woodTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+woodTypes[i]);
 		}
 	}
 

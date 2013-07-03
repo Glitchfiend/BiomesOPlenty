@@ -23,7 +23,7 @@ public class BlockPromisedPortal extends Block
 	@Override
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("BiomesOPlenty:portal");
+		blockIcon = par1IconRegister.registerIcon("biomesoplenty:portal");
 	}
 
 	@Override

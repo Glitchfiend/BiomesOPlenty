@@ -22,7 +22,7 @@ public class ItemBOPWillow extends ItemColored
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		texture = iconRegister.registerIcon("BiomesOPlenty:willow");
+		texture = iconRegister.registerIcon("biomesoplenty:willow");
 	}
 
 	@Override

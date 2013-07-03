@@ -39,7 +39,7 @@ public class ItemBOPRecordMud extends ItemRecord
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudrecord");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:mudrecord");
 	}
 
 	/**

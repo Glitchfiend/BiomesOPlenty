@@ -33,7 +33,7 @@ public class BlockBOPAmethyst extends Block
 		textures = new Icon[types.length];
 
 		for (int i = 0; i < types.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+types[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+types[i]);
 		}
 	}
 

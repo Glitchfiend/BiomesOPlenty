@@ -32,9 +32,9 @@ public class ArmorAmethyst extends ItemArmor
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
 		if (stack.itemID == Items.helmetAmethyst.get().itemID || stack.itemID == Items.chestplateAmethyst.get().itemID || stack.itemID == Items.bootsAmethyst.get().itemID)
-			return "/mods/BiomesOPlenty/textures/armor/amethyst_1.png";
+			return "biomesoplenty:textures/armor/amethyst_1.png";
 		if (stack.itemID == Items.leggingsAmethyst.get().itemID)
-			return "/mods/BiomesOPlenty/textures/armor/amethyst_2.png";
+			return "biomesoplenty:textures/armor/amethyst_2.png";
 		
 		return null;
 	}
@@ -42,10 +42,10 @@ public class ArmorAmethyst extends ItemArmor
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if (textureID == 0) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethysthelmet"); }
-		else if (textureID == 1) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystchestplate"); }
-		else if (textureID == 2) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystleggings"); }
-		else if (textureID == 3) { itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystboots"); }
-		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		if (textureID == 0) { itemIcon = iconRegister.registerIcon("biomesoplenty:amethysthelmet"); }
+		else if (textureID == 1) { itemIcon = iconRegister.registerIcon("biomesoplenty:amethystchestplate"); }
+		else if (textureID == 2) { itemIcon = iconRegister.registerIcon("biomesoplenty:amethystleggings"); }
+		else if (textureID == 3) { itemIcon = iconRegister.registerIcon("biomesoplenty:amethystboots"); }
+		else { itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); }
 	}
 }

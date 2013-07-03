@@ -11,7 +11,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityDandelionFX extends EntityFX
 {
-	private static final String texture = "/mods/BiomesOPlenty/textures/particles/dandelion.png";
+	private static final String texture = "biomesoplenty:textures/particles/dandelion.png";
 
 	public EntityDandelionFX(World par1World, double par2, double par4, double par6, float par8)
 	{

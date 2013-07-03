@@ -299,35 +299,35 @@ public class ItemBOPScythe extends Item
 	{
 		if (textureID == 0)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:woodscythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:woodscythe"); 
 		}
 		else if (textureID == 1)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:stonescythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:stonescythe"); 
 		}
 		else if (textureID == 2)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:ironscythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:ironscythe"); 
 		}
 		else if (textureID == 3)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:goldscythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:goldscythe"); 
 		}
 		else if (textureID == 4)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:diamondscythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:diamondscythe"); 
 		}
 		else if (textureID == 5)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudscythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:mudscythe"); 
 		}
 		else if (textureID == 6)
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystscythe"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:amethystscythe"); 
 		}
 		else 
 		{ 
-			itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); 
+			itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); 
 		}
 	}
 }

@@ -31,7 +31,7 @@ public class ItemBOP extends Item
 		textures = new Icon[items.length];
 
 		for (int i = 0; i < items.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+items[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+items[i]);
 		}
 	}
 

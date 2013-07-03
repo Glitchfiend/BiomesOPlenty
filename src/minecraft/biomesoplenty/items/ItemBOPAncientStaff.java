@@ -54,10 +54,10 @@ public class ItemBOPAncientStaff extends Item
 		textures = new Icon[parts.length];
 
 		for (int i = 0; i < parts.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+parts[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+parts[i]);
 		}
 
-		//textures[parts.length - 1] = iconRegister.registerIcon("BiomesOPlenty:ancientstaff");
+		//textures[parts.length - 1] = iconRegister.registerIcon("biomesoplenty:ancientstaff");
 	}
 
 	@Override

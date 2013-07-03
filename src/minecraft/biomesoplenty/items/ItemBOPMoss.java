@@ -20,7 +20,7 @@ public class ItemBOPMoss extends ItemBlock
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		texture = iconRegister.registerIcon("BiomesOPlenty:item_moss");
+		texture = iconRegister.registerIcon("biomesoplenty:item_moss");
 	}
 
 	@Override

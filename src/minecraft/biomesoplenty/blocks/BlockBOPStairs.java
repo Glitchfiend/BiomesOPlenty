@@ -48,7 +48,7 @@ public class BlockBOPStairs extends BlockStairs
 			textures = new Icon[stoneTypes.length];
 
 			for (int i = 0; i < stoneTypes.length; ++i) {
-				textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+stoneTypes[i]);
+				textures[i] = iconRegister.registerIcon("biomesoplenty:"+stoneTypes[i]);
 			}
 		}
 		else
@@ -56,7 +56,7 @@ public class BlockBOPStairs extends BlockStairs
 			textures = new Icon[woodTypes.length];
 
 			for (int i = 0; i < woodTypes.length; ++i) {
-				textures[i] = iconRegister.registerIcon("BiomesOPlenty:plank_"+woodTypes[i]);
+				textures[i] = iconRegister.registerIcon("biomesoplenty:plank_"+woodTypes[i]);
 			}
 		}
 	}

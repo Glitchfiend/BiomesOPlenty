@@ -36,11 +36,11 @@ public class ItemBOPFoliage extends ItemColored
 		textures = new Icon[foliageTypes.length];
 
 		for (int i = 0; i < foliageTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:" + foliageTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + foliageTypes[i]);
 		}
 
-		textures[3] = iconRegister.registerIcon("BiomesOPlenty:item_highgrass");
-		textures[8] = iconRegister.registerIcon("BiomesOPlenty:item_berrybush");
+		textures[3] = iconRegister.registerIcon("biomesoplenty:item_highgrass");
+		textures[8] = iconRegister.registerIcon("biomesoplenty:item_berrybush");
 	}
 
 	@Override

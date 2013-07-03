@@ -30,8 +30,8 @@ public class ItemBOPSword extends ItemSword
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudsword"); }
-		else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystsword"); }
-		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		if(TextureID==0){ itemIcon = iconRegister.registerIcon("biomesoplenty:mudsword"); }
+		else if(TextureID==1){ itemIcon = iconRegister.registerIcon("biomesoplenty:amethystsword"); }
+		else { itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); }
 	}
 }

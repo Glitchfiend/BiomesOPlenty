@@ -36,19 +36,19 @@ public class BlockBOPGrass extends Block
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		blockIcon[0][0] = iconRegister.registerIcon("BiomesOPlenty:holydirt");
-		blockIcon[0][1] = iconRegister.registerIcon("BiomesOPlenty:holygrass_top");
-		blockIcon[0][2] = iconRegister.registerIcon("BiomesOPlenty:holygrass_side");
-		blockIcon[0][3] = iconRegister.registerIcon("BiomesOPlenty:holygrass_side");
-		blockIcon[0][4] = iconRegister.registerIcon("BiomesOPlenty:holygrass_side");
-		blockIcon[0][5] = iconRegister.registerIcon("BiomesOPlenty:holygrass_side");
+		blockIcon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
+		blockIcon[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
+		blockIcon[0][2] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		blockIcon[0][3] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		blockIcon[0][4] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		blockIcon[0][5] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
 
-		blockIcon[1][0] = iconRegister.registerIcon("BiomesOPlenty:smolderinggrass_bottom");
-		blockIcon[1][1] = iconRegister.registerIcon("BiomesOPlenty:smolderinggrass_top");
-		blockIcon[1][2] = iconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
-		blockIcon[1][3] = iconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
-		blockIcon[1][4] = iconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
-		blockIcon[1][5] = iconRegister.registerIcon("BiomesOPlenty:smolderinggrass_side");
+		blockIcon[1][0] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_bottom");
+		blockIcon[1][1] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_top");
+		blockIcon[1][2] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		blockIcon[1][3] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		blockIcon[1][4] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		blockIcon[1][5] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
 	}
 
 	@Override

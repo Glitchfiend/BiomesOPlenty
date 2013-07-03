@@ -30,8 +30,8 @@ public class ItemBOPSpade extends ItemSpade
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		if(TextureID==0){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudshovel"); }
-		else if(TextureID==1){ itemIcon = iconRegister.registerIcon("BiomesOPlenty:amethystshovel"); }
-		else { itemIcon = iconRegister.registerIcon("BiomesOPlenty:mudball"); }
+		if(TextureID==0){ itemIcon = iconRegister.registerIcon("biomesoplenty:mudshovel"); }
+		else if(TextureID==1){ itemIcon = iconRegister.registerIcon("biomesoplenty:amethystshovel"); }
+		else { itemIcon = iconRegister.registerIcon("biomesoplenty:mudball"); }
 	}
 }

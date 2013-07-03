@@ -87,9 +87,9 @@ public class RenderDart extends Render
 	{
 		if (((EntityDart)entity).isPoisonous()) 
 		{
-			return new ResourceLocation("BiomesOPlenty:textures/projectiles/poisondart.png");
+			return new ResourceLocation("biomesoplenty:textures/projectiles/poisondart.png");
 		} 
 
-		return new ResourceLocation("BiomesOPlenty:textures/projectiles/dart.png");
+		return new ResourceLocation("biomesoplenty:textures/projectiles/dart.png");
 	}
 }

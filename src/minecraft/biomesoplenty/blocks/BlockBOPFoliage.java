@@ -60,7 +60,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		textures = new Icon[foliageTypes.length];
 
 		for (int i = 0; i < textures.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+foliageTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
 		}
 	}
 

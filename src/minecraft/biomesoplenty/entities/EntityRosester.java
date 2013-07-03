@@ -32,7 +32,6 @@ public class EntityRosester extends EntityChicken
 	public EntityRosester(World par1World)
 	{
 		super(par1World);
-		//this.texture = "/mods/BiomesOPlenty/textures/mobs/rosester.png";
 		this.setSize(0.3F, 0.7F);
 		timeUntilNextEgg = rand.nextInt(6000) + 6000;
 		float var2 = 0.25F;

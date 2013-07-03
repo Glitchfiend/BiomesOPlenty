@@ -96,8 +96,8 @@ public class BlockFluidSpringWater extends BlockFluidClassic implements ILiquid
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		springWaterStillIcon = iconRegister.registerIcon("BiomesOPlenty:spring_water_still");
-		springWaterFlowingIcon = iconRegister.registerIcon("BiomesOPlenty:spring_water_flowing");
+		springWaterStillIcon = iconRegister.registerIcon("biomesoplenty:spring_water_still");
+		springWaterFlowingIcon = iconRegister.registerIcon("biomesoplenty:spring_water_flowing");
 	}
 
 	@Override

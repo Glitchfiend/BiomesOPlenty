@@ -80,39 +80,39 @@ public class BlockBOPGeneric extends Block
 		switch (type)
 		{
 		case ASH_STONE:
-			texture = iconRegister.registerIcon("BiomesOPlenty:ashstone");
+			texture = iconRegister.registerIcon("biomesoplenty:ashstone");
 			break;
 
 		case CRAG_ROCK:
-			texture = iconRegister.registerIcon("BiomesOPlenty:cragrock");
+			texture = iconRegister.registerIcon("biomesoplenty:cragrock");
 			break;
 
 		case DRIED_DIRT:
-			texture = iconRegister.registerIcon("BiomesOPlenty:drieddirt");
+			texture = iconRegister.registerIcon("biomesoplenty:drieddirt");
 			break;
 
 		case HARD_DIRT:
-			texture = iconRegister.registerIcon("BiomesOPlenty:harddirt");
+			texture = iconRegister.registerIcon("biomesoplenty:harddirt");
 			break;
 
 		case HARD_ICE:
-			texture = iconRegister.registerIcon("BiomesOPlenty:hardice");
+			texture = iconRegister.registerIcon("biomesoplenty:hardice");
 			break;
 
 		case HARD_SAND:
-			texture = iconRegister.registerIcon("BiomesOPlenty:hardsand");
+			texture = iconRegister.registerIcon("biomesoplenty:hardsand");
 			break;
 
 		case MUD_BRICK:
-			texture = iconRegister.registerIcon("BiomesOPlenty:mudbrick");
+			texture = iconRegister.registerIcon("biomesoplenty:mudbrick");
 			break;
 
 		case HOLY_DIRT:
-			texture = iconRegister.registerIcon("BiomesOPlenty:holydirt");
+			texture = iconRegister.registerIcon("biomesoplenty:holydirt");
 			break;
 
 		case CRYSTAL:
-			texture = iconRegister.registerIcon("BiomesOPlenty:crystal");
+			texture = iconRegister.registerIcon("biomesoplenty:crystal");
 			break;
 
 		default:

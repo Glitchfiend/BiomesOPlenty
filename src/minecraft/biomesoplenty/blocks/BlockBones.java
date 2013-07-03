@@ -33,7 +33,7 @@ public class BlockBones extends Block {
 		textures = new Icon[boneTypes.length];
 
 		for (int i = 0; i < boneTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+boneTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+boneTypes[i]);
 		}
 	}
 

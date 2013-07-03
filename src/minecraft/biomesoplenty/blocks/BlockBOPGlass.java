@@ -269,7 +269,7 @@ public class BlockBOPGlass extends Block
 		textures = new Icon[glassTypes.length];
 
 		for (int i = 0; i < glassTypes.length; ++i) {
-			textures[i] = iconRegister.registerIcon("BiomesOPlenty:"+glassTypes[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+glassTypes[i]);
 		}
 	}
 

@@ -37,8 +37,8 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 		textures = new Icon[petals.length][2];
 
 		for (int i = 0; i < petals.length; ++i) {
-			textures[i][0] = iconRegister.registerIcon("BiomesOPlenty:" + petals[i]);
-			textures[i][1] = iconRegister.registerIcon("BiomesOPlenty:better_" + petals[i]);
+			textures[i][0] = iconRegister.registerIcon("biomesoplenty:" + petals[i]);
+			textures[i][1] = iconRegister.registerIcon("biomesoplenty:better_" + petals[i]);
 		}
 	}
 

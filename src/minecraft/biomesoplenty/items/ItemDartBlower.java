@@ -23,7 +23,7 @@ public class ItemDartBlower extends Item
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("BiomesOPlenty:dartblower");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:dartblower");
 	}
 	
     /**

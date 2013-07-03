@@ -69,8 +69,8 @@ public class BlockFluidLiquidPoison extends BlockFluidClassic implements ILiquid
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		liquidPoisonStillIcon = iconRegister.registerIcon("BiomesOPlenty:liquid_poison_still");
-		liquidPoisonFlowingIcon = iconRegister.registerIcon("BiomesOPlenty:liquid_poison_flowing");
+		liquidPoisonStillIcon = iconRegister.registerIcon("biomesoplenty:liquid_poison_still");
+		liquidPoisonFlowingIcon = iconRegister.registerIcon("biomesoplenty:liquid_poison_flowing");
 	}
 
 	@Override
