@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
@@ -58,10 +58,10 @@ public class BlockFluidLiquidPoison extends BlockFluidClassic implements ILiquid
 	{
 		int meta = par1World.getBlockMetadata(x, y, z);
 
-		if (par5Entity instanceof EntityLiving)
+		if (par5Entity instanceof EntityLivingBase)
 		{
-			((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
-			((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 100));
+			((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+			((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 100));
 		}
 	}
 

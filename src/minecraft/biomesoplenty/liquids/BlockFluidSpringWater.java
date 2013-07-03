@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -77,12 +77,18 @@ public class BlockFluidSpringWater extends BlockFluidClassic implements ILiquid
 	{
 		int meta = par1World.getBlockMetadata(x, y, z);
 
-		if (par5Entity instanceof EntityLiving) {
-			((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
-		}
+		
+		if (!par1World.isRemote)
+		{
+			if (par5Entity instanceof EntityLivingBase) 
+			{
+				((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
+			}
 
-		if (par5Entity instanceof EntityPlayer) {
-			((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 1));
+			if (par5Entity instanceof EntityPlayer) 
+			{
+				((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 1));
+			}
 		}
 	}
 
