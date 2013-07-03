@@ -81,6 +81,21 @@ public class AchievementHelper
 	public static Achievement achMoor; 
 	public static Achievement achMountain;  
 	public static Achievement achMysticGrove;
+	public static Achievement achOasis;
+	public static Achievement achOminousWoods;
+	public static Achievement achOrchard;
+	public static Achievement achOriginValley;
+	public static Achievement achOutback;
+	public static Achievement achPasture;
+	public static Achievement achPolar;
+	public static Achievement achPrairie;
+	public static Achievement achQuagmire;
+	public static Achievement achRainforest;
+	public static Achievement achRedwoodForest; 
+	public static Achievement achSacredSprings; 
+	public static Achievement achSavanna;
+	public static Achievement achScrubland;
+	public static Achievement achSeasonalForest;
 
 	public static AchievementPage pageBOP;
 	public static AchievementPage pageBiome;
@@ -155,12 +170,29 @@ public class AchievementHelper
 		achMountain = (new Achievement(3125, "achMountain", 10, 0, new ItemStack(Blocks.colorizedSaplings.get(), 1, 5), achBOP)).registerAchievement();  
 		
 		achMysticGrove = (new Achievement(3126, "achMysticGrove", -10, 2, new ItemStack(Blocks.saplings.get(), 1, 3), achBOP)).registerAchievement();
+		achOasis = (new Achievement(3127, "achOasis", -8, 2, new ItemStack(Blocks.colorizedSaplings.get(), 1, 2), achBOP)).registerAchievement();
+		achOminousWoods = (new Achievement(3128, "achOminousWoods", -6, 2, new ItemStack(Blocks.flowers.get(), 1, 2), achBOP)).registerAchievement();
+		achOrchard = (new Achievement(3129, "achOrchard", -4, 2, new ItemStack(Blocks.saplings.get(), 1, 0), achBOP)).registerAchievement();
+		achOriginValley = (new Achievement(3130, "achOriginValley", -2, 2, new ItemStack(Blocks.originGrass.get(), 1, 0), achBOP)).registerAchievement();
+		achOutback = (new Achievement(3131, "achOutback", -0, 2, new ItemStack(Blocks.hardSand.get(), 1, 0), achBOP)).registerAchievement();
+		achPasture = (new Achievement(3132, "achPasture", 2, 2, new ItemStack(Blocks.plants.get(), 1, 6), achBOP)).registerAchievement();
+		achPolar = (new Achievement(3133, "achPolar", 4, 2, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement();
+		achPrairie = (new Achievement(3134, "achPrairie", 6, 2, new ItemStack(Blocks.foliage.get(), 1, 2), achBOP)).registerAchievement();
+		achQuagmire = (new Achievement(3135, "achQuagmire", 8, 2, new ItemStack(Blocks.logs3.get(), 1, 2), achBOP)).registerAchievement();
+		achRainforest = (new Achievement(3136, "achRainforest", 10, 2, new ItemStack(Block.leaves, 1, 0), achBOP)).registerAchievement();
+
+		achRedwoodForest = (new Achievement(3137, "achRedwoodForest", -10, 4, new ItemStack(Blocks.colorizedSaplings.get(), 1, 3), achBOP)).registerAchievement(); 
+		achSacredSprings = (new Achievement(3138, "achSacredSprings", -8, 4, new ItemStack(Item.bucketWater, 1, 3), achBOP)).registerAchievement(); 
+		achSavanna = (new Achievement(3139, "achSavanna", -6, 4, new ItemStack(Blocks.colorizedSaplings.get(), 1, 0), achBOP)).registerAchievement();
+		achScrubland = (new Achievement(3140, "achScrubland", -4, 4, new ItemStack(Block.tallGrass, 1, 0), achBOP)).registerAchievement();
+		achSeasonalForest = (new Achievement(3141, "achSeasonalForest", -2, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
 		
 		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achBOP, achAllBiomes, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom, achConiferousForest, 
 				achConiferousForestSnow, achCrag, achDeadForest, achDeadForestSnow, achDeadSwamp, achDeadlands, achDeciduousForest, achDunes, achFen, achField, achFrostForest, achFungiForest, achGarden, achGlacier, achGrassland, achGrove, achHeathland, achHighland, achHotSprings, achIcyHills, 
-				achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove});
+				achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove, achOasis, achOminousWoods, achOrchard, achOriginValley, achOutback, achPasture, achPolar, achPrairie, achQuagmire, achRainforest, achRedwoodForest, achSacredSprings,  
+				achSavanna, achScrubland, achSeasonalForest});
 		
 		AchievementPage.registerAchievementPage(pageBOP);
 		AchievementPage.registerAchievementPage(pageBiome);
@@ -226,6 +258,22 @@ public class AchievementHelper
 		addAchievementDesc("achMoor", "Moor", "Biome Found!");               
 		addAchievementDesc("achMountain", "Mountain", "Biome Found!");           
 		addAchievementDesc("achMysticGrove", "Mystic Grove", "Biome Found!"); 
+		
+		addAchievementDesc("achOasis", "Oasis", "Biome Found!");
+		addAchievementDesc("achOminousWoods", "Ominous Woods", "Biome Found!");
+		addAchievementDesc("achOrchard", "Orchard", "Biome Found!");
+		addAchievementDesc("achOriginValley", "Origin Valley", "Biome Found!");
+		addAchievementDesc("achOutback", "Outback", "Biome Found!");
+		addAchievementDesc("achPasture", "Pasture", "Biome Found!");
+		addAchievementDesc("achPolar", "Polar", "Biome Found!");
+		addAchievementDesc("achPrairie", "Prairie", "Biome Found!");
+		addAchievementDesc("achQuagmire", "Quagmire", "Biome Found!");
+		addAchievementDesc("achRainforest", "Rainforest", "Biome Found!");
+		addAchievementDesc("achRedwoodForest", "Redwood Forest", "Biome Found!");
+		addAchievementDesc("achSacredSprings", "Sacred Springs", "Biome Found!"); 
+		addAchievementDesc("achSavanna", "Savanna", "Biome Found!");
+		addAchievementDesc("achScrubland", "Scrubland", "Biome Found!");
+		addAchievementDesc("achSeasonalForest", "Seasonal Forest", "Biome Found!");
 	}
 
 	// Achievement checker
@@ -498,6 +546,81 @@ public class AchievementHelper
 				if (biomeID == Biomes.mountain.get().biomeID)
 				{
 					player.addStat(AchievementHelper.achMountain, 1);
+				}
+				
+				if (biomeID == Biomes.oasis.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achOasis, 1);
+				}
+				
+				if (biomeID == Biomes.ominousWoods.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achOminousWoods, 1);
+				}
+				
+				if (biomeID == Biomes.orchard.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achOrchard, 1);
+				}
+				
+				if (biomeID == Biomes.originValley.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achOriginValley, 1);
+				}
+				
+				if (biomeID == Biomes.outback.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achOutback, 1);
+				}
+				
+				if (biomeID == Biomes.pasture.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achPasture, 1);
+				}
+				
+				if (biomeID == Biomes.polar.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achPolar, 1);
+				}
+				
+				if (biomeID == Biomes.prairie.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achPrairie, 1);
+				}
+				
+				if (biomeID == Biomes.quagmire.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achQuagmire, 1);
+				}
+				
+				if (biomeID == Biomes.rainforest.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achRainforest, 1);
+				}
+				
+				if (biomeID == Biomes.redwoodForest.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achRedwoodForest, 1);
+				}
+				
+				if (biomeID == Biomes.sacredSprings.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achSacredSprings, 1);
+				}
+				
+				if (biomeID == Biomes.savanna.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achSavanna, 1);
+				}
+				
+				if (biomeID == Biomes.scrubland.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achScrubland, 1);
+				}
+				
+				if (biomeID == Biomes.seasonalForest.get().biomeID)
+				{
+					player.addStat(AchievementHelper.achSeasonalForest, 1);
 				}
 			}
 		}
