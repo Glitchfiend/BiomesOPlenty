@@ -1,7 +1,7 @@
 package biomesoplenty.entities;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.potion.Potion;
@@ -31,7 +31,7 @@ public class EntityJungleSpider extends EntitySpider
 	{
 		if (super.attackEntityAsMob(par1Entity))
 		{
-			if (par1Entity instanceof EntityLiving)
+			if (par1Entity instanceof EntityLivingBase)
 			{
 				byte var2 = 0;
 
@@ -49,7 +49,7 @@ public class EntityJungleSpider extends EntitySpider
 
 				if (var2 > 0)
 				{
-					((EntityLiving)par1Entity).addPotionEffect(new PotionEffect(Potion.blindness.id, var2 * 20, 0));
+					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potion.blindness.id, var2 * 20, 0));
 				}
 			}
 

@@ -9,7 +9,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -127,8 +127,10 @@ public class BlockBOPFlower extends BlockFlower
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (!world.isRemote && meta == 2 && entity instanceof EntityLiving) {
-			((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
+		
+		if (!world.isRemote && meta == 2 && entity instanceof EntityLivingBase) 
+		{
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
 		}
 
 		if (meta == 11) {

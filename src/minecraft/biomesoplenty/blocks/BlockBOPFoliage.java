@@ -10,7 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -186,8 +186,9 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	{
 		int meta = par1World.getBlockMetadata(x, y, z);
 
-		if (!par1World.isRemote && meta == 7 && par5Entity instanceof EntityLiving) {
-			((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+		if (!par1World.isRemote && meta == 7 && par5Entity instanceof EntityLivingBase) 
+		{
+			((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 		}
 	}
 
