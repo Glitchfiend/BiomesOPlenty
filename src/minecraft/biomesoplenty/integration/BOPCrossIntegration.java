@@ -79,17 +79,6 @@ public class BOPCrossIntegration {
 			}
 		}
 
-		if (Loader.isModLoaded("BWG4"))
-		{
-			try {
-				BWG4Integration.init();
-			}
-			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating Better World Generation 4 with Biomes O' Plenty!");
-				e.printStackTrace(System.err);
-			}
-		}
-
 		if (Loader.isModLoaded("Forestry"))
 		{
 			try {
