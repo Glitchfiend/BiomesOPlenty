@@ -1,6 +1,7 @@
 package biomesoplenty.items.projectiles;
 
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -19,9 +20,9 @@ public class EntityMudball extends EntityThrowable
 		super(par1World);
 	}
 
-	public EntityMudball(World par1World, EntityLiving par2EntityLiving)
+	public EntityMudball(World par1World, EntityLivingBase par2EntityLivingBase)
 	{
-		super(par1World, par2EntityLiving);
+		super(par1World, par2EntityLivingBase);
 	}
 
 	public EntityMudball(World par1World, double par2, double par4, double par6)
@@ -32,7 +33,6 @@ public class EntityMudball extends EntityThrowable
 	@Override
 	protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
 	{
-
 		if (par1MovingObjectPosition.entityHit != null)
 		{
 			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0);
