@@ -8,7 +8,6 @@ import net.minecraft.potion.Potion;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Potions;
 import biomesoplenty.potions.PotionEventHandler;
-import biomesoplenty.potions.PotionNourishment;
 import biomesoplenty.potions.PotionParalysis;
 
 import com.google.common.base.Optional;
@@ -32,8 +31,7 @@ public class BOPPotions
 
 	private static void intializePotions()
 	{
-		Potions.nourishment = Optional.of((new PotionNourishment(potionOffset + 0, false, 0)).setPotionName("potion.nourishment"));
-		Potions.paralysis = Optional.of((new PotionParalysis(potionOffset + 1, true, 16767262)).setPotionName("potion.paralysis"));
+		Potions.paralysis = Optional.of((new PotionParalysis(potionOffset + 0, true, 16767262)).setPotionName("potion.paralysis"));
 	}
 
 	private static void registerPotionNames()
