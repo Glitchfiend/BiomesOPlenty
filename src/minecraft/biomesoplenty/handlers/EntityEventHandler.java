@@ -23,7 +23,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
@@ -119,74 +118,6 @@ public class EntityEventHandler
 				{
 					EntityPlayerMP thePlayer = (EntityPlayerMP) event.entityLiving;
 					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(0), true));
-				}
-			}
-		}
-	}
-	
-	@ForgeSubscribe
-	public void chunkEntered(EntityEvent.EnteringChunk event)
-	{
-		if (event.entity != null)
-		{
-			if (event.entity instanceof EntityPlayer)
-			{
-				EntityPlayer player = (EntityPlayer)event.entity;
-				World world = player.worldObj;
-				
-				int x = MathHelper.floor_double(player.posX);
-				int y = MathHelper.floor_double(player.boundingBox.minY);
-				int z = MathHelper.floor_double(player.posZ);
-				
-				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
-				
-				if (biomeID == Biomes.alps.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achAlps, 1);
-				}
-				if (biomeID == Biomes.arctic.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achArctic, 1);
-				}
-				if (biomeID == Biomes.badlands.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBadlands, 1);
-				}
-				if (biomeID == Biomes.bambooForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBambooForest, 1);
-				}
-				if (biomeID == Biomes.bayou.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBayou, 1);
-				}
-				if (biomeID == Biomes.birchForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBirchForest, 1);
-				}
-				if (biomeID == Biomes.bog.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBog, 1);
-				}
-				if (biomeID == Biomes.borealForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBorealForest, 1);
-				}
-				if (biomeID == Biomes.brushland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBrushland, 1);
-				}
-				if (biomeID == Biomes.canyon.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achCanyon, 1);
-				}
-				if (biomeID == Biomes.chaparral.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achChaparral, 1);
-				}
-				if (biomeID == Biomes.cherryBlossomGrove.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achCherryBlossom, 1);
 				}
 			}
 		}
