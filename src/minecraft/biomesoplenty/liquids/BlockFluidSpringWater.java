@@ -20,7 +20,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.liquids.ILiquid;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Liquids;
-import biomesoplenty.api.Potions;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -73,21 +72,29 @@ public class BlockFluidSpringWater extends BlockFluidClassic implements ILiquid
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int x, int y, int z, Entity par5Entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		int meta = par1World.getBlockMetadata(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		
-		if (!par1World.isRemote)
+		if (!world.isRemote)
 		{
-			if (par5Entity instanceof EntityLivingBase) 
+			if (entity instanceof EntityLivingBase) 
 			{
-				((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
+				((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 1));
 			}
 
-			if (par5Entity instanceof EntityPlayer) 
+			if (entity instanceof EntityPlayer) 
 			{
-				((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 1));
+				if (world.rand.nextInt(150) == 0)
+				{
+					EntityPlayer player = (EntityPlayer)entity;
+
+					if (player.getFoodStats().needFood())
+					{
+						((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 1));
+					}
+				}
 			}
 		}
 	}
