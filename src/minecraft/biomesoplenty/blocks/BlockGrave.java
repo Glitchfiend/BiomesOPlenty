@@ -4,9 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.particle.EntityDiggingFX;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
@@ -16,6 +18,8 @@ import biomesoplenty.tileentity.TileEntityGrave;
 
 public class BlockGrave extends Block
 {
+	public static Icon blank;
+	
 	public BlockGrave(int id)
 	{
 		super(id, Material.rock);
@@ -24,7 +28,18 @@ public class BlockGrave extends Block
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
+	@Override
+	public void registerIcons(IconRegister iconRegister)
+	{
+		blank = iconRegister.registerIcon("BiomesOPlenty:blank");
+	}
 
+	@Override
+	public Icon getIcon(int side, int meta)
+	{
+		return blank;
+	}
+	
     @Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemstack)
     {
