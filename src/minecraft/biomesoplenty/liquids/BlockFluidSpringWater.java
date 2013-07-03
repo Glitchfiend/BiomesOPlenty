@@ -87,7 +87,7 @@ public class BlockFluidSpringWater extends BlockFluidClassic implements ILiquid
 
 			if (par5Entity instanceof EntityPlayer) 
 			{
-				((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potions.nourishment.get().id, 1));
+				((EntityPlayer)par5Entity).addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 1));
 			}
 		}
 	}
