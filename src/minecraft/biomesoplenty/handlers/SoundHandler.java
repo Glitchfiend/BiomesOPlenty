@@ -37,8 +37,6 @@ public class SoundHandler
             try 
             {
                 event.manager.soundPoolStreaming.addSound(recordSoundFile.func_110623_a());
-                Throwable throwable = new Throwable();
-                throwable.printStackTrace();
             }
 
             catch (Exception e) 

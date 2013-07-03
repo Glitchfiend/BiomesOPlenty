@@ -106,7 +106,7 @@ public class BlockBOPGlass extends Block
 							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 2));
 						}
 
-						FMLClientHandler.instance().getClient().sndManager.playSound("mods.BiomesOPlenty.audio.villager.no", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
+						FMLClientHandler.instance().getClient().sndManager.playSound("mob.villager.idle", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
 
 						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 
