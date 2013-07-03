@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class SoundHandler 
 {
-	static ResourceLocation[] recordSoundFiles = { new ResourceLocation("biomesoplenty", "records/" + "bopdisc.ogg"), new ResourceLocation("biomesoplenty", "records/" + "bopdiscmud.ogg") };
+	static ResourceLocation[] recordSoundFiles = { new ResourceLocation(/*"biomesoplenty", "records/" + */"bopdisc.ogg"), new ResourceLocation(/*"biomesoplenty", "records/" + */"bopdiscmud.ogg") };
 	static String[] soundFiles = { };
 	
 	@SideOnly(Side.CLIENT)
@@ -53,7 +53,7 @@ public class SoundHandler
 		if (event.name == "bopdisc")
 		{
 			//FMLClientHandler.instance().getClient().sndManager.playStreaming("records.biomesoplenty.bopdisc", (float) event.x + 0.5F, (float) event.y + 0.5F, (float) event.z + 0.5F);
-            System.out.println(event.manager.soundPoolStreaming.getRandomSound().func_110457_b());
+            //System.out.println(event.manager.soundPoolStreaming.getRandomSound().func_110457_b());
 		}
 		else if (event.name == "bopdiscmud")
 		{
