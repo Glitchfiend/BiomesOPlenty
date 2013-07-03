@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityVillager;
@@ -25,6 +26,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
@@ -83,6 +85,27 @@ public class EntityEventHandler
 			}
 		}
 	}*/
+	
+	@ForgeSubscribe
+	public void changeHorseType(EntityJoinWorldEvent event)
+	{
+		World world = event.world;
+		
+		if (event.entity instanceof EntityHorse)
+		{
+			int x = MathHelper.floor_double(event.entity.posX);
+			int y = MathHelper.floor_double(event.entity.boundingBox.minY);
+			int z = MathHelper.floor_double(event.entity.posZ);
+			
+			EntityHorse horse = (EntityHorse)event.entity;
+			
+			//horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)x); x: 0 = Horses, 1 = Mules, 2 = Dark Brown Donkey, 3 = Zombie Horse, 4 = Skeleton Horse
+			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.grassland.get().biomeID)
+			{
+				horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)2));
+			}
+		}
+	}
 
 	@ForgeSubscribe
 	public void fallingFromPromisedLand(LivingHurtEvent event)

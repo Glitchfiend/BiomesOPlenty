@@ -17,7 +17,6 @@ import biomesoplenty.worldgen.WorldGenPrairie;
 import biomesoplenty.worldgen.WorldGenSwampTall;
 import biomesoplenty.worldgen.WorldGenThickTree2;
 import biomesoplenty.worldgen.WorldGenThickTree3;
-import biomesoplenty.worldgen.WorldGenWillow;
 
 public class BiomeGenFungiForest extends BiomeGenBase
 {
