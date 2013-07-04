@@ -396,7 +396,6 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.grove);
 		addSpawnBiome(Biomes.heathland);
 		addSpawnBiome(Biomes.highland);
-		addSpawnBiome(Biomes.hotSprings);
 		addSpawnBiome(Biomes.jadeCliffs);
 		addSpawnBiome(Biomes.lushDesert);
 		addSpawnBiome(Biomes.lushSwamp);
@@ -408,7 +407,6 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.moor);
 		addSpawnBiome(Biomes.mountain);
 		addSpawnBiome(Biomes.oasis);
-		addSpawnBiome(Biomes.orchard);
 		addSpawnBiome(Biomes.outback);
 		addSpawnBiome(Biomes.pasture);
 		addSpawnBiome(Biomes.polar);

@@ -24,7 +24,7 @@ public class BiomeGenHotSprings extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 3;
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.outbackPerChunk = 5;
-		customBiomeDecorator.hotSpringsPerChunk = 25;
+		customBiomeDecorator.hotSpringsPerChunk = 8;
 		customBiomeDecorator.lavaLakesPerChunk = 5;
 	}
 	

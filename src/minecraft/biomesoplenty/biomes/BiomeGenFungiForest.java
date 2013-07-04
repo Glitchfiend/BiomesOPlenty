@@ -12,8 +12,8 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenFungi;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenPrairie;
 import biomesoplenty.worldgen.WorldGenSwampTall;
 import biomesoplenty.worldgen.WorldGenThickTree2;
 import biomesoplenty.worldgen.WorldGenThickTree3;
@@ -73,7 +73,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
-		 return par1Random.nextInt(2) == 0 ? new WorldGenThickTree2(false) : (par1Random.nextInt(7) == 0 ? new WorldGenThickTree3(false) : (par1Random.nextInt(3) == 0 ? new WorldGenPrairie(false) : new WorldGenSwampTall()));
+		 return par1Random.nextInt(2) == 0 ? new WorldGenThickTree2(false) : (par1Random.nextInt(7) == 0 ? new WorldGenThickTree3(false) : (par1Random.nextInt(3) == 0 ? new WorldGenFungi() : new WorldGenFungi()));
 	 }
 
 	 /**

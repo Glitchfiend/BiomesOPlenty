@@ -619,7 +619,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < 5; ++var2)
 		 {
-			 int var9999 = randomGenerator.nextInt(32);
+			 int var9999 = randomGenerator.nextInt(96);
 
 			 if (var9999 == 1)
 			 {
@@ -640,7 +640,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 
 		 for (var2 = 0; var2 < 5; ++var2)
 		 {
-			 int var9998 = randomGenerator.nextInt(16);
+			 int var9998 = randomGenerator.nextInt(32);
 
 			 if (var9998 == 1)
 			 {

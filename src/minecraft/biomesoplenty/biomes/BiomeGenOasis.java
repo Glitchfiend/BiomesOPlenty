@@ -34,7 +34,7 @@ public class BiomeGenOasis extends BiomeGenBase
 		customBiomeDecorator.generateQuicksand = true;
 		customBiomeDecorator.waterLakesPerChunk = 10;
 		customBiomeDecorator.aloePerChunk = 4;
-		customBiomeDecorator.hotSpringsPerChunk = 2;
+		customBiomeDecorator.hotSpringsPerChunk = 1;
 	}
 	
 	@Override

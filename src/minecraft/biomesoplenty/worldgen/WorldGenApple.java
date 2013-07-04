@@ -91,29 +91,29 @@ public class WorldGenApple extends WorldGenerator
 
 								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
 								{
-									var99 = par2Random.nextInt(15);
+									var99 = par2Random.nextInt(50);
 
-									if (var99 == 0)
+									if (var99 == 44)
 									{
 										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 3);
 									}
-									else if (var99 == 1)
+									else if (var99 ==30)
 									{
 										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 2);
 									}
-									else if (var99 == 2)
+									else if (var99 == 15)
 									{
 										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 2);
 									}
-									else if (var99 == 3)
-									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 1);
-									}
-									else if (var99 == 4)
+									else if (var99 == 10)
 									{
 										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 1);
 									}
 									else if (var99 == 5)
+									{
+										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 1);
+									}
+									else if (var99 == 0)
 									{
 										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit.get().blockID, 1);
 									}

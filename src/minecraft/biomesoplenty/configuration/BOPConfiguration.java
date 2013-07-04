@@ -505,11 +505,11 @@ public class BOPConfiguration {
 			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
 			achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
-			springWaterPickup = config.get("Miscellanious Settings", "Enable Spring Water Pickup", true).getBoolean(true);
+			springWaterPickup = config.get("Miscellanious Settings", "Enable Spring Water Pickup", false).getBoolean(true);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
-			rainCreatesPuddles = config.get("Miscellanious Settings", "Puddles have a chance of being spawned during the rain", true).getBoolean(true);
+			rainCreatesPuddles = config.get("Miscellanious Settings", "Enable Puddles During Rain", true).getBoolean(true);
 
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 

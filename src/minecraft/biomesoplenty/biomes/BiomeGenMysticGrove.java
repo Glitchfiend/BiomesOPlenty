@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenMystic1;
 import biomesoplenty.worldgen.WorldGenMystic2;
+import biomesoplenty.worldgen.WorldGenMystic3;
 
 public class BiomeGenMysticGrove extends BiomeGenBase
 {
@@ -51,7 +52,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : new WorldGenMystic1(false);
+		return par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : new WorldGenMystic3();
 	}
 
 	/**

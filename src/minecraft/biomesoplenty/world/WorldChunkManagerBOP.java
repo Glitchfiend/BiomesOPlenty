@@ -76,8 +76,6 @@ public class WorldChunkManagerBOP extends WorldChunkManager
 		addSpawnBiomes(Biomes.meadow);
 		addSpawnBiomes(Biomes.mesa);
 		addSpawnBiomes(Biomes.mountain);
-		addSpawnBiomes(Biomes.oasis);
-		addSpawnBiomes(Biomes.orchard);
 		addSpawnBiomes(Biomes.pasture);
 		addSpawnBiomes(Biomes.prairie);
 		addSpawnBiomes(Biomes.quagmire);
