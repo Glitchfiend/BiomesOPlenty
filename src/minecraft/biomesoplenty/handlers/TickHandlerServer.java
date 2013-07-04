@@ -68,9 +68,12 @@ public class TickHandlerServer implements ITickHandler
 
                 if (l == Block.dirt.blockID || l == Block.grass.blockID)
                 {
-                	if (worldserver.isBlockSolidOnSide(par1 + 1, par2 - 1, par3, ForgeDirection.UP) && worldserver.isBlockSolidOnSide(par1 - 1, par2 - 1, par3, ForgeDirection.UP) && worldserver.isBlockSolidOnSide(par1, par2 - 1, par3 + 1, ForgeDirection.UP) && worldserver.isBlockSolidOnSide(par1, par2 - 1, par3 - 1, ForgeDirection.UP))
+                	if (worldserver.getBlockId(par1, par2, par3) == 0)
                 	{
-                		return true;
+                		if (worldserver.isBlockSolidOnSide(par1 + 1, par2 - 1, par3, ForgeDirection.UP) && worldserver.isBlockSolidOnSide(par1 - 1, par2 - 1, par3, ForgeDirection.UP) && worldserver.isBlockSolidOnSide(par1, par2 - 1, par3 + 1, ForgeDirection.UP) && worldserver.isBlockSolidOnSide(par1, par2 - 1, par3 - 1, ForgeDirection.UP))
+                		{
+                			return true;
+                		}
                 	}
                 }
             }
