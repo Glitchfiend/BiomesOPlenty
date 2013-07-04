@@ -217,29 +217,28 @@ public class AchievementHelper
 		achShrubland = (new Achievement(3143, "achShrubland", 2, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 		achSludgepit = (new Achievement(3144, "achSludgepit", 4, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 		achSpruceWoods = (new Achievement(3145, "achSpruceWoods", 6, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achSeasonalForest = (new Achievement(3146, "achSeasonalForest", 8, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achSteppe = (new Achievement(3147, "achSteppe", 10, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achSteppe = (new Achievement(3146, "achSteppe", 10, 4, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 		
-		achTemperateRainforest = (new Achievement(3148, "achTemperateRainforest", -10, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achThicket = (new Achievement(3149, "achThicket", -8, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achTimber = (new Achievement(3150, "achTimber", -6, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achTropicalRainforest = (new Achievement(3151, "achTropicalRainforest", -4, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achTropics = (new Achievement(3152, "achTropics", -2, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achTundra = (new Achievement(3153, "achTundra", 0, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achVolcano = (new Achievement(3154, "achVolcano", 2, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achWasteland = (new Achievement(3155, "achWasteland", 4, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achWetland = (new Achievement(3156, "achThicket", 6, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achWoodland = (new Achievement(3157, "achThicket", 8, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achDesert = (new Achievement(3158, "achDesert", 10, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achTemperateRainforest = (new Achievement(3147, "achTemperateRainforest", -10, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achThicket = (new Achievement(3148, "achThicket", -8, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achTimber = (new Achievement(3149, "achTimber", -6, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achTropicalRainforest = (new Achievement(3150, "achTropicalRainforest", -4, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achTropics = (new Achievement(3151, "achTropics", -2, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achTundra = (new Achievement(3152, "achTundra", 0, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achVolcano = (new Achievement(3153, "achVolcano", 2, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achWasteland = (new Achievement(3154, "achWasteland", 4, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achWetland = (new Achievement(3155, "achThicket", 6, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achWoodland = (new Achievement(3156, "achThicket", 8, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achDesert = (new Achievement(3157, "achDesert", 10, 6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 		
-		achExtremeHills = (new Achievement(3159, "achExtremeHills", -10, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achForest = (new Achievement(3160, "achForest", -8, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achIcePlains = (new Achievement(3161, "achIcePlains", -6, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achJungle = (new Achievement(3162, "achJungle", -4, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achMushroomIsland = (new Achievement(3163, "achMushroomIsland", -2, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achPlains = (new Achievement(3164, "achPlains", 0, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achSwampland = (new Achievement(3165, "achSwampland", 2, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
-		achTaiga = (new Achievement(3166, "achTaiga", 4, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achExtremeHills = (new Achievement(3158, "achExtremeHills", -10, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achForest = (new Achievement(3159, "achForest", -8, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achIcePlains = (new Achievement(3160, "achIcePlains", -6, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achJungle = (new Achievement(3161, "achJungle", -4, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achMushroomIsland = (new Achievement(3162, "achMushroomIsland", -2, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achPlains = (new Achievement(3163, "achPlains", 0, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achSwampland = (new Achievement(3164, "achSwampland", 2, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
+		achTaiga = (new Achievement(3165, "achTaiga", 4, 8, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
 		
