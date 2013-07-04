@@ -1,5 +1,7 @@
 package biomesoplenty.blocks;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
@@ -62,6 +64,7 @@ public class BlockGrave extends Block
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
 	public boolean addBlockHitEffects(World worldObj, MovingObjectPosition target, EffectRenderer effectRenderer)
     {
     	int i1 = worldObj.getBlockId(target.blockX, target.blockY, target.blockZ);
@@ -111,6 +114,7 @@ public class BlockGrave extends Block
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
     public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
     {
         byte b0 = 4;

@@ -71,7 +71,10 @@ public class BiomesOPlenty
 		BOPEntities.init();
 		BOPVanillaCompat.init();
 		
-        Localizations.loadLanguages();
+		if (proxy instanceof ClientProxy)
+		{
+			Localizations.loadLanguages();
+		}
 
 		// Achievement declaration
 		if (BOPConfiguration.achievements)
@@ -81,7 +84,10 @@ public class BiomesOPlenty
 
 		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
 		
-		MinecraftForge.EVENT_BUS.register(new SoundHandler());
+		if (proxy instanceof ClientProxy)
+		{
+			MinecraftForge.EVENT_BUS.register(new SoundHandler());
+		}
 		
 		BOPCrossIntegration.preInit();
 	}
