@@ -12,7 +12,6 @@
 		<delete dir="${build.dir.development}\forge\mcp\src\minecraft\powercrystals" />
 		<delete dir="${build.dir.development}\forge\mcp\src\minecraft\thaumcraft" />
 		<delete dir="${build.dir.development}\forge\mcp\src\minecraft\thermalexpansion" />
-		<delete dir="${build.dir.development}\forge\mcp\src\minecraft\net\minecraftforge\fluids" />
 		<delete dir="${build.dir.development}\forge\mcp\reobf\minecraft" />
 	</target>
 
