@@ -40,7 +40,7 @@ public class ItemBOPAncientStaff extends Item
     }
 
 	@Override
-	public boolean hasEffect(ItemStack itemStack)
+	public boolean hasEffect(ItemStack itemStack, int pass)
 	{
 		if (itemStack.getItemDamage() == 0)
 			return true;

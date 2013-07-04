@@ -27,7 +27,7 @@ public class ItemEnderporter extends Item
 	}
 
 	@Override
-	public boolean hasEffect(ItemStack par1ItemStack)
+	public boolean hasEffect(ItemStack par1ItemStack, int pass)
 	{
 		return true;
 	}

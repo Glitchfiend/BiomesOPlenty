@@ -17,7 +17,7 @@ public class TileEntityGraveRenderer extends TileEntitySpecialRenderer
     private ModelGrave0 modelGrave = new ModelGrave0();
     
     @Override
-    public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z,float tick)
+    public void renderTileEntityAt(TileEntity tileentity, double x, double y, double z, float tick)
     {
     	World world = tileentity.worldObj;
 

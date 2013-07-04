@@ -7,8 +7,6 @@ import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.RenderBlockFluid;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
@@ -63,10 +61,6 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
 		RenderingRegistry.registerBlockHandler(new AltarRenderer());
 		RenderingRegistry.registerBlockHandler(new PuddleRender());
-
-		//TODO: Remove upon Fluid API being integrated into Forge
-		FluidRegistry.renderIdFluid = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(RenderBlockFluid.instance);
 	}
 
 	@Override

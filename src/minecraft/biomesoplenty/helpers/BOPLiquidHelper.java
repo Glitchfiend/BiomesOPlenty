@@ -1,35 +1,16 @@
 package biomesoplenty.helpers;
 
-import net.minecraft.block.BlockFluid;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.liquids.LiquidDictionary;
 import biomesoplenty.api.Liquids;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BOPLiquidHelper
 {
-	@ForgeSubscribe
-	@SideOnly(Side.CLIENT)
-	public void textureHook(TextureStitchEvent.Post event)
-	{
-		//TODO: Remove upon Fluid API being integrated into Forge
-		FluidRegistry.WATER.setIcons(BlockFluid.func_94424_b("water"), BlockFluid.func_94424_b("water_flow"));
-		FluidRegistry.LAVA.setIcons(BlockFluid.func_94424_b("lava"), BlockFluid.func_94424_b("lava_flow"));
-		
-		//TODO: Remove upon Fluid API being integrated into Forge
-		LiquidDictionary.getCanonicalLiquid("Spring Water").setRenderingIcon(Liquids.springWater.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
-		LiquidDictionary.getCanonicalLiquid("Liquid Poison").setRenderingIcon(Liquids.liquidPoison.get().getBlockTextureFromSide(1)).setTextureSheet("/terrain.png");
-	}
-
 	@ForgeSubscribe
 	public void onBucketFill(FillBucketEvent event)
 	{
