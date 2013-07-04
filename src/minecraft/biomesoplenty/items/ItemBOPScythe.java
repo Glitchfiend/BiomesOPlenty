@@ -174,16 +174,13 @@ public class ItemBOPScythe extends Item
     				{    					
     					if (block.isLeaves(world, x + aX, y + aY, z + aZ))
     					{
-    						if (block.isLeaves(world, x + aX + 1, y + aY, z + aZ) && block.isLeaves(world, x + aX - 1, y + aY, z + aZ) && block.isLeaves(world, x + aX, y + aY, z + aZ + 1) && block.isLeaves(world, x + aX, y + aY, z + aZ - 1))
+    						if (world.rand.nextInt(6) == 0)
     						{
-    							if (world.rand.nextInt(6) == 0)
-    							{
-    								stack.damageItem(1, entity);
-    							}
-
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							stack.damageItem(1, entity);
     						}
+
+    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
+    						world.setBlockToAir(x + aX, y + aY, z + aZ);
     					}
     				}
     			}
