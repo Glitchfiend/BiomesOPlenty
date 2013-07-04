@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.logging.Level;
 
 import net.minecraft.world.World;
@@ -42,20 +41,25 @@ public class Version implements Runnable {
 		return currentVersion == EnumUpdateState.OUTDATED;
 	}
 
+	@SuppressWarnings("unused")
 	public static boolean needsUpdateNoticeAndMarkAsSeen() 
 	{
 		if (!isOutdated())
 			return false;
-
-		Property property = BOPConfiguration.config.get("Vars", "Seen Version", VERSION);
-		String seenVersion = property.getString();
-
-		if (recommendedVersion == null || recommendedVersion.equals(seenVersion))
+		
+		if (VERSION == "@VERSION@")
 			return false;
 
-		property.set(recommendedVersion);
+		//Property property = BOPConfiguration.config.get("Vars", "Seen Version", VERSION);
+		//String seenVersion = property.getString();
+
+		//if (recommendedVersion == null || recommendedVersion.equals(seenVersion))
+			//return false;
+
+		/*property.set(recommendedVersion);
 		
-		BOPConfiguration.config.save();
+		BOPConfiguration.config.save();*/
+		
 		return true;
 	}
 	
