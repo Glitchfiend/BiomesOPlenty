@@ -10,7 +10,6 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenMystic1;
 import biomesoplenty.worldgen.WorldGenMystic2;
 import biomesoplenty.worldgen.WorldGenMystic3;
 

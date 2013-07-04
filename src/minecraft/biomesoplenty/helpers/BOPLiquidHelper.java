@@ -12,7 +12,6 @@ import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.liquids.LiquidDictionary;
 import biomesoplenty.api.Liquids;
-import biomesoplenty.configuration.BOPConfiguration;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -52,14 +51,7 @@ public class BOPLiquidHelper
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
-			if (BOPConfiguration.springWaterPickup)
-			{
-				return new ItemStack(Liquids.bopBucket.get(), 1, 0);
-			}
-			else
-			{
-				return new ItemStack(Item.bucketWater);
-			}
+			return new ItemStack(Item.bucketWater);
 		}
 
 		if ((blockID == Liquids.liquidPoison.get().blockID) && meta == 0)

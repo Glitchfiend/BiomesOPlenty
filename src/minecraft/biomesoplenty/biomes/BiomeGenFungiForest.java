@@ -14,7 +14,6 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenFungi;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenSwampTall;
 import biomesoplenty.worldgen.WorldGenThickTree2;
 import biomesoplenty.worldgen.WorldGenThickTree3;
 

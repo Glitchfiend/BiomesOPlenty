@@ -20,7 +20,6 @@ public class BOPConfiguration {
 	public static boolean dungeonLoot;
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
-	public static boolean springWaterPickup;
 	public static boolean rainCreatesPuddles;
 
 	public static int villageDistance;
@@ -505,7 +504,6 @@ public class BOPConfiguration {
 			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
 			achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
-			springWaterPickup = config.get("Miscellanious Settings", "Enable Spring Water Pickup", false).getBoolean(true);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
