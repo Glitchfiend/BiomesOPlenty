@@ -25,6 +25,7 @@ import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent.CheckSpawn;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
@@ -85,6 +86,35 @@ public class EntityEventHandler
 	}*/
 	
 	@ForgeSubscribe
+	public void canHorseSpawn(CheckSpawn event)
+	{
+		World world = event.world;
+		
+		if (event.entity instanceof EntityHorse)
+		{
+			int x = MathHelper.floor_double(event.entity.posX);
+			int y = MathHelper.floor_double(event.entity.boundingBox.minY);
+			int z = MathHelper.floor_double(event.entity.posZ);
+			
+			EntityHorse horse = (EntityHorse)event.entity;
+			
+			//horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)x); x: 0 = Horses, 1 = Mules, 2 = Dark Brown Donkey, 3 = Zombie Horse, 4 = Skeleton Horse
+			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.grassland.get().biomeID)
+			{
+				if (horse.getDataWatcher().getWatchableObjectByte(19) == (byte)4)
+				{
+					event.setResult(Result.ALLOW);
+				}
+				else
+				{
+					horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)4));
+					event.setResult(Result.ALLOW);
+				}
+			}
+		}
+	}
+	
+	@ForgeSubscribe
 	public void changeHorseType(EntityJoinWorldEvent event)
 	{
 		World world = event.world;
@@ -100,7 +130,7 @@ public class EntityEventHandler
 			//horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)x); x: 0 = Horses, 1 = Mules, 2 = Dark Brown Donkey, 3 = Zombie Horse, 4 = Skeleton Horse
 			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.grassland.get().biomeID)
 			{
-				horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)2));
+				horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)4));
 			}
 		}
 	}
