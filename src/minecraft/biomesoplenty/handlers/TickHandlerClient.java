@@ -32,12 +32,7 @@ public class TickHandlerClient implements ITickHandler
 
 		if (Version.needsUpdateNoticeAndMarkAsSeen()) 
 		{
-			player.addChatMessage(String.format("\u00A7cA new version of Biomes O Plenty is available: %s for Minecraft %s", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion()));
-			
-			for (String updateLine : Version.getChangelog()) 
-			{
-				player.addChatMessage("\u00A79" + updateLine);
-			}
+			player.addChatMessage(String.format("\u00A7cA new version of Biomes O Plenty is available: v%s for Minecraft %s", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion()));
 		}
 
 		nagged = true;
