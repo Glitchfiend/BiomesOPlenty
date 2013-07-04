@@ -84,22 +84,18 @@ public class ItemBOPScythe extends Item
     		{
         		if (height > 0)
         		{
-        			trimLeaves(world, x, y, z, height, radius);
-
-        			itemstack.damageItem(1, entity);
+        			trimLeaves(itemstack, entity, world, x, y, z, height, radius);
 
         			return true;
         		}
     		}
     		else
     		{
-    			trimCutCorner(world, x, y, z, height, radius);
+    			trimCutCorner(itemstack, entity, world, x, y, z, height, radius);
 
     			if (world.rand.nextInt(3) == 0)
     			{
-    				trim(world, x, y, z, height, radius - 1);
-
-    				itemstack.damageItem(1, entity);
+    				trim(itemstack, entity, world, x, y, z, height, radius - 1);
 
     				return true;
     			}
@@ -109,7 +105,7 @@ public class ItemBOPScythe extends Item
         return false;
     }
     
-    public void trim(World world, int x, int y, int z, int height, int radius)
+    public void trim(ItemStack stack, EntityLivingBase entity, World world, int x, int y, int z, int height, int radius)
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
@@ -122,6 +118,11 @@ public class ItemBOPScythe extends Item
 
     				if (block != null)
     				{
+        				if (world.rand.nextInt(3) == 0)
+        				{
+        					stack.damageItem(1, entity);
+        				}
+    					
     					if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
     					{
     						if (meta == 1)
@@ -158,7 +159,7 @@ public class ItemBOPScythe extends Item
     	}
     }
     
-    public void trimLeaves(World world, int x, int y, int z, int height, int radius)
+    public void trimLeaves(ItemStack stack, EntityLivingBase entity, World world, int x, int y, int z, int height, int radius)
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
@@ -170,11 +171,19 @@ public class ItemBOPScythe extends Item
     				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
     				if (block != null)
-    				{
+    				{    					
     					if (block.isLeaves(world, x + aX, y + aY, z + aZ))
     					{
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlockToAir(x + aX, y + aY, z + aZ);
+    						if (block.isLeaves(world, x + aX + 1, y + aY, z + aZ) && block.isLeaves(world, x + aX - 1, y + aY, z + aZ) && block.isLeaves(world, x + aX, y + aY, z + aZ + 1) && block.isLeaves(world, x + aX, y + aY, z + aZ - 1))
+    						{
+    							if (world.rand.nextInt(6) == 0)
+    							{
+    								stack.damageItem(1, entity);
+    							}
+
+    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
+    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    						}
     					}
     				}
     			}
@@ -182,7 +191,7 @@ public class ItemBOPScythe extends Item
     	}
     }
     
-    public void trimCutCorner(World world, int x, int y, int z, int height, int radius)
+    public void trimCutCorner(ItemStack stack, EntityLivingBase entity, World world, int x, int y, int z, int height, int radius)
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
@@ -197,6 +206,11 @@ public class ItemBOPScythe extends Item
 
     					if (block != null)
     					{
+            				if (world.rand.nextInt(4) == 0)
+            				{
+            					stack.damageItem(1, entity);
+            				}
+    						
     						if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
     						{
     							if (meta == 1)
