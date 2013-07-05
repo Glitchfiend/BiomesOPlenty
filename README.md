@@ -41,30 +41,28 @@
 	- Switched to a new localizations system (Not that anyone will use it)
 	- Fixed Thaumcraft Golem working on Apple Trees
 	- Added Minefactory Reloaded compatibility
-	- Changed the default Moss ID to shut people up
-	- Added a warning to shut people up about there being no biomes
+	- Changed the default Moss ID
+	- Added a warning when using the default world type without the config option enabled
 	- New version checking system
 	- Added Biome Finder achievements
 	- Added Tinkers construct integration for Amethyst tools
-	- Added an option to turn Spring Water into Regular Water on pickup
 	- Fixed an exploit with shears and berry bushes
 	- Added support for Better Grass and Leaves
 	- Tweaked the Fungi Forest trees
 	- Tweaked pyramid generation
 	- Made the BOP world type able to have biomes from other mods
-	- Added puddles
+	- Added puddles that generate in the rain
 	- Fixed grass not dropping seeds
 	- Added graves
-	- Updated to Minecraft 1.6
 	- Made horses spawn in several biomes
-	- Removed the Nourishment effect, using Vanilla Saturation instead where needed
+	- Removed the Nourishment effect
 	- Removed BWG4 integration (Ted wanted to move it into BWG4 itself)
-	- You can no longer spawn in the oasis or orchard
+	- You can no longer spawn in the hot springs or orchard
 	- Tweaked hot springs generation
 	- Tweaked apple tree generation
 	- Spring water can no longer be picked up by hand
 	- Algae is now biome coloured
-	- Tweaked the badlands
+	- Tweaked the Badlands
 	- Tweaked the Mystic Grove
 
 	  Version 0.5.5 '04-06-13'
