@@ -59,6 +59,13 @@
 	- Made horses spawn in several biomes
 	- Removed the Nourishment effect, using Vanilla Saturation instead where needed
 	- Removed BWG4 integration (Ted wanted to move it into BWG4 itself)
+	- You can no longer spawn in the oasis or orchard
+	- Tweaked hot springs generation
+	- Tweaked apple tree generation
+	- Spring water can no longer be picked up by hand
+	- Algae is now biome coloured
+	- Tweaked the badlands
+	- Tweaked the Mystic Grove
 
 	  Version 0.5.5 '04-06-13'
 	- Fixed warnings on startup about Thaumcraft compatibility
