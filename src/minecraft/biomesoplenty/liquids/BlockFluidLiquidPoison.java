@@ -12,11 +12,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.liquids.ILiquid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFluidLiquidPoison extends BlockFluidClassic implements ILiquid
+public class BlockFluidLiquidPoison extends BlockFluidClassic
 {
 	public static Icon liquidPoisonStillIcon;
 	public static Icon liquidPoisonFlowingIcon;
@@ -78,23 +77,5 @@ public class BlockFluidLiquidPoison extends BlockFluidClassic implements ILiquid
 	public Icon getIcon(int par1, int par2)
 	{
 		return par1 != 0 && par1 != 1 ? liquidPoisonFlowingIcon : liquidPoisonStillIcon;
-	}
-
-	@Override
-	public int stillLiquidId() 
-	{
-		return this.blockID;
-	}
-
-	@Override
-	public boolean isMetaSensitive() 
-	{
-		return false;
-	}
-
-	@Override
-	public int stillLiquidMeta() 
-	{
-		return 0;
 	}
 }
