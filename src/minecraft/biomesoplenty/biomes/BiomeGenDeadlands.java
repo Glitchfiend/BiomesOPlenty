@@ -6,6 +6,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityBat;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
@@ -43,6 +44,7 @@ public class BiomeGenDeadlands extends BiomeGenBase
 		spawnableCreatureList.add(new SpawnListEntry(EntityCreeper.class, 30, 1, 7));
 		spawnableCaveCreatureList.add(new SpawnListEntry(EntityBat.class, 10, 8, 8));
 		theWorldGenerator = new WorldGenMinable(Block.silverfish.blockID, 8);
+		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 
 	/**

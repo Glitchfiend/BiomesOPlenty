@@ -99,7 +99,7 @@ public class EntityEventHandler
 			EntityHorse horse = (EntityHorse)event.entity;
 			
 			//horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)x); x: 0 = Horses, 1 = Mules, 2 = Dark Brown Donkey, 3 = Zombie Horse, 4 = Skeleton Horse
-			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.grassland.get().biomeID)
+			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.deadlands.get().biomeID)
 			{
 				if (horse.getDataWatcher().getWatchableObjectByte(19) == (byte)4)
 				{
@@ -108,6 +108,18 @@ public class EntityEventHandler
 				else
 				{
 					horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)4));
+					event.setResult(Result.ALLOW);
+				}
+			}
+			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.wasteland.get().biomeID)
+			{
+				if (horse.getDataWatcher().getWatchableObjectByte(19) == (byte)3)
+				{
+					event.setResult(Result.ALLOW);
+				}
+				else
+				{
+					horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)3));
 					event.setResult(Result.ALLOW);
 				}
 			}
@@ -128,9 +140,13 @@ public class EntityEventHandler
 			EntityHorse horse = (EntityHorse)event.entity;
 			
 			//horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)x); x: 0 = Horses, 1 = Mules, 2 = Dark Brown Donkey, 3 = Zombie Horse, 4 = Skeleton Horse
-			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.grassland.get().biomeID)
+			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.deadlands.get().biomeID)
 			{
 				horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)4));
+			}
+			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.wasteland.get().biomeID)
+			{
+				horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)3));
 			}
 		}
 	}
