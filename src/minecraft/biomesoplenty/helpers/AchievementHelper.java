@@ -363,7 +363,7 @@ public class AchievementHelper
 	// Achievement checker
 	private static void onItemPickup(EntityPlayer player, ItemStack item)
 	{
-		if (BOPConfiguration.achievements == true)
+		if (BOPConfiguration.achievements)
 		{
 			if (item.itemID == Blocks.flowers.get().blockID || item.itemID == Block.plantRed.blockID || item.itemID == Block.plantYellow.blockID)
 			{
@@ -415,433 +415,436 @@ public class AchievementHelper
 	@ForgeSubscribe
 	public void chunkEntered(EntityEvent.EnteringChunk event)
 	{
-		if (event.entity != null)
+		if (BOPConfiguration.achievements)
 		{
-			if (event.entity instanceof EntityPlayer)
+			if (event.entity != null)
 			{
-				EntityPlayer player = (EntityPlayer)event.entity;
-				World world = player.worldObj;
-				
-				int x = MathHelper.floor_double(player.posX);
-				int y = MathHelper.floor_double(player.boundingBox.minY);
-				int z = MathHelper.floor_double(player.posZ);
-				
-				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
-				int i = 0;
-
-				if (world.isRemote)
+				if (event.entity instanceof EntityPlayer)
 				{
-					while (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(biomeFinderAchievementList[i]))
+					EntityPlayer player = (EntityPlayer)event.entity;
+					World world = player.worldObj;
+
+					int x = MathHelper.floor_double(player.posX);
+					int y = MathHelper.floor_double(player.boundingBox.minY);
+					int z = MathHelper.floor_double(player.posZ);
+
+					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
+					int i = 0;
+
+					if (world.isRemote)
 					{
-						if (i + 1 != biomeFinderAchievementList.length - 1)
+						while (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(biomeFinderAchievementList[i]))
 						{
-							i++;
-						}
-						else
-						{						
-							player.addStat(AchievementHelper.achAllBiomes, 1);
-							break;
+							if (i + 1 != biomeFinderAchievementList.length - 1)
+							{
+								i++;
+							}
+							else
+							{						
+								player.addStat(AchievementHelper.achAllBiomes, 1);
+								break;
+							}
 						}
 					}
-				}
-				
-				if (biomeID == Biomes.alps.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achAlps, 1);
-				}
-				if (biomeID == Biomes.arctic.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achArctic, 1);
-				}
-				if (biomeID == Biomes.badlands.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBadlands, 1);
-				}
-				if (biomeID == Biomes.bambooForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBambooForest, 1);
-				}
-				if (biomeID == Biomes.bayou.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBayou, 1);
-				}
-				if (biomeID == Biomes.birchForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBirchForest, 1);
-				}
-				if (biomeID == Biomes.bog.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBog, 1);
-				}
-				if (biomeID == Biomes.borealForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBorealForest, 1);
-				}
-				if (biomeID == Biomes.brushland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achBrushland, 1);
-				}
-				if (biomeID == Biomes.canyon.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achCanyon, 1);
-				}
-				if (biomeID == Biomes.chaparral.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achChaparral, 1);
-				}
-				if (biomeID == Biomes.cherryBlossomGrove.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achCherryBlossom, 1);
-				}
-				
-				if (biomeID == Biomes.coniferousForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achConiferousForest, 1);
-				}
-				
-				if (biomeID == Biomes.coniferousForestSnow.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achConiferousForestSnow, 1);
-				}
-				
-				if (biomeID == Biomes.crag.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achCrag, 1);
-				}
-				
-				if (biomeID == Biomes.deadForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDeadForest, 1);
-				}
-				
-				if (biomeID == Biomes.deadForestSnow.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDeadForestSnow, 1);
-				}
-				
-				if (biomeID == Biomes.deadSwamp.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDeadSwamp, 1);
-				}
-				
-				if (biomeID == Biomes.deadlands.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDeadlands, 1);
-				}
-				
-				if (biomeID == Biomes.deciduousForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDeciduousForest, 1);
-				}
-				
-				if (biomeID == Biomes.dunes.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDunes, 1);
-				}
-				
-				if (biomeID == Biomes.fen.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achFen, 1);
-				}
-				
-				if (biomeID == Biomes.field.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achField, 1);
-				}
-				
-				if (biomeID == Biomes.field.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achField, 1);
-				}
-				
-				if (biomeID == Biomes.frostForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achFrostForest, 1);
-				}
 
-				if (biomeID == Biomes.fungiForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achFungiForest, 1);
-				}
-				
-				if (biomeID == Biomes.garden.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achGarden, 1);
-				}
-				
-				if (biomeID == Biomes.glacier.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achGlacier, 1);
-				}
-				
-				if (biomeID == Biomes.grassland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achGrassland, 1);
-				}
-				
-				if (biomeID == Biomes.grove.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achGrove, 1);
-				}
-				
-				if (biomeID == Biomes.heathland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achHeathland, 1);
-				}
-				
-				if (biomeID == Biomes.highland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achHighland, 1);
-				}
-				
-				if (biomeID == Biomes.hotSprings.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achHotSprings, 1);
-				}
+					if (biomeID == Biomes.alps.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achAlps, 1);
+					}
+					if (biomeID == Biomes.arctic.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achArctic, 1);
+					}
+					if (biomeID == Biomes.badlands.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBadlands, 1);
+					}
+					if (biomeID == Biomes.bambooForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBambooForest, 1);
+					}
+					if (biomeID == Biomes.bayou.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBayou, 1);
+					}
+					if (biomeID == Biomes.birchForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBirchForest, 1);
+					}
+					if (biomeID == Biomes.bog.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBog, 1);
+					}
+					if (biomeID == Biomes.borealForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBorealForest, 1);
+					}
+					if (biomeID == Biomes.brushland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achBrushland, 1);
+					}
+					if (biomeID == Biomes.canyon.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achCanyon, 1);
+					}
+					if (biomeID == Biomes.chaparral.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achChaparral, 1);
+					}
+					if (biomeID == Biomes.cherryBlossomGrove.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achCherryBlossom, 1);
+					}
 
-				if (biomeID == Biomes.icyHills.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achIcyHills, 1);
-				}
-				
-				if (biomeID == Biomes.jadeCliffs.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achJadeCliffs, 1);
-				}
+					if (biomeID == Biomes.coniferousForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achConiferousForest, 1);
+					}
 
-				if (biomeID == Biomes.lushSwamp.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achLushSwamp, 1);
-				}
-				
-				if (biomeID == Biomes.mangrove.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMangrove, 1);
-				}
-				
-				if (biomeID == Biomes.mapleWoods.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMapleWoods, 1);
-				}
-				
-				if (biomeID == Biomes.marsh.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMarsh, 1);
-				}
-				
-				if (biomeID == Biomes.meadow.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMeadow, 1);
-				}
-				
-				if (biomeID == Biomes.mesa.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMesa, 1);
-				}
-				
-				if (biomeID == Biomes.moor.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMoor, 1);
-				}
-				
-				if (biomeID == Biomes.mountain.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achMountain, 1);
-				}
-				
-				if (biomeID == Biomes.oasis.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achOasis, 1);
-				}
-				
-				if (biomeID == Biomes.ominousWoods.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achOminousWoods, 1);
-				}
-				
-				if (biomeID == Biomes.orchard.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achOrchard, 1);
-				}
-				
-				if (biomeID == Biomes.originValley.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achOriginValley, 1);
-				}
-				
-				if (biomeID == Biomes.outback.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achOutback, 1);
-				}
-				
-				if (biomeID == Biomes.pasture.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achPasture, 1);
-				}
-				
-				if (biomeID == Biomes.polar.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achPolar, 1);
-				}
-				
-				if (biomeID == Biomes.prairie.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achPrairie, 1);
-				}
-				
-				if (biomeID == Biomes.quagmire.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achQuagmire, 1);
-				}
-				
-				if (biomeID == Biomes.rainforest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achRainforest, 1);
-				}
-				
-				if (biomeID == Biomes.redwoodForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achRedwoodForest, 1);
-				}
-				
-				if (biomeID == Biomes.sacredSprings.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSacredSprings, 1);
-				}
-				
-				if (biomeID == Biomes.savanna.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSavanna, 1);
-				}
-				
-				if (biomeID == Biomes.scrubland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achScrubland, 1);
-				}
-				
-				if (biomeID == Biomes.seasonalForest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSeasonalForest, 1);
-				}
-				
-				if (biomeID == Biomes.shield.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achShield, 1);
-				}
-				
-				if (biomeID == Biomes.shrubland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achShrubland, 1);
-				}
-				
-				if (biomeID == Biomes.sludgepit.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSludgepit, 1);
-				}
-				
-				if (biomeID == Biomes.spruceWoods.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSpruceWoods, 1);
-				}
-				
-				if (biomeID == Biomes.steppe.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSteppe, 1);
-				}
-				
-				if (biomeID == Biomes.temperateRainforest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achTemperateRainforest, 1);
-				}
-				
-				if (biomeID == Biomes.thicket.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achThicket, 1);
-				}
-				
-				if (biomeID == Biomes.timber.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achTimber, 1);
-				}
-				
-				if (biomeID == Biomes.tropicalRainforest.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achTropicalRainforest, 1);
-				}
-				
-				if (biomeID == Biomes.tropics.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achTropics, 1);
-				}
-				
-				if (biomeID == Biomes.tundra.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achTundra, 1);
-				}
-				
-				if (biomeID == Biomes.volcano.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achVolcano, 1);
-				}
-				
-				if (biomeID == Biomes.wasteland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achWasteland, 1);
-				}
-				
-				if (biomeID == Biomes.wetland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achWetland, 1);
-				}
-				
-				if (biomeID == Biomes.woodland.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achWoodland, 1);
-				}
-				
-				if (biomeID == Biomes.desertNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achDesert, 1);
-				}
-				
-				if (biomeID == Biomes.extremeHillsNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achExtremeHills, 1);
-				}
-				
-				if (biomeID == Biomes.forestNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achForest, 1);
-				}
-				
-				if (biomeID == BiomeGenBase.icePlains.biomeID)
-				{
-					player.addStat(AchievementHelper.achIcePlains, 1);
-				}
-				
-				if (biomeID == Biomes.jungleNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achJungle, 1);
-				}
-				
-				if (biomeID == BiomeGenBase.mushroomIsland.biomeID)
-				{
-					player.addStat(AchievementHelper.achMushroomIsland, 1);
-				}
-				
-				if (biomeID == Biomes.plainsNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achPlains, 1);
-				}
-				
-				if (biomeID == Biomes.swamplandNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achSwampland, 1);
-				}
-				
-				if (biomeID == Biomes.taigaNew.get().biomeID)
-				{
-					player.addStat(AchievementHelper.achTaiga, 1);
+					if (biomeID == Biomes.coniferousForestSnow.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achConiferousForestSnow, 1);
+					}
+
+					if (biomeID == Biomes.crag.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achCrag, 1);
+					}
+
+					if (biomeID == Biomes.deadForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDeadForest, 1);
+					}
+
+					if (biomeID == Biomes.deadForestSnow.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDeadForestSnow, 1);
+					}
+
+					if (biomeID == Biomes.deadSwamp.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDeadSwamp, 1);
+					}
+
+					if (biomeID == Biomes.deadlands.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDeadlands, 1);
+					}
+
+					if (biomeID == Biomes.deciduousForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDeciduousForest, 1);
+					}
+
+					if (biomeID == Biomes.dunes.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDunes, 1);
+					}
+
+					if (biomeID == Biomes.fen.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achFen, 1);
+					}
+
+					if (biomeID == Biomes.field.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achField, 1);
+					}
+
+					if (biomeID == Biomes.field.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achField, 1);
+					}
+
+					if (biomeID == Biomes.frostForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achFrostForest, 1);
+					}
+
+					if (biomeID == Biomes.fungiForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achFungiForest, 1);
+					}
+
+					if (biomeID == Biomes.garden.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achGarden, 1);
+					}
+
+					if (biomeID == Biomes.glacier.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achGlacier, 1);
+					}
+
+					if (biomeID == Biomes.grassland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achGrassland, 1);
+					}
+
+					if (biomeID == Biomes.grove.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achGrove, 1);
+					}
+
+					if (biomeID == Biomes.heathland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achHeathland, 1);
+					}
+
+					if (biomeID == Biomes.highland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achHighland, 1);
+					}
+
+					if (biomeID == Biomes.hotSprings.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achHotSprings, 1);
+					}
+
+					if (biomeID == Biomes.icyHills.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achIcyHills, 1);
+					}
+
+					if (biomeID == Biomes.jadeCliffs.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achJadeCliffs, 1);
+					}
+
+					if (biomeID == Biomes.lushSwamp.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achLushSwamp, 1);
+					}
+
+					if (biomeID == Biomes.mangrove.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMangrove, 1);
+					}
+
+					if (biomeID == Biomes.mapleWoods.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMapleWoods, 1);
+					}
+
+					if (biomeID == Biomes.marsh.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMarsh, 1);
+					}
+
+					if (biomeID == Biomes.meadow.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMeadow, 1);
+					}
+
+					if (biomeID == Biomes.mesa.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMesa, 1);
+					}
+
+					if (biomeID == Biomes.moor.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMoor, 1);
+					}
+
+					if (biomeID == Biomes.mountain.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMountain, 1);
+					}
+
+					if (biomeID == Biomes.oasis.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achOasis, 1);
+					}
+
+					if (biomeID == Biomes.ominousWoods.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achOminousWoods, 1);
+					}
+
+					if (biomeID == Biomes.orchard.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achOrchard, 1);
+					}
+
+					if (biomeID == Biomes.originValley.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achOriginValley, 1);
+					}
+
+					if (biomeID == Biomes.outback.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achOutback, 1);
+					}
+
+					if (biomeID == Biomes.pasture.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achPasture, 1);
+					}
+
+					if (biomeID == Biomes.polar.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achPolar, 1);
+					}
+
+					if (biomeID == Biomes.prairie.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achPrairie, 1);
+					}
+
+					if (biomeID == Biomes.quagmire.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achQuagmire, 1);
+					}
+
+					if (biomeID == Biomes.rainforest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achRainforest, 1);
+					}
+
+					if (biomeID == Biomes.redwoodForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achRedwoodForest, 1);
+					}
+
+					if (biomeID == Biomes.sacredSprings.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSacredSprings, 1);
+					}
+
+					if (biomeID == Biomes.savanna.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSavanna, 1);
+					}
+
+					if (biomeID == Biomes.scrubland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achScrubland, 1);
+					}
+
+					if (biomeID == Biomes.seasonalForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSeasonalForest, 1);
+					}
+
+					if (biomeID == Biomes.shield.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achShield, 1);
+					}
+
+					if (biomeID == Biomes.shrubland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achShrubland, 1);
+					}
+
+					if (biomeID == Biomes.sludgepit.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSludgepit, 1);
+					}
+
+					if (biomeID == Biomes.spruceWoods.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSpruceWoods, 1);
+					}
+
+					if (biomeID == Biomes.steppe.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSteppe, 1);
+					}
+
+					if (biomeID == Biomes.temperateRainforest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTemperateRainforest, 1);
+					}
+
+					if (biomeID == Biomes.thicket.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achThicket, 1);
+					}
+
+					if (biomeID == Biomes.timber.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTimber, 1);
+					}
+
+					if (biomeID == Biomes.tropicalRainforest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTropicalRainforest, 1);
+					}
+
+					if (biomeID == Biomes.tropics.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTropics, 1);
+					}
+
+					if (biomeID == Biomes.tundra.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTundra, 1);
+					}
+
+					if (biomeID == Biomes.volcano.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achVolcano, 1);
+					}
+
+					if (biomeID == Biomes.wasteland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achWasteland, 1);
+					}
+
+					if (biomeID == Biomes.wetland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achWetland, 1);
+					}
+
+					if (biomeID == Biomes.woodland.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achWoodland, 1);
+					}
+
+					if (biomeID == Biomes.desertNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achDesert, 1);
+					}
+
+					if (biomeID == Biomes.extremeHillsNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achExtremeHills, 1);
+					}
+
+					if (biomeID == Biomes.forestNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achForest, 1);
+					}
+
+					if (biomeID == BiomeGenBase.icePlains.biomeID)
+					{
+						player.addStat(AchievementHelper.achIcePlains, 1);
+					}
+
+					if (biomeID == Biomes.jungleNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achJungle, 1);
+					}
+
+					if (biomeID == BiomeGenBase.mushroomIsland.biomeID)
+					{
+						player.addStat(AchievementHelper.achMushroomIsland, 1);
+					}
+
+					if (biomeID == Biomes.plainsNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achPlains, 1);
+					}
+
+					if (biomeID == Biomes.swamplandNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achSwampland, 1);
+					}
+
+					if (biomeID == Biomes.taigaNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTaiga, 1);
+					}
 				}
 			}
 		}
