@@ -20,7 +20,7 @@
 
 
 ## Changelog 
-	  Version 0.5.6 (Unreleased)
+	  Version 0.5.6 '05-06-13'
 	- Added Treecapacitator compatibility
 	- Made the Ancient Staff and Dart Blower render in 3D like other tools
 	- Addeed the Altar Frame

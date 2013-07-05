@@ -143,11 +143,11 @@
 
 	<entry key="tile.bop.glass.celestialLens.name">Celestial Lens</entry>
 	
-	<entry key="tile.bop.glass.sacrificialFocus_empty.name">Sacrificial Focus</entry>
-	<entry key="tile.bop.glass.sacrificialFocus_active.name">Sacrificial Focus</entry>
-	<entry key="tile.bop.glass.sacrificialFocus_villager.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialfocus_empty.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialfocus_active.name">Sacrificial Focus</entry>
+	<entry key="tile.bop.glass.sacrificialfocus_villager.name">Sacrificial Focus</entry>
 	
-	<entry key="tile.bop.altar.altarFrame.name">Altar Frame</entry>
+	<entry key="tile.bop.altar.altarframe.name">Altar Frame</entry>
 	
 	<entry key="tile.bop.puddle.name">Puddle</entry>
 	
