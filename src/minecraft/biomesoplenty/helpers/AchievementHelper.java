@@ -429,16 +429,19 @@ public class AchievementHelper
 				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 				int i = 0;
 
-				while (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(biomeFinderAchievementList[i]))
+				if (world.isRemote)
 				{
-					if (i + 1 != biomeFinderAchievementList.length - 1)
+					while (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(biomeFinderAchievementList[i]))
 					{
-						i++;
-					}
-					else
-					{						
-						player.addStat(AchievementHelper.achAllBiomes, 1);
-						break;
+						if (i + 1 != biomeFinderAchievementList.length - 1)
+						{
+							i++;
+						}
+						else
+						{						
+							player.addStat(AchievementHelper.achAllBiomes, 1);
+							break;
+						}
 					}
 				}
 				
