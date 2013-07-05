@@ -1,6 +1,7 @@
 package biomesoplenty.helpers;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -127,11 +128,7 @@ public class AchievementHelper
 	public static AchievementPage pageBOP;
 	public static AchievementPage pageBiome;
 	
-	static Achievement[] biomeFinderAchievementList = new Achievement[] {achBOP, achAllBiomes, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom, achConiferousForest, 
-			achConiferousForestSnow, achCrag, achDeadForest, achDeadForestSnow, achDeadSwamp, achDeadlands, achDeciduousForest, achDunes, achFen, achField, achFrostForest, achFungiForest, achGarden, achGlacier, achGrassland, achGrove, achHeathland, achHighland, achHotSprings, achIcyHills, 
-			achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove, achOasis, achOminousWoods, achOrchard, achOriginValley, achOutback, achPasture, achPolar, achPrairie, achQuagmire, achRainforest, achRedwoodForest, achSacredSprings,  
-			achSavanna, achScrubland, achSeasonalForest, achShield, achShrubland, achSludgepit, achSpruceWoods, achSteppe, achTemperateRainforest, achThicket, achTimber, achTropicalRainforest, achTropics, achTundra, achVolcano, achWasteland, achWetland, achWoodland, achDesert, achExtremeHills, achForest, achIcePlains,
-			achJungle, achMushroomIsland, achPlains, achSwampland, achTaiga };
+	static Achievement[] biomeFinderAchievementList;
 
 	@ForgeSubscribe
 	public void EntityItemPickupEvent(EntityItemPickupEvent event)
@@ -247,6 +244,12 @@ public class AchievementHelper
 		achTaiga = (new Achievement(3165, "achTaiga", 2, 8, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement();
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
+		
+		biomeFinderAchievementList = new Achievement[] { achBOP, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom, achConiferousForest, 
+				achConiferousForestSnow, achCrag, achDeadForest, achDeadForestSnow, achDeadSwamp, achDeadlands, achDeciduousForest, achDunes, achFen, achField, achFrostForest, achFungiForest, achGarden, achGlacier, achGrassland, achGrove, achHeathland, achHighland, achHotSprings, achIcyHills, 
+				achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove, achOasis, achOminousWoods, achOrchard, achOriginValley, achOutback, achPasture, achPolar, achPrairie, achQuagmire, achRainforest, achRedwoodForest, achSacredSprings,  
+				achSavanna, achScrubland, achSeasonalForest, achShield, achShrubland, achSludgepit, achSpruceWoods, achSteppe, achTemperateRainforest, achThicket, achTimber, achTropicalRainforest, achTropics, achTundra, achVolcano, achWasteland, achWetland, achWoodland, achDesert, achExtremeHills, achForest, achIcePlains,
+				achJungle, achMushroomIsland, achPlains, achSwampland, achTaiga, achAllBiomes, };
 		
 		pageBiome = new AchievementPage("Biome Finder", biomeFinderAchievementList);
 		
@@ -424,6 +427,20 @@ public class AchievementHelper
 				int z = MathHelper.floor_double(player.posZ);
 				
 				int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
+				int i = 0;
+
+				while (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(biomeFinderAchievementList[i]))
+				{
+					if (i + 1 != biomeFinderAchievementList.length - 1)
+					{
+						i++;
+					}
+					else
+					{						
+						player.addStat(AchievementHelper.achAllBiomes, 1);
+						break;
+					}
+				}
 				
 				if (biomeID == Biomes.alps.get().biomeID)
 				{
