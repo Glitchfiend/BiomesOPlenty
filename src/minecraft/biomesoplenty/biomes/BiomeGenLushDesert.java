@@ -3,8 +3,10 @@ package biomesoplenty.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
@@ -37,6 +39,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		customBiomeDecorator.generateGrass = true;
 		customBiomeDecorator.generateSand = true;
 		customBiomeDecorator.generatePumpkins = false;
+		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 
 	/**
