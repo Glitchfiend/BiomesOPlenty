@@ -18,7 +18,7 @@ public class BiomeGenBadlands extends BiomeGenBase
 		super(par1);
 		spawnableCreatureList.clear();
 		topBlock = (byte)Block.field_111032_cD.blockID;
-		fillerBlock = (byte)Block.blockClay.blockID;
+		fillerBlock = (byte)Block.field_111032_cD.blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
@@ -26,8 +26,10 @@ public class BiomeGenBadlands extends BiomeGenBase
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.cactiPerChunk = 2;
 		customBiomeDecorator.clayPerChunk = 3;
+		customBiomeDecorator.generateClayInClay = true;
+		customBiomeDecorator.generateClayInClay2 = true;
 		customBiomeDecorator.generateClayInStone = true;
-		customBiomeDecorator.generateSandInStone = true;
+		customBiomeDecorator.generateClayInStone2 = true;
 	}
 	
 	@Override

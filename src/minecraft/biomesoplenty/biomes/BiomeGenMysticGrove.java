@@ -10,8 +10,10 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.worldgen.WorldGenMystic1;
 import biomesoplenty.worldgen.WorldGenMystic2;
 import biomesoplenty.worldgen.WorldGenMystic3;
+import biomesoplenty.worldgen.WorldGenSwampTall;
 
 public class BiomeGenMysticGrove extends BiomeGenBase
 {
@@ -51,7 +53,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : new WorldGenMystic3();
+		return par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(7) == 0 ? new WorldGenSwampTall() : new WorldGenMystic1(false));
 	}
 
 	/**
@@ -69,7 +71,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public int getBiomeGrassColor()
 	{
-		return 7004860;
+		return 6934491;
 	}
 
 	/**
@@ -78,7 +80,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public int getBiomeFoliageColor()
 	{
-		return 3530896;
+		return 7332553;
 	}
 
 	/**

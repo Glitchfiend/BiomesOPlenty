@@ -46,6 +46,10 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Liquids;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
+import biomesoplenty.worldgen.WorldGenBadlands;
+import biomesoplenty.worldgen.WorldGenBadlands2;
+import biomesoplenty.worldgen.WorldGenBadlands3;
+import biomesoplenty.worldgen.WorldGenBadlands4;
 import biomesoplenty.worldgen.WorldGenBOPFlowers;
 import biomesoplenty.worldgen.WorldGenBoneSpine;
 import biomesoplenty.worldgen.WorldGenBoneSpine2;
@@ -128,7 +132,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator stoneInGrassGen2;
 	protected WorldGenerator sandInStoneGen;
 	protected WorldGenerator driedDirtInSandGen;
+	protected WorldGenerator clayInClayGen;
+	protected WorldGenerator clayInClay2Gen;
 	protected WorldGenerator clayInStoneGen;
+	protected WorldGenerator clayInStone2Gen;
 	protected WorldGenerator quagmireGen;
 	protected WorldGenerator quicksandGen;
 	protected WorldGenerator canyonGen;
@@ -353,7 +360,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public boolean generateStoneInGrass2;
 	public boolean generateSandInStone;
 	public boolean generateDriedDirtInSand;
+	public boolean generateClayInClay;
+	public boolean generateClayInClay2;
 	public boolean generateClayInStone;
+	public boolean generateClayInStone2;
 	public boolean generatePits;
 	public boolean generateQuagmire;
 	public boolean generateCanyon;
@@ -381,7 +391,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		stoneInGrassGen = new WorldGenMycelium(Block.stone.blockID, 32);
 		stoneInGrassGen2 = new WorldGenShield(Block.stone.blockID, 48);
 		sandInStoneGen = new WorldGenMinable(Block.sand.blockID, 32);
-		clayInStoneGen = new WorldGenMinable(Block.blockClay.blockID, 32);
+		clayInClayGen = new WorldGenBadlands2(Block.field_111039_cA.blockID, 32);
+		clayInClay2Gen = new WorldGenBadlands4(Block.blockClay.blockID, 32);
+		clayInStoneGen = new WorldGenBadlands3(Block.field_111039_cA.blockID, 32);
+		clayInStone2Gen = new WorldGenBadlands(Block.field_111039_cA.blockID, 32);
 		quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
 		quicksandGen = new WorldGenQuicksand(Blocks.mud.get().blockID, 24);
 		canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
@@ -532,7 +545,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		generateStoneInGrass2 = false;
 		generateSandInStone = false;
 		generateDriedDirtInSand = false;
+		generateClayInClay = false;
+		generateClayInClay2 = false;
 		generateClayInStone = false;
+		generateClayInStone2 = false;
 		generateQuagmire = false;
 		generateCanyon = false;
 		generatePumpkins = true;
@@ -695,10 +711,25 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 {
 			 this.genStandardOre1(8, driedDirtInSandGen, 64, 128);
 		 }
+		 
+		 if (generateClayInClay)
+		 {
+			 this.genStandardOre1(20, clayInClayGen, 64, 128);
+		 }
+		 
+		 if (generateClayInClay2)
+		 {
+			 this.genStandardOre1(10, clayInClay2Gen, 64, 128);
+		 }
 
 		 if (generateClayInStone)
 		 {
-			 this.genStandardOre1(15, clayInStoneGen, 64, 128);
+			 this.genStandardOre1(10, clayInStoneGen, 64, 128);
+		 }
+		 
+		 if (generateClayInStone2)
+		 {
+			 this.genStandardOre1(20, clayInStone2Gen, 64, 128);
 		 }
 
 		 if (generateQuagmire)
