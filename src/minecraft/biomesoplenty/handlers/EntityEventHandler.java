@@ -107,8 +107,8 @@ public class EntityEventHandler
 				}
 				else
 				{
-					horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)4));
-					event.setResult(Result.ALLOW);
+					event.setResult(Result.DENY);
+					event.setCanceled(true);
 				}
 			}
 			if (world.getBiomeGenForCoords(x, z).biomeID == Biomes.wasteland.get().biomeID)
@@ -119,8 +119,8 @@ public class EntityEventHandler
 				}
 				else
 				{
-					horse.getDataWatcher().updateObject(19, Byte.valueOf((byte)3));
-					event.setResult(Result.ALLOW);
+					event.setResult(Result.DENY);
+					event.setCanceled(true);
 				}
 			}
 		}

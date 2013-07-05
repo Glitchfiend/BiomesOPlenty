@@ -126,6 +126,12 @@ public class AchievementHelper
 
 	public static AchievementPage pageBOP;
 	public static AchievementPage pageBiome;
+	
+	static Achievement[] biomeFinderAchievementList = new Achievement[] {achBOP, achAllBiomes, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom, achConiferousForest, 
+			achConiferousForestSnow, achCrag, achDeadForest, achDeadForestSnow, achDeadSwamp, achDeadlands, achDeciduousForest, achDunes, achFen, achField, achFrostForest, achFungiForest, achGarden, achGlacier, achGrassland, achGrove, achHeathland, achHighland, achHotSprings, achIcyHills, 
+			achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove, achOasis, achOminousWoods, achOrchard, achOriginValley, achOutback, achPasture, achPolar, achPrairie, achQuagmire, achRainforest, achRedwoodForest, achSacredSprings,  
+			achSavanna, achScrubland, achSeasonalForest, achShield, achShrubland, achSludgepit, achSpruceWoods, achSteppe, achTemperateRainforest, achThicket, achTimber, achTropicalRainforest, achTropics, achTundra, achVolcano, achWasteland, achWetland, achWoodland, achDesert, achExtremeHills, achForest, achIcePlains,
+			achJungle, achMushroomIsland, achPlains, achSwampland, achTaiga };
 
 	@ForgeSubscribe
 	public void EntityItemPickupEvent(EntityItemPickupEvent event)
@@ -242,11 +248,7 @@ public class AchievementHelper
 
 		pageBOP = new AchievementPage("Biomes O\' Plenty", new Achievement[] {achFlower, achRedRock, achThorn, achAsh, achOrigin, achPromised, achMud, achShroom, achBarley, achMoss, achFlowerP});
 		
-		pageBiome = new AchievementPage("Biome Finder", new Achievement[] {achBOP, achAllBiomes, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom, achConiferousForest, 
-				achConiferousForestSnow, achCrag, achDeadForest, achDeadForestSnow, achDeadSwamp, achDeadlands, achDeciduousForest, achDunes, achFen, achField, achFrostForest, achFungiForest, achGarden, achGlacier, achGrassland, achGrove, achHeathland, achHighland, achHotSprings, achIcyHills, 
-				achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove, achOasis, achOminousWoods, achOrchard, achOriginValley, achOutback, achPasture, achPolar, achPrairie, achQuagmire, achRainforest, achRedwoodForest, achSacredSprings,  
-				achSavanna, achScrubland, achSeasonalForest, achShield, achShrubland, achSludgepit, achSpruceWoods, achSteppe, achTemperateRainforest, achThicket, achTimber, achTropicalRainforest, achTropics, achTundra, achVolcano, achWasteland, achWetland, achWoodland, achDesert, achExtremeHills, achForest, achIcePlains,
-				achJungle, achMushroomIsland, achPlains, achSwampland, achTaiga});
+		pageBiome = new AchievementPage("Biome Finder", biomeFinderAchievementList);
 		
 		AchievementPage.registerAchievementPage(pageBOP);
 		AchievementPage.registerAchievementPage(pageBiome);
