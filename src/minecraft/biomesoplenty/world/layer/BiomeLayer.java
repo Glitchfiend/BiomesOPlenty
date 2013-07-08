@@ -40,7 +40,7 @@ public abstract class BiomeLayer extends GenLayer
 			obj2 = BiomeLayerZoom.func_75915_a(1000L, ((obj2)), 0);
 			obj2 = new BiomeLayerBiomes(200L, ((obj2)), worldtype, 0);
 			obj2 = BiomeLayerZoom.func_75915_a(1000L, ((obj2)), 2);
-			//obj2 = new BWG4LayerHills(1000L, ((BiomeLayer)(obj2)), generatorSettings);
+			obj2 = new BiomeLayerSub(1000L, ((BiomeLayer)(obj2)));
 			obj2 = new BiomeLayerZoom(1000, ((obj2)));
 			obj2 = new BiomeLayerShore(1000L, ((BiomeLayer)(obj2)));
 
