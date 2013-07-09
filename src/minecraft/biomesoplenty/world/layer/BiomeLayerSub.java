@@ -13,7 +13,8 @@ public class BiomeLayerSub extends BiomeLayer
         this.parent = par3GenLayer;
     }
 
-    public int[] getInts(int par1, int par2, int par3, int par4)
+    @Override
+	public int[] getInts(int par1, int par2, int par3, int par4)
     {
         int[] aint = this.parent.getInts(par1 - 1, par2 - 1, par3 + 2, par4 + 2);
         int[] aint1 = IntCache.getIntCache(par3 * par4);
