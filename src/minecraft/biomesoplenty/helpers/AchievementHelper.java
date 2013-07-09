@@ -185,7 +185,7 @@ public class AchievementHelper
 		achGrove = (new Achievement(3111, "achGrove", 4, -2, new ItemStack(Blocks.flowers.get(), 1, 0), achBOP)).registerAchievement();
 		achHeathland = (new Achievement(3112, "achHeathland", 6, -2, new ItemStack(Blocks.saplings.get(), 1, 14), achBOP)).registerAchievement(); 	
 		achHighland = (new Achievement(3113, "achHighland", 8, -2, new ItemStack(Blocks.foliage.get(), 1, 3), achBOP)).registerAchievement();
-		achHotSprings = (new Achievement(3114, "achHotSprings", 10, -2, new ItemStack(Fluids.bopBucket.get(), 1, 0), achBOP)).registerAchievement();
+		achHotSprings = (new Achievement(3114, "achHotSprings", 10, -2, new ItemStack(Fluids.bopBucket.get(), 1, 2), achBOP)).registerAchievement();
 		
 		achIcyHills = (new Achievement(3115, "achIcyHills", -10, 0, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement().setSpecial();  
 		achJadeCliffs = (new Achievement(3116, "achJadeCliffs", -8, 0, new ItemStack(Blocks.colorizedSaplings.get(), 1, 5), achBOP)).registerAchievement(); 
@@ -557,11 +557,6 @@ public class AchievementHelper
 						player.addStat(AchievementHelper.achField, 1);
 					}
 
-					if (biomeID == Biomes.field.get().biomeID)
-					{
-						player.addStat(AchievementHelper.achField, 1);
-					}
-
 					if (biomeID == Biomes.frostForest.get().biomeID)
 					{
 						player.addStat(AchievementHelper.achFrostForest, 1);
@@ -616,6 +611,11 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achJadeCliffs, 1);
 					}
+					
+					if (biomeID == Biomes.lushDesert.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achLushDesert, 1);
+					}
 
 					if (biomeID == Biomes.lushSwamp.get().biomeID)
 					{
@@ -660,6 +660,11 @@ public class AchievementHelper
 					if (biomeID == Biomes.mountain.get().biomeID)
 					{
 						player.addStat(AchievementHelper.achMountain, 1);
+					}
+					
+					if (biomeID == Biomes.mysticGrove.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMysticGrove, 1);
 					}
 
 					if (biomeID == Biomes.oasis.get().biomeID)
@@ -841,8 +846,28 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achDesert, 1);
 					}
+					
+					if (biomeID == BiomeGenBase.desert.biomeID)
+					{
+						player.addStat(AchievementHelper.achDesert, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.desertHills.biomeID)
+					{
+						player.addStat(AchievementHelper.achDesert, 1);
+					}
 
 					if (biomeID == Biomes.extremeHillsNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achExtremeHills, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.extremeHills.biomeID)
+					{
+						player.addStat(AchievementHelper.achExtremeHills, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.extremeHillsEdge.biomeID)
 					{
 						player.addStat(AchievementHelper.achExtremeHills, 1);
 					}
@@ -851,13 +876,38 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achForest, 1);
 					}
+					
+					if (biomeID == BiomeGenBase.forest.biomeID)
+					{
+						player.addStat(AchievementHelper.achForest, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.forestHills.biomeID)
+					{
+						player.addStat(AchievementHelper.achForest, 1);
+					}
 
 					if (biomeID == BiomeGenBase.icePlains.biomeID)
 					{
 						player.addStat(AchievementHelper.achIcePlains, 1);
 					}
+					
+					if (biomeID == BiomeGenBase.iceMountains.biomeID)
+					{
+						player.addStat(AchievementHelper.achIcePlains, 1);
+					}
 
 					if (biomeID == Biomes.jungleNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achJungle, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.jungle.biomeID)
+					{
+						player.addStat(AchievementHelper.achJungle, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.jungleHills.biomeID)
 					{
 						player.addStat(AchievementHelper.achJungle, 1);
 					}
@@ -878,6 +928,11 @@ public class AchievementHelper
 					}
 
 					if (biomeID == Biomes.taigaNew.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTaiga, 1);
+					}
+					
+					if (biomeID == BiomeGenBase.taigaHills.biomeID)
 					{
 						player.addStat(AchievementHelper.achTaiga, 1);
 					}
