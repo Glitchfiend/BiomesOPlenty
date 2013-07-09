@@ -487,6 +487,12 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achCanyon, 1);
 					}
+					
+					if (biomeID == Biomes.canyonRavine.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achCanyon, 1);
+					}
+					
 					if (biomeID == Biomes.chaparral.get().biomeID)
 					{
 						player.addStat(AchievementHelper.achChaparral, 1);
@@ -635,6 +641,11 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achMeadow, 1);
 					}
+					
+					if (biomeID == Biomes.meadowForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achMeadow, 1);
+					}
 
 					if (biomeID == Biomes.mesa.get().biomeID)
 					{
@@ -660,6 +671,11 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achOminousWoods, 1);
 					}
+					
+					if (biomeID == Biomes.ominousWoodsThick.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achOminousWoods, 1);
+					}
 
 					if (biomeID == Biomes.orchard.get().biomeID)
 					{
@@ -677,6 +693,16 @@ public class AchievementHelper
 					}
 
 					if (biomeID == Biomes.pasture.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achPasture, 1);
+					}
+					
+					if (biomeID == Biomes.pastureMeadow.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achPasture, 1);
+					}
+					
+					if (biomeID == Biomes.pastureThin.get().biomeID)
 					{
 						player.addStat(AchievementHelper.achPasture, 1);
 					}
@@ -735,6 +761,11 @@ public class AchievementHelper
 					{
 						player.addStat(AchievementHelper.achShrubland, 1);
 					}
+					
+					if (biomeID == Biomes.shrublandForest.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achShrubland, 1);
+					}
 
 					if (biomeID == Biomes.sludgepit.get().biomeID)
 					{
@@ -762,6 +793,11 @@ public class AchievementHelper
 					}
 
 					if (biomeID == Biomes.timber.get().biomeID)
+					{
+						player.addStat(AchievementHelper.achTimber, 1);
+					}
+					
+					if (biomeID == Biomes.timberThin.get().biomeID)
 					{
 						player.addStat(AchievementHelper.achTimber, 1);
 					}

@@ -8,28 +8,23 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenTaiga2;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 
-public class BiomeGenMeadow extends BiomeGenBase
+public class BiomeGenShrublandForest extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
-	public BiomeGenMeadow(int par1)
+	public BiomeGenShrublandForest(int par1)
 	{
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 2;
+		customBiomeDecorator.flowersPerChunk = 0;
 		customBiomeDecorator.grassPerChunk = 10;
-		customBiomeDecorator.tinyFlowersPerChunk = 14;
-		customBiomeDecorator.flowersPerChunk = 10;
-		customBiomeDecorator.carrotsPerChunk = -999;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.hydrangeasPerChunk = 3;
-		customBiomeDecorator.sunflowersPerChunk = 1;
+		customBiomeDecorator.bushesPerChunk = 7;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
@@ -60,21 +55,15 @@ public class BiomeGenMeadow extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(5) == 0 ? new WorldGenTaiga2(false) : new WorldGenShrub(0, 1);
+		return new WorldGenShrub(0, 0);
 	}
 
 	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
+	 * Gets a WorldGen appropriate for this biome.
 	 */
-	 @Override
-	 public int getBiomeGrassColor()
-	 {
-		 return 6533741;
-	 }
-
-	 @Override
-	 public int getBiomeFoliageColor()
-	 {
-		 return 6533741;
-	 }
+	@Override
+	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	{
+		return new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
+	}
 }

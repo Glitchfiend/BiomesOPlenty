@@ -38,6 +38,7 @@ import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
+import biomesoplenty.api.Biomes;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.world.noise.NoiseOctaves;
 import biomesoplenty.worldgen.structure.BOPMapGenScatteredFeature;
@@ -549,14 +550,14 @@ public class ChunkProviderBOP implements IChunkProvider
 		 int l1;
 		 int i2;
 
-		 if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE) &&
-				 !flag && rand.nextInt(4) == 0)
-		 {
-			 k1 = k + rand.nextInt(16) + 8;
-			 l1 = rand.nextInt(128);
-			 i2 = l + rand.nextInt(16) + 8;
-			 (new WorldGenLakes(Block.waterStill.blockID)).generate(worldObj, rand, k1, l1, i2);
-		 }
+		 if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills  && biomegenbase != Biomes.desertNew.get()  && biomegenbase != Biomes.glacier.get()  && biomegenbase != Biomes.volcano.get()  && biomegenbase != Biomes.scrubland.get()  && biomegenbase != Biomes.dunes.get()  && biomegenbase != Biomes.arctic.get()  && biomegenbase != Biomes.pasture.get() && !flag && this.rand.nextInt(4) == 0
+		            && TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE))
+		        {
+		            k1 = k + this.rand.nextInt(16) + 8;
+		            l1 = this.rand.nextInt(128);
+		            i2 = l + this.rand.nextInt(16) + 8;
+		            (new WorldGenLakes(Block.waterStill.blockID)).generate(this.worldObj, this.rand, k1, l1, i2);
+		        }
 
 		 if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) &&
 				 !flag && rand.nextInt(8) == 0)

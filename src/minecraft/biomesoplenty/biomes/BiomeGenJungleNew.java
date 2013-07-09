@@ -87,22 +87,4 @@ public class BiomeGenJungleNew extends BiomeGenBase
 			var5.generate(par1World, par2Random, var7, var8, var9);
 		}
 	}
-
-	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
-	 */
-	@Override
-	public int getBiomeGrassColor()
-	{
-		return 5232218;
-	}
-
-	/**
-	 * Provides the basic foliage color based on the biome temperature and rainfall
-	 */
-	@Override
-	public int getBiomeFoliageColor()
-	{
-		return 3266623;
-	}
 }
