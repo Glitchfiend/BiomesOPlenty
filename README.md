@@ -20,6 +20,20 @@
 
 
 ## Changelog 
+	  Version 0.5.7 '09-07-13'
+	- Full update to 1.6.2
+	- Adjusted the crafting recipes for Scythes
+	- Added sub-biomes
+	  - Canyon Ravine
+	  - Meadow Forest
+	  - Thick Ominous Woods
+	  - Pasture Meadow
+	  - Pasture Thin
+	  - Shrubland Forest
+	  - Timber Thin
+	- Added amethyst buckets specifically for picking up Spring Water
+	- Tweaked the Badlands
+
 	  Version 0.5.6 '05-07-13'
 	- Added Treecapacitator compatibility
 	- Made the Ancient Staff and Dart Blower render in 3D like other tools
