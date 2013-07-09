@@ -2,7 +2,7 @@ package biomesoplenty.helpers;
 
 import java.util.logging.Level;
 
-import net.minecraft.client.resources.ResourceLocation;
+import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

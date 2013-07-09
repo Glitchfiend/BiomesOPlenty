@@ -1,9 +1,9 @@
 package biomesoplenty.entities.render;
 
 import net.minecraft.client.renderer.entity.RenderSpider;
-import net.minecraft.client.resources.ResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
