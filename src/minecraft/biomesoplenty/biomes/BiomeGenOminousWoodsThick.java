@@ -11,11 +11,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenOminous1;
 import biomesoplenty.worldgen.WorldGenOminous3;
 import biomesoplenty.worldgen.WorldGenOminous4;
-import biomesoplenty.api.Blocks;
 
 public class BiomeGenOminousWoodsThick extends BiomeGenBase
 {
