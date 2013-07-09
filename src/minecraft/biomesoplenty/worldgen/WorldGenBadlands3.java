@@ -66,7 +66,7 @@ public class WorldGenBadlands3 extends WorldGenerator
 
 								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Block.field_111032_cD.blockID || par1World.getBlockId(var38, var41, var44) == Blocks.holyGrass.get().blockID)
 								{
-									par1World.setBlock(var38, var41, var44, minableBlockId, 4, 2);
+									par1World.setBlock(var38, var41, var44, minableBlockId, 14, 2);
 								}
 							}
 						}
