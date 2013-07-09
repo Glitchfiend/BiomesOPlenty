@@ -21,17 +21,6 @@ public class BOPCrossIntegration {
 			}
 		}
 		
-		if (Loader.isModLoaded("TConstruct"))
-		{
-			try {
-				TConstructIntegration.init();
-			}
-			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating TConstruct with Biomes O' Plenty!");
-				e.printStackTrace(System.err);
-			}
-		}
-		
 		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try {
