@@ -22,6 +22,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> borealForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> brushland			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> canyon				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> canyonRavine			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> chaparral			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> cherryBlossomGrove	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> coniferousForest		 = Optional.absent();
@@ -52,6 +53,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> mapleWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> marsh				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> meadow				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> meadowForest		     = Optional.absent();
 	public static Optional<? extends BiomeGenBase> mesa					 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> moor					 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> mountain				 = Optional.absent();
@@ -69,10 +71,13 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> oceanKelp			 = Optional.absent();
 	
 	public static Optional<? extends BiomeGenBase> ominousWoods			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> ominousWoodsThick	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> orchard				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> originValley			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> outback				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> pasture				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> pastureMeadow		 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> pastureThin			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> polar				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> prairie				 = Optional.absent();
 	
@@ -90,12 +95,14 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> shield				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shore				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shrubland			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> shrublandForest		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> sludgepit			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> spruceWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> steppe				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> temperateRainforest	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> thicket				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> timber				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> timberThin			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tropicalRainforest	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tropics				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> tundra				 = Optional.absent();

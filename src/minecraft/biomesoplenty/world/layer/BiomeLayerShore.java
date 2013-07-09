@@ -24,7 +24,7 @@ public class BiomeLayerShore extends BiomeLayer
 		}
 		if (Biomes.beachOvergrown.isPresent())
 		{
-			beachBiomes.add(Biomes.beachOvergrown.get());
+			//beachBiomes.add(Biomes.beachOvergrown.get());
 		}
 		
 		//OCEAN BIOMES

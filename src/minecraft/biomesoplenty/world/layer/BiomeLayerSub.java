@@ -1,5 +1,6 @@
 package biomesoplenty.world.layer;
 
+import biomesoplenty.api.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
@@ -28,6 +29,13 @@ public class BiomeLayerSub extends BiomeLayer
 
                 //LIST
                 if (k1 == BiomeGenBase.desert.biomeID && nextInt(3) == 0) { l1 = BiomeGenBase.desertHills.biomeID; }
+                if (k1 == Biomes.meadow.get().biomeID && nextInt(2) == 0) { l1 = Biomes.meadowForest.get().biomeID; }
+                if (k1 == Biomes.canyon.get().biomeID && nextInt(2) == 0) { l1 = Biomes.canyonRavine.get().biomeID; }
+                if (k1 == Biomes.shrubland.get().biomeID && nextInt(3) == 0) { l1 = Biomes.shrublandForest.get().biomeID; }
+                if (k1 == Biomes.ominousWoods.get().biomeID && nextInt(3) == 0) { l1 = Biomes.ominousWoodsThick.get().biomeID; }
+                if (k1 == Biomes.pasture.get().biomeID && nextInt(2) == 0) { l1 = Biomes.pastureMeadow.get().biomeID; }
+                if (k1 == Biomes.pasture.get().biomeID && nextInt(3) == 0) { l1 = Biomes.pastureThin.get().biomeID; }
+                if (k1 == Biomes.timber.get().biomeID && nextInt(3) == 0) { l1 = Biomes.timberThin.get().biomeID; }
 
                 if (l1 == k1)
                 {

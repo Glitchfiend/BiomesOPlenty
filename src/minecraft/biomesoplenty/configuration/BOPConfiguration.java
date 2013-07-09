@@ -302,6 +302,7 @@ public class BOPConfiguration {
 	public static int borealForestID;
 	public static int brushlandID;
 	public static int canyonID;
+	public static int canyonRavineID;
 	public static int chaparralID;
 	public static int cherryBlossomGroveID;
 	public static int coniferousForestID;
@@ -332,6 +333,7 @@ public class BOPConfiguration {
 	public static int mapleWoodsID;
 	public static int marshID;
 	public static int meadowID;
+	public static int meadowForestID;
 	public static int mesaID;
 	public static int moorID;
 	public static int mountainID;
@@ -349,10 +351,13 @@ public class BOPConfiguration {
 	public static int oceanKelpID;
 
 	public static int ominousWoodsID;
+	public static int ominousWoodsThickID;
 	public static int orchardID;
 	public static int originValleyID;
 	public static int outbackID;
 	public static int pastureID;
+	public static int pastureMeadowID;
+	public static int pastureThinID;
 	public static int polarID;
 	public static int prairieID;
 
@@ -371,12 +376,14 @@ public class BOPConfiguration {
 	public static int shieldID;
 	public static int shoreID;
 	public static int shrublandID;
+	public static int shrublandForestID;
 	public static int sludgepitID;
 	public static int spruceWoodsID;
 	public static int steppeID;
 	public static int temperateRainforestID;
 	public static int thicketID;
 	public static int timberID;
+	public static int timberThinID;
 	public static int tropicalRainforestID;
 	public static int tropicsID;
 	public static int tundraID;
@@ -892,6 +899,14 @@ public class BOPConfiguration {
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generating Biome ID's");
 
 			//23-79 ExtraBiomesXL
+			
+			timberThinID = config.get("Biome IDs", "Thinned Timber (Sub-Biome) ID", 44).getInt();
+			pastureThinID = config.get("Biome IDs", "Thinned Pasture (Sub-Biome) ID", 45).getInt();
+			pastureMeadowID = config.get("Biome IDs", "Pasture Meadow (Sub-Biome) ID", 46).getInt();
+			ominousWoodsThickID = config.get("Biome IDs", "Thick Ominous Woods (Sub-Biome) ID", 47).getInt();
+			shrublandForestID = config.get("Biome IDs", "Thick Shrubland (Sub-Biome) ID", 48).getInt();
+			canyonRavineID = config.get("Biome IDs", "Canyon Ravine (Sub-Biome) ID", 49).getInt();
+			meadowForestID = config.get("Biome IDs", "Meadow Forest (Sub-Biome) ID", 50).getInt();
 
 			oceanCoralID = config.get("Biome IDs", "Coral Reef (Ocean) ID", 58).getInt();
 			oceanKelpID = config.get("Biome IDs", "Kelp Forest (Ocean) ID", 59).getInt();
