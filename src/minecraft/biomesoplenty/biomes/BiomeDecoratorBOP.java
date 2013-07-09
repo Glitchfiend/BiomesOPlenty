@@ -719,12 +719,12 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 
 		 if (generateClayInClay2)
 		 {
-			 this.genStandardOre1(10, clayInClay2Gen, 64, 128);
+			 this.genStandardOre1(20, clayInClay2Gen, 64, 128);
 		 }
 
 		 if (generateClayInStone)
 		 {
-			 this.genStandardOre1(10, clayInStoneGen, 64, 128);
+			 this.genStandardOre1(20, clayInStoneGen, 64, 128);
 		 }
 		 
 		 if (generateClayInStone2)
