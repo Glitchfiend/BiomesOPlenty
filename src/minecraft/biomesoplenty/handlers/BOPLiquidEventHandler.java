@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.handlers;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,7 +9,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import biomesoplenty.api.Liquids;
 
-public class BOPLiquidHelper
+public class BOPLiquidEventHandler
 {
 	@ForgeSubscribe
 	public void onBucketFill(FillBucketEvent event)
@@ -39,8 +39,11 @@ public class BOPLiquidHelper
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
-			return new ItemStack(Liquids.bopBucket.get(), 1, 1);
-		} else
+			return new ItemStack(Liquids.bopBucket.get(), 1, 2);
+		} 
+		else
+		{
 			return null;
+		}
 	}
 }

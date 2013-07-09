@@ -166,7 +166,7 @@ public abstract class InventoryLogic extends TileEntity
         return this.invName != null && this.invName.length() > 0;
     }
 
-	@Override
+	/*@Override
 	public boolean isStackValidForSlot (int slot, ItemStack itemstack)
 	{
 	    if (slot < getSizeInventory())
@@ -175,5 +175,5 @@ public abstract class InventoryLogic extends TileEntity
 	        return true;
 	    }
 	    return false;
-	}
+	}*/
 }

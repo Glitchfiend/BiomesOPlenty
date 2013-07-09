@@ -107,7 +107,7 @@ public class BlockGrave extends Block
     			d0 = (double)target.blockX + block.getBlockBoundsMaxX() + (double)f;
     		}
 
-    		effectRenderer.addEffect((new EntityDiggingFX(worldObj, d0, d1, d2, 0.0D, 0.0D, 0.0D, block, 0)).func_70596_a(target.blockX, target.blockY, target.blockZ).multiplyVelocity(0.2F).multipleParticleScaleBy(0.6F));
+    		effectRenderer.addEffect((new EntityDiggingFX(worldObj, d0, d1, d2, 0.0D, 0.0D, 0.0D, block, 0)).applyColourMultiplier(target.blockX, target.blockY, target.blockZ).multiplyVelocity(0.2F).multipleParticleScaleBy(0.6F));
     	}
     	
 		return true;
@@ -129,7 +129,7 @@ public class BlockGrave extends Block
                     double d1 = (double)y + ((double)k1 + 0.5D) / (double)b0;
                     double d2 = (double)z + ((double)l1 + 0.5D) / (double)b0;
                     int i2 = world.rand.nextInt(6);
-                    effectRenderer.addEffect(new EntityDiggingFX(world, d0, d1, d2, d0 - (double)x - 0.5D, d1 - (double)y - 0.5D, d2 - (double)z - 0.5D, Block.stone, i2, meta).func_70596_a(x, y, z));
+                    effectRenderer.addEffect(new EntityDiggingFX(world, d0, d1, d2, d0 - (double)x - 0.5D, d1 - (double)y - 0.5D, d2 - (double)z - 0.5D, Block.stone, i2, meta).applyColourMultiplier(x, y, z));
                 }
             }
         }

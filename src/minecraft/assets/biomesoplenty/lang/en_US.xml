@@ -344,7 +344,8 @@
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
 	
 	<!--Liquids -->
-	<entry key="item.bop.bopBucket.spring_water.name">Spring Water Bucket</entry>
+	  <entry key="item.bop.bopBucket.amethyst_empty.name">Amethyst Bucket</entry>
+	<entry key="item.bop.bopBucket.amethyst_spring_water.name">Spring Water Amethyst Bucket</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>
 	
 	<entry key="tile.bop.liquidPoison.name">Liquid Poison</entry>

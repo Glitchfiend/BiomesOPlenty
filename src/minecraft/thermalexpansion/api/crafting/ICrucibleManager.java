@@ -6,8 +6,6 @@
 
 package thermalexpansion.api.crafting;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.liquids.LiquidStack;
 
 /**
  * Provides an interface to the recipe manager of the Crucible. Accessible via
@@ -28,9 +26,9 @@ public interface ICrucibleManager {
      *            Flag to enable recipe overwriting. This will only be allowed if enabled in the
      *            Thermal Expansion Configuration file and will be logged for information purposes.
      */
-    public boolean addRecipe(int energy, ItemStack input, LiquidStack output, boolean overwrite);
+    //public boolean addRecipe(int energy, ItemStack input, LiquidStack output, boolean overwrite);
 
-    public boolean addRecipe(int energy, ItemStack input, LiquidStack output);
+   // public boolean addRecipe(int energy, ItemStack input, LiquidStack output);
 
     /**
      * Access to the full list of recipes.

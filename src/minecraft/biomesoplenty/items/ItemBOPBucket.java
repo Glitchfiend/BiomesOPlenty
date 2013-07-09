@@ -2,7 +2,6 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,9 +11,6 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event;
-import net.minecraftforge.event.entity.player.FillBucketEvent;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Liquids;
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +20,7 @@ public class ItemBOPBucket extends Item
 {
 	private int isFull;
 
-	private static final String[] bucketTypes = new String[] {"spring_water", "liquid_poison"};
+	private static final String[] bucketTypes = new String[] {"amethyst_empty", "amethyst_spring_water", "liquid_poison"};
 
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
@@ -50,67 +46,21 @@ public class ItemBOPBucket extends Item
 		boolean flag = isFull == 0;
 		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(par2World, par3EntityPlayer, flag);
 
-		if (movingobjectposition == null)
-			return par1ItemStack;
-		else
+		if (par1ItemStack.getItemDamage() != 0)
 		{
-			FillBucketEvent event = new FillBucketEvent(par3EntityPlayer, par1ItemStack, par2World, movingobjectposition);
-			if (MinecraftForge.EVENT_BUS.post(event))
+			if (movingobjectposition == null)
 				return par1ItemStack;
-
-			if (event.getResult() == Event.Result.ALLOW)
+			else
 			{
-				if (par3EntityPlayer.capabilities.isCreativeMode)
-					return par1ItemStack;
-
-				if (--par1ItemStack.stackSize <= 0)
-					return event.result;
-
-				if (!par3EntityPlayer.inventory.addItemStackToInventory(event.result))
+				if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
 				{
-					par3EntityPlayer.dropPlayerItem(event.result);
-				}
+					int i = movingobjectposition.blockX;
+					int j = movingobjectposition.blockY;
+					int k = movingobjectposition.blockZ;
 
-				return par1ItemStack;
-			}
-
-			if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
-			{
-				int i = movingobjectposition.blockX;
-				int j = movingobjectposition.blockY;
-				int k = movingobjectposition.blockZ;
-
-				if (!par2World.canMineBlock(par3EntityPlayer, i, j, k))
-					return par1ItemStack;
-
-				if (isFull == 0)
-				{
-					if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
+					if (!par2World.canMineBlock(par3EntityPlayer, i, j, k))
 						return par1ItemStack;
 
-					if (par2World.getBlockMaterial(i, j, k) == Material.water && (par2World.getBlockMetadata(i, j, k) == 0))
-					{
-						par2World.setBlockToAir(i, j, k);
-
-						if (par3EntityPlayer.capabilities.isCreativeMode)
-							return par1ItemStack;
-
-						if (--par1ItemStack.stackSize <= 0)
-							return new ItemStack(Item.bucketWater);
-
-						if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.bucketWater)))
-						{
-							par3EntityPlayer.dropPlayerItem(new ItemStack(Item.bucketWater.itemID, 1, 0));
-						}
-
-						return par1ItemStack;
-					}
-
-					if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
-						return par1ItemStack;
-				}
-				else
-				{
 					if (isFull < 0)
 						return new ItemStack(Item.bucketEmpty);
 
@@ -148,12 +98,17 @@ public class ItemBOPBucket extends Item
 						return par1ItemStack;
 
 					if (this.tryPlaceContainedLiquid(par2World, d0, d1, d2, i, j, k) && !par3EntityPlayer.capabilities.isCreativeMode)
-						return new ItemStack(Item.bucketEmpty);
+					{
+						if (par1ItemStack.getItemDamage() != 1)
+							return new ItemStack(Item.bucketEmpty);
+						else
+							return new ItemStack(Liquids.bopBucket.get(), 1, 0);
+					}
 				}
 			}
-
-			return par1ItemStack;
 		}
+
+		return par1ItemStack;
 	}
 
 	/**
@@ -189,14 +144,14 @@ public class ItemBOPBucket extends Item
 	{
 		switch (meta)
 		{
-		case 0:
-			return Liquids.springWater.get().blockID;
+			case 1:
+				return Liquids.springWater.get().blockID;
 
-		case 1:
-			return Liquids.liquidPoison.get().blockID;
+			case 2:
+				return Liquids.liquidPoison.get().blockID;
 
-		default:
-			return Liquids.springWater.get().blockID;
+			default:
+				return Liquids.liquidPoison.get().blockID;
 		}
 	}
 

@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import mods.tinker.tconstruct.library.crafting.Detailing;
-import mods.tinker.tconstruct.library.crafting.LiquidCasting;
 import mods.tinker.tconstruct.library.crafting.ToolBuilder;
 import mods.tinker.tconstruct.library.tools.ToolCore;
 import mods.tinker.tconstruct.library.tools.ToolMaterial;
@@ -264,7 +263,7 @@ public class TConstructRegistry
         return (toolMaterialStrings.get(key));
     }
 
-    public static LiquidCasting getTableCasting ()
+    /*public static LiquidCasting getTableCasting ()
     {
         return instance.tableCasting();
     }
@@ -304,7 +303,7 @@ public class TConstructRegistry
             System.out.println("[TCon API] Could not find casting basin recipes.");
             return null;
         }
-    }
+    }*/
     
     public static Detailing getChiselDetailing ()
     {

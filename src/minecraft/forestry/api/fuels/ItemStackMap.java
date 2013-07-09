@@ -6,7 +6,6 @@ import java.util.Map;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.liquids.LiquidStack;
 
 public class ItemStackMap<T> extends HashMap<ItemStack, T> {
 
@@ -45,8 +44,8 @@ public class ItemStackMap<T> extends HashMap<ItemStack, T> {
 			return false;
 		if (b instanceof ItemStack)
 			return ItemStack.areItemStackTagsEqual(a, (ItemStack) b) && a.isItemEqual((ItemStack) b);
-		else if (b instanceof LiquidStack)
-			return ItemStack.areItemStackTagsEqual(a, ((LiquidStack) b).asItemStack()) && a.isItemEqual(((LiquidStack) b).asItemStack());
+		//else if (b instanceof LiquidStack)
+			//return ItemStack.areItemStackTagsEqual(a, ((LiquidStack) b).asItemStack()) && a.isItemEqual(((LiquidStack) b).asItemStack());
 		else if (b instanceof Integer)
 			return ((Integer) b).equals(a.itemID);
 		else if (b instanceof Item)

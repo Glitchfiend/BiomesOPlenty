@@ -13,6 +13,7 @@ import biomesoplenty.configuration.BOPLiquids;
 import biomesoplenty.configuration.BOPPotions;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.handlers.BOPCraftHandler;
+import biomesoplenty.handlers.BOPLiquidEventHandler;
 import biomesoplenty.handlers.BonemealHandler;
 import biomesoplenty.handlers.BreakSpeedHandler;
 import biomesoplenty.handlers.EntityEventHandler;
@@ -21,7 +22,6 @@ import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.handlers.TickHandlerServer;
 import biomesoplenty.helpers.AchievementHelper;
-import biomesoplenty.helpers.BOPLiquidHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Localizations;
 import biomesoplenty.helpers.Version;
@@ -100,7 +100,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
 		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
-		MinecraftForge.EVENT_BUS.register(new BOPLiquidHelper());
+		MinecraftForge.EVENT_BUS.register(new BOPLiquidEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
 
