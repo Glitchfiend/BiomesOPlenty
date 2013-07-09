@@ -43,7 +43,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
 import biomesoplenty.worldgen.WorldGenBOPFlowers;
@@ -630,7 +630,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 (new WorldGenLakes(Liquids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+			 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 for (var2 = 0; var2 < 5; ++var2)
@@ -642,7 +642,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
 				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-				 (new WorldGenLakes(Liquids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+				 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 			 }
 		 }
 
@@ -651,7 +651,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 (new WorldGenLakes(Liquids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+			 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
 		 for (var2 = 0; var2 < 5; ++var2)
@@ -663,7 +663,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
 				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-				 (new WorldGenLakes(Liquids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+				 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 			 }
 		 }
 

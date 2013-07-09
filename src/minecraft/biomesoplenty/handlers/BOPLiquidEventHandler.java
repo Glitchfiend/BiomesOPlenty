@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 
 public class BOPLiquidEventHandler
 {
@@ -28,18 +28,18 @@ public class BOPLiquidEventHandler
 		int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
 		int meta = world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ);
 
-		if ((blockID == Liquids.springWater.get().blockID) && meta == 0)
+		if ((blockID == Fluids.springWater.get().blockID) && meta == 0)
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
 			return new ItemStack(Item.bucketWater);
 		}
 
-		if ((blockID == Liquids.liquidPoison.get().blockID) && meta == 0)
+		if ((blockID == Fluids.liquidPoison.get().blockID) && meta == 0)
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
-			return new ItemStack(Liquids.bopBucket.get(), 1, 2);
+			return new ItemStack(Fluids.bopBucket.get(), 1, 2);
 		} 
 		else
 		{

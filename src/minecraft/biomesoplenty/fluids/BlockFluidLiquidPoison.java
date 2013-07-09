@@ -1,4 +1,4 @@
-package biomesoplenty.liquids;
+package biomesoplenty.fluids;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

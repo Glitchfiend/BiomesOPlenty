@@ -6,7 +6,7 @@ import net.minecraftforge.fluids.Fluid;
 
 import com.google.common.base.Optional;
 
-public class Liquids
+public class Fluids
 {
 	public static Optional<? extends Item> 	bopBucket         		        = Optional.absent();
 

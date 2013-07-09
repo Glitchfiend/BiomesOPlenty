@@ -12,7 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -102,7 +102,7 @@ public class ItemBOPBucket extends Item
 						if (par1ItemStack.getItemDamage() != 1)
 							return new ItemStack(Item.bucketEmpty);
 						else
-							return new ItemStack(Liquids.bopBucket.get(), 1, 0);
+							return new ItemStack(Fluids.bopBucket.get(), 1, 0);
 					}
 				}
 			}
@@ -122,7 +122,7 @@ public class ItemBOPBucket extends Item
 			return false;
 		else
 		{
-			if (par1World.provider.isHellWorld && isFull == Liquids.springWater.get().blockID)
+			if (par1World.provider.isHellWorld && isFull == Fluids.springWater.get().blockID)
 			{
 				par1World.playSoundEffect(par2 + 0.5D, par4 + 0.5D, par6 + 0.5D, "random.fizz", 0.5F, 2.6F + (par1World.rand.nextFloat() - par1World.rand.nextFloat()) * 0.8F);
 
@@ -145,13 +145,13 @@ public class ItemBOPBucket extends Item
 		switch (meta)
 		{
 			case 1:
-				return Liquids.springWater.get().blockID;
+				return Fluids.springWater.get().blockID;
 
 			case 2:
-				return Liquids.liquidPoison.get().blockID;
+				return Fluids.liquidPoison.get().blockID;
 
 			default:
-				return Liquids.liquidPoison.get().blockID;
+				return Fluids.liquidPoison.get().blockID;
 		}
 	}
 

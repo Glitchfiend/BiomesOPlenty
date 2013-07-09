@@ -1,4 +1,4 @@
-package biomesoplenty.liquids;
+package biomesoplenty.fluids;
 
 import net.minecraft.util.Icon;
 import net.minecraftforge.fluids.Fluid;

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenPromisedBush;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
@@ -40,7 +40,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		customBiomeDecorator.generatePumpkins = false;
 		//this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
-		theWorldGenerator = new WorldGenWaterSpring(Liquids.springWater.get().blockID, 8);
+		theWorldGenerator = new WorldGenWaterSpring(Fluids.springWater.get().blockID, 8);
 
 		/*if (Loader.isModLoaded("TwilightForest"))
 		{

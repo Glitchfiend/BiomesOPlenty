@@ -1,4 +1,4 @@
-package biomesoplenty.liquids;
+package biomesoplenty.fluids;
 
 import java.util.Random;
 
@@ -18,7 +18,7 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -37,7 +37,7 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 			displacementIds.put(i, false);
 		}
 
-		displacementIds.put(Liquids.liquidPoison.get().blockID, false);
+		displacementIds.put(Fluids.liquidPoison.get().blockID, false);
 	}
 
 	@Override

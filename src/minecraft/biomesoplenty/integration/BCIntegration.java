@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.BlockReferences;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class BCIntegration {
@@ -97,8 +97,8 @@ public class BCIntegration {
 			
 			Method method = bcUtils.getMethod("liquidId", int.class);
 			
-			method.invoke(bcUtils, Liquids.springWaterFluid.get().getBlockID());
-			method.invoke(bcUtils, Liquids.liquidPoisonFluid.get().getBlockID());
+			method.invoke(bcUtils, Fluids.springWaterFluid.get().getBlockID());
+			method.invoke(bcUtils, Fluids.liquidPoisonFluid.get().getBlockID());
 		} 
 		catch (Exception e) 
 		{

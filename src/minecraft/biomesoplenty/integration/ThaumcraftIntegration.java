@@ -7,7 +7,7 @@ import thaumcraft.api.ThaumcraftApi;
 import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.blocks.BlockBOPAmethyst;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
@@ -159,8 +159,8 @@ public class ThaumcraftIntegration {
 		/*Mudbrick*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new ObjectTags()).add(EnumTag.EARTH, 2).add(EnumTag.FIRE, 1));
 		/*Dart*/ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 0, (new ObjectTags()).add(EnumTag.WEAPON, 1));
 		/*Poison Dart*/ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 1, (new ObjectTags()).add(EnumTag.PLANT, 2).add(EnumTag.WEAPON, 2));
-		/*Spring Water Bucket*/ThaumcraftApi.registerObjectTag(Liquids.bopBucket.get().itemID, 0, (new ObjectTags()).add(EnumTag.METAL, 13).add(EnumTag.VOID, 1).add(EnumTag.WATER, 4).add(EnumTag.LIFE, 2).add(EnumTag.HEAL, 4));
-		/*Liquid Poison Bucket*/ThaumcraftApi.registerObjectTag(Liquids.bopBucket.get().itemID, 1, (new ObjectTags()).add(EnumTag.METAL, 13).add(EnumTag.VOID, 1).add(EnumTag.WATER, 2).add(EnumTag.WEAPON, 4).add(EnumTag.POISON, 4));
+		/*Spring Water Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 0, (new ObjectTags()).add(EnumTag.METAL, 13).add(EnumTag.VOID, 1).add(EnumTag.WATER, 4).add(EnumTag.LIFE, 2).add(EnumTag.HEAL, 4));
+		/*Liquid Poison Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 1, (new ObjectTags()).add(EnumTag.METAL, 13).add(EnumTag.VOID, 1).add(EnumTag.WATER, 2).add(EnumTag.WEAPON, 4).add(EnumTag.POISON, 4));
 		ThaumcraftApi.registerObjectTag(Items.berries.get().itemID, 0, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
 		ThaumcraftApi.registerObjectTag(Items.sunflowerSeeds.get().itemID, 0, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EXCHANGE, 1));
 		ThaumcraftApi.registerObjectTag(Items.mudball.get().itemID, 0, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.EARTH, 2));

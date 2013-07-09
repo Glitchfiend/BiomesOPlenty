@@ -17,7 +17,7 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.api.Liquids;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.configuration.BOPConfiguration;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -185,7 +185,7 @@ public class AchievementHelper
 		achGrove = (new Achievement(3111, "achGrove", 4, -2, new ItemStack(Blocks.flowers.get(), 1, 0), achBOP)).registerAchievement();
 		achHeathland = (new Achievement(3112, "achHeathland", 6, -2, new ItemStack(Blocks.saplings.get(), 1, 14), achBOP)).registerAchievement(); 	
 		achHighland = (new Achievement(3113, "achHighland", 8, -2, new ItemStack(Blocks.foliage.get(), 1, 3), achBOP)).registerAchievement();
-		achHotSprings = (new Achievement(3114, "achHotSprings", 10, -2, new ItemStack(Liquids.bopBucket.get(), 1, 0), achBOP)).registerAchievement();
+		achHotSprings = (new Achievement(3114, "achHotSprings", 10, -2, new ItemStack(Fluids.bopBucket.get(), 1, 0), achBOP)).registerAchievement();
 		
 		achIcyHills = (new Achievement(3115, "achIcyHills", -10, 0, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement().setSpecial();  
 		achJadeCliffs = (new Achievement(3116, "achJadeCliffs", -8, 0, new ItemStack(Blocks.colorizedSaplings.get(), 1, 5), achBOP)).registerAchievement(); 
