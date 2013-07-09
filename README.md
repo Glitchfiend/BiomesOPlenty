@@ -32,7 +32,7 @@
 	  - Shrubland Forest
 	  - Timber Thin
 	- Added amethyst buckets specifically for picking up Spring Water
-	- Removed the overgrown beach
+	- Removed the Overgrown Beach
 	- Tweaked the Badlands
 
 	  Version 0.5.6 '05-07-13'
