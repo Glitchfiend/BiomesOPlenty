@@ -8,6 +8,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.api.Items;
 import biomesoplenty.helpers.FurnaceFuel;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -221,6 +222,8 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Blocks.altar.get(), 1), new Object[] {"OBO", "BBB", "OBO", 'O', Block.obsidian, 'B', new ItemStack(Blocks.bones.get(), 1, 2)});
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 1), new Object[] {"PCP", "CSC", "PCP", 'P', Item.blazePowder, 'C', new ItemStack(Blocks.glass.get(), 1, 0), 'S', new ItemStack(Items.miscItems.get(), 1, 16)});
+		
+		GameRegistry.addRecipe(new ItemStack(Fluids.bopBucket.get(), 1, 0), new Object[] {"XXX", "AXA", "XAX", 'A', new ItemStack(Items.miscItems.get(), 1, 2)});
 
 		//Dart Blower
 		GameRegistry.addRecipe(new ItemStack(Items.dartBlower.get(), 1), new Object[] {"R R", "R R", "R R", Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});

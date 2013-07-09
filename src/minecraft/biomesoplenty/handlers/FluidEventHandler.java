@@ -9,7 +9,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import biomesoplenty.api.Fluids;
 
-public class BOPLiquidEventHandler
+public class FluidEventHandler
 {
 	@ForgeSubscribe
 	public void onBucketFill(FillBucketEvent event)
@@ -39,7 +39,7 @@ public class BOPLiquidEventHandler
 		{
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
-			return new ItemStack(Fluids.bopBucket.get(), 1, 2);
+			return new ItemStack(Fluids.bopBucket.get(), 1, 1);
 		} 
 		else
 		{

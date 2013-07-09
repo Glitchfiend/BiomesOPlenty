@@ -20,7 +20,7 @@ public class ItemBOPBucket extends Item
 {
 	private int isFull;
 
-	private static final String[] bucketTypes = new String[] {"amethyst_empty", "amethyst_spring_water", "liquid_poison"};
+	private static final String[] bucketTypes = new String[] {"amethyst_empty", "liquid_poison", "amethyst_spring_water"};
 
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
@@ -32,83 +32,124 @@ public class ItemBOPBucket extends Item
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
 	{
 		float f = 1.0F;
-		double d0 = par3EntityPlayer.prevPosX + (par3EntityPlayer.posX - par3EntityPlayer.prevPosX) * f;
-		double d1 = par3EntityPlayer.prevPosY + (par3EntityPlayer.posY - par3EntityPlayer.prevPosY) * f + 1.62D - par3EntityPlayer.yOffset;
-		double d2 = par3EntityPlayer.prevPosZ + (par3EntityPlayer.posZ - par3EntityPlayer.prevPosZ) * f;
-		isFull = getLiquidIDFromMeta(par1ItemStack.getItemDamage());
+		double d0 = player.prevPosX + (player.posX - player.prevPosX) * f;
+		double d1 = player.prevPosY + (player.posY - player.prevPosY) * f + 1.62D - player.yOffset;
+		double d2 = player.prevPosZ + (player.posZ - player.prevPosZ) * f;
+		isFull = getLiquidIDFromMeta(itemstack.getItemDamage());
 		boolean flag = isFull == 0;
-		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(par2World, par3EntityPlayer, flag);
 
-		if (par1ItemStack.getItemDamage() != 0)
+		if (itemstack.getItemDamage() == 0)
 		{
-			if (movingobjectposition == null)
-				return par1ItemStack;
-			else
+			MovingObjectPosition pos = this.getMovingObjectPositionFromPlayer(world, player, true);
+			
+	        if (pos == null)
+	        {
+	        	return itemstack;
+	        }
+	        else
+	        {
+	        	int blockID = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
+	        	int meta = world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ);
+
+	        	if ((blockID == Fluids.springWater.get().blockID) && meta == 0)
+	        	{
+	        		if (player.capabilities.isCreativeMode)
+	        		{
+	        			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+	        			
+	        			return itemstack;
+	        		}
+
+	        		if (--itemstack.stackSize <= 0)
+	        		{
+	        			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+
+	        			return new ItemStack(Fluids.bopBucket.get(), 1, 2);
+	        		}
+
+	        		if (!player.inventory.addItemStackToInventory(new ItemStack(Fluids.bopBucket.get(), 1, 2)))
+	        		{
+	        			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+
+	        			player.dropPlayerItem(new ItemStack(Fluids.bopBucket.get(), 1, 2));
+	        		}
+
+	        		return itemstack;
+	        	}
+	        	else
+	        	{
+	        		return itemstack;
+	        	}
+	        }
+		}
+		else
+		{
+			MovingObjectPosition pos = this.getMovingObjectPositionFromPlayer(world, player, flag);
+			
+	        if (pos == null)
+	        {
+	        	return itemstack;
+	        }
+	        else if (pos.typeOfHit == EnumMovingObjectType.TILE)
 			{
-				if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+				int i = pos.blockX;
+				int j = pos.blockY;
+				int k = pos.blockZ;
+
+				if (!world.canMineBlock(player, i, j, k))
+					return itemstack;
+
+				if (isFull < 0)
+					return new ItemStack(Item.bucketEmpty);
+
+				if (pos.sideHit == 0)
 				{
-					int i = movingobjectposition.blockX;
-					int j = movingobjectposition.blockY;
-					int k = movingobjectposition.blockZ;
+					--j;
+				}
 
-					if (!par2World.canMineBlock(par3EntityPlayer, i, j, k))
-						return par1ItemStack;
+				if (pos.sideHit == 1)
+				{
+					++j;
+				}
 
-					if (isFull < 0)
+				if (pos.sideHit == 2)
+				{
+					--k;
+				}
+
+				if (pos.sideHit == 3)
+				{
+					++k;
+				}
+
+				if (pos.sideHit == 4)
+				{
+					--i;
+				}
+
+				if (pos.sideHit == 5)
+				{
+					++i;
+				}
+
+				if (!player.canPlayerEdit(i, j, k, pos.sideHit, itemstack))
+					return itemstack;
+
+				if (this.tryPlaceContainedLiquid(world, d0, d1, d2, i, j, k) && !player.capabilities.isCreativeMode)
+				{
+					if (itemstack.getItemDamage() != 2)
 						return new ItemStack(Item.bucketEmpty);
-
-					if (movingobjectposition.sideHit == 0)
-					{
-						--j;
-					}
-
-					if (movingobjectposition.sideHit == 1)
-					{
-						++j;
-					}
-
-					if (movingobjectposition.sideHit == 2)
-					{
-						--k;
-					}
-
-					if (movingobjectposition.sideHit == 3)
-					{
-						++k;
-					}
-
-					if (movingobjectposition.sideHit == 4)
-					{
-						--i;
-					}
-
-					if (movingobjectposition.sideHit == 5)
-					{
-						++i;
-					}
-
-					if (!par3EntityPlayer.canPlayerEdit(i, j, k, movingobjectposition.sideHit, par1ItemStack))
-						return par1ItemStack;
-
-					if (this.tryPlaceContainedLiquid(par2World, d0, d1, d2, i, j, k) && !par3EntityPlayer.capabilities.isCreativeMode)
-					{
-						if (par1ItemStack.getItemDamage() != 1)
-							return new ItemStack(Item.bucketEmpty);
-						else
-							return new ItemStack(Fluids.bopBucket.get(), 1, 0);
-					}
+					else
+						return new ItemStack(Fluids.bopBucket.get(), 1, 0);
 				}
 			}
 		}
 
-		return par1ItemStack;
+		return itemstack;
 	}
 
 	/**
@@ -145,10 +186,10 @@ public class ItemBOPBucket extends Item
 		switch (meta)
 		{
 			case 1:
-				return Fluids.springWater.get().blockID;
+				return Fluids.liquidPoison.get().blockID;
 
 			case 2:
-				return Fluids.liquidPoison.get().blockID;
+				return Fluids.springWater.get().blockID;
 
 			default:
 				return Fluids.liquidPoison.get().blockID;
