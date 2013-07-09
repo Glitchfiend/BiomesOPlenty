@@ -118,7 +118,7 @@ public class ItemBOPScythe extends Item
 
     				if (block != null)
     				{
-        				if (world.rand.nextInt(3) == 0)
+        				if (world.rand.nextInt(6) == 0)
         				{
         					stack.damageItem(1, entity);
         				}
@@ -174,7 +174,7 @@ public class ItemBOPScythe extends Item
     				{    					
     					if (block.isLeaves(world, x + aX, y + aY, z + aZ))
     					{
-    						if (world.rand.nextInt(6) == 0)
+    						if (world.rand.nextInt(5) == 0)
     						{
     							stack.damageItem(1, entity);
     						}
@@ -203,7 +203,7 @@ public class ItemBOPScythe extends Item
 
     					if (block != null)
     					{
-            				if (world.rand.nextInt(4) == 0)
+            				if (world.rand.nextInt(7) == 0)
             				{
             					stack.damageItem(1, entity);
             				}
