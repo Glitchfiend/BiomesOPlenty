@@ -73,7 +73,6 @@ import biomesoplenty.items.ItemBOPAmethyst;
 import biomesoplenty.items.ItemBOPIvy;
 import biomesoplenty.items.ItemBOPWillow;
 import biomesoplenty.tileentities.TileEntityAltar;
-import biomesoplenty.tileentities.TileEntityGrave;
 
 import com.google.common.base.Optional;
 
@@ -284,7 +283,6 @@ public class BOPBlocks
 	private static void registerTileEntities()
 	{
         GameRegistry.registerTileEntity(TileEntityAltar.class, "tileEntityAltar");
-        GameRegistry.registerTileEntity(TileEntityGrave.class, "tileEntityGrave");
 	}
 
 	private static void addGrassPlants()

@@ -6,17 +6,14 @@ import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraftforge.client.MinecraftForgeClient;
-import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
-import biomesoplenty.blocks.renderers.ItemGraveRenderer;
+import biomesoplenty.blocks.renderers.GraveRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.blocks.renderers.PuddleRender;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
-import biomesoplenty.blocks.renderers.TileEntityGraveRenderer;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityRosester;
@@ -28,8 +25,6 @@ import biomesoplenty.entities.render.RenderJungleSpider;
 import biomesoplenty.entities.render.RenderRosester;
 import biomesoplenty.particles.EntityDandelionFX;
 import biomesoplenty.particles.EntitySteamFX;
-import biomesoplenty.tileentities.TileEntityGrave;
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -40,14 +35,12 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers()
 	{
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrave.class, new TileEntityGraveRenderer());
-		MinecraftForgeClient.registerItemRenderer(Blocks.grave.get().blockID, new ItemGraveRenderer());
-		
 		RenderUtils.altarModel = RenderingRegistry.getNextAvailableRenderId();
-		RenderUtils.foliageModel = RenderingRegistry.getNextAvailableRenderId();;
-		RenderUtils.plantsModel = RenderingRegistry.getNextAvailableRenderId();;
-		RenderUtils.puddleModel = RenderingRegistry.getNextAvailableRenderId();;
-		RenderUtils.bonesModel = RenderingRegistry.getNextAvailableRenderId();;
+		RenderUtils.foliageModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderUtils.plantsModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderUtils.puddleModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderUtils.bonesModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderUtils.graveModel = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
@@ -61,6 +54,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
 		RenderingRegistry.registerBlockHandler(new AltarRenderer());
 		RenderingRegistry.registerBlockHandler(new PuddleRender());
+		RenderingRegistry.registerBlockHandler(new GraveRenderer());
 	}
 
 	@Override
