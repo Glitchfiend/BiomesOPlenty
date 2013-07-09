@@ -41,13 +41,9 @@ public class Version implements Runnable {
 		return currentVersion == EnumUpdateState.OUTDATED;
 	}
 
-	@SuppressWarnings("unused")
 	public static boolean needsUpdateNoticeAndMarkAsSeen() 
 	{
 		if (!isOutdated())
-			return false;
-		
-		if (VERSION == "@VERSION@")
 			return false;
 
 		//Property property = BOPConfiguration.config.get("Vars", "Seen Version", VERSION);
