@@ -118,10 +118,31 @@ public class ItemBOPScythe extends Item
 
     				if (block != null)
     				{
-        				if (world.rand.nextInt(3) == 0)
-        				{
-        					stack.damageItem(1, entity);
-        				}
+    					if (toolMaterial == EnumToolMaterial.IRON || toolMaterial == EnumToolMaterial.GOLD)
+    					{
+    						if (world.rand.nextInt(7) == 0)
+    						{
+    							stack.damageItem(1, entity);
+    						}
+    					}
+    			        else if (toolMaterial == EnumToolMaterial.EMERALD)
+    			        {
+    						if (world.rand.nextInt(8) == 0)
+    						{
+    							stack.damageItem(1, entity);
+    						}
+    			        }
+    			        else if (toolMaterial == BOPItems.EnumToolMaterialAmethyst)
+    			        {
+    						if (world.rand.nextInt(9) == 0)
+    						{
+    							stack.damageItem(1, entity);
+    						}
+    			        }
+    			        else if (world.rand.nextInt(5) == 0)
+						{
+							stack.damageItem(1, entity);
+						}
     					
     					if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
     					{
@@ -174,7 +195,28 @@ public class ItemBOPScythe extends Item
     				{    					
     					if (block.isLeaves(world, x + aX, y + aY, z + aZ))
     					{
-    						if (world.rand.nextInt(6) == 0)
+        					if (toolMaterial == EnumToolMaterial.IRON || toolMaterial == EnumToolMaterial.GOLD)
+        					{
+        						if (world.rand.nextInt(6) == 0)
+        						{
+        							stack.damageItem(1, entity);
+        						}
+        					}
+        			        else if (toolMaterial == EnumToolMaterial.EMERALD)
+        			        {
+        						if (world.rand.nextInt(7) == 0)
+        						{
+        							stack.damageItem(1, entity);
+        						}
+        			        }
+        			        else if (toolMaterial == BOPItems.EnumToolMaterialAmethyst)
+        			        {
+        						if (world.rand.nextInt(8) == 0)
+        						{
+        							stack.damageItem(1, entity);
+        						}
+        			        }
+        			        else if (world.rand.nextInt(4) == 0)
     						{
     							stack.damageItem(1, entity);
     						}
@@ -203,10 +245,31 @@ public class ItemBOPScythe extends Item
 
     					if (block != null)
     					{
-            				if (world.rand.nextInt(4) == 0)
-            				{
-            					stack.damageItem(1, entity);
-            				}
+        					if (toolMaterial == EnumToolMaterial.IRON || toolMaterial == EnumToolMaterial.GOLD)
+        					{
+        						if (world.rand.nextInt(8) == 0)
+        						{
+        							stack.damageItem(1, entity);
+        						}
+        					}
+        			        else if (toolMaterial == EnumToolMaterial.EMERALD)
+        			        {
+        						if (world.rand.nextInt(9) == 0)
+        						{
+        							stack.damageItem(1, entity);
+        						}
+        			        }
+        			        else if (toolMaterial == BOPItems.EnumToolMaterialAmethyst)
+        			        {
+        						if (world.rand.nextInt(10) == 0)
+        						{
+        							stack.damageItem(1, entity);
+        						}
+        			        }
+        			        else if (world.rand.nextInt(5) == 0)
+    						{
+    							stack.damageItem(1, entity);
+    						}
     						
     						if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
     						{
