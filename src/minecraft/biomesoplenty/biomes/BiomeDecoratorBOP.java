@@ -454,7 +454,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		netherWartGen = new WorldGenNetherWart(Block.netherStalk.blockID, 0);
 		canyonGrassGen = new WorldGenCanyonGrass(Blocks.foliage.get().blockID, 2);
 		steppeGen = new WorldGenSteppe(Block.sand.blockID, 0);
-		carrotGen = new WorldGenCarrots(Block.tallGrass.blockID, 0);
+		carrotGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 11);
 		potatoGen = new WorldGenPotatoes(Block.tallGrass.blockID, 0);
 		bigMushroomGen = new WorldGenBigMushroom();
 		reedGen = new WorldGenReed();

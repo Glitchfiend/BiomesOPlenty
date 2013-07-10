@@ -29,6 +29,7 @@ public class BiomeGenForestNew extends BiomeGenBase
 		customBiomeDecorator.poisonIvyPerChunk = 2;
 		customBiomeDecorator.sunflowersPerChunk = 1;
 		customBiomeDecorator.berryBushesPerChunk = 2;
+		customBiomeDecorator.carrotsPerChunk = 1;
 	}
 
 	/**

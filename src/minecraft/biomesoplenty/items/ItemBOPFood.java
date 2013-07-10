@@ -15,7 +15,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroomPowder"};
+	private static final String[] foodTypes = new String[] {"berries", "shroomPowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom"};
 	private Icon[] textures;
 	
 	public ItemBOPFood(int par1)
@@ -31,7 +31,7 @@ public class ItemBOPFood extends ItemFood
     {
 		if (itemstack.getItemDamage() == 0)
 		{
-			return addFoodAndSaturation(world, itemstack, player, 3, 0.2F);
+			return addFoodAndSaturation(world, itemstack, player, 2, 0.2F);
 		}
 		else if (itemstack.getItemDamage() == 1)
 		{
@@ -41,6 +41,41 @@ public class ItemBOPFood extends ItemFood
 			}
 
 			return addFoodAndSaturation(world, itemstack, player, 1, 0.1F);
+		}
+		else if (itemstack.getItemDamage() == 2)
+		{
+			return addFoodAndSaturation(world, itemstack, player, 3, 0.5F);
+		}
+		else if (itemstack.getItemDamage() == 3)
+		{
+			return addFoodAndSaturation(world, itemstack, player, 2, 0.5F);
+		}
+		else if (itemstack.getItemDamage() == 4)
+		{
+			if (world.rand.nextFloat() < 0.05F)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 550, 1));
+			}
+			
+			return addFoodAndSaturation(world, itemstack, player, 6, 0.8F);
+		}
+		else if (itemstack.getItemDamage() == 5)
+		{
+			if (world.rand.nextFloat() < 0.05F)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 1100, 1));
+			}
+			
+			return addFoodAndSaturation(world, itemstack, player, 6, 1.2F);
+		}
+		else if (itemstack.getItemDamage() == 6)
+		{
+			if (world.rand.nextFloat() < 0.05F)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.jump.id, 550, 1));
+			}
+			
+			return addFoodAndSaturation(world, itemstack, player, 6, 1.6F);
 		}
 		
 		return addFoodAndSaturation(world, itemstack, player, 0, 0);

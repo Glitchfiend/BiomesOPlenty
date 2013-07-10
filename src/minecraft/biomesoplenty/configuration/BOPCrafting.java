@@ -250,6 +250,9 @@ public class BOPCrafting
 		//Plants
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 1, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 1, 4), new Object[] {Item.bowlEmpty, new ItemStack(Items.berries.get(), 1, 0), Item.appleRed, Item.melon});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 1, 5), new Object[] {Item.bowlEmpty, new ItemStack(Items.berries.get(), 1, 2), Item.carrot, Item.potato});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 1, 6), new Object[] {Item.bowlEmpty, new ItemStack(Blocks.mushrooms.get(), 1, 0), new ItemStack(Blocks.mushrooms.get(), 1, 1), new ItemStack(Blocks.mushrooms.get(), 1, 2)});
 
 		//Glass
 		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"GGG", "GGG", "GGG", Character.valueOf('G'), Block.glass});

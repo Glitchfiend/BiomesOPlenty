@@ -22,7 +22,7 @@ public class BiomeGenMeadowForest extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 10;
 		customBiomeDecorator.tinyFlowersPerChunk = 7;
 		customBiomeDecorator.flowersPerChunk = 10;
-		customBiomeDecorator.carrotsPerChunk = -999;
+		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.hydrangeasPerChunk = 3;

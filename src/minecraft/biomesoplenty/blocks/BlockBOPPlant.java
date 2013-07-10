@@ -19,11 +19,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot"};
 	private Icon[] textures;
 
 	private static final int CATTAILTOP = 9;
@@ -89,8 +90,11 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
 	{
-		for (int i = 0; i < CATTAILTOP; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+		for (int i = 0; i < 12; ++i) {
+			if (i != 9 && i != 10)
+			{
+				list.add(new ItemStack(blockID, 1, i));
+			}
 		}
 	}
 
@@ -222,19 +226,35 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		if (par1 > 5)
+		if (par1 > 5 && par1 != 11)
+		{
 			return blockID;
+		}
+		else if (par1 == 11)
+		{
+			return Items.berries.get().itemID;
+		}
 		else
+		{
 			return -1;
+		}
 	}
 
 	@Override
 	public int damageDropped(int meta)
 	{
 		if (meta == 9)
+		{
 			return 7;
+		}
+		else if (meta == 11)
+		{
+			return 2;
+		}
 		else
+		{
 			return meta;
+		}
 	}
 
 	@Override
@@ -244,6 +264,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			return random.nextInt(5) == 0 ? 1 : 0;
 		else if (meta == 7 || meta == 8 || meta == 9)
 			return 1;
+		else if (meta == 11)
+			return random.nextInt(7) == 0 ? 2 : 1;
 		else
 			return 0;
 	}
