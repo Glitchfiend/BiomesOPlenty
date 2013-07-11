@@ -54,7 +54,7 @@ import biomesoplenty.worldgen.WorldGenBadlands4;
 import biomesoplenty.worldgen.WorldGenBoneSpine;
 import biomesoplenty.worldgen.WorldGenBoneSpine2;
 import biomesoplenty.worldgen.WorldGenBoulder;
-import biomesoplenty.worldgen.WorldGenBush;
+import biomesoplenty.worldgen.WorldGenBOPBush;
 import biomesoplenty.worldgen.WorldGenCanyon;
 import biomesoplenty.worldgen.WorldGenCanyonGrass;
 import biomesoplenty.worldgen.WorldGenCattail;
@@ -418,7 +418,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		plantDeadGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 0);
 		plantDesertGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 1);
 		thornGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 5);
-		bushGen = new WorldGenBush(Blocks.foliage.get().blockID, 4);
+		bushGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 4);
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
 		tinyCactusGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 11);
 		aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
@@ -429,7 +429,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		duneGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 3);
 		holyTallGrassGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 4);
 		desertSproutsGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 2);
-		poisonIvyGen = new WorldGenBush(Blocks.foliage.get().blockID, 7);
+		poisonIvyGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 7);
 		sunflowerGen = new WorldGenSunflower(Blocks.flowers.get().blockID, 13);
 		promisedWillowGen = new WorldGenPromisedWillow();
 		netherVineGen = new WorldGenNetherVines();

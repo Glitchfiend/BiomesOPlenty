@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenBOPTallGrass;
 
 public class BiomeGenPastureMeadow extends BiomeGenBase
 {
@@ -51,7 +52,7 @@ public class BiomeGenPastureMeadow extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(8) == 0 ? new WorldGenTallGrass(Blocks.plants.get().blockID, 6) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+		return par1Random.nextInt(8) == 0 ? new WorldGenTallGrass(Blocks.plants.get().blockID, 6) : new WorldGenBOPTallGrass(Block.tallGrass.blockID, 1);
 	}
 
 	/**

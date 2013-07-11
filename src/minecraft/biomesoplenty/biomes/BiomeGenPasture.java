@@ -5,9 +5,9 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenBOPTallGrass;
 
 public class BiomeGenPasture extends BiomeGenBase
 {
@@ -50,7 +50,7 @@ public class BiomeGenPasture extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return new WorldGenTallGrass(Blocks.plants.get().blockID, 6);
+		return new WorldGenBOPTallGrass(Blocks.plants.get().blockID, 6);
 	}
 
 	/**
