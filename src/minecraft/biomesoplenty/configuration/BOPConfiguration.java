@@ -119,6 +119,11 @@ public class BOPConfiguration {
 	public static boolean corruptedSandsGen;
 	public static boolean phantasmagoricInfernoGen;
 	public static boolean boneyardGen;
+	
+	//Beach variations
+	
+	public static boolean gravelBeachGen;
+	public static boolean overgrownBeachGen;
 
 	//Block IDS
 	public static int mudID;
@@ -589,6 +594,11 @@ public class BOPConfiguration {
 			corruptedSandsGen = config.get("Nether Biomes To Generate", "CorruptedSands", true).getBoolean(true);
 			phantasmagoricInfernoGen = config.get("Nether Biomes To Generate", "PhantasmagoricInferno", true).getBoolean(true);
 			boneyardGen = config.get("Nether Biomes To Generate", "Boneyard", true).getBoolean(true);
+			
+			// Beach variations
+			
+			gravelBeachGen = config.get("Beach Variations To Generate", "Gravel Beach", true).getBoolean(true);
+			overgrownBeachGen = config.get("Beach Variations To Generate", "Overgrown Beach", false).getBoolean(true);
 
 			// Biomes with villages
 			alpsVillage = config.get("Allow Villages", "Alps", false).getBoolean(false);
