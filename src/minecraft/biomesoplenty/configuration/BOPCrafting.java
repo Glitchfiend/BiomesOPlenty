@@ -40,7 +40,7 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 7), new Object[] {new ItemStack(Blocks.moss.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 8), new Object[] {new ItemStack(Blocks.flowers.get(),1,9)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 9), new Object[] {new ItemStack(Blocks.flowers.get(),1,2)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.sunflowerSeeds.get(), 4, 0), new Object[] {new ItemStack(Blocks.flowers.get(),1,13)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 4, 3), new Object[] {new ItemStack(Blocks.flowers.get(),1,13)});
 
 		//Brick stairs and slabs
 		GameRegistry.addRecipe(new ItemStack(Blocks.stoneSingleSlab.get(), 6, 0), new Object[] {"RRR", 'R', new ItemStack(Blocks.redRock.get(),1,1)});
@@ -248,7 +248,7 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 12, 15), new Object[] {new ItemStack(Blocks.bones.get(), 1, 2)});
 
 		//Plants
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.shroomPowder.get(), 2), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 2, 1), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 1, 3), new Object[] {new ItemStack(Blocks.foliage.get(),1,7)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 1, 4), new Object[] {Item.bowlEmpty, new ItemStack(Items.berries.get(), 1, 0), Item.appleRed, Item.melon});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.berries.get(), 1, 5), new Object[] {Item.bowlEmpty, new ItemStack(Items.berries.get(), 1, 2), Item.carrot, Item.potato});

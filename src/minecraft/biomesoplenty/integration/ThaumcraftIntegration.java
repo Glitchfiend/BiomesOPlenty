@@ -162,9 +162,9 @@ public class ThaumcraftIntegration {
 		/*Spring Water Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 0, (new ObjectTags()).add(EnumTag.METAL, 13).add(EnumTag.VOID, 1).add(EnumTag.WATER, 4).add(EnumTag.LIFE, 2).add(EnumTag.HEAL, 4));
 		/*Liquid Poison Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 1, (new ObjectTags()).add(EnumTag.METAL, 13).add(EnumTag.VOID, 1).add(EnumTag.WATER, 2).add(EnumTag.WEAPON, 4).add(EnumTag.POISON, 4));
 		ThaumcraftApi.registerObjectTag(Items.berries.get().itemID, 0, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.LIFE, 1));
-		ThaumcraftApi.registerObjectTag(Items.sunflowerSeeds.get().itemID, 0, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EXCHANGE, 1));
+		//ThaumcraftApi.registerObjectTag(Items.sunflowerSeeds.get().itemID, 0, (new ObjectTags()).add(EnumTag.PLANT, 1).add(EnumTag.EXCHANGE, 1));
 		ThaumcraftApi.registerObjectTag(Items.mudball.get().itemID, 0, (new ObjectTags()).add(EnumTag.WATER, 1).add(EnumTag.EARTH, 2));
-		ThaumcraftApi.registerObjectTag(Items.shroomPowder.get().itemID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 2).add(EnumTag.DESTRUCTION, 1));
+		//ThaumcraftApi.registerObjectTag(Items.shroomPowder.get().itemID, -1, (new ObjectTags()).add(EnumTag.FUNGUS, 2).add(EnumTag.DESTRUCTION, 1));
 		ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.CROP, 4));
 		ThaumcraftApi.registerObjectTag(Items.bopDiscMud.get().itemID, -1, (new ObjectTags()).add(EnumTag.SOUND, 12).add(EnumTag.VALUABLE, 4).add(EnumTag.EARTH, 2).add(EnumTag.WATER, 2));
 

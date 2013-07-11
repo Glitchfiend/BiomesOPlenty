@@ -37,13 +37,18 @@ public class ItemBOPFood extends ItemFood
 		{
 			if (world.rand.nextFloat() < 0.6F)
 			{
-				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 30, 0));
+				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 225, 0));
 			}
 
 			return addFoodAndSaturation(world, itemstack, player, 1, 0.1F);
 		}
 		else if (itemstack.getItemDamage() == 2)
 		{
+			if (world.rand.nextFloat() < 0.6F)
+			{
+				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 225, 1));
+			}
+			
 			return addFoodAndSaturation(world, itemstack, player, 3, 0.5F);
 		}
 		else if (itemstack.getItemDamage() == 3)
@@ -54,7 +59,7 @@ public class ItemBOPFood extends ItemFood
 		{
 			if (world.rand.nextFloat() < 0.05F)
 			{
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 550, 1));
+				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 775, 1));
 			}
 			
 			return addFoodAndSaturation(world, itemstack, player, 6, 0.8F);
@@ -118,5 +123,16 @@ public class ItemBOPFood extends ItemFood
 		}
 
 		return textures[meta];
+	}
+	
+	@Override
+	public String getUnlocalizedName(ItemStack itemStack)
+	{
+		int meta = itemStack.getItemDamage();
+		if (meta < 0 || meta >= foodTypes.length) {
+			meta = 0;
+		}
+
+		return super.getUnlocalizedName() + "." + foodTypes[meta];
 	}
 }

@@ -156,7 +156,7 @@ public class AchievementHelper
 		achArctic = (new Achievement(3083, "achArctic", -6, -6, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement();
 		achBadlands = (new Achievement(3084, "achBadlands", -4, -6, new ItemStack(Block.field_111032_cD, 1, 0), achBOP)).registerAchievement();
 		achBambooForest = (new Achievement(3085, "achBambooForest", -2, -6, new ItemStack(Blocks.saplings.get(), 1, 2), achBOP)).registerAchievement();
-		achBayou = (new Achievement(3086, "achBayou", 0, -6, new ItemStack(Blocks.logs3.get(), 1, 1), achBOP)).registerAchievement();
+		achBayou = (new Achievement(3086, "achBayou", 0, -6, new ItemStack(Blocks.willow.get(), 1, 0), achBOP)).registerAchievement();
 		achBirchForest = (new Achievement(3087, "achBirchForest", 2, -6, new ItemStack(Block.sapling, 1, 2), achBOP)).registerAchievement();
 		achBog = (new Achievement(3088, "achBog", 4, -6, new ItemStack(Blocks.plants.get(), 1, 8), achBOP)).registerAchievement();
 		achBorealForest = (new Achievement(3089, "achBorealForest", 6, -6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();

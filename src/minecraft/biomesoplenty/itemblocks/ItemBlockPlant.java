@@ -34,12 +34,11 @@ public class ItemBlockPlant extends ItemBlock
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[4];
+		textures = new Icon[3];
 
 		textures[0] = iconRegister.registerIcon("biomesoplenty:item_barley");
 		textures[1] = iconRegister.registerIcon("biomesoplenty:item_cattail");
 		textures[2] = iconRegister.registerIcon("biomesoplenty:item_reed");
-		textures[3] = iconRegister.registerIcon("biomesoplenty:item_wildcarrot");
 	}
 
 	@Override
@@ -62,8 +61,6 @@ public class ItemBlockPlant extends ItemBlock
 			return textures[1];
 		else if (meta == 8)
 			return textures[2];
-		else if (meta == 11)
-			return textures[3];
 		else
 			return Block.blocksList[itemID].getIcon(0, meta);
 	}

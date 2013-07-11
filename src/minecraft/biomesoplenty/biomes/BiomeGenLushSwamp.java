@@ -31,6 +31,7 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 		customBiomeDecorator.hydrangeasPerChunk = 1;
 		customBiomeDecorator.reedsBOPPerChunk = 5;
 		customBiomeDecorator.poisonWaterPerChunk = 2;
+		customBiomeDecorator.carrotsPerChunk = 1;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
 	}
 	

@@ -90,11 +90,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
 	{
-		for (int i = 0; i < 12; ++i) {
-			if (i != 9 && i != 10)
-			{
+		for (int i = 0; i < CATTAILTOP; ++i) {
 				list.add(new ItemStack(blockID, 1, i));
-			}
 		}
 	}
 

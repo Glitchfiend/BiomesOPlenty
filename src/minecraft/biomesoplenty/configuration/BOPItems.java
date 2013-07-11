@@ -28,9 +28,7 @@ import biomesoplenty.items.ItemBOPFood;
 import biomesoplenty.items.ItemDart;
 import biomesoplenty.items.ItemDartBlower;
 import biomesoplenty.items.ItemEnderporter;
-import biomesoplenty.items.ItemShroomPowder;
 import biomesoplenty.items.ItemSoulManipulator;
-import biomesoplenty.items.ItemSunflowerSeeds;
 
 import com.google.common.base.Optional;
 
@@ -100,9 +98,7 @@ public class BOPItems {
 	private static void initializeItems()
 	{
 		// Item declaration
-		Items.shroomPowder = Optional.of(new ItemShroomPowder(BOPConfiguration.shroomPowderID, 1, 0.1F, false).setUnlocalizedName("bop.shroomPowder"));
-		Items.sunflowerSeeds = Optional.of(new ItemSunflowerSeeds(BOPConfiguration.sunflowerSeedsID, 2, 0.5F, false).setUnlocalizedName("bop.sunflowerSeeds"));
-		Items.berries = Optional.of(new ItemBOPFood(BOPConfiguration.berriesID).setUnlocalizedName("bop.berries"));
+		Items.berries = Optional.of(new ItemBOPFood(BOPConfiguration.berriesID).setUnlocalizedName("bop.food"));
 		Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID).setUnlocalizedName("bop.miscItems"));
 		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID).setUnlocalizedName("bop.mudball"));
 		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.dartBlowerID).setUnlocalizedName("bop.dartblower"));
