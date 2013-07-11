@@ -60,7 +60,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors = true)
+		if (BOPConfiguration.skyColors)
 			return 8703228;
 		else
 		{

@@ -98,7 +98,7 @@ public class BiomeGenMoor extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors = true)
+		if (BOPConfiguration.skyColors)
 			return 10536403;
 		else
 		{

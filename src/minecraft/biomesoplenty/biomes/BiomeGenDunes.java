@@ -56,7 +56,7 @@ public class BiomeGenDunes extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors = true)
+		 if (BOPConfiguration.skyColors)
 			 return 14203007;
 		 else
 		 {

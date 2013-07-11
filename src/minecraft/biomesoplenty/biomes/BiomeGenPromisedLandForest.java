@@ -109,7 +109,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors = true)
+		 if (BOPConfiguration.skyColors)
 			 return BOPConfiguration.promisedLandSkyColor;
 		 else
 		 {

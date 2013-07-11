@@ -57,7 +57,7 @@ public class BiomeGenMesa extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors = true)
+		if (BOPConfiguration.skyColors)
 			return 15898486;
 		else
 		{

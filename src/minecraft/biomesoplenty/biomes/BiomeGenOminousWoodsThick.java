@@ -92,7 +92,7 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors = true)
+		if (BOPConfiguration.skyColors)
 			return 5069168;
 		else
 		{

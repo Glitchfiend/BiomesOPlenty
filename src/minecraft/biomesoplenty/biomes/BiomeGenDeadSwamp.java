@@ -95,7 +95,7 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors = true)
+		if (BOPConfiguration.skyColors)
 			return 6451816;
 		else
 		{

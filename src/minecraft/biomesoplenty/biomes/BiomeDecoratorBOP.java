@@ -57,7 +57,6 @@ import biomesoplenty.worldgen.WorldGenBoulder;
 import biomesoplenty.worldgen.WorldGenBush;
 import biomesoplenty.worldgen.WorldGenCanyon;
 import biomesoplenty.worldgen.WorldGenCanyonGrass;
-import biomesoplenty.worldgen.WorldGenCarrots;
 import biomesoplenty.worldgen.WorldGenCattail;
 import biomesoplenty.worldgen.WorldGenCloud;
 import biomesoplenty.worldgen.WorldGenCrystal1;
