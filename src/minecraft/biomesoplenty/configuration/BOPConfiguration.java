@@ -211,7 +211,7 @@ public class BOPConfiguration {
 	public static int graveID;
 
 	//Item IDs
-	public static int berriesID;
+	public static int foodID;
 
 	public static int ancientStaffID;
 	public static int enderporterID;
@@ -783,7 +783,7 @@ public class BOPConfiguration {
 			graveID = config.getBlock("Grave ID", 1981, null).getInt();
 
 			// Get Item ID's
-			berriesID = config.getItem("Food ID", 21003, null).getInt();
+			foodID = config.getItem("Food ID", 21003, null).getInt();
 
 			ancientStaffID = config.getItem("Ancient Staff ID", 21006).getInt();
 			enderporterID = config.getItem("Enderporter ID", 21007).getInt();

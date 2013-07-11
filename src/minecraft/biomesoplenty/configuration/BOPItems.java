@@ -98,7 +98,7 @@ public class BOPItems {
 	private static void initializeItems()
 	{
 		// Item declaration
-		Items.berries = Optional.of(new ItemBOPFood(BOPConfiguration.berriesID).setUnlocalizedName("bop.food"));
+		Items.food = Optional.of(new ItemBOPFood(BOPConfiguration.foodID).setUnlocalizedName("bop.food"));
 		Items.miscItems = Optional.of(new ItemBOP(BOPConfiguration.miscItemsID).setUnlocalizedName("bop.miscItems"));
 		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfiguration.mudballID).setUnlocalizedName("bop.mudball"));
 		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.dartBlowerID).setUnlocalizedName("bop.dartblower"));

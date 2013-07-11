@@ -115,7 +115,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 			break;
 			
 		case 8:
-		    ret.add(new ItemStack(Items.berries.get(), 1, 0));
+		    ret.add(new ItemStack(Items.food.get(), 1, 0));
 		    break;
 		}
 
@@ -316,7 +316,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		if (meta == 8)
 		{
 			world.setBlock(x, y, z, blockID, 4, 3);
-			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.berries.get(), 1, 0));
+			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.food.get(), 1, 0));
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(entityitem);
 				if (!(player instanceof FakePlayer))

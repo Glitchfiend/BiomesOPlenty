@@ -214,14 +214,34 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			entity.attackEntityFrom(DamageSource.cactus, 1);
 		}
 	}
+	
+	@Override
+    public int idPicked(World world, int x, int y, int z)
+    {
+		int blockID = world.getBlockId(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
+		
+		if (meta == 11)
+		{
+			return Items.food.get().itemID;
+		}
+		
+        return this.blockID;
+    }
 
 	@Override
 	public int getDamageValue(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == CATTAILTOP || meta == CATTAILBOTTOM) {
+		if (meta == CATTAILTOP || meta == CATTAILBOTTOM) 
+		{
 			meta = 7;
 		}
+		else if (meta == 11) 
+		{
+			meta = 2;
+		}
+		
 		return meta;
 	}
 
@@ -234,7 +254,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		}
 		else if (par1 == 11)
 		{
-			return Items.berries.get().itemID;
+			return Items.food.get().itemID;
 		}
 		else
 		{
