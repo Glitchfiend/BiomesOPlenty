@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+  <comment>Russian (ru_RU) Localization File</comment>
+
+	<!--Blocks -->
+	<entry key="tile.bop.mud.mud.name">Грязь</entry>
+	<entry key="tile.bop.mud.quicksand.name">Зыбучий песок</entry>
+
+	<entry key="tile.bop.generic.ash_stone.name">Окаменевший пепел</entry>
+	<entry key="tile.bop.generic.hard_sand.name">Затвердевший песок</entry>
+	<entry key="tile.bop.generic.hard_dirt.name">Затвердевшая земля</entry>
+	<entry key="tile.bop.generic.hard_ice.name">Крепкий лед</entry>
+	<entry key="tile.bop.generic.dried_dirt.name">Осушенная земля</entry>
+	<entry key="tile.bop.generic.crag_rock.name">Горная порода</entry>
+	<entry key="tile.bop.generic.mud_brick.name">Кирпичи из грязи</entry>
+	<entry key="tile.bop.generic.holy_dirt.name">Очищенный грунт</entry>
+	<entry key="tile.bop.generic.crystal.name">Небесный кристалл</entry>
+
+	<entry key="tile.bop.redRocks.redrock.name">Красный камень</entry>
+	<entry key="tile.bop.redRocks.redcobble.name">Красный булыжник</entry>
+	<entry key="tile.bop.redRocks.redbrick.name">Кирпичи из красного камня</entry>
+
+	<entry key="tile.bop.ash.name">Блок пепла</entry>
+
+	<entry key="tile.bop.plants.deadgrass.name">Мертвая трава</entry>
+	<entry key="tile.bop.plants.desertgrass.name">Пустынная трава</entry>
+	<entry key="tile.bop.plants.desertsprouts.name">Пустынные ростки</entry>
+	<entry key="tile.bop.plants.dunegrass.name">Дюнная трава</entry>
+	<entry key="tile.bop.plants.holytallgrass.name">Очищенная высокая трава</entry>
+	<entry key="tile.bop.plants.thorn.name">Колючка</entry>
+	<entry key="tile.bop.plants.barley.name">Ячмень</entry>
+	<entry key="tile.bop.plants.cattail.name">Рогоз</entry>
+	<entry key="tile.bop.plants.cattailtop.name">Рогоз</entry>
+	<entry key="tile.bop.plants.cattailbottom.name">Рогоз</entry>
+	<entry key="tile.bop.plants.reed.name">Камыш</entry>
+
+	<entry key="tile.bop.flowers.clover.name">Клевер</entry>
+	<entry key="tile.bop.flowers.swampflower.name">Болотный цветок</entry>
+	<entry key="tile.bop.flowers.deadbloom.name">Смертельный цветок</entry>
+	<entry key="tile.bop.flowers.glowflower.name">Светоцвет</entry>
+	<entry key="tile.bop.flowers.hydrangea.name">Гортензия</entry>
+	<entry key="tile.bop.flowers.daisy.name">Маргаритка</entry>
+	<entry key="tile.bop.flowers.tulip.name">Тюльпан</entry>
+	<entry key="tile.bop.flowers.wildflower.name">Колокольчик</entry>
+	<entry key="tile.bop.flowers.violet.name">Фиалка</entry>
+	<entry key="tile.bop.flowers.anemone.name">Анемон</entry>
+	<entry key="tile.bop.flowers.lilyflower.name">Кувшинка</entry>
+	<entry key="tile.bop.flowers.cactus.name">Крохотный кактус</entry>
+	<entry key="tile.bop.flowers.aloe.name">Алоэ</entry>
+	<entry key="tile.bop.flowers.sunflowerbottom.name">Подсолнечник</entry>
+	<entry key="tile.bop.flowers.sunflowertop.name">Подсолнечник</entry>
+	<entry key="tile.bop.flowers.dandelion.name">Одуванчик</entry>
+
+	<entry key="tile.bop.foliage.algae.name">Водоросли</entry>
+	<entry key="tile.bop.foliage.shortgrass.name">Низкая трава</entry>
+	<entry key="tile.bop.foliage.mediumgrass.name">Средняя трава</entry>
+	<entry key="tile.bop.foliage.highgrassbottom.name">Высокая трава</entry>
+	<entry key="tile.bop.foliage.bush.name">Куст</entry>
+	<entry key="tile.bop.foliage.sprout.name">Росток</entry>
+	<entry key="tile.bop.foliage.highgrasstop.name">Высокая трава</entry>
+	<entry key="tile.bop.foliage.poisonivy.name">Ядовитый плющ</entry>
+	<entry key="tile.bop.foliage.berrybush.name">Ягодный куст</entry>
+
+	<entry key="tile.bop.petals.bigflowerred.name">Гигантский красный цветок</entry>
+	<entry key="tile.bop.petals.bigfloweryellow.name">Гигантский желтый цветок</entry>
+
+	<entry key="tile.bop.mushrooms.toadstool.name">Гриб</entry>
+	<entry key="tile.bop.mushrooms.portobello.name">Портобелло</entry>
+	<entry key="tile.bop.mushrooms.bluemilk.name">Млечник голубой</entry>
+	<entry key="tile.bop.mushrooms.glowshroom.name">Светогриб</entry>
+
+	<entry key="tile.bop.saplings.appleSapling.name">Саженец яблони</entry>
+	<entry key="tile.bop.saplings.yellowautumnSapling.name">Саженец осенней березы</entry>
+	<entry key="tile.bop.saplings.bambooSapling.name">Саженец бамбука</entry>
+	<entry key="tile.bop.saplings.magicSapling.name">Саженец магического дерева</entry>
+	<entry key="tile.bop.saplings.darkSapling.name">Саженец темного дерева</entry>
+	<entry key="tile.bop.saplings.deadSapling.name">Погибающий саженец</entry>
+	<entry key="tile.bop.saplings.firSapling.name">Саженец пихты</entry>
+	<entry key="tile.bop.saplings.holySapling.name">Саженец Loftwood</entry>
+	<entry key="tile.bop.saplings.orangeautumnSapling.name">Саженец осеннего дуба</entry>
+	<entry key="tile.bop.saplings.originSapling.name">Оригинальный саженец</entry>
+	<entry key="tile.bop.saplings.pinkcherrySapling.name">Саженец розовой вишни</entry>
+	<entry key="tile.bop.saplings.mapleSapling.name">Саженец клена</entry>
+	<entry key="tile.bop.saplings.whitecherrySapling.name">Саженец белой вишни</entry>
+	<entry key="tile.bop.saplings.hellbarkSapling.name">Саженец адского дерева</entry>
+	<entry key="tile.bop.saplings.jacarandaSapling.name">Саженец жакаранды</entry>
+
+	<entry key="tile.bop.colorizedSaplings.acaciaSapling.name">Саженец акации</entry>
+	<entry key="tile.bop.colorizedSaplings.mangroveSapling.name">Мангровый саженец</entry>
+	<entry key="tile.bop.colorizedSaplings.palmSapling.name">Саженец пальмы</entry>
+	<entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Саженец красного дерева</entry>
+	<entry key="tile.bop.colorizedSaplings.willowSapling.name">Саженец ивы</entry>
+	<entry key="tile.bop.colorizedSaplings.pineSapling.name">Саженец сосны</entry>
+
+	<entry key="tile.bop.willow.name">Ива</entry>
+ 	<entry key="tile.bop.ivy.name">Плющ</entry>
+ 	<entry key="tile.bop.leavesFruit.name">Листва яблони</entry>
+	<entry key="tile.bop.bamboo.name">Бамбук</entry>
+ 	<entry key="tile.bop.mudBricksStairs.name">Кирпичные ступеньки из грязи</entry>
+ 	<entry key="tile.bop.originGrass.name">Оригинальная трава</entry>
+ 	<entry key="tile.bop.treeMoss.name">Древесный мох</entry>
+
+	<entry key="tile.bop.coral.kelp.name">Ламинария</entry>
+
+ 	<entry key="tile.bop.redCobbleStairs.name">Ступеньки из красного булыжника</entry>	 	
+ 	<entry key="tile.bop.redBricksStairs.name">Кирпичные ступеньки из красного камня</entry>
+ 	
+ 	<entry key="tile.bop.holyGrass.holygrass.name">Очищенная трава</entry>
+ 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Тлеющая трава</entry>
+ 	
+ 	<entry key="tile.bop.holyStone.holystone.name">Небесный камень</entry>
+ 	<entry key="tile.bop.holyStone.holycobble.name">Небесный булыжник</entry>
+ 	<entry key="tile.bop.holyStone.holybrick.name">Небесные кирпичи</entry>
+ 	
+ 	<entry key="tile.bop.holyCobbleStairs.name">Ступеньки из небесного булыжника</entry>
+ 	<entry key="tile.bop.holyBricksStairs.name">Ступеньки из небесных кирпичей</entry>
+
+	<entry key="tile.bop.promisedPortal.name">Портал в "Землю Обетованную"</entry>
+
+	<entry key="tile.bop.amethystOre.amethystore.name">Аметистовая руда</entry>
+	<entry key="tile.bop.amethystOre.amethystblock.name">Аметистовый блок</entry>
+	<entry key="tile.bop.amethystOre.rubyore.name">Рубиновая руда</entry>
+	<entry key="tile.bop.amethystOre.rubyblock.name">Рубиновый блок</entry>
+	<entry key="tile.bop.amethystOre.peridotore.name">Оливиновая руда</entry>
+	<entry key="tile.bop.amethystOre.peridotblock.name">Оливиновый блок</entry>
+	<entry key="tile.bop.amethystOre.topazore.name">Топазовая руда</entry>
+	<entry key="tile.bop.amethystOre.topazblock.name">Блок топаза</entry>
+	<entry key="tile.bop.amethystOre.tanzaniteore.name">Танзанитовая руда</entry>
+	<entry key="tile.bop.amethystOre.tanzaniteblock.name">Танзанитовый блок</entry>
+	<entry key="tile.bop.amethystOre.apatiteore.name">Апатитовая руда</entry>
+	<entry key="tile.bop.amethystOre.apatiteblock.name">Апатитовый блок</entry>
+	<entry key="tile.bop.amethystOre.sapphireore.name">Сапфировая руда</entry>
+	<entry key="tile.bop.amethystOre.sapphireblock.name">Сапфировый блок</entry>
+
+ 	<entry key="tile.bop.moss.name">Мох</entry>
+
+ 	<entry key="tile.bop.cloud.name">Блок облака</entry>
+
+	<entry key="tile.bop.bones.bones_small.name">Малый сегмент кости</entry>
+	<entry key="tile.bop.bones.bones_medium.name">Средний сегмент кости</entry>
+	<entry key="tile.bop.bones.bones_large.name">Большой сегмент кости</entry>
+
+	<entry key="tile.bop.glass.celestialLens.name">Небесные линзы</entry>
+
+	<entry key="tile.bop.glass.sacrificialfocus_empty.name">Жертвенный фокус</entry>
+	<entry key="tile.bop.glass.sacrificialfocus_active.name">Жертвенный фокус</entry>
+	<entry key="tile.bop.glass.sacrificialfocus_villager.name">Жертвенный фокус</entry>
+
+	<entry key="tile.bop.altar.altarframe.name">Каркас алтаря</entry>
+
+	<entry key="tile.bop.puddle.name">Лужица</entry>
+
+    <entry key="tile.bop.grave.name">Могила</entry>
+
+	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Плита из красного булыжника</entry>
+	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Кирпичная плита из красного камня</entry>
+	<entry key="tile.bop.stoneDoubleSlab.mudbrickSlab.name">Кирпичная плита из грязи</entry>
+	<entry key="tile.bop.stoneDoubleSlab.holycobbleSlab.name">Плита из небесного булыжника</entry>
+	<entry key="tile.bop.stoneDoubleSlab.holybrickSlab.name">Плита из небесных кирпичей</entry>
+
+	<entry key="tile.bop.stoneSingleSlab.redcobbleSlab.name">Плита из красного булыжника</entry>
+	<entry key="tile.bop.stoneSingleSlab.redbrickSlab.name">Кирпичная плита из красного камня</entry>
+	<entry key="tile.bop.stoneSingleSlab.mudbrickSlab.name">Кирпичная плита из грязи</entry>
+	<entry key="tile.bop.stoneSingleSlab.holycobbleSlab.name">Плита из небесного булыжника</entry>
+	<entry key="tile.bop.stoneSingleSlab.holybrickSlab.name">Плита из небесных кирпичей</entry>
+
+	<entry key="tile.bop.planks.acaciaPlank.name">Акациевые доски</entry>
+	<entry key="tile.bop.planks.cherryPlank.name">Вишневые доски</entry>
+	<entry key="tile.bop.planks.darkPlank.name">Темные доски</entry>
+	<entry key="tile.bop.planks.firPlank.name">Пихтовые доски</entry>
+	<entry key="tile.bop.planks.holyPlank.name">Доски Loftwood</entry>
+	<entry key="tile.bop.planks.magicPlank.name">Магические доски</entry>
+	<entry key="tile.bop.planks.mangrovePlank.name">Мангровые доски</entry>
+	<entry key="tile.bop.planks.palmPlank.name">Пальмовые доски</entry>
+	<entry key="tile.bop.planks.redwoodPlank.name">Доски красного дерева</entry>
+	<entry key="tile.bop.planks.willowPlank.name">Ивовые доски</entry>
+	<entry key="tile.bop.planks.bambooThatching.name">Бамбук</entry>
+	<entry key="tile.bop.planks.pinePlank.name">Сосновые доски</entry>
+	<entry key="tile.bop.planks.hellBarkPlank.name">Доски из адского дерева</entry>
+	<entry key="tile.bop.planks.jacarandaPlank.name">Доски из жакаранды</entry>
+
+	<entry key="tile.bop.wood1.acaciaWood.name">Акация</entry>
+	<entry key="tile.bop.wood1.cherryWood.name">Вишня</entry>
+	<entry key="tile.bop.wood1.darkWood.name">Темное дерево</entry>
+	<entry key="tile.bop.wood1.firWood.name">Пихта</entry>
+
+	<entry key="tile.bop.wood2.holyWood.name">Дерево Loftwood</entry>
+	<entry key="tile.bop.wood2.magicWood.name">Магическое дерево</entry>
+	<entry key="tile.bop.wood2.mangroveWood.name">Мангровое дерево</entry>
+	<entry key="tile.bop.wood2.palmWood.name">Пальма</entry>
+
+	<entry key="tile.bop.wood3.redwoodWood.name">Красное дерево</entry>
+	<entry key="tile.bop.wood3.willowWood.name">Ива</entry>
+	<entry key="tile.bop.wood3.deadWood.name">Погибшее дерево</entry>
+	<entry key="tile.bop.wood3.bigflowerstemWood.name">Ствол гигантского цветка</entry>
+
+	<entry key="tile.bop.wood4.pineWood.name">Сосна</entry>
+	<entry key="tile.bop.wood4.hellbarkWood.name">Адское дерево</entry>
+	<entry key="tile.bop.wood4.jacarandaWood.name">Жакаранда</entry>
+
+	<entry key="tile.bop.leaves1.yellowautumn.name">Осенняя листва березы</entry>
+	<entry key="tile.bop.leaves1.bamboo.name">Листва бамбука</entry>
+	<entry key="tile.bop.leaves1.magic.name">Магическая листва</entry>
+	<entry key="tile.bop.leaves1.dark.name">Темная листва</entry>
+	<entry key="tile.bop.leaves1.dead.name">Листва погибающего дерева</entry>
+	<entry key="tile.bop.leaves1.fir.name">Хвоя пихты</entry>
+	<entry key="tile.bop.leaves1.holy.name">Листва Loftwood</entry>
+	<entry key="tile.bop.leaves1.orangeautumn.name">Осенняя листва дуба</entry>
+
+	<entry key="tile.bop.leaves2.origin.name">Оригинальная листва</entry>
+	<entry key="tile.bop.leaves2.pinkcherry.name">Листва розовой вишни</entry>
+	<entry key="tile.bop.leaves2.maple.name">Листва клена</entry>
+	<entry key="tile.bop.leaves2.whitecherry.name">Листва белой вишни</entry>
+	<entry key="tile.bop.leaves2.hellbark.name">Адская листва</entry>
+	<entry key="tile.bop.leaves2.jacaranda.name">Листва жакаранды</entry>
+
+	<entry key="tile.bop.woodenDoubleSlab1.acaciaSlab.name">Плита из акации</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.cherrySlab.name">Плита из вишни</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.darkSlab.name">Темная плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.firSlab.name">Плита из пихты</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.holySlab.name">Плита из Loftwood</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.magicSlab.name">Магическая плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.mangroveSlab.name">Мангровая плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab1.palmSlab.name">Пальмовая плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.redwoodSlab.name">Плита из красного дерева</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.willowSlab.name">Ивовая плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.pineSlab.name">Сосновая плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.hell_barkSlab.name">Адская плита</entry>
+	<entry key="tile.bop.woodenDoubleSlab2.jacarandaSlab.name">Плита из жакаранды</entry>
+
+	<entry key="tile.bop.woodenSingleSlab1.acaciaSlab.name">Плита из акации</entry>
+	<entry key="tile.bop.woodenSingleSlab1.cherrySlab.name">Плита из вишни</entry>
+	<entry key="tile.bop.woodenSingleSlab1.darkSlab.name">Темная плита</entry>
+	<entry key="tile.bop.woodenSingleSlab1.firSlab.name">Плита из пихты</entry>
+	<entry key="tile.bop.woodenSingleSlab1.holySlab.name">Плита из Loftwood</entry>
+	<entry key="tile.bop.woodenSingleSlab1.magicSlab.name">Магическая плита</entry>
+	<entry key="tile.bop.woodenSingleSlab1.mangroveSlab.name">Мангровая плита</entry>
+	<entry key="tile.bop.woodenSingleSlab1.palmSlab.name">Пальмовая плита</entry>
+	<entry key="tile.bop.woodenSingleSlab2.redwoodSlab.name">Плита из красного дерева</entry>
+	<entry key="tile.bop.woodenSingleSlab2.willowSlab.name">Ивовая плита</entry>
+	<entry key="tile.bop.woodenSingleSlab2.pineSlab.name">Сосновая плита</entry>
+	<entry key="tile.bop.woodenSingleSlab2.hell_barkSlab.name">Адская плита</entry>
+	<entry key="tile.bop.woodenSingleSlab2.jacarandaSlab.name">Плита из жакаранды</entry>
+
+	<entry key="tile.bop.acaciaStairs.name">Ступеньки из акации</entry>
+	<entry key="tile.bop.cherryStairs.name">Ступеньки из вишни</entry>
+	<entry key="tile.bop.darkStairs.name">Темные ступеньки</entry>
+	<entry key="tile.bop.firStairs.name">Ступеньки из пихты</entry>
+	<entry key="tile.bop.holyStairs.name">Ступеньки из Loftwood</entry>
+	<entry key="tile.bop.magicStairs.name">Магические ступеньки</entry>
+	<entry key="tile.bop.mangroveStairs.name">Мангровые ступеньки</entry>
+	<entry key="tile.bop.palmStairs.name">Пальмовые ступеньки</entry>
+	<entry key="tile.bop.redwoodStairs.name">Ступеньки из красного дерева</entry>
+	<entry key="tile.bop.willowStairs.name">Ивовые ступеньки</entry>
+	<entry key="tile.bop.pineStairs.name">Сосновые ступеньки</entry>
+	<entry key="tile.bop.hellBarkStairs.name">Ступеньки из адского дерева</entry>
+	<entry key="tile.bop.jacarandaStairs.name">Ступеньки из жакаранды</entry>
+
+	<entry key="tile.bop.leavesColorized.acacia.name">Листва акации</entry>
+	<entry key="tile.bop.leavesColorized.mangrove.name">Мангровая листва</entry>
+	<entry key="tile.bop.leavesColorized.palm.name">Пальмовая листва</entry>
+	<entry key="tile.bop.leavesColorized.redwood.name">Листва красного дерева</entry>
+	<entry key="tile.bop.leavesColorized.willow.name">Ивовая листва</entry>
+	<entry key="tile.bop.leavesColorized.pine.name">Хвоя сосны</entry>
+
+	<!--Items -->
+	<entry key="item.bop.shroomPowder.name">Молотый гриб</entry>
+
+	<entry key="item.bop.sunflowerSeeds.name">Семена светоцвета</entry>
+
+	<entry key="item.bop.berries.name">Ягоды</entry>
+
+	<entry key="item.bop.dartblower.name">Духовая трубка</entry>
+	<entry key="item.bop.dart.dart.name">Дротик</entry>
+	<entry key="item.bop.dart.poisondart.name">Отравленный дротик</entry>
+
+	<entry key="item.bop.mudball.name">Комок грязи</entry>
+
+	<entry key="item.bop.miscItems.mudbrick.name">Кирпичи из грязи</entry>
+	<entry key="item.bop.miscItems.ash.name">Кучка пепла</entry>
+	<entry key="item.bop.miscItems.amethyst.name">Аметист</entry>
+	<entry key="item.bop.miscItems.poison.name">Яд</entry>
+	<entry key="item.bop.miscItems.crystalshard.name">Осколок небесного кристалла</entry>
+	<entry key="item.bop.miscItems.bluedye.name">Синий краситель</entry>
+	<entry key="item.bop.miscItems.browndye.name">Коричневый краситель</entry>
+	<entry key="item.bop.miscItems.greendye.name">Зеленый краситель</entry>
+	<entry key="item.bop.miscItems.whitedye.name">Белый краситель</entry>
+	<entry key="item.bop.miscItems.blackdye.name">Черный краситель</entry>
+	<entry key="item.bop.miscItems.ruby.name">Рубин</entry>
+	<entry key="item.bop.miscItems.peridot.name">Оливин</entry>
+	<entry key="item.bop.miscItems.topaz.name">Топаз</entry>
+	<entry key="item.bop.miscItems.tanzanite.name">Танзанит</entry>
+	<entry key="item.bop.miscItems.apatite.name">Апатит</entry>
+	<entry key="item.bop.miscItems.sapphire.name">Сапфир</entry>
+	<entry key="item.bop.miscItems.ghastlysoul.name">Жуткий дух</entry>
+
+	<entry key="item.bop.pickaxeMud.name">Кирка из грязи</entry>
+	<entry key="item.bop.hatchetMud.name">Топор из грязи</entry>
+	<entry key="item.bop.shovelMud.name">Лопата из грязи</entry>
+	<entry key="item.bop.swordMud.name">Меч из грязи</entry>
+	<entry key="item.bop.hoeMud.name">Мотыга из грязи</entry>
+	<entry key="item.bop.helmetMud.name">Шлем из грязи</entry>
+	<entry key="item.bop.chestplateMud.name">Кираса из грязи</entry>
+	<entry key="item.bop.leggingsMud.name">Поножи из грязи</entry>
+	<entry key="item.bop.bootsMud.name">Ботинки из грязи</entry>
+
+	<entry key="item.bop.pickaxeAmethyst.name">Аметистовая кирка</entry>
+	<entry key="item.bop.hatchetAmethyst.name">Аметистовый топор</entry>
+	<entry key="item.bop.shovelAmethyst.name">Аметистовая лопата</entry>
+	<entry key="item.bop.swordAmethyst.name">Апетистовый меч</entry>
+	<entry key="item.bop.hoeAmethyst.name">Аметистовая мотыга</entry>
+	<entry key="item.bop.helmetAmethyst.name">Аметистовый шлем</entry>
+	<entry key="item.bop.chestplateAmethyst.name">Аметистовая кираса</entry>
+	<entry key="item.bop.leggingsAmethyst.name">Аметистовые поножи</entry>
+	<entry key="item.bop.bootsAmethyst.name">Аметистовые ботинки</entry>
+
+	<entry key="item.bop.scytheWood.name">Деревянная коса</entry>
+	<entry key="item.bop.scytheStone.name">Каменная коса</entry>
+	<entry key="item.bop.scytheIron.name">Железная коса</entry>
+	<entry key="item.bop.scytheGold.name">Золотая коса</entry>
+	<entry key="item.bop.scytheDiamond.name">Алмазная коса</entry>
+	<entry key="item.bop.scytheMud.name">Коса из грязи</entry>
+	<entry key="item.bop.scytheAmethyst.name">Аметистовая коса</entry>
+
+	<entry key="item.bop.ancientStaff.ancientstaff.name">Древний посох</entry>
+	<entry key="item.bop.ancientStaff.staffhandle.name">Рукоять Древнего посоха</entry>
+	<entry key="item.bop.ancientStaff.staffpole.name">Древко Древнего посоха</entry>
+	<entry key="item.bop.ancientStaff.stafftopper.name">Верхушка Древнего посоха</entry>
+	<entry key="item.bop.ancientStaff.ancientstaffbroken.name">Истощенный Древний посох</entry>
+
+	<entry key="item.bop.soulManipulator.soulmanipulator_empty.name">Манипулятор духа</entry>
+	<entry key="item.bop.soulManipulator.soulmanipulator_ghastlysoul.name">Манипулятор жуткого духа</entry>
+	<entry key="item.bop.soulManipulator.soulmanipulator_villager.name">Манипулятор духа жителей</entry>
+
+	<entry key="item.bop.enderporter.name">Телепортер Края</entry>
+
+	<entry key="item.bop.bopDisc.name">Музыкальная пластинка</entry>
+	<entry key="item.bop.bopDiscMud.name">Музыкальная пластинка</entry>
+
+	<entry key="item.bop.flowerBand.dullflowerband.name">Скучный венок</entry>
+	<entry key="item.bop.flowerBand.plainflowerband.name">Обычный венок</entry>
+	<entry key="item.bop.flowerBand.lushflowerband.name">Пышный венок</entry>
+	<entry key="item.bop.flowerBand.exoticflowerband.name">Экзотический венок</entry>
+
+	<!--Liquids -->
+	  <entry key="item.bop.bopBucket.amethyst_empty.name">Аметистовое ведро</entry>
+	<entry key="item.bop.bopBucket.amethyst_spring_water.name">Аметистовое ведро с родниковой водой</entry>
+	<entry key="item.bop.bopBucket.liquid_poison.name">Ведро с ядом</entry>
+
+	<entry key="tile.bop.liquidPoison.name">Яд</entry>
+	<entry key="tile.bop.springWater.name">Родниковая вода</entry>
+
+	<!--Phrases -->
+	<entry key="phrase.bop.promisedPortalOverworld">Врата в Землю Обетованную открылись выше.</entry>
+	<entry key="phrase.bop.promisedPortalOther">Врата открылись выше.</entry>
+
+	<!--Creative Tab -->
+   <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+
+	<!--World Type -->
+   <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
+
+</properties>
