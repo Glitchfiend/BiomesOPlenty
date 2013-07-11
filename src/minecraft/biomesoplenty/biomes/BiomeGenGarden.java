@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
@@ -23,7 +24,7 @@ public class BiomeGenGarden extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 1;
+		customBiomeDecorator.treesPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = 20;
 		customBiomeDecorator.whiteFlowersPerChunk = 25;
 		customBiomeDecorator.tinyFlowersPerChunk = 15;
@@ -78,7 +79,7 @@ public class BiomeGenGarden extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenGiantFlowerRed() : new WorldGenGiantFlowerYellow();
+		return par1Random.nextInt(6) == 0 ? new WorldGenGiantFlowerRed() : (par1Random.nextInt(6) == 0 ? new WorldGenGiantFlowerYellow() : new WorldGenShrub(0,0));
 	}
 
 	/**
@@ -87,7 +88,7 @@ public class BiomeGenGarden extends BiomeGenBase
 	 @Override
 	 public int getBiomeGrassColor()
 	 {
-		 return 3785757;
+		 return 7656308;
 	 }
 
 	 /**
@@ -96,6 +97,6 @@ public class BiomeGenGarden extends BiomeGenBase
 	 @Override
 	 public int getBiomeFoliageColor()
 	 {
-		 return 5364530;
+		 return 6742630;
 	 }
 }
