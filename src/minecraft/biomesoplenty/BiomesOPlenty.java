@@ -8,15 +8,16 @@ import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.configuration.BOPCrafting;
 import biomesoplenty.configuration.BOPEntities;
-import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPFluids;
+import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPPotions;
 import biomesoplenty.configuration.BOPVanillaCompat;
+import biomesoplenty.handlers.AxeChopHandler;
 import biomesoplenty.handlers.BOPCraftHandler;
-import biomesoplenty.handlers.FluidEventHandler;
 import biomesoplenty.handlers.BonemealHandler;
 import biomesoplenty.handlers.BreakSpeedHandler;
 import biomesoplenty.handlers.EntityEventHandler;
+import biomesoplenty.handlers.FluidEventHandler;
 import biomesoplenty.handlers.MovementHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
@@ -103,6 +104,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new FluidEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
+		MinecraftForge.EVENT_BUS.register(new AxeChopHandler());
 
 		proxy.registerRenderers();
 
