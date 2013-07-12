@@ -200,7 +200,14 @@ public class EntityDart extends EntityArrow
 
 				for (int p = 0; p < 16; ++p)
 				{
-					BiomesOPlenty.proxy.spawnParticle("dart", posX, posY, posZ);
+					if (isPoisonous())
+					{
+						BiomesOPlenty.proxy.spawnParticle("poisondart", posX, posY, posZ);
+					}
+					else
+					{
+						BiomesOPlenty.proxy.spawnParticle("dart", posX, posY, posZ);
+					}
 				}
 
 				this.playSound("random.bowhit", 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));

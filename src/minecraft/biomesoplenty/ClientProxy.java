@@ -68,7 +68,11 @@ public class ClientProxy extends CommonProxy {
 		} 
 		else if (string == "dart") 
 		{
-			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get());
+			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), 0);
+		} 
+		else if (string == "poisondart") 
+		{
+			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), 1);
 		} 
 		else if (string == "dandelion") 
 		{
