@@ -181,6 +181,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		{
 			if (meta == 5)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+			else if (meta == 8)
+				return this.canPlaceBlockAt(world, x, y, z);
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 		}
@@ -198,12 +200,30 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	{
 		super.onNeighborBlockChange(world, x, y, z, neighborID);
 		this.checkFlowerChange(world, x, y, z);
-		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) {
+		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
+		{
 			world.setBlockToAir(x, y, z);
 		}
-		if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != blockID) {
+		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != blockID) 
+		{
 			world.setBlockToAir(x, y, z);
-		};
+		}
+		else if (world.getBlockId(x, y, z) != blockID || world.getBlockMetadata(x, y, z) != 8) 
+		{
+			this.checkBlockCoordValid(world, x, y, z);
+		}
+	}
+	
+	protected final void checkBlockCoordValid(World world, int x, int y, int z)
+	{
+		for (int i = 1; world.getBlockId(x, y + i, z) == blockID; i++)
+		{
+			if (!this.canBlockStay(world, x, y + i, z))
+			{
+				this.dropBlockAsItem(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
+				world.setBlock(x, y + i, z, 0);
+			}
+		}
 	}
 
 	@Override
