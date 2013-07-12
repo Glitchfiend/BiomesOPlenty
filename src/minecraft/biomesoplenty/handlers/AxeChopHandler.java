@@ -48,6 +48,7 @@ public class AxeChopHandler
 								{
 									if (!world.isRemote)
 									{
+										itemstack.damageItem(2, player);
 										world.destroyBlock(event.x, event.y + i, event.z, true);
 										System.out.println(i);
 									}
