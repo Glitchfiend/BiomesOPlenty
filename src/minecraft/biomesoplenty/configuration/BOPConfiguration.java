@@ -21,6 +21,7 @@ public class BOPConfiguration {
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
 	public static boolean rainCreatesPuddles;
+	public static boolean realisticTrees;
 
 	public static int villageDistance;
 
@@ -491,6 +492,7 @@ public class BOPConfiguration {
 			rainCreatesPuddles = config.get("Miscellanious Settings", "Enable Puddles During Rain", true).getBoolean(true);
 
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
+			realisticTrees = config.get("Biome Settings", "Realistic Trees", true).getBoolean(true);
 
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8) {

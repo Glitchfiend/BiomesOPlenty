@@ -8,8 +8,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenRedwoodTree;
 import biomesoplenty.worldgen.WorldGenRedwoodTree2;
+import biomesoplenty.worldgen.WorldGenRealRedwood;
+import biomesoplenty.worldgen.WorldGenRealRedwood2;
 
 public class BiomeGenRedwoodForest extends BiomeGenBase
 {
@@ -33,6 +36,11 @@ public class BiomeGenRedwoodForest extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
+		if (BOPConfiguration.realisticTrees)
+		{
+			return par1Random.nextInt(4) == 0 ? new WorldGenRealRedwood() : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenRealRedwood2());
+		}
+		
 		return par1Random.nextInt(4) == 0 ? new WorldGenRedwoodTree(false) : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree2(false));
 	}
 	
