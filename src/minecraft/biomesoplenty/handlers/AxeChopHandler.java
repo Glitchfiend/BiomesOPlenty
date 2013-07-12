@@ -38,19 +38,27 @@ public class AxeChopHandler
 
 						if (toolMaterial != EnumToolMaterial.WOOD && toolMaterial != EnumToolMaterial.STONE && toolMaterial != BOPItems.EnumToolMaterialMud)
 						{
+							int firstBlockId = world.getBlockId(event.x, event.y, event.z);
+							int logNo = 0;
+							
 							itemstack.damageItem(4, player);
-
-							if (world.rand.nextInt(30) == 0)
+							
+							for (int l = 0; world.getBlockId(event.x, event.y + l, event.z) == firstBlockId; l++)
 							{
-								int firstBlockId = world.getBlockId(event.x, event.y, event.z);
-								
+								if (!world.isRemote)
+								{
+									logNo += l * 2;
+								}
+							}
+
+							if (world.rand.nextInt(25 + logNo) == 0)
+							{								
 								for (int i = 0; world.getBlockId(event.x, event.y + i, event.z) == firstBlockId; i++)
 								{
 									if (!world.isRemote)
 									{
 										itemstack.damageItem(2, player);
 										world.destroyBlock(event.x, event.y + i, event.z, true);
-										System.out.println(i);
 									}
 								}
 							}
