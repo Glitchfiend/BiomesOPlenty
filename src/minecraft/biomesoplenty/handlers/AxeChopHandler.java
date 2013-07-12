@@ -51,7 +51,7 @@ public class AxeChopHandler
 								}
 							}
 
-							if (world.rand.nextInt(25 + logNo) == 0)
+							if (world.rand.nextInt(15 + logNo) == 0)
 							{								
 								for (int i = 0; world.getBlockId(event.x, event.y + i, event.z) == firstBlockId; i++)
 								{
