@@ -150,8 +150,8 @@ public class AchievementHelper
 		achMoss = (new Achievement(3066, "achMoss", -1, -3, Blocks.moss.get(), achFlower)).registerAchievement();
 		achFlowerP = (new Achievement(3067, "achFlowerP", 1, -4, new ItemStack(Items.flowerBand.get(), 1, 0), achFlower)).registerAchievement();
 		
-		achBOP = (new Achievement(3080, "achBOP", -10, -6, new ItemStack(Blocks.saplings.get(), 1, 6), null)).registerAchievement().setSpecial();
-		achAllBiomes = (new Achievement(3081, "achAllBiomes", 4, 8, new ItemStack(Blocks.saplings.get(), 1, 7), null)).registerAchievement().setSpecial();
+		achBOP = (new Achievement(3080, "achBOP", -10, -6, new ItemStack(Items.food.get(), 1, 7), null)).registerAchievement().setSpecial();
+		achAllBiomes = (new Achievement(3081, "achAllBiomes", 4, 8, new ItemStack(Items.food.get(), 1, 7), null)).registerAchievement().setSpecial();
 		achAlps = (new Achievement(3082, "achAlps", -8, -6, new ItemStack(Block.stone, 1, 0), achBOP)).registerAchievement();
 		achArctic = (new Achievement(3083, "achArctic", -6, -6, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement();
 		achBadlands = (new Achievement(3084, "achBadlands", -4, -6, new ItemStack(Block.field_111032_cD, 1, 0), achBOP)).registerAchievement();

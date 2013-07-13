@@ -2,7 +2,7 @@ package biomesoplenty.helpers;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 
 public class CreativeTabsBOP extends CreativeTabs
 {
@@ -14,6 +14,6 @@ public class CreativeTabsBOP extends CreativeTabs
 	@Override
 	public ItemStack getIconItemStack()
 	{
-		return new ItemStack(Blocks.saplings.get(),1,6);
+		return new ItemStack(Items.food.get(),1,7);
 	}
 }

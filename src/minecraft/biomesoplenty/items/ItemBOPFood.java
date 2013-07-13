@@ -16,7 +16,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroomPowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom"};
+	private static final String[] foodTypes = new String[] {"berries", "shroomPowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth"};
 	private Icon[] textures;
 	
 	public ItemBOPFood(int par1)
@@ -114,7 +114,10 @@ public class ItemBOPFood extends ItemFood
     {
 		for (int i = 0; i < foodTypes.length; ++i) 
 		{
-			list.add(new ItemStack(itemID, 1, i));
+			if (i != 7)
+			{
+				list.add(new ItemStack(itemID, 1, i));
+			}
 		}
     }
 

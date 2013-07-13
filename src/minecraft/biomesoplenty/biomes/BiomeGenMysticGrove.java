@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenMystic1;
 import biomesoplenty.worldgen.WorldGenMystic2;
+import biomesoplenty.worldgen.WorldGenRealMagic;
 import biomesoplenty.worldgen.WorldGenSwampTall;
 
 public class BiomeGenMysticGrove extends BiomeGenBase
@@ -24,7 +25,15 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 8;
+		if (BOPConfiguration.realisticTrees)
+		{
+			customBiomeDecorator.treesPerChunk = 1;
+		}
+		else
+		{
+			customBiomeDecorator.treesPerChunk = 8;
+		}
+		
 		customBiomeDecorator.grassPerChunk = 7;
 		customBiomeDecorator.flowersPerChunk = 8;
 		customBiomeDecorator.pinkFlowersPerChunk = 6;
@@ -52,6 +61,11 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
+		if (BOPConfiguration.realisticTrees)
+		{
+			return new WorldGenRealMagic();
+		}
+		
 		return par1Random.nextInt(5) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(7) == 0 ? new WorldGenSwampTall() : new WorldGenMystic1(false));
 	}
 
