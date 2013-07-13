@@ -9,8 +9,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class WorldGenRealMagic extends WorldGenerator
 {
 
-	public boolean generate(World world, Random rand, int i, int j, int k) {
-		
+	@Override
+	public boolean generate(World world, Random rand, int i, int j, int k) 
+	{	
 		world.setBlock(i + 4, j + 22, k + 47, Block.leaves.blockID, 12, 2);
 		world.setBlock(i + 5, j + 20, k + 45, Block.leaves.blockID, 12, 2);
 		world.setBlock(i + 5, j + 21, k + 46, Block.leaves.blockID, 12, 2);

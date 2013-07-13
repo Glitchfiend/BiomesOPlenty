@@ -9,7 +9,8 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenRealPineTree extends WorldGenerator
 {
-    public boolean generate(World var1, Random var2, int var3, int var4, int var5)
+    @Override
+	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
     {
         while (var1.isAirBlock(var3 + 10, var4, var5 + 8) && var4 > 2)
         {

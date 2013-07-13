@@ -2,6 +2,7 @@ package biomesoplenty.items;
 
 import java.util.List;
 
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,10 +23,39 @@ public class ItemBOPFood extends ItemFood
 	public ItemBOPFood(int par1)
 	{
 		super(par1, 0, 0.0F, false);
-		setAlwaysEdible();
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		setHasSubtypes(true);
 	}
+	
+	@Override
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
+    {
+		boolean alwaysEdible = ReflectionHelper.getPrivateValue(ItemFood.class, (ItemFood)Item.itemsList[itemstack.itemID], "alwaysEdible");
+		
+		if (itemstack.getItemDamage() == 0)
+		{
+			if (player.canEat(true))
+			{
+				player.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
+			}
+		}
+		if (itemstack.getItemDamage() == 1)
+		{
+			if (player.canEat(true))
+			{
+				player.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
+			}
+		}
+		else
+		{
+			if (player.canEat(alwaysEdible))
+			{
+				player.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
+			}
+		}
+
+        return itemstack;
+    }
 	
 	@Override
     public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer player)
@@ -93,19 +123,29 @@ public class ItemBOPFood extends ItemFood
         player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() + food);
         player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() + saturation);
         world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
-        this.onFoodEaten(itemstack, world, player);
+        super.onFoodEaten(itemstack, world, player);
         if (itemstack.getItemDamage() == 4)
         {
-        	return new ItemStack(Item.bowlEmpty);
+            if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+            {
+                player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+            }
         }
         if (itemstack.getItemDamage() == 5)
         {
-        	return new ItemStack(Item.bowlEmpty);
+            if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+            {
+                player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+            }
         }
         if (itemstack.getItemDamage() == 6)
         {
-        	return new ItemStack(Item.bowlEmpty);
+            if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+            {
+                player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+            }
         }
+        
         return itemstack;
 	}
 	

@@ -2,17 +2,15 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPBlocks;
-
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 
 public class WorldGenFir1 extends WorldGenerator
 {
-    public boolean generate(World var1, Random var2, int var3, int var4, int var5)
+    @Override
+	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
     {
         while (var1.isAirBlock(var3 + 11, var4, var5 + 9) && var4 > 2)
         {
