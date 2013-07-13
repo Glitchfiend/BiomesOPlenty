@@ -27,32 +27,32 @@ public class TickHandlerServer implements ITickHandler
         
         int rand = new Random().nextInt();
 		
-        while (iterator.hasNext())
-        {
-            ChunkCoordIntPair chunkcoordintpair = (ChunkCoordIntPair)iterator.next();
-            int k = chunkcoordintpair.chunkXPos * 16;
-            int l = chunkcoordintpair.chunkZPos * 16;
-            worldserver.theProfiler.startSection("getChunk");
-            Chunk chunk = worldserver.getChunkFromChunkCoords(chunkcoordintpair.chunkXPos, chunkcoordintpair.chunkZPos);
-            worldserver.theProfiler.endStartSection("tickChunk");
-            
-        	if (worldserver.provider.canDoRainSnowIce(chunk) && worldserver.rand.nextInt(1500) == 0)
-        	{
-        		rand = rand * 3 + 1013904223;
-        		int i1 = rand >> 2;
-        		int j1 = i1 & 15;
-        		int k1 = i1 >> 8 & 15;
-        		int l1 = worldserver.getPrecipitationHeight(j1 + k, k1 + l);
+		if (BOPConfiguration.rainCreatesPuddles)
+		{
+			while (iterator.hasNext())
+			{
+				ChunkCoordIntPair chunkcoordintpair = (ChunkCoordIntPair)iterator.next();
+				int k = chunkcoordintpair.chunkXPos * 16;
+				int l = chunkcoordintpair.chunkZPos * 16;
+				worldserver.theProfiler.startSection("getChunk");
+				Chunk chunk = worldserver.getChunkFromChunkCoords(chunkcoordintpair.chunkXPos, chunkcoordintpair.chunkZPos);
+				worldserver.theProfiler.endStartSection("tickChunk");
 
-        		if (BOPConfiguration.rainCreatesPuddles)
-        		{
-        			if (worldserver.isRaining() && canCreatePuddle(worldserver, j1 + k, l1, k1 + l))
-        			{
-        				worldserver.setBlock(j1 + k, l1 - 1, k1 + l, Blocks.puddle.get().blockID);
-        			}
-        		}
-        	}
-        }
+				if (worldserver.provider.canDoRainSnowIce(chunk) && worldserver.rand.nextInt(1500) == 0)
+				{
+					rand = rand * 3 + 1013904223;
+					int i1 = rand >> 2;
+					int j1 = i1 & 15;
+					int k1 = i1 >> 8 & 15;
+					int l1 = worldserver.getPrecipitationHeight(j1 + k, k1 + l);
+
+					if (worldserver.isRaining() && canCreatePuddle(worldserver, j1 + k, l1, k1 + l))
+					{
+						worldserver.setBlock(j1 + k, l1 - 1, k1 + l, Blocks.puddle.get().blockID);
+					}
+				}
+			}
+		}
 	}
 	
     public boolean canCreatePuddle(WorldServer worldserver, int par1, int par2, int par3)
