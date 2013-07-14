@@ -79,109 +79,112 @@ public class BlockBOPGlass extends Block
 		ItemStack equippedItem = player.getCurrentEquippedItem();
 		Random rand = new Random();
 
-		if (equippedItem.itemID == Items.soulManipulator.get().itemID)
+		if (equippedItem != null)
 		{
-			if (equippedItem.getItemDamage() == 0)
+			if (equippedItem.itemID == Items.soulManipulator.get().itemID)
 			{
-				if (world.getBlockMetadata(x, y, z) == 2)
+				if (equippedItem.getItemDamage() == 0)
 				{
-					if (checkAltarStructreIntegrity(world, x, y, z))
+					if (world.getBlockMetadata(x, y, z) == 2)
 					{
-						if (!player.capabilities.isCreativeMode)
+						if (checkAltarStructreIntegrity(world, x, y, z))
 						{
-							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 1));
+							if (!player.capabilities.isCreativeMode)
+							{
+								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 1));
+							}
+
+							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+
+							return true;
 						}
-
-						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-
-						return true;
 					}
+					else if (world.getBlockMetadata(x, y, z) == 3)
+					{
+						if (checkAltarStructreIntegrity(world, x, y, z))
+						{
+							if (!player.capabilities.isCreativeMode)
+							{
+								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 2));
+							}
+
+							FMLClientHandler.instance().getClient().sndManager.playSound("mob.villager.idle", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
+
+							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+
+							return true;
+						}
+					}	
 				}
-				else if (world.getBlockMetadata(x, y, z) == 3)
+				else if (equippedItem.getItemDamage() == 1)
 				{
-					if (checkAltarStructreIntegrity(world, x, y, z))
+					if (world.getBlockMetadata(x, y, z) == 1)
 					{
-						if (!player.capabilities.isCreativeMode)
+						if (checkAltarStructreIntegrity(world, x, y, z))
 						{
-							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 2));
-						}
-
-						FMLClientHandler.instance().getClient().sndManager.playSound("mob.villager.idle", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 1.0F, 1.0F);
-
-						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-
-						return true;
-					}
-				}	
-			}
-			else if (equippedItem.getItemDamage() == 1)
-			{
-				if (world.getBlockMetadata(x, y, z) == 1)
-				{
-					if (checkAltarStructreIntegrity(world, x, y, z))
-					{
-						if (!player.capabilities.isCreativeMode)
-						{
-							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
-						}
-
-						world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
-						world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
-						world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
-						world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
-
-						world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-
-						return true;
-					}
-				}
-				if (world.getBlockMetadata(x, y, z) == 3)
-				{
-					if (checkAltarStructreIntegrity(world, x, y, z))
-					{
-						if (!player.capabilities.isCreativeMode)
-						{
-							player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
-						}
-
-						world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
-						
-						FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
-						FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
-						
-						world.spawnEntityInWorld(new EntityDragon(world));
-
-						world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-						
-						Entity entitytnt = new EntityTNTPrimed(world);
-						
-						world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
-
-						return true;
-					}
-				}
-			}
-			if (equippedItem.getItemDamage() == 2)
-			{
-				if (world.getBlockMetadata(x, y, z) == 2)
-				{
-					if (checkAltarStructreIntegrity(world, x, y, z))
-					{						
-						if (player.dimension != 1)
-						{
-							world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
-							world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
-							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
-							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
-
 							if (!player.capabilities.isCreativeMode)
 							{
 								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
 							}
 
-							world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
+
+							world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 
 							return true;
+						}
+					}
+					if (world.getBlockMetadata(x, y, z) == 3)
+					{
+						if (checkAltarStructreIntegrity(world, x, y, z))
+						{
+							if (!player.capabilities.isCreativeMode)
+							{
+								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+							}
+
+							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
+
+							FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
+							FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
+
+							world.spawnEntityInWorld(new EntityDragon(world));
+
+							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+
+							Entity entitytnt = new EntityTNTPrimed(world);
+
+							world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
+
+							return true;
+						}
+					}
+				}
+				if (equippedItem.getItemDamage() == 2)
+				{
+					if (world.getBlockMetadata(x, y, z) == 2)
+					{
+						if (checkAltarStructreIntegrity(world, x, y, z))
+						{						
+							if (player.dimension != 1)
+							{
+								world.spawnEntityInWorld(new EntityLightningBolt(world, x + 1, y + 2, z));
+								world.spawnEntityInWorld(new EntityLightningBolt(world, x -1, y + 2, z));
+								world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z + 1));
+								world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 2, z - 1));
+
+								if (!player.capabilities.isCreativeMode)
+								{
+									player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+								}
+
+								world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+
+								return true;
+							}
 						}
 					}
 				}
