@@ -330,7 +330,7 @@ public class ChunkProviderBOP implements IChunkProvider
 	 public Chunk provideChunk(int par1, int par2)
 	 {
 		 rand.setSeed(par1 * 341873128712L + par2 * 132897987541L);
-		 byte[] abyte = new byte[32768];
+		 byte[] abyte = new byte[0x65536];
 		 this.generateTerrain(par1, par2, abyte);
 		 biomesForGeneration = worldObj.getWorldChunkManager().loadBlockGeneratorData(biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
 		 this.replaceBlocksForBiome(par1, par2, abyte, biomesForGeneration);
