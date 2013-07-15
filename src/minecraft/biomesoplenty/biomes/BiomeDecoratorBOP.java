@@ -603,7 +603,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < waterLakesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(120) + 8);
+			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(240) + 8);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenLakes(Block.waterMoving.blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -611,7 +611,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < lavaLakesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
+			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(235) + 8) + 8);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenLakes(Block.lavaMoving.blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -619,7 +619,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < netherLavaPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
+			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(235) + 8) + 8);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenNetherLava(Block.lavaMoving.blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -627,7 +627,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < hotSpringsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
+			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(235) + 8) + 8);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -865,14 +865,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; doGen && var2 < flowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantYellowGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 
 			 if (randomGenerator.nextInt(6) == 0)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-				 var4 = randomGenerator.nextInt(128);
+				 var4 = randomGenerator.nextInt(256);
 				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 				 dandelionGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 			 }
@@ -880,7 +880,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 if (randomGenerator.nextInt(4) == 0)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-				 var4 = randomGenerator.nextInt(128);
+				 var4 = randomGenerator.nextInt(256);
 				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 				 plantRedGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 			 }
@@ -889,7 +889,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < rosesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantRedGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -897,7 +897,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < sunflowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 sunflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -905,7 +905,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < boneSpinesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 boneSpineGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -945,7 +945,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < netherVinesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 netherVineGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -953,7 +953,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < whiteFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantWhiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -961,7 +961,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < blueFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantBlueGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -969,7 +969,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < hydrangeasPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 hydrangeaGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -977,7 +977,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < violetsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 violetGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -985,7 +985,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < duneGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 duneGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -993,7 +993,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < holyTallGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 holyTallGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1001,7 +1001,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < desertSproutsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 desertSproutsGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1009,7 +1009,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < purpleFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantPurpleGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1017,7 +1017,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < pinkFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantPinkGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1025,7 +1025,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < bushesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 bushGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1033,7 +1033,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < berryBushesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 berryBushGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1041,7 +1041,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < poisonIvyPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 poisonIvyGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1049,7 +1049,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < orangeFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantOrangeGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1057,7 +1057,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < tinyCactiPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 tinyCactusGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1065,7 +1065,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < aloePerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 aloeGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1073,7 +1073,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < deathbloomsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 deathbloomGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1081,7 +1081,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < toadstoolsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 toadstoolGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1089,7 +1089,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < portobellosPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 portobelloGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1097,7 +1097,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < blueMilksPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 blueMilkGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1113,7 +1113,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < sproutsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 sproutGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1121,7 +1121,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < tinyFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantTinyGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1129,7 +1129,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < glowFlowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantGlowGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1137,7 +1137,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < deadGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantDeadGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1145,7 +1145,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < desertGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantDesertGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1155,7 +1155,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; doGen && var2 < grassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 WorldGenerator var6 = biome.getRandomWorldGenForGrass(randomGenerator);
 			 var6.generate(currentWorld, randomGenerator, var3, var4, var5);
@@ -1164,7 +1164,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < outbackPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 outbackGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1172,7 +1172,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < smolderingGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 smolderingGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1180,7 +1180,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < netherGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 netherGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1188,7 +1188,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < netherWartPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 netherWartGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1196,7 +1196,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < canyonGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 canyonGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1204,7 +1204,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < steppePerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 steppeGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1212,7 +1212,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < highGrassPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 highGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1220,7 +1220,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < carrotsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 carrotGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1228,7 +1228,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < potatoesPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 potatoGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1237,14 +1237,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 var5 = randomGenerator.nextInt(128);
+			 var5 = randomGenerator.nextInt(256);
 			 reedBOPGen.generate(currentWorld, randomGenerator, var3, var5, var4);
 		 }
 
 		 for (var2 = 0; var2 < thornsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 thornGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1252,7 +1252,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < cattailsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 cattailGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1260,7 +1260,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < highCattailsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 highCattailGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1270,7 +1270,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; doGen && var2 < deadBushPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenDeadBush(Block.deadBush.blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1291,7 +1291,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
-				 var5 = randomGenerator.nextInt(128);
+				 var5 = randomGenerator.nextInt(256);
 				 mushroomRedGen.generate(currentWorld, randomGenerator, var3, var5, var4);
 			 }
 		 }
@@ -1299,7 +1299,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 if (randomGenerator.nextInt(4) == 0)
 		 {
 			 var2 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var3 = randomGenerator.nextInt(128);
+			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 mushroomBrownGen.generate(currentWorld, randomGenerator, var2, var3, var4);
 		 }
@@ -1307,7 +1307,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 if (randomGenerator.nextInt(8) == 0)
 		 {
 			 var2 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var3 = randomGenerator.nextInt(128);
+			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 mushroomRedGen.generate(currentWorld, randomGenerator, var2, var3, var4);
 		 }
@@ -1318,14 +1318,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 var5 = randomGenerator.nextInt(128);
+			 var5 = randomGenerator.nextInt(256);
 			 reedGen.generate(currentWorld, randomGenerator, var3, var5, var4);
 		 }
 
 		 for (var2 = 0; doGen && var2 < 10; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 reedGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1333,7 +1333,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 if (generatePumpkins && randomGenerator.nextInt(32) == 0)
 		 {
 			 var2 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var3 = randomGenerator.nextInt(128);
+			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenPumpkin()).generate(currentWorld, randomGenerator, var2, var3, var4);
 		 }
@@ -1341,7 +1341,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 if (generateMelons && randomGenerator.nextInt(32) == 0)
 		 {
 			 var2 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var3 = randomGenerator.nextInt(128);
+			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenMelon()).generate(currentWorld, randomGenerator, var2, var3, var4);
 		 }
@@ -1349,7 +1349,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 if (generateBoulders && randomGenerator.nextInt(32) == 0)
 		 {
 			 var2 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var3 = randomGenerator.nextInt(128);
+			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 (new WorldGenBoulder()).generate(currentWorld, randomGenerator, var2, var3, var4);
 		 }
@@ -1357,7 +1357,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < cactiPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 cactusGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1365,7 +1365,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < desertCactiPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 desertCactusGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1392,7 +1392,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < lilyflowersPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(128);
+			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 lilyflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
@@ -1402,7 +1402,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 
-			 for (var5 = randomGenerator.nextInt(128); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
+			 for (var5 = randomGenerator.nextInt(256); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
 			 {
 				 ;
 			 }
@@ -1417,7 +1417,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 
-			 for (var5 = randomGenerator.nextInt(128); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
+			 for (var5 = randomGenerator.nextInt(256); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
 			 {
 				 ;
 			 }
@@ -1488,11 +1488,11 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Pre(currentWorld, randomGenerator, chunk_X, chunk_Z));
 
 		 if (TerrainGen.generateOre(currentWorld, randomGenerator, dirtGen, chunk_X, chunk_Z, DIRT)) {
-			 this.genStandardOre1(20, dirtGen, 0, 128);
+			 this.genStandardOre1(20, dirtGen, 0, 256);
 		 }
 
 		 if (TerrainGen.generateOre(currentWorld, randomGenerator, gravelGen, chunk_X, chunk_Z, GRAVEL)) {
-			 this.genStandardOre1(10, gravelGen, 0, 128);
+			 this.genStandardOre1(10, gravelGen, 0, 256);
 		 }
 
 		 if (TerrainGen.generateOre(currentWorld, randomGenerator, coalGen, chunk_X, chunk_Z, COAL)) {
