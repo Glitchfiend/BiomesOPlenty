@@ -158,7 +158,7 @@ public class AchievementHelper
 		achBambooForest = (new Achievement(3085, "achBambooForest", -2, -6, new ItemStack(Blocks.saplings.get(), 1, 2), achBOP)).registerAchievement();
 		achBayou = (new Achievement(3086, "achBayou", 0, -6, new ItemStack(Blocks.willow.get(), 1, 0), achBOP)).registerAchievement();
 		achBirchForest = (new Achievement(3087, "achBirchForest", 2, -6, new ItemStack(Block.sapling, 1, 2), achBOP)).registerAchievement();
-		achBog = (new Achievement(3088, "achBog", 4, -6, new ItemStack(Blocks.plants.get(), 1, 8), achBOP)).registerAchievement();
+		achBog = (new Achievement(3088, "achBog", 4, -6, new ItemStack(Blocks.mushrooms.get(), 1, 2), achBOP)).registerAchievement();
 		achBorealForest = (new Achievement(3089, "achBorealForest", 6, -6, new ItemStack(Blocks.saplings.get(), 1, 1), achBOP)).registerAchievement();
 		achBrushland = (new Achievement(3090, "achBrushland", 8, -6, new ItemStack(Block.leaves, 1, 2), achBOP)).registerAchievement();
 		achCanyon = (new Achievement(3091, "achCanyon", 10, -6, new ItemStack(Blocks.hardDirt.get(), 1, 0), achBOP)).registerAchievement();
@@ -175,7 +175,7 @@ public class AchievementHelper
 		achDeciduousForest = (new Achievement(3102, "achDeciduousForest", 8, -4, new ItemStack(Blocks.foliage.get(), 1, 7), achBOP)).registerAchievement();
 		achDunes = (new Achievement(3103, "achDunes", 10, -4, new ItemStack(Blocks.plants.get(), 1, 3), achBOP)).registerAchievement(); 
 		
-		achFen = (new Achievement(3104, "achFen", -10, -2, new ItemStack(Blocks.mushrooms.get(), 1, 0), achBOP)).registerAchievement(); 
+		achFen = (new Achievement(3104, "achFen", -10, -2, new ItemStack(Blocks.plants.get(), 1, 8), achBOP)).registerAchievement(); 
 		achField = (new Achievement(3105, "achField", -8, -2, new ItemStack(Block.tallGrass, 1, 1), achBOP)).registerAchievement();
 		achFrostForest = (new Achievement(3106, "achFrostForest", -6, -2, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement();
 		achFungiForest = (new Achievement(3107, "achFungiForest", -4, -2, new ItemStack(Blocks.mushrooms.get(), 1, 3), achBOP)).registerAchievement().setSpecial();
@@ -231,7 +231,7 @@ public class AchievementHelper
 		achVolcano = (new Achievement(3153, "achVolcano", 0, 6, new ItemStack(Item.bucketLava, 1, 0), achBOP)).registerAchievement();
 		achWasteland = (new Achievement(3154, "achWasteland", 2, 6, new ItemStack(Blocks.driedDirt.get(), 1, 0), achBOP)).registerAchievement().setSpecial();
 		achWetland = (new Achievement(3155, "achWetland", 4, 6, new ItemStack(Blocks.plants.get(), 1, 7), achBOP)).registerAchievement();
-		achWoodland = (new Achievement(3156, "achWoodland", 6, 6, new ItemStack(Block.sapling, 1, 0), achBOP)).registerAchievement();
+		achWoodland = (new Achievement(3156, "achWoodland", 6, 6, new ItemStack(Blocks.mushrooms.get(), 1, 0), achBOP)).registerAchievement();
 		achDesert = (new Achievement(3157, "achDesert", 8, 6, new ItemStack(Block.sand, 1, 0), achBOP)).registerAchievement();
 		achExtremeHills = (new Achievement(3158, "achExtremeHills", 10, 6, new ItemStack(Blocks.flowers.get(), 1, 8), achBOP)).registerAchievement();
 		
