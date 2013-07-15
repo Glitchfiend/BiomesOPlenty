@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
@@ -120,10 +121,10 @@ public class ChunkProviderBOP implements IChunkProvider
 	 public void generateTerrain(int par1, int par2, byte[] par3ArrayOfByte)
 	{
 		 byte b0 = 4;
-		 byte b1 = 16;
+		 byte b1 = 32;
 		 byte b2 = 63;
 		 int k = b0 + 1;
-		 byte b3 = 17;
+		 byte b3 = 33;
 		 int l = b0 + 1;
 		 biomesForGeneration = worldObj.getWorldChunkManager().getBiomesForGeneration(biomesForGeneration, par1 * 4 - 2, par2 * 4 - 2, k + 5, l + 5);
 		 noiseArray = this.initializeNoiseField(noiseArray, par1 * b0, 0, par2 * b0, k, b3, l);
@@ -154,8 +155,8 @@ public class ChunkProviderBOP implements IChunkProvider
 
 						 for (int i2 = 0; i2 < 4; ++i2)
 						 {
-							 int j2 = i2 + i1 * 4 << 11 | 0 + j1 * 4 << 7 | k1 * 8 + l1;
-							 short short1 = 128;
+							 int j2 = i2 + i1 * 4 << 12 | 0 + j1 * 4 << 8 | k1 * 8 + l1;
+							 short short1 = 256;
 							 j2 -= short1;
 							 double d14 = 0.25D;
 							 double d15 = (d11 - d10) * d14;
@@ -219,9 +220,9 @@ public class ChunkProviderBOP implements IChunkProvider
 				 byte b1 = biomegenbase.topBlock;
 				 byte b2 = biomegenbase.fillerBlock;
 
-				 for (int k1 = 127; k1 >= 0; --k1)
+				 for (int k1 = 255; k1 >= 0; --k1)
 				 {
-					 int l1 = (l * 16 + k) * 128 + k1;
+					 int l1 = (l * 16 + k) * 256 + k1;
 
 					 if (k1 <= 0 + rand.nextInt(5))
 					 {
@@ -344,17 +345,43 @@ public class ChunkProviderBOP implements IChunkProvider
 			 scatteredFeatureGenerator.generate(this, worldObj, par1, par2, abyte);
 		 }
 
-		 Chunk chunk = new Chunk(worldObj, abyte, par1, par2);
-		 byte[] abyte1 = chunk.getBiomeArray();
+        Chunk chunk = new Chunk(worldObj, par1, par2);
+        ExtendedBlockStorage aextendedblockstorage[] = chunk.getBlockStorageArray();
+        byte[] abyte1 = chunk.getBiomeArray();
 
-		 for (int k = 0; k < abyte1.length; ++k)
-		 {
-			 abyte1[k] = (byte)biomesForGeneration[k].biomeID;
-		 }
+        for (int k = 0; k < abyte1.length; ++k)
+        {
+            abyte1[k] = (byte)this.biomesForGeneration[k].biomeID;
+        }
+        
+        for (int k = 0; k < 16; k++)
+        {
+            for (int l = 0; l < 16; l++)
+            {
+                for (int i1 = 0; i1 < 256; i1++)
+                {
+                    byte byte0 = abyte[k << 12 | l << 8 | i1];
 
-		 chunk.generateSkylightMap();
-		 return chunk;
-	 }
+                    if (byte0 == 0)
+                    {
+                        continue;
+                    }
+
+                    int j1 = i1 >> 4;
+
+                    if (aextendedblockstorage[j1] == null)
+                    {
+                        aextendedblockstorage[j1] = new ExtendedBlockStorage(j1 << 4, mapFeaturesEnabled);
+                    }
+
+                    aextendedblockstorage[j1].setExtBlockID(k, i1 & 0xf, l, byte0 & 0xff);
+                }
+            }
+        }
+		
+        chunk.generateSkylightMap();
+        return chunk;
+    }
 
 	 /**
 	  * generates a subset of the level's terrain data. Takes 7 arguments: the [empty] noise array, the position, and the
