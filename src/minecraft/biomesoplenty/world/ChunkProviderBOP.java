@@ -439,7 +439,7 @@ public class ChunkProviderBOP implements IChunkProvider
 					 for (int j3 = -b0; j3 <= b0; ++j3)
 					 {
 						 BiomeGenBase biomegenbase1 = biomesForGeneration[k2 + i3 + 2 + (l2 + j3 + 2) * (par5 + 5)];
-						 float f4 = parabolicField[i3 + 2 + (j3 + 2) * 5] / (biomegenbase1.minHeight + 2.0F);
+						 float f4 = parabolicField[i3 + 2 + (j3 + 2) * 5] / (biomegenbase1.minHeight + 1.0F);
 
 						 if (biomegenbase1.minHeight > biomegenbase.minHeight)
 						 {
