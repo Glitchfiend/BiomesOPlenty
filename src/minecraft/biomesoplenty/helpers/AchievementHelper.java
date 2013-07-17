@@ -188,7 +188,7 @@ public class AchievementHelper
 		achHotSprings = (new Achievement(3114, "achHotSprings", 10, -2, new ItemStack(Fluids.bopBucket.get(), 1, 2), achBOP)).registerAchievement();
 		
 		achIcyHills = (new Achievement(3115, "achIcyHills", -10, 0, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement().setSpecial();  
-		achJadeCliffs = (new Achievement(3116, "achJadeCliffs", -8, 0, new ItemStack(Blocks.colorizedSaplings.get(), 1, 5), achBOP)).registerAchievement(); 
+		achJadeCliffs = (new Achievement(3116, "achJadeCliffs", -8, 0, new ItemStack(Blocks.colorizedSaplings.get(), 1, 5), achBOP)).registerAchievement().setSpecial(); 
 		achLushDesert = (new Achievement(3117, "achLushDesert", -6, 0, new ItemStack(Blocks.plants.get(), 1, 1), achBOP)).registerAchievement(); 
 		achLushSwamp = (new Achievement(3118, "achLushSwamp", -4, 0, new ItemStack(Blocks.ivy.get(), 1, 0), achBOP)).registerAchievement(); 
 		achMangrove = (new Achievement(3119, "achMangrove", -2, 0, new ItemStack(Blocks.colorizedSaplings.get(), 1, 1), achBOP)).registerAchievement(); 
@@ -218,7 +218,7 @@ public class AchievementHelper
 		achSeasonalForest = (new Achievement(3141, "achSeasonalForest", -2, 4, new ItemStack(Blocks.saplings.get(), 1, 8), achBOP)).registerAchievement();
 		achShield = (new Achievement(3142, "achShield", 0, 4, new ItemStack(Blocks.moss.get(), 1, 0), achBOP)).registerAchievement();
 		achShrubland = (new Achievement(3143, "achShrubland", 2, 4, new ItemStack(Blocks.foliage.get(), 1, 1), achBOP)).registerAchievement();
-		achSludgepit = (new Achievement(3144, "achSludgepit", 4, 4, new ItemStack(Blocks.foliage.get(), 1, 0), achBOP)).registerAchievement();
+		achSludgepit = (new Achievement(3144, "achSludgepit", 4, 4, new ItemStack(Blocks.foliage.get(), 1, 0), achBOP)).registerAchievement().setSpecial();
 		achSpruceWoods = (new Achievement(3145, "achSpruceWoods", 6, 4, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement();
 		achSteppe = (new Achievement(3146, "achSteppe", 8, 4, new ItemStack(Blocks.flowers.get(), 1, 12), achBOP)).registerAchievement();
 		achTemperateRainforest = (new Achievement(3147, "achTemperateRainforest", 10, 4, new ItemStack(Block.tallGrass, 1, 2), achBOP)).registerAchievement();
