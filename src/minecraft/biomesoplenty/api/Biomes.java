@@ -9,6 +9,8 @@ import com.google.common.base.Optional;
 public class Biomes
 {
 	public static Optional<? extends BiomeGenBase> alps					 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> alpsForest			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> alpsBase			     = Optional.absent();
 	public static Optional<? extends BiomeGenBase> arctic				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> badlands				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> bambooForest			 = Optional.absent();
@@ -92,6 +94,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> savanna				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> scrubland			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> seasonalForest		 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> seasonalSpruceForest	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shield				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shore				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shrubland			 = Optional.absent();

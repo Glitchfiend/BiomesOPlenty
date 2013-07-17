@@ -264,6 +264,8 @@ public class BOPConfiguration {
 
 	//Biome IDs
 	public static int alpsID;
+	public static int alpsForestID;
+	public static int alpsBaseID;
 	public static int arcticID;
 	public static int badlandsID;
 	public static int bambooForestID;
@@ -348,6 +350,7 @@ public class BOPConfiguration {
 	public static int savannaID;
 	public static int scrublandID;
 	public static int seasonalForestID;
+	public static int seasonalSpruceForestID;
 	public static int shieldID;
 	public static int shoreID;
 	public static int shrublandID;
@@ -851,6 +854,9 @@ public class BOPConfiguration {
 
 			//23-79 ExtraBiomesXL
 			
+			seasonalSpruceForestID = config.get("Biome IDs", "Seasonal Spruce Forest (Sub-Biome) ID", 41).getInt();
+			alpsBaseID = config.get("Biome IDs", "Alps Forest (Sub-Biome) ID", 42).getInt();
+			alpsForestID = config.get("Biome IDs", "Alps Mountainside (Sub-Biome) ID", 43).getInt();
 			timberThinID = config.get("Biome IDs", "Thinned Timber (Sub-Biome) ID", 44).getInt();
 			pastureThinID = config.get("Biome IDs", "Thinned Pasture (Sub-Biome) ID", 45).getInt();
 			pastureMeadowID = config.get("Biome IDs", "Pasture Meadow (Sub-Biome) ID", 46).getInt();

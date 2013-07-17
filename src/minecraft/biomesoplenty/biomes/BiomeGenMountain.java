@@ -36,7 +36,7 @@ public class BiomeGenMountain extends BiomeGenBase
 			return par1Random.nextInt(4) == 0 ? new WorldGenRealPineTree2() : (par1Random.nextInt(6) == 0 ? new WorldGenRealPineTree() : worldGeneratorTrees);
 		}
 		
-		return par1Random.nextInt(4) == 0 ? worldGeneratorTrees : new WorldGenPineTree();
+		return par1Random.nextInt(4) == 0 ? new WorldGenPineTree() : worldGeneratorTrees;
 	}
 	
 	@Override
