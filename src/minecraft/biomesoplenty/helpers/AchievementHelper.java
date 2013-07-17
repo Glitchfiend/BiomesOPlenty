@@ -397,7 +397,7 @@ public class AchievementHelper
 			{
 				player.addStat(achShroom, 1);
 			}
-			if (item.itemID == Blocks.planks.get().blockID && item.getItemDamage() == 6)
+			if (item.itemID == Blocks.plants.get().blockID && item.getItemDamage() == 6)
 			{
 				player.addStat(achBarley, 1);
 			}
