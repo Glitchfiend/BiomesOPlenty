@@ -196,7 +196,7 @@ public class AchievementHelper
 		achMarsh = (new Achievement(3121, "achMarsh", 2, 0, new ItemStack(Item.bucketWater, 1, 0), achBOP)).registerAchievement(); 
 		achMeadow = (new Achievement(3122, "achMeadow", 4, 0, new ItemStack(Blocks.flowers.get(), 1, 4), achBOP)).registerAchievement();
 		achMesa = (new Achievement(3123, "achMesa", 6, 0, new ItemStack(Blocks.redRock.get(), 1, 0), achBOP)).registerAchievement(); 
-		achMoor = (new Achievement(3124, "achMoor", 8, 0, new ItemStack(Items.mudball.get(), 1, 0), achBOP)).registerAchievement(); 
+		achMoor = (new Achievement(3124, "achMoor", 8, 0, new ItemStack(Blocks.flowers.get(), 1, 1), achBOP)).registerAchievement(); 
 		achMountain = (new Achievement(3125, "achMountain", 10, 0, new ItemStack(Blocks.foliage.get(), 1, 8), achBOP)).registerAchievement();  
 		
 		achMysticGrove = (new Achievement(3126, "achMysticGrove", -10, 2, new ItemStack(Blocks.flowers.get(), 1, 3), achBOP)).registerAchievement().setSpecial();
@@ -208,7 +208,7 @@ public class AchievementHelper
 		achPasture = (new Achievement(3132, "achPasture", 2, 2, new ItemStack(Blocks.plants.get(), 1, 6), achBOP)).registerAchievement();
 		achPolar = (new Achievement(3133, "achPolar", 4, 2, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement();
 		achPrairie = (new Achievement(3134, "achPrairie", 6, 2, new ItemStack(Blocks.flowers.get(), 1, 9), achBOP)).registerAchievement();
-		achQuagmire = (new Achievement(3135, "achQuagmire", 8, 2, new ItemStack(Blocks.mud.get(), 1, 0), achBOP)).registerAchievement();
+		achQuagmire = (new Achievement(3135, "achQuagmire", 8, 2, new ItemStack(Items.mudball.get(), 1, 0), achBOP)).registerAchievement();
 		achRainforest = (new Achievement(3136, "achRainforest", 10, 2, new ItemStack(Blocks.flowers.get(), 1, 6), achBOP)).registerAchievement();
 
 		achRedwoodForest = (new Achievement(3137, "achRedwoodForest", -10, 4, new ItemStack(Blocks.colorizedSaplings.get(), 1, 3), achBOP)).registerAchievement(); 

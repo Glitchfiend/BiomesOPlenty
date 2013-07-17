@@ -41,9 +41,9 @@ public class BiomeLayerSub extends BiomeLayer
                 if (k1 == Biomes.alps.get().biomeID && nextInt(3) == 0) { l1 = Biomes.alpsBase.get().biomeID; }
                 if (k1 == Biomes.seasonalForest.get().biomeID && nextInt(2) == 0) { l1 = Biomes.seasonalSpruceForest.get().biomeID; }
                 
-                if (k1 == BiomeGenBase.ocean.biomeID && nextInt(2) == 0) { l1 = Biomes.tropics.get().biomeID; }
-                if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.volcano.get().biomeID; }
-                if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.polar.get().biomeID; }
+                //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(2) == 0) { l1 = Biomes.tropics.get().biomeID; }
+                //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.volcano.get().biomeID; }
+                //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.polar.get().biomeID; }
 
                 if (l1 == k1)
                 {

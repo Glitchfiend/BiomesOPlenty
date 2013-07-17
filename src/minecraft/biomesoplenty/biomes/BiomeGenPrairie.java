@@ -67,4 +67,22 @@ public class BiomeGenPrairie extends BiomeGenBase
 	{
 		return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1)));
 	}
+	
+	/**
+	 * Provides the basic grass color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeGrassColor()
+	{
+		return 13165952;
+	}
+
+	/**
+	 * Provides the basic foliage color based on the biome temperature and rainfall
+	 */
+	@Override
+	public int getBiomeFoliageColor()
+	{
+		return 11395195;
+	}
 }
