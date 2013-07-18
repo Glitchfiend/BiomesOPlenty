@@ -255,8 +255,8 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 6), new Object[] {Item.bowlEmpty, new ItemStack(Blocks.mushrooms.get(), 1, 0), new ItemStack(Blocks.mushrooms.get(), 1, 1), new ItemStack(Blocks.mushrooms.get(), 1, 2)});
 
 		//Glass
-		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"GGG", "GGG", "GGG", Character.valueOf('G'), Block.glass});
-		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 1), new Object [] {"CGC", "GGG", "CGC", Character.valueOf('G'), new ItemStack(Blocks.glass.get(), 1, 0), Character.valueOf('C'), new ItemStack(Items.miscItems.get(), 1, 4)});
+		//GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"GGG", "GGG", "GGG", Character.valueOf('G'), Block.glass});
+		GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"CGC", "GGG", "CGC", Character.valueOf('G'), new ItemStack(Blocks.crystal.get(), 1, 0), Character.valueOf('C'), new ItemStack(Items.miscItems.get(), 1, 4)});
 	}
 
 	private static void addSmeltingRecipes()
