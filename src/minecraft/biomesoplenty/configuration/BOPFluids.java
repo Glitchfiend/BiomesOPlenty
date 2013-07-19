@@ -28,10 +28,10 @@ public class BOPFluids
 
 	private static void registerFluids()
 	{
-		Fluids.liquidPoisonFluid = Optional.of(new LiquidPoisonFluid("Liquid Poison").setBlockID(BOPConfiguration.liquidPoisonStillID));
+		Fluids.liquidPoisonFluid = Optional.of(new LiquidPoisonFluid("bop.liquidPoison").setBlockID(BOPConfiguration.liquidPoisonStillID));
 		FluidRegistry.registerFluid(Fluids.liquidPoisonFluid.get());
 
-		Fluids.springWaterFluid = Optional.of(new SpringWaterFluid("Spring Water").setBlockID(BOPConfiguration.springWaterStillID));
+		Fluids.springWaterFluid = Optional.of(new SpringWaterFluid("bop.springWater").setBlockID(BOPConfiguration.springWaterStillID));
 		FluidRegistry.registerFluid(Fluids.springWaterFluid.get());
 	}
 

@@ -6,8 +6,8 @@ import thaumcraft.api.ObjectTags;
 import thaumcraft.api.ThaumcraftApi;
 import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
 import biomesoplenty.api.Fluids;
+import biomesoplenty.api.Items;
 import biomesoplenty.blocks.BlockBOPAmethyst;
 import cpw.mods.fml.common.event.FMLInterModComms;
 

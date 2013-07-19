@@ -237,7 +237,8 @@ public class MapGenCavesBOP extends MapGenBase
     /**
      * Recursively called by generate() (generate) and optionally by itself.
      */
-    protected void recursiveGenerate(World world, int i, int j, int k, int l, byte abyte0[])
+    @Override
+	protected void recursiveGenerate(World world, int i, int j, int k, int l, byte abyte0[])
     {
         int i1 = rand.nextInt(rand.nextInt(rand.nextInt(40) + 1) + 1);
 

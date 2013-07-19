@@ -1,6 +1,5 @@
 package biomesoplenty.handlers;
 
-import biomesoplenty.configuration.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
@@ -11,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
+import biomesoplenty.configuration.BOPItems;
 
 public class AxeChopHandler 
 {

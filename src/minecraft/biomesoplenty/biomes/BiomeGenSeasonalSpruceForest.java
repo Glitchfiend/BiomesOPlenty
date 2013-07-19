@@ -12,9 +12,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenAutumn;
 import biomesoplenty.worldgen.WorldGenAutumn2;
-import biomesoplenty.worldgen.WorldGenTaiga10;
 import biomesoplenty.worldgen.WorldGenDeadTree2;
 import biomesoplenty.worldgen.WorldGenMaple;
+import biomesoplenty.worldgen.WorldGenTaiga10;
 import biomesoplenty.worldgen.WorldGenTaiga5;
 
 public class BiomeGenSeasonalSpruceForest extends BiomeGenBase

@@ -2,7 +2,6 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +13,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ItemBOPFood extends ItemFood
 {

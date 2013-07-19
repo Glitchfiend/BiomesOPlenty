@@ -349,13 +349,16 @@
 	<entry key="item.bop.flowerBand.lushflowerband.name">Lush Flower Band</entry>
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
 	
-	<!--Liquids -->
-	  <entry key="item.bop.bopBucket.amethyst_empty.name">Amethyst Bucket</entry>
+	<!--Fluids -->
+	<entry key="item.bop.bopBucket.amethyst_empty.name">Amethyst Bucket</entry>
 	<entry key="item.bop.bopBucket.amethyst_spring_water.name">Spring Water Amethyst Bucket</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>
 	
 	<entry key="tile.bop.liquidPoison.name">Liquid Poison</entry>
 	<entry key="tile.bop.springWater.name">Spring Water</entry>
+	
+	<entry key="fluid.bop.liquidPoison.name">Liquid Poison</entry>
+    <entry key="fluid.bop.springWater.name">Spring Water</entry>
 	
 	<!--Phrases -->
 	<entry key="phrase.bop.promisedPortalOverworld">A gateway to the Promised Land has appeared in the sky above.</entry>

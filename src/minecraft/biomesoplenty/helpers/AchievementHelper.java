@@ -16,8 +16,8 @@ import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
 import biomesoplenty.api.Fluids;
+import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPConfiguration;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

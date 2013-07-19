@@ -9,7 +9,6 @@ import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenTaiga5;
-import biomesoplenty.worldgen.WorldGenTaiga6;
 
 public class BiomeGenAlpsBase extends BiomeGenBase
 {

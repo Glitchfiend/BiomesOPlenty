@@ -9,10 +9,10 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenRedwoodTree;
-import biomesoplenty.worldgen.WorldGenRedwoodTree2;
 import biomesoplenty.worldgen.WorldGenRealRedwood;
 import biomesoplenty.worldgen.WorldGenRealRedwood2;
+import biomesoplenty.worldgen.WorldGenRedwoodTree;
+import biomesoplenty.worldgen.WorldGenRedwoodTree2;
 
 public class BiomeGenRedwoodForest extends BiomeGenBase
 {

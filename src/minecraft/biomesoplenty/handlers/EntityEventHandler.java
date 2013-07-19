@@ -120,7 +120,7 @@ public class EntityEventHandler
 		ItemStack itemstack = event.entityPlayer.getCurrentEquippedItem();
 		Entity entity = event.target;
 		EntityPlayer player = event.entityPlayer;
-
+		
 		if (itemstack != null)
 		{
 			int itemDamage = itemstack.getItemDamage();

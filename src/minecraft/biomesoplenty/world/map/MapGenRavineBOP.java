@@ -230,7 +230,8 @@ public class MapGenRavineBOP extends MapGenBase
     /**
      * Recursively called by generate() (generate) and optionally by itself.
      */
-    protected void recursiveGenerate(World world, int i, int j, int k, int l, byte abyte0[])
+    @Override
+	protected void recursiveGenerate(World world, int i, int j, int k, int l, byte abyte0[])
     {
         if (rand.nextInt(50) != 0)
         {
