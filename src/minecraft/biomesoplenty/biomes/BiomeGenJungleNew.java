@@ -1,5 +1,6 @@
 package biomesoplenty.biomes;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -15,6 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.entities.EntityJungleSpider;
 
 public class BiomeGenJungleNew extends BiomeGenBase
@@ -37,6 +39,7 @@ public class BiomeGenJungleNew extends BiomeGenBase
 		spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
 		spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
 		spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 4));
+		waterColorMultiplier = 5242687;
 	}
 
 	/**
@@ -87,4 +90,48 @@ public class BiomeGenJungleNew extends BiomeGenBase
 			var5.generate(par1World, par2Random, var7, var8, var9);
 		}
 	}
+	
+	/**
+	 * Provides the basic grass color based on the biome temperature and rainfall
+	 */
+	 @Override
+	 public int getBiomeGrassColor()
+	 {
+		 return 6463547;
+	 }
+
+	 /**
+	  * Provides the basic foliage color based on the biome temperature and rainfall
+	  */
+	 @Override
+	 public int getBiomeFoliageColor()
+	 {
+		 return 7060540;
+	 }
+	 
+	 /**
+	  * takes temperature, returns color
+	  */
+	 @Override
+	 public int getSkyColorByTemp(float par1)
+	 {
+		 if (BOPConfiguration.skyColors)
+			 return 9225359;
+		 else
+		 {
+			 par1 /= 3.0F;
+
+			 if (par1 < -1.0F)
+			 {
+				 par1 = -1.0F;
+			 }
+
+			 if (par1 > 1.0F)
+			 {
+				 par1 = 1.0F;
+			 }
+
+			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
+		 }
+	 }
 }

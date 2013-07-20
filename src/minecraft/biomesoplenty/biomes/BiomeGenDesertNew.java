@@ -1,5 +1,6 @@
 package biomesoplenty.biomes;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -7,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeGenDesertNew extends BiomeGenBase
 {
@@ -22,12 +24,12 @@ public class BiomeGenDesertNew extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.deadBushPerChunk = 2;
-		customBiomeDecorator.reedsPerChunk = 50;
-		customBiomeDecorator.cactiPerChunk = 10;
+		customBiomeDecorator.reedsPerChunk = -999;
+		customBiomeDecorator.cactiPerChunk = 5;
 		customBiomeDecorator.desertSproutsPerChunk = 1;
-		customBiomeDecorator.tinyCactiPerChunk = 5;
+		customBiomeDecorator.tinyCactiPerChunk = 2;
 		customBiomeDecorator.generateQuicksand = true;
-		customBiomeDecorator.aloePerChunk = 2;
+		customBiomeDecorator.aloePerChunk = 1;
 	}
 
 	@Override
@@ -58,4 +60,30 @@ public class BiomeGenDesertNew extends BiomeGenBase
 			var7.generate(par1World, par2Random, var5, par1World.getHeightValue(var5, var6) + 1, var6);
 		}
 	}
+	
+	/**
+	 * takes temperature, returns color
+	 */
+	 @Override
+	 public int getSkyColorByTemp(float par1)
+	 {
+		 if (BOPConfiguration.skyColors)
+			 return 13877903;
+		 else
+		 {
+			 par1 /= 3.0F;
+
+			 if (par1 < -1.0F)
+			 {
+				 par1 = -1.0F;
+			 }
+
+			 if (par1 > 1.0F)
+			 {
+				 par1 = 1.0F;
+			 }
+
+			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
+		 }
+	 }
 }
