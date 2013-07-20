@@ -195,17 +195,6 @@ public class ItemBOPBucket extends Item
 				return Fluids.liquidPoison.get().blockID;
 		}
 	}
-	
-	@Override
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack par1ItemStack)
-    {
-		if (par1ItemStack.getItemDamage() == 0 || par1ItemStack.getItemDamage() == 2)
-		{
-			return false;
-		}
-		
-        return true;
-    }
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
