@@ -45,7 +45,7 @@
 	- Fixed the mod logo
 	- Fixed fluid localizations
 	- Fixed bucket container items
-	- Poison ivy no longer poisons players wearing pants
+	- Poison ivy no longer poisons players wearing leather pants and boots
 	- Tweaked some biomes to allow them to generate above 128
 	
 	  Version 0.5.7 '09-07-13'

@@ -12,7 +12,6 @@ import biomesoplenty.configuration.BOPFluids;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPPotions;
 import biomesoplenty.configuration.BOPVanillaCompat;
-import biomesoplenty.handlers.AxeChopHandler;
 import biomesoplenty.handlers.BOPCraftHandler;
 import biomesoplenty.handlers.BonemealHandler;
 import biomesoplenty.handlers.BreakSpeedHandler;

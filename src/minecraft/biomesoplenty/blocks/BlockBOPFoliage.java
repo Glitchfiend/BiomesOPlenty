@@ -13,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -190,7 +191,9 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		{
 			if (par5Entity instanceof EntityPlayer)
 			{
-				if (((EntityPlayer)par5Entity).inventory.armorInventory[1] == null)
+				InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
+				
+				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
 				{
 					((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
