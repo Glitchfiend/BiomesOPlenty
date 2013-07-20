@@ -175,7 +175,7 @@ public class BOPBiomes {
 		Biomes.extremeHillsNew = Optional.of((new BiomeGenHillsNew(BOPConfiguration.extremeHillsNewID)).setColor(6316128).setBiomeName("Extreme Hills").setMinMaxHeight(0.3F, 5.0F).setTemperatureRainfall(0.2F, 0.3F));
 		Biomes.forestNew = Optional.of((new BiomeGenForestNew(BOPConfiguration.forestNewID)).setColor(353825).setBiomeName("Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F));
 		Biomes.taigaNew = Optional.of((new BiomeGenTaigaNew(BOPConfiguration.taigaNewID)).setColor(747097).setBiomeName("Taiga").func_76733_a(5159473).setEnableSnow().setTemperatureRainfall(0.05F, 0.8F).setMinMaxHeight(0.3F, 0.5F));
-		Biomes.swamplandNew = Optional.of((new BiomeGenSwampNew(BOPConfiguration.swamplandNewID)).setColor(522674).setBiomeName("Swampland").func_76733_a(9154376).setMinMaxHeight(0.2F, 0.4F).setTemperatureRainfall(0.8F, 0.9F));
+		Biomes.swamplandNew = Optional.of((new BiomeGenSwampNew(BOPConfiguration.swamplandNewID)).setColor(522674).setBiomeName("Swampland").func_76733_a(9154376).setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
 		Biomes.jungleNew = Optional.of((new BiomeGenJungleNew(BOPConfiguration.jungleNewID)).setColor(5470985).setBiomeName("Jungle").func_76733_a(5470985).setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.4F, 0.5F));
 	}
 

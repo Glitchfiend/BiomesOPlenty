@@ -1,5 +1,6 @@
 package biomesoplenty.biomes;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -11,6 +12,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenLog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.WorldGenWillow;
@@ -99,4 +101,30 @@ public class BiomeGenSwampNew extends BiomeGenBase
 		double var3 = this.getFloatRainfall();
 		return ((ColorizerFoliage.getFoliageColor(var1, var3) & 16711422) + 5115470) / 2;
 	}
+	
+	 /**
+	  * takes temperature, returns color
+	  */
+	 @Override
+	 public int getSkyColorByTemp(float par1)
+	 {
+		 if (BOPConfiguration.skyColors)
+			 return 4149332;
+		 else
+		 {
+			 par1 /= 3.0F;
+
+			 if (par1 < -1.0F)
+			 {
+				 par1 = -1.0F;
+			 }
+
+			 if (par1 > 1.0F)
+			 {
+				 par1 = 1.0F;
+			 }
+
+			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
+		 }
+	 }
 }
