@@ -104,7 +104,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new FluidEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
-		MinecraftForge.EVENT_BUS.register(new AxeChopHandler());
+		//MinecraftForge.EVENT_BUS.register(new AxeChopHandler());
 
 		proxy.registerRenderers();
 

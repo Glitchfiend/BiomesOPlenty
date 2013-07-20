@@ -20,17 +20,45 @@
 
 
 ## Changelog 
+	  Version 0.5.8 '21-07-13'
+	- Removed the crappy Amethyst Tinkers Construct tools
+	- Redid the grave
+	- Berries now have a new texture
+	- Changed localized name of Berries to Berry
+	- Adjusted how common Scythes are damaged
+	- Added wild carrots
+	- Added salads
+	- Changed the texture for fast willow leaves
+	- Tweaked the Garden biome
+	- Added beach variation config options
+	- Added Russian translations (courtesy of Sodiet)
+	- Fixed the sky colours config option
+	- Plants no longer generate in invalid positions (causing them to them pop off)
+	- Reeds are now cut down properly
+	- Fixed poison dart particles
+	- Tweaked the creative tab icon
+	- Puddles now dry up faster
+	- Added support for full 256 terrain generation
+	- Tweaked sub-biomes
+	- Improved some sapling textures
+	- Tweaked the Alps sub biome
+	- Fixed the mod logo
+	- Fixed fluid localizations
+	- Fixed bucket container items
+	- Poison ivy no longer poisons players wearing pants
+	- Tweaked some biomes to allow them to generate above 128
+	
 	  Version 0.5.7 '09-07-13'
 	- Full update to 1.6.2
 	- Adjusted the crafting recipes for Scythes
 	- Added sub-biomes
-	  - Canyon Ravine
-	  - Meadow Forest
-	  - Thick Ominous Woods
-	  - Pasture Meadow
-	  - Pasture Thin
-	  - Shrubland Forest
-	  - Timber Thin
+  	  - Canyon Ravine
+  	  - Meadow Forest
+  	  - Thick Ominous Woods
+  	  - Pasture Meadow
+  	  - Pasture Thin
+  	  - Shrubland Forest
+  	  - Timber Thin
 	- Added amethyst buckets specifically for picking up Spring Water
 	- Removed the Overgrown Beach
 	- Tweaked the Badlands
