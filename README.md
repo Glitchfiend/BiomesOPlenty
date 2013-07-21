@@ -20,6 +20,16 @@
 
 
 ## Changelog 
+	  Version 0.5.9 '22-07-13'
+	- Fixed eating food
+	- Fixed some biome heights, decreased the amount of trees in the Snowy Confierous Forest
+	- Tweaked some flower textures, changed some achievement icons
+	- Fixed height for mangroves
+	- Added support for falling leaves from Better Grass & Leaves
+	- Fixed a crash bug with non-living entities entering poison ivy
+	- Updated the better leaf textures
+	- Fixed a crash with saplings
+
 	  Version 0.5.8 '21-07-13'
 	- Removed the crappy Amethyst Tinkers Construct tools
 	- Redid the grave
