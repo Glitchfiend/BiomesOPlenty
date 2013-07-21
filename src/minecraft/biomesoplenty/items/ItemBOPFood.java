@@ -32,13 +32,6 @@ public class ItemBOPFood extends ItemFood
     {
 		boolean alwaysEdible = ReflectionHelper.getPrivateValue(ItemFood.class, (ItemFood)Item.itemsList[itemstack.itemID], "alwaysEdible");
 		
-		if (itemstack.getItemDamage() == 0)
-		{
-			if (player.canEat(true))
-			{
-				player.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
-			}
-		}
 		if (itemstack.getItemDamage() == 1)
 		{
 			if (player.canEat(true))
@@ -48,7 +41,7 @@ public class ItemBOPFood extends ItemFood
 		}
 		else
 		{
-			if (player.canEat(alwaysEdible))
+			if (player.canEat(false))
 			{
 				player.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
 			}
