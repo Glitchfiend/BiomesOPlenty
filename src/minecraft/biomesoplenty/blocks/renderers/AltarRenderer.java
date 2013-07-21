@@ -25,6 +25,11 @@ public class AltarRenderer implements ISimpleBlockRenderingHandler
 
 				renderAltarSlotFaces(renderer, block, BlockAltar.altarFrame, world, x, y, z);
 				
+				if (renderer.hasOverrideBlockTexture())
+				{
+					renderer.setOverrideBlockTexture(null);
+				}
+				
 				if (tileentityaltar.getPresent(10))
 				{
 					renderAltarSlotFaces(renderer, block, BlockAltar.frameRuby, world, x, y, z);
