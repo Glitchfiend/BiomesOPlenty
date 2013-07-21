@@ -181,7 +181,7 @@ public class AchievementHelper
 		achFungiForest = (new Achievement(3107, "achFungiForest", -4, -2, new ItemStack(Blocks.mushrooms.get(), 1, 3), achBOP)).registerAchievement().setSpecial();
 		achGarden = (new Achievement(3108, "achGarden", -2, -2, new ItemStack(Block.plantRed, 1, 1), achBOP)).registerAchievement().setSpecial();
 		achGlacier = (new Achievement(3109, "achGlacier", 0, -2, new ItemStack(Blocks.hardIce.get(), 1, 0), achBOP)).registerAchievement(); 
-		achGrassland = (new Achievement(3110, "achGrassland", 2, -2, new ItemStack(Blocks.mushrooms.get(), 1, 1), achBOP)).registerAchievement(); 
+		achGrassland = (new Achievement(3110, "achGrassland", 2, -2, new ItemStack(Block.grass, 1, 0), achBOP)).registerAchievement(); 
 		achGrove = (new Achievement(3111, "achGrove", 4, -2, new ItemStack(Blocks.flowers.get(), 1, 0), achBOP)).registerAchievement();
 		achHeathland = (new Achievement(3112, "achHeathland", 6, -2, new ItemStack(Blocks.saplings.get(), 1, 14), achBOP)).registerAchievement(); 	
 		achHighland = (new Achievement(3113, "achHighland", 8, -2, new ItemStack(Blocks.foliage.get(), 1, 3), achBOP)).registerAchievement();
@@ -207,7 +207,7 @@ public class AchievementHelper
 		achOutback = (new Achievement(3131, "achOutback", -0, 2, new ItemStack(Blocks.hardSand.get(), 1, 0), achBOP)).registerAchievement();
 		achPasture = (new Achievement(3132, "achPasture", 2, 2, new ItemStack(Blocks.plants.get(), 1, 6), achBOP)).registerAchievement();
 		achPolar = (new Achievement(3133, "achPolar", 4, 2, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement();
-		achPrairie = (new Achievement(3134, "achPrairie", 6, 2, new ItemStack(Blocks.flowers.get(), 1, 9), achBOP)).registerAchievement();
+		achPrairie = (new Achievement(3134, "achPrairie", 6, 2, new ItemStack(Blocks.mushrooms.get(), 1, 1), achBOP)).registerAchievement();
 		achQuagmire = (new Achievement(3135, "achQuagmire", 8, 2, new ItemStack(Items.mudball.get(), 1, 0), achBOP)).registerAchievement();
 		achRainforest = (new Achievement(3136, "achRainforest", 10, 2, new ItemStack(Blocks.flowers.get(), 1, 6), achBOP)).registerAchievement();
 
