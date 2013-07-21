@@ -22,326 +22,335 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
 {
-	private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
-	private Icon[][] textures;
-	int[] adjacentTreeBlocks;
+        private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
+        private Icon[][] textures;
+        int[] adjacentTreeBlocks;
 
-	public BlockBOPColorizedLeaves(int blockID)
-	{
-		super(blockID, Material.leaves, false);
-		setBurnProperties(this.blockID, 30, 60);
-		this.setTickRandomly(true);
-		setHardness(0.2F);
-		setLightOpacity(1);
-		setStepSound(Block.soundGrassFootstep);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-	}
+        public BlockBOPColorizedLeaves(int blockID)
+        {
+                super(blockID, Material.leaves, false);
+                setBurnProperties(this.blockID, 30, 60);
+                this.setTickRandomly(true);
+                setHardness(0.2F);
+                setLightOpacity(1);
+                setStepSound(Block.soundGrassFootstep);
+                this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+        }
 
-	@Override
-	public void registerIcons(IconRegister iconRegister)
-	{
-		textures = new Icon[3][leaves.length];
-		for (int i = 0; i < leaves.length; ++i)
-		{
-			textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
-			textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-			textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
-		}
-	}
-		
-	public Icon getIconBetterLeaves(int metadata, float randomIndex)
-	{
-	  return textures[2][getTypeFromMeta(metadata)];
-	}
+        @Override
+        public void registerIcons(IconRegister iconRegister)
+        {
+                textures = new Icon[3][leaves.length];
+                for (int i = 0; i < leaves.length; ++i)
+                {
+                        textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
+                        textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+                        textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
+                }
+        }
+                
+        public Icon getIconBetterLeaves(int metadata, float randomIndex)
+        {
+          return textures[2][getTypeFromMeta(metadata)];
+        }
 
-	@Override
-	public int getBlockColor()
-	{
-		double temperature = 0.5D;
-		double humidity = 1.0D;
-		return ColorizerFoliage.getFoliageColor(temperature, humidity);
-	}
+        public Icon getIconFallingLeaves(int metadata)
+        {
+                return textures[1][getTypeFromMeta(metadata)];
+        }
 
-	@Override
-	public int getRenderColor(int par1)
-	{
-		switch (par1)
-		{
-		case 0:
-			return ColorizerFoliage.getFoliageColorBirch();
 
-		case 3:
-			return ColorizerFoliage.getFoliageColorPine();
+        @Override
+        public int getBlockColor()
+        {
+                double temperature = 0.5D;
+                double humidity = 1.0D;
+                return ColorizerFoliage.getFoliageColor(temperature, humidity);
+        }
 
-		default:
-			return ColorizerFoliage.getFoliageColorBasic();
-		}
-	}
+        @Override
+        public int getRenderColor(int par1)
+        {
+                switch (par1)
+                {
+                case 0:
+                        return ColorizerFoliage.getFoliageColorBirch();
 
-	@Override
-	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
-	{
-		int var6 = 0;
-		int var7 = 0;
-		int var8 = 0;
+                case 3:
+                        return ColorizerFoliage.getFoliageColorPine();
 
-		for (int var9 = -1; var9 <= 1; ++var9)
-		{
-			for (int var10 = -1; var10 <= 1; ++var10)
-			{
-				int var11 = par1IBlockAccess.getBiomeGenForCoords(par2 + var10, par4 + var9).getBiomeFoliageColor();
-				var6 += (var11 & 16711680) >> 16;
-			var7 += (var11 & 65280) >> 8;
-		var8 += var11 & 255;
-			}
-		}
+                default:
+                        return ColorizerFoliage.getFoliageColorBasic();
+                }
+        }
 
-		return (var6 / 9 & 255) << 16 | (var7 / 9 & 255) << 8 | var8 / 9 & 255;
-	}
+        @Override
+        public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+        {
+                int var6 = 0;
+                int var7 = 0;
+                int var8 = 0;
 
-	@Override
-	public Icon getIcon(int side, int meta)
-	{
-		return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta)];
-	}
+                for (int var9 = -1; var9 <= 1; ++var9)
+                {
+                        for (int var10 = -1; var10 <= 1; ++var10)
+                        {
+                                int var11 = par1IBlockAccess.getBiomeGenForCoords(par2 + var10, par4 + var9).getBiomeFoliageColor();
+                                var6 += (var11 & 16711680) >> 16;
+                        var7 += (var11 & 65280) >> 8;
+                var8 += var11 & 255;
+                        }
+                }
 
-	@Override
-	public boolean isOpaqueCube()
-	{
-		return Block.leaves.isOpaqueCube();
-	}
+                return (var6 / 9 & 255) << 16 | (var7 / 9 & 255) << 8 | var8 / 9 & 255;
+        }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-		for (int i = 0; i < textures[0].length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
-		}
-	}
+        @Override
+        public Icon getIcon(int side, int meta)
+        {
+                return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta)];
+        }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random random)
-	{
-		if (world.canLightningStrikeAt(x, y + 1, z) && !world.doesBlockHaveSolidTopSurface(x, y - 1, z) && random.nextInt(15) == 1)
-		{
-			double d0 = x + random.nextFloat();
-			double d1 = y - 0.05D;
-			double d2 = z + random.nextFloat();
-			world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		}
-	}
+        @Override
+        public boolean isOpaqueCube()
+        {
+                return Block.leaves.isOpaqueCube();
+        }
 
-	@Override
-	public void breakBlock(World world, int x, int y, int z, int par5, int par6)
-	{
-		byte radius = 1;
-		int bounds = radius + 1;
+        @Override
+        @SideOnly(Side.CLIENT)
+        @SuppressWarnings({ "rawtypes", "unchecked" })
+        public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+                for (int i = 0; i < textures[0].length; ++i) {
+                        list.add(new ItemStack(blockID, 1, i));
+                }
+        }
 
-		if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) {
-			for (int i = -radius; i <= radius; ++i) {
-				for (int j = -radius; j <= radius; ++j) {
-					for (int k = -radius; k <= radius; ++k)
-					{
-						int blockID = world.getBlockId(x + i, y + j, z + k);
+        @Override
+        @SideOnly(Side.CLIENT)
+        public void randomDisplayTick(World world, int x, int y, int z, Random random)
+        {
+                if (world.canLightningStrikeAt(x, y + 1, z) && !world.doesBlockHaveSolidTopSurface(x, y - 1, z) && random.nextInt(15) == 1)
+                {
+                        double d0 = x + random.nextFloat();
+                        double d1 = y - 0.05D;
+                        double d2 = z + random.nextFloat();
+                        world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+                }
 
-						if (Block.blocksList[blockID] != null) {
-							Block.blocksList[blockID].beginLeavesDecay(world, x + i, y + j, z + k);
-						}
-					}
-				}
-			}
-		}
-	}
+                super.randomDisplayTick(world, x, y, z, random);
 
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-	{
-		if (world.isRemote)
-			return;
+        }
 
-		int meta = world.getBlockMetadata(x, y, z);
+        @Override
+        public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+        {
+                byte radius = 1;
+                int bounds = radius + 1;
 
-		if ((meta & 8) != 0/* && (meta & 4) == 0*/)
-		{
-			byte b0 = 4;
-			int i1 = b0 + 1;
-			byte b1 = 32;
-			int j1 = b1 * b1;
-			int k1 = b1 / 2;
+                if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) {
+                        for (int i = -radius; i <= radius; ++i) {
+                                for (int j = -radius; j <= radius; ++j) {
+                                        for (int k = -radius; k <= radius; ++k)
+                                        {
+                                                int blockID = world.getBlockId(x + i, y + j, z + k);
 
-			if (adjacentTreeBlocks == null)
-			{
-				adjacentTreeBlocks = new int[b1 * b1 * b1];
-			}
+                                                if (Block.blocksList[blockID] != null) {
+                                                        Block.blocksList[blockID].beginLeavesDecay(world, x + i, y + j, z + k);
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
 
-			int l1;
+        @Override
+        public void updateTick(World world, int x, int y, int z, Random random)
+        {
+                if (world.isRemote)
+                        return;
 
-			if (world.checkChunksExist(x - i1, y - i1, z - i1, x + i1, y + i1, z + i1))
-			{
-				int i2;
-				int j2;
-				int k2;
+                int meta = world.getBlockMetadata(x, y, z);
 
-				for (l1 = -b0; l1 <= b0; ++l1)
-				{
-					for (i2 = -b0; i2 <= b0; ++i2)
-					{
-						for (j2 = -b0; j2 <= b0; ++j2)
-						{
-							k2 = world.getBlockId(x + l1, y + i2, z + j2);
+                if ((meta & 8) != 0/* && (meta & 4) == 0*/)
+                {
+                        byte b0 = 4;
+                        int i1 = b0 + 1;
+                        byte b1 = 32;
+                        int j1 = b1 * b1;
+                        int k1 = b1 / 2;
 
-							Block block = Block.blocksList[k2];
+                        if (adjacentTreeBlocks == null)
+                        {
+                                adjacentTreeBlocks = new int[b1 * b1 * b1];
+                        }
 
-							if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
-							{
-								adjacentTreeBlocks[(l1 + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = 0;
-							}
-							else if (block != null && block.isLeaves(world, x + l1, y + i2, z + j2))
-							{
-								adjacentTreeBlocks[(l1 + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -2;
-							}
-							else
-							{
-								adjacentTreeBlocks[(l1 + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -1;
-							}
-						}
-					}
-				}
+                        int l1;
 
-				for (l1 = 1; l1 <= 4; ++l1)
-				{
-					for (i2 = -b0; i2 <= b0; ++i2)
-					{
-						for (j2 = -b0; j2 <= b0; ++j2)
-						{
-							for (k2 = -b0; k2 <= b0; ++k2)
-							{
-								if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1] == l1 - 1)
-								{
-									if (adjacentTreeBlocks[(i2 + k1 - 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2)
-									{
-										adjacentTreeBlocks[(i2 + k1 - 1) * j1 + (j2 + k1) * b1 + k2 + k1] = l1;
-									}
+                        if (world.checkChunksExist(x - i1, y - i1, z - i1, x + i1, y + i1, z + i1))
+                        {
+                                int i2;
+                                int j2;
+                                int k2;
 
-									if (adjacentTreeBlocks[(i2 + k1 + 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2)
-									{
-										adjacentTreeBlocks[(i2 + k1 + 1) * j1 + (j2 + k1) * b1 + k2 + k1] = l1;
-									}
+                                for (l1 = -b0; l1 <= b0; ++l1)
+                                {
+                                        for (i2 = -b0; i2 <= b0; ++i2)
+                                        {
+                                                for (j2 = -b0; j2 <= b0; ++j2)
+                                                {
+                                                        k2 = world.getBlockId(x + l1, y + i2, z + j2);
 
-									if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 - 1) * b1 + k2 + k1] == -2)
-									{
-										adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 - 1) * b1 + k2 + k1] = l1;
-									}
+                                                        Block block = Block.blocksList[k2];
 
-									if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 + 1) * b1 + k2 + k1] == -2)
-									{
-										adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 + 1) * b1 + k2 + k1] = l1;
-									}
+                                                        if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
+                                                        {
+                                                                adjacentTreeBlocks[(l1 + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = 0;
+                                                        }
+                                                        else if (block != null && block.isLeaves(world, x + l1, y + i2, z + j2))
+                                                        {
+                                                                adjacentTreeBlocks[(l1 + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -2;
+                                                        }
+                                                        else
+                                                        {
+                                                                adjacentTreeBlocks[(l1 + k1) * j1 + (i2 + k1) * b1 + j2 + k1] = -1;
+                                                        }
+                                                }
+                                        }
+                                }
 
-									if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + (k2 + k1 - 1)] == -2)
-									{
-										adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + (k2 + k1 - 1)] = l1;
-									}
+                                for (l1 = 1; l1 <= 4; ++l1)
+                                {
+                                        for (i2 = -b0; i2 <= b0; ++i2)
+                                        {
+                                                for (j2 = -b0; j2 <= b0; ++j2)
+                                                {
+                                                        for (k2 = -b0; k2 <= b0; ++k2)
+                                                        {
+                                                                if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1] == l1 - 1)
+                                                                {
+                                                                        if (adjacentTreeBlocks[(i2 + k1 - 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2)
+                                                                        {
+                                                                                adjacentTreeBlocks[(i2 + k1 - 1) * j1 + (j2 + k1) * b1 + k2 + k1] = l1;
+                                                                        }
 
-									if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1 + 1] == -2)
-									{
-										adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1 + 1] = l1;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+                                                                        if (adjacentTreeBlocks[(i2 + k1 + 1) * j1 + (j2 + k1) * b1 + k2 + k1] == -2)
+                                                                        {
+                                                                                adjacentTreeBlocks[(i2 + k1 + 1) * j1 + (j2 + k1) * b1 + k2 + k1] = l1;
+                                                                        }
 
-			l1 = adjacentTreeBlocks[k1 * j1 + k1 * b1 + k1];
+                                                                        if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 - 1) * b1 + k2 + k1] == -2)
+                                                                        {
+                                                                                adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 - 1) * b1 + k2 + k1] = l1;
+                                                                        }
 
-			if (l1 >= 0)
-			{
-				world.setBlockMetadataWithNotify(x, y, z, meta & -9, 4);
-			}
-			else
-			{
-				this.removeLeaves(world, x, y, z);
-			}
-		}
-	}
+                                                                        if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 + 1) * b1 + k2 + k1] == -2)
+                                                                        {
+                                                                                adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1 + 1) * b1 + k2 + k1] = l1;
+                                                                        }
 
-	private void removeLeaves(World world, int x, int y, int z)
-	{
-		this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-		world.setBlockToAir(x, y, z);
-	}
+                                                                        if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + (k2 + k1 - 1)] == -2)
+                                                                        {
+                                                                                adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + (k2 + k1 - 1)] = l1;
+                                                                        }
 
-	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
-	{
-		return Blocks.colorizedSaplings.get().blockID;
-	}
+                                                                        if (adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1 + 1] == -2)
+                                                                        {
+                                                                                adjacentTreeBlocks[(i2 + k1) * j1 + (j2 + k1) * b1 + k2 + k1 + 1] = l1;
+                                                                        }
+                                                                }
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
 
-	@Override
-	public int damageDropped(int meta)
-	{
-		return getTypeFromMeta(meta);
-	}
+                        l1 = adjacentTreeBlocks[k1 * j1 + k1 * b1 + k1];
 
-	@Override
-	public int quantityDropped(Random random)
-	{
-		return random.nextInt(20) == 0 ? 1 : 0;
-	}
+                        if (l1 >= 0)
+                        {
+                                world.setBlockMetadataWithNotify(x, y, z, meta & -9, 4);
+                        }
+                        else
+                        {
+                                this.removeLeaves(world, x, y, z);
+                        }
+                }
+        }
 
-	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
-	{
-		return true;
-	}
+        private void removeLeaves(World world, int x, int y, int z)
+        {
+                this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+                world.setBlockToAir(x, y, z);
+        }
 
-	@Override
-	public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
-	{
-		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		ret.add(new ItemStack(this, 1, getTypeFromMeta(world.getBlockMetadata(x, y, z))));
-		return ret;
-	}
+        @Override
+        public int idDropped(int par1, Random par2Random, int par3)
+        {
+                return Blocks.colorizedSaplings.get().blockID;
+        }
 
-	public String getLeafType(int meta)
-	{
-		return leaves[getTypeFromMeta(meta)];
-	}
+        @Override
+        public int damageDropped(int meta)
+        {
+                return getTypeFromMeta(meta);
+        }
 
-	private static int getTypeFromMeta(int meta)
-	{
-		meta = meta & 7;
-		if (meta < 0 || meta >= leaves.length) {
-			meta = 0;
-		}
-		return meta;
-	}
+        @Override
+        public int quantityDropped(Random random)
+        {
+                return random.nextInt(20) == 0 ? 1 : 0;
+        }
 
-	@SideOnly(Side.CLIENT)
-	public void setGraphicsLevel(boolean par1)
-	{
-		graphicsLevel = par1;
-	}
+        @Override
+        public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+        {
+                return true;
+        }
 
-	@Override
-	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-	{
-		return true;
-	}
+        @Override
+        public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+        {
+                ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+                ret.add(new ItemStack(this, 1, getTypeFromMeta(world.getBlockMetadata(x, y, z))));
+                return ret;
+        }
 
-	@Override
-	public void beginLeavesDecay(World world, int x, int y, int z)
-	{
-		world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 4);
-	}
+        public String getLeafType(int meta)
+        {
+                return leaves[getTypeFromMeta(meta)];
+        }
 
-	@Override
-	public boolean isLeaves(World world, int x, int y, int z)
-	{
-		return true;
-	}
+        private static int getTypeFromMeta(int meta)
+        {
+                meta = meta & 7;
+                if (meta < 0 || meta >= leaves.length) {
+                        meta = 0;
+                }
+                return meta;
+        }
+
+        @SideOnly(Side.CLIENT)
+        public void setGraphicsLevel(boolean par1)
+        {
+                graphicsLevel = par1;
+        }
+
+        @Override
+        public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+        {
+                return true;
+        }
+
+        @Override
+        public void beginLeavesDecay(World world, int x, int y, int z)
+        {
+                world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 4);
+        }
+
+        @Override
+        public boolean isLeaves(World world, int x, int y, int z)
+        {
+                return true;
+        }
 }
