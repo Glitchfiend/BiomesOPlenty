@@ -22,7 +22,7 @@ public class BiomeGenConiferousForestSnow extends BiomeGenBase
 		spawnableCreatureList.clear();
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 3;
+		customBiomeDecorator.treesPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
