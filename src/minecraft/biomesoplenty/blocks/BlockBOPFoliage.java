@@ -189,18 +189,21 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 
 		if (!par1World.isRemote && meta == 7) 
 		{
-			if (par5Entity instanceof EntityPlayer)
+			if (par5Entity instanceof EntityLivingBase)
 			{
-				InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
-				
-				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+				if (par5Entity instanceof EntityPlayer)
+				{
+					InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
+
+					if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+					{
+						((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+					}
+				}
+				else
 				{
 					((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
-			}
-			else
-			{
-				((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 			}
 		}
 	}
