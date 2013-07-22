@@ -17,7 +17,8 @@ public class WorldGenBOPShrub extends WorldGenerator
         this.field_76527_a = par2;
     }
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    @Override
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
         int l;
 

@@ -75,6 +75,7 @@ public class BOPConfiguration {
 	//	public static boolean mushroomIslandGen;
 	public static boolean mysticGroveGen;
 	public static boolean oasisGen;
+	public static boolean oceanGen;
 	public static boolean ominousWoodsGen;
 	public static boolean orchardGen;
 	public static boolean originValleyGen;
@@ -556,6 +557,7 @@ public class BOPConfiguration {
 			//			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
 			mysticGroveGen = config.get("Biomes To Generate", "MysticGrove", true).getBoolean(false);
 			oasisGen = config.get("Biomes To Generate", "Oasis", true).getBoolean(false);
+			oceanGen = config.get("Biomes To Generate", "Ocean", true).getBoolean(false);
 			ominousWoodsGen = config.get("Biomes To Generate", "OminousWoods", true).getBoolean(false);
 			orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 			originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
