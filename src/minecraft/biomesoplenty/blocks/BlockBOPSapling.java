@@ -88,7 +88,7 @@ public class BlockBOPSapling extends BlockSapling
 			return id == Blocks.holyGrass.get().blockID || id == Block.grass.blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID /*|| blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this)*/;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
