@@ -23,6 +23,7 @@ public class Blocks
 	public static Optional<? extends Block> holyStone                   = Optional.absent();
 	public static Optional<? extends Block> mud                         = Optional.absent();
 	public static Optional<? extends Block> originGrass                 = Optional.absent();
+	public static Optional<? extends Block> longGrass                 = Optional.absent();
 	public static Optional<? extends Block> redRock                     = Optional.absent();
 	public static Optional<? extends Block> crystal                     = Optional.absent();
 

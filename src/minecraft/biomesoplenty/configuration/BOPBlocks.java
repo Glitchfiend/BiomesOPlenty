@@ -38,6 +38,7 @@ import biomesoplenty.blocks.BlockBones;
 import biomesoplenty.blocks.BlockCloud;
 import biomesoplenty.blocks.BlockGrave;
 import biomesoplenty.blocks.BlockIvy;
+import biomesoplenty.blocks.BlockLongGrass;
 import biomesoplenty.blocks.BlockMoss;
 import biomesoplenty.blocks.BlockMud;
 import biomesoplenty.blocks.BlockOriginGrass;
@@ -97,6 +98,7 @@ public class BOPBlocks
 		MinecraftForge.setBlockHarvestLevel(Blocks.mud.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.ash.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(Blocks.longGrass.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 0, "pickaxe", 0);
 
@@ -138,6 +140,7 @@ public class BOPBlocks
 		Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneDoubleSlab"));
 		Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneSingleSlab"));
 		Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfiguration.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.originGrass"));
+		Blocks.longGrass = Optional.of((new BlockLongGrass(BOPConfiguration.longGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.longGrass"));
 		Blocks.treeMoss = Optional.of((new BlockTreeMoss(BOPConfiguration.treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.treeMoss"));
 		Blocks.logs1 = Optional.of((new BlockBOPLog(BOPConfiguration.logs1ID,LogCategory.CAT1)).setUnlocalizedName("bop.wood1"));
 		Blocks.logs2 = Optional.of((new BlockBOPLog(BOPConfiguration.logs2ID,LogCategory.CAT2)).setUnlocalizedName("bop.wood2"));
@@ -221,6 +224,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.mudBrick.get(), "bop.mudBrick");
 		GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "bop.mudBricksStairs");
 		GameRegistry.registerBlock(Blocks.originGrass.get(), "bop.originGrass");
+		GameRegistry.registerBlock(Blocks.longGrass.get(), "bop.longGrass");
 		GameRegistry.registerBlock(Blocks.treeMoss.get(), "bop.treeMoss");
 		GameRegistry.registerBlock(Blocks.logs1.get(), ItemBlockLog.class, "bop.wood1");
 		GameRegistry.registerBlock(Blocks.logs2.get(), ItemBlockLog.class, "bop.wood2");

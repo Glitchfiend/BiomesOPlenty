@@ -104,6 +104,7 @@ public class BlockReferences {
 		ashStone (Blocks.ashStone, 0),
 		hardIce (Blocks.hardIce, 0),
 		originGrass (Blocks.originGrass, 0),
+		longGrass (Blocks.longGrass, 0),
 		hardSand (Blocks.hardSand, 0),
 		hardDirt (Blocks.hardDirt, 0),
 		holyGrass (Blocks.holyGrass, 0),

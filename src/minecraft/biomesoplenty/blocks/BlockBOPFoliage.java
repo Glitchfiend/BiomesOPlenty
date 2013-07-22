@@ -136,7 +136,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 			return id == Block.waterStill.blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
@@ -145,7 +145,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
@@ -155,7 +155,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		else if (metadata == ALGAE)
 			return blockID == Block.waterStill.blockID;
 		else
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
+			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID;
 	}
 
 	@Override
