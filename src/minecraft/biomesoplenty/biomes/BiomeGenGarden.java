@@ -29,7 +29,7 @@ public class BiomeGenGarden extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = 20;
 		customBiomeDecorator.whiteFlowersPerChunk = 25;
-		customBiomeDecorator.tinyFlowersPerChunk = 15;
+		customBiomeDecorator.highGrassPerChunk = 6;
 		customBiomeDecorator.hydrangeasPerChunk = 3;
 		customBiomeDecorator.sproutsPerChunk = 2;
 		customBiomeDecorator.sunflowersPerChunk = 4;
@@ -37,7 +37,6 @@ public class BiomeGenGarden extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 25;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.bushesPerChunk = 10;
 		customBiomeDecorator.lilyflowersPerChunk = 4;
 		customBiomeDecorator.generatePumpkins = true;
 		customBiomeDecorator.generateMelons = true;

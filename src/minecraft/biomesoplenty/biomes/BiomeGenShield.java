@@ -7,7 +7,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.WorldGenPineTree;
 import biomesoplenty.worldgen.WorldGenTaiga5;
+import biomesoplenty.worldgen.WorldGenTaiga9;
 
 public class BiomeGenShield extends BiomeGenBase
 {
@@ -33,7 +35,7 @@ public class BiomeGenShield extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenTaiga5(false);
+		return par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : (par1Random.nextInt(4) == 0 ? new WorldGenPineTree() : (par1Random.nextInt(6) == 0 ? new WorldGenTaiga9(false) : new WorldGenTaiga5(false)));
 	}
 
 	@Override
