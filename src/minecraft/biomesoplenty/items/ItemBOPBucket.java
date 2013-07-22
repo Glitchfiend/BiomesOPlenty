@@ -11,6 +11,7 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Fluids;
 import cpw.mods.fml.relauncher.Side;
@@ -179,6 +180,12 @@ public class ItemBOPBucket extends Item
 
 			return true;
 		}
+	}
+	
+	@Override
+	public ItemStack getContainerItemStack(ItemStack itemstack) 
+	{
+		return itemstack.getItemDamage() == 2 ? new ItemStack(Fluids.bopBucket.get(), 1, 0) : new ItemStack(Item.bucketEmpty, 1);
 	}
 
 	private static int getLiquidIDFromMeta(int meta)
