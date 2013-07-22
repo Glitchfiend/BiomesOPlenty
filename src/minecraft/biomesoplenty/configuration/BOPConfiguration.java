@@ -75,6 +75,7 @@ public class BOPConfiguration {
 	//	public static boolean mushroomIslandGen;
 	public static boolean mysticGroveGen;
 	public static boolean oasisGen;
+	public static boolean oceanGen;
 	public static boolean ominousWoodsGen;
 	public static boolean orchardGen;
 	public static boolean originValleyGen;
@@ -134,6 +135,7 @@ public class BOPConfiguration {
 	public static int ashStoneID;
 	public static int hardIceID;
 	public static int originGrassID;
+	public static int longGrassID;
 	public static int hardSandID;
 	public static int hardDirtID;
 	public static int holyGrassID;
@@ -555,6 +557,7 @@ public class BOPConfiguration {
 			//			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
 			mysticGroveGen = config.get("Biomes To Generate", "MysticGrove", true).getBoolean(false);
 			oasisGen = config.get("Biomes To Generate", "Oasis", true).getBoolean(false);
+			oceanGen = config.get("Biomes To Generate", "Ocean", true).getBoolean(false);
 			ominousWoodsGen = config.get("Biomes To Generate", "OminousWoods", true).getBoolean(false);
 			orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 			originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
@@ -706,6 +709,7 @@ public class BOPConfiguration {
 			holyDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Holy Dirt ID", 170, null).getInt();
 			holyStoneID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Skystone ID", 171, null).getInt();
 			cragRockID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Crag Rock ID", 172, null).getInt();
+			longGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Long Grass ID", 173, null).getInt();
 
 			// Get Crafted Block ID's
 			plantsID = config.getBlock("Plant ID", 1920, null).getInt();

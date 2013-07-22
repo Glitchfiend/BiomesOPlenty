@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -40,12 +41,19 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         @Override
         public void registerIcons(IconRegister iconRegister)
         {
-                textures = new Icon[3][leaves.length];
+            textures = new Icon[3][leaves.length];
+            if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
                 for (int i = 0; i < leaves.length; ++i)
                 {
-                        textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
-                        textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-                        textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
+                    textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
+                    textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+                    textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
+                }
+            else
+                for (int i = 0; i < leaves.length; ++i)
+                {
+                    textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
+                    textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
                 }
         }
                 

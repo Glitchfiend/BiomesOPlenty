@@ -175,13 +175,13 @@ public class BlockBOPFlower extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Blocks.longGrass.get().blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
 		if (metadata == 6) //Tulip
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID;
 		if (metadata == 10) //Lily Flower
 			return id == Block.waterlily.blockID;
 		if (metadata == 11) //Cactus
@@ -191,7 +191,7 @@ public class BlockBOPFlower extends BlockFlower
 		if (metadata == 14) //Sunflower Top
 			return id == blockID;
 		else
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID;
 	}
 
 	@Override
@@ -205,7 +205,7 @@ public class BlockBOPFlower extends BlockFlower
 			switch (meta)
 			{
 			case 6: // Tulip
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID;
 
 			case 10: // Lily Flower
 				return id == Block.waterlily.blockID;
@@ -220,7 +220,7 @@ public class BlockBOPFlower extends BlockFlower
 				return id == blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);

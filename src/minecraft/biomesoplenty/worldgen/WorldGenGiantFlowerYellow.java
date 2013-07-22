@@ -19,7 +19,7 @@ public class WorldGenGiantFlowerYellow extends WorldGenerator
 
 		int var6 = var1.getBlockId(var3, var4, var5);
 
-		if (var6 != Block.grass.blockID)
+		if (var6 != Blocks.longGrass.get().blockID)
 			return false;
 		else
 		{

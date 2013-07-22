@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.entities.EntityRosester;
+import biomesoplenty.worldgen.WorldGenBOPShrub;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 
@@ -22,6 +23,8 @@ public class BiomeGenGarden extends BiomeGenBase
 	public BiomeGenGarden(int par1)
 	{
 		super(par1);
+		topBlock = (byte)Blocks.longGrass.get().blockID;
+		fillerBlock = (byte)Block.dirt.blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 2;
@@ -37,7 +40,6 @@ public class BiomeGenGarden extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.bushesPerChunk = 10;
 		customBiomeDecorator.lilyflowersPerChunk = 4;
-		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.generatePumpkins = true;
 		customBiomeDecorator.generateMelons = true;
 		spawnableCreatureList.clear();
@@ -70,7 +72,7 @@ public class BiomeGenGarden extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+		return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2)));
 	}
 
 	/**
@@ -79,7 +81,7 @@ public class BiomeGenGarden extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(6) == 0 ? new WorldGenGiantFlowerRed() : (par1Random.nextInt(6) == 0 ? new WorldGenGiantFlowerYellow() : new WorldGenShrub(0,0));
+		return par1Random.nextInt(6) == 0 ? new WorldGenGiantFlowerRed() : (par1Random.nextInt(6) == 0 ? new WorldGenGiantFlowerYellow() : new WorldGenBOPShrub(0,0));
 	}
 
 	/**
