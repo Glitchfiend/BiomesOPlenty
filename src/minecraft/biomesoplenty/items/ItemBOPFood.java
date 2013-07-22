@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroomPowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth"};
+	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth"};
 	private Icon[] textures;
 	
 	public ItemBOPFood(int par1)
