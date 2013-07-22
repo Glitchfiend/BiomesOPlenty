@@ -238,7 +238,7 @@ public class AchievementHelper
 		achForest = (new Achievement(3159, "achForest", -10, 8, new ItemStack(Block.sapling, 1, 0), achBOP)).registerAchievement();
 		achIcePlains = (new Achievement(3160, "achIcePlains", -8, 8, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement();
 		achJungle = (new Achievement(3161, "achJungle", -6, 8, new ItemStack(Block.sapling, 1, 3), achBOP)).registerAchievement();
-		achMushroomIsland = (new Achievement(3162, "achMushroomIsland", -4, 8, new ItemStack(Block.mycelium, 1, 0), achBOP)).registerAchievement().setSpecial();
+		achMushroomIsland = (new Achievement(3162, "achMushroomIsland", -4, 8, new ItemStack(Block.mushroomRed, 1, 0), achBOP)).registerAchievement().setSpecial();
 		achPlains = (new Achievement(3163, "achPlains", -2, 8, new ItemStack(Blocks.flowers.get(), 1, 13), achBOP)).registerAchievement();
 		achSwampland = (new Achievement(3164, "achSwampland", 0, 8, new ItemStack(Blocks.colorizedSaplings.get(), 1, 4), achBOP)).registerAchievement();
 		achTaiga = (new Achievement(3165, "achTaiga", 2, 8, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement();

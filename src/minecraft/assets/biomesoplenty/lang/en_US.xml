@@ -98,8 +98,8 @@
  	<entry key="tile.bop.leavesFruit.name">Apple Leaves</entry>
 	<entry key="tile.bop.bamboo.name">Bamboo</entry>
  	<entry key="tile.bop.mudBricksStairs.name">Mud Bricks Stairs</entry>
- 	<entry key="tile.bop.originGrass.name">Origin Grass</entry>
-	<entry key="tile.bop.longGrass.name">Long Grass</entry>
+ 	<entry key="tile.bop.originGrass.name">Origin Grass Block</entry>
+	<entry key="tile.bop.longGrass.name">Long Grass Block</entry>
  	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
 
 	<entry key="tile.bop.coral.kelp.name">Kelp</entry>
@@ -107,8 +107,8 @@
  	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
  	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
  	
- 	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass</entry>
- 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass</entry>
+ 	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass Block</entry>
+ 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass Block</entry>
  	
  	<entry key="tile.bop.holyStone.holystone.name">Skystone</entry>
  	<entry key="tile.bop.holyStone.holycobble.name">Skystone Cobblestone</entry>
