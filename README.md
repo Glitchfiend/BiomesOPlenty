@@ -20,7 +20,7 @@
 
 
 ## Changelog 
-	  Version 0.5.9 '22-07-13'
+	  Version 0.5.9 '23-07-13'
 	- Fixed eating food
 	- Fixed some biome heights, decreased the amount of trees in the Snowy Confierous Forest
 	- Tweaked some flower textures, changed some achievement icons
@@ -29,6 +29,11 @@
 	- Fixed a crash bug with non-living entities entering poison ivy
 	- Updated the better leaf textures
 	- Fixed a crash with saplings
+	- Added Long Grass
+	- Added config option for disabling oceans
+	- Fixed an issue with the shroom powder texture
+	- Tweaked the Garden biome
+	- Tweaked the Shield biome
 
 	  Version 0.5.8 '21-07-13'
 	- Removed the crappy Amethyst Tinkers Construct tools
