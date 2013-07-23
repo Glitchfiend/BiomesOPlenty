@@ -74,12 +74,12 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
         public Icon getIconFallingLeaves(int metadata)
         {
-                return textures[1][getTypeFromMeta(metadata)];
+            return textures[1][getTypeFromMeta(metadata) + (category.ordinal() * 8)];
         }
-        
+
         public float getSpawnChanceFallingLeaves(int metadata)
         {
-                return fallingLeavesChance[getTypeFromMeta(metadata)];
+            return fallingLeavesChance[getTypeFromMeta(metadata) + (category.ordinal() * 8)];
         }
 
 
