@@ -266,12 +266,8 @@
 	<entry key="tile.bop.leavesColorized.pine.name">Pine Leaves</entry>
 	
 	<!--Items -->
-	<entry key="item.bop.shroomPowder.name">Shroom Powder</entry>
-
-	<entry key="item.bop.sunflowerSeeds.name">Sunflower Seeds</entry>
-	
 	<entry key="item.bop.food.berries.name">Berry</entry>
-	<entry key="item.bop.food.shroomPowder.name">Shroom Powder</entry>
+	<entry key="item.bop.food.shroompowder.name">Shroom Powder</entry>
 	<entry key="item.bop.food.wildcarrots.name">Wild Carrots</entry>
 	<entry key="item.bop.food.sunflowerseeds.name">Sunflower Seeds</entry>
 	<entry key="item.bop.food.saladfruit.name">Fruit Salad</entry>
