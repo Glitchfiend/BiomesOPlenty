@@ -13,7 +13,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ItemBOPFood extends ItemFood
 {
