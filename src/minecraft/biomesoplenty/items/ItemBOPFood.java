@@ -30,8 +30,6 @@ public class ItemBOPFood extends ItemFood
 	@Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
     {
-		boolean alwaysEdible = ReflectionHelper.getPrivateValue(ItemFood.class, (ItemFood)Item.itemsList[itemstack.itemID], "alwaysEdible");
-		
 		if (itemstack.getItemDamage() == 1)
 		{
 			if (player.canEat(true))
