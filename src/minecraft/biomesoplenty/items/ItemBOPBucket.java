@@ -11,7 +11,6 @@ import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidContainerRegistry;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Fluids;
 import cpw.mods.fml.relauncher.Side;
