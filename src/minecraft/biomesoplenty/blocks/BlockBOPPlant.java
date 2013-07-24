@@ -24,7 +24,7 @@ import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus"};
 	private Icon[] textures;
 
 	private static final int CATTAILTOP = 9;
@@ -90,8 +90,11 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
 	{
-		for (int i = 0; i < CATTAILTOP; ++i) {
+		for (int i = 0; i < plants.length; ++i) {
+			if (i != CATTAILTOP && i!= CATTAILBOTTOM && i!= 11)
+			{
 				list.add(new ItemStack(blockID, 1, i));
+			}
 		}
 	}
 
@@ -117,6 +120,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			return blockID == this.blockID || blockID == Block.grass.blockID;
 		else if (metadata == 9)
 			return blockID == this.blockID;
+		else if (metadata == 12)
+			return blockID == Block.sand.blockID || blockID == Blocks.redRock.get().blockID || blockID == Block.slowSand.blockID;
 		else
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID;
 	}
@@ -159,12 +164,15 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			case 7: // Cattail
 				return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 
-			case 8: //Reed
+			case 8: // Reed
 				return id == blockID || id == Block.grass.blockID;
 
 			case 10: // High Cattail Bottom
 				return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 
+			case 12: // Tiny Cactus
+				return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
+				
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
 			}
@@ -230,7 +238,12 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == 5) {
+		if (meta == 5)
+		{
+			entity.attackEntityFrom(DamageSource.cactus, 1);
+		}
+		if (meta == 12)
+		{
 			entity.attackEntityFrom(DamageSource.cactus, 1);
 		}
 	}

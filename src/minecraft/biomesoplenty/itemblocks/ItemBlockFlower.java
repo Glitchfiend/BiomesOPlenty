@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFlower extends ItemBlock
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "cactus", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 	private static final int SUNFLOWERTOP = 14;
@@ -40,9 +40,10 @@ public class ItemBlockFlower extends ItemBlock
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[1];
+		textures = new Icon[2];
 
 		textures[0] = iconRegister.registerIcon("biomesoplenty:item_sunflower");
+		textures[1] = iconRegister.registerIcon("biomesoplenty:item_rainbowflower");
 	}
 
 	@Override
@@ -59,7 +60,9 @@ public class ItemBlockFlower extends ItemBlock
 	@Override
 	public Icon getIconFromDamage(int meta)
 	{
-		if (meta == 13)
+		if (meta == 11)
+			return textures[1];
+		else if (meta == 13)
 			return textures[0];
 		else
 			return Block.blocksList[itemID].getIcon(0, meta);

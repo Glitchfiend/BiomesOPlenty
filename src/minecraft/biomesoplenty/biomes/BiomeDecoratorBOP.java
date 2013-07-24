@@ -200,6 +200,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator netherVineGen;
 	protected WorldGenerator poisonIvyGen;
 	protected WorldGenerator sunflowerGen;
+	protected WorldGenerator rainbowflowerGen;
 	protected WorldGenerator crystalGen;
 	protected WorldGenerator crystalGen2;
 
@@ -279,6 +280,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int netherVinesPerChunk;
 	protected int poisonIvyPerChunk;
 	protected int sunflowersPerChunk;
+	protected int rainbowflowersPerChunk;
 
 	protected int boneSpinesPerChunk;
 	protected int boneSpines2PerChunk;
@@ -413,6 +415,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		plantPurpleGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 7);
 		plantPinkGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 6);
 		plantOrangeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 5);
+		rainbowflowerGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 11);
 		plantTinyGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 0);
 		plantGlowGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 3);
 		plantDeadGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 0);
@@ -420,7 +423,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		thornGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 5);
 		bushGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 4);
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
-		tinyCactusGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 11);
+		tinyCactusGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 12);
 		aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
 		lilyflowerGen = new WorldGenLilyflower();
 		deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
@@ -489,6 +492,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		purpleFlowersPerChunk = 0;
 		pinkFlowersPerChunk = 0;
 		orangeFlowersPerChunk = 0;
+		rainbowflowersPerChunk = 0;
 		tinyFlowersPerChunk = 0;
 		glowFlowersPerChunk = 0;
 		deadGrassPerChunk = 0;
@@ -900,6 +904,20 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 sunflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < rainbowflowersPerChunk; ++var2)
+		 {
+			 int var956 = randomGenerator.nextInt(10);
+			 
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 
+			 if (var956 == 0)
+			 {
+				 rainbowflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 
 		 for (var2 = 0; var2 < boneSpinesPerChunk; ++var2)

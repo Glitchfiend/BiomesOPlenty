@@ -34,6 +34,7 @@
 	<entry key="tile.bop.plants.cattailtop.name">Cattail</entry>
 	<entry key="tile.bop.plants.cattailbottom.name">Cattail</entry>
 	<entry key="tile.bop.plants.reed.name">Reed</entry>
+	<entry key="tile.bop.plants.cactus.name">Tiny Cactus</entry>
 
 	<entry key="tile.bop.flowers.clover.name">Clover</entry>
 	<entry key="tile.bop.flowers.swampflower.name">Swampflower</entry>
@@ -46,7 +47,7 @@
 	<entry key="tile.bop.flowers.violet.name">Violet</entry>
 	<entry key="tile.bop.flowers.anemone.name">Anemone</entry>
 	<entry key="tile.bop.flowers.lilyflower.name">Waterlily</entry>
-	<entry key="tile.bop.flowers.cactus.name">Tiny Cactus</entry>
+	<entry key="tile.bop.flowers.rainbowflower.name">Chromaflora</entry>
 	<entry key="tile.bop.flowers.aloe.name">Aloe</entry>
 	<entry key="tile.bop.flowers.sunflowerbottom.name">Sunflower</entry>
 	<entry key="tile.bop.flowers.sunflowertop.name">Sunflower</entry>

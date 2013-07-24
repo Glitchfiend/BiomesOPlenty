@@ -28,6 +28,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.holyTallGrassPerChunk = 999;
 		customBiomeDecorator.promisedWillowPerChunk = 80;
+		customBiomeDecorator.rainbowflowersPerChunk = 20;
 		customBiomeDecorator.generateLakes = false;
 		customBiomeDecorator.pondsPerChunk = -100;
 		customBiomeDecorator.hotSpringsPerChunk = 6;

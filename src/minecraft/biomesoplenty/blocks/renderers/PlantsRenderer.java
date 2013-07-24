@@ -21,14 +21,24 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		if (modelId == RenderUtils.plantsModel)
 		{
 			int meta = world.getBlockMetadata(x, y, z);
-			if (meta > 6)
-				return renderer.renderBlockCrops(block, x, y, z);
-			else if (meta > 5)
-				return renderBlockCrops(block, x, y, z, renderer);
-			else if (meta > 4)
-				return renderer.renderCrossedSquares(block, x, y, z);
-			else
+			if (meta < 5)
 				return renderCrossedSquares(block, x, y, z, renderer);
+			if (meta == 5)
+				return renderer.renderCrossedSquares(block, x, y, z);
+			if (meta == 6)
+				return renderBlockCrops(block, x, y, z, renderer);
+			if (meta == 7)
+				return renderer.renderBlockCrops(block, x, y, z);
+			if (meta == 8)
+				return renderer.renderBlockCrops(block, x, y, z);
+			if (meta == 9)
+				return renderer.renderBlockCrops(block, x, y, z);
+			if (meta == 10)
+				return renderer.renderBlockCrops(block, x, y, z);
+			if (meta == 11)
+				return renderer.renderBlockCrops(block, x, y, z);
+			if (meta == 12)
+				return renderer.renderCrossedSquares(block, x, y, z);
 		}
 		return true;
 	}

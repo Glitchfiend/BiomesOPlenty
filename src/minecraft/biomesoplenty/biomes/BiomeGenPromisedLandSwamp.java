@@ -30,6 +30,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 		customBiomeDecorator.holyTallGrassPerChunk = 100;
 		customBiomeDecorator.promisedWillowPerChunk = 80;
 		customBiomeDecorator.pinkFlowersPerChunk = 6;
+		customBiomeDecorator.rainbowflowersPerChunk = 5;
 		customBiomeDecorator.blueMilksPerChunk = 15;
 		customBiomeDecorator.toadstoolsPerChunk = 10;
 		customBiomeDecorator.portobellosPerChunk = 5;

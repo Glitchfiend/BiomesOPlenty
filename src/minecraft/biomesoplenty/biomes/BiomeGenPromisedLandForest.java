@@ -32,6 +32,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
 		customBiomeDecorator.holyTallGrassPerChunk = 50;
 		customBiomeDecorator.promisedWillowPerChunk = 80;
 		customBiomeDecorator.pinkFlowersPerChunk = 12;
+		customBiomeDecorator.rainbowflowersPerChunk = 10;
 		customBiomeDecorator.blueMilksPerChunk = 5;
 		customBiomeDecorator.generateLakes = false;
 		customBiomeDecorator.pondsPerChunk = -100;

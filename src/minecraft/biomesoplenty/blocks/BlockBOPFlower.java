@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BlockFlower
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "cactus", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
 	private Icon[] textures;
 
 	private static final int SUNFLOWERTOP = 14;
@@ -77,6 +77,8 @@ public class BlockBOPFlower extends BlockFlower
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 3)
 			return 9;
+		else if (meta == 11)
+			return 5;
 		else
 			return 0;
 	}
@@ -132,10 +134,6 @@ public class BlockBOPFlower extends BlockFlower
 		{
 			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
 		}
-
-		if (meta == 11) {
-			entity.attackEntityFrom(DamageSource.cactus, 1);
-		}
 	}
 
 	/**
@@ -184,8 +182,8 @@ public class BlockBOPFlower extends BlockFlower
 		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID;
 		if (metadata == 10) //Lily Flower
 			return id == Block.waterlily.blockID;
-		if (metadata == 11) //Cactus
-			return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
+		if (metadata == 11) //Rainbow Flower
+			return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID || id == Block.grass.blockID || id == Block.dirt.blockID;
 		if (metadata == 12) //Aloe
 			return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
 		if (metadata == 14) //Sunflower Top
@@ -210,8 +208,8 @@ public class BlockBOPFlower extends BlockFlower
 			case 10: // Lily Flower
 				return id == Block.waterlily.blockID;
 
-			case 11: // Cactus
-				return id == Blocks.redRock.get().blockID || id == Block.sand.blockID || id == Block.slowSand.blockID;
+			case 11: // Rainbow Flower
+				return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID || id == Block.grass.blockID || id == Block.dirt.blockID;
 
 			case 12: // Aloe
 				return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
