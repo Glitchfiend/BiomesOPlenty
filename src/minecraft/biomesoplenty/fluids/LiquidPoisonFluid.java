@@ -12,7 +12,6 @@ public class LiquidPoisonFluid extends Fluid
 		super(fluidName);
 
 		this.setViscosity(2500);
-		System.out.println(this.getLocalizedName());
 	}
 	
     @Override

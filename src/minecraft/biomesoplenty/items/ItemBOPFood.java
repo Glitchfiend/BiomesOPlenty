@@ -1,5 +1,6 @@
 package biomesoplenty.items;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.FoodStats;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -110,8 +112,52 @@ public class ItemBOPFood extends ItemFood
 	private ItemStack addFoodAndSaturation(World world, ItemStack itemstack, EntityPlayer player, int food, float saturation)
 	{
         --itemstack.stackSize;
-        player.getFoodStats().setFoodLevel(player.getFoodStats().getFoodLevel() + food);
-        player.getFoodStats().setFoodSaturationLevel(player.getFoodStats().getSaturationLevel() + saturation);
+        
+        FoodStats foodstats = player.getFoodStats();
+        
+		Field flfield = null;
+		Field[] fields = foodstats.getClass().getDeclaredFields();
+
+		for (Field f : fields)
+		{
+			if (f.getName().equals("foodLevel") || f.getName().equals("field_71100_bB"))
+			{
+				flfield = f;
+				break;
+			}
+		}
+
+        try 
+        {
+          flfield.setAccessible(true);
+          flfield.setInt(foodstats, flfield.getInt(foodstats) + food);
+        } 
+        catch (Exception e) 
+        {
+        	e.printStackTrace();
+        }
+        
+		Field slfield = null;
+
+		for (Field f : fields)
+		{
+			if (f.getName().equals("foodSaturationLevel") || f.getName().equals("field_75125_b"))
+			{
+				slfield = f;
+				break;
+			}
+		}
+
+        try 
+        {
+          slfield.setAccessible(true);
+          slfield.setFloat(foodstats, slfield.getFloat(foodstats) + saturation);
+        } 
+        catch (Exception e) 
+        {
+        	e.printStackTrace();
+        }
+        
         world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
         super.onFoodEaten(itemstack, world, player);
         if (itemstack.getItemDamage() == 4)
