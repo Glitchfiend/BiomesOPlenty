@@ -64,12 +64,12 @@ public class WorldGenCloud extends WorldGenerator
 
 								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.isAirBlock(var38, var41, var44))
 								{
-									int var999 = par2Random.nextInt(45);
+									//int var999 = par2Random.nextInt(45);
 
-									if (var999 == 0)
-									{
+									//if (var999 == 0)
+									//{
 										par1World.setBlock(var38, var41, var44, minableBlockId);
-									}
+									//}
 								}
 							}
 						}

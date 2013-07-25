@@ -44,7 +44,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
 		spawnableMonsterList.clear();
 		spawnableCaveCreatureList.clear();
 		customBiomeDecorator.generatePumpkins = false;
-		//this.customBiomeDecorator.generateClouds = true;
+		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		theWorldGenerator = new WorldGenWaterSpring(Fluids.springWater.get().blockID, 8);
 		/*this.spawnableMonsterList.add(new SpawnListEntry(EntityCow.class, 6, 1, 4));
