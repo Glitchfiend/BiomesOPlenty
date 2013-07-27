@@ -18,6 +18,8 @@
 
 - **Soaryn** - Help making the Altar Frames
 
+- **MineModder2000** - 256 high worlds
+
 
 ## Changelog 
 	  Version 0.5.9 '23-07-13'
