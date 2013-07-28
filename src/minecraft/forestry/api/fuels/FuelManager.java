@@ -2,10 +2,6 @@ package forestry.api.fuels;
 
 import java.util.HashMap;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-
 public class FuelManager {
 	/**
 	 * Add new fuels for the fermenter here (i.e. fertilizer). Will accept Items, ItemStacks and Strings (Ore Dictionary)
