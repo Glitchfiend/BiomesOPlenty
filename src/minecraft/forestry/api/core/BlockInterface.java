@@ -6,11 +6,12 @@ import cpw.mods.fml.common.FMLLog;
 
 public class BlockInterface {
 	/**
-	 * Get yer blocks here!
+	 * Rather limited function to retrieve block ids.
 	 * 
 	 * @param ident
-	 * @return
+	 * @return ItemStack representing the block.
 	 */
+	@Deprecated
 	public static ItemStack getBlock(String ident) {
 		ItemStack item = null;
 

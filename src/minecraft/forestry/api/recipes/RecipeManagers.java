@@ -1,5 +1,7 @@
 package forestry.api.recipes;
 
+import java.util.Collection;
+
 /**
  * Contains all available recipe managers for Forestry machines and items.
  * 
@@ -7,6 +9,8 @@ package forestry.api.recipes;
  */
 public class RecipeManagers {
 
+	public static Collection<ICraftingProvider> craftingProviders;
+	
 	/**
 	 * Allows you to add recipes to the bottler. See {@link IBottlerManager} for details.
 	 */

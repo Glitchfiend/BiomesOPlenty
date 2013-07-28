@@ -3,6 +3,9 @@ package forestry.api.core;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 
+/**
+ * The basis for multiblock components. 
+ */
 public interface ITileStructure {
 
 	/**

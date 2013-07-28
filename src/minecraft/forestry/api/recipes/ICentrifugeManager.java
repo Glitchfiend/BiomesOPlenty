@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
  * The manager is initialized at the beginning of Forestry's BaseMod.load() cycle. Begin adding recipes in BaseMod.ModsLoaded() and this shouldn't be null even
  * if your mod loads before Forestry.
  * 
- * Accessible via {@link RecipeManagers.centrifugeManager}
+ * Accessible via {@link RecipeManagers}
  * 
  * @author SirSengir
  */
@@ -38,7 +38,7 @@ public interface ICentrifugeManager extends ICraftingProvider {
 	 * @param produce
 	 *            Array of ItemStacks that can be the result of this recipe.
 	 * @param chances
-	 *            Array of integers corresponding and matching to {@link produce} providing the chance (0-100) for the ItemStack at the given index to be
+	 *            Array of integers corresponding and matching to produce providing the chance (0-100) for the ItemStack at the given index to be
 	 *            produced.
 	 */
 	public void addRecipe(int timePerItem, ItemStack resource, ItemStack[] produce, int[] chances);

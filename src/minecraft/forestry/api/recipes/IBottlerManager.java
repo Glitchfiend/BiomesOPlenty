@@ -1,5 +1,7 @@
 package forestry.api.recipes;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 /**
  * Provides an interface to the recipe manager of the bottler.
@@ -7,7 +9,7 @@ package forestry.api.recipes;
  * The manager is initialized at the beginning of Forestry's BaseMod.load() cycle. Begin adding recipes in BaseMod.ModsLoaded() and this shouldn't be null even
  * if your mod loads before Forestry.
  * 
- * Accessible via {@link RecipeManagers.bottlerManager}
+ * Accessible via {@link RecipeManagers}
  * 
  * Note that this is untested with anything other than biofuel->fuelcan conversion.
  * 
@@ -21,14 +23,12 @@ public interface IBottlerManager extends ICraftingProvider {
 	 * @param cyclesPerUnit
 	 *            Amount of work cycles required to run through the conversion once.
 	 * @param input
-	 *            ItemStack representing the input liquid.
-	 * @param inputAmount
-	 *            Amount of liquid required for a single conversion.
+	 *            LiquidStack representing the input liquid.
 	 * @param can
 	 *            ItemStack representing the cans, capsules and/or cells required
 	 * @param bottled
 	 *            ItemStack representing the finished product
 	 */
-	//@Deprecated
-	//public void addRecipe(int cyclesPerUnit, LiquidStack input, ItemStack can, ItemStack bottled);
+	@Deprecated
+	public void addRecipe(int cyclesPerUnit, FluidStack input, ItemStack can, ItemStack bottled);
 }

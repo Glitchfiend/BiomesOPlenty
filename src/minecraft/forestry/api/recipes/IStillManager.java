@@ -1,5 +1,6 @@
 package forestry.api.recipes;
 
+import net.minecraftforge.fluids.FluidStack;
 
 /**
  * Provides an interface to the recipe manager of the still.
@@ -7,7 +8,7 @@ package forestry.api.recipes;
  * The manager is initialized at the beginning of Forestry's BaseMod.load() cycle. Begin adding recipes in BaseMod.ModsLoaded() and this shouldn't be null even
  * if your mod loads before Forestry.
  * 
- * Accessible via {@link RecipeManagers.stillManager}
+ * Accessible via {@link RecipeManagers}
  * 
  * Note that this is untested with anything other than biomass->biofuel conversion.
  * 
@@ -24,5 +25,5 @@ public interface IStillManager extends ICraftingProvider {
 	 * @param output
 	 *            ItemStack representing the output liquid
 	 */
-	//public void addRecipe(int cyclesPerUnit, LiquidStack input, LiquidStack output);
+	public void addRecipe(int cyclesPerUnit, FluidStack input, FluidStack output);
 }

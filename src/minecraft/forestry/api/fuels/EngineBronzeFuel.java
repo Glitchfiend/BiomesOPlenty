@@ -1,12 +1,13 @@
 package forestry.api.fuels;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.Fluid;
 
 public class EngineBronzeFuel {
 	/**
 	 * Item that is valid fuel for a biogas engine.
 	 */
-	public final ItemStack liquid;
+	public final Fluid liquid;
 	/**
 	 * Power produced by this fuel per work cycle of the engine.
 	 */
@@ -20,7 +21,7 @@ public class EngineBronzeFuel {
 	 */
 	public final int dissipationMultiplier;
 
-	public EngineBronzeFuel(ItemStack liquid, int powerPerCycle, int burnDuration, int dissipationMultiplier) {
+	public EngineBronzeFuel(Fluid liquid, int powerPerCycle, int burnDuration, int dissipationMultiplier) {
 		this.liquid = liquid;
 		this.powerPerCycle = powerPerCycle;
 		this.burnDuration = burnDuration;

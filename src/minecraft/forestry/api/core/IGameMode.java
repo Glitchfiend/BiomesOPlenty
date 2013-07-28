@@ -11,25 +11,25 @@ public interface IGameMode {
 
 	/**
 	 * @param ident Identifier for the setting. (See the gamemode config.)
-	 * @return
+	 * @return Value of the requested setting, false if unknown setting.
 	 */
 	boolean getBooleanSetting(String ident);
 	
 	/**
 	 * @param ident Identifier for the setting. (See the gamemode config.)
-	 * @return
+	 * @return Value of the requested setting, 0 if unknown setting.
 	 */
 	int getIntegerSetting(String ident);
 
 	/**
 	 * @param ident Identifier for the setting. (See the gamemode config.)
-	 * @return
+	 * @return Value of the requested setting, 0 if unknown setting.
 	 */
 	float getFloatSetting(String ident);
 
 	/**
 	 * @param ident Identifier for the setting. (See the gamemode config.)
-	 * @return
+	 * @return Value of the requested setting, an itemstack containing an apple if unknown setting.
 	 */
 	ItemStack getStackSetting(String ident);
 

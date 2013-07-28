@@ -38,7 +38,7 @@ public interface IBackpackDefinition {
 	 * Returns an arraylist of all items valid for this backpack type.
 	 * 
 	 * @param player
-	 * @return
+	 * @return Collection of itemstack which are valid items for this backpack type. May be empty or null and does not necessarily include all valid items.
 	 */
 	Collection<ItemStack> getValidItems(EntityPlayer player);
 
@@ -47,7 +47,7 @@ public interface IBackpackDefinition {
 	 * 
 	 * @param player
 	 * @param itemstack
-	 * @return
+	 * @return true if the given itemstack is valid for this backpack, false otherwise.
 	 */
 	boolean isValidItem(EntityPlayer player, ItemStack itemstack);
 
