@@ -36,3 +36,4 @@ src/minecraft/forge_at.cfg
 src/minecraft/fmlversion.properties
 src/minecraft/fml_marker.cfg
 src/minecraft/fml_at.cfg
+build_number.properties

@@ -22,6 +22,17 @@
 
 
 ## Changelog 
+	  Version 0.5.9.2 '30-07-13'
+	- Added the Chromaflora
+	- Changed willow trees in the Promised Land to swampy ivy trees
+	- Re-added clouds to the Promised Land
+    - Fixed the eating bug in multiplayer, now zip your traps about it!
+    - Russian translation tweaks (by VeryBigBro)
+    - Updated Forestry Integration and API
+    - Corrected loftwood recipes
+    - Updated ore dictionary registration for logs
+    - Tweaked fir log/plank textures
+
 	  Version 0.5.9 '23-07-13'
 	- Fixed eating food
 	- Fixed some biome heights, decreased the amount of trees in the Snowy Confierous Forest
