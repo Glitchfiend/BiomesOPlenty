@@ -22,6 +22,15 @@ public class BOPConfiguration {
 	public static boolean netherOverride;
 	public static boolean rainCreatesPuddles;
 	public static boolean realisticTrees;
+	
+	public static boolean amethystTools;
+	public static boolean mudTools;
+	public static boolean altarCrafting;
+	public static boolean scytheCrafting;
+	public static boolean staffCrafting;
+	public static boolean enderporterCrafting;
+	public static boolean dartCrafting;
+	public static boolean flowerbandCrafting;
 
 	public static int villageDistance;
 
@@ -495,6 +504,15 @@ public class BOPConfiguration {
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 			rainCreatesPuddles = config.get("Miscellanious Settings", "Enable Puddles During Rain", true).getBoolean(true);
+			
+			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
+			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
+			altarCrafting = config.get("Crafting Settings", "Enable Altar Items Crafting", true).getBoolean(true);
+			scytheCrafting = config.get("Crafting Settings", "Enable Scythe Crafting", true).getBoolean(true);
+			staffCrafting = config.get("Crafting Settings", "Enable Ancient Staff Crafting", true).getBoolean(true);
+			enderporterCrafting = config.get("Crafting Settings", "Enable Enderporter Crafting", true).getBoolean(true);
+			dartCrafting = config.get("Crafting Settings", "Enable Dartblower/Dart Crafting", true).getBoolean(true);
+			flowerbandCrafting = config.get("Crafting Settings", "Enable Flower Band Crafting", true).getBoolean(true);
 
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 			//realisticTrees = config.get("Biome Settings", "Realistic Trees", true).getBoolean(true);
