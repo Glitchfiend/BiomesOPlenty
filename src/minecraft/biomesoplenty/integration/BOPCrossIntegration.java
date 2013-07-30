@@ -46,17 +46,6 @@ public class BOPCrossIntegration {
 	
 	public static void postInit()
 	{
-		if (Loader.isModLoaded("BuildCraft|Transport"))
-		{
-			try {
-				BCIntegration.postInit();
-			}
-			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating BuildCraft|Transport with Biomes O' Plenty!");
-				e.printStackTrace(System.err);
-			}
-		}
-
 		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try {

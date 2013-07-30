@@ -1,10 +1,7 @@
 package biomesoplenty.integration;
 
-import java.lang.reflect.Method;
-
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.BlockReferences;
-import biomesoplenty.api.Fluids;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class BCIntegration {
@@ -13,11 +10,6 @@ public class BCIntegration {
 	{
 		addFacades();
 		excludeOilGeneration();
-	}
-
-	public static void postInit()
-	{
-		addLiquids();
 	}
 
 	private static void excludeOilGeneration()
@@ -87,23 +79,6 @@ public class BCIntegration {
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("redRockCobble") + "@" + getBMeta("redRockCobble"));
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("giantFlowerRed") + "@" + getBMeta("giantFlowerRed"));
 		FMLInterModComms.sendMessage("BuildCraft|Transport", "add-facade", getBID("giantFlowerYellow") + "@" + getBMeta("giantFlowerYellow"));
-	}
-	
-	private static void addLiquids()
-	{
-		try 
-		{
-			Class bcUtils = Class.forName("buildcraft.core.utils.Utils");
-			
-			Method method = bcUtils.getMethod("liquidId", int.class);
-			
-			method.invoke(bcUtils, Fluids.springWaterFluid.get().getBlockID());
-			method.invoke(bcUtils, Fluids.liquidPoisonFluid.get().getBlockID());
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		}
 	}
 
 	private static int getBID(String name) {
