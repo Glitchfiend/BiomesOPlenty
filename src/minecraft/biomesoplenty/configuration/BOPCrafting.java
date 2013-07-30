@@ -299,7 +299,7 @@ public class BOPCrafting
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i <= 3; i++)
 		{
 			OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs1.get(), 1, i));
 			OreDictionary.registerOre("logWood", new ItemStack(Blocks.logs2.get(), 1, i));
