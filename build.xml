@@ -52,10 +52,10 @@
 
 	<target name="reobfuscate">
 		<exec dir="${build.dir.development}\forge\mcp" executable="cmd" osfamily="windows">
-			<arg line="/c reobfuscate.bat" />
+			<arg line="/c reobfuscate_srg.bat" />
 		</exec>
 		<exec dir="${build.dir.development}\forge\mcp" executable="bash" osfamily="unix">
-			<arg line="reobfuscate.sh" />
+			<arg line="reobfuscate_srg.sh" />
 		</exec>
 	</target>
 
