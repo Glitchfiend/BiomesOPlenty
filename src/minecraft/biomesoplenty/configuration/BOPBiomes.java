@@ -93,7 +93,8 @@ public class BOPBiomes {
 		Biomes.deciduousForest = Optional.of((new BiomeGenDeciduousForest(BOPConfiguration.deciduousForestID)).setColor(353825).setBiomeName("Deciduous Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F));
 		Biomes.dunes = Optional.of((new BiomeGenDunes(BOPConfiguration.dunesID)).setColor(13786898).setBiomeName("Dunes").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.5F, 1.3F));
 		Biomes.fen = Optional.of((new BiomeGenFen(BOPConfiguration.fenID)).setColor(9286496).setBiomeName("Fen").setTemperatureRainfall(0.4F, 0.0F).setMinMaxHeight(0.2F, 0.4F));
-		Biomes.field = Optional.of((new BiomeGenField(BOPConfiguration.fieldID)).setColor(9286496).setBiomeName("Field").setTemperatureRainfall(0.4F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
+		Biomes.field = Optional.of((new BiomeGenField(BOPConfiguration.fieldID)).setColor(9286496).setBiomeName("Field").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
+		Biomes.fieldForest = Optional.of((new BiomeGenFieldForest(BOPConfiguration.fieldForestID)).setColor(9286496).setBiomeName("Forested Field").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.frostForest = Optional.of((new BiomeGenFrostForest(BOPConfiguration.frostForestID)).setColor(14090235).setBiomeName("Frost Forest").setEnableSnow().setTemperatureRainfall(0.0F, 0.0F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.fungiForest = Optional.of((new BiomeGenFungiForest(BOPConfiguration.fungiForestID)).setColor(747097).setBiomeName("Fungi Forest").func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F).setMinMaxHeight(0.2F, 0.5F));
 		Biomes.garden = Optional.of((new BiomeGenGarden(BOPConfiguration.gardenID)).setColor(9286496).setBiomeName("Garden").setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
@@ -214,6 +215,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.dunes.get(), Type.BEACH, Type.DESERT);
 		BiomeDictionary.registerBiomeType(Biomes.fen.get(), Type.FOREST, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.field.get(), Type.PLAINS);
+		BiomeDictionary.registerBiomeType(Biomes.fieldForest.get(), Type.PLAINS, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.frostForest.get(), Type.FROZEN, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.fungiForest.get(), Type.MAGICAL, Type.MUSHROOM, Type.FOREST, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.garden.get(), Type.MAGICAL, Type.PLAINS);

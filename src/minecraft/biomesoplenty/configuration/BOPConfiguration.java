@@ -304,6 +304,7 @@ public class BOPConfiguration {
 	public static int dunesID;
 	public static int fenID;
 	public static int fieldID;
+	public static int fieldForestID;
 	public static int frostForestID;
 	public static int fungiForestID;
 	public static int gardenID;
@@ -876,6 +877,7 @@ public class BOPConfiguration {
 
 			//23-79 ExtraBiomesXL
 			
+			fieldForestID = config.get("Biome IDs", "Forested Field (Sub-Biome) ID", 40).getInt();
 			seasonalSpruceForestID = config.get("Biome IDs", "Seasonal Spruce Forest (Sub-Biome) ID", 41).getInt();
 			alpsBaseID = config.get("Biome IDs", "Alps Forest (Sub-Biome) ID", 42).getInt();
 			alpsForestID = config.get("Biome IDs", "Alps Mountainside (Sub-Biome) ID", 43).getInt();

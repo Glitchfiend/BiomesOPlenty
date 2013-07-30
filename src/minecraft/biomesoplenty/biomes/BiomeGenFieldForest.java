@@ -9,25 +9,34 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenLargeTree;
+import biomesoplenty.worldgen.WorldGenPineTree;
 
-public class BiomeGenField extends BiomeGenBase
+public class BiomeGenFieldForest extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
-	public BiomeGenField(int par1)
+	public BiomeGenFieldForest(int par1)
 	{
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = -999;
+		customBiomeDecorator.treesPerChunk = 5;
 		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.rosesPerChunk = 75;
-		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.rosesPerChunk = 25;
+		customBiomeDecorator.grassPerChunk = 5;
 		customBiomeDecorator.bushesPerChunk = 8;
 		customBiomeDecorator.berryBushesPerChunk = 5;
 		customBiomeDecorator.generatePumpkins = true;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+	}
+	
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	{
+		return par1Random.nextInt(3) == 0 ? new WorldGenPineTree() : worldGeneratorTrees;
 	}
 	
 	@Override

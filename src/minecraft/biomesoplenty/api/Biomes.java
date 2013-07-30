@@ -38,6 +38,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> dunes				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> fen					 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> field				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> fieldForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> frostForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> fungiForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> garden				 = Optional.absent();
