@@ -360,6 +360,7 @@ public class BOPConfiguration {
 	public static int reefID;
 	public static int sacredSpringsID;
 	public static int savannaID;
+	public static int savannaPlateauID;
 	public static int scrublandID;
 	public static int seasonalForestID;
 	public static int seasonalSpruceForestID;
@@ -877,6 +878,7 @@ public class BOPConfiguration {
 
 			//23-79 ExtraBiomesXL
 			
+			savannaPlateauID = config.get("Biome IDs", "Savanna Plateau (Sub-Biome) ID", 39).getInt();
 			fieldForestID = config.get("Biome IDs", "Forested Field (Sub-Biome) ID", 40).getInt();
 			seasonalSpruceForestID = config.get("Biome IDs", "Seasonal Spruce Forest (Sub-Biome) ID", 41).getInt();
 			alpsBaseID = config.get("Biome IDs", "Alps Forest (Sub-Biome) ID", 42).getInt();
