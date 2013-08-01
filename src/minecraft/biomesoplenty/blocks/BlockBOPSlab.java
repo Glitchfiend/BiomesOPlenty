@@ -202,7 +202,11 @@ public class BlockBOPSlab extends BlockHalfSlab
 
 	private int getWoodType(int meta)
 	{
-		return getTypeFromMeta(meta) + category.ordinal() * 8;
+		meta = getTypeFromMeta(meta) + category.ordinal() * 8;
+		if (meta < woodTypes.length)
+			return meta;
+		
+		return 0;
 	}
 
 	private static int getTypeFromMeta(int meta)
