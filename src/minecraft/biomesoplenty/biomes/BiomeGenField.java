@@ -7,9 +7,7 @@ import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenLargeTree;
 
 public class BiomeGenField extends BiomeGenBase
 {
