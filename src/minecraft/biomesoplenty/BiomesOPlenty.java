@@ -1,5 +1,7 @@
 package biomesoplenty;
 
+import java.io.File;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -52,11 +54,13 @@ public class BiomesOPlenty
 	public static CommonProxy proxy;
 
 	public static CreativeTabs tabBiomesOPlenty;
+	public static String mainBOPConfig;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		BOPConfiguration.init(event.getSuggestedConfigurationFile());
+		mainBOPConfig = event.getModConfigurationDirectory() + "/biomesoplenty/" + "main.cfg";
+		BOPConfiguration.init(new File(mainBOPConfig));
 		
 		Version.check();
 
