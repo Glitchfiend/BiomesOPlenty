@@ -93,6 +93,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> redwoodForest		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> sacredSprings		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> savanna				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> savannaPlateau		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> scrubland			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> seasonalForest		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> seasonalSpruceForest	 = Optional.absent();
