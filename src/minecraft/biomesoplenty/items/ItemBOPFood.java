@@ -120,7 +120,7 @@ public class ItemBOPFood extends ItemFood
 
 		for (Field f : fields)
 		{
-			if (f.getName().equals("foodLevel") || f.getName().equals("field_71100_bB"))
+			if (f.getName().equals("foodLevel") || f.getName().equals("bB"))
 			{
 				flfield = f;
 				break;
@@ -141,7 +141,7 @@ public class ItemBOPFood extends ItemFood
 
 		for (Field f : fields)
 		{
-			if (f.getName().equals("foodSaturationLevel") || f.getName().equals("field_75125_b"))
+			if (f.getName().equals("foodSaturationLevel") || f.getName().equals("b"))
 			{
 				slfield = f;
 				break;
