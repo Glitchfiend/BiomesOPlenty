@@ -10,7 +10,7 @@ public class Localizations
 {
 	private static final String localizationLocation = "/assets/biomesoplenty/lang/";
 
-	public static ResourceLocation[] localeFiles = { new ResourceLocation(localizationLocation + "en_US.xml"), new ResourceLocation(localizationLocation + "de_DE.xml"), new ResourceLocation(localizationLocation + "nl_NL.xml"), new ResourceLocation(localizationLocation + "ru_RU.xml") };
+	public static ResourceLocation[] localeFiles = { new ResourceLocation(localizationLocation + "en_US.xml"), new ResourceLocation(localizationLocation + "de_DE.xml"), new ResourceLocation(localizationLocation + "nl_NL.xml"), new ResourceLocation(localizationLocation + "ru_RU.xml"), new ResourceLocation(localizationLocation + "zh_CN.xml") };
 
 	public static boolean isXMLLanguageFile(ResourceLocation fileName) 
 	{
