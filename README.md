@@ -22,6 +22,21 @@
 
 
 ## Changelog 
+	  Version 0.6.0 '03-08-13'
+	- Ripped out old integration for BC pumps
+	- Fixed a server crash bug with sacrifical altars
+	- Fixed a bug with the German localisation
+	- Added config options for certain recipes
+	- Tweaked the Bayou and Lush Swamp heights
+	- Overhauled the Field biome
+	- Added spires to the wasteland
+	- Added a Savanna Plateau sub-biome
+	- Made mountainous biomes less ugly
+	- Fixed noms again
+	- Fixed a crash between RC and GT
+	- Added a zh_CN localisation
+	- Split the config file into sub files
+
 	  Version 0.5.9.2 '30-07-13'
 	- Added the Chromaflora
 	- Changed willow trees in the Promised Land to swampy ivy trees
