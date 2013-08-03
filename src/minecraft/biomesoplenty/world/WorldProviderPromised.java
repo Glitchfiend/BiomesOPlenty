@@ -22,7 +22,7 @@ public class WorldProviderPromised extends WorldProvider
 		{
 			worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		}
-		dimensionId = BOPConfiguration.promisedLandDimID;
+		dimensionId = BOPConfiguration.IDs.promisedLandDimID;
 	}
 
 	@Override

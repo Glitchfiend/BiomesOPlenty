@@ -44,28 +44,28 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherGarden.isPresent())
 		{
-			if (BOPConfiguration.undergardenGen == true)
+			if (BOPConfiguration.BiomeGen.undergardenGen == true)
 			{
 				netherBiomes.add(Biomes.netherGarden.get());
 			}
 		}
 		if (Biomes.netherDesert.isPresent())
 		{
-			if (BOPConfiguration.corruptedSandsGen == true)
+			if (BOPConfiguration.BiomeGen.corruptedSandsGen == true)
 			{
 				netherBiomes.add(Biomes.netherDesert.get());
 			}
 		}
 		if (Biomes.netherLava.isPresent())
 		{
-			if (BOPConfiguration.phantasmagoricInfernoGen == true)
+			if (BOPConfiguration.BiomeGen.phantasmagoricInfernoGen == true)
 			{
 				netherBiomes.add(Biomes.netherLava.get());
 			}
 		}
 		if (Biomes.netherBone.isPresent())
 		{
-			if (BOPConfiguration.boneyardGen == true)
+			if (BOPConfiguration.BiomeGen.boneyardGen == true)
 			{
 				netherBiomes.add(Biomes.netherBone.get());
 			}

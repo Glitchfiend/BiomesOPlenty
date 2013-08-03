@@ -60,7 +60,7 @@ public class BiomeGenJadeCliffs extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors)
+		if (BOPConfiguration.Misc.skyColors)
 			return 12045485;
 		else
 		{

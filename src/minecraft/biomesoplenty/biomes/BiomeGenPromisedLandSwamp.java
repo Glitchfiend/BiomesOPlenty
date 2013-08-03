@@ -109,8 +109,8 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors)
-			 return BOPConfiguration.promisedLandSkyColor;
+		 if (BOPConfiguration.Misc.skyColors)
+			 return BOPConfiguration.Misc.promisedLandSkyColor;
 		 else
 		 {
 			 par1 /= 3.0F;

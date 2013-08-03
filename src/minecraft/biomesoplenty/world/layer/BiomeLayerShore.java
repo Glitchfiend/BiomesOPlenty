@@ -21,14 +21,14 @@ public class BiomeLayerShore extends BiomeLayer
 		beachBiomes.add(BiomeGenBase.beach);
 		if (Biomes.beachGravel.isPresent())
 		{
-			if (BOPConfiguration.gravelBeachGen == true)
+			if (BOPConfiguration.BiomeGen.gravelBeachGen == true)
 			{
 				beachBiomes.add(Biomes.beachGravel.get());
 			}
 		}
 		if (Biomes.beachOvergrown.isPresent())
 		{
-			if (BOPConfiguration.overgrownBeachGen == true)
+			if (BOPConfiguration.BiomeGen.overgrownBeachGen == true)
 			{
 				beachBiomes.add(Biomes.beachOvergrown.get());
 			}

@@ -27,7 +27,7 @@ public class TickHandlerServer implements ITickHandler
         
         int rand = new Random().nextInt();
 		
-		if (BOPConfiguration.rainCreatesPuddles)
+		if (BOPConfiguration.Misc.rainCreatesPuddles)
 		{
 			while (iterator.hasNext())
 			{

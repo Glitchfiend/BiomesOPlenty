@@ -27,8 +27,8 @@ public class BOPMapGenVillage extends MapGenStructure
 	public BOPMapGenVillage()
 	{
 		terrainType = 0;
-		maxDistance = BOPConfiguration.villageDistance;
-		minDistance = BOPConfiguration.villageDistance / 4;
+		maxDistance = BOPConfiguration.TerrainGen.villageDistance;
+		minDistance = BOPConfiguration.TerrainGen.villageDistance / 4;
 		villageSpawnBiomes = MapGenVillage.villageSpawnBiomes;
 	}
 

@@ -78,7 +78,7 @@ public class BiomeGenDeadlands extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors)
+		 if (BOPConfiguration.Misc.skyColors)
 			 return 4464929;
 		 else
 		 {

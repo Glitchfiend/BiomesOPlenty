@@ -25,7 +25,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		if (BOPConfiguration.realisticTrees)
+		if (BOPConfiguration.Main.realisticTrees)
 		{
 			customBiomeDecorator.treesPerChunk = 1;
 		}
@@ -61,7 +61,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.realisticTrees)
+		if (BOPConfiguration.Main.realisticTrees)
 		{
 			return new WorldGenRealMagic();
 		}
@@ -102,7 +102,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors)
+		if (BOPConfiguration.Misc.skyColors)
 			return 16751558;
 		else
 		{

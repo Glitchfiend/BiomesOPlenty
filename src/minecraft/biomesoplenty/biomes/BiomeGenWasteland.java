@@ -63,7 +63,7 @@ public class BiomeGenWasteland extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors)
+		 if (BOPConfiguration.Misc.skyColors)
 			 return 10465942;
 		 else
 		 {

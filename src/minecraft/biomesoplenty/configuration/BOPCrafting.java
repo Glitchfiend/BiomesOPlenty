@@ -158,7 +158,7 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
 
 		//Scythes
-		if (BOPConfiguration.scytheCrafting)
+		if (BOPConfiguration.Misc.scytheCrafting)
 		{
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheWood.get(), 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), "plankWood", Character.valueOf('S'), "stickWood" }));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.scytheStone.get(), 1), new Object [] {" MM", "M S", "  S", Character.valueOf('M'), Block.cobblestone, Character.valueOf('S'), "stickWood" }));
@@ -174,7 +174,7 @@ public class BOPCrafting
 		}
 			
 		//Mud Tools and Armor
-		if (BOPConfiguration.mudTools)
+		if (BOPConfiguration.Misc.mudTools)
 		{
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.pickaxeMud.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood" }));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.shovelMud.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), Items.mudball.get(), Character.valueOf('X'), "stickWood"}));
@@ -190,7 +190,7 @@ public class BOPCrafting
 		}
 		
 		//Amethyst Tools and Armor
-		if (BOPConfiguration.amethystTools)
+		if (BOPConfiguration.Misc.amethystTools)
 		{
 			GameRegistry.addRecipe(new ItemStack(Items.pickaxeAmethyst.get(), 1), new Object [] {"###", " X ", " X ", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('X'), Item.ingotIron});
 			GameRegistry.addRecipe(new ItemStack(Items.shovelAmethyst.get(), 1), new Object [] {"#", "X", "X", Character.valueOf('#'), new ItemStack(Items.miscItems.get(), 1, 2), Character.valueOf('X'), Item.ingotIron});
@@ -207,7 +207,7 @@ public class BOPCrafting
 		}
 
 		//Flower Bands
-		if (BOPConfiguration.flowerbandCrafting)
+		if (BOPConfiguration.Misc.flowerbandCrafting)
 		{
 			GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 0), new Object [] {"CCC", "C C", "CCC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0)});
 			GameRegistry.addRecipe(new ItemStack(Items.flowerBand.get(), 1, 1), new Object [] {"CDC", "D D", "CDC", Character.valueOf('C'), new ItemStack(Blocks.flowers.get(), 1, 0), Character.valueOf('D'), new ItemStack(Blocks.flowers.get(), 1, 5)});
@@ -218,7 +218,7 @@ public class BOPCrafting
 		//Other
 		GameRegistry.addRecipe(new ItemStack(Item.wheat, 1), new Object[] {"###", '#', new ItemStack(Blocks.plants.get(),1,6)});
 
-		if (BOPConfiguration.staffCrafting)
+		if (BOPConfiguration.Misc.staffCrafting)
 		{
 			GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new Object[] {"T", "P", "H", 'T', new ItemStack(Items.ancientStaff.get(), 1, 3), 'P', new ItemStack(Items.ancientStaff.get(), 1, 2), 'H', new ItemStack(Items.ancientStaff.get(), 1, 1)});
 			GameRegistry.addRecipe(new ItemStack(Items.ancientStaff.get(), 1, 1), new Object[] {"ESE", "ETE", " E ", 'E', Block.whiteStone, 'T', new ItemStack(Items.miscItems.get(), 1, 13), 'S', new ItemStack(Items.miscItems.get(), 1, 15)});
@@ -227,13 +227,13 @@ public class BOPCrafting
 			GameRegistry.addShapelessRecipe(new ItemStack(Items.ancientStaff.get(), 1, 0), new ItemStack(Items.ancientStaff.get(), 1, 4), new ItemStack(Item.netherStar, 1));
 		}
 		
-		if (BOPConfiguration.enderporterCrafting)
+		if (BOPConfiguration.Misc.enderporterCrafting)
 		{
 			GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
 			GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
 		}
 		
-		if (BOPConfiguration.altarCrafting)
+		if (BOPConfiguration.Misc.altarCrafting)
 		{
 			GameRegistry.addRecipe(new ItemStack(Items.miscItems.get(), 1, 16), new Object[] {"SBS", "GKG", "SBS", 'S', Block.slowSand, 'B', Item.blazePowder, 'G', Item.ghastTear, 'K', new ItemStack(Item.skull, 1, 1)});
 			GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 0), new Object[] {"G", "T", "B", 'G', Block.glass, 'T', Item.ghastTear, 'B', Item.blazeRod});
@@ -244,7 +244,7 @@ public class BOPCrafting
 		}
 
 		//Dart Blower
-		if (BOPConfiguration.dartCrafting)
+		if (BOPConfiguration.Misc.dartCrafting)
 		{
 			GameRegistry.addRecipe(new ItemStack(Items.dartBlower.get(), 1), new Object[] {"R R", "R R", "R R", Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8)});
 			GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 4, 0), new Object[] {"T", "R", "F", Character.valueOf('T'), new ItemStack(Blocks.plants.get(), 1, 5), Character.valueOf('R'), new ItemStack(Blocks.plants.get(), 1, 8), Character.valueOf('F'), Item.feather});

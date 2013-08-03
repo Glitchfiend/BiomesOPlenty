@@ -31,7 +31,7 @@ public class BiomeGenMountain extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.realisticTrees)
+		if (BOPConfiguration.Main.realisticTrees)
 		{
 			return par1Random.nextInt(4) == 0 ? new WorldGenRealPineTree2() : (par1Random.nextInt(6) == 0 ? new WorldGenRealPineTree() : worldGeneratorTrees);
 		}

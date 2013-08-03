@@ -103,7 +103,7 @@ public class BiomeGenSludgepit extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors)
+		if (BOPConfiguration.Misc.skyColors)
 			return 7039816;
 		else
 		{

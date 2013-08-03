@@ -118,87 +118,87 @@ public class BOPBlocks
 	private static void initializeBlocks()
 	{
 		// Block declaration
-		Blocks.mud = Optional.of((new BlockMud(BOPConfiguration.mudID)).setHardness(0.6F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("bop.mud"));
-		Blocks.driedDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.driedDirtID, Material.rock, BlockType.DRIED_DIRT).setUnlocalizedName("bop.generic"));
-		Blocks.redRock = Optional.of((new BlockBOPRedRock(BOPConfiguration.redRockID)).setUnlocalizedName("bop.redRocks"));
-		Blocks.ash = Optional.of((new BlockAsh(BOPConfiguration.ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("bop.ash"));
-		Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfiguration.plantsID)).setUnlocalizedName("bop.plants"));
-		Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfiguration.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.flowers"));
-		Blocks.mushrooms = Optional.of((new BlockBOPMushroom(BOPConfiguration.mushroomsID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.mushrooms"));
-		Blocks.coral = Optional.of((new BlockBOPCoral(BOPConfiguration.coralID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.coral"));
-		Blocks.willow = Optional.of((new BlockWillow(BOPConfiguration.willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.willow"));
-		Blocks.ivy = Optional.of((new BlockIvy(BOPConfiguration.ivyID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.ivy"));
-		Blocks.leaves1 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves1ID, LeafCategory.CAT1)).setUnlocalizedName("bop.leaves1"));
-		Blocks.leaves2 = Optional.of((new BlockBOPLeaves(BOPConfiguration.leaves2ID, LeafCategory.CAT2)).setUnlocalizedName("bop.leaves2"));
-		Blocks.foliage = Optional.of((new BlockBOPFoliage(BOPConfiguration.foliageID)).setUnlocalizedName("bop.foliage"));
-		Blocks.ashStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.ashStoneID, Material.rock, BlockType.ASH_STONE));
-		Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardIceID, Material.rock, BlockType.HARD_ICE));
-		Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.leavesFruitID)).setUnlocalizedName("bop.leavesFruit"));
-		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.bamboo"));
-		Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
-		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("bop.mudBricksStairs"));
-		Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneDoubleSlab"));
-		Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneSingleSlab"));
-		Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfiguration.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.originGrass"));
-		Blocks.longGrass = Optional.of((new BlockLongGrass(BOPConfiguration.longGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.longGrass"));
-		Blocks.treeMoss = Optional.of((new BlockTreeMoss(BOPConfiguration.treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.treeMoss"));
-		Blocks.logs1 = Optional.of((new BlockBOPLog(BOPConfiguration.logs1ID,LogCategory.CAT1)).setUnlocalizedName("bop.wood1"));
-		Blocks.logs2 = Optional.of((new BlockBOPLog(BOPConfiguration.logs2ID,LogCategory.CAT2)).setUnlocalizedName("bop.wood2"));
-		Blocks.logs3 = Optional.of((new BlockBOPLog(BOPConfiguration.logs3ID,LogCategory.CAT3)).setUnlocalizedName("bop.wood3"));
-		Blocks.logs4 = Optional.of((new BlockBOPLog(BOPConfiguration.logs4ID,LogCategory.CAT4)).setUnlocalizedName("bop.wood4"));
-		Blocks.petals = Optional.of((new BlockBOPPetals(BOPConfiguration.petalsID)).setUnlocalizedName("bop.petals"));
-		Blocks.saplings = Optional.of((new BlockBOPSapling(BOPConfiguration.saplingsID)).setUnlocalizedName("bop.saplings"));
-		Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(BOPConfiguration.colourizedSaplingsID)).setUnlocalizedName("bop.colorizedSaplings"));
-		Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redCobbleStairsID, Blocks.redRock.get(), Category.RED_COBBLE)).setUnlocalizedName("bop.redCobbleStairs"));
-		Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setUnlocalizedName("bop.redBricksStairs"));
-		Blocks.hardSand = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardSandID, Material.sand, BlockType.HARD_SAND));
-		Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardDirtID, Material.rock, BlockType.HARD_DIRT));
-		Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.holyGrassID).setUnlocalizedName("bop.holyGrass"));
-		Blocks.holyDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyDirtID, Material.sand, BlockType.HOLY_DIRT));
-		Blocks.holyStone = Optional.of((new BlockBOPSkystone(BOPConfiguration.holyStoneID)).setUnlocalizedName("bop.holyStone"));
-		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setUnlocalizedName("bop.holyCobbleStairs"));
-		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setUnlocalizedName("bop.holyBricksStairs"));
-		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.crystalID, Material.glass, BlockType.CRYSTAL));
-		Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("bop.promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
+		Blocks.mud = Optional.of((new BlockMud(BOPConfiguration.IDs.mudID)).setHardness(0.6F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("bop.mud"));
+		Blocks.driedDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.driedDirtID, Material.rock, BlockType.DRIED_DIRT).setUnlocalizedName("bop.generic"));
+		Blocks.redRock = Optional.of((new BlockBOPRedRock(BOPConfiguration.IDs.redRockID)).setUnlocalizedName("bop.redRocks"));
+		Blocks.ash = Optional.of((new BlockAsh(BOPConfiguration.IDs.ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("bop.ash"));
+		Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfiguration.IDs.plantsID)).setUnlocalizedName("bop.plants"));
+		Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfiguration.IDs.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.flowers"));
+		Blocks.mushrooms = Optional.of((new BlockBOPMushroom(BOPConfiguration.IDs.mushroomsID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.mushrooms"));
+		Blocks.coral = Optional.of((new BlockBOPCoral(BOPConfiguration.IDs.coralID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.coral"));
+		Blocks.willow = Optional.of((new BlockWillow(BOPConfiguration.IDs.willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.willow"));
+		Blocks.ivy = Optional.of((new BlockIvy(BOPConfiguration.IDs.ivyID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.ivy"));
+		Blocks.leaves1 = Optional.of((new BlockBOPLeaves(BOPConfiguration.IDs.leaves1ID, LeafCategory.CAT1)).setUnlocalizedName("bop.leaves1"));
+		Blocks.leaves2 = Optional.of((new BlockBOPLeaves(BOPConfiguration.IDs.leaves2ID, LeafCategory.CAT2)).setUnlocalizedName("bop.leaves2"));
+		Blocks.foliage = Optional.of((new BlockBOPFoliage(BOPConfiguration.IDs.foliageID)).setUnlocalizedName("bop.foliage"));
+		Blocks.ashStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.ashStoneID, Material.rock, BlockType.ASH_STONE));
+		Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.hardIceID, Material.rock, BlockType.HARD_ICE));
+		Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.IDs.leavesFruitID)).setUnlocalizedName("bop.leavesFruit"));
+		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.IDs.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.bamboo"));
+		Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
+		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("bop.mudBricksStairs"));
+		Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneDoubleSlab"));
+		Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneSingleSlab"));
+		Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfiguration.IDs.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.originGrass"));
+		Blocks.longGrass = Optional.of((new BlockLongGrass(BOPConfiguration.IDs.longGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.longGrass"));
+		Blocks.treeMoss = Optional.of((new BlockTreeMoss(BOPConfiguration.IDs.treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.treeMoss"));
+		Blocks.logs1 = Optional.of((new BlockBOPLog(BOPConfiguration.IDs.logs1ID,LogCategory.CAT1)).setUnlocalizedName("bop.wood1"));
+		Blocks.logs2 = Optional.of((new BlockBOPLog(BOPConfiguration.IDs.logs2ID,LogCategory.CAT2)).setUnlocalizedName("bop.wood2"));
+		Blocks.logs3 = Optional.of((new BlockBOPLog(BOPConfiguration.IDs.logs3ID,LogCategory.CAT3)).setUnlocalizedName("bop.wood3"));
+		Blocks.logs4 = Optional.of((new BlockBOPLog(BOPConfiguration.IDs.logs4ID,LogCategory.CAT4)).setUnlocalizedName("bop.wood4"));
+		Blocks.petals = Optional.of((new BlockBOPPetals(BOPConfiguration.IDs.petalsID)).setUnlocalizedName("bop.petals"));
+		Blocks.saplings = Optional.of((new BlockBOPSapling(BOPConfiguration.IDs.saplingsID)).setUnlocalizedName("bop.saplings"));
+		Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(BOPConfiguration.IDs.colourizedSaplingsID)).setUnlocalizedName("bop.colorizedSaplings"));
+		Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redCobbleStairsID, Blocks.redRock.get(), Category.RED_COBBLE)).setUnlocalizedName("bop.redCobbleStairs"));
+		Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setUnlocalizedName("bop.redBricksStairs"));
+		Blocks.hardSand = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.hardSandID, Material.sand, BlockType.HARD_SAND));
+		Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.hardDirtID, Material.rock, BlockType.HARD_DIRT));
+		Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.IDs.holyGrassID).setUnlocalizedName("bop.holyGrass"));
+		Blocks.holyDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.holyDirtID, Material.sand, BlockType.HOLY_DIRT));
+		Blocks.holyStone = Optional.of((new BlockBOPSkystone(BOPConfiguration.IDs.holyStoneID)).setUnlocalizedName("bop.holyStone"));
+		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setUnlocalizedName("bop.holyCobbleStairs"));
+		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setUnlocalizedName("bop.holyBricksStairs"));
+		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.crystalID, Material.glass, BlockType.CRYSTAL));
+		Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.IDs.promisedLandPortalID).setUnlocalizedName("bop.promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
 
-		Blocks.amethystOre = Optional.of(new BlockBOPAmethyst(BOPConfiguration.amethystOreID, Material.rock).setUnlocalizedName("bop.amethystOre"));
+		Blocks.amethystOre = Optional.of(new BlockBOPAmethyst(BOPConfiguration.IDs.amethystOreID, Material.rock).setUnlocalizedName("bop.amethystOre"));
 
-		Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.moss"));
+		Blocks.moss = Optional.of((new BlockMoss(BOPConfiguration.IDs.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.moss"));
 		
-		Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.cragRockID, Material.rock, BlockType.CRAG_ROCK));
+		Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.cragRockID, Material.rock, BlockType.CRAG_ROCK));
 		
-		Blocks.cloud = Optional.of((new BlockCloud(BOPConfiguration.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("bop.cloud"));
+		Blocks.cloud = Optional.of((new BlockCloud(BOPConfiguration.IDs.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("bop.cloud"));
 
-		Blocks.bones = Optional.of((new BlockBones(BOPConfiguration.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.bones"));
+		Blocks.bones = Optional.of((new BlockBones(BOPConfiguration.IDs.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.bones"));
 		
-		Blocks.glass = Optional.of((new BlockBOPGlass(BOPConfiguration.glassID)).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("bop.glass"));
+		Blocks.glass = Optional.of((new BlockBOPGlass(BOPConfiguration.IDs.glassID)).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("bop.glass"));
 		
-		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
+		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.IDs.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
 		
-		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.puddleID)).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
-		Blocks.grave = Optional.of((new BlockGrave(BOPConfiguration.graveID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.grave"));
+		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.IDs.puddleID)).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
+		Blocks.grave = Optional.of((new BlockGrave(BOPConfiguration.IDs.graveID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.grave"));
 
-		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.planks"));
+		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.IDs.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.planks"));
 
-		Blocks.woodenDoubleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenDoubleSlab1ID, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("bop.woodenDoubleSlab1"));
-		Blocks.woodenSingleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenSingleSlab1ID, false, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("bop.woodenSingleSlab1"));
-		Blocks.woodenDoubleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenDoubleSlab2ID, true, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("bop.woodenDoubleSlab2"));
-		Blocks.woodenSingleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.woodenSingleSlab2ID, false, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("bop.woodenSingleSlab2"));
+		Blocks.woodenDoubleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.woodenDoubleSlab1ID, true, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("bop.woodenDoubleSlab1"));
+		Blocks.woodenSingleSlab1 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.woodenSingleSlab1ID, false, Material.wood, SlabCategory.WOOD1)).setUnlocalizedName("bop.woodenSingleSlab1"));
+		Blocks.woodenDoubleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.woodenDoubleSlab2ID, true, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("bop.woodenDoubleSlab2"));
+		Blocks.woodenSingleSlab2 = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.woodenSingleSlab2ID, false, Material.wood, SlabCategory.WOOD2)).setUnlocalizedName("bop.woodenSingleSlab2"));
 
-		Blocks.acaciaStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.acaciaStairsID, Blocks.planks.get(), Category.ACACIA)).setUnlocalizedName("bop.acaciaStairs"));
-		Blocks.cherryStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.cherryStairsID, Blocks.planks.get(), Category.CHERRY)).setUnlocalizedName("bop.cherryStairs"));
-		Blocks.darkStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.darkStairsID, Blocks.planks.get(), Category.DARK)).setUnlocalizedName("bop.darkStairs"));
-		Blocks.firStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.firStairsID, Blocks.planks.get(), Category.FIR)).setUnlocalizedName("bop.firStairs"));
-		Blocks.holyStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyStairsID, Blocks.planks.get(), Category.HOLY)).setUnlocalizedName("bop.holyStairs"));
-		Blocks.magicStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.magicStairsID, Blocks.planks.get(), Category.MAGIC)).setUnlocalizedName("bop.magicStairs"));
-		Blocks.mangroveStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.mangroveStairsID, Blocks.planks.get(), Category.MANGROVE)).setUnlocalizedName("bop.mangroveStairs"));
-		Blocks.palmStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.palmStairsID, Blocks.planks.get(), Category.PALM)).setUnlocalizedName("bop.palmStairs"));
-		Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redwoodStairsID, Blocks.planks.get(), Category.REDWOOD)).setUnlocalizedName("bop.redwoodStairs"));
-		Blocks.willowStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.willowStairsID, Blocks.planks.get(), Category.WILLOW)).setUnlocalizedName("bop.willowStairs"));
-		Blocks.pineStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.pineStairsID, Blocks.planks.get(), Category.PINE)).setUnlocalizedName("bop.pineStairs"));
-		Blocks.hellBarkStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.hellBarkStairsID, Blocks.planks.get(), Category.HELL_BARK)).setUnlocalizedName("bop.hellBarkStairs"));
-		Blocks.jacarandaStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.jacarandaStairsID, Blocks.planks.get(), Category.JACARANDA)).setUnlocalizedName("bop.jacarandaStairs"));
-		Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(BOPConfiguration.colourizedLeavesID)).setUnlocalizedName("bop.leavesColorized"));
+		Blocks.acaciaStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.acaciaStairsID, Blocks.planks.get(), Category.ACACIA)).setUnlocalizedName("bop.acaciaStairs"));
+		Blocks.cherryStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.cherryStairsID, Blocks.planks.get(), Category.CHERRY)).setUnlocalizedName("bop.cherryStairs"));
+		Blocks.darkStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.darkStairsID, Blocks.planks.get(), Category.DARK)).setUnlocalizedName("bop.darkStairs"));
+		Blocks.firStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.firStairsID, Blocks.planks.get(), Category.FIR)).setUnlocalizedName("bop.firStairs"));
+		Blocks.holyStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyStairsID, Blocks.planks.get(), Category.HOLY)).setUnlocalizedName("bop.holyStairs"));
+		Blocks.magicStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.magicStairsID, Blocks.planks.get(), Category.MAGIC)).setUnlocalizedName("bop.magicStairs"));
+		Blocks.mangroveStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.mangroveStairsID, Blocks.planks.get(), Category.MANGROVE)).setUnlocalizedName("bop.mangroveStairs"));
+		Blocks.palmStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.palmStairsID, Blocks.planks.get(), Category.PALM)).setUnlocalizedName("bop.palmStairs"));
+		Blocks.redwoodStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redwoodStairsID, Blocks.planks.get(), Category.REDWOOD)).setUnlocalizedName("bop.redwoodStairs"));
+		Blocks.willowStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.willowStairsID, Blocks.planks.get(), Category.WILLOW)).setUnlocalizedName("bop.willowStairs"));
+		Blocks.pineStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.pineStairsID, Blocks.planks.get(), Category.PINE)).setUnlocalizedName("bop.pineStairs"));
+		Blocks.hellBarkStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.hellBarkStairsID, Blocks.planks.get(), Category.HELL_BARK)).setUnlocalizedName("bop.hellBarkStairs"));
+		Blocks.jacarandaStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.jacarandaStairsID, Blocks.planks.get(), Category.JACARANDA)).setUnlocalizedName("bop.jacarandaStairs"));
+		Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(BOPConfiguration.IDs.colourizedLeavesID)).setUnlocalizedName("bop.leavesColorized"));
 	}
 
 	private static void registerBlocks()

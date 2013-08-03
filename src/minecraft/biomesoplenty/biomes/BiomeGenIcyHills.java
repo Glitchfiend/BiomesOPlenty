@@ -67,7 +67,7 @@ public class BiomeGenIcyHills extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.skyColors)
+		if (BOPConfiguration.Misc.skyColors)
 			return 16777215;
 		else
 		{

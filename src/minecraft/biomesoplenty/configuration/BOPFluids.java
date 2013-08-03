@@ -28,23 +28,23 @@ public class BOPFluids
 
 	private static void registerFluids()
 	{
-		Fluids.liquidPoisonFluid = Optional.of(new LiquidPoisonFluid("bop.liquidPoison").setBlockID(BOPConfiguration.liquidPoisonStillID));
+		Fluids.liquidPoisonFluid = Optional.of(new LiquidPoisonFluid("bop.liquidPoison").setBlockID(BOPConfiguration.IDs.liquidPoisonStillID));
 		FluidRegistry.registerFluid(Fluids.liquidPoisonFluid.get());
 
-		Fluids.springWaterFluid = Optional.of(new SpringWaterFluid("bop.springWater").setBlockID(BOPConfiguration.springWaterStillID));
+		Fluids.springWaterFluid = Optional.of(new SpringWaterFluid("bop.springWater").setBlockID(BOPConfiguration.IDs.springWaterStillID));
 		FluidRegistry.registerFluid(Fluids.springWaterFluid.get());
 	}
 
 	private static void initializeLiquids()
 	{
-		Fluids.liquidPoison = Optional.of(new BlockFluidLiquidPoison(BOPConfiguration.liquidPoisonStillID, Fluids.liquidPoisonFluid.get(), Material.water).setUnlocalizedName("bop.liquidPoison"));
+		Fluids.liquidPoison = Optional.of(new BlockFluidLiquidPoison(BOPConfiguration.IDs.liquidPoisonStillID, Fluids.liquidPoisonFluid.get(), Material.water).setUnlocalizedName("bop.liquidPoison"));
 
-		Fluids.springWater = Optional.of(new BlockFluidSpringWater(BOPConfiguration.springWaterStillID, Fluids.springWaterFluid.get(), Material.water).setUnlocalizedName("bop.springWater"));
+		Fluids.springWater = Optional.of(new BlockFluidSpringWater(BOPConfiguration.IDs.springWaterStillID, Fluids.springWaterFluid.get(), Material.water).setUnlocalizedName("bop.springWater"));
 	}
 
 	private static void initializeContainers()
 	{
-		Fluids.bopBucket = Optional.of((new ItemBOPBucket(BOPConfiguration.bopBucketID).setMaxStackSize(1).setUnlocalizedName("bop.bopBucket")));
+		Fluids.bopBucket = Optional.of((new ItemBOPBucket(BOPConfiguration.IDs.bopBucketID).setMaxStackSize(1).setUnlocalizedName("bop.bopBucket")));
 		
 		FluidContainerRegistry.registerFluidContainer(Fluids.liquidPoisonFluid.get(), new ItemStack(Fluids.bopBucket.get(), 1, 1), new ItemStack(Item.bucketEmpty));
 		FluidContainerRegistry.registerFluidContainer(Fluids.springWaterFluid.get(), new ItemStack(Fluids.bopBucket.get(), 1, 2), new ItemStack(Fluids.bopBucket.get(), 1, 0));

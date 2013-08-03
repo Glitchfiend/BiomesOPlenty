@@ -1,7 +1,5 @@
 package biomesoplenty;
 
-import java.io.File;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -54,13 +52,13 @@ public class BiomesOPlenty
 	public static CommonProxy proxy;
 
 	public static CreativeTabs tabBiomesOPlenty;
-	public static String mainBOPConfig;
+	public static String configPath;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		mainBOPConfig = event.getModConfigurationDirectory() + "/biomesoplenty/" + "main.cfg";
-		BOPConfiguration.init(new File(mainBOPConfig));
+		configPath = event.getModConfigurationDirectory() + "/biomesoplenty/";
+		BOPConfiguration.init(configPath);
 		
 		Version.check();
 
@@ -81,7 +79,7 @@ public class BiomesOPlenty
 		}
 
 		// Achievement declaration
-		if (BOPConfiguration.achievements)
+		if (BOPConfiguration.Misc.achievements)
 		{
 			AchievementHelper.init();
 		}
@@ -111,13 +109,13 @@ public class BiomesOPlenty
 
 		proxy.registerRenderers();
 
-		if (BOPConfiguration.netherOverride)
+		if (BOPConfiguration.TerrainGen.netherOverride)
 		{
         	DimensionManager.unregisterProviderType(-1);
         	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
 		}
-		DimensionManager.registerProviderType(BOPConfiguration.promisedLandDimID, WorldProviderPromised.class, false);
-		DimensionManager.registerDimension(BOPConfiguration.promisedLandDimID, BOPConfiguration.promisedLandDimID);
+		DimensionManager.registerProviderType(BOPConfiguration.IDs.promisedLandDimID, WorldProviderPromised.class, false);
+		DimensionManager.registerDimension(BOPConfiguration.IDs.promisedLandDimID, BOPConfiguration.IDs.promisedLandDimID);
 		
 		BOPCrossIntegration.init();
 	}

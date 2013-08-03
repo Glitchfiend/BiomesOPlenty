@@ -363,7 +363,7 @@ public class AchievementHelper
 	// Achievement checker
 	private static void onItemPickup(EntityPlayer player, ItemStack item)
 	{
-		if (BOPConfiguration.achievements)
+		if (BOPConfiguration.Misc.achievements)
 		{
 			if (item.itemID == Blocks.flowers.get().blockID || item.itemID == Block.plantRed.blockID || item.itemID == Block.plantYellow.blockID)
 			{
@@ -415,7 +415,7 @@ public class AchievementHelper
 	@ForgeSubscribe
 	public void chunkEntered(EntityEvent.EnteringChunk event)
 	{
-		if (BOPConfiguration.achievements)
+		if (BOPConfiguration.Misc.achievements)
 		{
 			if (event.entity != null)
 			{

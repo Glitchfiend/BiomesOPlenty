@@ -43,7 +43,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.realisticTrees)
+		if (BOPConfiguration.Main.realisticTrees)
 		{
 			return par1Random.nextInt(5) == 0 ? new WorldGenFir1() : (par1Random.nextInt(3) == 0 ? new WorldGenFir2() : new WorldGenFir3());
 		}

@@ -108,7 +108,7 @@ public class BiomeGenBayou extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors)
+		 if (BOPConfiguration.Misc.skyColors)
 			 return 11322556;
 		 else
 		 {

@@ -36,7 +36,7 @@ public class BiomeGenRedwoodForest extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.realisticTrees)
+		if (BOPConfiguration.Main.realisticTrees)
 		{
 			return par1Random.nextInt(4) == 0 ? new WorldGenRealRedwood() : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenRealRedwood2());
 		}

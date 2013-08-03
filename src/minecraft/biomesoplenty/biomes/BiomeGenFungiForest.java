@@ -109,7 +109,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.skyColors)
+		 if (BOPConfiguration.Misc.skyColors)
 			 return 5888980;
 		 else
 		 {

@@ -38,13 +38,13 @@ public class BOPEntities {
 
 	public static void init()
 	{
-		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfiguration.entityMudballID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfiguration.entityDartID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfiguration.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfiguration.IDs.entityMudballID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfiguration.IDs.entityDartID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfiguration.IDs.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true);
 
-		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.rosesterID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfiguration.globID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.IDs.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.IDs.rosesterID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfiguration.IDs.globID, BiomesOPlenty.instance, 80, 3, true);
 
 		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);

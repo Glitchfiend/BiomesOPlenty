@@ -46,7 +46,7 @@ public class Version implements Runnable {
 		if (!isOutdated())
 			return false;
 
-		//Property property = BOPConfiguration.config.get("Vars", "Seen Version", VERSION);
+		//Property property = BOPConfiguration.Main.config.get("Vars", "Seen Version", VERSION);
 		//String seenVersion = property.getString();
 
 		//if (recommendedVersion == null || recommendedVersion.equals(seenVersion))
@@ -54,7 +54,7 @@ public class Version implements Runnable {
 
 		/*property.set(recommendedVersion);
 		
-		BOPConfiguration.config.save();*/
+		BOPConfiguration.Main.config.save();*/
 		
 		return true;
 	}
@@ -64,7 +64,7 @@ public class Version implements Runnable {
 		WorldType terrainType = world.getWorldInfo().getTerrainType();
 		WorldTypeBOP bopType = new WorldTypeBOP();
 		
-		Property property = BOPConfiguration.config.get("Vars", "Seen WorldType Msg", false);
+		Property property = BOPConfiguration.Main.config.get("Vars", "Seen WorldType Msg", false);
 		String worldTypeProp = property.getString();
 		
 		if (terrainType == null || property.getBoolean(false) == true)
@@ -74,13 +74,13 @@ public class Version implements Runnable {
 		{
 			property.set(true);
 			
-			BOPConfiguration.config.save();
+			BOPConfiguration.Main.config.save();
 			return false;
 		}
 		
 		property.set(true);
 		
-		BOPConfiguration.config.save();
+		BOPConfiguration.Main.config.save();
 		return true;
 	}
 

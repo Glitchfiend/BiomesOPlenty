@@ -247,7 +247,7 @@ public class ChunkProviderBOP implements IChunkProvider
 								 }
 								 else if (k1 >= b0 - 4 && k1 <= b0 + 1)
 								 {
-									 if(biomegenbase.biomeID == BOPConfiguration.originValleyID)
+									 if(biomegenbase.biomeID == BOPConfiguration.IDs.originValleyID)
 									 {
 										 if(gravelbeach)
 										 {

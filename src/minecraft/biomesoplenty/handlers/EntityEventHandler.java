@@ -85,7 +85,7 @@ public class EntityEventHandler
 	@ForgeSubscribe
 	public void fallingFromPromisedLand(LivingHurtEvent event)
 	{
-		if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfiguration.promisedLandDimID)
+		if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfiguration.IDs.promisedLandDimID)
 		{
 			event.setCanceled(true);
 

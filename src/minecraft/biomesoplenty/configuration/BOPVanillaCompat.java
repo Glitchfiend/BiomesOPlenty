@@ -29,7 +29,7 @@ public class BOPVanillaCompat {
 		strongholdCrossing = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING);
 		village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 
-		if (BOPConfiguration.dungeonLoot == true)
+		if (BOPConfiguration.Misc.dungeonLoot == true)
 		{
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 2));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 2, 5));
