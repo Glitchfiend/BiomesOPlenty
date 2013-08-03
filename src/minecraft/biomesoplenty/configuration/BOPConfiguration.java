@@ -55,7 +55,7 @@ public class BOPConfiguration
 				seenVersion = config.get("Vars", "Seen Version", "null");
 				seenWorldTypeMsg = config.get("Vars", "Seen WorldType Msg", false);
 
-				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
+				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Main Config!");
 			}
 			catch (Exception e)
 			{
@@ -279,7 +279,7 @@ public class BOPConfiguration
 				gravelBeachGen = config.get("Beach Variations To Generate", "Gravel Beach", true).getBoolean(true);
 				overgrownBeachGen = config.get("Beach Variations To Generate", "Overgrown Beach", false).getBoolean(true);
 
-				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
+				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Biome Gen Config!");
 			}
 			catch (Exception e)
 			{
@@ -494,7 +494,7 @@ public class BOPConfiguration
 				swamplandVillage = config.get("Allow Villages", "Swampland", false).getBoolean(false);
 				taigaVillage = config.get("Allow Villages", "Taiga", true).getBoolean(false);
 				
-				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
+				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Terrain Gen Config!");
 			}
 			catch (Exception e)
 			{
@@ -1076,7 +1076,7 @@ public class BOPConfiguration
 				extremeHillsNewID = config.get("Biome IDs", "Extreme Hills (New) ID", 253).getInt();
 				jungleNewID = config.get("Biome IDs", "Jungle (New) ID", 254).getInt();
 
-				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
+				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated IDs Config!");
 			}
 			catch (Exception e)
 			{
@@ -1138,7 +1138,7 @@ public class BOPConfiguration
 
 				promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 50175, null).getInt();
 
-				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Config!");
+				FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Misc Config!");
 			}
 			catch (Exception e)
 			{
