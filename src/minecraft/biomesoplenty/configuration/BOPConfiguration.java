@@ -227,7 +227,6 @@ public class BOPConfiguration
 				//			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
 				mysticGroveGen = config.get("Biomes To Generate", "MysticGrove", true).getBoolean(false);
 				oasisGen = config.get("Biomes To Generate", "Oasis", true).getBoolean(false);
-				oceanGen = config.get("Biomes To Generate", "Ocean", true).getBoolean(false);
 				ominousWoodsGen = config.get("Biomes To Generate", "OminousWoods", true).getBoolean(false);
 				orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 				originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
@@ -263,6 +262,7 @@ public class BOPConfiguration
 				extremeHillsGen = config.get("Vanilla Biomes To Generate", "ExtremeHills", true).getBoolean(true);
 				forestGen = config.get("Vanilla Biomes To Generate", "Forest", true).getBoolean(true);
 				jungleGen = config.get("Vanilla Biomes To Generate", "Jungle", true).getBoolean(true);
+				oceanGen = config.get("Vanilla Biomes To Generate", "Ocean", true).getBoolean(false);
 				plainsGen = config.get("Vanilla Biomes To Generate", "Plains", true).getBoolean(true);
 				swamplandGen = config.get("Vanilla Biomes To Generate", "Swampland", true).getBoolean(true);
 				taigaGen = config.get("Vanilla Biomes To Generate", "Taiga", true).getBoolean(true);
