@@ -7,7 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.Icon;
@@ -75,25 +74,11 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		
 		if (!world.isRemote)
 		{
 			if (entity instanceof EntityLivingBase) 
 			{
 				((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20));
-			}
-
-			if (entity instanceof EntityPlayer) 
-			{
-				if (world.rand.nextInt(150) == 0)
-				{
-					EntityPlayer player = (EntityPlayer)entity;
-
-					if (player.getFoodStats().needFood())
-					{
-						//((EntityPlayer)entity).addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 1));
-					}
-				}
 			}
 		}
 	}
