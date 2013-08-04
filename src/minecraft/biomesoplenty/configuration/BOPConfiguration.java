@@ -1100,6 +1100,7 @@ public class BOPConfiguration
 		public static boolean achievements;
 		public static boolean dungeonLoot;
 		public static boolean rainCreatesPuddles;
+        public static boolean generateAmethystOres;
 		
 		public static boolean amethystTools;
 		public static boolean mudTools;
@@ -1123,6 +1124,7 @@ public class BOPConfiguration
 				achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 				dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
 				rainCreatesPuddles = config.get("Miscellanious Settings", "Enable Puddles During Rain", true).getBoolean(true);
+                generateAmethystOres = config.get("Miscellanious Settings", "Generate Amethyst Ores", true).getBoolean(true);
 
 				amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 				mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);

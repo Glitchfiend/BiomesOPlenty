@@ -23,7 +23,7 @@
 
 	<target name="prep">
 		<copy todir="${build.dir.development}\forge\mcp\src\minecraft">
-			<fileset dir="${build.dir.development}\src\minecraft">
+			<fileset dir="${build.dir.development}\source\Biomes O Plenty\src\minecraft\">
 				<exclude name="**/assets/**"/>
 				<exclude name="pack.mcmeta"/>
 				<exclude name="pack.png"/>
@@ -78,7 +78,7 @@
 				<exclude name="**/thaumcraft/**"/>
 				<exclude name="**/thermalexpansion/**"/>
 			</fileset>
-			<fileset dir="${build.dir.development}\src\minecraft">
+			<fileset dir="${build.dir.development}\source\Biomes O Plenty\src\minecraft">
 				<include name="**/assets/**" />
 				<include name="pack.mcmeta" />
 				<include name="pack.png" />
