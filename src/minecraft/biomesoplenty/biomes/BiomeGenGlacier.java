@@ -2,6 +2,7 @@ package biomesoplenty.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.configuration.BOPConfiguration;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -30,6 +31,8 @@ public class BiomeGenGlacier extends BiomeGenBase
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
 		super.decorate(par1World, par2Random, par3, par4);
+        if (!BOPConfiguration.Misc.generateAmethystOres)
+            return;
 		int var5 = 12 + par2Random.nextInt(6);
 
 		for (int var6 = 0; var6 < var5; ++var6)

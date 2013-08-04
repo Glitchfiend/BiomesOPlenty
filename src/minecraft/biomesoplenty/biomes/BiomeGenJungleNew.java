@@ -66,21 +66,24 @@ public class BiomeGenJungleNew extends BiomeGenBase
 	{
 		super.decorate(par1World, par2Random, par3, par4);
 		WorldGenVines var5 = new WorldGenVines();
-		
-		int var55 = 12 + par2Random.nextInt(6);
 
-		for (int var66 = 0; var66 < var55; ++var66)
-		{
-			int var77 = par3 + par2Random.nextInt(16);
-			int var88 = par2Random.nextInt(28) + 4;
-			int var99 = par4 + par2Random.nextInt(16);
-			int var100 = par1World.getBlockId(var77, var88, var99);
+        if (BOPConfiguration.Misc.generateAmethystOres)
+        {
+            int var55 = 12 + par2Random.nextInt(6);
 
-			if (var100 == Block.stone.blockID)
-			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 6, 2);
-			}
-		}
+            for (int var66 = 0; var66 < var55; ++var66)
+            {
+                int var77 = par3 + par2Random.nextInt(16);
+                int var88 = par2Random.nextInt(28) + 4;
+                int var99 = par4 + par2Random.nextInt(16);
+                int var100 = par1World.getBlockId(var77, var88, var99);
+
+                if (var100 == Block.stone.blockID)
+                {
+                    par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 6, 2);
+                }
+            }
+        }
 
 		for (int var6 = 0; var6 < 50; ++var6)
 		{
