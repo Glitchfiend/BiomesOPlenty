@@ -47,7 +47,7 @@
 	<entry key="tile.bop.flowers.violet.name">Фиалка</entry>
 	<entry key="tile.bop.flowers.anemone.name">Анемон</entry>
 	<entry key="tile.bop.flowers.lilyflower.name">Кувшинка</entry>
-	<entry key="tile.bop.flowers.rainbowflower.name">Chromaflora</entry>
+	<entry key="tile.bop.flowers.rainbowflower.name">Радужный цветок</entry>
 	<entry key="tile.bop.flowers.aloe.name">Алоэ</entry>
 	<entry key="tile.bop.flowers.sunflowerbottom.name">Подсолнечник</entry>
 	<entry key="tile.bop.flowers.sunflowertop.name">Подсолнечник</entry>
@@ -64,7 +64,7 @@
 	<entry key="tile.bop.foliage.berrybush.name">Ягодный куст</entry>
 
 	<entry key="tile.bop.petals.bigflowerred.name">Гигантский красный цветок</entry>
-	<entry key="tile.bop.petals.bigfloweryellow.name">Гигантский желтый цветок</entry>
+	<entry key="tile.bop.petals.bigfloweryellow.name">Гигантский жёлтый цветок</entry>
 
 	<entry key="tile.bop.mushrooms.toadstool.name">Гриб</entry>
 	<entry key="tile.bop.mushrooms.portobello.name">Портобелло</entry>
@@ -153,7 +153,7 @@
 
 	<entry key="tile.bop.puddle.name">Лужица</entry>
 
-    <entry key="tile.bop.grave.name">Могила</entry>
+        <entry key="tile.bop.grave.name">Могила</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Плита из красного булыжника</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Кирпичная плита из красного камня</entry>
@@ -270,7 +270,7 @@
 	<entry key="item.bop.food.berries.name">Ягода</entry>
 	<entry key="item.bop.food.shroompowder.name">Молотый гриб</entry>
 	<entry key="item.bop.food.wildcarrots.name">Дикая морковь</entry>
-	<entry key="item.bop.food.sunflowerseeds.name">Семена светоцвета</entry>
+	<entry key="item.bop.food.sunflowerseeds.name">Семечки подсолнуха</entry>
 	<entry key="item.bop.food.saladfruit.name">Фруктовый салат</entry>
 	<entry key="item.bop.food.saladveggie.name">Овощной салат</entry>
 	<entry key="item.bop.food.saladshroom.name">Грибной салат</entry>
@@ -328,16 +328,16 @@
 	<entry key="item.bop.scytheAmethyst.name">Аметистовая коса</entry>
 
 	<entry key="item.bop.ancientStaff.ancientstaff.name">Древний посох</entry>
-	<entry key="item.bop.ancientStaff.staffhandle.name">Рукоять Древнего посоха</entry>
-	<entry key="item.bop.ancientStaff.staffpole.name">Древко Древнего посоха</entry>
-	<entry key="item.bop.ancientStaff.stafftopper.name">Верхушка Древнего посоха</entry>
-	<entry key="item.bop.ancientStaff.ancientstaffbroken.name">Истощенный Древний посох</entry>
+	<entry key="item.bop.ancientStaff.staffhandle.name">Рукоять древнего посоха</entry>
+	<entry key="item.bop.ancientStaff.staffpole.name">Древко древнего посоха</entry>
+	<entry key="item.bop.ancientStaff.stafftopper.name">Верхушка древнего посоха</entry>
+	<entry key="item.bop.ancientStaff.ancientstaffbroken.name">Истощенный древний посох</entry>
 
 	<entry key="item.bop.soulManipulator.soulmanipulator_empty.name">Манипулятор духа</entry>
 	<entry key="item.bop.soulManipulator.soulmanipulator_ghastlysoul.name">Манипулятор жуткого духа</entry>
 	<entry key="item.bop.soulManipulator.soulmanipulator_villager.name">Манипулятор духа жителей</entry>
 
-	<entry key="item.bop.enderporter.name">Телепортер Края</entry>
+	<entry key="item.bop.enderporter.name">Телепортер края</entry>
 
 	<entry key="item.bop.bopDisc.name">Музыкальная пластинка</entry>
 	<entry key="item.bop.bopDiscMud.name">Музыкальная пластинка</entry>
@@ -356,16 +356,16 @@
 	<entry key="tile.bop.springWater.name">Родниковая вода</entry>
 	
 	<entry key="fluid.bop.liquidPoison">Яд</entry>
-    <entry key="fluid.bop.springWater">Родниковая вода</entry>
+        <entry key="fluid.bop.springWater">Родниковая вода</entry>
 
 	<!--Phrases -->
 	<entry key="phrase.bop.promisedPortalOverworld">Врата в Землю Обетованную открылись выше.</entry>
 	<entry key="phrase.bop.promisedPortalOther">Врата в обычный мир открылись выше.</entry>
 
 	<!--Creative Tab -->
-   <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+        <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
 
 	<!--World Type -->
-   <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
+        <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
 
 </properties>
