@@ -10,7 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -189,7 +189,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 
 		if (!par1World.isRemote && meta == 7) 
 		{
-			if (par5Entity instanceof EntityLivingBase)
+			if (par5Entity instanceof EntityLiving)
 			{
 				if (par5Entity instanceof EntityPlayer)
 				{
@@ -197,12 +197,12 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 
 					if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
 					{
-						((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+						((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 					}
 				}
 				else
 				{
-					((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+					((EntityLiving)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
 			}
 		}

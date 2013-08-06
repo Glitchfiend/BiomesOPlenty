@@ -60,17 +60,17 @@ public class ArmorFlowerBand extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
-		if (stack.getItemDamage() == 0)
-			return "biomesoplenty:textures/armor/dullflowerband.png";
+	    if (stack.getItemDamage() == 0)
+            return "/mods/biomesoplenty/textures/armor/dullflowerband.png";
 
-		if (stack.getItemDamage() == 1)
-			return "biomesoplenty:textures/armor/plainflowerband.png";
+        if (stack.getItemDamage() == 1)
+            return "/mods/biomesoplenty/textures/armor/plainflowerband.png";
 
-		if (stack.getItemDamage() == 2)
-			return "biomesoplenty:textures/armor/lushflowerband.png";
+        if (stack.getItemDamage() == 2)
+            return "/mods/biomesoplenty/textures/armor/lushflowerband.png";
 
-		if (stack.getItemDamage() == 3)
-			return "biomesoplenty:textures/armor/exoticflowerband.png";
+        if (stack.getItemDamage() == 3)
+            return "/mods/biomesoplenty/textures/armor/exoticflowerband.png";
 
 		return null;
 	}

@@ -5,7 +5,6 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -168,7 +167,7 @@ public class EntityPoisonDart extends EntityArrow
 					f2 = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
 					int i1 = MathHelper.ceiling_double_int(f2 * damage);
 
-					((EntityLivingBase)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+					((EntityLiving)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 
 					if (this.getIsCritical())
 					{
@@ -195,7 +194,7 @@ public class EntityPoisonDart extends EntityArrow
 					{
 						if (movingobjectposition.entityHit instanceof EntityLiving)
 						{
-							EntityLivingBase entityliving = (EntityLivingBase)movingobjectposition.entityHit;
+							EntityLiving entityliving = (EntityLiving)movingobjectposition.entityHit;
 
 							if (shootingEntity != null && movingobjectposition.entityHit != shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && shootingEntity instanceof EntityPlayerMP)
 							{

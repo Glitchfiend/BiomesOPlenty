@@ -32,9 +32,9 @@ public class ArmorAmethyst extends ItemArmor
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
 		if (stack.itemID == Items.helmetAmethyst.get().itemID || stack.itemID == Items.chestplateAmethyst.get().itemID || stack.itemID == Items.bootsAmethyst.get().itemID)
-			return "biomesoplenty:textures/armor/amethyst_1.png";
+			return "/mods/biomesoplenty/textures/armor/amethyst_1.png";
 		if (stack.itemID == Items.leggingsAmethyst.get().itemID)
-			return "biomesoplenty:textures/armor/amethyst_2.png";
+			return "/mods/biomesoplenty/textures/armor/amethyst_2.png";
 		
 		return null;
 	}

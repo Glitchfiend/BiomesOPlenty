@@ -32,8 +32,10 @@ import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
 import biomesoplenty.world.WorldTypeSize;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PostInit;
+import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -56,7 +58,7 @@ public class BiomesOPlenty
 	public static CreativeTabs tabBiomesOPlenty;
 	public static String mainBOPConfig;
 
-	@EventHandler
+	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		mainBOPConfig = event.getModConfigurationDirectory() + "/biomesoplenty/" + "main.cfg";
@@ -96,7 +98,7 @@ public class BiomesOPlenty
 		BOPCrossIntegration.preInit();
 	}
 
-	@EventHandler
+	@Init
 	public void load(FMLInitializationEvent event)
 	{
 		// Add helpers for compatibility
@@ -122,7 +124,7 @@ public class BiomesOPlenty
 		BOPCrossIntegration.init();
 	}
 
-	@EventHandler
+	@PostInit
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		BOPCrossIntegration.postInit();

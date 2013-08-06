@@ -23,9 +23,9 @@ public class ArmorMuddy extends ItemArmor
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
 	{
 		if (stack.itemID == Items.helmetMud.get().itemID || stack.itemID == Items.chestplateMud.get().itemID || stack.itemID == Items.bootsMud.get().itemID)
-			return "biomesoplenty:textures/armor/mud_1.png";
+			return "/mods/biomesoplenty/textures/armor/mud_1.png";
 		if (stack.itemID == Items.leggingsMud.get().itemID)
-			return "biomesoplenty:textures/armor/mud_2.png";
+			return "/mods/biomesoplenty/textures/armor/mud_2.png";
 		
 		return null;
 	}

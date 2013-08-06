@@ -2,7 +2,6 @@ package biomesoplenty.potions;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,7 +17,7 @@ public class PotionParalysis extends Potion
 	@SideOnly(Side.CLIENT)
 	public int getStatusIconIndex()
 	{
-		Minecraft.getMinecraft().renderEngine.func_110577_a(new ResourceLocation("biomesoplenty:textures/potions/BOPPotionFX.png"));
+		Minecraft.getMinecraft().renderEngine.bindTexture("/mods/biomesoplenty/textures/potions/BOPPotionFX.png");
 		return 1;
 	}
 

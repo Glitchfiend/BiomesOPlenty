@@ -1,11 +1,12 @@
 package biomesoplenty;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.RenderBlockFluid;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.AltarRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
@@ -15,14 +16,10 @@ import biomesoplenty.blocks.renderers.PuddleRender;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
 import biomesoplenty.entities.EntityGlob;
-import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.entities.EntityRosester;
 import biomesoplenty.entities.projectiles.EntityDart;
 import biomesoplenty.entities.projectiles.EntityMudball;
 import biomesoplenty.entities.render.RenderDart;
 import biomesoplenty.entities.render.RenderGlob;
-import biomesoplenty.entities.render.RenderJungleSpider;
-import biomesoplenty.entities.render.RenderRosester;
 import biomesoplenty.particles.EntityDandelionFX;
 import biomesoplenty.particles.EntitySteamFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -46,8 +43,6 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
-		RenderingRegistry.registerEntityRenderingHandler(EntityJungleSpider.class, new RenderJungleSpider());
-		RenderingRegistry.registerEntityRenderingHandler(EntityRosester.class, new RenderRosester(new ModelChicken(), 0.3F));
 
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
@@ -55,6 +50,9 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new AltarRenderer());
 		RenderingRegistry.registerBlockHandler(new PuddleRender());
 		RenderingRegistry.registerBlockHandler(new GraveRenderer());
+		
+		FluidRegistry.renderIdFluid = RenderingRegistry.getNextAvailableRenderId();
+        RenderingRegistry.registerBlockHandler(RenderBlockFluid.instance);
 	}
 
 	@Override
@@ -64,15 +62,15 @@ public class ClientProxy extends CommonProxy {
 
 		if (string == "mud") 
 		{
-			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get());
+		    entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get(), mc.renderEngine);
 		} 
 		else if (string == "dart") 
 		{
-			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), 0);
+		    entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
 		} 
 		else if (string == "poisondart") 
 		{
-			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), 1);
+		    entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.dart.get(), mc.renderEngine);
 		} 
 		else if (string == "dandelion") 
 		{

@@ -1,7 +1,7 @@
 package biomesoplenty.handlers;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockColored;
+import net.minecraft.block.BlockCloth;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
@@ -167,7 +167,7 @@ public class EntityEventHandler
 			else if (itemstack.itemID == Items.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
 			{
 				int dyeMeta = convertToDyeMeta(itemDamage);      
-				int i = BlockColored.getBlockFromDye(dyeMeta);
+				int i = BlockCloth.getBlockFromDye(dyeMeta);
 
 				if (entity instanceof EntityWolf)
 				{

@@ -1,6 +1,6 @@
 package biomesoplenty.handlers;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -12,7 +12,7 @@ public class MovementHandler
 	@ForgeSubscribe
 	public void onEntityLivingUpdate(LivingUpdateEvent event) 
 	{
-		EntityLivingBase entity = event.entityLiving;
+		EntityLiving entity = event.entityLiving;
 
 		World world = entity.worldObj;
 

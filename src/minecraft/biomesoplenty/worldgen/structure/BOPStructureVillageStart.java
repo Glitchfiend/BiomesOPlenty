@@ -1,7 +1,7 @@
 package biomesoplenty.worldgen.structure;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.world.World;
@@ -18,31 +18,31 @@ class BOPStructureVillageStart extends StructureStart
 
 	public BOPStructureVillageStart(World par1World, Random par2Random, int par3, int par4, int par5)
 	{
-        List list = StructureVillagePieces.getStructureVillageWeightedPieceList(par2Random, par5);
-        ComponentVillageStartPiece componentvillagestartpiece = new ComponentVillageStartPiece(par1World.getWorldChunkManager(), 0, par2Random, (par3 << 4) + 2, (par4 << 4) + 2, list, par5);
+		ArrayList arraylist = StructureVillagePieces.getStructureVillageWeightedPieceList(par2Random, par5);
+		ComponentVillageStartPiece componentvillagestartpiece = new ComponentVillageStartPiece(par1World.getWorldChunkManager(), 0, par2Random, (par3 << 4) + 2, (par4 << 4) + 2, arraylist, par5);
 		components.add(componentvillagestartpiece);
 		componentvillagestartpiece.buildComponent(componentvillagestartpiece, components, par2Random);
-        List list1 = componentvillagestartpiece.field_74930_j;
-        List list2 = componentvillagestartpiece.field_74932_i;
+		ArrayList arraylist1 = componentvillagestartpiece.field_74930_j;
+		ArrayList arraylist2 = componentvillagestartpiece.field_74932_i;
 		int l;
 
-        while (!list1.isEmpty() || !list2.isEmpty())
-        {
-            StructureComponent structurecomponent;
+		while (!arraylist1.isEmpty() || !arraylist2.isEmpty())
+		{
+			StructureComponent structurecomponent;
 
-            if (list1.isEmpty())
-            {
-                l = par2Random.nextInt(list2.size());
-                structurecomponent = (StructureComponent)list2.remove(l);
-                structurecomponent.buildComponent(componentvillagestartpiece, this.components, par2Random);
-            }
-            else
-            {
-                l = par2Random.nextInt(list1.size());
-                structurecomponent = (StructureComponent)list1.remove(l);
-                structurecomponent.buildComponent(componentvillagestartpiece, this.components, par2Random);
-            }
-        }
+			if (arraylist1.isEmpty())
+			{
+				l = par2Random.nextInt(arraylist2.size());
+				structurecomponent = (StructureComponent)arraylist2.remove(l);
+				structurecomponent.buildComponent(componentvillagestartpiece, components, par2Random);
+			}
+			else
+			{
+				l = par2Random.nextInt(arraylist1.size());
+				structurecomponent = (StructureComponent)arraylist1.remove(l);
+				structurecomponent.buildComponent(componentvillagestartpiece, components, par2Random);
+			}
+		}
 
 		this.updateBoundingBox();
 		l = 0;

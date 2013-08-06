@@ -2,7 +2,6 @@ package biomesoplenty.particles;
 
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
@@ -11,7 +10,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntitySteamFX extends EntityFX
 {
-	private static final String texture = "biomesoplenty:textures/particles/steam.png";
+	private static final String texture = "/mods/biomesoplenty/textures/particles/steam.png";
 
 	public EntitySteamFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12)
 	{
@@ -59,7 +58,7 @@ public class EntitySteamFX extends EntityFX
 		GL11.glEnable(3042);
 		GL11.glBlendFunc(770, 1);
 
-		FMLClientHandler.instance().getClient().renderEngine.func_110577_a(new ResourceLocation(texture));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 
 		float sizeFactor = 0.1F * particleScale;
 		float var13 = (float)(prevPosX + (posX - prevPosX) * par2 - EntityFX.interpPosX);
@@ -82,7 +81,7 @@ public class EntitySteamFX extends EntityFX
 
 		GL11.glPopMatrix();
 
-		FMLClientHandler.instance().getClient().renderEngine.func_110577_a(new ResourceLocation("textures/particle/particles.png"));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture("/particles.png");
 		tessellator.startDrawingQuads();
 	}
 

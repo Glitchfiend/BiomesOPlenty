@@ -3,10 +3,8 @@ package biomesoplenty.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenApple;
@@ -30,7 +28,6 @@ public class BiomeGenOrchard extends BiomeGenBase
 		customBiomeDecorator.lilyflowersPerChunk = 2;
 		customBiomeDecorator.berryBushesPerChunk = 3;
 		customBiomeDecorator.carrotsPerChunk = 1;
-		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	
 	@Override

@@ -1,8 +1,10 @@
 package biomesoplenty.integration;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.liquids.LiquidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
@@ -254,24 +256,24 @@ public class ForestryIntegration
 	{
 		addFermenterRecipeSapling(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 		addFermenterRecipeSapling(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
-
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.food.get(), 0)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
+		
+		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.food.get(), 0)}, new LiquidStack(ItemInterface.getItem("liquidJuice").itemID, 50), ItemInterface.getItem("mulch"), 5);
 	}
 
 	private static void addFermenterRecipeSapling(ItemStack resource) 
 	{
 
-		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f,
-				FluidRegistry.getFluidStack("biomass", 1),
-				new FluidStack(FluidRegistry.getFluid("water"), 1));
+	    RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f,
+                new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()),
+                new LiquidStack(Block.waterStill, 1));
 
-		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f,
-				FluidRegistry.getFluidStack("biomass", 1),
-				FluidRegistry.getFluidStack("juice", 1));
+        RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f,
+                new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()),
+                new LiquidStack(ItemInterface.getItem("liquidJuice").itemID, 1, ItemInterface.getItem("liquidJuice").getItemDamage()));
 
-		RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f,
-				FluidRegistry.getFluidStack("biomass", 1),
-				FluidRegistry.getFluidStack("honey", 1));
+        RecipeManagers.fermenterManager.addRecipe(resource, 250, 1.0f,
+                new LiquidStack(ItemInterface.getItem("liquidBiomass").itemID, 1, ItemInterface.getItem("liquidBiomass").getItemDamage()),
+                new LiquidStack(ItemInterface.getItem("liquidHoney").itemID, 1, ItemInterface.getItem("liquidHoney").getItemDamage()));
 	}
 
 	private static void addFlowers()

@@ -3,7 +3,6 @@ package biomesoplenty.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
@@ -31,7 +30,6 @@ public class BiomeGenChaparral extends BiomeGenBase
 		customBiomeDecorator.generateStoneInGrass = true;
 		customBiomeDecorator.generatePumpkins = false;
 		customBiomeDecorator.carrotsPerChunk = 1;
-		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	
 	@Override

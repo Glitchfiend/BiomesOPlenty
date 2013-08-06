@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -19,6 +19,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Fluids;
+import biomesoplenty.configuration.BOPConfiguration;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -76,11 +77,11 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 		int meta = world.getBlockMetadata(x, y, z);
 
 		
-		if (!world.isRemote)
+		if (!world.isRemote && BOPConfiguration.hotSpringsRegeneration)
 		{
-			if (entity instanceof EntityLivingBase) 
+			if (entity instanceof EntityLiving) 
 			{
-				((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20));
+				((EntityLiving)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20));
 			}
 
 			if (entity instanceof EntityPlayer) 

@@ -5,7 +5,6 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -42,9 +41,9 @@ public class EntityDart extends EntityArrow
 		super(par1World);
 	}
 
-	public EntityDart(World par1World, EntityLivingBase par2EntityLivingBase, float par3)
+	public EntityDart(World par1World, EntityLiving par2EntityLiving, float par3)
 	{
-		super(par1World, par2EntityLivingBase, par3);
+		super(par1World, par2EntityLiving, par3);
 	}
 
 	public EntityDart(World par1World, double par2, double par4, double par6)
@@ -200,14 +199,7 @@ public class EntityDart extends EntityArrow
 
 				for (int p = 0; p < 16; ++p)
 				{
-					if (isPoisonous())
-					{
-						BiomesOPlenty.proxy.spawnParticle("poisondart", posX, posY, posZ);
-					}
-					else
-					{
-						BiomesOPlenty.proxy.spawnParticle("dart", posX, posY, posZ);
-					}
+					BiomesOPlenty.proxy.spawnParticle("dart", posX, posY, posZ);
 				}
 
 				this.playSound("random.bowhit", 1.0F, 1.2F / (rand.nextFloat() * 0.2F + 0.9F));

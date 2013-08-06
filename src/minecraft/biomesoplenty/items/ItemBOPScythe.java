@@ -3,7 +3,7 @@ package biomesoplenty.items;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class ItemBOPScythe extends Item
 	}
 	
     @Override
-	public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLivingBase entity)
+	public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLiving entity)
     {
         Block block = Block.blocksList[world.getBlockId(x, y, z)];
         int radius = 1;
@@ -105,7 +105,7 @@ public class ItemBOPScythe extends Item
         return false;
     }
     
-    public void trim(ItemStack stack, EntityLivingBase entity, World world, int x, int y, int z, int height, int radius)
+    public void trim(ItemStack stack, EntityLiving entity, World world, int x, int y, int z, int height, int radius)
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
@@ -180,7 +180,7 @@ public class ItemBOPScythe extends Item
     	}
     }
     
-    public void trimLeaves(ItemStack stack, EntityLivingBase entity, World world, int x, int y, int z, int height, int radius)
+    public void trimLeaves(ItemStack stack, EntityLiving entity, World world, int x, int y, int z, int height, int radius)
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
@@ -230,7 +230,7 @@ public class ItemBOPScythe extends Item
     	}
     }
     
-    public void trimCutCorner(ItemStack stack, EntityLivingBase entity, World world, int x, int y, int z, int height, int radius)
+    public void trimCutCorner(ItemStack stack, EntityLiving entity, World world, int x, int y, int z, int height, int radius)
     {
     	for (int aX = -radius; aX <= radius; aX++)
     	{
