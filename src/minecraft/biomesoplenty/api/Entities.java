@@ -2,8 +2,8 @@ package biomesoplenty.api;
 
 public class Entities {
 
-	public static Class Mudball = getClass("biomesoplenty.items.projectiles.EntityMudball");
-	public static Class Dart = getClass("biomesoplenty.items.projectiles.EntityDart");
+	public static Class Mudball = getClass("biomesoplenty.entities.projectiles.EntityMudball");
+	public static Class Dart = getClass("biomesoplenty.entities.projectiles.EntityDart");
 	public static Class JungleSpider = getClass("biomesoplenty.entities.EntityJungleSpider");
 	public static Class Rosester = getClass("biomesoplenty.entities.EntityRosester");
 	public static Class Glob = getClass("biomesoplenty.entities.EntityGlob");
