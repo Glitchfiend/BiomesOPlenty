@@ -67,7 +67,7 @@ public class BiomeGenJungleNew extends BiomeGenBase
 		super.decorate(par1World, par2Random, par3, par4);
 		WorldGenVines var5 = new WorldGenVines();
 
-        if (BOPConfiguration.Misc.generateAmethystOres)
+        if (BOPConfiguration.Misc.generateBOPlentyGems)
         {
             int var55 = 12 + par2Random.nextInt(6);
 

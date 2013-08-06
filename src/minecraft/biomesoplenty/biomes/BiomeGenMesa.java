@@ -36,7 +36,7 @@ public class BiomeGenMesa extends BiomeGenBase
 	{
 		super.decorate(par1World, par2Random, par3, par4);
 
-        if (!BOPConfiguration.Misc.generateAmethystOres)
+        if (!BOPConfiguration.Misc.generateBOPlentyGems)
             return;
 		int var5 = 12 + par2Random.nextInt(6);
 

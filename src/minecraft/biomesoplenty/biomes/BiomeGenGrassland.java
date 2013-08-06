@@ -48,7 +48,7 @@ public class BiomeGenGrassland extends BiomeGenBase
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
 		super.decorate(par1World, par2Random, par3, par4);
-        if (!BOPConfiguration.Misc.generateAmethystOres)
+        if (!BOPConfiguration.Misc.generateBOPlentyGems)
             return;
 		int var5 = 12 + par2Random.nextInt(6);
 
