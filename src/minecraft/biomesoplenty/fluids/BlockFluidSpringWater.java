@@ -79,7 +79,8 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 		{
 			if (entity instanceof EntityLivingBase) 
 			{
-				((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 20));
+				if (!((EntityLivingBase)entity).isPotionActive(Potion.regeneration.id))
+					((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.regeneration.id, 50));
 			}
 		}
 	}
