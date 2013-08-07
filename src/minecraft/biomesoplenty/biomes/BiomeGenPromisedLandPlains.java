@@ -3,6 +3,7 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -31,7 +32,8 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		customBiomeDecorator.rainbowflowersPerChunk = 20;
 		customBiomeDecorator.generateLakes = false;
 		customBiomeDecorator.pondsPerChunk = -100;
-		customBiomeDecorator.hotSpringsPerChunk = 6;
+		customBiomeDecorator.hotSpringsPerChunk = 2;
+		customBiomeDecorator.waterLakesPerChunk = 3;
 		customBiomeDecorator.crystalsPerChunk = 25;
 		customBiomeDecorator.crystals2PerChunk = 50;
 		spawnableCreatureList.clear();
@@ -41,7 +43,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 		customBiomeDecorator.generatePumpkins = false;
 		this.customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
-		theWorldGenerator = new WorldGenWaterSpring(Fluids.springWater.get().blockID, 8);
+		theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
 
 		/*if (Loader.isModLoaded("TwilightForest"))
 		{

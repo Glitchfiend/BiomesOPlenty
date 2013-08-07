@@ -21,6 +21,7 @@ import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.tileentities.TileEntityAltar;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -155,6 +156,8 @@ public class BlockBOPGlass extends Block
 							}
 
 							world.spawnEntityInWorld(new EntityDragon(world));
+							
+							player.addStat(AchievementHelper.achSacrifice, 1);
 
 							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 

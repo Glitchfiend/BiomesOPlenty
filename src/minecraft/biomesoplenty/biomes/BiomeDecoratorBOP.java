@@ -752,7 +752,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 if (generateClouds)
 		 {
-			 this.genCloudMain(1, cloudGen, 0, 50);
+			 this.genCloudMain(1, cloudGen, 0, 35);
 		 }
 
 		 if (generatePits)

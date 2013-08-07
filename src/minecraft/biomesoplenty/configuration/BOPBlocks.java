@@ -175,7 +175,7 @@ public class BOPBlocks
 		
 		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.IDs.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
 		
-		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.IDs.puddleID)).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
+		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.IDs.puddleID)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
 		Blocks.grave = Optional.of((new BlockGrave(BOPConfiguration.IDs.graveID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.grave"));
 
 		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.IDs.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.planks"));
