@@ -38,7 +38,7 @@ public class TickHandlerServer implements ITickHandler
 				Chunk chunk = worldserver.getChunkFromChunkCoords(chunkcoordintpair.chunkXPos, chunkcoordintpair.chunkZPos);
 				worldserver.theProfiler.endStartSection("tickChunk");
 
-				if (worldserver.provider.canDoRainSnowIce(chunk) && worldserver.rand.nextInt(1500) == 0)
+				if (worldserver.provider.canDoRainSnowIce(chunk) && worldserver.rand.nextInt(200) == 0)
 				{
 					rand = rand * 3 + 1013904223;
 					int i1 = rand >> 2;
