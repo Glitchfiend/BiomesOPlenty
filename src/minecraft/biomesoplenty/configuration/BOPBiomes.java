@@ -100,7 +100,7 @@ public class BOPBiomes {
 		Biomes.fungiForest = Optional.of((new BiomeGenFungiForest(BOPConfiguration.IDs.fungiForestID)).setColor(747097).setBiomeName("Fungi Forest").func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F).setMinMaxHeight(0.2F, 0.5F));
 		Biomes.garden = Optional.of((new BiomeGenGarden(BOPConfiguration.IDs.gardenID)).setColor(9286496).setBiomeName("Garden").setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.glacier = Optional.of((new BiomeGenGlacier(BOPConfiguration.IDs.glacierID)).setColor(6316128).setBiomeName("Glacier").setEnableSnow().setMinMaxHeight(0.4F, 0.8F).setTemperatureRainfall(0.0F, 0.0F));
-		Biomes.grassland = Optional.of((new BiomeGenGrassland(BOPConfiguration.IDs.grasslandID)).setColor(9286496).setBiomeName("Grassland").setTemperatureRainfall(0.7F, 0.7F).setMinMaxHeight(0.3F, 0.6F));
+		Biomes.grassland = Optional.of((new BiomeGenGrassland(BOPConfiguration.IDs.grasslandID)).setColor(9286496).setBiomeName("Grassland").setTemperatureRainfall(0.7F, 0.7F).setMinMaxHeight(0.2F, 0.5F));
 		Biomes.grove = Optional.of((new BiomeGenGrove(BOPConfiguration.IDs.groveID)).setColor(9286496).setBiomeName("Grove").setTemperatureRainfall(0.4F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.heathland = Optional.of((new BiomeGenHeathland(BOPConfiguration.IDs.heathlandID)).setColor(353825).setBiomeName("Heathland").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.1F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.highland = Optional.of((new BiomeGenHighland(BOPConfiguration.IDs.highlandID)).setColor(6316128).setBiomeName("Highland").setMinMaxHeight(0.9F, 1.9F).setTemperatureRainfall(0.5F, 0.5F));
