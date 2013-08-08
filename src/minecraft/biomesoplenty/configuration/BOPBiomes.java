@@ -158,6 +158,7 @@ public class BOPBiomes {
 		Biomes.shore = Optional.of((new BiomeGenShore(BOPConfiguration.IDs.shoreID)).setColor(9286496).setBiomeName("Shore").setMinMaxHeight(-1.0F, 0.4F).setTemperatureRainfall(0.8F, 0.4F));
 		Biomes.shrubland = Optional.of((new BiomeGenShrubland(BOPConfiguration.IDs.shrublandID)).setColor(9286496).setBiomeName("Shrubland").setMinMaxHeight(0.3F, 0.4F).setTemperatureRainfall(0.6F, 0.0F));
 		Biomes.shrublandForest = Optional.of((new BiomeGenShrublandForest(BOPConfiguration.IDs.shrublandForestID)).setColor(9286496).setBiomeName("Thick Shrubland").setMinMaxHeight(0.3F, 0.4F).setTemperatureRainfall(0.6F, 0.0F));
+		Biomes.silkglades = Optional.of((new BiomeGenSilkglades(BOPConfiguration.IDs.silkgladesID)).setColor(522674).setBiomeName("Silkglades").func_76733_a(9154376).setMinMaxHeight(0.3F, 0.3F).setTemperatureRainfall(0.5F, 0.9F));
 		Biomes.sludgepit = Optional.of((new BiomeGenSludgepit(BOPConfiguration.IDs.sludgepitID)).setColor(522674).setBiomeName("Sludgepit").func_76733_a(9154376).setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
 		Biomes.spruceWoods = Optional.of((new BiomeGenSpruceWoods(BOPConfiguration.IDs.spruceWoodsID)).setColor(353825).setBiomeName("Spruce Woods").func_76733_a(5159473).setTemperatureRainfall(0.6F, 0.7F));
 		Biomes.steppe = Optional.of((new BiomeGenSteppe(BOPConfiguration.IDs.steppeID)).setColor(9286496).setBiomeName("Steppe").setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.3F, 0.4F));
@@ -287,6 +288,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.shrubland.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.shrublandForest.get(), Type.PLAINS);
 		
+		BiomeDictionary.registerBiomeType(Biomes.silkglades.get(), Type.SWAMP, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.sludgepit.get(), Type.SWAMP, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.spruceWoods.get(), Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.steppe.get(), Type.PLAINS, Type.WASTELAND);
@@ -523,6 +525,7 @@ public class BOPBiomes {
 		addStrongholdBiome(Biomes.seasonalForest);
 		addStrongholdBiome(Biomes.shield);
 		addStrongholdBiome(Biomes.shrubland);
+		addStrongholdBiome(Biomes.silkglades);
 		addStrongholdBiome(Biomes.sludgepit);
 		addStrongholdBiome(Biomes.spruceWoods);
 		addStrongholdBiome(Biomes.steppe);
@@ -795,6 +798,10 @@ public class BOPBiomes {
 
 			if (BOPConfiguration.BiomeGen.shrublandGen) {
 				registerBiome(Biomes.shrubland);
+			}
+			
+			if (BOPConfiguration.BiomeGen.silkgladesGen) {
+				registerBiome(Biomes.silkglades);
 			}
 
 			if (BOPConfiguration.BiomeGen.sludgepitGen) {
@@ -1173,6 +1180,10 @@ public class BOPBiomes {
 
 		if (BOPConfiguration.BiomeGen.shrublandGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.shrubland);
+		}
+		
+		if (BOPConfiguration.BiomeGen.silkgladesGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.silkglades);
 		}
 
 		if (BOPConfiguration.BiomeGen.sludgepitGen) {

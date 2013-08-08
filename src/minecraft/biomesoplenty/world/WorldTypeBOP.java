@@ -261,6 +261,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.shrubland);
 		}
+		if (BOPConfiguration.BiomeGen.silkgladesGen == true)
+		{
+			addNewBiome(Biomes.silkglades);
+		}
 		if (BOPConfiguration.BiomeGen.sludgepitGen == true)
 		{
 			addNewBiome(Biomes.sludgepit);

@@ -118,6 +118,7 @@ public class ForestryIntegration
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.wetlandID);
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.fenID);
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.swamplandNewID);
+		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.silkgladesID);
 
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.bayouID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.bogID);
@@ -134,6 +135,7 @@ public class ForestryIntegration
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.wetlandID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.fenID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.swamplandNewID);
+		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.silkgladesID);
 
 		//Normal
 		//Forest and Meadows Hives

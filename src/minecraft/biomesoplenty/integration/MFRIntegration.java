@@ -38,12 +38,9 @@ public class MFRIntegration
         FarmingRegistry.registerRubberTreeBiome(Biomes.deciduousForest.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.forestNew.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.grove.get().biomeName);
-        FarmingRegistry.registerRubberTreeBiome(Biomes.highland.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.jungleNew.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.lushSwamp.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.mapleWoods.get().biomeName);
-        FarmingRegistry.registerRubberTreeBiome(Biomes.marsh.get().biomeName);
-        FarmingRegistry.registerRubberTreeBiome(Biomes.moor.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.rainforest.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.seasonalForest.get().biomeName);
         FarmingRegistry.registerRubberTreeBiome(Biomes.shield.get().biomeName);

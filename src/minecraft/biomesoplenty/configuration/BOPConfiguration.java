@@ -137,6 +137,7 @@ public class BOPConfiguration
 		public static boolean seasonalForestGen;
 		public static boolean shieldGen;
 		public static boolean shrublandGen;
+		public static boolean silkgladesGen;
 		public static boolean sludgepitGen;
 		public static boolean spruceWoodsGen;
 		public static boolean steppeGen;
@@ -243,6 +244,7 @@ public class BOPConfiguration
 				seasonalForestGen = config.get("Biomes To Generate", "SeasonalForest", true).getBoolean(false);
 				shieldGen = config.get("Biomes To Generate", "Shield", true).getBoolean(false);
 				shrublandGen = config.get("Biomes To Generate", "Shrubland", true).getBoolean(false);
+				silkgladesGen = config.get("Biomes To Generate", "Silkglades", false).getBoolean(false);
 				sludgepitGen = config.get("Biomes To Generate", "Sludgepit", true).getBoolean(false);
 				spruceWoodsGen = config.get("Biomes To Generate", "SpruceWoods", true).getBoolean(false);
 				steppeGen = config.get("Biomes To Generate", "Steppe", true).getBoolean(false);
@@ -747,6 +749,7 @@ public class BOPConfiguration
 		public static int shoreID;
 		public static int shrublandID;
 		public static int shrublandForestID;
+		public static int silkgladesID;
 		public static int sludgepitID;
 		public static int spruceWoodsID;
 		public static int steppeID;
@@ -956,6 +959,7 @@ public class BOPConfiguration
 
 				//23-79 ExtraBiomesXL
 
+				silkgladesID = config.get("Biome IDs", "Silkglades ID", 38).getInt();
 				savannaPlateauID = config.get("Biome IDs", "Savanna Plateau (Sub-Biome) ID", 39).getInt();
 				fieldForestID = config.get("Biome IDs", "Forested Field (Sub-Biome) ID", 40).getInt();
 				seasonalSpruceForestID = config.get("Biome IDs", "Seasonal Spruce Forest (Sub-Biome) ID", 41).getInt();

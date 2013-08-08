@@ -59,6 +59,7 @@ import biomesoplenty.worldgen.WorldGenCanyon;
 import biomesoplenty.worldgen.WorldGenCanyonGrass;
 import biomesoplenty.worldgen.WorldGenCattail;
 import biomesoplenty.worldgen.WorldGenCloud;
+import biomesoplenty.worldgen.WorldGenCobwebs;
 import biomesoplenty.worldgen.WorldGenCrystal1;
 import biomesoplenty.worldgen.WorldGenCrystal2;
 import biomesoplenty.worldgen.WorldGenDesertCactus;
@@ -177,6 +178,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator netherGrassGen;
 	protected WorldGenerator netherWartGen;
 	protected WorldGenerator steppeGen;
+	protected WorldGenerator cobwebGen;
 	protected WorldGenerator thornGen;
 	protected WorldGenerator toadstoolGen;
 	protected WorldGenerator portobelloGen;
@@ -281,6 +283,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int poisonIvyPerChunk;
 	protected int sunflowersPerChunk;
 	protected int rainbowflowersPerChunk;
+	protected int cobwebsPerChunk;
 
 	protected int boneSpinesPerChunk;
 	protected int boneSpines2PerChunk;
@@ -408,6 +411,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		diamondGen = new WorldGenMinable(Block.oreDiamond.blockID, 7);
 		lapisGen = new WorldGenMinable(Block.oreLapis.blockID, 6);
 		plantYellowGen = new WorldGenBOPFlowers(Block.plantYellow.blockID, 0);
+		cobwebGen = new WorldGenCobwebs(Block.web.blockID, 0);
 		dandelionGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 15);
 		plantRedGen = new WorldGenBOPFlowers(Block.plantRed.blockID, 0);
 		plantWhiteGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 9);
@@ -540,6 +544,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		crystals2PerChunk = 0;
 		boneSpinesPerChunk = 0;
 		boneSpines2PerChunk = 0;
+		cobwebsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -896,6 +901,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantRedGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < cobwebsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 cobwebGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 for (var2 = 0; var2 < sunflowersPerChunk; ++var2)

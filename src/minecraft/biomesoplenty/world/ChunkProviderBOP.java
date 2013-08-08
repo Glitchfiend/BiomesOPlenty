@@ -578,7 +578,7 @@ public class ChunkProviderBOP implements IChunkProvider
 		 int l1;
 		 int i2;
 
-		 if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills  && biomegenbase != Biomes.desertNew.get()  && biomegenbase != Biomes.glacier.get()  && biomegenbase != Biomes.volcano.get()  && biomegenbase != Biomes.scrubland.get()  && biomegenbase != Biomes.dunes.get()  && biomegenbase != Biomes.arctic.get()  && biomegenbase != Biomes.pasture.get() && !flag && this.rand.nextInt(4) == 0
+		 if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills  && biomegenbase != Biomes.desertNew.get()  && biomegenbase != Biomes.glacier.get()  && biomegenbase != Biomes.volcano.get()  && biomegenbase != Biomes.scrubland.get()  && biomegenbase != Biomes.dunes.get()  && biomegenbase != Biomes.arctic.get()  && biomegenbase != Biomes.pasture.get()  && biomegenbase != Biomes.silkglades.get() && !flag && this.rand.nextInt(4) == 0
 		            && TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE))
 		        {
 		            k1 = k + this.rand.nextInt(16) + 8;

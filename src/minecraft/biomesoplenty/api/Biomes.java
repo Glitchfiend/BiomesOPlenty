@@ -101,6 +101,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> shore				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shrubland			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> shrublandForest		 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> silkglades			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> sludgepit			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> spruceWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> steppe				 = Optional.absent();
