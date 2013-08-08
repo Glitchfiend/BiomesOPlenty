@@ -136,7 +136,7 @@ public class BOPBlocks
 		Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.IDs.leavesFruitID)).setUnlocalizedName("bop.leavesFruit"));
 		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.IDs.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.bamboo"));
 		Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
-		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("bop.mudBricksStairs"));
+		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setHardness(1.0F).setUnlocalizedName("bop.mudBricksStairs"));
 		Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneDoubleSlab"));
 		Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.IDs.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneSingleSlab"));
 		Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfiguration.IDs.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.originGrass"));
@@ -149,15 +149,15 @@ public class BOPBlocks
 		Blocks.petals = Optional.of((new BlockBOPPetals(BOPConfiguration.IDs.petalsID)).setUnlocalizedName("bop.petals"));
 		Blocks.saplings = Optional.of((new BlockBOPSapling(BOPConfiguration.IDs.saplingsID)).setUnlocalizedName("bop.saplings"));
 		Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(BOPConfiguration.IDs.colourizedSaplingsID)).setUnlocalizedName("bop.colorizedSaplings"));
-		Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redCobbleStairsID, Blocks.redRock.get(), Category.RED_COBBLE)).setUnlocalizedName("bop.redCobbleStairs"));
-		Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setUnlocalizedName("bop.redBricksStairs"));
+		Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redCobbleStairsID, Blocks.redRock.get(), Category.RED_COBBLE)).setHardness(1.6F).setUnlocalizedName("bop.redCobbleStairs"));
+		Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setHardness(1.1F).setUnlocalizedName("bop.redBricksStairs"));
 		Blocks.hardSand = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.hardSandID, Material.sand, BlockType.HARD_SAND));
 		Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.hardDirtID, Material.rock, BlockType.HARD_DIRT));
 		Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.IDs.holyGrassID).setUnlocalizedName("bop.holyGrass"));
 		Blocks.holyDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.holyDirtID, Material.sand, BlockType.HOLY_DIRT));
 		Blocks.holyStone = Optional.of((new BlockBOPSkystone(BOPConfiguration.IDs.holyStoneID)).setUnlocalizedName("bop.holyStone"));
-		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setUnlocalizedName("bop.holyCobbleStairs"));
-		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setUnlocalizedName("bop.holyBricksStairs"));
+		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setHardness(1.6F).setUnlocalizedName("bop.holyCobbleStairs"));
+		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setHardness(1.1F).setUnlocalizedName("bop.holyBricksStairs"));
 		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.crystalID, Material.glass, BlockType.CRYSTAL));
 		Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.IDs.promisedLandPortalID).setUnlocalizedName("bop.promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
 

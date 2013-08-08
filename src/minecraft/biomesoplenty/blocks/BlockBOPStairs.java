@@ -38,6 +38,8 @@ public class BlockBOPStairs extends BlockStairs
 		setBurnProperties(this.blockID, 5, 20);
 		this.setLightOpacity(0);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		this.setHardness(model.blockHardness);
+        this.setResistance(model.blockResistance / 3.0F);
 	}
 
 	@Override
