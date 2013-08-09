@@ -186,13 +186,13 @@ public class BOPBiomes {
 	private static void addToBiomeDictionary()
 	{
 		BiomeDictionary.registerBiomeType(Biomes.alps.get(), Type.FROZEN, Type.MOUNTAIN);
-		BiomeDictionary.registerBiomeType(Biomes.alpsBase.get(), Type.FROZEN, Type.MOUNTAIN);
+		BiomeDictionary.registerBiomeType(Biomes.alpsBase.get(), Type.FROZEN, Type.MOUNTAIN, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.alpsForest.get(), Type.FROZEN, Type.MOUNTAIN);
 		
 		BiomeDictionary.registerBiomeType(Biomes.arctic.get(), Type.FROZEN, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.badlands.get(), Type.DESERT, Type.WASTELAND);
-		BiomeDictionary.registerBiomeType(Biomes.bambooForest.get(), Type.JUNGLE);
-		BiomeDictionary.registerBiomeType(Biomes.bayou.get(), Type.SWAMP);
+		BiomeDictionary.registerBiomeType(Biomes.bambooForest.get(), Type.JUNGLE, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.bayou.get(), Type.SWAMP, Type.WATER);
 
 		BiomeDictionary.registerBiomeType(Biomes.beachGravel.get(), Type.BEACH);
 		BiomeDictionary.registerBiomeType(Biomes.beachOvergrown.get(), Type.BEACH, Type.FOREST);
@@ -203,7 +203,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.brushland.get(), Type.DESERT, Type.FOREST, Type.PLAINS);
 		
 		BiomeDictionary.registerBiomeType(Biomes.canyon.get(), Type.DESERT, Type.MOUNTAIN, Type.HILLS);
-		BiomeDictionary.registerBiomeType(Biomes.canyonRavine.get(), Type.DESERT, Type.MOUNTAIN, Type.HILLS);
+		BiomeDictionary.registerBiomeType(Biomes.canyonRavine.get(), Type.DESERT, Type.HILLS);
 		
 		BiomeDictionary.registerBiomeType(Biomes.chaparral.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.cherryBlossomGrove.get(), Type.MAGICAL, Type.FOREST);
@@ -214,8 +214,8 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.deadForestSnow.get(), Type.FOREST, Type.FROZEN);
 		BiomeDictionary.registerBiomeType(Biomes.deadlands.get(), Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.deadSwamp.get(), Type.SWAMP);
-		BiomeDictionary.registerBiomeType(Biomes.deciduousForest.get(), Type.FOREST, Type.HILLS);
-		BiomeDictionary.registerBiomeType(Biomes.dunes.get(), Type.BEACH, Type.DESERT);
+		BiomeDictionary.registerBiomeType(Biomes.deciduousForest.get(), Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.dunes.get(), Type.BEACH, Type.DESERT, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.fen.get(), Type.FOREST, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.field.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.fieldForest.get(), Type.PLAINS, Type.FOREST);
@@ -223,15 +223,15 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.fungiForest.get(), Type.MAGICAL, Type.MUSHROOM, Type.FOREST, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.garden.get(), Type.MAGICAL, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.glacier.get(), Type.FROZEN, Type.HILLS);
-		BiomeDictionary.registerBiomeType(Biomes.grassland.get(), Type.PLAINS);
-		BiomeDictionary.registerBiomeType(Biomes.grove.get(), Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.grassland.get(), Type.PLAINS, Type.SWAMP, Type.HILLS);
+		BiomeDictionary.registerBiomeType(Biomes.grove.get(), Type.FOREST, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.heathland.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.highland.get(), Type.HILLS, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.hotSprings.get(), Type.HILLS, Type.FOREST, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.icyHills.get(), Type.FROZEN, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.jadeCliffs.get(), Type.FOREST, Type.MOUNTAIN);
-		BiomeDictionary.registerBiomeType(Biomes.lushDesert.get(), Type.DESERT, Type.PLAINS);
-		BiomeDictionary.registerBiomeType(Biomes.lushSwamp.get(), Type.SWAMP);
+		BiomeDictionary.registerBiomeType(Biomes.lushDesert.get(), Type.DESERT, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.lushSwamp.get(), Type.SWAMP, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.mangrove.get(), Type.WATER, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.mapleWoods.get(), Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.marsh.get(), Type.SWAMP, Type.WATER);
@@ -239,8 +239,8 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.meadow.get(), Type.FOREST, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.meadowForest.get(), Type.FOREST, Type.PLAINS);
 		
-		BiomeDictionary.registerBiomeType(Biomes.mesa.get(), Type.DESERT, Type.WASTELAND);
-		BiomeDictionary.registerBiomeType(Biomes.moor.get(), Type.PLAINS, Type.HILLS);
+		BiomeDictionary.registerBiomeType(Biomes.mesa.get(), Type.DESERT, Type.WASTELAND, Type.MOUNTAIN);
+		BiomeDictionary.registerBiomeType(Biomes.moor.get(), Type.HILLS, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
 
@@ -250,7 +250,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.netherLava.get(), Type.NETHER);
 		BiomeDictionary.registerBiomeType(Biomes.netherBone.get(), Type.NETHER, Type.WASTELAND);
 
-		BiomeDictionary.registerBiomeType(Biomes.oasis.get(), Type.DESERT, Type.PLAINS);
+		BiomeDictionary.registerBiomeType(Biomes.oasis.get(), Type.DESERT, Type.JUNGLE);
 
 		BiomeDictionary.registerBiomeType(Biomes.oceanCoral.get(), Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.oceanKelp.get(), Type.WATER, Type.FOREST);
@@ -263,7 +263,7 @@ public class BOPBiomes {
 		
 		BiomeDictionary.registerBiomeType(Biomes.pasture.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.pastureThin.get(), Type.PLAINS);
-		BiomeDictionary.registerBiomeType(Biomes.pastureMeadow.get(), Type.PLAINS);
+		BiomeDictionary.registerBiomeType(Biomes.pastureMeadow.get(), Type.PLAINS, Type.FOREST);
 		
 		BiomeDictionary.registerBiomeType(Biomes.polar.get(), Type.FROZEN, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.prairie.get(), Type.PLAINS);
@@ -272,10 +272,10 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandPlains.get(), Type.PLAINS, Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandSwamp.get(), Type.SWAMP, Type.MAGICAL);
 
-		BiomeDictionary.registerBiomeType(Biomes.quagmire.get(), Type.WASTELAND);
+		BiomeDictionary.registerBiomeType(Biomes.quagmire.get(), Type.WASTELAND, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.rainforest.get(), Type.JUNGLE, Type.HILLS, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.redwoodForest.get(), Type.FOREST);
-		BiomeDictionary.registerBiomeType(Biomes.sacredSprings.get(), Type.MOUNTAIN, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.sacredSprings.get(), Type.MOUNTAIN, Type.FOREST, Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.savanna.get(), Type.DESERT, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.savannaPlateau.get(), Type.DESERT, Type.PLAINS, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.scrubland.get(), Type.DESERT, Type.PLAINS);
@@ -283,15 +283,15 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.seasonalForest.get(), Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.seasonalSpruceForest.get(), Type.FOREST);
 		
-		BiomeDictionary.registerBiomeType(Biomes.shield.get(), Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.shield.get(), Type.FOREST, Type.WATER);
 		
 		BiomeDictionary.registerBiomeType(Biomes.shrubland.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.shrublandForest.get(), Type.PLAINS);
 		
 		BiomeDictionary.registerBiomeType(Biomes.silkglades.get(), Type.SWAMP, Type.WASTELAND);
-		BiomeDictionary.registerBiomeType(Biomes.sludgepit.get(), Type.SWAMP, Type.WASTELAND);
+		BiomeDictionary.registerBiomeType(Biomes.sludgepit.get(), Type.SWAMP, Type.FOREST, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.spruceWoods.get(), Type.FOREST);
-		BiomeDictionary.registerBiomeType(Biomes.steppe.get(), Type.PLAINS, Type.WASTELAND);
+		BiomeDictionary.registerBiomeType(Biomes.steppe.get(), Type.PLAINS, Type.DESERT);
 		BiomeDictionary.registerBiomeType(Biomes.temperateRainforest.get(), Type.FOREST, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.thicket.get(), Type.PLAINS, Type.FOREST);
 		
@@ -299,19 +299,19 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.timberThin.get(), Type.FOREST);
 		
 		BiomeDictionary.registerBiomeType(Biomes.tropicalRainforest.get(), Type.JUNGLE);
-		BiomeDictionary.registerBiomeType(Biomes.tropics.get(), Type.JUNGLE);
+		BiomeDictionary.registerBiomeType(Biomes.tropics.get(), Type.JUNGLE, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.tundra.get(), Type.FROZEN, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.volcano.get(), Type.WASTELAND, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.wasteland.get(), Type.WASTELAND);
-		BiomeDictionary.registerBiomeType(Biomes.wetland.get(), Type.SWAMP);
+		BiomeDictionary.registerBiomeType(Biomes.wetland.get(), Type.SWAMP, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.woodland.get(), Type.FOREST);
 
 		BiomeDictionary.registerBiomeType(Biomes.plainsNew.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.desertNew.get(), Type.DESERT);
 		BiomeDictionary.registerBiomeType(Biomes.forestNew.get(), Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.extremeHillsNew.get(), Type.HILLS, Type.MOUNTAIN);
-		BiomeDictionary.registerBiomeType(Biomes.taigaNew.get(), Type.FROZEN);
-		BiomeDictionary.registerBiomeType(Biomes.swamplandNew.get(), Type.SWAMP);
+		BiomeDictionary.registerBiomeType(Biomes.taigaNew.get(), Type.FROZEN, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.swamplandNew.get(), Type.SWAMP, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.jungleNew.get(), Type.JUNGLE);
 	}
 
