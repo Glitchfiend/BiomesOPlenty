@@ -779,7 +779,6 @@ public class BOPConfiguration
 
 		public static int plainsNewID;
 		public static int desertNewID;
-		public static int desertHillsNewID;
 		public static int extremeHillsNewID;
 		public static int extremeHillsEdgeNewID;
 		public static int forestNewID;
@@ -971,6 +970,9 @@ public class BOPConfiguration
 
 				//23-79 ExtraBiomesXL
 
+				forestHillsNewID = config.get("Biome IDs", "Forest Hills (Sub-Biome) ID", 35).getInt();
+				taigaHillsNewID = config.get("Biome IDs", "Taiga Hills (Sub-Biome) ID", 36).getInt();
+				jungleHillsNewID = config.get("Biome IDs", "Jungle Hills (Sub-Biome) ID", 37).getInt();
 				silkgladesID = config.get("Biome IDs", "Silkglades ID", 38).getInt();
 				savannaPlateauID = config.get("Biome IDs", "Savanna Plateau (Sub-Biome) ID", 39).getInt();
 				fieldForestID = config.get("Biome IDs", "Forested Field (Sub-Biome) ID", 40).getInt();

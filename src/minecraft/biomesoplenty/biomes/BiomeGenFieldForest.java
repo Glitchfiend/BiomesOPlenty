@@ -20,7 +20,7 @@ public class BiomeGenFieldForest extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 5;
+		customBiomeDecorator.treesPerChunk = 3;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.rosesPerChunk = 25;
 		customBiomeDecorator.grassPerChunk = 5;

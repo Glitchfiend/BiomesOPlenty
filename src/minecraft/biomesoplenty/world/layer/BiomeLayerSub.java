@@ -29,7 +29,6 @@ public class BiomeLayerSub extends BiomeLayer
                 int l1 = k1;
 
                 //LIST
-                if (k1 == BiomeGenBase.desert.biomeID && nextInt(3) == 0) { l1 = BiomeGenBase.desertHills.biomeID; }
                 if (k1 == Biomes.meadow.get().biomeID && nextInt(2) == 0) { l1 = Biomes.meadowForest.get().biomeID; }
                 if (k1 == Biomes.canyon.get().biomeID && nextInt(2) == 0) { l1 = Biomes.canyonRavine.get().biomeID; }
                 if (k1 == Biomes.shrubland.get().biomeID && nextInt(3) == 0) { l1 = Biomes.shrublandForest.get().biomeID; }
@@ -42,6 +41,10 @@ public class BiomeLayerSub extends BiomeLayer
                 if (k1 == Biomes.seasonalForest.get().biomeID && nextInt(2) == 0) { l1 = Biomes.seasonalSpruceForest.get().biomeID; }
                 if (k1 == Biomes.field.get().biomeID && nextInt(2) == 0) { l1 = Biomes.fieldForest.get().biomeID; }
                 if (k1 == Biomes.savanna.get().biomeID && nextInt(4) == 0) { l1 = Biomes.savannaPlateau.get().biomeID; }
+                
+                if (k1 == Biomes.forestNew.get().biomeID && nextInt(3) == 0) { l1 = Biomes.forestHillsNew.get().biomeID; }
+                if (k1 == Biomes.taigaNew.get().biomeID && nextInt(3) == 0) { l1 = Biomes.taigaHillsNew.get().biomeID; }
+                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(3) == 0) { l1 = Biomes.jungleHillsNew.get().biomeID; }
                 
                 //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(2) == 0) { l1 = Biomes.tropics.get().biomeID; }
                 //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.volcano.get().biomeID; }

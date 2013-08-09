@@ -116,7 +116,7 @@ public class BOPBiomes {
 		Biomes.meadowForest = Optional.of((new BiomeGenMeadowForest(BOPConfiguration.IDs.meadowForestID)).setColor(9286496).setBiomeName("Meadow Forest").setTemperatureRainfall(0.7F, 0.7F));
 		Biomes.mesa = Optional.of((new BiomeGenMesa(BOPConfiguration.IDs.mesaID)).setColor(16421912).setBiomeName("Mesa").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.4F, 2.0F));
 		Biomes.moor = Optional.of((new BiomeGenMoor(BOPConfiguration.IDs.moorID)).setColor(16421912).setBiomeName("Moor").setTemperatureRainfall(0.5F, 1.0F).setMinMaxHeight(0.7F, 0.8F));
-		Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfiguration.IDs.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.2F, 1.2F).setMinMaxHeight(0.2F, 0.5F));
+		Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfiguration.IDs.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.0F, 1.5F).setMinMaxHeight(0.2F, 0.5F));
 		Biomes.mysticGrove = Optional.of((new BiomeGenMysticGrove(BOPConfiguration.IDs.mysticGroveID)).setColor(353825).setBiomeName("Mystic Grove").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F));
 
 		Biomes.netherBase = Optional.of((new BiomeGenNetherBase(BOPConfiguration.IDs.netherBaseID)).setColor(16711680).setBiomeName("Nether").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
@@ -175,12 +175,21 @@ public class BOPBiomes {
 		Biomes.woodland = Optional.of((new BiomeGenWoodland(BOPConfiguration.IDs.woodlandID)).setColor(353825).setBiomeName("Woodland").func_76733_a(5159473).setTemperatureRainfall(1.7F, 0.2F).setMinMaxHeight(0.3F, 0.4F));
 
 		Biomes.plainsNew = Optional.of((new BiomeGenPlainsNew(BOPConfiguration.IDs.plainsNewID)).setColor(9286496).setBiomeName("Plains").setTemperatureRainfall(0.8F, 0.4F));
+		
 		Biomes.desertNew = Optional.of((new BiomeGenDesertNew(BOPConfiguration.IDs.desertNewID)).setColor(16421912).setBiomeName("Desert").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.2F, 0.3F));
+	
 		Biomes.extremeHillsNew = Optional.of((new BiomeGenHillsNew(BOPConfiguration.IDs.extremeHillsNewID)).setColor(6316128).setBiomeName("Extreme Hills").setMinMaxHeight(1.0F, 2.0F).setTemperatureRainfall(0.2F, 0.3F));
+		
 		Biomes.forestNew = Optional.of((new BiomeGenForestNew(BOPConfiguration.IDs.forestNewID)).setColor(353825).setBiomeName("Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F));
+		Biomes.forestHillsNew = Optional.of((new BiomeGenForestNew(BOPConfiguration.IDs.forestHillsNewID)).setColor(353825).setBiomeName("ForestHills").func_76733_a(5159473).setMinMaxHeight(0.8F, 1.0F).setTemperatureRainfall(0.7F, 0.8F));
+		
 		Biomes.taigaNew = Optional.of((new BiomeGenTaigaNew(BOPConfiguration.IDs.taigaNewID)).setColor(747097).setBiomeName("Taiga").func_76733_a(5159473).setEnableSnow().setTemperatureRainfall(0.05F, 0.8F).setMinMaxHeight(0.3F, 0.5F));
+		Biomes.taigaHillsNew = Optional.of((new BiomeGenTaigaNew(BOPConfiguration.IDs.taigaHillsNewID)).setColor(747097).setBiomeName("TaigaHills").func_76733_a(5159473).setEnableSnow().setTemperatureRainfall(0.05F, 0.8F).setMinMaxHeight(0.8F, 1.0F));
+		
 		Biomes.swamplandNew = Optional.of((new BiomeGenSwampNew(BOPConfiguration.IDs.swamplandNewID)).setColor(522674).setBiomeName("Swampland").func_76733_a(9154376).setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
+		
 		Biomes.jungleNew = Optional.of((new BiomeGenJungleNew(BOPConfiguration.IDs.jungleNewID)).setColor(5470985).setBiomeName("Jungle").func_76733_a(5470985).setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.4F, 0.5F));
+		Biomes.jungleHillsNew = Optional.of((new BiomeGenJungleNew(BOPConfiguration.IDs.jungleHillsNewID)).setColor(5470985).setBiomeName("JungleHills").func_76733_a(5470985).setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.9F, 1.2F));
 	}
 
 	private static void addToBiomeDictionary()
@@ -309,10 +318,13 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.plainsNew.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.desertNew.get(), Type.DESERT);
 		BiomeDictionary.registerBiomeType(Biomes.forestNew.get(), Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.forestHillsNew.get(), Type.FOREST, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.extremeHillsNew.get(), Type.HILLS, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.taigaNew.get(), Type.FROZEN, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.taigaHillsNew.get(), Type.FROZEN, Type.FOREST, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.swamplandNew.get(), Type.SWAMP, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.jungleNew.get(), Type.JUNGLE);
+		BiomeDictionary.registerBiomeType(Biomes.jungleHillsNew.get(), Type.JUNGLE, Type.HILLS);
 	}
 
 	private static void addSpawnBiomes()

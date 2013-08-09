@@ -121,9 +121,12 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> desertNew			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> extremeHillsNew		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> forestNew			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> forestHillsNew		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> taigaNew				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> taigaHillsNew		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> swamplandNew			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> jungleNew			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> jungleHillsNew		 = Optional.absent();
 	
 	/**
      * Add any biomes you wish to spawn in the Nether
