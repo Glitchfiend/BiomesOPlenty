@@ -61,7 +61,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
 	public int getSkyColorByTemp(float par1)
 	{
 		if (BOPConfiguration.Misc.skyColors)
-			return 8703228;
+			return 8441086;
 		else
 		{
 			par1 /= 3.0F;
