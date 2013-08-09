@@ -44,10 +44,12 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Fluids;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
 import biomesoplenty.worldgen.WorldGenBOPBush;
 import biomesoplenty.worldgen.WorldGenBOPFlowers;
+import biomesoplenty.worldgen.WorldGenBOPPumpkin;
 import biomesoplenty.worldgen.WorldGenBadlands;
 import biomesoplenty.worldgen.WorldGenBadlands2;
 import biomesoplenty.worldgen.WorldGenBadlands3;
@@ -1366,7 +1368,15 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var2 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 (new WorldGenPumpkin()).generate(currentWorld, randomGenerator, var2, var3, var4);
+			 
+			 if (BOPConfiguration.TerrainGen.pumpkinGen)
+			 {
+				 (new WorldGenBOPPumpkin()).generate(currentWorld, randomGenerator, var2, var3, var4);
+			 }
+			 else
+			 {
+				 (new WorldGenPumpkin()).generate(currentWorld, randomGenerator, var2, var3, var4);
+			 }
 		 }
 
 		 if (generateMelons && randomGenerator.nextInt(32) == 0)

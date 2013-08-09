@@ -304,6 +304,7 @@ public class BOPConfiguration
 		public static boolean addToDefault;
 		public static boolean vanillaEnhanced;
 		public static boolean netherOverride;
+		public static boolean pumpkinGen;
 		
 		public static int villageDistance;
 		
@@ -403,6 +404,7 @@ public class BOPConfiguration
 				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 				vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 				netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
+				pumpkinGen = config.get("Decoration Settings", "Generate Pumpkins Without Faces", true).getBoolean(true);
 				
 				villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 				if (villageDistance < 8) 
