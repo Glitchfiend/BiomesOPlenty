@@ -637,43 +637,55 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < hotSpringsPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+			 if (BOPConfiguration.TerrainGen.springWaterGen)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 
 		 for (var2 = 0; var2 < 5; ++var2)
 		 {
 			 int var9999 = randomGenerator.nextInt(96);
 
-			 if (var9999 == 1)
+			 if (BOPConfiguration.TerrainGen.springWaterGen)
 			 {
-				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
-				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-				 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+				 if (var9999 == 1)
+				 {
+					 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+					 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
+					 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+					 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+				 }
 			 }
 		 }
 
 		 for (var2 = 0; var2 < poisonWaterPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+			 if (BOPConfiguration.TerrainGen.poisonWaterGen)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 		 
 		 for (var2 = 0; var2 < 5; ++var2)
 		 {
 			 int var9998 = randomGenerator.nextInt(32);
 
-			 if (var9998 == 1)
+			 if (BOPConfiguration.TerrainGen.poisonWaterGen)
 			 {
-				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
-				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-				 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+				 if (var9998 == 1)
+				 {
+					 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+					 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
+					 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+					 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+				 }
 			 }
 		 }
 
@@ -754,7 +766,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 if (generateQuicksand)
 		 {
-			 this.genStandardOre1(5, quicksandGen, 64, 128);
+			 if (BOPConfiguration.TerrainGen.quicksandGen)
+			 {
+				 this.genStandardOre1(5, quicksandGen, 64, 128);
+			 }
 		 }
 
 		 if (generateClouds)
@@ -1073,10 +1088,13 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < poisonIvyPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(256);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 poisonIvyGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 if (BOPConfiguration.TerrainGen.poisonIvyGen)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(256);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 poisonIvyGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 
 		 for (var2 = 0; var2 < orangeFlowersPerChunk; ++var2)
@@ -1276,10 +1294,13 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < thornsPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(256);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 thornGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 if (BOPConfiguration.TerrainGen.thornGen)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(256);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 thornGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 
 		 for (var2 = 0; var2 < cattailsPerChunk; ++var2)

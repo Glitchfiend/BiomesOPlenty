@@ -3,6 +3,8 @@ package biomesoplenty.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingData;
+import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
@@ -34,6 +36,15 @@ public class WorldGenCobwebNest extends WorldGenerator
 		{
 			++par4;
 			this.setBlockAndMetadata(par1World, par3, par4, par5, Block.web.blockID, 0);
+			
+			int var999 = par2Random.nextInt(3);
+					
+			if (var999 == 0)
+			{
+				EntitySpider spider = new EntitySpider(par1World);
+	            spider.setLocationAndAngles((double)par3, (double)par4 + 1, (double)par5, 0.0F, 0.0F);
+	            par1World.spawnEntityInWorld(spider);
+			}
 
 			for (int var8 = par4; var8 <= par4 + 1; ++var8)
 			{

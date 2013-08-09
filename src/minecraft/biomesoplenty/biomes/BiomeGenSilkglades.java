@@ -50,7 +50,7 @@ public class BiomeGenSilkglades extends BiomeGenBase
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
-		 return par1Random.nextInt(3) == 0 ? new WorldGenBirchWillow() : (par1Random.nextInt(6) == 0 ? new WorldGenDeadTree(false) : (par1Random.nextInt(12) == 0 ? new WorldGenCobwebNest(0,0) : new WorldGenWillow()));
+		 return par1Random.nextInt(5) == 0 ? new WorldGenBirchWillow() : (par1Random.nextInt(7) == 0 ? new WorldGenDeadTree(false) : (par1Random.nextInt(12) == 0 ? new WorldGenCobwebNest(0,0) : new WorldGenWillow()));
 	 }
 	 
 		/**
