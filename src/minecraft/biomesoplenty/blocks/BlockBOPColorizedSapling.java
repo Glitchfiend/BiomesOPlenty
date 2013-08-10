@@ -74,7 +74,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		int id = world.getBlockId(x, y - 1, z);
 		int meta = itemStack.getItemDamage();
 
-		if (itemStack.itemID == blockID) {
+		if (itemStack.itemID == blockID && id != 0) {
 			switch (meta)
 			{
 			case 1: // Mangrove
