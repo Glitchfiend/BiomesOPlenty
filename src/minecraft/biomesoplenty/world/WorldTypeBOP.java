@@ -213,6 +213,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.outback);
 		}
+		if (BOPConfiguration.BiomeGen.overgrownGreensGen == true)
+		{
+			addNewBiome(Biomes.overgrownGreens);
+		}
 		if (BOPConfiguration.BiomeGen.pastureGen == true)
 		{
 			addNewBiome(Biomes.pasture);

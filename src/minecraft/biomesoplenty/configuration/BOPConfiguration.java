@@ -125,6 +125,7 @@ public class BOPConfiguration
 		public static boolean orchardGen;
 		public static boolean originValleyGen;
 		public static boolean outbackGen;
+		public static boolean overgrownGreensGen;
 		public static boolean pastureGen;
 		public static boolean polarGen;
 		public static boolean prairieGen;
@@ -232,6 +233,7 @@ public class BOPConfiguration
 				orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 				originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
 				outbackGen = config.get("Biomes To Generate", "Outback", true).getBoolean(false);
+				overgrownGreensGen = config.get("Biomes To Generate", "OvergrownGreens", false).getBoolean(false);
 				pastureGen = config.get("Biomes To Generate", "Pasture", true).getBoolean(false);
 				polarGen = config.get("Biomes To Generate", "Polar", true).getBoolean(false);
 				prairieGen = config.get("Biomes To Generate", "Prairie", true).getBoolean(false);
@@ -364,6 +366,7 @@ public class BOPConfiguration
 		public static boolean orchardVillage;
 		public static boolean originValleyVillage;
 		public static boolean outbackVillage;
+		public static boolean overgrownGreensVillage;
 		public static boolean pastureVillage;
 		public static boolean polarVillage;
 		public static boolean prairieVillage;
@@ -376,6 +379,7 @@ public class BOPConfiguration
 		public static boolean seasonalForestVillage;
 		public static boolean shieldVillage;
 		public static boolean shrublandVillage;
+		public static boolean silkgladesVillage;
 		public static boolean sludgepitVillage;
 		public static boolean spruceWoodsVillage;
 		public static boolean steppeVillage;
@@ -473,6 +477,7 @@ public class BOPConfiguration
 				orchardVillage = config.get("Allow Villages", "Orchard", false).getBoolean(false);
 				originValleyVillage = config.get("Allow Villages", "OriginValley", false).getBoolean(false);
 				outbackVillage = config.get("Allow Villages", "Outback", false).getBoolean(false);
+				overgrownGreensVillage = config.get("Allow Villages", "OvergrownGreens", true).getBoolean(false);
 				pastureVillage = config.get("Allow Villages", "Pasture", false).getBoolean(false);
 				polarVillage = config.get("Allow Villages", "Polar", false).getBoolean(false);
 				prairieVillage = config.get("Allow Villages", "Prairie", true).getBoolean(false);
@@ -485,6 +490,7 @@ public class BOPConfiguration
 				seasonalForestVillage = config.get("Allow Villages", "SeasonalForest", false).getBoolean(false);
 				shieldVillage = config.get("Allow Villages", "Shield", true).getBoolean(false);
 				shrublandVillage = config.get("Allow Villages", "Shrubland", true).getBoolean(false);
+				silkgladesVillage = config.get("Allow Villages", "Silkgladess", false).getBoolean(false);
 				sludgepitVillage = config.get("Allow Villages", "Sludgepit", false).getBoolean(false);
 				spruceWoodsVillage = config.get("Allow Villages", "SpruceWoods", true).getBoolean(false);
 				steppeVillage = config.get("Allow Villages", "Steppe", true).getBoolean(false);
@@ -737,6 +743,7 @@ public class BOPConfiguration
 		public static int orchardID;
 		public static int originValleyID;
 		public static int outbackID;
+		public static int overgrownGreensID;
 		public static int pastureID;
 		public static int pastureMeadowID;
 		public static int pastureThinID;
@@ -970,6 +977,7 @@ public class BOPConfiguration
 
 				//23-79 ExtraBiomesXL
 
+				overgrownGreensID = config.get("Biome IDs", "Overgrown Greens ID", 34).getInt();
 				forestHillsNewID = config.get("Biome IDs", "Forest Hills (Sub-Biome) ID", 35).getInt();
 				taigaHillsNewID = config.get("Biome IDs", "Taiga Hills (Sub-Biome) ID", 36).getInt();
 				jungleHillsNewID = config.get("Biome IDs", "Jungle Hills (Sub-Biome) ID", 37).getInt();

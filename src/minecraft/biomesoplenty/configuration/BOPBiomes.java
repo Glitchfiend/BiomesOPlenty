@@ -135,6 +135,7 @@ public class BOPBiomes {
 		Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfiguration.IDs.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
 		Biomes.originValley = Optional.of((new BiomeGenOriginValley(BOPConfiguration.IDs.originValleyID)).setColor(353825).setBiomeName("Origin Valley").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.2F, 0.6F));
 		Biomes.outback = Optional.of((new BiomeGenOutback(BOPConfiguration.IDs.outbackID)).setColor(9286496).setBiomeName("Outback").setTemperatureRainfall(0.8F, 0.0F).setMinMaxHeight(0.3F, 0.4F));
+		Biomes.overgrownGreens = Optional.of((new BiomeGenOvergrownGreens(BOPConfiguration.IDs.overgrownGreensID)).setColor(353825).setBiomeName("Overgrown Greens").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.pasture = Optional.of((new BiomeGenPasture(BOPConfiguration.IDs.pastureID)).setColor(9286496).setBiomeName("Pasture").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.pastureMeadow = Optional.of((new BiomeGenPastureMeadow(BOPConfiguration.IDs.pastureMeadowID)).setColor(9286496).setBiomeName("Pasture Meadow").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.pastureThin = Optional.of((new BiomeGenPastureThin(BOPConfiguration.IDs.pastureThinID)).setColor(9286496).setBiomeName("Thinned Pasture").setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.3F, 0.4F));
@@ -269,6 +270,7 @@ public class BOPBiomes {
 		
 		BiomeDictionary.registerBiomeType(Biomes.orchard.get(), Type.FOREST, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.outback.get(), Type.DESERT, Type.PLAINS);
+		BiomeDictionary.registerBiomeType(Biomes.overgrownGreens.get(), Type.JUNGLE, Type.PLAINS);
 		
 		BiomeDictionary.registerBiomeType(Biomes.pasture.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.pastureThin.get(), Type.PLAINS);
@@ -443,6 +445,7 @@ public class BOPBiomes {
 		addVillageBiome(Biomes.oasis, BOPConfiguration.TerrainGen.oasisVillage);
 		addVillageBiome(Biomes.orchard, BOPConfiguration.TerrainGen.orchardVillage);
 		addVillageBiome(Biomes.outback, BOPConfiguration.TerrainGen.outbackVillage);
+		addVillageBiome(Biomes.overgrownGreens, BOPConfiguration.TerrainGen.overgrownGreensVillage);
 		addVillageBiome(Biomes.pasture, BOPConfiguration.TerrainGen.pastureVillage);
 		addVillageBiome(Biomes.polar, BOPConfiguration.TerrainGen.polarVillage);
 		addVillageBiome(Biomes.prairie, BOPConfiguration.TerrainGen.prairieVillage);
@@ -525,6 +528,7 @@ public class BOPBiomes {
 		addStrongholdBiome(Biomes.ominousWoods);
 		addStrongholdBiome(Biomes.orchard);
 		addStrongholdBiome(Biomes.outback);
+		addStrongholdBiome(Biomes.overgrownGreens);
 		addStrongholdBiome(Biomes.pasture);
 		addStrongholdBiome(Biomes.polar);
 		addStrongholdBiome(Biomes.prairie);
@@ -762,6 +766,10 @@ public class BOPBiomes {
 
 			if (BOPConfiguration.BiomeGen.outbackGen) {
 				registerBiome(Biomes.outback);
+			}
+			
+			if (BOPConfiguration.BiomeGen.overgrownGreensGen) {
+				registerBiome(Biomes.overgrownGreens);
 			}
 
 			if (BOPConfiguration.BiomeGen.pastureGen) {
@@ -1144,6 +1152,10 @@ public class BOPBiomes {
 
 		if (BOPConfiguration.BiomeGen.outbackGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.outback);
+		}
+		
+		if (BOPConfiguration.BiomeGen.overgrownGreensGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.overgrownGreens);
 		}
 
 		if (BOPConfiguration.BiomeGen.pastureGen) {

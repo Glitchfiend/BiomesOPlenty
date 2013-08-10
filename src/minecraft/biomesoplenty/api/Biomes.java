@@ -78,6 +78,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> orchard				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> originValley			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> outback				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> overgrownGreens		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> pasture				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> pastureMeadow		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> pastureThin			 = Optional.absent();
