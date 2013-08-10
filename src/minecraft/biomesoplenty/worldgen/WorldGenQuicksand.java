@@ -63,7 +63,7 @@ public class WorldGenQuicksand extends WorldGenerator
 							{
 								double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
 
-								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (par1World.getBlockId(var38, var41, var44) == Block.grass.blockID || par1World.getBlockId(var38, var41, var44) == Block.sand.blockID))
+								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (par1World.getBlockId(var38, var41, var44) == Block.grass.blockID || par1World.getBlockId(var38, var41, var44) == Block.dirt.blockID || par1World.getBlockId(var38, var41, var44) == Block.sand.blockID))
 								{
 									this.setBlockAndMetadata(par1World, var38, var41, var44, minableBlockId, 1);
 								}
