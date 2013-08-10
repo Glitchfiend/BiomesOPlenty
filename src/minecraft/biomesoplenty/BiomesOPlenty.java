@@ -109,11 +109,11 @@ public class BiomesOPlenty
 
 		proxy.registerRenderers();
 
-		if (BOPConfiguration.TerrainGen.netherOverride)
-		{
-        	DimensionManager.unregisterProviderType(-1);
-        	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
-		}
+//		if (BOPConfiguration.TerrainGen.netherOverride)
+//		{
+//        	DimensionManager.unregisterProviderType(-1);
+//        	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
+//		}
 		DimensionManager.registerProviderType(BOPConfiguration.IDs.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfiguration.IDs.promisedLandDimID, BOPConfiguration.IDs.promisedLandDimID);
 		
