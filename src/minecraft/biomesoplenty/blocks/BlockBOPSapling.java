@@ -81,14 +81,14 @@ public class BlockBOPSapling extends BlockSapling
 		int id = world.getBlockId(x, y - 1, z);
 		int meta = itemStack.getItemDamage();
 
-		if (itemStack.itemID == blockID) {
+		if (itemStack.itemID == blockID && id != 0) {
 			switch (meta)
 			{
 			case 7: // Loftwood
 			return id == Blocks.holyGrass.get().blockID || id == Block.grass.blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID /*|| blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this)*/;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
