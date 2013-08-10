@@ -32,6 +32,7 @@ public class BOPConfiguration {
 	public static boolean dartCrafting;
 	public static boolean flowerbandCrafting;
 	public static boolean hotSpringsRegeneration;
+	public static boolean netherwartSpawn;
 
 	public static int villageDistance;
 
@@ -508,6 +509,7 @@ public class BOPConfiguration {
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 			rainCreatesPuddles = config.get("Miscellanious Settings", "Enable Puddles During Rain", true).getBoolean(true);
+			netherwartSpawn = config.get("Miscellanious Settings", "Enable netherwart in the Undergarden biome", true).getBoolean(true);
 			
 			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
@@ -579,7 +581,7 @@ public class BOPConfiguration {
 			//			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
 			mysticGroveGen = config.get("Biomes To Generate", "MysticGrove", true).getBoolean(false);
 			oasisGen = config.get("Biomes To Generate", "Oasis", true).getBoolean(false);
-			oceanGen = config.get("Biomes To Generate", "Ocean", true).getBoolean(false);
+			
 			ominousWoodsGen = config.get("Biomes To Generate", "OminousWoods", true).getBoolean(false);
 			orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 			originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
@@ -618,6 +620,7 @@ public class BOPConfiguration {
 			plainsGen = config.get("Vanilla Biomes To Generate", "Plains", true).getBoolean(true);
 			swamplandGen = config.get("Vanilla Biomes To Generate", "Swampland", true).getBoolean(true);
 			taigaGen = config.get("Vanilla Biomes To Generate", "Taiga", true).getBoolean(true);
+			oceanGen = config.get("Vanilla Biomes To Generate", "Ocean", true).getBoolean(false);
 			
 			// Nether biomes
 			

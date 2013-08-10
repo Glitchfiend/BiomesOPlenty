@@ -44,6 +44,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Fluids;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
 import biomesoplenty.worldgen.WorldGenBOPBush;
@@ -1175,13 +1176,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 netherGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
-		 for (var2 = 0; var2 < netherWartPerChunk; ++var2)
-		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(256);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 netherWartGen.generate(currentWorld, randomGenerator, var3, var4, var5);
-		 }
+		 if (BOPConfiguration.netherwartSpawn)
+    		 for (var2 = 0; var2 < netherWartPerChunk; ++var2)
+    		 {
+    			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+    			 var4 = randomGenerator.nextInt(256);
+    			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+    			 netherWartGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+    		 }
 
 		 for (var2 = 0; var2 < canyonGrassPerChunk; ++var2)
 		 {

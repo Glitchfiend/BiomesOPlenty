@@ -42,6 +42,17 @@ public class BOPCrossIntegration {
                 e.printStackTrace(System.err);
             }
         }
+        
+        if (Loader.isModLoaded("MineFactoryReloaded"))
+        {
+            try {
+                MFRIntegration.init();
+            }
+            catch (Exception e) {
+                System.out.println("[BiomesOPlenty] There was an error while integrating MineFactory Reloaded with Biomes O' Plenty!");
+                e.printStackTrace(System.err);
+            }
+        }
 	}
 	
 	public static void postInit()
@@ -82,7 +93,7 @@ public class BOPCrossIntegration {
 		if (Loader.isModLoaded("MineFactoryReloaded"))
         {
             try {
-                MFRIntegration.init();
+                MFRIntegration.postInit();
             }
             catch (Exception e) {
                 System.out.println("[BiomesOPlenty] There was an error while integrating MineFactory Reloaded with Biomes O' Plenty!");

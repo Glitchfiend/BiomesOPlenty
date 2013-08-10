@@ -9,7 +9,9 @@ public class Localizations
 {
 	private static final String localizationLocation = "/mods/biomesoplenty/localizations/";
 
-	public static String[] localeFiles = { localizationLocation + "en_US.xml", localizationLocation + "de_DE.xml", localizationLocation + "nl_NL.xml" };
+	public static String[] localeFiles = { localizationLocation + "en_US.xml", localizationLocation + "de_DE.xml", localizationLocation + "nl_NL.xml", 
+	                                       localizationLocation + "ru_RU.xml", localizationLocation + "zh_CN.xml", localizationLocation + "pl_PL.xml",
+	                                       localizationLocation + "fr_FR.xml", localizationLocation + "fr_CA.xml", localizationLocation + "ja_JP.xml", };
 
 	public static boolean isXMLLanguageFile(String fileName) 
 	{

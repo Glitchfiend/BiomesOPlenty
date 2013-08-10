@@ -136,7 +136,7 @@ public class BOPBlocks
 		Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.leavesFruitID)).setUnlocalizedName("bop.leavesFruit"));
 		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.bamboo"));
 		Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
-		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setUnlocalizedName("bop.mudBricksStairs"));
+		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setHardness(1.0F).setUnlocalizedName("bop.mudBricksStairs"));
 		Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneDoubleSlab"));
 		Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfiguration.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneSingleSlab"));
 		Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfiguration.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.originGrass"));
@@ -149,15 +149,15 @@ public class BOPBlocks
 		Blocks.petals = Optional.of((new BlockBOPPetals(BOPConfiguration.petalsID)).setUnlocalizedName("bop.petals"));
 		Blocks.saplings = Optional.of((new BlockBOPSapling(BOPConfiguration.saplingsID)).setUnlocalizedName("bop.saplings"));
 		Blocks.colorizedSaplings = Optional.of((new BlockBOPColorizedSapling(BOPConfiguration.colourizedSaplingsID)).setUnlocalizedName("bop.colorizedSaplings"));
-		Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redCobbleStairsID, Blocks.redRock.get(), Category.RED_COBBLE)).setUnlocalizedName("bop.redCobbleStairs"));
-		Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setUnlocalizedName("bop.redBricksStairs"));
+		Blocks.redCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redCobbleStairsID, Blocks.redRock.get(), Category.RED_COBBLE)).setHardness(1.6F).setUnlocalizedName("bop.redCobbleStairs"));
+		Blocks.redBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.redBrickStairsID, Blocks.redRock.get(), Category.RED_BRICKS)).setHardness(1.1F).setUnlocalizedName("bop.redBricksStairs"));
 		Blocks.hardSand = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardSandID, Material.sand, BlockType.HARD_SAND));
 		Blocks.hardDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.hardDirtID, Material.rock, BlockType.HARD_DIRT));
 		Blocks.holyGrass = Optional.of(new BlockBOPGrass(BOPConfiguration.holyGrassID).setUnlocalizedName("bop.holyGrass"));
 		Blocks.holyDirt = Optional.of(new BlockBOPGeneric(BOPConfiguration.holyDirtID, Material.sand, BlockType.HOLY_DIRT));
 		Blocks.holyStone = Optional.of((new BlockBOPSkystone(BOPConfiguration.holyStoneID)).setUnlocalizedName("bop.holyStone"));
-		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setUnlocalizedName("bop.holyCobbleStairs"));
-		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setUnlocalizedName("bop.holyBricksStairs"));
+		Blocks.holyCobbleStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyCobbleStairsID, Blocks.holyStone.get(), Category.HOLY_COBBLE)).setHardness(1.6F).setUnlocalizedName("bop.holyCobbleStairs"));
+		Blocks.holyBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.holyBrickStairsID, Blocks.holyStone.get(), Category.HOLY_BRICKS)).setHardness(1.1F).setUnlocalizedName("bop.holyBricksStairs"));
 		Blocks.crystal = Optional.of(new BlockBOPGeneric(BOPConfiguration.crystalID, Material.glass, BlockType.CRYSTAL));
 		Blocks.promisedPortal = Optional.of(new BlockPromisedPortal(BOPConfiguration.promisedLandPortalID).setUnlocalizedName("bop.promisedPortal").setBlockUnbreakable().setResistance(6000000.0F).setLightValue(1.0F));
 
@@ -175,7 +175,7 @@ public class BOPBlocks
 		
 		Blocks.altar = Optional.of((new BlockAltar(BOPConfiguration.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
 		
-		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.puddleID)).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
+		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfiguration.puddleID)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
 		Blocks.grave = Optional.of((new BlockGrave(BOPConfiguration.graveID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.grave"));
 
 		Blocks.planks = Optional.of((new BlockBOPPlank(BOPConfiguration.planksID)).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.planks"));
