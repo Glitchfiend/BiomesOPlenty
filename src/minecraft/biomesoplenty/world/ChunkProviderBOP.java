@@ -242,8 +242,16 @@ public class ChunkProviderBOP implements IChunkProvider
 							 {
 								 if (i1 <= 0)
 								 {
-									 b1 = 0;
-									 b2 = (byte)Block.stone.blockID;
+									 if (BOPConfiguration.TerrainGen.exposedStone)
+									 {
+										 b1 = 0;
+										 b2 = (byte)Block.stone.blockID;
+									 }
+									 else
+									 {
+										 b1 = biomegenbase.topBlock;
+										 b2 = biomegenbase.fillerBlock;
+									 }
 								 }
 								 else if (k1 >= b0 - 4 && k1 <= b0 + 1)
 								 {
