@@ -21,6 +21,9 @@ public class ItemBOPFood extends ItemFood
 	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth"};
 	private Icon[] textures;
 	
+	private int healAmount;
+    private float saturationModifier;
+	
 	public ItemBOPFood(int par1)
 	{
 		super(par1, 0, 0.0F, false);
@@ -52,61 +55,113 @@ public class ItemBOPFood extends ItemFood
 	@Override
     public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer player)
     {
-		if (itemstack.getItemDamage() == 0)
+		switch (itemstack.getItemDamage())
 		{
-			return addFoodAndSaturation(world, itemstack, player, 2, 0.2F);
-		}
-		else if (itemstack.getItemDamage() == 1)
-		{
-			if (world.rand.nextFloat() < 0.6F)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 225, 0));
-			}
-
-			return addFoodAndSaturation(world, itemstack, player, 1, 0.1F);
-		}
-		else if (itemstack.getItemDamage() == 2)
-		{
-			if (world.rand.nextFloat() < 0.6F)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 225, 1));
-			}
-			
-			return addFoodAndSaturation(world, itemstack, player, 3, 0.5F);
-		}
-		else if (itemstack.getItemDamage() == 3)
-		{
-			return addFoodAndSaturation(world, itemstack, player, 2, 0.5F);
-		}
-		else if (itemstack.getItemDamage() == 4)
-		{
-			if (world.rand.nextFloat() < 0.05F)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 775, 1));
-			}
-			
-			return addFoodAndSaturation(world, itemstack, player, 6, 0.8F);
-		}
-		else if (itemstack.getItemDamage() == 5)
-		{
-			if (world.rand.nextFloat() < 0.05F)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 1100, 1));
-			}
-			
-			return addFoodAndSaturation(world, itemstack, player, 6, 1.2F);
-		}
-		else if (itemstack.getItemDamage() == 6)
-		{
-			if (world.rand.nextFloat() < 0.05F)
-			{
-				player.addPotionEffect(new PotionEffect(Potion.jump.id, 550, 1));
-			}
-			
-			return addFoodAndSaturation(world, itemstack, player, 6, 1.6F);
+			case 0:
+				this.healAmount = 2;
+				this.saturationModifier = 0.2F;
+				break;
+				
+			case 1:
+				this.healAmount = 1;
+				this.saturationModifier = 0.1F;
+				break;
+				
+			case 2:
+				this.healAmount = 3;
+				this.saturationModifier = 0.5F;
+				break;
+				
+			case 3:
+				this.healAmount = 2;
+				this.saturationModifier = 0.5F;
+				break;
+				
+			case 4:
+				this.healAmount = 6;
+				this.saturationModifier = 0.8F;
+				break;
+				
+			case 5:
+				this.healAmount = 6;
+				this.saturationModifier = 1.2F;
+				break;
+				
+			case 6:
+				this.healAmount = 6;
+				this.saturationModifier = 1.6F;
+				break;
+				
+			default:
+				this.healAmount = 0;
+				this.saturationModifier = 0.0F;
+				break;
 		}
 		
-		return addFoodAndSaturation(world, itemstack, player, 0, 0);
+		--itemstack.stackSize;
+        player.getFoodStats().addStats(this);
+        world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
+        this.onFoodEaten(itemstack, world, player);
+        
+        switch (itemstack.getItemDamage())
+        {
+        	case 4:
+        	case 5:
+        	case 6:
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                {
+                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+                }
+        }
+        
+        return itemstack;
+    }
+	
+	@Override
+	protected void onFoodEaten(ItemStack itemstack, World world, EntityPlayer player)
+    {
+        if (!world.isRemote)
+        {
+            switch (itemstack.getItemDamage())
+            {
+            	case 1:
+            		if (world.rand.nextFloat() < 0.6F)
+           				player.addPotionEffect(new PotionEffect(Potion.confusion.id, 225, 0));
+            		break;
+            		
+            	case 2:
+            		if (world.rand.nextFloat() < 0.6F)
+           				player.addPotionEffect(new PotionEffect(Potion.weakness.id, 225, 1));
+            		break;
+            		
+            	case 4:
+            		if (world.rand.nextFloat() < 0.05F)
+            			player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 775, 1));
+            		break;
+            			
+            	case 5:
+            		if (world.rand.nextFloat() < 0.05F)
+            			player.addPotionEffect(new PotionEffect(Potion.field_76434_w.id, 1100, 1));
+            		break;
+            			
+            	case 6:
+            		if (world.rand.nextFloat() < 0.05F)
+            			player.addPotionEffect(new PotionEffect(Potion.jump.id, 550, 1));
+            		break;
+            }
+        }
+    }
+	
+	@Override
+	public int getHealAmount()
+    {
+        return this.healAmount;
+    }
+
+	@Override
+    public float getSaturationModifier()
+    {
+        return this.saturationModifier;
     }
 	
 	private ItemStack addFoodAndSaturation(World world, ItemStack itemstack, EntityPlayer player, int food, float saturation)
