@@ -456,7 +456,7 @@ public class ChunkProviderBOP implements IChunkProvider
 						 }
 
 						 f1 += biomegenbase1.maxHeight * f4;
-						 f2 += biomegenbase1.minHeight * f4;
+						 f2 += (biomegenbase1.minHeight - 2.0) * f4;
 						 f3 += f4;
 					 }
 				 }
