@@ -21,9 +21,6 @@ public class ItemBOPFood extends ItemFood
 	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth"};
 	private Icon[] textures;
 	
-	private int healAmount;
-    private float saturationModifier;
-	
 	public ItemBOPFood(int par1)
 	{
 		super(par1, 0, 0.0F, false);
@@ -55,51 +52,42 @@ public class ItemBOPFood extends ItemFood
 	@Override
     public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer player)
     {
+		--itemstack.stackSize;
 		switch (itemstack.getItemDamage())
 		{
 			case 0:
-				this.healAmount = 2;
-				this.saturationModifier = 0.2F;
+				player.getFoodStats().addStats(2, 0.2F);
 				break;
 				
 			case 1:
-				this.healAmount = 1;
-				this.saturationModifier = 0.1F;
+				player.getFoodStats().addStats(1, 0.1F);
 				break;
 				
 			case 2:
-				this.healAmount = 3;
-				this.saturationModifier = 0.5F;
+				player.getFoodStats().addStats(3, 0.5F);
 				break;
 				
 			case 3:
-				this.healAmount = 2;
-				this.saturationModifier = 0.5F;
+				player.getFoodStats().addStats(2, 0.5F);
 				break;
 				
 			case 4:
-				this.healAmount = 6;
-				this.saturationModifier = 0.8F;
+				player.getFoodStats().addStats(6, 0.8F);
 				break;
 				
 			case 5:
-				this.healAmount = 6;
-				this.saturationModifier = 1.2F;
+				player.getFoodStats().addStats(6, 1.2F);
 				break;
 				
 			case 6:
-				this.healAmount = 6;
-				this.saturationModifier = 1.6F;
+				player.getFoodStats().addStats(6, 1.6F);
 				break;
 				
 			default:
-				this.healAmount = 0;
-				this.saturationModifier = 0.0F;
+				player.getFoodStats().addStats(0, 0.0F);
 				break;
 		}
 		
-		--itemstack.stackSize;
-        player.getFoodStats().addStats(this);
         world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
         this.onFoodEaten(itemstack, world, player);
         
@@ -109,9 +97,8 @@ public class ItemBOPFood extends ItemFood
         	case 5:
         	case 6:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                {
                     player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
-                }
+        		break;
         }
         
         return itemstack;
@@ -151,94 +138,6 @@ public class ItemBOPFood extends ItemFood
             }
         }
     }
-	
-	@Override
-	public int getHealAmount()
-    {
-        return this.healAmount;
-    }
-
-	@Override
-    public float getSaturationModifier()
-    {
-        return this.saturationModifier;
-    }
-	
-	private ItemStack addFoodAndSaturation(World world, ItemStack itemstack, EntityPlayer player, int food, float saturation)
-	{
-        --itemstack.stackSize;
-        
-        FoodStats foodstats = player.getFoodStats();
-        
-		Field flfield = null;
-		Field[] fields = foodstats.getClass().getDeclaredFields();
-
-		for (Field f : fields)
-		{
-			if (f.getName().equals("foodLevel") || f.getName().equals("a"))
-			{
-				flfield = f;
-				break;
-			}
-		}
-
-        try 
-        {
-          flfield.setAccessible(true);
-          flfield.setInt(foodstats, flfield.getInt(foodstats) + food);
-        } 
-        catch (Exception e) 
-        {
-        	e.printStackTrace();
-        }
-        
-		Field slfield = null;
-
-		for (Field f : fields)
-		{
-			if (f.getName().equals("foodSaturationLevel") || f.getName().equals("b"))
-			{
-				slfield = f;
-				break;
-			}
-		}
-
-        try 
-        {
-          slfield.setAccessible(true);
-          slfield.setFloat(foodstats, slfield.getFloat(foodstats) + saturation);
-        } 
-        catch (Exception e) 
-        {
-        	e.printStackTrace();
-        }
-        
-        world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
-        super.onFoodEaten(itemstack, world, player);
-        if (itemstack.getItemDamage() == 4)
-        {
-            if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-            {
-                player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
-            }
-        }
-        if (itemstack.getItemDamage() == 5)
-        {
-            if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-            {
-                player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
-            }
-        }
-        if (itemstack.getItemDamage() == 6)
-        {
-            if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-            {
-                player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
-            }
-        }
-        
-        return itemstack;
-	}
 	
 	@Override
     public void getSubItems(int itemID, CreativeTabs par2CreativeTabs, List list)
