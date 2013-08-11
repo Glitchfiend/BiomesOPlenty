@@ -147,7 +147,7 @@ public class ChunkProviderBOP implements IChunkProvider
 
 					 for (int l1 = 0; l1 < 8; ++l1)
 					 {
-						 double d9 = 0.125D;
+						 double d9 = 0.25D;
 						 double d10 = d1;
 						 double d11 = d2;
 						 double d12 = (d3 - d1) * d9;
@@ -450,13 +450,13 @@ public class ChunkProviderBOP implements IChunkProvider
 						 
 						 float f4 = parabolicField[i3 + 2 + (j3 + 2) * 5] / (biomegenbase1.minHeight + 2.0F);
 
-						 if (biomegenbase1.minHeight > biomegenbase1.maxHeight)
+						 if (biomegenbase1.minHeight > biomegenbase.minHeight)
 						 {
 							 f4 /= 2.0F;
 						 }
 
 						 f1 += biomegenbase1.maxHeight * f4;
-						 f2 += (biomegenbase1.minHeight - 2.0F) * f4;
+						 f2 += biomegenbase1.minHeight * f4;
 						 f3 += f4;
 					 }
 				 }
