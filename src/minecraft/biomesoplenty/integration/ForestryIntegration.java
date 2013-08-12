@@ -87,6 +87,8 @@ public class ForestryIntegration
 		EnumTemperature.warmBiomeIds.add(BOPConfiguration.IDs.tropicsID);
 		EnumTemperature.warmBiomeIds.add(BOPConfiguration.IDs.woodlandID);
 		EnumTemperature.warmBiomeIds.add(BOPConfiguration.IDs.jungleNewID);
+		EnumTemperature.warmBiomeIds.add(BOPConfiguration.IDs.jungleHillsNewID);
+		EnumTemperature.warmBiomeIds.add(BOPConfiguration.IDs.overgrownGreensID);
 
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.bambooForestID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.hotSpringsID);
@@ -98,7 +100,8 @@ public class ForestryIntegration
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.tropicsID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.woodlandID);
 		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.jungleNewID);
-
+		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.jungleHillsNewID);
+		EnumHumidity.dampBiomeIds.add(BOPConfiguration.IDs.overgrownGreensID);
 
 
 		//Normal - Damp
@@ -177,6 +180,7 @@ public class ForestryIntegration
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.plainsNewID);
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.extremeHillsNewID);
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.forestNewID);
+		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.forestHillsNewID);
 
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.beachGravelID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.beachOvergrownID);
@@ -218,7 +222,7 @@ public class ForestryIntegration
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.plainsNewID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.extremeHillsNewID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.forestNewID);
-
+		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.forestHillsNewID);
 
 
 		//Cold- Normal
@@ -228,12 +232,14 @@ public class ForestryIntegration
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.IDs.deadForestSnowID);
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.IDs.mountainID);
 		EnumTemperature.coldBiomeIds.add(BOPConfiguration.IDs.taigaNewID);
+		EnumTemperature.coldBiomeIds.add(BOPConfiguration.IDs.taigaHillsNewID);
 
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.arcticID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.tundraID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.deadForestSnowID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.mountainID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.taigaNewID);
+		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.taigaHillsNewID);
 
 		//Icy - Normal
 		//Wintry Bees
