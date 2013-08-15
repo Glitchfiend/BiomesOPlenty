@@ -140,32 +140,38 @@ public class BlockBOPGlass extends Block
 					}
 					if (world.getBlockMetadata(x, y, z) == 3)
 					{
-						if (checkAltarStructreIntegrity(world, x, y, z))
+						if (player.dimension == 2)
 						{
-							if (!player.capabilities.isCreativeMode)
+							if (checkAltarStructreIntegrity(world, x, y, z))
 							{
-								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+								if (!player.capabilities.isCreativeMode)
+								{
+									player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+								}
+
+								world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
+
+								if (world.isRemote)
+								{
+									FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
+									FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
+								}
+								
+								player.addStat(AchievementHelper.achSacrifice, 1);
+
+								if (!world.isRemote)
+								{
+									world.spawnEntityInWorld(new EntityDragon(world));
+
+									world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+
+									Entity entitytnt = new EntityTNTPrimed(world);
+
+									world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
+								}
+
+								return true;
 							}
-
-							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
-
-							if (world.isRemote)
-							{
-								FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
-								FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
-							}
-
-							world.spawnEntityInWorld(new EntityDragon(world));
-							
-							player.addStat(AchievementHelper.achSacrifice, 1);
-
-							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-
-							Entity entitytnt = new EntityTNTPrimed(world);
-
-							world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
-
-							return true;
 						}
 					}
 				}
