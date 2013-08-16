@@ -19,7 +19,7 @@ public class WorldGenPineTree extends WorldGenerator
 
 		int var6 = var1.getBlockId(var3, var4, var5);
 
-		if (var6 != Block.grass.blockID && var6 != Blocks.hardDirt.get().blockID && var6 != Block.stone.blockID)
+		if (var6 != Block.grass.blockID && var6 != Blocks.hardDirt.get().blockID && var6 != Block.stone.blockID && var6 != Block.dirt.blockID)
 			return false;
 		else
 		{
