@@ -26,7 +26,6 @@ import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Localizations;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
-import biomesoplenty.world.WorldProviderBOPhell;
 import biomesoplenty.world.WorldProviderPromised;
 import biomesoplenty.world.WorldTypeSize;
 import cpw.mods.fml.common.Mod;

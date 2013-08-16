@@ -1,6 +1,5 @@
 package biomesoplenty.items;
 
-import java.lang.reflect.Field;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -11,7 +10,6 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.FoodStats;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;

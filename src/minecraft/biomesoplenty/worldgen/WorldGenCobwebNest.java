@@ -3,11 +3,9 @@ package biomesoplenty.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLivingData;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
 
 public class WorldGenCobwebNest extends WorldGenerator
 {

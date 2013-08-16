@@ -29,7 +29,7 @@ public class ArmorAmethyst extends ItemArmor
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
 		if (stack.itemID == Items.helmetAmethyst.get().itemID || stack.itemID == Items.chestplateAmethyst.get().itemID || stack.itemID == Items.bootsAmethyst.get().itemID)
 			return "biomesoplenty:textures/armor/amethyst_1.png";

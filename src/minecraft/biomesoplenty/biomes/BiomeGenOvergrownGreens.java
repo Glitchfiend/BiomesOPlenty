@@ -3,16 +3,14 @@ package biomesoplenty.biomes;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenIvy;
-import biomesoplenty.worldgen.WorldGenOvergrownTree;
 import biomesoplenty.worldgen.WorldGenLargeTree;
+import biomesoplenty.worldgen.WorldGenOvergrownTree;
 
 public class BiomeGenOvergrownGreens extends BiomeGenBase
 {

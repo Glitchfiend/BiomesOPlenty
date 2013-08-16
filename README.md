@@ -22,6 +22,37 @@
 
 
 ## Changelog 
+	  Version 0.6.1 '16-08-13'
+	- Fixed food for the fifty-billionth time
+	- Added fr_CA localisation
+	- Added fr_FR localisation
+	- Added pl_PL localisation
+	- Added a config option for the Spring Water Regeneration Effect
+	- Tweaked some achievements
+	- Made puddles dry up faster
+	- Changed the height of the Grassland
+	- Promised Land Tweaks
+	- Fixed Spring Water Regeneration Effect
+	- Fixed stair hardness
+	- Added the Silkglades biome
+	- Added a config option to generate pumpkins without faces
+	- Added a config option to disable lethal decoration
+	- Tweaked Biome Dictionary definitions
+	- Tweaked Origin Valley sky colour
+	- Added sub biomes for the enhanced vanilla biomes
+	- Tweaked the barley texture
+	- Fixed quicksand deepness
+	- Added the Overgrown Greens biome
+	- Prevented the Nether from being overriden in default worlds unless Add to Default is set to true
+	- Fixed a crash with saplings
+	- Added a config option to disable vanilla's exposed stone feature
+	- Tweaked the Shrubland height
+	- Tweaked the Tundra height
+	- Fixed terrain generator "stripes"
+	- Fixed a crash with disabling structures
+	- Fixed some bugs with sacrificing
+	- Fixed some bugs with pine tree growth requirements and slabs
+
 	  Version 0.6.0 '03-08-13'
 	- Ripped out old integration for BC pumps
 	- Fixed a server crash bug with sacrifical altars

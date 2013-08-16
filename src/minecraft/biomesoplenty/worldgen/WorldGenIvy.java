@@ -1,6 +1,7 @@
 package biomesoplenty.worldgen;
 
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Facing;
@@ -10,7 +11,8 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenIvy extends WorldGenerator
 {
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    @Override
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
         int l = par3;
 

@@ -20,7 +20,7 @@ public class ArmorMuddy extends ItemArmor
 	}
 
 	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, int layer) 
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
 		if (stack.itemID == Items.helmetMud.get().itemID || stack.itemID == Items.chestplateMud.get().itemID || stack.itemID == Items.bootsMud.get().itemID)
 			return "biomesoplenty:textures/armor/mud_1.png";

@@ -7,7 +7,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenBOPPumpkin extends WorldGenerator
 {
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+    @Override
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
     {
         for (int l = 0; l < 64; ++l)
         {

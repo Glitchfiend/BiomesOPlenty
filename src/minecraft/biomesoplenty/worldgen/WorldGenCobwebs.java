@@ -2,11 +2,10 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 
 public class WorldGenCobwebs extends WorldGenerator
 {
