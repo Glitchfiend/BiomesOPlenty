@@ -244,7 +244,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	/**
 	 * The number of trees to attempt to generate per chunk. Up to 10 in forests, none in deserts.
 	 */
-	protected int treesPerChunk;
+	//protected int treesPerChunk; fix for bigtrees mod compatibility -ted80
 
 	/**
 	 * The number of yellow flower patches to generate per chunk. The game generates much less than this number, since
