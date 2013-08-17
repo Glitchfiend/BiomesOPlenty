@@ -140,7 +140,7 @@ public class BlockBOPGlass extends Block
 					}
 					if (world.getBlockMetadata(x, y, z) == 3)
 					{
-						if (player.dimension == 2)
+						if (player.dimension == 1)
 						{
 							if (checkAltarStructreIntegrity(world, x, y, z))
 							{
