@@ -139,31 +139,37 @@ public class BlockBOPGlass extends Block
 					}
 					if (world.getBlockMetadata(x, y, z) == 3)
 					{
-						if (checkAltarStructreIntegrity(world, x, y, z))
-						{
-							if (!player.capabilities.isCreativeMode)
-							{
-								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
-							}
-
-							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
-
-							if (world.isRemote)
-							{
-								FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
-								FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
-							}
-
-							world.spawnEntityInWorld(new EntityDragon(world));
-
-							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-
-							Entity entitytnt = new EntityTNTPrimed(world);
-
-							world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
-
-							return true;
-						}
+					    if (player.dimension == 1)
+                        {
+    						if (checkAltarStructreIntegrity(world, x, y, z))
+    						{
+    							if (!player.capabilities.isCreativeMode)
+    							{
+    								player.setCurrentItemOrArmor(0, new ItemStack(Items.soulManipulator.get(), 1, 0));
+    							}
+    
+    							world.spawnEntityInWorld(new EntityLightningBolt(world, x, y + 1, z));
+    
+    							if (world.isRemote)
+    							{
+    								FMLClientHandler.instance().getClient().sndManager.playSound("mob.wither.death", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 10.0F);
+    								FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
+    							}
+    
+    							if (!world.isRemote)
+    							{
+        							world.spawnEntityInWorld(new EntityDragon(world));
+        
+        							world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+        
+        							Entity entitytnt = new EntityTNTPrimed(world);
+        
+        							world.createExplosion(entitytnt, (double)x, (double)y, (double)z, 10.0F, true);
+    							}
+    
+    							return true;
+    						}
+                        }
 					}
 				}
 				if (equippedItem.getItemDamage() == 2)

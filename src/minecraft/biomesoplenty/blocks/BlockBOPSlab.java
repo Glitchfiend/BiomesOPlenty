@@ -111,7 +111,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 	@Override
 	public int damageDropped(int meta)
 	{
-		return meta;
+		return meta & 7;
 	}
 
 	@Override

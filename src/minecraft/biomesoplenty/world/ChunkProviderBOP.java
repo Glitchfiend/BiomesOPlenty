@@ -371,7 +371,7 @@ public class ChunkProviderBOP implements IChunkProvider
 
                     if (aextendedblockstorage[j1] == null)
                     {
-                        aextendedblockstorage[j1] = new ExtendedBlockStorage(j1 << 4, mapFeaturesEnabled);
+                        aextendedblockstorage[j1] = new ExtendedBlockStorage(j1 << 4, true);
                     }
 
                     aextendedblockstorage[j1].setExtBlockID(k, i1 & 0xf, l, byte0 & 0xff);
