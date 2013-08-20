@@ -22,6 +22,10 @@
 
 
 ## Changelog 
+	  Version 0.6.2 '20-08-13'
+	- Fixed bigtrees compatibility
+	- Fixed another bug with altars
+
 	  Version 0.6.1 '16-08-13'
 	- Fixed food for the fifty-billionth time
 	- Added fr_CA localisation
