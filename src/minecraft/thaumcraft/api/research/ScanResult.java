@@ -14,7 +14,7 @@ public class ScanResult {
 		super();
 		this.type = type;
 		this.blockId = blockId;
-		this.blockMeta = blockMeta;
+		this.blockMeta = blockMeta;		
 		this.entity = entity;
 		this.phenomena = phenomena;
 	}

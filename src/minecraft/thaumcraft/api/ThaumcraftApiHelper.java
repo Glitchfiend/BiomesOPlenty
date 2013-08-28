@@ -3,21 +3,23 @@ package thaumcraft.api;
 import java.lang.reflect.Method;
 
 import net.minecraft.item.ItemStack;
+import thaumcraft.api.aspects.AspectList;
 import cpw.mods.fml.common.FMLLog;
 
 public class ThaumcraftApiHelper {
-	public static ObjectTags cullTags(ObjectTags temp) {
-		while (temp!=null && temp.size()>5) {
-			EnumTag lowest = null;
-			int low = Integer.MAX_VALUE;
-			for (EnumTag tag:temp.getAspects()) {
-				if (temp.getAmount(tag)<low) {
-					low = temp.getAmount(tag);
-					lowest = tag;
-				}
-			}
-			temp.tags.remove(lowest);
-		}
+	
+	public static AspectList cullTags(AspectList temp) {
+//		while (temp!=null && temp.size()>5) {
+//			EnumTag lowest = null;
+//			int low = Integer.MAX_VALUE;
+//			for (EnumTag tag:temp.getAspects()) {
+//				if (temp.getAmount(tag)<low) {
+//					low = temp.getAmount(tag);
+//					lowest = tag;
+//				}
+//			}
+//			temp.aspects.remove(lowest);
+//		}
 		return temp; 
 	}
 	
@@ -38,12 +40,12 @@ public class ThaumcraftApiHelper {
 		boolean ot = false;
 	    try {
 	        if(isResearchComplete == null) {
-	            Class fake = Class.forName("thaumcraft.common.research.ResearchManager");
+	            Class fake = Class.forName("thaumcraft.common.lib.research.ResearchManager");
 	            isResearchComplete = fake.getMethod("isResearchComplete", String.class, String.class);
 	        }
 	        ot = (Boolean) isResearchComplete.invoke(null, username, researchkey);
 	    } catch(Exception ex) { 
-	    	FMLLog.warning("[Thaumcraft API] Could not invoke thaumcraft.common.research.ResearchManager method isResearchComplete");
+	    	FMLLog.warning("[Thaumcraft API] Could not invoke thaumcraft.common.lib.research.ResearchManager method isResearchComplete");
 	    }
 		return ot;
 	}
@@ -60,41 +62,41 @@ public class ThaumcraftApiHelper {
 		return ot;
 	}
 
-	public static ObjectTags getObjectTags(ItemStack is) {
-		ObjectTags ot = null;
+	public static AspectList getObjectAspects(ItemStack is) {
+		AspectList ot = null;
 	    try {
 	        if(getObjectTags == null) {
 	            Class fake = Class.forName("thaumcraft.common.lib.ThaumcraftCraftingManager");
 	            getObjectTags = fake.getMethod("getObjectTags", ItemStack.class);
 	        }
-	        ot = (ObjectTags) getObjectTags.invoke(null, is);
+	        ot = (AspectList) getObjectTags.invoke(null, is);
 	    } catch(Exception ex) { 
 	    	FMLLog.warning("[Thaumcraft API] Could not invoke thaumcraft.common.lib.ThaumcraftCraftingManager method getObjectTags");
 	    }
 		return ot;
 	}
 
-	public static ObjectTags getBonusObjectTags(ItemStack is,ObjectTags ot) {
+	public static AspectList getBonusObjectTags(ItemStack is,AspectList ot) {
 		
 	    try {
 	        if(getBonusTags == null) {
 	            Class fake = Class.forName("thaumcraft.common.lib.ThaumcraftCraftingManager");
-	            getBonusTags = fake.getMethod("getBonusTags", ItemStack.class, ObjectTags.class);
+	            getBonusTags = fake.getMethod("getBonusTags", ItemStack.class, AspectList.class);
 	        }
-	        ot = (ObjectTags) getBonusTags.invoke(null, is, ot);
+	        ot = (AspectList) getBonusTags.invoke(null, is, ot);
 	    } catch(Exception ex) { 
 	    	FMLLog.warning("[Thaumcraft API] Could not invoke thaumcraft.common.lib.ThaumcraftCraftingManager method getBonusTags");
 	    }
 		return ot;
 	}
 
-	public static ObjectTags generateTags(int id, int meta) {
+	public static AspectList generateTags(int id, int meta) {
 	    try {
 	        if(generateTags == null) {
 	            Class fake = Class.forName("thaumcraft.common.lib.ThaumcraftCraftingManager");
 	            generateTags = fake.getMethod("generateTags", int.class, int.class);
 	        }
-	        return (ObjectTags) generateTags.invoke(null, id, meta);
+	        return (AspectList) generateTags.invoke(null, id, meta);
 	    } catch(Exception ex) { 
 	    	FMLLog.warning("[Thaumcraft API] Could not invoke thaumcraft.common.lib.ThaumcraftCraftingManager method generateTags");
 	    }

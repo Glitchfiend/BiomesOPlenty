@@ -1,22 +1,74 @@
 package thaumcraft.api.aspects;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+
+import org.apache.commons.lang3.text.WordUtils;
 
 public class Aspect {
 	
 	String tag;
 	Aspect[] components;
-	
-	public Aspect(String tag, Aspect[] components) {
+	int color;
+	private String chatcolor;
+	ResourceLocation image;
+	int blend;
+
+	/**
+	 * Use this constructor to register your own aspects.
+	 * @param tag the key that will be used to reference this aspect, as well as its latin display name
+	 * @param color color to display the tag in
+	 * @param components the aspects this one is formed from
+	 * @param image ResourceLocation pointing to a 32x32 icon of the aspect
+	 * @param blend GL11 blendmode (1 or 771). Used for rendering nodes. Default is 1
+	 */
+	public Aspect(String tag, int color, Aspect[] components, ResourceLocation image, int blend) {
+		if (aspects.containsKey(tag)) throw new IllegalArgumentException(tag+" already registered!");
 		this.tag = tag;
 		this.components = components;
-		
+		this.color = color;
+		this.image = image;
+		this.blend = blend;
 		aspects.put(tag, this);
 	}
+	
+	/**
+	 * Shortcut constructor I use for the default aspects - you shouldn't be using this.
+	 */
+	public Aspect(String tag, int color, Aspect[] components) {
+		this(tag,color,components,new ResourceLocation("thaumcraft","textures/aspects/"+tag.toLowerCase()+".png"),1);
+	}
+	
+	/**
+	 * Shortcut constructor I use for the default aspects - you shouldn't be using this.
+	 */
+	public Aspect(String tag, int color, Aspect[] components, int blend) {
+		this(tag,color,components,new ResourceLocation("thaumcraft","textures/aspects/"+tag.toLowerCase()+".png"),blend);
+	}
 
-	public Aspect(String tag) {
-		this.tag = tag;
-		aspects.put(tag, this);
+	/**
+	 * Shortcut constructor I use for the primal aspects - 
+	 * you shouldn't use this as making your own primal aspects will break all the things.
+	 */
+	public Aspect(String tag, int color, String chatcolor, int blend) {
+		this(tag,color,(Aspect[])null, blend);
+		this.setChatcolor(chatcolor);
+	}
+	
+	public int getColor() {
+		return color;
+	}
+	
+	public String getName() {
+		return WordUtils.capitalizeFully(tag);
+	}
+	
+	public String getLocalizedDescription() {
+		return StatCollector.translateToLocal("tc.aspect."+tag);
 	}
 	
 	public String getTag() {
@@ -34,52 +86,119 @@ public class Aspect {
 	public void setComponents(Aspect[] components) {
 		this.components = components;
 	}
+	
+	public ResourceLocation getImage() {
+		return image;
+	}
+	
+	public static Aspect getAspect(String tag) {
+		return aspects.get(tag);
+	}
+	
+	public int getBlend() {
+		return blend;
+	}
+
+	public void setBlend(int blend) {
+		this.blend = blend;
+	}
+	
+	public boolean isPrimal() {
+		return getComponents()==null || getComponents().length!=2;
+	}
+	
+	///////////////////////////////
+	public static ArrayList<Aspect> getPrimalAspects() {
+		ArrayList<Aspect> primals = new ArrayList<Aspect>();
+		Collection<Aspect> pa = aspects.values();
+		for (Aspect aspect:pa) {
+			if (aspect.isPrimal())  primals.add(aspect);
+		}
+		return primals;
+	}
+
+	public String getChatcolor() {
+		return chatcolor;
+	}
+
+	public void setChatcolor(String chatcolor) {
+		this.chatcolor = chatcolor;
+	}
 
 	///////////////////////////////
-	public static HashMap<String,Aspect> aspects = new HashMap<String,Aspect>();
+	public static LinkedHashMap<String,Aspect> aspects = new LinkedHashMap<String,Aspect>();
 	
 	//PRIMAL
-		public static final Aspect AIR = new Aspect("Air");
-		public static final Aspect EARTH = new Aspect("Earth");
-		public static final Aspect FIRE = new Aspect("Fire");
-		public static final Aspect WATER = new Aspect("Water");
-		public static final Aspect POSITIVE = new Aspect("Positive");
-		public static final Aspect NEGATIVE = new Aspect("Negative");
-		public static final Aspect ORDER = new Aspect("Order");
-		public static final Aspect CHAOS = new Aspect("Chaos");
+		public static final Aspect AIR = new Aspect("aer",0xffff7e,"e",1);
+		public static final Aspect EARTH = new Aspect("terra",0x56c000,"2",1);
+		public static final Aspect FIRE = new Aspect("ignis",0xff5a01,"c",1);
+		public static final Aspect WATER = new Aspect("aqua",0x3cd4fc,"3",1);
+		public static final Aspect ORDER = new Aspect("ordo",0xd5d4ec,"7",1);
+		public static final Aspect ENTROPY = new Aspect("perditio",0x404040,"8",771);
 	
 	//SECONDARY  	TODO
-		public static final Aspect VOID = new Aspect("Void", new Aspect[] {NEGATIVE, POSITIVE});
-		public static final Aspect LIGHT = new Aspect("Light", new Aspect[] {AIR, FIRE});
-		public static final Aspect DARKNESS = new Aspect("Darkness", new Aspect[] {VOID, LIGHT});
-		public static final Aspect ASTRAL = new Aspect("Astral", new Aspect[] {VOID, DARKNESS});
-		public static final Aspect ENERGY = new Aspect("Energy", new Aspect[] {POSITIVE, FIRE});
-		public static final Aspect LIFE = new Aspect("Life", new Aspect[] {POSITIVE, ENERGY});
-		public static final Aspect DEATH = new Aspect("Death", new Aspect[] {NEGATIVE, ENERGY});
-		public static final Aspect MOTION = new Aspect("Motion", new Aspect[] {AIR, ORDER});
-		public static final Aspect WEATHER = new Aspect("Weather", new Aspect[] {AIR, CHAOS});
-		public static final Aspect STONE = new Aspect("Stone", new Aspect[] {EARTH, ORDER});
-		public static final Aspect METAL = new Aspect("Metal", new Aspect[] {STONE, FIRE});
-		public static final Aspect SAND = new Aspect("Sand", new Aspect[] {AIR, STONE});
-		public static final Aspect SOUL = new Aspect("Soul", new Aspect[] {DEATH, LIFE});
-		public static final Aspect HEAL = new Aspect("Heal", new Aspect[] {POSITIVE, LIFE});
-		public static final Aspect HARM = new Aspect("Harm", new Aspect[] {NEGATIVE, LIFE});
-		public static final Aspect ANIMATE = new Aspect("Animate",new Aspect[] {MOTION, LIFE});
-		public static final Aspect MAN = new Aspect("Man", new Aspect[] {LIFE, SOUL});
-		public static final Aspect BEAST = new Aspect("Beast", new Aspect[] {LIFE, CHAOS});
-		public static final Aspect BIRD = new Aspect("Bird", new Aspect[] {BEAST, AIR});
-		public static final Aspect FISH = new Aspect("Fish", new Aspect[] {BEAST, WATER});
-		public static final Aspect SEED = new Aspect("Seed", new Aspect[] {LIFE, EARTH});
-		public static final Aspect TREE = new Aspect("Tree", new Aspect[] {SEED, EARTH});
-		public static final Aspect TOOL = new Aspect("Tool", new Aspect[] {MAN, METAL});
-		public static final Aspect MINE = new Aspect("Mine", new Aspect[] {MAN, STONE});
-		public static final Aspect WOOD = new Aspect("Wood", new Aspect[] {TREE, TOOL});
-		public static final Aspect MACHINE = new Aspect("Machine", new Aspect[] {TOOL, ORDER});
+		public static final Aspect VOID = new Aspect("vacuos",0x888888, new Aspect[] {ORDER, ENTROPY},771);
+		public static final Aspect LIGHT = new Aspect("lux",0xfff663, new Aspect[] {AIR, FIRE});
+		public static final Aspect ENERGY = new Aspect("potentia",0xc0ffff, new Aspect[] {ORDER, FIRE});
+		public static final Aspect MOTION = new Aspect("motus",0xcdccf4, new Aspect[] {AIR, ORDER});
+		public static final Aspect STONE = new Aspect("saxum",0x808080, new Aspect[] {EARTH, EARTH});
+		public static final Aspect LIFE = new Aspect("victus",0xde0005, new Aspect[] {WATER, EARTH});
+		public static final Aspect WEATHER = new Aspect("tempestas",0xFFFFFF, new Aspect[] {AIR, WATER});
+		
+	//TERTIARY  	TODO		
+		
+		public static final Aspect DEATH = new Aspect("mortuus",0x887788, new Aspect[] {LIFE, ENTROPY});
+		public static final Aspect FLIGHT = new Aspect("volatus",0xe7e7d7, new Aspect[] {AIR, MOTION});
+		public static final Aspect DARKNESS = new Aspect("tenebrae",0x222222, new Aspect[] {VOID, LIGHT});
+		public static final Aspect SOUL = new Aspect("spiritus",0xebebfb, new Aspect[] {LIFE, DEATH});
+		
+		public static final Aspect MAGIC = new Aspect("praecantatio",0x9700c0, new Aspect[] {VOID, ENERGY});
+		public static final Aspect AURA = new Aspect("auram",0xffc0ff, new Aspect[] {MAGIC, AIR});
+		public static final Aspect TAINT = new Aspect("vitium",0x800080, new Aspect[] {MAGIC, ENTROPY});
+		
+		public static final Aspect SEED = new Aspect("granum",0xeea16e, new Aspect[] {LIFE, EARTH});
+		public static final Aspect SLIME = new Aspect("limus",0x01f800, new Aspect[] {LIFE, WATER});
+		public static final Aspect PLANT = new Aspect("herba",0x01ac00, new Aspect[] {SEED, EARTH});
+		public static final Aspect TREE = new Aspect("arbor",0x876531, new Aspect[] {EARTH, PLANT});		
+				
+		public static final Aspect BEAST = new Aspect("bestia",0x9f6409, new Aspect[] {MOTION, LIFE});
+		public static final Aspect FLESH = new Aspect("corpus",0xee478d, new Aspect[] {DEATH,BEAST});
+		public static final Aspect UNDEAD = new Aspect("exanimis",0x3a4000, new Aspect[] {MOTION, DEATH});
+		public static final Aspect MIND = new Aspect("cognitio",0xffc2b3, new Aspect[] {EARTH, SOUL});
+		public static final Aspect MAN = new Aspect("humanus",0xffd7c0, new Aspect[] {BEAST, MIND});
+		public static final Aspect SENSES = new Aspect("sensus",0x0fd9ff, new Aspect[] {AIR, SOUL});
+		
+		public static final Aspect CROP = new Aspect("messis",0xe1b371, new Aspect[] {SEED, MAN});
+		public static final Aspect HARVEST = new Aspect("meto",0xeead82, new Aspect[] {CROP, MAN});		
+		public static final Aspect METAL = new Aspect("metallum",0xb5b5cd, new Aspect[] {STONE, ORDER});
+		public static final Aspect MINE = new Aspect("perfodio",0xFFFFFF, new Aspect[] {MAN, STONE});
+		public static final Aspect TOOL = new Aspect("instrumentum",0xFFFFFF, new Aspect[] {MAN, METAL});
+		public static final Aspect WEAPON = new Aspect("telum",0xFFFFFF, new Aspect[] {TOOL, ENTROPY});
+		public static final Aspect ARMOR = new Aspect("tutamen",0x00c0c0, new Aspect[] {TOOL, ORDER});
+		
+		public static final Aspect CLOTH = new Aspect("pannus",0xeaeac2, new Aspect[] {TOOL, BEAST});
+		
+
 		
 		
-//		public static final Aspect TRAVEL = new Aspect("Travel", new Aspect[] {MOTION, EARTH});
-//		public static final Aspect TELEPORT = new Aspect("Teleport", new Aspect[] {TRAVEL, VOID});
-//		public static final Aspect GLASS = new Aspect("Glass", new Aspect[] {SAND, FIRE});
-//		public static final Aspect CLAY = new Aspect("Clay", new Aspect[] {SAND, LIFE});
+//		public static final Aspect LAVA = new Aspect("lava",0xe85729, new Aspect[] {EARTH, FIRE});
+//		public static final Aspect STEAM = new Aspect("steam",0xFFFFFF, new Aspect[] {WATER, FIRE});
+//		public static final Aspect MUD = new Aspect("lutum",0x473423, new Aspect[] {WATER, EARTH});
+//		public static final Aspect SAND = new Aspect("sand",0xFFFFFF, new Aspect[] {AIR, EARTH});
+//		public static final Aspect ASTRAL = new Aspect("Astral",0xFFFFFF, new Aspect[] {VOID, DARKNESS});
+//		public static final Aspect HEAL = new Aspect("Heal",0xFFFFFF, new Aspect[] {ORDER, LIFE});
+//		public static final Aspect HARM = new Aspect("Harm",0xFFFFFF, new Aspect[] {ENTROPY, LIFE});
+//		public static final Aspect BIRD = new Aspect("Bird",0xFFFFFF, new Aspect[] {BEAST, AIR});
+//		public static final Aspect FISH = new Aspect("Fish",0xFFFFFF, new Aspect[] {BEAST, WATER});
+//		public static final Aspect TOOL = new Aspect("Tool",0xFFFFFF, new Aspect[] {MAN, METAL});
+//		public static final Aspect WOOD = new Aspect("Wood",0xFFFFFF, new Aspect[] {TREE, TOOL});
+//		public static final Aspect MACHINE = new Aspect("Machine",0xFFFFFF, new Aspect[] {TOOL, ORDER});
+//		public static final Aspect TRAVEL = new Aspect("Travel",0xFFFFFF, new Aspect[] {MOTION, EARTH});
+//		public static final Aspect TELEPORT = new Aspect("Teleport",0xFFFFFF, new Aspect[] {TRAVEL, VOID});
+//		public static final Aspect CLAY = new Aspect("Clay",0xFFFFFF, new Aspect[] {SAND, LIFE});
+		public static final Aspect HEAL = new Aspect("heal",0xFFFFFF, new Aspect[] {ORDER, LIFE});
+		public static final Aspect POISON = new Aspect("poison",0xFFFFFF, new Aspect[] {WATER, DEATH});
+		public static final Aspect TRAP = new Aspect("pannus",0xeaeac2, new Aspect[] {MOTION, ENTROPY});
+		public static final Aspect ICE = new Aspect("ice",0xde0005, new Aspect[] {WATER, ORDER});
 		
 }

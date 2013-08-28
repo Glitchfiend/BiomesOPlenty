@@ -1,14 +1,10 @@
 package thaumcraft.api.research;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import thaumcraft.api.ObjectTags;
-import thaumcraft.api.ThaumcraftApi;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -20,38 +16,28 @@ public class ResearchItem
 	public final String key;
 	
 	/**
-	 * The name of the research shown in the thaumonomicon 
+	 * A short string used as a reference to the research category to which this must be added.
 	 */
-	public String name;
-	
-	/**
-	 * The blurb text shown below the research name in the thaumonomicon
-	 */
-	public String popupText;
-	
-	/**
-	 * A longer description of the research. This is the text shown in the handheld research scroll and the research table. 
-	 */
-	public String longText;
-	
+	public final String category;
+
 	/**
 	 * The aspect tags and their values required to complete this research
 	 */
-	public final ObjectTags tags;
+	public final AspectList tags;
 	
     /**
      * This links to any research that needs to be completed before this research can be discovered or learnt.
      */
-    public ResearchItem[] parents = null;
+    public String[] parents = null;
     
     /**
      * Like parent above, but a line will not be displayed in the thaumonomicon linking them. Just used to prevent clutter.
      */
-    public ResearchItem[] parentsHidden = null;
+    public String[] parentsHidden = null;
     /**
      * any research linked to this that will be unlocked automatically when this research is complete
      */
-    public ResearchItem[] siblings = null;
+    public String[] siblings = null;
 	
     /**
      * the horizontal position of the research icon
@@ -62,118 +48,102 @@ public class ResearchItem
      * the vertical position of the research icon
      */
     public final int displayRow;
-
-    /**
-     * the itemstack of an item or block that will be used as the icon for this research
-     */
-    public final ItemStack itemStack;
     
     /**
-     * the index within the research.png file used for this research if it does not use an item icon 
+     * the icon to be used for this research 
      */
-    public final int iconIndex;
+    public final ItemStack icon_item;
+    
+    /**
+     * the icon to be used for this research 
+     */
+    public final ResourceLocation icon_resource;
+    
+    /**
+     * How large the research grid is. Valid values are 1 to 5.
+     */
+    private int complexity;
 
     /**
      * Special research has a spiky border. Used for important research milestones.
      */
     private boolean isSpecial;
+    
     /**
-     * This indicates if the research should use a circular icon border. Usually used for research that doesn't 
-     * have recipes or that unlocks automatically via the sibling system
+     * This indicates if the research should use a circular icon border. Usually used for "passive" research 
+     * that doesn't have recipes and grants passive effects, or that unlock automatically.
+     */
+    private boolean isRound;
+    
+    /**
+     * Stub research cannot be discovered by normal means, but can be unlocked via the sibling system.
      */
     private boolean isStub;
+    
     /**
-     * Indicates research that cannot be gained by normal means (either via normal or lost research), 
-     * but still uses a normal icon. Works much like isStub but is handy for mods that wish to add research 
-     * through their own means and keep a normal icon.
+     * This indicated that the research is completely hidden and cannot be discovered by any 
+     * player-controlled means. The recipes will never show up in the thaumonomicon.
+     * Usually used to unlock "hidden" recipes via sibling unlocking, like 
+     * the various cap and rod combos for wands.
      */
-    private boolean isAlternate;
+    private boolean isVirtual;    
+    
     /**
      * Hidden research does not display in the thaumonomicon until discovered
      */
     private boolean isHidden;
+    
     /**
      * Lost research can only be discovered via knowledge fragments
      */
     private boolean isLost;
+    
     /**
      * These research items will automatically unlock for all players on game start
      */
     private boolean isAutoUnlock;
-    
-    
 
-	public ResearchItem(String par1, ObjectTags tags, int par3, int par4, int icon)
-    {
-        this(par1, tags, par3, par4, (ItemStack)null, icon);
-    }
-    
-    public ResearchItem(String par1, ObjectTags tags, int par3, int par4, ItemStack par5Item)
-    {
-        this(par1, tags, par3, par4, par5Item, -1);
-    }
-
-    public ResearchItem(String par1, ObjectTags tags, int par3, int par4, Item par5Item)
-    {
-        this(par1, tags, par3, par4, new ItemStack(par5Item), -1);
-    }
-
-    public ResearchItem(String par1, ObjectTags tags, int par3, int par4, Block par5Block)
-    {
-        this(par1, tags, par3, par4, new ItemStack(par5Block), -1);
-    }
-
-    public ResearchItem(String par1, ObjectTags tags, int par3, int par4, ItemStack par5ItemStack, int icon)
+	private ResearchPage[] pages = null;
+	
+	public ResearchItem(String par1, String par2)
     {
     	this.key = par1;
-    	this.tags = tags;
-    	this.name = "";
-    	this.longText = "";
-    	this.popupText = "";
-    	
-    	Element el = ThaumcraftApi.researchDoc.getElementById(key);
-        if (el!=null) {
-        	NodeList children = el.getChildNodes();
-        	for (int a=0;a<children.getLength();a++) {
-            	if (children.item(a).getNodeName().equals("name")) {
-            		this.name = children.item(a).getTextContent();
-            	} else
-            	if (children.item(a).getNodeName().equals("longText")) {
-            		this.longText = children.item(a).getTextContent();
-            	} else
-            	if (children.item(a).getNodeName().equals("popupText") ) {
-            		this.popupText = children.item(a).getTextContent();
-            	}
-            }
-        }
-    	
-		this.itemStack = par5ItemStack;
-        this.iconIndex = icon;
+    	this.category = par2;
+    	this.tags = new AspectList();    	
+        this.icon_resource = null;
+        this.icon_item = null;
+        this.displayColumn = 0;
+        this.displayRow = 0;
+        this.setVirtual();
+        
+    }
+    
+    public ResearchItem(String par1, String par2, AspectList tags, int par3, int par4, int par5, ResourceLocation icon)
+    {
+    	this.key = par1;
+    	this.category = par2;
+    	this.tags = tags;    	
+        this.icon_resource = icon;
+        this.icon_item = null;
         this.displayColumn = par3;
         this.displayRow = par4;
-        
-
-        if (par3 < ResearchList.minDisplayColumn)
-        {
-            ResearchList.minDisplayColumn = par3;
-        }
-
-        if (par4 < ResearchList.minDisplayRow)
-        {
-            ResearchList.minDisplayRow = par4;
-        }
-
-        if (par3 > ResearchList.maxDisplayColumn)
-        {
-            ResearchList.maxDisplayColumn = par3;
-        }
-
-        if (par4 > ResearchList.maxDisplayRow)
-        {
-            ResearchList.maxDisplayRow = par4;
-        }
-
-        
+        this.complexity = par5;
+        if (complexity < 1) this.complexity = 1;
+        if (complexity > 5) this.complexity = 5;
+    }
+    
+    public ResearchItem(String par1, String par2, AspectList tags, int par3, int par4, int par5, ItemStack icon)
+    {
+    	this.key = par1;
+    	this.category = par2;
+    	this.tags = tags;    	
+        this.icon_item = icon;
+        this.icon_resource = null;
+        this.displayColumn = par3;
+        this.displayRow = par4;
+        this.complexity = par5;
+        if (complexity <0) this.complexity = 0;
+        if (complexity > 5) this.complexity = 5;
     }
 
     public ResearchItem setSpecial()
@@ -188,11 +158,6 @@ public class ResearchItem
         return this;
     }
     
-    public ResearchItem setAlternate()
-    {
-        this.isAlternate = true;
-        return this;
-    }
     
     public ResearchItem setHidden()
     {
@@ -206,63 +171,87 @@ public class ResearchItem
         return this;
     }
     
-    public ResearchItem setParents(ResearchItem... par)
+    public ResearchItem setVirtual()
+    {
+        this.isVirtual = true;
+        return this;
+    }
+    
+    public ResearchItem setParents(String... par)
     {
         this.parents = par;
         return this;
     }
     
-    public ResearchItem setParentsHidden(ResearchItem... par)
+    
+
+	public ResearchItem setParentsHidden(String... par)
     {
         this.parentsHidden = par;
         return this;
     }
     
-    public ResearchItem setSiblings(ResearchItem... sib)
+    public ResearchItem setSiblings(String... sib)
     {
         this.siblings = sib;
         return this;
     }
+    
+    public ResearchItem setPages(ResearchPage... par)
+    {
+        this.pages = par;
+        return this;
+    }
+    
+    public ResearchPage[] getPages() {
+		return pages;
+	}
 
     public ResearchItem registerResearchItem()
     {
-        ResearchList.research.put(key, this);
+        ResearchCategories.addResearch(this);
         return this;
     }
 
     @SideOnly(Side.CLIENT)
     public String getName()
     {
-        return this.name;
+    	return StatCollector.translateToLocal("tc.research_name."+key);
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public String getText()
+    {
+    	return StatCollector.translateToLocal("tc.research_text."+key);
     }
 
     @SideOnly(Side.CLIENT)
-    public boolean getSpecial()
+    public boolean isSpecial()
     {
         return this.isSpecial;
     }
     
-    public boolean getStub()
+    public boolean isStub()
     {
         return this.isStub;
     }
-    
-    public boolean getAlternate()
-    {
-        return this.isAlternate;
-    }
-    
-    public boolean getHidden()
+        
+    public boolean isHidden()
     {
         return this.isHidden;
     }
     
-    public boolean getLost()
+    public boolean isLost()
     {
         return this.isLost;
     }
     
-    public boolean getAutoUnlock() {
+    public boolean isVirtual()
+    {
+        return this.isVirtual;
+    }
+    
+    public boolean isAutoUnlock() {
 		return isAutoUnlock;
 	}
 	
@@ -271,4 +260,41 @@ public class ResearchItem
         this.isAutoUnlock = true;
         return this;
     }
+	
+	public boolean isRound() {
+		return isRound;
+	}
+
+	public ResearchItem setRound() {
+		this.isRound = true;
+		return this;
+	}
+	
+	
+
+	public int getComplexity() {
+		return complexity;
+	}
+
+	public ResearchItem setComplexity(int complexity) {
+		this.complexity = complexity;
+		return this;
+	}
+
+	/**
+	 * @return the aspect aspects ordinal with the highest value. Used to determine scroll color and similar things
+	 */
+	public Aspect getResearchPrimaryTag() {
+		Aspect aspect=null;
+		int highest=0;
+		if (tags!=null)
+		for (Aspect tag:tags.getAspects()) {
+			if (tags.getAmount(tag)>highest) {
+				aspect=tag;
+				highest=tags.getAmount(tag);
+			};
+		}
+		return aspect;
+	}
+	
 }

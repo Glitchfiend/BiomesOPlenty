@@ -1,47 +1,50 @@
 package thaumcraft.api.crafting;
 
+import java.util.ArrayList;
+
 import net.minecraft.item.ItemStack;
-import thaumcraft.api.EnumTag;
-import thaumcraft.api.ObjectTags;
+import net.minecraftforge.oredict.OreDictionary;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 
 public class RecipeCrucible {
 
 	public ItemStack recipeOutput;
-	public ObjectTags tags;
+	public Object catalyst;
+	public AspectList aspects;
 	public String key;
-	public String researchKey;
-	public int cost;
 	
-	public RecipeCrucible(String researchKey, String key, ItemStack result, ObjectTags tags, int cost) {
+	public RecipeCrucible(String researchKey, ItemStack result, Object catalyst, AspectList tags) {
 		recipeOutput = result;
-		this.tags = tags;
-		this.key = key;
-		this.researchKey = researchKey;
-		this.cost = cost;
+		this.aspects = tags;
+		this.key = researchKey;
+		this.catalyst = catalyst;
+		if (catalyst instanceof String) {
+			catalyst = OreDictionary.getOres((String) catalyst);
+		}
 	}
 	
-	public RecipeCrucible(String key, ItemStack result, ObjectTags tags, int cost) {
-		recipeOutput = result;
-		this.tags = tags;
-		this.key = key;
-		this.researchKey = key;
-		this.cost = cost;
-	}
 
-	public boolean matches(ObjectTags itags) {
+	public boolean matches(AspectList itags, ItemStack cat) {
+		if (catalyst instanceof ItemStack && !cat.isItemEqual((ItemStack) catalyst)) {
+			return false;
+		} else if (catalyst instanceof ArrayList && ((ArrayList<ItemStack>)catalyst).size()>0) {
+			//if (!OreDictionary.containsMatch(true, ((ArrayList<ItemStack>)catalyst).toArray(new ItemStack[]{}), cat)) return false;
+		}
 		if (itags==null) return false;
-		for (EnumTag tag:tags.getAspects()) {
-			if (itags.getAmount(tag)<tags.getAmount(tag)) return false;
+		for (Aspect tag:aspects.getAspects()) {
+			if (itags.getAmount(tag)<aspects.getAmount(tag)) return false;
 		}
 		return true;
 	}
 	
-	public ObjectTags removeMatching(ObjectTags itags) {
-		ObjectTags temptags = new ObjectTags();
-		temptags.tags.putAll(itags.tags);
+	public AspectList removeMatching(AspectList itags) {
+		AspectList temptags = new AspectList();
+		temptags.aspects.putAll(itags.aspects);
 		
-		for (EnumTag tag:tags.getAspects()) {
-			if (!temptags.reduceAmount(tag, tags.getAmount(tag))) return null;
+		for (Aspect tag:aspects.getAspects()) {
+			temptags.remove(tag, aspects.getAmount(tag));
+//			if (!temptags.remove(tag, aspects.getAmount(tag))) return null;
 		}
 		
 		itags = temptags;

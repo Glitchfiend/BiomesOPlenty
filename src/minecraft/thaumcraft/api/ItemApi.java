@@ -40,11 +40,8 @@ public class ItemApi {
 	 * Some examples
 	 * 
 	 * Casting Wands:
-	 * itemWandCastingApprentice, itemWandCastingAdept, itemWandCastingMage
-	 * 
-	 * Elemental Wands:
-	 * itemWandFire, itemWandLightning, itemWandFrost, itemWandTrade, itemWandExcavation, itemHellrod
-	 * 
+	 * itemWandCasting
+	 *  
 	 * Resources:
 	 * itemEssence, itemWispEssence, itemResource, itemShard, itemNugget, 
 	 * itemNuggetChicken, itemNuggetBeef, itemNuggetPork, itemTripleMeatTreat,
