@@ -1,10 +1,8 @@
 package biomesoplenty.world.layer;
 
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.configuration.BOPConfiguration;
 
 public class BiomeLayerSub extends BiomeLayer
 {
@@ -28,134 +26,7 @@ public class BiomeLayerSub extends BiomeLayer
                 int k1 = aint[j1 + 1 + (i1 + 1) * (par3 + 2)];
 
                 int l1 = k1;
-                
-                //New biome gen test
-                if (BOPConfiguration.TerrainGen.fancyGen)
-                {
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.birchForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.woodland.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.spruceWoods.get().biomeID; }
-	                
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.coniferousForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.temperateRainforest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.redwoodForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.mountain.get().biomeID; }
-	                
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.mapleWoods.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.seasonalForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.borealForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.deciduousForest.get().biomeID; }
-	                
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.deadForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.grove.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.timber.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.thicket.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.shield.get().biomeID; }
-	                
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.fungiForest.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.cherryBlossomGrove.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.mysticGrove.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.hotSprings.get().biomeID; }
-	                if (k1 == Biomes.forestNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.originValley.get().biomeID; }
-	                
-	                //
-	                
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(2) == 0) { l1 = Biomes.marsh.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(2) == 0) { l1 = Biomes.lushSwamp.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(2) == 0) { l1 = Biomes.bayou.get().biomeID; }
-	                
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(4) == 0) { l1 = Biomes.fen.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(4) == 0) { l1 = Biomes.bog.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(4) == 0) { l1 = Biomes.swamplandNew.get().biomeID; }
-	                
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(6) == 0) { l1 = Biomes.moor.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(6) == 0) { l1 = Biomes.deadSwamp.get().biomeID; }
-	                
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(8) == 0) { l1 = Biomes.quagmire.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(8) == 0) { l1 = Biomes.sludgepit.get().biomeID; }
-	                
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(10) == 0) { l1 = Biomes.ominousWoods.get().biomeID; }
-	                if (k1 == Biomes.wetland.get().biomeID && nextInt(10) == 0) { l1 = Biomes.silkglades.get().biomeID; }
-	                
-	                //
-	                
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.dunes.get().biomeID; }
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.canyon.get().biomeID; }
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.mesa.get().biomeID; }
-	                
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.outback.get().biomeID; }
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.steppe.get().biomeID; }
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.scrubland.get().biomeID; }
-	                
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.lushDesert.get().biomeID; }
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.savanna.get().biomeID; }
-	                
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.brushland.get().biomeID; }
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.heathland.get().biomeID; }
-	                
-	                if (k1 == Biomes.desertNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.oasis.get().biomeID; }
-	                
-	                //
-	                
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.tropicalRainforest.get().biomeID; }
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(2) == 0) { l1 = Biomes.rainforest.get().biomeID; }
-	                
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(4) == 0) { l1 = Biomes.tropics.get().biomeID; }
-	                
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.bambooForest.get().biomeID; }
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(6) == 0) { l1 = Biomes.jadeCliffs.get().biomeID; }
-	                
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(8) == 0) { l1 = Biomes.mangrove.get().biomeID; }
-	                
-	                if (k1 == Biomes.jungleNew.get().biomeID && nextInt(10) == 0) { l1 = Biomes.sacredSprings.get().biomeID; }
-	                
-	                //
-	                
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(2) == 0) { l1 = Biomes.plainsNew.get().biomeID; }
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(2) == 0) { l1 = Biomes.chaparral.get().biomeID; }
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(2) == 0) { l1 = Biomes.prairie.get().biomeID; }
-	                
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(4) == 0) { l1 = Biomes.field.get().biomeID; }
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(4) == 0) { l1 = Biomes.grassland.get().biomeID; }
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(4) == 0) { l1 = Biomes.highland.get().biomeID; }
-	                
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(6) == 0) { l1 = Biomes.pasture.get().biomeID; }
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(6) == 0) { l1 = Biomes.meadow.get().biomeID; }
-	                
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(8) == 0) { l1 = Biomes.orchard.get().biomeID; }
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(8) == 0) { l1 = Biomes.overgrownGreens.get().biomeID; }
-	                
-	                if (k1 == Biomes.shrubland.get().biomeID && nextInt(10) == 0) { l1 = Biomes.garden.get().biomeID; }
-	                
-	                //
-	                
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(2) == 0) { l1 = Biomes.taigaNew.get().biomeID; }
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(2) == 0) { l1 = Biomes.frostForest.get().biomeID; }
-	                
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(4) == 0) { l1 = Biomes.deadForestSnow.get().biomeID; }
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(4) == 0) { l1 = Biomes.coniferousForestSnow.get().biomeID; }
-	                
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(6) == 0) { l1 = Biomes.alps.get().biomeID; }
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(6) == 0) { l1 = BiomeGenBase.icePlains.biomeID; }
-	                
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(8) == 0) { l1 = Biomes.polar.get().biomeID; }
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(8) == 0) { l1 = Biomes.glacier.get().biomeID; }
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(8) == 0) { l1 = Biomes.arctic.get().biomeID; }
-	                
-	                if (k1 == Biomes.tundra.get().biomeID && nextInt(10) == 0) { l1 = Biomes.icyHills.get().biomeID; }
-	                
-	                //
-	                
-	                if (k1 == Biomes.badlands.get().biomeID && nextInt(2) == 0) { l1 = Biomes.crag.get().biomeID; }
-	                if (k1 == Biomes.badlands.get().biomeID && nextInt(2) == 0) { l1 = Biomes.volcano.get().biomeID; }
-	                
-	                if (k1 == Biomes.badlands.get().biomeID && nextInt(6) == 0) { l1 = Biomes.wasteland.get().biomeID; }
-	                
-	                if (k1 == Biomes.badlands.get().biomeID && nextInt(10) == 0) { l1 = Biomes.deadlands.get().biomeID; }
-                }
-                
-                //
-                
+
                 //LIST
                 if (k1 == Biomes.meadow.get().biomeID && nextInt(2) == 0) { l1 = Biomes.meadowForest.get().biomeID; }
                 if (k1 == Biomes.canyon.get().biomeID && nextInt(2) == 0) { l1 = Biomes.canyonRavine.get().biomeID; }

@@ -12,12 +12,7 @@ public class WorldTypeSize
 	public void BiomeSize(WorldTypeEvent.BiomeSize event)
 	{
 		if (event.worldType.getWorldTypeName() == "BIOMESOP") {
-			if (BOPConfiguration.TerrainGen.fancyGen) {
-				event.newSize = (byte)5;
-			}
-			else {
 			event.newSize = (byte)BOPConfiguration.TerrainGen.biomeSize;
-			}
 			
 			if (BOPConfiguration.TerrainGen.netherOverride)
 			{

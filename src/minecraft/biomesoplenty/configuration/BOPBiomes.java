@@ -958,399 +958,386 @@ public class BOPBiomes {
 
 	private static void addBiomes()
 	{
-		if (BOPConfiguration.TerrainGen.fancyGen == false)
+		if (BOPConfiguration.BiomeGen.alpsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.alps);
+		}
+
+		if (BOPConfiguration.BiomeGen.arcticGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.arctic);
+		}
+
+		if (BOPConfiguration.BiomeGen.badlandsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.badlands);
+		}
+
+		if (BOPConfiguration.BiomeGen.bambooForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.bambooForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.bayouGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.bayou);
+		}
+
+		if (BOPConfiguration.BiomeGen.birchForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.birchForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.bogGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.bog);
+		}
+
+		if (BOPConfiguration.BiomeGen.borealForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.borealForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.brushlandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.brushland);
+		}
+
+		if (BOPConfiguration.BiomeGen.canyonGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.canyon);
+		}
+
+		if (BOPConfiguration.BiomeGen.chaparralGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.chaparral);
+		}
+
+		if (BOPConfiguration.BiomeGen.cherryBlossomGroveGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.cherryBlossomGrove);
+		}
+
+		if (BOPConfiguration.BiomeGen.coniferousForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.coniferousForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.coniferousForestSnowGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.coniferousForestSnow);
+		}
+
+		if (BOPConfiguration.BiomeGen.cragGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.crag);
+		}
+
+		if (BOPConfiguration.BiomeGen.deadForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.deadForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.deadForestSnowGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.deadForestSnow);
+		}
+
+		if (BOPConfiguration.BiomeGen.deadSwampGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.deadSwamp);
+		}
+
+		if (BOPConfiguration.BiomeGen.deadlandsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.deadlands);
+		}
+
+		if (BOPConfiguration.BiomeGen.deciduousForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.deciduousForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.dunesGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.dunes);
+		}
+
+		if (BOPConfiguration.BiomeGen.fenGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.fen);
+		}
+
+		if (BOPConfiguration.BiomeGen.fieldGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.field);
+		}
+
+		if (BOPConfiguration.BiomeGen.frostForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.frostForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.fungiForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.fungiForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.gardenGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.garden);
+		}
+
+		if (BOPConfiguration.BiomeGen.glacierGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.glacier);
+		}
+
+		if (BOPConfiguration.BiomeGen.grasslandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.grassland);
+		}
+
+		if (BOPConfiguration.BiomeGen.groveGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.grove);
+		}
+
+		if (BOPConfiguration.BiomeGen.heathlandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.heathland);
+		}
+
+		if (BOPConfiguration.BiomeGen.highlandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.highland);
+		}
+
+		if (BOPConfiguration.BiomeGen.hotSpringsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.hotSprings);
+		}
+
+		if (BOPConfiguration.BiomeGen.icyHillsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.icyHills);
+		}
+
+		if (BOPConfiguration.BiomeGen.jadeCliffsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.jadeCliffs);
+		}
+
+		if (BOPConfiguration.BiomeGen.lushDesertGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.lushDesert);
+		}
+
+		if (BOPConfiguration.BiomeGen.lushSwampGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.lushSwamp);
+		}
+
+		if (BOPConfiguration.BiomeGen.mangroveGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.mangrove);
+		}
+
+		if (BOPConfiguration.BiomeGen.mapleWoodsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.mapleWoods);
+		}
+
+		if (BOPConfiguration.BiomeGen.marshGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.marsh);
+		}
+
+		if (BOPConfiguration.BiomeGen.meadowGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.meadow);
+		}
+
+		if (BOPConfiguration.BiomeGen.mesaGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.mesa);
+		}
+
+		if (BOPConfiguration.BiomeGen.moorGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.moor);
+		}
+
+		if (BOPConfiguration.BiomeGen.mountainGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.mountain);
+		}
+
+		if (BOPConfiguration.BiomeGen.mysticGroveGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.mysticGrove);
+		}
+
+		if (BOPConfiguration.BiomeGen.oasisGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.oasis);
+		}
+
+		if (BOPConfiguration.BiomeGen.ominousWoodsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.ominousWoods);
+		}
+
+		if (BOPConfiguration.BiomeGen.orchardGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.orchard);
+		}
+
+		if (BOPConfiguration.BiomeGen.originValleyGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.originValley);
+		}
+
+		if (BOPConfiguration.BiomeGen.outbackGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.outback);
+		}
+		
+		if (BOPConfiguration.BiomeGen.overgrownGreensGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.overgrownGreens);
+		}
+
+		if (BOPConfiguration.BiomeGen.pastureGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.pasture);
+		}
+
+		if (BOPConfiguration.BiomeGen.polarGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.polar);
+		}
+
+		if (BOPConfiguration.BiomeGen.prairieGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.prairie);
+		}
+
+		if (BOPConfiguration.BiomeGen.quagmireGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.quagmire);
+		}
+
+		if (BOPConfiguration.BiomeGen.rainforestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.rainforest);
+		}
+
+		if (BOPConfiguration.BiomeGen.redwoodForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.redwoodForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.sacredSpringsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.sacredSprings);
+		}
+
+		if (BOPConfiguration.BiomeGen.savannaGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.savanna);
+		}
+
+		if (BOPConfiguration.BiomeGen.scrublandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.scrubland);
+		}
+
+		if (BOPConfiguration.BiomeGen.seasonalForestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.seasonalForest);
+		}
+
+		if (BOPConfiguration.BiomeGen.shieldGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.shield);
+		}
+
+		if (BOPConfiguration.BiomeGen.shrublandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.shrubland);
+		}
+		
+		if (BOPConfiguration.BiomeGen.silkgladesGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.silkglades);
+		}
+
+		if (BOPConfiguration.BiomeGen.sludgepitGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.sludgepit);
+		}
+
+		if (BOPConfiguration.BiomeGen.spruceWoodsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.spruceWoods);
+		}
+
+		if (BOPConfiguration.BiomeGen.steppeGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.steppe);
+		}
+
+		if (BOPConfiguration.BiomeGen.temperateRainforestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.temperateRainforest);
+		}
+
+		if (BOPConfiguration.BiomeGen.thicketGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.thicket);
+		}
+
+		if (BOPConfiguration.BiomeGen.timberGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.timber);
+		}
+
+		if (BOPConfiguration.BiomeGen.tropicalRainforestGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.tropicalRainforest);
+		}
+
+		if (BOPConfiguration.BiomeGen.tropicsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.tropics);
+		}
+
+		if (BOPConfiguration.BiomeGen.tundraGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.tundra);
+		}
+
+		if (BOPConfiguration.BiomeGen.volcanoGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.volcano);
+		}
+
+		if (BOPConfiguration.BiomeGen.wastelandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.wasteland);
+		}
+
+		if (BOPConfiguration.BiomeGen.wetlandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.wetland);
+		}
+
+		if (BOPConfiguration.BiomeGen.woodlandGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.woodland);
+		}
+
+		// Vanilla biomes generation
+		if (BOPConfiguration.BiomeGen.plainsGen)
 		{
-			if (BOPConfiguration.BiomeGen.alpsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.alps);
-			}
-	
-			if (BOPConfiguration.BiomeGen.arcticGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.arctic);
-			}
-	
-			if (BOPConfiguration.BiomeGen.badlandsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.badlands);
-			}
-	
-			if (BOPConfiguration.BiomeGen.bambooForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.bambooForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.bayouGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.bayou);
-			}
-	
-			if (BOPConfiguration.BiomeGen.birchForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.birchForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.bogGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.bog);
-			}
-	
-			if (BOPConfiguration.BiomeGen.borealForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.borealForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.brushlandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.brushland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.canyonGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.canyon);
-			}
-	
-			if (BOPConfiguration.BiomeGen.chaparralGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.chaparral);
-			}
-	
-			if (BOPConfiguration.BiomeGen.cherryBlossomGroveGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.cherryBlossomGrove);
-			}
-	
-			if (BOPConfiguration.BiomeGen.coniferousForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.coniferousForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.coniferousForestSnowGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.coniferousForestSnow);
-			}
-	
-			if (BOPConfiguration.BiomeGen.cragGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.crag);
-			}
-	
-			if (BOPConfiguration.BiomeGen.deadForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.deadForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.deadForestSnowGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.deadForestSnow);
-			}
-	
-			if (BOPConfiguration.BiomeGen.deadSwampGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.deadSwamp);
-			}
-	
-			if (BOPConfiguration.BiomeGen.deadlandsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.deadlands);
-			}
-	
-			if (BOPConfiguration.BiomeGen.deciduousForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.deciduousForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.dunesGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.dunes);
-			}
-	
-			if (BOPConfiguration.BiomeGen.fenGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.fen);
-			}
-	
-			if (BOPConfiguration.BiomeGen.fieldGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.field);
-			}
-	
-			if (BOPConfiguration.BiomeGen.frostForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.frostForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.fungiForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.fungiForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.gardenGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.garden);
-			}
-	
-			if (BOPConfiguration.BiomeGen.glacierGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.glacier);
-			}
-	
-			if (BOPConfiguration.BiomeGen.grasslandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.grassland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.groveGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.grove);
-			}
-	
-			if (BOPConfiguration.BiomeGen.heathlandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.heathland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.highlandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.highland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.hotSpringsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.hotSprings);
-			}
-	
-			if (BOPConfiguration.BiomeGen.icyHillsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.icyHills);
-			}
-	
-			if (BOPConfiguration.BiomeGen.jadeCliffsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.jadeCliffs);
-			}
-	
-			if (BOPConfiguration.BiomeGen.lushDesertGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.lushDesert);
-			}
-	
-			if (BOPConfiguration.BiomeGen.lushSwampGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.lushSwamp);
-			}
-	
-			if (BOPConfiguration.BiomeGen.mangroveGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.mangrove);
-			}
-	
-			if (BOPConfiguration.BiomeGen.mapleWoodsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.mapleWoods);
-			}
-	
-			if (BOPConfiguration.BiomeGen.marshGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.marsh);
-			}
-	
-			if (BOPConfiguration.BiomeGen.meadowGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.meadow);
-			}
-	
-			if (BOPConfiguration.BiomeGen.mesaGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.mesa);
-			}
-	
-			if (BOPConfiguration.BiomeGen.moorGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.moor);
-			}
-	
-			if (BOPConfiguration.BiomeGen.mountainGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.mountain);
-			}
-	
-			if (BOPConfiguration.BiomeGen.mysticGroveGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.mysticGrove);
-			}
-	
-			if (BOPConfiguration.BiomeGen.oasisGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.oasis);
-			}
-	
-			if (BOPConfiguration.BiomeGen.ominousWoodsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.ominousWoods);
-			}
-	
-			if (BOPConfiguration.BiomeGen.orchardGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.orchard);
-			}
-	
-			if (BOPConfiguration.BiomeGen.originValleyGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.originValley);
-			}
-	
-			if (BOPConfiguration.BiomeGen.outbackGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.outback);
-			}
-			
-			if (BOPConfiguration.BiomeGen.overgrownGreensGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.overgrownGreens);
-			}
-	
-			if (BOPConfiguration.BiomeGen.pastureGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.pasture);
-			}
-	
-			if (BOPConfiguration.BiomeGen.polarGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.polar);
-			}
-	
-			if (BOPConfiguration.BiomeGen.prairieGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.prairie);
-			}
-	
-			if (BOPConfiguration.BiomeGen.quagmireGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.quagmire);
-			}
-	
-			if (BOPConfiguration.BiomeGen.rainforestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.rainforest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.redwoodForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.redwoodForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.sacredSpringsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.sacredSprings);
-			}
-	
-			if (BOPConfiguration.BiomeGen.savannaGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.savanna);
-			}
-	
-			if (BOPConfiguration.BiomeGen.scrublandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.scrubland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.seasonalForestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.seasonalForest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.shieldGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.shield);
-			}
-	
-			if (BOPConfiguration.BiomeGen.shrublandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.shrubland);
-			}
-			
-			if (BOPConfiguration.BiomeGen.silkgladesGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.silkglades);
-			}
-	
-			if (BOPConfiguration.BiomeGen.sludgepitGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.sludgepit);
-			}
-	
-			if (BOPConfiguration.BiomeGen.spruceWoodsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.spruceWoods);
-			}
-	
-			if (BOPConfiguration.BiomeGen.steppeGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.steppe);
-			}
-	
-			if (BOPConfiguration.BiomeGen.temperateRainforestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.temperateRainforest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.thicketGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.thicket);
-			}
-	
-			if (BOPConfiguration.BiomeGen.timberGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.timber);
-			}
-	
-			if (BOPConfiguration.BiomeGen.tropicalRainforestGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.tropicalRainforest);
-			}
-	
-			if (BOPConfiguration.BiomeGen.tropicsGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.tropics);
-			}
-	
-			if (BOPConfiguration.BiomeGen.tundraGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.tundra);
-			}
-	
-			if (BOPConfiguration.BiomeGen.volcanoGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.volcano);
-			}
-	
-			if (BOPConfiguration.BiomeGen.wastelandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.wasteland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.wetlandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.wetland);
-			}
-	
-			if (BOPConfiguration.BiomeGen.woodlandGen) {
-				addBiomeToWorldTypes(getWorldTypes(), Biomes.woodland);
-			}
-	
-			// Vanilla biomes generation
-			if (BOPConfiguration.BiomeGen.plainsGen)
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.plainsNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.plains);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.plainsNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.plains);
 			}
-	
-			if (BOPConfiguration.BiomeGen.desertGen)
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.plains);
+		}
+
+		if (BOPConfiguration.BiomeGen.desertGen)
+		{
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.desertNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.desert);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.desertNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.desert);
 			}
-	
-			if (BOPConfiguration.BiomeGen.extremeHillsGen)
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.desert);
+		}
+
+		if (BOPConfiguration.BiomeGen.extremeHillsGen)
+		{
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.extremeHillsNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.extremeHills);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.extremeHillsNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.extremeHills);
 			}
-	
-			if (BOPConfiguration.BiomeGen.forestGen)
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.extremeHills);
+		}
+
+		if (BOPConfiguration.BiomeGen.forestGen)
+		{
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.forestNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.forest);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.forestNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.forest);
 			}
-	
-			if (BOPConfiguration.BiomeGen.taigaGen)
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.forest);
+		}
+
+		if (BOPConfiguration.BiomeGen.taigaGen)
+		{
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.taigaNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.taiga);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.taigaNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.taiga);
 			}
-	
-			if (BOPConfiguration.BiomeGen.swamplandGen)
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.taiga);
+		}
+
+		if (BOPConfiguration.BiomeGen.swamplandGen)
+		{
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.swamplandNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.swampland);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.swamplandNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.swampland);
 			}
-	
-			if (BOPConfiguration.BiomeGen.jungleGen)
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.swampland);
+		}
+
+		if (BOPConfiguration.BiomeGen.jungleGen)
+		{
+			if (BOPConfiguration.TerrainGen.vanillaEnhanced)
 			{
-				if (BOPConfiguration.TerrainGen.vanillaEnhanced)
-				{
-					addBiomeToWorldTypes(getWorldTypes(), Biomes.jungleNew);
-					removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.jungle);
-				}
-			} else {
+				addBiomeToWorldTypes(getWorldTypes(), Biomes.jungleNew);
 				removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.jungle);
 			}
-		}
-		else
-		{
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.jungleNew);
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.forestNew);
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.desertNew);
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.shrubland);
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.wetland);
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.tundra);
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.badlands);
+		} else {
+			removeBiomeFromWorldTypes(getWorldTypes(), BiomeGenBase.jungle);
 		}
 	}
 

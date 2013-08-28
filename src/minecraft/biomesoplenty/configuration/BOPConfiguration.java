@@ -313,7 +313,6 @@ public class BOPConfiguration
 		public static boolean poisonWaterGen;
 		public static boolean quicksandGen;
 		public static boolean exposedStone;
-		public static boolean fancyGen;
 		
 		public static int villageDistance;
 		
@@ -414,7 +413,6 @@ public class BOPConfiguration
 				biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt();
 				addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 				vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
-				fancyGen = config.get("Biome Settings", "Enable Experimental Biome Generation", false).getBoolean(true);
 				netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 				pumpkinGen = config.get("Decoration Settings", "Generate Pumpkins Without Faces", true).getBoolean(true);
 				poisonIvyGen = config.get("Decoration Settings", "Generate Poison Ivy", true).getBoolean(true);
