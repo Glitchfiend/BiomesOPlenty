@@ -235,7 +235,6 @@ public class BOPCrafting
 		
 		if (BOPConfiguration.Misc.altarCrafting)
 		{
-			GameRegistry.addRecipe(new ItemStack(Items.miscItems.get(), 1, 16), new Object[] {"SBS", "GKG", "SBS", 'S', Block.slowSand, 'B', Item.blazePowder, 'G', Item.ghastTear, 'K', new ItemStack(Item.skull, 1, 1)});
 			GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 0), new Object[] {"G", "T", "B", 'G', Block.glass, 'T', Item.ghastTear, 'B', Item.blazeRod});
 			GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 1), new Object[] {"TSA", "PMS", "APT", 'S', new ItemStack(Items.miscItems.get(), 1, 16), 'A', Block.slowSand, 'T', Item.ghastTear, 'P', Item.blazePowder, 'M', new ItemStack(Items.soulManipulator.get(), 1, 0)});
 			GameRegistry.addRecipe(new ItemStack(Blocks.altar.get(), 1), new Object[] {"OBO", "BBB", "OBO", 'O', Block.obsidian, 'B', new ItemStack(Blocks.bones.get(), 1, 2)});
