@@ -16,12 +16,14 @@ import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.entities.EntityPhantom;
 import biomesoplenty.entities.EntityRosester;
 import biomesoplenty.entities.projectiles.EntityDart;
 import biomesoplenty.entities.projectiles.EntityMudball;
 import biomesoplenty.entities.render.RenderDart;
 import biomesoplenty.entities.render.RenderGlob;
 import biomesoplenty.entities.render.RenderJungleSpider;
+import biomesoplenty.entities.render.RenderPhantom;
 import biomesoplenty.entities.render.RenderRosester;
 import biomesoplenty.particles.EntityDandelionFX;
 import biomesoplenty.particles.EntitySteamFX;
@@ -48,6 +50,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityJungleSpider.class, new RenderJungleSpider());
 		RenderingRegistry.registerEntityRenderingHandler(EntityRosester.class, new RenderRosester(new ModelChicken(), 0.3F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, new RenderPhantom());
 
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());

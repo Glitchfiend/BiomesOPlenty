@@ -805,6 +805,7 @@ public class BOPConfiguration
 		public static int jungleSpiderID;
 		public static int rosesterID;
 		public static int globID;
+		public static int phantomID;
 		
 		public static void init(File configFile)
 		{
@@ -969,6 +970,7 @@ public class BOPConfiguration
 				jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
 				rosesterID = config.get("Mob IDs", "Rosester ID", 102, null).getInt();
 				globID = config.get("Mob IDs", "Glob ID", 106, null).getInt();
+				phantomID = config.get("Mob IDs", "Phantom ID", 107, null).getInt();
 
 				//Projectile IDs
 				entityMudballID = config.get("Entity IDs", "Mudball ID", 103, null).getInt();;

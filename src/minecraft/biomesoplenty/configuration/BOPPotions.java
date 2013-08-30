@@ -9,6 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Potions;
 import biomesoplenty.potions.PotionEventHandler;
 import biomesoplenty.potions.PotionParalysis;
+import biomesoplenty.potions.PotionPossession;
 
 import com.google.common.base.Optional;
 
@@ -32,12 +33,14 @@ public class BOPPotions
 	private static void intializePotions()
 	{
 		Potions.paralysis = Optional.of((new PotionParalysis(potionOffset + 0, true, 16767262)).setPotionName("potion.paralysis"));
+		Potions.possession = Optional.of((new PotionPossession(potionOffset + 0, true, 1280)).setPotionName("potion.possession"));
 	}
 
 	private static void registerPotionNames()
 	{
 		LanguageRegistry.instance().addStringLocalization("potion.nourishment", "en_US", "Nourishment");
 		LanguageRegistry.instance().addStringLocalization("potion.paralysis", "en_US", "Paralysis");
+		LanguageRegistry.instance().addStringLocalization("potion.possession", "en_US", "Possession");
 	}
 
 	private static void extendPotionsArray()

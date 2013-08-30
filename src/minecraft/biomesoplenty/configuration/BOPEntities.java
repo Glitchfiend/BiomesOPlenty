@@ -8,6 +8,7 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.entities.EntityPhantom;
 import biomesoplenty.entities.EntityRosester;
 import biomesoplenty.entities.projectiles.EntityDart;
 import biomesoplenty.entities.projectiles.EntityMudball;
@@ -45,10 +46,12 @@ public class BOPEntities {
 		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.IDs.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.IDs.rosesterID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfiguration.IDs.globID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityPhantom.class, "Phantom", BOPConfiguration.IDs.phantomID, BiomesOPlenty.instance, 80, 3, true);
 
 		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
 		registerEntityEgg(EntityGlob.class, 6836276, 8414787);
+		registerEntityEgg(EntityPhantom.class, 6836276, 8414787);
 
 		if (Biomes.bambooForest.isPresent() && Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
 		{
@@ -64,9 +67,15 @@ public class BOPEntities {
 		{
 			EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, Biomes.garden.get());
 		}
+		
+		if (Biomes.netherBone.isPresent() && Biomes.netherDesert.isPresent())
+		{
+			EntityRegistry.addSpawn(EntityPhantom.class, 1, 1, 1, EnumCreatureType.creature, Biomes.netherBone.get(), Biomes.netherDesert.get());
+		}
 
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.JungleSpider.name", "en_US", "Jungle Spider");
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Rosester.name", "en_US", "Rosester");
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Glob.name", "en_US", "Glob");
+		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Phantom.name", "en_US", "Phantom");
 	}
 }
