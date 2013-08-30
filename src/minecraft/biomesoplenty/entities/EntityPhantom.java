@@ -4,8 +4,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import biomesoplenty.api.Items;
 import biomesoplenty.api.Potions;
 
 public class EntityPhantom extends EntityMob
@@ -56,6 +59,17 @@ public class EntityPhantom extends EntityMob
 			return false;
 		}
 	}
+	
+	@Override
+    protected void dropFewItems(boolean par1, int par2)
+    {
+        super.dropFewItems(par1, par2);
+
+        if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
+        {
+            this.entityDropItem(new ItemStack(Items.miscItems.get().itemID, 1, 16), 1);
+        }
+    }
 	
 	@Override
     protected String getLivingSound()
