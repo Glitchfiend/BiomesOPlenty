@@ -6,6 +6,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import biomesoplenty.api.Items;
 import biomesoplenty.api.Potions;
@@ -28,6 +29,22 @@ public class EntityPhantom extends EntityMob
     }
     
     @Override
+    public void onLivingUpdate()
+    {
+        super.onLivingUpdate();
+
+        if (!this.onGround && this.motionY < 0.0D)
+        {
+            this.motionY *= 0.6D;
+        }
+        
+		this.fallDistance = 0.0F;
+    }
+
+    @Override
+    protected void fall(float par1) {}
+    
+    @Override
     public void onEntityUpdate()
     {
     	super.onEntityUpdate();
@@ -47,7 +64,7 @@ public class EntityPhantom extends EntityMob
 			{
 				if (worldObj.difficultySetting > 1)
 				{
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potions.possession.get().id, 40, 0));
+					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(Potions.possession.get().id, 30, 0));
 				}
 			}
 
@@ -59,6 +76,17 @@ public class EntityPhantom extends EntityMob
 		}
 	}
 	
+	@Override
+	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2)
+	{
+		for (int i = 0; i < 9; i++)
+		{
+			this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width, 66, 0, 0);
+		}
+
+		return super.attackEntityFrom(par1DamageSource, par2);
+	}
+
 	@Override
     protected void dropFewItems(boolean par1, int par2)
     {
