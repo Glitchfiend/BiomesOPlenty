@@ -32,9 +32,9 @@ public class EntityPhantom extends EntityMob
     {
     	super.onEntityUpdate();
 
-    	for (int i = 0; i < 3; i++)
+    	for (int i = 0; i < 9; i++)
     	{
-    		this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, 0, 0, 0);
+    		this.worldObj.spawnParticle("mobSpell", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width, 0, 0, 0);
     	}
     }
     

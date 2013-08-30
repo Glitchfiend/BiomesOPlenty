@@ -51,7 +51,7 @@ public class BOPEntities {
 		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
 		registerEntityEgg(EntityGlob.class, 6836276, 8414787);
-		registerEntityEgg(EntityPhantom.class, 6836276, 8414787);
+		registerEntityEgg(EntityPhantom.class, 4472140, 2499368);
 
 		if (Biomes.bambooForest.isPresent() && Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
 		{
