@@ -99,6 +99,12 @@ public class EntityPhantom extends EntityMob
     }
 	
 	@Override
+	public boolean getCanSpawnHere()
+	{
+		return this.worldObj.difficultySetting > 0 && this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+	}
+	
+	@Override
     protected String getLivingSound()
     {
         return "biomesoplenty:mob.phantom.say";
