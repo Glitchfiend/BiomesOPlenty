@@ -1,7 +1,5 @@
-package thaumcraft.api;
+package thaumcraft.api.aspects;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
 
 
 /**

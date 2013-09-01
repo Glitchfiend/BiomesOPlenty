@@ -46,6 +46,19 @@ public class AspectList implements Serializable {
 	}
 	
 	/**
+	 * @return the amount of total vis in this collection
+	 */
+	public int visSize() {
+		int q = 0;
+		
+		for (Aspect as:aspects.keySet()) {
+			q+=this.getAmount(as);
+		}
+		
+		return q;
+	}
+	
+	/**
 	 * @return an array of all the aspects in this collection
 	 */
 	public Aspect[] getAspects() {

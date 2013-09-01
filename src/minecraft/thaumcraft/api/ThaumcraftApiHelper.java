@@ -3,24 +3,31 @@ package thaumcraft.api;
 import java.lang.reflect.Method;
 
 import net.minecraft.item.ItemStack;
+import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import cpw.mods.fml.common.FMLLog;
 
 public class ThaumcraftApiHelper {
 	
 	public static AspectList cullTags(AspectList temp) {
-//		while (temp!=null && temp.size()>5) {
-//			EnumTag lowest = null;
-//			int low = Integer.MAX_VALUE;
-//			for (EnumTag tag:temp.getAspects()) {
-//				if (temp.getAmount(tag)<low) {
-//					low = temp.getAmount(tag);
-//					lowest = tag;
-//				}
-//			}
-//			temp.aspects.remove(lowest);
-//		}
-		return temp; 
+		AspectList temp2 = new AspectList();
+		for (Aspect tag:temp.getAspects()) {
+			if (tag!=null)
+				temp2.add(tag, temp.getAmount(tag));
+		}
+		while (temp2!=null && temp2.size()>10) {
+			Aspect lowest = null;
+			int low = Integer.MAX_VALUE;
+			for (Aspect tag:temp2.getAspects()) {
+				if (tag==null) continue;
+				if (temp2.getAmount(tag)<low) {
+					low = temp2.getAmount(tag);
+					lowest = tag;
+				}
+			}
+			temp2.aspects.remove(lowest);
+		}
+		return temp2; 
 	}
 	
 	public static boolean areItemsEqual(ItemStack s1,ItemStack s2)

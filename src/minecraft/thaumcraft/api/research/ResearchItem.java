@@ -94,6 +94,11 @@ public class ResearchItem
     private boolean isHidden;
     
     /**
+     * Concealed research does not display in the thaumonomicon until parent researches are discovered.
+     */
+    private boolean isConcealed;
+    
+    /**
      * Lost research can only be discovered via knowledge fragments
      */
     private boolean isLost;
@@ -162,6 +167,12 @@ public class ResearchItem
     public ResearchItem setHidden()
     {
         this.isHidden = true;
+        return this;
+    }
+    
+    public ResearchItem setConcealed()
+    {
+        this.isConcealed = true;
         return this;
     }
     
@@ -239,6 +250,11 @@ public class ResearchItem
     public boolean isHidden()
     {
         return this.isHidden;
+    }
+    
+    public boolean isConcealed()
+    {
+        return this.isConcealed;
     }
     
     public boolean isLost()

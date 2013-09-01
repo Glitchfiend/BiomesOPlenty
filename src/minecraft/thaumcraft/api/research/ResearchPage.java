@@ -14,6 +14,7 @@ public class ResearchPage {
 	public static enum PageType
     {
         TEXT,
+        TEXT_CONCEALED,
         IMAGE,
         CRUCIBLE_CRAFTING,
         ARCANE_CRAFTING,
@@ -25,6 +26,7 @@ public class ResearchPage {
 	public PageType type = PageType.TEXT;
 	
 	public String text=null;
+	public String research=null;
 	public ResourceLocation image=null;
 	public AspectList aspects=null;
 	public Object recipe=null;
@@ -39,12 +41,31 @@ public class ResearchPage {
 	}
 	
 	/**
+	 * @param research this page will only be displayed if the player has discovered this research
+	 * @param text this can (but does not have to) be a reference to a localization variable, not the actual text.
+	 */
+	public ResearchPage(String research, String text) {
+		this.type = PageType.TEXT_CONCEALED;
+		this.research = research;
+		this.text = text;
+	}
+	
+	/**
 	 * @param recipe a vanilla crafting recipe.
 	 */
 	public ResearchPage(IRecipe recipe) {
 		this.type = PageType.NORMAL_CRAFTING;
 		this.recipe = recipe;
 		this.recipeOutput = recipe.getRecipeOutput();
+	}
+	
+	/**
+	 * @param recipe a vanilla crafting recipe.
+	 */
+	public ResearchPage(IRecipe[] recipe) {
+		this.type = PageType.NORMAL_CRAFTING;
+		this.recipe = recipe;
+//		this.recipeOutput = recipe.getRecipeOutput();
 	}
 	
 	/**

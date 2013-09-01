@@ -13,7 +13,6 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
-import net.minecraft.nbt.NBTTagByte;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.aspects.Aspect;
@@ -42,7 +41,7 @@ public class ThaumcraftApi {
 	public static EnumToolMaterial toolMatElemental = EnumHelper.addToolMaterial("THAUMIUM_ELEMENTAL", 3, 1500, 10F, 3, 18);
 	public static EnumArmorMaterial armorMatThaumium = EnumHelper.addArmorMaterial("THAUMIUM", 25, new int[] { 2, 6, 5, 2 }, 25);
 	public static EnumArmorMaterial armorMatSpecial = EnumHelper.addArmorMaterial("SPECIAL", 25, new int[] { 1, 3, 2, 1 }, 25);
-	//public static final Material fluxGoomaterial = (new MaterialTaint(MapColor.grassColor)).setNoPushMobility();
+	public static final Material fluxGoomaterial = (new MaterialTaint(MapColor.grassColor));
 	public static final Material taintMaterial = (new MaterialTaint(MapColor.grassColor));
 	
 	//Miscellaneous
@@ -227,7 +226,7 @@ public class ThaumcraftApi {
 		return null;
 	}
 	
-	//TAGS////////////////////////////////////////
+	//ASPECTS////////////////////////////////////////
 	
 	public static Map<List,AspectList> objectTags = new HashMap<List,AspectList>();
 	
@@ -284,8 +283,11 @@ public class ThaumcraftApi {
 	public static void registerObjectTag(String oreDict, AspectList aspects) {
 		ArrayList<ItemStack> ores = OreDictionary.getOres(oreDict);
 		if (ores!=null && ores.size()>0) {
-			for (ItemStack ore:ores)
-				objectTags.put(Arrays.asList(ore.itemID, ore.getItemDamage()), aspects);
+			for (ItemStack ore:ores) {
+				int d = ore.getItemDamage();
+				if (d==OreDictionary.WILDCARD_VALUE) d = -1;
+				objectTags.put(Arrays.asList(ore.itemID, d), aspects);
+			}
 		}
 	}
 	
@@ -299,21 +301,21 @@ public class ThaumcraftApi {
 	 * @param aspects A ObjectTags object of the associated aspects
 	 */
 	public static void registerComplexObjectTag(int id, int meta, AspectList aspects ) {
-//		if (!exists(id,meta)) {
-//			AspectList tmp = ThaumcraftApiHelper.generateTags(id, meta);
-//			if (tmp != null && tmp.size()>0) {
-//				for(EnumTag tag:tmp.getAspects()) {
-//					aspects.add(tag, tmp.getAmount(tag));
-//				}
-//			}
-//			registerObjectTag(id,meta,aspects);
-//		} else {
-//			AspectList tmp = ThaumcraftApiHelper.getObjectAspects(new ItemStack(id,1,meta));
-//			for(EnumTag tag:aspects.getAspects()) {
-//				tmp.merge(tag, tmp.getAmount(tag));
-//			}
-//			registerObjectTag(id,meta,tmp);
-//		}
+		if (!exists(id,meta)) {
+			AspectList tmp = ThaumcraftApiHelper.generateTags(id, meta);
+			if (tmp != null && tmp.size()>0) {
+				for(Aspect tag:tmp.getAspects()) {
+					aspects.add(tag, tmp.getAmount(tag));
+				}
+			}
+			registerObjectTag(id,meta,aspects);
+		} else {
+			AspectList tmp = ThaumcraftApiHelper.getObjectAspects(new ItemStack(id,1,meta));
+			for(Aspect tag:aspects.getAspects()) {
+				tmp.merge(tag, tmp.getAmount(tag));
+			}
+			registerObjectTag(id,meta,tmp);
+		}
 	}
 		
 	//CROPS //////////////////////////////////////////////////////////////////////////////////////////
@@ -335,6 +337,5 @@ public class ThaumcraftApi {
 	 * Example (this will technically do nothing since clicking wheat does nothing, but you get the idea): 
 	 * FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Block.crops,1,7));
 	 */
-	
 	
 }

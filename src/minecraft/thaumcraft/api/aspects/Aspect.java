@@ -116,6 +116,15 @@ public class Aspect {
 		}
 		return primals;
 	}
+	
+	public static ArrayList<Aspect> getCompoundAspects() {
+		ArrayList<Aspect> compounds = new ArrayList<Aspect>();
+		Collection<Aspect> pa = aspects.values();
+		for (Aspect aspect:pa) {
+			if (!aspect.isPrimal())  compounds.add(aspect);
+		}
+		return compounds;
+	}
 
 	public String getChatcolor() {
 		return chatcolor;
@@ -144,6 +153,8 @@ public class Aspect {
 		public static final Aspect STONE = new Aspect("saxum",0x808080, new Aspect[] {EARTH, EARTH});
 		public static final Aspect LIFE = new Aspect("victus",0xde0005, new Aspect[] {WATER, EARTH});
 		public static final Aspect WEATHER = new Aspect("tempestas",0xFFFFFF, new Aspect[] {AIR, WATER});
+		public static final Aspect ICE = new Aspect("gelum",0xe1ffff, new Aspect[] {WATER, ORDER});
+		public static final Aspect CRYSTAL = new Aspect("vitreus",0x80ffff, new Aspect[] {STONE, WATER});
 		
 	//TERTIARY  	TODO		
 		
@@ -151,7 +162,12 @@ public class Aspect {
 		public static final Aspect FLIGHT = new Aspect("volatus",0xe7e7d7, new Aspect[] {AIR, MOTION});
 		public static final Aspect DARKNESS = new Aspect("tenebrae",0x222222, new Aspect[] {VOID, LIGHT});
 		public static final Aspect SOUL = new Aspect("spiritus",0xebebfb, new Aspect[] {LIFE, DEATH});
+		public static final Aspect HEAL = new Aspect("sano",0xff2f34, new Aspect[] {ORDER, LIFE});
 		
+		public static final Aspect TRAVEL = new Aspect("iter",0xe0585b, new Aspect[] {MOTION, EARTH});
+		public static final Aspect POISON = new Aspect("venenum",0x89f000, new Aspect[] {WATER, DEATH});
+		
+		public static final Aspect ELDRITCH = new Aspect("alienis",0x805080, new Aspect[] {VOID, DARKNESS});
 		public static final Aspect MAGIC = new Aspect("praecantatio",0x9700c0, new Aspect[] {VOID, ENERGY});
 		public static final Aspect AURA = new Aspect("auram",0xffc0ff, new Aspect[] {MAGIC, AIR});
 		public static final Aspect TAINT = new Aspect("vitium",0x800080, new Aspect[] {MAGIC, ENTROPY});
@@ -165,20 +181,31 @@ public class Aspect {
 		public static final Aspect FLESH = new Aspect("corpus",0xee478d, new Aspect[] {DEATH,BEAST});
 		public static final Aspect UNDEAD = new Aspect("exanimis",0x3a4000, new Aspect[] {MOTION, DEATH});
 		public static final Aspect MIND = new Aspect("cognitio",0xffc2b3, new Aspect[] {EARTH, SOUL});
-		public static final Aspect MAN = new Aspect("humanus",0xffd7c0, new Aspect[] {BEAST, MIND});
 		public static final Aspect SENSES = new Aspect("sensus",0x0fd9ff, new Aspect[] {AIR, SOUL});
 		
+		public static final Aspect MAN = new Aspect("humanus",0xffd7c0, new Aspect[] {BEAST, MIND});
 		public static final Aspect CROP = new Aspect("messis",0xe1b371, new Aspect[] {SEED, MAN});
 		public static final Aspect HARVEST = new Aspect("meto",0xeead82, new Aspect[] {CROP, MAN});		
 		public static final Aspect METAL = new Aspect("metallum",0xb5b5cd, new Aspect[] {STONE, ORDER});
-		public static final Aspect MINE = new Aspect("perfodio",0xFFFFFF, new Aspect[] {MAN, STONE});
-		public static final Aspect TOOL = new Aspect("instrumentum",0xFFFFFF, new Aspect[] {MAN, METAL});
-		public static final Aspect WEAPON = new Aspect("telum",0xFFFFFF, new Aspect[] {TOOL, ENTROPY});
+		public static final Aspect MINE = new Aspect("perfodio",0xdcd2d8, new Aspect[] {MAN, STONE});
+		public static final Aspect TOOL = new Aspect("instrumentum",0x4040ee, new Aspect[] {MAN, METAL});
+		public static final Aspect WEAPON = new Aspect("telum",0xc05050, new Aspect[] {TOOL, ENTROPY});
 		public static final Aspect ARMOR = new Aspect("tutamen",0x00c0c0, new Aspect[] {TOOL, ORDER});
-		
+		public static final Aspect HUNGER = new Aspect("fames",0x9a0305, new Aspect[] {LIFE, VOID});
+		public static final Aspect GREED = new Aspect("lucrum",0xe6be44, new Aspect[] {MAN, HUNGER});
+		public static final Aspect CRAFT = new Aspect("fabrico",0x809d80, new Aspect[] {MAN,TOOL});
+				
 		public static final Aspect CLOTH = new Aspect("pannus",0xeaeac2, new Aspect[] {TOOL, BEAST});
+		public static final Aspect MECHANISM = new Aspect("machina",0x8080a0, new Aspect[] {MOTION, TOOL});
+		public static final Aspect TRAP = new Aspect("vinculum",0x9a8080, new Aspect[] {MOTION, ENTROPY});
+		public static final Aspect EXCHANGE = new Aspect("permutatio",0x578357, new Aspect[] {MOTION, ORDER});
+				
 		
-
+		
+		
+		
+			
+		
 		
 		
 //		public static final Aspect LAVA = new Aspect("lava",0xe85729, new Aspect[] {EARTH, FIRE});
@@ -186,19 +213,8 @@ public class Aspect {
 //		public static final Aspect MUD = new Aspect("lutum",0x473423, new Aspect[] {WATER, EARTH});
 //		public static final Aspect SAND = new Aspect("sand",0xFFFFFF, new Aspect[] {AIR, EARTH});
 //		public static final Aspect ASTRAL = new Aspect("Astral",0xFFFFFF, new Aspect[] {VOID, DARKNESS});
-//		public static final Aspect HEAL = new Aspect("Heal",0xFFFFFF, new Aspect[] {ORDER, LIFE});
 //		public static final Aspect HARM = new Aspect("Harm",0xFFFFFF, new Aspect[] {ENTROPY, LIFE});
 //		public static final Aspect BIRD = new Aspect("Bird",0xFFFFFF, new Aspect[] {BEAST, AIR});
 //		public static final Aspect FISH = new Aspect("Fish",0xFFFFFF, new Aspect[] {BEAST, WATER});
-//		public static final Aspect TOOL = new Aspect("Tool",0xFFFFFF, new Aspect[] {MAN, METAL});
-//		public static final Aspect WOOD = new Aspect("Wood",0xFFFFFF, new Aspect[] {TREE, TOOL});
-//		public static final Aspect MACHINE = new Aspect("Machine",0xFFFFFF, new Aspect[] {TOOL, ORDER});
-//		public static final Aspect TRAVEL = new Aspect("Travel",0xFFFFFF, new Aspect[] {MOTION, EARTH});
-//		public static final Aspect TELEPORT = new Aspect("Teleport",0xFFFFFF, new Aspect[] {TRAVEL, VOID});
-//		public static final Aspect CLAY = new Aspect("Clay",0xFFFFFF, new Aspect[] {SAND, LIFE});
-		public static final Aspect HEAL = new Aspect("heal",0xFFFFFF, new Aspect[] {ORDER, LIFE});
-		public static final Aspect POISON = new Aspect("poison",0xFFFFFF, new Aspect[] {WATER, DEATH});
-		public static final Aspect TRAP = new Aspect("pannus",0xeaeac2, new Aspect[] {MOTION, ENTROPY});
-		public static final Aspect ICE = new Aspect("ice",0xde0005, new Aspect[] {WATER, ORDER});
 		
 }

@@ -44,8 +44,7 @@ public class ItemApi {
 	 *  
 	 * Resources:
 	 * itemEssence, itemWispEssence, itemResource, itemShard, itemNugget, 
-	 * itemNuggetChicken, itemNuggetBeef, itemNuggetPork, itemTripleMeatTreat,
-	 * blockWooden, blockMarker
+	 * itemNuggetChicken, itemNuggetBeef, itemNuggetPork, itemTripleMeatTreat
 	 * 
 	 * Research:
 	 * itemResearchNotes, itemInkwell, itemThaumonomicon

@@ -118,8 +118,6 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("mud"), getBMeta("mud"), (new AspectList()).add(Aspect.WATER, 3).add(Aspect.EARTH, 6));
 		ThaumcraftApi.registerObjectTag(getBID("driedDirt"), getBMeta("driedDirt"), (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EARTH, 1));
 		ThaumcraftApi.registerObjectTag(getBID("redRock"), getBMeta("redRock"), (new AspectList()).add(Aspect.STONE, 2));
-		//ThaumcraftApi.registerObjectTag(getBID("ash"), getBMeta("ash"), (new AspectList()).add(Aspect.ENTROPY, 3).add(Aspect.EXCHANGE, 3));
-		//ThaumcraftApi.registerObjectTag(getBID("ashStone"), getBMeta("ashStone"), (new AspectList()).add(Aspect.STONE, 1).add(Aspect.EXCHANGE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("hardIce"), getBMeta("hardIce"), (new AspectList()).add(Aspect.STONE, 2).add(Aspect.ICE, 2));
 		ThaumcraftApi.registerObjectTag(getBID("originGrass"), getBMeta("originGrass"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(getBID("hardSand"), getBMeta("hardSand"), (new AspectList()).add(Aspect.STONE, 1).add(Aspect.EARTH, 2));
@@ -127,12 +125,12 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("holyGrass"), getBMeta("holyGrass"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.EARTH, 2).add(Aspect.LIGHT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("holyDirt"), getBMeta("holyDirt"), (new AspectList()).add(Aspect.LIGHT, 1).add(Aspect.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(getBID("holyStone"), getBMeta("holyStone"), (new AspectList()).add(Aspect.LIGHT, 1).add(Aspect.STONE, 2));
-		//ThaumcraftApi.registerObjectTag(getBID("crystal"), getBMeta("crystal"), (new AspectList()).add(Aspect.VALUABLE, 58).add(Aspect.LIGHT, 15).add(Aspect.MAGIC, 20).add(Aspect.CRYSTAL, 50));
+		ThaumcraftApi.registerObjectTag(getBID("crystal"), getBMeta("crystal"), (new AspectList()).add(Aspect.GREED, 58).add(Aspect.LIGHT, 15).add(Aspect.MAGIC, 20).add(Aspect.CRYSTAL, 50));
 		ThaumcraftApi.registerObjectTag(getBID("cragRock"), getBMeta("cragRock"), (new AspectList()).add(Aspect.STONE, 2));
 		ThaumcraftApi.registerObjectTag(getBID("quicksand"), getBMeta("quicksand"), (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.TRAP, 4));
 		ThaumcraftApi.registerObjectTag(getBID("smolderingGrass"), getBMeta("smolderingGrass"), (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 1));
-		//ThaumcraftApi.registerObjectTag(getBID("amethystBlock"), getBMeta("amethystBlock"), (new AspectList()).add(Aspect.VALUABLE, 58).add(Aspect.ORDER, 58).add(Aspect.CRYSTAL, 87));
-		//ThaumcraftApi.registerObjectTag(getBID("amethystOre"), getBMeta("amethystOre"), (new AspectList()).add(Aspect.VALUABLE, 6).add(Aspect.ORDER, 6).add(Aspect.CRYSTAL, 14).add(Aspect.STONE, 4));
+		ThaumcraftApi.registerObjectTag(getBID("amethystBlock"), getBMeta("amethystBlock"), (new AspectList()).add(Aspect.GREED, 58).add(Aspect.ORDER, 58).add(Aspect.CRYSTAL, 87));
+		ThaumcraftApi.registerObjectTag(getBID("amethystOre"), getBMeta("amethystOre"), (new AspectList()).add(Aspect.GREED, 6).add(Aspect.ORDER, 6).add(Aspect.CRYSTAL, 14).add(Aspect.STONE, 4));
 		ThaumcraftApi.registerObjectTag(getBID("redRockCobble"), getBMeta("redRockCobble"), (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.STONE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("giantFlowerRed"), getBMeta("giantFlowerRed"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.MAGIC, 1));
 		ThaumcraftApi.registerObjectTag(getBID("giantFlowerYellow"), getBMeta("giantFlowerYellow"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.MAGIC, 1));
@@ -143,30 +141,28 @@ public class ThaumcraftIntegration {
 		
 		for (int i = 10; i < 15; i++)
 		{
-			//ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, i, (new AspectList()).add(Aspect.VALUABLE, 4).add(Aspect.CRYSTAL, 8));
+			ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, i, (new AspectList()).add(Aspect.GREED, 4).add(Aspect.CRYSTAL, 8));
 		}
 		
 		String[] oreTypes = BlockBOPAmethyst.types;
 		
 		for (int i = 2; i < oreTypes.length; i+=2)
 		{
-			//ThaumcraftApi.registerObjectTag(Blocks.amethystOre.get().blockID, i, (new AspectList()).add(Aspect.VALUABLE, 3).add(Aspect.CRYSTAL, 7).add(Aspect.STONE, 4));
+			ThaumcraftApi.registerObjectTag(Blocks.amethystOre.get().blockID, i, (new AspectList()).add(Aspect.GREED, 3).add(Aspect.CRYSTAL, 7).add(Aspect.STONE, 4));
 		}
 
 		//Items
-		/*Amethyst*///ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new AspectList()).add(Aspect.VALUABLE, 8).add(Aspect.PURE, 8).add(Aspect.CRYSTAL, 16));
-		/*Ashes*///ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 1, (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
+		/*Amethyst*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new AspectList()).add(Aspect.GREED, 8).add(Aspect.ORDER, 8).add(Aspect.CRYSTAL, 16));
+		/*Ashes*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 1, (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
 		/*Mudbrick*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 1));
 		/*Dart*/ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 0, (new AspectList()).add(Aspect.WEAPON, 1));
 		/*Poison Dart*/ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 1, (new AspectList()).add(Aspect.PLANT, 2).add(Aspect.WEAPON, 2));
 		/*Spring Water Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 0, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 4).add(Aspect.LIFE, 2).add(Aspect.HEAL, 4));
 		/*Liquid Poison Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 1, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 2).add(Aspect.WEAPON, 4).add(Aspect.POISON, 4));
 		ThaumcraftApi.registerObjectTag(Items.food.get().itemID, 0, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
-		//ThaumcraftApi.registerObjectTag(Items.sunflowerSeeds.get().itemID, 0, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.EXCHANGE, 1));
 		ThaumcraftApi.registerObjectTag(Items.mudball.get().itemID, 0, (new AspectList()).add(Aspect.WATER, 1).add(Aspect.EARTH, 2));
-		//ThaumcraftApi.registerObjectTag(Items.shroomPowder.get().itemID, -1, (new AspectList()).add(Aspect.PLANT, 2).add(Aspect.ENTROPY, 1));
-		//ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.VALUABLE, 4).add(Aspect.CROP, 4));
-		//ThaumcraftApi.registerObjectTag(Items.bopDiscMud.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.VALUABLE, 4).add(Aspect.EARTH, 2).add(Aspect.WATER, 2));
+		ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.CROP, 4));
+		ThaumcraftApi.registerObjectTag(Items.bopDiscMud.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.EARTH, 2).add(Aspect.WATER, 2));
 
 		//Placer Items
 		ThaumcraftApi.registerObjectTag(getBID("barley"), getBMeta("barley"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
