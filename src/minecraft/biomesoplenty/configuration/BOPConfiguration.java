@@ -1017,7 +1017,11 @@ public class BOPConfiguration
 
 				//70-87 Twilight Forest
 
-				//80-169 Better World Generation 4
+				//80-159 Better World Generation 4
+				
+				//160-161 BuildCraft Oil Fields
+				
+				//162-169 Thaumcraft
 
 				alpsID = config.get("Biome IDs", "Alps ID", 170).getInt();
 				arcticID = config.get("Biome IDs", "Arctic ID", 171).getInt();
