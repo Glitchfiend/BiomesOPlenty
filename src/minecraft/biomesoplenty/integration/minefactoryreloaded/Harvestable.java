@@ -53,41 +53,17 @@ public class Harvestable implements IFactoryHarvestable
     @Override
     public List<ItemStack> getDrops(World world, Random rand, Map<String, Boolean> harvesterSettings, int x, int y, int z)
     {
+        Block b = Block.blocksList[getPlantId()];
+
         if(harvesterSettings.get("silkTouch") != null && harvesterSettings.get("silkTouch") && harvestType == HarvestType.TreeLeaf)
         {
             ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-            drops.add(new ItemStack(sourceId, 1, world.getBlockMetadata(x, y, z)));
+            drops.add(new ItemStack(sourceId, 1, b.getDamageValue(world, x, y, z)));
             return drops;
         }
-//        else if(getPlantId() == Blocks.leavesFruit.get().blockID)
-//        {
-//            ArrayList<ItemStack> drops = new ArrayList<ItemStack>();
-//            
-//            int meta = world.getBlockMetadata(x, y, z);
-//            if ((meta & 3) == 3)
-//            {
-//                drops.add(new ItemStack(Item.appleRed));
-//            }
-//            else if ((meta & 3) == 2)
-//            {
-//                if(rand.nextInt(16) == 0) drops.add(new ItemStack(Item.appleRed));
-//                if(rand.nextInt(80) == 0) drops.add(new ItemStack(Block.sapling));
-//            }
-//            else if ((meta & 3) == 1)
-//            {
-//                if(rand.nextInt(64) == 0) drops.add(new ItemStack(Item.appleRed));
-//                if(rand.nextInt(40) == 0) drops.add(new ItemStack(Block.sapling));
-//            }
-//            else if ((meta & 3) == 0)
-//            {
-//                if(rand.nextInt(20) == 0) drops.add(new ItemStack(Block.sapling));
-//            }
-//
-//            return drops;
-//        }
         else
         {
-            return Block.blocksList[getPlantId()].getBlockDropped(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            return b.getBlockDropped(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
         }
     }
     
