@@ -120,6 +120,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("redRock"), getBMeta("redRock"), (new AspectList()).add(Aspect.STONE, 2));
 		ThaumcraftApi.registerObjectTag(getBID("hardIce"), getBMeta("hardIce"), (new AspectList()).add(Aspect.STONE, 2).add(Aspect.ICE, 2));
 		ThaumcraftApi.registerObjectTag(getBID("originGrass"), getBMeta("originGrass"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.EARTH, 2));
+		ThaumcraftApi.registerObjectTag(getBID("ashStone"), getBMeta("ashStone"), (new AspectList()).add(Aspect.STONE, 1).add(Aspect.FIRE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("hardSand"), getBMeta("hardSand"), (new AspectList()).add(Aspect.STONE, 1).add(Aspect.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(getBID("hardDirt"), getBMeta("hardDirt"), (new AspectList()).add(Aspect.STONE, 1).add(Aspect.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(getBID("holyGrass"), getBMeta("holyGrass"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.EARTH, 2).add(Aspect.LIGHT, 1));
@@ -152,13 +153,22 @@ public class ThaumcraftIntegration {
 		}
 
 		//Items
-		/*Amethyst*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new AspectList()).add(Aspect.GREED, 8).add(Aspect.ORDER, 8).add(Aspect.CRYSTAL, 16));
-		/*Ashes*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 1, (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
-		/*Mudbrick*/ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 1));
-		/*Dart*/ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 0, (new AspectList()).add(Aspect.WEAPON, 1));
-		/*Poison Dart*/ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 1, (new AspectList()).add(Aspect.PLANT, 2).add(Aspect.WEAPON, 2));
-		/*Spring Water Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 0, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 4).add(Aspect.LIFE, 2).add(Aspect.HEAL, 4));
-		/*Liquid Poison Bucket*/ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 1, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 2).add(Aspect.WEAPON, 4).add(Aspect.POISON, 4));
+		/*Amethyst*/
+		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new AspectList()).add(Aspect.GREED, 8).add(Aspect.ORDER, 8).add(Aspect.CRYSTAL, 8));
+		/*Ashes*/
+		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 1, (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
+		/*Celestial Crystal Shard*/
+		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 4, (new AspectList()).add(Aspect.CRYSTAL, 8).add(Aspect.LIGHT, 2).add(Aspect.MAGIC, 2).add(Aspect.GREED, 4));
+		/*Mudbrick*/
+		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 1));
+		/*Dart*/
+		ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 0, (new AspectList()).add(Aspect.WEAPON, 1));
+		/*Poison Dart*/
+		ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 1, (new AspectList()).add(Aspect.PLANT, 2).add(Aspect.WEAPON, 2));
+		/*Spring Water Bucket*/
+		ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 0, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 4).add(Aspect.LIFE, 2).add(Aspect.HEAL, 4));
+		/*Liquid Poison Bucket*/
+		ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 1, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 2).add(Aspect.WEAPON, 4).add(Aspect.POISON, 4));
 		ThaumcraftApi.registerObjectTag(Items.food.get().itemID, 0, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
 		ThaumcraftApi.registerObjectTag(Items.mudball.get().itemID, 0, (new AspectList()).add(Aspect.WATER, 1).add(Aspect.EARTH, 2));
 		ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.CROP, 4));
