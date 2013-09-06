@@ -10,7 +10,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
@@ -24,7 +27,7 @@ import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "antiwart"};
 	private Icon[] textures;
 
 	private static final int CATTAILTOP = 9;
@@ -122,6 +125,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			return blockID == this.blockID;
 		else if (metadata == 12)
 			return blockID == Block.sand.blockID || blockID == Blocks.redRock.get().blockID || blockID == Block.slowSand.blockID;
+		else if (metadata == 13)
+			return blockID == Block.slowSand.blockID;
 		else
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID;
 	}
@@ -172,6 +177,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 
 			case 12: // Tiny Cactus
 				return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
+				
+			case 13: // Antiwart
+				return id == Block.slowSand.blockID;
 				
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
@@ -321,6 +329,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			return 1;
 		else if (meta == 11)
 			return random.nextInt(7) == 0 ? 2 : 1;
+		else if (meta == 13)
+			return 1;
 		else
 			return 0;
 	}
@@ -329,6 +339,14 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.harvestBlock(world, player, x, y, z, meta);
+		
+		if (meta == 13)
+		{
+			for (int i = 0; i < 10; i++)
+			{
+				world.spawnParticle("smoke", x + 0.5, y + 0.5F, z + 0.5, 0.0D, 0.0D, 0.0D);
+			}
+		}
 	}
 
 	@Override

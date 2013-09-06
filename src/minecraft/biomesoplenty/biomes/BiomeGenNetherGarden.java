@@ -26,7 +26,7 @@ public class BiomeGenNetherGarden extends BiomeGenBase
 		customBiomeDecorator.netherVinesPerChunk = 60;
 		customBiomeDecorator.mushroomsPerChunk = 30;
 		customBiomeDecorator.bigMushroomsPerChunk = 30;
-		customBiomeDecorator.netherWartPerChunk = 3;
+		customBiomeDecorator.netherWartPerChunk = 8;
 		customBiomeDecorator.netherGrassPerChunk = 10;
 		customBiomeDecorator.glowshroomsPerChunk = 3;
 		customBiomeDecorator.toadstoolsPerChunk = 5;

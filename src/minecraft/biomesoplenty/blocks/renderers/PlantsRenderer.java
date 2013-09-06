@@ -39,6 +39,8 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 12)
 				return renderer.renderCrossedSquares(block, x, y, z);
+			if (meta == 13)
+				return renderer.renderBlockCrops(block, x, y, z);
 		}
 		return true;
 	}

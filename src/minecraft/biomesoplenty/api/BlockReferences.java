@@ -156,6 +156,7 @@ public class BlockReferences {
 		cattail (Blocks.plants, 7),
 		reed (Blocks.plants, 8),
 		tinyCactus (Blocks.plants, 12),
+		antiwart (Blocks.plants, 13),
 
 		treeMoss (Blocks.treeMoss, 0),
 		moss (Blocks.moss, 0),
