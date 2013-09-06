@@ -20,10 +20,10 @@ public class BiomeGenDunes extends BiomeGenBase
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
-		customBiomeDecorator.deadBushPerChunk = -999;
-		customBiomeDecorator.duneGrassPerChunk = 10;
-		customBiomeDecorator.desertSproutsPerChunk = 5;
-		customBiomeDecorator.aloePerChunk = 1;
+		customBiomeDecorator.deadBushPerChunk = 5;
+		customBiomeDecorator.duneGrassPerChunk = 75;
+		customBiomeDecorator.desertSproutsPerChunk = 25;
+		customBiomeDecorator.aloePerChunk = 5;
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.generateLakes = false;
 	}

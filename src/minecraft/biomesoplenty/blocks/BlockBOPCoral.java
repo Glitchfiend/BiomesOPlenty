@@ -12,12 +12,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPCoral extends BlockFlower
 {
-	private static final String[] coral = new String[] {"kelp"};
+	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	private Icon[] textures;
 
 	protected BlockBOPCoral(int blockID, Material material)
@@ -76,12 +77,17 @@ public class BlockBOPCoral extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.dirt.blockID || id == Block.sand.blockID;
+		return id == Block.dirt.blockID || id == Block.sand.blockID || id == blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
-		return id == Block.dirt.blockID || id == Block.sand.blockID;
+		if (metadata == 1)
+			return id == blockID;
+		if (metadata == 2)
+			return id == blockID || id == Block.dirt.blockID || id == Block.sand.blockID;
+		else
+			return id == Block.dirt.blockID || id == Block.sand.blockID;
 	}
 
 	@Override
@@ -91,9 +97,19 @@ public class BlockBOPCoral extends BlockFlower
 		int meta = itemStack.getItemDamage();
 		//boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
 
-		if (itemStack.itemID == blockID)
-			return id == Block.dirt.blockID || id == Block.sand.blockID;
-		else
+		if (itemStack.itemID == blockID) {
+			switch (meta)
+			{
+			case 1: // Kelp Middle
+				return id == blockID;
+
+			case 2: // Kelp Bottom
+				return id == blockID;
+
+			default:
+				return id == Block.dirt.blockID || id == Block.sand.blockID;
+			}
+		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
 	}
 
@@ -127,11 +143,9 @@ public class BlockBOPCoral extends BlockFlower
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
 		if (world.getBlockId(x, y, z) != blockID)
-			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z))
-					&& this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
+			return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 		else
-			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z))
-					&& this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+			return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 	}
 
 	@Override

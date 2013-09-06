@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFlower extends ItemBlock
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "daisy", "tulip", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 	private static final int SUNFLOWERTOP = 14;

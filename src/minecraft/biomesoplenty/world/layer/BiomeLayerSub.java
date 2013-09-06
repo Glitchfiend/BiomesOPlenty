@@ -44,10 +44,6 @@ public class BiomeLayerSub extends BiomeLayer
                 if (k1 == Biomes.forestNew.get().biomeID && nextInt(3) == 0) { l1 = Biomes.forestHillsNew.get().biomeID; }
                 if (k1 == Biomes.taigaNew.get().biomeID && nextInt(3) == 0) { l1 = Biomes.taigaHillsNew.get().biomeID; }
                 if (k1 == Biomes.jungleNew.get().biomeID && nextInt(3) == 0) { l1 = Biomes.jungleHillsNew.get().biomeID; }
-                
-                //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(2) == 0) { l1 = Biomes.tropics.get().biomeID; }
-                //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.volcano.get().biomeID; }
-                //if (k1 == BiomeGenBase.ocean.biomeID && nextInt(3) == 0) { l1 = Biomes.polar.get().biomeID; }
 
                 if (l1 == k1)
                 {

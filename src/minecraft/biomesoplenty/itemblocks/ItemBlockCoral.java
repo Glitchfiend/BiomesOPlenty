@@ -12,7 +12,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockCoral extends ItemBlock
 {
-	private static final String[] coral = new String[] {"kelp"};
+	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 

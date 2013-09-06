@@ -40,18 +40,18 @@
 	<entry key="tile.bop.flowers.swampflower.name">Swampflower</entry>
 	<entry key="tile.bop.flowers.deadbloom.name">Deathbloom</entry>
 	<entry key="tile.bop.flowers.glowflower.name">Glowflower</entry>
-	<entry key="tile.bop.flowers.hydrangea.name">Hydrangea</entry>
-	<entry key="tile.bop.flowers.daisy.name">Daisy</entry>
-	<entry key="tile.bop.flowers.tulip.name">Tulip</entry>
+	<entry key="tile.bop.flowers.hydrangea.name">Blue Hydrangea</entry>
+	<entry key="tile.bop.flowers.cosmos.name">Orange Cosmos</entry>
+	<entry key="tile.bop.flowers.daffodil.name">Pink Daffodil</entry>
 	<entry key="tile.bop.flowers.wildflower.name">Wildflower</entry>
 	<entry key="tile.bop.flowers.violet.name">Violet</entry>
-	<entry key="tile.bop.flowers.anemone.name">Anemone</entry>
+	<entry key="tile.bop.flowers.anemone.name">White Anemone</entry>
 	<entry key="tile.bop.flowers.lilyflower.name">Waterlily</entry>
 	<entry key="tile.bop.flowers.rainbowflower.name">Chromaflora</entry>
 	<entry key="tile.bop.flowers.aloe.name">Aloe</entry>
 	<entry key="tile.bop.flowers.sunflowerbottom.name">Sunflower</entry>
 	<entry key="tile.bop.flowers.sunflowertop.name">Sunflower</entry>
-	<entry key="tile.bop.flowers.dandelion.name">Dandelion</entry>
+	<entry key="tile.bop.flowers.dandelion.name">White Dandelion</entry>
 
 	<entry key="tile.bop.foliage.algae.name">Algae</entry>
 	<entry key="tile.bop.foliage.shortgrass.name">Short Grass</entry>
@@ -153,7 +153,7 @@
 	
 	<entry key="tile.bop.puddle.name">Puddle</entry>
 	
-    <entry key="tile.bop.grave.name">Grave</entry>
+    <entry key="tile.bop.grave.name">Gravestone</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Red Rock Cobblestone Slab</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Red Rock Bricks Slab</entry>
