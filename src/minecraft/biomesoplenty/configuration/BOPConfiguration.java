@@ -150,6 +150,7 @@ public class BOPConfiguration
 		public static boolean tundraGen;
 		public static boolean volcanoGen;
 		public static boolean wastelandGen;
+		public static boolean wateryWillowsGen;
 		public static boolean wetlandGen;
 		public static boolean woodlandGen;
 
@@ -258,6 +259,7 @@ public class BOPConfiguration
 				tundraGen = config.get("Biomes To Generate", "Tundra", true).getBoolean(false);
 				volcanoGen = config.get("Biomes To Generate", "Volcano", true).getBoolean(false);
 				wastelandGen = config.get("Biomes To Generate", "Wasteland", true).getBoolean(false);
+				wateryWillowsGen = config.get("Biomes To Generate", "WateryWillows", false).getBoolean(false);
 				wetlandGen = config.get("Biomes To Generate", "Wetland", true).getBoolean(false);
 				woodlandGen = config.get("Biomes To Generate", "Woodland", true).getBoolean(false);
 
@@ -392,6 +394,7 @@ public class BOPConfiguration
 		public static boolean tundraVillage;
 		public static boolean volcanoVillage;
 		public static boolean wastelandVillage;
+		public static boolean wateryWillowsVillage;
 		public static boolean wetlandVillage;
 		public static boolean woodlandVillage;
 		public static boolean plainsVillage;
@@ -504,6 +507,7 @@ public class BOPConfiguration
 				tundraVillage = config.get("Allow Villages", "Tundra", true).getBoolean(false);
 				volcanoVillage = config.get("Allow Villages", "Volcano", false).getBoolean(false);
 				wastelandVillage = config.get("Allow Villages", "Wasteland", false).getBoolean(false);
+				wateryWillowsVillage = config.get("Allow Villages", "Watery Willows", false).getBoolean(false);
 				wetlandVillage = config.get("Allow Villages", "Wetland", false).getBoolean(false);
 				woodlandVillage = config.get("Allow Villages", "Woodland", false).getBoolean(false);
 
@@ -783,6 +787,7 @@ public class BOPConfiguration
 		public static int tundraID;
 		public static int volcanoID;
 		public static int wastelandID;
+		public static int wateryWillowsID;
 		public static int wetlandID;
 		public static int woodlandID;
 
@@ -981,6 +986,7 @@ public class BOPConfiguration
 
 				//23-79 ExtraBiomesXL
 
+				wateryWillowsID = config.get("Biome IDs", "Watery Willows ID", 33).getInt();
 				overgrownGreensID = config.get("Biome IDs", "Overgrown Greens ID", 34).getInt();
 				forestHillsNewID = config.get("Biome IDs", "Forest Hills (Sub-Biome) ID", 35).getInt();
 				taigaHillsNewID = config.get("Biome IDs", "Taiga Hills (Sub-Biome) ID", 36).getInt();

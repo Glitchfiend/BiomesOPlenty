@@ -313,6 +313,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.wasteland);
 		}
+		if (BOPConfiguration.BiomeGen.wateryWillowsGen == true)
+		{
+			addNewBiome(Biomes.wateryWillows);
+		}
 		if (BOPConfiguration.BiomeGen.wetlandGen == true)
 		{
 			addNewBiome(Biomes.wetland);
