@@ -9,6 +9,7 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -17,6 +18,7 @@ import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Items;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -297,6 +299,23 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         public int idDropped(int par1, Random par2Random, int par3)
         {
                 return Blocks.saplings.get().blockID;
+        }
+        
+        @Override
+        public void dropBlockAsItemWithChance(World world, int x, int y, int z, int meta, float chance, int par7)
+        {
+            if (world.isRemote)
+                    return;
+
+            if (world.rand.nextInt(20) == 0)
+            {
+                    int var9 = this.idDropped(meta, world.rand, par7);
+                    this.dropBlockAsItem_do(world, x, y, z, new ItemStack(var9, 1, this.damageDropped(meta)));
+            }
+
+            if (((meta & 7) == 0 || (meta & 7) == 4 || (meta & 7) == 7) && (world.rand.nextInt(50) == 0)) {
+                    this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+            }
         }
 
         @Override
