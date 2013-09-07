@@ -344,7 +344,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		
 		if (meta == 13)
 		{
-			player.addPotionEffect(new PotionEffect(Potion.wither.id, 200));
+			player.addPotionEffect(new PotionEffect(Potion.wither.id, 250, 1));
 		}
 	}
 	
