@@ -116,7 +116,7 @@ public class BOPBiomes {
 		Biomes.meadowForest = Optional.of((new BiomeGenMeadowForest(BOPConfiguration.IDs.meadowForestID)).setColor(9286496).setBiomeName("Meadow Forest").setTemperatureRainfall(0.7F, 0.7F));
 		Biomes.mesa = Optional.of((new BiomeGenMesa(BOPConfiguration.IDs.mesaID)).setColor(16421912).setBiomeName("Mesa").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.4F, 2.0F));
 		Biomes.moor = Optional.of((new BiomeGenMoor(BOPConfiguration.IDs.moorID)).setColor(16421912).setBiomeName("Moor").setTemperatureRainfall(0.5F, 1.0F).setMinMaxHeight(0.7F, 0.8F));
-		Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfiguration.IDs.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.0F, 1.5F).setMinMaxHeight(0.2F, 0.5F));
+		Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfiguration.IDs.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.0F, 1.5F));
 		Biomes.mysticGrove = Optional.of((new BiomeGenMysticGrove(BOPConfiguration.IDs.mysticGroveID)).setColor(353825).setBiomeName("Mystic Grove").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F));
 
 		Biomes.netherBase = Optional.of((new BiomeGenNetherBase(BOPConfiguration.IDs.netherBaseID)).setColor(16711680).setBiomeName("Nether").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
@@ -251,7 +251,7 @@ public class BOPBiomes {
 		
 		BiomeDictionary.registerBiomeType(Biomes.mesa.get(), Type.DESERT, Type.WASTELAND, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.moor.get(), Type.HILLS, Type.SWAMP);
-		BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN, Type.HILLS);
+		BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
 
 		BiomeDictionary.registerBiomeType(Biomes.netherBase.get(), Type.NETHER);
@@ -267,7 +267,7 @@ public class BOPBiomes {
 
 		BiomeDictionary.registerBiomeType(Biomes.ominousWoods.get(), Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.ominousWoodsThick.get(), Type.MAGICAL);
-		
+
 		BiomeDictionary.registerBiomeType(Biomes.orchard.get(), Type.FOREST, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.outback.get(), Type.DESERT, Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.overgrownGreens.get(), Type.JUNGLE, Type.PLAINS);
