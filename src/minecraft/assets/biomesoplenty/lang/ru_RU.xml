@@ -154,7 +154,7 @@
 
 	<entry key="tile.bop.puddle.name">Лужица</entry>
 
-        <entry key="tile.bop.grave.name">Могильный камень</entry>
+        <entry key="tile.bop.grave.name">Могильная плита</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Плита из красного булыжника</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Кирпичная плита из красного камня</entry>
