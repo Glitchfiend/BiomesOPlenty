@@ -35,23 +35,24 @@
 	<entry key="tile.bop.plants.cattailbottom.name">Рогоз</entry>
 	<entry key="tile.bop.plants.reed.name">Камыш</entry>
 	<entry key="tile.bop.plants.cactus.name">Крохотный кактус</entry>
+	<entry key="tile.bop.plants.witherwart.name">Иссушающий нарост</entry> 
 
 	<entry key="tile.bop.flowers.clover.name">Клевер</entry>
 	<entry key="tile.bop.flowers.swampflower.name">Болотный цветок</entry>
 	<entry key="tile.bop.flowers.deadbloom.name">Смертельный цветок</entry>
 	<entry key="tile.bop.flowers.glowflower.name">Светоцвет</entry>
-	<entry key="tile.bop.flowers.hydrangea.name">Гортензия</entry>
-	<entry key="tile.bop.flowers.daisy.name">Маргаритка</entry>
-	<entry key="tile.bop.flowers.tulip.name">Тюльпан</entry>
+	<entry key="tile.bop.flowers.hydrangea.name">Синяя гортензия</entry>
+	<entry key="tile.bop.flowers.cosmos.name">Оранжевая космея</entry> 
+	<entry key="tile.bop.flowers.daffodil.name">Розовый нарцисс</entry>
 	<entry key="tile.bop.flowers.wildflower.name">Колокольчик</entry>
 	<entry key="tile.bop.flowers.violet.name">Фиалка</entry>
-	<entry key="tile.bop.flowers.anemone.name">Анемон</entry>
+	<entry key="tile.bop.flowers.anemone.name">Белый анемон</entry>
 	<entry key="tile.bop.flowers.lilyflower.name">Кувшинка</entry>
 	<entry key="tile.bop.flowers.rainbowflower.name">Радужный цветок</entry>
 	<entry key="tile.bop.flowers.aloe.name">Алоэ</entry>
 	<entry key="tile.bop.flowers.sunflowerbottom.name">Подсолнечник</entry>
 	<entry key="tile.bop.flowers.sunflowertop.name">Подсолнечник</entry>
-	<entry key="tile.bop.flowers.dandelion.name">Одуванчик</entry>
+	<entry key="tile.bop.flowers.dandelion.name">Белый одуванчик</entry>
 
 	<entry key="tile.bop.foliage.algae.name">Водоросли</entry>
 	<entry key="tile.bop.foliage.shortgrass.name">Низкая трава</entry>
@@ -153,7 +154,7 @@
 
 	<entry key="tile.bop.puddle.name">Лужица</entry>
 
-        <entry key="tile.bop.grave.name">Могила</entry>
+        <entry key="tile.bop.grave.name">Могильный камень</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Плита из красного булыжника</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Кирпичная плита из красного камня</entry>
@@ -354,7 +355,7 @@
 
 	<entry key="tile.bop.liquidPoison.name">Яд</entry>
 	<entry key="tile.bop.springWater.name">Родниковая вода</entry>
-	
+
 	<entry key="fluid.bop.liquidPoison">Яд</entry>
 	<entry key="fluid.bop.springWater">Родниковая вода</entry>
 
