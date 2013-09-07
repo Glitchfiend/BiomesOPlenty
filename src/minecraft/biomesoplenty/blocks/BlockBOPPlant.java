@@ -13,6 +13,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -27,7 +29,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "antiwart"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart"};
 	private Icon[] textures;
 
 	private static final int CATTAILTOP = 9;
@@ -339,6 +341,11 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.harvestBlock(world, player, x, y, z, meta);
+		
+		if (meta == 13)
+		{
+			player.addPotionEffect(new PotionEffect(Potion.wither.id, 200));
+		}
 	}
 	
     @Override
@@ -366,14 +373,6 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		
 		return false;
     }
-	
-	@Override
-	public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6)
-	{
-		int meta = par1World.getBlockMetadata(par2, par3, par4);
-		
-
-	}
 
 	@Override
 	public boolean isBlockReplaceable(World world, int x, int y, int z)

@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockPlant extends ItemBlock
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "antiwart"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
@@ -39,7 +39,7 @@ public class ItemBlockPlant extends ItemBlock
 		textures[0] = iconRegister.registerIcon("biomesoplenty:item_barley");
 		textures[1] = iconRegister.registerIcon("biomesoplenty:item_cattail");
 		textures[2] = iconRegister.registerIcon("biomesoplenty:item_reed");
-		textures[3] = iconRegister.registerIcon("biomesoplenty:item_antiwart");
+		textures[3] = iconRegister.registerIcon("biomesoplenty:item_witherwart");
 	}
 
 	@Override
