@@ -69,7 +69,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(4) == 0 ? new WorldGenPromisedTree3(false) : (par1Random.nextInt(2) == 0 ? new WorldGenPromisedShrub(0,0) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false)));
+		return par1Random.nextInt(2) == 0 ? new WorldGenPromisedShrub(0,0) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false));
 	}
 	
 	@Override

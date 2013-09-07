@@ -15,7 +15,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 	{
 		int var6;
 
-		for (var6 = par2Random.nextInt(6) + 8; par1World.getBlockMaterial(par3, par4 - 1, par5) == Material.water; --par4)
+		for (var6 = par2Random.nextInt(8) + 6; par1World.getBlockMaterial(par3, par4 - 1, par5) == Material.water; --par4)
 		{
 			;
 		}
@@ -98,7 +98,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 
 								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
 								{
-									this.setBlock(par1World, var12, var16, var14, Block.leaves.blockID);
+									this.setBlockAndMetadata(par1World, var12, var16, var14, Block.leaves.blockID, 4);
 								}
 							}
 						}
@@ -110,7 +110,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 
 						if (var10 == 0 || var10 == Block.leaves.blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
 						{
-							this.setBlock(par1World, par3, par4 + var16, par5, Block.wood.blockID);
+							this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 0);
 						}
 					}
 
@@ -125,22 +125,22 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 							{
 								if (par1World.getBlockId(var12, var16, var13) == Block.leaves.blockID)
 								{
-									if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
+									if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
 									{
 										this.generateVines(par1World, var12 - 1, var16, var13, 8);
 									}
 
-									if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12 + 1, var16, var13) == 0)
+									if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12 + 1, var16, var13) == 0)
 									{
 										this.generateVines(par1World, var12 + 1, var16, var13, 2);
 									}
 
-									if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12, var16, var13 - 1) == 0)
+									if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12, var16, var13 - 1) == 0)
 									{
 										this.generateVines(par1World, var12, var16, var13 - 1, 1);
 									}
 
-									if (par2Random.nextInt(3) == 0 && par1World.getBlockId(var12, var16, var13 + 1) == 0)
+									if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12, var16, var13 + 1) == 0)
 									{
 										this.generateVines(par1World, var12, var16, var13 + 1, 4);
 									}
@@ -162,8 +162,8 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 	 */
 	 private void generateVines(World par1World, int par2, int par3, int par4, int par5)
 	{
-		this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.ivy.get().blockID, par5);
-		int var6 = 8;
+		this.setBlockAndMetadata(par1World, par2, par3, par4, Block.leaves.blockID, 4);
+		int var6 = 24;
 
 		while (true)
 		{
@@ -172,7 +172,7 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 			if (par1World.getBlockId(par2, par3, par4) != 0 || var6 <= 0)
 				return;
 
-			this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.ivy.get().blockID, par5);
+			this.setBlockAndMetadata(par1World, par2, par3, par4, Block.leaves.blockID, 4);
 			--var6;
 		}
 	}
