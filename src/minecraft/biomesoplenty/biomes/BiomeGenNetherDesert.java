@@ -23,7 +23,6 @@ public class BiomeGenNetherDesert extends BiomeGenBase
 		topBlock = (byte)Block.slowSand.blockID;
 		fillerBlock = (byte)Block.slowSand.blockID;
 		customBiomeDecorator.thornsPerChunk = 10;
-		customBiomeDecorator.tinyCactiPerChunk = 3;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

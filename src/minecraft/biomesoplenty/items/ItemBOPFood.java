@@ -54,7 +54,7 @@ public class ItemBOPFood extends ItemFood
 		switch (itemstack.getItemDamage())
 		{
 			case 0:
-				player.getFoodStats().addStats(1, 0.5F);
+				player.getFoodStats().addStats(1, 0.1F);
 				break;
 				
 			case 1:
@@ -70,19 +70,19 @@ public class ItemBOPFood extends ItemFood
 				break;
 				
 			case 4:
-				player.getFoodStats().addStats(6, 0.8F);
+				player.getFoodStats().addStats(6, 0.6F);
 				break;
 				
 			case 5:
-				player.getFoodStats().addStats(6, 1.2F);
+				player.getFoodStats().addStats(6, 0.6F);
 				break;
 				
 			case 6:
-				player.getFoodStats().addStats(6, 1.6F);
+				player.getFoodStats().addStats(6, 0.6F);
 				break;
 				
 			case 8:
-				player.getFoodStats().addStats(5, 3.0F);
+				player.getFoodStats().addStats(5, 0.2F);
 				break;
 				
 			default:
