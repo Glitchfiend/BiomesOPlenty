@@ -347,7 +347,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     {
 		if (meta == 13)
 		{
-            byte b0 = 4;
+            byte b0 = 3;
 
             for (int j1 = 0; j1 < b0; ++j1)
             {
