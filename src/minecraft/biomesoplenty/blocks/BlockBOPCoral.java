@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
@@ -18,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPCoral extends BlockFlower
 {
-	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
+	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	private Icon[] textures;
 
 	protected BlockBOPCoral(int blockID, Material material)
@@ -67,7 +68,7 @@ public class BlockBOPCoral extends BlockFlower
 	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < coral.length; ++i)
 		{
-			if (i != 14)
+			if (i > 2)
 			{
 				list.add(new ItemStack(blockID, 1, i));
 			}
@@ -121,13 +122,6 @@ public class BlockBOPCoral extends BlockFlower
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
-	{
-		int meta = world.getBlockMetadata(x, y, z);
-		return meta;
-	}
-
-	@Override
 	public int damageDropped(int meta)
 	{
 		return meta & 15;
@@ -137,6 +131,26 @@ public class BlockBOPCoral extends BlockFlower
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
 		return 1;
+	}
+	
+	@Override
+	public int getLightValue(IBlockAccess world, int x, int y, int z)
+	{
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == 7)
+			return 10;
+		else
+			return 0;
+	}
+	
+	@Override
+	public int getDamageValue(World world, int x, int y, int z)
+	{
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta < 3) {
+			meta = 3;
+		}
+		return meta;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package biomesoplenty.itemblocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemBlock;
@@ -12,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockCoral extends ItemBlock
 {
-	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
+	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
@@ -27,6 +28,15 @@ public class ItemBlockCoral extends ItemBlock
 	public int getMetadata(int meta)
 	{
 		return meta & 15;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconRegister)
+	{
+		textures = new Icon[1];
+
+		textures[0] = iconRegister.registerIcon("biomesoplenty:item_kelp");
 	}
 
 	@Override
@@ -43,7 +53,10 @@ public class ItemBlockCoral extends ItemBlock
 	@Override
 	public Icon getIconFromDamage(int meta)
 	{
-		return Block.blocksList[itemID].getIcon(0, meta);
+		if (meta == 3)
+			return textures[0];
+		else
+			return Block.blocksList[itemID].getIcon(0, meta);
 	}
 
 	@Override

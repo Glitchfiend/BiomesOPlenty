@@ -104,7 +104,11 @@
 	<entry key="tile.bop.longGrass.name">Long Grass Block</entry>
  	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
 
-	<entry key="tile.bop.coral.kelp.name">Kelp</entry>
+	<entry key="tile.bop.coral.kelpsingle.name">Kelp</entry>
+	<entry key="tile.bop.coral.pinkcoral.name">Pink Coral</entry>
+	<entry key="tile.bop.coral.orangecoral.name">Orange Coral</entry>
+	<entry key="tile.bop.coral.bluecoral.name">Blue Coral</entry>
+	<entry key="tile.bop.coral.glowcoral.name">Glowing Coral</entry>
 	
  	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
  	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
