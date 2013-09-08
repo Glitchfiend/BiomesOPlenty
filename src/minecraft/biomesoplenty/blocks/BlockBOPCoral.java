@@ -113,12 +113,39 @@ public class BlockBOPCoral extends BlockFlower
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
 	}
-
+	
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
 	{
-		//super.onNeighborBlockChange(world, x, y, z, neighborID);
+		super.onNeighborBlockChange(world, x, y, z, neighborID);
 		this.checkFlowerChange(world, x, y, z);
+		
+		if (world.getBlockMetadata(x, y, z) == 0 && world.getBlockId(x, y + 1, z) != blockID)
+		{
+			world.setBlock(x, y, z, blockID, 3, 2);
+		}
+		
+		if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y + 1, z) != blockID)
+		{
+			if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y - 1, z) == blockID)
+			{
+				world.setBlock(x, y, z, blockID, 2, 2);
+			}
+			else
+			{
+				world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
+			}
+		}
+		
+		if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y - 1, z) != blockID)
+		{
+				world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
+		}
+		
+		if (world.getBlockMetadata(x, y, z) == 2 && world.getBlockId(x, y - 1, z) == blockID)
+		{
+			world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
+		}
 	}
 
 	@Override
