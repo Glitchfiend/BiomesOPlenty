@@ -75,7 +75,7 @@ public class BonemealHandler
 				if (event.world.rand.nextFloat() < 0.45D)
 				{
 					WorldGenKelp worldgenkelp = new WorldGenKelp(false);
-					worldgenkelp.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
+					worldgenkelp.generate(event.world, event.world.rand, event.X, event.Y, event.Z);
 				}
 			}
 		}

@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import net.minecraft.block.material.Material;
 
 public class WorldGenKelp extends WorldGenerator
 {
@@ -34,14 +35,20 @@ public class WorldGenKelp extends WorldGenerator
 
 			if ((var11 == Block.sand.blockID || var11 == Block.dirt.blockID) && var4 < 256 - var6 - 1)
 			{
-				var1.setBlock(var3, var4 - 1, var5, Block.sand.blockID);
+				
+				if (var1.getBlockMaterial(var3, var4, var5) != Material.water)
+				{
+					return false;
+				}
+				
 				var21 = var2.nextInt(2);
 				var13 = 1;
 				boolean var22 = false;
 				int var17;
 				int var16;
-				int var999 = 2;
+				int var999 = 0;
 				int var998;
+				int var996;
 
 				for (var15 = 0; var15 <= var8; ++var15)
 				{
@@ -66,32 +73,36 @@ public class WorldGenKelp extends WorldGenerator
 
 				var15 = var2.nextInt(3);
 
-				for (var16 = 2; var16 < var6 - var15; ++var16)
+				for (var16 = 0; var16 < var6 - var15; ++var16)
 				{
 					var17 = var1.getBlockId(var3, (var4 + (var16 + 2)), var5);
 
 					if (var17 == Block.waterStill.blockID || var17 == Block.waterMoving.blockID)
 					{
-						this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.coral.get().blockID, 0);
+						this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 0);
 						this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.coral.get().blockID, 1);
 						++var999;
 					}
 				}
 				
+				var996 = var1.getBlockId(var3, (var4 + (var999 + 2)), var5);
 				var998 = var1.getBlockId(var3, (var4 + (var999 + 1)), var5);
 				
-				if (var998 == Block.waterStill.blockID || var998 == Block.waterMoving.blockID)
-					{
-						if (var999 == 2)
+				if (var996 != Block.waterStill.blockID && var996 != Block.waterMoving.blockID)
+				{
+					if (var998 == Block.waterStill.blockID || var998 == Block.waterMoving.blockID)
 						{
-							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
-							this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.coral.get().blockID, 0);
+							if (var999 == 0)
+							{
+								this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
+								this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 0);
+							}
+							else
+							{
+								this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
+							}
 						}
-						else
-						{
-							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
-						}
-					}
+				}
 
 				return true;
 			} else

@@ -69,6 +69,7 @@ import biomesoplenty.worldgen.WorldGenDriedDirt;
 import biomesoplenty.worldgen.WorldGenGravel;
 import biomesoplenty.worldgen.WorldGenHighCattail;
 import biomesoplenty.worldgen.WorldGenHighGrass;
+import biomesoplenty.worldgen.WorldGenKelp;
 import biomesoplenty.worldgen.WorldGenLilyflower;
 import biomesoplenty.worldgen.WorldGenMelon;
 import biomesoplenty.worldgen.WorldGenMesa;
@@ -207,6 +208,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator rainbowflowerGen;
 	protected WorldGenerator crystalGen;
 	protected WorldGenerator crystalGen2;
+	protected WorldGenerator kelpGen;
 
 	protected WorldGenerator boneSpineGen;
 	protected WorldGenerator boneSpine2Gen;
@@ -286,6 +288,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int sunflowersPerChunk;
 	protected int rainbowflowersPerChunk;
 	protected int cobwebsPerChunk;
+	protected int kelpPerChunk;
 
 	protected int boneSpinesPerChunk;
 	protected int boneSpines2PerChunk;
@@ -447,6 +450,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		cattailGen = new WorldGenCattail();
 		crystalGen = new WorldGenCrystal1();
 		crystalGen2 = new WorldGenCrystal2();
+		kelpGen = new WorldGenKelp(false);
 		mushroomBrownGen = new WorldGenBOPFlowers(Block.mushroomBrown.blockID, 0);
 		mushroomRedGen = new WorldGenBOPFlowers(Block.mushroomRed.blockID, 0);
 		toadstoolGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 0);
@@ -547,6 +551,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		boneSpinesPerChunk = 0;
 		boneSpines2PerChunk = 0;
 		cobwebsPerChunk = 0;
+		kelpPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -934,6 +939,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 sunflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < kelpPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(64);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 kelpGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
 		 for (var2 = 0; var2 < rainbowflowersPerChunk; ++var2)

@@ -128,16 +128,7 @@ public class ItemBlockCoral extends ItemBlock
 			return false;
 		else if (world.canPlaceEntityOnSide(itemID, x, y, z, false, side, player, itemstack))
 		{
-			if (itemstack.getItemDamage() == 0)
-			{
-				if (world.getBlockId(x, y + 1, z) == Block.waterStill.blockID || world.getBlockId(x, y + 1, z) == Block.waterMoving.blockID)
-				{
-					onItemUsePlaceBlock(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
-
-					return true;
-				}
-			}
-			else
+			if (world.getBlockId(x, y + 1, z) == Block.waterStill.blockID || world.getBlockId(x, y + 1, z) == Block.waterMoving.blockID)
 			{
 				onItemUsePlaceBlock(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
 

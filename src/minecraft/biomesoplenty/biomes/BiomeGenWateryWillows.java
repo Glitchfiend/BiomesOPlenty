@@ -29,6 +29,7 @@ public class BiomeGenWateryWillows extends BiomeGenBase
 		customBiomeDecorator.waterLakesPerChunk = 8;
 		customBiomeDecorator.reedsBOPPerChunk = 3;
 		customBiomeDecorator.hydrangeasPerChunk = 5;
+		customBiomeDecorator.kelpPerChunk = 50;
 	}
 
 	/**

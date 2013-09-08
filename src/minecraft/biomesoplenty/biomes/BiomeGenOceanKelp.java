@@ -19,7 +19,7 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 50;
+		customBiomeDecorator.kelpPerChunk = 99;
 		spawnableCreatureList.clear();
 	}
 
@@ -41,14 +41,5 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
-	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return new WorldGenKelp(false);
 	}
 }
