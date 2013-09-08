@@ -21,9 +21,9 @@ public class EntityJungleSpider extends EntitySpider
     {
         super.func_110147_ax();
         //Max health
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(8.0D);
+        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(6.0D);
         //Movement speed
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(1.1D);
+        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.95D);
     }
 
 	@Override
