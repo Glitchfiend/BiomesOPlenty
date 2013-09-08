@@ -943,9 +943,9 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 
 		 for (var2 = 0; var2 < kelpPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var3 = chunk_X + randomGenerator.nextInt(16);
 			 var4 = randomGenerator.nextInt(64);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 var5 = chunk_Z + randomGenerator.nextInt(16);
 			 kelpGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 

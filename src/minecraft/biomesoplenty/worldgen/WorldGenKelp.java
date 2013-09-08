@@ -18,7 +18,7 @@ public class WorldGenKelp extends WorldGenerator
 	@Override
 	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
 	{
-		int var6 = var2.nextInt(10) + 4;
+		int var6 = var2.nextInt(10) + 3;
 		int var7 = var2.nextInt(3) + 2;
 		int var8 = var6 - var7;
 		int var9 = 1;
@@ -85,25 +85,21 @@ public class WorldGenKelp extends WorldGenerator
 					}
 				}
 				
-				var996 = var1.getBlockId(var3, (var4 + (var999 + 2)), var5);
 				var998 = var1.getBlockId(var3, (var4 + (var999 + 1)), var5);
 				
-				if (var996 != Block.waterStill.blockID && var996 != Block.waterMoving.blockID)
-				{
-					if (var998 == Block.waterStill.blockID || var998 == Block.waterMoving.blockID)
+				if (var998 == Block.waterStill.blockID || var998 == Block.waterMoving.blockID)
+					{
+						if (var999 == 0)
 						{
-							if (var999 == 0)
-							{
-								this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
-								this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 0);
-							}
-							else
-							{
-								this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
-							}
+							this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 3);
 						}
-				}
-
+						else
+						{
+							this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 0);
+							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
+						}
+					}
+				
 				return true;
 			} else
 				return false;
