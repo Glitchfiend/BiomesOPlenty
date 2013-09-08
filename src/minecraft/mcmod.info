@@ -6,7 +6,7 @@
     "mcversion": "@MCVERSION@",
     "url": "www.minecraftforum.net/topic/1495041-",
     "updateUrl": "",
-    "authors": [ "Adubbz", "Amnet", "ted80", "Forstride"],
+    "authors": ["Forstride", "Adubbz", "Amnet", "ted80"],
     "credits": "gamax92, enchilado, Tim Rurkowski, Soaryn",
     "logoFile": "/pack.png",
     "screenshots": [],
