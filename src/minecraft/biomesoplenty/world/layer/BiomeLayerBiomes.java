@@ -28,14 +28,14 @@ public class BiomeLayerBiomes extends BiomeLayer
 		
 		//OCEAN BIOMES
 		oceanBiomes.add(BiomeGenBase.ocean);
-		/*if (Biomes.oceanCoral.isPresent())
+		if (Biomes.oceanCoral.isPresent())
 		{
 			oceanBiomes.add(Biomes.oceanCoral.get());
 		}
 		if (Biomes.oceanKelp.isPresent())
 		{
 			oceanBiomes.add(Biomes.oceanKelp.get());
-		}*/
+		}
 
 		//NETHER BIOMES
 		if (Biomes.netherBase.isPresent())
@@ -116,7 +116,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 						var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
 					}
 					
-					/*if (coral)
+					if (coral)
 					{
 						if(var9 == Biomes.oceanCoral.get().biomeID)
 						{
@@ -130,7 +130,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 						{
 							var6[var8 + var7 * par3] = oceanBiomes.get(this.nextInt(oceanBiomes.size())).biomeID;
 						}
-					}*/
+					}
 
 				}
 				else if(dimension == 1) //HELL BIOMES

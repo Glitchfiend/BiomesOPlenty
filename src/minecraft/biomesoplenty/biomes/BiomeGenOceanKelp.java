@@ -8,6 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.worldgen.WorldGenKelp;
 
 public class BiomeGenOceanKelp extends BiomeGenBase
 {
@@ -18,7 +19,7 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.grassPerChunk = 50;
+		customBiomeDecorator.treesPerChunk = 50;
 		spawnableCreatureList.clear();
 	}
 
@@ -46,8 +47,8 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 	 * Gets a WorldGen appropriate for this biome.
 	 */
 	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return new WorldGenTallGrass(Blocks.coral.get().blockID, 0);
+		return new WorldGenKelp(false);
 	}
 }

@@ -9,6 +9,7 @@ import biomesoplenty.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.blocks.BlockBOPSapling;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
+import biomesoplenty.worldgen.WorldGenKelp;
 
 public class BonemealHandler
 {
@@ -62,6 +63,19 @@ public class BonemealHandler
 				if (event.world.rand.nextFloat() < 0.45D)
 				{
 					((BlockBOPColorizedSapling)Blocks.colorizedSaplings.get()).growTree(event.world, event.X, event.Y, event.Z, event.world.rand);
+				}
+			}
+		}
+		else if (event.ID == Blocks.coral.get().blockID && event.world.getBlockMetadata(event.X, event.Y, event.Z) == 3)
+		{
+			event.setResult(Result.ALLOW);
+
+			if (!event.world.isRemote)
+			{
+				if (event.world.rand.nextFloat() < 0.45D)
+				{
+					WorldGenKelp worldgenkelp = new WorldGenKelp(false);
+					worldgenkelp.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
 				}
 			}
 		}
