@@ -124,7 +124,12 @@ public class BlockBOPCoral extends BlockFlower
 	@Override
 	public int damageDropped(int meta)
 	{
-		return meta & 15;
+		if (meta < 3)
+		{
+			return 3;
+		}
+		
+		return meta;
 	}
 
 	@Override

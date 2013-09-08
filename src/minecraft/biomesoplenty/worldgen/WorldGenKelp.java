@@ -40,6 +40,8 @@ public class WorldGenKelp extends WorldGenerator
 				boolean var22 = false;
 				int var17;
 				int var16;
+				int var999 = 2;
+				int var998;
 
 				for (var15 = 0; var15 <= var8; ++var15)
 				{
@@ -72,9 +74,24 @@ public class WorldGenKelp extends WorldGenerator
 					{
 						this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.coral.get().blockID, 0);
 						this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.coral.get().blockID, 1);
-						//this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 2);
+						++var999;
 					}
 				}
+				
+				var998 = var1.getBlockId(var3, (var4 + (var999 + 1)), var5);
+				
+				if (var998 == Block.waterStill.blockID || var998 == Block.waterMoving.blockID)
+					{
+						if (var999 == 2)
+						{
+							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
+							this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.coral.get().blockID, 0);
+						}
+						else
+						{
+							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
+						}
+					}
 
 				return true;
 			} else
