@@ -67,6 +67,7 @@ import biomesoplenty.worldgen.WorldGenCrystal2;
 import biomesoplenty.worldgen.WorldGenDesertCactus;
 import biomesoplenty.worldgen.WorldGenDriedDirt;
 import biomesoplenty.worldgen.WorldGenGravel;
+import biomesoplenty.worldgen.WorldGenGrave;
 import biomesoplenty.worldgen.WorldGenHighCattail;
 import biomesoplenty.worldgen.WorldGenHighGrass;
 import biomesoplenty.worldgen.WorldGenKelp;
@@ -209,6 +210,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator crystalGen;
 	protected WorldGenerator crystalGen2;
 	protected WorldGenerator kelpGen;
+	protected WorldGenerator graveGen;
 
 	protected WorldGenerator boneSpineGen;
 	protected WorldGenerator boneSpine2Gen;
@@ -289,6 +291,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int rainbowflowersPerChunk;
 	protected int cobwebsPerChunk;
 	protected int kelpPerChunk;
+	protected int kelpThickPerChunk;
+	protected int gravesPerChunk;
 
 	protected int boneSpinesPerChunk;
 	protected int boneSpines2PerChunk;
@@ -451,6 +455,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		crystalGen = new WorldGenCrystal1();
 		crystalGen2 = new WorldGenCrystal2();
 		kelpGen = new WorldGenKelp(false);
+		graveGen = new WorldGenGrave();
 		mushroomBrownGen = new WorldGenBOPFlowers(Block.mushroomBrown.blockID, 0);
 		mushroomRedGen = new WorldGenBOPFlowers(Block.mushroomRed.blockID, 0);
 		toadstoolGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 0);
@@ -552,6 +557,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		boneSpines2PerChunk = 0;
 		cobwebsPerChunk = 0;
 		kelpPerChunk = 0;
+		kelpThickPerChunk = 0;
+		gravesPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -941,11 +948,27 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 sunflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
+		 for (var2 = 0; var2 < gravesPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 graveGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
 		 for (var2 = 0; var2 < kelpPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16);
 			 var4 = randomGenerator.nextInt(64);
 			 var5 = chunk_Z + randomGenerator.nextInt(16);
+			 kelpGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < kelpThickPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(8);
+			 var4 = randomGenerator.nextInt(64);
+			 var5 = chunk_Z + randomGenerator.nextInt(8);
 			 kelpGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 

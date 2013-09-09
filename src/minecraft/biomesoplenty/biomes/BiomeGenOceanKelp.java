@@ -20,6 +20,7 @@ public class BiomeGenOceanKelp extends BiomeGenBase
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.kelpPerChunk = 999;
+		customBiomeDecorator.kelpThickPerChunk = 999;
 		spawnableCreatureList.clear();
 	}
 

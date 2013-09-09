@@ -29,6 +29,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 8;
 		customBiomeDecorator.netherLavaPerChunk = 20;
 		customBiomeDecorator.smolderingGrassPerChunk = 2;
+		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.generateAsh = true;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
@@ -65,13 +66,5 @@ public class BiomeGenNetherLava extends BiomeGenBase
 			 var8 = par4 + par2Random.nextInt(16);
 			 theWorldGenerator.generate(par1World, par2Random, var6, var7, var8);
 		 }
-		 
-		if (par2Random.nextInt(15) == 0)
-		{
-			int var55 = par3 + par2Random.nextInt(16) + 8;
-			int var66 = par4 + par2Random.nextInt(16) + 8;
-			WorldGenGrave var77 = new WorldGenGrave();
-			var77.generate(par1World, par2Random, var55, par1World.getHeightValue(var55, var66) + 1, var66);
-		}
 	 }
 }

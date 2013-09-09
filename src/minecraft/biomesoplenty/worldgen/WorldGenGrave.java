@@ -34,13 +34,20 @@ public class WorldGenGrave extends WorldGenerator
 			
 			int var999 = var2.nextInt(4);
 			
-			if (var999 == 0 || var999 == 1)
+			int var998 = var2.nextInt(10);
+			
+			if (var998 == 0)
 			{
-				var1.setBlock(var3, var4 + 1, var5, Blocks.grave.get().blockID, 0, 2);
-			}
-			else
-			{
-				var1.setBlock(var3, var4 + 1, var5, Blocks.grave.get().blockID, 2, 2);
+				if (var999 == 0 || var999 == 1)
+				{
+					var1.setBlock(var3, var4 + 1, var5, Blocks.grave.get().blockID, 0, 2);
+					var1.setBlock(var3, var4 + 2, var5, Blocks.grave.get().blockID, 1, 2);
+				}
+				else
+				{
+					var1.setBlock(var3, var4 + 1, var5, Blocks.grave.get().blockID, 2, 2);
+					var1.setBlock(var3, var4 + 2, var5, Blocks.grave.get().blockID, 3, 2);
+				}
 			}
 
 			return true;

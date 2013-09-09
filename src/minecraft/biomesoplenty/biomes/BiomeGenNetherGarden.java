@@ -32,6 +32,7 @@ public class BiomeGenNetherGarden extends BiomeGenBase
 		customBiomeDecorator.netherGrassPerChunk = 10;
 		customBiomeDecorator.glowshroomsPerChunk = 3;
 		customBiomeDecorator.toadstoolsPerChunk = 5;
+		customBiomeDecorator.gravesPerChunk = 1;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
@@ -49,18 +50,4 @@ public class BiomeGenNetherGarden extends BiomeGenBase
 	 {
 		 return new WorldGenNetherMushroom();
 	 }
-	 
-	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
-	{
-		super.decorate(par1World, par2Random, par3, par4);
-
-		if (par2Random.nextInt(20) == 0)
-		{
-			int var5 = par3 + par2Random.nextInt(16) + 8;
-			int var6 = par4 + par2Random.nextInt(16) + 8;
-			WorldGenGrave var7 = new WorldGenGrave();
-			var7.generate(par1World, par2Random, var5, par1World.getHeightValue(var5, var6) + 1, var6);
-		}
-	}
 }
