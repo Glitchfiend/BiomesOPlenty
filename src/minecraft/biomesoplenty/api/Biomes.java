@@ -115,7 +115,6 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> tundra				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> volcano				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> wasteland			 = Optional.absent();
-	public static Optional<? extends BiomeGenBase> wateryWillows		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> wetland				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> woodland				 = Optional.absent();
 	

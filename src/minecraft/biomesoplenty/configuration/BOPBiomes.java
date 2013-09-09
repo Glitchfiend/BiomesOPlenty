@@ -172,7 +172,6 @@ public class BOPBiomes {
 		Biomes.tundra = Optional.of((new BiomeGenTundra(BOPConfiguration.IDs.tundraID)).setColor(14090235).setBiomeName("Tundra").setTemperatureRainfall(0.2F, 0.8F).setMinMaxHeight(0.1F, 0.3F));
 		Biomes.volcano = Optional.of((new BiomeGenVolcano(BOPConfiguration.IDs.volcanoID)).setColor(9286496).setBiomeName("Volcano").setDisableRain().setMinMaxHeight(0.6F, 0.9F).setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.wasteland = Optional.of((new BiomeGenWasteland(BOPConfiguration.IDs.wastelandID)).setColor(16421912).setBiomeName("Wasteland").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.3F, 0.4F));
-		Biomes.wateryWillows = Optional.of((new BiomeGenWateryWillows(BOPConfiguration.IDs.wateryWillowsID)).setColor(353825).setBiomeName("Watery Willows").func_76733_a(5159473).setTemperatureRainfall(0.6F, 0.7F));
 		Biomes.wetland = Optional.of((new BiomeGenWetland(BOPConfiguration.IDs.wetlandID)).setColor(522674).setBiomeName("Wetland").func_76733_a(9154376).setMinMaxHeight(0.3F, 0.5F).setTemperatureRainfall(0.8F, 0.9F));
 		Biomes.woodland = Optional.of((new BiomeGenWoodland(BOPConfiguration.IDs.woodlandID)).setColor(353825).setBiomeName("Woodland").func_76733_a(5159473).setTemperatureRainfall(1.7F, 0.2F).setMinMaxHeight(0.3F, 0.4F));
 
@@ -315,7 +314,6 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.tundra.get(), Type.FROZEN, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.volcano.get(), Type.WASTELAND, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.wasteland.get(), Type.WASTELAND);
-		BiomeDictionary.registerBiomeType(Biomes.wateryWillows.get(), Type.SWAMP, Type.WATER, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.wetland.get(), Type.SWAMP, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.woodland.get(), Type.FOREST);
 
@@ -392,7 +390,6 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.tropics);
 		addSpawnBiome(Biomes.tundra);
 		addSpawnBiome(Biomes.volcano);
-		addSpawnBiome(Biomes.wateryWillows);
 		addSpawnBiome(Biomes.wetland);
 		addSpawnBiome(Biomes.woodland);
 
@@ -469,7 +466,6 @@ public class BOPBiomes {
 		addVillageBiome(Biomes.tropics, BOPConfiguration.TerrainGen.tropicsVillage);
 		addVillageBiome(Biomes.tundra, BOPConfiguration.TerrainGen.tundraVillage);
 		addVillageBiome(Biomes.volcano, BOPConfiguration.TerrainGen.volcanoVillage);
-		addVillageBiome(Biomes.wateryWillows, BOPConfiguration.TerrainGen.wateryWillowsVillage);
 		addVillageBiome(Biomes.wetland, BOPConfiguration.TerrainGen.wetlandVillage);
 		addVillageBiome(Biomes.woodland, BOPConfiguration.TerrainGen.woodlandVillage);
 
@@ -557,7 +553,6 @@ public class BOPBiomes {
 		addStrongholdBiome(Biomes.tundra);
 		addStrongholdBiome(Biomes.volcano);
 		addStrongholdBiome(Biomes.wasteland);
-		addStrongholdBiome(Biomes.wateryWillows);
 		addStrongholdBiome(Biomes.wetland);
 		addStrongholdBiome(Biomes.woodland);
 
@@ -871,10 +866,6 @@ public class BOPBiomes {
 
 			if (BOPConfiguration.BiomeGen.wastelandGen) {
 				registerBiome(Biomes.wasteland);
-			}
-			
-			if (BOPConfiguration.BiomeGen.wateryWillowsGen) {
-				registerBiome(Biomes.wateryWillows);
 			}
 
 			if (BOPConfiguration.BiomeGen.wetlandGen) {
@@ -1261,10 +1252,6 @@ public class BOPBiomes {
 
 		if (BOPConfiguration.BiomeGen.wastelandGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.wasteland);
-		}
-		
-		if (BOPConfiguration.BiomeGen.wateryWillowsGen) {
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.wateryWillows);
 		}
 
 		if (BOPConfiguration.BiomeGen.wetlandGen) {
