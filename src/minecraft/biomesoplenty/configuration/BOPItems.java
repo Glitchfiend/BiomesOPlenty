@@ -13,6 +13,7 @@ import biomesoplenty.api.Items;
 import biomesoplenty.armor.ArmorAmethyst;
 import biomesoplenty.armor.ArmorFlowerBand;
 import biomesoplenty.armor.ArmorMuddy;
+import biomesoplenty.items.ItemBee;
 import biomesoplenty.items.ItemBOP;
 import biomesoplenty.items.ItemBOPAncientStaff;
 import biomesoplenty.items.ItemBOPAxe;
@@ -28,6 +29,7 @@ import biomesoplenty.items.ItemBOPSword;
 import biomesoplenty.items.ItemDart;
 import biomesoplenty.items.ItemDartBlower;
 import biomesoplenty.items.ItemEnderporter;
+import biomesoplenty.items.ItemNet;
 import biomesoplenty.items.ItemSoulManipulator;
 
 import com.google.common.base.Optional;
@@ -104,6 +106,9 @@ public class BOPItems {
 		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfiguration.IDs.dartBlowerID).setUnlocalizedName("bop.dartblower"));
 		Items.dart = Optional.of(new ItemDart(BOPConfiguration.IDs.dartID).setUnlocalizedName("bop.dart"));
 		Items.soulManipulator = Optional.of(new ItemSoulManipulator(BOPConfiguration.IDs.soulManipulatorID).setUnlocalizedName("bop.soulManipulator"));
+		
+		Items.net = Optional.of(new ItemNet(BOPConfiguration.IDs.netID).setUnlocalizedName("bop.net"));
+		Items.bee = Optional.of(new ItemBee(BOPConfiguration.IDs.beeID).setUnlocalizedName("bop.bee"));
 
 		Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfiguration.IDs.ancientStaffID).setUnlocalizedName("bop.ancientStaff"));
 

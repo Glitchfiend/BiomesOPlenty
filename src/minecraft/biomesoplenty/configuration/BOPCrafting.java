@@ -156,6 +156,9 @@ public class BOPCrafting
 		//        GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"###", "###", "###", '#', Blocks.bamboo.get()});
 		GameRegistry.addRecipe(new ItemStack(Block.cobblestoneMossy, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', Blocks.moss.get(), 'C', Block.cobblestone});
 		GameRegistry.addRecipe(new ItemStack(Block.stoneBrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', Blocks.moss.get(), 'S', Block.stoneBrick});
+		
+		//Net
+		GameRegistry.addRecipe(new ItemStack(Items.net.get(), 1, 0), new Object[] {"SSS", "SSS", " X ", 'S', Item.silk, 'X', Item.stick});
 
 		//Scythes
 		if (BOPConfiguration.Misc.scytheCrafting)
