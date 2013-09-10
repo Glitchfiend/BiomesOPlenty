@@ -193,14 +193,16 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
+		int id = world.getBlockId(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
+        Block block = Block.blocksList[id];
 
 		if (world.getBlockId(x, y, z) != blockID)
 		{
 			if (meta == 5)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 			else if (meta == 8)
-				return this.canPlaceBlockAt(world, x, y, z);
+				return block == null || block.isBlockReplaceable(world, x, y, z);
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 		}
