@@ -197,6 +197,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.oasis);
 		}
+		if (BOPConfiguration.BiomeGen.ochreAcresGen == true)
+		{
+			addNewBiome(Biomes.ochreAcres);
+		}
 		if (BOPConfiguration.BiomeGen.ominousWoodsGen == true)
 		{
 			addNewBiome(Biomes.ominousWoods);
