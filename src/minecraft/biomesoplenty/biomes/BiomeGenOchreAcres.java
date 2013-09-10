@@ -25,6 +25,7 @@ public class BiomeGenOchreAcres extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 4;
 		customBiomeDecorator.grassPerChunk = 7;
 		customBiomeDecorator.thornsPerChunk = 1;
+		customBiomeDecorator.purpleFlowersPerChunk = 6;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.reedsPerChunk = -999;
 	}
@@ -35,7 +36,7 @@ public class BiomeGenOchreAcres extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(9) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Block.tallGrass.blockID, 2);
+		return par1Random.nextInt(9) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class BiomeGenOchreAcres extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenDeadTree(false) : (par1Random.nextInt(4) == 0 ? new WorldGenTaiga5(false): new WorldGenDeadTree2(false));
+		return par1Random.nextInt(3) == 0 ? new WorldGenDeadTree(false) : this.worldGeneratorTrees;
 	}
 
 	/**
@@ -53,12 +54,12 @@ public class BiomeGenOchreAcres extends BiomeGenBase
 	@Override
 	public int getBiomeGrassColor()
 	{
-		return 16756070;
+		return 12233056;
 	}
 
 	@Override
 	public int getBiomeFoliageColor()
 	{
-		return 16187283;
+		return 13024603;
 	}
 }
