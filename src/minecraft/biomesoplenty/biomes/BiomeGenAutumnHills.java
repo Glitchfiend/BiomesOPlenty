@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenDeadTree;
-import biomesoplenty.worldgen.WorldGenDeadTree2;
+import biomesoplenty.worldgen.WorldGenPersimmon;
 import biomesoplenty.worldgen.WorldGenTaiga4;
 
 public class BiomeGenAutumnHills extends BiomeGenBase
@@ -49,7 +49,7 @@ public class BiomeGenAutumnHills extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(9) == 0 ? new WorldGenDeadTree(false) : (par1Random.nextInt(6) == 0 ? new WorldGenTaiga4(false) : this.worldGeneratorTrees);
+		return par1Random.nextInt(9) == 0 ? new WorldGenDeadTree(false) : (par1Random.nextInt(6) == 0 ? new WorldGenTaiga4(false) : (par1Random.nextInt(5) == 0 ? new WorldGenPersimmon(false) : this.worldGeneratorTrees));
 	}
 
 	/**
@@ -64,6 +64,6 @@ public class BiomeGenAutumnHills extends BiomeGenBase
 	@Override
 	public int getBiomeFoliageColor()
 	{
-		return 13024603;
+		return 12897365;
 	}
 }

@@ -181,6 +181,7 @@ public class ForestryIntegration
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.extremeHillsNewID);
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.forestNewID);
 		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.forestHillsNewID);
+		EnumTemperature.normalBiomeIds.add(BOPConfiguration.IDs.autumnHillsID);
 
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.beachGravelID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.beachOvergrownID);
@@ -223,6 +224,7 @@ public class ForestryIntegration
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.extremeHillsNewID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.forestNewID);
 		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.forestHillsNewID);
+		EnumHumidity.normalBiomeIds.add(BOPConfiguration.IDs.autumnHillsID);
 
 
 		//Cold- Normal
@@ -297,6 +299,7 @@ public class ForestryIntegration
 		GlobalManager.leafBlockIds.add(Blocks.leaves2.get().blockID);
 		GlobalManager.leafBlockIds.add(Blocks.leavesColorized.get().blockID);
 		GlobalManager.leafBlockIds.add(Blocks.leavesFruit.get().blockID);
+		GlobalManager.leafBlockIds.add(Blocks.leavesFruit2.get().blockID);
 
 		GlobalManager.dirtBlockIds.add(Blocks.ash.get().blockID);
 		GlobalManager.dirtBlockIds.add(Blocks.hardDirt.get().blockID);
@@ -342,6 +345,7 @@ public class ForestryIntegration
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesColorized.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesFruit.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesFruit2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.bamboo.get(), 1, 0));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.petals.get(), 1, OreDictionary.WILDCARD_VALUE));
 	}

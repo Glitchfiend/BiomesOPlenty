@@ -64,6 +64,8 @@ public class BlockReferences {
 
 		appleLeaves (Blocks.leavesFruit, 3),
 		appleLeavesFruitless (Blocks.leavesFruit, 0),
+		persimmonLeaves (Blocks.leavesFruit2, 3),
+		persimmonLeavesFruitless (Blocks.leavesFruit2, 3),
 
 		bamboo (Blocks.bamboo, 0),
 
@@ -96,6 +98,7 @@ public class BlockReferences {
 		originSapling (Blocks.saplings, 9),
 		yellowAutumnSapling (Blocks.saplings, 1),
 		bambooSapling (Blocks.saplings, 2),
+		persimmonSapling (Blocks.saplings, 15),
 
 		mud (Blocks.mud, 0),
 		driedDirt (Blocks.driedDirt, 0),

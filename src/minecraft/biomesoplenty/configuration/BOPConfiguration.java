@@ -569,6 +569,7 @@ public class BOPConfiguration
 		public static int foliageID;
 
 		public static int leavesFruitID;
+		public static int leavesFruit2ID;
 		public static int bambooID;
 		public static int mudBrickBlockID;
 		public static int mudBrickStairsID;
@@ -918,6 +919,8 @@ public class BOPConfiguration
 				puddleID = config.getBlock("Puddle ID", 1980, null).getInt();
 
 				graveID = config.getBlock("Grave ID", 1981, null).getInt();
+				
+				leavesFruit2ID = config.getBlock("Fruit Leaf Block 2 ID", 1982, null).getInt();
 
 				// Get Item ID's
 				foodID = config.getItem("Food ID", 21003, null).getInt();

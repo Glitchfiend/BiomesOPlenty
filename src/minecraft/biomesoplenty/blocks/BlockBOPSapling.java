@@ -29,12 +29,13 @@ import biomesoplenty.worldgen.WorldGenNetherBush;
 import biomesoplenty.worldgen.WorldGenOminous1;
 import biomesoplenty.worldgen.WorldGenOminous2;
 import biomesoplenty.worldgen.WorldGenOriginTree;
+import biomesoplenty.worldgen.WorldGenPersimmon;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenTaiga9;
 
 public class BlockBOPSapling extends BlockSapling
 {
-	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
+	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
 	private Icon[] textures;
 	private static final int TYPES = 15;
 
@@ -208,6 +209,10 @@ public class BlockBOPSapling extends BlockSapling
 
 			case 14: // Jacaranda
 				obj = new WorldGenJacaranda(false);
+				break;
+				
+			case 15: // Persimmon
+				obj = new WorldGenPersimmon(false);
 				break;
 			}
 		}

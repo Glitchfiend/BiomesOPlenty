@@ -73,6 +73,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("darkLeaves"), getBMeta("darkLeaves"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.DARKNESS, 1));
 		ThaumcraftApi.registerObjectTag(getBID("deadLeaves"), getBMeta("deadLeaves"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.DEATH, 1));
 		ThaumcraftApi.registerObjectTag(getBID("appleLeaves"), getBMeta("appleLeaves"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
+		ThaumcraftApi.registerObjectTag(getBID("persimmonLeaves"), getBMeta("persimmonLeaves"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
 		ThaumcraftApi.registerObjectTag(getBID("acaciaLeaves"), getBMeta("acaciaLeaves"), (new AspectList()).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("firLeaves"), getBMeta("firLeaves"), (new AspectList()).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("mangroveLeaves"), getBMeta("mangroveLeaves"), (new AspectList()).add(Aspect.PLANT, 2));
@@ -107,6 +108,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("pinkCherrySapling"), getBMeta("pinkCherrySapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("whiteCherrySapling"), getBMeta("whiteCherrySapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("appleSapling"), getBMeta("appleSapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
+		ThaumcraftApi.registerObjectTag(getBID("persimmonSapling"), getBMeta("persimmonSapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("originSapling"), getBMeta("originSapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("yellowAutumnSapling"), getBMeta("yellowAutumnSapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("pineSapling"), getBMeta("pineSapling"), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.PLANT, 2));
@@ -212,9 +214,9 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("anenome"), getBMeta("anenome"), (new AspectList()).add(Aspect.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("swampFlower"), getBMeta("swampFlower"), (new AspectList()).add(Aspect.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("wildFlower"), getBMeta("wildFlower"), (new AspectList()).add(Aspect.PLANT, 4));
-		ThaumcraftApi.registerObjectTag(getBID("daisy"), getBMeta("daisy"), (new AspectList()).add(Aspect.PLANT, 4));
+		ThaumcraftApi.registerObjectTag(getBID("cosmos"), getBMeta("cosmos"), (new AspectList()).add(Aspect.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("dandelion"), getBMeta("dandelion"), (new AspectList()).add(Aspect.PLANT, 4));
-		ThaumcraftApi.registerObjectTag(getBID("tulip"), getBMeta("tulip"), (new AspectList()).add(Aspect.PLANT, 4));
+		ThaumcraftApi.registerObjectTag(getBID("daffodil"), getBMeta("daffodil"), (new AspectList()).add(Aspect.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("aloe"), getBMeta("aloe"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("clover"), getBMeta("clover"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.PLANT, 1));
 		ThaumcraftApi.registerObjectTag(getBID("lilyflower"), getBMeta("lilyflower"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.PLANT, 1).add(Aspect.WATER, 1));

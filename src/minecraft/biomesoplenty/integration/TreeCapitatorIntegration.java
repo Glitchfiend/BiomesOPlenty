@@ -33,7 +33,7 @@ public class TreeCapitatorIntegration
         tree.setString("treeName", "vanilla_oak");
         tree.setString("logs", "");
         tree.setString("leaves", String.format("%d,4; %d,12; %d,7; %d,15; %d; %d,0; %d,8; %d,2; %d,10; 18,2; 18,10",
-                leaves1, leaves1, leaves1, leaves1, Blocks.leavesFruit.get().blockID, leaves2, leaves2, leaves2, leaves2));
+                leaves1, leaves1, leaves1, leaves1, Blocks.leavesFruit.get().blockID, Blocks.leavesFruit2.get().blockID, leaves2, leaves2, leaves2, leaves2));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         

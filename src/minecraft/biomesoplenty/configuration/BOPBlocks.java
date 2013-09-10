@@ -23,6 +23,7 @@ import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
 import biomesoplenty.blocks.BlockBOPLog;
 import biomesoplenty.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.blocks.BlockBOPMushroom;
+import biomesoplenty.blocks.BlockBOPPersimmonLeaves;
 import biomesoplenty.blocks.BlockBOPPetals;
 import biomesoplenty.blocks.BlockBOPPlank;
 import biomesoplenty.blocks.BlockBOPPlant;
@@ -63,6 +64,7 @@ import biomesoplenty.itemblocks.ItemBlockLog;
 import biomesoplenty.itemblocks.ItemBlockMoss;
 import biomesoplenty.itemblocks.ItemBlockMud;
 import biomesoplenty.itemblocks.ItemBlockMushroom;
+import biomesoplenty.itemblocks.ItemBlockPersimmonLeaves;
 import biomesoplenty.itemblocks.ItemBlockPetals;
 import biomesoplenty.itemblocks.ItemBlockPlank;
 import biomesoplenty.itemblocks.ItemBlockPlant;
@@ -93,6 +95,7 @@ public class BOPBlocks
 		Blocks.shearBlockIds.put(Blocks.leaves2.get().blockID, 15.0F);
 		Blocks.shearBlockIds.put(Blocks.leavesColorized.get().blockID, 15.0F);
 		Blocks.shearBlockIds.put(Blocks.leavesFruit.get().blockID, 15.0F);
+		Blocks.shearBlockIds.put(Blocks.leavesFruit2.get().blockID, 15.0F);
 
 		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 1, "shovel", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.mud.get(), "shovel", 0);
@@ -134,6 +137,7 @@ public class BOPBlocks
 		Blocks.ashStone = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.ashStoneID, Material.rock, BlockType.ASH_STONE));
 		Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.hardIceID, Material.rock, BlockType.HARD_ICE));
 		Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfiguration.IDs.leavesFruitID)).setUnlocalizedName("bop.leavesFruit"));
+		Blocks.leavesFruit2 = Optional.of((new BlockBOPPersimmonLeaves(BOPConfiguration.IDs.leavesFruit2ID)).setUnlocalizedName("bop.leavesFruit2"));
 		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfiguration.IDs.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.bamboo"));
 		Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfiguration.IDs.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
 		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfiguration.IDs.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setHardness(1.0F).setUnlocalizedName("bop.mudBricksStairs"));
@@ -220,6 +224,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.ashStone.get(), "bop.ashStone");
 		GameRegistry.registerBlock(Blocks.hardIce.get(), "bop.hardIce");
 		GameRegistry.registerBlock(Blocks.leavesFruit.get(), ItemBlockAppleLeaves.class, "bop.leavesFruit");
+		GameRegistry.registerBlock(Blocks.leavesFruit2.get(), ItemBlockPersimmonLeaves.class, "bop.leavesFruit2");
 		GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBlockBamboo.class, "bop.bamboo");
 		GameRegistry.registerBlock(Blocks.mudBrick.get(), "bop.mudBrick");
 		GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "bop.mudBricksStairs");
