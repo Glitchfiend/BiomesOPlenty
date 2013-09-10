@@ -182,6 +182,12 @@ public class ItemBOPBucket extends Item
 	}
 	
 	@Override
+    public boolean hasContainerItem()
+    {
+        return true;
+    }
+	
+	@Override
 	public ItemStack getContainerItemStack(ItemStack itemstack) 
 	{
 		return itemstack.getItemDamage() == 2 ? new ItemStack(Fluids.bopBucket.get(), 1, 0) : new ItemStack(Item.bucketEmpty, 1);
