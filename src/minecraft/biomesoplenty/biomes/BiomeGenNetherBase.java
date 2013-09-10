@@ -1,13 +1,9 @@
 package biomesoplenty.biomes;
 
-import java.util.Random;
-
-import biomesoplenty.worldgen.WorldGenGrave;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 

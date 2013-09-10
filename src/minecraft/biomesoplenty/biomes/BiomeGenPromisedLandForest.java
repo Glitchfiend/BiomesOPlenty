@@ -12,7 +12,6 @@ import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenPromisedShrub;
 import biomesoplenty.worldgen.WorldGenPromisedTree;
 import biomesoplenty.worldgen.WorldGenPromisedTree2;
-import biomesoplenty.worldgen.WorldGenPromisedTree3;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
 
 public class BiomeGenPromisedLandForest extends BiomeGenBase

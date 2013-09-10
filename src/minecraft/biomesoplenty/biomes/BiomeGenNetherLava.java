@@ -11,7 +11,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenFire;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenGrave;
 import biomesoplenty.worldgen.WorldGenLavaSpring;
 
 public class BiomeGenNetherLava extends BiomeGenBase
