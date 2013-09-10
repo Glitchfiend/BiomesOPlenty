@@ -25,6 +25,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.arctic);
 		}
+		if (BOPConfiguration.BiomeGen.autumnHillsGen == true)
+		{
+			addNewBiome(Biomes.autumnHills);
+		}
 		if (BOPConfiguration.BiomeGen.badlandsGen == true)
 		{
 			addNewBiome(Biomes.badlands);
@@ -196,10 +200,6 @@ public class WorldTypeBOP extends WorldType
 		if (BOPConfiguration.BiomeGen.oasisGen == true)
 		{
 			addNewBiome(Biomes.oasis);
-		}
-		if (BOPConfiguration.BiomeGen.ochreAcresGen == true)
-		{
-			addNewBiome(Biomes.ochreAcres);
 		}
 		if (BOPConfiguration.BiomeGen.ominousWoodsGen == true)
 		{

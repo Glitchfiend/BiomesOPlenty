@@ -76,6 +76,7 @@ public class BOPConfiguration
 
 		public static boolean alpsGen;
 		public static boolean arcticGen;
+		public static boolean autumnHillsGen;
 		public static boolean badlandsGen;
 		public static boolean bambooForestGen;
 		public static boolean bayouGen;
@@ -121,7 +122,6 @@ public class BOPConfiguration
 		public static boolean mysticGroveGen;
 		public static boolean oasisGen;
 		public static boolean oceanGen;
-		public static boolean ochreAcresGen;
 		public static boolean ominousWoodsGen;
 		public static boolean orchardGen;
 		public static boolean originValleyGen;
@@ -186,6 +186,7 @@ public class BOPConfiguration
 				//Biome generation
 				alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 				arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);
+				autumnHillsGen = config.get("Biomes To Generate", "AutumnHills", false).getBoolean(false);
 				badlandsGen = config.get("Biomes To Generate", "Badlands", true).getBoolean(false);
 				bambooForestGen = config.get("Biomes To Generate", "BambooForest", true).getBoolean(false);
 				bayouGen = config.get("Biomes To Generate", "Bayou", true).getBoolean(false);
@@ -230,7 +231,6 @@ public class BOPConfiguration
 				//			mushroomIslandGen = config.get("Biomes To Generate", "MushroomIsland", true).getBoolean(false);
 				mysticGroveGen = config.get("Biomes To Generate", "MysticGrove", true).getBoolean(false);
 				oasisGen = config.get("Biomes To Generate", "Oasis", true).getBoolean(false);
-				ochreAcresGen = config.get("Biomes To Generate", "OchreAcres", false).getBoolean(false);
 				ominousWoodsGen = config.get("Biomes To Generate", "OminousWoods", true).getBoolean(false);
 				orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 				originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
@@ -321,6 +321,7 @@ public class BOPConfiguration
 		// Village biomes
 		public static boolean alpsVillage;
 		public static boolean arcticVillage;
+		public static boolean autumnHillsVillage;
 		public static boolean badlandsVillage;
 		public static boolean bambooForestVillage;
 		public static boolean bayouVillage;
@@ -365,7 +366,6 @@ public class BOPConfiguration
 		//  public static boolean mushroomIslandVillage;
 		public static boolean mysticGroveVillage;
 		public static boolean oasisVillage;
-		public static boolean ochreAcresVillage;
 		public static boolean ominousWoodsVillage;
 		public static boolean orchardVillage;
 		public static boolean originValleyVillage;
@@ -434,6 +434,7 @@ public class BOPConfiguration
 				// Biomes with villages
 				alpsVillage = config.get("Allow Villages", "Alps", false).getBoolean(false);
 				arcticVillage = config.get("Allow Villages", "Arctic", true).getBoolean(false);
+				autumnHillsVillage = config.get("Allow Villages", "AutumnHills", false).getBoolean(false);
 				badlandsVillage = config.get("Allow Villages", "Badlands", false).getBoolean(false);
 				bambooForestVillage = config.get("Allow Villages", "BambooForest", false).getBoolean(false);
 				bayouVillage = config.get("Allow Villages", "Bayou", false).getBoolean(false);
@@ -478,7 +479,6 @@ public class BOPConfiguration
 				//          mushroomIslandVillage = config.get("Allow Villages", "MushroomIsland", false).getBoolean(false);
 				mysticGroveVillage = config.get("Allow Villages", "MysticGrove", false).getBoolean(false);
 				oasisVillage = config.get("Allow Villages", "Oasis", false).getBoolean(false);
-				ochreAcresVillage = config.get("Allow Villages", "OchreAcres", false).getBoolean(false);
 				ominousWoodsVillage = config.get("Allow Villages", "OminousWoods", false).getBoolean(false);
 				orchardVillage = config.get("Allow Villages", "Orchard", false).getBoolean(false);
 				originValleyVillage = config.get("Allow Villages", "OriginValley", false).getBoolean(false);
@@ -683,6 +683,7 @@ public class BOPConfiguration
 		public static int alpsForestID;
 		public static int alpsBaseID;
 		public static int arcticID;
+		public static int autumnHillsID;
 		public static int badlandsID;
 		public static int bambooForestID;
 		public static int bayouID;
@@ -744,7 +745,6 @@ public class BOPConfiguration
 		public static int oceanCoralID;
 		public static int oceanKelpID;
 
-		public static int ochreAcresID;
 		public static int ominousWoodsID;
 		public static int ominousWoodsThickID;
 		public static int orchardID;
@@ -986,7 +986,7 @@ public class BOPConfiguration
 
 				//23-79 ExtraBiomesXL
 
-				ochreAcresID = config.get("Biome IDs", "Ochre Acres ID", 33).getInt();
+				autumnHillsID = config.get("Biome IDs", "Autumn Hills ID", 33).getInt();
 				overgrownGreensID = config.get("Biome IDs", "Overgrown Greens ID", 34).getInt();
 				forestHillsNewID = config.get("Biome IDs", "Forest Hills (Sub-Biome) ID", 35).getInt();
 				taigaHillsNewID = config.get("Biome IDs", "Taiga Hills (Sub-Biome) ID", 36).getInt();

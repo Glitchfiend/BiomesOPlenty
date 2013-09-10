@@ -1,5 +1,6 @@
 package biomesoplenty.biomes;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -7,23 +8,30 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.worldgen.WorldGenDeadTree;
+import biomesoplenty.worldgen.WorldGenDeadTree2;
+import biomesoplenty.worldgen.WorldGenTaiga4;
 
-public class BiomeGenOchreAcres extends BiomeGenBase
+public class BiomeGenAutumnHills extends BiomeGenBase
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
-	public BiomeGenOchreAcres(int par1)
+	public BiomeGenAutumnHills(int par1)
 	{
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 4;
-		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.treesPerChunk = 6;
+		customBiomeDecorator.grassPerChunk = 13;
 		customBiomeDecorator.thornsPerChunk = 1;
 		customBiomeDecorator.purpleFlowersPerChunk = 6;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.reedsPerChunk = -999;
+		customBiomeDecorator.pumpkinsPerChunk = 2;
+		customBiomeDecorator.bushesPerChunk = 45;
+		customBiomeDecorator.berryBushesPerChunk = 5;
+		customBiomeDecorator.sproutsPerChunk = 2;
 	}
 
 	/**
@@ -32,7 +40,7 @@ public class BiomeGenOchreAcres extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(9) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
+		return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
 	}
 
 	/**
@@ -41,7 +49,7 @@ public class BiomeGenOchreAcres extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenDeadTree(false) : this.worldGeneratorTrees;
+		return par1Random.nextInt(9) == 0 ? new WorldGenDeadTree(false) : (par1Random.nextInt(6) == 0 ? new WorldGenTaiga4(false) : this.worldGeneratorTrees);
 	}
 
 	/**

@@ -69,6 +69,7 @@ public class BOPBiomes {
 		Biomes.alpsForest = Optional.of((new BiomeGenAlpsForest(BOPConfiguration.IDs.alpsForestID)).setColor(353825).setBiomeName("Alps Mountainside").func_76733_a(5159473).setTemperatureRainfall(0.0F, 0.5F).setMinMaxHeight(1.0F, 2.0F));
 		Biomes.alpsBase = Optional.of((new BiomeGenAlpsBase(BOPConfiguration.IDs.alpsBaseID)).setColor(353825).setBiomeName("Alps Forest").func_76733_a(5159473).setTemperatureRainfall(0.5F, 0.4F).setMinMaxHeight(0.2F, 0.5F));
 		Biomes.arctic = Optional.of((new BiomeGenArctic(BOPConfiguration.IDs.arcticID)).setColor(14090235).setBiomeName("Arctic").setEnableSnow().setTemperatureRainfall(0.05F, 0.5F).setMinMaxHeight(0.2F, 0.2F));
+		Biomes.autumnHills = Optional.of((new BiomeGenAutumnHills(BOPConfiguration.IDs.autumnHillsID)).setColor(522674).setBiomeName("Autumn Hills").func_76733_a(9154376).setMinMaxHeight(0.5F, 0.8F).setTemperatureRainfall(0.5F, 0.2F));
 		Biomes.badlands = Optional.of((new BiomeGenBadlands(BOPConfiguration.IDs.badlandsID)).setColor(16421912).setBiomeName("Badlands").setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.3F, 0.9F));
 		Biomes.bambooForest = Optional.of((new BiomeGenBambooForest(BOPConfiguration.IDs.bambooForestID)).setColor(112).setBiomeName("Bamboo Forest").setMinMaxHeight(0.2F, 0.4F).setTemperatureRainfall(1.2F, 0.9F));
 		Biomes.bayou = Optional.of((new BiomeGenBayou(BOPConfiguration.IDs.bayouID)).setColor(522674).setBiomeName("Bayou").func_76733_a(9154376).setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.5F, 0.9F));
@@ -130,7 +131,6 @@ public class BOPBiomes {
 		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfiguration.IDs.oceanCoralID)).setColor(10486015).setBiomeName("Coral Reef").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
 		Biomes.oceanKelp = Optional.of((new BiomeGenOceanKelp(BOPConfiguration.IDs.oceanKelpID)).setColor(10486015).setBiomeName("Kelp Forest").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
 
-		Biomes.ochreAcres = Optional.of((new BiomeGenOchreAcres(BOPConfiguration.IDs.ochreAcresID)).setColor(522674).setBiomeName("Ochre Acres").func_76733_a(9154376).setMinMaxHeight(0.5F, 0.8F).setTemperatureRainfall(0.5F, 0.2F));
 		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfiguration.IDs.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
 		Biomes.ominousWoodsThick = Optional.of((new BiomeGenOminousWoodsThick(BOPConfiguration.IDs.ominousWoodsThickID)).setColor(353825).setBiomeName("Thick Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
 		Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfiguration.IDs.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
@@ -201,6 +201,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.alpsForest.get(), Type.FROZEN, Type.MOUNTAIN);
 		
 		BiomeDictionary.registerBiomeType(Biomes.arctic.get(), Type.FROZEN, Type.WASTELAND);
+		BiomeDictionary.registerBiomeType(Biomes.autumnHills.get(), Type.FOREST, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.badlands.get(), Type.DESERT, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.bambooForest.get(), Type.JUNGLE, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.bayou.get(), Type.SWAMP, Type.WATER);
@@ -266,7 +267,6 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.oceanCoral.get(), Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.oceanKelp.get(), Type.WATER, Type.FOREST);
 
-		BiomeDictionary.registerBiomeType(Biomes.ochreAcres.get(), Type.FOREST, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.ominousWoods.get(), Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.ominousWoodsThick.get(), Type.MAGICAL);
 
@@ -335,6 +335,7 @@ public class BOPBiomes {
 	{
 		addSpawnBiome(Biomes.alps);
 		addSpawnBiome(Biomes.arctic);
+		addSpawnBiome(Biomes.autumnHills);
 		addSpawnBiome(Biomes.badlands);
 		addSpawnBiome(Biomes.bambooForest);
 		addSpawnBiome(Biomes.bayou);
@@ -371,7 +372,6 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.moor);
 		addSpawnBiome(Biomes.mountain);
 		addSpawnBiome(Biomes.oasis);
-		addSpawnBiome(Biomes.ochreAcres);
 		addSpawnBiome(Biomes.outback);
 		addSpawnBiome(Biomes.pasture);
 		addSpawnBiome(Biomes.polar);
@@ -409,6 +409,7 @@ public class BOPBiomes {
 	{
 		addVillageBiome(Biomes.alps, BOPConfiguration.TerrainGen.alpsVillage);
 		addVillageBiome(Biomes.arctic, BOPConfiguration.TerrainGen.arcticVillage);
+		addVillageBiome(Biomes.autumnHills, BOPConfiguration.TerrainGen.autumnHillsVillage);
 		addVillageBiome(Biomes.badlands, BOPConfiguration.TerrainGen.badlandsVillage);
 		addVillageBiome(Biomes.bambooForest, BOPConfiguration.TerrainGen.bambooForestVillage);
 		addVillageBiome(Biomes.bayou, BOPConfiguration.TerrainGen.bayouVillage);
@@ -446,7 +447,6 @@ public class BOPBiomes {
 		addVillageBiome(Biomes.moor, BOPConfiguration.TerrainGen.moorVillage);
 		addVillageBiome(Biomes.mountain, BOPConfiguration.TerrainGen.mountainVillage);
 		addVillageBiome(Biomes.oasis, BOPConfiguration.TerrainGen.oasisVillage);
-		addVillageBiome(Biomes.ochreAcres, BOPConfiguration.TerrainGen.ochreAcresVillage);
 		addVillageBiome(Biomes.orchard, BOPConfiguration.TerrainGen.orchardVillage);
 		addVillageBiome(Biomes.outback, BOPConfiguration.TerrainGen.outbackVillage);
 		addVillageBiome(Biomes.overgrownGreens, BOPConfiguration.TerrainGen.overgrownGreensVillage);
@@ -486,6 +486,7 @@ public class BOPBiomes {
 	{
 		addStrongholdBiome(Biomes.alps);
 		addStrongholdBiome(Biomes.arctic);
+		addStrongholdBiome(Biomes.autumnHills);
 		addStrongholdBiome(Biomes.badlands);
 		addStrongholdBiome(Biomes.bambooForest);
 		addStrongholdBiome(Biomes.bayou);
@@ -529,7 +530,6 @@ public class BOPBiomes {
 		addStrongholdBiome(Biomes.mountain);
 		addStrongholdBiome(Biomes.mysticGrove);
 		addStrongholdBiome(Biomes.oasis);
-		addStrongholdBiome(Biomes.ochreAcres);
 		addStrongholdBiome(Biomes.ominousWoods);
 		addStrongholdBiome(Biomes.orchard);
 		addStrongholdBiome(Biomes.outback);
@@ -580,6 +580,10 @@ public class BOPBiomes {
 
 			if (BOPConfiguration.BiomeGen.arcticGen) {
 				registerBiome(Biomes.arctic);
+			}
+			
+			if (BOPConfiguration.BiomeGen.autumnHillsGen) {
+				registerBiome(Biomes.autumnHills);
 			}
 
 			if (BOPConfiguration.BiomeGen.badlandsGen) {
@@ -755,10 +759,6 @@ public class BOPBiomes {
 
 			if (BOPConfiguration.BiomeGen.oasisGen) {
 				registerBiome(Biomes.oasis);
-			}
-			
-			if (BOPConfiguration.BiomeGen.ochreAcresGen) {
-				registerBiome(Biomes.ochreAcres);
 			}
 
 			if (BOPConfiguration.BiomeGen.ominousWoodsGen) {
@@ -974,6 +974,10 @@ public class BOPBiomes {
 		if (BOPConfiguration.BiomeGen.arcticGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.arctic);
 		}
+		
+		if (BOPConfiguration.BiomeGen.autumnHillsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.autumnHills);
+		}
 
 		if (BOPConfiguration.BiomeGen.badlandsGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.badlands);
@@ -1145,10 +1149,6 @@ public class BOPBiomes {
 
 		if (BOPConfiguration.BiomeGen.oasisGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.oasis);
-		}
-		
-		if (BOPConfiguration.BiomeGen.ochreAcresGen) {
-			addBiomeToWorldTypes(getWorldTypes(), Biomes.ochreAcres);
 		}
 
 		if (BOPConfiguration.BiomeGen.ominousWoodsGen) {

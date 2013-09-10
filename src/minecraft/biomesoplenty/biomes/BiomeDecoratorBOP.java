@@ -85,6 +85,7 @@ import biomesoplenty.worldgen.WorldGenOutback;
 import biomesoplenty.worldgen.WorldGenPit;
 import biomesoplenty.worldgen.WorldGenPotatoes;
 import biomesoplenty.worldgen.WorldGenPromisedWillow;
+import biomesoplenty.worldgen.WorldGenPumpkinAlt;
 import biomesoplenty.worldgen.WorldGenQuagmire;
 import biomesoplenty.worldgen.WorldGenQuicksand;
 import biomesoplenty.worldgen.WorldGenReedBOP;
@@ -211,6 +212,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator crystalGen2;
 	protected WorldGenerator kelpGen;
 	protected WorldGenerator graveGen;
+	protected WorldGenerator pumpkinAltGen;
 
 	protected WorldGenerator boneSpineGen;
 	protected WorldGenerator boneSpine2Gen;
@@ -293,6 +295,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int kelpPerChunk;
 	protected int kelpThickPerChunk;
 	protected int gravesPerChunk;
+	protected int pumpkinsPerChunk;
 
 	protected int boneSpinesPerChunk;
 	protected int boneSpines2PerChunk;
@@ -433,6 +436,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		plantGlowGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 3);
 		plantDeadGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 0);
 		plantDesertGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 1);
+		pumpkinAltGen = new WorldGenPumpkinAlt(Block.pumpkin.blockID, 0);
 		thornGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 5);
 		bushGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 4);
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
@@ -559,6 +563,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		kelpPerChunk = 0;
 		kelpThickPerChunk = 0;
 		gravesPerChunk = 0;
+		pumpkinsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -954,6 +959,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 graveGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < pumpkinsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 pumpkinAltGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
 		 for (var2 = 0; var2 < kelpPerChunk; ++var2)

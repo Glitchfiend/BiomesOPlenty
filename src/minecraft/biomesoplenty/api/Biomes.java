@@ -12,6 +12,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> alpsForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> alpsBase			     = Optional.absent();
 	public static Optional<? extends BiomeGenBase> arctic				 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> autumnHills			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> badlands				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> bambooForest			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> bayou				 = Optional.absent();
@@ -73,7 +74,6 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> oceanCoral			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> oceanKelp			 = Optional.absent();
 	
-	public static Optional<? extends BiomeGenBase> ochreAcres			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> ominousWoods			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> ominousWoodsThick	 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> orchard				 = Optional.absent();
