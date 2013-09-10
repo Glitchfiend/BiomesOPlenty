@@ -135,7 +135,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
                         return;
 
                 int meta = world.getBlockMetadata(x, y, z);
-                if (random.nextInt(10) == 0)
+                if (random.nextInt(25) == 0)
                         if (meta > 0)
                                 if ((meta & 3) < 3) {
                                         world.setBlock(x, y, z, blockID, ++meta, 3);
