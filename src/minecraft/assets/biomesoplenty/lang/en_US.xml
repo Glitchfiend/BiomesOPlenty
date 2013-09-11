@@ -282,10 +282,6 @@
 	<entry key="item.bop.food.saladveggie.name">Veggie Salad</entry>
 	<entry key="item.bop.food.saladshroom.name">Shroom Salad</entry>
 	<entry key="item.bop.food.persimmon.name">Persimmon</entry>
-	<entry key="item.bop.food.bottle_honey.name">Bottle of Honey</entry>
-	
-	<entry key="item.bop.net.name">Net</entry>
-	<entry key="item.bop.bee.name">Honeybee</entry>
 
 	<entry key="item.bop.dartblower.name">Dart Blower</entry>
 	<entry key="item.bop.dart.dart.name">Dart</entry>

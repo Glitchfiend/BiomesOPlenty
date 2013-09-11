@@ -40,7 +40,7 @@ public class BiomeGenAutumnHills extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
+		return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(5) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2));
 	}
 
 	/**
