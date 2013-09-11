@@ -21,18 +21,13 @@ public class BlockBOPCoral extends BlockFlower
 	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	private Icon[] textures;
 
-	protected BlockBOPCoral(int blockID, Material material)
+	public BlockBOPCoral(int blockID)
 	{
-		super(blockID, material);
+		super(blockID, Material.water);
 		this.setTickRandomly(true);
 		float f = 0.4F;
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-	}
-
-	public BlockBOPCoral(int blockID)
-	{
-		this(blockID, Material.water);
 	}
 
 	@Override
@@ -56,7 +51,7 @@ public class BlockBOPCoral extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType ()
+	public int getRenderType()
 	{
 		return 1;
 	}
@@ -85,7 +80,7 @@ public class BlockBOPCoral extends BlockFlower
 		if (metadata == 1)
 			return id == blockID;
 		if (metadata == 2)
-			return id == blockID || id == Block.dirt.blockID || id == Block.sand.blockID;
+			return id == blockID;
 		else
 			return id == Block.dirt.blockID || id == Block.sand.blockID;
 	}
@@ -95,7 +90,6 @@ public class BlockBOPCoral extends BlockFlower
 	{
 		int id = world.getBlockId(x, y - 1, z);
 		int meta = itemStack.getItemDamage();
-		//boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
 
 		if (itemStack.itemID == blockID) {
 			switch (meta)
@@ -103,7 +97,7 @@ public class BlockBOPCoral extends BlockFlower
 			case 1: // Kelp Middle
 				return id == blockID;
 
-			case 2: // Kelp Bottom
+			case 2: // Kelp Top
 				return id == blockID;
 
 			default:
@@ -117,7 +111,6 @@ public class BlockBOPCoral extends BlockFlower
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
 	{
 		super.onNeighborBlockChange(world, x, y, z, neighborID);
-		this.checkFlowerChange(world, x, y, z);
 		
 		if (world.getBlockMetadata(x, y, z) == 0 && world.getBlockId(x, y + 1, z) != blockID)
 		{
@@ -126,24 +119,27 @@ public class BlockBOPCoral extends BlockFlower
 		
 		if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y + 1, z) != blockID)
 		{
-			if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y - 1, z) == blockID)
+			if (world.getBlockId(x, y - 1, z) == blockID)
 			{
 				world.setBlock(x, y, z, blockID, 2, 2);
 			}
-			else
+		}
+		
+		if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 1 || world.getBlockMetadata(x, y, z) == 2)
+		{
+			this.checkBlockCoordValid(world, x, y, z);
+		}
+	}
+	
+	protected final void checkBlockCoordValid(World world, int x, int y, int z)
+	{
+		for (int i = 1; world.getBlockId(x, y + i, z) == blockID; i++)
+		{
+			if (!this.canBlockStay(world, x, y + i, z))
 			{
-				world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
+				this.dropBlockAsItem(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
+				world.setBlock(x, y + i, z, Block.waterStill.blockID, 0, 2 + 1);
 			}
-		}
-		
-		if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y - 1, z) != blockID)
-		{
-				world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
-		}
-		
-		if (world.getBlockMetadata(x, y, z) == 2 && world.getBlockId(x, y - 1, z) == blockID)
-		{
-			world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
 		}
 	}
 
