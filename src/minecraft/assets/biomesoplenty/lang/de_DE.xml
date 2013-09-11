@@ -35,23 +35,24 @@
     <entry key="tile.bop.plants.cattailbottom.name">Rohrkolben</entry>
     <entry key="tile.bop.plants.reed.name">Schilf</entry>
     <entry key="tile.bop.plants.cactus.name">Kleiner Kaktus</entry>
+    <entry key="tile.bop.plants.witherwart.name">Witherwarze</entry>
 
     <entry key="tile.bop.flowers.clover.name">Klee</entry>
     <entry key="tile.bop.flowers.swampflower.name">Sumpfblume</entry>
     <entry key="tile.bop.flowers.deadbloom.name">Tote Blume</entry>
     <entry key="tile.bop.flowers.glowflower.name">Schimmernde Blume</entry>
-    <entry key="tile.bop.flowers.hydrangea.name">Hortensie</entry>
-    <entry key="tile.bop.flowers.daisy.name">Gänseblümchenen</entry>
-    <entry key="tile.bop.flowers.tulip.name">Tulpe</entry>
+    <entry key="tile.bop.flowers.hydrangea.name">Blaue Hortensie</entry>
+    <entry key="tile.bop.flowers.cosmos.name">Orange Kosmee</entry>
+    <entry key="tile.bop.flowers.daffodil.name">Pinke Narzisse</entry>
     <entry key="tile.bop.flowers.wildflower.name">Wildblume</entry>
     <entry key="tile.bop.flowers.violet.name">Veilchen</entry>
-    <entry key="tile.bop.flowers.anemone.name">Anemone</entry>
+    <entry key="tile.bop.flowers.anemone.name">Weißes Windröschen</entry>
     <entry key="tile.bop.flowers.lilyflower.name">Wasserlilie</entry>
     <entry key="tile.bop.flowers.rainbowflower.name">Chromablume</entry>
     <entry key="tile.bop.flowers.aloe.name">Aloe</entry>
     <entry key="tile.bop.flowers.sunflowerbottom.name">Sonnenblume</entry>
     <entry key="tile.bop.flowers.sunflowertop.name">Sonnenblume</entry>
-    <entry key="tile.bop.flowers.dandelion.name">Löwenzahn</entry>
+    <entry key="tile.bop.flowers.dandelion.name">Weißer Löwenzahn</entry>
 
     <entry key="tile.bop.foliage.algae.name">Algen</entry>
     <entry key="tile.bop.foliage.shortgrass.name">Kurzes Gras</entry>
@@ -86,6 +87,7 @@
     <entry key="tile.bop.saplings.whitecherrySapling.name">Weißer Kirschsetzling</entry>
     <entry key="tile.bop.saplings.hellbarkSapling.name">Höllenrindensetzling</entry>
     <entry key="tile.bop.saplings.jacarandaSapling.name">Jacarandasetzling</entry>
+    <entry key="tile.bop.saplings.persimmonSapling.name">Kakibaumsetzling</entry>
 
     <entry key="tile.bop.colorizedSaplings.acaciaSapling.name">Akaziensetzling</entry>
     <entry key="tile.bop.colorizedSaplings.mangroveSapling.name">Mangrovensetzling</entry>
@@ -96,14 +98,19 @@
     
     <entry key="tile.bop.willow.name">Weide</entry>
     <entry key="tile.bop.ivy.name">Efeu</entry>
-    <entry key="tile.bop.leavesFruit.name">Apfellaub</entry>
+    <entry key="tile.bop.leavesFruit.name">Apfelbaumblätter</entry>
+    <entry key="tile.bop.leavesFruit2.name">Kakibaumblätter</entry>
     <entry key="tile.bop.bamboo.name">Bambus</entry>
     <entry key="tile.bop.mudBricksStairs.name">Lehmziegelstufen</entry>
     <entry key="tile.bop.originGrass.name">Ursprüngliches Gras</entry>
     <entry key="tile.bop.longGrass.name">Langes Gras</entry>
     <entry key="tile.bop.treeMoss.name">Baummoos</entry>
 
-    <entry key="tile.bop.coral.kelp.name">Seetang</entry>
+    <entry key="tile.bop.coral.kelpsingle.name">Seetang</entry>
+	<entry key="tile.bop.coral.pinkcoral.name">Pinke Koralle</entry>
+	<entry key="tile.bop.coral.orangecoral.name">Orange Koralle</entry>
+	<entry key="tile.bop.coral.bluecoral.name">Blaue Koralle</entry>
+	<entry key="tile.bop.coral.glowcoral.name">Leuchtende Koralle</entry>
     
     <entry key="tile.bop.redCobbleStairs.name">Rotfelssteinpflastertreppe</entry>       
     <entry key="tile.bop.redBricksStairs.name">Rotfelsziegeltreppe</entry>
@@ -153,7 +160,7 @@
     
     <entry key="tile.bop.puddle.name">Pfütze</entry>
     
-    <entry key="tile.bop.grave.name">Grab</entry>
+    <entry key="tile.bop.grave.name">Grabstein</entry>
 
     <entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Rotfelssteinpflasterstufe</entry>
     <entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Rotfelsziegelstufe</entry>
@@ -274,6 +281,7 @@
     <entry key="item.bop.food.saladfruit.name">Obstsalat</entry>
     <entry key="item.bop.food.saladveggie.name">Gemüsesalat</entry>
     <entry key="item.bop.food.saladshroom.name">Pilzsalat</entry>
+    <entry key="item.bop.food.persimmon.name">Kaki</entry>
 
     <entry key="item.bop.dartblower.name">Blasrohr</entry>
     <entry key="item.bop.dart.dart.name">Dart</entry>
