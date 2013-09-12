@@ -60,13 +60,6 @@ public class ItemBlockCoral extends ItemBlock
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean isFull3D()
-	{
-		return true;
-	}
-
-	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack)
 	{
 		return null;
