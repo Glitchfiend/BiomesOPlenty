@@ -16,8 +16,9 @@ public class BiomeGenOceanCoral extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.coralPerChunk = 200;
+		customBiomeDecorator.coralPerChunk = 300;
 		customBiomeDecorator.shortKelpPerChunk = 99;
+		customBiomeDecorator.generateSponge = true;
 		spawnableCreatureList.clear();
 	}
 	

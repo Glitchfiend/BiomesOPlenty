@@ -27,8 +27,8 @@ public class BiomeLayerCreate extends BiomeLayer
 				this.initChunkSeed(par1 + var7, par2 + var6);
 				if(ocean)
 				{
-					if(coral) { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : Biomes.oceanCoral.get().biomeID; }
-					else if(kelp) { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : Biomes.oceanKelp.get().biomeID; }
+					if(coral) { var5[var7 + var6 * par3] = this.nextInt(20) == 0 ? 1 : Biomes.oceanCoral.get().biomeID; }
+					else if(kelp) { var5[var7 + var6 * par3] = this.nextInt(20) == 0 ? 1 : Biomes.oceanKelp.get().biomeID; }
 					else { var5[var7 + var6 * par3] = this.nextInt(10) == 0 ? 1 : 0;}
 				}
 				else

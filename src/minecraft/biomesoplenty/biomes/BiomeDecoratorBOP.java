@@ -93,6 +93,7 @@ import biomesoplenty.worldgen.WorldGenReedBOP;
 import biomesoplenty.worldgen.WorldGenShield;
 import biomesoplenty.worldgen.WorldGenShortKelp;
 import biomesoplenty.worldgen.WorldGenSmolderingGrass;
+import biomesoplenty.worldgen.WorldGenSponge;
 import biomesoplenty.worldgen.WorldGenSprout;
 import biomesoplenty.worldgen.WorldGenSteppe;
 import biomesoplenty.worldgen.WorldGenSunflower;
@@ -145,6 +146,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator clayInStone2Gen;
 	protected WorldGenerator quagmireGen;
 	protected WorldGenerator quicksandGen;
+	protected WorldGenerator spongeGen;
 	protected WorldGenerator canyonGen;
 	protected WorldGenerator cloudGen;
 	protected WorldGenerator coalGen;
@@ -394,6 +396,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public boolean generateBoulders;
 	public boolean generateClouds;
 	public boolean generateQuicksand;
+	public boolean generateSponge;
 
 	public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
 	{
@@ -419,6 +422,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		clayInStone2Gen = new WorldGenBadlands(Block.field_111039_cA.blockID, 32);
 		quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
 		quicksandGen = new WorldGenQuicksand(Blocks.mud.get().blockID, 24);
+		spongeGen = new WorldGenSponge(Block.sponge.blockID, 24);
 		canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
 		driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
 		cloudGen = new WorldGenCloud(Blocks.cloud.get().blockID, 48);
@@ -593,6 +597,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		generateBoulders = false;
 		generateClouds = false;
 		generateQuicksand = false;
+		generateSponge = false;
 		biome = par1BiomeGenBase;
 	}
 
@@ -797,6 +802,11 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 {
 				 this.genStandardOre1(5, quicksandGen, 64, 128);
 			 }
+		 }
+		 
+		 if (generateSponge)
+		 {
+			this.genStandardOre1(5, spongeGen, 0, 64);
 		 }
 
 		 if (generateClouds)

@@ -72,7 +72,7 @@ public class BlockBOPCoral extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.dirt.blockID || id == Block.sand.blockID || id == blockID;
+		return id == Block.dirt.blockID || id == Block.sand.blockID || id == Block.sponge.blockID || id == blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
@@ -82,7 +82,7 @@ public class BlockBOPCoral extends BlockFlower
 		if (metadata == 2)
 			return id == blockID;
 		else
-			return id == Block.dirt.blockID || id == Block.sand.blockID;
+			return id == Block.dirt.blockID || id == Block.sand.blockID || id == Block.sponge.blockID;
 	}
 
 	@Override
@@ -98,10 +98,10 @@ public class BlockBOPCoral extends BlockFlower
 				return id == blockID;
 
 			case 2: // Kelp Top
-				return id == blockID || id == Block.dirt.blockID || id == Block.sand.blockID;
+				return id == blockID;
 
 			default:
-				return id == Block.dirt.blockID || id == Block.sand.blockID;
+				return id == Block.dirt.blockID || id == Block.sand.blockID || id == Block.sponge.blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
