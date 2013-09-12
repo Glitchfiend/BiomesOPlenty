@@ -94,17 +94,23 @@
 	<entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Саженец красного дерева</entry>
 	<entry key="tile.bop.colorizedSaplings.willowSapling.name">Саженец ивы</entry>
 	<entry key="tile.bop.colorizedSaplings.pineSapling.name">Саженец сосны</entry>
+	<entry key="tile.bop.saplings.persimmonSapling.name">Саженец хурмы/entry> 
 
 	<entry key="tile.bop.willow.name">Ива</entry>
  	<entry key="tile.bop.ivy.name">Плющ</entry>
  	<entry key="tile.bop.leavesFruit.name">Листва яблони</entry>
+ 	<entry key="tile.bop.leavesFruit2.name">Листва хурмы</entry>
 	<entry key="tile.bop.bamboo.name">Бамбук</entry>
  	<entry key="tile.bop.mudBricksStairs.name">Кирпичные ступеньки из грязи</entry>
  	<entry key="tile.bop.originGrass.name">Оригинальная трава</entry>
 	<entry key="tile.bop.longGrass.name">Блок высокой травы</entry>
  	<entry key="tile.bop.treeMoss.name">Древесный мох</entry>
 
-	<entry key="tile.bop.coral.kelp.name">Ламинария</entry>
+	<entry key="tile.bop.coral.kelpsingle.name">Ламинария</entry>
+	<entry key="tile.bop.coral.pinkcoral.name">Розовый коралл</entry>
+	<entry key="tile.bop.coral.orangecoral.name">Оранжевый коралл</entry>
+	<entry key="tile.bop.coral.bluecoral.name">Синий коралл</entry>
+	<entry key="tile.bop.coral.glowcoral.name">Светящийся коралл</entry>
 
  	<entry key="tile.bop.redCobbleStairs.name">Ступеньки из красного булыжника</entry>	 	
  	<entry key="tile.bop.redBricksStairs.name">Кирпичные ступеньки из красного камня</entry>
@@ -275,6 +281,7 @@
 	<entry key="item.bop.food.saladfruit.name">Фруктовый салат</entry>
 	<entry key="item.bop.food.saladveggie.name">Овощной салат</entry>
 	<entry key="item.bop.food.saladshroom.name">Грибной салат</entry>
+	<entry key="item.bop.food.persimmon.name">Хурма</entry>
 
 	<entry key="item.bop.dartblower.name">Духовая трубка</entry>
 	<entry key="item.bop.dart.dart.name">Дротик</entry>
