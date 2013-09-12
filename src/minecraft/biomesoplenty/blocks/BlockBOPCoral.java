@@ -129,6 +129,11 @@ public class BlockBOPCoral extends BlockFlower
 		{
 			this.checkBlockCoordValid(world, x, y, z);
 		}
+		
+		if (world.getBlockId(x, y, z) != this.blockID)
+		{
+			world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
+		}
 	}
 	
 	protected final void checkBlockCoordValid(World world, int x, int y, int z)
