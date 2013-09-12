@@ -62,6 +62,7 @@ import biomesoplenty.worldgen.WorldGenCanyonGrass;
 import biomesoplenty.worldgen.WorldGenCattail;
 import biomesoplenty.worldgen.WorldGenCloud;
 import biomesoplenty.worldgen.WorldGenCobwebs;
+import biomesoplenty.worldgen.WorldGenCoral;
 import biomesoplenty.worldgen.WorldGenCrystal1;
 import biomesoplenty.worldgen.WorldGenCrystal2;
 import biomesoplenty.worldgen.WorldGenDesertCactus;
@@ -90,6 +91,7 @@ import biomesoplenty.worldgen.WorldGenQuagmire;
 import biomesoplenty.worldgen.WorldGenQuicksand;
 import biomesoplenty.worldgen.WorldGenReedBOP;
 import biomesoplenty.worldgen.WorldGenShield;
+import biomesoplenty.worldgen.WorldGenShortKelp;
 import biomesoplenty.worldgen.WorldGenSmolderingGrass;
 import biomesoplenty.worldgen.WorldGenSprout;
 import biomesoplenty.worldgen.WorldGenSteppe;
@@ -211,8 +213,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected WorldGenerator crystalGen;
 	protected WorldGenerator crystalGen2;
 	protected WorldGenerator kelpGen;
+	protected WorldGenerator shortKelpGen;
 	protected WorldGenerator graveGen;
 	protected WorldGenerator pumpkinAltGen;
+	protected WorldGenerator coralGen;
 
 	protected WorldGenerator boneSpineGen;
 	protected WorldGenerator boneSpine2Gen;
@@ -294,8 +298,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	protected int cobwebsPerChunk;
 	protected int kelpPerChunk;
 	protected int kelpThickPerChunk;
+	protected int shortKelpPerChunk;
 	protected int gravesPerChunk;
 	protected int pumpkinsPerChunk;
+	protected int coralPerChunk;
 
 	protected int boneSpinesPerChunk;
 	protected int boneSpines2PerChunk;
@@ -442,6 +448,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
 		tinyCactusGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 12);
 		aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
+		coralGen = new WorldGenCoral(Blocks.coral.get().blockID, 4);
 		lilyflowerGen = new WorldGenLilyflower();
 		deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
 		hydrangeaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 4);
@@ -459,6 +466,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		crystalGen = new WorldGenCrystal1();
 		crystalGen2 = new WorldGenCrystal2();
 		kelpGen = new WorldGenKelp(false);
+		shortKelpGen = new WorldGenShortKelp(false);
 		graveGen = new WorldGenGrave();
 		mushroomBrownGen = new WorldGenBOPFlowers(Block.mushroomBrown.blockID, 0);
 		mushroomRedGen = new WorldGenBOPFlowers(Block.mushroomRed.blockID, 0);
@@ -562,8 +570,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		cobwebsPerChunk = 0;
 		kelpPerChunk = 0;
 		kelpThickPerChunk = 0;
+		shortKelpPerChunk = 0;
 		gravesPerChunk = 0;
 		pumpkinsPerChunk = 0;
+		coralPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -985,6 +995,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 kelpGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
+		 for (var2 = 0; var2 < shortKelpPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16);
+			 var4 = randomGenerator.nextInt(64);
+			 var5 = chunk_Z + randomGenerator.nextInt(16);
+			 shortKelpGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
 		 for (var2 = 0; var2 < rainbowflowersPerChunk; ++var2)
 		 {
 			 int var956 = randomGenerator.nextInt(10);
@@ -1053,6 +1071,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantWhiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < coralPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 coralGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 for (var2 = 0; var2 < blueFlowersPerChunk; ++var2)

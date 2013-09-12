@@ -9,9 +9,15 @@ import biomesoplenty.api.Blocks;
 
 public class BiomeGenOceanCoral extends BiomeGenBase
 {
+	private BiomeDecoratorBOP customBiomeDecorator;
+	
 	public BiomeGenOceanCoral(int par1)
 	{
 		super(par1);
+		theBiomeDecorator = new BiomeDecoratorBOP(this);
+		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+		customBiomeDecorator.coralPerChunk = 200;
+		customBiomeDecorator.shortKelpPerChunk = 99;
 		spawnableCreatureList.clear();
 	}
 	
