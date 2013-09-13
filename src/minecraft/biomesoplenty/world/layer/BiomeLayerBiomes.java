@@ -28,6 +28,10 @@ public class BiomeLayerBiomes extends BiomeLayer
 		
 		//OCEAN BIOMES
 		oceanBiomes.add(BiomeGenBase.ocean);
+		if (Biomes.oceanAbyss.isPresent())
+		{
+			oceanBiomes.add(Biomes.oceanAbyss.get());
+		}
 		if (Biomes.oceanCoral.isPresent())
 		{
 			oceanBiomes.add(Biomes.oceanCoral.get());
@@ -96,6 +100,7 @@ public class BiomeLayerBiomes extends BiomeLayer
         int[] var5 = this.parent.getInts(par1, par2, par3, par4);
         int[] var6 = IntCache.getIntCache(par3 * par4);
         
+        boolean abyss = Biomes.oceanCoral.isPresent();
         boolean coral = Biomes.oceanCoral.isPresent();
         boolean kelp = Biomes.oceanKelp.isPresent();
         
@@ -114,6 +119,14 @@ public class BiomeLayerBiomes extends BiomeLayer
 					else 
 					{
 						var6[var8 + var7 * par3] = surfaceBiomes[this.nextInt(surfaceBiomes.length)].biomeID;
+					}
+					
+					if (abyss)
+					{
+						if(var9 == Biomes.oceanAbyss.get().biomeID)
+						{
+							var6[var8 + var7 * par3] = oceanBiomes.get(this.nextInt(oceanBiomes.size())).biomeID;
+						}
 					}
 					
 					if (coral)

@@ -743,6 +743,7 @@ public class BOPConfiguration
 
 		public static int oasisID;
 
+		public static int oceanAbyssID;
 		public static int oceanCoralID;
 		public static int oceanKelpID;
 
@@ -1008,6 +1009,7 @@ public class BOPConfiguration
 				canyonRavineID = config.get("Biome IDs", "Canyon Ravine (Sub-Biome) ID", 49).getInt();
 				meadowForestID = config.get("Biome IDs", "Meadow Forest (Sub-Biome) ID", 50).getInt();
 
+				oceanAbyssID = config.get("Biome IDs", "Oceanic Abyss (Ocean) ID", 57).getInt();
 				oceanCoralID = config.get("Biome IDs", "Coral Reef (Ocean) ID", 58).getInt();
 				oceanKelpID = config.get("Biome IDs", "Kelp Forest (Ocean) ID", 59).getInt();
 

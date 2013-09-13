@@ -36,6 +36,10 @@ public class BiomeLayerShore extends BiomeLayer
 		
 		//OCEAN BIOMES
 		oceanBiomes.add(BiomeGenBase.ocean);
+		if (Biomes.oceanAbyss.isPresent())
+		{
+			oceanBiomes.add(Biomes.oceanAbyss.get());
+		}
 		if (Biomes.oceanCoral.isPresent())
 		{
 			oceanBiomes.add(Biomes.oceanCoral.get());

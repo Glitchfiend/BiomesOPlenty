@@ -71,6 +71,7 @@ public class Biomes
 	
 	public static Optional<? extends BiomeGenBase> oasis				 = Optional.absent();
 	
+	public static Optional<? extends BiomeGenBase> oceanAbyss			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> oceanCoral			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> oceanKelp			 = Optional.absent();
 	
