@@ -355,6 +355,8 @@
 	<entry key="item.bop.flowerBand.lushflowerband.name">Lush Flower Band</entry>
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
 	
+	<entry key="item.bop.wadingBoots.name">Wading Boots</entry>
+	
 	<!--Fluids -->
 	<entry key="item.bop.bopBucket.amethyst_empty.name">Amethyst Bucket</entry>
 	<entry key="item.bop.bopBucket.amethyst_spring_water.name">Spring Water Amethyst Bucket</entry>

@@ -13,6 +13,7 @@ import biomesoplenty.api.Items;
 import biomesoplenty.armor.ArmorAmethyst;
 import biomesoplenty.armor.ArmorFlowerBand;
 import biomesoplenty.armor.ArmorMuddy;
+import biomesoplenty.armor.ArmorWadingBoots;
 import biomesoplenty.items.ItemBOP;
 import biomesoplenty.items.ItemBOPAncientStaff;
 import biomesoplenty.items.ItemBOPAxe;
@@ -45,6 +46,7 @@ public class BOPItems {
 	public static EnumArmorMaterial EnumArmorMaterialAmethyst;
 	public static EnumToolMaterial EnumToolMaterialAmethyst;
 	public static EnumArmorMaterial EnumArmorMaterialFlowerBand;
+	public static EnumArmorMaterial EnumArmorMaterialWadingBoots;
 
 	public static int clearItem(Item var1)
 	{
@@ -87,6 +89,7 @@ public class BOPItems {
 		EnumArmorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[]{6, 12, 10, 6}, 20);
 		EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
 		EnumArmorMaterialFlowerBand = EnumHelper.addArmorMaterial("FLOWERBAND", -1, new int[]{0, 0, 0, 0}, 0);
+		EnumArmorMaterialWadingBoots = EnumHelper.addArmorMaterial("WADINGBOOTS", -1, new int[]{0, 0, 0, 0}, 0);
 
 		initializeItems();
 
@@ -141,5 +144,6 @@ public class BOPItems {
 		Items.scytheAmethyst = Optional.of((new ItemBOPScythe(BOPConfiguration.IDs.scytheAmethystID, 2, EnumToolMaterialAmethyst, 6).setUnlocalizedName("bop.scytheAmethyst")));
 
 		Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfiguration.IDs.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flowerBand"));
+		Items.wadingBoots = Optional.of((new ArmorWadingBoots(BOPConfiguration.IDs.wadingBootsID, EnumArmorMaterialWadingBoots, BiomesOPlenty.proxy.addArmor("wadingBoots"), 3)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.wadingBoots"));
 	}
 }

@@ -674,6 +674,7 @@ public class BOPConfiguration
 		public static int scytheAmethystID;
 
 		public static int flowerBandID;
+		public static int wadingBootsID;
 
 		//Liquid IDs
 		public static int springWaterStillID;
@@ -970,6 +971,8 @@ public class BOPConfiguration
 				scytheDiamondID = config.getItem("Diamond Scythe ID", 21085).getInt();
 				scytheMudID = config.getItem("Mud Scythe ID", 21086).getInt();
 				scytheAmethystID = config.getItem("Amethyst Scythe ID", 21087).getInt();
+				
+				wadingBootsID = config.getItem("Wading Boots ID", 21088).getInt();
 				
 				//Liquid Ids
 				springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();
