@@ -10,7 +10,7 @@
 	<property name="forge.version" value="9.10.1.857" />
 	<property name="fmp.version" value="1.0.0.161" />
 
-	<property name="src.dir" value="BiomesOPlenty" />
+	<property name="src.dir" value="" />
 	<property name="build.dir" value="build" />
 	<property name="download.dir" value="download" />
 	<property name="jar.dir" value="dist" />
@@ -119,13 +119,13 @@
 		<!-- Copy source -->
 		<echo message="Copying source" />
 		<copy todir="${mcp.dir}/src/minecraft">
-			<fileset dir="${src.dir}/common" />
+			<fileset dir="common" />
 		</copy>
 		<copy todir="${mcp.dir}/src/minecraft">
-			<fileset dir="${src.dir}/apis" />
+			<fileset dir="apis" />
 		</copy>
 		<copy todir="${mcp.dir}/reobf/resources">
-			<fileset dir="${src.dir}/resources" />
+			<fileset dir="resources" />
 		</copy>
 
 		<!-- Replace Tokens-->
@@ -150,8 +150,8 @@
 		<echo message="Removing source" />
 		<delete includeemptydirs="true">
 			<fileset dir="${mcp.dir}/src/minecraft">
-				<present present="both" targetdir="${src.dir}/common" />
-				<present present="both" targetdir="${src.dir}/apis" />
+				<present present="both" targetdir="common" />
+				<present present="both" targetdir="apis" />
 			</fileset>
 		</delete>
 
