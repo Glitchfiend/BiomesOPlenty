@@ -1,4 +1,4 @@
-<project name="Biomes O Plenty" default="build">
+<project name="Biomes O Plenty" basedir="./" default="build">
 	<property environment="env" />
 	<property file="buildspecs.properties" prefix="buildspecs" />
 
@@ -10,7 +10,7 @@
 	<property name="forge.version" value="9.10.1.857" />
 	<property name="fmp.version" value="1.0.0.161" />
 
-	<property name="src.dir" value="" />
+	<property name="src.dir" value="BiomesOPlenty" />
 	<property name="build.dir" value="build" />
 	<property name="download.dir" value="download" />
 	<property name="jar.dir" value="dist" />
