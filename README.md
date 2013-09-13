@@ -1,3 +1,5 @@
+[![Build Status](https://drone.io/github.com/Glitchfiend/BiomesOPlenty/status.png)](https://drone.io/github.com/Glitchfiend/BiomesOPlenty/latest)
+
 ## Authors 
 
 - **Adubbz** - "Madman" - General, Technical, Mod Compatibility
