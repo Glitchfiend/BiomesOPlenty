@@ -13,7 +13,7 @@
 	<property name="src.dir" value="BiomesOPlenty" />
 	<property name="build.dir" value="build" />
 	<property name="download.dir" value="download" />
-	<property name="jar.dir" value="dist/${mc.version}/${mod.version}-${mod.build}" />
+	<property name="jar.dir" value="dist" />
 	<property name="forge.dir" value="${build.dir}/forge" />
 	<property name="fmp.dir" value="${build.dir}/fmp" />
 	<property name="mcp.dir" value="${forge.dir}/mcp" />
