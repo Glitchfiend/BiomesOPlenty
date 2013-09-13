@@ -1,4 +1,4 @@
-<project name="Biomes O Plenty" basedir="../" default="build">
+<project name="Biomes O Plenty" default="build">
 	<property environment="env" />
 	<property file="buildspecs.properties" prefix="buildspecs" />
 
