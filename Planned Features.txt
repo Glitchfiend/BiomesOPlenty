@@ -1,9 +1,3 @@
-WORLD GEN:
-
-Change Emerald Ore to spawn in Forest biomes (10).
-
----
-
 BLOCKS:
 
 Pebbles: 						Small rocks scattered around forest biomes.
@@ -16,16 +10,6 @@ Alpha Essence Ore:				Found in the Promised Land.  Requires an Amethyst pickaxe 
 
 Omega Essence Ore:				Found in the Nether.  Requires an Amethyst pickaxe to mine.
 
-Ruby Ore (Maroon):				Found in Desert-like biomes (10).  Drops ruby gems.
-
-Peridot Ore (Olive):			Found in Grassland-like biomes (8).  Drops peridot gems.
-
-Topaz Ore (Orange):				Found in Jungle-like biomes (6).  Drops topaz gems.
-
-Tanzanite Ore (Purple):			Found in Snow-like biomes (8).  Drops tanzanite gems.
-
-Apatite Ore (Teal):				Found in Swamp-like biomes (9).  Drops apatite gems.
-
 ---
 
 ITEMS:
@@ -33,22 +17,6 @@ ITEMS:
 Alpha Essence:					Mined from Alpha Essence Ore.  Used to turn certain blocks into their Origin counterparts.
 
 Omega Essence:					Mined from Omega Essence Ore.  Used to turn Origin blocks back to their normal counterparts.
-
----
-
-NETHER BIOMES:
-
-Corrupted Sands:				Soulsand, bramble, thorns.
-
-Boneyard:						Skulls, bones sticking out of the ground, large bone structures, and graves.
-
----
-
-OCEAN BIOMES:
-
-Coral Reef:						Different types of coral, with reef stone on the ocean floor.
-
-Kelp Forest:					Lots and lots of kelp with varying heights.
 
 ---
 
