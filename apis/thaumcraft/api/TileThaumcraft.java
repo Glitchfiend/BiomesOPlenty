@@ -54,7 +54,7 @@ public class TileThaumcraft extends TileEntity {
 	@Override
 	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
 		super.onDataPacket(net, pkt);		
-		this.readCustomNBT(pkt.customParam1);
+		this.readCustomNBT(pkt.data);
 	}
 	
 	

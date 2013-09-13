@@ -26,7 +26,6 @@ public class EntityRosester extends EntityChicken
 	public float field_70888_h;
 	public float field_70889_i = 1.0F;
 
-	/** The time until the next egg is spawned. */
 	public int timeUntilNextEgg;
 
 	public EntityRosester(World par1World)
@@ -45,9 +44,6 @@ public class EntityRosester extends EntityChicken
 		tasks.addTask(7, new EntityAILookIdle(this));
 	}
 
-	/**
-	 * Returns true if the newer Entity AI code should be run
-	 */
 	@Override
 	public boolean isAIEnabled()
 	{
@@ -55,17 +51,13 @@ public class EntityRosester extends EntityChicken
 	}
 
     @Override
-	protected void func_110147_ax()
+	protected void applyEntityAttributes()
     {
-        super.func_110147_ax();
-        //Max health
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(4.0D);
+        super.applyEntityAttributes();
+
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(4.0D);
     }
 
-	/**
-	 * Called frequently so the entity can update its state every tick as required. For example, zombies and skeletons
-	 * use this to react to sunlight and start to burn.
-	 */
 	@Override
 	public void onLivingUpdate()
 	{
@@ -106,60 +98,39 @@ public class EntityRosester extends EntityChicken
 		}
 	}
 
-	/**
-	 * Called when the mob is falling. Calculates and applies fall damage.
-	 */
 	@Override
 	protected void fall(float par1) {}
 
-	/**
-	 * Returns the sound this mob makes while it's alive.
-	 */
 	@Override
 	protected String getLivingSound()
 	{
 		return "mob.chicken.say";
 	}
 
-	/**
-	 * Returns the sound this mob makes when it is hurt.
-	 */
 	@Override
 	protected String getHurtSound()
 	{
 		return "mob.chicken.hurt";
 	}
 
-	/**
-	 * Returns the sound this mob makes on death.
-	 */
 	@Override
 	protected String getDeathSound()
 	{
 		return "mob.chicken.hurt";
 	}
 
-	/**
-	 * Plays step sound at given x, y, z for the entity
-	 */
 	@Override
 	protected void playStepSound(int par1, int par2, int par3, int par4)
 	{
 		this.playSound("mob.chicken.step", 0.15F, 1.0F);
 	}
 
-	/**
-	 * Returns the item ID for the item the mob drops on death.
-	 */
 	@Override
 	protected int getDropItemId()
 	{
 		return Item.feather.itemID;
 	}
 
-	/**
-	 * Drop 0-2 items of this living's type
-	 */
 	@Override
 	protected void dropFewItems(boolean par1, int par2)
 	{
@@ -180,19 +151,12 @@ public class EntityRosester extends EntityChicken
 		}
 	}
 
-	/**
-	 * This function is used when two same-species animals in 'love mode' breed to generate the new baby animal.
-	 */
 	@Override
 	public EntityRosester spawnBabyAnimal(EntityAgeable par1EntityAgeable)
 	{
 		return new EntityRosester(worldObj);
 	}
 
-	/**
-	 * Checks if the parameter is an item which this animal can be fed to breed it (wheat, carrots or seeds depending on
-	 * the animal type)
-	 */
 	@Override
 	public boolean isBreedingItem(ItemStack par1ItemStack)
 	{

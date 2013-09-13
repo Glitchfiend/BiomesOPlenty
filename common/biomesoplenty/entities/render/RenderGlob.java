@@ -53,7 +53,7 @@ public class RenderGlob extends RenderLiving
 	protected void scaleGlob(EntityGlob par1EntityGlob, float par2)
 	{
 		float f1 = par1EntityGlob.getGlobSize();
-		float f2 = (par1EntityGlob.field_70812_c + (par1EntityGlob.field_70811_b - par1EntityGlob.field_70812_c) * par2) / (f1 * 0.5F + 1.0F);
+		float f2 = (par1EntityGlob.prevSquishFactor + (par1EntityGlob.squishFactor - par1EntityGlob.prevSquishFactor) * par2) / (f1 * 0.5F + 1.0F);
 		float f3 = 1.0F / (f2 + 1.0F);
 		GL11.glScalef(f3 * f1, 1.0F / f3 * f1, f3 * f1);
 	}
@@ -65,7 +65,7 @@ public class RenderGlob extends RenderLiving
     }
 
 	@Override
-	protected ResourceLocation func_110775_a(Entity entity) 
+	protected ResourceLocation getEntityTexture(Entity entity) 
 	{
 		return new ResourceLocation("biomesoplenty:textures/mobs/glob.png");
 	}

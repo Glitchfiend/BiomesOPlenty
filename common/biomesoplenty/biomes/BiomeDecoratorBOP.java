@@ -416,10 +416,10 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		stoneInGrassGen = new WorldGenMycelium(Block.stone.blockID, 32);
 		stoneInGrassGen2 = new WorldGenShield(Block.stone.blockID, 48);
 		sandInStoneGen = new WorldGenMinable(Block.sand.blockID, 32);
-		clayInClayGen = new WorldGenBadlands2(Block.field_111039_cA.blockID, 32);
+		clayInClayGen = new WorldGenBadlands2(Block.stainedClay.blockID, 32);
 		clayInClay2Gen = new WorldGenBadlands4(Block.blockClay.blockID, 32);
-		clayInStoneGen = new WorldGenBadlands3(Block.field_111039_cA.blockID, 32);
-		clayInStone2Gen = new WorldGenBadlands(Block.field_111039_cA.blockID, 32);
+		clayInStoneGen = new WorldGenBadlands3(Block.stainedClay.blockID, 32);
+		clayInStone2Gen = new WorldGenBadlands(Block.stainedClay.blockID, 32);
 		quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
 		quicksandGen = new WorldGenQuicksand(Blocks.mud.get().blockID, 24);
 		spongeGen = new WorldGenSponge(Block.sponge.blockID, 24);

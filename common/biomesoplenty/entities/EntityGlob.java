@@ -18,9 +18,9 @@ public class EntityGlob extends EntityLiving implements IMob
 {
 	/** Chances for Globs to spawn in swamps for every moon phase. */
 	private static final float[] spawnChances = new float[] {1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F};
-	public float field_70813_a;
-	public float field_70811_b;
-	public float field_70812_c;
+	public float squishAmount;
+	public float squishFactor;
+	public float prevSquishFactor;
 
 	/** the time between each jump of the Glob */
 	private int GlobJumpDelay = 0;
@@ -46,8 +46,8 @@ public class EntityGlob extends EntityLiving implements IMob
         this.dataWatcher.updateObject(16, new Byte((byte)par1));
         this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a((double)(par1 * par1));
-        this.setEntityHealth(this.func_110138_aP());
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute((double)(par1 * par1));
+        this.setHealth(this.getMaxHealth());
         this.experienceValue = par1;
 	}
 
@@ -86,8 +86,8 @@ public class EntityGlob extends EntityLiving implements IMob
 			 isDead = true;
 		 }
 
-		 field_70811_b += (field_70813_a - field_70811_b) * 0.5F;
-		 field_70812_c = field_70811_b;
+		 squishFactor += (squishAmount - squishFactor) * 0.5F;
+		 prevSquishFactor = squishFactor;
 		 boolean flag = onGround;
 		 super.onUpdate();
 		 int i;
@@ -110,11 +110,11 @@ public class EntityGlob extends EntityLiving implements IMob
 				 this.playSound(this.getJumpSound(), this.getSoundVolume(), ((rand.nextFloat() - rand.nextFloat()) * 0.2F + 1.0F) / 0.8F);
 			 }
 
-			 field_70813_a = -0.5F;
+			 squishAmount = -0.5F;
 		 }
 		 else if (!onGround && flag)
 		 {
-			 field_70813_a = 1.0F;
+			 squishAmount = 1.0F;
 		 }
 
 		 this.func_70808_l();
@@ -169,7 +169,7 @@ public class EntityGlob extends EntityLiving implements IMob
 
 	 protected void func_70808_l()
 	 {
-		 field_70813_a *= 0.6F;
+		 squishAmount *= 0.6F;
 	 }
 
 	 /**
@@ -194,7 +194,7 @@ public class EntityGlob extends EntityLiving implements IMob
 		 int i = this.getGlobSize();
 
 		 //func_110143_aJ() == getHealth
-		 if (!worldObj.isRemote && i > 1 && this.func_110143_aJ() <= 0)
+		 if (!worldObj.isRemote && i > 1 && this.getHealth() <= 0)
 		 {
 			 int j = 2 + rand.nextInt(3);
 

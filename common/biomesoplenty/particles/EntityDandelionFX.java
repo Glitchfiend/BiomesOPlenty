@@ -39,7 +39,7 @@ public class EntityDandelionFX extends EntityFX
 		GL11.glDepthMask(false);
 		GL11.glEnable(3042);
 
-		FMLClientHandler.instance().getClient().renderEngine.func_110577_a(new ResourceLocation(texture));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(texture));
 
 		float sizeFactor = 0.1F * particleScale;
 		float var13 = (float)(prevPosX + (posX - prevPosX) * par2 - EntityFX.interpPosX);
@@ -62,7 +62,7 @@ public class EntityDandelionFX extends EntityFX
 
 		GL11.glPopMatrix();
 
-		FMLClientHandler.instance().getClient().renderEngine.func_110577_a(new ResourceLocation("/particles.png"));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("/particles.png"));
 		tessellator.startDrawingQuads();
 	}
 

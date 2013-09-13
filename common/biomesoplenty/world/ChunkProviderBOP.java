@@ -726,6 +726,8 @@ public class ChunkProviderBOP implements IChunkProvider
 		 }
 	 }
 
-	 @Override
-	 public void func_104112_b() {}
+	@Override
+	public void saveExtraData() 
+	{
+	}
 }

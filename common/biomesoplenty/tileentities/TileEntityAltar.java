@@ -61,12 +61,12 @@ public class TileEntityAltar extends TileEntity
         //{
             if (packet.actionType == 0)
             {
-                this.apatitePresent = packet.customParam1.getBoolean("apatitePresent");
-                this.peridotPresent = packet.customParam1.getBoolean("peridotPresent");
-                this.rubyPresent = packet.customParam1.getBoolean("rubyPresent");
-                this.sapphirePresent = packet.customParam1.getBoolean("sapphirePresent");
-                this.tanzanitePresent = packet.customParam1.getBoolean("tanzanitePresent");
-                this.topazPresent = packet.customParam1.getBoolean("topazPresent");
+                this.apatitePresent = packet.data.getBoolean("apatitePresent");
+                this.peridotPresent = packet.data.getBoolean("peridotPresent");
+                this.rubyPresent = packet.data.getBoolean("rubyPresent");
+                this.sapphirePresent = packet.data.getBoolean("sapphirePresent");
+                this.tanzanitePresent = packet.data.getBoolean("tanzanitePresent");
+                this.topazPresent = packet.data.getBoolean("topazPresent");
             }
         //}
         

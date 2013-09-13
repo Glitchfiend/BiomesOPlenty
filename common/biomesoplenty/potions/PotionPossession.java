@@ -18,7 +18,7 @@ public class PotionPossession extends Potion
 	@SideOnly(Side.CLIENT)
 	public int getStatusIconIndex()
 	{
-		Minecraft.getMinecraft().renderEngine.func_110577_a(new ResourceLocation("biomesoplenty:textures/potions/BOPPotionFX.png"));
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("biomesoplenty:textures/potions/BOPPotionFX.png"));
 		return 2;
 	}
 

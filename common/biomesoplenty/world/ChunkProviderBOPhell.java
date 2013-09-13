@@ -581,9 +581,6 @@ public class ChunkProviderBOPhell implements IChunkProvider
 		 return true;
 	 }
 
-	 @Override
-	 public void func_104112_b() {}
-
 	 /**
 	  * Unloads chunks that are marked to be unloaded. This is not guaranteed to unload every such chunk.
 	  */
@@ -646,4 +643,9 @@ public class ChunkProviderBOPhell implements IChunkProvider
 	 {
 		 genNetherBridge.generate(this, worldObj, par1, par2, (byte[])null);
 	 }
+
+	@Override
+	public void saveExtraData() 
+	{
+	}
 }

@@ -17,13 +17,13 @@ public class EntityJungleSpider extends EntitySpider
 	}
 
     @Override
-	protected void func_110147_ax()
+	protected void applyEntityAttributes()
     {
-        super.func_110147_ax();
+        super.applyEntityAttributes();
         //Max health
-        this.func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(6.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(6.0D);
         //Movement speed
-        this.func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.95D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.95D);
     }
 
 	@Override
