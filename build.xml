@@ -3,7 +3,7 @@
 	<property file="buildspecs.properties" prefix="buildspecs" />
 
 	<property name="mod.version" value="0.6.3" />
-	<condition property="mod.build" value="${env.BUILD_NUMBER}" else="0">
+	<condition property="mod.build" value="${env.DRONE_BUILD_NUMBER}" else="0">
 		<isset property="env.DRONE_BUILD_NUMBER" />
 	</condition>
 	<property name="mc.version" value="1.6.2" />
