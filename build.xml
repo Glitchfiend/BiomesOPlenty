@@ -1,0 +1,216 @@
+<project name="Biomes O Plenty" basedir="../" default="build">
+	<property environment="env" />
+	<property file="buildspecs.properties" prefix="buildspecs" />
+
+	<property name="mod.version" value="0.6.3" />
+	<condition property="mod.build" value="${env.BUILD_NUMBER}" else="0">
+		<isset property="env.BUILD_NUMBER" />
+	</condition>
+	<property name="mc.version" value="1.6.2" />
+	<property name="forge.version" value="9.10.1.857" />
+	<property name="fmp.version" value="1.0.0.161" />
+
+	<property name="src.dir" value="BiomesOPlenty" />
+	<property name="build.dir" value="build" />
+	<property name="download.dir" value="download" />
+	<property name="jar.dir" value="dist/${mc.version}/${mod.version}-${mod.build}" />
+	<property name="forge.dir" value="${build.dir}/forge" />
+	<property name="fmp.dir" value="${build.dir}/fmp" />
+	<property name="mcp.dir" value="${forge.dir}/mcp" />
+
+	<property name="mod.name" value="Biomes-O-Plenty-${mod.version}.${mod.build}-${mc.version}.jar" />
+
+	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
+	<property name="fmp.name" value="ForgeMultipart-dev-${mc.version}-${fmp.version}.jar" />
+
+
+	<!-- Check downloaded dependencies -->
+	<available property="forge-downloaded" file="${download.dir}/${forge.name}" />
+	<available property="fmp-downloaded" file="${download.dir}/${fmp.name}" />
+
+	<!-- Check installed dependencies -->
+	<property name="build.dependencies.file" value="${build.dir}/dependencies.properties" />
+	<property prefix="build.dependencies" file="${build.dependencies.file}" />
+	<condition property="forge-installed">
+		<equals arg1="${build.dependencies.forge}" arg2="${forge.version}" />
+	</condition>
+	<condition property="fmp-installed">
+		<and>
+			<isset property="forge-installed" />
+			<equals arg1="${build.dependencies.fmp}" arg2="${fmp.version}" />
+		</and>
+	</condition>
+
+	<condition property="runnung-in-ci">
+		<isset property="env.TRAVIS" />
+	</condition>
+
+
+	<!-- Make directories -->
+	<mkdir dir="${build.dir}" />
+	<mkdir dir="${download.dir}" />
+	<mkdir dir="${jar.dir}" />
+
+
+	<!-- Targets for downloading dependencies -->
+	<target name="download-forge" unless="forge-downloaded">
+		<get src="http://files.minecraftforge.net/${forge.name}" dest="${download.dir}" usetimestamp="true" />
+	</target>
+
+	<target name="download-fmp" unless="fmp-downloaded">
+		<get src="http://files.minecraftforge.net/ForgeMultipart/${fmp.name}" dest="${download.dir}" usetimestamp="true" />
+	</target>
+
+
+	<!-- Targets for installing dependencies -->
+	<target name="install-forge" depends="download-forge" unless="forge-installed">
+		<echo message="Deleting old Forge" />
+		<delete dir="${forge.dir}" />
+
+		<condition property="installargs" value=" --no-assets" else="">
+			<or>
+				<isset property="env.TRAVIS" />
+				<isset property="env.BUILD_ID" />
+			</or>
+		</condition>
+
+		<echo message="Installing Forge with args '${installargs}'." />
+		<unzip src="${download.dir}/${forge.name}" dest="${forge.dir}/.." />
+		<property name="fml.python.exe" location="${forge.dir}/fml/python/python_fml.exe" />
+		<exec dir="${forge.dir}" executable="${fml.python.exe}" osfamily="windows" failonerror="true">
+			<arg line="install.py${installargs}" />
+		</exec>
+		<exec dir="${forge.dir}" executable="python" osfamily="unix" failonerror="true">
+			<arg line="install.py${installargs}" />
+		</exec>
+
+		<echo message="Updating build.dependencies" />
+		<delete file="${build.dependencies.file}" />
+		<propertyfile file="${build.dependencies.file}">
+			<entry key="forge" value="${forge.version}" />
+		</propertyfile>
+	</target>
+	
+	<target name="install-fmp" depends="install-forge,download-fmp" unless="fmp-installed">
+		<echo message="Deleting old ForgeMultipart" />
+		<delete file="${mcp.dir}/lib/${build.dependencies.fmp.name}" />
+		<delete dir="${fmp.dir}" />
+
+		<echo message="Installing ForgeMultipart" />
+		<copy file="${download.dir}/${fmp.name}" todir="${mcp.dir}/lib" />
+		<unzip src="${download.dir}/${fmp.name}" dest="${fmp.dir}">
+			<patternset>
+				<include name="**/*.class" />
+			</patternset>
+		</unzip>
+
+		<echo message="Updating build.dependencies" />
+		<propertyfile file="${build.dependencies.file}">
+			<entry key="fmp" value="${fmp.version}" />
+			<entry key="fmp.name" value="${fmp.name}" />
+		</propertyfile>
+	</target>
+
+	<target name="install-dependencies" depends="install-forge,install-fmp" />
+
+	<!-- Targets for building -->
+	<target name="recompile">
+
+		<!-- Copy source -->
+		<echo message="Copying source" />
+		<copy todir="${mcp.dir}/src/minecraft">
+			<fileset dir="${src.dir}/common" />
+		</copy>
+		<copy todir="${mcp.dir}/src/minecraft">
+			<fileset dir="${src.dir}/apis" />
+		</copy>
+		<copy todir="${mcp.dir}/reobf/resources">
+			<fileset dir="${src.dir}/resources" />
+		</copy>
+
+		<!-- Replace Tokens-->
+		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@VERSION@" value="${mod.version}" />
+		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@BUILD_NUMBER@" value="${mod.build}" />
+		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@MC_VERSION@" value="${mc.version}" />
+
+		<replace dir="${mcp.dir}/reobf/resources" token="@VERSION@" value="${mod.version}" />
+		<replace dir="${mcp.dir}/reobf/resources" token="@BUILD_NUMBER@" value="${mod.build}" />
+		<replace dir="${mcp.dir}/reobf/resources" token="@MC_VERSION@" value="${mc.version}" />
+		<replace dir="${mcp.dir}/reobf/resources" token="@FORGE_VERSION@" value="${version.forge}" />
+
+		<echo message="Recompiling" />
+		<property name="mcp.python.exe" location="${mcp.dir}/runtime/bin/python/python_mcp.exe" />
+		<exec dir="${mcp.dir}" executable="${mcp.python.exe}" osfamily="windows" resultproperty="recompile.code">
+			<arg line="runtime/recompile.py" />
+		</exec>
+		<exec dir="${mcp.dir}" executable="python" osfamily="unix" resultproperty="recompile.code">
+			<arg line="runtime/recompile.py" />
+		</exec>
+
+		<echo message="Removing source" />
+		<delete includeemptydirs="true">
+			<fileset dir="${mcp.dir}/src/minecraft">
+				<present present="both" targetdir="${src.dir}/common" />
+				<present present="both" targetdir="${src.dir}/apis" />
+			</fileset>
+		</delete>
+
+		<fail message="Failed to recompile">
+			<condition>
+				<isfailure code="${recompile.code}" />
+			</condition>
+		</fail>
+	</target>
+
+	<target name="reobfuscate">
+		<echo message="Copying ForgeMultipart" />
+		<copy todir="${mcp.dir}/bin/minecraft">
+			<fileset dir="${fmp.dir}" />
+		</copy>
+
+		<echo message="Reobfuscating" />
+		<property name="mcp.python.exe" location="${mcp.dir}/runtime/bin/python/python_mcp.exe" />
+		<exec dir="${mcp.dir}" executable="${mcp.python.exe}" osfamily="windows" resultproperty="reobfuscate.code">
+			<arg line="runtime/reobfuscate.py --srgnames" />
+		</exec>
+		<exec dir="${mcp.dir}" executable="python" osfamily="unix" resultproperty="reobfuscate.code">
+			<arg line="runtime/reobfuscate.py --srgnames" />
+		</exec>
+
+		<echo message="Removing ForgeMultipart" />
+		<delete includeemptydirs="true">
+			<fileset dir="${mcp.dir}/bin/minecraft">
+				<present present="both" targetdir="${fmp.dir}" />
+			</fileset>
+			<fileset dir="${mcp.dir}/reobf/minecraft">
+				<present present="both" targetdir="${fmp.dir}" />
+			</fileset>
+		</delete>
+
+		<fail message="Failed to reobfuscate">
+			<condition>
+				<isfailure code="${reobfuscate.code}" />
+			</condition>
+		</fail>
+	</target>
+
+	<target name="package">
+		<echo message="Building Jar" />
+		<mkdir dir="${jar.dir}" />
+
+		<echo message="Packaging BiomesOPlenty" />
+		<jar destfile="${jar.dir}/${mod.name}" manifest="${mcp.dir}/reobf/resources/MANIFEST.MF">
+			<fileset dir="${mcp.dir}/reobf/minecraft" includes="**/biomesoplenty/**" />
+			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
+			</fileset>
+		</jar>
+
+	</target>
+
+	<target name="build">
+		<antcall target="install-dependencies" />
+		<antcall target="recompile" />
+		<antcall target="reobfuscate" />
+		<antcall target="package" />
+	</target>
+</project>
