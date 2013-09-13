@@ -6,3 +6,8 @@ jdk:
 before_script:
   - sudo apt-get install astyle expect
 script: ant build
+
+# whitelist
+branches:
+  only:
+    - master
