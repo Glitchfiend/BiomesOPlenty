@@ -1,6 +1,7 @@
 package biomesoplenty.handlers;
 
 import net.minecraft.block.Block;
+import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import biomesoplenty.api.Biomes;
@@ -15,6 +16,7 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.cobblestone.blockID)
 			{
 			event.replacement = Block.brick.blockID;
+			event.setResult(Result.DENY);
 			}
 		}
 	}
