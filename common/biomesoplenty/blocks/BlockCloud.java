@@ -4,10 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -44,6 +47,17 @@ public class BlockCloud extends Block
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
 	{
 		par5Entity.fallDistance = 0.0F;
+		
+		if (par5Entity instanceof EntityPlayer)
+		{
+			InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
+
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			{
+				return;
+			}
+		}
+
 		par5Entity.motionX *= 0.8D;
 		par5Entity.motionZ *= 0.8D;
 	}

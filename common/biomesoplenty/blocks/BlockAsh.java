@@ -8,6 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
@@ -62,14 +64,21 @@ public class BlockAsh extends Block
 		return false;
 	}
 
-	/**
-	 * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
-	 */
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
-		par5Entity.motionX *= 0.4D;
-		par5Entity.motionZ *= 0.4D;
+		if (entity instanceof EntityPlayer)
+		{
+			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			{
+				return;
+			}
+		}
+
+		entity.motionX *= 0.4D;
+		entity.motionZ *= 0.4D;
 	}
 
 	/**
