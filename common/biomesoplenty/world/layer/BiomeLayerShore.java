@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationBiomeGen;
 
 public class BiomeLayerShore extends BiomeLayer
 {
@@ -21,14 +21,14 @@ public class BiomeLayerShore extends BiomeLayer
 		beachBiomes.add(BiomeGenBase.beach);
 		if (Biomes.beachGravel.isPresent())
 		{
-			if (BOPConfiguration.BiomeGen.gravelBeachGen == true)
+			if (BOPConfigurationBiomeGen.gravelBeachGen == true)
 			{
 				beachBiomes.add(Biomes.beachGravel.get());
 			}
 		}
 		if (Biomes.beachOvergrown.isPresent())
 		{
-			if (BOPConfiguration.BiomeGen.overgrownBeachGen == true)
+			if (BOPConfigurationBiomeGen.overgrownBeachGen == true)
 			{
 				beachBiomes.add(Biomes.beachOvergrown.get());
 			}

@@ -9,8 +9,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenDeadTree;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree;
 
 public class BiomeGenDeadSwamp extends BiomeGenBase
 {
@@ -95,7 +95,7 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.Misc.skyColors)
+		if (BOPConfigurationMisc.skyColors)
 			return 6451816;
 		else
 		{

@@ -12,10 +12,10 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenOminous1;
-import biomesoplenty.worldgen.WorldGenOminous3;
-import biomesoplenty.worldgen.WorldGenOminous4;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.worldgen.tree.WorldGenOminous1;
+import biomesoplenty.worldgen.tree.WorldGenOminous3;
+import biomesoplenty.worldgen.tree.WorldGenOminous4;
 
 public class BiomeGenOminousWoodsThick extends BiomeGenBase
 {
@@ -92,7 +92,7 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.Misc.skyColors)
+		if (BOPConfigurationMisc.skyColors)
 			return 5069168;
 		else
 		{

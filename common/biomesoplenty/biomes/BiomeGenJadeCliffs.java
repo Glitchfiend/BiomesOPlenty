@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenPineTree;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
 public class BiomeGenJadeCliffs extends BiomeGenBase
 {
@@ -60,7 +60,7 @@ public class BiomeGenJadeCliffs extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.Misc.skyColors)
+		if (BOPConfigurationMisc.skyColors)
 			return 12045485;
 		else
 		{

@@ -1,7 +1,7 @@
 package biomesoplenty.world.layer;
 
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationBiomeGen;
 import biomesoplenty.api.Biomes;
 
 public class BiomeLayerCreate extends BiomeLayer
@@ -16,7 +16,7 @@ public class BiomeLayerCreate extends BiomeLayer
 	{
 		int[] var5 = IntCache.getIntCache(par3 * par4);
 
-		boolean ocean = BOPConfiguration.BiomeGen.oceanGen;
+		boolean ocean = BOPConfigurationBiomeGen.oceanGen;
 		boolean abyss = Biomes.oceanAbyss.isPresent();
 		boolean coral = Biomes.oceanCoral.isPresent();
 		boolean kelp = Biomes.oceanKelp.isPresent();

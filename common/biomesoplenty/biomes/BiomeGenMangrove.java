@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenMangrove;
-import biomesoplenty.worldgen.WorldGenMangrove2;
+import biomesoplenty.worldgen.tree.WorldGenMangrove;
+import biomesoplenty.worldgen.tree.WorldGenMangrove2;
 
 public class BiomeGenMangrove extends BiomeGenBase
 {

@@ -10,11 +10,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenBayou1;
-import biomesoplenty.worldgen.WorldGenBayou2;
-import biomesoplenty.worldgen.WorldGenBayou3;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.tree.WorldGenBayou1;
+import biomesoplenty.worldgen.tree.WorldGenBayou2;
+import biomesoplenty.worldgen.tree.WorldGenBayou3;
 
 public class BiomeGenBayou extends BiomeGenBase
 {
@@ -108,7 +108,7 @@ public class BiomeGenBayou extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 11322556;
 		 else
 		 {

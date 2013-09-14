@@ -6,10 +6,10 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenPineTree;
-import biomesoplenty.worldgen.WorldGenRealPineTree;
-import biomesoplenty.worldgen.WorldGenRealPineTree2;
+import biomesoplenty.configuration.configfile.BOPConfigurationMain;
+import biomesoplenty.worldgen.realtree.WorldGenRealPineTree;
+import biomesoplenty.worldgen.realtree.WorldGenRealPineTree2;
+import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
 public class BiomeGenMountain extends BiomeGenBase
 {
@@ -31,7 +31,7 @@ public class BiomeGenMountain extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.Main.realisticTrees)
+		if (BOPConfigurationMain.realisticTrees)
 		{
 			return par1Random.nextInt(4) == 0 ? new WorldGenRealPineTree2() : (par1Random.nextInt(6) == 0 ? new WorldGenRealPineTree() : worldGeneratorTrees);
 		}

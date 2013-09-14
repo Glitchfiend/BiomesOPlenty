@@ -12,7 +12,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenDeadlands;
 
 public class BiomeGenDeadlands extends BiomeGenBase
@@ -78,7 +78,7 @@ public class BiomeGenDeadlands extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 4464929;
 		 else
 		 {

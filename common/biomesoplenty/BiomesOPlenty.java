@@ -5,13 +5,15 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
-import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.configuration.BOPCrafting;
 import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPFluids;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPPotions;
 import biomesoplenty.configuration.BOPVanillaCompat;
+import biomesoplenty.configuration.configfile.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.handlers.BOPCraftHandler;
 import biomesoplenty.handlers.BonemealHandler;
 import biomesoplenty.handlers.BreakSpeedHandler;
@@ -79,7 +81,7 @@ public class BiomesOPlenty
 		}
 
 		// Achievement declaration
-		if (BOPConfiguration.Misc.achievements)
+		if (BOPConfigurationMisc.achievements)
 		{
 			AchievementHelper.init();
 		}
@@ -115,8 +117,8 @@ public class BiomesOPlenty
 //        	DimensionManager.unregisterProviderType(-1);
 //        	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
 //		}
-		DimensionManager.registerProviderType(BOPConfiguration.IDs.promisedLandDimID, WorldProviderPromised.class, false);
-		DimensionManager.registerDimension(BOPConfiguration.IDs.promisedLandDimID, BOPConfiguration.IDs.promisedLandDimID);
+		DimensionManager.registerProviderType(BOPConfigurationIDs.promisedLandDimID, WorldProviderPromised.class, false);
+		DimensionManager.registerDimension(BOPConfigurationIDs.promisedLandDimID, BOPConfigurationIDs.promisedLandDimID);
 		
 		BOPCrossIntegration.init();
 	}

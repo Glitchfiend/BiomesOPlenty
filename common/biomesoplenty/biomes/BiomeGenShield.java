@@ -7,9 +7,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenPineTree;
-import biomesoplenty.worldgen.WorldGenTaiga5;
-import biomesoplenty.worldgen.WorldGenTaiga9;
+import biomesoplenty.worldgen.tree.WorldGenPineTree;
+import biomesoplenty.worldgen.tree.WorldGenTaiga5;
+import biomesoplenty.worldgen.tree.WorldGenTaiga9;
 
 public class BiomeGenShield extends BiomeGenBase
 {

@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenTaiga5;
+import biomesoplenty.worldgen.tree.WorldGenTaiga5;
 
 public class BiomeGenSpruceWoods extends BiomeGenBase
 {

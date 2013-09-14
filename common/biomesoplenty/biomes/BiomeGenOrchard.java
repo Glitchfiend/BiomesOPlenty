@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenApple;
+import biomesoplenty.worldgen.tree.WorldGenApple;
 
 public class BiomeGenOrchard extends BiomeGenBase
 {

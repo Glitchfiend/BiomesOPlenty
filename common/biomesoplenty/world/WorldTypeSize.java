@@ -4,7 +4,7 @@ import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.terraingen.WorldTypeEvent;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 
 public class WorldTypeSize
 {
@@ -12,15 +12,15 @@ public class WorldTypeSize
 	public void BiomeSize(WorldTypeEvent.BiomeSize event)
 	{
 		if (event.worldType.getWorldTypeName() == "BIOMESOP") {
-			event.newSize = (byte)BOPConfiguration.TerrainGen.biomeSize;
+			event.newSize = (byte)BOPConfigurationTerrainGen.biomeSize;
 			
-			if (BOPConfiguration.TerrainGen.netherOverride)
+			if (BOPConfigurationTerrainGen.netherOverride)
 			{
 	        	DimensionManager.unregisterProviderType(-1);
 	        	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
 			}
 		}
-		else if (BOPConfiguration.TerrainGen.netherOverride && BOPConfiguration.TerrainGen.addToDefault)
+		else if (BOPConfigurationTerrainGen.netherOverride && BOPConfigurationTerrainGen.addToDefault)
 		{
         	DimensionManager.unregisterProviderType(-1);
         	DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);

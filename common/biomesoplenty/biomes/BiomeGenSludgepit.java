@@ -11,7 +11,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenBog1;
 import biomesoplenty.worldgen.WorldGenBog2;
 
@@ -103,7 +103,7 @@ public class BiomeGenSludgepit extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.Misc.skyColors)
+		if (BOPConfigurationMisc.skyColors)
 			return 7039816;
 		else
 		{

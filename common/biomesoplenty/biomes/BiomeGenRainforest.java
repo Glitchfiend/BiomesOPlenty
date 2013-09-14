@@ -11,7 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.worldgen.WorldGenRainforestTree1;
+import biomesoplenty.worldgen.tree.WorldGenRainforestTree1;
 
 public class BiomeGenRainforest extends BiomeGenBase
 {

@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 
 public class BiomeGenCrag extends BiomeGenBase
 {
@@ -52,7 +52,7 @@ public class BiomeGenCrag extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 4944498;
 		 else
 		 {

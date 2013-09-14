@@ -6,6 +6,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.projectiles.DispenserBehaviorDart;
 import biomesoplenty.entities.projectiles.DispenserBehaviorMudball;
 
@@ -29,7 +30,7 @@ public class BOPVanillaCompat {
 		strongholdCrossing = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING);
 		village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
 
-		if (BOPConfiguration.Misc.dungeonLoot == true)
+		if (BOPConfigurationMisc.dungeonLoot == true)
 		{
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 2));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 2, 5));

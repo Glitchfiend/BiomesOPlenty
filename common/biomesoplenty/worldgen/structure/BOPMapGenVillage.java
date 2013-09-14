@@ -12,7 +12,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraft.world.gen.structure.StructureStart;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 
 public class BOPMapGenVillage extends MapGenStructure
 {
@@ -27,8 +27,8 @@ public class BOPMapGenVillage extends MapGenStructure
 	public BOPMapGenVillage()
 	{
 		terrainType = 0;
-		maxDistance = BOPConfiguration.TerrainGen.villageDistance;
-		minDistance = BOPConfiguration.TerrainGen.villageDistance / 4;
+		maxDistance = BOPConfigurationTerrainGen.villageDistance;
+		minDistance = BOPConfigurationTerrainGen.villageDistance / 4;
 		villageSpawnBiomes = MapGenVillage.villageSpawnBiomes;
 	}
 

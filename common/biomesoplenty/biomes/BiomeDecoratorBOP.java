@@ -44,7 +44,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Fluids;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
 import biomesoplenty.worldgen.WorldGenBOPBush;
@@ -67,8 +67,8 @@ import biomesoplenty.worldgen.WorldGenCrystal1;
 import biomesoplenty.worldgen.WorldGenCrystal2;
 import biomesoplenty.worldgen.WorldGenDesertCactus;
 import biomesoplenty.worldgen.WorldGenDriedDirt;
-import biomesoplenty.worldgen.WorldGenGravel;
 import biomesoplenty.worldgen.WorldGenGrave;
+import biomesoplenty.worldgen.WorldGenGravel;
 import biomesoplenty.worldgen.WorldGenHighCattail;
 import biomesoplenty.worldgen.WorldGenHighGrass;
 import biomesoplenty.worldgen.WorldGenKelp;
@@ -85,7 +85,6 @@ import biomesoplenty.worldgen.WorldGenOasis;
 import biomesoplenty.worldgen.WorldGenOutback;
 import biomesoplenty.worldgen.WorldGenPit;
 import biomesoplenty.worldgen.WorldGenPotatoes;
-import biomesoplenty.worldgen.WorldGenPromisedWillow;
 import biomesoplenty.worldgen.WorldGenPumpkinAlt;
 import biomesoplenty.worldgen.WorldGenQuagmire;
 import biomesoplenty.worldgen.WorldGenQuicksand;
@@ -97,281 +96,282 @@ import biomesoplenty.worldgen.WorldGenSponge;
 import biomesoplenty.worldgen.WorldGenSprout;
 import biomesoplenty.worldgen.WorldGenSteppe;
 import biomesoplenty.worldgen.WorldGenSunflower;
+import biomesoplenty.worldgen.tree.WorldGenPromisedWillow;
 
 public class BiomeDecoratorBOP extends BiomeDecorator
 {
 
 	/** The world the BiomeDecorator is currently decorating */
-	protected World currentWorld;
+	public World currentWorld;
 
 	/** The Biome Decorator's random number generator. */
-	protected Random randomGenerator;
+	public Random randomGenerator;
 
 	/** The X-coordinate of the chunk currently being decorated */
-	protected int chunk_X;
+	public int chunk_X;
 
 	/** The Z-coordinate of the chunk currently being decorated */
-	protected int chunk_Z;
+	public int chunk_Z;
 
 	/** The biome generator object. */
-	protected BiomeGenBase biome;
+	public BiomeGenBase biome;
 
 	/** The clay generator. */
-	protected WorldGenerator clayGen = new WorldGenClay(4);
+	public WorldGenerator clayGen = new WorldGenClay(4);
 
 	/** The sand generator. */
-	protected WorldGenerator sandGen;
-	protected WorldGenerator mudGen;
-	protected WorldGenerator oasesGen;
+	public WorldGenerator sandGen;
+	public WorldGenerator mudGen;
+	public WorldGenerator oasesGen;
 
 	/** The gravel generator. */
-	protected WorldGenerator gravelAsSandGen;
+	public WorldGenerator gravelAsSandGen;
 
 	/** The dirt generator. */
-	protected WorldGenerator dirtGen;
-	protected WorldGenerator gravelGen;
-	protected WorldGenerator gravelShoreGen;
-	protected WorldGenerator ashGen;
-	protected WorldGenerator grassMesaGen;
-	protected WorldGenerator sandMesaGen;
-	protected WorldGenerator myceliumGen;
-	protected WorldGenerator sandInGrassGen;
-	protected WorldGenerator stoneInGrassGen;
-	protected WorldGenerator stoneInGrassGen2;
-	protected WorldGenerator sandInStoneGen;
-	protected WorldGenerator driedDirtInSandGen;
-	protected WorldGenerator clayInClayGen;
-	protected WorldGenerator clayInClay2Gen;
-	protected WorldGenerator clayInStoneGen;
-	protected WorldGenerator clayInStone2Gen;
-	protected WorldGenerator quagmireGen;
-	protected WorldGenerator quicksandGen;
-	protected WorldGenerator spongeGen;
-	protected WorldGenerator canyonGen;
-	protected WorldGenerator cloudGen;
-	protected WorldGenerator coalGen;
-	protected WorldGenerator ironGen;
+	public WorldGenerator dirtGen;
+	public WorldGenerator gravelGen;
+	public WorldGenerator gravelShoreGen;
+	public WorldGenerator ashGen;
+	public WorldGenerator grassMesaGen;
+	public WorldGenerator sandMesaGen;
+	public WorldGenerator myceliumGen;
+	public WorldGenerator sandInGrassGen;
+	public WorldGenerator stoneInGrassGen;
+	public WorldGenerator stoneInGrassGen2;
+	public WorldGenerator sandInStoneGen;
+	public WorldGenerator driedDirtInSandGen;
+	public WorldGenerator clayInClayGen;
+	public WorldGenerator clayInClay2Gen;
+	public WorldGenerator clayInStoneGen;
+	public WorldGenerator clayInStone2Gen;
+	public WorldGenerator quagmireGen;
+	public WorldGenerator quicksandGen;
+	public WorldGenerator spongeGen;
+	public WorldGenerator canyonGen;
+	public WorldGenerator cloudGen;
+	public WorldGenerator coalGen;
+	public WorldGenerator ironGen;
 
 	/** Field that holds gold WorldGenMinable */
-	protected WorldGenerator goldGen;
+	public WorldGenerator goldGen;
 
 	/** Field that holds redstone WorldGenMinable */
-	protected WorldGenerator redstoneGen;
+	public WorldGenerator redstoneGen;
 
 	/** Field that holds diamond WorldGenMinable */
-	protected WorldGenerator diamondGen;
+	public WorldGenerator diamondGen;
 
 	/** Field that holds Lapis WorldGenMinable */
-	protected WorldGenerator lapisGen;
+	public WorldGenerator lapisGen;
 
 	/** Field that holds one of the plantYellow WorldGenFlowers */
-	protected WorldGenerator plantYellowGen;
-	protected WorldGenerator dandelionGen;
+	public WorldGenerator plantYellowGen;
+	public WorldGenerator dandelionGen;
 
 	/** Field that holds one of the plantRed WorldGenFlowers */
-	protected WorldGenerator plantRedGen;
-	protected WorldGenerator plantWhiteGen;
-	protected WorldGenerator plantBlueGen;
-	protected WorldGenerator plantPurpleGen;
-	protected WorldGenerator plantPinkGen;
-	protected WorldGenerator plantOrangeGen;
-	protected WorldGenerator plantTinyGen;
-	protected WorldGenerator plantGlowGen;
-	protected WorldGenerator plantDeadGen;
-	protected WorldGenerator plantDesertGen;
-	protected WorldGenerator cattailGen;
-	protected WorldGenerator highCattailGen;
-	protected WorldGenerator outbackGen;
-	protected WorldGenerator smolderingGrassGen;
-	protected WorldGenerator canyonGrassGen;
-	protected WorldGenerator netherGrassGen;
-	protected WorldGenerator netherWartGen;
-	protected WorldGenerator steppeGen;
-	protected WorldGenerator cobwebGen;
-	protected WorldGenerator thornGen;
-	protected WorldGenerator toadstoolGen;
-	protected WorldGenerator portobelloGen;
-	protected WorldGenerator blueMilkGen;
-	protected WorldGenerator glowshroomGen;
-	protected WorldGenerator highGrassGen;
-	protected WorldGenerator carrotGen;
-	protected WorldGenerator potatoGen;
-	protected WorldGenerator sproutGen;
-	protected WorldGenerator bushGen;
-	protected WorldGenerator berryBushGen;
-	protected WorldGenerator tinyCactusGen;
-	protected WorldGenerator aloeGen;
-	protected WorldGenerator deathbloomGen;
-	protected WorldGenerator hydrangeaGen;
-	protected WorldGenerator violetGen;
-	protected WorldGenerator duneGrassGen;
-	protected WorldGenerator holyTallGrassGen;
-	protected WorldGenerator desertSproutsGen;
-	protected WorldGenerator promisedWillowGen;
-	protected WorldGenerator netherVineGen;
-	protected WorldGenerator poisonIvyGen;
-	protected WorldGenerator sunflowerGen;
-	protected WorldGenerator rainbowflowerGen;
-	protected WorldGenerator crystalGen;
-	protected WorldGenerator crystalGen2;
-	protected WorldGenerator kelpGen;
-	protected WorldGenerator shortKelpGen;
-	protected WorldGenerator graveGen;
-	protected WorldGenerator pumpkinAltGen;
-	protected WorldGenerator coralGen;
+	public WorldGenerator plantRedGen;
+	public WorldGenerator plantWhiteGen;
+	public WorldGenerator plantBlueGen;
+	public WorldGenerator plantPurpleGen;
+	public WorldGenerator plantPinkGen;
+	public WorldGenerator plantOrangeGen;
+	public WorldGenerator plantTinyGen;
+	public WorldGenerator plantGlowGen;
+	public WorldGenerator plantDeadGen;
+	public WorldGenerator plantDesertGen;
+	public WorldGenerator cattailGen;
+	public WorldGenerator highCattailGen;
+	public WorldGenerator outbackGen;
+	public WorldGenerator smolderingGrassGen;
+	public WorldGenerator canyonGrassGen;
+	public WorldGenerator netherGrassGen;
+	public WorldGenerator netherWartGen;
+	public WorldGenerator steppeGen;
+	public WorldGenerator cobwebGen;
+	public WorldGenerator thornGen;
+	public WorldGenerator toadstoolGen;
+	public WorldGenerator portobelloGen;
+	public WorldGenerator blueMilkGen;
+	public WorldGenerator glowshroomGen;
+	public WorldGenerator highGrassGen;
+	public WorldGenerator carrotGen;
+	public WorldGenerator potatoGen;
+	public WorldGenerator sproutGen;
+	public WorldGenerator bushGen;
+	public WorldGenerator berryBushGen;
+	public WorldGenerator tinyCactusGen;
+	public WorldGenerator aloeGen;
+	public WorldGenerator deathbloomGen;
+	public WorldGenerator hydrangeaGen;
+	public WorldGenerator violetGen;
+	public WorldGenerator duneGrassGen;
+	public WorldGenerator holyTallGrassGen;
+	public WorldGenerator desertSproutsGen;
+	public WorldGenerator promisedWillowGen;
+	public WorldGenerator netherVineGen;
+	public WorldGenerator poisonIvyGen;
+	public WorldGenerator sunflowerGen;
+	public WorldGenerator rainbowflowerGen;
+	public WorldGenerator crystalGen;
+	public WorldGenerator crystalGen2;
+	public WorldGenerator kelpGen;
+	public WorldGenerator shortKelpGen;
+	public WorldGenerator graveGen;
+	public WorldGenerator pumpkinAltGen;
+	public WorldGenerator coralGen;
 
-	protected WorldGenerator boneSpineGen;
-	protected WorldGenerator boneSpine2Gen;
+	public WorldGenerator boneSpineGen;
+	public WorldGenerator boneSpine2Gen;
 
 	/** Field that holds mushroomBrown WorldGenFlowers */
-	protected WorldGenerator mushroomBrownGen;
+	public WorldGenerator mushroomBrownGen;
 
 	/** Field that holds mushroomRed WorldGenFlowers */
-	protected WorldGenerator mushroomRedGen;
+	public WorldGenerator mushroomRedGen;
 
 	/** Field that holds big mushroom generator */
-	protected WorldGenerator bigMushroomGen;
+	public WorldGenerator bigMushroomGen;
 
 	/** Field that holds WorldGenReed */
-	protected WorldGenerator reedGen;
-	protected WorldGenerator reedBOPGen;
+	public WorldGenerator reedGen;
+	public WorldGenerator reedBOPGen;
 
 	/** Field that holds WorldGenCactus */
-	protected WorldGenerator cactusGen;
-	protected WorldGenerator desertCactusGen;
+	public WorldGenerator cactusGen;
+	public WorldGenerator desertCactusGen;
 
 	/** The water lily generation! */
-	protected WorldGenerator waterlilyGen;
-	protected WorldGenerator lilyflowerGen;
-	protected WorldGenerator algaeGen;
-	protected WorldGenerator pitGen;
+	public WorldGenerator waterlilyGen;
+	public WorldGenerator lilyflowerGen;
+	public WorldGenerator algaeGen;
+	public WorldGenerator pitGen;
 
 	/** Amount of waterlilys per chunk. */
-	protected int waterlilyPerChunk;
-	protected int lilyflowersPerChunk;
-	protected int algaePerChunk;
-	protected int crystalsPerChunk;
-	protected int crystals2PerChunk;
+	public int waterlilyPerChunk;
+	public int lilyflowersPerChunk;
+	public int algaePerChunk;
+	public int crystalsPerChunk;
+	public int crystals2PerChunk;
 
 	/**
 	 * The number of trees to attempt to generate per chunk. Up to 10 in forests, none in deserts.
 	 */
-	//protected int treesPerChunk; fix for bigtrees mod compatibility -ted80
+	//public int treesPerChunk; fix for bigtrees mod compatibility -ted80
 
 	/**
 	 * The number of yellow flower patches to generate per chunk. The game generates much less than this number, since
 	 * it attempts to generate them at a random altitude.
 	 */
-	protected int flowersPerChunk;
-	protected int whiteFlowersPerChunk;
-	protected int blueFlowersPerChunk;
-	protected int purpleFlowersPerChunk;
-	protected int pinkFlowersPerChunk;
-	protected int orangeFlowersPerChunk;
-	protected int tinyFlowersPerChunk;
-	protected int glowFlowersPerChunk;
-	protected int deadGrassPerChunk;
-	protected int desertGrassPerChunk;
-	protected int cattailsPerChunk;
-	protected int highCattailsPerChunk;
-	protected int carrotsPerChunk;
-	protected int potatoesPerChunk;
-	protected int thornsPerChunk;
-	protected int toadstoolsPerChunk;
-	protected int portobellosPerChunk;
-	protected int blueMilksPerChunk;
-	protected int glowshroomsPerChunk;
-	protected int sproutsPerChunk;
-	protected int bushesPerChunk;
-	protected int berryBushesPerChunk;
-	protected int tinyCactiPerChunk;
-	protected int aloePerChunk;
-	protected int deathbloomsPerChunk;
-	protected int hydrangeasPerChunk;
-	protected int violetsPerChunk;
-	protected int duneGrassPerChunk;
-	protected int holyTallGrassPerChunk;
-	protected int desertSproutsPerChunk;
-	protected int promisedWillowPerChunk;
-	protected int netherVinesPerChunk;
-	protected int poisonIvyPerChunk;
-	protected int sunflowersPerChunk;
-	protected int rainbowflowersPerChunk;
-	protected int cobwebsPerChunk;
-	protected int kelpPerChunk;
-	protected int kelpThickPerChunk;
-	protected int shortKelpPerChunk;
-	protected int gravesPerChunk;
-	protected int pumpkinsPerChunk;
-	protected int coralPerChunk;
+	public int flowersPerChunk;
+	public int whiteFlowersPerChunk;
+	public int blueFlowersPerChunk;
+	public int purpleFlowersPerChunk;
+	public int pinkFlowersPerChunk;
+	public int orangeFlowersPerChunk;
+	public int tinyFlowersPerChunk;
+	public int glowFlowersPerChunk;
+	public int deadGrassPerChunk;
+	public int desertGrassPerChunk;
+	public int cattailsPerChunk;
+	public int highCattailsPerChunk;
+	public int carrotsPerChunk;
+	public int potatoesPerChunk;
+	public int thornsPerChunk;
+	public int toadstoolsPerChunk;
+	public int portobellosPerChunk;
+	public int blueMilksPerChunk;
+	public int glowshroomsPerChunk;
+	public int sproutsPerChunk;
+	public int bushesPerChunk;
+	public int berryBushesPerChunk;
+	public int tinyCactiPerChunk;
+	public int aloePerChunk;
+	public int deathbloomsPerChunk;
+	public int hydrangeasPerChunk;
+	public int violetsPerChunk;
+	public int duneGrassPerChunk;
+	public int holyTallGrassPerChunk;
+	public int desertSproutsPerChunk;
+	public int promisedWillowPerChunk;
+	public int netherVinesPerChunk;
+	public int poisonIvyPerChunk;
+	public int sunflowersPerChunk;
+	public int rainbowflowersPerChunk;
+	public int cobwebsPerChunk;
+	public int kelpPerChunk;
+	public int kelpThickPerChunk;
+	public int shortKelpPerChunk;
+	public int gravesPerChunk;
+	public int pumpkinsPerChunk;
+	public int coralPerChunk;
 
-	protected int boneSpinesPerChunk;
-	protected int boneSpines2PerChunk;
+	public int boneSpinesPerChunk;
+	public int boneSpines2PerChunk;
 
 	/** The amount of tall grass to generate per chunk. */
-	protected int grassPerChunk;
-	protected int outbackPerChunk;
-	protected int smolderingGrassPerChunk;
-	protected int netherGrassPerChunk;
-	protected int netherWartPerChunk;
-	protected int canyonGrassPerChunk;
-	protected int steppePerChunk;
-	protected int highGrassPerChunk;
+	public int grassPerChunk;
+	public int outbackPerChunk;
+	public int smolderingGrassPerChunk;
+	public int netherGrassPerChunk;
+	public int netherWartPerChunk;
+	public int canyonGrassPerChunk;
+	public int steppePerChunk;
+	public int highGrassPerChunk;
 
 	/**
 	 * The number of dead bushes to generate per chunk. Used in deserts and swamps.
 	 */
-	protected int deadBushPerChunk;
+	public int deadBushPerChunk;
 
 	/**
 	 * The number of extra mushroom patches per chunk. It generates 1/4 this number in brown mushroom patches, and 1/8
 	 * this number in red mushroom patches. These mushrooms go beyond the default base number of mushrooms.
 	 */
-	protected int mushroomsPerChunk;
+	public int mushroomsPerChunk;
 
 	/**
 	 * The number of reeds to generate per chunk. Reeds won't generate if the randomly selected placement is unsuitable.
 	 */
-	protected int reedsPerChunk;
-	protected int reedsBOPPerChunk;
+	public int reedsPerChunk;
+	public int reedsBOPPerChunk;
 
 	/**
 	 * The number of cactus plants to generate per chunk. Cacti only work on sand.
 	 */
-	protected int cactiPerChunk;
-	protected int desertCactiPerChunk;
+	public int cactiPerChunk;
+	public int desertCactiPerChunk;
 
 	/**
 	 * The number of sand patches to generate per chunk. Sand patches only generate when part of it is underwater.
 	 */
-	protected int sandPerChunk;
-	protected int oasesPerChunk;
-	protected int mudPerChunk;
-	protected int gravelPerChunk;
+	public int sandPerChunk;
+	public int oasesPerChunk;
+	public int mudPerChunk;
+	public int gravelPerChunk;
 
 	/**
 	 * The number of sand patches to generate per chunk. Sand patches only generate when part of it is underwater. There
 	 * appear to be two separate fields for this.
 	 */
-	protected int sandPerChunk2;
-	protected int oasesPerChunk2;
-	protected int mudPerChunk2;
-	protected int gravelPerChunk2;
+	public int sandPerChunk2;
+	public int oasesPerChunk2;
+	public int mudPerChunk2;
+	public int gravelPerChunk2;
 
 	/**
 	 * The number of clay patches to generate per chunk. Only generates when part of it is underwater.
 	 */
-	protected int clayPerChunk;
+	public int clayPerChunk;
 
 	/** Amount of big mushrooms per chunk */
-	protected int bigMushroomsPerChunk;
-	protected int rosesPerChunk;
-	protected int pondsPerChunk;
-	protected int waterLakesPerChunk;
-	protected int lavaLakesPerChunk;
-	protected int netherLavaPerChunk;
-	protected int hotSpringsPerChunk;
-	protected int poisonWaterPerChunk;
+	public int bigMushroomsPerChunk;
+	public int rosesPerChunk;
+	public int pondsPerChunk;
+	public int waterLakesPerChunk;
+	public int lavaLakesPerChunk;
+	public int netherLavaPerChunk;
+	public int hotSpringsPerChunk;
+	public int poisonWaterPerChunk;
 
 	/** True if decorator should generate surface lava & water */
 	public boolean generateLakes;
@@ -669,7 +669,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < hotSpringsPerChunk; ++var2)
 		 {
-			 if (BOPConfiguration.TerrainGen.springWaterGen)
+			 if (BOPConfigurationTerrainGen.springWaterGen)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
@@ -682,7 +682,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 {
 			 int var9999 = randomGenerator.nextInt(96);
 
-			 if (BOPConfiguration.TerrainGen.springWaterGen)
+			 if (BOPConfigurationTerrainGen.springWaterGen)
 			 {
 				 if (var9999 == 1)
 				 {
@@ -696,7 +696,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < poisonWaterPerChunk; ++var2)
 		 {
-			 if (BOPConfiguration.TerrainGen.poisonWaterGen)
+			 if (BOPConfigurationTerrainGen.poisonWaterGen)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(112) + 8) + 8);
@@ -709,7 +709,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 {
 			 int var9998 = randomGenerator.nextInt(32);
 
-			 if (BOPConfiguration.TerrainGen.poisonWaterGen)
+			 if (BOPConfigurationTerrainGen.poisonWaterGen)
 			 {
 				 if (var9998 == 1)
 				 {
@@ -798,7 +798,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 if (generateQuicksand)
 		 {
-			 if (BOPConfiguration.TerrainGen.quicksandGen)
+			 if (BOPConfigurationTerrainGen.quicksandGen)
 			 {
 				 this.genStandardOre1(5, quicksandGen, 64, 128);
 			 }
@@ -1173,7 +1173,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < poisonIvyPerChunk; ++var2)
 		 {
-			 if (BOPConfiguration.TerrainGen.poisonIvyGen)
+			 if (BOPConfigurationTerrainGen.poisonIvyGen)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = randomGenerator.nextInt(256);
@@ -1379,7 +1379,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 		 for (var2 = 0; var2 < thornsPerChunk; ++var2)
 		 {
-			 if (BOPConfiguration.TerrainGen.thornGen)
+			 if (BOPConfigurationTerrainGen.thornGen)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 				 var4 = randomGenerator.nextInt(256);
@@ -1475,7 +1475,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var3 = randomGenerator.nextInt(256);
 			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 
-			 if (BOPConfiguration.TerrainGen.pumpkinGen)
+			 if (BOPConfigurationTerrainGen.pumpkinGen)
 			 {
 				 (new WorldGenBOPPumpkin()).generate(currentWorld, randomGenerator, var2, var3, var4);
 			 }

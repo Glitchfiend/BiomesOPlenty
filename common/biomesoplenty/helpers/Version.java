@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.common.Property;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMain;
 import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
@@ -64,7 +64,7 @@ public class Version implements Runnable {
 		WorldType terrainType = world.getWorldInfo().getTerrainType();
 		WorldTypeBOP bopType = new WorldTypeBOP();
 		
-		Property property = BOPConfiguration.Main.config.get("Vars", "Seen WorldType Msg", false);
+		Property property = BOPConfigurationMain.config.get("Vars", "Seen WorldType Msg", false);
 		String worldTypeProp = property.getString();
 		
 		if (terrainType == null || property.getBoolean(false) == true)
@@ -74,13 +74,13 @@ public class Version implements Runnable {
 		{
 			property.set(true);
 			
-			BOPConfiguration.Main.config.save();
+			BOPConfigurationMain.config.save();
 			return false;
 		}
 		
 		property.set(true);
 		
-		BOPConfiguration.Main.config.save();
+		BOPConfigurationMain.config.save();
 		return true;
 	}
 

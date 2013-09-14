@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.helpers.TeleporterPromised;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -77,9 +77,9 @@ public class BlockPromisedPortal extends Block
 			if (par5Entity instanceof EntityPlayerMP)
 			{
 				EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
-				if (par5Entity.dimension != BOPConfiguration.IDs.promisedLandDimID)
+				if (par5Entity.dimension != BOPConfigurationIDs.promisedLandDimID)
 				{
-					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, BOPConfiguration.IDs.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfiguration.IDs.promisedLandDimID)));
+					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, BOPConfigurationIDs.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfigurationIDs.promisedLandDimID)));
 				}
 				else
 				{

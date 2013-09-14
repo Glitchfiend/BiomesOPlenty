@@ -10,7 +10,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
 
 public class BiomeGenSacredSprings extends BiomeGenBase
@@ -100,7 +100,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 1995007;
 		 else
 		 {

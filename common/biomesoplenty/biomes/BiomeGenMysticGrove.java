@@ -9,11 +9,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenMystic1;
-import biomesoplenty.worldgen.WorldGenMystic2;
-import biomesoplenty.worldgen.WorldGenRealMagic;
-import biomesoplenty.worldgen.WorldGenSwampTall;
+import biomesoplenty.configuration.configfile.BOPConfigurationMain;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.worldgen.realtree.WorldGenRealMagic;
+import biomesoplenty.worldgen.tree.WorldGenMystic1;
+import biomesoplenty.worldgen.tree.WorldGenMystic2;
+import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
 public class BiomeGenMysticGrove extends BiomeGenBase
 {
@@ -25,7 +26,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		if (BOPConfiguration.Main.realisticTrees)
+		if (BOPConfigurationMain.realisticTrees)
 		{
 			customBiomeDecorator.treesPerChunk = 1;
 		}
@@ -61,7 +62,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.Main.realisticTrees)
+		if (BOPConfigurationMain.realisticTrees)
 		{
 			return new WorldGenRealMagic();
 		}
@@ -102,7 +103,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfiguration.Misc.skyColors)
+		if (BOPConfigurationMisc.skyColors)
 			return 16751558;
 		else
 		{

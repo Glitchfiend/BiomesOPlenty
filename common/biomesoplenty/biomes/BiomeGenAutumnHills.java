@@ -7,9 +7,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenDeadTree;
-import biomesoplenty.worldgen.WorldGenPersimmon;
-import biomesoplenty.worldgen.WorldGenTaiga4;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree;
+import biomesoplenty.worldgen.tree.WorldGenPersimmon;
+import biomesoplenty.worldgen.tree.WorldGenTaiga4;
 
 public class BiomeGenAutumnHills extends BiomeGenBase
 {

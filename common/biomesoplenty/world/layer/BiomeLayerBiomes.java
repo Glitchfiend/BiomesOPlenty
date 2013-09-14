@@ -6,7 +6,7 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationBiomeGen;
 
 public class BiomeLayerBiomes extends BiomeLayer
 {
@@ -48,28 +48,28 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherGarden.isPresent())
 		{
-			if (BOPConfiguration.BiomeGen.undergardenGen == true)
+			if (BOPConfigurationBiomeGen.undergardenGen == true)
 			{
 				netherBiomes.add(Biomes.netherGarden.get());
 			}
 		}
 		if (Biomes.netherDesert.isPresent())
 		{
-			if (BOPConfiguration.BiomeGen.corruptedSandsGen == true)
+			if (BOPConfigurationBiomeGen.corruptedSandsGen == true)
 			{
 				netherBiomes.add(Biomes.netherDesert.get());
 			}
 		}
 		if (Biomes.netherLava.isPresent())
 		{
-			if (BOPConfiguration.BiomeGen.phantasmagoricInfernoGen == true)
+			if (BOPConfigurationBiomeGen.phantasmagoricInfernoGen == true)
 			{
 				netherBiomes.add(Biomes.netherLava.get());
 			}
 		}
 		if (Biomes.netherBone.isPresent())
 		{
-			if (BOPConfiguration.BiomeGen.boneyardGen == true)
+			if (BOPConfigurationBiomeGen.boneyardGen == true)
 			{
 				netherBiomes.add(Biomes.netherBone.get());
 			}

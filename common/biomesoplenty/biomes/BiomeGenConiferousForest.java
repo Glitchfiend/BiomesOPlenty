@@ -10,13 +10,13 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenFir1;
-import biomesoplenty.worldgen.WorldGenFir2;
-import biomesoplenty.worldgen.WorldGenFir3;
-import biomesoplenty.worldgen.WorldGenTaiga3;
-import biomesoplenty.worldgen.WorldGenTaiga4;
-import biomesoplenty.worldgen.WorldGenTaiga9;
+import biomesoplenty.configuration.configfile.BOPConfigurationMain;
+import biomesoplenty.worldgen.tree.WorldGenFir1;
+import biomesoplenty.worldgen.tree.WorldGenFir2;
+import biomesoplenty.worldgen.tree.WorldGenFir3;
+import biomesoplenty.worldgen.tree.WorldGenTaiga3;
+import biomesoplenty.worldgen.tree.WorldGenTaiga4;
+import biomesoplenty.worldgen.tree.WorldGenTaiga9;
 
 public class BiomeGenConiferousForest extends BiomeGenBase
 {
@@ -43,7 +43,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		if (BOPConfiguration.Main.realisticTrees)
+		if (BOPConfigurationMain.realisticTrees)
 		{
 			return par1Random.nextInt(5) == 0 ? new WorldGenFir1() : (par1Random.nextInt(3) == 0 ? new WorldGenFir2() : new WorldGenFir3());
 		}

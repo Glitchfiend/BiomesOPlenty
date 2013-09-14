@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Biomes;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityPhantom;
@@ -39,14 +40,14 @@ public class BOPEntities {
 
 	public static void init()
 	{
-		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfiguration.IDs.entityMudballID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfiguration.IDs.entityDartID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfiguration.IDs.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfigurationIDs.entityMudballID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfigurationIDs.entityDartID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfigurationIDs.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true);
 
-		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfiguration.IDs.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfiguration.IDs.rosesterID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfiguration.IDs.globID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityPhantom.class, "Phantom", BOPConfiguration.IDs.phantomID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfigurationIDs.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfigurationIDs.rosesterID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfigurationIDs.globID, BiomesOPlenty.instance, 80, 3, true);
+		EntityRegistry.registerModEntity(EntityPhantom.class, "Phantom", BOPConfigurationIDs.phantomID, BiomesOPlenty.instance, 80, 3, true);
 
 		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 		registerEntityEgg(EntityRosester.class, 14831439, 16756224);

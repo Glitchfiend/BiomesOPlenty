@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenPalmTree3;
+import biomesoplenty.worldgen.tree.WorldGenPalmTree3;
 
 public class BiomeGenOasis extends BiomeGenBase
 {

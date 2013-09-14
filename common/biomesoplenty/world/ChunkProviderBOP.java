@@ -38,7 +38,8 @@ import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
+import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 import biomesoplenty.world.map.MapGenCavesBOP;
 import biomesoplenty.world.map.MapGenRavineBOP;
 import biomesoplenty.world.noise.NoiseOctaves;
@@ -242,7 +243,7 @@ public class ChunkProviderBOP implements IChunkProvider
 							 {
 								 if (i1 <= 0)
 								 {
-									 if (BOPConfiguration.TerrainGen.exposedStone)
+									 if (BOPConfigurationTerrainGen.exposedStone)
 									 {
 										 b1 = 0;
 										 b2 = (byte)Block.stone.blockID;
@@ -255,7 +256,7 @@ public class ChunkProviderBOP implements IChunkProvider
 								 }
 								 else if (k1 >= b0 - 4 && k1 <= b0 + 1)
 								 {
-									 if(biomegenbase.biomeID == BOPConfiguration.IDs.originValleyID)
+									 if(biomegenbase.biomeID == BOPConfigurationIDs.originValleyID)
 									 {
 										 if(gravelbeach)
 										 {

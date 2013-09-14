@@ -10,9 +10,9 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenAutumn;
-import biomesoplenty.worldgen.WorldGenRainforestTree1;
-import biomesoplenty.worldgen.WorldGenTaiga10;
+import biomesoplenty.worldgen.tree.WorldGenAutumn;
+import biomesoplenty.worldgen.tree.WorldGenRainforestTree1;
+import biomesoplenty.worldgen.tree.WorldGenTaiga10;
 
 public class BiomeGenBorealForest extends BiomeGenBase
 {

@@ -10,9 +10,9 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenTemperate;
-import biomesoplenty.worldgen.WorldGenThickTree;
-import biomesoplenty.worldgen.WorldGenWillow;
+import biomesoplenty.worldgen.tree.WorldGenTemperate;
+import biomesoplenty.worldgen.tree.WorldGenThickTree;
+import biomesoplenty.worldgen.tree.WorldGenWillow;
 
 public class BiomeGenTemperateRainforest extends BiomeGenBase
 {

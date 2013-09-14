@@ -10,10 +10,10 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenDeadTree;
-import biomesoplenty.worldgen.WorldGenFen1;
-import biomesoplenty.worldgen.WorldGenFen2;
 import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree;
+import biomesoplenty.worldgen.tree.WorldGenFen1;
+import biomesoplenty.worldgen.tree.WorldGenFen2;
 
 public class BiomeGenFen extends BiomeGenBase
 {

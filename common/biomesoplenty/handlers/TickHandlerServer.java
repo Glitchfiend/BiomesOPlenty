@@ -12,7 +12,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
 
@@ -27,7 +27,7 @@ public class TickHandlerServer implements ITickHandler
         
         int rand = new Random().nextInt();
 		
-		if (BOPConfiguration.Misc.rainCreatesPuddles)
+		if (BOPConfigurationMisc.rainCreatesPuddles)
 		{
 			while (iterator.hasNext())
 			{

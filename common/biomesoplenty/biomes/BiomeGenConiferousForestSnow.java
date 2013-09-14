@@ -8,9 +8,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenTaiga3;
-import biomesoplenty.worldgen.WorldGenTaiga4;
-import biomesoplenty.worldgen.WorldGenTaiga9;
+import biomesoplenty.worldgen.tree.WorldGenTaiga3;
+import biomesoplenty.worldgen.tree.WorldGenTaiga4;
+import biomesoplenty.worldgen.tree.WorldGenTaiga9;
 
 public class BiomeGenConiferousForestSnow extends BiomeGenBase
 {

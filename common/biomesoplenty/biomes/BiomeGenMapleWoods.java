@@ -6,8 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenMaple;
-import biomesoplenty.worldgen.WorldGenTaiga5;
+import biomesoplenty.worldgen.tree.WorldGenMaple;
+import biomesoplenty.worldgen.tree.WorldGenTaiga5;
 
 public class BiomeGenMapleWoods extends BiomeGenBase
 {

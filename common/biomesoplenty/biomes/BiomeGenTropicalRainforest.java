@@ -10,10 +10,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.worldgen.WorldGenRainforest1;
-import biomesoplenty.worldgen.WorldGenRainforest2;
+import biomesoplenty.worldgen.tree.WorldGenRainforest1;
+import biomesoplenty.worldgen.tree.WorldGenRainforest2;
 
 public class BiomeGenTropicalRainforest extends BiomeGenBase
 {
@@ -95,7 +95,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 12971089;
 		 else
 		 {

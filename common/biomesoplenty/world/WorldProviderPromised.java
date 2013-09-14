@@ -7,7 +7,7 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,7 +22,7 @@ public class WorldProviderPromised extends WorldProvider
 		{
 			worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		}
-		dimensionId = BOPConfiguration.IDs.promisedLandDimID;
+		dimensionId = BOPConfigurationIDs.promisedLandDimID;
 	}
 
 	@Override

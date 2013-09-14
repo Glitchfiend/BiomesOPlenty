@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenDeciduous;
+import biomesoplenty.worldgen.tree.WorldGenDeciduous;
 
 public class BiomeGenDeciduousForest extends BiomeGenBase
 {

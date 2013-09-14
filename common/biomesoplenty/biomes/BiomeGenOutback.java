@@ -8,7 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenOutbackShrub;
-import biomesoplenty.worldgen.WorldGenOutbackTree;
+import biomesoplenty.worldgen.tree.WorldGenOutbackTree;
 
 public class BiomeGenOutback extends BiomeGenBase
 {

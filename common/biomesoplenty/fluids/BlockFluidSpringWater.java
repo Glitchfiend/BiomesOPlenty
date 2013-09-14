@@ -18,7 +18,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Fluids;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -75,7 +75,7 @@ public class BlockFluidSpringWater extends BlockFluidClassic
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		if (!world.isRemote && BOPConfiguration.Misc.hotSpringsRegeneration)
+		if (!world.isRemote && BOPConfigurationMisc.hotSpringsRegeneration)
 		{
 			if (entity instanceof EntityLivingBase) 
 			{

@@ -6,8 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenCherry1;
-import biomesoplenty.worldgen.WorldGenCherry2;
+import biomesoplenty.worldgen.tree.WorldGenCherry1;
+import biomesoplenty.worldgen.tree.WorldGenCherry2;
 
 public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 {

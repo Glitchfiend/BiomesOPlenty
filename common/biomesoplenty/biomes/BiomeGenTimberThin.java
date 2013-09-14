@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenChaparral2;
 import biomesoplenty.worldgen.WorldGenChaparral3;
-import biomesoplenty.worldgen.WorldGenDeciduous2;
+import biomesoplenty.worldgen.tree.WorldGenDeciduous2;
 
 public class BiomeGenTimberThin extends BiomeGenBase
 {

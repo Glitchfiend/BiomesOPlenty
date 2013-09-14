@@ -11,8 +11,8 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenTaiga5;
-import biomesoplenty.worldgen.WorldGenWillow;
+import biomesoplenty.worldgen.tree.WorldGenTaiga5;
+import biomesoplenty.worldgen.tree.WorldGenWillow;
 
 public class BiomeGenWetland extends BiomeGenBase
 {

@@ -9,8 +9,8 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenIvy;
-import biomesoplenty.worldgen.WorldGenLargeTree;
-import biomesoplenty.worldgen.WorldGenOvergrownTree;
+import biomesoplenty.worldgen.tree.WorldGenLargeTree;
+import biomesoplenty.worldgen.tree.WorldGenOvergrownTree;
 
 public class BiomeGenOvergrownGreens extends BiomeGenBase
 {

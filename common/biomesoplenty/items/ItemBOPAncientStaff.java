@@ -13,7 +13,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -93,7 +93,7 @@ public class ItemBOPAncientStaff extends Item
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
 	{
-		if (par3EntityPlayer.dimension == 0 || par3EntityPlayer.dimension == BOPConfiguration.IDs.promisedLandDimID)
+		if (par3EntityPlayer.dimension == 0 || par3EntityPlayer.dimension == BOPConfigurationIDs.promisedLandDimID)
 		{
 			int i = MathHelper.floor_double(par3EntityPlayer.posX - 8);
 			int j = 145;

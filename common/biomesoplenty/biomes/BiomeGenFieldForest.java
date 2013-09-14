@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenPineTree;
+import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
 public class BiomeGenFieldForest extends BiomeGenBase
 {

@@ -16,7 +16,7 @@ import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Fluids;
 import biomesoplenty.api.Items;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class AchievementHelper
@@ -329,7 +329,7 @@ public class AchievementHelper
 	@ForgeSubscribe
 	public void chunkEntered(EntityEvent.EnteringChunk event)
 	{
-		if (BOPConfiguration.Misc.achievements)
+		if (BOPConfigurationMisc.achievements)
 		{
 			if (event.entity != null)
 			{

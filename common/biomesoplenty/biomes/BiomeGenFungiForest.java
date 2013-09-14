@@ -11,11 +11,11 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenFungi;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.WorldGenThickTree2;
-import biomesoplenty.worldgen.WorldGenThickTree3;
+import biomesoplenty.worldgen.tree.WorldGenThickTree2;
+import biomesoplenty.worldgen.tree.WorldGenThickTree3;
 
 public class BiomeGenFungiForest extends BiomeGenBase
 {
@@ -109,7 +109,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 5888980;
 		 else
 		 {

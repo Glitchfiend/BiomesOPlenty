@@ -10,8 +10,8 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenAcacia;
-import biomesoplenty.worldgen.WorldGenDeadTree3;
+import biomesoplenty.worldgen.tree.WorldGenAcacia;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
 public class BiomeGenLushDesert extends BiomeGenBase
 {

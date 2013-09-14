@@ -8,7 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenCanyonShrub;
-import biomesoplenty.worldgen.WorldGenPineTree;
+import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
 public class BiomeGenCanyon extends BiomeGenBase
 {

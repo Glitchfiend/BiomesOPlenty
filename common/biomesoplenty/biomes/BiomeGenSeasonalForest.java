@@ -10,12 +10,12 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenAutumn;
-import biomesoplenty.worldgen.WorldGenAutumn2;
-import biomesoplenty.worldgen.WorldGenAutumn2Big;
-import biomesoplenty.worldgen.WorldGenDeadTree2;
-import biomesoplenty.worldgen.WorldGenMaple;
-import biomesoplenty.worldgen.WorldGenMapleBig;
+import biomesoplenty.worldgen.tree.WorldGenAutumn;
+import biomesoplenty.worldgen.tree.WorldGenAutumn2;
+import biomesoplenty.worldgen.tree.WorldGenAutumn2Big;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree2;
+import biomesoplenty.worldgen.tree.WorldGenMaple;
+import biomesoplenty.worldgen.tree.WorldGenMapleBig;
 
 public class BiomeGenSeasonalForest extends BiomeGenBase
 {

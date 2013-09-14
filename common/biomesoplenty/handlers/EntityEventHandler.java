@@ -27,7 +27,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.configuration.BOPConfiguration;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.TeleporterPromised;
@@ -85,7 +85,7 @@ public class EntityEventHandler
 	@ForgeSubscribe
 	public void fallingFromPromisedLand(LivingHurtEvent event)
 	{
-		if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfiguration.IDs.promisedLandDimID)
+		if (event.source == DamageSource.outOfWorld && event.entityLiving.dimension == BOPConfigurationIDs.promisedLandDimID)
 		{
 			event.setCanceled(true);
 

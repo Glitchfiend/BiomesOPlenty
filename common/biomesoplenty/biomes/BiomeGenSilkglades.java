@@ -11,11 +11,11 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.worldgen.WorldGenBirchWillow;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenCobwebNest;
-import biomesoplenty.worldgen.WorldGenDeadTree;
-import biomesoplenty.worldgen.WorldGenWillow;
+import biomesoplenty.worldgen.tree.WorldGenBirchWillow;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree;
+import biomesoplenty.worldgen.tree.WorldGenWillow;
 
 public class BiomeGenSilkglades extends BiomeGenBase
 {
@@ -106,7 +106,7 @@ public class BiomeGenSilkglades extends BiomeGenBase
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
-		 if (BOPConfiguration.Misc.skyColors)
+		 if (BOPConfigurationMisc.skyColors)
 			 return 13553096;
 		 else
 		 {
