@@ -11,6 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
 import biomesoplenty.armor.ArmorAmethyst;
+import biomesoplenty.armor.ArmorFlippers;
 import biomesoplenty.armor.ArmorFlowerBand;
 import biomesoplenty.armor.ArmorMuddy;
 import biomesoplenty.armor.ArmorWadingBoots;
@@ -47,6 +48,7 @@ public class BOPItems {
 	public static EnumToolMaterial EnumToolMaterialAmethyst;
 	public static EnumArmorMaterial EnumArmorMaterialFlowerBand;
 	public static EnumArmorMaterial EnumArmorMaterialWadingBoots;
+	public static EnumArmorMaterial EnumArmorMaterialFlippers;
 
 	public static int clearItem(Item var1)
 	{
@@ -90,6 +92,7 @@ public class BOPItems {
 		EnumToolMaterialAmethyst = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5, 16);
 		EnumArmorMaterialFlowerBand = EnumHelper.addArmorMaterial("FLOWERBAND", -1, new int[]{0, 0, 0, 0}, 0);
 		EnumArmorMaterialWadingBoots = EnumHelper.addArmorMaterial("WADINGBOOTS", -1, new int[]{0, 0, 0, 0}, 0);
+		EnumArmorMaterialFlippers = EnumHelper.addArmorMaterial("FLIPPERS", -1, new int[]{0, 0, 0, 0}, 0);
 
 		initializeItems();
 
@@ -145,5 +148,6 @@ public class BOPItems {
 
 		Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfiguration.IDs.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flowerBand"));
 		Items.wadingBoots = Optional.of((new ArmorWadingBoots(BOPConfiguration.IDs.wadingBootsID, EnumArmorMaterialWadingBoots, BiomesOPlenty.proxy.addArmor("wadingBoots"), 3)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.wadingBoots"));
+		Items.flippers = Optional.of((new ArmorFlippers(BOPConfiguration.IDs.flippersID, EnumArmorMaterialFlippers, BiomesOPlenty.proxy.addArmor("flippers"), 3)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flippers"));
 	}
 }
