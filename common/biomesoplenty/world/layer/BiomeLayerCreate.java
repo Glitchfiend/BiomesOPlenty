@@ -1,8 +1,8 @@
 package biomesoplenty.world.layer;
 
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.configuration.configfile.BOPConfigurationBiomeGen;
 import biomesoplenty.api.Biomes;
+import biomesoplenty.configuration.configfile.BOPConfigurationBiomeGen;
 
 public class BiomeLayerCreate extends BiomeLayer
 {

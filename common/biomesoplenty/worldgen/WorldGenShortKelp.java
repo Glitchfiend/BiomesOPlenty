@@ -3,10 +3,10 @@ package biomesoplenty.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import net.minecraft.block.material.Material;
 
 public class WorldGenShortKelp extends WorldGenerator
 {

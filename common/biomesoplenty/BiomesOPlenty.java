@@ -24,6 +24,7 @@ import biomesoplenty.handlers.MovementHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.handlers.TickHandlerServer;
+import biomesoplenty.handlers.VillageMaterialEventHandler;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Localizations;
@@ -108,6 +109,7 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
 		MinecraftForge.EVENT_BUS.register(new FlipperMovementEventHandler());
+		MinecraftForge.EVENT_BUS.register(new VillageMaterialEventHandler());
 		//MinecraftForge.EVENT_BUS.register(new AxeChopHandler());
 
 		proxy.registerRenderers();

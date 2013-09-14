@@ -1,9 +1,9 @@
 package biomesoplenty.integration;
 
 import net.minecraft.block.Block;
-import codechicken.microblock.MicroMaterialRegistry;
-import codechicken.microblock.BlockMicroMaterial;
 import biomesoplenty.api.Blocks;
+import codechicken.microblock.BlockMicroMaterial;
+import codechicken.microblock.MicroMaterialRegistry;
 
 public class MultipartIntegration
 {
