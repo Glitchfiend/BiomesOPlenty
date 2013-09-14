@@ -8,13 +8,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
@@ -88,32 +84,18 @@ public class BlockMud extends Block
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
-			if (!world.isRemote) 
+			if (entity instanceof EntityPlayer)
 			{
-				if (entity instanceof EntityLivingBase)
+				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+
+				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
 				{
-					if (entity instanceof EntityPlayer)
-					{
-						InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-	
-						if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID != Items.wadingBoots.get().itemID)
-						{
-							entity.motionX *= 0.1D;
-							entity.motionZ *= 0.1D;
-						}
-					}
-					else
-					{
-						entity.motionX *= 0.1D;
-						entity.motionZ *= 0.1D;
-					}
-				}
-				else
-				{
-					entity.motionX *= 0.1D;
-					entity.motionZ *= 0.1D;
+					return;
 				}
 			}
+
+			entity.motionX *= 0.1D;
+			entity.motionZ *= 0.1D;
 		}
 		else
 		{
