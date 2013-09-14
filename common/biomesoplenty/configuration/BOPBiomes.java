@@ -126,7 +126,7 @@ public class BOPBiomes {
 		Biomes.netherLava = Optional.of((new BiomeGenNetherLava(BOPConfiguration.IDs.netherLavaID)).setColor(16711680).setBiomeName("Phantasmagoric Inferno").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherBone = Optional.of((new BiomeGenNetherBone(BOPConfiguration.IDs.netherBoneID)).setColor(16711680).setBiomeName("Boneyard").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 
-		Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfiguration.IDs.oasisID)).setColor(16421912).setBiomeName("Oasis").setTemperatureRainfall(1.9F, 2.0F).setMinMaxHeight(0.3F, 0.4F));
+		Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfiguration.IDs.oasisID)).setColor(16421912).setBiomeName("Oasis").setTemperatureRainfall(0.9F, 0.7F).setMinMaxHeight(0.3F, 0.4F));
 
 		Biomes.oceanAbyss = Optional.of((new BiomeGenOceanAbyss(BOPConfiguration.IDs.oceanAbyssID)).setColor(10486015).setBiomeName("Oceanic Abyss").setMinMaxHeight(-1.65F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
 		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfiguration.IDs.oceanCoralID)).setColor(10486015).setBiomeName("Coral Reef").setMinMaxHeight(-0.1F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
