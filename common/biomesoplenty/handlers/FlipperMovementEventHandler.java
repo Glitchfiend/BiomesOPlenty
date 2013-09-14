@@ -23,8 +23,9 @@ public class FlipperMovementEventHandler
 			{
 				if (itemstack != null && itemstack.itemID == Items.flippers.get().itemID)
 				{
-					entity.motionX *= 1.1D;
-					entity.motionZ *= 1.1D;
+					entity.motionX *= 1.125D;
+					entity.motionY *= 1.1D;
+					entity.motionZ *= 1.125D;
 				}
 			}
 		}
@@ -39,8 +40,9 @@ public class FlipperMovementEventHandler
 			{
 				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.flippers.get().itemID)
 				{
-					player.motionX *= 1.1D;
-					player.motionZ *= 1.1D;
+					player.motionX *= 1.125D;
+					player.motionY *= 1.1D;
+					player.motionZ *= 1.125D;
 				}
 			}
 		}

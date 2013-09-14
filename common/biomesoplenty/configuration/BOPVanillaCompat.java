@@ -38,6 +38,8 @@ public class BOPVanillaCompat {
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 13), 1, 2, 5));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 14), 1, 2, 5));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 2, 5));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(), 1, 0), 1, 1, 15));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(), 1, 0), 1, 1, 10));
 
 			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
 			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 3, 10));
@@ -50,12 +52,19 @@ public class BOPVanillaCompat {
 
 			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
 			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(),1,0), 1, 1, 15));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(),1,0), 1, 1, 10));
 
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 4));
 			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
 			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(),1,0), 1, 1, 15));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(),1,0), 1, 1, 10));
 
 			village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(), 1, 0), 1, 1, 10));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(), 1, 0), 1, 1, 5));
 		}
 	}
 }
