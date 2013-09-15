@@ -20,7 +20,7 @@
 	<entry key="tile.bop.redRocks.redrock.name">Rode steen</entry>
 	<entry key="tile.bop.redRocks.redcobble.name">Red Rock Cobblestone</entry>
 	<entry key="tile.bop.redRocks.redbrick.name">Rode baksteen</entry>
-	
+
 	<entry key="tile.bop.ash.name">As Blok</entry>
 
 	<entry key="tile.bop.plants.deadgrass.name">Dood gras</entry>
@@ -34,19 +34,17 @@
 	<entry key="tile.bop.plants.cattailtop.name">Riet</entry>
 	<entry key="tile.bop.plants.cattailbottom.name">Riet</entry>
 	<entry key="tile.bop.plants.reed.name">Riet</entry>
+	<entry key="tile.bop.flowers.cactus.name">Kleine Cactus</entry>
 
 	<entry key="tile.bop.flowers.clover.name">klaver</entry>
 	<entry key="tile.bop.flowers.swampflower.name">Moerasbloem</entry>
 	<entry key="tile.bop.flowers.deadbloom.name">Doodbloem</entry>
 	<entry key="tile.bop.flowers.glowflower.name">Gloeiendebloem</entry>
 	<entry key="tile.bop.flowers.hydrangea.name">Hortensia</entry>
-	<entry key="tile.bop.flowers.daisy.name">Madeliefje</entry>
-	<entry key="tile.bop.flowers.tulip.name">Tulp</entry>
 	<entry key="tile.bop.flowers.wildflower.name">Wildebloem</entry>
 	<entry key="tile.bop.flowers.violet.name">Violet</entry>
 	<entry key="tile.bop.flowers.anemone.name">Anemoon</entry>
 	<entry key="tile.bop.flowers.lilyflower.name">Waterlely</entry>
-	<entry key="tile.bop.flowers.cactus.name">Kleine Cactus</entry>
 	<entry key="tile.bop.flowers.aloe.name">Aloë</entry>
 	<entry key="tile.bop.flowers.sunflowerbottom.name">Zonnebloem</entry>
 	<entry key="tile.bop.flowers.sunflowertop.name">Zonnebloem</entry>
@@ -61,15 +59,15 @@
 	<entry key="tile.bop.foliage.highgrasstop.name">Hoog Gras</entry>
 	<entry key="tile.bop.foliage.poisonivy.name">Brandnetel</entry>
 	<entry key="tile.bop.foliage.berrybush.name">Besjes bosje</entry>
-	
+
 	<entry key="tile.bop.petals.bigflowerred.name">Grote rode bloem</entry>
 	<entry key="tile.bop.petals.bigfloweryellow.name">Grote gele bloem</entry>
-	
+
 	<entry key="tile.bop.mushrooms.toadstool.name">Vergiftige paddestoel</entry>
 	<entry key="tile.bop.mushrooms.portobello.name">Portobello</entry>
 	<entry key="tile.bop.mushrooms.bluemilk.name">Blauwe paddestoel</entry>
 	<entry key="tile.bop.mushrooms.glowshroom.name">Gloeiende paddestoel</entry>
-	
+
 	<entry key="tile.bop.saplings.appleSapling.name">Apple Sapling</entry>
 	<entry key="tile.bop.saplings.yellowautumnSapling.name">Yellow Autumn Sapling</entry>
 	<entry key="tile.bop.saplings.bambooSapling.name">Bamboo Sapling</entry>
@@ -92,29 +90,29 @@
 	<entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Redwood Sapling</entry>
 	<entry key="tile.bop.colorizedSaplings.willowSapling.name">Willow Sapling</entry>
 	<entry key="tile.bop.colorizedSaplings.pineSapling.name">Pine Sapling</entry>
-	
+
 	<entry key="tile.bop.willow.name">Wilg</entry>
- 	<entry key="tile.bop.ivy.name">Ivy</entry>
- 	<entry key="tile.bop.leavesFruit.name">Appel Bladeren</entry>
+	<entry key="tile.bop.ivy.name">Ivy</entry>
+	<entry key="tile.bop.leavesFruit.name">Appel Bladeren</entry>
 	<entry key="tile.bop.bamboo.name">Bambo</entry>
- 	<entry key="tile.bop.mudBricksStairs.name">Modder Bricks Stairs</entry>
- 	<entry key="tile.bop.originGrass.name">Origin Grass</entry>
- 	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
+	<entry key="tile.bop.mudBricksStairs.name">Modder Bricks Stairs</entry>
+	<entry key="tile.bop.originGrass.name">Origin Grass</entry>
+	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
 
 	<entry key="tile.bop.coral.kelp.name">Kelp</entry>
-	
- 	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
- 	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
- 	
- 	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass</entry>
- 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass</entry>
- 	
- 	<entry key="tile.bop.holyStone.holystone.name">Luchtsteen</entry>
- 	<entry key="tile.bop.holyStone.holycobble.name">Luchtsteen Cobblestone</entry>
- 	<entry key="tile.bop.holyStone.holybrick.name">Luchtsteen Bricks</entry>
- 	
- 	<entry key="tile.bop.holyCobbleStairs.name">Luchtsteen Cobblestone Stairs</entry>
- 	<entry key="tile.bop.holyBricksStairs.name">Luchtsteen Bricks Stairs</entry>
+
+	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
+	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
+
+	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass</entry>
+	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass</entry>
+
+	<entry key="tile.bop.holyStone.holystone.name">Luchtsteen</entry>
+	<entry key="tile.bop.holyStone.holycobble.name">Luchtsteen Cobblestone</entry>
+	<entry key="tile.bop.holyStone.holybrick.name">Luchtsteen Bricks</entry>
+
+	<entry key="tile.bop.holyCobbleStairs.name">Luchtsteen Cobblestone Stairs</entry>
+	<entry key="tile.bop.holyBricksStairs.name">Luchtsteen Bricks Stairs</entry>
 
 	<entry key="tile.bop.promisedPortal.name">Beloofde Land Portal</entry>
 
@@ -133,9 +131,9 @@
 	<entry key="tile.bop.amethystOre.sapphireore.name">Sapphire Ore</entry>
 	<entry key="tile.bop.amethystOre.sapphireblock.name">Block of Sapphire</entry>
 	
- 	<entry key="tile.bop.moss.name">Mos</entry>
-	 	
- 	<entry key="tile.bop.cloud.name">Wolk Blok</entry>
+	<entry key="tile.bop.moss.name">Mos</entry>
+
+	<entry key="tile.bop.cloud.name">Wolk Blok</entry>
 
 	<entry key="tile.bop.bones.bones_small.name">Small Bone Segment</entry>
 	<entry key="tile.bop.bones.bones_medium.name">Medium Bone Segment</entry>
@@ -143,7 +141,7 @@
 
 	<entry key="tile.bop.glass.celestialLens.name">Celestial Lens</entry>
 	<entry key="tile.bop.glass.sacrificialFocus.name">Sacrificial Focus</entry>
-	
+
 	<entry key="tile.bop.altar.altarFrame.name">Altar Frame</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Red Rock Cobblestone Slab</entry>
@@ -256,18 +254,16 @@
 	<entry key="tile.bop.leavesColorized.redwood.name">Roodhout Bladeren</entry>
 	<entry key="tile.bop.leavesColorized.willow.name">Wilge Bladeren</entry>
 	<entry key="tile.bop.leavesColorized.pine.name">Naald Bladeren</entry>
-	
-	<!--Items -->
-	<entry key="item.bop.shroomPowder.name">Shroom Powder</entry>
 
-	<entry key="item.bop.sunflowerSeeds.name">ZonneBloemen zaaden</entry>
-	
-	<entry key="item.bop.berries.name">Bes</entry>
+	<!--Items -->
+	<entry key="item.bop.food.shroompowder.name">Shroom Powder</entry>
+	<entry key="item.bop.food.sunflowerseeds.name">ZonneBloemen zaaden</entry>
+	<entry key="item.bop.food.berries.name">Bes</entry>
 
 	<entry key="item.bop.dartblower.name">Dart Schieter</entry>
 	<entry key="item.bop.dart.dart.name">Dart</entry>
 	<entry key="item.bop.dart.poisondart.name">Gif Dart</entry>
-	
+
 	<entry key="item.bop.mudball.name">Modder Bal</entry>
 
 	<entry key="item.bop.miscItems.mudbrick.name">Mud Brick</entry>
@@ -297,7 +293,7 @@
 	<entry key="item.bop.chestplateMud.name">Modderige Kuras</entry>
 	<entry key="item.bop.leggingsMud.name">Modderige Beenstukken</entry>
 	<entry key="item.bop.bootsMud.name">Modderige Schoenen</entry>
-	
+
 	<entry key="item.bop.pickaxeAmethyst.name">Amethyst Houweel</entry>
 	<entry key="item.bop.hatchetAmethyst.name">Amethyst Bijl</entry>
 	<entry key="item.bop.shovelAmethyst.name">Amethyst Shep</entry>
@@ -325,16 +321,25 @@
 	<entry key="item.bop.flowerBand.plainflowerband.name">Plain Flower Band</entry>
 	<entry key="item.bop.flowerBand.lushflowerband.name">Lush Flower Band</entry>
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Exotic Flower Band</entry>
-	
-	<!--Liquids -->
+
+	<!--Fluids -->
 	<entry key="item.bop.bopBucket.spring_water.name">Spring Water Bucket</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>
-	
+
 	<entry key="tile.bop.liquidPoison.name">Liquid Poison</entry>
 	<entry key="tile.bop.springWater.name">Spring Water</entry>
-	
+
+	<entry key="fluid.bop.liquidPoison">Liquid Poison</entry>
+	<entry key="fluid.bop.springWater">Spring Water</entry>
+
 	<!--Phrases -->
 	<entry key="phrase.bop.promisedPortalOverworld">Een portal naar de beloofde wereld is verschenen in de lucht.</entry>
 	<entry key="phrase.bop.promisedPortalOther">Een portal is verschenen in de lucht.</entry>
+
+	<!--Creative Tab -->
+	<entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+
+	<!--World Type -->
+	<entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
 
 </properties>
