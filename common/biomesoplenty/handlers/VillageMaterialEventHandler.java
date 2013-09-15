@@ -15,8 +15,8 @@ public class VillageMaterialEventHandler
 		{
 			if (event.original == Block.cobblestone.blockID)
 			{
-			event.replacement = Block.brick.blockID;
-			event.setResult(Result.DENY);
+				event.replacement = Block.brick.blockID;
+				event.setResult(Result.DENY);
 			}
 		}
 	}

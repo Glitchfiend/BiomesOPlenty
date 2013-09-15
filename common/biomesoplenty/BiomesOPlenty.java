@@ -102,6 +102,7 @@ public class BiomesOPlenty
 	{
 		// Add helpers for compatibility
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
 		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
@@ -109,7 +110,6 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
 		MinecraftForge.EVENT_BUS.register(new FlipperMovementEventHandler());
-		MinecraftForge.EVENT_BUS.register(new VillageMaterialEventHandler());
 		//MinecraftForge.EVENT_BUS.register(new AxeChopHandler());
 
 		proxy.registerRenderers();
