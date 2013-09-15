@@ -20,7 +20,7 @@
 	<entry key="tile.bop.redRocks.redrock.name">Red Rock</entry>
 	<entry key="tile.bop.redRocks.redcobble.name">Red Rock Cobblestone</entry>
 	<entry key="tile.bop.redRocks.redbrick.name">Red Rock Bricks</entry>
-	
+
 	<entry key="tile.bop.ash.name">Ash Block</entry>
 
 	<entry key="tile.bop.plants.deadgrass.name">Dead Grass</entry>
@@ -63,15 +63,15 @@
 	<entry key="tile.bop.foliage.highgrasstop.name">High Grass</entry>
 	<entry key="tile.bop.foliage.poisonivy.name">Poison Ivy</entry>
 	<entry key="tile.bop.foliage.berrybush.name">Berry Bush</entry>
-	
+
 	<entry key="tile.bop.petals.bigflowerred.name">Giant Red Flower</entry>
 	<entry key="tile.bop.petals.bigfloweryellow.name">Giant Yellow Flower</entry>
-	
+
 	<entry key="tile.bop.mushrooms.toadstool.name">Toadstool</entry>
 	<entry key="tile.bop.mushrooms.portobello.name">Portobello</entry>
 	<entry key="tile.bop.mushrooms.bluemilk.name">Blue Milk Cap</entry>
 	<entry key="tile.bop.mushrooms.glowshroom.name">Glowshroom</entry>
-	
+
 	<entry key="tile.bop.saplings.appleSapling.name">Apple Sapling</entry>
 	<entry key="tile.bop.saplings.yellowautumnSapling.name">Yellow Autumn Sapling</entry>
 	<entry key="tile.bop.saplings.bambooSapling.name">Bamboo Sapling</entry>
@@ -95,35 +95,35 @@
 	<entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Redwood Sapling</entry>
 	<entry key="tile.bop.colorizedSaplings.willowSapling.name">Willow Sapling</entry>
 	<entry key="tile.bop.colorizedSaplings.pineSapling.name">Pine Sapling</entry>
-	
+
 	<entry key="tile.bop.willow.name">Willow</entry>
- 	<entry key="tile.bop.ivy.name">Ivy</entry>
- 	<entry key="tile.bop.leavesFruit.name">Apple Leaves</entry>
+	<entry key="tile.bop.ivy.name">Ivy</entry>
+	<entry key="tile.bop.leavesFruit.name">Apple Leaves</entry>
 	<entry key="tile.bop.leavesFruit2.name">Persimmon Leaves</entry>
 	<entry key="tile.bop.bamboo.name">Bamboo</entry>
- 	<entry key="tile.bop.mudBricksStairs.name">Mud Bricks Stairs</entry>
- 	<entry key="tile.bop.originGrass.name">Origin Grass Block</entry>
+	<entry key="tile.bop.mudBricksStairs.name">Mud Bricks Stairs</entry>
+	<entry key="tile.bop.originGrass.name">Origin Grass Block</entry>
 	<entry key="tile.bop.longGrass.name">Long Grass Block</entry>
- 	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
+	<entry key="tile.bop.treeMoss.name">Tree Moss</entry>
 
 	<entry key="tile.bop.coral.kelpsingle.name">Kelp</entry>
 	<entry key="tile.bop.coral.pinkcoral.name">Pink Coral</entry>
 	<entry key="tile.bop.coral.orangecoral.name">Orange Coral</entry>
 	<entry key="tile.bop.coral.bluecoral.name">Blue Coral</entry>
 	<entry key="tile.bop.coral.glowcoral.name">Glowing Coral</entry>
-	
- 	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
- 	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
- 	
- 	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass Block</entry>
- 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass Block</entry>
- 	
- 	<entry key="tile.bop.holyStone.holystone.name">Skystone</entry>
- 	<entry key="tile.bop.holyStone.holycobble.name">Skystone Cobblestone</entry>
- 	<entry key="tile.bop.holyStone.holybrick.name">Skystone Bricks</entry>
- 	
- 	<entry key="tile.bop.holyCobbleStairs.name">Skystone Cobblestone Stairs</entry>
- 	<entry key="tile.bop.holyBricksStairs.name">Skystone Bricks Stairs</entry>
+
+	<entry key="tile.bop.redCobbleStairs.name">Red Rock Cobblestone Stairs</entry>	 	
+	<entry key="tile.bop.redBricksStairs.name">Red Rock Bricks Stairs</entry>
+
+	<entry key="tile.bop.holyGrass.holygrass.name">Purified Grass Block</entry>
+	<entry key="tile.bop.holyGrass.smolderinggrass.name">Smoldering Grass Block</entry>
+
+	<entry key="tile.bop.holyStone.holystone.name">Skystone</entry>
+	<entry key="tile.bop.holyStone.holycobble.name">Skystone Cobblestone</entry>
+	<entry key="tile.bop.holyStone.holybrick.name">Skystone Bricks</entry>
+
+	<entry key="tile.bop.holyCobbleStairs.name">Skystone Cobblestone Stairs</entry>
+	<entry key="tile.bop.holyBricksStairs.name">Skystone Bricks Stairs</entry>
 
 	<entry key="tile.bop.promisedPortal.name">Promised Land Portal</entry>
 
@@ -141,26 +141,26 @@
 	<entry key="tile.bop.amethystOre.apatiteblock.name">Block of Apatite</entry>
 	<entry key="tile.bop.amethystOre.sapphireore.name">Sapphire Ore</entry>
 	<entry key="tile.bop.amethystOre.sapphireblock.name">Block of Sapphire</entry>
-	
- 	<entry key="tile.bop.moss.name">Moss</entry>
-	 	
- 	<entry key="tile.bop.cloud.name">Cloud Block</entry>
+
+	<entry key="tile.bop.moss.name">Moss</entry>
+
+	<entry key="tile.bop.cloud.name">Cloud Block</entry>
 
 	<entry key="tile.bop.bones.bones_small.name">Small Bone Segment</entry>
 	<entry key="tile.bop.bones.bones_medium.name">Medium Bone Segment</entry>
 	<entry key="tile.bop.bones.bones_large.name">Large Bone Segment</entry>
 
 	<entry key="tile.bop.glass.celestialLens.name">Celestial Lens</entry>
-	
+
 	<entry key="tile.bop.glass.sacrificialfocus_empty.name">Sacrificial Focus</entry>
 	<entry key="tile.bop.glass.sacrificialfocus_active.name">Sacrificial Focus</entry>
 	<entry key="tile.bop.glass.sacrificialfocus_villager.name">Sacrificial Focus</entry>
-	
+
 	<entry key="tile.bop.altar.altarframe.name">Altar Frame</entry>
-	
+
 	<entry key="tile.bop.puddle.name">Puddle</entry>
-	
-    <entry key="tile.bop.grave.name">Gravestone</entry>
+
+	<entry key="tile.bop.grave.name">Gravestone</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Red Rock Cobblestone Slab</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Red Rock Bricks Slab</entry>
@@ -272,7 +272,7 @@
 	<entry key="tile.bop.leavesColorized.redwood.name">Redwood Leaves</entry>
 	<entry key="tile.bop.leavesColorized.willow.name">Willow Leaves</entry>
 	<entry key="tile.bop.leavesColorized.pine.name">Pine Leaves</entry>
-	
+
 	<!--Items -->
 	<entry key="item.bop.food.berries.name">Berry</entry>
 	<entry key="item.bop.food.shroompowder.name">Shroom Powder</entry>
@@ -286,7 +286,7 @@
 	<entry key="item.bop.dartblower.name">Dart Blower</entry>
 	<entry key="item.bop.dart.dart.name">Dart</entry>
 	<entry key="item.bop.dart.poisondart.name">Poison Dart</entry>
-	
+
 	<entry key="item.bop.mudball.name">Mud Ball</entry>
 
 	<entry key="item.bop.miscItems.mudbrick.name">Mud Brick</entry>
@@ -316,7 +316,7 @@
 	<entry key="item.bop.chestplateMud.name">Muddy Chestplate</entry>
 	<entry key="item.bop.leggingsMud.name">Muddy Leggings</entry>
 	<entry key="item.bop.bootsMud.name">Muddy Boots</entry>
-	
+
 	<entry key="item.bop.pickaxeAmethyst.name">Amethyst Pickaxe</entry>
 	<entry key="item.bop.hatchetAmethyst.name">Amethyst Axe</entry>
 	<entry key="item.bop.shovelAmethyst.name">Amethyst Shovel</entry>
@@ -326,7 +326,7 @@
 	<entry key="item.bop.chestplateAmethyst.name">Amethyst Chestplate</entry>
 	<entry key="item.bop.leggingsAmethyst.name">Amethyst Leggings</entry>
 	<entry key="item.bop.bootsAmethyst.name">Amethyst Boots</entry>
-	
+
 	<entry key="item.bop.scytheWood.name">Wooden Scythe</entry>
 	<entry key="item.bop.scytheStone.name">Stone Scythe</entry>
 	<entry key="item.bop.scytheIron.name">Iron Scythe</entry>
@@ -357,26 +357,26 @@
 	
 	<entry key="item.bop.wadingBoots.name">Wading Boots</entry>
 	<entry key="item.bop.flippers.name">Flippers</entry>
-	
+
 	<!--Fluids -->
 	<entry key="item.bop.bopBucket.amethyst_empty.name">Amethyst Bucket</entry>
 	<entry key="item.bop.bopBucket.amethyst_spring_water.name">Spring Water Amethyst Bucket</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Liquid Poison Bucket</entry>
-	
+
 	<entry key="tile.bop.liquidPoison.name">Liquid Poison</entry>
 	<entry key="tile.bop.springWater.name">Spring Water</entry>
-	
+
 	<entry key="fluid.bop.liquidPoison">Liquid Poison</entry>
-    <entry key="fluid.bop.springWater">Spring Water</entry>
-	
+	<entry key="fluid.bop.springWater">Spring Water</entry>
+
 	<!--Phrases -->
 	<entry key="phrase.bop.promisedPortalOverworld">A gateway to the Promised Land has appeared in the sky above.</entry>
 	<entry key="phrase.bop.promisedPortalOther">A gateway to the Overworld has appeared in the sky above.</entry>
-	
+
 	<!--Creative Tab -->
-   <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
-	
+	<entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+
 	<!--World Type -->
-   <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
+	<entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
 
 </properties>
