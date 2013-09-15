@@ -141,6 +141,357 @@ public class VillageMaterialEventHandler
 			}
 		}
 		
+		//Brushland
+		if (event.biome == Biomes.brushland.get())
+		{
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Desert
+		if (event.biome == Biomes.desertNew.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.sandStone.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Block.sandStone.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Block.sandStone.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsSandStone.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Block.stairsSandStone.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sandStone.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Grove
+		if (event.biome == Biomes.grove.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.wood.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.leaves.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Block.woodSingleSlab.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Heathland
+		if (event.biome == Biomes.heathland.get())
+		{
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Lush Desert
+		if (event.biome == Biomes.lushDesert.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Blocks.redRock.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Blocks.redCobbleStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Blocks.stoneSingleSlab.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Lush Swamp
+		if (event.biome == Biomes.lushSwamp.get())
+		{
+			//Gravel
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.cobblestoneMossy.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Meadow
+		if (event.biome == Biomes.meadow.get())
+		{	
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.wood.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Meadow Forest
+		if (event.biome == Biomes.meadowForest.get())
+		{	
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.wood.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Outback
+		if (event.biome == Biomes.outback.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.leaves.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Overgrown Greens
+		if (event.biome == Biomes.overgrownGreens.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.cobblestoneMossy.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.leaves.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.grass.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Prairie
+		if (event.biome == Biomes.prairie.get())
+		{
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Savanna
 		if (event.biome == Biomes.savanna.get())
 		{
@@ -202,6 +553,331 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.gravel.blockID)
 			{
 				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Scrubland
+		if (event.biome == Biomes.scrubland.get())
+		{
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Spruce Woods
+		if (event.biome == Biomes.spruceWoods.get())
+		{	
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Steppe
+		if (event.biome == Biomes.steppe.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Tropical Rainforest
+		if (event.biome == Biomes.tropicalRainforest.get())
+		{	
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Block.wood.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsWoodJungle.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Block.stairsWoodJungle.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Gravel
+			if (event.original == Block.gravel.blockID)
+			{
+				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+	}
+	
+	@ForgeSubscribe
+	public void getVillageBlockMeta(BiomeEvent.GetVillageBlockMeta event)
+	{
+		//Desert
+		if (event.biome == Biomes.desertNew.get())
+		{
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 0;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 2;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Grove
+		if (event.biome == Biomes.grove.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = 5;
+				event.setResult(Result.DENY);
+			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Lush Desert
+		if (event.biome == Biomes.lushDesert.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = 0;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Meadow
+		if (event.biome == Biomes.meadow.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Meadow Forest
+		if (event.biome == Biomes.meadowForest.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Outback
+		if (event.biome == Biomes.outback.get())
+		{
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = 4;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Overgrown Greens
+		if (event.biome == Biomes.overgrownGreens.get())
+		{
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = 4;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Spruce Woods
+		if (event.biome == Biomes.spruceWoods.get())
+		{
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Tropical Rainforest
+		if (event.biome == Biomes.tropicalRainforest.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 3;
 				event.setResult(Result.DENY);
 			}
 		}
