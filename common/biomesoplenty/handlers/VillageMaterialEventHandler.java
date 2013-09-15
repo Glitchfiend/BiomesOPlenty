@@ -141,6 +141,17 @@ public class VillageMaterialEventHandler
 			}
 		}
 		
+		//Birch Forest
+		if (event.biome == Biomes.birchForest.get())
+		{	
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsWoodBirch.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Brushland
 		if (event.biome == Biomes.brushland.get())
 		{
@@ -377,6 +388,13 @@ public class VillageMaterialEventHandler
 				event.setResult(Result.DENY);
 			}
 			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Block.woodSingleSlab.blockID;
+				event.setResult(Result.DENY);
+			}
+			
 			//Lava
 			if (event.original == Block.lavaStill.blockID)
 			{
@@ -411,6 +429,13 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
 				event.replacement = Block.stairsWoodSpruce.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Block.woodSingleSlab.blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -811,6 +836,17 @@ public class VillageMaterialEventHandler
 	@ForgeSubscribe
 	public void getVillageBlockMeta(BiomeEvent.GetVillageBlockMeta event)
 	{
+		//Birch Forest
+		if (event.biome == Biomes.birchForest.get())
+		{	
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 2;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Coniferous Forest
 		if (event.biome == Biomes.coniferousForest.get())
 		{
@@ -952,6 +988,13 @@ public class VillageMaterialEventHandler
 				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
 		}
 		
 		//Meadow Forest
@@ -973,6 +1016,13 @@ public class VillageMaterialEventHandler
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
 			{
 				event.replacement = 1;
 				event.setResult(Result.DENY);

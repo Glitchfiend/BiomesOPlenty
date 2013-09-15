@@ -27,6 +27,7 @@ public class BOPConfigurationTerrainGen
 	
 	// Village biomes
 	public static boolean arcticVillage;
+	public static boolean birchForestVillage;
 	public static boolean brushlandVillage;
 	public static boolean chaparralVillage;
 	public static boolean coniferousForestVillage;
@@ -86,6 +87,7 @@ public class BOPConfigurationTerrainGen
 
 			// Biomes with villages
 			arcticVillage = config.get("Allow Villages", "Arctic", true).getBoolean(false);
+			birchForestVillage = config.get("Allow Villages", "BirchForest", true).getBoolean(false);
 			brushlandVillage = config.get("Allow Villages", "Brushland", true).getBoolean(false);
 			chaparralVillage = config.get("Allow Villages", "Chaparral", true).getBoolean(false);
 			coniferousForestVillage = config.get("Allow Villages", "ConiferousForest", true).getBoolean(false);

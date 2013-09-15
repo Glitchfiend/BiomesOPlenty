@@ -522,6 +522,7 @@ public class BOPBiomes {
 	private static void addVillageBiomes()
 	{
 		addVillageBiome(Biomes.arctic, BOPConfigurationTerrainGen.arcticVillage);
+		addVillageBiome(Biomes.birchForest, BOPConfigurationTerrainGen.birchForestVillage);
 		addVillageBiome(Biomes.brushland, BOPConfigurationTerrainGen.brushlandVillage);
 		addVillageBiome(Biomes.chaparral, BOPConfigurationTerrainGen.chaparralVillage);
 		addVillageBiome(Biomes.coniferousForest, BOPConfigurationTerrainGen.coniferousForestVillage);
