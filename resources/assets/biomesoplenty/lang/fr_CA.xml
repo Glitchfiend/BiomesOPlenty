@@ -20,7 +20,7 @@
 	<entry key="tile.bop.redRocks.redrock.name">Roche Rouge</entry>
 	<entry key="tile.bop.redRocks.redcobble.name">Roche Rouge</entry>
 	<entry key="tile.bop.redRocks.redbrick.name">Briques de Pierre Rouge</entry>
-	
+
 	<entry key="tile.bop.ash.name">Ash Block</entry>
 
 	<entry key="tile.bop.plants.deadgrass.name">Herbe Morte</entry>
@@ -34,19 +34,17 @@
 	<entry key="tile.bop.plants.cattailtop.name">Massettes</entry>
 	<entry key="tile.bop.plants.cattailbottom.name">Massettes</entry>
 	<entry key="tile.bop.plants.reed.name">Roseau</entry>
+	<entry key="tile.bop.plants.cactus.name">Petit Cactus</entry>
 
 	<entry key="tile.bop.flowers.clover.name">Trèfles</entry>
 	<entry key="tile.bop.flowers.swampflower.name">Fleur des Marais</entry>
 	<entry key="tile.bop.flowers.deadbloom.name">Clochettes de la Mort</entry>
 	<entry key="tile.bop.flowers.glowflower.name">Fleur Luisante</entry>
 	<entry key="tile.bop.flowers.hydrangea.name">Hydrangéa</entry>
-	<entry key="tile.bop.flowers.daisy.name">Marguerite</entry>
-	<entry key="tile.bop.flowers.tulip.name">Tulipe</entry>
 	<entry key="tile.bop.flowers.wildflower.name">Fleur Sauvage</entry>
 	<entry key="tile.bop.flowers.violet.name">Violette</entry>
 	<entry key="tile.bop.flowers.anemone.name">Anémone</entry>
 	<entry key="tile.bop.flowers.lilyflower.name">Fleur de Nénuphar</entry>
-	<entry key="tile.bop.flowers.cactus.name">Petit Cactus</entry>
 	<entry key="tile.bop.flowers.aloe.name">Aloé</entry>
 	<entry key="tile.bop.flowers.sunflowerbottom.name">Tornesol</entry>
 	<entry key="tile.bop.flowers.sunflowertop.name">Tornesol</entry>
@@ -61,15 +59,15 @@
 	<entry key="tile.bop.foliage.highgrasstop.name">Herbe Haute</entry>
 	<entry key="tile.bop.foliage.poisonivy.name">Sumac Vénéneux</entry>
 	<entry key="tile.bop.foliage.berrybush.name">Buisson à Baies</entry>
-	
+
 	<entry key="tile.bop.petals.bigflowerred.name">Fleur Rouge Géante</entry>
 	<entry key="tile.bop.petals.bigfloweryellow.name">Fleur Jaune Géante</entry>
-	
+
 	<entry key="tile.bop.mushrooms.toadstool.name">Psylocybes</entry>
 	<entry key="tile.bop.mushrooms.portobello.name">Champignon de Paris</entry>
 	<entry key="tile.bop.mushrooms.bluemilk.name">Lactaire Indigo</entry>
 	<entry key="tile.bop.mushrooms.glowshroom.name">Champignol Luisant</entry>
-	
+
 	<entry key="tile.bop.saplings.appleSapling.name">Pousse de Pomier</entry>
 	<entry key="tile.bop.saplings.yellowautumnSapling.name">Pousse d'arbe d'automne jaune</entry>
 	<entry key="tile.bop.saplings.bambooSapling.name">Pousse de Bambou</entry>
@@ -92,29 +90,30 @@
 	<entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Pousse de Séquoia</entry>
 	<entry key="tile.bop.colorizedSaplings.willowSapling.name">Pousse de Saule</entry>
 	<entry key="tile.bop.colorizedSaplings.pineSapling.name">Pousse de Pin</entry>
-	
-	<entry key="tile.bop.willow.name">Lianes de Saule</entry>
- 	<entry key="tile.bop.ivy.name">Sumac</entry>
- 	<entry key="tile.bop.leavesFruit.name">Feuilles de Pomier</entry>
-	<entry key="tile.bop.bamboo.name">Bambou</entry>
- 	<entry key="tile.bop.mudBricksStairs.name">Escaliers en Briques de Boue</entry>
- 	<entry key="tile.bop.originGrass.name">Herbe Originelle</entry>			<entry key="tile.bop.longGrass.name">Bloc d'Herbe Longue</entry>
- 	<entry key="tile.bop.treeMoss.name">Mousse d'Arbre</entry>
 
-	<entry key="tile.bop.coral.kelp.name">Algue Brune</entry>
-	
- 	<entry key="tile.bop.redCobbleStairs.name">Escaliers en Pierre Rouge</entry>	 	
- 	<entry key="tile.bop.redBricksStairs.name">Escaliers en Briques de Pierre Rouge</entry>
- 	
- 	<entry key="tile.bop.holyGrass.holygrass.name">Herbe Purifiée</entry>
- 	<entry key="tile.bop.holyGrass.smolderinggrass.name">Herbe en Fusion</entry>
- 	
- 	<entry key="tile.bop.holyStone.holystone.name">Roche Céleste</entry>
- 	<entry key="tile.bop.holyStone.holycobble.name">Pierre Céleste</entry>
- 	<entry key="tile.bop.holyStone.holybrick.name">Briques de Pierre Céleste</entry>
- 	
- 	<entry key="tile.bop.holyCobbleStairs.name">Escaliers en Pierre Céleste</entry>
- 	<entry key="tile.bop.holyBricksStairs.name">Escaliers en Roche Céleste</entry>
+	<entry key="tile.bop.willow.name">Lianes de Saule</entry>
+	<entry key="tile.bop.ivy.name">Sumac</entry>
+	<entry key="tile.bop.leavesFruit.name">Feuilles de Pomier</entry>
+	<entry key="tile.bop.bamboo.name">Bambou</entry>
+	<entry key="tile.bop.mudBricksStairs.name">Escaliers en Briques de Boue</entry>
+	<entry key="tile.bop.originGrass.name">Herbe Originelle</entry>
+	<entry key="tile.bop.longGrass.name">Bloc d'Herbe Longue</entry>
+	<entry key="tile.bop.treeMoss.name">Mousse d'Arbre</entry>
+
+	<entry key="tile.bop.coral.kelpsingle.name">Algue Brune</entry>
+
+	<entry key="tile.bop.redCobbleStairs.name">Escaliers en Pierre Rouge</entry>	 	
+	<entry key="tile.bop.redBricksStairs.name">Escaliers en Briques de Pierre Rouge</entry>
+
+	<entry key="tile.bop.holyGrass.holygrass.name">Herbe Purifiée</entry>
+	<entry key="tile.bop.holyGrass.smolderinggrass.name">Herbe en Fusion</entry>
+
+	<entry key="tile.bop.holyStone.holystone.name">Roche Céleste</entry>
+	<entry key="tile.bop.holyStone.holycobble.name">Pierre Céleste</entry>
+	<entry key="tile.bop.holyStone.holybrick.name">Briques de Pierre Céleste</entry>
+
+	<entry key="tile.bop.holyCobbleStairs.name">Escaliers en Pierre Céleste</entry>
+	<entry key="tile.bop.holyBricksStairs.name">Escaliers en Roche Céleste</entry>
 
 	<entry key="tile.bop.promisedPortal.name">Portail de la Terre Promise</entry>
 
@@ -133,25 +132,25 @@
 	<entry key="tile.bop.amethystOre.sapphireore.name">Minerai de saphir</entry>
 	<entry key="tile.bop.amethystOre.sapphireblock.name">Bloc de saphir</entry>
 	
- 	<entry key="tile.bop.moss.name">Mousse</entry>
-	 	
- 	<entry key="tile.bop.cloud.name">Bloc de Nuage</entry>
+	<entry key="tile.bop.moss.name">Mousse</entry>
+ 	
+	<entry key="tile.bop.cloud.name">Bloc de Nuage</entry>
 
 	<entry key="tile.bop.bones.bones_small.name">Petit Morceau d'Os</entry>
 	<entry key="tile.bop.bones.bones_medium.name">Morceau d'Os Moyen</entry>
 	<entry key="tile.bop.bones.bones_large.name">Gros Morceau d'Os</entry>
 
 	<entry key="tile.bop.glass.celestialLens.name">Lentille Céleste</entry>
-	
+
 	<entry key="tile.bop.glass.sacrificialfocus_empty.name">Foyer de Sacrifice</entry>
 	<entry key="tile.bop.glass.sacrificialfocus_active.name">Foyer de Sacrifice</entry>
 	<entry key="tile.bop.glass.sacrificialfocus_villager.name">Foyer de Sacrifice</entry>
-	
+
 	<entry key="tile.bop.altar.altarframe.name">Autel</entry>
-	
+
 	<entry key="tile.bop.puddle.name">Flaque</entry>
-	
-    <entry key="tile.bop.grave.name">Tombe</entry>
+
+	<entry key="tile.bop.grave.name">Tombe</entry>
 
 	<entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Dalle en Pierre Rouge</entry>
 	<entry key="tile.bop.stoneDoubleSlab.redbrickSlab.name">Dalle en Briques de Pierre Rouge</entry>
@@ -263,12 +262,8 @@
 	<entry key="tile.bop.leavesColorized.redwood.name">Feuilles de Séquoia</entry>
 	<entry key="tile.bop.leavesColorized.willow.name">Feuilles de Saule</entry>
 	<entry key="tile.bop.leavesColorized.pine.name">Feuilles de Pin</entry>
-	
-	<!--Items -->
-	<entry key="item.bop.shroomPowder.name">Poudre de champignon</entry>
 
-	<entry key="item.bop.sunflowerSeeds.name">Graines de tournesol</entry>
-	
+	<!--Items -->
 	<entry key="item.bop.food.berries.name">Baie</entry>
 	<entry key="item.bop.food.shroomPowder.name">Poudre de champignon</entry>
 	<entry key="item.bop.food.wildcarrots.name">Carottes Sauvages</entry>
@@ -280,7 +275,7 @@
 	<entry key="item.bop.dartblower.name">Sarbacanne</entry>
 	<entry key="item.bop.dart.dart.name">Fléchettes</entry>
 	<entry key="item.bop.dart.poisondart.name">Fléchettes Empoisonnées</entry>
-	
+
 	<entry key="item.bop.mudball.name">Boule de boue</entry>
 
 	<entry key="item.bop.miscItems.mudbrick.name">Brique de boue</entry>
@@ -310,7 +305,7 @@
 	<entry key="item.bop.chestplateMud.name">Plastron en boue</entry>
 	<entry key="item.bop.leggingsMud.name">Jambières en boue</entry>
 	<entry key="item.bop.bootsMud.name">Bottes en boue</entry>
-	
+
 	<entry key="item.bop.pickaxeAmethyst.name">Pioche en améthyste</entry>
 	<entry key="item.bop.hatchetAmethyst.name">Hache en améthyste</entry>
 	<entry key="item.bop.shovelAmethyst.name">Pelle en améthyste</entry>
@@ -320,7 +315,7 @@
 	<entry key="item.bop.chestplateAmethyst.name">Plastron en améthyste</entry>
 	<entry key="item.bop.leggingsAmethyst.name">Jambières en améthyste</entry>
 	<entry key="item.bop.bootsAmethyst.name">Bottes en améthyste</entry>
-	
+
 	<entry key="item.bop.scytheWood.name">Faux en bois</entry>
 	<entry key="item.bop.scytheStone.name">Faux en pierre</entry>
 	<entry key="item.bop.scytheIron.name">Faux en fer</entry>
@@ -348,26 +343,26 @@
 	<entry key="item.bop.flowerBand.plainflowerband.name">Couronne de fleurs simple</entry>
 	<entry key="item.bop.flowerBand.lushflowerband.name">Couronne de fleurs luxuriante</entry>
 	<entry key="item.bop.flowerBand.exoticflowerband.name">Couronne de fleurs exotique</entry>
-	
+
 	<!--Fluids -->
 	<entry key="item.bop.bopBucket.amethyst_empty.name">Seau en améthyste</entry>
 	<entry key="item.bop.bopBucket.amethyst_spring_water.name">Seau d'eau chaude en améthyste</entry>
 	<entry key="item.bop.bopBucket.liquid_poison.name">Seau de poison liquide</entry>
-	
+
 	<entry key="tile.bop.liquidPoison.name">Poison liquide</entry>
 	<entry key="tile.bop.springWater.name">Eau chaude</entry>
-	
+
 	<entry key="fluid.bop.liquidPoison">Poison liquide</entry>
-    <entry key="fluid.bop.springWater">Eau chaude</entry>
-	
+	<entry key="fluid.bop.springWater">Eau chaude</entry>
+
 	<!--Phrases -->
 	<entry key="phrase.bop.promisedPortalOverworld">Un passage vers la Terre Promise est apparu haut dans le ciel.</entry>
 	<entry key="phrase.bop.promisedPortalOther">Un passage vers la terre est apparu haut dans le ciel.</entry>
-	
+
 	<!--Creative Tab -->
-   <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
-	
+	<entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
+
 	<!--World Type -->
-   <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
+	<entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
 
 </properties>
