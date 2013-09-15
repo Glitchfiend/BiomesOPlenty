@@ -265,7 +265,7 @@
 
 	<!--Items -->
 	<entry key="item.bop.food.berries.name">Baie</entry>
-	<entry key="item.bop.food.shroomPowder.name">Poudre de champignon</entry>
+	<entry key="item.bop.food.shroompowder.name">Poudre de champignon</entry>
 	<entry key="item.bop.food.wildcarrots.name">Carottes Sauvages</entry>
 	<entry key="item.bop.food.sunflowerseeds.name">Graines de tournesol</entry>
 	<entry key="item.bop.food.saladfruit.name">Salade de fruits</entry>
