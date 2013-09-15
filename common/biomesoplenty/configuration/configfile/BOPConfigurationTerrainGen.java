@@ -174,8 +174,8 @@ public class BOPConfigurationTerrainGen
 			hotSpringsVillage = config.get("Allow Villages", "HotSprings", false).getBoolean(false);
 			icyHillsVillage = config.get("Allow Villages", "IcyHills", false).getBoolean(false);
 			jadeCliffsVillage = config.get("Allow Villages", "JadeCliffs", false).getBoolean(false);
-			lushDesertVillage = config.get("Allow Villages", "LushDesert", false).getBoolean(false);
-			lushSwampVillage = config.get("Allow Villages", "LushSwamp", false).getBoolean(false);
+			lushDesertVillage = config.get("Allow Villages", "LushDesert", true).getBoolean(false);
+			lushSwampVillage = config.get("Allow Villages", "LushSwamp", true).getBoolean(false);
 			mangroveVillage = config.get("Allow Villages", "Mangrove", false).getBoolean(false);
 			mapleWoodsVillage = config.get("Allow Villages", "MapleWoods", false).getBoolean(false);
 			marshVillage = config.get("Allow Villages", "Marsh", false).getBoolean(false);
@@ -205,11 +205,11 @@ public class BOPConfigurationTerrainGen
 			shrublandVillage = config.get("Allow Villages", "Shrubland", true).getBoolean(false);
 			silkgladesVillage = config.get("Allow Villages", "Silkgladess", false).getBoolean(false);
 			sludgepitVillage = config.get("Allow Villages", "Sludgepit", false).getBoolean(false);
-			spruceWoodsVillage = config.get("Allow Villages", "SpruceWoods", false).getBoolean(false);
+			spruceWoodsVillage = config.get("Allow Villages", "SpruceWoods", true).getBoolean(false);
 			steppeVillage = config.get("Allow Villages", "Steppe", true).getBoolean(false);
 			temperateRainforestVillage = config.get("Allow Villages", "TemperateRainforest", false).getBoolean(false);
 			thicketVillage = config.get("Allow Villages", "Thicket", false).getBoolean(false);
-			timberVillage = config.get("Allow Villages", "Timber", false).getBoolean(false);
+			timberVillage = config.get("Allow Villages", "Timber", true).getBoolean(false);
 			tropicalRainforestVillage = config.get("Allow Villages", "TropicalRainforest", true).getBoolean(false);
 			tropicsVillage = config.get("Allow Villages", "Tropics", false).getBoolean(false);
 			tundraVillage = config.get("Allow Villages", "Tundra", true).getBoolean(false);
