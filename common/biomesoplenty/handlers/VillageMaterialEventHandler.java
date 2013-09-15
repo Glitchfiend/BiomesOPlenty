@@ -152,6 +152,31 @@ public class VillageMaterialEventHandler
 			}
 		}
 		
+		//Coniferous Forest
+		if (event.biome == Biomes.coniferousForest.get())
+		{	
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Blocks.firStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Desert
 		if (event.biome == Biomes.desertNew.get())
 		{
@@ -313,6 +338,17 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.cobblestone.blockID)
 			{
 				event.replacement = Block.cobblestoneMossy.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Maple Woods
+		if (event.biome == Biomes.spruceWoods.get())
+		{	
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Block.stairsWoodSpruce.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -568,6 +604,31 @@ public class VillageMaterialEventHandler
 			}
 		}
 		
+		//Snowy Coniferous Forest
+		if (event.biome == Biomes.coniferousForestSnow.get())
+		{	
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Blocks.firStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Spruce Woods
 		if (event.biome == Biomes.spruceWoods.get())
 		{	
@@ -687,11 +748,94 @@ public class VillageMaterialEventHandler
 				event.setResult(Result.DENY);
 			}
 		}
+		
+		//Wetland
+		if (event.biome == Biomes.wetland.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Blocks.logs3.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs3.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Blocks.willowStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Blocks.willowStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Blocks.woodenSingleSlab2.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+		}
 	}
 	
 	@ForgeSubscribe
 	public void getVillageBlockMeta(BiomeEvent.GetVillageBlockMeta event)
 	{
+		//Coniferous Forest
+		if (event.biome == Biomes.coniferousForest.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Desert
 		if (event.biome == Biomes.desertNew.get())
 		{
@@ -763,6 +907,24 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
 				event.replacement = 0;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Maple Woods
+		if (event.biome == Biomes.spruceWoods.get())
+		{
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -839,6 +1001,31 @@ public class VillageMaterialEventHandler
 			}
 		}
 		
+		//Snowy Coniferous Forest
+		if (event.biome == Biomes.coniferousForestSnow.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+		}
+		
 		//Spruce Woods
 		if (event.biome == Biomes.spruceWoods.get())
 		{
@@ -878,6 +1065,38 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.planks.blockID)
 			{
 				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Wetland
+		if (event.biome == Biomes.wetland.get())
+		{
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 9;
+				event.setResult(Result.DENY);
+			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
 		}

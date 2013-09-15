@@ -29,12 +29,17 @@ public class BOPConfigurationTerrainGen
 	public static boolean arcticVillage;
 	public static boolean brushlandVillage;
 	public static boolean chaparralVillage;
+	public static boolean coniferousForestVillage;
+	public static boolean coniferousForestSnowVillage;
+	public static boolean deciduousForestVillage;
+	public static boolean frostForestVillage;
 	public static boolean fieldVillage;
 	public static boolean grasslandVillage;
 	public static boolean groveVillage;
 	public static boolean heathlandVillage;
 	public static boolean lushDesertVillage;
 	public static boolean lushSwampVillage;
+	public static boolean mapleWoodsVillage;
 	public static boolean meadowVillage;
 	public static boolean outbackVillage;
 	public static boolean overgrownGreensVillage;
@@ -47,8 +52,11 @@ public class BOPConfigurationTerrainGen
 	public static boolean timberVillage;
 	public static boolean tropicalRainforestVillage;
 	public static boolean tundraVillage;
+	public static boolean wetlandVillage;
+	public static boolean woodlandVillage;
 	public static boolean plainsVillage;
 	public static boolean desertVillage;
+	public static boolean forestVillage;
 
 	public static void init(File configFile)
 	{
@@ -80,11 +88,16 @@ public class BOPConfigurationTerrainGen
 			arcticVillage = config.get("Allow Villages", "Arctic", true).getBoolean(false);
 			brushlandVillage = config.get("Allow Villages", "Brushland", true).getBoolean(false);
 			chaparralVillage = config.get("Allow Villages", "Chaparral", true).getBoolean(false);
+			coniferousForestVillage = config.get("Allow Villages", "ConiferousForest", true).getBoolean(false);
+			coniferousForestSnowVillage = config.get("Allow Villages", "SnowyConiferousForest", true).getBoolean(false);
+			deciduousForestVillage = config.get("Allow Villages", "DeciduousForest", true).getBoolean(false);
+			frostForestVillage = config.get("Allow Villages", "FrostForest", true).getBoolean(false);
 			fieldVillage = config.get("Allow Villages", "Field", true).getBoolean(false);
 			grasslandVillage = config.get("Allow Villages", "Grassland", true).getBoolean(false);
 			groveVillage = config.get("Allow Villages", "Grove", true).getBoolean(false);
 			heathlandVillage = config.get("Allow Villages", "Heathland", true).getBoolean(false);
 			lushSwampVillage = config.get("Allow Villages", "LushSwamp", true).getBoolean(false);
+			mapleWoodsVillage = config.get("Allow Villages", "MapleWoods", true).getBoolean(false);
 			meadowVillage = config.get("Allow Villages", "Meadow", true).getBoolean(false);
 			outbackVillage = config.get("Allow Villages", "Outback", true).getBoolean(false);
 			overgrownGreensVillage = config.get("Allow Villages", "OvergrownGreens", true).getBoolean(false);
@@ -97,9 +110,12 @@ public class BOPConfigurationTerrainGen
 			timberVillage = config.get("Allow Villages", "Timber", true).getBoolean(false);
 			tropicalRainforestVillage = config.get("Allow Villages", "TropicalRainforest", true).getBoolean(false);
 			tundraVillage = config.get("Allow Villages", "Tundra", true).getBoolean(false);
+			wetlandVillage = config.get("Allow Villages", "Wetland", true).getBoolean(false);
+			woodlandVillage = config.get("Allow Villages", "Woodland", true).getBoolean(false);
 
 			// Vanilla biomes
 			desertVillage = config.get("Allow Villages", "Desert", true).getBoolean(true);
+			forestVillage = config.get("Allow Villages", "Forest", true).getBoolean(true);
 			plainsVillage = config.get("Allow Villages", "Plains", true).getBoolean(true);
 			
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Terrain Gen Config!");

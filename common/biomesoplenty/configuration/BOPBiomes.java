@@ -524,12 +524,17 @@ public class BOPBiomes {
 		addVillageBiome(Biomes.arctic, BOPConfigurationTerrainGen.arcticVillage);
 		addVillageBiome(Biomes.brushland, BOPConfigurationTerrainGen.brushlandVillage);
 		addVillageBiome(Biomes.chaparral, BOPConfigurationTerrainGen.chaparralVillage);
+		addVillageBiome(Biomes.coniferousForest, BOPConfigurationTerrainGen.coniferousForestVillage);
+		addVillageBiome(Biomes.coniferousForestSnow, BOPConfigurationTerrainGen.coniferousForestSnowVillage);
+		addVillageBiome(Biomes.deciduousForest, BOPConfigurationTerrainGen.deciduousForestVillage);
+		addVillageBiome(Biomes.frostForest, BOPConfigurationTerrainGen.frostForestVillage);
 		addVillageBiome(Biomes.field, BOPConfigurationTerrainGen.fieldVillage);
 		addVillageBiome(Biomes.grassland, BOPConfigurationTerrainGen.grasslandVillage);
 		addVillageBiome(Biomes.grove, BOPConfigurationTerrainGen.groveVillage);
 		addVillageBiome(Biomes.heathland, BOPConfigurationTerrainGen.heathlandVillage);
 		addVillageBiome(Biomes.lushDesert, BOPConfigurationTerrainGen.lushDesertVillage);
 		addVillageBiome(Biomes.lushSwamp, BOPConfigurationTerrainGen.lushSwampVillage);
+		addVillageBiome(Biomes.mapleWoods, BOPConfigurationTerrainGen.mapleWoodsVillage);
 		addVillageBiome(Biomes.meadow, BOPConfigurationTerrainGen.meadowVillage);
 		addVillageBiome(Biomes.meadowForest, BOPConfigurationTerrainGen.meadowVillage);
 		addVillageBiome(Biomes.outback, BOPConfigurationTerrainGen.outbackVillage);
@@ -543,9 +548,12 @@ public class BOPBiomes {
 		addVillageBiome(Biomes.timber, BOPConfigurationTerrainGen.timberVillage);
 		addVillageBiome(Biomes.tropicalRainforest, BOPConfigurationTerrainGen.tropicalRainforestVillage);
 		addVillageBiome(Biomes.tundra, BOPConfigurationTerrainGen.tundraVillage);
+		addVillageBiome(Biomes.wetland, BOPConfigurationTerrainGen.wetlandVillage);
+		addVillageBiome(Biomes.woodland, BOPConfigurationTerrainGen.woodlandVillage);
 
 		addVillageBiome(Biomes.plainsNew, BOPConfigurationTerrainGen.plainsVillage);
 		addVillageBiome(Biomes.desertNew, BOPConfigurationTerrainGen.desertVillage);
+		addVillageBiome(Biomes.forestNew, BOPConfigurationTerrainGen.forestVillage);
 	}
 
 	private static void addStrongholdBiomes()
