@@ -36,7 +36,7 @@ public class FlipperMovementEventHandler
 			
 			InventoryPlayer inventory = player.inventory;
 
-			if (player.isInWater())
+			if (player.isInWater() && !player.capabilities.isFlying)
 			{
 				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.flippers.get().itemID)
 				{
