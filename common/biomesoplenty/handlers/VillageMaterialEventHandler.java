@@ -354,7 +354,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Maple Woods
-		if (event.biome == Biomes.spruceWoods.get())
+		if (event.biome == Biomes.mapleWoods.get())
 		{	
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
@@ -948,7 +948,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Maple Woods
-		if (event.biome == Biomes.spruceWoods.get())
+		if (event.biome == Biomes.mapleWoods.get())
 		{
 			//Logs
 			if (event.original == Block.wood.blockID)
