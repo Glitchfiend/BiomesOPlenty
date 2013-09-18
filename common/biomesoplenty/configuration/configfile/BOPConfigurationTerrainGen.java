@@ -98,6 +98,7 @@ public class BOPConfigurationTerrainGen
 			grasslandVillage = config.get("Allow Villages", "Grassland", true).getBoolean(false);
 			groveVillage = config.get("Allow Villages", "Grove", true).getBoolean(false);
 			heathlandVillage = config.get("Allow Villages", "Heathland", true).getBoolean(false);
+			lushDesertVillage = config.get("Allow Villages", "LushDesert", true).getBoolean(false);
 			lushSwampVillage = config.get("Allow Villages", "LushSwamp", true).getBoolean(false);
 			mapleWoodsVillage = config.get("Allow Villages", "MapleWoods", true).getBoolean(false);
 			meadowVillage = config.get("Allow Villages", "Meadow", true).getBoolean(false);
