@@ -282,7 +282,10 @@ public class BOPBiomes {
 		Biomes.timber = Optional.of((new BiomeGenTimber(BOPConfigurationIDs.timberID)).setColor(353825).setBiomeName("Timber").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.timberThin = Optional.of((new BiomeGenTimberThin(BOPConfigurationIDs.timberThinID)).setColor(353825).setBiomeName("Thinned Timber").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.tropicalRainforest = Optional.of((new BiomeGenTropicalRainforest(BOPConfigurationIDs.tropicalRainforestID)).setColor(9286496).setBiomeName("Tropical Rainforest").setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.3F, 0.7F));
-		Biomes.tropics = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsID)).setColor(9286496).setBiomeName("Tropics").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 1.5F));
+		
+		Biomes.tropics = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsID)).setColor(9286496).setBiomeName("Tropics").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 0.5F));
+		Biomes.tropicsMountain = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsMountainID)).setColor(9286496).setBiomeName("Tropics Mountain").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.5F, 1.1F));
+		
 		Biomes.tundra = Optional.of((new BiomeGenTundra(BOPConfigurationIDs.tundraID)).setColor(14090235).setBiomeName("Tundra").setTemperatureRainfall(0.2F, 0.8F).setMinMaxHeight(0.1F, 0.3F));
 		Biomes.volcano = Optional.of((new BiomeGenVolcano(BOPConfigurationIDs.volcanoID)).setColor(9286496).setBiomeName("Volcano").setDisableRain().setMinMaxHeight(0.6F, 0.9F).setTemperatureRainfall(2.0F, 0.05F));
 		Biomes.wasteland = Optional.of((new BiomeGenWasteland(BOPConfigurationIDs.wastelandID)).setColor(16421912).setBiomeName("Wasteland").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.3F, 0.4F));
@@ -426,7 +429,10 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.timberThin.get(), Type.FOREST);
 		
 		BiomeDictionary.registerBiomeType(Biomes.tropicalRainforest.get(), Type.JUNGLE);
+		
 		BiomeDictionary.registerBiomeType(Biomes.tropics.get(), Type.JUNGLE, Type.WATER);
+		BiomeDictionary.registerBiomeType(Biomes.tropicsMountain.get(), Type.JUNGLE, Type.WATER);
+		
 		BiomeDictionary.registerBiomeType(Biomes.tundra.get(), Type.FROZEN, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.volcano.get(), Type.WASTELAND, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.wasteland.get(), Type.WASTELAND);

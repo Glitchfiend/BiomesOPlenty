@@ -30,6 +30,7 @@ public class BiomeGenNetherLava extends BiomeGenBase
 		customBiomeDecorator.netherLavaPerChunk = 20;
 		customBiomeDecorator.smolderingGrassPerChunk = 2;
 		customBiomeDecorator.gravesPerChunk = 1;
+		customBiomeDecorator.burningBlossomsPerChunk = 4;
 		customBiomeDecorator.generateAsh = true;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();

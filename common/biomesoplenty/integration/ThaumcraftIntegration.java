@@ -222,6 +222,10 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("lilyflower"), getBMeta("lilyflower"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.PLANT, 1).add(Aspect.WATER, 1));
 		ThaumcraftApi.registerObjectTag(getBID("rainbowflower"), getBMeta("rainbowflower"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.PLANT, 1).add(Aspect.LIGHT, 1).add(Aspect.MAGIC, 1));
 		ThaumcraftApi.registerObjectTag(getBID("sunflower"), getBMeta("sunflower"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.PLANT, 1).add(Aspect.LIGHT, 1));
+		
+		ThaumcraftApi.registerObjectTag(getBID("hibiscus"), getBMeta("hibiscus"), (new AspectList()).add(Aspect.PLANT, 4));
+		ThaumcraftApi.registerObjectTag(getBID("lilyofthevalley"), getBMeta("lilyofthevalley"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.POISON, 1));
+		ThaumcraftApi.registerObjectTag(getBID("burningblossom"), getBMeta("burningblossom"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.FIRE, 2));
 
 	}
 

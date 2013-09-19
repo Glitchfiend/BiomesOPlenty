@@ -181,6 +181,10 @@ public class BlockReferences {
 		aloe (Blocks.flowers, 12),
 		sunflower (Blocks.flowers, 13),
 		dandelion (Blocks.flowers, 15),
+		
+		hibiscus (Blocks.flowers2, 0),
+		lilyofthevalley (Blocks.flowers2, 1),
+		burningblossom (Blocks.flowers2, 2),
 		;
 
 		public Optional<? extends Block> block;

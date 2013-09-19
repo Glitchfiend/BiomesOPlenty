@@ -24,7 +24,7 @@ public class BiomeGenTropics extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 8;
+		customBiomeDecorator.treesPerChunk = 4;
 		customBiomeDecorator.grassPerChunk = 7;
 		customBiomeDecorator.flowersPerChunk = 10;
 		customBiomeDecorator.sandPerChunk = 50;
@@ -32,6 +32,7 @@ public class BiomeGenTropics extends BiomeGenBase
 		customBiomeDecorator.orangeFlowersPerChunk = 10;
 		customBiomeDecorator.whiteFlowersPerChunk = 4;
 		customBiomeDecorator.sunflowersPerChunk = 2;
+		customBiomeDecorator.hibiscusPerChunk = 45;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
 		spawnableCreatureList.clear();

@@ -53,6 +53,10 @@
     <entry key="tile.bop.flowers.sunflowerbottom.name">Sunflower</entry>
     <entry key="tile.bop.flowers.sunflowertop.name">Sunflower</entry>
     <entry key="tile.bop.flowers.dandelion.name">White Dandelion</entry>
+    
+    <entry key="tile.bop.flowers2.hibiscus.name">Pink Hibiscus</entry>
+    <entry key="tile.bop.flowers2.lilyofthevalley.name">Lily of the Valley</entry>
+    <entry key="tile.bop.flowers2.burningblossom.name">Burning Blossom</entry>
 
     <entry key="tile.bop.foliage.algae.name">Algae</entry>
     <entry key="tile.bop.foliage.shortgrass.name">Short Grass</entry>
