@@ -60,7 +60,7 @@ public class VillageMaterialEventHandler
 			//Glass Panes
 			if (event.original == Block.thinGlass.blockID)
 			{
-				event.replacement = Block.blockSnow.blockID;
+				event.replacement = Block.ice.blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -68,13 +68,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.fenceIron.blockID)
 			{
 				event.replacement = Block.blockSnow.blockID;
-				event.setResult(Result.DENY);
-			}
-			
-			//Fences
-			if (event.original == Block.fence.blockID)
-			{
-				event.replacement = Block.cobblestoneWall.blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -132,13 +125,6 @@ public class VillageMaterialEventHandler
 				event.replacement = Block.dirt.blockID;
 				event.setResult(Result.DENY);
 			}
-			
-			//Pressure Plate
-			if (event.original == Block.pressurePlatePlanks.blockID)
-			{
-				event.replacement = 0;
-				event.setResult(Result.DENY);
-			}
 		}
 		
 		//Birch Forest
@@ -166,6 +152,13 @@ public class VillageMaterialEventHandler
 		//Coniferous Forest
 		if (event.biome == Biomes.coniferousForest.get())
 		{	
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
@@ -184,6 +177,39 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
 				event.replacement = Blocks.firStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Blocks.firStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -276,11 +302,39 @@ public class VillageMaterialEventHandler
 				event.replacement = Block.waterMoving.blockID;
 				event.setResult(Result.DENY);
 			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
+				event.setResult(Result.DENY);
+			}
 		}
 		
 		//Heathland
 		if (event.biome == Biomes.heathland.get())
 		{
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = Blocks.logs4.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = Blocks.planks.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Stairs
+			if (event.original == Block.stairsWoodOak.blockID)
+			{
+				event.replacement = Blocks.jacarandaStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
 			//Gravel
 			if (event.original == Block.gravel.blockID)
 			{
@@ -338,6 +392,13 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.gravel.blockID)
 			{
 				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -406,6 +467,13 @@ public class VillageMaterialEventHandler
 				event.replacement = Block.waterMoving.blockID;
 				event.setResult(Result.DENY);
 			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
+				event.setResult(Result.DENY);
+			}
 		}
 		
 		//Meadow Forest
@@ -448,6 +516,13 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.lavaMoving.blockID)
 			{
 				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -513,6 +588,13 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.gravel.blockID)
 			{
 				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -616,6 +698,13 @@ public class VillageMaterialEventHandler
 				event.replacement = Block.sand.blockID;
 				event.setResult(Result.DENY);
 			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
+				event.setResult(Result.DENY);
+			}
 		}
 		
 		//Scrubland
@@ -632,6 +721,13 @@ public class VillageMaterialEventHandler
 		//Snowy Coniferous Forest
 		if (event.biome == Biomes.coniferousForestSnow.get())
 		{	
+			//Cobblestone
+			if (event.original == Block.cobblestone.blockID)
+			{
+				event.replacement = Blocks.logs1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
@@ -650,6 +746,39 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
 				event.replacement = Blocks.firStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Cobblestone Stairs
+			if (event.original == Block.stairsCobblestone.blockID)
+			{
+				event.replacement = Blocks.firStairs.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Lava
+			if (event.original == Block.lavaStill.blockID)
+			{
+				event.replacement = Block.waterStill.blockID;
+				event.setResult(Result.DENY);
+			}
+			if (event.original == Block.lavaMoving.blockID)
+			{
+				event.replacement = Block.waterMoving.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -728,6 +857,13 @@ public class VillageMaterialEventHandler
 				event.replacement = Block.sand.blockID;
 				event.setResult(Result.DENY);
 			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
+				event.setResult(Result.DENY);
+			}
 		}
 		
 		//Tropical Rainforest
@@ -754,6 +890,13 @@ public class VillageMaterialEventHandler
 				event.setResult(Result.DENY);
 			}
 			
+			//Stone Slabs
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = Block.woodSingleSlab.blockID;
+				event.setResult(Result.DENY);
+			}
+			
 			//Lava
 			if (event.original == Block.lavaStill.blockID)
 			{
@@ -770,6 +913,13 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.gravel.blockID)
 			{
 				event.replacement = Block.sand.blockID;
+				event.setResult(Result.DENY);
+			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -830,6 +980,13 @@ public class VillageMaterialEventHandler
 				event.replacement = Block.waterMoving.blockID;
 				event.setResult(Result.DENY);
 			}
+			
+			//Glass Panes
+			if (event.original == Block.thinGlass.blockID)
+			{
+				event.replacement = Block.fenceIron.blockID;
+				event.setResult(Result.DENY);
+			}
 		}
 	}
 	
@@ -866,6 +1023,13 @@ public class VillageMaterialEventHandler
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
 			{
 				event.replacement = 3;
 				event.setResult(Result.DENY);
@@ -925,6 +1089,24 @@ public class VillageMaterialEventHandler
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
 				event.replacement = 1;
+				event.setResult(Result.DENY);
+			}
+		}
+		
+		//Heathland
+		if (event.biome == Biomes.heathland.get())
+		{
+			//Logs
+			if (event.original == Block.wood.blockID)
+			{
+				event.replacement = 2;
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 13;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -1074,6 +1256,13 @@ public class VillageMaterialEventHandler
 				event.replacement = 3;
 				event.setResult(Result.DENY);
 			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
 		}
 		
 		//Spruce Woods
@@ -1113,6 +1302,13 @@ public class VillageMaterialEventHandler
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
+			{
+				event.replacement = 3;
+				event.setResult(Result.DENY);
+			}
+			
+			//Single Stone Slab
+			if (event.original == Block.stoneSingleSlab.blockID)
 			{
 				event.replacement = 3;
 				event.setResult(Result.DENY);
