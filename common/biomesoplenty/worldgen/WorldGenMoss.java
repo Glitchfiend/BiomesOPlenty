@@ -23,7 +23,7 @@ public class WorldGenMoss extends WorldGenerator
 				{
 					if (Blocks.moss.get().canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
 					{
-						int var999 = par2Random.nextInt(2);
+						int var999 = par2Random.nextInt(3);
 						
 						if (var999 == 0)
 						{
