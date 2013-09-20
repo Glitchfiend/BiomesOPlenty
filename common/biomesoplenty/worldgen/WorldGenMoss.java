@@ -23,7 +23,12 @@ public class WorldGenMoss extends WorldGenerator
 				{
 					if (Blocks.moss.get().canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
 					{
-						par1World.setBlock(par3, par4, par5, Blocks.moss.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+						int var999 = par2Random.nextInt(2);
+						
+						if (var999 == 0)
+						{
+							par1World.setBlock(par3, par4, par5, Blocks.moss.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+						}
 						break;
 					}
 				}

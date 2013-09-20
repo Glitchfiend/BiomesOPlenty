@@ -27,7 +27,7 @@ public class BiomeGenTaigaNew extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 10;
 		customBiomeDecorator.grassPerChunk = 1;
-		customBiomeDecorator.wheatGrassPerChunk = 0;
+		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.violetsPerChunk = 1;
 	}
 
