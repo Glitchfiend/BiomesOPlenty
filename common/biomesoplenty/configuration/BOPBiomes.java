@@ -183,7 +183,7 @@ public class BOPBiomes {
 		Biomes.alpsBase = Optional.of((new BiomeGenAlpsBase(BOPConfigurationIDs.alpsBaseID)).setColor(353825).setBiomeName("Alps Forest").func_76733_a(5159473).setTemperatureRainfall(0.5F, 0.4F).setMinMaxHeight(0.2F, 0.5F));
 		Biomes.arctic = Optional.of((new BiomeGenArctic(BOPConfigurationIDs.arcticID)).setColor(14090235).setBiomeName("Arctic").setEnableSnow().setTemperatureRainfall(0.05F, 0.5F).setMinMaxHeight(0.2F, 0.2F));
 		Biomes.autumnHills = Optional.of((new BiomeGenAutumnHills(BOPConfigurationIDs.autumnHillsID)).setColor(522674).setBiomeName("Autumn Hills").func_76733_a(9154376).setMinMaxHeight(0.5F, 0.8F).setTemperatureRainfall(0.5F, 0.2F));
-		Biomes.badlands = Optional.of((new BiomeGenBadlands(BOPConfigurationIDs.badlandsID)).setColor(16421912).setBiomeName("Badlands").setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.3F, 0.9F));
+		Biomes.badlands = Optional.of((new BiomeGenBadlands(BOPConfigurationIDs.badlandsID)).setColor(16421912).setBiomeName("Badlands").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.3F, 0.9F));
 		Biomes.bambooForest = Optional.of((new BiomeGenBambooForest(BOPConfigurationIDs.bambooForestID)).setColor(112).setBiomeName("Bamboo Forest").setMinMaxHeight(0.2F, 0.4F).setTemperatureRainfall(1.2F, 0.9F));
 		Biomes.bayou = Optional.of((new BiomeGenBayou(BOPConfigurationIDs.bayouID)).setColor(522674).setBiomeName("Bayou").func_76733_a(9154376).setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.5F, 0.9F));
 
