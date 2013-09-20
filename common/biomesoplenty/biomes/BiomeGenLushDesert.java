@@ -31,7 +31,6 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		customBiomeDecorator.deadBushPerChunk = 2;
 		customBiomeDecorator.purpleFlowersPerChunk = 5;
 		customBiomeDecorator.desertGrassPerChunk = 10;
-		customBiomeDecorator.desertCactiPerChunk = 10;
 		customBiomeDecorator.cactiPerChunk = 20;
 		customBiomeDecorator.tinyCactiPerChunk = 5;
 		customBiomeDecorator.waterLakesPerChunk = 5;
