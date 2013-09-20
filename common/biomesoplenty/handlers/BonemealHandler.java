@@ -7,8 +7,10 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.blocks.BlockBOPSapling;
+import biomesoplenty.worldgen.WorldGenDesertCactus;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
 import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
+import biomesoplenty.worldgen.WorldGenCattailBonemeal;
 import biomesoplenty.worldgen.WorldGenKelp;
 
 public class BonemealHandler
@@ -76,6 +78,32 @@ public class BonemealHandler
 				{
 					WorldGenKelp worldgenkelp = new WorldGenKelp(false);
 					worldgenkelp.generate(event.world, event.world.rand, event.X, event.Y, event.Z);
+				}
+			}
+		}
+		else if (event.ID == Blocks.plants.get().blockID && event.world.getBlockMetadata(event.X, event.Y, event.Z) == 12)
+		{
+			event.setResult(Result.ALLOW);
+
+			if (!event.world.isRemote)
+			{
+				if (event.world.rand.nextFloat() < 0.45D)
+				{
+					WorldGenDesertCactus worldgendesertcactus = new WorldGenDesertCactus();
+					worldgendesertcactus.generate(event.world, event.world.rand, event.X, event.Y, event.Z);
+				}
+			}
+		}
+		else if (event.ID == Blocks.plants.get().blockID && event.world.getBlockMetadata(event.X, event.Y, event.Z) == 7)
+		{
+			event.setResult(Result.ALLOW);
+
+			if (!event.world.isRemote)
+			{
+				if (event.world.rand.nextFloat() < 0.45D)
+				{
+					WorldGenCattailBonemeal worldgencattailbonemeal = new WorldGenCattailBonemeal(Blocks.plants.get().blockID, 9);
+					worldgencattailbonemeal.generate(event.world, event.world.rand, event.X, event.Y, event.Z);
 				}
 			}
 		}
