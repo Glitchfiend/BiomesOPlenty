@@ -28,6 +28,7 @@ public class BiomeGenSpruceWoods extends BiomeGenBase
 		customBiomeDecorator.poisonIvyPerChunk = 1;
 		customBiomeDecorator.berryBushesPerChunk = 3;
 		customBiomeDecorator.carrotsPerChunk = 1;
+		customBiomeDecorator.bluebellsPerChunk = 100;
 	}
 
 	/**

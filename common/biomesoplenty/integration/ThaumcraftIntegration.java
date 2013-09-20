@@ -226,6 +226,9 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("hibiscus"), getBMeta("hibiscus"), (new AspectList()).add(Aspect.PLANT, 4));
 		ThaumcraftApi.registerObjectTag(getBID("lilyofthevalley"), getBMeta("lilyofthevalley"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.POISON, 1));
 		ThaumcraftApi.registerObjectTag(getBID("burningblossom"), getBMeta("burningblossom"), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.FIRE, 2));
+		ThaumcraftApi.registerObjectTag(getBID("lavender"), getBMeta("lavender"), (new AspectList()).add(Aspect.PLANT, 4));
+		ThaumcraftApi.registerObjectTag(getBID("goldenrod"), getBMeta("goldenrod"), (new AspectList()).add(Aspect.PLANT, 4));
+		ThaumcraftApi.registerObjectTag(getBID("bluebells"), getBMeta("bluebells"), (new AspectList()).add(Aspect.PLANT, 4));
 
 	}
 

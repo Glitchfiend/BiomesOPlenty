@@ -23,7 +23,8 @@ public class BiomeGenPrairie extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 1;
 		customBiomeDecorator.grassPerChunk = 999;
-		customBiomeDecorator.whiteFlowersPerChunk = 45;
+		customBiomeDecorator.whiteFlowersPerChunk = 20;
+		customBiomeDecorator.goldenrodsPerChunk = 40;
 		customBiomeDecorator.portobellosPerChunk = 2;
 		customBiomeDecorator.berryBushesPerChunk = 2;
 		customBiomeDecorator.carrotsPerChunk = 1;

@@ -20,7 +20,7 @@ public class WorldGenTaiga3 extends WorldGenerator
 		int var6 = var2.nextInt(10) + 35;
 		int var7 = var2.nextInt(5) + 10;
 		int var8 = var6 - var7;
-		int var9 = 4;
+		int var9 = 3;
 		boolean var10 = true;
 
 		if (var4 >= 1 && var4 + var6 + 1 <= 256)

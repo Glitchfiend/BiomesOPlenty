@@ -185,7 +185,9 @@ public class BlockReferences {
 		hibiscus (Blocks.flowers2, 0),
 		lilyofthevalley (Blocks.flowers2, 1),
 		burningblossom (Blocks.flowers2, 2),
-		lavender (Blocks.flowers2, 2),
+		lavender (Blocks.flowers2, 3),
+		goldenrod (Blocks.flowers2, 4),
+		bluebells (Blocks.flowers2, 5),
 		;
 
 		public Optional<? extends Block> block;
