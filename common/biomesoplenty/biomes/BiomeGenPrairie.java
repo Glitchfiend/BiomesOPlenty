@@ -43,7 +43,7 @@ public class BiomeGenPrairie extends BiomeGenBase
 			int var9 = par4 + par2Random.nextInt(16);
 			int var10 = par1World.getBlockId(var7, var8, var9);
 
-			if (var10 == Block.stone.blockID)
+			if (Block.blocksList[var10].isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
 				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 4, 2);
 			}
