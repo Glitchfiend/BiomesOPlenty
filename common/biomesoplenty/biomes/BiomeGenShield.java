@@ -22,6 +22,7 @@ public class BiomeGenShield extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 7;
 		customBiomeDecorator.grassPerChunk = 12;
+		customBiomeDecorator.wheatGrassPerChunk = 6;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.gravelPerChunk = 6;

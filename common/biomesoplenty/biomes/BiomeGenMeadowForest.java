@@ -20,6 +20,7 @@ public class BiomeGenMeadowForest extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 7;
 		customBiomeDecorator.grassPerChunk = 10;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.tinyFlowersPerChunk = 7;
 		customBiomeDecorator.flowersPerChunk = 10;
 		customBiomeDecorator.carrotsPerChunk = 1;

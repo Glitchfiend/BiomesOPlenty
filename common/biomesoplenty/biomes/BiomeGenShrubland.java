@@ -24,6 +24,7 @@ public class BiomeGenShrubland extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 0;
 		customBiomeDecorator.flowersPerChunk = 0;
 		customBiomeDecorator.grassPerChunk = 5;
+		customBiomeDecorator.wheatGrassPerChunk = 2;
 		customBiomeDecorator.bushesPerChunk = 7;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));

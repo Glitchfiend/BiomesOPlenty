@@ -25,6 +25,7 @@ public class BiomeGenSavanna extends BiomeGenBase
 		customBiomeDecorator.purpleFlowersPerChunk = 10;
 		customBiomeDecorator.tinyFlowersPerChunk = 2;
 		customBiomeDecorator.grassPerChunk = 25;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.bushesPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
 	}

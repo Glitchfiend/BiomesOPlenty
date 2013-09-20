@@ -23,6 +23,7 @@ public class BiomeGenTimber extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 20;
 		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.thornsPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.toadstoolsPerChunk = 2;

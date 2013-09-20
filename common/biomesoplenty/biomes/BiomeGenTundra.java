@@ -23,6 +23,7 @@ public class BiomeGenTundra extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 5;
 		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.gravelPerChunk = 8;

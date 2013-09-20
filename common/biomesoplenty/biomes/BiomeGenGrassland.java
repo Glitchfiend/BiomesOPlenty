@@ -28,6 +28,7 @@ public class BiomeGenGrassland extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = 2;
+		customBiomeDecorator.wheatGrassPerChunk = 0;
 		customBiomeDecorator.reedsPerChunk = 35;
 		customBiomeDecorator.mushroomsPerChunk = 20;
 		customBiomeDecorator.sandPerChunk = -999;

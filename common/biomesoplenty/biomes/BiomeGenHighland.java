@@ -18,6 +18,7 @@ public class BiomeGenHighland extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.highGrassPerChunk = 25;
 		customBiomeDecorator.grassPerChunk = 25;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.potatoesPerChunk = -999;
 		customBiomeDecorator.generateBoulders = false;
 		customBiomeDecorator.carrotsPerChunk = 1;

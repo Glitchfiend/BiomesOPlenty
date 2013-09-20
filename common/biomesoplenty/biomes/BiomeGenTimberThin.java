@@ -21,8 +21,9 @@ public class BiomeGenTimberThin extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 5;
+		customBiomeDecorator.treesPerChunk = 4;
 		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.thornsPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.toadstoolsPerChunk = 2;

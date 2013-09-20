@@ -26,6 +26,7 @@ public class BiomeGenFieldForest extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 5;
 		customBiomeDecorator.bushesPerChunk = 8;
 		customBiomeDecorator.berryBushesPerChunk = 5;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.generatePumpkins = true;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}

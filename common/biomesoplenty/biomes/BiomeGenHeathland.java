@@ -24,6 +24,7 @@ public class BiomeGenHeathland extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 3;
 		customBiomeDecorator.grassPerChunk = 10;
+		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.purpleFlowersPerChunk = 30;
 		customBiomeDecorator.deadBushPerChunk = 2;
 		customBiomeDecorator.berryBushesPerChunk = 1;

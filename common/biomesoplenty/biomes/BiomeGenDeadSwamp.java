@@ -31,6 +31,7 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.reedsBOPPerChunk = 2;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		waterColorMultiplier = 10661201;

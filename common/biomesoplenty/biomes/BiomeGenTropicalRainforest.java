@@ -27,7 +27,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 12;
-		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.grassPerChunk = 9;
 		customBiomeDecorator.highGrassPerChunk = 4;
 		customBiomeDecorator.reedsPerChunk = 10;
 		customBiomeDecorator.waterlilyPerChunk = 2;
@@ -39,6 +39,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 		customBiomeDecorator.poisonIvyPerChunk = 4;
 		customBiomeDecorator.lilyflowersPerChunk = 2;
 		customBiomeDecorator.taroPerChunk = 15;
+		customBiomeDecorator.wheatGrassPerChunk = 5;
 		spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
 		waterColorMultiplier = 6160128;
 	}

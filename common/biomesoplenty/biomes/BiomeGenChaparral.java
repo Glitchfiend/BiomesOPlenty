@@ -31,6 +31,7 @@ public class BiomeGenChaparral extends BiomeGenBase
 		customBiomeDecorator.generateStoneInGrass = true;
 		customBiomeDecorator.generatePumpkins = false;
 		customBiomeDecorator.carrotsPerChunk = 1;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	

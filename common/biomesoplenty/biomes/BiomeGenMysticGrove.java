@@ -36,6 +36,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 		}
 		
 		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.flowersPerChunk = 8;
 		customBiomeDecorator.pinkFlowersPerChunk = 6;
 		customBiomeDecorator.glowFlowersPerChunk = 15;

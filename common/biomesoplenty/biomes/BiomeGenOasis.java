@@ -23,6 +23,7 @@ public class BiomeGenOasis extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 3;
 		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.reedsPerChunk = 100;
 		customBiomeDecorator.oasesPerChunk = 15;
 		customBiomeDecorator.oasesPerChunk2 = 15;

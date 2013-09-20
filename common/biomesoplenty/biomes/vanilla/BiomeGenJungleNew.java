@@ -32,6 +32,7 @@ public class BiomeGenJungleNew extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 45;
 		customBiomeDecorator.grassPerChunk = 25;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.flowersPerChunk = 4;
 		customBiomeDecorator.orangeFlowersPerChunk = 5;
 		customBiomeDecorator.poisonIvyPerChunk = 1;

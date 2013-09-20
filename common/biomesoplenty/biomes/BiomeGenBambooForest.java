@@ -25,6 +25,7 @@ public class BiomeGenBambooForest extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.bushesPerChunk = 5;
 		customBiomeDecorator.reedsBOPPerChunk = 6;
+		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 	

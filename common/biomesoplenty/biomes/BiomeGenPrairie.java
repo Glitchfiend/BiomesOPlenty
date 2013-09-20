@@ -27,6 +27,7 @@ public class BiomeGenPrairie extends BiomeGenBase
 		customBiomeDecorator.goldenrodsPerChunk = 40;
 		customBiomeDecorator.portobellosPerChunk = 2;
 		customBiomeDecorator.berryBushesPerChunk = 2;
+		customBiomeDecorator.wheatGrassPerChunk = 25;
 		customBiomeDecorator.carrotsPerChunk = 1;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
@@ -67,7 +68,7 @@ public class BiomeGenPrairie extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1)));
+		return (par1Random.nextInt(5) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Block.tallGrass.blockID, 1)));
 	}
 	
 	/**

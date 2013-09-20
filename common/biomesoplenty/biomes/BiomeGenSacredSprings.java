@@ -25,6 +25,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 30;
 		customBiomeDecorator.grassPerChunk = 4;
+		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.waterlilyPerChunk = 5;
 		customBiomeDecorator.violetsPerChunk = 1;
 		customBiomeDecorator.hotSpringsPerChunk = 1;

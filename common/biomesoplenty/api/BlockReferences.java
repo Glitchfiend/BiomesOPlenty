@@ -69,6 +69,7 @@ public class BlockReferences {
 
 		bamboo (Blocks.bamboo, 0),
 
+		dryGrassItem (Blocks.foliage, 11),
 		wheatGrassItem (Blocks.foliage, 10),
 		taroItem (Blocks.foliage, 9),
 		poisonIvyItem (Blocks.foliage, 7),

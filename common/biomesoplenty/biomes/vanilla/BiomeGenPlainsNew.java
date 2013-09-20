@@ -24,6 +24,7 @@ public class BiomeGenPlainsNew extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.flowersPerChunk = 4;
 		customBiomeDecorator.grassPerChunk = 10;
+		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.tinyFlowersPerChunk = 1;
 		customBiomeDecorator.portobellosPerChunk = 1;
 		customBiomeDecorator.sunflowersPerChunk = 2;

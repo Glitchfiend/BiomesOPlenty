@@ -36,7 +36,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFoliage extends BlockFlower implements IShearable
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "taro", "wheatgrass"};
+	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "taro", "wheatgrass", "dampgrass"};
 
 	private Icon[] textures;
 

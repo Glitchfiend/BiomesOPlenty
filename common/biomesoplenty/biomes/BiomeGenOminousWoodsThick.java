@@ -29,6 +29,7 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 14;
 		customBiomeDecorator.grassPerChunk = 4;
+		customBiomeDecorator.wheatGrassPerChunk = 2;
 		customBiomeDecorator.highGrassPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.deathbloomsPerChunk = 2;

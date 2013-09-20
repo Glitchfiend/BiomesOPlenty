@@ -201,6 +201,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator bushGen;
 	public WorldGenerator taroGen;
 	public WorldGenerator wheatGrassGen;
+	public WorldGenerator wetGrassGen;
 	public WorldGenerator berryBushGen;
 	public WorldGenerator tinyCactusGen;
 	public WorldGenerator aloeGen;
@@ -469,6 +470,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
 		taroGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 9);
 		wheatGrassGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 10);
+		wetGrassGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 11);
 		tinyCactusGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 12);
 		aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
 		coralGen = new WorldGenCoral(Blocks.coral.get().blockID, 4);
@@ -1265,7 +1267,16 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 wheatGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 int var99999 = randomGenerator.nextInt(2);
+			 
+			 if (var99999 == 0)
+			 {
+				 wetGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
+			 else
+			 {
+				 wheatGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 
 		 for (var2 = 0; var2 < poisonIvyPerChunk; ++var2)

@@ -21,6 +21,7 @@ public class BiomeGenPastureMeadow extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 1;
 		customBiomeDecorator.grassPerChunk = 15;
+		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.sunflowersPerChunk = 99;
 		customBiomeDecorator.whiteFlowersPerChunk = 20;
 		spawnableCreatureList.clear();

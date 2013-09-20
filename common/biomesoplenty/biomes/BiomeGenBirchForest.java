@@ -24,6 +24,7 @@ public class BiomeGenBirchForest extends BiomeGenBase
 		customBiomeDecorator.tinyFlowersPerChunk = 6;
 		customBiomeDecorator.poisonIvyPerChunk = 3;
 		customBiomeDecorator.lilyOfTheValleysPerChunk = 15;
+		customBiomeDecorator.wheatGrassPerChunk = 1;
 	}
 
 	/**

@@ -27,6 +27,7 @@ public class BiomeGenDeadForest extends BiomeGenBase
 		customBiomeDecorator.thornsPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.reedsPerChunk = -999;
+		customBiomeDecorator.wheatGrassPerChunk = 1;
 	}
 
 	/**

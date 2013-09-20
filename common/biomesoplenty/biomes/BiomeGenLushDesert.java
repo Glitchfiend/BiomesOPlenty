@@ -26,6 +26,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 12;
 		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.oasesPerChunk = 999;
 		customBiomeDecorator.oasesPerChunk2 = 999;
 		customBiomeDecorator.deadBushPerChunk = 2;

@@ -35,6 +35,7 @@ public class BiomeGenSwampNew extends BiomeGenBase
 		customBiomeDecorator.reedsPerChunk = 10;
 		customBiomeDecorator.clayPerChunk = 1;
 		customBiomeDecorator.waterlilyPerChunk = 4;
+		customBiomeDecorator.wheatGrassPerChunk = 0;
 		customBiomeDecorator.mudPerChunk = 9;
 		customBiomeDecorator.mudPerChunk2 = 9;
 		customBiomeDecorator.portobellosPerChunk = 1;

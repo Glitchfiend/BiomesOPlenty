@@ -26,6 +26,7 @@ public class BiomeGenConiferousForestSnow extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
+		customBiomeDecorator.wheatGrassPerChunk = 1;
 	}
 	
 	@Override

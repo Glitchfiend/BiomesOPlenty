@@ -22,6 +22,7 @@ public class BiomeGenOrchard extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = 20;
+		customBiomeDecorator.wheatGrassPerChunk = 8;
 		customBiomeDecorator.whiteFlowersPerChunk = 20;
 		customBiomeDecorator.tinyFlowersPerChunk = 20;
 		customBiomeDecorator.grassPerChunk = 15;

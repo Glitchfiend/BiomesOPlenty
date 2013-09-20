@@ -21,6 +21,7 @@ public class BiomeGenPastureThin extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 0;
 		customBiomeDecorator.grassPerChunk = 50;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.sunflowersPerChunk = 10;
 		customBiomeDecorator.flowersPerChunk = -999;
 		spawnableCreatureList.clear();

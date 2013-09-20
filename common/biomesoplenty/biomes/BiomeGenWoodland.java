@@ -19,6 +19,7 @@ public class BiomeGenWoodland extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 9;
 		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.toadstoolsPerChunk = 3;
 	}
 	

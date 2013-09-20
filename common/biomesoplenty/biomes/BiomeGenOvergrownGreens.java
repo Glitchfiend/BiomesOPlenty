@@ -24,6 +24,7 @@ public class BiomeGenOvergrownGreens extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 1;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = 10;
+		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.highGrassPerChunk = 15;
 	}
 	

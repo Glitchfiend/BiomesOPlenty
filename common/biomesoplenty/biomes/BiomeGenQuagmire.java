@@ -29,6 +29,7 @@ public class BiomeGenQuagmire extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
+		customBiomeDecorator.wheatGrassPerChunk = 3;
 		waterColorMultiplier = 13390080;
 		customBiomeDecorator.generateQuagmire = true;
 	}

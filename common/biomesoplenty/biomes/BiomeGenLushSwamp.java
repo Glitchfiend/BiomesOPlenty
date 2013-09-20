@@ -23,6 +23,7 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 10;
 		customBiomeDecorator.grassPerChunk = 4;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.mushroomsPerChunk = 8;
 		customBiomeDecorator.reedsPerChunk = 16;
 		customBiomeDecorator.cattailsPerChunk = 10;

@@ -26,6 +26,7 @@ public class BiomeGenTropics extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 4;
 		customBiomeDecorator.grassPerChunk = 7;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = 10;
 		customBiomeDecorator.sandPerChunk = 50;
 		customBiomeDecorator.sandPerChunk2 = 50;

@@ -23,6 +23,7 @@ public class BiomeGenLavenderFields extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 1;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = 20;
+		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.lavenderPerChunk = 999;
 		customBiomeDecorator.generatePumpkins = true;
 	}

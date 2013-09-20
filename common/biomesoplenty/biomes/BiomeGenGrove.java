@@ -26,6 +26,7 @@ public class BiomeGenGrove extends BiomeGenBase
 		customBiomeDecorator.tinyFlowersPerChunk = 80;
 		customBiomeDecorator.whiteFlowersPerChunk = 15;
 		customBiomeDecorator.grassPerChunk = 8;
+		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.sproutsPerChunk = 1;
 		customBiomeDecorator.lilyflowersPerChunk = 3;
 		customBiomeDecorator.berryBushesPerChunk = 2;
