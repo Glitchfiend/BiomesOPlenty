@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -347,6 +348,26 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		if (meta == 13)
 		{
 			player.addPotionEffect(new PotionEffect(Potion.wither.id, 250, 1));
+		}
+		
+		ItemStack equippedItem = player.getCurrentEquippedItem();
+		
+		if (equippedItem != null)
+		{
+			if (equippedItem.itemID != Item.shears.itemID)
+			{
+				if (meta == 5)
+				{
+					player.attackEntityFrom(DamageSource.cactus, 2);
+				}
+			}
+		}
+		else
+		{
+			if (meta == 5)
+			{
+				player.attackEntityFrom(DamageSource.cactus, 2);
+			}
 		}
 	}
 	

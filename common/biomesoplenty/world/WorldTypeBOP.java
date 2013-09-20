@@ -158,6 +158,10 @@ public class WorldTypeBOP extends WorldType
 		{
 			addNewBiome(Biomes.jadeCliffs);
 		}
+		if (BOPConfigurationBiomeGen.lavenderFieldsGen == true)
+		{
+			addNewBiome(Biomes.lavenderFields);
+		}
 		if (BOPConfigurationBiomeGen.lushDesertGen == true)
 		{
 			addNewBiome(Biomes.lushDesert);

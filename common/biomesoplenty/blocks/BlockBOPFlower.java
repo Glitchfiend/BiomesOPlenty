@@ -10,6 +10,8 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -24,7 +26,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BlockFlower
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "aloe", "sunflowerbottom", "sunflowertop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "sunflowerbottom", "sunflowertop", "dandelion"};
 	private Icon[] textures;
 
 	private static final int SUNFLOWERTOP = 14;
@@ -282,6 +284,38 @@ public class BlockBOPFlower extends BlockFlower
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+		}
+	}
+	
+	@Override
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
+	{
+		super.harvestBlock(world, player, x, y, z, meta);
+		
+		ItemStack equippedItem = player.getCurrentEquippedItem();
+		
+		if (equippedItem != null)
+		{
+			if (equippedItem.itemID != Item.shears.itemID)
+			{
+				if (meta == 2)
+				{
+					if (!world.isRemote) 
+					{
+						player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
+					}
+				}
+			}
+		}
+		else
+		{
+			if (meta == 2)
+			{
+				if (!world.isRemote) 
+				{
+					player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
+				}
+			}
 		}
 	}
 

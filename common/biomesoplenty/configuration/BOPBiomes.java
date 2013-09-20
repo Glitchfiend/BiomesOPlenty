@@ -49,6 +49,7 @@ import biomesoplenty.biomes.BiomeGenHighland;
 import biomesoplenty.biomes.BiomeGenHotSprings;
 import biomesoplenty.biomes.BiomeGenIcyHills;
 import biomesoplenty.biomes.BiomeGenJadeCliffs;
+import biomesoplenty.biomes.BiomeGenLavenderFields;
 import biomesoplenty.biomes.BiomeGenLushDesert;
 import biomesoplenty.biomes.BiomeGenLushSwamp;
 import biomesoplenty.biomes.BiomeGenMangrove;
@@ -206,7 +207,7 @@ public class BOPBiomes {
 		Biomes.deadlands = Optional.of((new BiomeGenDeadlands(BOPConfigurationIDs.deadlandsID)).setColor(522674).setBiomeName("Deadlands").setDisableRain().func_76733_a(9154376).setMinMaxHeight(0.1F, 0.5F).setTemperatureRainfall(2.0F, 0.05F));
 		Biomes.deciduousForest = Optional.of((new BiomeGenDeciduousForest(BOPConfigurationIDs.deciduousForestID)).setColor(353825).setBiomeName("Deciduous Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F));
 		Biomes.dunes = Optional.of((new BiomeGenDunes(BOPConfigurationIDs.dunesID)).setColor(13786898).setBiomeName("Dunes").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.5F, 1.3F));
-		Biomes.fen = Optional.of((new BiomeGenFen(BOPConfigurationIDs.fenID)).setColor(9286496).setBiomeName("Fen").setTemperatureRainfall(0.4F, 0.05F).setMinMaxHeight(0.2F, 0.4F));
+		Biomes.fen = Optional.of((new BiomeGenFen(BOPConfigurationIDs.fenID)).setColor(9286496).setBiomeName("Fen").setTemperatureRainfall(0.4F, 0.4F).setMinMaxHeight(0.2F, 0.4F));
 		Biomes.field = Optional.of((new BiomeGenField(BOPConfigurationIDs.fieldID)).setColor(9286496).setBiomeName("Field").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.fieldForest = Optional.of((new BiomeGenFieldForest(BOPConfigurationIDs.fieldForestID)).setColor(9286496).setBiomeName("Forested Field").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.frostForest = Optional.of((new BiomeGenFrostForest(BOPConfigurationIDs.frostForestID)).setColor(14090235).setBiomeName("Frost Forest").setEnableSnow().setTemperatureRainfall(0.0F, 0.5F).setMinMaxHeight(0.3F, 0.4F));
@@ -220,6 +221,7 @@ public class BOPBiomes {
 		Biomes.hotSprings = Optional.of((new BiomeGenHotSprings(BOPConfigurationIDs.hotSpringsID)).setColor(10486015).setBiomeName("Hot Springs").setMinMaxHeight(0.2F, 0.5F).setTemperatureRainfall(0.5F, 0.7F));
 		Biomes.icyHills = Optional.of((new BiomeGenIcyHills(BOPConfigurationIDs.icyHillsID)).setColor(14090235).setBiomeName("Icy Hills").setEnableSnow().setTemperatureRainfall(0.0F, 0.5F).setMinMaxHeight(0.3F, 0.8F));
 		Biomes.jadeCliffs = Optional.of((new BiomeGenJadeCliffs(BOPConfigurationIDs.jadeCliffsID)).setColor(14090235).setBiomeName("Jade Cliffs").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(0.5F, 1.5F));
+		Biomes.lavenderFields = Optional.of((new BiomeGenLavenderFields(BOPConfigurationIDs.lavenderFieldsID)).setColor(9286496).setBiomeName("Lavender Fields").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.lushDesert = Optional.of((new BiomeGenLushDesert(BOPConfigurationIDs.lushDesertID)).setColor(16421912).setBiomeName("Lush Desert").setTemperatureRainfall(0.8F, 0.2F).setMinMaxHeight(0.2F, 0.9F));
 		Biomes.lushSwamp = Optional.of((new BiomeGenLushSwamp(BOPConfigurationIDs.lushSwampID)).setColor(522674).setBiomeName("Lush Swamp").func_76733_a(9154376).setMinMaxHeight(0.2F, 0.3F).setTemperatureRainfall(0.7F, 1.0F));
 		Biomes.mangrove = Optional.of((new BiomeGenMangrove(BOPConfigurationIDs.mangroveID)).setColor(16440917).setBiomeName("Mangrove").setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
@@ -282,7 +284,10 @@ public class BOPBiomes {
 		Biomes.timber = Optional.of((new BiomeGenTimber(BOPConfigurationIDs.timberID)).setColor(353825).setBiomeName("Timber").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.timberThin = Optional.of((new BiomeGenTimberThin(BOPConfigurationIDs.timberThinID)).setColor(353825).setBiomeName("Thinned Timber").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.tropicalRainforest = Optional.of((new BiomeGenTropicalRainforest(BOPConfigurationIDs.tropicalRainforestID)).setColor(9286496).setBiomeName("Tropical Rainforest").setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.3F, 0.7F));
-		Biomes.tropics = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsID)).setColor(9286496).setBiomeName("Tropics").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 1.5F));
+		
+		Biomes.tropics = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsID)).setColor(9286496).setBiomeName("Tropics").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 0.5F));
+		Biomes.tropicsMountain = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsMountainID)).setColor(9286496).setBiomeName("Tropics Mountain").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.5F, 1.1F));
+		
 		Biomes.tundra = Optional.of((new BiomeGenTundra(BOPConfigurationIDs.tundraID)).setColor(14090235).setBiomeName("Tundra").setTemperatureRainfall(0.2F, 0.8F).setMinMaxHeight(0.1F, 0.3F));
 		Biomes.volcano = Optional.of((new BiomeGenVolcano(BOPConfigurationIDs.volcanoID)).setColor(9286496).setBiomeName("Volcano").setDisableRain().setMinMaxHeight(0.6F, 0.9F).setTemperatureRainfall(2.0F, 0.05F));
 		Biomes.wasteland = Optional.of((new BiomeGenWasteland(BOPConfigurationIDs.wastelandID)).setColor(16421912).setBiomeName("Wasteland").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.3F, 0.4F));
@@ -355,6 +360,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.hotSprings.get(), Type.HILLS, Type.FOREST, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.icyHills.get(), Type.FROZEN, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.jadeCliffs.get(), Type.FOREST, Type.MOUNTAIN);
+		BiomeDictionary.registerBiomeType(Biomes.lavenderFields.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.lushDesert.get(), Type.DESERT, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.lushSwamp.get(), Type.SWAMP, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.mangrove.get(), Type.WATER, Type.FOREST);
@@ -426,7 +432,10 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.timberThin.get(), Type.FOREST);
 		
 		BiomeDictionary.registerBiomeType(Biomes.tropicalRainforest.get(), Type.JUNGLE);
+		
 		BiomeDictionary.registerBiomeType(Biomes.tropics.get(), Type.JUNGLE, Type.WATER);
+		BiomeDictionary.registerBiomeType(Biomes.tropicsMountain.get(), Type.JUNGLE, Type.WATER);
+		
 		BiomeDictionary.registerBiomeType(Biomes.tundra.get(), Type.FROZEN, Type.WASTELAND);
 		BiomeDictionary.registerBiomeType(Biomes.volcano.get(), Type.WASTELAND, Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.wasteland.get(), Type.WASTELAND);
@@ -476,6 +485,7 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.heathland);
 		addSpawnBiome(Biomes.highland);
 		addSpawnBiome(Biomes.jadeCliffs);
+		addSpawnBiome(Biomes.lavenderFields);
 		addSpawnBiome(Biomes.lushDesert);
 		addSpawnBiome(Biomes.lushSwamp);
 		addSpawnBiome(Biomes.mangrove);
@@ -521,79 +531,40 @@ public class BOPBiomes {
 
 	private static void addVillageBiomes()
 	{
-		addVillageBiome(Biomes.alps, BOPConfigurationTerrainGen.alpsVillage);
 		addVillageBiome(Biomes.arctic, BOPConfigurationTerrainGen.arcticVillage);
-		addVillageBiome(Biomes.autumnHills, BOPConfigurationTerrainGen.autumnHillsVillage);
-		addVillageBiome(Biomes.badlands, BOPConfigurationTerrainGen.badlandsVillage);
-		addVillageBiome(Biomes.bambooForest, BOPConfigurationTerrainGen.bambooForestVillage);
-		addVillageBiome(Biomes.bayou, BOPConfigurationTerrainGen.bayouVillage);
 		addVillageBiome(Biomes.birchForest, BOPConfigurationTerrainGen.birchForestVillage);
-		addVillageBiome(Biomes.bog, BOPConfigurationTerrainGen.bogVillage);
-		addVillageBiome(Biomes.borealForest, BOPConfigurationTerrainGen.borealForestVillage);
 		addVillageBiome(Biomes.brushland, BOPConfigurationTerrainGen.brushlandVillage);
-		addVillageBiome(Biomes.canyon, BOPConfigurationTerrainGen.canyonVillage);
 		addVillageBiome(Biomes.chaparral, BOPConfigurationTerrainGen.chaparralVillage);
-		addVillageBiome(Biomes.cherryBlossomGrove, BOPConfigurationTerrainGen.cherryBlossomGroveVillage);
 		addVillageBiome(Biomes.coniferousForest, BOPConfigurationTerrainGen.coniferousForestVillage);
 		addVillageBiome(Biomes.coniferousForestSnow, BOPConfigurationTerrainGen.coniferousForestSnowVillage);
-		addVillageBiome(Biomes.deadForest, BOPConfigurationTerrainGen.deadForestVillage);
-		addVillageBiome(Biomes.deadForestSnow, BOPConfigurationTerrainGen.deadForestSnowVillage);
-		addVillageBiome(Biomes.deadSwamp, BOPConfigurationTerrainGen.deadSwampVillage);
 		addVillageBiome(Biomes.deciduousForest, BOPConfigurationTerrainGen.deciduousForestVillage);
-		addVillageBiome(Biomes.dunes, BOPConfigurationTerrainGen.dunesVillage);
-		addVillageBiome(Biomes.fen, BOPConfigurationTerrainGen.fenVillage);
-		addVillageBiome(Biomes.field, BOPConfigurationTerrainGen.fieldVillage);
 		addVillageBiome(Biomes.frostForest, BOPConfigurationTerrainGen.frostForestVillage);
-		addVillageBiome(Biomes.glacier, BOPConfigurationTerrainGen.glacierVillage);
+		addVillageBiome(Biomes.field, BOPConfigurationTerrainGen.fieldVillage);
 		addVillageBiome(Biomes.grassland, BOPConfigurationTerrainGen.grasslandVillage);
 		addVillageBiome(Biomes.grove, BOPConfigurationTerrainGen.groveVillage);
 		addVillageBiome(Biomes.heathland, BOPConfigurationTerrainGen.heathlandVillage);
-		addVillageBiome(Biomes.highland, BOPConfigurationTerrainGen.highlandVillage);
-		addVillageBiome(Biomes.hotSprings, BOPConfigurationTerrainGen.hotSpringsVillage);
-		addVillageBiome(Biomes.jadeCliffs, BOPConfigurationTerrainGen.jadeCliffsVillage);
 		addVillageBiome(Biomes.lushDesert, BOPConfigurationTerrainGen.lushDesertVillage);
 		addVillageBiome(Biomes.lushSwamp, BOPConfigurationTerrainGen.lushSwampVillage);
-		addVillageBiome(Biomes.mangrove, BOPConfigurationTerrainGen.mangroveVillage);
 		addVillageBiome(Biomes.mapleWoods, BOPConfigurationTerrainGen.mapleWoodsVillage);
-		addVillageBiome(Biomes.marsh, BOPConfigurationTerrainGen.marshVillage);
 		addVillageBiome(Biomes.meadow, BOPConfigurationTerrainGen.meadowVillage);
-		addVillageBiome(Biomes.mesa, BOPConfigurationTerrainGen.mesaVillage);
-		addVillageBiome(Biomes.moor, BOPConfigurationTerrainGen.moorVillage);
-		addVillageBiome(Biomes.mountain, BOPConfigurationTerrainGen.mountainVillage);
-		addVillageBiome(Biomes.oasis, BOPConfigurationTerrainGen.oasisVillage);
-		addVillageBiome(Biomes.orchard, BOPConfigurationTerrainGen.orchardVillage);
+		addVillageBiome(Biomes.meadowForest, BOPConfigurationTerrainGen.meadowVillage);
 		addVillageBiome(Biomes.outback, BOPConfigurationTerrainGen.outbackVillage);
 		addVillageBiome(Biomes.overgrownGreens, BOPConfigurationTerrainGen.overgrownGreensVillage);
-		addVillageBiome(Biomes.pasture, BOPConfigurationTerrainGen.pastureVillage);
-		addVillageBiome(Biomes.polar, BOPConfigurationTerrainGen.polarVillage);
 		addVillageBiome(Biomes.prairie, BOPConfigurationTerrainGen.prairieVillage);
-		addVillageBiome(Biomes.quagmire, BOPConfigurationTerrainGen.quagmireVillage);
-		addVillageBiome(Biomes.rainforest, BOPConfigurationTerrainGen.rainforestVillage);
-		addVillageBiome(Biomes.redwoodForest, BOPConfigurationTerrainGen.redwoodForestVillage);
 		addVillageBiome(Biomes.savanna, BOPConfigurationTerrainGen.savannaVillage);
 		addVillageBiome(Biomes.scrubland, BOPConfigurationTerrainGen.scrublandVillage);
-		addVillageBiome(Biomes.seasonalForest, BOPConfigurationTerrainGen.seasonalForestVillage);
-		addVillageBiome(Biomes.shield, BOPConfigurationTerrainGen.shieldVillage);
 		addVillageBiome(Biomes.shrubland, BOPConfigurationTerrainGen.shrublandVillage);
-		addVillageBiome(Biomes.sludgepit, BOPConfigurationTerrainGen.sludgepitVillage);
 		addVillageBiome(Biomes.spruceWoods, BOPConfigurationTerrainGen.spruceWoodsVillage);
-		addVillageBiome(Biomes.temperateRainforest, BOPConfigurationTerrainGen.temperateRainforestVillage);
-		addVillageBiome(Biomes.thicket, BOPConfigurationTerrainGen.thicketVillage);
+		addVillageBiome(Biomes.steppe, BOPConfigurationTerrainGen.steppeVillage);
 		addVillageBiome(Biomes.timber, BOPConfigurationTerrainGen.timberVillage);
 		addVillageBiome(Biomes.tropicalRainforest, BOPConfigurationTerrainGen.tropicalRainforestVillage);
-		addVillageBiome(Biomes.tropics, BOPConfigurationTerrainGen.tropicsVillage);
 		addVillageBiome(Biomes.tundra, BOPConfigurationTerrainGen.tundraVillage);
-		addVillageBiome(Biomes.volcano, BOPConfigurationTerrainGen.volcanoVillage);
 		addVillageBiome(Biomes.wetland, BOPConfigurationTerrainGen.wetlandVillage);
 		addVillageBiome(Biomes.woodland, BOPConfigurationTerrainGen.woodlandVillage);
 
 		addVillageBiome(Biomes.plainsNew, BOPConfigurationTerrainGen.plainsVillage);
 		addVillageBiome(Biomes.desertNew, BOPConfigurationTerrainGen.desertVillage);
 		addVillageBiome(Biomes.forestNew, BOPConfigurationTerrainGen.forestVillage);
-		addVillageBiome(Biomes.extremeHillsNew, BOPConfigurationTerrainGen.extremeHillsVillage);
-		addVillageBiome(Biomes.taigaNew, BOPConfigurationTerrainGen.taigaVillage);
-		addVillageBiome(Biomes.swamplandNew, BOPConfigurationTerrainGen.swamplandVillage);
-		addVillageBiome(Biomes.jungleNew, BOPConfigurationTerrainGen.jungleVillage);
 	}
 
 	private static void addStrongholdBiomes()
@@ -633,6 +604,7 @@ public class BOPBiomes {
 		addStrongholdBiome(Biomes.hotSprings);
 		addStrongholdBiome(Biomes.icyHills);
 		addStrongholdBiome(Biomes.jadeCliffs);
+		addStrongholdBiome(Biomes.lavenderFields);
 		addStrongholdBiome(Biomes.lushDesert);
 		addStrongholdBiome(Biomes.lushSwamp);
 		addStrongholdBiome(Biomes.mangrove);
@@ -826,6 +798,10 @@ public class BOPBiomes {
 
 			if (BOPConfigurationBiomeGen.jadeCliffsGen) {
 				registerBiome(Biomes.jadeCliffs);
+			}
+			
+			if (BOPConfigurationBiomeGen.lavenderFieldsGen) {
+				registerBiome(Biomes.lavenderFields);
 			}
 
 			if (BOPConfigurationBiomeGen.lushDesertGen) {
@@ -1219,6 +1195,10 @@ public class BOPBiomes {
 
 		if (BOPConfigurationBiomeGen.jadeCliffsGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.jadeCliffs);
+		}
+		
+		if (BOPConfigurationBiomeGen.lavenderFieldsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.lavenderFields);
 		}
 
 		if (BOPConfigurationBiomeGen.lushDesertGen) {

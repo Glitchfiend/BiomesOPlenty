@@ -31,6 +31,7 @@ public class BOPConfigurationIDs
 
 	public static int plantsID;
 	public static int flowersID;
+	public static int flowers2ID;
 	public static int mushroomsID;
 	public static int coralID;
 	public static int willowID;
@@ -197,6 +198,7 @@ public class BOPConfigurationIDs
 	public static int hotSpringsID;
 	public static int icyHillsID;
 	public static int jadeCliffsID;
+	public static int lavenderFieldsID;
 	public static int lushDesertID;
 	public static int lushSwampID;
 	public static int mangroveID;
@@ -261,6 +263,7 @@ public class BOPConfigurationIDs
 	public static int timberThinID;
 	public static int tropicalRainforestID;
 	public static int tropicsID;
+	public static int tropicsMountainID;
 	public static int tundraID;
 	public static int volcanoID;
 	public static int wastelandID;
@@ -396,6 +399,8 @@ public class BOPConfigurationIDs
 			graveID = config.getBlock("Grave ID", 1981, null).getInt();
 			
 			leavesFruit2ID = config.getBlock("Fruit Leaf Block 2 ID", 1982, null).getInt();
+			
+			flowers2ID = config.getBlock("Flower 2 ID", 1983, null).getInt();
 
 			// Get Item ID's
 			foodID = config.getItem("Food ID", 21003, null).getInt();
@@ -467,6 +472,8 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 31).getInt();
+			tropicsMountainID = config.get("Biome IDs", "Tropics Mountain (Sub-Biome) ID", 32).getInt();
 			autumnHillsID = config.get("Biome IDs", "Autumn Hills ID", 33).getInt();
 			overgrownGreensID = config.get("Biome IDs", "Overgrown Greens ID", 34).getInt();
 			forestHillsNewID = config.get("Biome IDs", "Forest Hills (Sub-Biome) ID", 35).getInt();

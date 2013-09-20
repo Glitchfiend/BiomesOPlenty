@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
-    <comment>Deutsche (de_DE) Sprachdatei vom 09.06.2013 erstellt von Baalith.</comment>
+    <comment>Deutsche (de_DE) Sprachdatei vom 09.06.2013 erstellt von Baalith, bearbeitet von Vexatos.</comment>
 
     <!--Blocks -->
     <entry key="tile.bop.mud.mud.name">Matsch</entry>
@@ -20,7 +20,7 @@
     <entry key="tile.bop.redRocks.redrock.name">Rotfels</entry>
     <entry key="tile.bop.redRocks.redcobble.name">Rotfelssteinpflaster</entry>
     <entry key="tile.bop.redRocks.redbrick.name">Rotfelsziegel</entry>
-    
+
     <entry key="tile.bop.ash.name">Ascheblock</entry>
 
     <entry key="tile.bop.plants.deadgrass.name">Totes Gras</entry>
@@ -49,7 +49,7 @@
     <entry key="tile.bop.flowers.anemone.name">Weißes Windröschen</entry>
     <entry key="tile.bop.flowers.lilyflower.name">Wasserlilie</entry>
     <entry key="tile.bop.flowers.rainbowflower.name">Chromablume</entry>
-    <entry key="tile.bop.flowers.aloe.name">Aloe</entry>
+    <entry key="tile.bop.flowers.bromeliad.name">Aloe</entry>
     <entry key="tile.bop.flowers.sunflowerbottom.name">Sonnenblume</entry>
     <entry key="tile.bop.flowers.sunflowertop.name">Sonnenblume</entry>
     <entry key="tile.bop.flowers.dandelion.name">Weißer Löwenzahn</entry>
@@ -63,15 +63,15 @@
     <entry key="tile.bop.foliage.highgrasstop.name">Hohes Gras</entry>
     <entry key="tile.bop.foliage.poisonivy.name">Gift-Efeu</entry>
     <entry key="tile.bop.foliage.berrybush.name">Beerenbusch</entry>
-    
+
     <entry key="tile.bop.petals.bigflowerred.name">Riesige Rote Blume</entry>
     <entry key="tile.bop.petals.bigfloweryellow.name">Riesige Gelbe Blume</entry>
-    
+
     <entry key="tile.bop.mushrooms.toadstool.name">Fliegenpilz</entry>
     <entry key="tile.bop.mushrooms.portobello.name">Champignon</entry>
     <entry key="tile.bop.mushrooms.bluemilk.name">Indigo-Reizker</entry>
     <entry key="tile.bop.mushrooms.glowshroom.name">Glimmerling</entry>
-    
+
     <entry key="tile.bop.saplings.appleSapling.name">Apfelsetzling</entry>
     <entry key="tile.bop.saplings.yellowautumnSapling.name">Gelber Herbstsetzling</entry>
     <entry key="tile.bop.saplings.bambooSapling.name">Bambussetzling</entry>
@@ -95,7 +95,7 @@
     <entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Mammutbaumsetzling</entry>
     <entry key="tile.bop.colorizedSaplings.willowSapling.name">Weidensetzling</entry>
     <entry key="tile.bop.colorizedSaplings.pineSapling.name">Piniensetzling</entry>
-    
+
     <entry key="tile.bop.willow.name">Weide</entry>
     <entry key="tile.bop.ivy.name">Efeu</entry>
     <entry key="tile.bop.leavesFruit.name">Apfelbaumblätter</entry>
@@ -107,21 +107,21 @@
     <entry key="tile.bop.treeMoss.name">Baummoos</entry>
 
     <entry key="tile.bop.coral.kelpsingle.name">Seetang</entry>
-	<entry key="tile.bop.coral.pinkcoral.name">Pinke Koralle</entry>
-	<entry key="tile.bop.coral.orangecoral.name">Orange Koralle</entry>
-	<entry key="tile.bop.coral.bluecoral.name">Blaue Koralle</entry>
-	<entry key="tile.bop.coral.glowcoral.name">Leuchtende Koralle</entry>
-    
+    <entry key="tile.bop.coral.pinkcoral.name">Pinke Koralle</entry>
+    <entry key="tile.bop.coral.orangecoral.name">Orange Koralle</entry>
+    <entry key="tile.bop.coral.bluecoral.name">Blaue Koralle</entry>
+    <entry key="tile.bop.coral.glowcoral.name">Leuchtende Koralle</entry>
+
     <entry key="tile.bop.redCobbleStairs.name">Rotfelssteinpflastertreppe</entry>       
     <entry key="tile.bop.redBricksStairs.name">Rotfelsziegeltreppe</entry>
-    
+
     <entry key="tile.bop.holyGrass.holygrass.name">Heiliges Gras</entry>
     <entry key="tile.bop.holyGrass.smolderinggrass.name">Verkohltes Gras</entry>
-    
+
     <entry key="tile.bop.holyStone.holystone.name">Heiliger Stein</entry>
     <entry key="tile.bop.holyStone.holycobble.name">Heiliges Kopfsteinpflaster</entry>
     <entry key="tile.bop.holyStone.holybrick.name">Heilige Ziegel</entry>
-    
+
     <entry key="tile.bop.holyCobbleStairs.name">Heilige Kopfsteinpflastertreppe</entry>
     <entry key="tile.bop.holyBricksStairs.name">Heilige Ziegeltreppe</entry>
 
@@ -141,9 +141,9 @@
     <entry key="tile.bop.amethystOre.apatiteblock.name">Apatitblock</entry>
     <entry key="tile.bop.amethystOre.sapphireore.name">Saphirerz</entry>
     <entry key="tile.bop.amethystOre.sapphireblock.name">Saphirblock</entry>
-    
+
     <entry key="tile.bop.moss.name">Moos</entry>
-        
+
     <entry key="tile.bop.cloud.name">Wolkenblock</entry>
 
     <entry key="tile.bop.bones.bones_small.name">Kleines Knochensegment</entry>
@@ -151,15 +151,15 @@
     <entry key="tile.bop.bones.bones_large.name">Großes Knochensegment</entry>
 
     <entry key="tile.bop.glass.celestialLens.name">Himmlische Linse</entry>
-    
+
     <entry key="tile.bop.glass.sacrificialfocus_empty.name">Opfer-Fokus</entry>
     <entry key="tile.bop.glass.sacrificialfocus_active.name">Opfer-Fokus</entry>
     <entry key="tile.bop.glass.sacrificialfocus_villager.name">Opfer-Fokus</entry>
-    
+
     <entry key="tile.bop.altar.altarframe.name">Altarrahmen</entry>
-    
+
     <entry key="tile.bop.puddle.name">Pfütze</entry>
-    
+
     <entry key="tile.bop.grave.name">Grabstein</entry>
 
     <entry key="tile.bop.stoneDoubleSlab.redcobbleSlab.name">Rotfelssteinpflasterstufe</entry>
@@ -272,7 +272,7 @@
     <entry key="tile.bop.leavesColorized.redwood.name">Mammutbaumlaub</entry>
     <entry key="tile.bop.leavesColorized.willow.name">Weidenlaub</entry>
     <entry key="tile.bop.leavesColorized.pine.name">Pinienlaub</entry>
-    
+
     <!--Items -->
     <entry key="item.bop.food.berries.name">Beere</entry>
     <entry key="item.bop.food.shroompowder.name">Pilzpulver</entry>
@@ -286,7 +286,7 @@
     <entry key="item.bop.dartblower.name">Blasrohr</entry>
     <entry key="item.bop.dart.dart.name">Dart</entry>
     <entry key="item.bop.dart.poisondart.name">Vergifteter Dart</entry>
-    
+
     <entry key="item.bop.mudball.name">Matschball</entry>
 
     <entry key="item.bop.miscItems.mudbrick.name">Matschziegel</entry>
@@ -316,7 +316,7 @@
     <entry key="item.bop.chestplateMud.name">Matschiger Harnisch</entry>
     <entry key="item.bop.leggingsMud.name">Matschige Hose</entry>
     <entry key="item.bop.bootsMud.name">Matschige Stiefel</entry>
-    
+
     <entry key="item.bop.pickaxeAmethyst.name">Amethystspitzhacke</entry>
     <entry key="item.bop.hatchetAmethyst.name">Amethystaxt</entry>
     <entry key="item.bop.shovelAmethyst.name">Amethystschaufel</entry>
@@ -326,7 +326,7 @@
     <entry key="item.bop.chestplateAmethyst.name">Amethystharnisch</entry>
     <entry key="item.bop.leggingsAmethyst.name">Amethystbeinschutz</entry>
     <entry key="item.bop.bootsAmethyst.name">Amethyststiefel</entry>
-    
+
     <entry key="item.bop.scytheWood.name">Holzsense</entry>
     <entry key="item.bop.scytheStone.name">Steinsense</entry>
     <entry key="item.bop.scytheIron.name">Eisensense</entry>
@@ -355,24 +355,27 @@
     <entry key="item.bop.flowerBand.lushflowerband.name">Üppiges Blumenband</entry>
     <entry key="item.bop.flowerBand.exoticflowerband.name">Exotisches Blumenband</entry>
     
+    <entry key="item.bop.wadingBoots.name">Watstiefel</entry>
+    <entry key="item.bop.flippers.name">Schwimmflossen</entry>
+
     <!--Fluids -->
     <entry key="item.bop.bopBucket.amethyst_empty.name">Amethyst-Eimer</entry>
     <entry key="item.bop.bopBucket.amethyst_spring_water.name">Amethyst-Eimer mit Quellwasser</entry>
     <entry key="item.bop.bopBucket.liquid_poison.name">Eimer mit Gift</entry>
-    
+
     <entry key="tile.bop.liquidPoison.name">Gift</entry>
     <entry key="tile.bop.springWater.name">Quellwasser</entry>
-    
+
     <entry key="fluid.bop.liquidPoison">Gift</entry>
     <entry key="fluid.bop.springWater">Quellwasser</entry>
-    
+
     <!--Phrases -->
     <entry key="phrase.bop.promisedPortalOverworld">Ein Portal zum gelobten Land ist im Himmel entstanden.</entry>
     <entry key="phrase.bop.promisedPortalOther">Ein Portal ist im Himmel entstanden.</entry>
-    
+
     <!--Creative Tab -->
     <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>
-   
+
     <!--World Type -->
     <entry key="generator.BIOMESOP">Biomes O' Plenty</entry>
 

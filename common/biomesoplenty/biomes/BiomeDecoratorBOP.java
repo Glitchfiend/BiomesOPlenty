@@ -219,6 +219,12 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator graveGen;
 	public WorldGenerator pumpkinAltGen;
 	public WorldGenerator coralGen;
+	public WorldGenerator hibiscusGen;
+	public WorldGenerator lilyOfTheValleyGen;
+	public WorldGenerator burningBlossomGen;
+	public WorldGenerator lavenderGen;
+	public WorldGenerator goldenrodGen;
+	public WorldGenerator bluebellGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -304,6 +310,12 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int gravesPerChunk;
 	public int pumpkinsPerChunk;
 	public int coralPerChunk;
+	public int hibiscusPerChunk;
+	public int lilyOfTheValleysPerChunk;
+	public int burningBlossomsPerChunk;
+	public int lavenderPerChunk;
+	public int goldenrodsPerChunk;
+	public int bluebellsPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -453,6 +465,12 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		tinyCactusGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 12);
 		aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
 		coralGen = new WorldGenCoral(Blocks.coral.get().blockID, 4);
+		hibiscusGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 0);
+		lilyOfTheValleyGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 1);
+		burningBlossomGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 2);
+		lavenderGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 3);
+		goldenrodGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 4);
+		bluebellGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 5);
 		lilyflowerGen = new WorldGenLilyflower();
 		deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
 		hydrangeaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 4);
@@ -578,6 +596,12 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		gravesPerChunk = 0;
 		pumpkinsPerChunk = 0;
 		coralPerChunk = 0;
+		hibiscusPerChunk = 0;
+		lilyOfTheValleysPerChunk = 0;
+		burningBlossomsPerChunk = 0;
+		lavenderPerChunk = 0;
+		goldenrodsPerChunk = 0;
+		bluebellsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1097,6 +1121,54 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 plantBlueGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < hibiscusPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 hibiscusGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < lilyOfTheValleysPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 lilyOfTheValleyGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < burningBlossomsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 burningBlossomGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < lavenderPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 lavenderGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < goldenrodsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 goldenrodGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < bluebellsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 bluebellGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 for (var2 = 0; var2 < hydrangeasPerChunk; ++var2)
