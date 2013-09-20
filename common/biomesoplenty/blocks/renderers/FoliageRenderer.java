@@ -138,7 +138,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
 		}
 
-		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10) {
+		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.flowers.get().blockID) {
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
 		} else {
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);

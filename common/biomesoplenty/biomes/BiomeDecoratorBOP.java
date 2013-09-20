@@ -36,6 +36,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenPumpkin;
 import net.minecraft.world.gen.feature.WorldGenReed;
 import net.minecraft.world.gen.feature.WorldGenSand;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenWaterlily;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
@@ -198,6 +199,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator potatoGen;
 	public WorldGenerator sproutGen;
 	public WorldGenerator bushGen;
+	public WorldGenerator taroGen;
+	public WorldGenerator wheatGrassGen;
 	public WorldGenerator berryBushGen;
 	public WorldGenerator tinyCactusGen;
 	public WorldGenerator aloeGen;
@@ -290,6 +293,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int sproutsPerChunk;
 	public int bushesPerChunk;
 	public int berryBushesPerChunk;
+	public int taroPerChunk;
+	public int wheatGrassPerChunk;
 	public int tinyCactiPerChunk;
 	public int aloePerChunk;
 	public int deathbloomsPerChunk;
@@ -462,6 +467,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		thornGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 5);
 		bushGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 4);
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
+		taroGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 9);
+		wheatGrassGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 10);
 		tinyCactusGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 12);
 		aloeGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 12);
 		coralGen = new WorldGenCoral(Blocks.coral.get().blockID, 4);
@@ -559,6 +566,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		sproutsPerChunk = 0;
 		bushesPerChunk = 0;
 		berryBushesPerChunk = 0;
+		taroPerChunk = 0;
+		wheatGrassPerChunk = 0;
 		tinyCactiPerChunk = 0;
 		poisonIvyPerChunk = 0;
 		aloePerChunk = 0;
@@ -1241,6 +1250,22 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 berryBushGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < taroPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 taroGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < wheatGrassPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 wheatGrassGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 for (var2 = 0; var2 < poisonIvyPerChunk; ++var2)
