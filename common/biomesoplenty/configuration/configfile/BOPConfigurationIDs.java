@@ -198,6 +198,7 @@ public class BOPConfigurationIDs
 	public static int hotSpringsID;
 	public static int icyHillsID;
 	public static int jadeCliffsID;
+	public static int lavenderFieldsID;
 	public static int lushDesertID;
 	public static int lushSwampID;
 	public static int mangroveID;
@@ -471,6 +472,7 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 31).getInt();
 			tropicsMountainID = config.get("Biome IDs", "Tropics Mountain (Sub-Biome) ID", 32).getInt();
 			autumnHillsID = config.get("Biome IDs", "Autumn Hills ID", 33).getInt();
 			overgrownGreensID = config.get("Biome IDs", "Overgrown Greens ID", 34).getInt();

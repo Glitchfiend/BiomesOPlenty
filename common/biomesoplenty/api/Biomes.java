@@ -51,6 +51,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> hotSprings			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> icyHills				 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> jadeCliffs			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> lavenderFields		 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> lushDesert			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> lushSwamp			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> mangrove				 = Optional.absent();

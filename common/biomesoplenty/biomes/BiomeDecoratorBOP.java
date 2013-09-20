@@ -222,6 +222,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator hibiscusGen;
 	public WorldGenerator lilyOfTheValleyGen;
 	public WorldGenerator burningBlossomGen;
+	public WorldGenerator lavenderGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -310,6 +311,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int hibiscusPerChunk;
 	public int lilyOfTheValleysPerChunk;
 	public int burningBlossomsPerChunk;
+	public int lavenderPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -462,6 +464,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		hibiscusGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 0);
 		lilyOfTheValleyGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 1);
 		burningBlossomGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 2);
+		lavenderGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 3);
 		lilyflowerGen = new WorldGenLilyflower();
 		deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
 		hydrangeaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 4);
@@ -590,6 +593,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		hibiscusPerChunk = 0;
 		lilyOfTheValleysPerChunk = 0;
 		burningBlossomsPerChunk = 0;
+		lavenderPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1133,6 +1137,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 burningBlossomGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < lavenderPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 lavenderGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 for (var2 = 0; var2 < hydrangeasPerChunk; ++var2)

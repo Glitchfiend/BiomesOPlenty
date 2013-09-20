@@ -49,6 +49,7 @@ import biomesoplenty.biomes.BiomeGenHighland;
 import biomesoplenty.biomes.BiomeGenHotSprings;
 import biomesoplenty.biomes.BiomeGenIcyHills;
 import biomesoplenty.biomes.BiomeGenJadeCliffs;
+import biomesoplenty.biomes.BiomeGenLavenderFields;
 import biomesoplenty.biomes.BiomeGenLushDesert;
 import biomesoplenty.biomes.BiomeGenLushSwamp;
 import biomesoplenty.biomes.BiomeGenMangrove;
@@ -220,6 +221,7 @@ public class BOPBiomes {
 		Biomes.hotSprings = Optional.of((new BiomeGenHotSprings(BOPConfigurationIDs.hotSpringsID)).setColor(10486015).setBiomeName("Hot Springs").setMinMaxHeight(0.2F, 0.5F).setTemperatureRainfall(0.5F, 0.7F));
 		Biomes.icyHills = Optional.of((new BiomeGenIcyHills(BOPConfigurationIDs.icyHillsID)).setColor(14090235).setBiomeName("Icy Hills").setEnableSnow().setTemperatureRainfall(0.0F, 0.5F).setMinMaxHeight(0.3F, 0.8F));
 		Biomes.jadeCliffs = Optional.of((new BiomeGenJadeCliffs(BOPConfigurationIDs.jadeCliffsID)).setColor(14090235).setBiomeName("Jade Cliffs").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(0.5F, 1.5F));
+		Biomes.lavenderFields = Optional.of((new BiomeGenLavenderFields(BOPConfigurationIDs.lavenderFieldsID)).setColor(9286496).setBiomeName("Lavender Fields").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.lushDesert = Optional.of((new BiomeGenLushDesert(BOPConfigurationIDs.lushDesertID)).setColor(16421912).setBiomeName("Lush Desert").setTemperatureRainfall(0.8F, 0.2F).setMinMaxHeight(0.2F, 0.9F));
 		Biomes.lushSwamp = Optional.of((new BiomeGenLushSwamp(BOPConfigurationIDs.lushSwampID)).setColor(522674).setBiomeName("Lush Swamp").func_76733_a(9154376).setMinMaxHeight(0.2F, 0.3F).setTemperatureRainfall(0.7F, 1.0F));
 		Biomes.mangrove = Optional.of((new BiomeGenMangrove(BOPConfigurationIDs.mangroveID)).setColor(16440917).setBiomeName("Mangrove").setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
@@ -358,6 +360,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.hotSprings.get(), Type.HILLS, Type.FOREST, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.icyHills.get(), Type.FROZEN, Type.HILLS);
 		BiomeDictionary.registerBiomeType(Biomes.jadeCliffs.get(), Type.FOREST, Type.MOUNTAIN);
+		BiomeDictionary.registerBiomeType(Biomes.lavenderFields.get(), Type.PLAINS);
 		BiomeDictionary.registerBiomeType(Biomes.lushDesert.get(), Type.DESERT, Type.FOREST);
 		BiomeDictionary.registerBiomeType(Biomes.lushSwamp.get(), Type.SWAMP, Type.WATER);
 		BiomeDictionary.registerBiomeType(Biomes.mangrove.get(), Type.WATER, Type.FOREST);
@@ -482,6 +485,7 @@ public class BOPBiomes {
 		addSpawnBiome(Biomes.heathland);
 		addSpawnBiome(Biomes.highland);
 		addSpawnBiome(Biomes.jadeCliffs);
+		addSpawnBiome(Biomes.lavenderFields);
 		addSpawnBiome(Biomes.lushDesert);
 		addSpawnBiome(Biomes.lushSwamp);
 		addSpawnBiome(Biomes.mangrove);
@@ -600,6 +604,7 @@ public class BOPBiomes {
 		addStrongholdBiome(Biomes.hotSprings);
 		addStrongholdBiome(Biomes.icyHills);
 		addStrongholdBiome(Biomes.jadeCliffs);
+		addStrongholdBiome(Biomes.lavenderFields);
 		addStrongholdBiome(Biomes.lushDesert);
 		addStrongholdBiome(Biomes.lushSwamp);
 		addStrongholdBiome(Biomes.mangrove);
@@ -793,6 +798,10 @@ public class BOPBiomes {
 
 			if (BOPConfigurationBiomeGen.jadeCliffsGen) {
 				registerBiome(Biomes.jadeCliffs);
+			}
+			
+			if (BOPConfigurationBiomeGen.lavenderFieldsGen) {
+				registerBiome(Biomes.lavenderFields);
 			}
 
 			if (BOPConfigurationBiomeGen.lushDesertGen) {
@@ -1186,6 +1195,10 @@ public class BOPBiomes {
 
 		if (BOPConfigurationBiomeGen.jadeCliffsGen) {
 			addBiomeToWorldTypes(getWorldTypes(), Biomes.jadeCliffs);
+		}
+		
+		if (BOPConfigurationBiomeGen.lavenderFieldsGen) {
+			addBiomeToWorldTypes(getWorldTypes(), Biomes.lavenderFields);
 		}
 
 		if (BOPConfigurationBiomeGen.lushDesertGen) {

@@ -46,6 +46,7 @@ public class BOPConfigurationBiomeGen
 	public static boolean hotSpringsGen;
 	public static boolean icyHillsGen;
 	public static boolean jadeCliffsGen;
+	public static boolean lavenderFieldsGen;
 	public static boolean lushDesertGen;
 	public static boolean lushSwampGen;
 	public static boolean mangroveGen;
@@ -156,6 +157,7 @@ public class BOPConfigurationBiomeGen
 			hotSpringsGen = config.get("Biomes To Generate", "HotSprings", true).getBoolean(false);
 			icyHillsGen = config.get("Biomes To Generate", "IcyHills", true).getBoolean(false);
 			jadeCliffsGen = config.get("Biomes To Generate", "JadeCliffs", true).getBoolean(false);
+			lavenderFieldsGen = config.get("Biomes To Generate", "LavenderFields", true).getBoolean(false);
 			lushDesertGen = config.get("Biomes To Generate", "LushDesert", true).getBoolean(false);
 			lushSwampGen = config.get("Biomes To Generate", "LushSwamp", true).getBoolean(false);
 			mangroveGen = config.get("Biomes To Generate", "Mangrove", true).getBoolean(false);
