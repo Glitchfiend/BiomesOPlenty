@@ -35,6 +35,13 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 5), new Object[] {new ItemStack(Blocks.flowers.get(),1,8)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 10), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,3)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 8), new Object[] {new ItemStack(Items.miscItems.get(), 1, 1)});
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 9), new Object[] {new ItemStack(Blocks.flowers2.get(),1,0)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 8), new Object[] {new ItemStack(Blocks.flowers2.get(),1,1)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 14), new Object[] {new ItemStack(Blocks.flowers2.get(),1,2)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 5), new Object[] {new ItemStack(Blocks.flowers2.get(),1,3)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.dyePowder, 2, 11), new Object[] {new ItemStack(Blocks.flowers2.get(),1,4)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 5), new Object[] {new ItemStack(Blocks.flowers2.get(),1,5)});
 
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 5), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,2)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.miscItems.get(), 2, 6), new Object[] {new ItemStack(Blocks.plants.get(),1,7)});
