@@ -49,7 +49,7 @@
     <entry key="tile.bop.flowers.anemone.name">Anemone Bianca</entry>
     <entry key="tile.bop.flowers.lilyflower.name">Ninfea</entry>
     <entry key="tile.bop.flowers.rainbowflower.name">Chromaflora</entry>
-    <entry key="tile.bop.flowers.aloe.name">Aloe</entry>
+    <entry key="tile.bop.flowers.bromeliad.name">Aloe</entry>
     <entry key="tile.bop.flowers.sunflowerbottom.name">Girasole</entry>
     <entry key="tile.bop.flowers.sunflowertop.name">Girasole</entry>
     <entry key="tile.bop.flowers.dandelion.name">Dente di Leone Bianco</entry>
@@ -338,7 +338,7 @@
     <entry key="item.bop.ancientStaff.ancientstaff.name">Verga Venerabile</entry>
     <entry key="item.bop.ancientStaff.staffhandle.name">Manico della Verga Venerabile</entry>
     <entry key="item.bop.ancientStaff.staffpole.name">Corpo della Verga Venerabile</entry>
-    <entry key="item.bop.ancientStaff.stafftopper.name">Sommità della Verga Venerabile</entry>
+    <entry key="item.bop.ancientStaff.stafftopper.name">Sommitï¿½ della Verga Venerabile</entry>
     <entry key="item.bop.ancientStaff.ancientstaffbroken.name">Verga Venerabile Esaurita</entry>
 
     <entry key="item.bop.soulManipulator.soulmanipulator_empty.name">Manipolatore d'Anima</entry>
@@ -370,8 +370,8 @@
     <entry key="fluid.bop.springWater">Acqua Primaverile</entry>
 
     <!--Phrases -->
-    <entry key="phrase.bop.promisedPortalOverworld">Un portale per la Terra Promessa è apparto nel cielo, sopra di te.</entry>
-    <entry key="phrase.bop.promisedPortalOther">Un portale per l'Overworld è apparto nel cielo, sopra di te.</entry>
+    <entry key="phrase.bop.promisedPortalOverworld">Un portale per la Terra Promessa ï¿½ apparto nel cielo, sopra di te.</entry>
+    <entry key="phrase.bop.promisedPortalOther">Un portale per l'Overworld ï¿½ apparto nel cielo, sopra di te.</entry>
 
     <!--Creative Tab -->
     <entry key="itemGroup.tabBiomesOPlenty">Biomes O' Plenty</entry>

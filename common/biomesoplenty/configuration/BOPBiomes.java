@@ -206,7 +206,7 @@ public class BOPBiomes {
 		Biomes.deadlands = Optional.of((new BiomeGenDeadlands(BOPConfigurationIDs.deadlandsID)).setColor(522674).setBiomeName("Deadlands").setDisableRain().func_76733_a(9154376).setMinMaxHeight(0.1F, 0.5F).setTemperatureRainfall(2.0F, 0.05F));
 		Biomes.deciduousForest = Optional.of((new BiomeGenDeciduousForest(BOPConfigurationIDs.deciduousForestID)).setColor(353825).setBiomeName("Deciduous Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F));
 		Biomes.dunes = Optional.of((new BiomeGenDunes(BOPConfigurationIDs.dunesID)).setColor(13786898).setBiomeName("Dunes").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.5F, 1.3F));
-		Biomes.fen = Optional.of((new BiomeGenFen(BOPConfigurationIDs.fenID)).setColor(9286496).setBiomeName("Fen").setTemperatureRainfall(0.4F, 0.05F).setMinMaxHeight(0.2F, 0.4F));
+		Biomes.fen = Optional.of((new BiomeGenFen(BOPConfigurationIDs.fenID)).setColor(9286496).setBiomeName("Fen").setTemperatureRainfall(0.4F, 0.4F).setMinMaxHeight(0.2F, 0.4F));
 		Biomes.field = Optional.of((new BiomeGenField(BOPConfigurationIDs.fieldID)).setColor(9286496).setBiomeName("Field").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.fieldForest = Optional.of((new BiomeGenFieldForest(BOPConfigurationIDs.fieldForestID)).setColor(9286496).setBiomeName("Forested Field").setTemperatureRainfall(0.6F, 0.7F).setMinMaxHeight(0.3F, 0.3F));
 		Biomes.frostForest = Optional.of((new BiomeGenFrostForest(BOPConfigurationIDs.frostForestID)).setColor(14090235).setBiomeName("Frost Forest").setEnableSnow().setTemperatureRainfall(0.0F, 0.5F).setMinMaxHeight(0.3F, 0.4F));
