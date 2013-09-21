@@ -79,6 +79,9 @@
 	- Tweaked the way Berry Bushes render
 	- Updated the MFR API
 	- Updated the Forestry API
+	- Added config options for the ocean biomes, wither wart and burning blossom
+	- Added Icy Iris
+	- Added Flat Mushroom
 
 	  Version 0.6.2 '20-08-13'
 	- Fixed bigtrees compatibility
