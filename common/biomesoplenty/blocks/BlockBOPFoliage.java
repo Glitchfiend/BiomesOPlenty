@@ -39,6 +39,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass"};
 
 	private Icon[] textures;
+	public Icon shrubBranch;
 
 	private static final int GRASSTOP = 6;
 	private static final int ALGAE = 0;
@@ -63,6 +64,8 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		for (int i = 0; i < textures.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
 		}
+		
+		shrubBranch = iconRegister.registerIcon("biomesoplenty:" + "shrub_branch");
 	}
 
 	@Override

@@ -64,7 +64,7 @@ public class BOPMapGenScatteredFeature extends MapGenStructure
 	@Override
 	public String func_143025_a() 
 	{
-        return "Temple";
+        return "BOPTemple";
 	}
 
 	@Override

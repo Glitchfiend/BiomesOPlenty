@@ -55,7 +55,7 @@ public class BOPMapGenVillage extends MapGenStructure
 	@Override
     public String func_143025_a()
     {
-        return "Village";
+        return "BOPVillage";
     }
 
 	@Override

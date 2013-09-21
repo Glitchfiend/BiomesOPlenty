@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.blocks.BlockBOPFoliage;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
@@ -118,7 +119,15 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			f3 = f6;
 		}
 
-		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID)
+		{
+			tessellator.setColorOpaque_F(f, f, f);
+		}
+		else
+		{
+			tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		}
+		
 		double d0 = par2;
 		double d1 = par3;
 		double d2 = par4;
@@ -138,11 +147,66 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
 		}
 
-		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.flowers.get().blockID) {
+		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.flowers.get().blockID) 
+		{
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
-		} else {
+		} 
+		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
+		{
+			renderShrub(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
+		}
+		else 
+		{
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
 		}
 		return true;
+	}
+	
+	private static void renderShrub(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
+	{
+        Tessellator tessellator = Tessellator.instance;
+        Icon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(Blocks.foliage.get(), 0, 9);
+        Icon shrubBranch = ((BlockBOPFoliage)Blocks.foliage.get()).shrubBranch;
+
+		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
+        renderCrossedSquaresFromIcon(shrubLeaf, par1, par2, par3, par4, renderer);
+		tessellator.setColorOpaque_F(par4, par4, par4);
+        renderCrossedSquaresFromIcon(shrubBranch, par1, par2, par3, par4, renderer);
+	}
+	
+	private static void renderCrossedSquaresFromIcon(Icon icon, double par3, double par5, double par7, float par9, RenderBlocks renderer)
+	{
+        Tessellator tessellator = Tessellator.instance;
+		
+        if (renderer.hasOverrideBlockTexture())
+        {
+        	icon = renderer.overrideBlockTexture;
+        }
+
+        double d3 = (double)icon.getMinU();
+        double d4 = (double)icon.getMinV();
+        double d5 = (double)icon.getMaxU();
+        double d6 = (double)icon.getMaxV();
+        double d7 = 0.45D * (double)par9;
+        double d8 = par3 + 0.5D - d7;
+        double d9 = par3 + 0.5D + d7;
+        double d10 = par7 + 0.5D - d7;
+        double d11 = par7 + 0.5D + d7;
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d10, d3, d4);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d10, d3, d6);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d11, d5, d6);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d11, d5, d4);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d11, d3, d4);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d11, d3, d6);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d10, d5, d6);
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d10, d5, d4);
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d11, d3, d4);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d11, d3, d6);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d10, d5, d6);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d10, d5, d4);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d10, d3, d4);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d10, d3, d6);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d11, d5, d6);
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d11, d5, d4);
 	}
 }
