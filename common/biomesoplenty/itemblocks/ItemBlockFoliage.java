@@ -41,13 +41,14 @@ public class ItemBlockFoliage extends ItemColored
 
 		textures[3] = iconRegister.registerIcon("biomesoplenty:item_highgrass");
 		textures[8] = iconRegister.registerIcon("biomesoplenty:item_berrybush");
+		textures[9] = iconRegister.registerIcon("biomesoplenty:item_shrub");
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
-		if (itemStack.getItemDamage() == 3 || itemStack.getItemDamage() == 8)
+		if (itemStack.getItemDamage() == 3 || itemStack.getItemDamage() == 8 || itemStack.getItemDamage() == 9)
 			return 16777215;
 		else
 			return Blocks.foliage.get().getRenderColor(itemStack.getItemDamage());

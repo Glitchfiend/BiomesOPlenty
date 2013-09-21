@@ -214,6 +214,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	{
 		double var1 = 0.5D;
 		double var3 = 1.0D;
+		
 		return ColorizerGrass.getGrassColor(var1, var3);
 	}
 
