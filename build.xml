@@ -7,7 +7,7 @@
 		<isset property="env.DRONE_BUILD_NUMBER" />
 	</condition>
 	<property name="mc.version" value="1.6.4" />
-	<property name="forge.version" value="9.11.0.881" />
+	<property name="forge.version" value="9.11.0.883" />
 	<property name="fmp.version" value="1.0.0.173" />
 
 	<property name="src.dir" value="" />

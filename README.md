@@ -82,6 +82,8 @@
 	- Added config options for the ocean biomes, wither wart and burning blossom
 	- Added Icy Iris
 	- Added Flat Mushroom
+	- Added cocoa trees to the Tropical Rainforest
+	- Added jungle wood to trees in the Brushland and Scrubland
 
 	  Version 0.6.2 '20-08-13'
 	- Fixed bigtrees compatibility
