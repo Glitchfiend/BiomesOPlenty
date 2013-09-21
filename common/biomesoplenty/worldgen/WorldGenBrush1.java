@@ -32,13 +32,13 @@ public class WorldGenBrush1 extends WorldGenerator
 			}
 
 			var1.setBlock(var3, var4, var5, Block.dirt.blockID);
-			var1.setBlock(var3, var4 + 1, var5, Block.wood.blockID);
-			var1.setBlock(var3, var4 + 2, var5, Block.wood.blockID);
-			var1.setBlock(var3, var4 + 3, var5, Block.wood.blockID);
-			var1.setBlock(var3, var4 + 4, var5, Block.wood.blockID);
-			var1.setBlock(var3, var4 + 5, var5, Block.wood.blockID);
-			var1.setBlock(var3, var4 + 6, var5, Block.wood.blockID);
-			var1.setBlock(var3, var4 + 7, var5, Block.wood.blockID);
+			var1.setBlock(var3, var4 + 1, var5, Block.wood.blockID, 3, 2);
+			var1.setBlock(var3, var4 + 2, var5, Block.wood.blockID, 3, 2);
+			var1.setBlock(var3, var4 + 3, var5, Block.wood.blockID, 3, 2);
+			var1.setBlock(var3, var4 + 4, var5, Block.wood.blockID, 3, 2);
+			var1.setBlock(var3, var4 + 5, var5, Block.wood.blockID, 3, 2);
+			var1.setBlock(var3, var4 + 6, var5, Block.wood.blockID, 3, 2);
+			var1.setBlock(var3, var4 + 7, var5, Block.wood.blockID, 3, 2);
 			var1.setBlock(var3 + 1, var4 + 7, var5, Block.leaves.blockID);
 			var1.setBlock(var3 - 1, var4 + 7, var5, Block.leaves.blockID);
 			var1.setBlock(var3, var4 + 7, var5 + 1, Block.leaves.blockID);

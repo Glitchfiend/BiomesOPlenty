@@ -56,7 +56,7 @@ public class BiomeGenScrubland extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenShrub(0, 0) : new WorldGenScrubland(false);
+		return par1Random.nextInt(3) == 0 ? new WorldGenShrub(3, 0) : new WorldGenScrubland(false);
 	}
 
 	/**

@@ -8,12 +8,12 @@ import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.worldgen.tree.WorldGenRainforest1;
-import biomesoplenty.worldgen.tree.WorldGenRainforest2;
 
 public class BiomeGenTropicalRainforest extends BiomeGenBase
 {
@@ -71,7 +71,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(5) == 0 ? new WorldGenRainforest2() : new WorldGenRainforest1(false);
+		return par1Random.nextInt(5) == 0 ? new WorldGenTrees(false, 4 + par1Random.nextInt(7), 3, 3, true) : new WorldGenRainforest1(false);
 	}
 
 	/**
