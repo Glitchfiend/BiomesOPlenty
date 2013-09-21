@@ -25,6 +25,7 @@ public class BiomeGenMoor extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = 15;
+		customBiomeDecorator.mushroomsPerChunk = 2;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.mudPerChunk = 1;

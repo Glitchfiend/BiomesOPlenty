@@ -29,6 +29,7 @@ public class BiomeGenSilkglades extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 6;
 		customBiomeDecorator.grassPerChunk = 2;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
+		customBiomeDecorator.mushroomsPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;

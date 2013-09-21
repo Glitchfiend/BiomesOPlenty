@@ -148,7 +148,7 @@ public class AchievementHelper
 		
 		achFen = (new Achievement(3104, "achFen", -10, -2, new ItemStack(Blocks.plants.get(), 1, 8), achBOP)).registerAchievement(); 
 		achField = (new Achievement(3105, "achField", -8, -2, new ItemStack(Block.tallGrass, 1, 1), achBOP)).registerAchievement();
-		achFrostForest = (new Achievement(3106, "achFrostForest", -6, -2, new ItemStack(Block.blockSnow, 1, 0), achBOP)).registerAchievement();
+		achFrostForest = (new Achievement(3106, "achFrostForest", -6, -2, new ItemStack(Blocks.flowers2.get(), 1, 7), achBOP)).registerAchievement();
 		achFungiForest = (new Achievement(3107, "achFungiForest", -4, -2, new ItemStack(Blocks.mushrooms.get(), 1, 3), achBOP)).registerAchievement().setSpecial();
 		achGarden = (new Achievement(3108, "achGarden", -2, -2, new ItemStack(Block.plantRed, 1, 1), achBOP)).registerAchievement().setSpecial();
 		achGlacier = (new Achievement(3109, "achGlacier", 0, -2, new ItemStack(Blocks.hardIce.get(), 1, 0), achBOP)).registerAchievement(); 
@@ -179,7 +179,7 @@ public class AchievementHelper
 		achOvergrownGreens = (new Achievement(3132, "achOvergrownGreens", 2, 2, new ItemStack(Blocks.foliage.get(), 1, 3), achBOP)).registerAchievement();
 		achPasture = (new Achievement(3133, "achPasture", 4, 2, new ItemStack(Blocks.plants.get(), 1, 6), achBOP)).registerAchievement();
 		achPolar = (new Achievement(3134, "achPolar", 6, 2, new ItemStack(Block.ice, 1, 0), achBOP)).registerAchievement();
-		achPrairie = (new Achievement(3135, "achPrairie", 8, 2, new ItemStack(Blocks.mushrooms.get(), 1, 1), achBOP)).registerAchievement();
+		achPrairie = (new Achievement(3135, "achPrairie", 8, 2, new ItemStack(Blocks.flowers2.get(), 1, 4), achBOP)).registerAchievement();
 		achQuagmire = (new Achievement(3136, "achQuagmire", 10, 2, new ItemStack(Items.mudball.get(), 1, 0), achBOP)).registerAchievement();
 
 		achRainforest = (new Achievement(3137, "achRainforest", -10, 4, new ItemStack(Blocks.flowers.get(), 1, 6), achBOP)).registerAchievement();
@@ -192,7 +192,7 @@ public class AchievementHelper
 		achShrubland = (new Achievement(3144, "achShrubland", 4, 4, new ItemStack(Blocks.foliage.get(), 1, 1), achBOP)).registerAchievement();
 		achSilkglades = (new Achievement(3145, "achSilkglades", 6, 4, new ItemStack(Block.web, 1, 0), achBOP)).registerAchievement();
 		achSludgepit = (new Achievement(3146, "achSludgepit", 8, 4, new ItemStack(Blocks.foliage.get(), 1, 0), achBOP)).registerAchievement().setSpecial();
-		achSpruceWoods = (new Achievement(3147, "achSpruceWoods", 10, 4, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement();
+		achSpruceWoods = (new Achievement(3147, "achSpruceWoods", 10, 4, new ItemStack(Blocks.flowers2.get(), 1, 5), achBOP)).registerAchievement();
 		
 		achSteppe = (new Achievement(3148, "achSteppe", -10, 6, new ItemStack(Blocks.flowers.get(), 1, 12), achBOP)).registerAchievement();
 		achTemperateRainforest = (new Achievement(3149, "achTemperateRainforest", -8, 6, new ItemStack(Block.tallGrass, 1, 2), achBOP)).registerAchievement();

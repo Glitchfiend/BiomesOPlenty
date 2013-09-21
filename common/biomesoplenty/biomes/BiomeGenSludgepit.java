@@ -30,6 +30,7 @@ public class BiomeGenSludgepit extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 30;
 		customBiomeDecorator.grassPerChunk = 30;
 		customBiomeDecorator.wheatGrassPerChunk = 10;
+		customBiomeDecorator.mushroomsPerChunk = 8;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;

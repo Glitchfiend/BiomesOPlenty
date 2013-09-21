@@ -26,6 +26,7 @@ public class BiomeGenBog extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 12;
 		customBiomeDecorator.flowersPerChunk = -999;
+		customBiomeDecorator.mushroomsPerChunk = 8;
 		customBiomeDecorator.grassPerChunk = 5;
 		customBiomeDecorator.bushesPerChunk = 6;
 		customBiomeDecorator.mudPerChunk = 2;

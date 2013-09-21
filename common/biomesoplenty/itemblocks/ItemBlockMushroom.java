@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class ItemBlockMushroom extends ItemBlock
 {
-	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom"};
+	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
 
 	public ItemBlockMushroom(int par1)
 	{

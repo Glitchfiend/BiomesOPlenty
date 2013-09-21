@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPMushroom extends BlockFlower
 {
-	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom"};
+	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
 	private Icon[] textures;
 
 	protected BlockBOPMushroom(int blockID, Material material)

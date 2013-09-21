@@ -231,6 +231,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator goldenrodGen;
 	public WorldGenerator bluebellGen;
 	public WorldGenerator minersDelightGen;
+	public WorldGenerator icyIrisGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -240,6 +241,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 
 	/** Field that holds mushroomRed WorldGenFlowers */
 	public WorldGenerator mushroomRedGen;
+	public WorldGenerator flatMushroomGen;
 
 	/** Field that holds big mushroom generator */
 	public WorldGenerator bigMushroomGen;
@@ -325,6 +327,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int goldenrodsPerChunk;
 	public int bluebellsPerChunk;
 	public int minersDelightPerChunk;
+	public int icyIrisPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -484,6 +487,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		goldenrodGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 4);
 		bluebellGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 5);
 		minersDelightGen = new WorldGenBOPDarkFlowers(Blocks.flowers2.get().blockID, 6);
+		icyIrisGen = new WorldGenBOPFlowers(Blocks.flowers2.get().blockID, 7);
 		lilyflowerGen = new WorldGenLilyflower();
 		deathbloomGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 2);
 		hydrangeaGen = new WorldGenBOPFlowers(Blocks.flowers.get().blockID, 4);
@@ -505,6 +509,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		graveGen = new WorldGenGrave();
 		mushroomBrownGen = new WorldGenBOPFlowers(Block.mushroomBrown.blockID, 0);
 		mushroomRedGen = new WorldGenBOPFlowers(Block.mushroomRed.blockID, 0);
+		flatMushroomGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 4);
 		toadstoolGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 0);
 		portobelloGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 1);
 		blueMilkGen = new WorldGenBOPFlowers(Blocks.mushrooms.get().blockID, 2);
@@ -534,7 +539,6 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		flowersPerChunk = 2;
 		grassPerChunk = 1;
 		deadBushPerChunk = 0;
-		mushroomsPerChunk = 0;
 		reedsPerChunk = 0;
 		reedsBOPPerChunk = 0;
 		cactiPerChunk = 0;
@@ -618,6 +622,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		goldenrodsPerChunk = 0;
 		bluebellsPerChunk = 0;
 		minersDelightPerChunk = 2;
+		icyIrisPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1197,6 +1202,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 minersDelightGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
+		 
+		 for (var2 = 0; var2 < icyIrisPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 icyIrisGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
 
 		 for (var2 = 0; var2 < hydrangeasPerChunk; ++var2)
 		 {
@@ -1548,6 +1561,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 				 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 				 var5 = currentWorld.getHeightValue(var3, var4);
 				 mushroomBrownGen.generate(currentWorld, randomGenerator, var3, var5, var4);
+			 }
+			 
+			 if (randomGenerator.nextInt(6) == 0)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 var5 = randomGenerator.nextInt(256);
+				 flatMushroomGen.generate(currentWorld, randomGenerator, var3, var5, var4);
 			 }
 
 			 if (randomGenerator.nextInt(8) == 0)

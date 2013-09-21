@@ -151,6 +151,7 @@ public class BlockReferences {
 		portobello (Blocks.mushrooms, 1),
 		bluemilk (Blocks.mushrooms, 2),
 		glowshroom (Blocks.mushrooms, 3),
+		flatmushroom (Blocks.mushrooms, 4),
 
 		deadGrass (Blocks.plants, 0),
 		desertGrass (Blocks.plants, 1),
@@ -192,6 +193,7 @@ public class BlockReferences {
 		goldenrod (Blocks.flowers2, 4),
 		bluebells (Blocks.flowers2, 5),
 		minersdelight (Blocks.flowers2, 6),
+		icyiris (Blocks.flowers2, 7),
 		;
 
 		public Optional<? extends Block> block;

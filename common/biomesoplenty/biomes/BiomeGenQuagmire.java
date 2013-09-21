@@ -26,6 +26,7 @@ public class BiomeGenQuagmire extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 0;
 		customBiomeDecorator.grassPerChunk = 10;
+		customBiomeDecorator.mushroomsPerChunk = 3;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;

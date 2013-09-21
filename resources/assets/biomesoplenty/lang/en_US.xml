@@ -61,6 +61,7 @@
     <entry key="tile.bop.flowers2.goldenrod.name">Goldenrod</entry>
     <entry key="tile.bop.flowers2.bluebells.name">Bluebells</entry>
     <entry key="tile.bop.flowers2.minersdelight.name">Miner's Delight</entry>
+    <entry key="tile.bop.flowers2.icyiris.name">Icy Iris</entry>
 
     <entry key="tile.bop.foliage.algae.name">Algae</entry>
     <entry key="tile.bop.foliage.shortgrass.name">Short Grass</entry>
@@ -82,6 +83,7 @@
     <entry key="tile.bop.mushrooms.portobello.name">Portobello</entry>
     <entry key="tile.bop.mushrooms.bluemilk.name">Blue Milk Cap</entry>
     <entry key="tile.bop.mushrooms.glowshroom.name">Glowshroom</entry>
+    <entry key="tile.bop.mushrooms.flatmushroom.name">Flat Mushroom</entry>
 
     <entry key="tile.bop.saplings.appleSapling.name">Apple Sapling</entry>
     <entry key="tile.bop.saplings.yellowautumnSapling.name">Yellow Autumn Sapling</entry>

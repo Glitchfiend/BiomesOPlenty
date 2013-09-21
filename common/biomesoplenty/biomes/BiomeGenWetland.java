@@ -27,7 +27,7 @@ public class BiomeGenWetland extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 10;
 		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.mushroomsPerChunk = 5;
+		customBiomeDecorator.mushroomsPerChunk = 8;
 		customBiomeDecorator.toadstoolsPerChunk = 1;
 		customBiomeDecorator.reedsPerChunk = 15;
 		customBiomeDecorator.reedsBOPPerChunk = 15;

@@ -32,6 +32,7 @@ public class BiomeGenBayou extends BiomeGenBase
 		customBiomeDecorator.mudPerChunk = 1;
 		customBiomeDecorator.mudPerChunk2 = 1;
 		customBiomeDecorator.toadstoolsPerChunk = 2;
+		customBiomeDecorator.mushroomsPerChunk = 4;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.waterlilyPerChunk = 2;

@@ -25,6 +25,7 @@ public class BiomeGenMeadow extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 10;
 		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.tinyFlowersPerChunk = 14;
+		customBiomeDecorator.mushroomsPerChunk = 2;
 		customBiomeDecorator.flowersPerChunk = 10;
 		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.sandPerChunk = -999;

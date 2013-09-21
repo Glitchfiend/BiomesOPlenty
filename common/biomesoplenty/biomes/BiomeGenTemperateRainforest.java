@@ -27,6 +27,7 @@ public class BiomeGenTemperateRainforest extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 25;
 		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
+		customBiomeDecorator.mushroomsPerChunk = 4;
 		customBiomeDecorator.blueMilksPerChunk = 3;
 		customBiomeDecorator.poisonIvyPerChunk = 1;
 		customBiomeDecorator.carrotsPerChunk = 1;
