@@ -34,11 +34,29 @@ public class WorldGenOutback extends WorldGenerator
 			int var8 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
 			int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 			int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
+			
+			int var999 = par2Random.nextInt(5);
 
 			if (par1World.isAirBlock(var8, var9, var10) && (par1World.getBlockId(var8, var9 - 1, var10) == Blocks.hardSand.get().blockID || par1World.getBlockId(var8, var9 - 1, var10) == Block.sand.blockID || par1World.getBlockId(var8, var9 - 1, var10) == Block.stone.blockID))
 			{
 				par1World.setBlock(var8, var9 - 1, var10, Block.grass.blockID, 0, 2);
-				par1World.setBlock(var8, var9, var10, tallGrassID, tallGrassMetadata, 2);
+				
+				if (var999 == 0)
+				{
+					par1World.setBlock(var8, var9, var10, tallGrassID, tallGrassMetadata, 2);
+				}
+				else if (var999 == 1)
+				{
+					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 10, 2);
+				}
+				else if (var999 == 2)
+				{
+					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 11, 2);
+				}
+				else
+				{
+					par1World.setBlock(var8, var9, var10, tallGrassID, tallGrassMetadata, 2);
+				}
 			}
 		}
 
