@@ -23,7 +23,7 @@ public class SoundHandler
 		{
 			try 
 			{
-				event.manager.addSound(soundFile);
+				event.manager.soundPoolSounds.addSound(soundFile);
 			}
 
 			catch (Exception e) 
@@ -36,7 +36,7 @@ public class SoundHandler
         {
             try 
             {
-                event.manager.addSound(recordSoundFile);
+                event.manager.soundPoolStreaming.addSound(recordSoundFile);
             }
 
             catch (Exception e) 
