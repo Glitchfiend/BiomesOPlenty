@@ -71,7 +71,7 @@ public class BlockReferences {
 
 		dryGrassItem (Blocks.foliage, 11),
 		wheatGrassItem (Blocks.foliage, 10),
-		taroItem (Blocks.foliage, 9),
+		shrubItem (Blocks.foliage, 9),
 		poisonIvyItem (Blocks.foliage, 7),
 		sproutItem (Blocks.foliage, 5),
 		bushItem (Blocks.foliage, 4),

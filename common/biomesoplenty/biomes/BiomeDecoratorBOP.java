@@ -199,7 +199,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator potatoGen;
 	public WorldGenerator sproutGen;
 	public WorldGenerator bushGen;
-	public WorldGenerator taroGen;
+	public WorldGenerator shrubGen;
 	public WorldGenerator wheatGrassGen;
 	public WorldGenerator wetGrassGen;
 	public WorldGenerator berryBushGen;
@@ -294,7 +294,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int sproutsPerChunk;
 	public int bushesPerChunk;
 	public int berryBushesPerChunk;
-	public int taroPerChunk;
+	public int shrubsPerChunk;
 	public int wheatGrassPerChunk;
 	public int tinyCactiPerChunk;
 	public int aloePerChunk;
@@ -468,7 +468,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		thornGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 5);
 		bushGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 4);
 		berryBushGen = new WorldGenBOPFlowers(Blocks.foliage.get().blockID, 8);
-		taroGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 9);
+		shrubGen = new WorldGenBOPBush(Blocks.foliage.get().blockID, 9);
 		wheatGrassGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 10);
 		wetGrassGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 11);
 		tinyCactusGen = new WorldGenBOPFlowers(Blocks.plants.get().blockID, 12);
@@ -568,7 +568,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		sproutsPerChunk = 0;
 		bushesPerChunk = 0;
 		berryBushesPerChunk = 0;
-		taroPerChunk = 0;
+		shrubsPerChunk = 0;
 		wheatGrassPerChunk = 0;
 		tinyCactiPerChunk = 0;
 		poisonIvyPerChunk = 0;
@@ -1254,12 +1254,12 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 berryBushGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
-		 for (var2 = 0; var2 < taroPerChunk; ++var2)
+		 for (var2 = 0; var2 < shrubsPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 taroGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 shrubGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
 		 for (var2 = 0; var2 < wheatGrassPerChunk; ++var2)

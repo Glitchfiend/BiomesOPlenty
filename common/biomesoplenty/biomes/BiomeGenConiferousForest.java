@@ -36,6 +36,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 		customBiomeDecorator.poisonIvyPerChunk = 1;
 		customBiomeDecorator.berryBushesPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 5;
+		customBiomeDecorator.shrubsPerChunk = 8;
 	}
 
 	/**
