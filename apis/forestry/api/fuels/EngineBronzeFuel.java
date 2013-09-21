@@ -1,5 +1,6 @@
 package forestry.api.fuels;
 
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 
 public class EngineBronzeFuel {
