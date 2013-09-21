@@ -125,10 +125,4 @@ public class BlockBOPStairs extends BlockStairs
 
 		return textures[adjCat];
 	}
-
-	@Override
-	public int damageDropped(int meta)
-	{
-		return meta;
-	}
 }
