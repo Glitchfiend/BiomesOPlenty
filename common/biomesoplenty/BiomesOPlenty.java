@@ -45,7 +45,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version=Version.VERSION, dependencies="after:Natura")
+@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version=Version.VERSION, dependencies="after:Natura; required-after:Forge@FORGE_VERSION@")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {

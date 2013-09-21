@@ -8,7 +8,7 @@ public class BOPStructures
 {
 	public static void init()
 	{
-        MapGenStructureIO.func_143034_b(BOPStructureScatteredFeatureStart.class, "BOPTemple");
         MapGenStructureIO.func_143034_b(BOPStructureVillageStart.class, "BOPVillage");
+        MapGenStructureIO.func_143034_b(BOPStructureScatteredFeatureStart.class, "BOPTemple");
 	}
 }

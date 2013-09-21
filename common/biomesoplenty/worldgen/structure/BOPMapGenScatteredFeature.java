@@ -118,7 +118,7 @@ public class BOPMapGenScatteredFeature extends MapGenStructure
     {
         StructureStart structurestart = this.func_143028_c(par1, par2, par3);
 
-        if (structurestart != null && structurestart instanceof StructureScatteredFeatureStart && !structurestart.components.isEmpty())
+        if (structurestart != null && structurestart instanceof BOPStructureScatteredFeatureStart && !structurestart.components.isEmpty())
         {
             StructureComponent structurecomponent = (StructureComponent)structurestart.components.getFirst();
             return structurecomponent instanceof ComponentScatteredFeatureSwampHut;
