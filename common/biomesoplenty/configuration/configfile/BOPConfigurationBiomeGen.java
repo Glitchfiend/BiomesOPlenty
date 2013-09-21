@@ -102,16 +102,19 @@ public class BOPConfigurationBiomeGen
 	public static boolean jungleGen;
 
 	// Nether biomes
-
 	public static boolean undergardenGen;
 	public static boolean corruptedSandsGen;
 	public static boolean phantasmagoricInfernoGen;
 	public static boolean boneyardGen;
 
-	//Beach variations
-
+	// Beach variations
 	public static boolean gravelBeachGen;
 	public static boolean overgrownBeachGen;
+	
+	// Ocean biomes
+	public static boolean coralReefGen;
+	public static boolean kelpForestGen;
+	public static boolean oceanicAbyssGen;
 
 	public static void init(File configFile)
 	{
@@ -213,16 +216,19 @@ public class BOPConfigurationBiomeGen
 			taigaGen = config.get("Vanilla Biomes To Generate", "Taiga", true).getBoolean(true);
 
 			// Nether biomes
-
 			undergardenGen = config.get("Nether Biomes To Generate", "Undergarden", true).getBoolean(true);
 			corruptedSandsGen = config.get("Nether Biomes To Generate", "CorruptedSands", true).getBoolean(true);
 			phantasmagoricInfernoGen = config.get("Nether Biomes To Generate", "PhantasmagoricInferno", true).getBoolean(true);
 			boneyardGen = config.get("Nether Biomes To Generate", "Boneyard", true).getBoolean(true);
 
 			// Beach variations
-
 			gravelBeachGen = config.get("Beach Variations To Generate", "Gravel Beach", true).getBoolean(true);
 			overgrownBeachGen = config.get("Beach Variations To Generate", "Overgrown Beach", false).getBoolean(true);
+			
+			// Ocean biomes
+			coralReefGen = config.get("Ocean Biomes To Generate", "Coral Reef", true).getBoolean(false);
+			kelpForestGen = config.get("Ocean Biomes To Generate", "Kelp Forest", true).getBoolean(false);
+			oceanicAbyssGen = config.get("Ocean Biomes To Generate", "Oceanic Abyss", true).getBoolean(false);
 
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Biome Gen Config!");
 		}

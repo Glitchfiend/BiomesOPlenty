@@ -30,15 +30,24 @@ public class BiomeLayerBiomes extends BiomeLayer
 		oceanBiomes.add(BiomeGenBase.ocean);
 		if (Biomes.oceanAbyss.isPresent())
 		{
-			oceanBiomes.add(Biomes.oceanAbyss.get());
+			if (BOPConfigurationBiomeGen.oceanicAbyssGen)
+			{
+				oceanBiomes.add(Biomes.oceanAbyss.get());
+			}
 		}
 		if (Biomes.oceanCoral.isPresent())
 		{
-			oceanBiomes.add(Biomes.oceanCoral.get());
+			if (BOPConfigurationBiomeGen.coralReefGen)
+			{
+				oceanBiomes.add(Biomes.oceanCoral.get());
+			}
 		}
 		if (Biomes.oceanKelp.isPresent())
 		{
-			oceanBiomes.add(Biomes.oceanKelp.get());
+			if (BOPConfigurationBiomeGen.kelpForestGen)
+			{
+				oceanBiomes.add(Biomes.oceanKelp.get());
+			}
 		}
 
 		//NETHER BIOMES
@@ -48,28 +57,28 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherGarden.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.undergardenGen == true)
+			if (BOPConfigurationBiomeGen.undergardenGen)
 			{
 				netherBiomes.add(Biomes.netherGarden.get());
 			}
 		}
 		if (Biomes.netherDesert.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.corruptedSandsGen == true)
+			if (BOPConfigurationBiomeGen.corruptedSandsGen)
 			{
 				netherBiomes.add(Biomes.netherDesert.get());
 			}
 		}
 		if (Biomes.netherLava.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.phantasmagoricInfernoGen == true)
+			if (BOPConfigurationBiomeGen.phantasmagoricInfernoGen)
 			{
 				netherBiomes.add(Biomes.netherLava.get());
 			}
 		}
 		if (Biomes.netherBone.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.boneyardGen == true)
+			if (BOPConfigurationBiomeGen.boneyardGen)
 			{
 				netherBiomes.add(Biomes.netherBone.get());
 			}

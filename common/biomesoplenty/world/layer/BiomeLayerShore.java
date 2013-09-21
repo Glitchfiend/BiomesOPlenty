@@ -21,14 +21,14 @@ public class BiomeLayerShore extends BiomeLayer
 		beachBiomes.add(BiomeGenBase.beach);
 		if (Biomes.beachGravel.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.gravelBeachGen == true)
+			if (BOPConfigurationBiomeGen.gravelBeachGen)
 			{
 				beachBiomes.add(Biomes.beachGravel.get());
 			}
 		}
 		if (Biomes.beachOvergrown.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.overgrownBeachGen == true)
+			if (BOPConfigurationBiomeGen.overgrownBeachGen)
 			{
 				beachBiomes.add(Biomes.beachOvergrown.get());
 			}
@@ -38,15 +38,24 @@ public class BiomeLayerShore extends BiomeLayer
 		oceanBiomes.add(BiomeGenBase.ocean);
 		if (Biomes.oceanAbyss.isPresent())
 		{
-			oceanBiomes.add(Biomes.oceanAbyss.get());
+			if (BOPConfigurationBiomeGen.oceanicAbyssGen)
+			{
+				oceanBiomes.add(Biomes.oceanAbyss.get());
+			}
 		}
 		if (Biomes.oceanCoral.isPresent())
 		{
-			oceanBiomes.add(Biomes.oceanCoral.get());
+			if (BOPConfigurationBiomeGen.coralReefGen)
+			{
+				oceanBiomes.add(Biomes.oceanCoral.get());
+			}
 		}
 		if (Biomes.oceanKelp.isPresent())
 		{
-			oceanBiomes.add(Biomes.oceanKelp.get());
+			if (BOPConfigurationBiomeGen.kelpForestGen)
+			{
+				oceanBiomes.add(Biomes.oceanKelp.get());
+			}
 		}
 	}
 	
