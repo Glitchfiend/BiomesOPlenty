@@ -39,20 +39,28 @@
 
     <entry key="tile.bop.flowers.clover.name">Клевер</entry>
     <entry key="tile.bop.flowers.swampflower.name">Болотный цветок</entry>
-    <entry key="tile.bop.flowers.deadbloom.name">Смертельный цветок</entry>
+    <entry key="tile.bop.flowers.deadbloom.name">Смертельный блюм</entry>
     <entry key="tile.bop.flowers.glowflower.name">Светоцвет</entry>
     <entry key="tile.bop.flowers.hydrangea.name">Синяя гортензия</entry>
     <entry key="tile.bop.flowers.cosmos.name">Оранжевая космея</entry> 
     <entry key="tile.bop.flowers.daffodil.name">Розовый нарцисс</entry>
-    <entry key="tile.bop.flowers.wildflower.name">Колокольчик</entry>
+    <entry key="tile.bop.flowers.wildflower.name">Дикий цветок</entry>
     <entry key="tile.bop.flowers.violet.name">Фиалка</entry>
     <entry key="tile.bop.flowers.anemone.name">Белый анемон</entry>
     <entry key="tile.bop.flowers.lilyflower.name">Кувшинка</entry>
-    <entry key="tile.bop.flowers.rainbowflower.name">Радужный цветок</entry>
-    <entry key="tile.bop.flowers.bromeliad.name">Алоэ</entry>
+    <entry key="tile.bop.flowers.rainbowflower.name">Цветофлора</entry>
+    <entry key="tile.bop.flowers.bromeliad.name">Бромелия</entry>
     <entry key="tile.bop.flowers.sunflowerbottom.name">Подсолнечник</entry>
     <entry key="tile.bop.flowers.sunflowertop.name">Подсолнечник</entry>
     <entry key="tile.bop.flowers.dandelion.name">Белый одуванчик</entry>
+	
+    <entry key="tile.bop.flowers2.hibiscus.name">Розовый гибискус</entry>
+    <entry key="tile.bop.flowers2.lilyofthevalley.name">Ландыш</entry>
+    <entry key="tile.bop.flowers2.burningblossom.name">Пылающий цвет</entry>
+    <entry key="tile.bop.flowers2.lavender.name">Лаванда</entry>
+    <entry key="tile.bop.flowers2.goldenrod.name">Золотарник</entry>
+    <entry key="tile.bop.flowers2.bluebells.name">Колокольчики</entry>
+    <entry key="tile.bop.flowers2.minersdelight.name">Шахтёрское наслаждение</entry>
 
     <entry key="tile.bop.foliage.algae.name">Водоросли</entry>
     <entry key="tile.bop.foliage.shortgrass.name">Низкая трава</entry>
@@ -63,6 +71,9 @@
     <entry key="tile.bop.foliage.highgrasstop.name">Высокая трава</entry>
     <entry key="tile.bop.foliage.poisonivy.name">Ядовитый плющ</entry>
     <entry key="tile.bop.foliage.berrybush.name">Ягодный куст</entry>
+    <entry key="tile.bop.foliage.shrub.name">Кустарник</entry>
+    <entry key="tile.bop.foliage.wheatgrass.name">Ростки пшеницы</entry>
+    <entry key="tile.bop.foliage.dampgrass.name">Влажная трава</entry>
 
     <entry key="tile.bop.petals.bigflowerred.name">Гигантский красный цветок</entry>
     <entry key="tile.bop.petals.bigfloweryellow.name">Гигантский жёлтый цветок</entry>
@@ -87,6 +98,7 @@
     <entry key="tile.bop.saplings.whitecherrySapling.name">Саженец белой вишни</entry>
     <entry key="tile.bop.saplings.hellbarkSapling.name">Саженец адского дерева</entry>
     <entry key="tile.bop.saplings.jacarandaSapling.name">Саженец жакаранды</entry>
+    <entry key="tile.bop.saplings.persimmonSapling.name">Саженец дерева хурмы</entry>
 
     <entry key="tile.bop.colorizedSaplings.acaciaSapling.name">Саженец акации</entry>
     <entry key="tile.bop.colorizedSaplings.mangroveSapling.name">Мангровый саженец</entry>
@@ -94,7 +106,6 @@
     <entry key="tile.bop.colorizedSaplings.redwoodSapling.name">Саженец красного дерева</entry>
     <entry key="tile.bop.colorizedSaplings.willowSapling.name">Саженец ивы</entry>
     <entry key="tile.bop.colorizedSaplings.pineSapling.name">Саженец сосны</entry>
-    <entry key="tile.bop.saplings.persimmonSapling.name">Саженец хурмы</entry> 
 
     <entry key="tile.bop.willow.name">Ива</entry>
     <entry key="tile.bop.ivy.name">Плющ</entry>
