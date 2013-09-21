@@ -6,9 +6,9 @@
 	<condition property="mod.build" value="${env.DRONE_BUILD_NUMBER}" else="0">
 		<isset property="env.DRONE_BUILD_NUMBER" />
 	</condition>
-	<property name="mc.version" value="1.6.2" />
-	<property name="forge.version" value="9.10.1.857" />
-	<property name="fmp.version" value="1.0.0.161" />
+	<property name="mc.version" value="1.6.4" />
+	<property name="forge.version" value="9.11.0.881" />
+	<property name="fmp.version" value="1.0.0.173" />
 
 	<property name="src.dir" value="" />
 	<property name="build.dir" value="build" />
