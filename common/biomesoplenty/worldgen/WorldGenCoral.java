@@ -30,7 +30,7 @@ public class WorldGenCoral extends WorldGenerator
 			int k1 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 			int var999 = par2Random.nextInt(4);
 
-			if ((par1World.getBlockId(i1, j1, k1) == Block.waterStill.blockID || par1World.getBlockId(i1, j1, k1) == Block.waterMoving.blockID) && Block.blocksList[plantBlockId].canPlaceBlockOnSide(par1World, i1, j1, k1, 1, new ItemStack(plantBlockId, 1, plantBlockMeta)))
+			if ((par1World.getBlockId(i1, j1, k1) == Block.waterStill.blockID || par1World.getBlockId(i1, j1, k1) == Block.waterMoving.blockID) && (par1World.getBlockId(i1, j1 + 1, k1) == Block.waterStill.blockID || par1World.getBlockId(i1, j1 + 1, k1) == Block.waterMoving.blockID) && Block.blocksList[plantBlockId].canPlaceBlockOnSide(par1World, i1, j1, k1, 1, new ItemStack(plantBlockId, 1, plantBlockMeta)))
 			{
 				par1World.setBlock(i1, j1, k1, Blocks.coral.get().blockID, 4 + var999, 2);
 			}
