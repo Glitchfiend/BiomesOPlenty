@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.ComponentVillageRoadPiece;
 import net.minecraft.world.gen.structure.ComponentVillageStartPiece;
@@ -11,7 +12,7 @@ import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraft.world.gen.structure.StructureVillagePieces;
 
-class BOPStructureVillageStart extends StructureStart
+public class BOPStructureVillageStart extends StructureStart
 {
 	/** well ... thats what it does */
 	private boolean hasMoreThanTwoComponents = false;
@@ -61,12 +62,21 @@ class BOPStructureVillageStart extends StructureStart
 		hasMoreThanTwoComponents = l > 2;
 	}
 
-	/**
-	 * currently only defined for Villages, returns true if Village has more than 2 non-road components
-	 */
-	 @Override
-	 public boolean isSizeableStructure()
+	@Override
+	public boolean isSizeableStructure()
 	{
-		 return hasMoreThanTwoComponents;
+		return hasMoreThanTwoComponents;
+	}
+
+	public void func_143022_a(NBTTagCompound par1NBTTagCompound)
+	{
+		super.func_143022_a(par1NBTTagCompound);
+		par1NBTTagCompound.setBoolean("Valid", this.hasMoreThanTwoComponents);
+	}
+
+	public void func_143017_b(NBTTagCompound nbttagcompound)
+	{
+		super.func_143017_b(nbttagcompound);
+		this.hasMoreThanTwoComponents = nbttagcompound.getBoolean("Valid");
 	}
 }

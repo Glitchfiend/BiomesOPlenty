@@ -12,7 +12,10 @@ import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.structure.ComponentScatteredFeatureSwampHut;
 import net.minecraft.world.gen.structure.MapGenStructure;
+import net.minecraft.world.gen.structure.StructureComponent;
+import net.minecraft.world.gen.structure.StructureScatteredFeatureStart;
 import net.minecraft.world.gen.structure.StructureStart;
 import biomesoplenty.api.Biomes;
 
@@ -56,6 +59,12 @@ public class BOPMapGenScatteredFeature extends MapGenStructure
 				maxDistanceBetweenScatteredFeatures = MathHelper.parseIntWithDefaultAndMax((String)entry.getValue(), maxDistanceBetweenScatteredFeatures, minDistanceBetweenScatteredFeatures + 1);
 			}
 		}
+	}
+	
+	@Override
+	public String func_143025_a() 
+	{
+        return "Temple";
 	}
 
 	@Override
@@ -104,6 +113,21 @@ public class BOPMapGenScatteredFeature extends MapGenStructure
 	{
 		return new BOPStructureScatteredFeatureStart(worldObj, rand, par1, par2);
 	}
+	
+    public boolean func_143030_a(int par1, int par2, int par3)
+    {
+        StructureStart structurestart = this.func_143028_c(par1, par2, par3);
+
+        if (structurestart != null && structurestart instanceof StructureScatteredFeatureStart && !structurestart.components.isEmpty())
+        {
+            StructureComponent structurecomponent = (StructureComponent)structurestart.components.getFirst();
+            return structurecomponent instanceof ComponentScatteredFeatureSwampHut;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 	/**
 	 * returns possible spawns for scattered features

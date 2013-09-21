@@ -51,6 +51,12 @@ public class BOPMapGenVillage extends MapGenStructure
 			}
 		}
 	}
+	
+	@Override
+    public String func_143025_a()
+    {
+        return "BOPVillage";
+    }
 
 	@Override
 	protected boolean canSpawnStructureAtCoords(int par1, int par2)

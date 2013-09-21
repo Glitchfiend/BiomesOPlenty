@@ -10,6 +10,7 @@ import biomesoplenty.configuration.BOPEntities;
 import biomesoplenty.configuration.BOPFluids;
 import biomesoplenty.configuration.BOPItems;
 import biomesoplenty.configuration.BOPPotions;
+import biomesoplenty.configuration.BOPStructures;
 import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.configuration.configfile.BOPConfiguration;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
@@ -72,6 +73,7 @@ public class BiomesOPlenty
 		BOPItems.init();
 		BOPFluids.init();
 		BOPCrafting.init();
+		BOPStructures.init();
 		BOPBiomes.init();
 		BOPEntities.init();
 		BOPVanillaCompat.init();
