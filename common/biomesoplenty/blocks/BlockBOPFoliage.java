@@ -238,6 +238,11 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
 	{
+		if (par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 9)
+		{
+			return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
+		}
+		
 		return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeGrassColor();
 	}
 
