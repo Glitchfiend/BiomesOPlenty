@@ -119,7 +119,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			f3 = f6;
 		}
 
-		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID)
+		if ((renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 8 || renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9) && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID)
 		{
 			tessellator.setColorOpaque_F(f, f, f);
 		}
@@ -151,6 +151,10 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		{
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
 		} 
+		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 8 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
+		{
+			renderBerryBush(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
+		}
 		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
 		{
 			renderShrub(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
@@ -160,6 +164,18 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
 		}
 		return true;
+	}
+	
+	private static void renderBerryBush(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
+	{
+        Tessellator tessellator = Tessellator.instance;
+        Icon berryBush = renderer.getBlockIconFromSideAndMetadata(Blocks.foliage.get(), 0, 8);
+        Icon berryBushBerry = ((BlockBOPFoliage)Blocks.foliage.get()).berryBushBerry;
+
+		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
+        renderCrossedSquaresFromIcon(berryBush, par1, par2, par3, par4, renderer);
+		tessellator.setColorOpaque_F(par4, par4, par4);
+        renderCrossedSquaresFromIcon(berryBushBerry, par1, par2, par3, par4, renderer);
 	}
 	
 	private static void renderShrub(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
