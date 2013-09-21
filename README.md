@@ -22,6 +22,64 @@
 
 
 ## Changelog 
+	  Version 0.6.3 (Unreleased)
+	- Made steam particles animated
+	- Added the Phantom
+	- Removed the crafting recipe for ghastly souls (*I wonder where they went*)
+	- Changed the biomes in which billages can generate in by default
+	- Added Wither Wart
+	- Tweaked the liquid poison textures
+	- Updated several localizations (Props to VeryBigBro and Vexatos)
+	- Fixed the Mountain biome's height
+	- Added gravestone gen to the nether
+	- Changed how willow trees generate
+	- Added persimmons and persimmon trees
+	- Changed the hunger/saturation values for food
+	- Added smooth sky colour transitions (this was a Forge addition, but it's worth mentioning)
+	- Nerfed jungle spiders
+	- Changed the mod logo
+	- Added various coloured coral
+	- Tweaked kelp
+	- Added a few ocean biomes
+	  - Oceanic Abyss
+	  - Coral Reef
+	  - Kelp Forest
+	- Added Forge Multipart microblocks integration
+	- Fixed rainfall values for snowy biomes
+	- Added the Ochre Acres biome
+	- Fixed bucket container items
+	- Increaed growth time for apple trees
+	- Added wading boots
+	- Added flippers
+	- Tweaked the Oasis biome
+	- Added custom village materials for various biomes
+	- Fixed block picking on stairs (Our OCD friend Leenhaart :P)
+	- Added Tropics Mountain Subbiome
+	- Added Hibiscus
+	- Added Lily of the Valley
+	- Added Burning Blossom
+	- Tweaked various plant/flower textures
+	- Renamed Aloe to Bromeliad
+	- Added Lavender
+	- Added the Lavender Fields biome
+	- Added a way to grow tiny cacti and cattails with bonemeal
+	- Deathblooms and thorns now hurt if shears aren't used
+	- Added Goldenrods
+	- Added Bluebells
+	- Switched to using isGenMineableReplaceable (which in turn fixed Underground Biomes compatibility with gems)
+	- Added Shrubs
+	- Added Wheat Grass
+	- Added Damp Grass
+	- Tweaked Moss generation
+	- Tweaked Moss texture
+	- Disabled rain in the Badlands
+	- Made moss no longer spread
+	- Updated to 1.6.4
+	- Added Miner's Delight
+	- Tweaked the way Berry Bushes render
+	- Updated the MFR API
+	- Updated the Forestry API
+
 	  Version 0.6.2 '20-08-13'
 	- Fixed bigtrees compatibility
 	- Fixed another bug with altars
