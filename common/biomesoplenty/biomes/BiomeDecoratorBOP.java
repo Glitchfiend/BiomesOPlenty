@@ -1154,12 +1154,15 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 lilyOfTheValleyGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
-		 for (var2 = 0; var2 < burningBlossomsPerChunk; ++var2)
+		 if (BOPConfigurationTerrainGen.burningBlossomGen)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(256);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 burningBlossomGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 for (var2 = 0; var2 < burningBlossomsPerChunk; ++var2)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(256);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 burningBlossomGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 		 
 		 for (var2 = 0; var2 < lavenderPerChunk; ++var2)

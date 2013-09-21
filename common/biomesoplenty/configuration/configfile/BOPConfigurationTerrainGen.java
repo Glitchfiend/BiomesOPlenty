@@ -22,6 +22,8 @@ public class BOPConfigurationTerrainGen
 	public static boolean poisonWaterGen;
 	public static boolean quicksandGen;
 	public static boolean exposedStone;
+	public static boolean witherWartGen;
+	public static boolean burningBlossomGen;
 	
 	public static int villageDistance;
 	
@@ -129,6 +131,8 @@ public class BOPConfigurationTerrainGen
 			springWaterGen = config.get("Decoration Settings", "Generate Hot Springs", true).getBoolean(true);
 			poisonWaterGen = config.get("Decoration Settings", "Generate Poison Pools", true).getBoolean(true);
 			quicksandGen = config.get("Decoration Settings", "Generate Quicksand", true).getBoolean(true);
+			witherWartGen = config.get("Decoration Settings", "Generate Wither Wart", true).getBoolean(true);
+			burningBlossomGen = config.get("Decoration Settings", "Generate Burning Blossoms", true).getBoolean(true);
 			exposedStone = config.get("Decoration Settings", "Generate Sections Of Exposed Stone", true).getBoolean(true);
 			
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
