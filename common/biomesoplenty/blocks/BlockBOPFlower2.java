@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower2 extends BlockFlower
 {
-	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells"};
+	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight"};
 	private Icon[] textures;
 
 	protected BlockBOPFlower2(int blockID, Material material)
@@ -156,13 +156,15 @@ public class BlockBOPFlower2 extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.netherrack.blockID || id == Blocks.longGrass.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.netherrack.blockID || id == Blocks.longGrass.get().blockID || id == Block.stone.blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
 		if (metadata == 2) // Burning Blossom
 			return id == Block.netherrack.blockID;
+		else if (metadata == 6) // Burning Blossom
+			return id == Block.stone.blockID;
 		else
 			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID;
 	}
@@ -179,6 +181,9 @@ public class BlockBOPFlower2 extends BlockFlower
 			{
 			case 2: // Burning Blossom
 				return id == Block.netherrack.blockID;
+				
+			case 6: // Miner's Delight
+				return id == Block.stone.blockID;
 
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID;
@@ -215,14 +220,14 @@ public class BlockBOPFlower2 extends BlockFlower
 
 		if (world.getBlockId(x, y, z) != blockID)
 		{
-			if (meta == 2)
+			if (meta == 2 || meta == 6)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 		}
 		else
 		{
-			if (meta == 2)
+			if (meta == 2 || meta == 6)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));

@@ -18,7 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFlower2 extends ItemBlock
 {
-	private static final String[] plants = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells"};
+	private static final String[] plants = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 

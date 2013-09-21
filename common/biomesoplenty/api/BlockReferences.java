@@ -191,6 +191,7 @@ public class BlockReferences {
 		lavender (Blocks.flowers2, 3),
 		goldenrod (Blocks.flowers2, 4),
 		bluebells (Blocks.flowers2, 5),
+		minersdelight (Blocks.flowers2, 6),
 		;
 
 		public Optional<? extends Block> block;
