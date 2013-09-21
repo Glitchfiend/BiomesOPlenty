@@ -12,6 +12,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenVillage;
 import net.minecraft.world.gen.structure.StructureStart;
+import net.minecraft.world.gen.structure.StructureVillageStart;
 import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 
 public class BOPMapGenVillage extends MapGenStructure
@@ -96,6 +97,6 @@ public class BOPMapGenVillage extends MapGenStructure
 	@Override
 	protected StructureStart getStructureStart(int par1, int par2)
 	{
-		return new BOPStructureVillageStart(worldObj, rand, par1, par2, terrainType);
+		return new StructureVillageStart(worldObj, rand, par1, par2, terrainType);
 	}
 }

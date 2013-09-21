@@ -12,6 +12,8 @@ import biomesoplenty.api.Biomes;
 
 public class BOPStructureScatteredFeatureStart extends StructureStart
 {
+	public BOPStructureScatteredFeatureStart() {}
+	
 	public BOPStructureScatteredFeatureStart(World world, Random random, int x, int z)
 	{
 		BiomeGenBase biome = world.getBiomeGenForCoords(x * 16 + 8, z * 16 + 8);
