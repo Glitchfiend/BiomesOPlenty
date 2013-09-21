@@ -1198,7 +1198,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 for (var2 = 0; var2 < minersDelightPerChunk; ++var2)
 		 {
 			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(64);
+			 var4 = randomGenerator.nextInt(45);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 minersDelightGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }

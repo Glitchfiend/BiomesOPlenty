@@ -309,5 +309,8 @@ public class BOPBlocks
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 2, 100);
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 4, 15);
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 5, 15);
+		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 9, 5);
+		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 10, 75);
+		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 11, 75);
 	}
 }
