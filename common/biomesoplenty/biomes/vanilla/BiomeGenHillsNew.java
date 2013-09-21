@@ -23,6 +23,7 @@ public class BiomeGenHillsNew extends BiomeGenBase
 		customBiomeDecorator.treesPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.violetsPerChunk = 5;
+		customBiomeDecorator.shrubsPerChunk = 2;
 		theWorldGenerator = new WorldGenMinable(Block.silverfish.blockID, 8);
 	}
 

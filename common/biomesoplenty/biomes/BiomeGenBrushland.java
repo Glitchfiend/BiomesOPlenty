@@ -22,6 +22,7 @@ public class BiomeGenBrushland extends BiomeGenBase
 		customBiomeDecorator.thornsPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.wheatGrassPerChunk = 3;
+		customBiomeDecorator.shrubsPerChunk = 30;
 		customBiomeDecorator.generateQuicksand = true;
 	}
 

@@ -25,6 +25,7 @@ public class BiomeGenScrubland extends BiomeGenBase
 		customBiomeDecorator.highGrassPerChunk = 2;
 		customBiomeDecorator.grassPerChunk = 30;
 		customBiomeDecorator.wheatGrassPerChunk = 10;
+		customBiomeDecorator.shrubsPerChunk = 2;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 	

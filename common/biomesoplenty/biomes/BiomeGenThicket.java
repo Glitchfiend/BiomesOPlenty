@@ -19,6 +19,7 @@ public class BiomeGenThicket extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.thornsPerChunk = 25;
+		customBiomeDecorator.shrubsPerChunk = 15;
 	}
 
 	/**

@@ -38,6 +38,7 @@ public class BiomeGenBog extends BiomeGenBase
 		customBiomeDecorator.blueMilksPerChunk = 1;
 		customBiomeDecorator.waterLakesPerChunk = 6;
 		customBiomeDecorator.poisonWaterPerChunk = 2;
+		customBiomeDecorator.shrubsPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 

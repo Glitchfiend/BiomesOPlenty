@@ -29,6 +29,7 @@ public class BiomeGenPrairie extends BiomeGenBase
 		customBiomeDecorator.berryBushesPerChunk = 2;
 		customBiomeDecorator.wheatGrassPerChunk = 25;
 		customBiomeDecorator.carrotsPerChunk = 1;
+		customBiomeDecorator.shrubsPerChunk = 3;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	

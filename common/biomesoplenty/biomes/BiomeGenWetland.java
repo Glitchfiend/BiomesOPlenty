@@ -44,6 +44,7 @@ public class BiomeGenWetland extends BiomeGenBase
 		customBiomeDecorator.blueMilksPerChunk = 1;
 		customBiomeDecorator.portobellosPerChunk = 1;
 		customBiomeDecorator.berryBushesPerChunk = 1;
+		customBiomeDecorator.shrubsPerChunk = 10;
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));

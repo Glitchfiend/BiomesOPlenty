@@ -28,6 +28,7 @@ public class BiomeGenHeathland extends BiomeGenBase
 		customBiomeDecorator.purpleFlowersPerChunk = 30;
 		customBiomeDecorator.deadBushPerChunk = 2;
 		customBiomeDecorator.berryBushesPerChunk = 1;
+		customBiomeDecorator.shrubsPerChunk = 5;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}

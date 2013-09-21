@@ -27,6 +27,7 @@ public class BiomeGenSavannaPlateau extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 10;
 		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.bushesPerChunk = 5;
+		customBiomeDecorator.shrubsPerChunk = 1;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 	

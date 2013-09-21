@@ -30,6 +30,7 @@ public class BiomeGenSpruceWoods extends BiomeGenBase
 		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.bluebellsPerChunk = 100;
+		customBiomeDecorator.shrubsPerChunk = 5;
 	}
 
 	/**

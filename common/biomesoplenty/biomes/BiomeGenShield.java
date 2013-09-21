@@ -27,6 +27,7 @@ public class BiomeGenShield extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.gravelPerChunk = 6;
 		customBiomeDecorator.gravelPerChunk2 = 6;
+		customBiomeDecorator.shrubsPerChunk = 4;
 		customBiomeDecorator.generateStoneInGrass2 = true;
 	}
 

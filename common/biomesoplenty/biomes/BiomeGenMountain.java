@@ -24,6 +24,7 @@ public class BiomeGenMountain extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 3;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.berryBushesPerChunk = 3;
+		customBiomeDecorator.shrubsPerChunk = 10;
 	}
 
 	/**

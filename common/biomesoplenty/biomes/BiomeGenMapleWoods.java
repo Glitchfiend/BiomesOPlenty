@@ -23,6 +23,7 @@ public class BiomeGenMapleWoods extends BiomeGenBase
 		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.violetsPerChunk = 1;
 		customBiomeDecorator.poisonIvyPerChunk = 1;
+		customBiomeDecorator.shrubsPerChunk = 2;
 	}
 
 	/**

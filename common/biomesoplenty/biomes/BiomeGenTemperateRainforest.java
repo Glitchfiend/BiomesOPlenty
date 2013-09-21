@@ -34,6 +34,7 @@ public class BiomeGenTemperateRainforest extends BiomeGenBase
 		customBiomeDecorator.gravelPerChunk2 = 4;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
+		customBiomeDecorator.shrubsPerChunk = 10;
 	}
 
 	/**

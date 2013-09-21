@@ -26,6 +26,7 @@ public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 15;
 		customBiomeDecorator.lilyflowersPerChunk = 9;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
+		customBiomeDecorator.shrubsPerChunk = 2;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 

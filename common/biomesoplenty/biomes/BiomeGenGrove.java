@@ -30,6 +30,7 @@ public class BiomeGenGrove extends BiomeGenBase
 		customBiomeDecorator.sproutsPerChunk = 1;
 		customBiomeDecorator.lilyflowersPerChunk = 3;
 		customBiomeDecorator.berryBushesPerChunk = 2;
+		customBiomeDecorator.shrubsPerChunk = 3;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 

@@ -33,6 +33,7 @@ public class BiomeGenSeasonalSpruceForest extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.toadstoolsPerChunk = 4;
 		customBiomeDecorator.wheatGrassPerChunk = 4;
+		customBiomeDecorator.shrubsPerChunk = 15;
 	}
 
 	/**
