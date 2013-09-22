@@ -19,7 +19,7 @@
 	<property name="mcp.dir" value="${forge.dir}/mcp" />
 
 	<property name="mod.name" value="BiomesOPlenty-universal-${mc.version}-${mod.version}.${mod.build}.jar" />
-	<property name="dev.name" value="BiomesOPlenty-dev-${mc.version}-${mod.version}.${mod.build}.zip" />
+	<property name="dev.name" value="BiomesOPlenty-dev-${mc.version}-${mod.version}.${mod.build}.jar" />
 	<property name="changelog.name" value="BiomesOPlenty-changelog-${mc.version}-${mod.version}.${mod.build}.txt" />
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
@@ -201,11 +201,15 @@
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
+		
+		<copy todir="tmp/src">
+    		<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/**"/>
+ 		</copy>
 
 		<echo message="Packaging BiomesOPlenty Dev" />
 		<zip destfile="${dist.dir}/${dev.name}">
-			<!-- <fileset dir="recompiled" includes="**/biomesoplenty/**" /> -->
-			<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" /> 
+			<fileset dir="tmp" includes="**/src/**" /> -->
+			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/biomesoplenty/**" /> 
 		</zip>
 		
 		<echo message="Renaming BiomesOPlenty Changelog" />
