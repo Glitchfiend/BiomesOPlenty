@@ -61,6 +61,7 @@
     <entry key="tile.bop.flowers2.goldenrod.name">Золотарник</entry>
     <entry key="tile.bop.flowers2.bluebells.name">Колокольчики</entry>
     <entry key="tile.bop.flowers2.minersdelight.name">Шахтёрское наслаждение</entry>
+    <entry key="tile.bop.flowers2.icyiris.name">Ледяной ирис</entry>
 
     <entry key="tile.bop.foliage.algae.name">Водоросли</entry>
     <entry key="tile.bop.foliage.shortgrass.name">Низкая трава</entry>
@@ -82,6 +83,7 @@
     <entry key="tile.bop.mushrooms.portobello.name">Портобелло</entry>
     <entry key="tile.bop.mushrooms.bluemilk.name">Млечник голубой</entry>
     <entry key="tile.bop.mushrooms.glowshroom.name">Светогриб</entry>
+    <entry key="tile.bop.mushrooms.flatmushroom.name">Плоский гриб</entry>
 
     <entry key="tile.bop.saplings.appleSapling.name">Саженец яблони</entry>
     <entry key="tile.bop.saplings.yellowautumnSapling.name">Саженец жёлтого осеннего дерева</entry>
