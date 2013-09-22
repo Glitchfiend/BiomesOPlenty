@@ -15,6 +15,7 @@ public class BOPConfigurationTerrainGen
 	public static boolean addToDefault;
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
+	public static boolean algaeGen;
 	public static boolean pumpkinGen;
 	public static boolean poisonIvyGen;
 	public static boolean thornGen;
@@ -125,6 +126,7 @@ public class BOPConfigurationTerrainGen
 			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
+			algaeGen = config.get("Decoration Settings", "Generate Algae", true).getBoolean(true);
 			pumpkinGen = config.get("Decoration Settings", "Generate Pumpkins Without Faces", true).getBoolean(true);
 			poisonIvyGen = config.get("Decoration Settings", "Generate Poison Ivy", true).getBoolean(true);
 			thornGen = config.get("Decoration Settings", "Generate Thorns", true).getBoolean(true);
