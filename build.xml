@@ -3,8 +3,8 @@
 	<property file="buildspecs.properties" prefix="buildspecs" />
 
 	<property name="mod.version" value="0.6.3" />
-	<condition property="mod.build" value="${env.DRONE_BUILD_NUMBER}" else="0">
-		<isset property="env.DRONE_BUILD_NUMBER" />
+	<condition property="mod.build" value="${env.BUILD_NUMBER}" else="0">
+		<isset property="env.BUILD_NUMBER" />
 	</condition>
 	<property name="mc.version" value="1.6.4" />
 	<property name="forge.version" value="9.11.0.883" />
@@ -18,7 +18,7 @@
 	<property name="fmp.dir" value="${build.dir}/fmp" />
 	<property name="mcp.dir" value="${forge.dir}/mcp" />
 
-	<property name="mod.name" value="Biomes-O-Plenty-${mod.version}.${mod.build}-${mc.version}.jar" />
+	<property name="mod.name" value="BiomesOPlenty-universal-${mc.version}-${mod.version}.${mod.build}.jar" />
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
 	<property name="fmp.name" value="ForgeMultipart-dev-${mc.version}-${fmp.version}.jar" />
@@ -40,11 +40,6 @@
 			<equals arg1="${build.dependencies.fmp}" arg2="${fmp.version}" />
 		</and>
 	</condition>
-
-	<condition property="runnung-in-ci">
-		<isset property="env.TRAVIS" />
-	</condition>
-
 
 	<!-- Make directories -->
 	<mkdir dir="${build.dir}" />
@@ -69,7 +64,6 @@
 
 		<condition property="installargs" value=" --no-assets" else="">
 			<or>
-				<isset property="env.TRAVIS" />
 				<isset property="env.BUILD_ID" />
 			</or>
 		</condition>
