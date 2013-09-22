@@ -23,9 +23,12 @@ public class BOPMapGenScatteredFeature extends MapGenStructure
 {
 	private static List biomelist = Arrays.asList(new BiomeGenBase[] {
 			BiomeGenBase.desert, BiomeGenBase.desertHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.swampland,
-			Biomes.dunes.get(), Biomes.oasis.get(), Biomes.desertNew.get(),
+			Biomes.dunes.get(), Biomes.oasis.get(), Biomes.desertNew.get(), Biomes.outback.get(), Biomes.canyon.get(), Biomes.canyonRavine.get(),
+			Biomes.brushland.get(), Biomes.lushDesert.get(), Biomes.steppe.get(),
 			Biomes.bayou.get(), Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.sludgepit.get(), Biomes.swamplandNew.get(),
-			Biomes.rainforest.get(), Biomes.temperateRainforest.get(), Biomes.tropicalRainforest.get(), Biomes.jungleNew.get()
+			Biomes.rainforest.get(), Biomes.tropics.get(), Biomes.tropicalRainforest.get(), Biomes.jungleNew.get(), Biomes.overgrownGreens.get(),
+			Biomes.quagmire.get(), Biomes.ominousWoods.get(), Biomes.marsh.get(), Biomes.moor.get(), Biomes.wetland.get(), Biomes.silkglades.get(),
+			Biomes.sacredSprings.get(), Biomes.bambooForest.get()
 	});
 
 	/** contains possible spawns for scattered features */

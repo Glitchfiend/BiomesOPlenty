@@ -25,8 +25,13 @@ public class BiomeGenMarsh extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.grassPerChunk = 65;
-		customBiomeDecorator.highGrassPerChunk = 25;
+		customBiomeDecorator.grassPerChunk = 50;
+		customBiomeDecorator.wheatGrassPerChunk = 50;
+		customBiomeDecorator.highGrassPerChunk = 50;
+		customBiomeDecorator.reedsPerChunk = -999;
+		customBiomeDecorator.waterLakesPerChunk = 100;
+		customBiomeDecorator.sandPerChunk = -999;
+		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 	}
@@ -35,7 +40,6 @@ public class BiomeGenMarsh extends BiomeGenBase
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
 		super.decorate(par1World, par2Random, par3, par4);
-		WorldGenMarsh var5 = new WorldGenMarsh();
 		
 		 int var55 = 12 + par2Random.nextInt(6);
 
@@ -50,14 +54,6 @@ public class BiomeGenMarsh extends BiomeGenBase
 			{
 				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 12, 2);
 			}
-		}
-
-		for (int var6 = 0; var6 < 25; ++var6)
-		{
-			int var7 = par3 + par2Random.nextInt(16) + 8;
-			byte var8 = 62;
-			int var9 = par4 + par2Random.nextInt(16) + 8;
-			var5.generate(par1World, par2Random, var7, var8, var9);
 		}
 	}
 

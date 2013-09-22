@@ -84,6 +84,7 @@
 	- Added Flat Mushroom
 	- Added cocoa trees to the Tropical Rainforest
 	- Added jungle wood to trees in the Brushland and Scrubland
+	- Tweaked marsh generation
 
 	  Version 0.6.2 '20-08-13'
 	- Fixed bigtrees compatibility

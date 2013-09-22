@@ -19,11 +19,14 @@ public class BOPStructureScatteredFeatureStart extends StructureStart
 		BiomeGenBase biome = world.getBiomeGenForCoords(x * 16 + 8, z * 16 + 8);
 
 		if (biome != BiomeGenBase.jungle && biome != BiomeGenBase.jungleHills && biome != Biomes.rainforest.get() &&
-				biome != Biomes.temperateRainforest.get() && biome != Biomes.tropicalRainforest.get() && biome != Biomes.jungleNew.get())
+				biome != Biomes.tropics.get() && biome != Biomes.tropicalRainforest.get() && biome != Biomes.jungleNew.get() &&
+				biome != Biomes.bambooForest.get() && biome != Biomes.sacredSprings.get() && biome != Biomes.overgrownGreens.get())
 		{
 			if (biome == BiomeGenBase.swampland || biome == Biomes.bayou.get() || biome == Biomes.bog.get()
 					|| biome == Biomes.deadSwamp.get() || biome == Biomes.fen.get() || biome == Biomes.sludgepit.get()
-					|| biome == Biomes.swamplandNew.get())
+					|| biome == Biomes.swamplandNew.get() || biome == Biomes.marsh.get() || biome == Biomes.moor.get()
+					|| biome == Biomes.ominousWoods.get() || biome == Biomes.quagmire.get() || biome == Biomes.wetland.get()
+					|| biome == Biomes.silkglades.get())
 			{
 				ComponentScatteredFeatureSwampHut componentscatteredfeatureswamphut = new ComponentScatteredFeatureSwampHut(random, x * 16, z * 16);
 				components.add(componentscatteredfeatureswamphut);
