@@ -8,7 +8,7 @@
 	</condition>
 	<property name="mc.version" value="1.6.4" />
 	<property name="forge.version" value="9.11.0.883" />
-	<property name="fmp.version" value="1.0.0.173" />
+	<property name="fmp.version" value="1.0.0.182" />
 
 	<property name="src.dir" value="" />
 	<property name="build.dir" value="build" />
@@ -21,7 +21,7 @@
 	<property name="mod.name" value="Biomes-O-Plenty-${mod.version}.${mod.build}-${mc.version}.jar" />
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
-	<property name="fmp.name" value="ForgeMultipart-dev-1.6.2-${fmp.version}.jar" />
+	<property name="fmp.name" value="ForgeMultipart-dev-${mc.version}-${fmp.version}.jar" />
 
 
 	<!-- Check downloaded dependencies -->
