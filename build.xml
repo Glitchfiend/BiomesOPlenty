@@ -19,7 +19,7 @@
 	<property name="mcp.dir" value="${forge.dir}/mcp" />
 
 	<property name="mod.name" value="BiomesOPlenty-universal-${mc.version}-${mod.version}.${mod.build}.jar" />
-	<property name="api.name" value="BiomesOPlenty-api-${mc.version}-${mod.version}.${mod.build}.zip" />
+	<property name="dev.name" value="BiomesOPlenty-dev-${mc.version}-${mod.version}.${mod.build}.zip" />
 	<property name="changelog.name" value="BiomesOPlenty-changelog-${mc.version}-${mod.version}.${mod.build}.txt" />
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
@@ -143,6 +143,9 @@
 		<exec dir="${mcp.dir}" executable="python" osfamily="unix" resultproperty="recompile.code">
 			<arg line="runtime/recompile.py" />
 		</exec>
+		
+        <mkdir dir="recompiled"/>
+        <javac srcdir="${mcp.dir}/src/minecraft/biomesoplenty" destdir="recompiled"/>
 
 		<echo message="Removing source" />
 		<delete includeemptydirs="true">
@@ -202,9 +205,10 @@
 			</fileset>
 		</jar>
 
-		<echo message="Packaging BiomesOPlenty Api" />
-		<zip destfile="${dist.dir}/${api.name}">
-			<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" />
+		<echo message="Packaging BiomesOPlenty Dev" />
+		<zip destfile="${dist.dir}/${dev.name}">
+			<fileset dir="recompiled" includes="**/biomesoplenty/**" />
+			<!-- <fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" /> -->
 		</zip>
 		
 		<echo message="Renaming BiomesOPlenty Changelog" />
