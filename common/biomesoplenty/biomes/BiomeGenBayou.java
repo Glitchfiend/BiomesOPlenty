@@ -41,6 +41,7 @@ public class BiomeGenBayou extends BiomeGenBase
 		customBiomeDecorator.waterLakesPerChunk = 5;
 		customBiomeDecorator.algaePerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 2;
+		customBiomeDecorator.wheatGrassPerChunk = 7;
 		customBiomeDecorator.generatePumpkins = false;
 		waterColorMultiplier = 16767282;
 		spawnableWaterCreatureList.clear();

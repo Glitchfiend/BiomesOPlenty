@@ -25,6 +25,7 @@ public class BiomeGenFrostForest extends BiomeGenBase
 		customBiomeDecorator.mushroomsPerChunk = -999;
 		customBiomeDecorator.shrubsPerChunk = 1;
 		customBiomeDecorator.icyIrisPerChunk = 3;
+		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 	
