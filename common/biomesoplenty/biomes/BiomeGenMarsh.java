@@ -27,8 +27,9 @@ public class BiomeGenMarsh extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = 50;
 		customBiomeDecorator.wheatGrassPerChunk = 50;
-		customBiomeDecorator.highGrassPerChunk = 25;
-		customBiomeDecorator.waterLakesPerChunk = 75;
+		customBiomeDecorator.highGrassPerChunk = 50;
+		customBiomeDecorator.reedsPerChunk = -999;
+		customBiomeDecorator.waterLakesPerChunk = 100;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.generatePumpkins = false;
