@@ -145,7 +145,7 @@
 		</exec>
 		
         <mkdir dir="recompiled"/>
-        <javac srcdir="${mcp.dir}/src/minecraft/biomesoplenty" destdir="recompiled"/>
+        <javac srcdir="${mcp.dir}/src/minecraft/" destdir="recompiled"/>
 
 		<echo message="Removing source" />
 		<delete includeemptydirs="true">
