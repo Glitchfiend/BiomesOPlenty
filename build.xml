@@ -213,9 +213,6 @@
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
-		
-		<echo message="Renaming BiomesOPlenty Changelog" />
-		<move file="changelog.txt" tofile="${dist.dir}/${changelog.name}"/>
 	</target>
 
 	<target name="build">
