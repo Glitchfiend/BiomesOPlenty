@@ -132,6 +132,7 @@
 		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@VERSION@" value="${mod.version}" />
 		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@BUILD_NUMBER@" value="${mod.build}" />
 		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@MC_VERSION@" value="${mc.version}" />
+		<replace dir="${mcp.dir}/reobf/resources" token="1.42.666.42.1" value="${version.forge}" />
 
 		<replace dir="${mcp.dir}/reobf/resources" token="@VERSION@" value="${mod.version}" />
 		<replace dir="${mcp.dir}/reobf/resources" token="@BUILD_NUMBER@" value="${mod.build}" />
