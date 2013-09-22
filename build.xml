@@ -208,7 +208,7 @@
 
 		<echo message="Packaging BiomesOPlenty Dev" />
 		<zip destfile="${dist.dir}/${dev.name}">
-			<fileset dir="tmp" includes="**/src/**" /> -->
+			<fileset dir="tmp" includes="**/src/**" /> 
 			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/biomesoplenty/**" /> 
 		</zip>
 		
