@@ -20,6 +20,7 @@
 
 	<property name="mod.name" value="BiomesOPlenty-universal-${mc.version}-${mod.version}.${mod.build}.jar" />
 	<property name="dev.name" value="BiomesOPlenty-dev-${mc.version}-${mod.version}.${mod.build}.jar" />
+	<property name="api.name" value="BiomesOPlenty-api-${mc.version}-${mod.version}.${mod.build}.zip" />
 	<property name="changelog.name" value="BiomesOPlenty-changelog-${mc.version}-${mod.version}.${mod.build}.txt" />
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
@@ -213,6 +214,11 @@
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
+		
+		<echo message="Packaging BiomesOPlenty Api" />
+		<zip destfile="${dist.dir}/${api.name}">
+      		<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" />
+    	</zip>
 	</target>
 
 	<target name="build">
