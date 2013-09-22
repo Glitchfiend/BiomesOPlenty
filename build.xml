@@ -143,9 +143,6 @@
 		<exec dir="${mcp.dir}" executable="python" osfamily="unix" resultproperty="recompile.code">
 			<arg line="runtime/recompile.py" />
 		</exec>
-		
-        <mkdir dir="recompiled"/>
-        <javac srcdir="${mcp.dir}/src/minecraft/" destdir="recompiled"/>
 
 		<echo message="Removing source" />
 		<delete includeemptydirs="true">
@@ -207,8 +204,8 @@
 
 		<echo message="Packaging BiomesOPlenty Dev" />
 		<zip destfile="${dist.dir}/${dev.name}">
-			<fileset dir="recompiled" includes="**/biomesoplenty/**" />
-			<!-- <fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" /> -->
+			<!-- <fileset dir="recompiled" includes="**/biomesoplenty/**" /> -->
+			<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" /> 
 		</zip>
 		
 		<echo message="Renaming BiomesOPlenty Changelog" />
