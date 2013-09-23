@@ -120,7 +120,7 @@ public class ItemBlockPlant extends ItemBlock
 
 		if (id == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1) {
 			side = 1;
-		} else if (!Block.blocksList[id].isBlockReplaceable(world, x, y, z))
+		} else if (Block.blocksList[id] != null && !Block.blocksList[id].isBlockReplaceable(world, x, y, z))
 		{
 			if (side == 0) {
 				--y;
