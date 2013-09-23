@@ -85,6 +85,9 @@
 	- Added cocoa trees to the Tropical Rainforest
 	- Added jungle wood to trees in the Brushland and Scrubland
 	- Tweaked marsh generation
+	- Added mud to Marshes
+	- Renamed reeds to River Cane
+	- Added proper reeds (You'll know them when you see them)
 
 	  Version 0.6.2 '20-08-13'
 	- Fixed bigtrees compatibility
