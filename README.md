@@ -22,7 +22,7 @@
 
 
 ## Changelog 
-	  Version 0.6.3 (Unreleased)
+	  Version 1.1.0 (Unreleased)
 	- Made steam particles animated
 	- Added the Phantom
 	- Removed the crafting recipe for ghastly souls (*I wonder where they went*)
