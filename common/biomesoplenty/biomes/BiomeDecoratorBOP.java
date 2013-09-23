@@ -98,6 +98,7 @@ import biomesoplenty.worldgen.WorldGenSponge;
 import biomesoplenty.worldgen.WorldGenSprout;
 import biomesoplenty.worldgen.WorldGenSteppe;
 import biomesoplenty.worldgen.WorldGenSunflower;
+import biomesoplenty.worldgen.WorldGenWaterReeds;
 import biomesoplenty.worldgen.tree.WorldGenPromisedWillow;
 
 public class BiomeDecoratorBOP extends BiomeDecorator
@@ -182,6 +183,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator plantDeadGen;
 	public WorldGenerator plantDesertGen;
 	public WorldGenerator cattailGen;
+	public WorldGenerator waterReedGen;
 	public WorldGenerator highCattailGen;
 	public WorldGenerator outbackGen;
 	public WorldGenerator smolderingGrassGen;
@@ -328,6 +330,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int bluebellsPerChunk;
 	public int minersDelightPerChunk;
 	public int icyIrisPerChunk;
+	public int waterReedsPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -532,6 +535,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		desertCactusGen = new WorldGenDesertCactus();
 		waterlilyGen = new WorldGenWaterlily();
 		algaeGen = new WorldGenAlgae();
+		waterReedGen = new WorldGenWaterReeds();
 		pitGen = new WorldGenPit(Blocks.ash.get().blockID);
 		waterlilyPerChunk = 0;
 		lilyflowersPerChunk = 0;
@@ -623,6 +627,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		bluebellsPerChunk = 0;
 		minersDelightPerChunk = 2;
 		icyIrisPerChunk = 0;
+		waterReedsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1700,6 +1705,19 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 }
 
 			 algaeGen.generate(currentWorld, randomGenerator, var3, var5, var4);
+		 }
+		 
+		 for (var2 = 0; doGen && var2 < waterReedsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
+
+			 for (var5 = randomGenerator.nextInt(256); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
+			 {
+				 ;
+			 }
+
+			 waterReedGen.generate(currentWorld, randomGenerator, var3, var5, var4);
 		 }
 
 		 //Added
