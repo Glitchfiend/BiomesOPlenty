@@ -1,12 +1,15 @@
 package biomesoplenty.itemblocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -69,6 +72,45 @@ public class ItemBlockPlant extends ItemBlock
 			return textures[4];
 		else
 			return Block.blocksList[itemID].getIcon(0, meta);
+	}
+	
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
+	{
+		if (itemStack.getItemDamage() != 14)
+			return super.onItemRightClick(itemStack, world, player);
+
+		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
+
+		if (movingobjectposition == null)
+			return itemStack;
+		else
+		{
+			if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+			{
+				int i = movingobjectposition.blockX;
+				int j = movingobjectposition.blockY;
+				int k = movingobjectposition.blockZ;
+
+				if (!world.canMineBlock(player, i, j, k))
+					return itemStack;
+
+				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
+					return itemStack;
+
+				if (world.getBlockMaterial(i, j, k) == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
+				{
+					world.setBlock(i, j + 1, k, itemStack.itemID, 14, 2);
+
+					if (!player.capabilities.isCreativeMode)
+					{
+						--itemStack.stackSize;
+					}
+				}
+			}
+
+			return itemStack;
+		}
 	}
 
 	@Override

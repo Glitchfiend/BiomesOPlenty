@@ -140,7 +140,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
 		return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holyGrass.get().blockID
-				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID  || id == Block.waterStill.blockID;
+				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		{
 			int meta = world.getBlockMetadata(x, y, z);
 			if (meta < 5)
-				return renderCrossedSquares(block, x, y, z, renderer);
+				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 5)
 				return renderer.renderCrossedSquares(block, x, y, z);
 			if (meta == 6)
@@ -41,6 +41,8 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 				return renderer.renderCrossedSquares(block, x, y, z);
 			if (meta == 13)
 				return renderer.renderBlockCrops(block, x, y, z);
+			if (meta == 14)
+				return renderCrossedSquares(block, x, y, z, renderer, false);
 		}
 		return true;
 	}
@@ -77,7 +79,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		return true;
 	}
 
-	private boolean renderCrossedSquares(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer)
+	private boolean renderCrossedSquares(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer, boolean colourMultiply)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(par1Block.getMixedBrightnessForBlock(renderer.blockAccess, par2, par3, par4));
@@ -95,6 +97,13 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			f1 = f4;
 			f2 = f5;
 			f3 = f6;
+		}
+		
+		if (!colourMultiply)
+		{
+			f1 = f;
+			f2 = f;
+			f3 = f;
 		}
 
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
