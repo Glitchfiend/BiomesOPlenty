@@ -161,9 +161,10 @@ public class BlockReferences {
 		thorn (Blocks.plants, 5),
 		barley (Blocks.plants, 6),
 		cattail (Blocks.plants, 7),
-		reed (Blocks.plants, 8),
+		rivercane (Blocks.plants, 8),
 		tinyCactus (Blocks.plants, 12),
 		witherwart (Blocks.plants, 13),
+		reed (Blocks.plants, 14),
 
 		treeMoss (Blocks.treeMoss, 0),
 		moss (Blocks.moss, 0),

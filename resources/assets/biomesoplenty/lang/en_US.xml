@@ -33,9 +33,10 @@
     <entry key="tile.bop.plants.cattail.name">Cattail</entry>
     <entry key="tile.bop.plants.cattailtop.name">Cattail</entry>
     <entry key="tile.bop.plants.cattailbottom.name">Cattail</entry>
-    <entry key="tile.bop.plants.reed.name">Reed</entry>
+    <entry key="tile.bop.plants.rivercane.name">River Cane</entry>
     <entry key="tile.bop.plants.cactus.name">Tiny Cactus</entry>
     <entry key="tile.bop.plants.witherwart.name">Wither Wart</entry>
+    <entry key="tile.bop.plants.reed.name">Reed</entry>
 
     <entry key="tile.bop.flowers.clover.name">Clover</entry>
     <entry key="tile.bop.flowers.swampflower.name">Swampflower</entry>

@@ -30,7 +30,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "reed", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed"};
 	private Icon[] textures;
 
 	private static final int CATTAILTOP = 9;
@@ -130,6 +130,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			return blockID == Block.sand.blockID || blockID == Blocks.redRock.get().blockID || blockID == Block.slowSand.blockID;
 		else if (metadata == 13)
 			return blockID == Block.slowSand.blockID;
+		else if (metadata == 14)
+			return blockID == Block.waterStill.blockID;
 		else
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID;
 	}
@@ -138,7 +140,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
 		return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holyGrass.get().blockID
-				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID  || id == Block.waterStill.blockID;
 	}
 
 	@Override
@@ -172,7 +174,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			case 7: // Cattail
 				return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 
-			case 8: // Reed
+			case 8: // River Cane
 				return id == blockID || id == Block.grass.blockID;
 
 			case 10: // High Cattail Bottom
@@ -181,8 +183,11 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			case 12: // Tiny Cactus
 				return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
 				
-			case 13: // Antiwart
+			case 13: // Wither Wart
 				return id == Block.slowSand.blockID;
+				
+			case 14: // Reed
+				return id == Block.waterStill.blockID;
 				
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
