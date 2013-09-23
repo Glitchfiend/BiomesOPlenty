@@ -222,6 +222,9 @@
 		<zip destfile="${dist.dir}/${api.name}">
       		<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/api/**" />
     	</zip>
+    	
+    	<echo message="Renaming BiomesOPlenty Changelog" />
+        <move file="changelog.txt" tofile="${dist.dir}/${changelog.name}"/>
 	</target>
 
 	<target name="build">
