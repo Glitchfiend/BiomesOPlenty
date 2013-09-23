@@ -32,6 +32,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 {
 	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed"};
 	private Icon[] textures;
+	public Icon reedbottom;
 
 	private static final int CATTAILTOP = 9;
 	private static final int CATTAILBOTTOM = 10;
@@ -56,6 +57,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		for (int i = 0; i < plants.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
 		}
+		
+		reedbottom = iconRegister.registerIcon("biomesoplenty:" + "reedbottom");
 	}
 
 	@Override

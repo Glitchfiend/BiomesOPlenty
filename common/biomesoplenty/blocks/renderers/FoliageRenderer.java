@@ -173,9 +173,9 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         Icon berryBushBerry = ((BlockBOPFoliage)Blocks.foliage.get()).berryBushBerry;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
-        renderCrossedSquaresFromIcon(berryBush, par1, par2, par3, par4, renderer);
+        RenderUtils.renderCrossedSquaresFromIcon(berryBush, par1, par2, par3, par4, renderer);
 		tessellator.setColorOpaque_F(par4, par4, par4);
-        renderCrossedSquaresFromIcon(berryBushBerry, par1, par2, par3, par4, renderer);
+        RenderUtils.renderCrossedSquaresFromIcon(berryBushBerry, par1, par2, par3, par4, renderer);
 	}
 	
 	private static void renderShrub(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
@@ -185,44 +185,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         Icon shrubBranch = ((BlockBOPFoliage)Blocks.foliage.get()).shrubBranch;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
-        renderCrossedSquaresFromIcon(shrubLeaf, par1, par2, par3, par4, renderer);
+        RenderUtils.renderCrossedSquaresFromIcon(shrubLeaf, par1, par2, par3, par4, renderer);
 		tessellator.setColorOpaque_F(par4, par4, par4);
-        renderCrossedSquaresFromIcon(shrubBranch, par1, par2, par3, par4, renderer);
-	}
-	
-	private static void renderCrossedSquaresFromIcon(Icon icon, double par3, double par5, double par7, float par9, RenderBlocks renderer)
-	{
-        Tessellator tessellator = Tessellator.instance;
-		
-        if (renderer.hasOverrideBlockTexture())
-        {
-        	icon = renderer.overrideBlockTexture;
-        }
-
-        double d3 = (double)icon.getMinU();
-        double d4 = (double)icon.getMinV();
-        double d5 = (double)icon.getMaxU();
-        double d6 = (double)icon.getMaxV();
-        double d7 = 0.45D * (double)par9;
-        double d8 = par3 + 0.5D - d7;
-        double d9 = par3 + 0.5D + d7;
-        double d10 = par7 + 0.5D - d7;
-        double d11 = par7 + 0.5D + d7;
-        tessellator.addVertexWithUV(d8, par5 + (double)par9, d10, d3, d4);
-        tessellator.addVertexWithUV(d8, par5 + 0.0D, d10, d3, d6);
-        tessellator.addVertexWithUV(d9, par5 + 0.0D, d11, d5, d6);
-        tessellator.addVertexWithUV(d9, par5 + (double)par9, d11, d5, d4);
-        tessellator.addVertexWithUV(d9, par5 + (double)par9, d11, d3, d4);
-        tessellator.addVertexWithUV(d9, par5 + 0.0D, d11, d3, d6);
-        tessellator.addVertexWithUV(d8, par5 + 0.0D, d10, d5, d6);
-        tessellator.addVertexWithUV(d8, par5 + (double)par9, d10, d5, d4);
-        tessellator.addVertexWithUV(d8, par5 + (double)par9, d11, d3, d4);
-        tessellator.addVertexWithUV(d8, par5 + 0.0D, d11, d3, d6);
-        tessellator.addVertexWithUV(d9, par5 + 0.0D, d10, d5, d6);
-        tessellator.addVertexWithUV(d9, par5 + (double)par9, d10, d5, d4);
-        tessellator.addVertexWithUV(d9, par5 + (double)par9, d10, d3, d4);
-        tessellator.addVertexWithUV(d9, par5 + 0.0D, d10, d3, d6);
-        tessellator.addVertexWithUV(d8, par5 + 0.0D, d11, d5, d6);
-        tessellator.addVertexWithUV(d8, par5 + (double)par9, d11, d5, d4);
+        RenderUtils.renderCrossedSquaresFromIcon(shrubBranch, par1, par2, par3, par4, renderer);
 	}
 }

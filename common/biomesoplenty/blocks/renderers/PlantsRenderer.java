@@ -5,6 +5,8 @@ import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
+import biomesoplenty.api.Blocks;
+import biomesoplenty.blocks.BlockBOPPlant;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class PlantsRenderer implements ISimpleBlockRenderingHandler
@@ -42,7 +44,9 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			if (meta == 13)
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 14)
+			{
 				return renderCrossedSquares(block, x, y, z, renderer, false);
+			}
 		}
 		return true;
 	}
@@ -118,7 +122,17 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		d1 += ((i1 >> 20 & 15L) / 15.0F - 1.0D) * 0.2D;
 		d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
 
-		renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
+		int meta = renderer.blockAccess.getBlockMetadata(par2, par3, par4);
+		
+		if (meta == 14)
+		{
+			renderer.drawCrossedSquares(par1Block, meta, d0, d1, d2, 1.0F);
+			RenderUtils.renderCrossedSquaresFromIcon(((BlockBOPPlant)Blocks.plants.get()).reedbottom, d0, d1 - 1, d2, 1.0F, renderer);
+		}
+		else
+		{
+			renderer.drawCrossedSquares(par1Block, meta, d0, d1, d2, 1.0F);
+		}
 		return true;
 	}
 }

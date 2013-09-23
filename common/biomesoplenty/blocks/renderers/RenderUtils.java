@@ -51,6 +51,42 @@ public class RenderUtils
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 	}
 	
+	public static void renderCrossedSquaresFromIcon(Icon icon, double par3, double par5, double par7, float par9, RenderBlocks renderer)
+	{
+        Tessellator tessellator = Tessellator.instance;
+		
+        if (renderer.hasOverrideBlockTexture())
+        {
+        	icon = renderer.overrideBlockTexture;
+        }
+
+        double d3 = (double)icon.getMinU();
+        double d4 = (double)icon.getMinV();
+        double d5 = (double)icon.getMaxU();
+        double d6 = (double)icon.getMaxV();
+        double d7 = 0.45D * (double)par9;
+        double d8 = par3 + 0.5D - d7;
+        double d9 = par3 + 0.5D + d7;
+        double d10 = par7 + 0.5D - d7;
+        double d11 = par7 + 0.5D + d7;
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d10, d3, d4);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d10, d3, d6);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d11, d5, d6);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d11, d5, d4);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d11, d3, d4);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d11, d3, d6);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d10, d5, d6);
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d10, d5, d4);
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d11, d3, d4);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d11, d3, d6);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d10, d5, d6);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d10, d5, d4);
+        tessellator.addVertexWithUV(d9, par5 + (double)par9, d10, d3, d4);
+        tessellator.addVertexWithUV(d9, par5 + 0.0D, d10, d3, d6);
+        tessellator.addVertexWithUV(d8, par5 + 0.0D, d11, d5, d6);
+        tessellator.addVertexWithUV(d8, par5 + (double)par9, d11, d5, d4);
+	}
+	
     public static boolean renderFace(RenderBlocks renderer, Block block, Icon icon, IBlockAccess world, int x, int y, int z, ForgeDirection face) 
     {
         return renderFace(renderer, block, icon, world, x, y, z, -1, face);
