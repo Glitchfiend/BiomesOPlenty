@@ -27,6 +27,7 @@ public class BiomeGenMangrove extends BiomeGenBase
 		customBiomeDecorator.deadGrassPerChunk = 9;
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.cactiPerChunk = -999;
+		customBiomeDecorator.waterReedsPerChunk = 4;
 		customBiomeDecorator.desertSproutsPerChunk = 1;
 		customBiomeDecorator.waterLakesPerChunk = 10;
 	}

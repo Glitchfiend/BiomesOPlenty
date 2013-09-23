@@ -26,6 +26,7 @@ public class BiomeGenBeachOvergrown extends BiomeGenBase
 		customBiomeDecorator.duneGrassPerChunk = 25;
 		customBiomeDecorator.cactiPerChunk = 5;
 		customBiomeDecorator.outbackPerChunk = 7;
+		customBiomeDecorator.waterReedsPerChunk = 6;
 	}
 
 	/**

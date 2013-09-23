@@ -30,6 +30,7 @@ public class BiomeGenDeciduousForest extends BiomeGenBase
 		customBiomeDecorator.poisonIvyPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.shrubsPerChunk = 10;
+		customBiomeDecorator.waterReedsPerChunk = 1;
 	}
 
 	/**

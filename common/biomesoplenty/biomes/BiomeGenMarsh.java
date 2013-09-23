@@ -34,6 +34,7 @@ public class BiomeGenMarsh extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.mudPerChunk = 1;
 		customBiomeDecorator.mudPerChunk2 = 1;
+		customBiomeDecorator.waterReedsPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 	}
