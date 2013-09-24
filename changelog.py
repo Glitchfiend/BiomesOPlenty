@@ -93,7 +93,6 @@ def make_changelog(job_path, target_build, change_file, current_version=None):
 		for change in build['items']:
 			comments = filter(lambda cmt: len(cmt) > 0, change['comment'].split('\n'))
 			if len(comments) > 1:
-				log.append('\t' + change['author'])
 				for comment in comments:
 					log.append('\t\t' + comment)
 			elif len(comments) == 1:
