@@ -96,7 +96,7 @@ def make_changelog(job_path, target_build, change_file, current_version=None):
 				for comment in comments:
 					log.append('\t\t' + comment)
 			elif len(comments) == 1:
-				log.append('\t%s: %s' % (change['author'], comments[0]))
+				log.append('%s' % comments[0]))
 				
 	file = open(change_file, 'wb')
 	for line in log:
