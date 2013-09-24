@@ -22,6 +22,8 @@
 
 
 ## Changelog 
+    (Future changelogs can be found in the releases section)
+
 	  Version 1.1.0 '24-09-13'
 	- Made steam particles animated
 	- Added the Phantom
