@@ -41,7 +41,7 @@ public class BiomeGenFen extends BiomeGenBase
 		customBiomeDecorator.algaePerChunk = 1;
 		customBiomeDecorator.portobellosPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 8;
-		customBiomeDecorator.waterReedsPerChunk = 6;
+		customBiomeDecorator.waterReedsPerChunk = 10;
 		customBiomeDecorator.shrubsPerChunk = 7;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 	}

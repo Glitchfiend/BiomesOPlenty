@@ -39,7 +39,7 @@ public class BiomeGenSludgepit extends BiomeGenBase
 		customBiomeDecorator.deadBushPerChunk = 5;
 		customBiomeDecorator.algaePerChunk = 2;
 		customBiomeDecorator.poisonWaterPerChunk = 5;
-		customBiomeDecorator.waterReedsPerChunk = 4;
+		customBiomeDecorator.waterReedsPerChunk = 6;
 		spawnableCreatureList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
 		waterColorMultiplier = 11506176;
 	}
