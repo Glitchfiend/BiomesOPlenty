@@ -59,13 +59,4 @@ public class BiomeGenMarsh extends BiomeGenBase
 			}
 		}
 	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	 @Override
-	 public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-	 {
-		 return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
-	 }
 }
