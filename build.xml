@@ -4,7 +4,7 @@
 
 	<property name="mod.majorversion" value="1" />
 	<property name="mod.minecraftversion" value="1" />
-	<property name="mod.tweakversion" value="1" />
+	<property name="mod.tweakversion" value="2" />
 	<property name="mod.version" value="${mod.majorversion}.${mod.minecraftversion}.${mod.tweakversion}" />
 	<condition property="mod.build" value="${env.BUILD_NUMBER}" else="0">
 		<isset property="env.BUILD_NUMBER" />
@@ -132,7 +132,7 @@
 		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@VERSION@" value="${mod.version}" />
 		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@BUILD_NUMBER@" value="${mod.build}" />
 		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="@MC_VERSION@" value="${mc.version}" />
-		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="1.42.666.42.1" value="${forge.version}" />
+		<replace dir="${mcp.dir}/src/minecraft/biomesoplenty" token="1.42.666.42.1" value="9.10.1.871" />
 
 		<replace dir="${mcp.dir}/reobf/resources" token="@VERSION@" value="${mod.version}" />
 		<replace dir="${mcp.dir}/reobf/resources" token="@BUILD_NUMBER@" value="${mod.build}" />

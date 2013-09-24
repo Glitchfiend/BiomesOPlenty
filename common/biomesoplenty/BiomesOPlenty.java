@@ -1,5 +1,6 @@
 package biomesoplenty;
 
+import net.minecraft.crash.CallableMinecraftVersion;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
@@ -73,7 +74,8 @@ public class BiomesOPlenty
 		BOPItems.init();
 		BOPFluids.init();
 		BOPCrafting.init();
-		BOPStructures.init();
+		if ((new CallableMinecraftVersion(null)).minecraftVersion() != "1.6.2")
+			BOPStructures.init();
 		BOPBiomes.init();
 		BOPEntities.init();
 		BOPVanillaCompat.init();
