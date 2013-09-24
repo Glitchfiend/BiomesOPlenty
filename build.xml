@@ -4,8 +4,8 @@
 
 	<property name="mod.majorversion" value="1" />
 	<property name="mod.minecraftversion" value="1" />
-	<property name="mod.bugfixversion" value="0" />
-	<property name="mod.version" value="${mod.majorversion}.${mod.minecraftversion}.${mod.bugfixversion}" />
+	<property name="mod.tweakversion" value="1" />
+	<property name="mod.version" value="${mod.majorversion}.${mod.minecraftversion}.${mod.tweakversion}" />
 	<condition property="mod.build" value="${env.BUILD_NUMBER}" else="0">
 		<isset property="env.BUILD_NUMBER" />
 	</condition>

@@ -1,29 +1,45 @@
 package biomesoplenty.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Icon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBamboo extends Block
 {
+	private Icon bambooTop;
+	
 	public BlockBamboo(int par1)
 	{
 		super(par1, Material.plants);
-		float var3 = 0.15F;
 		setBurnProperties(blockID, 5, 5);
-		this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 1.0F, 0.5F + var3);
 		this.setTickRandomly(true);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IconRegister iconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("biomesoplenty:bamboo");
+		blockIcon = iconRegister.registerIcon("biomesoplenty:bamboo");
+		bambooTop = iconRegister.registerIcon("biomesoplenty:bambootop");
+	}
+	
+	@Override
+	public Icon getIcon(int side, int meta)
+	{
+		if (side > 1)
+			return blockIcon;
+		else
+			return bambooTop;
 	}
 
 	@Override
@@ -54,6 +70,29 @@ public class BlockBamboo extends Block
 			}
 		}
 	}
+	
+	@Override
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
+    {
+		float pixel = 0.0625F;
+		
+        return AxisAlignedBB.getAABBPool().getAABB((double)x + (1.0F - (pixel * 4)), (double)y, (double)z + (1.0F - (pixel * 4)), (double)x + (pixel * 4), (double)y + 1.0F, (double)z + (pixel * 4));
+    }
+	
+    @Override
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
+    {
+		float pixel = 0.0625F;
+        this.setBlockBounds((pixel * 4), 0.0F, (pixel * 4), 1.0F - (pixel * 4), 1.0F, 1.0F - (pixel * 4));
+        super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
+        this.setBlockBoundsForItemRender();
+    }
+    
+    @Override
+    public void setBlockBoundsForItemRender()
+    {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+    }
 
 	@Override
 	public boolean canBeReplacedByLeaves(World world, int x, int y, int z)
@@ -112,7 +151,7 @@ public class BlockBamboo extends Block
 	@Override
 	public int getRenderType()
 	{
-		return 1;
+		return RenderUtils.bambooModel;
 	}
 
 	@Override

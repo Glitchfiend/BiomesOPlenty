@@ -142,7 +142,7 @@ public class BOPBlocks
 		Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfigurationIDs.hardIceID, Material.rock, BlockType.HARD_ICE));
 		Blocks.leavesFruit = Optional.of((new BlockBOPAppleLeaves(BOPConfigurationIDs.leavesFruitID)).setUnlocalizedName("bop.leavesFruit"));
 		Blocks.leavesFruit2 = Optional.of((new BlockBOPPersimmonLeaves(BOPConfigurationIDs.leavesFruit2ID)).setUnlocalizedName("bop.leavesFruit2"));
-		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfigurationIDs.bambooID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.bamboo"));
+		Blocks.bamboo = Optional.of(new BlockBamboo(BOPConfigurationIDs.bambooID).setHardness(0.2F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("bop.bamboo"));
 		Blocks.mudBrick = Optional.of(new BlockBOPGeneric(BOPConfigurationIDs.mudBrickBlockID, Material.rock, BlockType.MUD_BRICK));
 		Blocks.mudBricksStairs = Optional.of((new BlockBOPStairs(BOPConfigurationIDs.mudBrickStairsID, Blocks.redRock.get(), Category.MUD_BRICKS)).setHardness(1.0F).setUnlocalizedName("bop.mudBricksStairs"));
 		Blocks.stoneDoubleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfigurationIDs.stoneDoubleSlabID, true, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneDoubleSlab"));

@@ -19,6 +19,7 @@ public class RenderUtils
 	public static int puddleModel = -1;
 	public static int bonesModel = -1;
 	public static int graveModel = -1;
+	public static int bambooModel = -1;
 	
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
 	{
