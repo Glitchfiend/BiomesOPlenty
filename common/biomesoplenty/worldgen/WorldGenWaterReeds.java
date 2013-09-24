@@ -17,10 +17,36 @@ public class WorldGenWaterReeds extends WorldGenerator
 			int var7 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
 			int var8 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 			int var9 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
+			
+			int var998 = par2Random.nextInt(64);
+			int var999 = par2Random.nextInt(32);
 
-			if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == Block.waterStill.blockID  && par1World.getBlockId(var7, var8 - 2, var9) != Block.waterStill.blockID)
+			if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == Block.waterStill.blockID)
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.plants.get().blockID, 14, 2);
+				if (par1World.getBlockId(var7, var8 - 2, var9) != Block.waterStill.blockID)
+				{
+					par1World.setBlock(var7, var8, var9, Blocks.plants.get().blockID, 14, 2);
+				}
+				else
+				{
+					if (par1World.getBlockId(var7, var8 - 3, var9) != Block.waterStill.blockID)
+					{
+						if (var999 == 0)
+						{
+							par1World.setBlock(var7, var8, var9, Blocks.plants.get().blockID, 14, 2);
+						}
+					}
+					else
+					{
+						if (par1World.getBlockId(var7, var8 - 4, var9) != Block.waterStill.blockID)
+						{
+							if (var998 == 0)
+							{
+								par1World.setBlock(var7, var8, var9, Blocks.plants.get().blockID, 14, 2);
+							}
+						}
+					}
+				}
 			}
 		}
 
