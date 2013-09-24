@@ -104,4 +104,4 @@ def make_changelog(job_path, target_build, change_file, current_version=None):
 	file.close()
 	
 if __name__ == '__main__':
-	make_changelog("http://ci.jenkins.minecraftforge.net/job/BiomesOPlenty/", 70000, 'changelog.txt', 'latest')
+	make_changelog("http://ci.jenkins.minecraftforge.net/job/BiomesOPlenty/", 70000, 'changelog.txt', '@BUILD_NUMBER@')
