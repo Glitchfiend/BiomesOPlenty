@@ -27,9 +27,10 @@ tile.bop.plants.barley.name=Ячмень
 tile.bop.plants.cattail.name=Рогоз
 tile.bop.plants.cattailtop.name=Рогоз
 tile.bop.plants.cattailbottom.name=Рогоз
-tile.bop.plants.reed.name=Камыш
+tile.bop.plants.rivercane.name=Речной камыш
 tile.bop.plants.cactus.name=Крохотный кактус
-tile.bop.plants.witherwart.name=Иссушающий нарост 
+tile.bop.plants.witherwart.name=Иссушающий нарост
+tile.bop.plants.reed.name=Камыш
 
 tile.bop.flowers.clover.name=Клевер
 tile.bop.flowers.swampflower.name=Болотный цветок
@@ -351,7 +352,7 @@ item.bop.soulManipulator.soulmanipulator_empty.name=Манипулятор ду�
 item.bop.soulManipulator.soulmanipulator_ghastlysoul.name=Манипулятор жуткого духа
 item.bop.soulManipulator.soulmanipulator_villager.name=Манипулятор духа жителей
 
-item.bop.enderporter.name=Телепортер края
+item.bop.enderporter.name=Телепортер Края
 
 item.bop.bopDisc.name=Музыкальная пластинка
 item.bop.bopDiscMud.name=Музыкальная пластинка
@@ -380,5 +381,3 @@ phrase.bop.promisedPortalOther=Врата в обычный мир открыл�
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
-
-
