@@ -3,6 +3,7 @@ package biomesoplenty;
 import net.minecraft.crash.CallableMinecraftVersion;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
@@ -106,7 +107,8 @@ public class BiomesOPlenty
 	{
 		// Add helpers for compatibility
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
-		MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
+		if (ForgeVersion.buildVersion >= 891 || proxy instanceof ClientProxy)
+			MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
 		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
