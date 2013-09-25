@@ -1,0 +1,357 @@
+tile.bop.mud.mud.name=Boue
+tile.bop.mud.quicksand.name=Sable Mouvant
+
+tile.bop.generic.ash_stone.name=Pierre de Cendre
+tile.bop.generic.hard_sand.name=Sable Dur
+tile.bop.generic.hard_dirt.name=Terre Dure
+tile.bop.generic.hard_ice.name=Glace Dure
+tile.bop.generic.dried_dirt.name=Terre Déséchée
+tile.bop.generic.crag_rock.name=Pierre des Crags
+tile.bop.generic.mud_brick.name=Briques de Boue
+tile.bop.generic.holy_dirt.name=Terre Purifiée
+tile.bop.generic.crystal.name=Crystal Céleste
+
+tile.bop.redRocks.redrock.name=Roche Rouge
+tile.bop.redRocks.redcobble.name=Roche Rouge
+tile.bop.redRocks.redbrick.name=Briques de Pierre Rouge
+
+tile.bop.ash.name=Ash Block
+
+tile.bop.plants.deadgrass.name=Herbe Morte
+tile.bop.plants.desertgrass.name=Herbe du Déset
+tile.bop.plants.desertsprouts.name=Pousses du Désert
+tile.bop.plants.dunegrass.name=Herbe des Dunes
+tile.bop.plants.holytallgrass.name=Herbe Haute Purifiée
+tile.bop.plants.thorn.name=Ronces
+tile.bop.plants.barley.name=Orge
+tile.bop.plants.cattail.name=Massettes
+tile.bop.plants.cattailtop.name=Massettes
+tile.bop.plants.cattailbottom.name=Massettes
+tile.bop.plants.reed.name=Roseau
+tile.bop.plants.cactus.name=Petit Cactus
+
+tile.bop.flowers.clover.name=Trèfles
+tile.bop.flowers.swampflower.name=Fleur des Marais
+tile.bop.flowers.deadbloom.name=Clochettes de la Mort
+tile.bop.flowers.glowflower.name=Fleur Luisante
+tile.bop.flowers.hydrangea.name=Hydrangéa
+tile.bop.flowers.wildflower.name=Fleur Sauvage
+tile.bop.flowers.violet.name=Violette
+tile.bop.flowers.anemone.name=Anémone
+tile.bop.flowers.lilyflower.name=Fleur de Nénuphar
+tile.bop.flowers.bromeliad.name=Aloé
+tile.bop.flowers.sunflowerbottom.name=Tornesol
+tile.bop.flowers.sunflowertop.name=Tornesol
+tile.bop.flowers.dandelion.name=Pissenlit
+
+tile.bop.foliage.algae.name=Algues
+tile.bop.foliage.shortgrass.name=Herbe Coute
+tile.bop.foliage.mediumgrass.name=Herbe Moyenne
+tile.bop.foliage.highgrassbottom.name=Herbe Haute
+tile.bop.foliage.bush.name=Buisson
+tile.bop.foliage.sprout.name=Pousses
+tile.bop.foliage.highgrasstop.name=Herbe Haute
+tile.bop.foliage.poisonivy.name=Sumac Vénéneux
+tile.bop.foliage.berrybush.name=Buisson à Baies
+
+tile.bop.petals.bigflowerred.name=Fleur Rouge Géante
+tile.bop.petals.bigfloweryellow.name=Fleur Jaune Géante
+
+tile.bop.mushrooms.toadstool.name=Psylocybes
+tile.bop.mushrooms.portobello.name=Champignon de Paris
+tile.bop.mushrooms.bluemilk.name=Lactaire Indigo
+tile.bop.mushrooms.glowshroom.name=Champignol Luisant
+
+tile.bop.saplings.appleSapling.name=Pousse de Pomier
+tile.bop.saplings.yellowautumnSapling.name=Pousse d'arbe d'automne jaune
+tile.bop.saplings.bambooSapling.name=Pousse de Bambou
+tile.bop.saplings.magicSapling.name=Pousse d'Arbre Magique
+tile.bop.saplings.darkSapling.name=Pousse d'Arbre Sombre
+tile.bop.saplings.deadSapling.name=Pousse d'Arbre Mourrant
+tile.bop.saplings.firSapling.name=Pousse de Grand Sapin
+tile.bop.saplings.holySapling.name=Pousse d'Abre Sacré
+tile.bop.saplings.orangeautumnSapling.name=Pousse d'abre d'automne orange
+tile.bop.saplings.originSapling.name=Pousse d'Arbre Originel
+tile.bop.saplings.pinkcherrySapling.name=Pousse de Cerisier Rose
+tile.bop.saplings.mapleSapling.name=Pousse d'Érable
+tile.bop.saplings.whitecherrySapling.name=Pousse de Cerisier Blanc
+tile.bop.saplings.hellbarkSapling.name=Pousse de Buisson du Nether
+tile.bop.saplings.jacarandaSapling.name=Pousse de Jacaranda
+
+tile.bop.colorizedSaplings.acaciaSapling.name=Pousse d'Acacia
+tile.bop.colorizedSaplings.mangroveSapling.name=Pousse de Palétuvier
+tile.bop.colorizedSaplings.palmSapling.name=Pousse de Palmier
+tile.bop.colorizedSaplings.redwoodSapling.name=Pousse de Séquoia
+tile.bop.colorizedSaplings.willowSapling.name=Pousse de Saule
+tile.bop.colorizedSaplings.pineSapling.name=Pousse de Pin
+
+tile.bop.willow.name=Lianes de Saule
+tile.bop.ivy.name=Sumac
+tile.bop.leavesFruit.name=Feuilles de Pomier
+tile.bop.bamboo.name=Bambou
+tile.bop.mudBricksStairs.name=Escaliers en Briques de Boue
+tile.bop.originGrass.name=Herbe Originelle
+tile.bop.longGrass.name=Bloc d'Herbe Longue
+tile.bop.treeMoss.name=Mousse d'Arbre
+
+tile.bop.coral.kelp.name=Algue Brune
+
+tile.bop.redCobbleStairs.name=Escaliers en Pierre Rouge        
+tile.bop.redBricksStairs.name=Escaliers en Briques de Pierre Rouge
+
+tile.bop.holyGrass.holygrass.name=Herbe Purifiée
+tile.bop.holyGrass.smolderinggrass.name=Herbe en Fusion
+
+tile.bop.holyStone.holystone.name=Roche Céleste
+tile.bop.holyStone.holycobble.name=Pierre Céleste
+tile.bop.holyStone.holybrick.name=Briques de Pierre Céleste
+
+tile.bop.holyCobbleStairs.name=Escaliers en Pierre Céleste
+tile.bop.holyBricksStairs.name=Escaliers en Roche Céleste
+
+tile.bop.promisedPortal.name=Portail de la Terre Promise
+
+tile.bop.amethystOre.amethystore.name=Minerai d'améthyste
+tile.bop.amethystOre.amethystblock.name=Bloc d'améthyste
+tile.bop.amethystOre.rubyore.name=Minerai de rubis
+tile.bop.amethystOre.rubyblock.name=Bloque de rubis
+tile.bop.amethystOre.peridotore.name=Minerai de péridotite
+tile.bop.amethystOre.peridotblock.name=Bloc de péridotite
+tile.bop.amethystOre.topazore.name=Minerai de topaze
+tile.bop.amethystOre.topazblock.name=Bloc de topaze
+tile.bop.amethystOre.tanzaniteore.name=Minerai de tanzanite
+tile.bop.amethystOre.tanzaniteblock.name=Bloc de tanzanitz
+tile.bop.amethystOre.apatiteore.name=Minerai d'apatite
+tile.bop.amethystOre.apatiteblock.name=Bloc d'apatite
+tile.bop.amethystOre.sapphireore.name=Minerai de saphir
+tile.bop.amethystOre.sapphireblock.name=Bloc de saphir
+
+tile.bop.moss.name=Mousse
+
+tile.bop.cloud.name=Bloc de Nuage
+
+tile.bop.bones.bones_small.name=Petit Morceau d'Os
+tile.bop.bones.bones_medium.name=Morceau d'Os Moyen
+tile.bop.bones.bones_large.name=Gros Morceau d'Os
+
+tile.bop.glass.celestialLens.name=Lentille Céleste
+
+tile.bop.glass.sacrificialfocus_empty.name=Foyer de Sacrifice
+tile.bop.glass.sacrificialfocus_active.name=Foyer de Sacrifice
+tile.bop.glass.sacrificialfocus_villager.name=Foyer de Sacrifice
+
+tile.bop.altar.altarframe.name=Autel
+
+tile.bop.puddle.name=Flaque
+
+tile.bop.grave.name=Tombe
+
+tile.bop.stoneDoubleSlab.redcobbleSlab.name=Dalle en Pierre Rouge
+tile.bop.stoneDoubleSlab.redbrickSlab.name=Dalle en Briques de Pierre Rouge
+tile.bop.stoneDoubleSlab.mudbrickSlab.name=Dalle en Briques de boue
+tile.bop.stoneDoubleSlab.holycobbleSlab.name=Dalle en Pierre Céleste
+tile.bop.stoneDoubleSlab.holybrickSlab.name=Dalle en Briques de Pierre Céleste
+
+tile.bop.stoneSingleSlab.redcobbleSlab.name=Dalle en Pierre Rouge
+tile.bop.stoneSingleSlab.redbrickSlab.name=Dalle en Briques de Pierre Rouge
+tile.bop.stoneSingleSlab.mudbrickSlab.name=Dalle en Briques de Boue
+tile.bop.stoneSingleSlab.holycobbleSlab.name=Dalle en Pierre Célesta
+tile.bop.stoneSingleSlab.holybrickSlab.name=Dalle en Briques de Pierre Céleste
+
+tile.bop.planks.acaciaPlank.name=Planche d'Acacia
+tile.bop.planks.cherryPlank.name=Planche de Cerisier
+tile.bop.planks.darkPlank.name=Planche d'Arbre Sombre
+tile.bop.planks.firPlank.name=Planche de Grand Sapin
+tile.bop.planks.holyPlank.name=Planche d'Arbre Sacré
+tile.bop.planks.magicPlank.name=Planche d'Arbre Magique
+tile.bop.planks.mangrovePlank.name=Planche de Palétuvier
+tile.bop.planks.palmPlank.name=Planche de Palmier
+tile.bop.planks.redwoodPlank.name=Planche de Séquoia
+tile.bop.planks.willowPlank.name=Planche de Saule
+tile.bop.planks.bambooThatching.name=Chaume de Bambou
+tile.bop.planks.pinePlank.name=Planche de Pin
+tile.bop.planks.hellBarkPlank.name=Planche de Buisson du Nether
+tile.bop.planks.jacarandaPlank.name=Planche de Jacaranda
+
+tile.bop.wood1.acaciaWood.name=Bois d'Acacia
+tile.bop.wood1.cherryWood.name=Bois de Cerisier
+tile.bop.wood1.darkWood.name=Bois d'Arbre Sombre
+tile.bop.wood1.firWood.name=Bois de Grand Sapin
+
+tile.bop.wood2.holyWood.name=Bois d'Arbre Sacré
+tile.bop.wood2.magicWood.name=Bois d'Arbre Sombre
+tile.bop.wood2.mangroveWood.name=Bois de Palétuvier
+tile.bop.wood2.palmWood.name=Bois de Palmier
+
+tile.bop.wood3.redwoodWood.name=Bois de Séquoia
+tile.bop.wood3.willowWood.name=Bois de Saule
+tile.bop.wood3.deadWood.name=Bois Mort
+tile.bop.wood3.bigflowerstemWood.name=Tige de Fleur Géante
+
+tile.bop.wood4.pineWood.name=Bois de Pin
+tile.bop.wood4.hellbarkWood.name=Bois de Buisson du Nether
+tile.bop.wood4.jacarandaWood.name=Bois de Jacaranda
+
+tile.bop.leaves1.yellowautumn.name=Feuilles d'Automne Jaunes
+tile.bop.leaves1.bamboo.name=Feuilles de Bambou
+tile.bop.leaves1.magic.name=Feuilles Magiques
+tile.bop.leaves1.dark.name=Feuilles Sombres
+tile.bop.leaves1.dead.name=Feuilles Mourantes
+tile.bop.leaves1.fir.name=Feuilles de Grand Sapin
+tile.bop.leaves1.holy.name=Feuilles Sacrées
+tile.bop.leaves1.orangeautumn.name=Feuilles d'Automne Oranges
+
+tile.bop.leaves2.origin.name=Feuilles Originels
+tile.bop.leaves2.pinkcherry.name=Feuilles de Cerisier Roses
+tile.bop.leaves2.maple.name=Feuilles d'Érable
+tile.bop.leaves2.whitecherry.name=Feuilles de Cerisier Blanches
+tile.bop.leaves2.hellbark.name=Feuilles du Nether
+tile.bop.leaves2.jacaranda.name=Feuilles de Jacaranda
+
+tile.bop.woodenDoubleSlab1.acaciaSlab.name=Dalle en Bois d'Acacia
+tile.bop.woodenDoubleSlab1.cherrySlab.name=Dalle en Bois de Cerisier
+tile.bop.woodenDoubleSlab1.darkSlab.name=Dalle en Bois Sombre
+tile.bop.woodenDoubleSlab1.firSlab.name=Dalle en Bois de Grand Sapin
+tile.bop.woodenDoubleSlab1.holySlab.name=Dalle en Bois Sacré
+tile.bop.woodenDoubleSlab1.magicSlab.name=dalle en Bois Magique
+tile.bop.woodenDoubleSlab1.mangroveSlab.name=Dalle en Bois de Palétuvier
+tile.bop.woodenDoubleSlab1.palmSlab.name=Dalle en Bois de Palmier
+tile.bop.woodenDoubleSlab2.redwoodSlab.name=Dalle en Bois de Séquoia
+tile.bop.woodenDoubleSlab2.willowSlab.name=Dalle en Bois de Saule
+tile.bop.woodenDoubleSlab2.pineSlab.name=Dalle en Bois de Pin
+tile.bop.woodenDoubleSlab2.hell_barkSlab.name=Dalle en Bois de Buisson du Nether
+tile.bop.woodenDoubleSlab2.jacarandaSlab.name=Dalle en Bois de Jacaranda
+
+tile.bop.woodenSingleSlab1.acaciaSlab.name=Dalle en bois d'Acacia
+tile.bop.woodenSingleSlab1.cherrySlab.name=Dalle en bois de Cerisier
+tile.bop.woodenSingleSlab1.darkSlab.name=Dalle en Bois Sombre
+tile.bop.woodenSingleSlab1.firSlab.name=Dalle en Bois de Grand Sapin
+tile.bop.woodenSingleSlab1.holySlab.name=Dalle en Bois Sacré
+tile.bop.woodenSingleSlab1.magicSlab.name=Dalle en Bois Magique
+tile.bop.woodenSingleSlab1.mangroveSlab.name=Dalle en bois de Palétuvier
+tile.bop.woodenSingleSlab1.palmSlab.name=Dalle en bois de Palmier
+tile.bop.woodenSingleSlab2.redwoodSlab.name=Dalle en bois de Séquoia
+tile.bop.woodenSingleSlab2.willowSlab.name=Dalle en bois de Saule
+tile.bop.woodenSingleSlab2.pineSlab.name=Dalle en bois de Pin
+tile.bop.woodenSingleSlab2.hell_barkSlab.name=Dalle en bois de buisson du Nether
+tile.bop.woodenSingleSlab2.jacarandaSlab.name=Dalle en bois de Jaracanda
+
+tile.bop.acaciaStairs.name=Escaliers en bois d'Acacia
+tile.bop.cherryStairs.name=Escaliers en bois de Cerisier
+tile.bop.darkStairs.name=Escaliers en Bois Sombre
+tile.bop.firStairs.name=Escaliers en bois de Grand Sapin
+tile.bop.holyStairs.name=Escaliers en Bois Sacré
+tile.bop.magicStairs.name=Escaliers en Bois Magique
+tile.bop.mangroveStairs.name=Escaliers en bois de Palétuvier
+tile.bop.palmStairs.name=Escaliers en bois de Palmier
+tile.bop.redwoodStairs.name=Escaliers en bois de séquoia
+tile.bop.willowStairs.name=Escaliers en bois de Saule
+tile.bop.pineStairs.name=Escaliers en bois de Pin
+tile.bop.hellBarkStairs.name=Escaliers en bois de buisson du Nether
+tile.bop.jacarandaStairs.name=Escaliers en bois de Jacaranda
+
+tile.bop.leavesColorized.acacia.name=Feuilles d'Acacia
+tile.bop.leavesColorized.mangrove.name=Feuilles de Palétuvier
+tile.bop.leavesColorized.palm.name=Feuilles de Palmier
+tile.bop.leavesColorized.redwood.name=Feuilles de Séquoia
+tile.bop.leavesColorized.willow.name=Feuilles de Saule
+tile.bop.leavesColorized.pine.name=Feuilles de Pin
+
+item.bop.food.berries.name=Baie
+item.bop.food.shroompowder.name=Poudre de champignon
+item.bop.food.wildcarrots.name=Carottes Sauvages
+item.bop.food.sunflowerseeds.name=Graines de tournesol
+item.bop.food.saladfruit.name=Salade de fruits
+item.bop.food.saladveggie.name=Salade végétarienne
+item.bop.food.saladshroom.name=Salade de champignons
+
+item.bop.dartblower.name=Sarbacanne
+item.bop.dart.dart.name=Fléchettes
+item.bop.dart.poisondart.name=Fléchettes Empoisonnées
+
+item.bop.mudball.name=Boule de boue
+
+item.bop.miscItems.mudbrick.name=Brique de boue
+item.bop.miscItems.ash.name=Cendres
+item.bop.miscItems.amethyst.name=Améthyste
+item.bop.miscItems.poison.name=Poison
+item.bop.miscItems.crystalshard.name=Éclat de crystal céleste
+item.bop.miscItems.bluedye.name=Teinture bleue
+item.bop.miscItems.browndye.name=Teinture marron
+item.bop.miscItems.greendye.name=Teinture verte
+item.bop.miscItems.whitedye.name=Teinture blanche
+item.bop.miscItems.blackdye.name=Teinture noire
+item.bop.miscItems.ruby.name=Rubis
+item.bop.miscItems.peridot.name=Péridotite
+item.bop.miscItems.topaz.name=Topaze
+item.bop.miscItems.tanzanite.name=Tanzanite
+item.bop.miscItems.apatite.name=Apatite
+item.bop.miscItems.sapphire.name=Saphir
+item.bop.miscItems.ghastlysoul.name=Âme d'Effroi
+
+item.bop.pickaxeMud.name=Pioche en boue
+item.bop.hatchetMud.name=Hache en boue
+item.bop.shovelMud.name=Pelle en boue
+item.bop.swordMud.name=Épée en boue
+item.bop.hoeMud.name=Houe en boue
+item.bop.helmetMud.name=Casque en boue
+item.bop.chestplateMud.name=Plastron en boue
+item.bop.leggingsMud.name=Jambières en boue
+item.bop.bootsMud.name=Bottes en boue
+
+item.bop.pickaxeAmethyst.name=Pioche en améthyste
+item.bop.hatchetAmethyst.name=Hache en améthyste
+item.bop.shovelAmethyst.name=Pelle en améthyste
+item.bop.swordAmethyst.name=Épée en améthyste
+item.bop.hoeAmethyst.name=Houe en améthyste
+item.bop.helmetAmethyst.name=Casque en améthyste
+item.bop.chestplateAmethyst.name=Plastron en améthyste
+item.bop.leggingsAmethyst.name=Jambières en améthyste
+item.bop.bootsAmethyst.name=Bottes en améthyste
+
+item.bop.scytheWood.name=Faux en bois
+item.bop.scytheStone.name=Faux en pierre
+item.bop.scytheIron.name=Faux en fer
+item.bop.scytheGold.name=Faux en or
+item.bop.scytheDiamond.name=Faux en diamand
+item.bop.scytheMud.name=Faux en boue
+item.bop.scytheAmethyst.name=Faux en améthyste
+
+item.bop.ancientStaff.ancientstaff.name=Bâton ancien
+item.bop.ancientStaff.staffhandle.name=Manche de bâton ancien
+item.bop.ancientStaff.staffpole.name=Centre de bâton ancien
+item.bop.ancientStaff.stafftopper.name=Haut de bâton ancien
+item.bop.ancientStaff.ancientstaffbroken.name=Bâton ancien brisé
+
+item.bop.soulManipulator.soulmanipulator_empty.name=Manipulateur d'âmes
+item.bop.soulManipulator.soulmanipulator_ghastlysoul.name=Manipulateur d'âmes d'effroi
+item.bop.soulManipulator.soulmanipulator_villager.name=Manipulateur d'âmes de villageois
+
+item.bop.enderporter.name=Enderporter
+
+item.bop.bopDisc.name=Disque
+item.bop.bopDiscMud.name=Disque
+
+item.bop.flowerBand.dullflowerband.name=Couronne de fleurs banale
+item.bop.flowerBand.plainflowerband.name=Couronne de fleurs simple
+item.bop.flowerBand.lushflowerband.name=Couronne de fleurs luxuriante
+item.bop.flowerBand.exoticflowerband.name=Couronne de fleurs exotique
+
+item.bop.bopBucket.amethyst_empty.name=Seau en améthyste
+item.bop.bopBucket.amethyst_spring_water.name=Seau d'eau chaude en améthyste
+item.bop.bopBucket.liquid_poison.name=Seau de poison liquide
+
+tile.bop.liquidPoison.name=Poison liquide
+tile.bop.springWater.name=Eau chaude
+
+fluid.bop.liquidPoison=Poison liquide
+fluid.bop.springWater=Eau chaude
+
+phrase.bop.promisedPortalOverworld=Un passage vers la Terre Promise est apparu haut dans le ciel.
+phrase.bop.promisedPortalOther=Un passage vers la terre est apparu haut dans le ciel.
+
+itemGroup.tabBiomesOPlenty=Biomes O' Plenty
+
+generator.BIOMESOP=Biomes O' Plenty
+
+

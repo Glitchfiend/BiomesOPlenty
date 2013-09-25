@@ -1,0 +1,334 @@
+tile.bop.mud.mud.name=Modder
+tile.bop.mud.quicksand.name=Drijfzand
+
+tile.bop.generic.ash_stone.name=As steen
+tile.bop.generic.hard_sand.name=Versteend zand
+tile.bop.generic.hard_dirt.name=Versteend Dirt
+tile.bop.generic.hard_ice.name=Hardened Ice
+tile.bop.generic.dried_dirt.name=Dried Dirt
+tile.bop.generic.crag_rock.name=Crag Rock
+tile.bop.generic.mud_brick.name=Mud Bricks
+tile.bop.generic.holy_dirt.name=Purified Dirt
+tile.bop.generic.crystal.name=Celestial Crystal
+
+tile.bop.redRocks.redrock.name=Rode steen
+tile.bop.redRocks.redcobble.name=Red Rock Cobblestone
+tile.bop.redRocks.redbrick.name=Rode baksteen
+
+tile.bop.ash.name=As Blok
+
+tile.bop.plants.deadgrass.name=Dood gras
+tile.bop.plants.desertgrass.name=Woestijn gras
+tile.bop.plants.desertsprouts.name=Woestijn plant
+tile.bop.plants.dunegrass.name=Duin gras
+tile.bop.plants.holytallgrass.name=Lang gras
+tile.bop.plants.thorn.name=Doorns
+tile.bop.plants.barley.name=Barley
+tile.bop.plants.cattail.name=Riet
+tile.bop.plants.cattailtop.name=Riet
+tile.bop.plants.cattailbottom.name=Riet
+tile.bop.plants.reed.name=Riet
+tile.bop.flowers.cactus.name=Kleine Cactus
+
+tile.bop.flowers.clover.name=klaver
+tile.bop.flowers.swampflower.name=Moerasbloem
+tile.bop.flowers.deadbloom.name=Doodbloem
+tile.bop.flowers.glowflower.name=Gloeiendebloem
+tile.bop.flowers.hydrangea.name=Hortensia
+tile.bop.flowers.wildflower.name=Wildebloem
+tile.bop.flowers.violet.name=Violet
+tile.bop.flowers.anemone.name=Anemoon
+tile.bop.flowers.lilyflower.name=Waterlely
+tile.bop.flowers.bromeliad.name=Aloë
+tile.bop.flowers.sunflowerbottom.name=Zonnebloem
+tile.bop.flowers.sunflowertop.name=Zonnebloem
+tile.bop.flowers.dandelion.name=Paardebloem
+
+tile.bop.foliage.algae.name=Zeewier
+tile.bop.foliage.shortgrass.name=Gras
+tile.bop.foliage.mediumgrass.name=Gras
+tile.bop.foliage.highgrassbottom.name=Gras
+tile.bop.foliage.bush.name=Bosje
+tile.bop.foliage.sprout.name=Spruit
+tile.bop.foliage.highgrasstop.name=Hoog Gras
+tile.bop.foliage.poisonivy.name=Brandnetel
+tile.bop.foliage.berrybush.name=Besjes bosje
+
+tile.bop.petals.bigflowerred.name=Grote rode bloem
+tile.bop.petals.bigfloweryellow.name=Grote gele bloem
+
+tile.bop.mushrooms.toadstool.name=Vergiftige paddestoel
+tile.bop.mushrooms.portobello.name=Portobello
+tile.bop.mushrooms.bluemilk.name=Blauwe paddestoel
+tile.bop.mushrooms.glowshroom.name=Gloeiende paddestoel
+
+tile.bop.saplings.appleSapling.name=Apple Sapling
+tile.bop.saplings.yellowautumnSapling.name=Yellow Autumn Sapling
+tile.bop.saplings.bambooSapling.name=Bamboo Sapling
+tile.bop.saplings.magicSapling.name=Magic Sapling
+tile.bop.saplings.darkSapling.name=Dark Sapling
+tile.bop.saplings.deadSapling.name=Dying Sapling
+tile.bop.saplings.firSapling.name=Fir Sapling
+tile.bop.saplings.holySapling.name=Loftwood Sapling
+tile.bop.saplings.orangeautumnSapling.name=Orange Autumn Sapling
+tile.bop.saplings.originSapling.name=Origin Sapling
+tile.bop.saplings.pinkcherrySapling.name=Pink Cherry Sapling
+tile.bop.saplings.mapleSapling.name=Maple Sapling
+tile.bop.saplings.whitecherrySapling.name=White Cherry Sapling
+tile.bop.saplings.hellbarkSapling.name=Hellbark Sapling
+tile.bop.saplings.jacarandaSapling.name=Jacaranda Sapling
+
+tile.bop.colorizedSaplings.acaciaSapling.name=Acacia Sapling
+tile.bop.colorizedSaplings.mangroveSapling.name=Mangrove Sapling
+tile.bop.colorizedSaplings.palmSapling.name=Palm Sapling
+tile.bop.colorizedSaplings.redwoodSapling.name=Redwood Sapling
+tile.bop.colorizedSaplings.willowSapling.name=Willow Sapling
+tile.bop.colorizedSaplings.pineSapling.name=Pine Sapling
+
+tile.bop.willow.name=Wilg
+tile.bop.ivy.name=Ivy
+tile.bop.leavesFruit.name=Appel Bladeren
+tile.bop.bamboo.name=Bambo
+tile.bop.mudBricksStairs.name=Modder Bricks Stairs
+tile.bop.originGrass.name=Origin Grass
+tile.bop.treeMoss.name=Tree Moss
+
+tile.bop.coral.kelp.name=Kelp
+
+tile.bop.redCobbleStairs.name=Red Rock Cobblestone Stairs      
+tile.bop.redBricksStairs.name=Red Rock Bricks Stairs
+
+tile.bop.holyGrass.holygrass.name=Purified Grass
+tile.bop.holyGrass.smolderinggrass.name=Smoldering Grass
+
+tile.bop.holyStone.holystone.name=Luchtsteen
+tile.bop.holyStone.holycobble.name=Luchtsteen Cobblestone
+tile.bop.holyStone.holybrick.name=Luchtsteen Bricks
+
+tile.bop.holyCobbleStairs.name=Luchtsteen Cobblestone Stairs
+tile.bop.holyBricksStairs.name=Luchtsteen Bricks Stairs
+
+tile.bop.promisedPortal.name=Beloofde Land Portal
+
+tile.bop.amethystOre.amethystore.name=Amethyst Ore
+tile.bop.amethystOre.amethystblock.name=Block of Amethyst
+tile.bop.amethystOre.rubyore.name=Ruby Ore
+tile.bop.amethystOre.rubyblock.name=Block of Ruby
+tile.bop.amethystOre.peridotore.name=Peridot Ore
+tile.bop.amethystOre.peridotblock.name=Block of Peridot
+tile.bop.amethystOre.topazore.name=Topaz Ore
+tile.bop.amethystOre.topazblock.name=Block of Topaz
+tile.bop.amethystOre.tanzaniteore.name=Tanzanite Ore
+tile.bop.amethystOre.tanzaniteblock.name=Block of Tanzanite
+tile.bop.amethystOre.apatiteore.name=Apatite Ore
+tile.bop.amethystOre.apatiteblock.name=Block of Apatite
+tile.bop.amethystOre.sapphireore.name=Sapphire Ore
+tile.bop.amethystOre.sapphireblock.name=Block of Sapphire
+
+tile.bop.moss.name=Mos
+
+tile.bop.cloud.name=Wolk Blok
+
+tile.bop.bones.bones_small.name=Small Bone Segment
+tile.bop.bones.bones_medium.name=Medium Bone Segment
+tile.bop.bones.bones_large.name=Large Bone Segment
+
+tile.bop.glass.celestialLens.name=Celestial Lens
+tile.bop.glass.sacrificialFocus.name=Sacrificial Focus
+
+tile.bop.altar.altarFrame.name=Altar Frame
+
+tile.bop.stoneDoubleSlab.redcobbleSlab.name=Red Rock Cobblestone Slab
+tile.bop.stoneDoubleSlab.redbrickSlab.name=Red Rock Bricks Slab
+tile.bop.stoneDoubleSlab.mudbrickSlab.name=Mud Bricks Slab
+tile.bop.stoneDoubleSlab.holycobbleSlab.name=Skystone Cobblestone Slab
+tile.bop.stoneDoubleSlab.holybrickSlab.name=Skystone Bricks Slab
+
+tile.bop.stoneSingleSlab.redcobbleSlab.name=Red Rock Cobblestone Slab
+tile.bop.stoneSingleSlab.redbrickSlab.name=Red Rock Bricks Slab
+tile.bop.stoneSingleSlab.mudbrickSlab.name=Mud Bricks Slab
+tile.bop.stoneSingleSlab.holycobbleSlab.name=Skystone Cobblestone Slab
+tile.bop.stoneSingleSlab.holybrickSlab.name=Skystone Bricks Slab
+
+tile.bop.planks.acaciaPlank.name=Acacia Wood Planks
+tile.bop.planks.cherryPlank.name=Cherry Wood Planks
+tile.bop.planks.darkPlank.name=Dark Wood Planks
+tile.bop.planks.firPlank.name=Fir Wood Planks
+tile.bop.planks.holyPlank.name=Loftwood Wood Planks
+tile.bop.planks.magicPlank.name=Magic Wood Planks
+tile.bop.planks.mangrovePlank.name=Mangrove Wood Planks
+tile.bop.planks.palmPlank.name=Palm Wood Planks
+tile.bop.planks.redwoodPlank.name=Redwood Wood Planks
+tile.bop.planks.willowPlank.name=Willow Wood Planks
+tile.bop.planks.bambooThatching.name=Bamboo Thatching
+tile.bop.planks.pinePlank.name=Pine Wood Planks
+tile.bop.planks.hellBarkPlank.name=Hellbark Wood Planks
+tile.bop.planks.jacarandaPlank.name=Jacaranda Wood Planks
+
+tile.bop.wood1.acaciaWood.name=Acacia Wood
+tile.bop.wood1.cherryWood.name=Cherry Wood
+tile.bop.wood1.darkWood.name=Dark Wood
+tile.bop.wood1.firWood.name=Fir Wood
+
+tile.bop.wood2.holyWood.name=Loftwood Wood
+tile.bop.wood2.magicWood.name=Magic Wood
+tile.bop.wood2.mangroveWood.name=Mangrove Wood
+tile.bop.wood2.palmWood.name=Palm Wood
+
+tile.bop.wood3.redwoodWood.name=Redwood Wood
+tile.bop.wood3.willowWood.name=Willow Wood
+tile.bop.wood3.deadWood.name=Dead Wood
+tile.bop.wood3.bigflowerstemWood.name=Giant Flower Stem
+
+tile.bop.wood4.pineWood.name=Pine Wood
+tile.bop.wood4.hellbarkWood.name=Hellbark Wood
+tile.bop.wood4.jacarandaWood.name=Jacaranda Wood
+
+tile.bop.leaves1.yellowautumn.name=Yellow Autumn Leaves
+tile.bop.leaves1.bamboo.name=Bamboo Leaves
+tile.bop.leaves1.magic.name=Magic Leaves
+tile.bop.leaves1.dark.name=Dark Leaves
+tile.bop.leaves1.dead.name=Dying Leaves
+tile.bop.leaves1.fir.name=Fir Leaves
+tile.bop.leaves1.holy.name=Loftwood Leaves
+tile.bop.leaves1.orangeautumn.name=Orange Autumn Leaves
+
+tile.bop.leaves2.origin.name=Origin Leaves
+tile.bop.leaves2.pinkcherry.name=Pink Cherry Leaves
+tile.bop.leaves2.maple.name=Maple Leaves
+tile.bop.leaves2.whitecherry.name=White Cherry Leaves
+tile.bop.leaves2.hellbark.name=Hellbark Leaves
+tile.bop.leaves2.jacaranda.name=Jacaranda Leaves
+
+tile.bop.woodenDoubleSlab1.acaciaSlab.name=Acacia Wood Slab
+tile.bop.woodenDoubleSlab1.cherrySlab.name=Cherry Wood Slab
+tile.bop.woodenDoubleSlab1.darkSlab.name=Dark Wood Slab
+tile.bop.woodenDoubleSlab1.firSlab.name=Fir Wood Slab
+tile.bop.woodenDoubleSlab1.holySlab.name=Loftwood Wood Slab
+tile.bop.woodenDoubleSlab1.magicSlab.name=Magic Wood Slab
+tile.bop.woodenDoubleSlab1.mangroveSlab.name=Mangrove Wood Slab
+tile.bop.woodenDoubleSlab1.palmSlab.name=Palm Wood Slab
+tile.bop.woodenDoubleSlab2.redwoodSlab.name=Redwood Wood Slab
+tile.bop.woodenDoubleSlab2.willowSlab.name=Willow Wood Slab
+tile.bop.woodenDoubleSlab2.pineSlab.name=Pine Wood Slab
+tile.bop.woodenDoubleSlab2.hell_barkSlab.name=Hellbark Wood Slab
+tile.bop.woodenDoubleSlab2.jacarandaSlab.name=Jacaranda Wood Slab
+
+tile.bop.woodenSingleSlab1.acaciaSlab.name=Acacia Wood Slab
+tile.bop.woodenSingleSlab1.cherrySlab.name=Cherry Wood Slab
+tile.bop.woodenSingleSlab1.darkSlab.name=Dark Wood Slab
+tile.bop.woodenSingleSlab1.firSlab.name=Fir Wood Slab
+tile.bop.woodenSingleSlab1.holySlab.name=Loftwood Wood Slab
+tile.bop.woodenSingleSlab1.magicSlab.name=Magic Wood Slab
+tile.bop.woodenSingleSlab1.mangroveSlab.name=Mangrove Wood Slab
+tile.bop.woodenSingleSlab1.palmSlab.name=Palm Wood Slab
+tile.bop.woodenSingleSlab2.redwoodSlab.name=Redwood Wood Slab
+tile.bop.woodenSingleSlab2.willowSlab.name=Willow Wood Slab
+tile.bop.woodenSingleSlab2.pineSlab.name=Pine Wood Slab
+tile.bop.woodenSingleSlab2.hell_barkSlab.name=Hellbark Wood Slab
+tile.bop.woodenSingleSlab2.jacarandaSlab.name=Jacaranda Wood Slab
+
+tile.bop.acaciaStairs.name=Acacia Wood Stairs
+tile.bop.cherryStairs.name=Cherry Wood Stairs
+tile.bop.darkStairs.name=Dark Wood Stairs
+tile.bop.firStairs.name=Fir Wood Stairs
+tile.bop.holyStairs.name=Loftwood Wood Stairs
+tile.bop.magicStairs.name=Magic Wood Stairs
+tile.bop.mangroveStairs.name=Mangrove Wood Stairs
+tile.bop.palmStairs.name=Palm Wood Stairs
+tile.bop.redwoodStairs.name=Redwood Wood Stairs
+tile.bop.willowStairs.name=Willow Wood Stairs
+tile.bop.pineStairs.name=Pine Wood Stairs
+tile.bop.hellBarkStairs.name=Hellbark Wood Stairs
+tile.bop.jacarandaStairs.name=Jacaranda Wood Stairs
+
+tile.bop.leavesColorized.acacia.name=Acacia Bladeren
+tile.bop.leavesColorized.mangrove.name=Wortelboom Bladeren
+tile.bop.leavesColorized.palm.name=Palm Bladeren
+tile.bop.leavesColorized.redwood.name=Roodhout Bladeren
+tile.bop.leavesColorized.willow.name=Wilge Bladeren
+tile.bop.leavesColorized.pine.name=Naald Bladeren
+
+item.bop.food.shroompowder.name=Shroom Powder
+item.bop.food.sunflowerseeds.name=ZonneBloemen zaaden
+item.bop.food.berries.name=Bes
+
+item.bop.dartblower.name=Dart Schieter
+item.bop.dart.dart.name=Dart
+item.bop.dart.poisondart.name=Gif Dart
+
+item.bop.mudball.name=Modder Bal
+
+item.bop.miscItems.mudbrick.name=Mud Brick
+item.bop.miscItems.ash.name=Amethyst
+item.bop.miscItems.amethyst.name=Pile of Ashes
+item.bop.miscItems.poison.name=Poison
+item.bop.miscItems.crystalshard.name=Celestial Crystal Shard
+item.bop.miscItems.bluedye.name=Blauwe Kleurstof
+item.bop.miscItems.browndye.name=Buine Kleurstof
+item.bop.miscItems.greendye.name=Groene Kleurstof
+item.bop.miscItems.whitedye.name=Witte Kleurstof
+item.bop.miscItems.blackdye.name=Zwarte Kleurstof
+item.bop.miscItems.ruby.name=Ruby
+item.bop.miscItems.peridot.name=Peridot
+item.bop.miscItems.topaz.name=Topaz
+item.bop.miscItems.tanzanite.name=Tanzanite
+item.bop.miscItems.apatite.name=Apatite
+item.bop.miscItems.sapphire.name=Sapphire
+item.bop.miscItems.ghastlysoul.name=Ghastly Soul
+
+item.bop.pickaxeMud.name=Modderige Houweel
+item.bop.hatchetMud.name=Modderige Bijl
+item.bop.shovelMud.name=Modderige Shep
+item.bop.swordMud.name=Modderige Zwaard
+item.bop.hoeMud.name=Modderige Schoffel
+item.bop.helmetMud.name=Modderige Helm
+item.bop.chestplateMud.name=Modderige Kuras
+item.bop.leggingsMud.name=Modderige Beenstukken
+item.bop.bootsMud.name=Modderige Schoenen
+
+item.bop.pickaxeAmethyst.name=Amethyst Houweel
+item.bop.hatchetAmethyst.name=Amethyst Bijl
+item.bop.shovelAmethyst.name=Amethyst Shep
+item.bop.swordAmethyst.name=Amethyst Zwaard
+item.bop.hoeAmethyst.name=Amethyst Schoffel
+item.bop.helmetAmethyst.name=Amethyst Helm
+item.bop.chestplateAmethyst.name=Amethyst Kuras
+item.bop.leggingsAmethyst.name=Amethyst Beenstukken
+item.bop.bootsAmethyst.name=Amethyst Schoenen
+
+item.bop.ancientStaff.ancientstaff.name=Oude Staf
+item.bop.ancientStaff.staffhandle.name=Oude Staf Onderkant
+item.bop.ancientStaff.staffpole.name=Oude Staf Middenstuk
+item.bop.ancientStaff.stafftopper.name=Oude Staf Bovenkant
+item.bop.ancientStaff.ancientstaffbroken.name=Kapote Oude Staf
+
+item.bop.soulManipulator.soulmanipulator_empty.name=Soul Manipulator
+
+item.bop.enderporter.name=Enderporter
+
+item.bop.bopDisc.name=Muziekplaat
+item.bop.bopDiscMud.name=Muziekplaat
+
+item.bop.flowerBand.dullflowerband.name=Dull Flower Band
+item.bop.flowerBand.plainflowerband.name=Plain Flower Band
+item.bop.flowerBand.lushflowerband.name=Lush Flower Band
+item.bop.flowerBand.exoticflowerband.name=Exotic Flower Band
+
+item.bop.bopBucket.spring_water.name=Spring Water Bucket
+item.bop.bopBucket.liquid_poison.name=Liquid Poison Bucket
+
+tile.bop.liquidPoison.name=Liquid Poison
+tile.bop.springWater.name=Spring Water
+
+fluid.bop.liquidPoison=Liquid Poison
+fluid.bop.springWater=Spring Water
+
+phrase.bop.promisedPortalOverworld=Een portal naar de beloofde wereld is verschenen in de lucht.
+phrase.bop.promisedPortalOther=Een portal is verschenen in de lucht.
+
+itemGroup.tabBiomesOPlenty=Biomes O' Plenty
+
+generator.BIOMESOP=Biomes O' Plenty
+
+

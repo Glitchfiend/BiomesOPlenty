@@ -1,0 +1,360 @@
+tile.bop.mud.mud.name=Błoto
+tile.bop.mud.quicksand.name=Ruchome piaski
+
+tile.bop.generic.ash_stone.name=Popiołowa skała
+tile.bop.generic.hard_sand.name=Utwardzony piasek
+tile.bop.generic.hard_dirt.name=Utwardzona ziemia
+tile.bop.generic.hard_ice.name=Utwardzony lód
+tile.bop.generic.dried_dirt.name=Wysuszona ziemia
+tile.bop.generic.crag_rock.name=Skała
+tile.bop.generic.mud_brick.name=Cegły z błota
+tile.bop.generic.holy_dirt.name=Oczyszczona ziemia
+tile.bop.generic.crystal.name=Kryształ Celestii
+
+tile.bop.redRocks.redrock.name=Czerwona skała
+tile.bop.redRocks.redcobble.name=Czerwony bruk
+tile.bop.redRocks.redbrick.name=Cegły z czerwonej skały
+
+tile.bop.ash.name=Blok popiołu
+
+tile.bop.plants.deadgrass.name=Martwa trawa
+tile.bop.plants.desertgrass.name=Pustynna trawa
+tile.bop.plants.desertsprouts.name=Pustynne pędy
+tile.bop.plants.dunegrass.name=Trawa z wydm
+tile.bop.plants.holytallgrass.name=Oczyszczona wysoka trawa
+tile.bop.plants.thorn.name=Ciernie
+tile.bop.plants.barley.name=Jęczmień
+tile.bop.plants.cattail.name=Pałka
+tile.bop.plants.cattailtop.name=Pałka
+tile.bop.plants.cattailbottom.name=Pałka
+tile.bop.plants.reed.name=Trzcina
+tile.bop.plants.cactus.name=Tyci kaktus
+
+tile.bop.flowers.clover.name=Koniczyna
+tile.bop.flowers.swampflower.name=Bagienny kwiat
+tile.bop.flowers.deadbloom.name=Martwy kwiat
+tile.bop.flowers.glowflower.name=Błyszczący kwiat
+tile.bop.flowers.hydrangea.name=Hortensja
+tile.bop.flowers.daisy.name=Stokrotka
+tile.bop.flowers.tulip.name=Tulipan
+tile.bop.flowers.wildflower.name=Dziki kwiat
+tile.bop.flowers.violet.name=Fiołek
+tile.bop.flowers.anemone.name=Zawilec
+tile.bop.flowers.lilyflower.name=Lilia wodna
+tile.bop.flowers.rainbowflower.name=Chromaflora
+tile.bop.flowers.bromeliad.name=Aloes
+tile.bop.flowers.sunflowerbottom.name=Słonecznik
+tile.bop.flowers.sunflowertop.name=Słonecznik
+tile.bop.flowers.dandelion.name=Dmuchawiec
+
+tile.bop.foliage.algae.name=Wodorosty
+tile.bop.foliage.shortgrass.name=Krótka trawa
+tile.bop.foliage.mediumgrass.name=Średnia trawa
+tile.bop.foliage.highgrassbottom.name=Wysoka trawa
+tile.bop.foliage.bush.name=Krzak
+tile.bop.foliage.sprout.name=Pęd
+tile.bop.foliage.highgrasstop.name=Wysoka trawa
+tile.bop.foliage.poisonivy.name=Trujący bluszcz
+tile.bop.foliage.berrybush.name=Krzak jagodowy
+
+tile.bop.petals.bigflowerred.name=Wielki czerwony kwiat
+tile.bop.petals.bigfloweryellow.name=Wielki żółty kwiat
+
+tile.bop.mushrooms.toadstool.name=Muchomor
+tile.bop.mushrooms.portobello.name=Portobello
+tile.bop.mushrooms.bluemilk.name=Lactarius indigo
+tile.bop.mushrooms.glowshroom.name=Świecący grzyb
+
+tile.bop.saplings.appleSapling.name=Sadzonka jabłoni
+tile.bop.saplings.yellowautumnSapling.name=Sadzonka jesiennego żółtego drzewa
+tile.bop.saplings.bambooSapling.name=Sadzonka bambusa
+tile.bop.saplings.magicSapling.name=Magiczna sadzonka
+tile.bop.saplings.darkSapling.name=Sadzonka ciemnego drzewa
+tile.bop.saplings.deadSapling.name=Sadzonka umierającego drzewa
+tile.bop.saplings.firSapling.name=Sadzonka jodły
+tile.bop.saplings.holySapling.name=Podniebna sadzonka
+tile.bop.saplings.orangeautumnSapling.name=Sadzonka jesiennego pomarańczowego drzewa
+tile.bop.saplings.originSapling.name=Pierwotna sadzonka
+tile.bop.saplings.pinkcherrySapling.name=Sadzonka różowej wiśni
+tile.bop.saplings.mapleSapling.name=Sadzonka klonu
+tile.bop.saplings.whitecherrySapling.name=Sadzonka białej wiśni
+tile.bop.saplings.hellbarkSapling.name=Sadzonka piekielnego drzewa
+tile.bop.saplings.jacarandaSapling.name=Sadzonka jakarandy
+
+tile.bop.colorizedSaplings.acaciaSapling.name=Sadzonka akacji
+tile.bop.colorizedSaplings.mangroveSapling.name=Sadzonka namorzyna
+tile.bop.colorizedSaplings.palmSapling.name=Sadzonka palmy
+tile.bop.colorizedSaplings.redwoodSapling.name=Sadzonka sekwoji
+tile.bop.colorizedSaplings.willowSapling.name=Sadzonka wierzby
+tile.bop.colorizedSaplings.pineSapling.name=Sadzonka sosny
+
+tile.bop.willow.name=Wierzba
+tile.bop.ivy.name=Bluszcz
+tile.bop.leavesFruit.name=Liście jabłoni
+tile.bop.bamboo.name=Bambus
+tile.bop.mudBricksStairs.name=Schody z błota
+tile.bop.originGrass.name=Pierwotna trawa
+tile.bop.longGrass.name=Blok długiej trawy
+tile.bop.treeMoss.name=Mech
+
+tile.bop.coral.kelpsingle.name=Listownicowce
+
+tile.bop.redCobbleStairs.name=Schody z czerwonego bruku        
+tile.bop.redBricksStairs.name=Schody z czerwonej skały
+
+tile.bop.holyGrass.holygrass.name=Blok oczyszczonej trawy
+tile.bop.holyGrass.smolderinggrass.name=Blok tlącej się trawy
+
+tile.bop.holyStone.holystone.name=Niebiańska skała
+tile.bop.holyStone.holycobble.name=Niebiański bruk
+tile.bop.holyStone.holybrick.name=Niebiańskie cegły
+
+tile.bop.holyCobbleStairs.name=Schody z niebiańskiego bruku
+tile.bop.holyBricksStairs.name=Schody z niebiańskiej cegły
+
+tile.bop.promisedPortal.name=Portal do Ziemi Obiecanej
+
+tile.bop.amethystOre.amethystore.name=Ruda ametystu
+tile.bop.amethystOre.amethystblock.name=Blok ametystu
+tile.bop.amethystOre.rubyore.name=Ruda rubinu
+tile.bop.amethystOre.rubyblock.name=Blok rubinu
+tile.bop.amethystOre.peridotore.name=Ruda perydotu
+tile.bop.amethystOre.peridotblock.name=Blok perydotu
+tile.bop.amethystOre.topazore.name=Ruda topazu
+tile.bop.amethystOre.topazblock.name=Blok topazu
+tile.bop.amethystOre.tanzaniteore.name=Ruda tanzanitu
+tile.bop.amethystOre.tanzaniteblock.name=Blok tanzanitu
+tile.bop.amethystOre.apatiteore.name=Ruda apatytu
+tile.bop.amethystOre.apatiteblock.name=Blok apatytu
+tile.bop.amethystOre.sapphireore.name=Ruda szafiru
+tile.bop.amethystOre.sapphireblock.name=Blok szafiru
+
+tile.bop.moss.name=Mech
+
+tile.bop.cloud.name=Chmura
+
+tile.bop.bones.bones_small.name=Mała segment kośći
+tile.bop.bones.bones_medium.name=Średni segment kośći
+tile.bop.bones.bones_large.name=Duży segment kośći
+
+tile.bop.glass.celestialLens.name=Soczewka Celestii
+
+tile.bop.glass.sacrificialfocus_empty.name=Ołtarz ofiarny
+tile.bop.glass.sacrificialfocus_active.name=Ołtarz ofiarny
+tile.bop.glass.sacrificialfocus_villager.name=Ołtarz ofiarny
+
+tile.bop.altar.altarframe.name=Rama ołtarza
+
+tile.bop.puddle.name=Kałuża
+
+tile.bop.grave.name=Grób
+
+tile.bop.stoneDoubleSlab.redcobbleSlab.name=Płytka z czerwonego bruku
+tile.bop.stoneDoubleSlab.redbrickSlab.name=Płytka z czerwonej skały
+tile.bop.stoneDoubleSlab.mudbrickSlab.name=Płytka z błota
+tile.bop.stoneDoubleSlab.holycobbleSlab.name=Płytka z niebiańskiego bruku
+tile.bop.stoneDoubleSlab.holybrickSlab.name=Płytka z niebiańskiej cegły
+
+tile.bop.stoneSingleSlab.redcobbleSlab.name=Płytka z czerwonego bruku
+tile.bop.stoneSingleSlab.redbrickSlab.name=Płytka z czerwonej skały
+tile.bop.stoneSingleSlab.mudbrickSlab.name=Płytka z błota
+tile.bop.stoneSingleSlab.holycobbleSlab.name=Płytka z niebiańskiego bruku
+tile.bop.stoneSingleSlab.holybrickSlab.name=Płytka z niebiańskiej cegły
+
+tile.bop.planks.acaciaPlank.name=Akacjowe deski
+tile.bop.planks.cherryPlank.name=Deski z wiśni
+tile.bop.planks.darkPlank.name=Ciemne deski
+tile.bop.planks.firPlank.name=Jodłowe deski
+tile.bop.planks.holyPlank.name=Podniebne deski
+tile.bop.planks.magicPlank.name=Magiczne deski
+tile.bop.planks.mangrovePlank.name=Namorzynowe deski
+tile.bop.planks.palmPlank.name=Palmowe deski
+tile.bop.planks.redwoodPlank.name=Sekwojowe deski
+tile.bop.planks.willowPlank.name=Wierzbowe deski
+tile.bop.planks.bambooThatching.name=Bambusowa strzecha
+tile.bop.planks.pinePlank.name=Sosnowe deski
+tile.bop.planks.hellBarkPlank.name=Piekielne deski
+tile.bop.planks.jacarandaPlank.name=Jakarandowe deski
+
+tile.bop.wood1.acaciaWood.name=Drewno akacji
+tile.bop.wood1.cherryWood.name=Drewno wiśni
+tile.bop.wood1.darkWood.name=Ciemne drewno
+tile.bop.wood1.firWood.name=Jodłowe drewno
+
+tile.bop.wood2.holyWood.name=Podniebne drewno
+tile.bop.wood2.magicWood.name=Magiczne drewno
+tile.bop.wood2.mangroveWood.name=Namorzynowe drewno
+tile.bop.wood2.palmWood.name=Palmowe drewno
+
+tile.bop.wood3.redwoodWood.name=Sekwojowe drewno
+tile.bop.wood3.willowWood.name=Wierzbowe drewno
+tile.bop.wood3.deadWood.name=Martwe drewno
+tile.bop.wood3.bigflowerstemWood.name=Łodyga wielkiego kwiatu
+
+tile.bop.wood4.pineWood.name=Sosnowe drewno
+tile.bop.wood4.hellbarkWood.name=Piekielna kora
+tile.bop.wood4.jacarandaWood.name=Jakarandowe drewno
+
+tile.bop.leaves1.yellowautumn.name=Żółte liście
+tile.bop.leaves1.bamboo.name=Bambusowe liście
+tile.bop.leaves1.magic.name=Magiczne liście
+tile.bop.leaves1.dark.name=Ciemne liście
+tile.bop.leaves1.dead.name=Umierające liście
+tile.bop.leaves1.fir.name=Jodłowe igły
+tile.bop.leaves1.holy.name=Podniebne liście
+tile.bop.leaves1.orangeautumn.name=Pomarańczowe liście
+
+tile.bop.leaves2.origin.name=Pierwotne liście
+tile.bop.leaves2.pinkcherry.name=Różowe liście
+tile.bop.leaves2.maple.name=Klonowe liście
+tile.bop.leaves2.whitecherry.name=Białe liście
+tile.bop.leaves2.hellbark.name=Piekielne liście
+tile.bop.leaves2.jacaranda.name=Jakarandowe liście
+
+tile.bop.woodenDoubleSlab1.acaciaSlab.name=Płytka z akacjowych desek
+tile.bop.woodenDoubleSlab1.cherrySlab.name=Płytka z wiśniowych desek
+tile.bop.woodenDoubleSlab1.darkSlab.name=Płytka z ciemnych desek
+tile.bop.woodenDoubleSlab1.firSlab.name=Płytka z jodłowych desek
+tile.bop.woodenDoubleSlab1.holySlab.name=Płytka z podniebnych desek
+tile.bop.woodenDoubleSlab1.magicSlab.name=Płytka z magicznych desek
+tile.bop.woodenDoubleSlab1.mangroveSlab.name=Płytka z namorzynowych desek
+tile.bop.woodenDoubleSlab1.palmSlab.name=Płytka z palmowych desek
+tile.bop.woodenDoubleSlab2.redwoodSlab.name=Płytka z sekwojowych desek
+tile.bop.woodenDoubleSlab2.willowSlab.name=Płytka z wierzbowych desek
+tile.bop.woodenDoubleSlab2.pineSlab.name=Płytka z sosnowych desek
+tile.bop.woodenDoubleSlab2.hell_barkSlab.name=Płytka z piekielnych desek
+tile.bop.woodenDoubleSlab2.jacarandaSlab.name=Płytka z jakarandowych desek
+
+tile.bop.woodenSingleSlab1.acaciaSlab.name=Płytka z akacjowych desek
+tile.bop.woodenSingleSlab1.cherrySlab.name=Płytka z wiśniowych desek
+tile.bop.woodenSingleSlab1.darkSlab.name=Płytka z ciemnych desek
+tile.bop.woodenSingleSlab1.firSlab.name=Płytka z jodłowych desek
+tile.bop.woodenSingleSlab1.holySlab.name=Płytka z podniebnych desek
+tile.bop.woodenSingleSlab1.magicSlab.name=Płytka z magicznych desek
+tile.bop.woodenSingleSlab1.mangroveSlab.name=Płytka z namorzynowych desek
+tile.bop.woodenSingleSlab1.palmSlab.name=Płytka z palmowych desek
+tile.bop.woodenSingleSlab2.redwoodSlab.name=Płytka z sekwojowych desek
+tile.bop.woodenSingleSlab2.willowSlab.name=Płytka z wierzbowych desek
+tile.bop.woodenSingleSlab2.pineSlab.name=Płytka z sosnowych desek
+tile.bop.woodenSingleSlab2.hell_barkSlab.name=Płytka z piekielnych desek
+tile.bop.woodenSingleSlab2.jacarandaSlab.name=Płytka z jakarandowych desek
+
+tile.bop.acaciaStairs.name=Schody z akacjowych desek
+tile.bop.cherryStairs.name=Schody z wiśniowych desek
+tile.bop.darkStairs.name=Schody z ciemnych desek
+tile.bop.firStairs.name=Schody z jodłowych desek
+tile.bop.holyStairs.name=Schody z podniebnych desek
+tile.bop.magicStairs.name=Schody z magicznych desek
+tile.bop.mangroveStairs.name=Schody z namorzynowych desek
+tile.bop.palmStairs.name=Schody z palmowych desek
+tile.bop.redwoodStairs.name=Schody z sekwojowych desek
+tile.bop.willowStairs.name=Schody z wierzbowych desek
+tile.bop.pineStairs.name=Schody z sosnowych desek
+tile.bop.hellBarkStairs.name=Schody z piekielnych desek
+tile.bop.jacarandaStairs.name=Schody z jakarandowych desek
+
+tile.bop.leavesColorized.acacia.name=Liście akacji
+tile.bop.leavesColorized.mangrove.name=Liście namorzyna
+tile.bop.leavesColorized.palm.name=Liście palmowe
+tile.bop.leavesColorized.redwood.name=Liście sekwoji
+tile.bop.leavesColorized.willow.name=Liście wierzbowe
+tile.bop.leavesColorized.pine.name=Sosnowe igły
+
+item.bop.food.berries.name=Jagoda
+item.bop.food.shroompowder.name=Proszek halucynogenny
+item.bop.food.wildcarrots.name=Dzikie marchewki
+item.bop.food.sunflowerseeds.name=Nasiona słonecznika
+item.bop.food.saladfruit.name=Sałatka owocowa
+item.bop.food.saladveggie.name=Sałatka warzywna
+item.bop.food.saladshroom.name=Sałatka grzybowa
+
+item.bop.dartblower.name=Dmuchawka
+item.bop.dart.dart.name=Rzutka
+item.bop.dart.poisondart.name=Trująca rzutka
+
+item.bop.mudball.name=Błotna kulka
+
+item.bop.miscItems.mudbrick.name=Cegła z błota
+item.bop.miscItems.ash.name=Popiół
+item.bop.miscItems.amethyst.name=Ametyst
+item.bop.miscItems.poison.name=Trucizna
+item.bop.miscItems.crystalshard.name=Odłamek kryształu Celestii
+item.bop.miscItems.bluedye.name=Niebieski barwnik
+item.bop.miscItems.browndye.name=Brązowy barwnik
+item.bop.miscItems.greendye.name=Zielony barwnik
+item.bop.miscItems.whitedye.name=Biały barwnik
+item.bop.miscItems.blackdye.name=Czarny barwnik
+item.bop.miscItems.ruby.name=Rubin
+item.bop.miscItems.peridot.name=Peridot
+item.bop.miscItems.topaz.name=Topaz
+item.bop.miscItems.tanzanite.name=Tanzanit
+item.bop.miscItems.apatite.name=Apatyt
+item.bop.miscItems.sapphire.name=Szafir
+item.bop.miscItems.ghastlysoul.name=Upiorna dusza
+
+item.bop.pickaxeMud.name=Błotny kilof
+item.bop.hatchetMud.name=Błotna siekiera
+item.bop.shovelMud.name=Błotna łopata
+item.bop.swordMud.name=Błotny miecz
+item.bop.hoeMud.name=Błotna motyka
+item.bop.helmetMud.name=Błotny hełm
+item.bop.chestplateMud.name=Błotny napierśnik
+item.bop.leggingsMud.name=Błotne nagolenniki
+item.bop.bootsMud.name=Błotne bóty
+
+item.bop.pickaxeAmethyst.name=Ametystowy kilof
+item.bop.hatchetAmethyst.name=Ametystowe topór
+item.bop.shovelAmethyst.name=Ametystowa łopata
+item.bop.swordAmethyst.name=Ametystowy miecz
+item.bop.hoeAmethyst.name=Ametystowa motyka
+item.bop.helmetAmethyst.name=Ametystowy hełm
+item.bop.chestplateAmethyst.name=Ametystowy napierśnik
+item.bop.leggingsAmethyst.name=Ametystowe nagolenniki
+item.bop.bootsAmethyst.name=Ametystowe buty
+
+item.bop.scytheWood.name=Drewniana kosa
+item.bop.scytheStone.name=Kamienna kosa
+item.bop.scytheIron.name=Żelazna kosa
+item.bop.scytheGold.name=Złota kosa
+item.bop.scytheDiamond.name=Diamentowa kosa
+item.bop.scytheMud.name=Błotna kosa
+item.bop.scytheAmethyst.name=Ametystowa kosa
+
+item.bop.ancientStaff.ancientstaff.name=Starożytna laska
+item.bop.ancientStaff.staffhandle.name=Rączka starożytnej laski
+item.bop.ancientStaff.staffpole.name=Tyczka starożytnej laski
+item.bop.ancientStaff.stafftopper.name=Czubek starożytnej laski
+item.bop.ancientStaff.ancientstaffbroken.name=Zużyta starożytna laska
+
+item.bop.soulManipulator.soulmanipulator_empty.name=Ster dusz
+item.bop.soulManipulator.soulmanipulator_ghastlysoul.name=Ster upiornych dusz
+item.bop.soulManipulator.soulmanipulator_villager.name=Ster wieśniackich dusz
+
+item.bop.enderporter.name=Enderporter
+
+item.bop.bopDisc.name=Płyta muzyczna
+item.bop.bopDiscMud.name=Płyta muzyczna
+
+item.bop.flowerBand.dullflowerband.name=Zespół Mdły Kwiat
+item.bop.flowerBand.plainflowerband.name=Zespół Gładki Kwiat
+item.bop.flowerBand.lushflowerband.name=Zespół Bujny Kwiat
+item.bop.flowerBand.exoticflowerband.name=Zespół Egzotyczny Kwiat
+
+item.bop.bopBucket.amethyst_empty.name=Ametystowe wiaderko
+item.bop.bopBucket.amethyst_spring_water.name=Ametystowe wiaderko ze zdrowotną wodą źródlaną
+item.bop.bopBucket.liquid_poison.name=Wiaderko z trucizną
+
+tile.bop.liquidPoison.name=Trucizna
+tile.bop.springWater.name=Zdrowotna woda źródlana
+
+fluid.bop.liquidPoison=Trucizna
+fluid.bop.springWater=Zdrowotna woda źródlana
+
+phrase.bop.promisedPortalOverworld=Brama niebios pojawiła się w górze
+phrase.bop.promisedPortalOther=Brama świata pojawiła się w górze
+
+itemGroup.tabBiomesOPlenty=Biomes O' Plenty
+
+generator.BIOMESOP=Biomes O' Plenty
+
+

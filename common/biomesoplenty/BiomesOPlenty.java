@@ -30,7 +30,6 @@ import biomesoplenty.handlers.TickHandlerServer;
 import biomesoplenty.handlers.VillageMaterialEventHandler;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
-import biomesoplenty.helpers.Localizations;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.world.WorldProviderPromised;
@@ -80,11 +79,6 @@ public class BiomesOPlenty
 		BOPBiomes.init();
 		BOPEntities.init();
 		BOPVanillaCompat.init();
-		
-		if (proxy instanceof ClientProxy)
-		{
-			Localizations.loadLanguages();
-		}
 
 		// Achievement declaration
 		if (BOPConfigurationMisc.achievements)

@@ -1,0 +1,384 @@
+tile.bop.mud.mud.name=Грязь
+tile.bop.mud.quicksand.name=Зыбучий песок
+
+tile.bop.generic.ash_stone.name=Окаменевший пепел
+tile.bop.generic.hard_sand.name=Затвердевший песок
+tile.bop.generic.hard_dirt.name=Затвердевшая земля
+tile.bop.generic.hard_ice.name=Крепкий лёд
+tile.bop.generic.dried_dirt.name=Осушенная земля
+tile.bop.generic.crag_rock.name=Горная порода
+tile.bop.generic.mud_brick.name=Кирпичи из грязи
+tile.bop.generic.holy_dirt.name=Очищенный грунт
+tile.bop.generic.crystal.name=Небесный кристалл
+
+tile.bop.redRocks.redrock.name=Красный камень
+tile.bop.redRocks.redcobble.name=Красный булыжник
+tile.bop.redRocks.redbrick.name=Кирпичи из красного камня
+
+tile.bop.ash.name=Блок пепла
+
+tile.bop.plants.deadgrass.name=Мёртвая трава
+tile.bop.plants.desertgrass.name=Пустынная трава
+tile.bop.plants.desertsprouts.name=Пустынные ростки
+tile.bop.plants.dunegrass.name=Дюнная трава
+tile.bop.plants.holytallgrass.name=Очищенная высокая трава
+tile.bop.plants.thorn.name=Колючки
+tile.bop.plants.barley.name=Ячмень
+tile.bop.plants.cattail.name=Рогоз
+tile.bop.plants.cattailtop.name=Рогоз
+tile.bop.plants.cattailbottom.name=Рогоз
+tile.bop.plants.reed.name=Камыш
+tile.bop.plants.cactus.name=Крохотный кактус
+tile.bop.plants.witherwart.name=Иссушающий нарост 
+
+tile.bop.flowers.clover.name=Клевер
+tile.bop.flowers.swampflower.name=Болотный цветок
+tile.bop.flowers.deadbloom.name=Смертельный блюм
+tile.bop.flowers.glowflower.name=Светоцвет
+tile.bop.flowers.hydrangea.name=Синяя гортензия
+tile.bop.flowers.cosmos.name=Оранжевая космея 
+tile.bop.flowers.daffodil.name=Розовый нарцисс
+tile.bop.flowers.wildflower.name=Дикий цветок
+tile.bop.flowers.violet.name=Фиалка
+tile.bop.flowers.anemone.name=Белый анемон
+tile.bop.flowers.lilyflower.name=Кувшинка
+tile.bop.flowers.rainbowflower.name=Цветофлора
+tile.bop.flowers.bromeliad.name=Бромелия
+tile.bop.flowers.sunflowerbottom.name=Подсолнечник
+tile.bop.flowers.sunflowertop.name=Подсолнечник
+tile.bop.flowers.dandelion.name=Белый одуванчик
+
+tile.bop.flowers2.hibiscus.name=Розовый гибискус
+tile.bop.flowers2.lilyofthevalley.name=Ландыш
+tile.bop.flowers2.burningblossom.name=Пылающий цвет
+tile.bop.flowers2.lavender.name=Лаванда
+tile.bop.flowers2.goldenrod.name=Золотарник
+tile.bop.flowers2.bluebells.name=Колокольчики
+tile.bop.flowers2.minersdelight.name=Шахтёрское наслаждение
+tile.bop.flowers2.icyiris.name=Ледяной ирис
+
+tile.bop.foliage.algae.name=Водоросли
+tile.bop.foliage.shortgrass.name=Низкая трава
+tile.bop.foliage.mediumgrass.name=Средняя трава
+tile.bop.foliage.highgrassbottom.name=Высокая трава
+tile.bop.foliage.bush.name=Куст
+tile.bop.foliage.sprout.name=Росток
+tile.bop.foliage.highgrasstop.name=Высокая трава
+tile.bop.foliage.poisonivy.name=Ядовитый плющ
+tile.bop.foliage.berrybush.name=Ягодный куст
+tile.bop.foliage.shrub.name=Кустарник
+tile.bop.foliage.wheatgrass.name=Ростки пшеницы
+tile.bop.foliage.dampgrass.name=Влажная трава
+
+tile.bop.petals.bigflowerred.name=Гигантский красный цветок
+tile.bop.petals.bigfloweryellow.name=Гигантский жёлтый цветок
+
+tile.bop.mushrooms.toadstool.name=Гриб
+tile.bop.mushrooms.portobello.name=Портобелло
+tile.bop.mushrooms.bluemilk.name=Млечник голубой
+tile.bop.mushrooms.glowshroom.name=Светогриб
+tile.bop.mushrooms.flatmushroom.name=Плоский гриб
+
+tile.bop.saplings.appleSapling.name=Саженец яблони
+tile.bop.saplings.yellowautumnSapling.name=Саженец жёлтого осеннего дерева
+tile.bop.saplings.bambooSapling.name=Саженец бамбука
+tile.bop.saplings.magicSapling.name=Магический саженец
+tile.bop.saplings.darkSapling.name=Тёмный саженец
+tile.bop.saplings.deadSapling.name=Погибающий саженец
+tile.bop.saplings.firSapling.name=Саженец пихты
+tile.bop.saplings.holySapling.name=Саженец лофтвуда
+tile.bop.saplings.orangeautumnSapling.name=Саженец оранжевого осеннего дерева
+tile.bop.saplings.originSapling.name=Оригинальный саженец
+tile.bop.saplings.pinkcherrySapling.name=Саженец розовой вишни
+tile.bop.saplings.mapleSapling.name=Саженец клёна
+tile.bop.saplings.whitecherrySapling.name=Саженец белой вишни
+tile.bop.saplings.hellbarkSapling.name=Саженец адского дерева
+tile.bop.saplings.jacarandaSapling.name=Саженец жакаранды
+tile.bop.saplings.persimmonSapling.name=Саженец дерева хурмы
+
+tile.bop.colorizedSaplings.acaciaSapling.name=Саженец акации
+tile.bop.colorizedSaplings.mangroveSapling.name=Мангровый саженец
+tile.bop.colorizedSaplings.palmSapling.name=Саженец пальмы
+tile.bop.colorizedSaplings.redwoodSapling.name=Саженец красного дерева
+tile.bop.colorizedSaplings.willowSapling.name=Саженец ивы
+tile.bop.colorizedSaplings.pineSapling.name=Саженец сосны
+
+tile.bop.willow.name=Ива
+tile.bop.ivy.name=Плющ
+tile.bop.leavesFruit.name=Листва яблони
+tile.bop.leavesFruit2.name=Листва хурмы
+tile.bop.bamboo.name=Бамбук
+tile.bop.mudBricksStairs.name=Кирпичные ступеньки из грязи
+tile.bop.originGrass.name=Оригинальная трава
+tile.bop.longGrass.name=Блок высокой травы
+tile.bop.treeMoss.name=Древесный мох
+
+tile.bop.coral.kelpsingle.name=Ламинария
+tile.bop.coral.pinkcoral.name=Розовый коралл
+tile.bop.coral.orangecoral.name=Оранжевый коралл
+tile.bop.coral.bluecoral.name=Синий коралл
+tile.bop.coral.glowcoral.name=Светящийся коралл
+
+tile.bop.redCobbleStairs.name=Ступеньки из красного булыжника      
+tile.bop.redBricksStairs.name=Кирпичные ступеньки из красного камня
+
+tile.bop.holyGrass.holygrass.name=Очищенная трава
+tile.bop.holyGrass.smolderinggrass.name=Тлеющая трава
+
+tile.bop.holyStone.holystone.name=Небесный камень
+tile.bop.holyStone.holycobble.name=Небесный булыжник
+tile.bop.holyStone.holybrick.name=Небесные кирпичи
+
+tile.bop.holyCobbleStairs.name=Ступеньки из небесного булыжника
+tile.bop.holyBricksStairs.name=Ступеньки из небесных кирпичей
+
+tile.bop.promisedPortal.name=Портал в "Землю Обетованную"
+
+tile.bop.amethystOre.amethystore.name=Аметистовая руда
+tile.bop.amethystOre.amethystblock.name=Аметистовый блок
+tile.bop.amethystOre.rubyore.name=Рубиновая руда
+tile.bop.amethystOre.rubyblock.name=Рубиновый блок
+tile.bop.amethystOre.peridotore.name=Оливиновая руда
+tile.bop.amethystOre.peridotblock.name=Оливиновый блок
+tile.bop.amethystOre.topazore.name=Топазовая руда
+tile.bop.amethystOre.topazblock.name=Блок топаза
+tile.bop.amethystOre.tanzaniteore.name=Танзанитовая руда
+tile.bop.amethystOre.tanzaniteblock.name=Танзанитовый блок
+tile.bop.amethystOre.apatiteore.name=Апатитовая руда
+tile.bop.amethystOre.apatiteblock.name=Апатитовый блок
+tile.bop.amethystOre.sapphireore.name=Сапфировая руда
+tile.bop.amethystOre.sapphireblock.name=Сапфировый блок
+
+tile.bop.moss.name=Мох
+
+tile.bop.cloud.name=Блок облака
+
+tile.bop.bones.bones_small.name=Малый сегмент кости
+tile.bop.bones.bones_medium.name=Средний сегмент кости
+tile.bop.bones.bones_large.name=Большой сегмент кости
+
+tile.bop.glass.celestialLens.name=Небесные линзы
+
+tile.bop.glass.sacrificialfocus_empty.name=Жертвенный фокус
+tile.bop.glass.sacrificialfocus_active.name=Жертвенный фокус
+tile.bop.glass.sacrificialfocus_villager.name=Жертвенный фокус
+
+tile.bop.altar.altarframe.name=Каркас алтаря
+
+tile.bop.puddle.name=Лужица
+
+tile.bop.grave.name=Могильная плита
+
+tile.bop.stoneDoubleSlab.redcobbleSlab.name=Плита из красного булыжника
+tile.bop.stoneDoubleSlab.redbrickSlab.name=Кирпичная плита из красного камня
+tile.bop.stoneDoubleSlab.mudbrickSlab.name=Кирпичная плита из грязи
+tile.bop.stoneDoubleSlab.holycobbleSlab.name=Плита из небесного булыжника
+tile.bop.stoneDoubleSlab.holybrickSlab.name=Плита из небесных кирпичей
+
+tile.bop.stoneSingleSlab.redcobbleSlab.name=Плита из красного булыжника
+tile.bop.stoneSingleSlab.redbrickSlab.name=Кирпичная плита из красного камня
+tile.bop.stoneSingleSlab.mudbrickSlab.name=Кирпичная плита из грязи
+tile.bop.stoneSingleSlab.holycobbleSlab.name=Плита из небесного булыжника
+tile.bop.stoneSingleSlab.holybrickSlab.name=Плита из небесных кирпичей
+
+tile.bop.planks.acaciaPlank.name=Доски из древесины акации
+tile.bop.planks.cherryPlank.name=Доски из древесины вишнёвого дерева
+tile.bop.planks.darkPlank.name=Доски из древесины тёмного дерева
+tile.bop.planks.firPlank.name=Доски из древесины пихты
+tile.bop.planks.holyPlank.name=Доски из древесины лофтвуда
+tile.bop.planks.magicPlank.name=Доски из древесины магического дерева
+tile.bop.planks.mangrovePlank.name=Доски из древесины мангрового дерева
+tile.bop.planks.palmPlank.name=Доски из древесины пальмы
+tile.bop.planks.redwoodPlank.name=Доски из древесины красного дерева
+tile.bop.planks.willowPlank.name=Доски из древесины ивы
+tile.bop.planks.bambooThatching.name=Бамбук
+tile.bop.planks.pinePlank.name=Доски из древесины сосны
+tile.bop.planks.hellBarkPlank.name=Доски из древесины адского дерева
+tile.bop.planks.jacarandaPlank.name=Доски из древесины жакаранды
+
+tile.bop.wood1.acaciaWood.name=Древесина акации
+tile.bop.wood1.cherryWood.name=Древесина вишнёвого дерева
+tile.bop.wood1.darkWood.name=Древесина тёмного дерева
+tile.bop.wood1.firWood.name=Древесина пихты
+
+tile.bop.wood2.holyWood.name=Древесина лофтвуда
+tile.bop.wood2.magicWood.name=Древесина магического дерева
+tile.bop.wood2.mangroveWood.name=Древесина мангрового дерева
+tile.bop.wood2.palmWood.name=Древесина пальмы
+
+tile.bop.wood3.redwoodWood.name=Древесина красного дерева
+tile.bop.wood3.willowWood.name=Древесина ивы
+tile.bop.wood3.deadWood.name=Древесина погибшего дерева
+tile.bop.wood3.bigflowerstemWood.name=Ствол гигантского цветка
+
+tile.bop.wood4.pineWood.name=Древесина сосны
+tile.bop.wood4.hellbarkWood.name=Древесина адского дерева
+tile.bop.wood4.jacarandaWood.name=Древесина жакаранды
+
+tile.bop.leaves1.yellowautumn.name=Жёлтая осенняя листва
+tile.bop.leaves1.bamboo.name=Листва бамбука
+tile.bop.leaves1.magic.name=Магическая листва
+tile.bop.leaves1.dark.name=Тёмная листва
+tile.bop.leaves1.dead.name=Погибающая листва
+tile.bop.leaves1.fir.name=Листва пихты
+tile.bop.leaves1.holy.name=Листва лофтвуда
+tile.bop.leaves1.orangeautumn.name=Оранжевая осенняя листва
+
+tile.bop.leaves2.origin.name=Оригинальная листва
+tile.bop.leaves2.pinkcherry.name=Листва розовой вишни
+tile.bop.leaves2.maple.name=Листва клёна
+tile.bop.leaves2.whitecherry.name=Листва белой вишни
+tile.bop.leaves2.hellbark.name=Адская листва
+tile.bop.leaves2.jacaranda.name=Листва жакаранды
+
+tile.bop.woodenDoubleSlab1.acaciaSlab.name=Плита из древесины акации
+tile.bop.woodenDoubleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
+tile.bop.woodenDoubleSlab1.darkSlab.name=Плита из древесины тёмного дерева
+tile.bop.woodenDoubleSlab1.firSlab.name=Плита из древесины пихты
+tile.bop.woodenDoubleSlab1.holySlab.name=Плита из древесины лофтвуда
+tile.bop.woodenDoubleSlab1.magicSlab.name=Плита из древесины магического дерева
+tile.bop.woodenDoubleSlab1.mangroveSlab.name=Плита из древесины мангрового дерева
+tile.bop.woodenDoubleSlab1.palmSlab.name=Плита из древесины пальмы
+tile.bop.woodenDoubleSlab2.redwoodSlab.name=Плита из древесины красного дерева
+tile.bop.woodenDoubleSlab2.willowSlab.name=Плита из древесины ивы
+tile.bop.woodenDoubleSlab2.pineSlab.name=Плита из древесины сосны
+tile.bop.woodenDoubleSlab2.hell_barkSlab.name=Плита из древесины адского дерева
+tile.bop.woodenDoubleSlab2.jacarandaSlab.name=Плита из древесины жакаранды
+
+tile.bop.woodenSingleSlab1.acaciaSlab.name=Плита из древесины акации
+tile.bop.woodenSingleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
+tile.bop.woodenSingleSlab1.darkSlab.name=Плита из древесины тёмного дерева
+tile.bop.woodenSingleSlab1.firSlab.name=Плита из древесины пихты
+tile.bop.woodenSingleSlab1.holySlab.name=Плита из древесины лофтвуда
+tile.bop.woodenSingleSlab1.magicSlab.name=Плита из древесины магического дерева
+tile.bop.woodenSingleSlab1.mangroveSlab.name=Плита из древесины мангрового дерева
+tile.bop.woodenSingleSlab1.palmSlab.name=Плита из древесины пальмы
+tile.bop.woodenSingleSlab2.redwoodSlab.name=Плита из древесины красного дерева
+tile.bop.woodenSingleSlab2.willowSlab.name=Плита из древесины ивы
+tile.bop.woodenSingleSlab2.pineSlab.name=Плита из древесины сосны
+tile.bop.woodenSingleSlab2.hell_barkSlab.name=Плита из древесины адского дерева
+tile.bop.woodenSingleSlab2.jacarandaSlab.name=Плита из древесины жакаранды
+
+tile.bop.acaciaStairs.name=Ступеньки из древесины акации
+tile.bop.cherryStairs.name=Ступеньки из древесины вишнёвого дерева
+tile.bop.darkStairs.name=Ступеньки из древесины тёмного дерева
+tile.bop.firStairs.name=Ступеньки из древесины пихты
+tile.bop.holyStairs.name=Ступеньки из древесины лофтвуда
+tile.bop.magicStairs.name=Ступеньки из древесины магического дерева
+tile.bop.mangroveStairs.name=Ступеньки из древесины мангрового дерева
+tile.bop.palmStairs.name=Ступеньки из древесины пальмы
+tile.bop.redwoodStairs.name=Ступеньки из древесины красного дерева
+tile.bop.willowStairs.name=Ступеньки из древесины ивы
+tile.bop.pineStairs.name=Ступеньки из древесины сосны
+tile.bop.hellBarkStairs.name=Ступеньки из древесины адского дерева
+tile.bop.jacarandaStairs.name=Ступеньки из древесины жакаранды
+
+tile.bop.leavesColorized.acacia.name=Листва акации
+tile.bop.leavesColorized.mangrove.name=Листва мангрового дерева
+tile.bop.leavesColorized.palm.name=Листва пальмы
+tile.bop.leavesColorized.redwood.name=Листва красного дерева
+tile.bop.leavesColorized.willow.name=Листва ивы
+tile.bop.leavesColorized.pine.name=Листва сосны
+
+item.bop.food.berries.name=Ягода
+item.bop.food.shroompowder.name=Молотый гриб
+item.bop.food.wildcarrots.name=Дикая морковь
+item.bop.food.sunflowerseeds.name=Семечки подсолнуха
+item.bop.food.saladfruit.name=Фруктовый салат
+item.bop.food.saladveggie.name=Овощной салат
+item.bop.food.saladshroom.name=Грибной салат
+item.bop.food.persimmon.name=Хурма
+
+item.bop.dartblower.name=Духовая трубка
+item.bop.dart.dart.name=Дротик
+item.bop.dart.poisondart.name=Отравленный дротик
+
+item.bop.mudball.name=Комок грязи
+
+item.bop.miscItems.mudbrick.name=Кирпичи из грязи
+item.bop.miscItems.ash.name=Кучка пепла
+item.bop.miscItems.amethyst.name=Аметист
+item.bop.miscItems.poison.name=Яд
+item.bop.miscItems.crystalshard.name=Осколок небесного кристалла
+item.bop.miscItems.bluedye.name=Синий краситель
+item.bop.miscItems.browndye.name=Коричневый краситель
+item.bop.miscItems.greendye.name=Зелёный краситель
+item.bop.miscItems.whitedye.name=Белый краситель
+item.bop.miscItems.blackdye.name=Чёрный краситель
+item.bop.miscItems.ruby.name=Рубин
+item.bop.miscItems.peridot.name=Оливин
+item.bop.miscItems.topaz.name=Топаз
+item.bop.miscItems.tanzanite.name=Танзанит
+item.bop.miscItems.apatite.name=Апатит
+item.bop.miscItems.sapphire.name=Сапфир
+item.bop.miscItems.ghastlysoul.name=Жуткий дух
+
+item.bop.pickaxeMud.name=Кирка из грязи
+item.bop.hatchetMud.name=Топор из грязи
+item.bop.shovelMud.name=Лопата из грязи
+item.bop.swordMud.name=Меч из грязи
+item.bop.hoeMud.name=Мотыга из грязи
+item.bop.helmetMud.name=Шлем из грязи
+item.bop.chestplateMud.name=Кираса из грязи
+item.bop.leggingsMud.name=Поножи из грязи
+item.bop.bootsMud.name=Ботинки из грязи
+
+item.bop.pickaxeAmethyst.name=Аметистовая кирка
+item.bop.hatchetAmethyst.name=Аметистовый топор
+item.bop.shovelAmethyst.name=Аметистовая лопата
+item.bop.swordAmethyst.name=Апетистовый меч
+item.bop.hoeAmethyst.name=Аметистовая мотыга
+item.bop.helmetAmethyst.name=Аметистовый шлем
+item.bop.chestplateAmethyst.name=Аметистовая кираса
+item.bop.leggingsAmethyst.name=Аметистовые поножи
+item.bop.bootsAmethyst.name=Аметистовые ботинки
+
+item.bop.scytheWood.name=Деревянная коса
+item.bop.scytheStone.name=Каменная коса
+item.bop.scytheIron.name=Железная коса
+item.bop.scytheGold.name=Золотая коса
+item.bop.scytheDiamond.name=Алмазная коса
+item.bop.scytheMud.name=Коса из грязи
+item.bop.scytheAmethyst.name=Аметистовая коса
+
+item.bop.ancientStaff.ancientstaff.name=Древний посох
+item.bop.ancientStaff.staffhandle.name=Рукоять древнего посоха
+item.bop.ancientStaff.staffpole.name=Древко древнего посоха
+item.bop.ancientStaff.stafftopper.name=Верхушка древнего посоха
+item.bop.ancientStaff.ancientstaffbroken.name=Истощённый древний посох
+
+item.bop.soulManipulator.soulmanipulator_empty.name=Манипулятор духа
+item.bop.soulManipulator.soulmanipulator_ghastlysoul.name=Манипулятор жуткого духа
+item.bop.soulManipulator.soulmanipulator_villager.name=Манипулятор духа жителей
+
+item.bop.enderporter.name=Телепортер края
+
+item.bop.bopDisc.name=Музыкальная пластинка
+item.bop.bopDiscMud.name=Музыкальная пластинка
+
+item.bop.flowerBand.dullflowerband.name=Скучный венок
+item.bop.flowerBand.plainflowerband.name=Обычный венок
+item.bop.flowerBand.lushflowerband.name=Пышный венок
+item.bop.flowerBand.exoticflowerband.name=Экзотический венок
+
+item.bop.wadingBoots.name=Болотные сапоги
+item.bop.flippers.name=Ласты
+
+item.bop.bopBucket.amethyst_empty.name=Аметистовое ведро
+item.bop.bopBucket.amethyst_spring_water.name=Аметистовое ведро родниковой воды
+item.bop.bopBucket.liquid_poison.name=Ведро яда
+
+tile.bop.liquidPoison.name=Жидкий яд
+tile.bop.springWater.name=Родниковая вода
+
+fluid.bop.liquidPoison=Жидкий яд
+fluid.bop.springWater=Родниковая вода
+
+phrase.bop.promisedPortalOverworld=Врата в Землю Обетованную открылись выше.
+phrase.bop.promisedPortalOther=Врата в обычный мир открылись выше.
+
+itemGroup.tabBiomesOPlenty=Biomes O' Plenty
+
+generator.BIOMESOP=Biomes O' Plenty
+
+
