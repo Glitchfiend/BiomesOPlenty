@@ -27,9 +27,10 @@ tile.bop.plants.barley.name=Gerste
 tile.bop.plants.cattail.name=Rohrkolben
 tile.bop.plants.cattailtop.name=Rohrkolben
 tile.bop.plants.cattailbottom.name=Rohrkolben
-tile.bop.plants.reed.name=Schilf
+tile.bop.plants.rivercane.name=Flussschilfrohr
 tile.bop.plants.cactus.name=Kleiner Kaktus
 tile.bop.plants.witherwart.name=Witherwarze
+tile.bop.plants.reed.name=Schilfgras
 
 tile.bop.flowers.clover.name=Klee
 tile.bop.flowers.swampflower.name=Sumpfblume
@@ -64,7 +65,7 @@ tile.bop.foliage.highgrassbottom.name=Hohes Gras
 tile.bop.foliage.bush.name=Busch
 tile.bop.foliage.sprout.name=Sprössling
 tile.bop.foliage.highgrasstop.name=Hohes Gras
-tile.bop.foliage.poisonivy.name=Gift-Efeu
+tile.bop.foliage.poisonivy.name=Giftefeu
 tile.bop.foliage.berrybush.name=Beerenbusch
 tile.bop.foliage.shrub.name=Strauch
 tile.bop.foliage.wheatgrass.name=Weizengras
@@ -366,12 +367,12 @@ item.bop.flippers.name=Schwimmflossen
 
 item.bop.bopBucket.amethyst_empty.name=Amethyst-Eimer
 item.bop.bopBucket.amethyst_spring_water.name=Amethyst-Eimer mit Quellwasser
-item.bop.bopBucket.liquid_poison.name=Eimer mit Gift
+item.bop.bopBucket.liquid_poison.name=Eimer mit Flüssigem Gift
 
-tile.bop.liquidPoison.name=Gift
+tile.bop.liquidPoison.name=Flüssiges Gift
 tile.bop.springWater.name=Quellwasser
 
-fluid.bop.liquidPoison=Gift
+fluid.bop.liquidPoison=Flüssiges Gift
 fluid.bop.springWater=Quellwasser
 
 phrase.bop.promisedPortalOverworld=Ein Portal zum gelobten Land ist im Himmel entstanden.
@@ -380,5 +381,3 @@ phrase.bop.promisedPortalOther=Ein Portal ist im Himmel entstanden.
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
-
-
