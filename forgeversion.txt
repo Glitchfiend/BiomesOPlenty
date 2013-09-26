@@ -1,2 +1,0 @@
-1.6.2:BiomesOPlenty:1.1.2
-1.6.4:BiomesOPlenty:9.10.1.895
