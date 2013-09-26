@@ -1,4 +1,4 @@
-package biomesoplenty.helpers;
+package biomesoplenty.handlers.versionhandlers;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,8 +14,8 @@ import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 
-public class Version implements Runnable {
-	private static Version instance = new Version();
+public class BOPModVersionHandler implements Runnable {
+	private static BOPModVersionHandler instance = new BOPModVersionHandler();
 
 	public enum EnumUpdateState 
 	{
@@ -23,8 +23,8 @@ public class Version implements Runnable {
 	}
 
 	public static final String VERSION = "@VERSION@";
-	private static final String REMOTE_VERSION_FILE = "https://raw.github.com/BiomesOPlenty/BiomesOPlenty/master/version.txt";
-	private static final String REMOTE_CHANGELOG_ROOT = "https://raw.github.com/BiomesOPlenty/BiomesOPlenty/master/changelog/";
+	private static final String REMOTE_VERSION_FILE = "https://raw.github.com/Glitchfiend/BiomesOPlenty/master/version.txt";
+	private static final String REMOTE_CHANGELOG_ROOT = "https://raw.github.com/Glitchfiend/BiomesOPlenty/master/changelog/";
 
 	public static EnumUpdateState currentVersion = EnumUpdateState.CURRENT;
 

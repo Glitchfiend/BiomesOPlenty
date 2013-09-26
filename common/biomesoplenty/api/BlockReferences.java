@@ -176,7 +176,11 @@ public class BlockReferences {
 		deathbloom (Blocks.flowers, 2),
 		glowFlower (Blocks.flowers, 3),
 		hydrangea (Blocks.flowers, 4),
+		@Deprecated
+		daisy (Blocks.flowers, 5),
 		cosmos (Blocks.flowers, 5),
+		@Deprecated
+		tulip (Blocks.flowers, 6),
 		daffodil (Blocks.flowers, 6),
 		wildFlower (Blocks.flowers, 7),
 		violet (Blocks.flowers, 8),

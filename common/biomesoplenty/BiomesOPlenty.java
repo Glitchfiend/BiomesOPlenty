@@ -1,5 +1,11 @@
 package biomesoplenty;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static argo.jdom.JsonNodeBuilders.aStringBuilder;
+
 import net.minecraft.crash.CallableMinecraftVersion;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
@@ -28,9 +34,10 @@ import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.handlers.TickHandlerServer;
 import biomesoplenty.handlers.VillageMaterialEventHandler;
+import biomesoplenty.handlers.versionhandlers.BOPForgeVersionHandler;
+import biomesoplenty.handlers.versionhandlers.BOPModVersionHandler;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
-import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.world.WorldProviderPromised;
 import biomesoplenty.world.WorldTypeSize;
@@ -44,9 +51,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
+import cpw.mods.fml.common.versioning.ArtifactVersion;
+import cpw.mods.fml.common.versioning.VersionParser;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version=Version.VERSION, dependencies="after:Natura; required-after:Forge@[1.42.666.42.1,)")
+@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", version=BOPModVersionHandler.VERSION)
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {
@@ -65,7 +74,12 @@ public class BiomesOPlenty
 		configPath = event.getModConfigurationDirectory() + "/biomesoplenty/";
 		BOPConfiguration.init(configPath);
 		
-		Version.check();
+		BOPForgeVersionHandler.check();
+		
+		String dependancies = "after:Natura;required-after:Forge@[" + BOPForgeVersionHandler.recommendedVersion + ",)";
+		event.getModMetadata().dependencies.add(VersionParser.parseVersionReference(dependancies));
+		
+		BOPModVersionHandler.check();
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
@@ -133,4 +147,27 @@ public class BiomesOPlenty
 		TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
 		TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);
 	}
+	
+    public <T extends Collection<ArtifactVersion>> T processReferences(Object refs, Class<? extends T> retType)
+    {
+        T res = null;
+        try
+        {
+            res = retType.newInstance();
+        }
+        catch (Exception e)
+        {
+            // unpossible
+        }
+
+        if (refs == null)
+        {
+            return res;
+        }
+        for (String ref : ((List<String>)refs))
+        {
+            res.add(VersionParser.parseVersionReference(ref));
+        }
+        return res;
+    }
 }

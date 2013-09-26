@@ -3,7 +3,7 @@ package biomesoplenty.handlers;
 import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
-import biomesoplenty.helpers.Version;
+import biomesoplenty.handlers.versionhandlers.BOPModVersionHandler;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.TickType;
@@ -25,14 +25,14 @@ public class TickHandlerClient implements ITickHandler
 
 		EntityPlayer player = (EntityPlayer) tickData[0];
 
-		if (Version.needsBOPWorldtypeAndMarkAsSeen(player.worldObj))
+		if (BOPModVersionHandler.needsBOPWorldtypeAndMarkAsSeen(player.worldObj))
 		{
 			player.addChatMessage(String.format("\u00A7cThe Biomes O Plenty world type must be used in order for the new biomes to generate. This message will only display once."));
 		}
 
-		if (Version.needsUpdateNoticeAndMarkAsSeen()) 
+		if (BOPModVersionHandler.needsUpdateNoticeAndMarkAsSeen()) 
 		{
-			player.addChatMessage(String.format("\u00A7cA new version of Biomes O Plenty is available: v%s for Minecraft %s", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion()));
+			player.addChatMessage(String.format("\u00A7cA new version of Biomes O Plenty is available: v%s for Minecraft %s", BOPModVersionHandler.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion()));
 		}
 
 		nagged = true;
