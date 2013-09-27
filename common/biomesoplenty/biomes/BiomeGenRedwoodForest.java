@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.configfile.BOPConfigurationMain;
+import biomesoplenty.worldgen.WorldGenRedwoodShrub;
 import biomesoplenty.worldgen.realtree.WorldGenRealRedwood;
 import biomesoplenty.worldgen.realtree.WorldGenRealRedwood2;
 import biomesoplenty.worldgen.tree.WorldGenRedwoodTree;
@@ -23,12 +24,13 @@ public class BiomeGenRedwoodForest extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 6;
+		customBiomeDecorator.treesPerChunk = 50;
 		customBiomeDecorator.grassPerChunk = 16;
 		customBiomeDecorator.bushesPerChunk = 4;
 		customBiomeDecorator.berryBushesPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 7;
 		customBiomeDecorator.shrubsPerChunk = 10;
+		customBiomeDecorator.redwoodShrubsPerChunk = 100;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 
@@ -43,7 +45,7 @@ public class BiomeGenRedwoodForest extends BiomeGenBase
 			return par1Random.nextInt(4) == 0 ? new WorldGenRealRedwood() : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenRealRedwood2());
 		}
 		
-		return par1Random.nextInt(4) == 0 ? new WorldGenRedwoodTree(false) : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree2(false));
+		return par1Random.nextInt(4) == 0 ? new WorldGenRedwoodTree(false) : (par1Random.nextInt(8) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree2(false));
 	}
 	
 	@Override
