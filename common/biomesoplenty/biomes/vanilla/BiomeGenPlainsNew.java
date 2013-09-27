@@ -28,6 +28,7 @@ public class BiomeGenPlainsNew extends BiomeGenBase
 		customBiomeDecorator.tinyFlowersPerChunk = 1;
 		customBiomeDecorator.portobellosPerChunk = 1;
 		customBiomeDecorator.sunflowersPerChunk = 2;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	

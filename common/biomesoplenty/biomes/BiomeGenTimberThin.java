@@ -28,6 +28,7 @@ public class BiomeGenTimberThin extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.toadstoolsPerChunk = 2;
 		customBiomeDecorator.shrubsPerChunk = 5;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 	}
 
 	/**

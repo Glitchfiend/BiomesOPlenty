@@ -32,6 +32,7 @@ public class BiomeGenAutumnHills extends BiomeGenBase
 		customBiomeDecorator.sproutsPerChunk = 2;
 		customBiomeDecorator.wheatGrassPerChunk = 16;
 		customBiomeDecorator.shrubsPerChunk = 20;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 	}
 
 	/**

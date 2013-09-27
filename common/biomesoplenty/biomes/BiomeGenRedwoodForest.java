@@ -31,6 +31,7 @@ public class BiomeGenRedwoodForest extends BiomeGenBase
 		customBiomeDecorator.wheatGrassPerChunk = 7;
 		customBiomeDecorator.shrubsPerChunk = 10;
 		customBiomeDecorator.redwoodShrubsPerChunk = 100;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 

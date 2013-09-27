@@ -26,6 +26,7 @@ public class BiomeGenCanyonRavine extends BiomeGenBase
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.canyonGrassPerChunk = 3;
 		customBiomeDecorator.aloePerChunk = 2;
+		customBiomeDecorator.waterReedsPerChunk = 4;
 		customBiomeDecorator.generatePumpkins = false;
 		customBiomeDecorator.generateCanyon = true;
 	}

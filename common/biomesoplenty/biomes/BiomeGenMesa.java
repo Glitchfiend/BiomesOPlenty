@@ -28,6 +28,7 @@ public class BiomeGenMesa extends BiomeGenBase
 		customBiomeDecorator.deadBushPerChunk = 2;
 		customBiomeDecorator.desertGrassPerChunk = 10;
 		customBiomeDecorator.tinyCactiPerChunk = 2;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySpider.class, 15, 2, 6));
 	}
 	

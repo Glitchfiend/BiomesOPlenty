@@ -29,6 +29,7 @@ public class BiomeGenTundra extends BiomeGenBase
 		customBiomeDecorator.gravelPerChunk = 8;
 		customBiomeDecorator.gravelPerChunk2 = 8;
 		customBiomeDecorator.shrubsPerChunk = 2;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 	}
 	
 	@Override

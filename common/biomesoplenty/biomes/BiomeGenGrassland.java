@@ -34,6 +34,7 @@ public class BiomeGenGrassland extends BiomeGenBase
 		customBiomeDecorator.waterLakesPerChunk = 15;
 		customBiomeDecorator.portobellosPerChunk = 3;
 		customBiomeDecorator.reedsBOPPerChunk = 5;
+		customBiomeDecorator.waterReedsPerChunk = 2;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 14, 4, 4));
 		spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 12, 4, 4));
