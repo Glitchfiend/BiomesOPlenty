@@ -24,7 +24,7 @@ public class BiomeGenRedwoodForest extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 50;
+		customBiomeDecorator.treesPerChunk = 75;
 		customBiomeDecorator.grassPerChunk = 16;
 		customBiomeDecorator.bushesPerChunk = 4;
 		customBiomeDecorator.berryBushesPerChunk = 1;
