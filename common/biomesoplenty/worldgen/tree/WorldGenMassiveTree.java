@@ -345,7 +345,7 @@ public class WorldGenMassiveTree extends WorldGenerator
 	     
 	                            for (int j = -2; j < 3; j++ )
 	                            {
-	                                    if ((i != -2 && j != -2) || (i != -2 && j != 2) || (i != 2 && j != -2) || (i != 2 && j != 2))
+	                            		if (!(i == -2 && j == -2) && !(i == -2 && j == 2) && !(i == 2 && j == -2) && !(i == 2 && j == 2))
 	                                    {
 	                                            var5[2] = var4 + j;
 	                                            var6[2] = var4 + j;
