@@ -324,29 +324,39 @@ public class WorldGenMassiveTree extends WorldGenerator
 	  * Places the trunk for the big tree that is being generated. Able to generate double-sized trunks by changing a
 	  * field that is always 1 to 2.
 	  */
-	 void generateTrunk()
-	 {
-		 int var1 = basePos[0];
-		 int var2 = basePos[1];
-		 int var3 = basePos[1] + height;
-		 int var4 = basePos[2];
-		 int[] var5 = new int[] {var1, var2, var4};
-		 int[] var6 = new int[] {var1, var3, var4};
-		 this.placeBlockLine(var5, var6, Block.wood.blockID);
+		
 
-		 if (trunkSize == 2)
-		 {
-			 ++var5[0];
-			 ++var6[0];
-			 this.placeBlockLine(var5, var6, Block.wood.blockID);
-			 ++var5[2];
-			 ++var6[2];
-			 this.placeBlockLine(var5, var6, Block.wood.blockID);
-			 var5[0] += -1;
-			 var6[0] += -1;
-			 this.placeBlockLine(var5, var6, Block.wood.blockID);
-		 }
-	 }
+	    void generateTrunk()
+	    {
+	            int var1 = basePos[0];
+	            int var2 = basePos[1];
+	            int var3 = basePos[1] + height;
+	            int var4 = basePos[2];
+	     
+	            int[] var5 = new int[] {var1, var2, var4};
+	            int[] var6 = new int[] {var1, var3, var4};
+	     
+	            if (trunkSize == 2)
+	            {
+	                    for (int i = -2; i < 3; i++ )
+	                    {
+	                            var5[0] = var1 + i;
+	                            var6[0] = var1 + i;
+	     
+	                            for (int j = -2; j < 3; j++ )
+	                            {
+	                                    if ((i != -2 && j != -2) || (i != -2 && j != 2) || (i != 2 && j != -2) || (i != 2 && j != 2))
+	                                    {
+	                                            var5[2] = var4 + j;
+	                                            var6[2] = var4 + j;
+	                                            this.placeBlockLine(var5, var6, Block.wood.blockID);
+	                                    }
+	                            }
+	                    }
+	            }
+	    }
+
+
 
 	 /**
 	  * Generates additional wood blocks to fill out the bases of different leaf nodes that would otherwise degrade.
@@ -487,7 +497,7 @@ public class WorldGenMassiveTree extends WorldGenerator
 
 		 if (heightLimit == 0)
 		 {
-			 heightLimit = 30 + par2Random.nextInt(30);
+			 heightLimit = 50;
 		 }
 
 		 if (!this.validTreeLocation())
