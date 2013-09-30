@@ -36,7 +36,7 @@ public class BiomeGenWasteland extends BiomeGenBase
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
-		 return par1Random.nextInt(4) == 0 ? new WorldGenDeadTree3(false) : (par1Random.nextInt(2) == 0 ? new WorldGenWasteland2() : new WorldGenWasteland());
+		 return par1Random.nextInt(4) == 0 ? new WorldGenWasteland() : (par1Random.nextInt(4) == 0 ? new WorldGenWasteland2() : new WorldGenDeadTree3(false));
 	 }
 
 	 /**

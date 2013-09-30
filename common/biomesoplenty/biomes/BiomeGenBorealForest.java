@@ -29,7 +29,7 @@ public class BiomeGenBorealForest extends BiomeGenBase
 		customBiomeDecorator.grassPerChunk = 50;
 		customBiomeDecorator.wheatGrassPerChunk = 25;
 		customBiomeDecorator.shrubsPerChunk = 10;
-		customBiomeDecorator.waterReedsPerChunk = 2;
+		customBiomeDecorator.waterReedsPerChunk = 4;
 	}
 
 	/**

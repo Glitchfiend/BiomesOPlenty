@@ -91,6 +91,7 @@ public class BlockReferences {
 		redwoodSapling (Blocks.colorizedSaplings, 3),
 		willowSapling (Blocks.colorizedSaplings, 4),
 		pineSapling (Blocks.colorizedSaplings, 5),
+		sacredoakSapling (Blocks.colorizedSaplings, 6),
 		mapleSapling (Blocks.saplings, 11),
 		orangeAutumnSapling (Blocks.saplings, 8),
 		pinkCherrySapling (Blocks.saplings, 10),

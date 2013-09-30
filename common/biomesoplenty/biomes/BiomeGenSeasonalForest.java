@@ -34,6 +34,7 @@ public class BiomeGenSeasonalForest extends BiomeGenBase
 		customBiomeDecorator.toadstoolsPerChunk = 4;
 		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.shrubsPerChunk = 15;
+		customBiomeDecorator.waterReedsPerChunk = 4;
 	}
 
 	/**

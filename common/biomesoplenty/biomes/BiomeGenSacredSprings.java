@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.worldgen.tree.WorldGenMassiveTree;
 
 public class BiomeGenSacredSprings extends BiomeGenBase
 {
@@ -39,7 +40,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return new WorldGenShrub(0, 0);
+		return par1Random.nextInt(150) == 0 ? new WorldGenMassiveTree(false) : new WorldGenShrub(0, 0);
 	}
 
 	@Override

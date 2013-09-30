@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.worldgen.WorldGenNetherBush;
 import biomesoplenty.worldgen.tree.WorldGenAcacia;
 import biomesoplenty.worldgen.tree.WorldGenMangrove;
+import biomesoplenty.worldgen.tree.WorldGenMassiveTree;
 import biomesoplenty.worldgen.tree.WorldGenPalmTree1;
 import biomesoplenty.worldgen.tree.WorldGenPalmTree3;
 import biomesoplenty.worldgen.tree.WorldGenPineTree;
@@ -26,7 +26,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
-	private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
+	private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine", "sacredoak"};
 	private Icon[] textures;
 	private static final int TYPES = 15;
 
@@ -163,8 +163,8 @@ public class BlockBOPColorizedSapling extends BlockSapling
 				obj = new WorldGenPineTree();
 				break;
 
-			case 6: // Hellbark
-				obj = new WorldGenNetherBush();
+			case 6: // Sacred Oak
+				obj = new WorldGenMassiveTree(false);
 				break;
 			}
 		}

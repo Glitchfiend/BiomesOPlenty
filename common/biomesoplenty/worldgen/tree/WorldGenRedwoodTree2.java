@@ -39,7 +39,7 @@ public class WorldGenRedwoodTree2 extends WorldGenerator
 	@Override
 	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
 	{
-		int var6 = par2Random.nextInt(10) + minTreeHeight;
+		int var6 = par2Random.nextInt(15) + minTreeHeight;
 		boolean var7 = true;
 
 		if (par4 >= 1 && par4 + var6 + 1 <= 256)
@@ -58,16 +58,16 @@ public class WorldGenRedwoodTree2 extends WorldGenerator
 
 			for (var8 = par4; var8 <= par4 + 1 + var6; ++var8)
 			{
-				var9 = 1;
+				var9 = 5;
 
 				if (var8 == par4)
 				{
-					var9 = 0;
+					var9 = 5;
 				}
 
 				if (var8 >= par4 + 1 + var6 - 2)
 				{
-					var9 = 2;
+					var9 = 6;
 				}
 
 				for (int var10 = par3 - var9; var10 <= par3 + var9 && var7; ++var10)

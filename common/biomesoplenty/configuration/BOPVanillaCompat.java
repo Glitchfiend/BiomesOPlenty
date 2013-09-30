@@ -47,6 +47,7 @@ public class BOPVanillaCompat {
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 15), 1, 2, 5));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(), 1, 0), 1, 1, 15));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(), 1, 0), 1, 1, 10));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 
 			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
 			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 10), 1, 3, 10));
@@ -70,9 +71,11 @@ public class BOPVanillaCompat {
 			
 			desertTemple.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(),1,0), 1, 1, 20));
 			desertTemple.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(),1,0), 1, 1, 15));
+			desertTemple.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 			
 			jungleTemple.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(),1,0), 1, 1, 20));
 			jungleTemple.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(),1,0), 1, 1, 15));
+			jungleTemple.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 
 			village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));

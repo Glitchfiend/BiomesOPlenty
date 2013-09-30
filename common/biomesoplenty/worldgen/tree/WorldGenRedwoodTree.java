@@ -24,7 +24,7 @@ public class WorldGenRedwoodTree extends WorldGenerator
 
 	public WorldGenRedwoodTree(boolean par1)
 	{
-		this(par1, 30, 0, 0, false);
+		this(par1, 40, 0, 0, false);
 	}
 
 	public WorldGenRedwoodTree(boolean par1, int par2, int par3, int par4, boolean par5)
@@ -62,16 +62,16 @@ public class WorldGenRedwoodTree extends WorldGenerator
 
 			for (var8 = par4; var8 <= par4 + 1 + var6; ++var8)
 			{
-				var9 = 1;
+				var9 = 7;
 
 				if (var8 == par4)
 				{
-					var9 = 0;
+					var9 = 7;
 				}
 
 				if (var8 >= par4 + 1 + var6 - 2)
 				{
-					var9 = 2;
+					var9 = 8;
 				}
 
 				for (int var10 = par3 - var9; var10 <= par3 + var9 && var7; ++var10)

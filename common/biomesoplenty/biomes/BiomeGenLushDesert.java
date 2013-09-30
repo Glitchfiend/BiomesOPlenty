@@ -36,6 +36,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		customBiomeDecorator.cactiPerChunk = 20;
 		customBiomeDecorator.tinyCactiPerChunk = 5;
 		customBiomeDecorator.waterLakesPerChunk = 5;
+		customBiomeDecorator.waterReedsPerChunk = 4;
 		customBiomeDecorator.aloePerChunk = 3;
 		customBiomeDecorator.generateGrass = true;
 		customBiomeDecorator.generateSand = true;

@@ -90,6 +90,7 @@ import biomesoplenty.worldgen.WorldGenPotatoes;
 import biomesoplenty.worldgen.WorldGenPumpkinAlt;
 import biomesoplenty.worldgen.WorldGenQuagmire;
 import biomesoplenty.worldgen.WorldGenQuicksand;
+import biomesoplenty.worldgen.WorldGenRedwoodShrub;
 import biomesoplenty.worldgen.WorldGenReedBOP;
 import biomesoplenty.worldgen.WorldGenShield;
 import biomesoplenty.worldgen.WorldGenShortKelp;
@@ -234,6 +235,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator bluebellGen;
 	public WorldGenerator minersDelightGen;
 	public WorldGenerator icyIrisGen;
+	public WorldGenerator redwoodShrubGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -331,6 +333,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int minersDelightPerChunk;
 	public int icyIrisPerChunk;
 	public int waterReedsPerChunk;
+	public int redwoodShrubsPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -536,6 +539,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		waterlilyGen = new WorldGenWaterlily();
 		algaeGen = new WorldGenAlgae();
 		waterReedGen = new WorldGenWaterReeds();
+		redwoodShrubGen = new WorldGenRedwoodShrub(0,0);
 		pitGen = new WorldGenPit(Blocks.ash.get().blockID);
 		waterlilyPerChunk = 0;
 		lilyflowersPerChunk = 0;
@@ -628,6 +632,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		minersDelightPerChunk = 2;
 		icyIrisPerChunk = 0;
 		waterReedsPerChunk = 0;
+		redwoodShrubsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1544,6 +1549,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 highCattailGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < redwoodShrubsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(50) + 70;
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 redwoodShrubGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
 		 //Added

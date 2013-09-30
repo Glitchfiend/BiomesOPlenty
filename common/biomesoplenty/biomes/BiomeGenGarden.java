@@ -40,6 +40,7 @@ public class BiomeGenGarden extends BiomeGenBase
 		customBiomeDecorator.lilyflowersPerChunk = 4;
 		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.shrubsPerChunk = 10;
+		customBiomeDecorator.waterReedsPerChunk = 4;
 		customBiomeDecorator.generatePumpkins = true;
 		customBiomeDecorator.generateMelons = true;
 		spawnableCreatureList.clear();

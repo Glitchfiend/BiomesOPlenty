@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.worldgen.WorldGenTropicsShrub;
 import biomesoplenty.worldgen.tree.WorldGenPalmTree1;
 import biomesoplenty.worldgen.tree.WorldGenPalmTree3;
 
@@ -24,7 +25,7 @@ public class BiomeGenTropics extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 4;
+		customBiomeDecorator.treesPerChunk = 6;
 		customBiomeDecorator.grassPerChunk = 7;
 		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = 10;
@@ -67,7 +68,7 @@ public class BiomeGenTropics extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenPalmTree1() : new WorldGenPalmTree3();
+		return par1Random.nextInt(3) == 0 ? new WorldGenPalmTree1() : (par1Random.nextInt(2) == 0 ? new WorldGenTropicsShrub() : new WorldGenPalmTree3());
 	}
 
 	/**
@@ -77,7 +78,7 @@ public class BiomeGenTropics extends BiomeGenBase
 	public int getSkyColorByTemp(float par1)
 	{
 		if (BOPConfigurationMisc.skyColors)
-			return 3333631;
+			return 507391;
 		else
 		{
 			par1 /= 3.0F;
