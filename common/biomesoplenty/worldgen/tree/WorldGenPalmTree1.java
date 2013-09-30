@@ -101,7 +101,7 @@ public class WorldGenPalmTree1 extends WorldGenerator
 	public void buildBlock(World world, int x, int y, int z, int id, int meta)
 	{
 		Material m = world.getBlockMaterial(x, y, z);
-		if(m == Material.air || m == Material.leaves)
+		if(m == Material.air || m == Material.leaves || m == Material.vine || m == Material.plants)
 		{
 			world.setBlock(x, y, z, id, meta, 2);
 		}
