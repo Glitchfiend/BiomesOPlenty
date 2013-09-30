@@ -71,7 +71,7 @@ public class BOPEntities {
 		
 		if (Biomes.netherBone.isPresent() && Biomes.netherDesert.isPresent())
 		{
-			EntityRegistry.addSpawn(EntityPhantom.class, 8, 1, 1, EnumCreatureType.monster, Biomes.netherBone.get(), Biomes.netherDesert.get());
+			EntityRegistry.addSpawn(EntityPhantom.class, 65, 1, 1, EnumCreatureType.monster, Biomes.netherBone.get(), Biomes.netherDesert.get());
 		}
 
 		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.JungleSpider.name", "en_US", "Jungle Spider");
