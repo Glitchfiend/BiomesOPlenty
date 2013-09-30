@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.tree.WorldGenPalmTree3;
+import biomesoplenty.worldgen.tree.WorldGenPalmTree1;
 
 public class BiomeGenOasis extends BiomeGenBase
 {
@@ -65,6 +65,6 @@ public class BiomeGenOasis extends BiomeGenBase
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
-		 return new WorldGenPalmTree3();
+		 return new WorldGenPalmTree1();
 	 }
 }

@@ -7,13 +7,13 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.worldgen.WorldGenTropicsShrub;
 import biomesoplenty.worldgen.tree.WorldGenPalmTree1;
-import biomesoplenty.worldgen.tree.WorldGenPalmTree3;
 
 public class BiomeGenTropics extends BiomeGenBase
 {
@@ -25,7 +25,7 @@ public class BiomeGenTropics extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 6;
+		customBiomeDecorator.treesPerChunk = 12;
 		customBiomeDecorator.grassPerChunk = 7;
 		customBiomeDecorator.wheatGrassPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = 10;
@@ -68,7 +68,7 @@ public class BiomeGenTropics extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenPalmTree1() : (par1Random.nextInt(2) == 0 ? new WorldGenTropicsShrub() : new WorldGenPalmTree3());
+		return par1Random.nextInt(2) == 0 ? new WorldGenPalmTree1() : (par1Random.nextInt(2) == 0 ? new WorldGenTropicsShrub() : new WorldGenShrub(0,0));
 	}
 
 	/**
