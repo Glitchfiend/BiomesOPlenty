@@ -321,6 +321,8 @@ public class BOPBlocks
 
 		OreDictionary.registerOre("sprout", new ItemStack(Blocks.foliage.get(),5));
 
+		OreDictionary.registerOre("algae", new ItemStack(Blocks.foliage.get(),0));
+
 		OreDictionary.registerOre("crystal", new ItemStack(Blocks.crystal.get(),0));
 
 		OreDictionary.registerOre("logMagic", new ItemStack(Blocks.logs2.get(),1));
