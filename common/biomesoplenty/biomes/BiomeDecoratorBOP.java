@@ -1707,17 +1707,20 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 lilyflowerGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 
-		 for (var2 = 0; doGen && var2 < algaePerChunk; ++var2)
+		 if( BOPConfigurationTerrainGen.algaeGen )
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
-
-			 for (var5 = randomGenerator.nextInt(256); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
+			 for (var2 = 0; doGen && var2 < algaePerChunk; ++var2)
 			 {
-				 ;
-			 }
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = chunk_Z + randomGenerator.nextInt(16) + 8;
 
-			 algaeGen.generate(currentWorld, randomGenerator, var3, var5, var4);
+				 for (var5 = randomGenerator.nextInt(256); var5 > 0 && currentWorld.getBlockId(var3, var5 - 1, var4) == 0; --var5)
+				 {
+					 ;
+				 }
+
+				 algaeGen.generate(currentWorld, randomGenerator, var3, var5, var4);
+			 }
 		 }
 		 
 		 for (var2 = 0; doGen && var2 < waterReedsPerChunk; ++var2)
