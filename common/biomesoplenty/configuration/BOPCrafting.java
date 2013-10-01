@@ -325,6 +325,12 @@ public class BOPCrafting
 		OreDictionary.registerOre("gemTopaz", new ItemStack(Items.miscItems.get(), 1, 12));
 		OreDictionary.registerOre("gemTanzanite", new ItemStack(Items.miscItems.get(), 1, 13));
 		OreDictionary.registerOre("gemSapphire", new ItemStack(Items.miscItems.get(), 1, 15));
+		
+		OreDictionary.registerOre("oreRuby", new ItemStack(Blocks.amethystOre.get(), 1, 2));
+		OreDictionary.registerOre("oreTopaz", new ItemStack(Blocks.amethystOre.get(), 1, 6));
+		OreDictionary.registerOre("orePeridot", new ItemStack(Blocks.amethystOre.get(), 1, 4));
+		OreDictionary.registerOre("oreTanzanite", new ItemStack(Blocks.amethystOre.get(), 1, 8));
+		OreDictionary.registerOre("oreSapphire", new ItemStack(Blocks.amethystOre.get(), 1, 12));
 
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeSapling", new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
@@ -361,5 +367,29 @@ public class BOPCrafting
 		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesFruit.get(), 1, OreDictionary.WILDCARD_VALUE));
+		
+		OreDictionary.registerOre("blockMud", new ItemStack(Blocks.mud.get()));
+		OreDictionary.registerOre("blockAsh", new ItemStack(Blocks.ash.get()));
+		OreDictionary.registerOre("blockCrystal", new ItemStack(Blocks.crystal.get()));
+		
+		OreDictionary.registerOre("stoneRed", new ItemStack(Blocks.redRock.get()));
+		OreDictionary.registerOre("dirtDried", new ItemStack(Blocks.driedDirt.get()));
+		OreDictionary.registerOre("grassSmoldering", new ItemStack(Blocks.holyGrass.get(), 1));
+		
+		OreDictionary.registerOre("mushroomToadstool", new ItemStack(Blocks.mushrooms.get(), 0));
+		OreDictionary.registerOre("mushroomBluemilk", new ItemStack(Blocks.mushrooms.get(), 2));
+		OreDictionary.registerOre("mushroomGlowshroom", new ItemStack(Blocks.mushrooms.get(), 3));
+		
+		OreDictionary.registerOre("logWillow", new ItemStack(Blocks.logs3.get(), 1));
+		OreDictionary.registerOre("logMagic", new ItemStack(Blocks.logs2.get(), 1));
+		
+		OreDictionary.registerOre("leavesMagic", new ItemStack(Blocks.leaves1.get(), 2));
+		
+		OreDictionary.registerOre("flowerDeathbloom", new ItemStack(Blocks.flowers.get(), 2));
+		OreDictionary.registerOre("flowerDaffodil", new ItemStack(Blocks.flowers.get(), 6));
+		OreDictionary.registerOre("flowerRainbow", new ItemStack(Blocks.flowers.get(), 11));
+		
+		OreDictionary.registerOre("plantAlgae", new ItemStack(Blocks.foliage.get(), 0));
+		OreDictionary.registerOre("plantSprout", new ItemStack(Blocks.foliage.get(), 5));
 	}
 }
