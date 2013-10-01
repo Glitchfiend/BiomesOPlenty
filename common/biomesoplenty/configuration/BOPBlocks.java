@@ -3,7 +3,9 @@ package biomesoplenty.configuration;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.OreDictionary;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockAltar;
 import biomesoplenty.blocks.BlockAsh;
@@ -212,11 +214,19 @@ public class BOPBlocks
 	private static void registerBlocks()
 	{
 		// Add block registration
+
 		GameRegistry.registerBlock(Blocks.mud.get(), ItemBlockMud.class, "bop.mud");
+
+        OreDictionary.registerOre("mud", new ItemStack(Blocks.mud.get()));
 		GameRegistry.registerBlock(Blocks.driedDirt.get(), "bop.driedDirt");
+		OreDictionary.registerOre("dirtDried", new ItemStack(Blocks.driedDirt.get()));
 		GameRegistry.registerBlock(Blocks.redRock.get(), ItemBlockRedRock.class, "bop.redRock");
+		OreDictionary.registerOre("stoneRed", new ItemStack(Blocks.redRock.get()));
 		GameRegistry.registerBlock(Blocks.ash.get(), "bop.ash");
+		OreDictionary.registerOre("ash", new ItemStack(Blocks.ash.get()));
 		GameRegistry.registerBlock(Blocks.plants.get(), ItemBlockPlant.class, "bop.plants");
+		OreDictionary.registerOre("bluemilk", new ItemStack(Blocks.mushrooms.get()));
+		
 		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBlockFlower.class, "bop.flowers");
 		GameRegistry.registerBlock(Blocks.flowers2.get(), ItemBlockFlower2.class, "bop.flowers2");
 		GameRegistry.registerBlock(Blocks.mushrooms.get(), ItemBlockMushroom.class, "bop.mushrooms");
@@ -292,6 +302,34 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.jacarandaStairs.get(), "bop.jacarandaStairs");
 
 		GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBlockColorizedLeaves.class, "bop.leavesColorized");
+
+		OreDictionary.registerOre("mushroomBluemilk", new ItemStack(Blocks.mushrooms.get(),2));
+
+		OreDictionary.registerOre("mushroomToadstool", new ItemStack(Blocks.mushrooms.get(),0));
+
+		OreDictionary.registerOre("logWillow", new ItemStack(Blocks.logs3.get(),1));
+
+		OreDictionary.registerOre("mushroomGlowshroom", new ItemStack(Blocks.mushrooms.get(),3));
+
+		OreDictionary.registerOre("bluemilk", new ItemStack(Blocks.mushrooms.get(),2));
+
+		OreDictionary.registerOre("daffodil", new ItemStack(Blocks.flowers.get(),6));
+
+		OreDictionary.registerOre("mushroomDeathbloom", new ItemStack(Blocks.flowers.get(),2));
+
+		OreDictionary.registerOre("bluemilk", new ItemStack(Blocks.mushrooms.get(),2));
+
+		OreDictionary.registerOre("sprout", new ItemStack(Blocks.foliage.get(),5));
+
+		OreDictionary.registerOre("crystal", new ItemStack(Blocks.crystal.get(),0));
+
+		OreDictionary.registerOre("logMagic", new ItemStack(Blocks.logs2.get(),1));
+
+		OreDictionary.registerOre("leavesMagic", new ItemStack(Blocks.leaves1.get(),2));
+
+		OreDictionary.registerOre("grassSmoldering", new ItemStack(Blocks.holyGrass.get(),1));
+
+		OreDictionary.registerOre("flowerRainbow", new ItemStack(Blocks.flowers.get(),11));
 	}
 	
 	private static void registerTileEntities()
