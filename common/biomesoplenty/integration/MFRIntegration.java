@@ -1,23 +1,17 @@
 package biomesoplenty.integration;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import powercrystals.minefactoryreloaded.api.FarmingRegistry;
-import powercrystals.minefactoryreloaded.api.HarvestType;
-import powercrystals.minefactoryreloaded.api.MobDrop;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.BlockReferences;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Entities;
 import biomesoplenty.api.Items;
 import biomesoplenty.integration.minefactoryreloaded.Fertilizable;
 import biomesoplenty.integration.minefactoryreloaded.FruitLeaves;
-import biomesoplenty.integration.minefactoryreloaded.Grindable;
 import biomesoplenty.integration.minefactoryreloaded.Harvestable;
-import biomesoplenty.integration.minefactoryreloaded.Plantable;
-
 import com.google.common.base.Optional;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import powercrystals.minefactoryreloaded.api.FarmingRegistry;
+import powercrystals.minefactoryreloaded.api.HarvestType;
 
 public class MFRIntegration
 {
@@ -26,7 +20,6 @@ public class MFRIntegration
         registerRubberTreeBiomes();
         registerFarmables();
         registerSludgeDrops();
-        registerGrindables();
     }
 
     private static void registerRubberTreeBiomes()
@@ -77,7 +70,6 @@ public class MFRIntegration
         
         for(Optional<? extends Block> sapling : bopSaplings)
         {
-            FarmingRegistry.registerPlantable(new Plantable(sapling.get().blockID, sapling.get().blockID));
             FarmingRegistry.registerFertilizable(new Fertilizable(sapling.get().blockID));
         }
         
@@ -95,24 +87,5 @@ public class MFRIntegration
         FarmingRegistry.registerSludgeDrop(15, BlockReferences.getBlockItemStack("hardDirt"));
         FarmingRegistry.registerSludgeDrop(15, new ItemStack(Items.miscItems.get(), 4, 1));
         FarmingRegistry.registerSludgeDrop(25, new ItemStack(Items.mudball.get(), 4));
-    }
-    
-    private static void registerGrindables()
-    {
-        FarmingRegistry.registerGrindable(new Grindable(Entities.JungleSpider, new MobDrop[]
-                {
-                new MobDrop(3, new ItemStack(Item.silk)),
-                new MobDrop(1, new ItemStack(Item.spiderEye))
-                }));
-        FarmingRegistry.registerGrindable(new Grindable(Entities.Rosester, new MobDrop[]
-                {
-                new MobDrop(1, new ItemStack(Item.chickenRaw)),
-                new MobDrop(1, new ItemStack(Item.dyePowder, 1, 1))
-                }));
-        FarmingRegistry.registerGrindable(new Grindable(Entities.Glob, new MobDrop[]
-                {
-                new MobDrop(1, new ItemStack(Item.slimeBall)),
-                new MobDrop(4, new ItemStack(Items.mudball.get()))
-                }));
     }
 }
