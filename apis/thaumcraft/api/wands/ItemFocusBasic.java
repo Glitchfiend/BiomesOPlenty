@@ -2,7 +2,9 @@ package thaumcraft.api.wands;
 
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Map;
 
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
@@ -11,6 +13,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import cpw.mods.fml.relauncher.Side;
@@ -33,6 +36,12 @@ public class ItemFocusBasic extends Item  implements IWandFocus {
 		return icon;
 	}
 	
+	@Override
+	public boolean isItemTool(ItemStack par1ItemStack)
+    {
+        return true;
+    }
+
 	@Override
 	public void addInformation(ItemStack stack,EntityPlayer player, List list, boolean par4) {
 		AspectList al = this.getVisCost();
@@ -96,7 +105,12 @@ public class ItemFocusBasic extends Item  implements IWandFocus {
 	 */
 	@Override
 	public String getSortingHelper(ItemStack itemstack) {
-		return "00";
+		Map<Integer,Integer> ench = EnchantmentHelper.getEnchantments(itemstack);
+		String out="";
+		for (Integer lvl:ench.values()) {
+			out = out + lvl + "";
+		}
+		return out;
 	}
 
 	@Override
@@ -120,6 +134,23 @@ public class ItemFocusBasic extends Item  implements IWandFocus {
 	@Override
 	public WandFocusAnimation getAnimation() {
 		return WandFocusAnimation.WAVE;
+	}
+
+	@Override
+	public Icon getFocusDepthLayerIcon() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see thaumcraft.api.wands.IWandFocus#acceptsEnchant(int)
+	 * By default fortune is off for all wands
+	 */
+	@Override
+	public boolean acceptsEnchant(int id) {
+		if (id==ThaumcraftApi.enchantFrugal||
+			id==ThaumcraftApi.enchantPotency) return true;
+		return false;
 	}
 
 	

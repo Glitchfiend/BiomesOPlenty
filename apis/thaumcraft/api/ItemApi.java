@@ -19,17 +19,33 @@ public class ItemApi {
 		ItemStack item = null;
 
 		try {
-			String itemClass = "thaumcraft.common.Config";
+			String itemClass = "thaumcraft.common.config.ConfigItems";
 			Object obj = Class.forName(itemClass).getField(itemString).get(null);
 			if (obj instanceof Item) {
 				item = new ItemStack((Item) obj,1,meta);
-			} else if (obj instanceof Block) {
+			} else if (obj instanceof ItemStack) {
+				item = (ItemStack) obj;
+			}
+		} catch (Exception ex) {
+			FMLLog.warning("[Thaumcraft] Could not retrieve item identified by: " + itemString);
+		}
+
+		return item;
+	}
+	
+	public static ItemStack getBlock(String itemString, int meta) {
+		ItemStack item = null;
+
+		try {
+			String itemClass = "thaumcraft.common.config.ConfigBlocks";
+			Object obj = Class.forName(itemClass).getField(itemString).get(null);
+			if (obj instanceof Block) {
 				item = new ItemStack((Block) obj,1,meta);
 			} else if (obj instanceof ItemStack) {
 				item = (ItemStack) obj;
 			}
 		} catch (Exception ex) {
-			FMLLog.warning("[Thaumcraft] Could not retrieve item or block identified by: " + itemString);
+			FMLLog.warning("[Thaumcraft] Could not retrieve block identified by: " + itemString);
 		}
 
 		return item;

@@ -3,6 +3,7 @@ package thaumcraft.api;
 import java.lang.reflect.Method;
 
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import cpw.mods.fml.common.FMLLog;
@@ -109,4 +110,28 @@ public class ThaumcraftApiHelper {
 	    }
 		return null;
 	}
+	
+	public static boolean containsMatch(boolean strict, ItemStack[] inputs, ItemStack... targets)
+    {
+        for (ItemStack input : inputs)
+        {
+            for (ItemStack target : targets)
+            {
+                if (itemMatches(target, input, strict))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean itemMatches(ItemStack target, ItemStack input, boolean strict)
+    {
+        if (input == null && target != null || input != null && target == null)
+        {
+            return false;
+        }
+        return (target.itemID == input.itemID && ((target.getItemDamage() == OreDictionary.WILDCARD_VALUE && !strict) || target.getItemDamage() == input.getItemDamage()));
+    }
 }

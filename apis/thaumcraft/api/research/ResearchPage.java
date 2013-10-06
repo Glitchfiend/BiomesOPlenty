@@ -7,8 +7,9 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.IArcaneRecipe;
-import thaumcraft.api.crafting.RecipeCrucible;
+import thaumcraft.api.crafting.InfusionRecipe;
 
 public class ResearchPage {
 	public static enum PageType
@@ -20,6 +21,7 @@ public class ResearchPage {
         ARCANE_CRAFTING,
         ASPECTS,
         NORMAL_CRAFTING,
+        INFUSION_CRAFTING,
         COMPOUND_CRAFTING
     }
 	
@@ -60,12 +62,27 @@ public class ResearchPage {
 	}
 	
 	/**
-	 * @param recipe a vanilla crafting recipe.
+	 * @param recipe a collection of vanilla crafting recipes.
 	 */
 	public ResearchPage(IRecipe[] recipe) {
 		this.type = PageType.NORMAL_CRAFTING;
 		this.recipe = recipe;
-//		this.recipeOutput = recipe.getRecipeOutput();
+	}
+	
+	/**
+	 * @param recipe a collection of arcane crafting recipes.
+	 */
+	public ResearchPage(IArcaneRecipe[] recipe) {
+		this.type = PageType.ARCANE_CRAFTING;
+		this.recipe = recipe;
+	}
+	
+	/**
+	 * @param recipe a collection of infusion crafting recipes.
+	 */
+	public ResearchPage(InfusionRecipe[] recipe) {
+		this.type = PageType.INFUSION_CRAFTING;
+		this.recipe = recipe;
 	}
 	
 	/**
@@ -88,10 +105,23 @@ public class ResearchPage {
 	/**
 	 * @param recipe an alchemy crafting recipe.
 	 */
-	public ResearchPage(RecipeCrucible recipe) {
+	public ResearchPage(CrucibleRecipe recipe) {
 		this.type = PageType.CRUCIBLE_CRAFTING;
 		this.recipe = recipe;
 		this.recipeOutput = recipe.recipeOutput;
+	}
+	
+	/**
+	 * @param recipe an infusion crafting recipe.
+	 */
+	public ResearchPage(InfusionRecipe recipe) {
+		this.type = PageType.INFUSION_CRAFTING;
+		this.recipe = recipe;
+		if (recipe.recipeOutput instanceof ItemStack) {
+			this.recipeOutput = (ItemStack) recipe.recipeOutput;
+		} else {
+			this.recipeOutput = recipe.recipeInput;
+		}
 	}
 	
 	/**

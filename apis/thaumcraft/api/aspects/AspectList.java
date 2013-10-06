@@ -151,20 +151,15 @@ public class AspectList implements Serializable {
 	
 	/**
 	 * Reduces the amount of an aspect in this collection by the given amount. 
-	 * If reduced below 0 the aspect will be removed completely. 
-	 * If the aspect does not exist then a negative value will be added. 
+	 * If reduced to 0 or less the aspect will be removed completely. 
 	 * @param key
 	 * @param amount
 	 * @return
 	 */
 	public AspectList remove(Aspect key, int amount) {
-		if (getAmount(key)>=amount) {
-			int am = getAmount(key)-amount;
-			if (am<=0) aspects.remove(key); else
-			this.aspects.put(key, am);
-		} else if (getAmount(key)==0) {
-			this.aspects.put(key, -amount);
-		}
+		int am = getAmount(key)-amount;
+		if (am<=0) aspects.remove(key); else
+		this.aspects.put(key, am);
 		return this;
 	}
 	
@@ -207,6 +202,7 @@ public class AspectList implements Serializable {
 		if (this.aspects.containsKey(aspect)) {
 			int oldamount = this.aspects.get(aspect);
 			if (amount<oldamount) amount=oldamount;
+			
 		}
 		this.aspects.put( aspect, amount );
 		return this;

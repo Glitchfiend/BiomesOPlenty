@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.minecraft.block.material.MapColor;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
@@ -17,7 +15,8 @@ import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
-import thaumcraft.api.crafting.RecipeCrucible;
+import thaumcraft.api.crafting.CrucibleRecipe;
+import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.crafting.ShapelessArcaneRecipe;
 import thaumcraft.api.research.IScanEventHandler;
@@ -41,8 +40,13 @@ public class ThaumcraftApi {
 	public static EnumToolMaterial toolMatElemental = EnumHelper.addToolMaterial("THAUMIUM_ELEMENTAL", 3, 1500, 10F, 3, 18);
 	public static EnumArmorMaterial armorMatThaumium = EnumHelper.addArmorMaterial("THAUMIUM", 25, new int[] { 2, 6, 5, 2 }, 25);
 	public static EnumArmorMaterial armorMatSpecial = EnumHelper.addArmorMaterial("SPECIAL", 25, new int[] { 1, 3, 2, 1 }, 25);
-	public static final Material fluxGoomaterial = (new MaterialTaint(MapColor.grassColor));
-	public static final Material taintMaterial = (new MaterialTaint(MapColor.grassColor));
+	
+	//Enchantment references
+	public static int enchantFrugal;
+	public static int enchantPotency;
+	public static int enchantWandFortune;
+	public static int enchantHaste;
+	public static int enchantRepair;
 	
 	//Miscellaneous
 	/**
@@ -164,6 +168,41 @@ public class ThaumcraftApi {
         craftingRecipes.add(r);
 		return r;
     }
+	
+	/**
+	 * @param research the research key required for this recipe to work. Leave blank if it will work without research
+	 * @param result the recipe output. It can either be an itemstack or an nbt compound tag that will be added to the central item
+	 * @param instability a number that represents the N in 1000 chance for the infusion altar to spawn an
+	 * 		  instability effect each second while the crafting is in progress
+	 * @param aspects the essentia cost per aspect. 
+	 * @param aspects input the central item to be infused
+	 * @param recipe An array of items required to craft this. Input itemstacks are NBT sensitive. 
+	 * 				Infusion crafting components are automatically "fuzzy" and the oredict will be checked for possible matches.
+	 * 
+	 */
+	public static InfusionRecipe addInfusionCraftingRecipe(String research, Object result, int instability, AspectList aspects, ItemStack input,ItemStack[] recipe)
+    {
+		if (!(result instanceof ItemStack || result instanceof NBTBase)) return null;
+		InfusionRecipe r= new InfusionRecipe(research, result, instability, aspects, input, recipe);
+        craftingRecipes.add(r);
+		return r;
+    }
+	
+	/**
+	 * @param stack the recipe result
+	 * @return the recipe
+	 */
+	public static InfusionRecipe getInfusionRecipe(ItemStack res) {
+		for (Object r:getCraftingRecipes()) {
+			if (r instanceof InfusionRecipe) {
+				if (((InfusionRecipe)r).recipeOutput instanceof ItemStack) {
+					if (((ItemStack) ((InfusionRecipe)r).recipeOutput).isItemEqual(res))
+						return (InfusionRecipe)r;
+				} 
+			}
+		}
+		return null;
+	}
 
     
     /**
@@ -172,8 +211,8 @@ public class ThaumcraftApi {
      * @param cost the vis cost
      * @param tags the aspects required to craft this
      */
-    public static RecipeCrucible addCrucibleRecipe(String key, ItemStack result, Object catalyst, AspectList tags) {
-    	RecipeCrucible rc = new RecipeCrucible(key, result, catalyst, tags);
+    public static CrucibleRecipe addCrucibleRecipe(String key, ItemStack result, Object catalyst, AspectList tags) {
+    	CrucibleRecipe rc = new CrucibleRecipe(key, result, catalyst, tags);
     	getCraftingRecipes().add(rc);
 		return rc;
 	}
@@ -183,11 +222,11 @@ public class ThaumcraftApi {
 	 * @param stack the recipe result
 	 * @return the recipe
 	 */
-	public static RecipeCrucible getCrucibleRecipe(ItemStack stack) {
+	public static CrucibleRecipe getCrucibleRecipe(ItemStack stack) {
 		for (Object r:getCraftingRecipes()) {
-			if (r instanceof RecipeCrucible) {
-				if (((RecipeCrucible)r).recipeOutput.isItemEqual(stack))
-					return (RecipeCrucible)r;
+			if (r instanceof CrucibleRecipe) {
+				if (((CrucibleRecipe)r).recipeOutput.isItemEqual(stack))
+					return (CrucibleRecipe)r;
 			}
 		}
 		return null;
@@ -198,12 +237,13 @@ public class ThaumcraftApi {
 	 * @param stack the item
 	 * @return the thaumcraft recipe key that produces that item. 
 	 */
-	private static HashMap<ItemStack,Object[]> keyCache = new HashMap<ItemStack,Object[]>();
+	private static HashMap<int[],Object[]> keyCache = new HashMap<int[],Object[]>();
 	public static Object[] getCraftingRecipeKey(EntityPlayer player, ItemStack stack) {
-		if (keyCache.containsKey(stack)) {
-			if (keyCache.get(stack)==null) return null;
-			if (ThaumcraftApiHelper.isResearchComplete(player.username, (String)(keyCache.get(stack))[0]))
-				return keyCache.get(stack);
+		int[] key = new int[] {stack.itemID,stack.getItemDamage()};
+		if (keyCache.containsKey(key)) {
+			if (keyCache.get(key)==null) return null;
+			if (ThaumcraftApiHelper.isResearchComplete(player.username, (String)(keyCache.get(key))[0]))
+				return keyCache.get(key);
 			else 
 				return null;
 		}
@@ -212,8 +252,8 @@ public class ThaumcraftApi {
 				if (ri.getPages()==null) continue;
 				for (int a=0;a<ri.getPages().length;a++) {
 					ResearchPage page = ri.getPages()[a];
-					if (ItemStack.areItemStacksEqual(page.recipeOutput,stack)) {
-						keyCache.put(stack,new Object[] {ri.key,a});
+					if (page.recipeOutput!=null && stack !=null && page.recipeOutput.isItemEqual(stack)) {
+						keyCache.put(key,new Object[] {ri.key,a});
 						if (ThaumcraftApiHelper.isResearchComplete(player.username, ri.key))
 							return new Object[] {ri.key,a};
 						else 
@@ -222,7 +262,7 @@ public class ThaumcraftApi {
 				}
 			}
 		}
-		keyCache.put(stack,null);
+		keyCache.put(key,null);
 		return null;
 	}
 	

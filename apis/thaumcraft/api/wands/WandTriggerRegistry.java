@@ -58,10 +58,10 @@ public class WandTriggerRegistry {
 	 */
 	public static boolean performTrigger(World world, ItemStack wand, EntityPlayer player, 
 			int x, int y, int z, int side, int blockid, int meta) {
-		if (!triggers.containsKey(Arrays.asList(blockid,meta))) return false;
-		
+				
 		List l = triggers.get(Arrays.asList(blockid,meta));
 		if (l==null) l = triggers.get(Arrays.asList(blockid,-1));
+		if (l==null) return false;
 		
 		IWandTriggerManager manager = (IWandTriggerManager) l.get(0);
 		int event = (Integer) l.get(1);

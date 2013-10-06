@@ -14,7 +14,15 @@ public interface IWandFocus  {
 		WAVE, CHARGE;
 	}
 
+	/**
+	 * @return The color the focus should be changed to.
+	 */
 	public int getFocusColor();
+		
+	/**
+	 * @return An icon that will be drawn as a block inside the focus "block".
+	 */
+	Icon getFocusDepthLayerIcon();
 	
 	public Icon getOrnament();
 	
@@ -46,6 +54,10 @@ public interface IWandFocus  {
 	public String getSortingHelper(ItemStack itemstack);
 
 	boolean onFocusBlockStartBreak(ItemStack itemstack, int x, int y, int z, EntityPlayer player);
+
+	public boolean acceptsEnchant(int id);
+
+	
 
 	
 
