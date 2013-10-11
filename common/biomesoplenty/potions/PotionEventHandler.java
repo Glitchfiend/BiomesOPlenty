@@ -40,9 +40,9 @@ public class PotionEventHandler
 			double posY = event.entityLiving.posY;
 			double posZ = event.entityLiving.posZ;
 
-			double randX = (double)rand.nextInt(2);
-			double randY = (double)rand.nextInt(3);
-			double randZ = (double)rand.nextInt(2);
+			double randX = 1.0 - (rand.nextDouble() * 2.0);
+			double randY = (double) rand.nextInt(3);
+			double randZ = 1.0 - (rand.nextDouble() * 2.0);
 			
 			event.entityLiving.motionX = 0.0;	
 			event.entityLiving.motionY = 0.0;
@@ -50,7 +50,8 @@ public class PotionEventHandler
 
 			if (rand.nextInt(5) == 0)
 			{
-				event.entityLiving.setPosition(posX + randX, posY + randY, posZ + randZ);
+				if (!event.entityLiving.worldObj.checkBlockCollision(event.entityLiving.boundingBox.offset(randX, randY, randZ)))
+					event.entityLiving.setPosition(posX + randX, posY + randY, posZ + randZ);
 			}
 
 			if (event.entityLiving.getActivePotionEffect(Potions.possession.get()).getDuration() == 0)
