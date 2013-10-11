@@ -379,6 +379,11 @@ fluid.bop.springWater=Spring Water
 phrase.bop.promisedPortalOverworld=A gateway to the Promised Land has appeared in the sky above.
 phrase.bop.promisedPortalOther=A gateway to the Overworld has appeared in the sky above.
 
+entity.BiomesOPlenty.Glob.name=Glob
+entity.BiomesOPlenty.JungleSpider.name=Jungle Spider
+entity.BiomesOPlenty.Phantom.name=Phantom
+entity.BiomesOPlenty.Rosester.name=Rosester
+
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty

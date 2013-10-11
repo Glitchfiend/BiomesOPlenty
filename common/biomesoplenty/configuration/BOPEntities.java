@@ -43,40 +43,53 @@ public class BOPEntities {
 		EntityRegistry.registerModEntity(EntityMudball.class, "MudBall", BOPConfigurationIDs.entityMudballID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityDart.class, "Dart", BOPConfigurationIDs.entityDartID, BiomesOPlenty.instance, 80, 3, true);
 		EntityRegistry.registerModEntity(EntityPoisonDart.class, "PoisonDart", BOPConfigurationIDs.entityPoisonDartID, BiomesOPlenty.instance, 80, 3, true);
-
-		EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfigurationIDs.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfigurationIDs.rosesterID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfigurationIDs.globID, BiomesOPlenty.instance, 80, 3, true);
-		EntityRegistry.registerModEntity(EntityPhantom.class, "Phantom", BOPConfigurationIDs.phantomID, BiomesOPlenty.instance, 80, 3, true);
-
-		registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
-		registerEntityEgg(EntityRosester.class, 14831439, 16756224);
-		registerEntityEgg(EntityGlob.class, 6836276, 8414787);
-		registerEntityEgg(EntityPhantom.class, 4472140, 2499368);
-
-		if (Biomes.bambooForest.isPresent() && Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
+		
+		if (BOPConfigurationIDs.jungleSpiderID > 0)
 		{
-			EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.bambooForest.get(), Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
-		}
-
-		if (Biomes.bog.isPresent() && Biomes.deadSwamp.isPresent() && Biomes.fen.isPresent() && Biomes.moor.isPresent() && Biomes.quagmire.isPresent() && Biomes.sludgepit.isPresent() && Biomes.swamplandNew.isPresent())
-		{
-			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.moor.get(), Biomes.quagmire.get(), Biomes.sludgepit.get(), Biomes.swamplandNew.get());
-		}
-
-		if (Biomes.garden.isPresent())
-		{
-			EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, Biomes.garden.get());
+			EntityRegistry.registerModEntity(EntityJungleSpider.class, "JungleSpider", BOPConfigurationIDs.jungleSpiderID, BiomesOPlenty.instance, 80, 3, true);
+			
+			registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
+			
+			if (Biomes.bambooForest.isPresent() && Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
+			{
+				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.bambooForest.get(), Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
+			}
 		}
 		
-		if (Biomes.netherBone.isPresent() && Biomes.netherDesert.isPresent())
+		if (BOPConfigurationIDs.rosesterID > 0)
 		{
-			EntityRegistry.addSpawn(EntityPhantom.class, 65, 1, 1, EnumCreatureType.monster, Biomes.netherBone.get(), Biomes.netherDesert.get());
+			EntityRegistry.registerModEntity(EntityRosester.class, "Rosester", BOPConfigurationIDs.rosesterID, BiomesOPlenty.instance, 80, 3, true);
+			
+			registerEntityEgg(EntityRosester.class, 14831439, 16756224);
+			
+			if (Biomes.garden.isPresent())
+			{
+				EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, Biomes.garden.get());
+			}
 		}
-
-		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.JungleSpider.name", "en_US", "Jungle Spider");
-		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Rosester.name", "en_US", "Rosester");
-		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Glob.name", "en_US", "Glob");
-		LanguageRegistry.instance().addStringLocalization("entity.BiomesOPlenty.Phantom.name", "en_US", "Phantom");
+		
+		if (BOPConfigurationIDs.globID > 0)
+		{
+			EntityRegistry.registerModEntity(EntityGlob.class, "Glob", BOPConfigurationIDs.globID, BiomesOPlenty.instance, 80, 3, true);
+			
+			registerEntityEgg(EntityGlob.class, 6836276, 8414787);
+			
+			if (Biomes.bog.isPresent() && Biomes.deadSwamp.isPresent() && Biomes.fen.isPresent() && Biomes.moor.isPresent() && Biomes.quagmire.isPresent() && Biomes.sludgepit.isPresent() && Biomes.swamplandNew.isPresent())
+			{
+				EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.moor.get(), Biomes.quagmire.get(), Biomes.sludgepit.get(), Biomes.swamplandNew.get());
+			}
+		}
+		
+		if (BOPConfigurationIDs.phantomID > 0)
+		{
+			EntityRegistry.registerModEntity(EntityPhantom.class, "Phantom", BOPConfigurationIDs.phantomID, BiomesOPlenty.instance, 80, 3, true);
+			
+			registerEntityEgg(EntityPhantom.class, 4472140, 2499368);
+			
+			if (Biomes.netherBone.isPresent() && Biomes.netherDesert.isPresent())
+			{
+				EntityRegistry.addSpawn(EntityPhantom.class, 65, 1, 1, EnumCreatureType.monster, Biomes.netherBone.get(), Biomes.netherDesert.get());
+			}
+		}
 	}
 }

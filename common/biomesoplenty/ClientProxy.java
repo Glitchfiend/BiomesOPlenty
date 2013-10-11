@@ -15,6 +15,7 @@ import biomesoplenty.blocks.renderers.PlantsRenderer;
 import biomesoplenty.blocks.renderers.PuddleRender;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import biomesoplenty.blocks.renderers.SmallBlockRenderer;
+import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityPhantom;
@@ -49,10 +50,25 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
-		RenderingRegistry.registerEntityRenderingHandler(EntityJungleSpider.class, new RenderJungleSpider());
-		RenderingRegistry.registerEntityRenderingHandler(EntityRosester.class, new RenderRosester(new ModelChicken(), 0.3F));
-		RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, new RenderPhantom());
+		if (BOPConfigurationIDs.globID > 0)
+		{
+			RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
+		}
+		
+		if (BOPConfigurationIDs.jungleSpiderID > 0)
+		{
+			RenderingRegistry.registerEntityRenderingHandler(EntityJungleSpider.class, new RenderJungleSpider());
+		}
+		
+		if (BOPConfigurationIDs.rosesterID > 0)
+		{
+			RenderingRegistry.registerEntityRenderingHandler(EntityRosester.class, new RenderRosester(new ModelChicken(), 0.3F));
+		}
+		
+		if (BOPConfigurationIDs.phantomID > 0)
+		{
+			RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, new RenderPhantom());
+		}
 
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
