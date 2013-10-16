@@ -55,23 +55,20 @@ public class TileEntityAltar extends TileEntity
 	}
 
 	@Override
-    public void onDataPacket(INetworkManager var1, Packet132TileEntityData packet)
-    {
-        //if (this.worldObj.isRemote)
-        //{
-            if (packet.actionType == 0)
-            {
-                this.apatitePresent = packet.data.getBoolean("apatitePresent");
-                this.peridotPresent = packet.data.getBoolean("peridotPresent");
-                this.rubyPresent = packet.data.getBoolean("rubyPresent");
-                this.sapphirePresent = packet.data.getBoolean("sapphirePresent");
-                this.tanzanitePresent = packet.data.getBoolean("tanzanitePresent");
-                this.topazPresent = packet.data.getBoolean("topazPresent");
-            }
-        //}
-        
+	public void onDataPacket(INetworkManager var1, Packet132TileEntityData packet)
+	{
+		if (packet.actionType == 0)
+		{
+			this.apatitePresent = packet.data.getBoolean("apatitePresent");
+			this.peridotPresent = packet.data.getBoolean("peridotPresent");
+			this.rubyPresent = packet.data.getBoolean("rubyPresent");
+			this.sapphirePresent = packet.data.getBoolean("sapphirePresent");
+			this.tanzanitePresent = packet.data.getBoolean("tanzanitePresent");
+			this.topazPresent = packet.data.getBoolean("topazPresent");
+		}
+
 		this.worldObj.markBlockForUpdate(packet.xPosition, packet.yPosition, packet.zPosition);
-    }
+	}
     
     public void setPresent(int presentGem, boolean state)
     {	
