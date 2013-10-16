@@ -17,17 +17,17 @@ import biomesoplenty.configuration.BOPVanillaCompat;
 import biomesoplenty.configuration.configfile.BOPConfiguration;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.eventhandlers.BonemealEventHandler;
+import biomesoplenty.eventhandlers.BreakSpeedEventHandler;
+import biomesoplenty.eventhandlers.EntityEventHandler;
+import biomesoplenty.eventhandlers.FlipperMovementEventHandler;
+import biomesoplenty.eventhandlers.FluidEventHandler;
+import biomesoplenty.eventhandlers.VillageMaterialEventHandler;
 import biomesoplenty.handlers.BOPCraftHandler;
-import biomesoplenty.handlers.BonemealHandler;
-import biomesoplenty.handlers.BreakSpeedHandler;
-import biomesoplenty.handlers.EntityEventHandler;
-import biomesoplenty.handlers.FlipperMovementEventHandler;
-import biomesoplenty.handlers.FluidEventHandler;
 import biomesoplenty.handlers.MovementHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.handlers.TickHandlerServer;
-import biomesoplenty.handlers.VillageMaterialEventHandler;
 import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Version;
@@ -104,13 +104,12 @@ public class BiomesOPlenty
 		if (ForgeVersion.buildVersion >= 891 || proxy instanceof ClientProxy)
 			MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
 		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
-		MinecraftForge.EVENT_BUS.register(new BonemealHandler());
+		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new FluidEventHandler());
-		MinecraftForge.EVENT_BUS.register(new BreakSpeedHandler());
+		MinecraftForge.EVENT_BUS.register(new BreakSpeedEventHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
 		MinecraftForge.EVENT_BUS.register(new FlipperMovementEventHandler());
-		//MinecraftForge.EVENT_BUS.register(new AxeChopHandler());
 
 		proxy.registerRenderers();
 

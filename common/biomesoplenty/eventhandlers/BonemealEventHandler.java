@@ -1,4 +1,4 @@
-package biomesoplenty.handlers;
+package biomesoplenty.eventhandlers;
 
 import net.minecraft.block.Block;
 import net.minecraftforge.event.Event.Result;
@@ -13,7 +13,7 @@ import biomesoplenty.worldgen.WorldGenGiantFlowerYellow;
 import biomesoplenty.worldgen.WorldGenCattailBonemeal;
 import biomesoplenty.worldgen.WorldGenKelp;
 
-public class BonemealHandler
+public class BonemealEventHandler
 {
 
 	@ForgeSubscribe

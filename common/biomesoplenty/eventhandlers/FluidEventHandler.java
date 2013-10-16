@@ -1,4 +1,4 @@
-package biomesoplenty.handlers;
+package biomesoplenty.eventhandlers;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

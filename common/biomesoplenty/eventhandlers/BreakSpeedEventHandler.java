@@ -1,4 +1,4 @@
-package biomesoplenty.handlers;
+package biomesoplenty.eventhandlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,7 +14,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import biomesoplenty.api.Blocks;
 
-public class BreakSpeedHandler 
+public class BreakSpeedEventHandler 
 {
 	@ForgeSubscribe
 	public void breakSpeed(PlayerEvent.BreakSpeed event) 

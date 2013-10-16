@@ -1,4 +1,4 @@
-package biomesoplenty.handlers;
+package biomesoplenty.eventhandlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
