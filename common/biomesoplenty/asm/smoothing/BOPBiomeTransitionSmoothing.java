@@ -16,37 +16,45 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
     {
         if (name.equals("net.minecraft.block.BlockFluid")) 
         {
+            System.out.println("Patching BlockFluid");
             return BlockFluid.patchColourMultiplier(newname, bytes, false);
         }
         if (name.equals("apc"))
         { 
+            System.out.println("Patching BlockFluid apc");
             return BlockFluid.patchColourMultiplier(newname, bytes, true);
         }
         
         if (name.equals("net.minecraft.block.BlockGrass")) 
         {
+            System.out.println("Patching BlockGrass");
             return BlockGrass.patchColourMultiplier(newname, bytes, false);
         }
         if (name.equals("aon")) 
         {
+            System.out.println("Patching BlockGrass aon");
             return BlockGrass.patchColourMultiplier(newname, bytes, true);
         }
         
         if (name.equals("net.minecraft.block.BlockLeaves")) 
         {
+            System.out.println("Patching BlockLeaves");
             return BlockLeaves.patchColourMultiplier(newname, bytes, false);
         }
         if (name.equals("aoz")) 
         {
+            System.out.println("Patching BlockLeaves aoz");
             return BlockLeaves.patchColourMultiplier(newname, bytes, true);
         }
         
         if (name.equals("net.minecraft.block.BlockTallGrass")) 
         {
+            System.out.println("Patching BlockTallGrass");
             return BlockTallGrass.patchColourMultiplier(newname, bytes, false);
         }
         if (name.equals("aqv")) 
         {
+            System.out.println("Patching BlockTallGrass aqv");
             return BlockTallGrass.patchColourMultiplier(newname, bytes, true);
         }
         

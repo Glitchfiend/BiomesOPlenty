@@ -28,7 +28,7 @@ public class BlockFluid
         String targetMethodName = "";
 
         if (obfuscated)
-            targetMethodName ="b";
+            targetMethodName ="d";
         else
             targetMethodName ="colorMultiplier";
 

@@ -26,7 +26,7 @@ public class BlockTallGrass
         String targetMethodName = "";
 
         if (obfuscated)
-            targetMethodName ="b";
+            targetMethodName ="c";
         else
             targetMethodName ="colorMultiplier";
 
