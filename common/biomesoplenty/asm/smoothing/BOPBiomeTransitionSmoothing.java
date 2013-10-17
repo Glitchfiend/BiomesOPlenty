@@ -18,7 +18,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
         {
             return BlockFluid.patchColourMultiplier(newname, bytes, false);
         }
-        if (name.equals("pc"))
+        if (name.equals("apc"))
         { 
             return BlockFluid.patchColourMultiplier(newname, bytes, true);
         }
@@ -27,7 +27,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
         {
             return BlockGrass.patchColourMultiplier(newname, bytes, false);
         }
-        if (name.equals("on")) 
+        if (name.equals("aon")) 
         {
             return BlockGrass.patchColourMultiplier(newname, bytes, true);
         }
@@ -36,7 +36,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
         {
             return BlockLeaves.patchColourMultiplier(newname, bytes, false);
         }
-        if (name.equals("oz")) 
+        if (name.equals("aoz")) 
         {
             return BlockLeaves.patchColourMultiplier(newname, bytes, true);
         }
@@ -45,7 +45,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
         {
             return BlockTallGrass.patchColourMultiplier(newname, bytes, false);
         }
-        if (name.equals("qv")) 
+        if (name.equals("aqv")) 
         {
             return BlockTallGrass.patchColourMultiplier(newname, bytes, true);
         }
