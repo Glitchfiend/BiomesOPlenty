@@ -71,7 +71,10 @@ public class BlockLeaves
                 toInject.add(new VarInsnNode(ILOAD, 2));
                 toInject.add(new VarInsnNode(ILOAD, 3));
                 toInject.add(new VarInsnNode(ILOAD, 4));
-                toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getLeavesColourMultiplier", "(Lnet/minecraft/world/IBlockAccess;III)I"));
+                if (obfuscated)
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getLeavesColourMultiplier", "(Lacf;III)I"));
+                else
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getLeavesColourMultiplier", "(Lnet/minecraft/world/IBlockAccess;III)I"));
                 toInject.add(new InsnNode(IRETURN));
                 
                 m.instructions.insertBefore(targetNode, toInject);
