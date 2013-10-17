@@ -30,6 +30,8 @@ import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.asm.smoothing.BOPBiomeTransitionSmoothing;
+import biomesoplenty.asm.smoothing.block.BlockGrass;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -242,10 +244,10 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	{
 		if (par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 9)
 		{
-			return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
+			return BOPBiomeTransitionSmoothing.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
 		}
 		
-		return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeGrassColor();
+		return BOPBiomeTransitionSmoothing.getGrassColourMultiplier(par1IBlockAccess, par2, par3, par4);
 	}
 
 	@Override

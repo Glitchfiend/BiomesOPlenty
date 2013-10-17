@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.asm.smoothing.BOPBiomeTransitionSmoothing;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -95,22 +96,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         @Override
         public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
         {
-                int var6 = 0;
-                int var7 = 0;
-                int var8 = 0;
-
-                for (int var9 = -1; var9 <= 1; ++var9)
-                {
-                        for (int var10 = -1; var10 <= 1; ++var10)
-                        {
-                                int var11 = par1IBlockAccess.getBiomeGenForCoords(par2 + var10, par4 + var9).getBiomeFoliageColor();
-                                var6 += (var11 & 16711680) >> 16;
-                        var7 += (var11 & 65280) >> 8;
-                var8 += var11 & 255;
-                        }
-                }
-
-                return (var6 / 9 & 255) << 16 | (var7 / 9 & 255) << 8 | var8 / 9 & 255;
+            return BOPBiomeTransitionSmoothing.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
         }
 
         @Override

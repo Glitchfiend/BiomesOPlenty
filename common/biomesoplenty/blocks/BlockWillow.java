@@ -15,6 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.asm.smoothing.BOPBiomeTransitionSmoothing;
 
 public class BlockWillow extends Block implements IShearable
 {
@@ -249,7 +250,7 @@ public class BlockWillow extends Block implements IShearable
 	@Override
 	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
 	{
-		return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
+        return BOPBiomeTransitionSmoothing.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
 	}
 
 	/**
