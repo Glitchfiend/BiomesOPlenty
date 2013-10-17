@@ -43,7 +43,7 @@ public class BlockFluid
             MethodNode m = methods.next();
             int fdiv_index = -1;
 
-            if (m.name.equals(targetMethodName) && (m.desc.equals("(Lnet/minecraft/world/IBlockAccess;III)I") || m.desc.equals("(Lcf;III)I")))
+            if (m.name.equals(targetMethodName) && (m.desc.equals("(Lnet/minecraft/world/IBlockAccess;III)I") || m.desc.equals("(Lacf;III)I")))
             {
                 AbstractInsnNode currentNode = null;
                 AbstractInsnNode targetNode = null;
