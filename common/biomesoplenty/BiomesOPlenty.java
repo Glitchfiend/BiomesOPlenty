@@ -5,6 +5,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
+import biomesoplenty.configuration.BOPAchievements;
 import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.BOPBlocks;
 import biomesoplenty.configuration.BOPCrafting;
@@ -28,7 +29,6 @@ import biomesoplenty.handlers.MovementHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
 import biomesoplenty.handlers.TickHandlerServer;
-import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
@@ -83,7 +83,7 @@ public class BiomesOPlenty
 		// Achievement declaration
 		if (BOPConfigurationMisc.achievements)
 		{
-			AchievementHelper.init();
+			BOPAchievements.init();
 		}
 
 		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
@@ -103,7 +103,7 @@ public class BiomesOPlenty
 		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
 		if (ForgeVersion.buildVersion >= 891 || proxy instanceof ClientProxy)
 			MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
-		MinecraftForge.EVENT_BUS.register(new AchievementHelper());
+		MinecraftForge.EVENT_BUS.register(new BOPAchievements());
 		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new FluidEventHandler());

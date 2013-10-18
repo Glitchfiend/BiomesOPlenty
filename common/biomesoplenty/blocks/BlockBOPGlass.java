@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.helpers.AchievementHelper;
+import biomesoplenty.configuration.BOPAchievements;
 import biomesoplenty.tileentities.TileEntityAltar;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -157,7 +157,7 @@ public class BlockBOPGlass extends Block
 									FMLClientHandler.instance().getClient().sndManager.playSound("mob.enderdragon.growl", (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, 5.0F, 1.0F);
 								}
 								
-								player.addStat(AchievementHelper.achSacrifice, 1);
+								player.addStat(BOPAchievements.achSacrifice, 1);
 
 								if (!world.isRemote)
 								{

@@ -384,6 +384,36 @@ entity.BiomesOPlenty.JungleSpider.name=Jungle Spider
 entity.BiomesOPlenty.Phantom.name=Phantom
 entity.BiomesOPlenty.Rosester.name=Rosester
 
+achievement.bop.achBOP=Biomes O' Plenty
+achievement.bop.achBOP.desc=Let the fun begin!
+achievement.bop.achAllBiomes=All Biomes Found!
+achievement.bop.achAllBiomes.desc=You've been to every biome!
+
+achievement.bop.achAlps=Alps
+achievement.bop.achAlps.desc=Biome Found!
+achievement.bop.achArctic=Arctic
+achievement.bop.achArctic.desc=Biome Found!
+achievement.bop.achBadlands=Badlands
+achievement.bop.achBadlands.desc=Biome Found!
+achievement.bop.achBambooForest=Bamboo Forest
+achievement.bop.achBambooForest.desc=Biome Found!
+achievement.bop.achBayou=Bayou
+achievement.bop.achBayou.desc=Biome Found!
+achievement.bop.achBirchForest=Birch Forest
+achievement.bop.achBirchForest.desc=Biome Found!
+achievement.bop.achBog=Bog
+achievement.bop.achBog.desc=Biome Found!
+achievement.bop.achBorealForest=Boreal Forest
+achievement.bop.achBorealForest.desc=Biome Found!
+achievement.bop.achBrushland=Brushland
+achievement.bop.achBrushland.desc=Biome Found!
+achievement.bop.achCanyon=Canyon
+achievement.bop.achCanyon.desc=Biome Found!
+achievement.bop.achChaparral=Chaparral
+achievement.bop.achChaparral.desc=Biome Found!
+achievement.bop.achCherryBlossom=Cherry Blossom Grove
+achievement.bop.achCherryBlossom.desc=Biome Found!
+
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty

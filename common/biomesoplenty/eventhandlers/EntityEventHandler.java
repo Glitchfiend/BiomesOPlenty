@@ -27,9 +27,9 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.configuration.BOPAchievements;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
-import biomesoplenty.helpers.AchievementHelper;
 import biomesoplenty.helpers.TeleporterPromised;
 import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -109,7 +109,7 @@ public class EntityEventHandler
 			{
 				EntityPlayer player = (EntityPlayer)event.entity;
 
-				player.addStat(AchievementHelper.achBOP, 1);
+				player.addStat(BOPAchievements.achBOP, 1);
 			}
 		}
 	}
