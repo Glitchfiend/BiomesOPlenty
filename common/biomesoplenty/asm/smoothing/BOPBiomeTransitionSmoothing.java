@@ -1,87 +1,69 @@
 package biomesoplenty.asm.smoothing;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.relauncher.Side;
-import net.minecraft.client.Minecraft;
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.ForgeDummyContainer;
 import biomesoplenty.asm.smoothing.block.BlockFluid;
 import biomesoplenty.asm.smoothing.block.BlockGrass;
 import biomesoplenty.asm.smoothing.block.BlockLeaves;
 import biomesoplenty.asm.smoothing.block.BlockTallGrass;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BOPBiomeTransitionSmoothing implements IClassTransformer
 {
     @Override
     public byte[] transform(String name, String newname, byte[] bytes)
     {
-        try
+        if (name.equals("net.minecraft.block.BlockFluid")) 
         {
-            Class minecraft = Class.forName("net.minecraft.client.Minecraft");
-            
-            if (name.equals("net.minecraft.block.BlockFluid")) 
-            {
-                return BlockFluid.patchColourMultiplier(newname, bytes, false);
-            }
-            
-            if (name.equals("net.minecraft.block.BlockGrass")) 
-            {
-                return BlockGrass.patchColourMultiplier(newname, bytes, false);
-            }
-            
-            if (name.equals("net.minecraft.block.BlockLeaves")) 
-            {
-                return BlockLeaves.patchColourMultiplier(newname, bytes, false);
-            }
-            
-            if (name.equals("net.minecraft.block.BlockTallGrass")) 
-            {
-                return BlockTallGrass.patchColourMultiplier(newname, bytes, false);
-            }
+            return BlockFluid.patchColourMultiplier(newname, bytes, false);
         }
-        catch (ClassNotFoundException e)
+
+        if (name.equals("net.minecraft.block.BlockGrass")) 
         {
-            
+            return BlockGrass.patchColourMultiplier(newname, bytes, false);
         }
-        
-        try
+
+        if (name.equals("net.minecraft.block.BlockLeaves")) 
         {
-            Class minecraft = Class.forName("atv");
-            
-            if (name.equals("apc"))
-            { 
-                return BlockFluid.patchColourMultiplier(newname, bytes, true);
-            }
-
-
-            if (name.equals("aon")) 
-            {
-                return BlockGrass.patchColourMultiplier(newname, bytes, true);
-            }
-
-
-            if (name.equals("aoz")) 
-            {
-                return BlockLeaves.patchColourMultiplier(newname, bytes, true);
-            }
-
-
-            if (name.equals("aqv")) 
-            {
-                return BlockTallGrass.patchColourMultiplier(newname, bytes, true);
-            }
+            return BlockLeaves.patchColourMultiplier(newname, bytes, false);
         }
-        catch (ClassNotFoundException e)
+
+        if (name.equals("net.minecraft.block.BlockTallGrass")) 
         {
-            
-        }  
+            return BlockTallGrass.patchColourMultiplier(newname, bytes, false);
+        }
+
+        if (name.equals("apc"))
+        { 
+            return BlockFluid.patchColourMultiplier(newname, bytes, true);
+        }
+
+
+        if (name.equals("aon")) 
+        {
+            return BlockGrass.patchColourMultiplier(newname, bytes, true);
+        }
+
+
+        if (name.equals("aoz")) 
+        {
+            return BlockLeaves.patchColourMultiplier(newname, bytes, true);
+        }
+
+
+        if (name.equals("aqv")) 
+        {
+            return BlockTallGrass.patchColourMultiplier(newname, bytes, true);
+        }
 
         return bytes;
     }
 
+    @SideOnly(Side.CLIENT)
     public static int getGrassColourMultiplier(IBlockAccess world, int ox, int oy, int oz)
     {
         int distance = FMLClientHandler.instance().getClient().gameSettings.fancyGraphics ? BOPConfigurationMisc.grassColourSmoothingArea : 1;
@@ -108,6 +90,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
         return (r / divider & 255) << 16 | (g / divider & 255) << 8 | b / divider & 255;
     }
     
+    @SideOnly(Side.CLIENT)
     public static int getLeavesColourMultiplier(IBlockAccess world, int ox, int oy, int oz)
     {
         int distance = FMLClientHandler.instance().getClient().gameSettings.fancyGraphics ? BOPConfigurationMisc.leavesColourSmoothingArea : 1;
@@ -134,6 +117,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
         return (r / divider & 255) << 16 | (g / divider & 255) << 8 | b / divider & 255;
     }
     
+    @SideOnly(Side.CLIENT)
     public static int getWaterColourMultiplier(IBlockAccess world, int ox, int oy, int oz)
     {
         int distance = FMLClientHandler.instance().getClient().gameSettings.fancyGraphics ? BOPConfigurationMisc.waterColourSmoothingArea : 1;
