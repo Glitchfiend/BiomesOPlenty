@@ -1,8 +1,10 @@
 package biomesoplenty.asm.smoothing;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.ForgeDummyContainer;
 import biomesoplenty.asm.smoothing.block.BlockFluid;
 import biomesoplenty.asm.smoothing.block.BlockGrass;
 import biomesoplenty.asm.smoothing.block.BlockLeaves;
@@ -55,7 +57,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
     
     public static int getGrassColourMultiplier(IBlockAccess world, int ox, int oy, int oz)
     {
-        int distance = BOPConfigurationMisc.grassColourSmoothingArea;
+        int distance = Minecraft.getMinecraft().gameSettings.fancyGraphics ? BOPConfigurationMisc.grassColourSmoothingArea : 1;
         
         int r = 0;
         int g = 0;
@@ -81,7 +83,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
     
     public static int getLeavesColourMultiplier(IBlockAccess world, int ox, int oy, int oz)
     {
-        int distance = BOPConfigurationMisc.leavesColourSmoothingArea;
+        int distance = Minecraft.getMinecraft().gameSettings.fancyGraphics ? BOPConfigurationMisc.leavesColourSmoothingArea : 1;
         
         int r = 0;
         int g = 0;
@@ -107,7 +109,7 @@ public class BOPBiomeTransitionSmoothing implements IClassTransformer
     
     public static int getWaterColourMultiplier(IBlockAccess world, int ox, int oy, int oz)
     {
-        int distance = BOPConfigurationMisc.waterColourSmoothingArea;
+        int distance = Minecraft.getMinecraft().gameSettings.fancyGraphics ? BOPConfigurationMisc.waterColourSmoothingArea : 1;
         
         int r = 0;
         int g = 0;
