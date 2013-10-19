@@ -230,38 +230,7 @@ public class BOPAchievements
 		AchievementPage.registerAchievementPage(pageBiome);
 
 		// Add Achievement registration
-		addAchievementDesc("achOasis", "Oasis", "Biome Found!");
-		addAchievementDesc("achOminousWoods", "Ominous Woods", "Biome Found!");
-		addAchievementDesc("achOrchard", "Orchard", "Biome Found!");
-		addAchievementDesc("achOriginValley", "Origin Valley", "Biome Found!");
-		addAchievementDesc("achOutback", "Outback", "Biome Found!");
-		addAchievementDesc("achOvergrownGreens", "Overgrown Greens", "Biome Found!");
-		addAchievementDesc("achPasture", "Pasture", "Biome Found!");
-		addAchievementDesc("achPolar", "Polar", "Biome Found!");
-		addAchievementDesc("achPrairie", "Prairie", "Biome Found!");
-		addAchievementDesc("achQuagmire", "Quagmire", "Biome Found!");
-		addAchievementDesc("achRainforest", "Rainforest", "Biome Found!");
-		addAchievementDesc("achRedwoodForest", "Redwood Forest", "Biome Found!");
-		addAchievementDesc("achSacredSprings", "Sacred Springs", "Biome Found!"); 
-		addAchievementDesc("achSavanna", "Savanna", "Biome Found!");
-		addAchievementDesc("achScrubland", "Scrubland", "Biome Found!");
-		addAchievementDesc("achSeasonalForest", "Seasonal Forest", "Biome Found!");
-		addAchievementDesc("achShield", "Shield", "Biome Found!");
-		addAchievementDesc("achShrubland", "Shrubland", "Biome Found!");
-		addAchievementDesc("achSilkglades", "Silkglades", "Biome Found!");
-		addAchievementDesc("achSludgepit", "Sludgepit", "Biome Found!");
-		addAchievementDesc("achSpruceWoods", "Spruce Woods", "Biome Found!");
-		addAchievementDesc("achSteppe", "Steppe", "Biome Found!");
-		addAchievementDesc("achTemperateRainforest", "Temperate Rainforest", "Biome Found!");
-		addAchievementDesc("achThicket", "Thicket", "Biome Found!");
-		addAchievementDesc("achTimber", "Timber", "Biome Found!");
-		addAchievementDesc("achTropicalRainforest", "Tropical Rainforest", "Biome Found!");
-		addAchievementDesc("achTropics", "Tropics", "Biome Found!");
-		addAchievementDesc("achTundra", "Tundra", "Biome Found!");
-		addAchievementDesc("achVolcano", "Volcano", "Biome Found!");
-		addAchievementDesc("achWasteland", "Wasteland", "Biome Found!");
-		addAchievementDesc("achWetland", "Wetland", "Biome Found!");
-		addAchievementDesc("achWoodland", "Woodland", "Biome Found!");
+
 		
 		addAchievementDesc("achDesert", "Desert", "Biome Found!");
 		addAchievementDesc("achExtremeHills", "Extreme Hills", "Biome Found!");
