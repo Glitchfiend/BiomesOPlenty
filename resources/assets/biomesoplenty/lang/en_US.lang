@@ -544,6 +544,30 @@ achievement.bop.achWetland.desc=Biome Found!
 achievement.bop.achWoodland=Woodland
 achievement.bop.achWoodland.desc=Biome Found!
 
+achievement.bop.achDesert=Desert
+achievement.bop.achDesert.desc=Biome Found!
+achievement.bop.achExtremeHills=Extreme Hills
+achievement.bop.achExtremeHills.desc=Biome Found!
+achievement.bop.achForest=Forest
+achievement.bop.achForest.desc=Biome Found!
+achievement.bop.achIcePlains=Ice Plains
+achievement.bop.achIcePlains.desc=Biome Found!
+achievement.bop.achJungle=Jungle
+achievement.bop.achJungle.desc=Biome Found!
+achievement.bop.achMushroomIsland=Mushroom Island
+achievement.bop.achMushroomIsland.desc=Biome Found!
+achievement.bop.achPlains=Plains
+achievement.bop.achPlains.desc=Biome Found!
+achievement.bop.achSwampland=Swampland
+achievement.bop.achSwampland.desc=Biome Found!
+achievement.bop.achTaiga=Taiga
+achievement.bop.achTaiga.desc=Biome Found!
+
+achievement.bop.achPromised=Movin\' On Up!
+achievement.bop.achPromised.desc=Welcome to the Promised Land!
+achievement.bop.achSacrifice=Endbringer
+achievement.bop.achSacrific.desc=Summon the beast...
+
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty

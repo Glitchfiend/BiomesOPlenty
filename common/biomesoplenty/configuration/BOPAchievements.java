@@ -228,22 +228,6 @@ public class BOPAchievements
 		pageBiome = new AchievementPage("Biomes O\' Plenty", biomeFinderAchievementList);
 		
 		AchievementPage.registerAchievementPage(pageBiome);
-
-		// Add Achievement registration
-
-		
-		addAchievementDesc("achDesert", "Desert", "Biome Found!");
-		addAchievementDesc("achExtremeHills", "Extreme Hills", "Biome Found!");
-		addAchievementDesc("achForest", "Forest", "Biome Found!");
-		addAchievementDesc("achIcePlains", "Ice Plains", "Biome Found!");
-		addAchievementDesc("achJungle", "Jungle", "Biome Found!");
-		addAchievementDesc("achMushroomIsland", "Mushroom Island", "Biome Found!");
-		addAchievementDesc("achPlains", "Plains", "Biome Found!");
-		addAchievementDesc("achSwampland", "Swampland", "Biome Found!");
-		addAchievementDesc("achTaiga", "Taiga", "Biome Found!");
-		
-		addAchievementDesc("achPromised", "Movin\' On Up!", "Welcome to the Promised Land!");
-		addAchievementDesc("achSacrifice", "Endbringer", "Summon the beast...");
 	}
 	
 	@ForgeSubscribe
