@@ -5,7 +5,9 @@ import java.util.Map;
 
 import biomesoplenty.asm.smoothing.BOPBiomeTransitionSmoothing;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
+@TransformerExclusions({ "biomesoplenty.asm" })
 public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
 {
     public static File location;
