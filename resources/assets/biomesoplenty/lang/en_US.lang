@@ -417,7 +417,7 @@ achievement.bop.achCherryBlossom.desc=Biome Found!
 achievement.bop.achConiferousForest=Coniferous Forest
 achievement.bop.achConiferousForest.desc=Biome Found!    
 achievement.bop.achConiferousForestSnow=Snowy Coniferous Forest
-achievement.bop.achConiferousForest.desc=Biome Found!
+achievement.bop.achConiferousForestSnow.desc=Biome Found!
 achievement.bop.achCrag=Crag
 achievement.bop.achCrag.desc=Biome Found!                
 achievement.bop.achDeadForest=Dead Forest
@@ -563,10 +563,10 @@ achievement.bop.achSwampland.desc=Biome Found!
 achievement.bop.achTaiga=Taiga
 achievement.bop.achTaiga.desc=Biome Found!
 
-achievement.bop.achPromised=Movin\' On Up!
+achievement.bop.achPromised=Movin' On Up!
 achievement.bop.achPromised.desc=Welcome to the Promised Land!
 achievement.bop.achSacrifice=Endbringer
-achievement.bop.achSacrific.desc=Summon the beast...
+achievement.bop.achSacrifice.desc=Summon the beast...
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
