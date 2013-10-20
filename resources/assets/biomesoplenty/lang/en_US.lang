@@ -379,6 +379,9 @@ fluid.bop.springWater=Spring Water
 phrase.bop.promisedPortalOverworld=A gateway to the Promised Land has appeared in the sky above.
 phrase.bop.promisedPortalOther=A gateway to the Overworld has appeared in the sky above.
 
+phrase.bop.useBOPWorldtype=The Biomes O Plenty world type must be used in order for the new biomes to generate. This message will only display once.
+phrase.bop.updateAvaliable=A new version of Biomes O Plenty is available: v%s for Minecraft %s
+
 entity.BiomesOPlenty.Glob.name=Glob
 entity.BiomesOPlenty.JungleSpider.name=Jungle Spider
 entity.BiomesOPlenty.Phantom.name=Phantom

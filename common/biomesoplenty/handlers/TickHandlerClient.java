@@ -3,10 +3,13 @@ package biomesoplenty.handlers;
 import java.util.EnumSet;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatMessageComponent;
+import net.minecraft.util.EnumChatFormatting;
 import biomesoplenty.helpers.Version;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.TickType;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class TickHandlerClient implements ITickHandler 
 {
@@ -27,12 +30,18 @@ public class TickHandlerClient implements ITickHandler
 
 		if (Version.needsBOPWorldtypeAndMarkAsSeen(player.worldObj))
 		{
-			player.addChatMessage(String.format("\u00A7cThe Biomes O Plenty world type must be used in order for the new biomes to generate. This message will only display once."));
+		    ChatMessageComponent updateMessage = new ChatMessageComponent();
+		    updateMessage.setColor(EnumChatFormatting.RED);
+		    updateMessage.addKey("phrase.bop.useBOPWorldtype");
+		    player.sendChatToPlayer(updateMessage);
 		}
 
 		if (Version.needsUpdateNoticeAndMarkAsSeen()) 
 		{
-			player.addChatMessage(String.format("\u00A7cA new version of Biomes O Plenty is available: v%s for Minecraft %s", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion()));
+		    ChatMessageComponent updateMessage = new ChatMessageComponent();
+		    updateMessage.setColor(EnumChatFormatting.RED);
+		    updateMessage.addFormatted("phrase.bop.updateAvaliable", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion());
+		    player.sendChatToPlayer(updateMessage);
 		}
 
 		nagged = true;
