@@ -379,6 +379,9 @@ fluid.bop.springWater=Родниковая вода
 phrase.bop.promisedPortalOverworld=Врата в "Землю Обетованную" открылись выше.
 phrase.bop.promisedPortalOther=Врата в обычный мир открылись выше.
 
+phrase.bop.useBOPWorldtype=Тип мира Biomes O Plenty должен быть использован для того, чтобы новые биомы генерировались. Это сообщение отобразиться только один раз.
+phrase.bop.updateAvaliable=Новая версия модификации Biomes O Plenty доступна: v%s для Minecraft %s
+
 entity.BiomesOPlenty.Glob.name=Капля
 entity.BiomesOPlenty.JungleSpider.name=Паук джунглей
 entity.BiomesOPlenty.Phantom.name=Фантом
