@@ -28,9 +28,9 @@ public class BiomeGenFungiForest extends BiomeGenBase
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 8;
-		customBiomeDecorator.grassPerChunk = 6;
+		customBiomeDecorator.grassPerChunk = 4;
 		customBiomeDecorator.sproutsPerChunk = 2;
-		customBiomeDecorator.bushesPerChunk = 2;
+		customBiomeDecorator.bushesPerChunk = 1;
 		customBiomeDecorator.highGrassPerChunk = 1;
 		customBiomeDecorator.mushroomsPerChunk = 8;
 		customBiomeDecorator.bigMushroomsPerChunk = 8;
@@ -45,7 +45,8 @@ public class BiomeGenFungiForest extends BiomeGenBase
 		customBiomeDecorator.lilyflowersPerChunk = 2;
 		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 3;
-		customBiomeDecorator.shrubsPerChunk = 5;
+		customBiomeDecorator.shrubsPerChunk = 2;
+		customBiomeDecorator.koruPerChunk = 1;
 		customBiomeDecorator.generateMycelium = true;
 		customBiomeDecorator.generatePumpkins = true;
 		waterColorMultiplier = 65326;

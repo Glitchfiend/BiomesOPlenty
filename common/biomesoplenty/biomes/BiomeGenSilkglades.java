@@ -40,6 +40,7 @@ public class BiomeGenSilkglades extends BiomeGenBase
 		customBiomeDecorator.poisonIvyPerChunk = 2;
 		customBiomeDecorator.cobwebsPerChunk = 9;
 		customBiomeDecorator.waterReedsPerChunk = 4;
+		customBiomeDecorator.koruPerChunk = 1;
 		customBiomeDecorator.generatePumpkins = true;
 		waterColorMultiplier = 16777079;
 		spawnableWaterCreatureList.clear();

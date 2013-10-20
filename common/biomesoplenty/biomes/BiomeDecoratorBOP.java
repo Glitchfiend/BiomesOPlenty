@@ -236,6 +236,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator minersDelightGen;
 	public WorldGenerator icyIrisGen;
 	public WorldGenerator redwoodShrubGen;
+	public WorldGenerator koruGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -334,6 +335,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int icyIrisPerChunk;
 	public int waterReedsPerChunk;
 	public int redwoodShrubsPerChunk;
+	public int koruPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -540,6 +542,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		algaeGen = new WorldGenAlgae();
 		waterReedGen = new WorldGenWaterReeds();
 		redwoodShrubGen = new WorldGenRedwoodShrub(0,0);
+		koruGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 12);
 		pitGen = new WorldGenPit(Blocks.ash.get().blockID);
 		waterlilyPerChunk = 0;
 		lilyflowersPerChunk = 0;
@@ -633,6 +636,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		icyIrisPerChunk = 0;
 		waterReedsPerChunk = 0;
 		redwoodShrubsPerChunk = 0;
+		koruPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1299,6 +1303,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 shrubGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < koruPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 koruGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
 		 for (var2 = 0; var2 < wheatGrassPerChunk; ++var2)
