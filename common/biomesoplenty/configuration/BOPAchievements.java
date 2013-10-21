@@ -184,7 +184,7 @@ public class BOPAchievements
 
 		achRainforest = (new Achievement(3137, "bop.achRainforest", -10, 4, new ItemStack(Blocks.flowers.get(), 1, 6), achBOP)).registerAchievement();
 		achRedwoodForest = (new Achievement(3138, "bop.achRedwoodForest", -8, 4, new ItemStack(Blocks.colorizedSaplings.get(), 1, 3), achBOP)).registerAchievement(); 
-		achSacredSprings = (new Achievement(3139, "bop.achSacredSprings", -6, 4, new ItemStack(Block.waterlily, 1, 0), achBOP)).registerAchievement().setSpecial(); 
+		achSacredSprings = (new Achievement(3139, "bop.achSacredSprings", -6, 4, new ItemStack(Blocks.colorizedSaplings.get(), 1, 6), achBOP)).registerAchievement().setSpecial(); 
 		achSavanna = (new Achievement(3140, "bop.achSavanna", -4, 4, new ItemStack(Blocks.colorizedSaplings.get(), 1, 0), achBOP)).registerAchievement();
 		achScrubland = (new Achievement(3141, "bop.achScrubland", -2, 4, new ItemStack(Block.tallGrass, 1, 0), achBOP)).registerAchievement();
 		achSeasonalForest = (new Achievement(3142, "bop.achSeasonalForest", 0, 4, new ItemStack(Blocks.saplings.get(), 1, 8), achBOP)).registerAchievement();
