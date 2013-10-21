@@ -88,5 +88,16 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
+		
+		if (Loader.isModLoaded("ATG"))
+		{
+			try {
+				ATGIntegration.init();
+			}
+			catch (Exception e) {
+				System.out.println("[BiomesOPlenty] There was an error while integrating Alternate Terrain Generation with Biomes O' Plenty!");
+				e.printStackTrace(System.err);
+			}
+		}
 	}
 }
