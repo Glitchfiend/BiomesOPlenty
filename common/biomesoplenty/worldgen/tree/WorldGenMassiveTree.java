@@ -26,8 +26,8 @@ public class WorldGenMassiveTree extends WorldGenerator
 	double heightAttenuation = 0.45D;
 	double branchDensity = 5.0D;
 	double branchSlope = 0.45D;
-	double scaleWidth = 4.0D;
-	double leafDensity = 5.0D;
+	double scaleWidth = 1.0D;
+	double leafDensity = 1.0D;
 
 	/**
 	 * Currently always 1, can be set to 2 in the class constructor to generate a double-sized tree trunk for big trees.
@@ -37,12 +37,12 @@ public class WorldGenMassiveTree extends WorldGenerator
 	/**
 	 * Sets the limit of the random value used to initialize the height limit.
 	 */
-	int heightLimitLimit = 45;
+	int heightLimitLimit = 12;
 
 	/**
 	 * Sets the distance limit for how far away the generator will populate leaves from the base leaf node.
 	 */
-	int leafDistanceLimit = 4;
+	int leafDistanceLimit = 5;
 
 	/** Contains a list of a points at which to generate groups of leaves. */
 	int[][] leafNodes;
