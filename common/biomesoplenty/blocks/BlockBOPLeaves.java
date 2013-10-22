@@ -70,24 +70,27 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         
         public Icon getIconBetterLeaves(int metadata, float randomIndex)
         {
-                return textures[2][getTypeFromMeta(metadata) + (category.ordinal() * 8)];
+        	int type = getTypeFromMeta(metadata) + (category.ordinal() * 8);
+            return textures[2][type >= leaves.length ? 0 : type];
         }
 
         public Icon getIconFallingLeaves(int metadata)
         {
-            return textures[1][getTypeFromMeta(metadata) + (category.ordinal() * 8)];
+        	int type = getTypeFromMeta(metadata) + (category.ordinal() * 8);
+            return textures[1][type >= leaves.length ? 0 : type];
         }
 
         public float getSpawnChanceFallingLeaves(int metadata)
         {
-            return fallingLeavesChance[getTypeFromMeta(metadata) + (category.ordinal() * 8)];
+        	int type = getTypeFromMeta(metadata) + (category.ordinal() * 8);
+            return fallingLeavesChance[type >= leaves.length ? 0 : type];
         }
 
-
         @Override
-        public Icon getIcon(int side, int meta)
+        public Icon getIcon(int side, int metadata)
         {
-                return textures[(!isOpaqueCube() ? 0 : 1)][getTypeFromMeta(meta) + (category.ordinal() * 8)];
+        	int type = getTypeFromMeta(metadata) + (category.ordinal() * 8);
+            return textures[(!isOpaqueCube() ? 0 : 1)][type >= leaves.length ? 0 : type];
         }
 
         @Override
@@ -349,9 +352,10 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
                 return ret;
         }
 
-        public String getLeafType(int meta)
+        public String getLeafType(int metadata)
         {
-                return leaves[getTypeFromMeta(meta) + category.ordinal() * 8];
+        	int type = getTypeFromMeta(metadata) + (category.ordinal() * 8);
+            return leaves[type >= leaves.length ? 0 : type];
         }
 
         private static int getTypeFromMeta(int meta)
