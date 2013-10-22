@@ -1,7 +1,7 @@
 package biomesoplenty.integration;
 
 import biomesoplenty.api.Biomes;
-import biomesoplenty.integration.tatg.*;
+import biomesoplenty.integration.atg.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import ttftcuts.atg.api.ATGBiomes;
 import ttftcuts.atg.api.ATGBiomes.BiomeType;

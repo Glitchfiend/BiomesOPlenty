@@ -1,4 +1,4 @@
-package biomesoplenty.integration.tatg;
+package biomesoplenty.integration.atg;
 
 import java.util.Random;
 
