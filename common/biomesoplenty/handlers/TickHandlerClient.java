@@ -32,14 +32,18 @@ public class TickHandlerClient implements ITickHandler
 		{
 		    ChatMessageComponent updateMessage = new ChatMessageComponent();
 		    updateMessage.setColor(EnumChatFormatting.RED);
+		    
 		    updateMessage.addKey("phrase.bop.useBOPWorldtype");
+	        if (Loader.isModLoaded("ATG")) updateMessage.addKey("phrase.bop.useBOPATGWorldtype");
+	        else updateMessage.addKey("phrase.bop.useBOPWorldtype");
+		    
 		    player.sendChatToPlayer(updateMessage);
 		}
 
 		if (Version.needsUpdateNoticeAndMarkAsSeen()) 
 		{
 		    ChatMessageComponent updateMessage = new ChatMessageComponent();
-		    updateMessage.setColor(EnumChatFormatting.RED);
+		    updateMessage.setColor(EnumChatFormatting.RED);    
 		    updateMessage.addFormatted("phrase.bop.updateAvaliable", Version.getRecommendedVersion(), Loader.instance().getMinecraftModContainer().getVersion());
 		    player.sendChatToPlayer(updateMessage);
 		}

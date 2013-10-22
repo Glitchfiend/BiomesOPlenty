@@ -70,7 +70,7 @@ public class Version implements Runnable {
 		if (terrainType == null || property.getBoolean(false) == true)
 			return false;
 		
-		if (terrainType.getWorldTypeName().equals(bopType.getWorldTypeName()))
+		if (terrainType.getWorldTypeName().equals(bopType.getWorldTypeName()) || terrainType.getWorldTypeName().equals("ATG"))
 		{
 			property.set(true);
 			
