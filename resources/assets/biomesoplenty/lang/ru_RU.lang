@@ -70,6 +70,7 @@ tile.bop.foliage.berrybush.name=Ягодный куст
 tile.bop.foliage.shrub.name=Кустарник
 tile.bop.foliage.wheatgrass.name=Ростки пшеницы
 tile.bop.foliage.dampgrass.name=Влажная трава
+tile.bop.foliage.koru.name=Кору
 
 tile.bop.petals.bigflowerred.name=Гигантский красный цветок
 tile.bop.petals.bigfloweryellow.name=Гигантский жёлтый цветок
@@ -379,6 +380,7 @@ fluid.bop.springWater=Родниковая вода
 phrase.bop.promisedPortalOverworld=Врата в "Землю Обетованную" открылись выше.
 phrase.bop.promisedPortalOther=Врата в обычный мир открылись выше.
 
+phrase.bop.useBOPATGWorldtype=Тип мира Biomes O Plenty или ATG должен быть использован для того, чтобы новые биомы генерировались. Это сообщение отобразиться только один раз.
 phrase.bop.useBOPWorldtype=Тип мира Biomes O Plenty должен быть использован для того, чтобы новые биомы генерировались. Это сообщение отобразиться только один раз.
 phrase.bop.updateAvaliable=Новая версия модификации Biomes O Plenty доступна: v%s для Minecraft %s
 
