@@ -89,6 +89,7 @@ public class BOPCrossIntegration {
 			}
 		}
 		
+<<<<<<< HEAD
 		if (Loader.isModLoaded("ATG"))
 		{
 			try {
@@ -99,5 +100,17 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
+=======
+		if (Loader.isModLoaded("MineFactoryReloaded"))
+        {
+            try {
+//                MFRIntegration.init();
+            }
+            catch (Exception e) {
+                System.out.println("[BiomesOPlenty] There was an error while integrating MineFactory Reloaded with Biomes O' Plenty!");
+                e.printStackTrace(System.err);
+            }
+        }
+>>>>>>> parent of 3e8fda0... Completely ripped out the MFR API as it is no longer needed (BOP integration is now in MFR itself)
 	}
 }
