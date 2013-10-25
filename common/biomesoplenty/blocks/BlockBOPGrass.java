@@ -81,17 +81,12 @@ public class BlockBOPGrass extends Block
 		
 		if (metadata == 0)
 		{
-			if (blockId == Block.netherrack.blockID && side == UP)
-				return true;
-
-			if (blockId == this.blockID && side == UP)
-				return true;
-
-			if ((world.provider instanceof WorldProviderEnd) && blockID == Block.bedrock.blockID && side == UP)
+			if (blockId == this.blockID && side == UP && world.provider.dimensionId == -1)
 				return true;
 		}
+		else if (metadata == 1) return true;
 
-		return false;
+		return super.isFireSource(world, x, y, z, metadata, side);
 	}
 
 	@Override
