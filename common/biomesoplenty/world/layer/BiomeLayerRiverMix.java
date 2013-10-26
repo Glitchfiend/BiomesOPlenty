@@ -1,5 +1,6 @@
 package biomesoplenty.world.layer;
 
+import biomesoplenty.api.Biomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
 
@@ -32,7 +33,7 @@ public class BiomeLayerRiverMix extends BiomeLayer
 
 		for (int var8 = 0; var8 < par3 * par4; ++var8)
 		{
-			if (var5[var8] == BiomeGenBase.ocean.biomeID)
+			if (var5[var8] == BiomeGenBase.ocean.biomeID || var5[var8] == Biomes.oceanAbyss.get().biomeID || var5[var8] == Biomes.oceanCoral.get().biomeID || var5[var8] == Biomes.oceanKelp.get().biomeID)
 			{
 				var7[var8] = var5[var8];
 			}

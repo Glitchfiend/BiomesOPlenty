@@ -26,6 +26,7 @@ public class BOPConfigurationTerrainGen
 	public static boolean burningBlossomGen;
 	
 	public static int villageDistance;
+	public static int landmassPercentage;
 	
 	// Village biomes
 	public static boolean alpsVillage;
@@ -140,6 +141,8 @@ public class BOPConfigurationTerrainGen
 			{
 				villageDistance = 8;
 			}
+			
+			landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
 
 			// Biomes with villages
 			alpsVillage = config.get("Allow Villages", "Alps", false).getBoolean(false);

@@ -83,13 +83,6 @@ public class BiomeLayerBiomes extends BiomeLayer
 				netherBiomes.add(Biomes.netherBone.get());
 			}
 		}
-		if (Biomes.netherBlood.isPresent())
-		{
-			if (BOPConfigurationBiomeGen.bloodyHeapGen)
-			{
-				netherBiomes.add(Biomes.netherBlood.get());
-			}
-		}
 		if (Biomes.netherBiomes.size() > 0)
 		{
 		    netherBiomes.addAll(Biomes.netherBiomes);
@@ -116,7 +109,7 @@ public class BiomeLayerBiomes extends BiomeLayer
         int[] var5 = this.parent.getInts(par1, par2, par3, par4);
         int[] var6 = IntCache.getIntCache(par3 * par4);
         
-        boolean abyss = Biomes.oceanCoral.isPresent();
+        boolean abyss = Biomes.oceanAbyss.isPresent();
         boolean coral = Biomes.oceanCoral.isPresent();
         boolean kelp = Biomes.oceanKelp.isPresent();
         
