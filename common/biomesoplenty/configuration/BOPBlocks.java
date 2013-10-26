@@ -38,6 +38,7 @@ import biomesoplenty.blocks.BlockBOPStairs.Category;
 import biomesoplenty.blocks.BlockBamboo;
 import biomesoplenty.blocks.BlockBones;
 import biomesoplenty.blocks.BlockCloud;
+import biomesoplenty.blocks.BlockFlesh;
 import biomesoplenty.blocks.BlockGrave;
 import biomesoplenty.blocks.BlockIvy;
 import biomesoplenty.blocks.BlockLongGrass;
@@ -128,6 +129,7 @@ public class BOPBlocks
 		Blocks.driedDirt = Optional.of(new BlockBOPGeneric(BOPConfigurationIDs.driedDirtID, Material.rock, BlockType.DRIED_DIRT).setUnlocalizedName("bop.generic"));
 		Blocks.redRock = Optional.of((new BlockBOPRedRock(BOPConfigurationIDs.redRockID)).setUnlocalizedName("bop.redRocks"));
 		Blocks.ash = Optional.of((new BlockAsh(BOPConfigurationIDs.ashID)).setHardness(0.4F).setStepSound(Block.soundSandFootstep).setUnlocalizedName("bop.ash"));
+		Blocks.flesh = Optional.of((new BlockFlesh(BOPConfigurationIDs.fleshID)).setHardness(0.4F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.flesh"));
 		Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfigurationIDs.plantsID)).setUnlocalizedName("bop.plants"));
 		Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfigurationIDs.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.flowers"));
 		Blocks.flowers2 = Optional.of((new BlockBOPFlower2(BOPConfigurationIDs.flowers2ID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.flowers2"));
@@ -216,6 +218,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.driedDirt.get(), "bop.driedDirt");
 		GameRegistry.registerBlock(Blocks.redRock.get(), ItemBlockRedRock.class, "bop.redRock");
 		GameRegistry.registerBlock(Blocks.ash.get(), "bop.ash");
+		GameRegistry.registerBlock(Blocks.flesh.get(), "bop.flesh");
 		GameRegistry.registerBlock(Blocks.plants.get(), ItemBlockPlant.class, "bop.plants");
 		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBlockFlower.class, "bop.flowers");
 		GameRegistry.registerBlock(Blocks.flowers2.get(), ItemBlockFlower2.class, "bop.flowers2");

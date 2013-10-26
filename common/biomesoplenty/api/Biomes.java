@@ -69,6 +69,7 @@ public class Biomes
 	public static Optional<? extends BiomeGenBase> netherDesert			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> netherLava			 = Optional.absent();
 	public static Optional<? extends BiomeGenBase> netherBone			 = Optional.absent();
+	public static Optional<? extends BiomeGenBase> netherBlood			 = Optional.absent();
 	
 	public static Optional<? extends BiomeGenBase> oasis				 = Optional.absent();
 	

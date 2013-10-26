@@ -19,6 +19,7 @@ public class BOPConfigurationIDs
 	public static int redRockID;
 	public static int ashID;
 	public static int ashStoneID;
+	public static int fleshID;
 	public static int hardIceID;
 	public static int originGrassID;
 	public static int longGrassID;
@@ -216,6 +217,7 @@ public class BOPConfigurationIDs
 	public static int netherDesertID;
 	public static int netherLavaID;
 	public static int netherBoneID;
+	public static int netherBloodID;
 
 	public static int oasisID;
 
@@ -316,6 +318,7 @@ public class BOPConfigurationIDs
 			holyStoneID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Skystone ID", 171, null).getInt();
 			cragRockID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Crag Rock ID", 172, null).getInt();
 			longGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Long Grass ID", 173, null).getInt();
+			fleshID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Flesh ID", 174, null).getInt();
 
 			// Get Crafted Block ID's
 			plantsID = config.getBlock("Plant ID", 1920, null).getInt();
@@ -472,6 +475,8 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			netherBloodID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 30).getInt();
+			
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 31).getInt();
 			tropicsMountainID = config.get("Biome IDs", "Tropics Mountain (Sub-Biome) ID", 32).getInt();
 			autumnHillsID = config.get("Biome IDs", "Autumn Hills ID", 33).getInt();

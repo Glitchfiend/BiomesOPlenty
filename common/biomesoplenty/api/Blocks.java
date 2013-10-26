@@ -13,6 +13,7 @@ public class Blocks
 	// Worldgen Blocks
 	public static Optional<? extends Block> ash                         = Optional.absent();
 	public static Optional<? extends Block> ashStone                    = Optional.absent();
+	public static Optional<? extends Block> flesh                         = Optional.absent();
 	public static Optional<? extends Block> cragRock                    = Optional.absent();
 	public static Optional<? extends Block> driedDirt                   = Optional.absent();
 	public static Optional<? extends Block> hardDirt                    = Optional.absent();

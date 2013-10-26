@@ -109,6 +109,7 @@ public class BlockReferences {
 		redRock (Blocks.redRock, 0),
 		ash (Blocks.ash, 0),
 		ashStone (Blocks.ashStone, 0),
+		flesh (Blocks.flesh, 0),
 		hardIce (Blocks.hardIce, 0),
 		originGrass (Blocks.originGrass, 0),
 		longGrass (Blocks.longGrass, 0),
