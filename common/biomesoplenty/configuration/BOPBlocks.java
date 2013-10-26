@@ -40,6 +40,7 @@ import biomesoplenty.blocks.BlockBones;
 import biomesoplenty.blocks.BlockCloud;
 import biomesoplenty.blocks.BlockFlesh;
 import biomesoplenty.blocks.BlockGrave;
+import biomesoplenty.blocks.BlockHive;
 import biomesoplenty.blocks.BlockIvy;
 import biomesoplenty.blocks.BlockLongGrass;
 import biomesoplenty.blocks.BlockMoss;
@@ -178,6 +179,8 @@ public class BOPBlocks
 		Blocks.cragRock = Optional.of(new BlockBOPGeneric(BOPConfigurationIDs.cragRockID, Material.rock, BlockType.CRAG_ROCK));
 		
 		Blocks.cloud = Optional.of((new BlockCloud(BOPConfigurationIDs.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("bop.cloud"));
+		
+		Blocks.hive = Optional.of((new BlockHive(BOPConfigurationIDs.hiveID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.hive"));
 
 		Blocks.bones = Optional.of((new BlockBones(BOPConfigurationIDs.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.bones"));
 		
@@ -261,6 +264,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.moss.get(), ItemBlockMoss.class, "bop.moss");
 		GameRegistry.registerBlock(Blocks.cragRock.get(), "bop.cragRock");
 		GameRegistry.registerBlock(Blocks.cloud.get(), "bop.cloud");
+		GameRegistry.registerBlock(Blocks.hive.get(), "bop.hive");
 
 		GameRegistry.registerBlock(Blocks.bones.get(), ItemBlockBones.class, "bop.bones");
 		GameRegistry.registerBlock(Blocks.glass.get(), ItemBlockGlass.class, "bop.glass");	

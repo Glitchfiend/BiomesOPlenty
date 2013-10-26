@@ -157,6 +157,8 @@ tile.bop.moss.name=Moss
 
 tile.bop.cloud.name=Cloud Block
 
+tile.bop.hive.name=Hive
+
 tile.bop.bones.bones_small.name=Small Bone Segment
 tile.bop.bones.bones_medium.name=Medium Bone Segment
 tile.bop.bones.bones_large.name=Large Bone Segment

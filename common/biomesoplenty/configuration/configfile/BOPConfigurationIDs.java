@@ -96,6 +96,7 @@ public class BOPConfigurationIDs
 
 	public static int crystalID;
 	public static int cloudID;
+	public static int hiveID;
 
 	public static int bonesID;
 	public static int glassID;
@@ -404,6 +405,8 @@ public class BOPConfigurationIDs
 			leavesFruit2ID = config.getBlock("Fruit Leaf Block 2 ID", 1982, null).getInt();
 			
 			flowers2ID = config.getBlock("Flower 2 ID", 1983, null).getInt();
+			
+			hiveID = config.getBlock("Hive ID", 1984, null).getInt();
 
 			// Get Item ID's
 			foodID = config.getItem("Food ID", 21003, null).getInt();

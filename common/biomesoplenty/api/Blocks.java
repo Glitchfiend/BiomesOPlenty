@@ -85,6 +85,7 @@ public class Blocks
 	public static Optional<? extends Block> petals                      = Optional.absent();
 	public static Optional<? extends Block> bamboo                      = Optional.absent();
 	public static Optional<? extends Block> cloud                       = Optional.absent();
+	public static Optional<? extends Block> hive                        = Optional.absent();
 
 	//Nether
 	public static Optional<? extends Block> bones                       = Optional.absent();
