@@ -242,7 +242,7 @@ public class BOPBiomes {
 		Biomes.netherLava = Optional.of((new BiomeGenNetherLava(BOPConfigurationIDs.netherLavaID)).setColor(16711680).setBiomeName("Phantasmagoric Inferno").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherBone = Optional.of((new BiomeGenNetherBone(BOPConfigurationIDs.netherBoneID)).setColor(16711680).setBiomeName("Boneyard").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherBlood = Optional.of((new BiomeGenNetherBlood(BOPConfigurationIDs.netherBloodID)).setColor(16711680).setBiomeName("Bloody Heap").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
-		Biomes.netherHive = Optional.of((new BiomeGenNetherHive(BOPConfigurationIDs.netherHiveID)).setColor(16711680).setBiomeName("The Hive").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
+		Biomes.netherHive = Optional.of((new BiomeGenNetherHive(BOPConfigurationIDs.netherHiveID)).setColor(16711680).setBiomeName("Hellish Hive").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 
 		Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfigurationIDs.oasisID)).setColor(16421912).setBiomeName("Oasis").setTemperatureRainfall(0.9F, 0.7F).setMinMaxHeight(0.3F, 0.4F));
 

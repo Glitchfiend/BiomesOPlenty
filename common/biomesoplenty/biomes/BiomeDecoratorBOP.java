@@ -80,6 +80,7 @@ import biomesoplenty.worldgen.WorldGenMesa;
 import biomesoplenty.worldgen.WorldGenMud;
 import biomesoplenty.worldgen.WorldGenMycelium;
 import biomesoplenty.worldgen.WorldGenNetherGrass;
+import biomesoplenty.worldgen.WorldGenNetherHive;
 import biomesoplenty.worldgen.WorldGenNetherLava;
 import biomesoplenty.worldgen.WorldGenNetherVines;
 import biomesoplenty.worldgen.WorldGenNetherWart;
@@ -150,6 +151,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator clayInStone2Gen;
 	public WorldGenerator quagmireGen;
 	public WorldGenerator quicksandGen;
+	public WorldGenerator hiveGen;
 	public WorldGenerator spongeGen;
 	public WorldGenerator canyonGen;
 	public WorldGenerator cloudGen;
@@ -429,6 +431,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public boolean generateClouds;
 	public boolean generateQuicksand;
 	public boolean generateSponge;
+	public boolean generateHive;
 
 	public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
 	{
@@ -453,6 +456,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		clayInStoneGen = new WorldGenBadlands3(Block.stainedClay.blockID, 32);
 		clayInStone2Gen = new WorldGenBadlands(Block.stainedClay.blockID, 32);
 		quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
+		hiveGen = new WorldGenNetherHive(Blocks.hive.get().blockID, 48);
 		quicksandGen = new WorldGenQuicksand(Blocks.mud.get().blockID, 24);
 		spongeGen = new WorldGenSponge(Block.sponge.blockID, 24);
 		canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
@@ -657,6 +661,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		generateClouds = false;
 		generateQuicksand = false;
 		generateSponge = false;
+		generateHive = false;
 		biome = par1BiomeGenBase;
 	}
 
@@ -848,6 +853,11 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 if (generateQuagmire)
 		 {
 			 this.genStandardOre1(15, quagmireGen, 64, 128);
+		 }
+		 
+		 if (generateHive)
+		 {
+			 this.genStandardOre1(5, hiveGen, 0, 128);
 		 }
 
 		 if (generateCanyon)

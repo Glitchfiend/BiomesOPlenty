@@ -28,6 +28,7 @@ public class BiomeGenNetherHive extends BiomeGenBase
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableCaveCreatureList.clear();
+		customBiomeDecorator.generateHive = true;
 		spawnableMonsterList.add(new SpawnListEntry(EntityGhast.class, 50, 4, 4));
 		spawnableMonsterList.add(new SpawnListEntry(EntityPigZombie.class, 100, 4, 4));
 		spawnableMonsterList.add(new SpawnListEntry(EntityMagmaCube.class, 1, 4, 4));
@@ -38,12 +39,13 @@ public class BiomeGenNetherHive extends BiomeGenBase
 	{
 		super.decorate(par1World, par2Random, par3, par4);
 
-		if (par2Random.nextInt(10) == 0)
+		if (par2Random.nextInt(2) == 0)
 		{
 			int var5 = par3 + par2Random.nextInt(16) + 8;
+			int var99 = par2Random.nextInt(128);
 			int var6 = par4 + par2Random.nextInt(16) + 8;
 			WorldGenHive var7 = new WorldGenHive();
-			var7.generate(par1World, par2Random, var5, par1World.getHeightValue(var5, var6) - 1, var6);
+			var7.generate(par1World, par2Random, var5, var99, var6);
 		}
 	}
 }

@@ -92,7 +92,7 @@ public class BiomeLayerBiomes extends BiomeLayer
 		}
 		if (Biomes.netherHive.isPresent())
 		{
-			if (BOPConfigurationBiomeGen.theHiveGen)
+			if (BOPConfigurationBiomeGen.hellishHiveGen)
 			{
 				netherBiomes.add(Biomes.netherHive.get());
 			}
