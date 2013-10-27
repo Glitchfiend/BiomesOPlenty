@@ -96,7 +96,7 @@ public class BOPEntities {
 		{
 		    EntityRegistry.registerModEntity(EntityWasp.class, "Wasp", BOPConfigurationIDs.waspID, BiomesOPlenty.instance, 80, 3, true);
 
-		    registerEntityEgg(EntityWasp.class, 4472140, 2499368);
+		    registerEntityEgg(EntityWasp.class, 16434729, 2500135);
 		}
 	}
 }
