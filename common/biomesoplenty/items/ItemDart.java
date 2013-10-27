@@ -40,80 +40,48 @@ public class ItemDart extends Item
         int z = pos.blockZ;
         
 	    int baseWidth = 2 + world.rand.nextInt(2);
-	    int baseHeight = 10 + world.rand.nextInt(2);
+	    int baseHeight = 7 + world.rand.nextInt(2);
 	    
-	    for (int wLayer = 0; wLayer < 3; wLayer ++)
+	    for (int cubeno = 0; cubeno < 3; cubeno++)
 	    {
-	        for (int hLayer = 0; hLayer < baseHeight; hLayer++)
-	        {     
-	            int width = (baseWidth + wLayer);
-	            if (hLayer > 0 && hLayer < (baseHeight - 1)) width++;
-
-	            for (int i = -width; i < width; i++)
-	            {
-	                for (int j = -width; j < width; j++)
-	                {
-	                    if (hLayer == 0)  
-	                    {
-
-	                        switch (wLayer)
-	                        {
-	                            case 0:
-	                                if (world.rand.nextInt(2) == 0) world.setBlock(x + i, y, z + j, Blocks.hive.get().blockID);
-	                                break;
-
-	                            case 1:
-	                                world.setBlock(x + i, y, z + j, Blocks.hive.get().blockID);
-	                                break;
-
-	                            case 2:
-	                                if (world.rand.nextInt(2) == 0) world.setBlock(x + i, y, z + j, Blocks.hive.get().blockID);
-	                                break;
-	                        }
-	                    }
-	                    else if (hLayer == baseHeight - 1) 
-	                    {
-	                        switch (wLayer)
-	                        {
-	                            case 0:
-	                                if (world.rand.nextInt(2) == 0) world.setBlock(x + i, y + (baseHeight - 1), z + j, Blocks.hive.get().blockID);
-	                                break;
-	                                
-	                            case 1:
-	                                world.setBlock(x + i, y + (baseHeight - 1), z + j, Blocks.hive.get().blockID);
-	                                break;
-	                                
-	                            case 2:
-	                                if (world.rand.nextInt(2) == 0) world.setBlock(x + i, y + (baseHeight - 1), z + j, Blocks.hive.get().blockID);
-	                                break;
-	                        }
-	                    }
-	                    else
-	                    {
-	                        if (i == -width || i == (width - 1) || j == -width || j == (width - 1))
-	                        {
-	                            switch (wLayer)
-	                            {
-	                                case 0:
-	                                    if (world.rand.nextInt(2) == 0) world.setBlock(x + i, y + hLayer, z + j, Blocks.hive.get().blockID);
-	                                    break;
-	                                    
-	                                case 1:
-	                                    world.setBlock(x + i, y + hLayer, z + j, Blocks.hive.get().blockID);
-	                                    break;
-	                                    
-	                                case 2:
-	                                    if (world.rand.nextInt(2) == 0) world.setBlock(x + i, y + hLayer, z + j, Blocks.hive.get().blockID);
-	                                    break;
-	                            }
-	                        }
-	                    }
-	                }
-	            }
+	        float chance = 0.0F;
+	        
+	        switch (cubeno)
+	        {
+	            case 0:
+	                chance = 0.25F;
+	                break;
+	                
+	            case 1:
+	                chance = 1.0F;
+	                break;
+	                
+	            case 2:
+	                chance = 0.25F;
+	                break;
 	        }
+	        
+	        generateHiveCube(world, x, y + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, chance);
 	    }
 
 	    return itemstack;
+	}
+	
+	public void generateHiveCube(World world, int origx, int origy, int origz, int height, int width, float chance)
+	{
+        for (int hLayer = 0; hLayer < height; hLayer++)
+        {     
+            for (int i = -width; i < width; i++)
+            {
+                for (int j = -width; j < width; j++)
+                {
+                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID); 
+                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID);
+                    
+                    if (world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
+                }
+            }
+        }
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
