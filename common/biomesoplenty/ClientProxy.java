@@ -20,6 +20,7 @@ import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityPhantom;
 import biomesoplenty.entities.EntityRosester;
+import biomesoplenty.entities.EntityWasp;
 import biomesoplenty.entities.projectiles.EntityDart;
 import biomesoplenty.entities.projectiles.EntityMudball;
 import biomesoplenty.entities.render.RenderDart;
@@ -27,6 +28,7 @@ import biomesoplenty.entities.render.RenderGlob;
 import biomesoplenty.entities.render.RenderJungleSpider;
 import biomesoplenty.entities.render.RenderPhantom;
 import biomesoplenty.entities.render.RenderRosester;
+import biomesoplenty.entities.render.RenderWasp;
 import biomesoplenty.particles.EntityDandelionFX;
 import biomesoplenty.particles.EntitySteamFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -68,6 +70,11 @@ public class ClientProxy extends CommonProxy {
 		if (BOPConfigurationIDs.phantomID > 0)
 		{
 			RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, new RenderPhantom());
+		}
+
+		if (BOPConfigurationIDs.waspID > 0)
+		{
+		    RenderingRegistry.registerEntityRenderingHandler(EntityWasp.class, new RenderWasp());
 		}
 
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());

@@ -11,11 +11,11 @@ import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityPhantom;
 import biomesoplenty.entities.EntityRosester;
+import biomesoplenty.entities.EntityWasp;
 import biomesoplenty.entities.projectiles.EntityDart;
 import biomesoplenty.entities.projectiles.EntityMudball;
 import biomesoplenty.entities.projectiles.EntityPoisonDart;
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BOPEntities {
 
@@ -90,6 +90,13 @@ public class BOPEntities {
 			{
 				EntityRegistry.addSpawn(EntityPhantom.class, 8, 1, 1, EnumCreatureType.monster, Biomes.netherBone.get(), Biomes.netherDesert.get());
 			}
+		}
+		
+		if (BOPConfigurationIDs.waspID > 0)
+		{
+		    EntityRegistry.registerModEntity(EntityWasp.class, "Wasp", BOPConfigurationIDs.waspID, BiomesOPlenty.instance, 80, 3, true);
+
+		    registerEntityEgg(EntityWasp.class, 4472140, 2499368);
 		}
 	}
 }
