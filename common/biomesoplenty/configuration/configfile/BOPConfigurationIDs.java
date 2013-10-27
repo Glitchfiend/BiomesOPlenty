@@ -219,6 +219,7 @@ public class BOPConfigurationIDs
 	public static int netherLavaID;
 	public static int netherBoneID;
 	public static int netherBloodID;
+	public static int netherHiveID;
 
 	public static int oasisID;
 
@@ -480,6 +481,7 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			netherHiveID = config.get("Biome IDs", "The Hive (Nether) ID", 29).getInt();
 			netherBloodID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 30).getInt();
 			
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 31).getInt();

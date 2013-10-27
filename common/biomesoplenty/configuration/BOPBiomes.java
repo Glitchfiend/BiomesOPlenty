@@ -108,6 +108,7 @@ import biomesoplenty.biomes.nether.BiomeGenNetherBlood;
 import biomesoplenty.biomes.nether.BiomeGenNetherBone;
 import biomesoplenty.biomes.nether.BiomeGenNetherDesert;
 import biomesoplenty.biomes.nether.BiomeGenNetherGarden;
+import biomesoplenty.biomes.nether.BiomeGenNetherHive;
 import biomesoplenty.biomes.nether.BiomeGenNetherLava;
 import biomesoplenty.biomes.ocean.BiomeGenOceanAbyss;
 import biomesoplenty.biomes.ocean.BiomeGenOceanCoral;
@@ -241,6 +242,7 @@ public class BOPBiomes {
 		Biomes.netherLava = Optional.of((new BiomeGenNetherLava(BOPConfigurationIDs.netherLavaID)).setColor(16711680).setBiomeName("Phantasmagoric Inferno").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherBone = Optional.of((new BiomeGenNetherBone(BOPConfigurationIDs.netherBoneID)).setColor(16711680).setBiomeName("Boneyard").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherBlood = Optional.of((new BiomeGenNetherBlood(BOPConfigurationIDs.netherBloodID)).setColor(16711680).setBiomeName("Bloody Heap").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
+		Biomes.netherHive = Optional.of((new BiomeGenNetherHive(BOPConfigurationIDs.netherHiveID)).setColor(16711680).setBiomeName("The Hive").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 
 		Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfigurationIDs.oasisID)).setColor(16421912).setBiomeName("Oasis").setTemperatureRainfall(0.9F, 0.7F).setMinMaxHeight(0.3F, 0.4F));
 
@@ -378,11 +380,12 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
 
 		BiomeDictionary.registerBiomeType(Biomes.netherBase.get(), Type.NETHER);
-		BiomeDictionary.registerBiomeType(Biomes.netherGarden.get(), Type.NETHER, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.netherGarden.get(), Type.NETHER, Type.JUNGLE);
 		BiomeDictionary.registerBiomeType(Biomes.netherDesert.get(), Type.NETHER, Type.DESERT);
 		BiomeDictionary.registerBiomeType(Biomes.netherLava.get(), Type.NETHER);
 		BiomeDictionary.registerBiomeType(Biomes.netherBone.get(), Type.NETHER, Type.WASTELAND);
-		BiomeDictionary.registerBiomeType(Biomes.netherBone.get(), Type.NETHER);
+		BiomeDictionary.registerBiomeType(Biomes.netherBlood.get(), Type.NETHER);
+		BiomeDictionary.registerBiomeType(Biomes.netherHive.get(), Type.NETHER);
 
 		BiomeDictionary.registerBiomeType(Biomes.oasis.get(), Type.DESERT, Type.JUNGLE);
 

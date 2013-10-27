@@ -90,6 +90,13 @@ public class BiomeLayerBiomes extends BiomeLayer
 				netherBiomes.add(Biomes.netherBlood.get());
 			}
 		}
+		if (Biomes.netherHive.isPresent())
+		{
+			if (BOPConfigurationBiomeGen.theHiveGen)
+			{
+				netherBiomes.add(Biomes.netherHive.get());
+			}
+		}
 		if (Biomes.netherBiomes.size() > 0)
 		{
 		    netherBiomes.addAll(Biomes.netherBiomes);

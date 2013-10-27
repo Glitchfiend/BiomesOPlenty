@@ -10,7 +10,7 @@ public class WorldProviderBOPhell extends WorldProviderHell
     @Override
 	public void registerWorldChunkManager()
     {
-		if (Biomes.netherGarden.isPresent() || Biomes.netherDesert.isPresent() || Biomes.netherLava.isPresent() || Biomes.netherBone.isPresent() || Biomes.netherBlood.isPresent())
+		if (Biomes.netherGarden.isPresent() || Biomes.netherDesert.isPresent() || Biomes.netherLava.isPresent() || Biomes.netherBone.isPresent() || Biomes.netherBlood.isPresent() || Biomes.netherHive.isPresent())
 		{
 			this.worldChunkMgr = new WorldChunkManagerBOPhell(worldObj);
 		}

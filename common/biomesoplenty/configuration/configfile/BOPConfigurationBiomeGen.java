@@ -107,6 +107,7 @@ public class BOPConfigurationBiomeGen
 	public static boolean phantasmagoricInfernoGen;
 	public static boolean boneyardGen;
 	public static boolean bloodyHeapGen;
+	public static boolean theHiveGen;
 
 	// Beach variations
 	public static boolean gravelBeachGen;
@@ -222,6 +223,7 @@ public class BOPConfigurationBiomeGen
 			phantasmagoricInfernoGen = config.get("Nether Biomes To Generate", "PhantasmagoricInferno", true).getBoolean(true);
 			boneyardGen = config.get("Nether Biomes To Generate", "Boneyard", true).getBoolean(true);
 			bloodyHeapGen = config.get("Nether Biomes To Generate", "BloodyHeap", true).getBoolean(true);
+			theHiveGen = config.get("Nether Biomes To Generate", "TheHive", true).getBoolean(true);
 
 			// Beach variations
 			gravelBeachGen = config.get("Beach Variations To Generate", "Gravel Beach", true).getBoolean(true);
