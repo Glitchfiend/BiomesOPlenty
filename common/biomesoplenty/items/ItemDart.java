@@ -61,13 +61,13 @@ public class ItemDart extends Item
 	                break;
 	        }
 	        
-	        generateHiveCube(world, x, y + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, chance);
+	        generateHiveCube(world, x, y + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, cubeno, chance);
 	    }
 
 	    return itemstack;
 	}
 	
-	public void generateHiveCube(World world, int origx, int origy, int origz, int height, int width, float chance)
+	public void generateHiveCube(World world, int origx, int origy, int origz, int height, int width, int cubeno, float chance)
 	{
         for (int hLayer = 0; hLayer < height; hLayer++)
         {     
@@ -78,7 +78,7 @@ public class ItemDart extends Item
                     if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID); 
                     else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID);
                     
-                    if (world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
+                    if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
                 }
             }
         }
