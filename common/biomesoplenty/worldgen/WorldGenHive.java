@@ -13,18 +13,15 @@ import biomesoplenty.api.Blocks;
 public class WorldGenHive extends WorldGenerator
 {
 	@Override
-	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
+	public boolean generate(World world, Random rand, int x, int y, int z)
 	{ 
-        int x = var3;
-        int y = var4;
-        int z = var5;
         
-	    int baseWidth = 4 + var1.rand.nextInt(2);
-	    int baseHeight = 8 + var1.rand.nextInt(2);
+	    int baseWidth = 4 + rand.nextInt(2);
+	    int baseHeight = 8 + rand.nextInt(2);
 	    
-		if (var1.getBlockId(x, y + 2, z) != Block.netherrack.blockID)
+		if (world.getBlockId(x, y + 3, z) != Block.netherrack.blockID)
 			{
-			if (!var1.isAirBlock(x, y + 1, z))
+			if (!world.isAirBlock(x, y + 2, z))
 				{
 				return false;
 				}
@@ -50,19 +47,19 @@ public class WorldGenHive extends WorldGenerator
 	        }
 	        
 	        //Top
-	        generateHiveCubeSmall(var1, x, (y + 2) + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, y + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
 	        
 	        //Middle
-	        generateHiveCube(var1, x, y + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, cubeno, chance);
+	        generateHiveCube(world, x, (y - 2) + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, cubeno, chance);
 	        
 	        //Bottom
-	        generateHiveCubeSmall(var1, x, (y - (baseHeight + 2)) + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, (y - (baseHeight + 4)) + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
 	        
 	        //Bottom 2
-	        generateHiveCubeSmall(var1, x, (y - (baseHeight + 3)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 2) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, (y - (baseHeight + 5)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 2) + cubeno, cubeno, chance);
 	        
 	        //Bottom 3
-	        generateHiveCubeSmall(var1, x, (y - (baseHeight + 5)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, (y - (baseHeight + 7)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance);
 	    }
 	    
 	    return true;
