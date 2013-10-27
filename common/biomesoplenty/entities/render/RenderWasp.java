@@ -14,6 +14,7 @@ public class RenderWasp extends RenderLiving
     public RenderWasp()
     {
         super(new ModelWasp(), 0.25F);
+        this.shadowSize = 0.0F;
     }
 
     @Override

@@ -131,33 +131,22 @@ public class ModelWasp extends ModelBase
         Abdomen.addChild(Stinger);
     }
 
+    @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
     {
         GL11.glRotatef(180F, 0.0F, 1.0F, 0.0F);
+        GL11.glTranslatef(0.0F, 0.75F, 0.0F);
+        
+        this.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         
         /*Head*/
-        float headspeed = 0.1F * (float)(entity.entityId % 10);
-        Head.rotateAngleX = MathHelper.sin((float)entity.ticksExisted * headspeed) * 2.5F * (float)Math.PI / 180.0F;
-        Head.rotateAngleY = 0.0F;
-        Head.rotateAngleZ = MathHelper.cos((float)entity.ticksExisted * headspeed) * 1.5F * (float)Math.PI / 180.0F;
-        
         Head.render(f5);
         
-        /*Wings*/
-        Right_Wing.rotateAngleY = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.25F;
-        Left_Wing.rotateAngleY = -Right_Wing.rotateAngleY;  
-        Right_Wing.rotateAngleZ = Right_Wing.rotateAngleY;
-        Left_Wing.rotateAngleZ = -Right_Wing.rotateAngleY;
-        
+        /*Wings*/        
         Left_Wing.render(f5);
         Right_Wing.render(f5);
         
-        /*Body*/
-        float thoraxspeed = 0.05F * (float)(entity.entityId % 10);
-        Thorax.rotateAngleX = MathHelper.sin((float)entity.ticksExisted * thoraxspeed) * 2.5F * (float)Math.PI / 180.0F;
-        Thorax.rotateAngleY = 0.0F;
-        Thorax.rotateAngleZ = MathHelper.cos((float)entity.ticksExisted * thoraxspeed) * 1.5F * (float)Math.PI / 180.0F;
-        
+        /*Body*/        
         Thorax.render(f5);
         
         /*float nosespeed = 0.5F * (float)(entity.entityId % 10);
@@ -166,11 +155,6 @@ public class ModelWasp extends ModelBase
         Nose.rotateAngleZ = MathHelper.cos((float)entity.ticksExisted * nosespeed) * 1.5F * (float)Math.PI / 180.0F;*/
         
         /*Stinger*/
-        float abdomenspeed = 0.6F * (float)(entity.entityId % 10);
-        Abdomen.rotateAngleX = MathHelper.sin((float)entity.ticksExisted * abdomenspeed) * 2.5F * (float)Math.PI / 180.0F;
-        Abdomen.rotateAngleY = 0.0F;
-        Abdomen.rotateAngleZ = MathHelper.cos((float)entity.ticksExisted * abdomenspeed) * 1.5F * (float)Math.PI / 180.0F;
-        
         Abdomen.render(f5);
     }
 
@@ -178,5 +162,22 @@ public class ModelWasp extends ModelBase
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
     {
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity); 
+        
+        float headspeed = 0.1F * (float)(entity.entityId % 10);
+        Head.rotateAngleX = MathHelper.sin(f2 * headspeed) * 2.5F * (float)Math.PI / 180.0F;
+        Head.rotateAngleZ = MathHelper.cos(f2 * headspeed) * 1.5F * (float)Math.PI / 180.0F;
+        
+        float thoraxspeed = 0.075F * (float)(entity.entityId % 10);
+        Thorax.rotateAngleX = MathHelper.sin(f2 * thoraxspeed) * 2.5F * (float)Math.PI / 180.0F;
+        Thorax.rotateAngleZ = MathHelper.cos(f2 * thoraxspeed) * 1.5F * (float)Math.PI / 180.0F;
+        
+        Right_Wing.rotateAngleY = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.25F;
+        Left_Wing.rotateAngleY = -Right_Wing.rotateAngleY;  
+        Right_Wing.rotateAngleZ = Right_Wing.rotateAngleY;
+        Left_Wing.rotateAngleZ = -Right_Wing.rotateAngleY;
+        
+        float abdomenspeed = 0.6F * (float)(entity.entityId % 10);
+        Abdomen.rotateAngleX = MathHelper.sin(f2 * abdomenspeed) * 2.5F * (float)Math.PI / 180.0F;
+        Abdomen.rotateAngleZ = MathHelper.cos(f2 * abdomenspeed) * 1.5F * (float)Math.PI / 180.0F;
     }
 }
