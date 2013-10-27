@@ -15,20 +15,20 @@ public class WorldGenHive extends WorldGenerator
 	@Override
 	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
 	{ 
-		if (var1.getBlockId(var3, var4 + 9, var5) != Block.netherrack.blockID)
-			{
-			if (!var1.isAirBlock(var3, var4 + 8, var5))
-				{
-					return false;
-				}
-			}
-		
         int x = var3;
-        int y = var4 + 9;
+        int y = var4;
         int z = var5;
         
 	    int baseWidth = 4 + var1.rand.nextInt(2);
 	    int baseHeight = 8 + var1.rand.nextInt(2);
+	    
+		if (var1.getBlockId(x, y + 2, z) != Block.netherrack.blockID)
+			{
+			if (!var1.isAirBlock(x, y + 1, z))
+				{
+				return false;
+				}
+			}
 	    
 	    for (int cubeno = 0; cubeno < 3; cubeno++)
 	    {
@@ -48,7 +48,6 @@ public class WorldGenHive extends WorldGenerator
 	                chance = 0.75F;
 	                break;
 	        }
-	        
 	        
 	        //Top
 	        generateHiveCubeSmall(var1, x, (y + 2) + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
