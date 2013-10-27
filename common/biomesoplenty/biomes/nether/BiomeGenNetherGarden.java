@@ -33,6 +33,7 @@ public class BiomeGenNetherGarden extends BiomeGenBase
 		customBiomeDecorator.toadstoolsPerChunk = 5;
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.burningBlossomsPerChunk = 8;
+		customBiomeDecorator.waspHivesPerChunk = 1;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

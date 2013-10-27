@@ -19,12 +19,9 @@ public class WorldGenHive extends WorldGenerator
 	    int baseWidth = 4 + rand.nextInt(2);
 	    int baseHeight = 8 + rand.nextInt(2);
 	    
-		if (world.getBlockId(x, y + 3, z) != Block.netherrack.blockID)
+		if (world.getBlockId(x, y + 3, z) != Block.netherrack.blockID || !world.isAirBlock(x, y + 2, z))
 			{
-			if (!world.isAirBlock(x, y + 2, z))
-				{
-				return false;
-				}
+			return false;
 			}
 	    
 	    for (int cubeno = 0; cubeno < 3; cubeno++)
@@ -42,7 +39,7 @@ public class WorldGenHive extends WorldGenerator
 	                break;
 	                
 	            case 2:
-	                chance = 0.75F;
+	                chance = 0.5F;
 	                break;
 	        }
 	        

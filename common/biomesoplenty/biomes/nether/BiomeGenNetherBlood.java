@@ -21,6 +21,7 @@ public class BiomeGenNetherBlood extends BiomeGenBase
 		topBlock = (byte)Blocks.flesh.get().blockID;
 		fillerBlock = (byte)Blocks.flesh.get().blockID;
 		customBiomeDecorator.gravesPerChunk = 1;
+		customBiomeDecorator.waspHivesPerChunk = 1;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

@@ -22,6 +22,7 @@ public class BiomeGenNetherBone extends BiomeGenBase
 		customBiomeDecorator.boneSpinesPerChunk = 6;
 		customBiomeDecorator.boneSpines2PerChunk = 9;
 		customBiomeDecorator.gravesPerChunk = 1;
+		customBiomeDecorator.waspHivesPerChunk = 1;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

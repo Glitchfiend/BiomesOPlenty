@@ -21,6 +21,7 @@ public class BiomeGenNetherDesert extends BiomeGenBase
 		fillerBlock = (byte)Block.slowSand.blockID;
 		customBiomeDecorator.thornsPerChunk = 10;
 		customBiomeDecorator.gravesPerChunk = 1;
+		customBiomeDecorator.waspHivesPerChunk = 1;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

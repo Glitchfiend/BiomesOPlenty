@@ -21,6 +21,7 @@ public class BiomeGenNetherBase extends BiomeGenBase
 		fillerBlock = (byte)Block.netherrack.blockID;
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.burningBlossomsPerChunk = 1;
+		customBiomeDecorator.waspHivesPerChunk = 1;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
