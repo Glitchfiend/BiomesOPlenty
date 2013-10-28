@@ -3,12 +3,10 @@ package biomesoplenty.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.entities.EntityWasp;
 
 public class WorldGenHive extends WorldGenerator
 {
@@ -57,6 +55,8 @@ public class WorldGenHive extends WorldGenerator
 	        
 	        //Bottom 3
 	        generateHiveCubeSmall(world, x, (y - (baseHeight + 7)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance);
+	        
+	        spawnWasps(world, rand, x, y, z);
 	    }
 	    
 	    return true;
@@ -92,5 +92,22 @@ public class WorldGenHive extends WorldGenerator
                 }
             }
         }
+	}
+	
+	public void spawnWasps(World world, Random rand, int x, int y, int z)
+	{
+		for (int spawn = 0; spawn < 15; spawn++)
+		{
+			int spawnx = (x - 4) + rand.nextInt(8);
+			int spawny = (y - 6) - rand.nextInt(4);
+			int spawnz = (z - 4) + rand.nextInt(8);
+			
+			if (world.isAirBlock(spawnx, spawny, spawnz))
+			{
+				EntityWasp wasp = new EntityWasp(world);
+	            wasp.setLocationAndAngles((double)spawnx, (double)spawny, (double)spawnz, 0.0F, 0.0F);
+	            world.spawnEntityInWorld(wasp);
+			}
+		}
 	}
 }
