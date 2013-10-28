@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.entities.EntityWasp;
 
 public class WorldGenHive extends WorldGenerator
@@ -58,14 +59,7 @@ public class WorldGenHive extends WorldGenerator
 	        //Bottom 3
 	        generateHiveCubeSmall(world, x, (y - (baseHeight + 7)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance);
 	        
-	        if (honeychance != 0)
-	        {	
-	        	spawnWasps(world, rand, x, y, z, 15);
-	        }
-	        else
-	        {
-	        	spawnWasps(world, rand, x, y, z, 7);
-	        }
+	        spawnWasps(world, rand, x, y, z, 15);
 	    }
 	    
 	    return true;
@@ -86,7 +80,7 @@ public class WorldGenHive extends WorldGenerator
                     {
                     	if (hLayer > (height / 2))
                     	{
-                    		if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlock(origx + i, origy - hLayer, origz + j, Block.waterMoving.blockID);
+                    		if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID);
                     	}
                     	else
                     	{

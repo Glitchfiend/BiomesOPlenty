@@ -12,7 +12,9 @@ public class Fluids
 
 	public static Optional<? extends Block> springWater                     = Optional.absent();
 	public static Optional<? extends Block> liquidPoison                    = Optional.absent();
+	public static Optional<? extends Block> honey                    = Optional.absent();
 
 	public static Optional<? extends Fluid> springWaterFluid                = Optional.absent();
 	public static Optional<? extends Fluid> liquidPoisonFluid               = Optional.absent();
+	public static Optional<? extends Fluid> honeyFluid               = Optional.absent();
 }

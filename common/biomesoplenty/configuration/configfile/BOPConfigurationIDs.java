@@ -155,6 +155,7 @@ public class BOPConfigurationIDs
 	//Liquid IDs
 	public static int springWaterStillID;
 	public static int liquidPoisonStillID;
+	public static int honeyStillID;
 
 	//Biome IDs
 	public static int alpsID;
@@ -408,6 +409,11 @@ public class BOPConfigurationIDs
 			flowers2ID = config.getBlock("Flower 2 ID", 1983, null).getInt();
 			
 			hiveID = config.getBlock("Hive ID", 1984, null).getInt();
+			
+			//Liquid Ids
+			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1985, null).getInt();
+			liquidPoisonStillID = config.get("Liquid IDs", "Liquid Poison Still ID (ID before this must be free!)", 1987, null).getInt();
+			honeyStillID = config.get("Liquid IDs", "Honey Still ID (ID before this must be free!)", 1989, null).getInt();
 
 			// Get Item ID's
 			foodID = config.getItem("Food ID", 21003, null).getInt();
@@ -459,10 +465,6 @@ public class BOPConfigurationIDs
 			
 			wadingBootsID = config.getItem("Wading Boots ID", 21088).getInt();
 			flippersID = config.getItem("Flippers ID", 21089).getInt();
-			
-			//Liquid Ids
-			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 1971, null).getInt();
-			liquidPoisonStillID = config.get("Liquid IDs", "Liquid Poison Still ID (ID before this must be free!)", 1973, null).getInt();
 
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();

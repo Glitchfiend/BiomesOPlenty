@@ -20,7 +20,7 @@ public class ItemBOPBucket extends Item
 {
 	private int isFull;
 
-	private static final String[] bucketTypes = new String[] {"amethyst_empty", "liquid_poison", "amethyst_spring_water"};
+	private static final String[] bucketTypes = new String[] {"amethyst_empty", "liquid_poison", "amethyst_spring_water", "honey"};
 
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
@@ -202,6 +202,9 @@ public class ItemBOPBucket extends Item
 
 			case 2:
 				return Fluids.springWater.get().blockID;
+				
+			case 3:
+				return Fluids.honey.get().blockID;
 
 			default:
 				return Fluids.liquidPoison.get().blockID;
