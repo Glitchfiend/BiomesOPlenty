@@ -19,8 +19,6 @@ public class EntityWasp extends EntityFlyingMob
 
     /** Cooldown time between target loss and new target aquirement. */
     private int aggroCooldown;
-    public int prevAttackCounter;
-    public int attackCounter;
     
     public EntityWasp(World world)
     {
@@ -44,7 +42,6 @@ public class EntityWasp extends EntityFlyingMob
         }
 
         this.despawnEntity();
-        this.prevAttackCounter = this.attackCounter;
         double d0 = this.waypointX - this.posX;
         double d1 = this.waypointY - this.posY;
         double d2 = this.waypointZ - this.posZ;
@@ -52,14 +49,14 @@ public class EntityWasp extends EntityFlyingMob
 
         if (d3 < 1.0D || d3 > 3600.0D)
         {
-            this.waypointX = this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
-            this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 16.0F);
+            this.waypointX = this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 4.0F);
+            this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 4.0F);
+            this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 4.0F);
         }
 
         if (this.courseChangeCooldown-- <= 0)
         {
-            this.courseChangeCooldown += this.rand.nextInt(5) + 2;
+            this.courseChangeCooldown += this.rand.nextInt(2) + 2;
             d3 = (double)MathHelper.sqrt_double(d3);
 
             if (this.isCourseTraversable(this.waypointX, this.waypointY, this.waypointZ, d3))
@@ -109,22 +106,11 @@ public class EntityWasp extends EntityFlyingMob
                 float f1 = this.targetedEntity.getDistanceToEntity(this);
 
                 this.attackEntity(this.targetedEntity, f1);
-                
-                ++this.attackCounter;
-            }
-            else if (this.attackCounter > 0)
-            {
-                --this.attackCounter;
             }
         }
         else
         {
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(this.motionX, this.motionZ)) * 180.0F / (float)Math.PI;
-
-            if (this.attackCounter > 0)
-            {
-                --this.attackCounter;
-            }
         }
     }
 
