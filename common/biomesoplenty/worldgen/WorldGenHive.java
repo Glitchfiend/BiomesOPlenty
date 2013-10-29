@@ -24,41 +24,50 @@ public class WorldGenHive extends WorldGenerator
 			return false;
 			}
 	    
-	    for (int cubeno = 0; cubeno < 3; cubeno++)
+	    for (int cubeno = 0; cubeno < 4; cubeno++)
 	    {
 	        float chance = 0.0F;
+	        int meta = 0;
 	        
 	        switch (cubeno)
 	        {
 	            case 0:
 	                chance = 0.25F;
+	                meta = 0;
 	                break;
 	                
 	            case 1:
 	                chance = 1.0F;
+	                meta = 0;
 	                break;
 	                
 	            case 2:
+	                chance = 1.0F;
+	                meta = 2;
+	                break;
+	                
+	            case 3:
 	                chance = 0.5F;
+	                meta = 2;
 	                break;
 	        }
 	        
 	        int honeychance = rand.nextInt(2);
 	        
 	        //Top
-	        generateHiveCubeSmall(world, x, y + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, y + cubeno, z, (baseHeight - 11) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance, meta);
 	        
 	        //Middle
-	        generateHiveCube(world, x, (y - 2) + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, cubeno, chance, honeychance);
+	        generateHiveCube(world, x, (y - 2) + cubeno, z, baseHeight + (cubeno * 2), baseWidth + cubeno, cubeno, chance, honeychance, meta);
 	        
 	        //Bottom
-	        generateHiveCubeSmall(world, x, (y - (baseHeight + 4)) + cubeno, z, (baseHeight - 8) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, (y - (baseHeight + 6)) + cubeno, z, (baseHeight - 10) + (cubeno * 2), (baseWidth - 1) + cubeno, cubeno, chance, meta);
 	        
 	        //Bottom 2
-	        generateHiveCubeSmall(world, x, (y - (baseHeight + 5)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 2) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, (y - (baseHeight + 7)) + cubeno, z, (baseHeight - 9) + (cubeno * 2), (baseWidth - 2) + cubeno, cubeno, chance, meta);
 	        
 	        //Bottom 3
-	        generateHiveCubeSmall(world, x, (y - (baseHeight + 7)) + cubeno, z, (baseHeight - 7) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance);
+	        generateHiveCubeSmall(world, x, (y - (baseHeight + 9)) + cubeno, z, (baseHeight - 9) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance, meta);
 	        
 	        spawnWasps(world, rand, x, y, z, 15);
 	    }
@@ -66,7 +75,7 @@ public class WorldGenHive extends WorldGenerator
 	    return true;
 	}
 	
-	public void generateHiveCube(World world, int origx, int origy, int origz, int height, int width, int cubeno, float chance, int honeychance)
+	public void generateHiveCube(World world, int origx, int origy, int origz, int height, int width, int cubeno, float chance, int honeychance, int meta)
 	{
         for (int hLayer = 0; hLayer < height; hLayer++)
         {     
@@ -74,30 +83,33 @@ public class WorldGenHive extends WorldGenerator
             {
                 for (int j = -width; j < width; j++)
                 {
-                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID); 
-                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID);
+                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, meta, 2); 
+                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, meta, 2);
                     
                     if (hLayer > (height / 2))
                     {
                         if (honeychance == 0)
                         {
                             if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID);
+                            if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) == Blocks.hive.get().blockID && world.getBlockMetadata(origx + i, origy - hLayer, origz + j) != 0) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID);
                         }
                         else
                         {
                             if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
+                            if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) == Blocks.hive.get().blockID && world.getBlockMetadata(origx + i, origy - hLayer, origz + j) != 0) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
                         }
                     }
                     else
                     {
                         if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
+                        if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) == Blocks.hive.get().blockID && world.getBlockMetadata(origx + i, origy - hLayer, origz + j) != 0) world.setBlockToAir(origx + i, origy - hLayer, origz + j);
                     }
                 }
             }
         }
 	}
 	
-	public void generateHiveCubeSmall(World world, int origx, int origy, int origz, int height, int width, int cubeno, float chance)
+	public void generateHiveCubeSmall(World world, int origx, int origy, int origz, int height, int width, int cubeno, float chance, int meta)
 	{
         for (int hLayer = 0; hLayer < height; hLayer++)
         {     
@@ -105,8 +117,8 @@ public class WorldGenHive extends WorldGenerator
             {
                 for (int j = -width; j < width; j++)
                 {
-                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID); 
-                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID);
+                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, meta, 2); 
+                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, meta, 2);
                 }
             }
         }
@@ -122,14 +134,29 @@ public class WorldGenHive extends WorldGenerator
 			
 			if (world.getBlockId(spawnx, spawny, spawnz) == Blocks.hive.get().blockID)
 			{
-			    world.setBlock(spawnx, spawny, spawnz, Block.mobSpawner.blockID);
-
-			    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
-
-			    if (tileentitymobspawner != null)
-			    {
-			        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
-			    }
+				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
+				{
+				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 1, 0);
+	
+				    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
+	
+				    if (tileentitymobspawner != null)
+				    {
+				        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
+				    }
+				}
+				
+				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 2)
+				{
+				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 3, 0);
+	
+				    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
+	
+				    if (tileentitymobspawner != null)
+				    {
+				        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
+				    }
+				}
 			}
 		}
 	}

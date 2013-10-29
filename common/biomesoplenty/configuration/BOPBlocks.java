@@ -64,6 +64,7 @@ import biomesoplenty.itemblocks.ItemBlockFoliage;
 import biomesoplenty.itemblocks.ItemBlockGlass;
 import biomesoplenty.itemblocks.ItemBlockGrass;
 import biomesoplenty.itemblocks.ItemBlockGrave;
+import biomesoplenty.itemblocks.ItemBlockHive;
 import biomesoplenty.itemblocks.ItemBlockLeaves;
 import biomesoplenty.itemblocks.ItemBlockLog;
 import biomesoplenty.itemblocks.ItemBlockMoss;
@@ -264,7 +265,7 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.moss.get(), ItemBlockMoss.class, "bop.moss");
 		GameRegistry.registerBlock(Blocks.cragRock.get(), "bop.cragRock");
 		GameRegistry.registerBlock(Blocks.cloud.get(), "bop.cloud");
-		GameRegistry.registerBlock(Blocks.hive.get(), "bop.hive");
+		GameRegistry.registerBlock(Blocks.hive.get(), ItemBlockHive.class, "bop.hive");
 
 		GameRegistry.registerBlock(Blocks.bones.get(), ItemBlockBones.class, "bop.bones");
 		GameRegistry.registerBlock(Blocks.glass.get(), ItemBlockGlass.class, "bop.glass");	
