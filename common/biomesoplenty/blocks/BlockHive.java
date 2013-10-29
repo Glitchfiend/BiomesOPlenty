@@ -1,23 +1,23 @@
 package biomesoplenty.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityMobSpawner;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.entities.EntityWasp;
 
 public class BlockHive extends Block
 {
-	private static final String[] hiveTypes = new String[] {"honeycomb", "honeycombspawner", "hive", "hivespawner"};
+	private static final String[] hiveTypes = new String[] {"honeycomb", "honeycombspawner", "hive", "hivespawner", "honeycombempty"};
 	private Icon[] textures;
 	
 	public BlockHive(int par1)
@@ -26,12 +26,36 @@ public class BlockHive extends Block
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
-    /**
-     * Returns a new instance of a block's tile entity class. Called on placing the block.
-     */
-    public TileEntity createNewTileEntity(World par1World)
+	@Override
+	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	{
+		if (par1World.getBlockMetadata(par2, par3, par4) == 1 || par1World.getBlockMetadata(par2, par3, par4) == 3)
+		{
+			if (par5Random.nextInt(10) == 0)
+			{
+				int spawnx = (par2 - 4) + par5Random.nextInt(8);
+				int spawny = (par3 - 4) + par5Random.nextInt(8);
+				int spawnz = (par4 - 4) + par5Random.nextInt(8);
+				
+				if (par1World.isAirBlock(spawnx, spawny, spawnz))
+				{
+					EntityWasp wasp = new EntityWasp(par1World);
+					wasp.setLocationAndAngles((double)spawnx, (double)spawny, (double)spawnz, 0.0F, 0.0F);
+					par1World.spawnEntityInWorld(wasp);
+				}
+			}
+		}
+	}
+	
+    @Override
+    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
     {
-    	return new TileEntityMobSpawner();
+    	if (world.getBlockMetadata(x, y, z) == 4)
+    	{
+			EntityWasp wasp = new EntityWasp(world);
+			wasp.setLocationAndAngles((double)x + 0.6, (double)y + 0.1, (double)z + 0.3, 0.0F, 0.0F);
+			world.spawnEntityInWorld(wasp);
+    	}
     }
 
 	@Override

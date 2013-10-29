@@ -69,7 +69,9 @@ public class WorldGenHive extends WorldGenerator
 	        //Bottom 3
 	        generateHiveCubeSmall(world, x, (y - (baseHeight + 9)) + cubeno, z, (baseHeight - 9) + (cubeno * 2), (baseWidth - 4) + cubeno, cubeno, chance, meta);
 	        
-	        spawnWasps(world, rand, x, y, z, 15);
+	        spawnWasps(world, rand, x, y, z);
+	        
+	        spawnEmptyHoneycombs(world, rand, x, y, z);
 	    }
 	    
 	    return true;
@@ -124,38 +126,42 @@ public class WorldGenHive extends WorldGenerator
         }
 	}
 	
-	public void spawnWasps(World world, Random rand, int x, int y, int z, int amount)
+	public void spawnWasps(World world, Random rand, int x, int y, int z)
 	{
-		for (int spawn = 0; spawn < amount; spawn++)
+		for (int spawn = 0; spawn < 20; spawn++)
 		{
-			int spawnx = (x - 8) + rand.nextInt(16);
-			int spawny = (y + 2) - rand.nextInt(16);
-			int spawnz = (z - 8) + rand.nextInt(16);
+			int spawnx = (x - 12) + rand.nextInt(24);
+			int spawny = y - rand.nextInt(24);
+			int spawnz = (z - 12) + rand.nextInt(24);
 			
 			if (world.getBlockId(spawnx, spawny, spawnz) == Blocks.hive.get().blockID)
 			{
 				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
 				{
 				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 1, 0);
-	
-				    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
-	
-				    if (tileentitymobspawner != null)
-				    {
-				        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
-				    }
 				}
 				
 				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 2)
 				{
 				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 3, 0);
+				}
+			}
+		}
+	}
 	
-				    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
-	
-				    if (tileentitymobspawner != null)
-				    {
-				        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
-				    }
+	public void spawnEmptyHoneycombs(World world, Random rand, int x, int y, int z)
+	{
+		for (int spawn = 0; spawn < 50; spawn++)
+		{
+			int spawnx = (x - 8) + rand.nextInt(16);
+			int spawny = y - rand.nextInt(12);
+			int spawnz = (z - 8) + rand.nextInt(16);
+			
+			if (world.getBlockId(spawnx, spawny, spawnz) == Blocks.hive.get().blockID)
+			{
+				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
+				{
+				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 4, 0);
 				}
 			}
 		}
