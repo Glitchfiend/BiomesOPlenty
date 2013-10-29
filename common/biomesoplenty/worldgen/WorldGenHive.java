@@ -68,15 +68,6 @@ public class WorldGenHive extends WorldGenerator
 	
 	public void generateHiveCube(World world, int origx, int origy, int origz, int height, int width, int cubeno, float chance, int honeychance)
 	{
-	    world.setBlock(origx, origy - (height / 2), origz, Block.mobSpawner.blockID);
-
-	    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(origx, origy - (height / 2), origz);
-
-	    if (tileentitymobspawner != null)
-	    {
-	        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
-	    }
-
         for (int hLayer = 0; hLayer < height; hLayer++)
         {     
             for (int i = -width; i < width; i++)
@@ -125,15 +116,20 @@ public class WorldGenHive extends WorldGenerator
 	{
 		for (int spawn = 0; spawn < amount; spawn++)
 		{
-			int spawnx = (x - 4) + rand.nextInt(8);
-			int spawny = (y - 6) - rand.nextInt(4);
-			int spawnz = (z - 4) + rand.nextInt(8);
+			int spawnx = (x - 8) + rand.nextInt(16);
+			int spawny = (y + 2) - rand.nextInt(16);
+			int spawnz = (z - 8) + rand.nextInt(16);
 			
-			if (world.isAirBlock(spawnx, spawny, spawnz))
+			if (world.getBlockId(spawnx, spawny, spawnz) == Blocks.hive.get().blockID)
 			{
-				EntityWasp wasp = new EntityWasp(world);
-	            wasp.setLocationAndAngles((double)spawnx, (double)spawny, (double)spawnz, 0.0F, 0.0F);
-	            world.spawnEntityInWorld(wasp);
+			    world.setBlock(spawnx, spawny, spawnz, Block.mobSpawner.blockID);
+
+			    TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
+
+			    if (tileentitymobspawner != null)
+			    {
+			        tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
+			    }
 			}
 		}
 	}
