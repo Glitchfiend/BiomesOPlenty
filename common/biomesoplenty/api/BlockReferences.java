@@ -123,7 +123,6 @@ public class BlockReferences {
 		cragRock (Blocks.cragRock, 0),
 		quicksand (Blocks.mud, 1),
 		cloud (Blocks.cloud, 0),
-		hive (Blocks.hive, 0),
 		smolderingGrass (Blocks.holyGrass, 1),
 		redRockCobble (Blocks.redRock, 1),
 		giantFlowerRed (Blocks.petals, 0),
@@ -149,6 +148,12 @@ public class BlockReferences {
 		largeBoneSegment (Blocks.bones, 2),
 
 		kelp (Blocks.coral, 0),
+		
+		honeycomb (Blocks.hive, 0),
+		hive (Blocks.hive, 1),
+		honeycombempty (Blocks.hive, 2),
+		
+		honeyBlock (Blocks.honeyBlock, 0),
 
 		toadstool (Blocks.mushrooms, 0),
 		portobello (Blocks.mushrooms, 1),

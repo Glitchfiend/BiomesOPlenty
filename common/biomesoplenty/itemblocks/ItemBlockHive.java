@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 public class ItemBlockHive extends ItemBlock
 {
-	private static final String[] types = new String[] {"honeycomb", "hive", "honeycombempty", "honeyblock"};
+	private static final String[] types = new String[] {"honeycomb", "hive", "honeycombempty"};
 
 	public ItemBlockHive(int par1)
 	{

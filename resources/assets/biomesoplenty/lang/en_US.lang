@@ -160,7 +160,8 @@ tile.bop.cloud.name=Cloud Block
 tile.bop.hive.honeycomb.name=Honeycomb Block
 tile.bop.hive.hive.name=Hive Block
 tile.bop.hive.honeycombempty.name=Empty Honeycomb Block
-tile.bop.hive.honeyblock.name=Solid Honey Block
+
+tile.bop.honeyBlock.name=Honey Block
 
 tile.bop.bones.bones_small.name=Small Bone Segment
 tile.bop.bones.bones_medium.name=Medium Bone Segment

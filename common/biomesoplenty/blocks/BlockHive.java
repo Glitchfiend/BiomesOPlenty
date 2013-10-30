@@ -17,7 +17,7 @@ import biomesoplenty.entities.EntityWasp;
 
 public class BlockHive extends Block
 {
-	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty", "honeyblock"};
+	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty"};
 	private Icon[] textures;
 	
 	public BlockHive(int par1)
