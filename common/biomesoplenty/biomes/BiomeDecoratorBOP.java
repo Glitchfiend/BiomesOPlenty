@@ -1330,7 +1330,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 
 		 for (var2 = 0; var2 < waspHivesPerChunk; ++var2)
 		 {
-			 int var420 = randomGenerator.nextInt(3);
+			 int var420 = randomGenerator.nextInt(4);
 			 
 			 if (var420 != 0)
 			 {

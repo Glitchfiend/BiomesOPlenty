@@ -208,7 +208,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 
 		if (world.getBlockId(x, y, z) != blockID)
 		{
-			if (meta == 5)
+			if (meta == 5 || meta == 13)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 			else if (meta == 8)
 				return block == null || block.isBlockReplaceable(world, x, y, z);
@@ -217,7 +217,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		}
 		else
 		{
-			if (meta == 5)
+			if (meta == 5 || meta == 13)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));

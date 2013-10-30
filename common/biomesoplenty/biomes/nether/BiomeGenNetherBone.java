@@ -19,8 +19,8 @@ public class BiomeGenNetherBone extends BiomeGenBase
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		topBlock = (byte)Block.netherrack.blockID;
 		fillerBlock = (byte)Block.netherrack.blockID;
-		customBiomeDecorator.boneSpinesPerChunk = 6;
-		customBiomeDecorator.boneSpines2PerChunk = 9;
+		customBiomeDecorator.boneSpinesPerChunk = 9;
+		customBiomeDecorator.boneSpines2PerChunk = 12;
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.waspHivesPerChunk = 1;
 		spawnableMonsterList.clear();
