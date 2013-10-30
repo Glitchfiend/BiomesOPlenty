@@ -183,7 +183,7 @@ public class BOPBlocks
 		Blocks.cloud = Optional.of((new BlockCloud(BOPConfigurationIDs.cloudID)).setHardness(0.1F).setLightOpacity(3).setStepSound(Block.soundClothFootstep).setUnlocalizedName("bop.cloud"));
 		
 		Blocks.hive = Optional.of((new BlockHive(BOPConfigurationIDs.hiveID)).setHardness(0.5F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.hive"));
-		Blocks.honeyBlock = Optional.of((new BlockHoney(BOPConfigurationIDs.honeyBlockID)).setHardness(0.5F).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("bop.honeyBlock"));
+		Blocks.honeyBlock = Optional.of((new BlockHoney(BOPConfigurationIDs.honeyBlockID)).setHardness(0.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.honeyBlock"));
 
 		Blocks.bones = Optional.of((new BlockBones(BOPConfigurationIDs.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.bones"));
 		

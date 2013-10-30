@@ -18,7 +18,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.api.Fluids;
 import biomesoplenty.api.Items;
+import biomesoplenty.entities.EntityWasp;
 
 public class BlockHoney extends Block
 {
@@ -33,6 +35,12 @@ public class BlockHoney extends Block
 	{
 		blockIcon = par1IconRegister.registerIcon("biomesoplenty:honeyblock");
 	}
+	
+    @Override
+    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+    {
+    	world.setBlock(x, y, z, Fluids.honey.get().blockID, 7, 2);
+    }
 	
     @Override
 	@SideOnly(Side.CLIENT)
