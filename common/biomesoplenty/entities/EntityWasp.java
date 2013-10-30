@@ -23,7 +23,7 @@ public class EntityWasp extends EntityFlyingMob
     public EntityWasp(World world)
     {
         super(world); 
-        this.setSize(1.0F, 1.0F);
+        this.setSize(0.5F, 0.5F);
     }
     
     @Override

@@ -32,7 +32,7 @@ public class BlockHive extends Block
     	if (world.getBlockMetadata(x, y, z) == 2)
     	{
 			EntityWasp wasp = new EntityWasp(world);
-			wasp.setLocationAndAngles((double)x + 0.6, (double)y + 0.1, (double)z + 0.3, 0.0F, 0.0F);
+			wasp.setLocationAndAngles((double)x + 0.6, (double)y, (double)z + 0.3, 0.0F, 0.0F);
 			world.spawnEntityInWorld(wasp);
     	}
     }
