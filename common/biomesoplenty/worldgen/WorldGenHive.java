@@ -92,8 +92,8 @@ public class WorldGenHive extends WorldGenerator
                     {
                         if (honeychance == 0)
                         {
-                            if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID);
-                            if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) == Blocks.hive.get().blockID && world.getBlockMetadata(origx + i, origy - hLayer, origz + j) != 0) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID);
+                            if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) != Blocks.hive.get().blockID) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID, 7, 0);
+                            if (cubeno < 2 && world.getBlockId(origx + i, origy - hLayer, origz + j) == Blocks.hive.get().blockID && world.getBlockMetadata(origx + i, origy - hLayer, origz + j) != 0) world.setBlock(origx + i, origy - hLayer, origz + j, Fluids.honey.get().blockID, 7, 0);
                         }
                         else
                         {
