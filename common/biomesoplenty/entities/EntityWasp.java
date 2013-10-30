@@ -23,7 +23,7 @@ public class EntityWasp extends EntityFlyingMob
     public EntityWasp(World world)
     {
         super(world); 
-        this.setSize(0.5F, 0.5F);
+        this.setSize(1.0F, 1.0F);
     }
     
     @Override
@@ -93,7 +93,7 @@ public class EntityWasp extends EntityFlyingMob
         if (this.targetedEntity != null && this.targetedEntity.getDistanceSqToEntity(this) < d4 * d4)
         {
             double d5 = this.targetedEntity.posX - this.posX;
-            double d6 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height / 2.0F) - (this.posY + (double)(this.height / 2.0F));
+            double d6 = this.targetedEntity.boundingBox.minY + (double)(this.targetedEntity.height) - (this.posY);
             double d7 = this.targetedEntity.posZ - this.posZ;
             this.renderYawOffset = this.rotationYaw = -((float)Math.atan2(d5, d7)) * 180.0F / (float)Math.PI;
 
@@ -143,12 +143,12 @@ public class EntityWasp extends EntityFlyingMob
     @Override
     protected String getHurtSound()
     {
-        return "biomesoplenty:mob.wasp.say";
+        return "biomesoplenty:mob.wasp.hurt";
     }
 
     @Override
     protected String getDeathSound()
     {
-        return "biomesoplenty:mob.wasp.say";
+        return "biomesoplenty:mob.wasp.hurt";
     }
 }
