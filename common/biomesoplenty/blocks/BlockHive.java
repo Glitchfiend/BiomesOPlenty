@@ -13,11 +13,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 import biomesoplenty.entities.EntityWasp;
 
 public class BlockHive extends Block
 {
-	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty"};
+	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty", "honeycombfilled"};
 	private Icon[] textures;
 	
 	public BlockHive(int par1)
@@ -59,6 +60,47 @@ public class BlockHive extends Block
 		for (int i = 0; i < hiveTypes.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
+	}
+	
+	@Override
+	public int idDropped(int meta, Random par2Random, int par3)
+	{
+		if (meta == 3)
+		{
+			return Items.food.get().itemID;
+		}
+		
+		return this.blockID;
+	}
+	
+	@Override
+	public int damageDropped(int meta)
+	{
+		if (meta == 2)
+		{
+			return 0;
+		}
+		if (meta == 3)
+		{
+			return 9;
+		}
+		
+		return meta;
+	}
+	
+	@Override
+	public int quantityDropped(int meta, int fortune, Random random)
+	{
+		if (meta == 2)
+		{
+			return 0;
+		}
+		if (meta == 3)
+		{
+			return random.nextInt(3);
+		}
+		
+		return 1;
 	}
 	
 	@Override

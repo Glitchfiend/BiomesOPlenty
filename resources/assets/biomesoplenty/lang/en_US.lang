@@ -160,6 +160,7 @@ tile.bop.cloud.name=Cloud Block
 tile.bop.hive.honeycomb.name=Honeycomb Block
 tile.bop.hive.hive.name=Hive Block
 tile.bop.hive.honeycombempty.name=Empty Honeycomb Block
+tile.bop.hive.honeycombfilled.name=Filled Honeycomb Block
 
 tile.bop.honeyBlock.name=Honey Block
 
@@ -298,6 +299,7 @@ item.bop.food.saladfruit.name=Fruit Salad
 item.bop.food.saladveggie.name=Veggie Salad
 item.bop.food.saladshroom.name=Shroom Salad
 item.bop.food.persimmon.name=Persimmon
+item.bop.food.filledhoneycomb.name=Honeycomb
 
 item.bop.dartblower.name=Dart Blower
 item.bop.dart.dart.name=Dart

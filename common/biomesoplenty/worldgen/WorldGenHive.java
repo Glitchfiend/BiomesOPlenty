@@ -75,6 +75,8 @@ public class WorldGenHive extends WorldGenerator
 	        spawnWasps(world, rand, x, y, z);
 	        
 	        spawnEmptyHoneycombs(world, rand, x, y, z);
+	        
+	        spawnFilledHoneycombs(world, rand, x, y, z);
 	    }
 	    
 	    return true;
@@ -187,7 +189,25 @@ public class WorldGenHive extends WorldGenerator
 			{
 				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
 				{
-				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 2, 0);
+				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 2, 2);
+				}
+			}
+		}
+	}
+	
+	public void spawnFilledHoneycombs(World world, Random rand, int x, int y, int z)
+	{
+		for (int spawn = 0; spawn < 20; spawn++)
+		{
+			int spawnx = (x - 8) + rand.nextInt(16);
+			int spawny = y - rand.nextInt(12);
+			int spawnz = (z - 8) + rand.nextInt(16);
+			
+			if (world.getBlockId(spawnx, spawny, spawnz) == Blocks.hive.get().blockID)
+			{
+				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
+				{
+				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 3, 2);
 				}
 			}
 		}
