@@ -158,10 +158,9 @@ tile.bop.moss.name=Moss
 tile.bop.cloud.name=Cloud Block
 
 tile.bop.hive.honeycomb.name=Honeycomb Block
-tile.bop.hive.honeycombspawner.name=Honeycomb Wasp Spawner
 tile.bop.hive.hive.name=Hive Block
-tile.bop.hive.hivespawner.name=Hive Wasp Spawner
 tile.bop.hive.honeycombempty.name=Empty Honeycomb Block
+tile.bop.hive.honeyblock.name=Solid Honey Block
 
 tile.bop.bones.bones_small.name=Small Bone Segment
 tile.bop.bones.bones_medium.name=Medium Bone Segment

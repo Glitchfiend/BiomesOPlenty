@@ -17,7 +17,7 @@ import biomesoplenty.entities.EntityWasp;
 
 public class BlockHive extends Block
 {
-	private static final String[] hiveTypes = new String[] {"honeycomb", "honeycombspawner", "hive", "hivespawner", "honeycombempty"};
+	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty", "honeyblock"};
 	private Icon[] textures;
 	
 	public BlockHive(int par1)
@@ -29,7 +29,7 @@ public class BlockHive extends Block
     @Override
     public void breakBlock(World world, int x, int y, int z, int par5, int par6)
     {
-    	if (world.getBlockMetadata(x, y, z) == 4)
+    	if (world.getBlockMetadata(x, y, z) == 2)
     	{
 			EntityWasp wasp = new EntityWasp(world);
 			wasp.setLocationAndAngles((double)x + 0.6, (double)y + 0.1, (double)z + 0.3, 0.0F, 0.0F);
@@ -59,19 +59,6 @@ public class BlockHive extends Block
 		for (int i = 0; i < hiveTypes.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
-	}
-	
-	@Override
-	public int damageDropped(int meta)
-	{
-		if (meta == 1) {
-			meta = 0;
-		}
-		if (meta == 3) {
-			meta = 2;
-		}
-		
-		return meta;
 	}
 	
 	@Override

@@ -19,10 +19,13 @@ public class WorldGenHive extends WorldGenerator
 	    int baseWidth = 4 + rand.nextInt(2);
 	    int baseHeight = 8 + rand.nextInt(2);
 	    
-		if (world.getBlockId(x, y + 3, z) != Block.netherrack.blockID || !world.isAirBlock(x, y + 2, z))
+	    for (int air = 0; air < 26; air++)
+	    {
+			if (world.getBlockId(x, y + 3, z) != Block.netherrack.blockID || !world.isAirBlock(x, (y + 2) - air, z))
 			{
-			return false;
+				return false;
 			}
+	    }
 	    
 	    for (int cubeno = 0; cubeno < 4; cubeno++)
 	    {
@@ -43,12 +46,12 @@ public class WorldGenHive extends WorldGenerator
 	                
 	            case 2:
 	                chance = 1.0F;
-	                meta = 2;
+	                meta = 1;
 	                break;
 	                
 	            case 3:
 	                chance = 0.5F;
-	                meta = 2;
+	                meta = 1;
 	                break;
 	        }
 	        
@@ -119,8 +122,8 @@ public class WorldGenHive extends WorldGenerator
             {
                 for (int j = -width; j < width; j++)
                 {
-                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, meta, 2); 
-                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, meta, 2);
+                    if ((hLayer == 0 || hLayer == (height - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, 1, 2); 
+                    else if ((i == -width || i == (width - 1) || j == -width || j == (width - 1)) && (world.rand.nextFloat() <= chance)) world.setBlock(origx + i, origy - hLayer, origz + j, Blocks.hive.get().blockID, 1, 2);
                 }
             }
         }
@@ -128,7 +131,7 @@ public class WorldGenHive extends WorldGenerator
 	
 	public void spawnWasps(World world, Random rand, int x, int y, int z)
 	{
-		for (int spawn = 0; spawn < 20; spawn++)
+		for (int spawn = 0; spawn < 50; spawn++)
 		{
 			int spawnx = (x - 12) + rand.nextInt(24);
 			int spawny = y - rand.nextInt(24);
@@ -136,14 +139,21 @@ public class WorldGenHive extends WorldGenerator
 			
 			if (world.getBlockId(spawnx, spawny, spawnz) == Blocks.hive.get().blockID)
 			{
-				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
+				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 1)
 				{
-				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 1, 0);
-				}
-				
-				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 2)
-				{
-				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 3, 0);
+					if (world.getBlockId(spawnx - 1, spawny, spawnz) == Blocks.hive.get().blockID && world.getBlockId(spawnx + 1, spawny, spawnz) == Blocks.hive.get().blockID && world.getBlockId(spawnx, spawny, spawnz - 1) == Blocks.hive.get().blockID && world.getBlockId(spawnx, spawny, spawnz + 1) == Blocks.hive.get().blockID && world.getBlockId(spawnx, spawny - 1, spawnz) == Blocks.hive.get().blockID && world.getBlockId(spawnx, spawny + 1, spawnz) == Blocks.hive.get().blockID)
+					{
+						if (world.getBlockMetadata(spawnx - 1, spawny, spawnz) == 1 && world.getBlockMetadata(spawnx + 1, spawny, spawnz) == 1 && world.getBlockMetadata(spawnx, spawny, spawnz - 1) == 1 && world.getBlockMetadata(spawnx, spawny, spawnz + 1) == 1 && world.getBlockMetadata(spawnx, spawny - 1, spawnz) == 1 && world.getBlockMetadata(spawnx, spawny + 1, spawnz) == 1)
+						{
+							world.setBlock(spawnx, spawny, spawnz, Block.mobSpawner.blockID);
+							TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner)world.getBlockTileEntity(spawnx, spawny, spawnz);
+							
+							if (tileentitymobspawner != null)
+							{
+								tileentitymobspawner.getSpawnerLogic().setMobID("BiomesOPlenty.Wasp");
+							}
+						}
+					}
 				}
 			}
 		}
@@ -161,7 +171,7 @@ public class WorldGenHive extends WorldGenerator
 			{
 				if (world.getBlockMetadata(spawnx, spawny, spawnz) == 0)
 				{
-				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 4, 0);
+				    world.setBlock(spawnx, spawny, spawnz, Blocks.hive.get().blockID, 2, 0);
 				}
 			}
 		}
