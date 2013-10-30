@@ -26,27 +26,6 @@ public class BlockHive extends Block
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
-	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
-	{
-		if (par1World.getBlockMetadata(par2, par3, par4) == 1 || par1World.getBlockMetadata(par2, par3, par4) == 3)
-		{
-			if (par5Random.nextInt(10) == 0)
-			{
-				int spawnx = (par2 - 4) + par5Random.nextInt(8);
-				int spawny = (par3 - 4) + par5Random.nextInt(8);
-				int spawnz = (par4 - 4) + par5Random.nextInt(8);
-				
-				if (par1World.isAirBlock(spawnx, spawny, spawnz))
-				{
-					EntityWasp wasp = new EntityWasp(par1World);
-					wasp.setLocationAndAngles((double)spawnx, (double)spawny, (double)spawnz, 0.0F, 0.0F);
-					par1World.spawnEntityInWorld(wasp);
-				}
-			}
-		}
-	}
-	
     @Override
     public void breakBlock(World world, int x, int y, int z, int par5, int par6)
     {
@@ -98,7 +77,7 @@ public class BlockHive extends Block
 	@Override
 	public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
 	{
-		super.setBurnProperties(blockID, 2, 4);
+		super.setBurnProperties(blockID, 1, 30);
 		return blockFlammability[blockID];
 	}
 
