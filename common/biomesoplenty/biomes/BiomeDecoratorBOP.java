@@ -1330,10 +1330,15 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 
 		 for (var2 = 0; var2 < waspHivesPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(64)+50;
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 waspHiveGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 int var420 = randomGenerator.nextInt(3);
+			 
+			 if (var420 != 0)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(64)+50;
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 waspHiveGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 		 
 		 for (var2 = 0; var2 < wheatGrassPerChunk; ++var2)
