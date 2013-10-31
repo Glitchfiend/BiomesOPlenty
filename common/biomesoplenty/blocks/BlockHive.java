@@ -102,23 +102,4 @@ public class BlockHive extends Block
 		
 		return 1;
 	}
-	
-	@Override
-	public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
-	{
-		super.setBurnProperties(blockID, 1, 30);
-		return blockFlammability[blockID];
-	}
-
-	@Override
-	public int getFireSpreadSpeed(World world, int x, int y, int z, int metadata, ForgeDirection face)
-	{
-		return blockFireSpreadSpeed[blockID];
-	}
-
-	@Override
-	public boolean isFlammable(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
-	{
-		return getFlammability(world, x, y, z, metadata, face) > 0;
-	}
 }
