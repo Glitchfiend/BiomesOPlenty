@@ -16,6 +16,7 @@ tile.bop.redRocks.redcobble.name=Красный булыжник
 tile.bop.redRocks.redbrick.name=Кирпичи из красного камня
 
 tile.bop.ash.name=Блок пепла
+tile.bop.flesh.name=Плоть
 
 tile.bop.plants.deadgrass.name=Мёртвая трава
 tile.bop.plants.desertgrass.name=Пустынная трава
@@ -156,6 +157,13 @@ tile.bop.moss.name=Мох
 
 tile.bop.cloud.name=Блок облака
 
+tile.bop.hive.honeycomb.name=Блок сот
+tile.bop.hive.hive.name=Блок улья
+tile.bop.hive.honeycombempty.name=Пустой блок сот
+tile.bop.hive.honeycombfilled.name=Заполненный блок сот
+
+tile.bop.honeyBlock.name=Блок мёда
+
 tile.bop.bones.bones_small.name=Малый сегмент кости
 tile.bop.bones.bones_medium.name=Средний сегмент кости
 tile.bop.bones.bones_large.name=Большой сегмент кости
@@ -291,6 +299,7 @@ item.bop.food.saladfruit.name=Фруктовый салат
 item.bop.food.saladveggie.name=Овощной салат
 item.bop.food.saladshroom.name=Грибной салат
 item.bop.food.persimmon.name=Хурма
+item.bop.food.filledhoneycomb.name=Соты
 
 item.bop.dartblower.name=Духовая трубка
 item.bop.dart.dart.name=Дротик
@@ -388,6 +397,7 @@ entity.BiomesOPlenty.Glob.name=Капля
 entity.BiomesOPlenty.JungleSpider.name=Паук джунглей
 entity.BiomesOPlenty.Phantom.name=Фантом
 entity.BiomesOPlenty.Rosester.name=Розастер
+entity.BiomesOPlenty.Wasp.name=Оса
 
 achievement.bop.achBOP=Biomes O' Plenty
 achievement.bop.achBOP.desc=Пусть веселье начнётся!
@@ -522,7 +532,7 @@ achievement.bop.achShrubland=Кустарниковые поросли
 achievement.bop.achShrubland.desc=Биом найден!
 achievement.bop.achSilkglades=Шёлковая поляна
 achievement.bop.achSilkglades.desc=Биом найден!
-achievement.bop.achSludgepit=Sludgepit
+achievement.bop.achSludgepit=Грязевая яма
 achievement.bop.achSludgepit.desc=Биом найден!
 achievement.bop.achSpruceWoods=Еловые леса
 achievement.bop.achSpruceWoods.desc=Биом найден!
