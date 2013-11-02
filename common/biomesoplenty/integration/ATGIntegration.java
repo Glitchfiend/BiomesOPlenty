@@ -82,6 +82,7 @@ public class ATGIntegration
 	    if (temperateRainforestGen) ATGBiomes.addBiome(land, "Forest", Biomes.temperateRainforest.get(), tiers[2] );
 	    if (redwoodForestGen) ATGBiomes.addBiome(land, "Forest", Biomes.redwoodForest.get(), tiers[2]);
 	    if (mountainGen) ATGBiomes.addBiome(land, "Forest", Biomes.mountain.get(), tiers[2]);
+	    if (autumnHillsGen) ATGBiomes.addBiome(land, "Forest", Biomes.autumnHills.get(), tiers[3]);
 		
 		// tier 4
 	    if (mapleWoodsGen) ATGBiomes.addBiome(land, "Forest", Biomes.mapleWoods.get(), tiers[3]);
@@ -315,20 +316,24 @@ public class ATGIntegration
 		// Steppe
 		// ########################
 		
+		// tier 0
+		
 		// tier 1
 		
 		// tier 2
-		
-		// tier 3
 	    if (cragGen) ATGBiomes.addBiome(land, "Steppe", Biomes.crag.get(), tiers[2]);
 		
-		// tier 4
+		// tier 3
 		
-		// tier 5
+		// tier 4
 	    if (mountainGen) ATGBiomes.addBiome(land, "Steppe", Biomes.mountain.get(), tiers[4]);
 		
-		// tier 6
+		// tier 5
 	    if (deadForestGen) ATGBiomes.addBiome(land, "Steppe", Biomes.deadForest.get(), tiers[5]);
+	    
+	    // tier 6
+	    if (deadlandsGen) ATGBiomes.addBiome(land, "Steppe", Biomes.deadlands.get(), tiers[6]);
+	    if (wastelandGen) ATGBiomes.addBiome(land, "Steppe", Biomes.wasteland.get(), tiers[6]);
 	}
 	
 	private static void addSavannahBiomesGroup()
@@ -407,6 +412,7 @@ public class ATGIntegration
 		// Mesa
 		// ########################
 		
+	    if (mesaGen) ATGBiomes.addBiome(land, "Mesa", Biomes.mesa.get(), tiers[0]);
 	    if (badlandsGen) ATGBiomes.addBiome(land, "Mesa", Biomes.badlands.get(), tiers[0]);
 	    if (canyonGen) ATGBiomes.addBiome(land, "Mesa", Biomes.canyon.get(), tiers[0]);
 		
@@ -419,28 +425,29 @@ public class ATGIntegration
 		// Swampland
 		// ########################
 		
-		// tier 1
+		// tier 0
 	    if (wetlandGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.wetland.get(), tiers[0]);
 		
-		// tier 2
+		// tier 1
 	    if (marshGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.marsh.get(), tiers[1]);
 	    if (lushSwampGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.lushSwamp.get(), tiers[1]);
 	    if (bayouGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.bayou.get(), tiers[1]);
 					
-		// tier 3
+		// tier 2
 	    if (swamplandGen) ATGBiomes.replaceBiome(coast, "Swampland", BiomeGenBase.swampland, Biomes.swamplandNew.get(), tiers[2]);
 	    if (fenGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.fen.get(), tiers[2]);
 	    if (bogGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.bog.get(), tiers[2]);
+	    if (mangroveGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.mangrove.get(), tiers[2]);
 		
-		// tier 4
+		// tier 3
 	    if (moorGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.moor.get(), tiers[3]);
 	    if (deadSwampGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.deadSwamp.get(), tiers[3]);
 					
-		// tier 5
+		// tier 4
 	    if (quagmireGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.quagmire.get(), tiers[4]);
 	    if (sludgepitGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.sludgepit.get(), tiers[4]);
 		
-		// tier 6
+		// tier 5
 	    if (ominousWoodsGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.ominousWoods.get(), tiers[5]);
 	    if (silkgladesGen) ATGBiomes.addBiome(coast, "Swampland", Biomes.silkglades.get(), tiers[5]);
 			
