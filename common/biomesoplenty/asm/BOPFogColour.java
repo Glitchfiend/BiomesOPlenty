@@ -114,7 +114,10 @@ public class BOPFogColour implements IClassTransformer
                 toInject.add(new VarInsnNode(ALOAD, 3));
                 toInject.add(new VarInsnNode(ALOAD, 2));
                 toInject.add(new VarInsnNode(FLOAD, 1));
-                toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPFogColour", "getFogVec", "(Lnn;Labw;F)Latc;"));
+                if (obfuscated)
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPFogColour", "getFogVec", "(Lnn;Labw;F)Latc;"));
+                else
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPFogColour", "getFogVec", "(Lnet/minecraft/entity/Entity;Lnet/minecraft/world/World;F)Lnet/minecraft/util/Vec3;"));
                 toInject.add(new VarInsnNode(ASTORE, 9));
                 
                 m.instructions.insert(m.instructions.get(fdiv_index + 1), toInject);
