@@ -1,4 +1,4 @@
-package biomesoplenty.asm.smoothing.block;
+package biomesoplenty.asm.biomecolourblending;
 
 import static org.objectweb.asm.Opcodes.ALOAD;
 import static org.objectweb.asm.Opcodes.ICONST_0;
@@ -21,15 +21,14 @@ import org.objectweb.asm.tree.VarInsnNode;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BlockLeaves
-{  
-    //ASM Injector
+public class BlockFluid
+{
     public static byte[] patchColourMultiplier(String name, byte[] bytes, boolean obfuscated)
     {
         String targetMethodName = "";
 
         if (obfuscated)
-            targetMethodName ="c";
+            targetMethodName ="d";
         else
             targetMethodName ="colorMultiplier";
 
@@ -72,9 +71,9 @@ public class BlockLeaves
                 toInject.add(new VarInsnNode(ILOAD, 3));
                 toInject.add(new VarInsnNode(ILOAD, 4));
                 if (obfuscated)
-                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getLeavesColourMultiplier", "(Lacf;III)I"));
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPBiomeColourBlending", "getWaterColourMultiplier", "(Lacf;III)I"));
                 else
-                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getLeavesColourMultiplier", "(Lnet/minecraft/world/IBlockAccess;III)I"));
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPBiomeColourBlending", "getWaterColourMultiplier", "(Lnet/minecraft/world/IBlockAccess;III)I"));
                 toInject.add(new InsnNode(IRETURN));
                 
                 m.instructions.insertBefore(targetNode, toInject);

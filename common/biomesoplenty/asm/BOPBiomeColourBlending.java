@@ -1,19 +1,19 @@
-package biomesoplenty.asm.smoothing;
+package biomesoplenty.asm;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.asm.smoothing.block.BlockFluid;
-import biomesoplenty.asm.smoothing.block.BlockGrass;
-import biomesoplenty.asm.smoothing.block.BlockLeaves;
-import biomesoplenty.asm.smoothing.block.BlockTallGrass;
+import biomesoplenty.asm.biomecolourblending.BlockFluid;
+import biomesoplenty.asm.biomecolourblending.BlockGrass;
+import biomesoplenty.asm.biomecolourblending.BlockLeaves;
+import biomesoplenty.asm.biomecolourblending.BlockTallGrass;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BOPBiomeTransitionSmoothing implements IClassTransformer
+public class BOPBiomeColourBlending implements IClassTransformer
 {
     private static String SIDE = FMLLaunchHandler.side().name();
     

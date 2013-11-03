@@ -1,4 +1,4 @@
-package biomesoplenty.asm.smoothing.block;
+package biomesoplenty.asm.biomecolourblending;
 
 import static org.objectweb.asm.Opcodes.*;
 import static org.objectweb.asm.tree.AbstractInsnNode.*;
@@ -18,8 +18,8 @@ import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
-public class BlockGrass
-{
+public class BlockTallGrass
+{   
     //ASM Injector
     public static byte[] patchColourMultiplier(String name, byte[] bytes, boolean obfuscated)
     {
@@ -55,7 +55,7 @@ public class BlockGrass
                     index++;
                     currentNode = iter.next();
 
-                    if (currentNode.getOpcode() == ICONST_0)
+                    if (currentNode.getOpcode() == ALOAD)
                     {
                         targetNode = currentNode;
                         fdiv_index = index;
@@ -69,9 +69,9 @@ public class BlockGrass
                 toInject.add(new VarInsnNode(ILOAD, 3));
                 toInject.add(new VarInsnNode(ILOAD, 4));
                 if (obfuscated)
-                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getGrassColourMultiplier", "(Lacf;III)I"));
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPBiomeColourBlending", "getGrassColourMultiplier", "(Lacf;III)I"));
                 else
-                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/smoothing/BOPBiomeTransitionSmoothing", "getGrassColourMultiplier", "(Lnet/minecraft/world/IBlockAccess;III)I"));
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPBiomeColourBlending", "getGrassColourMultiplier", "(Lnet/minecraft/world/IBlockAccess;III)I"));
                 toInject.add(new InsnNode(IRETURN));
                 
                 m.instructions.insertBefore(targetNode, toInject);

@@ -3,7 +3,6 @@ package biomesoplenty.asm;
 import java.io.File;
 import java.util.Map;
 
-import biomesoplenty.asm.smoothing.BOPBiomeTransitionSmoothing;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
@@ -21,7 +20,7 @@ public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
     @Override
     public String[] getASMTransformerClass()
     {
-        return new String[] {BOPBiomeTransitionSmoothing.class.getName()};
+        return new String[] {BOPBiomeColourBlending.class.getName(), BOPFogColour.class.getName()};
     }
 
     @Override

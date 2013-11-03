@@ -16,7 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.asm.smoothing.BOPBiomeTransitionSmoothing;
+import biomesoplenty.asm.BOPBiomeColourBlending;
 
 public class BlockIvy extends Block implements IShearable
 {
@@ -250,7 +250,7 @@ public class BlockIvy extends Block implements IShearable
 	@Override
 	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
 	{
-        return BOPBiomeTransitionSmoothing.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
+        return BOPBiomeColourBlending.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
 	}
 
 	/**
