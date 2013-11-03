@@ -1,10 +1,18 @@
 package biomesoplenty.configuration;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import biomesoplenty.api.Blocks;
@@ -16,11 +24,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPCrafting
 {
+    private static List frontRecipes = new ArrayList();
+    
 	public static void init()
 	{
 		addOreRegistration();
 		addCraftingRecipes();
 		addSmeltingRecipes();
+		
+		CraftingManager.getInstance().getRecipeList().addAll(0, frontRecipes);
 	}
 
 	private static void addCraftingRecipes()
@@ -71,84 +83,84 @@ public class BOPCrafting
 
 		//Redwood
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 8), new Object[] {new ItemStack(Blocks.logs3.get(),1,0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 0), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redwoodStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.redwoodStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 0), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
+		addRecipeToFront(new ItemStack(Blocks.redwoodStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
+		addRecipeToFront(new ItemStack(Blocks.redwoodStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 8)});
 
 		//Willow
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 9), new Object[] {new ItemStack(Blocks.logs3.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(),6,1), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.willowStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.willowStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab2.get(),6,1), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
+		addRecipeToFront(new ItemStack(Blocks.willowStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
+		addRecipeToFront(new ItemStack(Blocks.willowStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 9)});
 
 		//Acacia
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 0), new Object[] {new ItemStack(Blocks.logs1.get(),1,0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,0), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.acaciaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.acaciaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,0), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
+		addRecipeToFront(new ItemStack(Blocks.acaciaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
+		addRecipeToFront(new ItemStack(Blocks.acaciaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 0)});
 
 		//Fir
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 3), new Object[] {new ItemStack(Blocks.logs1.get(),1,3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,3), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.firStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.firStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,3), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
+		addRecipeToFront(new ItemStack(Blocks.firStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
+		addRecipeToFront(new ItemStack(Blocks.firStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 3)});
 
 		//Cherry
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 1), new Object[] {new ItemStack(Blocks.logs1.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,1), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.cherryStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.cherryStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,1), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
+		addRecipeToFront(new ItemStack(Blocks.cherryStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
+		addRecipeToFront(new ItemStack(Blocks.cherryStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 1)});
 
 		//Dark
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 2), new Object[] {new ItemStack(Blocks.logs1.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,2), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,2), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
+		addRecipeToFront(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
+		addRecipeToFront(new ItemStack(Blocks.darkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 2)});
 
 		//Magic
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 5), new Object[] {new ItemStack(Blocks.logs2.get(),1,1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,5), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,5), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
+		addRecipeToFront(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
+		addRecipeToFront(new ItemStack(Blocks.magicStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 5)});
 
 		//Palm
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 7), new Object[] {new ItemStack(Blocks.logs2.get(),1,3)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,7), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.palmStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.palmStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,7), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
+		addRecipeToFront(new ItemStack(Blocks.palmStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
+		addRecipeToFront(new ItemStack(Blocks.palmStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 7)});
 
 		//Mangrove
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 6), new Object[] {new ItemStack(Blocks.logs2.get(),1,2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,6), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,6), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
+		addRecipeToFront(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
+		addRecipeToFront(new ItemStack(Blocks.mangroveStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 6)});
 
 		//Holy
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 4), new Object[] {new ItemStack(Blocks.logs2.get(),1,0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab1.get(),6,4), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(),1,4)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(),1,4)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(),1,4)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab1.get(),6,4), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(),1,4)});
+		addRecipeToFront(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(),1,4)});
+		addRecipeToFront(new ItemStack(Blocks.holyStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(),1,4)});
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.redRock.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.redRock.get(),1,0)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.holyStone.get(), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(Blocks.holyStone.get(),1,0)});
 
 		//Pine
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 11), new Object[] {new ItemStack(Blocks.logs4.get(), 1, 0)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 2), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.pineStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.pineStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 2), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
+		addRecipeToFront(new ItemStack(Blocks.pineStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
+		addRecipeToFront(new ItemStack(Blocks.pineStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 11)});
 
 		//Hellbark
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 12), new Object[] {new ItemStack(Blocks.logs4.get(), 1, 1)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 3), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.hellBarkStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.hellBarkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 3), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
+		addRecipeToFront(new ItemStack(Blocks.hellBarkStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
+		addRecipeToFront(new ItemStack(Blocks.hellBarkStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 12)});
 
 		//Jacaranda
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.planks.get(), 4, 13), new Object[] {new ItemStack(Blocks.logs4.get(), 1, 2)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 4), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
-		GameRegistry.addRecipe(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
+		addRecipeToFront(new ItemStack(Blocks.woodenSingleSlab2.get(), 6, 4), new Object[] {"RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
+		addRecipeToFront(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
+		addRecipeToFront(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
 
 		GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
 		GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
@@ -392,4 +404,80 @@ public class BOPCrafting
 		OreDictionary.registerOre("plantAlgae", new ItemStack(Blocks.foliage.get(), 0));
 		OreDictionary.registerOre("plantSprout", new ItemStack(Blocks.foliage.get(), 5));
 	}
+	
+    public static ShapedRecipes addRecipeToFront(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
+    {
+        String s = "";
+        int i = 0;
+        int j = 0;
+        int k = 0;
+
+        if (par2ArrayOfObj[i] instanceof String[])
+        {
+            String[] astring = (String[])((String[])par2ArrayOfObj[i++]);
+
+            for (int l = 0; l < astring.length; ++l)
+            {
+                String s1 = astring[l];
+                ++k;
+                j = s1.length();
+                s = s + s1;
+            }
+        }
+        else
+        {
+            while (par2ArrayOfObj[i] instanceof String)
+            {
+                String s2 = (String)par2ArrayOfObj[i++];
+                ++k;
+                j = s2.length();
+                s = s + s2;
+            }
+        }
+
+        HashMap hashmap;
+
+        for (hashmap = new HashMap(); i < par2ArrayOfObj.length; i += 2)
+        {
+            Character character = (Character)par2ArrayOfObj[i];
+            ItemStack itemstack1 = null;
+
+            if (par2ArrayOfObj[i + 1] instanceof Item)
+            {
+                itemstack1 = new ItemStack((Item)par2ArrayOfObj[i + 1]);
+            }
+            else if (par2ArrayOfObj[i + 1] instanceof Block)
+            {
+                itemstack1 = new ItemStack((Block)par2ArrayOfObj[i + 1], 1, 32767);
+            }
+            else if (par2ArrayOfObj[i + 1] instanceof ItemStack)
+            {
+                itemstack1 = (ItemStack)par2ArrayOfObj[i + 1];
+            }
+
+            hashmap.put(character, itemstack1);
+        }
+
+        ItemStack[] aitemstack = new ItemStack[j * k];
+
+        for (int i1 = 0; i1 < j * k; ++i1)
+        {
+            char c0 = s.charAt(i1);
+
+            if (hashmap.containsKey(Character.valueOf(c0)))
+            {
+                aitemstack[i1] = ((ItemStack)hashmap.get(Character.valueOf(c0))).copy();
+            }
+            else
+            {
+                aitemstack[i1] = null;
+            }
+        }
+
+        ShapedRecipes shapedrecipes = new ShapedRecipes(j, k, aitemstack, par1ItemStack);
+        
+        frontRecipes.add(shapedrecipes);
+        
+        return shapedrecipes;
+    }
 }
