@@ -13,9 +13,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.WorldGenDeadlands;
 
-public class BiomeGenDeadlands extends BiomeGenBase
+public class BiomeGenDeadlands extends BiomeGenBase implements IFogColour
 {
 	private WorldGenerator theWorldGenerator;
 	private BiomeDecoratorBOP customBiomeDecorator;
@@ -70,6 +71,15 @@ public class BiomeGenDeadlands extends BiomeGenBase
 			var8 = par4 + par2Random.nextInt(16);
 			theWorldGenerator.generate(par1World, par2Random, var6, var7, var8);
 		}
+	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 9849675;
 	}
 
 	/**

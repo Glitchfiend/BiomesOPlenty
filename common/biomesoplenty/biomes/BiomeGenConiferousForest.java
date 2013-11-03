@@ -29,7 +29,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 		spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 6;
+		customBiomeDecorator.treesPerChunk = 8;
 		customBiomeDecorator.grassPerChunk = 10;
 		customBiomeDecorator.mushroomsPerChunk = 8;
 		customBiomeDecorator.toadstoolsPerChunk = 3;
@@ -56,7 +56,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 			return par1Random.nextInt(5) == 0 ? new WorldGenFir1() : (par1Random.nextInt(3) == 0 ? new WorldGenFir2() : new WorldGenFir3());
 		}
 		
-		return par1Random.nextInt(5) == 0 ? new WorldGenTaiga3(false) : (par1Random.nextInt(3) == 0 ? new WorldGenTaiga4(false) : new WorldGenTaiga9(false));
+		return par1Random.nextInt(3) == 0 ? new WorldGenTaiga3(false) : (par1Random.nextInt(5) == 0 ? new WorldGenTaiga4(false) : new WorldGenTaiga9(false));
 	}
 
 	/**

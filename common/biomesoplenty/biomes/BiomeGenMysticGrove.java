@@ -11,12 +11,13 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.configfile.BOPConfigurationMain;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.realtree.WorldGenRealMagic;
 import biomesoplenty.worldgen.tree.WorldGenMystic1;
 import biomesoplenty.worldgen.tree.WorldGenMystic2;
 import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
-public class BiomeGenMysticGrove extends BiomeGenBase
+public class BiomeGenMysticGrove extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -97,6 +98,15 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	{
 		return 7332553;
 	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 16755401;
+	}
 
 	/**
 	 * takes temperature, returns color
@@ -105,7 +115,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase
 	public int getSkyColorByTemp(float par1)
 	{
 		if (BOPConfigurationMisc.skyColors)
-			return 16751558;
+			return 8972496;
 		else
 		{
 			par1 /= 3.0F;

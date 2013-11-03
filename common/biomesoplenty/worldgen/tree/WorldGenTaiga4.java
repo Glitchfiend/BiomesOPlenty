@@ -18,7 +18,7 @@ public class WorldGenTaiga4 extends WorldGenerator
 	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
 	{
 		int var6 = var2.nextInt(15) + 20;
-		int var7 = var2.nextInt(3) + 5;
+		int var7 = var2.nextInt(4) + 8;
 		int var8 = var6 - var7;
 		int var9 = 2 + var2.nextInt(2);
 		boolean var10 = true;

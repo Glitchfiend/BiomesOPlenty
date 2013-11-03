@@ -12,12 +12,11 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.worldgen.WorldGenFungi;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.tree.WorldGenThickTree2;
-import biomesoplenty.worldgen.tree.WorldGenThickTree3;
+import biomesoplenty.worldgen.tree.WorldGenSequoia;
 
-public class BiomeGenFungiForest extends BiomeGenBase
+public class BiomeGenFungiForest extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -76,7 +75,7 @@ public class BiomeGenFungiForest extends BiomeGenBase
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
-		 return par1Random.nextInt(2) == 0 ? new WorldGenThickTree2(false) : (par1Random.nextInt(7) == 0 ? new WorldGenThickTree3(false) : (par1Random.nextInt(3) == 0 ? new WorldGenFungi() : new WorldGenFungi()));
+		 return new WorldGenSequoia(false);
 	 }
 
 	 /**
@@ -105,6 +104,15 @@ public class BiomeGenFungiForest extends BiomeGenBase
 	 {
 		 return 5359235;
 	 }
+	 
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 7985325;
+	}
 
 	 /**
 	  * takes temperature, returns color

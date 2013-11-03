@@ -12,9 +12,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.tree.WorldGenMassiveTree;
 
-public class BiomeGenSacredSprings extends BiomeGenBase
+public class BiomeGenSacredSprings extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -95,6 +96,15 @@ public class BiomeGenSacredSprings extends BiomeGenBase
 	 {
 		 return 39259;
 	 }
+	 
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 8707327;
+	}
 
 	 /**
 	  * takes temperature, returns color

@@ -7,11 +7,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.WorldGenWasteland;
 import biomesoplenty.worldgen.WorldGenWasteland2;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
-public class BiomeGenWasteland extends BiomeGenBase
+public class BiomeGenWasteland extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -56,6 +57,15 @@ public class BiomeGenWasteland extends BiomeGenBase
 	 {
 		 return 10067541;
 	 }
+	 
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 5662280;
+	}
 
 	 /**
 	  * takes temperature, returns color

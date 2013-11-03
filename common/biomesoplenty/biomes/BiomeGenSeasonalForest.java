@@ -10,6 +10,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.tree.WorldGenAutumn;
 import biomesoplenty.worldgen.tree.WorldGenAutumn2;
 import biomesoplenty.worldgen.tree.WorldGenAutumn2Big;
@@ -17,7 +18,7 @@ import biomesoplenty.worldgen.tree.WorldGenDeadTree2;
 import biomesoplenty.worldgen.tree.WorldGenMaple;
 import biomesoplenty.worldgen.tree.WorldGenMapleBig;
 
-public class BiomeGenSeasonalForest extends BiomeGenBase
+public class BiomeGenSeasonalForest extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -93,5 +94,14 @@ public class BiomeGenSeasonalForest extends BiomeGenBase
 	{
 		return 12502092;
 		//return 12502595;
+	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 16764548;
 	}
 }

@@ -8,8 +8,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IFogColour;
 
-public class BiomeGenCrag extends BiomeGenBase
+public class BiomeGenCrag extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -45,6 +46,15 @@ public class BiomeGenCrag extends BiomeGenBase
 				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
+	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 10514245;
 	}
 
 	/**

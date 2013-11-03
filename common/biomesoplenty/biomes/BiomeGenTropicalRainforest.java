@@ -13,9 +13,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.tree.WorldGenRainforest1;
 
-public class BiomeGenTropicalRainforest extends BiomeGenBase
+public class BiomeGenTropicalRainforest extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -91,6 +92,15 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 	 {
 		 return 8970560;
 	 }
+	 
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 16228194;
+	}
 
 	 /**
 	  * takes temperature, returns color
@@ -99,7 +109,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase
 	 public int getSkyColorByTemp(float par1)
 	 {
 		 if (BOPConfigurationMisc.skyColors)
-			 return 12971089;
+			 return 11128415;
 		 else
 		 {
 			 par1 /= 3.0F;

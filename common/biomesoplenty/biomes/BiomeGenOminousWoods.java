@@ -12,10 +12,11 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.tree.WorldGenOminous1;
 import biomesoplenty.worldgen.tree.WorldGenOminous2;
 
-public class BiomeGenOminousWoods extends BiomeGenBase
+public class BiomeGenOminousWoods extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -81,6 +82,15 @@ public class BiomeGenOminousWoods extends BiomeGenBase
 	public int getBiomeFoliageColor()
 	{
 		return 4145489;
+	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 3420989;
 	}
 
 	/**

@@ -12,10 +12,11 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.interfaces.IFogColour;
 import biomesoplenty.worldgen.WorldGenTropicsShrub;
 import biomesoplenty.worldgen.tree.WorldGenPalmTree1;
 
-public class BiomeGenTropics extends BiomeGenBase
+public class BiomeGenTropics extends BiomeGenBase implements IFogColour
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -69,6 +70,15 @@ public class BiomeGenTropics extends BiomeGenBase
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return par1Random.nextInt(2) == 0 ? new WorldGenPalmTree1() : (par1Random.nextInt(2) == 0 ? new WorldGenTropicsShrub() : new WorldGenShrub(0,0));
+	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 7724287;
 	}
 
 	/**
