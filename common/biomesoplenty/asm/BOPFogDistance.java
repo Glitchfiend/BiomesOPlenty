@@ -121,7 +121,6 @@ public class BOPFogDistance implements IClassTransformer
                 
                 InsnList toInject = new InsnList();
 
-                toInject.add(new FrameNode(Opcodes.F_SAME, 0, null, 0, null));
                 toInject.add(new VarInsnNode(ALOAD, 3));
                 toInject.add(new VarInsnNode(ILOAD, 1));
                 toInject.add(new VarInsnNode(FLOAD, 6));
