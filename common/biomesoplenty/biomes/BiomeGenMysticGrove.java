@@ -96,7 +96,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
 	@Override
 	public int getBiomeFoliageColor()
 	{
-		return 7332553;
+		return 7397529;
 	}
 	
 	/**

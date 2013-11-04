@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
@@ -15,6 +16,8 @@ import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenSequoia;
+import biomesoplenty.worldgen.tree.WorldGenSequoiaOrange;
+import biomesoplenty.worldgen.tree.WorldGenSequoiaYellow;
 
 public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 {
@@ -35,17 +38,12 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 		customBiomeDecorator.bigMushroomsPerChunk = 8;
 		customBiomeDecorator.toadstoolsPerChunk = 5;
 		customBiomeDecorator.portobellosPerChunk = 7;
-		customBiomeDecorator.blueMilksPerChunk = 4;
-		customBiomeDecorator.glowshroomsPerChunk = 2;
+		customBiomeDecorator.blueMilksPerChunk = 2;
+		customBiomeDecorator.glowshroomsPerChunk = 1;
 		customBiomeDecorator.blueFlowersPerChunk = 3;
-		customBiomeDecorator.cattailsPerChunk = 1;
-		customBiomeDecorator.highCattailsPerChunk = 2;
 		customBiomeDecorator.reedsBOPPerChunk = 1;
-		customBiomeDecorator.lilyflowersPerChunk = 2;
-		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 3;
-		customBiomeDecorator.shrubsPerChunk = 2;
-		customBiomeDecorator.koruPerChunk = 1;
+		customBiomeDecorator.shrubsPerChunk = 1;
 		customBiomeDecorator.generateMycelium = true;
 		customBiomeDecorator.generatePumpkins = true;
 		waterColorMultiplier = 65326;
@@ -75,7 +73,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
-		 return new WorldGenSequoia(false);
+		 return par1Random.nextInt(3) == 0 ? new WorldGenSequoiaOrange(false) : ((par1Random.nextInt(5) == 0 ? new WorldGenSequoiaYellow(false) : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : new WorldGenSequoia(false))));
 	 }
 
 	 /**
@@ -93,7 +91,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 	 @Override
 	 public int getBiomeGrassColor()
 	 {
-		 return 5359235;
+		 return 15792496;
 	 }
 
 	 /**
@@ -102,7 +100,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 	 @Override
 	 public int getBiomeFoliageColor()
 	 {
-		 return 5359235;
+		 return 11139946;
 	 }
 	 
 	/**
@@ -111,7 +109,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 	@Override
 	public int getFogColour()
 	{
-		return 7985325;
+		return 16050295;
 	}
 
 	 /**
@@ -121,7 +119,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 	 public int getSkyColorByTemp(float par1)
 	 {
 		 if (BOPConfigurationMisc.skyColors)
-			 return 5888980;
+			 return 11513806;
 		 else
 		 {
 			 par1 /= 3.0F;
