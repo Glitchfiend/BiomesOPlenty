@@ -10,12 +10,13 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree;
 import biomesoplenty.worldgen.tree.WorldGenFen1;
 import biomesoplenty.worldgen.tree.WorldGenFen2;
 
-public class BiomeGenFen extends BiomeGenBase
+public class BiomeGenFen extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -112,4 +113,17 @@ public class BiomeGenFen extends BiomeGenBase
 	 {
 		 return 13547897;
 	 }
+	 
+	@Override
+	public int getFogColour()
+	{
+		return 12638463;
+	}
+	
+	@Override
+	public float getFogCloseness()
+	{
+	    // TODO Auto-generated method stub
+	    return 0.8F;
+	}
 }

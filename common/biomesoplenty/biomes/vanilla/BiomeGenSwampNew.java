@@ -14,11 +14,12 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenLog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenWillow;
 
-public class BiomeGenSwampNew extends BiomeGenBase
+public class BiomeGenSwampNew extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -105,6 +106,19 @@ public class BiomeGenSwampNew extends BiomeGenBase
 		double var3 = this.getFloatRainfall();
 		return ((ColorizerFoliage.getFoliageColor(var1, var3) & 16711422) + 5115470) / 2;
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 7246218;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.4F;
+    }
 	
 	 /**
 	  * takes temperature, returns color

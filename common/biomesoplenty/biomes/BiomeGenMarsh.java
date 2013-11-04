@@ -8,8 +8,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.interfaces.IBOPFog;
 
-public class BiomeGenMarsh extends BiomeGenBase
+public class BiomeGenMarsh extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -57,4 +58,17 @@ public class BiomeGenMarsh extends BiomeGenBase
 			}
 		}
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 12638463;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.6F;
+    }
 }

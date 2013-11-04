@@ -11,12 +11,13 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenBayou1;
 import biomesoplenty.worldgen.tree.WorldGenBayou2;
 import biomesoplenty.worldgen.tree.WorldGenBayou3;
 
-public class BiomeGenBayou extends BiomeGenBase
+public class BiomeGenBayou extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -106,6 +107,19 @@ public class BiomeGenBayou extends BiomeGenBase
 	 {
 		 return 11591816;
 	 }
+	 
+	@Override
+	public int getFogColour()
+	{
+		return 9482133;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.6F;
+    }
 
 	 /**
 	  * takes temperature, returns color

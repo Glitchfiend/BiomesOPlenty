@@ -10,9 +10,10 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree;
 
-public class BiomeGenDeadSwamp extends BiomeGenBase
+public class BiomeGenDeadSwamp extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -92,6 +93,19 @@ public class BiomeGenDeadSwamp extends BiomeGenBase
 	{
 		return 6713420;
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 9219993;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.6F;
+    }
 
 	/**
 	 * takes temperature, returns color

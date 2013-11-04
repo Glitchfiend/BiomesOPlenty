@@ -9,9 +9,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree;
 
-public class BiomeGenQuagmire extends BiomeGenBase
+public class BiomeGenQuagmire extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -84,6 +85,19 @@ public class BiomeGenQuagmire extends BiomeGenBase
 	 {
 		 return 10390377;
 	 }
+	 
+	@Override
+	public int getFogColour()
+	{
+		return 13291213;
+	}
+	
+	@Override
+	public float getFogCloseness()
+	{
+	    // TODO Auto-generated method stub
+	    return 0.6F;
+	}
 
 	 /**
 	  * takes temperature, returns color

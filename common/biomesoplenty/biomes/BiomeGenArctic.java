@@ -6,8 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.interfaces.IBOPFog;
 
-public class BiomeGenArctic extends BiomeGenBase
+public class BiomeGenArctic extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -62,4 +63,17 @@ public class BiomeGenArctic extends BiomeGenBase
 	{
 		return 11903827;
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 12638463;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.4F;
+    }
 }
