@@ -108,8 +108,6 @@ public class BOPFogDistance implements IClassTransformer
                     }
                 }
                 
-                System.out.println(m.instructions.get(fdiv_index - 1).getOpcode());
-                
                 /*
                 mv.visitMethodInsn(INVOKESTATIC, "org/lwjgl/opengl/GL11", "glFogf", "(IF)V");
                 mv.visitLabel(l71);
@@ -193,7 +191,6 @@ public class BOPFogDistance implements IClassTransformer
         }
         
         float finalFogCloseness = fogCloseness / divider;
-        System.out.println(finalFogCloseness);
         
         fogX = playerX;
         fogZ = playerZ;
