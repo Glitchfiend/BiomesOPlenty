@@ -13,10 +13,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IFogColour;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenDeadlands;
 
-public class BiomeGenDeadlands extends BiomeGenBase implements IFogColour
+public class BiomeGenDeadlands extends BiomeGenBase implements IBOPFog
 {
 	private WorldGenerator theWorldGenerator;
 	private BiomeDecoratorBOP customBiomeDecorator;
@@ -107,4 +107,11 @@ public class BiomeGenDeadlands extends BiomeGenBase implements IFogColour
 			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		 }
 	 }
+
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }

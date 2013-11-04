@@ -11,13 +11,13 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.configfile.BOPConfigurationMain;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IFogColour;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.realtree.WorldGenRealMagic;
 import biomesoplenty.worldgen.tree.WorldGenMystic1;
 import biomesoplenty.worldgen.tree.WorldGenMystic2;
 import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
-public class BiomeGenMysticGrove extends BiomeGenBase implements IFogColour
+public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -133,4 +133,11 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IFogColour
 			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		}
 	}
+
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }

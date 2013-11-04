@@ -1,6 +1,8 @@
 package biomesoplenty.interfaces;
 
-public interface IFogColour
+public interface IBOPFog
 {
     public int getFogColour();
+    
+    public float getFogCloseness();
 }

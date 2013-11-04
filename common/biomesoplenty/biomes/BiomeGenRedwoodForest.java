@@ -9,7 +9,6 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.configuration.configfile.BOPConfigurationMain;
-import biomesoplenty.worldgen.WorldGenRedwoodShrub;
 import biomesoplenty.worldgen.realtree.WorldGenRealRedwood;
 import biomesoplenty.worldgen.realtree.WorldGenRealRedwood2;
 import biomesoplenty.worldgen.tree.WorldGenRedwoodTree;

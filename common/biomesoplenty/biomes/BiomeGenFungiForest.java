@@ -12,11 +12,11 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IFogColour;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenSequoia;
 
-public class BiomeGenFungiForest extends BiomeGenBase implements IFogColour
+public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -139,4 +139,11 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IFogColour
 			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		 }
 	 }
+
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }

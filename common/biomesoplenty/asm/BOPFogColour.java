@@ -26,7 +26,7 @@ import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 import org.w3c.dom.css.RGBColor;
 
-import biomesoplenty.interfaces.IFogColour;
+import biomesoplenty.interfaces.IBOPFog;
 
 public class BOPFogColour implements IClassTransformer
 {
@@ -45,7 +45,7 @@ public class BOPFogColour implements IClassTransformer
         
         if (name.equals("bfe")) 
         {
-            return patchEntityRenderer(newname, bytes, false);
+            return patchEntityRenderer(newname, bytes, true);
         }
         
         return bytes;
@@ -179,9 +179,9 @@ public class BOPFogColour implements IClassTransformer
                 BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
                 int colour = 0;
                 
-                if (biome instanceof IFogColour)
+                if (biome instanceof IBOPFog)
                 {
-                    colour = ((IFogColour)biome).getFogColour();
+                    colour = ((IBOPFog)biome).getFogColour();
                 }
                 else
                 {
@@ -207,7 +207,6 @@ public class BOPFogColour implements IClassTransformer
     {
         int x = MathHelper.floor_double(entity.posX);
         int z = MathHelper.floor_double(entity.posZ);
-        BiomeGenBase biome = world.getBiomeGenForCoords(x, z);
         
         int multiplier = getFogBlendColour(world, partialRenderTick, x, z);
         

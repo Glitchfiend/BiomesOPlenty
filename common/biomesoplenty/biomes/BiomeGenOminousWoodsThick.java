@@ -13,12 +13,12 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IFogColour;
+import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenOminous1;
 import biomesoplenty.worldgen.tree.WorldGenOminous3;
 import biomesoplenty.worldgen.tree.WorldGenOminous4;
 
-public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IFogColour
+public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -122,4 +122,11 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IFogColou
 			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		}
 	}
+
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 }
