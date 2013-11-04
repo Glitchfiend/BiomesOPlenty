@@ -61,6 +61,7 @@ import biomesoplenty.biomes.BiomeGenMesa;
 import biomesoplenty.biomes.BiomeGenMoor;
 import biomesoplenty.biomes.BiomeGenMountain;
 import biomesoplenty.biomes.BiomeGenMysticGrove;
+import biomesoplenty.biomes.BiomeGenMysticGroveThin;
 import biomesoplenty.biomes.BiomeGenOasis;
 import biomesoplenty.biomes.BiomeGenOminousWoods;
 import biomesoplenty.biomes.BiomeGenOminousWoodsThick;
@@ -233,7 +234,8 @@ public class BOPBiomes {
 		Biomes.mesa = Optional.of((new BiomeGenMesa(BOPConfigurationIDs.mesaID)).setColor(16421912).setBiomeName("Mesa").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.4F, 2.0F));
 		Biomes.moor = Optional.of((new BiomeGenMoor(BOPConfigurationIDs.moorID)).setColor(16421912).setBiomeName("Moor").setTemperatureRainfall(0.5F, 1.0F).setMinMaxHeight(0.7F, 0.8F));
 		Biomes.mountain = Optional.of((new BiomeGenMountain(BOPConfigurationIDs.mountainID)).setColor(14090235).setBiomeName("Mountain").setTemperatureRainfall(0.5F, 0.1F).setMinMaxHeight(1.0F, 1.5F));
-		Biomes.mysticGrove = Optional.of((new BiomeGenMysticGrove(BOPConfigurationIDs.mysticGroveID)).setColor(353825).setBiomeName("Mystic Grove").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F));
+		Biomes.mysticGrove = Optional.of((new BiomeGenMysticGrove(BOPConfigurationIDs.mysticGroveID)).setColor(353825).setBiomeName("Mystic Grove").func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F).setMinMaxHeight(0.3F, 0.8F));
+		Biomes.mysticGroveThin = Optional.of((new BiomeGenMysticGroveThin(BOPConfigurationIDs.mysticGroveThinID)).setColor(353825).setBiomeName("Thinned Mystic Grove").func_76733_a(5159473).setTemperatureRainfall(0.9F, 1.0F).setMinMaxHeight(0.1F, 0.3F));
 
 		Biomes.netherBase = Optional.of((new BiomeGenNetherBase(BOPConfigurationIDs.netherBaseID)).setColor(16711680).setBiomeName("Nether").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
 		Biomes.netherGarden = Optional.of((new BiomeGenNetherGarden(BOPConfigurationIDs.netherGardenID)).setColor(16711680).setBiomeName("Undergarden").setDisableRain().setTemperatureRainfall(2.0F, 0.0F));
@@ -248,8 +250,8 @@ public class BOPBiomes {
 		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfigurationIDs.oceanCoralID)).setColor(10486015).setBiomeName("Coral Reef").setMinMaxHeight(-0.1F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
 		Biomes.oceanKelp = Optional.of((new BiomeGenOceanKelp(BOPConfigurationIDs.oceanKelpID)).setColor(10486015).setBiomeName("Kelp Forest").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
 
-		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
-		Biomes.ominousWoodsThick = Optional.of((new BiomeGenOminousWoodsThick(BOPConfigurationIDs.ominousWoodsThickID)).setColor(353825).setBiomeName("Thick Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
+		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F).setMinMaxHeight(0.1F, 0.3F));
+		Biomes.ominousWoodsThick = Optional.of((new BiomeGenOminousWoodsThick(BOPConfigurationIDs.ominousWoodsThickID)).setColor(353825).setBiomeName("Thick Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F).setMinMaxHeight(0.4F, 0.8F));
 		Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfigurationIDs.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
 		Biomes.originValley = Optional.of((new BiomeGenOriginValley(BOPConfigurationIDs.originValleyID)).setColor(353825).setBiomeName("Origin Valley").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.2F, 0.6F));
 		Biomes.outback = Optional.of((new BiomeGenOutback(BOPConfigurationIDs.outbackID)).setColor(9286496).setBiomeName("Outback").setTemperatureRainfall(0.8F, 0.05F).setMinMaxHeight(0.3F, 0.4F));
@@ -376,6 +378,7 @@ public class BOPBiomes {
 		BiomeDictionary.registerBiomeType(Biomes.moor.get(), Type.HILLS, Type.SWAMP);
 		BiomeDictionary.registerBiomeType(Biomes.mountain.get(), Type.MOUNTAIN);
 		BiomeDictionary.registerBiomeType(Biomes.mysticGrove.get(), Type.MAGICAL, Type.FOREST);
+		BiomeDictionary.registerBiomeType(Biomes.mysticGroveThin.get(), Type.MAGICAL, Type.FOREST);
 
 		BiomeDictionary.registerBiomeType(Biomes.netherBase.get(), Type.NETHER);
 		BiomeDictionary.registerBiomeType(Biomes.netherGarden.get(), Type.NETHER, Type.JUNGLE);

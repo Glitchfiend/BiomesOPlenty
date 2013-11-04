@@ -30,7 +30,6 @@ public class BiomeGenSacredSprings extends BiomeGenBase implements IBOPFog
         customBiomeDecorator.wheatGrassPerChunk = 1;
         customBiomeDecorator.waterlilyPerChunk = 5;
         customBiomeDecorator.violetsPerChunk = 1;
-        customBiomeDecorator.hotSpringsPerChunk = 1;
         customBiomeDecorator.generatePumpkins = false;
         spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class,
                 12, 6, 6));

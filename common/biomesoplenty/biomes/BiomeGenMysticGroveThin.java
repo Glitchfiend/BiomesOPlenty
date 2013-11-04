@@ -18,12 +18,12 @@ import biomesoplenty.worldgen.tree.WorldGenMystic1;
 import biomesoplenty.worldgen.tree.WorldGenMystic2;
 import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
-public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
+public class BiomeGenMysticGroveThin extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
-	public BiomeGenMysticGrove(int par1)
+	public BiomeGenMysticGroveThin(int par1)
 	{
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
@@ -34,19 +34,19 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
 		}
 		else
 		{
-			customBiomeDecorator.treesPerChunk = 9;
+			customBiomeDecorator.treesPerChunk = 3;
 		}
 		
-		customBiomeDecorator.grassPerChunk = 15;
+		customBiomeDecorator.grassPerChunk = 7;
 		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.flowersPerChunk = 8;
-		customBiomeDecorator.pinkFlowersPerChunk = 9;
-		customBiomeDecorator.glowFlowersPerChunk = 10;
+		customBiomeDecorator.pinkFlowersPerChunk = 6;
+		customBiomeDecorator.glowFlowersPerChunk = 15;
 		customBiomeDecorator.rosesPerChunk = 8;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.sproutsPerChunk = 1;
-		customBiomeDecorator.hydrangeasPerChunk = 6;
+		customBiomeDecorator.hydrangeasPerChunk = 3;
 		customBiomeDecorator.blueMilksPerChunk = 1;
 		customBiomeDecorator.lilyflowersPerChunk = 3;
 		customBiomeDecorator.poisonWaterPerChunk = 1;
@@ -68,7 +68,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
 			return new WorldGenRealMagic();
 		}
 		
-		return par1Random.nextInt(4) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(3) == 0 ? this.worldGeneratorBigTree : ((par1Random.nextInt(8) == 0 ? new WorldGenSwampTall() : this.worldGeneratorTrees)));
+		return par1Random.nextInt(3) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(6) == 0 ? this.worldGeneratorBigTree : ((par1Random.nextInt(6) == 0 ? new WorldGenSwampTall() : this.worldGeneratorTrees)));
 	}
 
 	/**
