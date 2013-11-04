@@ -125,7 +125,7 @@ public class BOPFogDistance implements IClassTransformer
                 toInject.add(new VarInsnNode(ILOAD, 1));
                 toInject.add(new VarInsnNode(FLOAD, 6));
                 if (obfuscated)
-                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPFogDistance", "setBiomeFogDistance", "(Lnn;F)V"));
+                    toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPFogDistance", "setBiomeFogDistance", "(Lnn;IF)V"));
                 else
                     toInject.add(new MethodInsnNode(INVOKESTATIC, "biomesoplenty/asm/BOPFogDistance", "setBiomeFogDistance", "(Lnet/minecraft/entity/Entity;IF)V"));
                 
