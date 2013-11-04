@@ -144,6 +144,6 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase implements IBOPFog
     public float getFogCloseness()
     {
         // TODO Auto-generated method stub
-        return 0;
+        return 0.8F;
     }
 }

@@ -10,8 +10,9 @@ import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.interfaces.IBOPFog;
 
-public class BiomeGenDesertNew extends BiomeGenBase
+public class BiomeGenDesertNew extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -62,6 +63,18 @@ public class BiomeGenDesertNew extends BiomeGenBase
 		}
 	}
 	
+	@Override
+	public int getFogColour()
+	{
+		return 15060363;
+	}
+	
+	@Override
+	public float getFogCloseness()
+	{
+		return 1.0F;
+	}
+	
 	/**
 	 * takes temperature, returns color
 	 */
@@ -69,7 +82,7 @@ public class BiomeGenDesertNew extends BiomeGenBase
 	 public int getSkyColorByTemp(float par1)
 	 {
 		 if (BOPConfigurationMisc.skyColors)
-			 return 13877903;
+			 return 10214353;
 		 else
 		 {
 			 par1 /= 3.0F;

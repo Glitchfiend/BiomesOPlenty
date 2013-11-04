@@ -129,6 +129,6 @@ public class BiomeGenSeasonalForest extends BiomeGenBase implements IBOPFog
     public float getFogCloseness()
     {
         // TODO Auto-generated method stub
-        return 0;
+        return 1.0F;
     }
 }

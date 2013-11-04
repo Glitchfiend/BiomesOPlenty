@@ -248,8 +248,8 @@ public class BOPBiomes {
 		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfigurationIDs.oceanCoralID)).setColor(10486015).setBiomeName("Coral Reef").setMinMaxHeight(-0.1F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
 		Biomes.oceanKelp = Optional.of((new BiomeGenOceanKelp(BOPConfigurationIDs.oceanKelpID)).setColor(10486015).setBiomeName("Kelp Forest").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
 
-		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
-		Biomes.ominousWoodsThick = Optional.of((new BiomeGenOminousWoodsThick(BOPConfigurationIDs.ominousWoodsThickID)).setColor(353825).setBiomeName("Thick Ominous Woods").setDisableRain().func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
+		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID)).setColor(353825).setBiomeName("Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
+		Biomes.ominousWoodsThick = Optional.of((new BiomeGenOminousWoodsThick(BOPConfigurationIDs.ominousWoodsThickID)).setColor(353825).setBiomeName("Thick Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F));
 		Biomes.orchard = Optional.of((new BiomeGenOrchard(BOPConfigurationIDs.orchardID)).setColor(9286496).setBiomeName("Orchard").setTemperatureRainfall(0.8F, 0.4F));
 		Biomes.originValley = Optional.of((new BiomeGenOriginValley(BOPConfigurationIDs.originValleyID)).setColor(353825).setBiomeName("Origin Valley").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.2F, 0.6F));
 		Biomes.outback = Optional.of((new BiomeGenOutback(BOPConfigurationIDs.outbackID)).setColor(9286496).setBiomeName("Outback").setTemperatureRainfall(0.8F, 0.05F).setMinMaxHeight(0.3F, 0.4F));

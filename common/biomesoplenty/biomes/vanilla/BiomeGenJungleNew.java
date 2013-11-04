@@ -1,6 +1,5 @@
 package biomesoplenty.biomes.vanilla;
 
-import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -17,10 +16,10 @@ import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
-import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
+import biomesoplenty.interfaces.IBOPFog;
 
-public class BiomeGenJungleNew extends BiomeGenBase
+public class BiomeGenJungleNew extends BiomeGenBase implements IBOPFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -112,29 +111,15 @@ public class BiomeGenJungleNew extends BiomeGenBase
 		 return 7060540;
 	 }
 	 
-	 /**
-	  * takes temperature, returns color
-	  */
-	 @Override
-	 public int getSkyColorByTemp(float par1)
-	 {
-		 if (BOPConfigurationMisc.skyColors)
-			 return 9225359;
-		 else
-		 {
-			 par1 /= 3.0F;
+	@Override
+	public int getFogColour()
+	{
+		return 9225359;
+	}
 
-			 if (par1 < -1.0F)
-			 {
-				 par1 = -1.0F;
-			 }
-
-			 if (par1 > 1.0F)
-			 {
-				 par1 = 1.0F;
-			 }
-
-			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
-		 }
-	 }
+	@Override
+	public float getFogCloseness()
+	{
+		return 0.7F;
+	}
 }
