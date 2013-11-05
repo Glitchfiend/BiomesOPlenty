@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.common.Property;
+import biomesoplenty.configuration.BOPBiomes;
 import biomesoplenty.configuration.configfile.BOPConfigurationMain;
 import biomesoplenty.world.WorldTypeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -62,7 +63,6 @@ public class Version implements Runnable {
 	public static boolean needsBOPWorldtypeAndMarkAsSeen(World world) 
 	{
 		WorldType terrainType = world.getWorldInfo().getTerrainType();
-		WorldTypeBOP bopType = new WorldTypeBOP();
 		
 		Property property = BOPConfigurationMain.config.get("Vars", "Seen WorldType Msg", false);
 		String worldTypeProp = property.getString();
@@ -70,7 +70,7 @@ public class Version implements Runnable {
 		if (terrainType == null || property.getBoolean(false) == true)
 			return false;
 		
-		if (terrainType.getWorldTypeName().equals(bopType.getWorldTypeName()) || terrainType.getWorldTypeName().equals("ATG"))
+		if (terrainType.getWorldTypeName().equals(BOPBiomes.WTBiomesOP.getWorldTypeName()) || terrainType.getWorldTypeName().equals("ATG"))
 		{
 			property.set(true);
 			
