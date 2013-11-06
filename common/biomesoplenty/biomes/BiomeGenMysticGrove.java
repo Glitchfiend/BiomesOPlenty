@@ -14,7 +14,7 @@ import biomesoplenty.configuration.configfile.BOPConfigurationMain;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.realtree.WorldGenRealMagic;
-import biomesoplenty.worldgen.tree.WorldGenMystic1;
+import biomesoplenty.worldgen.tree.WorldGenJacaranda;
 import biomesoplenty.worldgen.tree.WorldGenMystic2;
 import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
@@ -68,7 +68,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
 			return new WorldGenRealMagic();
 		}
 		
-		return par1Random.nextInt(4) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(3) == 0 ? this.worldGeneratorBigTree : ((par1Random.nextInt(8) == 0 ? new WorldGenSwampTall() : this.worldGeneratorTrees)));
+		return par1Random.nextInt(4) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(3) == 0 ? new WorldGenJacaranda(false) : ((par1Random.nextInt(3) == 0 ? this.worldGeneratorBigTree : ((par1Random.nextInt(8) == 0 ? new WorldGenSwampTall() : this.worldGeneratorTrees)))));
 	}
 
 	/**
