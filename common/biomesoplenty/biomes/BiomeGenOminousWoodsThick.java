@@ -11,14 +11,14 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenOminous1;
 import biomesoplenty.worldgen.tree.WorldGenOminous3;
 import biomesoplenty.worldgen.tree.WorldGenOminous4;
 
-public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IBOPFog
+public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 

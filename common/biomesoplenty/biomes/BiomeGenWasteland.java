@@ -5,14 +5,14 @@ import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenWasteland;
 import biomesoplenty.worldgen.WorldGenWasteland2;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
-public class BiomeGenWasteland extends BiomeGenBase implements IBOPFog
+public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 

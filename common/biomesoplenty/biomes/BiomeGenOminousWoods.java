@@ -11,12 +11,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenOminous1;
 import biomesoplenty.worldgen.tree.WorldGenOminous2;
 
-public class BiomeGenOminousWoods extends BiomeGenBase implements IBOPFog
+public class BiomeGenOminousWoods extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 

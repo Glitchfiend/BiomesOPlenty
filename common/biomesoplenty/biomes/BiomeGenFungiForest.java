@@ -10,13 +10,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenSequoia;
 
-public class BiomeGenFungiForest extends BiomeGenBase implements IBOPFog
+public class BiomeGenFungiForest extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 

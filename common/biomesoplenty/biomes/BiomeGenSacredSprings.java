@@ -9,13 +9,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenMassiveTree;
 
-public class BiomeGenSacredSprings extends BiomeGenBase implements IBOPFog
+public class BiomeGenSacredSprings extends BiomeGenBase implements IWCFog
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 

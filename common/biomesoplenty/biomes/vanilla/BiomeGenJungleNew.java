@@ -14,12 +14,12 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenVines;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
 import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.interfaces.IBOPFog;
 
-public class BiomeGenJungleNew extends BiomeGenBase implements IBOPFog
+public class BiomeGenJungleNew extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 

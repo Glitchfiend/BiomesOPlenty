@@ -9,15 +9,15 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.configuration.configfile.BOPConfigurationMain;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.realtree.WorldGenRealMagic;
 import biomesoplenty.worldgen.tree.WorldGenMystic1;
 import biomesoplenty.worldgen.tree.WorldGenMystic2;
 import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
-public class BiomeGenMysticGrove extends BiomeGenBase implements IBOPFog
+public class BiomeGenMysticGrove extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 

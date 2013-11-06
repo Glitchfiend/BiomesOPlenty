@@ -20,7 +20,7 @@ public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
     @Override
     public String[] getASMTransformerClass()
     {
-        return new String[] {BOPBiomeColourBlending.class.getName(), BOPFogColour.class.getName(), BOPFogDistance.class.getName()};
+        return new String[] {BOPBiomeColourBlending.class.getName()};
     }
 
     @Override

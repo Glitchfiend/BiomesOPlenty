@@ -9,8 +9,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.interfaces.IBOPFog;
 import biomesoplenty.worldgen.tree.WorldGenAutumn;
 import biomesoplenty.worldgen.tree.WorldGenAutumn2;
 import biomesoplenty.worldgen.tree.WorldGenAutumn2Big;
@@ -18,7 +18,7 @@ import biomesoplenty.worldgen.tree.WorldGenDeadTree2;
 import biomesoplenty.worldgen.tree.WorldGenMaple;
 import biomesoplenty.worldgen.tree.WorldGenMapleBig;
 
-public class BiomeGenSeasonalForest extends BiomeGenBase implements IBOPFog
+public class BiomeGenSeasonalForest extends BiomeGenBase implements IWCFog
 {
     private BiomeDecoratorBOP customBiomeDecorator;
 
