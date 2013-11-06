@@ -10,12 +10,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenBog1;
 import biomesoplenty.worldgen.WorldGenBog2;
 
-public class BiomeGenSludgepit extends BiomeGenBase
+public class BiomeGenSludgepit extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -100,6 +101,19 @@ public class BiomeGenSludgepit extends BiomeGenBase
 	public int getBiomeFoliageColor()
 	{
 		return 9539892;
+	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 10463856;
+	}
+	
+	@Override
+	public float getFogCloseness()
+	{
+	    // TODO Auto-generated method stub
+	    return 0.6F;
 	}
 
 	/**

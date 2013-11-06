@@ -214,6 +214,7 @@ public class BOPConfigurationIDs
 	public static int moorID;
 	public static int mountainID;
 	public static int mysticGroveID;
+	public static int mysticGroveThinID;
 
 	public static int netherBaseID;
 	public static int netherGardenID;
@@ -485,8 +486,8 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			mysticGroveThinID = config.get("Biome IDs", "Thinned Mystic Grove (Sub-Biome) ID", 29).getInt();
 			netherBloodID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 30).getInt();
-			
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 31).getInt();
 			tropicsMountainID = config.get("Biome IDs", "Tropics Mountain (Sub-Biome) ID", 32).getInt();
 			autumnHillsID = config.get("Biome IDs", "Autumn Hills ID", 33).getInt();

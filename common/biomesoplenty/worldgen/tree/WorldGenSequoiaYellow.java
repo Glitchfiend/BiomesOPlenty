@@ -7,9 +7,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.Blocks;
 
-public class WorldGenSequoia extends WorldGenerator
+public class WorldGenSequoiaYellow extends WorldGenerator
 {
-	public WorldGenSequoia(boolean var1)
+	public WorldGenSequoiaYellow(boolean var1)
 	{
 		super(var1);
 	}
@@ -17,10 +17,10 @@ public class WorldGenSequoia extends WorldGenerator
 	@Override
 	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
 	{
-		int var6 = var2.nextInt(10) + 35;
-		int var7 = var2.nextInt(5) + 10;
+		int var6 = var2.nextInt(15) + 15;
+		int var7 = var2.nextInt(5) + 5;
 		int var8 = var6 - var7;
-		int var9 = 4;
+		int var9 = 3;
 		boolean var10 = true;
 
 		if (var4 >= 1 && var4 + var6 + 1 <= 256)
@@ -53,7 +53,7 @@ public class WorldGenSequoia extends WorldGenerator
 						{
 							var15 = var1.getBlockId(var13, var11, var14);
 
-							if (var15 != 0 && var15 != Block.leaves.blockID)
+							if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
 							{
 								var10 = false;
 							}
@@ -112,16 +112,16 @@ public class WorldGenSequoia extends WorldGenerator
 	
 												if ((Math.abs(var21) != var15 || Math.abs(var23) != var15 || var15 <= 0) && !Block.opaqueCubeLookup[var1.getBlockId(var20, var19, var22)])
 												{
-													this.setBlockAndMetadata(var1, var20, var19, var22, Block.leaves.blockID, 0);
-													this.setBlockAndMetadata(var1, var20 + 1, var19, var22, Block.leaves.blockID, 0);
-													this.setBlockAndMetadata(var1, var20 - 1, var19, var22, Block.leaves.blockID, 0);
-													this.setBlockAndMetadata(var1, var20, var19, var22 + 1, Block.leaves.blockID, 0);
-													this.setBlockAndMetadata(var1, var20, var19, var22 - 1, Block.leaves.blockID, 0);
+													this.setBlockAndMetadata(var1, var20, var19, var22, Blocks.leaves1.get().blockID, 0);
+													this.setBlockAndMetadata(var1, var20 + 1, var19, var22, Blocks.leaves1.get().blockID, 0);
+													this.setBlockAndMetadata(var1, var20 - 1, var19, var22, Blocks.leaves1.get().blockID, 0);
+													this.setBlockAndMetadata(var1, var20, var19, var22 + 1, Blocks.leaves1.get().blockID, 0);
+													this.setBlockAndMetadata(var1, var20, var19, var22 - 1, Blocks.leaves1.get().blockID, 0);
 													
-													//this.setBlockAndMetadata(var1, var20 + 1, var19, var22 + 1, Block.leaves.blockID, 0);
-													//this.setBlockAndMetadata(var1, var20 - 1, var19, var22 - 1, Block.leaves.blockID, 0);
-													//this.setBlockAndMetadata(var1, var20 - 1, var19, var22 + 1, Block.leaves.blockID, 0);
-													//this.setBlockAndMetadata(var1, var20 + 1, var19, var22 - 1, Block.leaves.blockID, 0);
+													//this.setBlockAndMetadata(var1, var20 + 1, var19, var22 + 1, Blocks.leaves1.get().blockID, 0);
+													//this.setBlockAndMetadata(var1, var20 - 1, var19, var22 - 1, Blocks.leaves1.get().blockID, 0);
+													//this.setBlockAndMetadata(var1, var20 - 1, var19, var22 + 1, Blocks.leaves1.get().blockID, 0);
+													//this.setBlockAndMetadata(var1, var20 + 1, var19, var22 - 1, Blocks.leaves1.get().blockID, 0);
 												}
 											}
 										}
@@ -149,7 +149,7 @@ public class WorldGenSequoia extends WorldGenerator
 									{
 										var20 = var1.getBlockId(var3, var4 + var19, var5);
 	
-										if (var20 == 0 || var20 == Block.leaves.blockID)
+										if (var20 == 0 || var20 == Blocks.leaves1.get().blockID)
 										{
 											this.setBlockAndMetadata(var1, var3, var4 + var19, var5, Block.wood.blockID, 0);
 											this.setBlockAndMetadata(var1, var3 + 1, var4 + var19, var5, Block.wood.blockID, 0);

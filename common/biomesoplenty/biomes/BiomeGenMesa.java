@@ -8,10 +8,11 @@ import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 
-public class BiomeGenMesa extends BiomeGenBase
+public class BiomeGenMesa extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -52,6 +53,19 @@ public class BiomeGenMesa extends BiomeGenBase
 			}
 		}
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 14070383;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 1.0F;
+    }
 
 	/**
 	 * takes temperature, returns color

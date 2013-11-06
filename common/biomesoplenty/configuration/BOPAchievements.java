@@ -394,6 +394,11 @@ public class BOPAchievements
 					{
 						player.addStat(BOPAchievements.achField, 1);
 					}
+					
+					if (biomeID == Biomes.fieldForest.get().biomeID)
+					{
+						player.addStat(BOPAchievements.achField, 1);
+					}
 
 					if (biomeID == Biomes.frostForest.get().biomeID)
 					{
@@ -504,6 +509,11 @@ public class BOPAchievements
 					{
 						player.addStat(BOPAchievements.achMysticGrove, 1);
 					}
+					
+					if (biomeID == Biomes.mysticGroveThin.get().biomeID)
+					{
+						player.addStat(BOPAchievements.achMysticGrove, 1);
+					}
 
 					if (biomeID == Biomes.oasis.get().biomeID)
 					{
@@ -589,6 +599,11 @@ public class BOPAchievements
 					{
 						player.addStat(BOPAchievements.achSavanna, 1);
 					}
+					
+					if (biomeID == Biomes.savannaPlateau.get().biomeID)
+					{
+						player.addStat(BOPAchievements.achSavanna, 1);
+					}
 
 					if (biomeID == Biomes.scrubland.get().biomeID)
 					{
@@ -666,6 +681,11 @@ public class BOPAchievements
 					}
 
 					if (biomeID == Biomes.tropics.get().biomeID)
+					{
+						player.addStat(BOPAchievements.achTropics, 1);
+					}
+					
+					if (biomeID == Biomes.tropicsMountain.get().biomeID)
 					{
 						player.addStat(BOPAchievements.achTropics, 1);
 					}

@@ -8,10 +8,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.tree.WorldGenBambooTree;
 
-public class BiomeGenBambooForest extends BiomeGenBase
+public class BiomeGenBambooForest extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -87,4 +88,17 @@ public class BiomeGenBambooForest extends BiomeGenBase
 	 {
 		 return 10739795;
 	 }
+	 
+	@Override
+	public int getFogColour()
+	{
+		return 13428852;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.8F;
+    }
 }

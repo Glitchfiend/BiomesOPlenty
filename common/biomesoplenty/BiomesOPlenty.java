@@ -33,6 +33,7 @@ import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
 import biomesoplenty.world.WorldProviderPromised;
+import biomesoplenty.world.WorldTypeBOP;
 import biomesoplenty.world.WorldTypeSize;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -128,6 +129,9 @@ public class BiomesOPlenty
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		BOPCrossIntegration.postInit();
+
+		//Initialize new world type
+		BOPBiomes.WTBiomesOP = new WorldTypeBOP();
 		
 		TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
 		TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);

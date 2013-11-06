@@ -5,9 +5,10 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 
-public class BiomeGenArctic extends BiomeGenBase
+public class BiomeGenArctic extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -62,4 +63,17 @@ public class BiomeGenArctic extends BiomeGenBase
 	{
 		return 11903827;
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 12638463;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.4F;
+    }
 }

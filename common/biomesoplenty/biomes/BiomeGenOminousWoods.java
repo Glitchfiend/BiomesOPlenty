@@ -13,6 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 import biomesoplenty.worldgen.tree.WorldGenOminous1;
 import biomesoplenty.worldgen.tree.WorldGenOminous2;
 
@@ -26,7 +27,7 @@ public class BiomeGenOminousWoods extends BiomeGenBase implements IWCFog
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 10;
+		customBiomeDecorator.treesPerChunk = 8;
 		customBiomeDecorator.grassPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.flowersPerChunk = -999;
@@ -54,7 +55,7 @@ public class BiomeGenOminousWoods extends BiomeGenBase implements IWCFog
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		//return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenWillow2() : (par1Random.nextInt(7) == 0 ? new WorldGenDarkTree1() : (par1Random.nextInt(5) == 0 ? new WorldGenWillow1() : new WorldGenDarkTree2())));
-		return par1Random.nextInt(2) == 0 ? new WorldGenOminous1(false) : new WorldGenOminous2();
+		return par1Random.nextInt(2) == 0 ? new WorldGenOminous1(false) : (par1Random.nextInt(6) == 0 ? new WorldGenDeadTree3(false) : new WorldGenOminous2());
 	}
 
 	/**

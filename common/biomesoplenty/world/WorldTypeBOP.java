@@ -15,7 +15,7 @@ public class WorldTypeBOP extends WorldType
 {
 	public WorldTypeBOP() {
 		super(4, "BIOMESOP");
-		this.biomesForWorldType = super.getBiomesForWorldType();
+		this.biomesForWorldType = WorldType.DEFAULT.getBiomesForWorldType();
 		this.removeAllBiomes();
 
 		if (BOPConfigurationBiomeGen.alpsGen == true)

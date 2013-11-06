@@ -1,5 +1,6 @@
 package biomesoplenty.biomes;
 
+import java.awt.Color;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -8,13 +9,15 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenMoss;
+import biomesoplenty.worldgen.tree.WorldGenSequoia;
 import biomesoplenty.worldgen.tree.WorldGenTemperate;
-import biomesoplenty.worldgen.tree.WorldGenThickTree;
 import biomesoplenty.worldgen.tree.WorldGenWillow;
 
-public class BiomeGenTemperateRainforest extends BiomeGenBase
+public class BiomeGenTemperateRainforest extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -46,7 +49,7 @@ public class BiomeGenTemperateRainforest extends BiomeGenBase
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		//return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenGrandFir1() : (par1Random.nextInt(4) == 0 ? new WorldGenAlaskanCedar2() : (par1Random.nextInt(8) == 0 ? new WorldGenAlaskanCedar1() : (par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : new WorldGenGrandFir2()))));
-		return par1Random.nextInt(10) == 0 ? new WorldGenWillow() : (par1Random.nextInt(6) == 0 ? new WorldGenThickTree(false) : (par1Random.nextInt(2) == 0 ? new WorldGenTemperate(false) : new WorldGenShrub(0, 0)));
+		return par1Random.nextInt(10) == 0 ? new WorldGenWillow() : (par1Random.nextInt(6) == 0 ? new WorldGenSequoia(false) : (par1Random.nextInt(2) == 0 ? new WorldGenTemperate(false) : new WorldGenShrub(0, 0)));
 	}
 
 	/**
@@ -104,5 +107,44 @@ public class BiomeGenTemperateRainforest extends BiomeGenBase
 	public int getBiomeFoliageColor()
 	{
 		return 12311907;
+	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 13753294;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.8F;
+    }
+    
+	/**
+	 * takes temperature, returns color
+	 */
+	@Override
+	public int getSkyColorByTemp(float par1)
+	{
+		if (BOPConfigurationMisc.skyColors)
+			return 11061213;
+		else
+		{
+			par1 /= 3.0F;
+
+			if (par1 < -1.0F)
+			{
+				par1 = -1.0F;
+			}
+
+			if (par1 > 1.0F)
+			{
+				par1 = 1.0F;
+			}
+
+			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
+		}
 	}
 }

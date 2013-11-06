@@ -9,121 +9,98 @@ import biomesoplenty.api.Blocks;
 
 public class WorldGenMystic2 extends WorldGenerator
 {
-	public WorldGenMystic2(boolean var1)
+	public WorldGenMystic2(boolean par1)
 	{
-		super(var1);
+		super(par1);
 	}
 
 	@Override
-	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
+	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
 	{
-		int var6 = var2.nextInt(15) + 15;
-		int var7 = var2.nextInt(3) + 5;
-		int var8 = var6 - var7;
-		int var9 = 1 + var2.nextInt(3);
-		boolean var10 = true;
+		int var6 = par2Random.nextInt(3) + 5;
+		boolean var7 = true;
 
-		if (var4 >= 1 && var4 + var6 + 1 <= 256)
+		if (par4 >= 1 && par4 + var6 + 1 <= 256)
 		{
+			int var8;
+			int var10;
 			int var11;
-			int var13;
-			int var15;
-			int var21;
+			int var12;
 
-			for (var11 = var4; var11 <= var4 + 1 + var6 && var10; ++var11)
+			for (var8 = par4; var8 <= par4 + 1 + var6; ++var8)
 			{
-				boolean var12 = true;
+				byte var9 = 1;
 
-				if (var11 - var4 < var7)
+				if (var8 == par4)
 				{
-					var21 = 0;
-				}
-				else
-				{
-					var21 = var9;
+					var9 = 0;
 				}
 
-				for (var13 = var3 - var21; var13 <= var3 + var21 && var10; ++var13)
+				if (var8 >= par4 + 1 + var6 - 2)
 				{
-					for (int var14 = var5 - var21; var14 <= var5 + var21 && var10; ++var14)
+					var9 = 2;
+				}
+
+				for (var10 = par3 - var9; var10 <= par3 + var9 && var7; ++var10)
+				{
+					for (var11 = par5 - var9; var11 <= par5 + var9 && var7; ++var11)
 					{
-						if (var11 >= 0 && var11 < 256)
+						if (var8 >= 0 && var8 < 256)
 						{
-							var15 = var1.getBlockId(var13, var11, var14);
+							var12 = par1World.getBlockId(var10, var8, var11);
 
-							if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
+							if (var12 != 0 && var12 != Blocks.leaves1.get().blockID)
 							{
-								var10 = false;
+								var7 = false;
 							}
 						}
 						else
 						{
-							var10 = false;
+							var7 = false;
 						}
 					}
 				}
 			}
 
-			if (!var10)
+			if (!var7)
 				return false;
 			else
 			{
-				var11 = var1.getBlockId(var3, var4 - 1, var5);
+				var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if ((var11 == Blocks.holyGrass.get().blockID || var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && var4 < 256 - var6 - 1)
+				if ((var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
 				{
-					var1.setBlock(var3, var4 - 1, var5, Block.dirt.blockID);
-					var21 = var2.nextInt(2);
-					var13 = 1;
-					boolean var22 = false;
-					int var17;
+					this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
 					int var16;
 
-					for (var15 = 0; var15 <= var8; ++var15)
+					for (var16 = par4 - 3 + var6; var16 <= par4 + var6; ++var16)
 					{
-						var16 = var4 + var6 - var15;
+						var10 = var16 - (par4 + var6);
+						var11 = 1 - var10 / 2;
 
-						for (var17 = var3 - var21; var17 <= var3 + var21; ++var17)
+						for (var12 = par3 - var11; var12 <= par3 + var11; ++var12)
 						{
-							int var18 = var17 - var3;
+							int var13 = var12 - par3;
 
-							for (int var19 = var5 - var21; var19 <= var5 + var21; ++var19)
+							for (int var14 = par5 - var11; var14 <= par5 + var11; ++var14)
 							{
-								int var20 = var19 - var5;
+								int var15 = var14 - par5;
 
-								if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[var1.getBlockId(var17, var16, var19)])
+								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
 								{
-									this.setBlockAndMetadata(var1, var17, var16, var19, Blocks.leaves1.get().blockID, 2);
+									this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leaves1.get().blockID, 2);
 								}
 							}
 						}
-
-						if (var21 >= var13)
-						{
-							var21 = var22 ? 1 : 0;
-							var22 = true;
-							++var13;
-
-							if (var13 > var9)
-							{
-								var13 = var9;
-							}
-						}
-						else
-						{
-							++var21;
-						}
 					}
 
-					var15 = var2.nextInt(3);
-
-					for (var16 = 0; var16 < var6 - var15; ++var16)
+					for (var16 = 0; var16 < var6; ++var16)
 					{
-						var17 = var1.getBlockId(var3, var4 + var16, var5);
+						var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-						if (var17 == 0 || var17 == Blocks.leaves1.get().blockID)
+						if (var10 == 0 || var10 == Blocks.leaves1.get().blockID)
 						{
-							this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.logs2.get().blockID,1);
+							this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Blocks.logs2.get().blockID, 1);
 						}
 					}
 

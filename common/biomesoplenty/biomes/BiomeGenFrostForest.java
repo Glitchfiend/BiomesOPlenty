@@ -7,10 +7,11 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 
-public class BiomeGenFrostForest extends BiomeGenBase
+public class BiomeGenFrostForest extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -76,6 +77,19 @@ public class BiomeGenFrostForest extends BiomeGenBase
 	{
 		return 11261628;
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 12239814;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.6F;
+    }
 
 	/**
 	 * takes temperature, returns color

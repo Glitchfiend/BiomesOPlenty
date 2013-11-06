@@ -9,12 +9,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import worldcore.interfaces.IWCFog;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenTaiga5;
 import biomesoplenty.worldgen.tree.WorldGenWillow;
 
-public class BiomeGenWetland extends BiomeGenBase
+public class BiomeGenWetland extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -119,4 +120,17 @@ public class BiomeGenWetland extends BiomeGenBase
 	 {
 		 return 5215831;
 	 }
+	 
+	@Override
+	public int getFogColour()
+	{
+		return 6189472;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.8F;
+    }
 }
