@@ -3,12 +3,18 @@ package biomesoplenty.asm;
 import java.io.File;
 import java.util.Map;
 
+import codechicken.core.launch.DepLoader;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
 @TransformerExclusions({ "biomesoplenty.asm" })
 public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
 {
+    public BOPFMLLoadingPlugin()
+    {
+        DepLoader.load();
+    }
+    
     public static File location;
     
     @Override
