@@ -203,19 +203,21 @@
 
 		<echo message="Packaging BiomesOPlenty Universal" />
 		<jar destfile="${dist.dir}/${mod.name}" manifest="${mcp.dir}/reobf/resources/MANIFEST.MF">
-			<fileset dir="${mcp.dir}/reobf/minecraft" includes="**/biomesoplenty/**, **/codechicken/**" />
+			<fileset dir="${mcp.dir}/reobf/minecraft" includes="**/biomesoplenty/**" />
+			<fileset dir="${mcp.dir}/reobf/minecraft" includes="**/codechicken/**" />
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
 		
 		<copy todir="tmp/src">
-    		<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/**, **/codechicken/**"/>
+    		<fileset dir="${mcp.dir}/src/minecraft" includes="**/biomesoplenty/**"/>
  		</copy>
 
 		<echo message="Packaging BiomesOPlenty Dev" />
 		<jar destfile="${dist.dir}/${dev.name}" manifest="${mcp.dir}/reobf/resources/MANIFEST.MF">
 			<fileset dir="tmp" includes="**/src/**" /> 
-			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/biomesoplenty/**, **/codechicken/**" /> 
+			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/biomesoplenty/**" /> 
+			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/codechicken/**" />
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
