@@ -149,8 +149,8 @@ tile.bop.amethystOre.topazore.name=Topaz Ore
 tile.bop.amethystOre.topazblock.name=Block of Topaz
 tile.bop.amethystOre.tanzaniteore.name=Tanzanite Ore
 tile.bop.amethystOre.tanzaniteblock.name=Block of Tanzanite
-tile.bop.amethystOre.apatiteore.name=Apatite Ore
-tile.bop.amethystOre.apatiteblock.name=Block of Apatite
+tile.bop.amethystOre.malachiteore.name=Malachite Ore
+tile.bop.amethystOre.malachiteblock.name=Block of Malachite
 tile.bop.amethystOre.sapphireore.name=Sapphire Ore
 tile.bop.amethystOre.sapphireblock.name=Block of Sapphire
 
@@ -322,7 +322,7 @@ item.bop.miscItems.ruby.name=Ruby
 item.bop.miscItems.peridot.name=Peridot
 item.bop.miscItems.topaz.name=Topaz
 item.bop.miscItems.tanzanite.name=Tanzanite
-item.bop.miscItems.apatite.name=Apatite
+item.bop.miscItems.malachite.name=Malachite
 item.bop.miscItems.sapphire.name=Sapphire
 item.bop.miscItems.ghastlysoul.name=Ghastly Soul
 

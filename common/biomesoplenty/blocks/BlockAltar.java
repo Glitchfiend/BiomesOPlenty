@@ -28,7 +28,7 @@ public class BlockAltar extends Block
 	public static Icon altarFrame;
 	public static Icon altarFrameTop;
 
-	public static Icon frameApatite;
+	public static Icon frameMalachite;
 	public static Icon framePeridot;
 	public static Icon frameRuby;
 	public static Icon frameSapphire;
@@ -50,7 +50,7 @@ public class BlockAltar extends Block
 		altarFrame = iconRegister.registerIcon("biomesoplenty:altarframe");
 		altarFrameTop = iconRegister.registerIcon("biomesoplenty:altarframetop");
 
-		frameApatite = iconRegister.registerIcon("biomesoplenty:frameapatite");
+		frameMalachite = iconRegister.registerIcon("biomesoplenty:framemalachite");
 		framePeridot = iconRegister.registerIcon("biomesoplenty:frameperidot");
 		frameRuby = iconRegister.registerIcon("biomesoplenty:frameruby");
 		frameSapphire = iconRegister.registerIcon("biomesoplenty:framesapphire");
