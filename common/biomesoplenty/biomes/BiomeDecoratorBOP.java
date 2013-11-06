@@ -52,6 +52,7 @@ import biomesoplenty.worldgen.WorldGenBOPBush;
 import biomesoplenty.worldgen.WorldGenBOPDarkFlowers;
 import biomesoplenty.worldgen.WorldGenBOPFlowers;
 import biomesoplenty.worldgen.WorldGenBOPPumpkin;
+import biomesoplenty.worldgen.WorldGenBOPTallGrass;
 import biomesoplenty.worldgen.WorldGenBadlands;
 import biomesoplenty.worldgen.WorldGenBadlands2;
 import biomesoplenty.worldgen.WorldGenBadlands3;
@@ -241,6 +242,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator redwoodShrubGen;
 	public WorldGenerator koruGen;
 	public WorldGenerator waspHiveGen;
+	public WorldGenerator rootGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -341,6 +343,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int redwoodShrubsPerChunk;
 	public int koruPerChunk;
 	public int waspHivesPerChunk;
+	public int rootsPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -551,6 +554,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		waterReedGen = new WorldGenWaterReeds();
 		redwoodShrubGen = new WorldGenRedwoodShrub(0,0);
 		koruGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 12);
+		rootGen = new WorldGenBOPTallGrass(Blocks.plants.get().blockID, 15);
 		pitGen = new WorldGenPit(Blocks.ash.get().blockID);
 		waterlilyPerChunk = 0;
 		lilyflowersPerChunk = 0;
@@ -646,6 +650,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		redwoodShrubsPerChunk = 0;
 		koruPerChunk = 0;
 		waspHivesPerChunk = 0;
+		rootsPerChunk = 7;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1326,6 +1331,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var4 = randomGenerator.nextInt(256);
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 koruGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < rootsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(256);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 rootGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
 		 
 		 for (var2 = 0; var2 < waspHivesPerChunk; ++var2)

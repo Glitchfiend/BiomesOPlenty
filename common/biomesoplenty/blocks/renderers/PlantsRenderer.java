@@ -47,6 +47,8 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			{
 				return renderCrossedSquares(block, x, y, z, renderer, false);
 			}
+			if (meta == 15)
+				return renderer.renderCrossedSquares(block, x, y, z);
 		}
 		return true;
 	}

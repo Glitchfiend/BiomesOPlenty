@@ -30,7 +30,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BlockFlower implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
 	private Icon[] textures;
 	public Icon reedbottom;
 
@@ -150,6 +150,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
 		int id = world.getBlockId(x, y - 1, z);
+		int idRoot = world.getBlockId(x, y + 1, z);
 		int meta = itemStack.getItemDamage();
 
 		if (itemStack.itemID == blockID) {
@@ -192,6 +193,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			case 14: // Reed
 				return id == Block.waterStill.blockID;
 				
+			case 15: // Reed
+				return idRoot == Block.grass.blockID || idRoot == Block.dirt.blockID || idRoot == Block.tilledField.blockID || idRoot == Blocks.longGrass.get().blockID;
+				
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
 			}
@@ -212,6 +216,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 			else if (meta == 8)
 				return block == null || block.isBlockReplaceable(world, x, y, z);
+			else if (meta == 15)
+				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z));
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
 		}
@@ -219,6 +225,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		{
 			if (meta == 5 || meta == 13)
 				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+			else if (meta == 15)
+				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z), world.getBlockMetadata(x, y, z));
 			else
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 		}

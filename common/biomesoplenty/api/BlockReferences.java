@@ -173,6 +173,7 @@ public class BlockReferences {
 		tinyCactus (Blocks.plants, 12),
 		witherwart (Blocks.plants, 13),
 		reed (Blocks.plants, 14),
+		root (Blocks.plants, 15),
 
 		treeMoss (Blocks.treeMoss, 0),
 		moss (Blocks.moss, 0),
