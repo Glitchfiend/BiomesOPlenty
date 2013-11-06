@@ -57,6 +57,10 @@
 	<target name="download-forge" unless="forge-downloaded">
 		<get src="http://files.minecraftforge.net/${forge.name}" dest="${download.dir}" usetimestamp="true" />
 	</target>
+	
+	<target name="download-ccc" unless="ccc-downloaded">
+        <get src="http://www.chickenbones.craftsaddle.org/Files/New_Versions/${mc.version}/${ccc.name}" dest="${download.dir}" usetimestamp="true" />
+    </target>
 
 	<target name="download-fmp" unless="fmp-downloaded">
 		<get src="http://files.minecraftforge.net/ForgeMultipart/${fmp.name}" dest="${download.dir}" usetimestamp="true" />
@@ -90,6 +94,26 @@
 			<entry key="forge" value="${forge.version}" />
 		</propertyfile>
 	</target>
+	
+	<target name="install-ccc" depends="install-forge,download-ccc" unless="ccc-installed">
+        <echo message="Deleting old CodeChickenCore" />
+        <delete file="${mcp.dir}/lib/${build.dependencies.ccc.name}" />
+
+        <echo message="Installing CodeChickenCore" />
+        <copy file="${download.dir}/${ccc.name}" todir="${mcp.dir}/lib" />
+        <unzip src="${download.dir}/${ccc.name}" dest="${ccc.dir}">
+                <patternset>
+                        <include name="**/*.class" />
+                </patternset>
+        </unzip>
+
+
+        <echo message="Updating build.dependencies" />
+        <propertyfile file="${build.dependencies.file}">
+                <entry key="ccc" value="${ccc.version}" />
+                <entry key="ccc.name" value="${ccc.name}" />
+        </propertyfile>
+    </target>
 	
 	<target name="install-fmp" depends="install-forge,download-fmp" unless="fmp-installed">
 		<echo message="Deleting old ForgeMultipart" />
@@ -170,6 +194,11 @@
 		<copy todir="${mcp.dir}/bin/minecraft">
 			<fileset dir="${fmp.dir}" />
 		</copy>
+		
+		<echo message="Copying CodeChickenCore" />
+        <copy todir="${mcp.dir}/bin/minecraft">
+            <fileset dir="${ccc.dir}" />
+        </copy>
 
 		<echo message="Reobfuscating" />
 		<property name="mcp.python.exe" location="${mcp.dir}/runtime/bin/python/python_mcp.exe" />
@@ -189,6 +218,21 @@
 				<present present="both" targetdir="${fmp.dir}" />
 			</fileset>
 		</delete>
+		
+		<echo message="Removing CodeChickenCore" />
+        <delete includeemptydirs="true">
+            <fileset dir="${mcp.dir}/bin/minecraft">
+                    <present present="both" targetdir="${ccc.dir}" />
+            </fileset>
+            <fileset dir="${mcp.dir}/reobf/minecraft">
+                    <present present="both" targetdir="${ccc.dir}" />
+            </fileset>
+        </delete>
+        
+        <echo message="Copying DepLoader.class from CCC" />
+        <copy todir="${mcp.dir}/reobf/minecraft/codechicken/core/launch/">
+            <fileset dir="${ccc.dir}/codechicken/core/launch/" includes="DepLoader*.class" />
+        </copy>
 
 		<fail message="Failed to reobfuscate">
 			<condition>
@@ -204,7 +248,6 @@
 		<echo message="Packaging BiomesOPlenty Universal" />
 		<jar destfile="${dist.dir}/${mod.name}" manifest="${mcp.dir}/reobf/resources/MANIFEST.MF">
 			<fileset dir="${mcp.dir}/reobf/minecraft" includes="**/biomesoplenty/**" />
-			<fileset dir="${mcp.dir}/reobf/minecraft" includes="**/codechicken/**" />
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
@@ -217,7 +260,6 @@
 		<jar destfile="${dist.dir}/${dev.name}" manifest="${mcp.dir}/reobf/resources/MANIFEST.MF">
 			<fileset dir="tmp" includes="**/src/**" /> 
 			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/biomesoplenty/**" /> 
-			<fileset dir="${mcp.dir}/bin/minecraft" includes="**/codechicken/**" />
 			<fileset dir="${mcp.dir}/reobf/resources" excludes="MANIFEST.MF">
 			</fileset>
 		</jar>
