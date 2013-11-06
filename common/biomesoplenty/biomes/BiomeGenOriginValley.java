@@ -25,6 +25,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk = 0;
 		customBiomeDecorator.sandPerChunk2 = 0;
 		customBiomeDecorator.clayPerChunk = 0;
+		customBiomeDecorator.rootsPerChunk = -999;
 	}
 
 	/**

@@ -16,7 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockPlant extends ItemBlock
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
@@ -37,13 +37,14 @@ public class ItemBlockPlant extends ItemBlock
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[5];
+		textures = new Icon[6];
 
 		textures[0] = iconRegister.registerIcon("biomesoplenty:item_barley");
 		textures[1] = iconRegister.registerIcon("biomesoplenty:item_cattail");
 		textures[2] = iconRegister.registerIcon("biomesoplenty:item_rivercane");
 		textures[3] = iconRegister.registerIcon("biomesoplenty:item_witherwart");
 		textures[4] = iconRegister.registerIcon("biomesoplenty:item_reed");
+		textures[5] = iconRegister.registerIcon("biomesoplenty:item_root");
 	}
 
 	@Override
@@ -70,6 +71,8 @@ public class ItemBlockPlant extends ItemBlock
 			return textures[3];
 		else if (meta == 14)
 			return textures[4];
+		else if (meta == 15)
+			return textures[5];
 		else
 			return Block.blocksList[itemID].getIcon(0, meta);
 	}
