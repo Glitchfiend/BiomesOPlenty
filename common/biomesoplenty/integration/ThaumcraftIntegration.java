@@ -190,6 +190,7 @@ public class ThaumcraftIntegration {
 		ThaumcraftApi.registerObjectTag(getBID("highGrassItem"), getBMeta("highGrassItem"), (new AspectList()).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("bushItem"), getBMeta("bushItem"), (new AspectList()).add(Aspect.PLANT, 2));
 		ThaumcraftApi.registerObjectTag(getBID("algae"), getBMeta("algae"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.WATER, 1));
+		ThaumcraftApi.registerObjectTag(getBID("root"), getBMeta("root"), (new AspectList()).add(Aspect.EARTH, 1).add(Aspect.PLANT, 1));
 
 		//Plants
 		ThaumcraftApi.registerObjectTag(getBID("toadstool"), getBMeta("toadstool"), (new AspectList()).add(Aspect.PLANT, 4));
