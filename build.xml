@@ -28,11 +28,13 @@
 	<property name="changelog.name" value="BiomesOPlenty-changelog-${mc.version}-${mod.version}.${mod.build}.txt" />
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
+	<property name="ccc.name" value="CodeChickenCore-dev%20${ccc.version}.jar" />
 	<property name="fmp.name" value="ForgeMultipart-dev-${mc.version}-${fmp.version}.jar" />
 
 
 	<!-- Check downloaded dependencies -->
 	<available property="forge-downloaded" file="${download.dir}/${forge.name}" />
+	<available property="ccc-downloaded" file="${download.dir}/${ccc.name}" />
 	<available property="fmp-downloaded" file="${download.dir}/${fmp.name}" />
 
 	<!-- Check installed dependencies -->
