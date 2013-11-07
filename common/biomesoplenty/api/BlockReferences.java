@@ -138,8 +138,8 @@ public class BlockReferences {
 		topazBlock (Blocks.amethystOre, 7),
 		tanzaniteOre (Blocks.amethystOre, 8),
 		tanzaniteBlock (Blocks.amethystOre, 9),
-		apatiteOre (Blocks.amethystOre, 10),
-		apatiteBlock (Blocks.amethystOre, 11),
+		malachiteOre (Blocks.amethystOre, 10),
+		malachiteBlock (Blocks.amethystOre, 11),
 		sapphireOre (Blocks.amethystOre, 12),
 		sapphireBlock (Blocks.amethystOre, 13),
 

@@ -17,7 +17,7 @@ import biomesoplenty.api.Items;
 
 public class BlockBOPAmethyst extends Block
 {
-	public static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "apatiteore", "apatiteblock", "sapphireore", "sapphireblock"};
+	public static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "malachiteore", "malachiteblock", "sapphireore", "sapphireblock"};
 	private Icon[] textures;
 
 	public BlockBOPAmethyst(int par1, Material par2Material)

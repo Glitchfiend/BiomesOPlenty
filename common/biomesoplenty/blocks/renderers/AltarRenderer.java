@@ -52,7 +52,7 @@ public class AltarRenderer implements ISimpleBlockRenderingHandler
 				
 				if (tileentityaltar.getPresent(14))
 				{
-					renderAltarSlotFaces(renderer, block, BlockAltar.frameApatite, world, x, y, z);
+					renderAltarSlotFaces(renderer, block, BlockAltar.frameMalachite, world, x, y, z);
 				}
 
 				if (tileentityaltar.getPresent(15))

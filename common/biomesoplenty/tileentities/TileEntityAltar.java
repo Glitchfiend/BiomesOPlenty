@@ -8,7 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityAltar extends TileEntity 
 {
-    private boolean apatitePresent = false;
+    private boolean malachitePresent = false;
     private boolean peridotPresent = false;
     private boolean rubyPresent = false;
     private boolean sapphirePresent = false;
@@ -19,7 +19,7 @@ public class TileEntityAltar extends TileEntity
     public void readFromNBT(NBTTagCompound nbt)
     {
     	super.readFromNBT(nbt);
-        this.apatitePresent = nbt.getBoolean("apatitePresent");
+        this.malachitePresent = nbt.getBoolean("malachitePresent");
         this.peridotPresent = nbt.getBoolean("peridotPresent");
         this.rubyPresent = nbt.getBoolean("rubyPresent");
         this.sapphirePresent = nbt.getBoolean("sapphirePresent");
@@ -31,7 +31,7 @@ public class TileEntityAltar extends TileEntity
     public void writeToNBT(NBTTagCompound nbt)
     {
     	super.writeToNBT(nbt);
-    	nbt.setBoolean("apatitePresent", apatitePresent);
+    	nbt.setBoolean("malachitePresent", malachitePresent);
     	nbt.setBoolean("peridotPresent", peridotPresent);
     	nbt.setBoolean("rubyPresent", rubyPresent);
     	nbt.setBoolean("sapphirePresent", sapphirePresent);
@@ -44,7 +44,7 @@ public class TileEntityAltar extends TileEntity
 	{
 		NBTTagCompound nbt = new NBTTagCompound();
 
-		nbt.setBoolean("apatitePresent", apatitePresent);
+		nbt.setBoolean("malachitePresent", malachitePresent);
 		nbt.setBoolean("peridotPresent", peridotPresent);
 		nbt.setBoolean("rubyPresent", rubyPresent);
 		nbt.setBoolean("sapphirePresent", sapphirePresent);
@@ -59,7 +59,7 @@ public class TileEntityAltar extends TileEntity
 	{
 		if (packet.actionType == 0)
 		{
-			this.apatitePresent = packet.data.getBoolean("apatitePresent");
+			this.malachitePresent = packet.data.getBoolean("malachitePresent");
 			this.peridotPresent = packet.data.getBoolean("peridotPresent");
 			this.rubyPresent = packet.data.getBoolean("rubyPresent");
 			this.sapphirePresent = packet.data.getBoolean("sapphirePresent");
@@ -90,7 +90,7 @@ public class TileEntityAltar extends TileEntity
     	}
     	else if (presentGem == 14)
     	{
-    		apatitePresent = state;
+    		malachitePresent = state;
     	}
     	else if (presentGem == 15)
     	{
@@ -118,7 +118,7 @@ public class TileEntityAltar extends TileEntity
     	}
     	else if (presentGem == 14)
     	{
-    		return apatitePresent;
+    		return malachitePresent;
     	}
     	else if (presentGem == 15)
     	{
@@ -132,7 +132,7 @@ public class TileEntityAltar extends TileEntity
     
     public boolean getAllPresent()
     {
-    	if (rubyPresent && peridotPresent && topazPresent && tanzanitePresent && apatitePresent && sapphirePresent)
+    	if (rubyPresent && peridotPresent && topazPresent && tanzanitePresent && malachitePresent && sapphirePresent)
     	{
     		return true;
     	}
