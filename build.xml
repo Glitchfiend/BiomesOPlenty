@@ -138,7 +138,7 @@
 		</propertyfile>
 	</target>
 
-	<target name="install-dependencies" depends="install-forge,install-fmp" />
+	<target name="install-dependencies" depends="install-forge,install-fmp,install-ccc" />
 
 	<!-- Targets for building -->
 	<target name="recompile">
