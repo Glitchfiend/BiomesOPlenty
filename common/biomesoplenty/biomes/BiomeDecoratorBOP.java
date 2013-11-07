@@ -650,7 +650,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		redwoodShrubsPerChunk = 0;
 		koruPerChunk = 0;
 		waspHivesPerChunk = 0;
-		rootsPerChunk = 7;
+		rootsPerChunk = 9;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
