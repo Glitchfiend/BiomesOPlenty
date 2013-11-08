@@ -122,7 +122,11 @@ public class ModelBird extends ModelBase
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     
-    if (entity.motionY > 0 || (entity.motionX == 0 && entity.motionZ == 0))
+    int x = MathHelper.floor_double(entity.posX);
+    int y = MathHelper.floor_double(entity.posY);
+    int z = MathHelper.floor_double(entity.posZ);
+    
+    if (!(entity.posY <= entity.prevPosY && entity.worldObj.isAirBlock(x, y - 1, z)))
     {
 	    WingRight.rotateAngleZ = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.25F;
 	    WingLeft.rotateAngleZ = -WingRight.rotateAngleZ;  

@@ -1,5 +1,6 @@
 package biomesoplenty.entities;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -64,8 +65,11 @@ public class EntityBird extends EntityFlyingMob
         for (int i = 1; (double)i < par7; ++i)
         {
             axisalignedbb.offset(d4, d5, d6);
-
-            if (!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty())
+            
+            if (!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty() 
+               || this.isInWater() ? 
+                        this.worldObj.getBlockMaterial(MathHelper.floor_double(this.waypointX), MathHelper.floor_double(this.waypointY), MathHelper.floor_double(this.waypointZ)) == Material.water
+               : this.worldObj.isAnyLiquid(axisalignedbb))
             {
                 return false;
             }
