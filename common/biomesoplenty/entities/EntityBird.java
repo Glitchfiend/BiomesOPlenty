@@ -77,18 +77,18 @@ public class EntityBird extends EntityFlyingMob
     @Override
     protected String getLivingSound()
     {
-        return "biomesoplenty:mob.wasp.say";
+        return "biomesoplenty:mob.bird.say";
     }
 
     @Override
     protected String getHurtSound()
     {
-        return "biomesoplenty:mob.wasp.hurt";
+        return "biomesoplenty:mob.bird.hurt";
     }
 
     @Override
     protected String getDeathSound()
     {
-        return "biomesoplenty:mob.wasp.hurt";
+        return "biomesoplenty:mob.bird.hurt";
     }
 }
