@@ -27,9 +27,9 @@ public class EntityBird extends EntityFlyingMob
 
         if (d3 < 1.0D || d3 > 3600.0D)
         {
-            this.waypointX = this.posX + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 4.0F);
-            this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 4.0F);
-            this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 4.0F);
+            this.waypointX = this.posX + (double)((this.rand.nextFloat() * 8.0F - 4.0F) * 6.0F);
+            this.waypointY = this.posY + (double)((this.rand.nextFloat() * 2.0F - 1.0F) * 6.0F);
+            this.waypointZ = this.posZ + (double)((this.rand.nextFloat() * 8.0F - 4.0F) * 6.0F);
         }
 
         if (this.courseChangeCooldown-- <= 0)

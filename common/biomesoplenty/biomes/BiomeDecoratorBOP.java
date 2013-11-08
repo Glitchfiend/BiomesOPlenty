@@ -657,8 +657,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		koruPerChunk = 0;
 		waspHivesPerChunk = 0;
 		rootsPerChunk = 9;
-		stalagmitesPerChunk = 3;
-		stalactitesPerChunk = 6;
+		stalagmitesPerChunk = 5;
+		stalactitesPerChunk = 10;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
