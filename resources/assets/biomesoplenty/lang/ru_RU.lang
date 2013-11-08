@@ -32,6 +32,7 @@ tile.bop.plants.rivercane.name=Речной камыш
 tile.bop.plants.cactus.name=Крохотный кактус
 tile.bop.plants.witherwart.name=Иссушающий нарост
 tile.bop.plants.reed.name=Камыш
+tile.bop.plants.root.name=Корень
 
 tile.bop.flowers.clover.name=Клевер
 tile.bop.flowers.swampflower.name=Болотный цветок
@@ -58,6 +59,9 @@ tile.bop.flowers2.goldenrod.name=Золотарник
 tile.bop.flowers2.bluebells.name=Колокольчики
 tile.bop.flowers2.minersdelight.name=Шахтёрское наслаждение
 tile.bop.flowers2.icyiris.name=Ледяной ирис
+
+tile.bop.stoneFormations.stalagmite.name=Сталагмит
+tile.bop.stoneFormations.stalactite.name=Сталактит
 
 tile.bop.foliage.algae.name=Водоросли
 tile.bop.foliage.shortgrass.name=Низкая трава
@@ -148,8 +152,8 @@ tile.bop.amethystOre.topazore.name=Топазовая руда
 tile.bop.amethystOre.topazblock.name=Блок топаза
 tile.bop.amethystOre.tanzaniteore.name=Танзанитовая руда
 tile.bop.amethystOre.tanzaniteblock.name=Танзанитовый блок
-tile.bop.amethystOre.apatiteore.name=Апатитовая руда
-tile.bop.amethystOre.apatiteblock.name=Апатитовый блок
+tile.bop.amethystOre.malachiteore.name=Малахитовая руда
+tile.bop.amethystOre.malachiteblock.name=Блок малахита
 tile.bop.amethystOre.sapphireore.name=Сапфировая руда
 tile.bop.amethystOre.sapphireblock.name=Сапфировый блок
 
@@ -321,7 +325,7 @@ item.bop.miscItems.ruby.name=Рубин
 item.bop.miscItems.peridot.name=Оливин
 item.bop.miscItems.topaz.name=Топаз
 item.bop.miscItems.tanzanite.name=Танзанит
-item.bop.miscItems.apatite.name=Апатит
+item.bop.miscItems.malachite.name=Малахит
 item.bop.miscItems.sapphire.name=Сапфир
 item.bop.miscItems.ghastlysoul.name=Жуткий дух
 
@@ -398,6 +402,7 @@ entity.BiomesOPlenty.JungleSpider.name=Паук джунглей
 entity.BiomesOPlenty.Phantom.name=Фантом
 entity.BiomesOPlenty.Rosester.name=Розастер
 entity.BiomesOPlenty.Wasp.name=Оса
+entity.BiomesOPlenty.Bird.name=Птица
 
 achievement.bop.achBOP=Biomes O' Plenty
 achievement.bop.achBOP.desc=Пусть веселье начнётся!
