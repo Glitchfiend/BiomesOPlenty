@@ -67,18 +67,17 @@ public class ModelBird extends ModelBase
       Tail.setTextureSize(64, 32);
       Tail.mirror = true;
       setRotation(Tail, 0F, 0F, 0F);
-      WingRight = new ModelRenderer(this, 36, 7);
-      WingRight.addBox(0F, 0F, 0F, 8, 0, 6);
-      WingRight.setRotationPoint(-11F, 20F, -4F);
-      WingRight.setTextureSize(64, 32);
-      WingRight.mirror = true;
-      setRotation(WingRight, 0F, 0F, 0F);
+
       WingLeft = new ModelRenderer(this, 36, 13);
       WingLeft.addBox(0F, 0F, 0F, 8, 0, 6);
       WingLeft.setRotationPoint(3F, 20F, -4F);
       WingLeft.setTextureSize(64, 32);
-      WingLeft.mirror = true;
-      setRotation(WingLeft, 0F, 0F, 0F);
+      
+      WingRight = new ModelRenderer(this, 36, 7);
+      WingRight.addBox(-8F, 0F, 0F, 8, 0, 6);
+      WingRight.setRotationPoint(-3F, 20F, -4F);
+      WingRight.setTextureSize(64, 32);
+
       LegLeft = new ModelRenderer(this, 33, 0);
       LegLeft.addBox(0F, 0F, 0F, 1, 1, 3);
       LegLeft.setRotationPoint(2F, 23F, 0F);
@@ -122,6 +121,9 @@ public class ModelBird extends ModelBase
   public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
   {
     super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+    
+    WingRight.rotateAngleZ = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.25F;
+    WingLeft.rotateAngleZ = -WingRight.rotateAngleZ;  
   }
 
 }
