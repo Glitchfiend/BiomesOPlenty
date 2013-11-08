@@ -243,6 +243,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator koruGen;
 	public WorldGenerator waspHiveGen;
 	public WorldGenerator rootGen;
+	public WorldGenerator stalagmiteGen;
+	public WorldGenerator stalactiteGen;
 
 	public WorldGenerator boneSpineGen;
 	public WorldGenerator boneSpine2Gen;
@@ -344,6 +346,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int koruPerChunk;
 	public int waspHivesPerChunk;
 	public int rootsPerChunk;
+	public int stalagmitesPerChunk;
+	public int stalactitesPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -555,6 +559,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		redwoodShrubGen = new WorldGenRedwoodShrub(0,0);
 		koruGen = new WorldGenTallGrass(Blocks.foliage.get().blockID, 12);
 		rootGen = new WorldGenBOPTallGrass(Blocks.plants.get().blockID, 15);
+		stalagmiteGen = new WorldGenBOPTallGrass(Blocks.stoneFormations.get().blockID, 0);
+		stalactiteGen = new WorldGenBOPTallGrass(Blocks.stoneFormations.get().blockID, 1);
 		pitGen = new WorldGenPit(Blocks.ash.get().blockID);
 		waterlilyPerChunk = 0;
 		lilyflowersPerChunk = 0;
@@ -650,7 +656,9 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		redwoodShrubsPerChunk = 0;
 		koruPerChunk = 0;
 		waspHivesPerChunk = 0;
-		rootsPerChunk = 7;
+		rootsPerChunk = 9;
+		stalagmitesPerChunk = 3;
+		stalactitesPerChunk = 6;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1340,6 +1348,22 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 rootGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 }
+		 
+		 for (var2 = 0; var2 < stalagmitesPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(64);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 stalagmiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
+		 
+		 for (var2 = 0; var2 < stalactitesPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(64);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 stalactiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 } 
 		 
 		 for (var2 = 0; var2 < waspHivesPerChunk; ++var2)
 		 {

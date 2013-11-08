@@ -98,7 +98,8 @@ public class BOPConfigurationIDs
 	public static int cloudID;
 	public static int hiveID;
 	public static int honeyBlockID;
-
+	public static int stoneFormationsID;
+	
 	public static int bonesID;
 	public static int glassID;
 	public static int altarID;
@@ -297,6 +298,7 @@ public class BOPConfigurationIDs
 	public static int globID;
 	public static int phantomID;
 	public static int waspID;
+	public static int birdID;
 	
 	public static void init(File configFile)
 	{
@@ -418,6 +420,7 @@ public class BOPConfigurationIDs
 			honeyStillID = config.get("Liquid IDs", "Honey Still ID (ID before this must be free!)", 1989, null).getInt();
 			
 			honeyBlockID = config.getBlock("Honey Block ID", 1991, null).getInt();
+			stoneFormationsID = config.getBlock("Stone Formations ID", 1992, null).getInt();
 
 			// Get Item ID's
 			foodID = config.getItem("Food ID", 21003, null).getInt();
@@ -476,6 +479,7 @@ public class BOPConfigurationIDs
 			globID = config.get("Mob IDs", "Glob ID", 106, null).getInt();
 			phantomID = config.get("Mob IDs", "Phantom ID", 107, null).getInt();
 	        waspID = config.get("Mob IDs", "Wasp ID", 108, null).getInt();
+	        birdID = config.get("Mob IDs", "Bird ID", 109, null).getInt();
 
 			//Projectile IDs
 			entityMudballID = config.get("Entity IDs", "Mudball ID", 103, null).getInt();;

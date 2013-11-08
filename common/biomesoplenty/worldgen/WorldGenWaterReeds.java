@@ -20,11 +20,12 @@ public class WorldGenWaterReeds extends WorldGenerator
 
 			if (par1World.isAirBlock(var7, var8, var9) && par1World.getBlockId(var7, var8 - 1, var9) == Block.waterStill.blockID)
 			{
-				for (int var900 = 5; var900 > -5; --var900)
+				for (int var900 = 2; var900 > -2; --var900)
 				{
+					
 					if (par1World.getBlockId(var7 - var900, var8 - 1, var9 - var900) != Block.waterStill.blockID && par1World.getBlockId(var7 - var900, var8 - 1, var9 - var900) != Block.waterMoving.blockID)
 					{
-						par1World.setBlock(var7, var8, var9, Blocks.plants.get().blockID, 14, 2);
+							par1World.setBlock(var7, var8, var9, Blocks.plants.get().blockID, 14, 2);
 					}
 				}
 			}
