@@ -60,6 +60,9 @@ tile.bop.flowers2.bluebells.name=Bluebells
 tile.bop.flowers2.minersdelight.name=Miner's Delight
 tile.bop.flowers2.icyiris.name=Icy Iris
 
+tile.bop.stoneFormations.stalagmite.name=Stalagmite
+tile.bop.stoneFormations.stalactite.name=Stalactite
+
 tile.bop.foliage.algae.name=Algae
 tile.bop.foliage.shortgrass.name=Short Grass
 tile.bop.foliage.mediumgrass.name=Medium Grass

@@ -204,6 +204,9 @@ public class BlockReferences {
 		bluebells (Blocks.flowers2, 5),
 		minersdelight (Blocks.flowers2, 6),
 		icyiris (Blocks.flowers2, 7),
+		
+		stalagmite (Blocks.stoneFormations, 0),
+		stalactite (Blocks.stoneFormations, 1),
 		;
 
 		public Optional<? extends Block> block;

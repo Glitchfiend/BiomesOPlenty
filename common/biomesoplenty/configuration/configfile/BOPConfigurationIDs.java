@@ -98,7 +98,8 @@ public class BOPConfigurationIDs
 	public static int cloudID;
 	public static int hiveID;
 	public static int honeyBlockID;
-
+	public static int stoneFormationsID;
+	
 	public static int bonesID;
 	public static int glassID;
 	public static int altarID;
@@ -418,6 +419,7 @@ public class BOPConfigurationIDs
 			honeyStillID = config.get("Liquid IDs", "Honey Still ID (ID before this must be free!)", 1989, null).getInt();
 			
 			honeyBlockID = config.getBlock("Honey Block ID", 1991, null).getInt();
+			stoneFormationsID = config.getBlock("Stone Formations ID", 1992, null).getInt();
 
 			// Get Item ID's
 			foodID = config.getItem("Food ID", 21003, null).getInt();
