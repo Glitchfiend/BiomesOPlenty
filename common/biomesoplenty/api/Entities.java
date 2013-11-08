@@ -7,6 +7,8 @@ public class Entities {
 	public static Class JungleSpider = getClass("biomesoplenty.entities.EntityJungleSpider");
 	public static Class Rosester = getClass("biomesoplenty.entities.EntityRosester");
 	public static Class Glob = getClass("biomesoplenty.entities.EntityGlob");
+	public static Class Wasp = getClass("biomesoplenty.entities.EntityWasp");
+	public static Class Bird = getClass("biomesoplenty.entities.EntityBird");
 
 	public static Class getClass(String inputstring)
 	{

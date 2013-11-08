@@ -7,6 +7,7 @@ import net.minecraft.entity.EnumCreatureType;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
+import biomesoplenty.entities.EntityBird;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityPhantom;
@@ -97,6 +98,18 @@ public class BOPEntities {
 		    EntityRegistry.registerModEntity(EntityWasp.class, "Wasp", BOPConfigurationIDs.waspID, BiomesOPlenty.instance, 80, 3, true);
 
 		    registerEntityEgg(EntityWasp.class, 16434729, 2500135);
+		}
+		
+		if (BOPConfigurationIDs.birdID > 0)
+		{
+		    EntityRegistry.registerModEntity(EntityBird.class, "Bird", BOPConfigurationIDs.birdID, BiomesOPlenty.instance, 80, 3, true);
+
+		    registerEntityEgg(EntityBird.class, 16434729, 2500135);
+		    
+		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent())
+			{
+				EntityRegistry.addSpawn(EntityBird.class, 8, 1, 1, EnumCreatureType.ambient, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get());
+			}
 		}
 	}
 }
