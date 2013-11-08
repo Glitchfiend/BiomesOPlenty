@@ -402,6 +402,7 @@ entity.BiomesOPlenty.JungleSpider.name=Jungle Spider
 entity.BiomesOPlenty.Phantom.name=Phantom
 entity.BiomesOPlenty.Rosester.name=Rosester
 entity.BiomesOPlenty.Wasp.name=Wasp
+entity.BiomesOPlenty.Bird.name=Bird
 
 achievement.bop.achBOP=Biomes O' Plenty
 achievement.bop.achBOP.desc=Let the fun begin!
