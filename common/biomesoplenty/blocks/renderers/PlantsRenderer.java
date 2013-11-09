@@ -40,7 +40,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			if (meta == 11)
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 12)
-				return renderer.renderCrossedSquares(block, x, y, z);
+				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 13)
 				return renderer.renderBlockCrops(block, x, y, z);
 			if (meta == 14)
@@ -48,7 +48,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 				return renderCrossedSquares(block, x, y, z, renderer, false);
 			}
 			if (meta == 15)
-				return renderer.renderCrossedSquares(block, x, y, z);
+				return renderCrossedSquares(block, x, y, z, renderer, true);
 		}
 		return true;
 	}
@@ -118,13 +118,23 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		double d2 = par4;
 
 		long i1 = par2 * 3129871 ^ par4 * 116129781L ^ par3;
-
-		i1 = i1 * i1 * 42317861L + i1 * 11L;
-		d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.5D;
-		d1 += ((i1 >> 20 & 15L) / 15.0F - 1.0D) * 0.2D;
-		d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
-
+		
 		int meta = renderer.blockAccess.getBlockMetadata(par2, par3, par4);
+
+		if (meta == 15)
+		{
+			i1 = i1 * i1 * 42317861L + i1 * 11L;
+			d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.2D;
+			d1 -= ((i1 >> 20 & 15L) / 15.0F - 1.0D) * 0.4D;
+			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.2D;
+		}
+		else
+		{
+			i1 = i1 * i1 * 42317861L + i1 * 11L;
+			d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.5D;
+			d1 += ((i1 >> 20 & 15L) / 15.0F - 1.0D) * 0.2D;
+			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
+		}
 		
 		if (meta == 14)
 		{

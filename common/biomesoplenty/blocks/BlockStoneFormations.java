@@ -36,7 +36,7 @@ public class BlockStoneFormations extends BlockFlower
 
 	public BlockStoneFormations(int blockID)
 	{
-		this(blockID, Material.rock);
+		this(blockID, Material.vine);
 	}
 
 	@Override
