@@ -3,6 +3,7 @@ package biomesoplenty.biomes.promisedland;
 import java.awt.Color;
 import java.util.Random;
 
+import worldcore.interfaces.IWCFog;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -13,7 +14,7 @@ import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenPromisedBush;
 import biomesoplenty.worldgen.WorldGenWaterSpring;
 
-public class BiomeGenPromisedLandPlains extends BiomeGenBase
+public class BiomeGenPromisedLandPlains extends BiomeGenBase implements IWCFog
 {
 	private WorldGenerator theWorldGenerator;
 	private BiomeDecoratorBOP customBiomeDecorator;
@@ -81,6 +82,19 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase
 	{
 		return 11266663;
 	}
+	
+	@Override
+	public int getFogColour()
+	{
+		return 16765286;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 1.0F;
+    }
 
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)

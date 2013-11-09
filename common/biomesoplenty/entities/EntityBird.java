@@ -69,10 +69,7 @@ public class EntityBird extends EntityFlyingMob
         {
             axisalignedbb.offset(d4, d5, d6);
             
-            if (!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty() 
-               || this.isInWater() ? 
-                        this.worldObj.getBlockMaterial(MathHelper.floor_double(this.waypointX), MathHelper.floor_double(this.waypointY), MathHelper.floor_double(this.waypointZ)) == Material.water
-               : this.worldObj.isAnyLiquid(axisalignedbb))
+            if (!this.worldObj.getCollidingBoundingBoxes(this, axisalignedbb).isEmpty())
             {
                 return false;
             }

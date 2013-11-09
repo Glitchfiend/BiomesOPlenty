@@ -108,7 +108,7 @@ public class BOPEntities {
 		    
 		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent())
 			{
-				EntityRegistry.addSpawn(EntityBird.class, 1, 1, 3, EnumCreatureType.monster, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get());
+				EntityRegistry.addSpawn(EntityBird.class, 10, 3, 5, EnumCreatureType.creature, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get());
 			}
 		}
 	}
