@@ -41,12 +41,13 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.waterLakesPerChunk = 10;
 		customBiomeDecorator.crystalsPerChunk = 25;
 		customBiomeDecorator.crystals2PerChunk = 50;
+		customBiomeDecorator.cloudsPerChunk = 1;
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.clear();
 		spawnableCaveCreatureList.clear();
 		customBiomeDecorator.generatePumpkins = false;
-		this.customBiomeDecorator.generateClouds = true;
+		//customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
 		/*this.spawnableMonsterList.add(new SpawnListEntry(EntityCow.class, 6, 1, 4));
@@ -91,7 +92,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase implements IWCFog
 	@Override
 	public int getFogColour()
 	{
-		return 16765286;
+		return 16754234;
 	}
 	
     @Override

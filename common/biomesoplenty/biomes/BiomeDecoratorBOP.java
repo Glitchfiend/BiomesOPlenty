@@ -348,6 +348,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public int rootsPerChunk;
 	public int stalagmitesPerChunk;
 	public int stalactitesPerChunk;
+	public int cloudsPerChunk;
 
 	public int boneSpinesPerChunk;
 	public int boneSpines2PerChunk;
@@ -471,7 +472,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		spongeGen = new WorldGenSponge(Block.sponge.blockID, 24);
 		canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
 		driedDirtInSandGen = new WorldGenDriedDirt(Blocks.driedDirt.get().blockID, 32);
-		cloudGen = new WorldGenCloud(Blocks.cloud.get().blockID, 48);
+		cloudGen = new WorldGenCloud();
 		coalGen = new WorldGenMinable(Block.oreCoal.blockID, 16);
 		ironGen = new WorldGenMinable(Block.oreIron.blockID, 8);
 		goldGen = new WorldGenMinable(Block.oreGold.blockID, 8);
@@ -659,6 +660,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		rootsPerChunk = 9;
 		stalagmitesPerChunk = 5;
 		stalactitesPerChunk = 10;
+		cloudsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
 		generateMycelium = false;
@@ -1364,6 +1366,14 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 			 stalactiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 		 } 
+		 
+		 for (var2 = 0; var2 < cloudsPerChunk; ++var2)
+		 {
+			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+			 var4 = randomGenerator.nextInt(32);
+			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+			 cloudGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+		 }
 		 
 		 for (var2 = 0; var2 < waspHivesPerChunk; ++var2)
 		 {
