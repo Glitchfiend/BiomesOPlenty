@@ -121,8 +121,8 @@ public class WorldProviderPromised extends WorldProvider
 		}
 
 		float var4 = 1.0F;
-		float var5 = 0.91764705882F;
-		float var6 = 0.4F;
+		float var5 = 0.73725490196F;
+		float var6 = 0.25882352941F;
 		var4 *= var3 * 3.94F + 0.06F;
 		var5 *= var3 * 0.94F + 0.06F;
 		var6 *= var3 * 0.91F + 0.09F;

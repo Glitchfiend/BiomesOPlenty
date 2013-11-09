@@ -1,6 +1,9 @@
 package biomesoplenty.entities;
 
+import biomesoplenty.api.Items;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -77,6 +80,17 @@ public class EntityBird extends EntityFlyingMob
 
         return true;
     }
+    
+	@Override
+	protected void dropFewItems(boolean par1, int par2)
+	{
+		int var3 = rand.nextInt(3) + rand.nextInt(1 + par2);
+
+		for (int var4 = 0; var4 < var3; ++var4)
+		{
+			this.entityDropItem(new ItemStack(Item.feather, 1, 1), 0.0F);
+		}
+	}
     
     @Override
     protected String getLivingSound()

@@ -1,5 +1,6 @@
 package biomesoplenty.entities;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowParent;
@@ -15,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityRosester extends EntityChicken
@@ -96,6 +98,21 @@ public class EntityRosester extends EntityChicken
 			this.entityDropItem(new ItemStack(Item.dyePowder, 1, 1), 0.0F);
 			timeUntilNextEgg = rand.nextInt(6000) + 6000;
 		}
+		
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.posZ);
+		
+        for (i = 0; i < 4; ++i)
+        {
+            j = MathHelper.floor_double(this.posX + (double)((float)(i % 2 * 2 - 1) * 0.25F));
+            int k = MathHelper.floor_double(this.posY);
+            int l = MathHelper.floor_double(this.posZ + (double)((float)(i / 2 % 2 * 2 - 1) * 0.25F));
+
+            if (this.worldObj.isAirBlock(j, k, l) && this.worldObj.getBiomeGenForCoords(j, l).getFloatTemperature() > 0.3F && Block.plantRed.canPlaceBlockAt(this.worldObj, j, k, l))
+            {
+                this.worldObj.setBlock(j, k, l, Block.plantRed.blockID);
+            }
+        }
 	}
 
 	@Override
