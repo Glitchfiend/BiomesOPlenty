@@ -1,7 +1,8 @@
 [
 {
-    "repo": "https://dl.dropboxusercontent.com/u/56679758/WorldCore/",
-    "file": "WorldCore-universal-1.6.4-1.1.0.13.jar",
+    "repo": "http://files.minecraftforge.net/WorldCore/",
+    "file": "WorldCore-universal-@MC_VERSION@-@WORLDCORE_VERSION@.jar",
+    “de”v: "WorldCore-dev-@MC_VERSION@-@WORLDCORE_VERSION@.jar",
     "class": "worldcore.asm.WCFMLLoadingPlugin"
 }
 ]
