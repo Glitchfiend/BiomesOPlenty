@@ -267,14 +267,14 @@ public class BOPBiomes {
 		Biomes.promisedLandSwamp = Optional.of((new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.promisedLandSwampID)).setColor(112).setBiomeName("Blessed Bog").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 
 		Biomes.quagmire = Optional.of((new BiomeGenQuagmire(BOPConfigurationIDs.quagmireID)).setColor(522674).setBiomeName("Quagmire").func_76733_a(9154376).setMinMaxHeight(0.2F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
-		Biomes.rainforest = Optional.of((new BiomeGenRainforest(BOPConfigurationIDs.rainforestID)).setColor(5470985).setBiomeName("Rainforest").func_76733_a(5470985).setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.7F, 1.8F));
+		Biomes.rainforest = Optional.of((new BiomeGenRainforest(BOPConfigurationIDs.rainforestID)).setColor(5470985).setBiomeName("Rainforest").func_76733_a(5470985).setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.4F, 1.8F));
 		Biomes.redwoodForest = Optional.of((new BiomeGenRedwoodForest(BOPConfigurationIDs.redwoodForestID)).setColor(747097).setBiomeName("Redwood Forest").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.4F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.sacredSprings = Optional.of((new BiomeGenSacredSprings(BOPConfigurationIDs.sacredSpringsID)).setColor(522674).setBiomeName("Sacred Springs").func_76733_a(9154376).setMinMaxHeight(0.4F, 1.2F).setTemperatureRainfall(1.2F, 0.9F));
 		Biomes.savanna = Optional.of((new BiomeGenSavanna(BOPConfigurationIDs.savannaID)).setColor(9286496).setBiomeName("Savanna").setTemperatureRainfall(1.5F, 0.1F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.savannaPlateau = Optional.of((new BiomeGenSavannaPlateau(BOPConfigurationIDs.savannaPlateauID)).setColor(9286496).setBiomeName("Savanna Plateau").setTemperatureRainfall(1.5F, 0.1F).setMinMaxHeight(0.9F, 0.9F));
 		Biomes.scrubland = Optional.of((new BiomeGenScrubland(BOPConfigurationIDs.scrublandID)).setColor(9286496).setBiomeName("Scrubland").setTemperatureRainfall(1.2F, 0.05F).setMinMaxHeight(0.3F, 0.5F));
 		Biomes.seasonalForest = Optional.of((new BiomeGenSeasonalForest(BOPConfigurationIDs.seasonalForestID)).setColor(353825).setBiomeName("Seasonal Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.7F));
-		Biomes.seasonalSpruceForest = Optional.of((new BiomeGenSeasonalSpruceForest(BOPConfigurationIDs.seasonalSpruceForestID)).setColor(353825).setBiomeName("Seasonal Spruce Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.3F, 0.7F));
+		Biomes.seasonalSpruceForest = Optional.of((new BiomeGenSeasonalSpruceForest(BOPConfigurationIDs.seasonalSpruceForestID)).setColor(353825).setBiomeName("Seasonal Spruce Forest").func_76733_a(5159473).setTemperatureRainfall(0.7F, 0.8F).setMinMaxHeight(0.6F, 0.9F));
 		Biomes.shield = Optional.of((new BiomeGenShield(BOPConfigurationIDs.shieldID)).setColor(522674).setBiomeName("Shield").func_76733_a(9154376).setMinMaxHeight(0.1F, 0.3F).setTemperatureRainfall(0.5F, 0.8F));
 		Biomes.shore = Optional.of((new BiomeGenShore(BOPConfigurationIDs.shoreID)).setColor(9286496).setBiomeName("Shore").setMinMaxHeight(-1.0F, 0.4F).setTemperatureRainfall(0.8F, 0.4F));
 		Biomes.shrubland = Optional.of((new BiomeGenShrubland(BOPConfigurationIDs.shrublandID)).setColor(9286496).setBiomeName("Shrubland").setMinMaxHeight(0.2F, 0.2F).setTemperatureRainfall(0.6F, 0.05F));
@@ -290,13 +290,13 @@ public class BOPBiomes {
 		Biomes.tropicalRainforest = Optional.of((new BiomeGenTropicalRainforest(BOPConfigurationIDs.tropicalRainforestID)).setColor(9286496).setBiomeName("Tropical Rainforest").setTemperatureRainfall(1.2F, 0.9F).setMinMaxHeight(0.3F, 0.7F));
 		
 		Biomes.tropics = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsID)).setColor(9286496).setBiomeName("Tropics").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.0F, 0.4F));
-		Biomes.tropicsMountain = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsMountainID)).setColor(9286496).setBiomeName("Tropics Mountain").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.4F, 1.2F));
+		Biomes.tropicsMountain = Optional.of((new BiomeGenTropics(BOPConfigurationIDs.tropicsMountainID)).setColor(9286496).setBiomeName("Tropics Mountain").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.7F, 1.2F));
 		
 		Biomes.tundra = Optional.of((new BiomeGenTundra(BOPConfigurationIDs.tundraID)).setColor(14090235).setBiomeName("Tundra").setTemperatureRainfall(0.2F, 0.8F).setMinMaxHeight(0.1F, 0.3F));
-		Biomes.volcano = Optional.of((new BiomeGenVolcano(BOPConfigurationIDs.volcanoID)).setColor(9286496).setBiomeName("Volcano").setDisableRain().setMinMaxHeight(0.6F, 0.9F).setTemperatureRainfall(2.0F, 0.05F));
+		Biomes.volcano = Optional.of((new BiomeGenVolcano(BOPConfigurationIDs.volcanoID)).setColor(9286496).setBiomeName("Volcano").setDisableRain().setMinMaxHeight(0.6F, 1.2F).setTemperatureRainfall(2.0F, 0.05F));
 		Biomes.wasteland = Optional.of((new BiomeGenWasteland(BOPConfigurationIDs.wastelandID)).setColor(16421912).setBiomeName("Wasteland").setDisableRain().setTemperatureRainfall(2.0F, 0.05F).setMinMaxHeight(0.3F, 0.4F));
 		Biomes.wetland = Optional.of((new BiomeGenWetland(BOPConfigurationIDs.wetlandID)).setColor(522674).setBiomeName("Wetland").func_76733_a(9154376).setMinMaxHeight(0.3F, 0.5F).setTemperatureRainfall(0.8F, 0.9F));
-		Biomes.woodland = Optional.of((new BiomeGenWoodland(BOPConfigurationIDs.woodlandID)).setColor(353825).setBiomeName("Woodland").func_76733_a(5159473).setTemperatureRainfall(1.7F, 0.2F).setMinMaxHeight(0.3F, 0.4F));
+		Biomes.woodland = Optional.of((new BiomeGenWoodland(BOPConfigurationIDs.woodlandID)).setColor(353825).setBiomeName("Woodland").func_76733_a(5159473).setTemperatureRainfall(1.7F, 0.2F).setMinMaxHeight(0.3F, 0.7F));
 
 		Biomes.plainsNew = Optional.of((new BiomeGenPlainsNew(BOPConfigurationIDs.plainsNewID)).setColor(9286496).setBiomeName("Plains").setTemperatureRainfall(0.8F, 0.4F));
 		

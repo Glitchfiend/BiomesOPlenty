@@ -21,7 +21,7 @@ public class BiomeGenVolcano extends BiomeGenBase
 		fillerBlock = (byte)Blocks.ashStone.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 1;
+		customBiomeDecorator.treesPerChunk = 0;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.lavaLakesPerChunk = 50;
