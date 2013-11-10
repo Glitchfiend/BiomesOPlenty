@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -271,11 +272,35 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 5)
 		{
-			entity.attackEntityFrom(DamageSource.cactus, 1);
+			if (entity instanceof EntityPlayer)
+			{
+				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+
+				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+				{
+					entity.attackEntityFrom(DamageSource.cactus, 1);
+				}
+			}
+			else
+			{
+				entity.attackEntityFrom(DamageSource.cactus, 1);
+			}
 		}
 		if (meta == 12)
 		{
-			entity.attackEntityFrom(DamageSource.cactus, 1);
+			if (entity instanceof EntityPlayer)
+			{
+				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+
+				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+				{
+					entity.attackEntityFrom(DamageSource.cactus, 1);
+				}
+			}
+			else
+			{
+				entity.attackEntityFrom(DamageSource.cactus, 1);
+			}
 		}
 	}
 	

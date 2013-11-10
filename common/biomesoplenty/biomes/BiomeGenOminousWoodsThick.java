@@ -126,7 +126,6 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IWCFog
     @Override
     public float getFogCloseness()
     {
-        // TODO Auto-generated method stub
-        return 0.2F;
+        return 0.1F;
     }
 }
