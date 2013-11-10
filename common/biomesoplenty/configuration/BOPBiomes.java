@@ -247,8 +247,8 @@ public class BOPBiomes {
 		Biomes.oasis = Optional.of((new BiomeGenOasis(BOPConfigurationIDs.oasisID)).setColor(7712283).setBiomeName("Oasis").setTemperatureRainfall(0.9F, 0.7F).setMinMaxHeight(0.3F, 0.4F));
 
 		Biomes.oceanAbyss = Optional.of((new BiomeGenOceanAbyss(BOPConfigurationIDs.oceanAbyssID)).setColor(53).setBiomeName("Oceanic Abyss").setMinMaxHeight(-1.65F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
-		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfigurationIDs.oceanCoralID)).setColor(14876759).setBiomeName("Coral Reef").setMinMaxHeight(-0.1F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
-		Biomes.oceanKelp = Optional.of((new BiomeGenOceanKelp(BOPConfigurationIDs.oceanKelpID)).setColor(4744737).setBiomeName("Kelp Forest").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
+		Biomes.oceanCoral = Optional.of((new BiomeGenOceanCoral(BOPConfigurationIDs.oceanCoralID)).setColor(18285).setBiomeName("Coral Reef").setMinMaxHeight(-0.1F, 0.0F).setTemperatureRainfall(0.5F, 0.9F));
+		Biomes.oceanKelp = Optional.of((new BiomeGenOceanKelp(BOPConfigurationIDs.oceanKelpID)).setColor(27468).setBiomeName("Kelp Forest").setMinMaxHeight(-0.4F, -0.1F).setTemperatureRainfall(0.5F, 0.9F));
 
 		Biomes.ominousWoods = Optional.of((new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID)).setColor(4145489).setBiomeName("Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F).setMinMaxHeight(0.1F, 0.3F));
 		Biomes.ominousWoodsThick = Optional.of((new BiomeGenOminousWoodsThick(BOPConfigurationIDs.ominousWoodsThickID)).setColor(2698037).setBiomeName("Thick Ominous Woods").func_76733_a(5159473).setTemperatureRainfall(0.8F, 0.9F).setMinMaxHeight(0.4F, 0.8F));
