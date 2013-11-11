@@ -64,199 +64,22 @@ public class BlockBOPAmethyst extends Block
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		float hardness = blockHardness;
 
-		switch (meta)
-		{
-		case 0:
-			hardness = 3.0F;
-			break;
-
-		case 1:
-			hardness = 5.0F;
-			break;
-			
-		case 2:
-			hardness = 3.0F;
-			break;
-
-		case 3:
-			hardness = 5.0F;
-			break;
-			
-		case 4:
-			hardness = 3.0F;
-			break;
-
-		case 5:
-			hardness = 5.0F;
-			break;
-			
-		case 6:
-			hardness = 3.0F;
-			break;
-
-		case 7:
-			hardness = 5.0F;
-			break;
-			
-		case 8:
-			hardness = 3.0F;
-			break;
-
-		case 9:
-			hardness = 5.0F;
-			break;
-			
-		case 10:
-			hardness = 3.0F;
-			break;
-
-		case 11:
-			hardness = 5.0F;
-			break;
-			
-		case 12:
-			hardness = 3.0F;
-			break;
-
-		case 13:
-			hardness = 5.0F;
-			break;
-		}
-
-		return hardness;
+		return (meta % 2 == 0) ? 3.0F : 5.0F;
 	}
 
 	@Override
 	public float getExplosionResistance(Entity par1Entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		float resistance = blockResistance;
 
-		switch (meta)
-		{
-		case 0:
-			resistance = 5.0F;
-			break;
-
-		case 1:
-			resistance = 10.0F;
-			break;
-			
-		case 2:
-			resistance = 5.0F;
-			break;
-
-		case 3:
-			resistance = 10.0F;
-			break;
-			
-		case 4:
-			resistance = 5.0F;
-			break;
-
-		case 5:
-			resistance = 10.0F;
-			break;
-			
-		case 6:
-			resistance = 5.0F;
-			break;
-
-		case 7:
-			resistance = 10.0F;
-			break;
-			
-		case 8:
-			resistance = 5.0F;
-			break;
-
-		case 9:
-			resistance = 10.0F;
-			break;
-			
-		case 10:
-			resistance = 5.0F;
-			break;
-
-		case 11:
-			resistance = 10.0F;
-			break;
-			
-		case 12:
-			resistance = 5.0F;
-			break;
-
-		case 13:
-			resistance = 10.0F;
-			break;
-		}
-
-		return resistance / 5.0F;
+		return (meta % 2 == 0) ? 1.0F : 2.0F;
 	}
 
 	@Override
 	public int idDropped(int meta, Random par2Random, int par3)
 	{
-		if (meta == 0)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 1)
-		{
-			return this.blockID;
-		}
-		if (meta == 2)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 3)
-		{
-			return this.blockID;
-		}
-		if (meta == 4)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 5)
-		{
-			return this.blockID;
-		}
-		if (meta == 6)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 7)
-		{
-			return this.blockID;
-		}
-		if (meta == 8)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 9)
-		{
-			return this.blockID;
-		}
-		if (meta == 10)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 11)
-		{
-			return this.blockID;
-		}
-		if (meta == 12)
-		{
-			return Items.miscItems.get().itemID;
-		}
-		if (meta == 13)
-		{
-			return this.blockID;
-		}
-		
-		return this.blockID;
+		return (meta % 2 == 0) ? Items.miscItems.get().itemID : this.blockID;
 	}
 
 	@Override
@@ -325,64 +148,7 @@ public class BlockBOPAmethyst extends Block
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
-		if (meta == 0)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 1)
-		{
-			return quantityDropped(random);
-		}
-		if (meta == 2)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 3)
-		{
-			return quantityDropped(random);
-		}
-		if (meta == 4)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 5)
-		{
-			return quantityDropped(random);
-		}
-		if (meta == 6)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 7)
-		{
-			return quantityDropped(random);
-		}
-		if (meta == 8)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 9)
-		{
-			return quantityDropped(random);
-		}
-		if (meta == 10)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 11)
-		{
-			return quantityDropped(random);
-		}
-		if (meta == 12)
-		{
-			return quantityDroppedWithBonus(fortune, random);
-		}
-		if (meta == 13)
-		{
-			return quantityDropped(random);
-		}
-		
-		return quantityDropped(random);
+		return (meta % 2 == 0) ? quantityDroppedWithBonus(fortune, random) : 1;
 	}
 
 	@Override
@@ -396,10 +162,10 @@ public class BlockBOPAmethyst extends Block
 				rnd = 0;
 			}
 
-			return (1 + par2Random.nextInt(5)) * (rnd + 1);
+			return this.quantityDropped(par2Random) * (rnd + 1);
 		}
 		else
-			return (1 + par2Random.nextInt(5));
+			return this.quantityDropped(par2Random);
 	}
 
 	@Override
@@ -409,7 +175,7 @@ public class BlockBOPAmethyst extends Block
 
 		if (this.idDropped(par5, world.rand, par7) != blockID)
 		{
-			int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
+			int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 3, 7);
 			this.dropXpOnBlockBreak(world, par2, par3, par4, var8);
 		}
 	}
