@@ -32,6 +32,7 @@ tile.bop.plants.rivercane.name=Flussschilfrohr
 tile.bop.plants.cactus.name=Kleiner Kaktus
 tile.bop.plants.witherwart.name=Witherwarze
 tile.bop.plants.reed.name=Schilfgras
+tile.bop.plants.root.name=Wurzel
 
 tile.bop.flowers.clover.name=Klee
 tile.bop.flowers.swampflower.name=Sumpfblume
@@ -58,6 +59,9 @@ tile.bop.flowers2.goldenrod.name=Goldgute
 tile.bop.flowers2.bluebells.name=Hasenglöckchen
 tile.bop.flowers2.minersdelight.name=Des Bergarbeiters Freude
 tile.bop.flowers2.icyiris.name=Eisige Iris
+
+tile.bop.stoneFormations.stalagmite.name=Stalagmit
+tile.bop.stoneFormations.stalactite.name=Stalaktit
 
 tile.bop.foliage.algae.name=Algen
 tile.bop.foliage.shortgrass.name=Kurzes Gras
@@ -160,7 +164,9 @@ tile.bop.cloud.name=Wolkenblock
 tile.bop.hive.honeycomb.name=Honigwabenblock
 tile.bop.hive.hive.name=Bienenstockblock
 tile.bop.hive.honeycombempty.name=Leerer Honigwabenblock
-tile.bop.hive.honeyblock.name=Solider Honigblock
+tile.bop.hive.honeycombfilled.name=Gefüllter Honigwabenblock
+
+tile.bop.honeyBlock.name=Honigblock
 
 tile.bop.bones.bones_small.name=Kleines Knochensegment
 tile.bop.bones.bones_medium.name=Knochensegment
@@ -297,6 +303,7 @@ item.bop.food.saladfruit.name=Obstsalat
 item.bop.food.saladveggie.name=Gemüsesalat
 item.bop.food.saladshroom.name=Pilzsalat
 item.bop.food.persimmon.name=Kaki
+item.bop.food.filledhoneycomb.name=Honigwabe
 
 item.bop.dartblower.name=Blasrohr
 item.bop.dart.dart.name=Dart
@@ -395,6 +402,7 @@ entity.BiomesOPlenty.JungleSpider.name=Dschungelspinne
 entity.BiomesOPlenty.Phantom.name=Phantom
 entity.BiomesOPlenty.Rosester.name=Rosester
 entity.BiomesOPlenty.Wasp.name=Wespe
+entity.BiomesOPlenty.Bird.name=Vogel
 
 achievement.bop.achBOP=Biomes O' Plenty
 achievement.bop.achBOP.desc=Lass den Spaß beginnen!
