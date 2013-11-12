@@ -31,7 +31,6 @@ import biomesoplenty.items.ItemBOPSword;
 import biomesoplenty.items.ItemDart;
 import biomesoplenty.items.ItemDartBlower;
 import biomesoplenty.items.ItemEnderporter;
-import biomesoplenty.items.ItemSoulManipulator;
 
 import com.google.common.base.Optional;
 
@@ -110,7 +109,6 @@ public class BOPItems {
 		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfigurationIDs.mudballID).setUnlocalizedName("bop.mudball"));
 		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfigurationIDs.dartBlowerID).setUnlocalizedName("bop.dartblower"));
 		Items.dart = Optional.of(new ItemDart(BOPConfigurationIDs.dartID).setUnlocalizedName("bop.dart"));
-		Items.soulManipulator = Optional.of(new ItemSoulManipulator(BOPConfigurationIDs.soulManipulatorID).setUnlocalizedName("bop.soulManipulator"));
 
 		Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfigurationIDs.ancientStaffID).setUnlocalizedName("bop.ancientStaff"));
 

@@ -7,7 +7,6 @@ import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import biomesoplenty.api.Items;
-import biomesoplenty.blocks.renderers.AltarRenderer;
 import biomesoplenty.blocks.renderers.BambooRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.GraveRenderer;
@@ -43,7 +42,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers()
 	{
-		RenderUtils.altarModel = RenderingRegistry.getNextAvailableRenderId();
 		RenderUtils.foliageModel = RenderingRegistry.getNextAvailableRenderId();
 		RenderUtils.plantsModel = RenderingRegistry.getNextAvailableRenderId();
 		RenderUtils.puddleModel = RenderingRegistry.getNextAvailableRenderId();
@@ -87,7 +85,6 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
-		RenderingRegistry.registerBlockHandler(new AltarRenderer());
 		RenderingRegistry.registerBlockHandler(new PuddleRender());
 		RenderingRegistry.registerBlockHandler(new GraveRenderer());
 		RenderingRegistry.registerBlockHandler(new BambooRenderer());

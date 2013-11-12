@@ -45,7 +45,6 @@ public class Items
 	public static Optional<? extends Item> poison         		= Optional.absent();
 	public static Optional<? extends Item> dartBlower         	= Optional.absent();
 	public static Optional<? extends Item> dart         		= Optional.absent();
-	public static Optional<? extends Item> soulManipulator      = Optional.absent();
 
 	public static Optional<? extends Item> flowerBand           = Optional.absent();
 	public static Optional<? extends Item> wadingBoots          = Optional.absent();

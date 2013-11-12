@@ -18,7 +18,6 @@ public class BOPConfigurationMisc
 	
 	public static boolean amethystTools;
 	public static boolean mudTools;
-	public static boolean altarCrafting;
 	public static boolean scytheCrafting;
 	public static boolean staffCrafting;
 	public static boolean enderporterCrafting;
@@ -47,7 +46,6 @@ public class BOPConfigurationMisc
 
 			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
-			altarCrafting = config.get("Crafting Settings", "Enable Altar Items Crafting", true).getBoolean(true);
 			scytheCrafting = config.get("Crafting Settings", "Enable Scythe Crafting", true).getBoolean(true);
 			staffCrafting = config.get("Crafting Settings", "Enable Ancient Staff Crafting", true).getBoolean(true);
 			enderporterCrafting = config.get("Crafting Settings", "Enable Enderporter Crafting", true).getBoolean(true);

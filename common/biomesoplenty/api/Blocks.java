@@ -97,8 +97,6 @@ public class Blocks
 	public static Optional<? extends Block> mudBrick                    = Optional.absent();
 
 	public static Optional<? extends Block> promisedPortal              = Optional.absent();
-	public static Optional<? extends Block> glass                       = Optional.absent();
-	public static Optional<? extends Block> altar                       = Optional.absent();
 	public static Optional<? extends Block> puddle                      = Optional.absent();
 	public static Optional<? extends Block> grave                       = Optional.absent();
 

@@ -5,7 +5,6 @@ import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.BlockAltar;
 import biomesoplenty.blocks.BlockAsh;
 import biomesoplenty.blocks.BlockBOPAmethyst;
 import biomesoplenty.blocks.BlockBOPAppleLeaves;
@@ -17,7 +16,6 @@ import biomesoplenty.blocks.BlockBOPFlower2;
 import biomesoplenty.blocks.BlockBOPFoliage;
 import biomesoplenty.blocks.BlockBOPGeneric;
 import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
-import biomesoplenty.blocks.BlockBOPGlass;
 import biomesoplenty.blocks.BlockBOPGrass;
 import biomesoplenty.blocks.BlockBOPLeaves;
 import biomesoplenty.blocks.BlockBOPLeaves.LeafCategory;
@@ -53,7 +51,6 @@ import biomesoplenty.blocks.BlockStoneFormations;
 import biomesoplenty.blocks.BlockTreeMoss;
 import biomesoplenty.blocks.BlockWillow;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
-import biomesoplenty.itemblocks.ItemBlockAltar;
 import biomesoplenty.itemblocks.ItemBlockAppleLeaves;
 import biomesoplenty.itemblocks.ItemBlockBamboo;
 import biomesoplenty.itemblocks.ItemBlockBones;
@@ -63,7 +60,6 @@ import biomesoplenty.itemblocks.ItemBlockCoral;
 import biomesoplenty.itemblocks.ItemBlockFlower;
 import biomesoplenty.itemblocks.ItemBlockFlower2;
 import biomesoplenty.itemblocks.ItemBlockFoliage;
-import biomesoplenty.itemblocks.ItemBlockGlass;
 import biomesoplenty.itemblocks.ItemBlockGrass;
 import biomesoplenty.itemblocks.ItemBlockGrave;
 import biomesoplenty.itemblocks.ItemBlockHive;
@@ -84,7 +80,6 @@ import biomesoplenty.itemblocks.ItemBlockStoneFormations;
 import biomesoplenty.items.ItemBOPAmethyst;
 import biomesoplenty.items.ItemBOPIvy;
 import biomesoplenty.items.ItemBOPWillow;
-import biomesoplenty.tileentities.TileEntityAltar;
 
 import com.google.common.base.Optional;
 
@@ -115,7 +110,6 @@ public class BOPBlocks
 		MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 0, "pickaxe", 0);
 
 		MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
-		MinecraftForge.setBlockHarvestLevel(Blocks.altar.get(), "pickaxe", 0);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 0, "pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 2, "pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 4, "pickaxe", 2);
@@ -189,10 +183,6 @@ public class BOPBlocks
 		Blocks.honeyBlock = Optional.of((new BlockHoney(BOPConfigurationIDs.honeyBlockID)).setHardness(0.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.honeyBlock"));
 
 		Blocks.bones = Optional.of((new BlockBones(BOPConfigurationIDs.bonesID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.bones"));
-		
-		Blocks.glass = Optional.of((new BlockBOPGlass(BOPConfigurationIDs.glassID)).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("bop.glass"));
-		
-		Blocks.altar = Optional.of((new BlockAltar(BOPConfigurationIDs.altarID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.altar"));
 		
 		Blocks.puddle = Optional.of((new BlockPuddle(BOPConfigurationIDs.puddleID)).setHardness(0.6F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("bop.puddle"));
 		Blocks.grave = Optional.of((new BlockGrave(BOPConfigurationIDs.graveID)).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.grave"));
@@ -275,8 +265,6 @@ public class BOPBlocks
 		GameRegistry.registerBlock(Blocks.honeyBlock.get(), "bop.honeyBlock");
 
 		GameRegistry.registerBlock(Blocks.bones.get(), ItemBlockBones.class, "bop.bones");
-		GameRegistry.registerBlock(Blocks.glass.get(), ItemBlockGlass.class, "bop.glass");	
-		GameRegistry.registerBlock(Blocks.altar.get(), ItemBlockAltar.class, "bop.altar");	
 		GameRegistry.registerBlock(Blocks.puddle.get(), "bop.puddle");	
 		GameRegistry.registerBlock(Blocks.grave.get(), ItemBlockGrave.class, "bop.grave");	
 
@@ -311,7 +299,6 @@ public class BOPBlocks
 	
 	private static void registerTileEntities()
 	{
-        GameRegistry.registerTileEntity(TileEntityAltar.class, "tileEntityAltar");
 	}
 
 	private static void addGrassPlants()

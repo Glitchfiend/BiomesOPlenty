@@ -172,14 +172,6 @@ tile.bop.bones.bones_small.name=Small Bone Segment
 tile.bop.bones.bones_medium.name=Medium Bone Segment
 tile.bop.bones.bones_large.name=Large Bone Segment
 
-tile.bop.glass.celestialLens.name=Celestial Lens
-
-tile.bop.glass.sacrificialfocus_empty.name=Sacrificial Focus
-tile.bop.glass.sacrificialfocus_active.name=Sacrificial Focus
-tile.bop.glass.sacrificialfocus_villager.name=Sacrificial Focus
-
-tile.bop.altar.altarframe.name=Altar Frame
-
 tile.bop.puddle.name=Puddle
 
 tile.bop.grave.name=Gravestone
@@ -362,10 +354,6 @@ item.bop.ancientStaff.staffhandle.name=Ancient Staff Handle
 item.bop.ancientStaff.staffpole.name=Ancient Staff Pole
 item.bop.ancientStaff.stafftopper.name=Ancient Staff Topper
 item.bop.ancientStaff.ancientstaffbroken.name=Depleted Ancient Staff
-
-item.bop.soulManipulator.soulmanipulator_empty.name=Soul Manipulator
-item.bop.soulManipulator.soulmanipulator_ghastlysoul.name=Ghastly Soul Manipulator
-item.bop.soulManipulator.soulmanipulator_villager.name=Villager Soul Manipulator
 
 item.bop.enderporter.name=Enderporter
 

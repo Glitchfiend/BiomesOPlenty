@@ -13,7 +13,6 @@ import org.lwjgl.opengl.GL11;
 
 public class RenderUtils 
 {
-	public static int altarModel = -1;
 	public static int foliageModel = -1;
 	public static int plantsModel = -1;
 	public static int puddleModel = -1;

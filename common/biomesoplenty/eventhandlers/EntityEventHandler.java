@@ -125,46 +125,7 @@ public class EntityEventHandler
 		{
 			int itemDamage = itemstack.getItemDamage();
 			
-			if (itemstack.itemID == Items.soulManipulator.get().itemID && itemstack.getItemDamage() == 2)    
-			{
-				if (entity instanceof EntityEnderman)
-				{
-					EntityEnderman entityenderman = (EntityEnderman)entity;
-
-					if (entityenderman.worldObj.rand.nextInt(2) == 0)
-					{
-						entityenderman.attackEntityFrom(DamageSource.causePlayerDamage(player), 1);
-					}
-
-					entityenderman.attackEntityFrom(DamageSource.causePlayerDamage(player), 0);
-
-					if (entityenderman.worldObj.rand.nextInt(6) == 0)
-					{
-						EntityVillager entityvillager = new EntityVillager(entityenderman.worldObj);
-						entityvillager.setLocationAndAngles(entityenderman.posX, entityenderman.posY, entityenderman.posZ, MathHelper.wrapAngleTo180_float(entityenderman.worldObj.rand.nextFloat() * 360.0F), 0.0F);
-						entityvillager.rotationYawHead = entityvillager.rotationYaw;
-						entityvillager.renderYawOffset = entityvillager.rotationYaw;
-
-						if (!entityenderman.worldObj.isRemote)
-						{                        	
-							entityenderman.worldObj.spawnEntityInWorld(entityvillager);
-
-							FMLClientHandler.instance().getClient().sndManager.playSound("mob.endermen.death", (float) entityvillager.posX + 0.5F, (float) entityvillager.posY + 0.5F, (float) entityvillager.posZ + 0.5F, 5.0F, -8.0F);
-							entityenderman.setDead();
-						}
-
-						if (!player.capabilities.isCreativeMode)
-						{
-							itemstack.setItemDamage(0);
-						}
-
-						event.setResult(Result.ALLOW);
-
-						entityvillager.playLivingSound();
-					}
-				}
-			}
-			else if (itemstack.itemID == Items.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
+			if (itemstack.itemID == Items.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
 			{
 				int dyeMeta = convertToDyeMeta(itemDamage);      
 				int i = BlockColored.getBlockFromDye(dyeMeta);
@@ -226,23 +187,6 @@ public class EntityEventHandler
 
 		default:
 			return 0;
-		}
-	}
-
-	@ForgeSubscribe
-	public void lightningStrike(LivingHurtEvent event)
-	{
-		AxisAlignedBB axisalignedbb = AxisAlignedBB.getAABBPool().getAABB((double)event.entity.posX, (double)event.entity.posY, (double)event.entity.posZ, (double)(event.entity.posX + 1), (double)(event.entity.posY + 1), (double)(event.entity.posZ + 1)).expand(5, 5, 5);
-
-		if (!event.entity.worldObj.getEntitiesWithinAABB(EntityLightningBolt.class, axisalignedbb).isEmpty());
-		{
-			if (!event.entity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, axisalignedbb).isEmpty());
-			{
-				if (isBlockInBB(event.entity.worldObj, axisalignedbb, Blocks.glass.get().blockID, 2) || isBlockInBB(event.entity.worldObj, axisalignedbb, Blocks.glass.get().blockID, 3))
-				{           	
-					event.setCanceled(true);
-				}
-			}
 		}
 	}
 	

@@ -254,15 +254,6 @@ public class BOPCrafting
 			GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
 			GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
 		}
-		
-		if (BOPConfigurationMisc.altarCrafting)
-		{
-			GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 0), new Object[] {"G", "T", "B", 'G', Block.glass, 'T', Item.ghastTear, 'B', Item.blazeRod});
-			GameRegistry.addRecipe(new ItemStack(Items.soulManipulator.get(), 1, 1), new Object[] {"TSA", "PMS", "APT", 'S', new ItemStack(Items.miscItems.get(), 1, 16), 'A', Block.slowSand, 'T', Item.ghastTear, 'P', Item.blazePowder, 'M', new ItemStack(Items.soulManipulator.get(), 1, 0)});
-			GameRegistry.addRecipe(new ItemStack(Blocks.altar.get(), 1), new Object[] {"OBO", "BBB", "OBO", 'O', Block.obsidian, 'B', new ItemStack(Blocks.bones.get(), 1, 2)});
-			GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 1), new Object[] {"PCP", "CSC", "PCP", 'P', Item.blazePowder, 'C', new ItemStack(Blocks.glass.get(), 1, 0), 'S', new ItemStack(Items.miscItems.get(), 1, 16)});
-			GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"CGC", "GGG", "CGC", Character.valueOf('G'), new ItemStack(Blocks.crystal.get(), 1, 0), Character.valueOf('C'), new ItemStack(Items.miscItems.get(), 1, 4)});
-		}
 
 		//Dart Blower
 		if (BOPConfigurationMisc.dartCrafting)
@@ -295,9 +286,6 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 4), new Object[] {Item.bowlEmpty, new ItemStack(Items.food.get(), 1, 0), Item.appleRed, Item.melon});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 5), new Object[] {Item.bowlEmpty, new ItemStack(Items.food.get(), 1, 2), Item.carrot, Item.potato});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 6), new Object[] {Item.bowlEmpty, new ItemStack(Blocks.mushrooms.get(), 1, 0), new ItemStack(Blocks.mushrooms.get(), 1, 1), new ItemStack(Blocks.mushrooms.get(), 1, 2)});
-
-		//Glass
-		//GameRegistry.addRecipe(new ItemStack(Blocks.glass.get(), 1, 0), new Object [] {"GGG", "GGG", "GGG", Character.valueOf('G'), Block.glass});
 	}
 
 	private static void addSmeltingRecipes()
