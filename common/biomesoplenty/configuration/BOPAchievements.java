@@ -114,7 +114,6 @@ public class BOPAchievements
 	public static Achievement achTaiga;
 	
 	public static Achievement achPromised;
-	public static Achievement achSacrifice;
 
 	public static AchievementPage pageBiome;
 	
@@ -217,13 +216,12 @@ public class BOPAchievements
 		achTaiga = (new Achievement(3167, "bop.achTaiga", 6, 8, new ItemStack(Block.sapling, 1, 1), achBOP)).registerAchievement();
 		achAllBiomes = (new Achievement(3081, "bop.achAllBiomes", 8, 8, new ItemStack(Items.food.get(), 1, 7), null)).registerAchievement().setSpecial();
 		achPromised = (new Achievement(3168, "bop.achPromised", 10, 8, new ItemStack(Blocks.holyGrass.get(), 1, 0), null)).registerAchievement().setSpecial();
-		achSacrifice = (new Achievement(3169, "bop.achSacrifice", 0, 10, new ItemStack(Items.miscItems.get(), 1, 16), null)).registerAchievement().setSpecial();
 		
 		biomeFinderAchievementList = new Achievement[] { achBOP, achAlps, achArctic, achBadlands, achBambooForest, achBayou, achBirchForest, achBog, achBorealForest, achBrushland, achCanyon, achChaparral, achCherryBlossom, achConiferousForest, 
 				achConiferousForestSnow, achCrag, achDeadForest, achDeadForestSnow, achDeadSwamp, achDeadlands, achDeciduousForest, achDunes, achFen, achField, achFrostForest, achFungiForest, achGarden, achGlacier, achGrassland, achGrove, achHeathland, achHighland, achHotSprings, achIcyHills, 
 				achJadeCliffs, achLushDesert, achLushSwamp, achMangrove, achMapleWoods, achMarsh, achMeadow, achMesa, achMoor, achMountain, achMysticGrove, achOasis, achOminousWoods, achOrchard, achOriginValley, achOutback, achOvergrownGreens, achPasture, achPolar, achPrairie, achQuagmire, achRainforest, achRedwoodForest, achSacredSprings,  
 				achSavanna, achScrubland, achSeasonalForest, achShield, achShrubland, achSilkglades, achSludgepit, achSpruceWoods, achSteppe, achTemperateRainforest, achThicket, achTimber, achTropicalRainforest, achTropics, achTundra, achVolcano, achWasteland, achWetland, achWoodland, achDesert, achExtremeHills, achForest, achIcePlains,
-				achJungle, achMushroomIsland, achPlains, achSwampland, achTaiga, achAllBiomes, achPromised, achSacrifice};
+				achJungle, achMushroomIsland, achPlains, achSwampland, achTaiga, achAllBiomes, achPromised};
 		
 		pageBiome = new AchievementPage("Biomes O\' Plenty", biomeFinderAchievementList);
 		
