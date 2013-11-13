@@ -7,6 +7,8 @@ import biomesoplenty.api.Items;
 import biomesoplenty.integration.minefactoryreloaded.Fertilizable;
 import biomesoplenty.integration.minefactoryreloaded.FruitLeaves;
 import biomesoplenty.integration.minefactoryreloaded.Harvestable;
+import biomesoplenty.integration.minefactoryreloaded.Plantable;
+
 import com.google.common.base.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
@@ -71,6 +73,7 @@ public class MFRIntegration
         for(Optional<? extends Block> sapling : bopSaplings)
         {
             FactoryRegistry.registerFertilizable(new Fertilizable(sapling.get().blockID));
+            FactoryRegistry.registerPlantable(new Plantable(sapling.get().blockID));
         }
         
         for(Optional<? extends Block> leaves : bopFruitLeaves)
