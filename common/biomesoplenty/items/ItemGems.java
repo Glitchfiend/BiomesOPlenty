@@ -11,13 +11,13 @@ import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBOP extends Item
+public class ItemGems extends Item
 {
-	private static String[] items = {"mudbrick", "ash", "emptyhoneycomb", "poison", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ghastlysoul"};
+	private static String[] gems = {"amethyst", "ruby", "peridot", "topaz", "tanzanite", "malachite", "sapphire"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
-	public ItemBOP(int id)
+	public ItemGems(int id)
 	{
 		super(id);
 		setMaxDamage(0);
@@ -28,10 +28,10 @@ public class ItemBOP extends Item
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[items.length];
+		textures = new Icon[gems.length];
 
-		for (int i = 0; i < items.length; ++i) {
-			textures[i] = iconRegister.registerIcon("biomesoplenty:"+items[i]);
+		for (int i = 0; i < gems.length; ++i) {
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+gems[i]);
 		}
 	}
 
@@ -39,11 +39,11 @@ public class ItemBOP extends Item
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		int meta = itemStack.getItemDamage();
-		if (meta < 0 || meta >= items.length) {
+		if (meta < 0 || meta >= gems.length) {
 			meta = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + items[meta];
+		return super.getUnlocalizedName() + "." + gems[meta];
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class ItemBOP extends Item
 	@Override
 	public void getSubItems(int itemId, CreativeTabs creativeTab, List subTypes)
 	{
-		for(int meta = 0; meta < items.length; ++meta) {
+		for(int meta = 0; meta < gems.length; ++meta) {
 			subTypes.add(new ItemStack(itemId, 1, meta));
 		}
 	}

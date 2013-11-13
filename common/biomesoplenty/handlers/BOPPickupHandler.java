@@ -46,7 +46,7 @@ public class BOPPickupHandler implements IPickupNotifier
 		}
 		
 		//Bittersweet
-		if (item.getEntityItem().itemID == Blocks.honeyBlock.get().blockID)
+		if (item.getEntityItem().itemID == Items.food.get().itemID && (item.getEntityItem().getItemDamage() == 9))
 		{
 			player.addStat(BOPAchievements.achHoney, 1);
 		}

@@ -295,7 +295,7 @@ item.bop.food.saladfruit.name=Fruit Salad
 item.bop.food.saladveggie.name=Veggie Salad
 item.bop.food.saladshroom.name=Shroom Salad
 item.bop.food.persimmon.name=Persimmon
-item.bop.food.filledhoneycomb.name=Honeycomb
+item.bop.food.filledhoneycomb.name=Filled Honeycomb
 
 item.bop.dartblower.name=Dart Blower
 item.bop.dart.dart.name=Dart
@@ -305,21 +305,24 @@ item.bop.mudball.name=Mud Ball
 
 item.bop.miscItems.mudbrick.name=Mud Brick
 item.bop.miscItems.ash.name=Pile of Ashes
-item.bop.miscItems.amethyst.name=Amethyst
+
 item.bop.miscItems.poison.name=Poison
+item.bop.miscItems.emptyhoneycomb.name=Empty Honeycomb
 item.bop.miscItems.crystalshard.name=Celestial Crystal Shard
 item.bop.miscItems.bluedye.name=Blue Dye
 item.bop.miscItems.browndye.name=Brown Dye
 item.bop.miscItems.greendye.name=Green Dye
 item.bop.miscItems.whitedye.name=White Dye
 item.bop.miscItems.blackdye.name=Black Dye
-item.bop.miscItems.ruby.name=Ruby
-item.bop.miscItems.peridot.name=Peridot
-item.bop.miscItems.topaz.name=Topaz
-item.bop.miscItems.tanzanite.name=Tanzanite
-item.bop.miscItems.malachite.name=Malachite
-item.bop.miscItems.sapphire.name=Sapphire
 item.bop.miscItems.ghastlysoul.name=Ghastly Soul
+
+item.bop.gems.amethyst.name=Amethyst
+item.bop.gems.ruby.name=Ruby
+item.bop.gems.peridot.name=Peridot
+item.bop.gems.topaz.name=Topaz
+item.bop.gems.tanzanite.name=Tanzanite
+item.bop.gems.malachite.name=Malachite
+item.bop.gems.sapphire.name=Sapphire
 
 item.bop.pickaxeMud.name=Muddy Pickaxe
 item.bop.hatchetMud.name=Muddy Axe

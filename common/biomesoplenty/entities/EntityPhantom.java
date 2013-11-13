@@ -93,7 +93,7 @@ public class EntityPhantom extends EntityMob
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.entityDropItem(new ItemStack(Items.miscItems.get().itemID, 1, 16), 1);
+            this.entityDropItem(new ItemStack(Items.miscItems.get().itemID, 1, 10), 1);
         }
     }
 	

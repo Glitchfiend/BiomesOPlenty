@@ -65,6 +65,11 @@ public class BlockHive extends Block
 	@Override
 	public int idDropped(int meta, Random par2Random, int par3)
 	{
+		if (meta == 0)
+		{
+			return Items.miscItems.get().itemID;
+		}
+		
 		if (meta == 3)
 		{
 			return Items.food.get().itemID;
@@ -76,6 +81,10 @@ public class BlockHive extends Block
 	@Override
 	public int damageDropped(int meta)
 	{
+		if (meta == 0)
+		{
+			return 2;
+		}
 		if (meta == 2)
 		{
 			return 0;
@@ -91,13 +100,17 @@ public class BlockHive extends Block
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
+		if (meta == 0)
+		{
+			return (random.nextInt(3) + 1);
+		}
 		if (meta == 2)
 		{
 			return 0;
 		}
 		if (meta == 3)
 		{
-			return random.nextInt(3);
+			return random.nextInt(2);
 		}
 		
 		return 1;

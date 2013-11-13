@@ -79,7 +79,7 @@ public class BlockBOPAmethyst extends Block
 	@Override
 	public int idDropped(int meta, Random par2Random, int par3)
 	{
-		return (meta % 2 == 0) ? Items.miscItems.get().itemID : this.blockID;
+		return (meta % 2 == 0) ? Items.gems.get().itemID : this.blockID;
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class BlockBOPAmethyst extends Block
 	{
 		if (meta == 0)
 		{
-			return 2;
+			return 0;
 		}
 		if (meta == 1)
 		{
@@ -95,7 +95,7 @@ public class BlockBOPAmethyst extends Block
 		}
 		if (meta == 2)
 		{
-			return 10;
+			return 1;
 		}
 		if (meta == 3)
 		{
@@ -103,7 +103,7 @@ public class BlockBOPAmethyst extends Block
 		}
 		if (meta == 4)
 		{
-			return 11;
+			return 2;
 		}
 		if (meta == 5)
 		{
@@ -111,7 +111,7 @@ public class BlockBOPAmethyst extends Block
 		}
 		if (meta == 6)
 		{
-			return 12;
+			return 3;
 		}
 		if (meta == 7)
 		{
@@ -119,7 +119,7 @@ public class BlockBOPAmethyst extends Block
 		}
 		if (meta == 8)
 		{
-			return 13;
+			return 4;
 		}
 		if (meta == 9)
 		{
@@ -127,7 +127,7 @@ public class BlockBOPAmethyst extends Block
 		}
 		if (meta == 10)
 		{
-			return 14;
+			return 5;
 		}
 		if (meta == 11)
 		{
@@ -135,7 +135,7 @@ public class BlockBOPAmethyst extends Block
 		}
 		if (meta == 12)
 		{
-			return 15;
+			return 6;
 		}
 		if (meta == 13)
 		{

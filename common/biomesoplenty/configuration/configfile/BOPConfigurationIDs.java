@@ -150,6 +150,7 @@ public class BOPConfigurationIDs
 	public static int flowerBandID;
 	public static int wadingBootsID;
 	public static int flippersID;
+	public static int gemsID;
 	
 	//Liquid IDs
 	public static int springWaterStillID;
@@ -463,6 +464,7 @@ public class BOPConfigurationIDs
 			
 			wadingBootsID = config.getItem("Wading Boots ID", 21088).getInt();
 			flippersID = config.getItem("Flippers ID", 21089).getInt();
+			gemsID = config.getItem("Gems ID", 21090).getInt();
 
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
