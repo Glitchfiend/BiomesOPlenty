@@ -45,6 +45,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Fluids;
+import biomesoplenty.configuration.configfile.BOPConfiguration;
 import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
@@ -1353,18 +1354,24 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		 
 		 for (var2 = 0; var2 < stalagmitesPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(64);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 stalagmiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 if (BOPConfigurationTerrainGen.stoneFormationGen)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(64);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 stalagmiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 }
 		 
 		 for (var2 = 0; var2 < stalactitesPerChunk; ++var2)
 		 {
-			 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-			 var4 = randomGenerator.nextInt(64);
-			 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-			 stalactiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 if (BOPConfigurationTerrainGen.stoneFormationGen)
+			 {
+				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+				 var4 = randomGenerator.nextInt(64);
+				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+				 stalactiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
+			 }
 		 } 
 		 
 		 for (var2 = 0; var2 < cloudsPerChunk; ++var2)

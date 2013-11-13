@@ -8,6 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.configuration.BOPAchievements;
 
 public class ItemEnderporter extends Item
 {
@@ -24,12 +25,6 @@ public class ItemEnderporter extends Item
 	public void registerIcons(IconRegister iconRegister)
 	{
 		itemIcon = iconRegister.registerIcon("biomesoplenty:enderporter");
-	}
-
-	@Override
-	public boolean hasEffect(ItemStack par1ItemStack, int pass)
-	{
-		return true;
 	}
 
 	/**
@@ -51,6 +46,7 @@ public class ItemEnderporter extends Item
 				par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.regeneration.id, 200, 3));
 				par3EntityPlayer.setPosition(par2World.getSpawnPoint().posX, 256, par2World.getSpawnPoint().posZ);
 				par2World.playSoundAtEntity(par3EntityPlayer, "random.levelup", 1.0F, 5.0F);
+				par3EntityPlayer.addStat(BOPAchievements.achEnderporter, 1);
 			}
 			else
 			{

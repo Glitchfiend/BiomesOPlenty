@@ -15,6 +15,7 @@ public class BOPConfigurationTerrainGen
 	public static boolean addToDefault;
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
+	public static boolean stoneFormationGen;
 	public static boolean pumpkinGen;
 	public static boolean poisonIvyGen;
 	public static boolean thornGen;
@@ -127,6 +128,7 @@ public class BOPConfigurationTerrainGen
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 			pumpkinGen = config.get("Decoration Settings", "Generate Pumpkins Without Faces", true).getBoolean(true);
+			stoneFormationGen = config.get("Decoration Settings", "Generate Stone Formations", true, "Stalagmites, stalactites, etc.").getBoolean(true);
 			poisonIvyGen = config.get("Decoration Settings", "Generate Poison Ivy", true).getBoolean(true);
 			thornGen = config.get("Decoration Settings", "Generate Thorns", true).getBoolean(true);
 			springWaterGen = config.get("Decoration Settings", "Generate Hot Springs", true).getBoolean(true);

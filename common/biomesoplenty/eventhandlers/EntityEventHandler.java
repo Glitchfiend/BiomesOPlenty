@@ -101,20 +101,6 @@ public class EntityEventHandler
 	}
 	
 	@ForgeSubscribe
-	public void playerJoin(EntityJoinWorldEvent event)
-	{
-		if (event.world.provider.terrainType instanceof WorldTypeBOP)
-		{
-			if (event.entity instanceof EntityPlayer)
-			{
-				EntityPlayer player = (EntityPlayer)event.entity;
-
-				player.addStat(BOPAchievements.achBOP, 1);
-			}
-		}
-	}
-	
-	@ForgeSubscribe
 	public void entityInteract(EntityInteractEvent event)
 	{
 		ItemStack itemstack = event.entityPlayer.getCurrentEquippedItem();

@@ -251,8 +251,7 @@ public class BOPCrafting
 		
 		if (BOPConfigurationMisc.enderporterCrafting)
 		{
-			GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', Block.obsidian, 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
-			GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
+			GameRegistry.addRecipe(new ItemStack(Items.enderporter.get(), 1, 0), new Object[] {"IOI", "OAO", "IOI", 'I', Item.eyeOfEnder, 'O', new ItemStack(Items.miscItems.get(), 1, 16), 'A', new ItemStack(Blocks.amethystOre.get(), 1, 1)});
 		}
 
 		//Dart Blower
@@ -263,6 +262,8 @@ public class BOPCrafting
 			GameRegistry.addRecipe(new ItemStack(Items.dart.get(), 1, 1), new Object[] {"P", "D", Character.valueOf('P'), new ItemStack(Items.miscItems.get(), 1, 3), Character.valueOf('D'), new ItemStack(Items.dart.get(), 1, 0)});
 		}
 		
+		
+		GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
 		GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
 
 		GameRegistry.addRecipe(new ItemStack(Blocks.bamboo.get(), 8), new Object [] {" #", "# ", Character.valueOf('#'), new ItemStack(Blocks.planks.get(), 1, 10)});
