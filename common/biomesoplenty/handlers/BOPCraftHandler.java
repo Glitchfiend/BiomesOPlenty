@@ -12,55 +12,23 @@ public class BOPCraftHandler implements ICraftingHandler
 	@Override
 	public void onCrafting(EntityPlayer var1, ItemStack var2, IInventory var3)
 	{
-		//Scythe
-		if (var2 == new ItemStack(Items.scytheAmethyst.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achScythe, 1);
-		}
-		if (var2 == new ItemStack(Items.scytheDiamond.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achScythe, 1);
-		}
-		if (var2 == new ItemStack(Items.scytheGold.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achScythe, 1);
-		}
-		if (var2 == new ItemStack(Items.scytheIron.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achScythe, 1);
-		}
-		if (var2 == new ItemStack(Items.scytheWood.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achScythe, 1);
-		}
-		if (var2 == new ItemStack(Items.scytheMud.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achScythe, 1);
-		}
+		//Plant Killer
+        if (var2.itemID == Items.scytheAmethyst.get().itemID || var2.itemID == Items.scytheDiamond.get().itemID || var2.itemID == Items.scytheGold.get().itemID || var2.itemID == Items.scytheIron.get().itemID || var2.itemID == Items.scytheStone.get().itemID || var2.itemID == Items.scytheWood.get().itemID || var2.itemID == Items.scytheMud.get().itemID)
+        {
+        	var1.addStat(BOPAchievements.achScythe, 1);
+        }
 		
-		//Dart Blower
-		if (var2 == new ItemStack(Items.dartBlower.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achDartBlower, 1);
-		}
+		//Full Auto
+        if (var2.itemID == Items.dartBlower.get().itemID)
+        {
+        	var1.addStat(BOPAchievements.achDartBlower, 1);
+        }
 		
-		//Flower Band
-		if (var2 == new ItemStack(Items.flowerBand.get(), 1, 0))
-		{
-			var1.addStat(BOPAchievements.achFlowerBand, 1);
-		}
-		if (var2 == new ItemStack(Items.flowerBand.get(), 1, 1))
-		{
-			var1.addStat(BOPAchievements.achFlowerBand, 1);
-		}
-		if (var2 == new ItemStack(Items.flowerBand.get(), 1, 2))
-		{
-			var1.addStat(BOPAchievements.achFlowerBand, 1);
-		}
-		if (var2 == new ItemStack(Items.flowerBand.get(), 1, 3))
-		{
-			var1.addStat(BOPAchievements.achFlowerBand, 1);
-		}
+		//Flower Power
+        if (var2.itemID == Items.flowerBand.get().itemID)
+        {
+        	var1.addStat(BOPAchievements.achFlowerBand, 1);
+        }
 		
 	}
 

@@ -371,12 +371,15 @@ item.bop.flippers.name=Flippers
 item.bop.bopBucket.amethyst_empty.name=Amethyst Bucket
 item.bop.bopBucket.amethyst_spring_water.name=Spring Water Amethyst Bucket
 item.bop.bopBucket.liquid_poison.name=Liquid Poison Bucket
+item.bop.bopBucket.honey.name=Honey Bucket
 
 tile.bop.liquidPoison.name=Liquid Poison
 tile.bop.springWater.name=Spring Water
+tile.bop.honey.name=Honey
 
 fluid.bop.liquidPoison=Liquid Poison
 fluid.bop.springWater=Spring Water
+fluid.bop.honey.name=Honey
 
 phrase.bop.promisedPortalOverworld=A gateway to the Promised Land has appeared in the sky above.
 phrase.bop.promisedPortalOther=A gateway to the Overworld has appeared in the sky above.

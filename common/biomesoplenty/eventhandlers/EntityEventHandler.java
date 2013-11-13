@@ -5,13 +5,11 @@ import net.minecraft.block.BlockColored;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -31,8 +29,6 @@ import biomesoplenty.configuration.BOPAchievements;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
 import biomesoplenty.helpers.TeleporterPromised;
-import biomesoplenty.world.WorldTypeBOP;
-import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityEventHandler
 {

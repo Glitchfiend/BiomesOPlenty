@@ -55,6 +55,22 @@ public class FluidEventHandler
 				event.setResult(Result.DENY);
 			}
 		}
+		else if ((blockID == Fluids.honey.get().blockID) && meta == 7)
+		{
+			ItemStack filledContainer = FluidContainerRegistry.fillFluidContainer(new FluidStack(Fluids.honeyFluid.get(), FluidContainerRegistry.BUCKET_VOLUME), event.current);
+
+			if (filledContainer != null)
+			{
+				world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+
+				event.result = filledContainer;
+				event.setResult(Result.ALLOW);
+			}
+			else
+			{
+				event.setResult(Result.DENY);
+			}
+		}
 	}
 
 	public ItemStack fillCustomBucket(World world, MovingObjectPosition pos)
@@ -74,6 +90,13 @@ public class FluidEventHandler
 			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
 
 			return new ItemStack(Fluids.bopBucket.get(), 1, 1);
+		} 
+		
+		if ((blockID == Fluids.honey.get().blockID) && meta == 7)
+		{
+			world.setBlock(pos.blockX, pos.blockY, pos.blockZ, 0);
+			
+			return new ItemStack(Fluids.bopBucket.get(), 1, 3);
 		} 
 		else
 		{

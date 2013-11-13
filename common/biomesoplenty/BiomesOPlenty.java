@@ -25,6 +25,7 @@ import biomesoplenty.eventhandlers.FlipperMovementEventHandler;
 import biomesoplenty.eventhandlers.FluidEventHandler;
 import biomesoplenty.eventhandlers.VillageMaterialEventHandler;
 import biomesoplenty.handlers.BOPCraftHandler;
+import biomesoplenty.handlers.BOPPickupHandler;
 import biomesoplenty.handlers.MovementHandler;
 import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.handlers.TickHandlerClient;
@@ -80,14 +81,15 @@ public class BiomesOPlenty
 		BOPBiomes.init();
 		BOPEntities.init();
 		BOPVanillaCompat.init();
+		
+		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
+		GameRegistry.registerPickupHandler(new BOPPickupHandler());
 
 		// Achievement declaration
 		if (BOPConfigurationMisc.achievements)
 		{
 			BOPAchievements.init();
 		}
-
-		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
 		
 		if (proxy instanceof ClientProxy)
 		{

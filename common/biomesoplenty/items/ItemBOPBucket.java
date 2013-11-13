@@ -172,6 +172,10 @@ public class ItemBOPBucket extends Item
 					par1World.spawnParticle("largesmoke", par8 + Math.random(), par9 + Math.random(), par10 + Math.random(), 0.0D, 0.0D, 0.0D);
 				}
 			}
+			else if (isFull == Fluids.honey.get().blockID)
+			{
+				par1World.setBlock(par8, par9, par10, isFull, 7, 3);
+			}
 			else
 			{
 				par1World.setBlock(par8, par9, par10, isFull, 0, 3);
