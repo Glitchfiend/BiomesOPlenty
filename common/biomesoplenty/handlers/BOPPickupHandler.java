@@ -45,6 +45,12 @@ public class BOPPickupHandler implements IPickupNotifier
 			player.addStat(BOPAchievements.achCoral, 1);
 		}
 		
+		//Bittersweet
+		if (item.getEntityItem().itemID == Blocks.honeyBlock.get().blockID)
+		{
+			player.addStat(BOPAchievements.achHoney, 1);
+		}
+		
 		//Decay
 		if (item.getEntityItem().itemID == Blocks.plants.get().blockID && (item.getEntityItem().getItemDamage() == 13))
 		{

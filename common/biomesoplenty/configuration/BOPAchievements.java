@@ -59,7 +59,7 @@ public class BOPAchievements
 		achThorn = (new Achievement(3087, "bop.achThorn", -5, -1, new ItemStack(Blocks.plants.get(), 1, 5), achMoss)).registerAchievement();
 		achCoral = (new Achievement(3088, "bop.achCoral", -3, -2, new ItemStack(Blocks.coral.get(), 1, 4), achThorn)).registerAchievement();
 		
-		achHoney = (new Achievement(3089, "bop.achHoney", -1, 2, new ItemStack(Fluids.bopBucket.get(), 1, 3), achFlower)).registerAchievement();
+		achHoney = (new Achievement(3089, "bop.achHoney", -1, 2, new ItemStack(Blocks.honeyBlock.get(), 1, 0), achFlower)).registerAchievement();
 		achWitherWart = (new Achievement(3090, "bop.achWitherWart", 1, 3, new ItemStack(Blocks.plants.get(), 1, 13), achHoney)).registerAchievement();
 		achGrave = (new Achievement(3091, "bop.achGrave", -2, 4, new ItemStack(Blocks.grave.get(), 1, 0), achWitherWart)).registerAchievement();
 		achPhantom = (new Achievement(3092, "bop.achPhantom", 0, 6, new ItemStack(Items.miscItems.get(), 1, 16), achGrave)).registerAchievement().setSpecial();
