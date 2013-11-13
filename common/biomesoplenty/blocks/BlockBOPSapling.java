@@ -86,7 +86,7 @@ public class BlockBOPSapling extends BlockSapling
 			switch (meta)
 			{
 			case 7: // Loftwood
-			return id == Blocks.holyGrass.get().blockID || id == Block.grass.blockID;
+			return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID;
 
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
@@ -98,7 +98,7 @@ public class BlockBOPSapling extends BlockSapling
 	protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
 	{
 		if (metadata == 7) //Loftwood
-			return blockID == Blocks.holyGrass.get().blockID || blockID == Block.grass.blockID;
+			return blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
 		else
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
 	}

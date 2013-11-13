@@ -3,8 +3,8 @@ package biomesoplenty.handlers;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.stats.AchievementList;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Fluids;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.BOPAchievements;
 import cpw.mods.fml.common.IPickupNotifier;
@@ -15,6 +15,12 @@ public class BOPPickupHandler implements IPickupNotifier
 	@Override
 	public void notifyPickup(EntityItem item, EntityPlayer player)
 	{
+		//Getting Wood (Vanilla
+		if (item.getEntityItem().itemID == Blocks.logs1.get().blockID || item.getEntityItem().itemID == Blocks.logs2.get().blockID || item.getEntityItem().itemID == Blocks.logs3.get().blockID || item.getEntityItem().itemID == Blocks.logs4.get().blockID)
+		{
+			player.addStat(AchievementList.mineWood, 1);
+		}
+		
 		//Flower Child
 		if (item.getEntityItem().itemID == Blocks.flowers.get().blockID || item.getEntityItem().itemID == Blocks.flowers2.get().blockID || item.getEntityItem().itemID == Block.plantRed.blockID || item.getEntityItem().itemID == Block.plantYellow.blockID)
 		{

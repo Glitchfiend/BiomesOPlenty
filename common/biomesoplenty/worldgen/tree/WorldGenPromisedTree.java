@@ -70,7 +70,7 @@ public class WorldGenPromisedTree extends WorldGenerator
 			{
 				var11 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if ((var11 == Blocks.holyGrass.get().blockID) && par4 < 256 - var6 - 1)
+				if ((var11 == Blocks.holyGrass.get().blockID || var11 == Blocks.holyDirt.get().blockID) && par4 < 256 - var6 - 1)
 				{
 					this.setBlockAndMetadata(par1World, par3, par4 - 1, par5, Blocks.holyDirt.get().blockID, 0);
 					var21 = par2Random.nextInt(2);
