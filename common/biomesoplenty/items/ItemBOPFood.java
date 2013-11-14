@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -108,6 +109,62 @@ public class ItemBOPFood extends ItemFood
         }
         
         return itemstack;
+    }
+	
+    /**
+     * returns the action that specifies what animation to play when the items is being used
+     */
+    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    {
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
+    	{
+    		return EnumAction.drink;
+    	}
+    	
+    	return EnumAction.eat;
+    }
+    
+	@Override
+    public int getItemStackLimit(ItemStack par1ItemStack)
+    {
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 4)
+    	{
+    		return 1;
+    	}
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 5)
+    	{
+    		return 1;
+    	}
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 6)
+    	{
+    		return 1;
+    	}
+    	
+        return 64;
+    }
+    
+    /**
+     * How long it takes to use or consume an item
+     */
+    @Override
+    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    {
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 0)
+    	{
+    		return 8;
+    	}
+    	
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 3)
+    	{
+    		return 12;
+    	}
+    	
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 9)
+    	{
+    		return 16;
+    	}
+    	
+        return 32;
     }
 	
 	@Override

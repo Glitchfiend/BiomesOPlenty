@@ -43,6 +43,7 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.gravelPerChunk = 1;
 		customBiomeDecorator.gravelPerChunk2 = 1;
+		customBiomeDecorator.cloverPatchesPerChunk = 10;
 	}
 
 	/**

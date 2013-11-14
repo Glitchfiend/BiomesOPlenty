@@ -33,6 +33,7 @@ public class BiomeGenRainforest extends BiomeGenBase
 		customBiomeDecorator.wheatGrassPerChunk = 10;
 		customBiomeDecorator.shrubsPerChunk = 5;
 		customBiomeDecorator.generatePumpkins = false;
+		customBiomeDecorator.cloverPatchesPerChunk = 20;
 		spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
 		spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
 	}

@@ -50,6 +50,7 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.blueMilksPerChunk = 1;
 		customBiomeDecorator.lilyflowersPerChunk = 3;
 		customBiomeDecorator.poisonWaterPerChunk = 1;
+		customBiomeDecorator.cloverPatchesPerChunk = 10;
 		waterColorMultiplier = 16715898;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();

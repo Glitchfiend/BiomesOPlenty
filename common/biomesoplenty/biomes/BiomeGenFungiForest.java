@@ -44,6 +44,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.reedsBOPPerChunk = 1;
 		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.shrubsPerChunk = 1;
+		customBiomeDecorator.cloverPatchesPerChunk = 20;
 		customBiomeDecorator.generateMycelium = true;
 		customBiomeDecorator.generatePumpkins = true;
 		waterColorMultiplier = 65326;

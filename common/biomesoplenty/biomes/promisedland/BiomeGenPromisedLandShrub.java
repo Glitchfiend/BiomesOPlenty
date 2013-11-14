@@ -27,9 +27,9 @@ public class BiomeGenPromisedLandShrub extends BiomeGenBase implements IWCFog
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		topBlock = (byte)Blocks.holyGrass.get().blockID;
 		fillerBlock = (byte)Blocks.holyDirt.get().blockID;
-		customBiomeDecorator.treesPerChunk = 50;
+		customBiomeDecorator.treesPerChunk = 40;
 		customBiomeDecorator.grassPerChunk = -999;
-		customBiomeDecorator.holyTallGrassPerChunk = 10;
+		customBiomeDecorator.holyTallGrassPerChunk = 50;
 		customBiomeDecorator.promisedWillowPerChunk = 80;
 		customBiomeDecorator.rainbowflowersPerChunk = 5;
 		customBiomeDecorator.generateLakes = false;

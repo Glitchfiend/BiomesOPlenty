@@ -8,12 +8,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.Items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOP extends Item
 {
-	private static String[] items = {"mudbrick", "ash", "emptyhoneycomb", "poison", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ghastlysoul"};
+	private static String[] items = {"mudbrick", "ash", "emptyhoneycomb", "thing", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ghastlysoul", "jarempty", "jarhoney", "jarpoison"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
@@ -55,6 +56,25 @@ public class ItemBOP extends Item
 
 		return textures[meta];
 	}
+	
+	@Override
+    public int getItemStackLimit(ItemStack par1ItemStack)
+    {
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 11)
+    	{
+    		return 1;
+    	}
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 12)
+    	{
+    		return 1;
+    	}
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 13)
+    	{
+    		return 1;
+    	}
+    	
+        return 64;
+    }
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override

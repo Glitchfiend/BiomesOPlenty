@@ -33,6 +33,7 @@ public class BiomeGenMeadow extends BiomeGenBase
 		customBiomeDecorator.hydrangeasPerChunk = 3;
 		customBiomeDecorator.sunflowersPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 5;
+		customBiomeDecorator.cloverPatchesPerChunk = 15;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}

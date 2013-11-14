@@ -28,6 +28,7 @@ public class BiomeGenBambooForest extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.reedsBOPPerChunk = 6;
 		customBiomeDecorator.wheatGrassPerChunk = 3;
 		customBiomeDecorator.shrubsPerChunk = 6;
+		customBiomeDecorator.cloverPatchesPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 	

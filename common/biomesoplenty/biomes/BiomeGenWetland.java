@@ -48,6 +48,7 @@ public class BiomeGenWetland extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.shrubsPerChunk = 10;
 		customBiomeDecorator.waterReedsPerChunk = 8;
 		customBiomeDecorator.koruPerChunk = 1;
+		customBiomeDecorator.cloverPatchesPerChunk = 15;
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));

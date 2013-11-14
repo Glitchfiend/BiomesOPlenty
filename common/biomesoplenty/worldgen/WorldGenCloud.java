@@ -12,7 +12,7 @@ public class WorldGenCloud extends WorldGenerator
 	@Override
 	public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
 	{
-		int var998 = par2Random.nextInt(7);
+		int var998 = par2Random.nextInt(10);
 		
 		if (var998 != 0)
 		{

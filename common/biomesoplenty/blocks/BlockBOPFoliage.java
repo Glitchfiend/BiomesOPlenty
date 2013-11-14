@@ -38,7 +38,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFoliage extends BlockFlower implements IShearable
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru"};
+	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch"};
 
 	private Icon[] textures;
 	public Icon shrubBranch;
@@ -281,6 +281,9 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 
 		case 2: // Medium Grass
 		return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, x + 0.9D, y + 0.6D, z + 0.9D);
+		
+		case 13: //Clover Patch
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
 
 		default:
 			return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, x + 0.9D, y + 0.8D, z + 0.9D);
@@ -319,6 +322,12 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 			minY = 0.0F;
 			maxX = maxZ = 0.9F;
 			maxY = 0.6F;
+			break;
+			
+		case 13:
+			minX = minY = minZ = 0F;
+			maxX = maxZ = 1.0F;
+			maxY = 0.015625F;
 			break;
 
 		default:

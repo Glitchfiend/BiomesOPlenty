@@ -33,6 +33,7 @@ public class BiomeGenOrchard extends BiomeGenBase
 		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 10;
 		customBiomeDecorator.waterReedsPerChunk = 4;
+		customBiomeDecorator.cloverPatchesPerChunk = 15;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 	}
 	

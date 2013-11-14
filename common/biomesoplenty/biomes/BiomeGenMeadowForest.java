@@ -27,6 +27,7 @@ public class BiomeGenMeadowForest extends BiomeGenBase
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
 		customBiomeDecorator.hydrangeasPerChunk = 3;
+		customBiomeDecorator.cloverPatchesPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = true;
 	}
 	
