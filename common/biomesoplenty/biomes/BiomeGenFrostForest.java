@@ -27,6 +27,7 @@ public class BiomeGenFrostForest extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.shrubsPerChunk = 1;
 		customBiomeDecorator.icyIrisPerChunk = 3;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
+		customBiomeDecorator.violetsPerChunk = 1;
 		customBiomeDecorator.generatePumpkins = false;
 	}
 	

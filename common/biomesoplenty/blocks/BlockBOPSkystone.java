@@ -14,7 +14,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPSkystone extends Block
 {
-	private static final String[] types = new String[] {"holystone", "holycobble", "holybrick"};
+	private static final String[] types = new String[] {"holystone", "holycobble", "holybrick", "holystonemossy"};
 	private Icon[] textures = {null, null, null};
 
 	public BlockBOPSkystone(int par1)
@@ -60,7 +60,16 @@ public class BlockBOPSkystone extends Block
 	@Override
 	public int damageDropped(int meta)
 	{
-		return meta == 0 ? 1 : meta;
+		if (meta == 0)
+		{
+			return 1;
+		}
+		if (meta == 3)
+		{
+			return 1;
+		}
+
+		return meta;
 	}
 
 	@Override
@@ -81,6 +90,10 @@ public class BlockBOPSkystone extends Block
 
 		case 2:
 			hardness = 1.1F;
+			break;
+			
+		case 3:
+			hardness = 1.0F;
 			break;
 		}
 

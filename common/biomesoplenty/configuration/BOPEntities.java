@@ -106,9 +106,9 @@ public class BOPEntities {
 
 		    registerEntityEgg(EntityBird.class, 5277691, 16772788);
 		    
-		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent())
+		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent() && Biomes.promisedLandShrub.isPresent())
 			{
-				EntityRegistry.addSpawn(EntityBird.class, 10, 3, 5, EnumCreatureType.creature, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get());
+				EntityRegistry.addSpawn(EntityBird.class, 10, 3, 5, EnumCreatureType.creature, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get(), Biomes.promisedLandShrub.get());
 			}
 		}
 	}

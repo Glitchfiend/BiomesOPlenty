@@ -16,6 +16,7 @@ public class BCIntegration {
 	{
 		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandForest.get().biomeID));
 		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandPlains.get().biomeID));
+		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandShrub.get().biomeID));
 		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.promisedLandSwamp.get().biomeID));
 
 		FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", Integer.toString(Biomes.netherBase.get().biomeID));

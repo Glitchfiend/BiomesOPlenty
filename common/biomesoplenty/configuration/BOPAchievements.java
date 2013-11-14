@@ -104,6 +104,11 @@ public class BOPAchievements
 						player.addStat(BOPAchievements.achPromised, 1);
 					}
 					
+					if (biomeID == Biomes.promisedLandShrub.get().biomeID)
+					{
+						player.addStat(BOPAchievements.achPromised, 1);
+					}
+					
 					if (biomeID == Biomes.promisedLandSwamp.get().biomeID)
 					{
 						player.addStat(BOPAchievements.achPromised, 1);

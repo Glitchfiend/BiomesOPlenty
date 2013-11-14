@@ -21,10 +21,11 @@ public class BiomeGenAlpsForest extends BiomeGenBase
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 8;
-		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.grassPerChunk = -999;
+		customBiomeDecorator.flowersPerChunk = 2;
+		customBiomeDecorator.grassPerChunk = 3;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
+		customBiomeDecorator.violetsPerChunk = 2;
 	}
 	
 	@Override

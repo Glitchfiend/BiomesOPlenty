@@ -31,7 +31,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.treesPerChunk = 20;
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.holyTallGrassPerChunk = 50;
-		customBiomeDecorator.promisedWillowPerChunk = 80;
+		customBiomeDecorator.promisedWillowPerChunk = 40;
 		customBiomeDecorator.pinkFlowersPerChunk = 12;
 		customBiomeDecorator.rainbowflowersPerChunk = 10;
 		customBiomeDecorator.blueMilksPerChunk = 5;
@@ -47,6 +47,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase implements IWCFog
 		spawnableMonsterList.clear();
 		spawnableCaveCreatureList.clear();
 		customBiomeDecorator.generatePumpkins = false;
+		customBiomeDecorator.generateMossySkystone = true;
 		//customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
@@ -71,7 +72,7 @@ public class BiomeGenPromisedLandForest extends BiomeGenBase implements IWCFog
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenPromisedShrub(0,0) : (par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false));
+		return par1Random.nextInt(8) == 0 ? new WorldGenPromisedTree2(false) : new WorldGenPromisedTree(false);
 	}
 	
 	@Override

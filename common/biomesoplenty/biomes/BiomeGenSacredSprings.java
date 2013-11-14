@@ -29,7 +29,6 @@ public class BiomeGenSacredSprings extends BiomeGenBase implements IWCFog
         customBiomeDecorator.grassPerChunk = 4;
         customBiomeDecorator.wheatGrassPerChunk = 1;
         customBiomeDecorator.waterlilyPerChunk = 5;
-        customBiomeDecorator.violetsPerChunk = 1;
         customBiomeDecorator.generatePumpkins = false;
         spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class,
                 12, 6, 6));

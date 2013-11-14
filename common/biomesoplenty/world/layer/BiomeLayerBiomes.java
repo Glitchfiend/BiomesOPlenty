@@ -104,6 +104,10 @@ public class BiomeLayerBiomes extends BiomeLayer
 		{
 			promisedBiomes.add(Biomes.promisedLandPlains.get());
 		}
+		if (Biomes.promisedLandShrub.isPresent())
+		{
+			promisedBiomes.add(Biomes.promisedLandShrub.get());
+		}
 		if (Biomes.promisedLandSwamp.isPresent())
 		{
 			promisedBiomes.add(Biomes.promisedLandSwamp.get());

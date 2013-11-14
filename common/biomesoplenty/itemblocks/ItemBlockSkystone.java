@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBlockSkystone extends ItemBlock
 {
-	private static final String[] types = new String[] {"holystone", "holycobble", "holybrick"};
+	private static final String[] types = new String[] {"holystone", "holycobble", "holybrick", "holystonemossy"};
 
 	public ItemBlockSkystone(int par1)
 	{

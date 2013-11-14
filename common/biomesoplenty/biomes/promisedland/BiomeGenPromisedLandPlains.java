@@ -26,7 +26,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase implements IWCFog
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		topBlock = (byte)Blocks.holyGrass.get().blockID;
 		fillerBlock = (byte)Blocks.holyDirt.get().blockID;
-		customBiomeDecorator.treesPerChunk = 4;
+		customBiomeDecorator.treesPerChunk = -999;
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.holyTallGrassPerChunk = 999;
 		customBiomeDecorator.promisedWillowPerChunk = 80;
@@ -43,6 +43,7 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase implements IWCFog
 		spawnableMonsterList.clear();
 		spawnableCaveCreatureList.clear();
 		customBiomeDecorator.generatePumpkins = false;
+		customBiomeDecorator.generateMossySkystone = true;
 		//customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
@@ -58,15 +59,6 @@ public class BiomeGenPromisedLandPlains extends BiomeGenBase implements IWCFog
 				e.printStackTrace();
 			}
 		}*/
-	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return new WorldGenPromisedBush();
 	}
 	
 	@Override

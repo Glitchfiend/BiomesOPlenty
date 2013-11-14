@@ -18,7 +18,7 @@ public class WorldProviderPromised extends WorldProvider
 	@Override
 	public void registerWorldChunkManager()
 	{
-		if (Biomes.promisedLandForest.isPresent() || Biomes.promisedLandPlains.isPresent() || Biomes.promisedLandSwamp.isPresent())
+		if (Biomes.promisedLandForest.isPresent() || Biomes.promisedLandPlains.isPresent() || Biomes.promisedLandShrub.isPresent() || Biomes.promisedLandSwamp.isPresent())
 		{
 			worldChunkMgr = new WorldChunkManagerPromised(worldObj);
 		}

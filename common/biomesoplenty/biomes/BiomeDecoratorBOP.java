@@ -45,7 +45,6 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Fluids;
-import biomesoplenty.configuration.configfile.BOPConfiguration;
 import biomesoplenty.configuration.configfile.BOPConfigurationTerrainGen;
 import biomesoplenty.worldgen.WorldGenAlgae;
 import biomesoplenty.worldgen.WorldGenAsh;
@@ -80,10 +79,10 @@ import biomesoplenty.worldgen.WorldGenKelp;
 import biomesoplenty.worldgen.WorldGenLilyflower;
 import biomesoplenty.worldgen.WorldGenMelon;
 import biomesoplenty.worldgen.WorldGenMesa;
+import biomesoplenty.worldgen.WorldGenMossySkystone;
 import biomesoplenty.worldgen.WorldGenMud;
 import biomesoplenty.worldgen.WorldGenMycelium;
 import biomesoplenty.worldgen.WorldGenNetherGrass;
-import biomesoplenty.worldgen.WorldGenNetherHive;
 import biomesoplenty.worldgen.WorldGenNetherLava;
 import biomesoplenty.worldgen.WorldGenNetherVines;
 import biomesoplenty.worldgen.WorldGenNetherWart;
@@ -154,7 +153,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public WorldGenerator clayInStone2Gen;
 	public WorldGenerator quagmireGen;
 	public WorldGenerator quicksandGen;
-	public WorldGenerator hiveGen;
+	public WorldGenerator mossySkystoneGen;
 	public WorldGenerator spongeGen;
 	public WorldGenerator canyonGen;
 	public WorldGenerator cloudGen;
@@ -443,7 +442,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public boolean generateClouds;
 	public boolean generateQuicksand;
 	public boolean generateSponge;
-	public boolean generateHive;
+	public boolean generateMossySkystone;
 
 	public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
 	{
@@ -468,7 +467,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		clayInStoneGen = new WorldGenBadlands3(Block.stainedClay.blockID, 32);
 		clayInStone2Gen = new WorldGenBadlands(Block.stainedClay.blockID, 32);
 		quagmireGen = new WorldGenQuagmire(Block.grass.blockID, 48);
-		hiveGen = new WorldGenNetherHive(Blocks.hive.get().blockID, 48);
+		mossySkystoneGen = new WorldGenMossySkystone(Blocks.holyStone.get().blockID, 24);
 		quicksandGen = new WorldGenQuicksand(Blocks.mud.get().blockID, 24);
 		spongeGen = new WorldGenSponge(Block.sponge.blockID, 24);
 		canyonGen = new WorldGenCanyon(Blocks.redRock.get().blockID, 48);
@@ -659,8 +658,8 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		koruPerChunk = 0;
 		waspHivesPerChunk = 0;
 		rootsPerChunk = 9;
-		stalagmitesPerChunk = 5;
-		stalactitesPerChunk = 10;
+		stalagmitesPerChunk = 3;
+		stalactitesPerChunk = 6;
 		cloudsPerChunk = 0;
 		generateLakes = true;
 		generateAsh = false;
@@ -682,7 +681,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		generateClouds = false;
 		generateQuicksand = false;
 		generateSponge = false;
-		generateHive = false;
+		generateMossySkystone = false;
 		biome = par1BiomeGenBase;
 	}
 
@@ -876,9 +875,9 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 this.genStandardOre1(15, quagmireGen, 64, 128);
 		 }
 		 
-		 if (generateHive)
+		 if (generateMossySkystone)
 		 {
-			 this.genStandardOre1(5, hiveGen, 0, 128);
+			 this.genStandardOre1(15, mossySkystoneGen, 0, 80);
 		 }
 
 		 if (generateCanyon)
@@ -1357,7 +1356,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 if (BOPConfigurationTerrainGen.stoneFormationGen)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-				 var4 = randomGenerator.nextInt(64);
+				 var4 = randomGenerator.nextInt(60);
 				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 				 stalagmiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 			 }
@@ -1368,7 +1367,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 if (BOPConfigurationTerrainGen.stoneFormationGen)
 			 {
 				 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-				 var4 = randomGenerator.nextInt(64);
+				 var4 = randomGenerator.nextInt(60);
 				 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
 				 stalactiteGen.generate(currentWorld, randomGenerator, var3, var4, var5);
 			 }

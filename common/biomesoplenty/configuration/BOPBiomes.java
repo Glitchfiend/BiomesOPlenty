@@ -115,6 +115,7 @@ import biomesoplenty.biomes.ocean.BiomeGenOceanCoral;
 import biomesoplenty.biomes.ocean.BiomeGenOceanKelp;
 import biomesoplenty.biomes.promisedland.BiomeGenPromisedLandForest;
 import biomesoplenty.biomes.promisedland.BiomeGenPromisedLandPlains;
+import biomesoplenty.biomes.promisedland.BiomeGenPromisedLandShrub;
 import biomesoplenty.biomes.promisedland.BiomeGenPromisedLandSwamp;
 import biomesoplenty.biomes.vanilla.BiomeGenDesertNew;
 import biomesoplenty.biomes.vanilla.BiomeGenForestNew;
@@ -264,6 +265,7 @@ public class BOPBiomes {
 
 		Biomes.promisedLandForest = Optional.of((new BiomeGenPromisedLandForest(BOPConfigurationIDs.promisedLandForestID)).setColor(7925125).setBiomeName("Wonderous Woods").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 		Biomes.promisedLandPlains = Optional.of((new BiomeGenPromisedLandPlains(BOPConfigurationIDs.promisedLandPlainsID)).setColor(13433204).setBiomeName("Majestic Meadow").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
+		Biomes.promisedLandShrub = Optional.of((new BiomeGenPromisedLandShrub(BOPConfigurationIDs.promisedLandShrubID)).setColor(13433204).setBiomeName("Sublime Shrubland").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 		Biomes.promisedLandSwamp = Optional.of((new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.promisedLandSwampID)).setColor(3447145).setBiomeName("Blessed Bog").setTemperatureRainfall(2.0F, 2.0F).setMinMaxHeight(0.1F, 2.0F));
 
 		Biomes.quagmire = Optional.of((new BiomeGenQuagmire(BOPConfigurationIDs.quagmireID)).setColor(5257771).setBiomeName("Quagmire").func_76733_a(9154376).setMinMaxHeight(0.2F, 0.3F).setTemperatureRainfall(0.8F, 0.9F));
@@ -410,6 +412,7 @@ public class BOPBiomes {
 
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandForest.get(), Type.FOREST, Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandPlains.get(), Type.PLAINS, Type.MAGICAL);
+		BiomeDictionary.registerBiomeType(Biomes.promisedLandShrub.get(), Type.PLAINS, Type.FOREST, Type.MAGICAL);
 		BiomeDictionary.registerBiomeType(Biomes.promisedLandSwamp.get(), Type.SWAMP, Type.MAGICAL);
 
 		BiomeDictionary.registerBiomeType(Biomes.quagmire.get(), Type.WASTELAND, Type.SWAMP);

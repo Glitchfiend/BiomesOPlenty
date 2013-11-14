@@ -242,6 +242,7 @@ public class BOPConfigurationIDs
 
 	public static int promisedLandForestID;
 	public static int promisedLandPlainsID;
+	public static int promisedLandShrubID;
 	public static int promisedLandSwampID;
 
 	public static int quagmireID;
@@ -496,6 +497,7 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			promisedLandShrubID = config.get("Biome IDs", "Sublime Shrubland (Promised Land) ID", 28).getInt();
 			mysticGroveThinID = config.get("Biome IDs", "Thinned Mystic Grove (Sub-Biome) ID", 29).getInt();
 			netherBloodID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 30).getInt();
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 31).getInt();

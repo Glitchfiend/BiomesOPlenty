@@ -49,7 +49,7 @@ tile.bop.flowers.rainbowflower.name=Chromaflora
 tile.bop.flowers.bromeliad.name=Bromeliad
 tile.bop.flowers.sunflowerbottom.name=Sunflower
 tile.bop.flowers.sunflowertop.name=Sunflower
-tile.bop.flowers.dandelion.name=White Dandelion
+tile.bop.flowers.dandelion.name=Dandelion Puff
 
 tile.bop.flowers2.hibiscus.name=Pink Hibiscus
 tile.bop.flowers2.lilyofthevalley.name=Lily of the Valley
@@ -136,6 +136,7 @@ tile.bop.holyGrass.smolderinggrass.name=Smoldering Grass Block
 tile.bop.holyStone.holystone.name=Skystone
 tile.bop.holyStone.holycobble.name=Skystone Cobblestone
 tile.bop.holyStone.holybrick.name=Skystone Bricks
+tile.bop.holyStone.holystonemossy.name=Mossy Skystone
 
 tile.bop.holyCobbleStairs.name=Skystone Cobblestone Stairs
 tile.bop.holyBricksStairs.name=Skystone Bricks Stairs

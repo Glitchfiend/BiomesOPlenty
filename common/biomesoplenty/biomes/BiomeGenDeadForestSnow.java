@@ -28,6 +28,7 @@ public class BiomeGenDeadForestSnow extends BiomeGenBase
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 1;
+		customBiomeDecorator.violetsPerChunk = 1;
 	}
 	
 	@Override
