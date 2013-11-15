@@ -3,7 +3,7 @@
     "repo": "http://files.minecraftforge.net/WorldCore/",
     "file": "WorldCore-universal-@MC_VERSION@-@WORLDCORE_VERSION@.jar",
     "dev": "WorldCore-dev-@MC_VERSION@-@WORLDCORE_VERSION@.jar",
-    "class": "worldcore.asm.WCFMLLoadingPlugin”,
-    “version”: "@WORLDCORE_VERSION@"
+    "class": "worldcore.asm.WCFMLLoadingPlugin",
+    "version": "@WORLDCORE_VERSION@"
 }
 ]
