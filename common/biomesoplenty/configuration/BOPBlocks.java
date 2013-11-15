@@ -3,6 +3,7 @@ package biomesoplenty.configuration;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockAsh;
@@ -213,88 +214,93 @@ public class BOPBlocks
 	private static void registerBlocks()
 	{
 		// Add block registration
-		GameRegistry.registerBlock(Blocks.mud.get(), ItemBlockMud.class, "bop.mud");
-		GameRegistry.registerBlock(Blocks.driedDirt.get(), "bop.driedDirt");
-		GameRegistry.registerBlock(Blocks.redRock.get(), ItemBlockRedRock.class, "bop.redRock");
-		GameRegistry.registerBlock(Blocks.ash.get(), "bop.ash");
-		GameRegistry.registerBlock(Blocks.flesh.get(), "bop.flesh");
-		GameRegistry.registerBlock(Blocks.plants.get(), ItemBlockPlant.class, "bop.plants");
-		GameRegistry.registerBlock(Blocks.flowers.get(), ItemBlockFlower.class, "bop.flowers");
-		GameRegistry.registerBlock(Blocks.flowers2.get(), ItemBlockFlower2.class, "bop.flowers2");
-		GameRegistry.registerBlock(Blocks.stoneFormations.get(), ItemBlockStoneFormations.class, "bop.stoneFormations");
-		GameRegistry.registerBlock(Blocks.mushrooms.get(), ItemBlockMushroom.class, "bop.mushrooms");
-		GameRegistry.registerBlock(Blocks.coral.get(), ItemBlockCoral.class, "bop.coral");
-		GameRegistry.registerBlock(Blocks.willow.get(), ItemBOPWillow.class, "bop.willow");
-		GameRegistry.registerBlock(Blocks.ivy.get(), ItemBOPIvy.class, "bop.ivy");
-		GameRegistry.registerBlock(Blocks.leaves1.get(), ItemBlockLeaves.class, "bop.leaves1");
-		GameRegistry.registerBlock(Blocks.leaves2.get(), ItemBlockLeaves.class, "bop.leaves2");
-		GameRegistry.registerBlock(Blocks.foliage.get(), ItemBlockFoliage.class, "bop.foliage");
-		GameRegistry.registerBlock(Blocks.ashStone.get(), "bop.ashStone");
-		GameRegistry.registerBlock(Blocks.hardIce.get(), "bop.hardIce");
-		GameRegistry.registerBlock(Blocks.leavesFruit.get(), ItemBlockAppleLeaves.class, "bop.leavesFruit");
-		GameRegistry.registerBlock(Blocks.leavesFruit2.get(), ItemBlockPersimmonLeaves.class, "bop.leavesFruit2");
-		GameRegistry.registerBlock(Blocks.bamboo.get(), ItemBlockBamboo.class, "bop.bamboo");
-		GameRegistry.registerBlock(Blocks.mudBrick.get(), "bop.mudBrick");
-		GameRegistry.registerBlock(Blocks.mudBricksStairs.get(), "bop.mudBricksStairs");
-		GameRegistry.registerBlock(Blocks.originGrass.get(), "bop.originGrass");
-		GameRegistry.registerBlock(Blocks.longGrass.get(), "bop.longGrass");
-		GameRegistry.registerBlock(Blocks.treeMoss.get(), "bop.treeMoss");
-		GameRegistry.registerBlock(Blocks.logs1.get(), ItemBlockLog.class, "bop.wood1");
-		GameRegistry.registerBlock(Blocks.logs2.get(), ItemBlockLog.class, "bop.wood2");
-		GameRegistry.registerBlock(Blocks.logs3.get(), ItemBlockLog.class, "bop.wood3");
-		GameRegistry.registerBlock(Blocks.logs4.get(), ItemBlockLog.class, "bop.wood4");
-		GameRegistry.registerBlock(Blocks.petals.get(), ItemBlockPetals.class, "bop.petals");
-		GameRegistry.registerBlock(Blocks.saplings.get(), ItemBlockSapling.class, "bop.saplings");
-		GameRegistry.registerBlock(Blocks.colorizedSaplings.get(), ItemBlockColorizedSapling.class, "bop.colorizedSaplings");
-		GameRegistry.registerBlock(Blocks.redCobbleStairs.get(), "bop.redCobbleStairs");
-		GameRegistry.registerBlock(Blocks.redBricksStairs.get(), "bop.redBricksStairs");
-		GameRegistry.registerBlock(Blocks.hardSand.get(), "bop.hardSand");
-		GameRegistry.registerBlock(Blocks.hardDirt.get(), "bop.hardDirt");
-		GameRegistry.registerBlock(Blocks.crystal.get(), "bop.crystal");
-		GameRegistry.registerBlock(Blocks.holyGrass.get(), ItemBlockGrass.class, "bop.holyGrass");
-		GameRegistry.registerBlock(Blocks.holyDirt.get(), "bop.holyDirt");
-		GameRegistry.registerBlock(Blocks.holyStone.get(), ItemBlockSkystone.class, "bop.holyStone");
-		GameRegistry.registerBlock(Blocks.holyCobbleStairs.get(), "bop.holyCobbleStairs");
-		GameRegistry.registerBlock(Blocks.holyBricksStairs.get(), "bop.holyBricksStairs");
-		GameRegistry.registerBlock(Blocks.promisedPortal.get(), "bop.promisedPortal");
-		GameRegistry.registerBlock(Blocks.amethystOre.get(), ItemBOPAmethyst.class, "bop.amethystOre");
-		GameRegistry.registerBlock(Blocks.moss.get(), ItemBlockMoss.class, "bop.moss");
-		GameRegistry.registerBlock(Blocks.cragRock.get(), "bop.cragRock");
-		GameRegistry.registerBlock(Blocks.cloud.get(), "bop.cloud");
-		GameRegistry.registerBlock(Blocks.hive.get(), ItemBlockHive.class, "bop.hive");
-		GameRegistry.registerBlock(Blocks.honeyBlock.get(), "bop.honeyBlock");
+		registerBlock(Blocks.mud.get(), ItemBlockMud.class);
+		registerBlock(Blocks.driedDirt.get());
+		registerBlock(Blocks.redRock.get(), ItemBlockRedRock.class);
+		registerBlock(Blocks.ash.get());
+		registerBlock(Blocks.flesh.get());
+		registerBlock(Blocks.plants.get(), ItemBlockPlant.class);
+		registerBlock(Blocks.flowers.get(), ItemBlockFlower.class);
+		registerBlock(Blocks.flowers2.get(), ItemBlockFlower2.class);
+		registerBlock(Blocks.stoneFormations.get(), ItemBlockStoneFormations.class);
+		registerBlock(Blocks.mushrooms.get(), ItemBlockMushroom.class);
+		registerBlock(Blocks.coral.get(), ItemBlockCoral.class);
+		registerBlock(Blocks.willow.get(), ItemBOPWillow.class);
+		registerBlock(Blocks.ivy.get(), ItemBOPIvy.class);
+		registerBlock(Blocks.leaves1.get(), ItemBlockLeaves.class);
+		registerBlock(Blocks.leaves2.get(), ItemBlockLeaves.class);
+		registerBlock(Blocks.foliage.get(), ItemBlockFoliage.class);
+		registerBlock(Blocks.ashStone.get());
+		registerBlock(Blocks.hardIce.get());
+		registerBlock(Blocks.leavesFruit.get(), ItemBlockAppleLeaves.class);
+		registerBlock(Blocks.leavesFruit2.get(), ItemBlockPersimmonLeaves.class);
+		registerBlock(Blocks.bamboo.get(), ItemBlockBamboo.class);
+		registerBlock(Blocks.mudBrick.get());
+		registerBlock(Blocks.mudBricksStairs.get());
+		registerBlock(Blocks.originGrass.get());
+		registerBlock(Blocks.longGrass.get());
+		registerBlock(Blocks.treeMoss.get());
+		registerBlock(Blocks.logs1.get(), ItemBlockLog.class);
+		registerBlock(Blocks.logs2.get(), ItemBlockLog.class);
+		registerBlock(Blocks.logs3.get(), ItemBlockLog.class);
+		registerBlock(Blocks.logs4.get(), ItemBlockLog.class);
+		registerBlock(Blocks.petals.get(), ItemBlockPetals.class);
+		registerBlock(Blocks.saplings.get(), ItemBlockSapling.class);
+		registerBlock(Blocks.colorizedSaplings.get(), ItemBlockColorizedSapling.class);
+		registerBlock(Blocks.redCobbleStairs.get());
+		registerBlock(Blocks.redBricksStairs.get());
+		registerBlock(Blocks.hardSand.get());
+		registerBlock(Blocks.hardDirt.get());
+		registerBlock(Blocks.crystal.get());
+		registerBlock(Blocks.holyGrass.get(), ItemBlockGrass.class);
+		registerBlock(Blocks.holyDirt.get());
+		registerBlock(Blocks.holyStone.get(), ItemBlockSkystone.class);
+		registerBlock(Blocks.holyCobbleStairs.get());
+		registerBlock(Blocks.holyBricksStairs.get());
+		registerBlock(Blocks.promisedPortal.get());
+		registerBlock(Blocks.amethystOre.get(), ItemBOPAmethyst.class);
+		registerBlock(Blocks.moss.get(), ItemBlockMoss.class);
+		registerBlock(Blocks.cragRock.get());
+		registerBlock(Blocks.cloud.get());
+		registerBlock(Blocks.hive.get(), ItemBlockHive.class);
+		registerBlock(Blocks.honeyBlock.get());
 
-		GameRegistry.registerBlock(Blocks.bones.get(), ItemBlockBones.class, "bop.bones");
-		GameRegistry.registerBlock(Blocks.puddle.get(), "bop.puddle");	
-		GameRegistry.registerBlock(Blocks.grave.get(), ItemBlockGrave.class, "bop.grave");	
+		registerBlock(Blocks.bones.get(), ItemBlockBones.class);
+		registerBlock(Blocks.puddle.get());	
+		registerBlock(Blocks.grave.get(), ItemBlockGrave.class);	
 
 		ItemBlockSlab.setSlabs(Blocks.stoneSingleSlab.get(), Blocks.stoneDoubleSlab.get());
-		GameRegistry.registerBlock(Blocks.stoneDoubleSlab.get(), ItemBlockSlab.class, "bop.stoneDoubleSlab");
-		GameRegistry.registerBlock(Blocks.stoneSingleSlab.get(), ItemBlockSlab.class, "bop.stoneSingleSlab");
+		
+		registerBlock(Blocks.stoneDoubleSlab.get(), ItemBlockSlab.class);
+		registerBlock(Blocks.stoneSingleSlab.get(), ItemBlockSlab.class);
+		
 		ItemBlockSlab.setSlabs(Blocks.woodenSingleSlab1.get(), Blocks.woodenDoubleSlab1.get());
-		GameRegistry.registerBlock(Blocks.woodenDoubleSlab1.get(), ItemBlockSlab.class, "bop.woodenDoubleSlab1");
-		GameRegistry.registerBlock(Blocks.woodenSingleSlab1.get(), ItemBlockSlab.class, "bop.woodenSingleSlab1");
+		
+		registerBlock(Blocks.woodenDoubleSlab1.get(), ItemBlockSlab.class);
+		registerBlock(Blocks.woodenSingleSlab1.get(), ItemBlockSlab.class);
+		
 		ItemBlockSlab.setSlabs(Blocks.woodenSingleSlab2.get(), Blocks.woodenDoubleSlab2.get());
-		GameRegistry.registerBlock(Blocks.woodenDoubleSlab2.get(), ItemBlockSlab.class, "bop.woodenDoubleSlab2");
-		GameRegistry.registerBlock(Blocks.woodenSingleSlab2.get(), ItemBlockSlab.class, "bop.woodenSingleSlab2");
+		
+		registerBlock(Blocks.woodenDoubleSlab2.get(), ItemBlockSlab.class);
+		registerBlock(Blocks.woodenSingleSlab2.get(), ItemBlockSlab.class);
 
-		GameRegistry.registerBlock(Blocks.planks.get(), ItemBlockPlank.class, "bop.planks");
+		registerBlock(Blocks.planks.get(), ItemBlockPlank.class);
 
-		GameRegistry.registerBlock(Blocks.acaciaStairs.get(), "bop.acaciaStairs");
-		GameRegistry.registerBlock(Blocks.cherryStairs.get(), "bop.cherryStairs");
-		GameRegistry.registerBlock(Blocks.darkStairs.get(), "bop.darkStairs");
-		GameRegistry.registerBlock(Blocks.firStairs.get(), "bop.firStairs");
-		GameRegistry.registerBlock(Blocks.holyStairs.get(), "bop.holyStairs");
-		GameRegistry.registerBlock(Blocks.magicStairs.get(), "bop.magicStairs");
-		GameRegistry.registerBlock(Blocks.mangroveStairs.get(), "bop.mangroveStairs");
-		GameRegistry.registerBlock(Blocks.palmStairs.get(), "bop.palmStairs");
-		GameRegistry.registerBlock(Blocks.redwoodStairs.get(), "bop.redwoodStairs");
-		GameRegistry.registerBlock(Blocks.willowStairs.get(), "bop.willowStairs");
-		GameRegistry.registerBlock(Blocks.pineStairs.get(), "bop.pineStairs");
-		GameRegistry.registerBlock(Blocks.hellBarkStairs.get(), "bop.hellBarkStairs");
-		GameRegistry.registerBlock(Blocks.jacarandaStairs.get(), "bop.jacarandaStairs");
+		registerBlock(Blocks.acaciaStairs.get());
+		registerBlock(Blocks.cherryStairs.get());
+		registerBlock(Blocks.darkStairs.get());
+		registerBlock(Blocks.firStairs.get());
+		registerBlock(Blocks.holyStairs.get());
+		registerBlock(Blocks.magicStairs.get());
+		registerBlock(Blocks.mangroveStairs.get());
+		registerBlock(Blocks.palmStairs.get());
+		registerBlock(Blocks.redwoodStairs.get());
+		registerBlock(Blocks.willowStairs.get());
+		registerBlock(Blocks.pineStairs.get());
+		registerBlock(Blocks.hellBarkStairs.get());
+		registerBlock(Blocks.jacarandaStairs.get());
 
-		GameRegistry.registerBlock(Blocks.leavesColorized.get(), ItemBlockColorizedLeaves.class, "bop.leavesColorized");
+		registerBlock(Blocks.leavesColorized.get(), ItemBlockColorizedLeaves.class);
 	}
 	
 	private static void registerTileEntities()
@@ -314,5 +320,15 @@ public class BOPBlocks
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 9, 5);
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 10, 75);
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 11, 75);
+	}
+
+	private static void registerBlock(Block block)
+	{
+	    GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
+	}
+
+	private static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
+	{
+	    GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
 	}
 }

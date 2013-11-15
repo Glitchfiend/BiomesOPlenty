@@ -3,9 +3,11 @@ package biomesoplenty.configuration;
 import java.util.Map;
 import java.util.logging.Level;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.BiomesOPlenty;
@@ -39,6 +41,7 @@ import com.google.common.base.Optional;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameData;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPItems {
@@ -98,6 +101,7 @@ public class BOPItems {
 		EnumArmorMaterialFlippers = EnumHelper.addArmorMaterial("FLIPPERS", -1, new int[]{0, 0, 0, 0}, 0);
 
 		initializeItems();
+		registerItems();
 
 		MinecraftForge.setToolClass(Items.shovelAmethyst.get(), "shovel", 4);
 		MinecraftForge.setToolClass(Items.pickaxeAmethyst.get(), "pickaxe", 4);
@@ -154,5 +158,61 @@ public class BOPItems {
 		Items.flowerBand = Optional.of((new ArmorFlowerBand(BOPConfigurationIDs.flowerBandID, EnumArmorMaterialFlowerBand, BiomesOPlenty.proxy.addArmor("flowerBand"), 0)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flowerBand"));
 		Items.wadingBoots = Optional.of((new ArmorWadingBoots(BOPConfigurationIDs.wadingBootsID, EnumArmorMaterialWadingBoots, BiomesOPlenty.proxy.addArmor("wadingBoots"), 3)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.wadingBoots"));
 		Items.flippers = Optional.of((new ArmorFlippers(BOPConfigurationIDs.flippersID, EnumArmorMaterialFlippers, BiomesOPlenty.proxy.addArmor("flippers"), 3)).setCreativeTab(BiomesOPlenty.tabBiomesOPlenty).setUnlocalizedName("bop.flippers"));
+	}
+	
+	private static void registerItems()
+	{
+        registerItem(Items.food.get());
+        registerItem(Items.miscItems.get());
+        registerItem(Items.jarEmpty.get()); 
+        registerItem(Items.jarFilled.get()); 
+        registerItem(Items.gems.get());
+        registerItem(Items.mudball.get());
+        registerItem(Items.dartBlower.get());
+        registerItem(Items.dart.get());
+
+        registerItem(Items.ancientStaff.get());
+
+        registerItem(Items.enderporter.get());
+
+        registerItem(Items.bopDisc.get()); 
+        registerItem(Items.bopDiscMud.get()); 
+
+        registerItem(Items.swordMud.get());
+        registerItem(Items.shovelMud.get()); 
+        registerItem(Items.pickaxeMud.get());
+        registerItem(Items.axeMud.get());
+        registerItem(Items.hoeMud.get());
+        registerItem(Items.helmetMud.get());
+        registerItem(Items.chestplateMud.get());
+        registerItem(Items.leggingsMud.get());
+        registerItem(Items.bootsMud.get());
+
+        registerItem(Items.swordAmethyst.get()); 
+        registerItem(Items.shovelAmethyst.get()); 
+        registerItem(Items.pickaxeAmethyst.get());
+        registerItem(Items.axeAmethyst.get()); 
+        registerItem(Items.hoeAmethyst.get()); 
+        registerItem(Items.helmetAmethyst.get()); 
+        registerItem(Items.chestplateAmethyst.get());
+        registerItem(Items.leggingsAmethyst.get());
+        registerItem(Items.bootsAmethyst.get());
+
+        registerItem(Items.scytheWood.get()); 
+        registerItem(Items.scytheStone.get());
+        registerItem(Items.scytheIron.get()); 
+        registerItem(Items.scytheGold.get()); 
+        registerItem(Items.scytheDiamond.get());
+        registerItem(Items.scytheMud.get());
+        registerItem(Items.scytheAmethyst.get());
+
+        registerItem(Items.flowerBand.get()); 
+        registerItem(Items.wadingBoots.get());
+        registerItem(Items.flippers.get());
+	}
+
+	private static void registerItem(Item item)
+	{
+	    GameRegistry.registerItem(item, item.getUnlocalizedName().replace("item.", ""));
 	}
 }
