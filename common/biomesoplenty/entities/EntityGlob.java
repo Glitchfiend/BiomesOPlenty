@@ -5,6 +5,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -262,15 +263,25 @@ public class EntityGlob extends EntityLiving implements IMob
 	 {
 		 return "mob.slime." + (this.getGlobSize() > 1 ? "big" : "small");
 	 }
+	 
+	@Override
+	protected void dropFewItems(boolean par1, int par2)
+	{
+		int var3 = rand.nextInt(3) + rand.nextInt(1 + par2);
+		
+		if (rand.nextInt(1000) == 0)
+		{
+			this.entityDropItem(new ItemStack(Items.bopDiscMud.get(), 1, 1), 0.0F);
+		}
 
-	 /**
-	  * Returns the item ID for the item the mob drops on death.
-	  */
-	 @Override
-	 protected int getDropItemId()
-	 {
-		 return this.getGlobSize() == 1 ? Item.slimeBall.itemID : Items.mudball.get().itemID;
-	 }
+		for (int var4 = 0; var4 < var3; ++var4)
+		{
+			this.entityDropItem(new ItemStack(Items.mudball.get(), 1, 1), 0.0F);
+		}
+		
+
+		this.dropItem(Item.slimeBall.itemID, 1);
+	}
 
 	 /**
 	  * Checks if the entity's current position is a valid location to spawn this entity.

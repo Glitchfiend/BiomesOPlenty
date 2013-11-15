@@ -39,7 +39,7 @@ public class BOPAchievements
 	
 	public static Achievement achPromised;
 	public static Achievement achCelestial;
-	public static Achievement achBird;
+	public static Achievement achAmbrosia;
 
 	public static AchievementPage pageBiome;
 	
@@ -66,10 +66,10 @@ public class BOPAchievements
 		
 		achPromised = (new Achievement(3093, "bop.achPromised", 1, -3, new ItemStack(Blocks.holyGrass.get(), 1, 0), achFlower)).registerAchievement().setSpecial();
 		achCelestial = (new Achievement(3094, "bop.achCelestial", -1, -4, new ItemStack(Items.miscItems.get(), 1, 4), achPromised)).registerAchievement();
-		achBird = (new Achievement(3095, "bop.achBird", 0, -6, new ItemStack(Item.feather, 1, 0), achCelestial)).registerAchievement();
+		achAmbrosia = (new Achievement(3095, "bop.achAmbrosia", 0, -6, new ItemStack(Items.food.get(), 1, 10), achCelestial)).registerAchievement();
 		
 		biomesOPlentyAchievementList = new Achievement[] { achFlower, achFlowerBand, achDartBlower, achScythe, achEnderporter, achBerry, achMoss, achThorn, achCoral,
-				achHoney, achWitherWart, achGrave, achPhantom, achPromised, achCelestial, achBird};
+				achHoney, achWitherWart, achGrave, achPhantom, achPromised, achCelestial, achAmbrosia};
 		
 		pageBiome = new AchievementPage("Biomes O\' Plenty", biomesOPlentyAchievementList);
 		
