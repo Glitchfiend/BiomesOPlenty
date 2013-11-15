@@ -38,7 +38,6 @@ public class BOPVanillaCompat {
 
 		if (BOPConfigurationMisc.dungeonLoot == true)
 		{
-			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 2));
 			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 
 			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));

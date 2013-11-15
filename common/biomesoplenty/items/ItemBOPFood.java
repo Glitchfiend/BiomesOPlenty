@@ -228,6 +228,10 @@ public class ItemBOPFood extends ItemFood
             		
             	case 10:
             		player.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 5000, 4));
+            		player.addPotionEffect(new PotionEffect(Potion.field_76443_y.id, 100, 1));
+            		player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 500, 2));
+            		player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 400, 2));
+            		player.addPotionEffect(new PotionEffect(Potion.resistance.id, 600, 1));
             		break;
             }
         }

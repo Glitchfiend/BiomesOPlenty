@@ -29,6 +29,12 @@ public class BOPCraftHandler implements ICraftingHandler
         {
         	var1.addStat(BOPAchievements.achFlowerBand, 1);
         }
+        
+        //Drink of the Gods
+        if (var2.itemID == Items.food.get().itemID && var2.getItemDamage() == 10)
+        {
+        	var1.addStat(BOPAchievements.achAmbrosia, 1);
+        }
 		
 	}
 

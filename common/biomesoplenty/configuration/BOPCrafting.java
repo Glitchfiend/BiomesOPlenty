@@ -263,7 +263,6 @@ public class BOPCrafting
 		}
 		
 		
-		GameRegistry.addRecipe(new ItemStack(Items.bopDiscMud.get(), 1), new Object[] {" M ", "MDM", " M ", 'M', Items.mudball.get(), 'D', Items.bopDisc.get()});
 		GameRegistry.addRecipe(new ItemStack(Blocks.planks.get(), 1, 10), new Object[] {"##", "##", '#', Blocks.bamboo.get()});
 		GameRegistry.addRecipe(new ItemStack(Items.jarEmpty.get(), 3, 0), new Object[] {"# #", "# #", "###", '#', Block.glass});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 10), new Object[] {Block.plantYellow, new ItemStack(Item.potion, 1, 0), new ItemStack(Blocks.flowers2.get(), 1, 6), new ItemStack(Blocks.coral.get(), 1, 3), new ItemStack(Blocks.plants.get(), 1, 15), new ItemStack(Items.miscItems.get(), 1, 4), new ItemStack(Items.jarFilled.get(), 1, 0), new ItemStack(Items.food.get(), 1, 0), Item.sugar});
