@@ -17,7 +17,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb"};
+	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia"};
 	private Icon[] textures;
 	
 	public ItemBOPFood(int par1)
@@ -31,6 +31,13 @@ public class ItemBOPFood extends ItemFood
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
     {
 		if (itemstack.getItemDamage() == 1)
+		{
+			if (player.canEat(true))
+			{
+				player.setItemInUse(itemstack, this.getMaxItemUseDuration(itemstack));
+			}
+		}
+		else if (itemstack.getItemDamage() == 10)
 		{
 			if (player.canEat(true))
 			{
@@ -90,6 +97,10 @@ public class ItemBOPFood extends ItemFood
 				player.getFoodStats().addStats(3, 0.4F);
 				break;
 				
+			case 10:
+				player.getFoodStats().addStats(6, 0.8F);
+				break;
+				
 			default:
 				player.getFoodStats().addStats(0, 0.0F);
 				break;
@@ -101,10 +112,17 @@ public class ItemBOPFood extends ItemFood
         switch (itemstack.getItemDamage())
         {
         	case 4:
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
         	case 5:
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
         	case 6:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
                     player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+        	case 10:
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle)))
+                    player.dropPlayerItem(new ItemStack(Item.glassBottle.itemID, 1, 0));
         		break;
         }
         
@@ -139,6 +157,10 @@ public class ItemBOPFood extends ItemFood
     	{
     		return 1;
     	}
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
+    	{
+    		return 1;
+    	}
     	
         return 64;
     }
@@ -162,6 +184,11 @@ public class ItemBOPFood extends ItemFood
     	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 9)
     	{
     		return 16;
+    	}
+    	
+    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
+    	{
+    		return 64;
     	}
     	
         return 32;
@@ -197,6 +224,10 @@ public class ItemBOPFood extends ItemFood
             	case 6:
             		if (world.rand.nextFloat() < 0.05F)
             			player.addPotionEffect(new PotionEffect(Potion.jump.id, 550, 1));
+            		break;
+            		
+            	case 10:
+            		player.addPotionEffect(new PotionEffect(Potion.field_76444_x.id, 5000, 4));
             		break;
             }
         }
