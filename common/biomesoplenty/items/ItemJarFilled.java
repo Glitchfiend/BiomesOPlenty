@@ -12,16 +12,17 @@ import biomesoplenty.api.Items;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBOP extends Item
+public class ItemJarFilled extends Item
 {
-	private static String[] items = {"mudbrick", "ash", "emptyhoneycomb", "fleshchunk", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ghastlysoul"};
+	private static String[] jars = {"jarhoney", "jarpoison"};
 	@SideOnly(Side.CLIENT)
 	private Icon[] textures;
 
-	public ItemBOP(int id)
+	public ItemJarFilled(int id)
 	{
 		super(id);
 		setMaxDamage(0);
+		setMaxStackSize(1);
 		setHasSubtypes(true);
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -29,10 +30,10 @@ public class ItemBOP extends Item
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		textures = new Icon[items.length];
+		textures = new Icon[jars.length];
 
-		for (int i = 0; i < items.length; ++i) {
-			textures[i] = iconRegister.registerIcon("biomesoplenty:"+items[i]);
+		for (int i = 0; i < jars.length; ++i) {
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+jars[i]);
 		}
 	}
 
@@ -40,11 +41,11 @@ public class ItemBOP extends Item
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		int meta = itemStack.getItemDamage();
-		if (meta < 0 || meta >= items.length) {
+		if (meta < 0 || meta >= jars.length) {
 			meta = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + items[meta];
+		return super.getUnlocalizedName() + "." + jars[meta];
 	}
 
 	@Override
@@ -56,23 +57,12 @@ public class ItemBOP extends Item
 
 		return textures[meta];
 	}
-	
-	@Override
-    public int getItemStackLimit(ItemStack par1ItemStack)
-    {
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
-    	{
-    		return 1;
-    	}
-    	
-        return 64;
-    }
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void getSubItems(int itemId, CreativeTabs creativeTab, List subTypes)
 	{
-		for(int meta = 0; meta < items.length; ++meta) {
+		for(int meta = 0; meta < jars.length; ++meta) {
 			subTypes.add(new ItemStack(itemId, 1, meta));
 		}
 	}

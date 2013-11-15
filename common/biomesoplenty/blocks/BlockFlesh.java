@@ -77,4 +77,28 @@ public class BlockFlesh extends Block
 		entity.motionX *= 0.9D;
 		entity.motionZ *= 0.9D;
 	}
+	
+	/**
+	 * Returns the ID of the items to drop on destruction.
+	 */
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3)
+	{
+		return Items.miscItems.get().itemID;
+	}
+	
+	@Override
+	public int damageDropped(int meta)
+	{
+		return 3;
+	}
+
+	/**
+	 * Returns the quantity of items to drop on block destruction.
+	 */
+	@Override
+	public int quantityDropped(Random par1Random)
+	{
+		return par1Random.nextInt(5);
+	}
 }

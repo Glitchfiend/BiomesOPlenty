@@ -307,7 +307,7 @@ item.bop.mudball.name=Mud Ball
 
 item.bop.miscItems.mudbrick.name=Mud Brick
 item.bop.miscItems.ash.name=Pile of Ashes
-
+item.bop.miscItems.fleshchunk.name=Chunk of Flesh
 item.bop.miscItems.emptyhoneycomb.name=Empty Honeycomb
 item.bop.miscItems.crystalshard.name=Celestial Crystal Shard
 item.bop.miscItems.bluedye.name=Blue Dye
@@ -316,9 +316,10 @@ item.bop.miscItems.greendye.name=Green Dye
 item.bop.miscItems.whitedye.name=White Dye
 item.bop.miscItems.blackdye.name=Black Dye
 item.bop.miscItems.ghastlysoul.name=Ghastly Soul
-item.bop.miscItems.jarempty.name=Empty Jar
-item.bop.miscItems.jarhoney.name=Honey Jar
-item.bop.miscItems.jarpoison.name=Poison Extract Jar
+
+item.bop.jarEmpty.name=Empty Jar
+item.bop.jarFilled.jarhoney.name=Honey Jar
+item.bop.jarFilled.jarpoison.name=Poison Extract Jar
 
 item.bop.gems.amethyst.name=Amethyst
 item.bop.gems.ruby.name=Ruby

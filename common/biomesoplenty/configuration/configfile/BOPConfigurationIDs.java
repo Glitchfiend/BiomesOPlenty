@@ -113,6 +113,8 @@ public class BOPConfigurationIDs
 	public static int bopDiscMudID;
 
 	public static int miscItemsID;
+	public static int jarEmptyID;
+	public static int jarFilledID;
 	public static int mudballID;
 	public static int dartBlowerID;
 	public static int dartID;
@@ -424,6 +426,11 @@ public class BOPConfigurationIDs
 			
 			//Misc Items
 			miscItemsID = config.getItem("Misc Items ID", 21003).getInt();
+			
+			//Jars
+			jarEmptyID = config.getItem("Jar (Empty) ID", 21005).getInt();
+			jarFilledID = config.getItem("Jar (Filled) ID", 21006).getInt();
+			
 			mudballID = config.getItem("Mud Ball ID", 21007).getInt();
 			
 			//Gems
