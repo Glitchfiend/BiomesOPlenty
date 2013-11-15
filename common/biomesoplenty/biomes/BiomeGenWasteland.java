@@ -23,7 +23,7 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
         fillerBlock = (byte) Blocks.driedDirt.get().blockID;
         theBiomeDecorator = new BiomeDecoratorBOP(this);
         customBiomeDecorator = (BiomeDecoratorBOP) theBiomeDecorator;
-        customBiomeDecorator.treesPerChunk = 1;
+        customBiomeDecorator.treesPerChunk = 0;
         customBiomeDecorator.deadGrassPerChunk = 14;
         customBiomeDecorator.poisonWaterPerChunk = 10;
         waterColorMultiplier = 15073024;
@@ -37,9 +37,9 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
     @Override
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
-        return par1Random.nextInt(4) == 0 ? new WorldGenWasteland()
-                : (par1Random.nextInt(4) == 0 ? new WorldGenWasteland2()
-                        : new WorldGenDeadTree3(false));
+        return par1Random.nextInt(6) == 0 ? new WorldGenDeadTree3(false)
+                : (par1Random.nextInt(2) == 0 ? new WorldGenWasteland2()
+                        : new WorldGenWasteland());
     }
 
     /**
