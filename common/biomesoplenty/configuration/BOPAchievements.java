@@ -2,12 +2,14 @@ package biomesoplenty.configuration;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 import biomesoplenty.api.Biomes;
@@ -98,14 +100,30 @@ public class BOPAchievements
 					int i = 0;
 					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 					
-					if (world.isRemote)
+					//if (world.isRemote)
                     {
                         if (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAmbrosia) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achPhantom) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achCoral) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achEnderporter))
                         {
                         	if (!Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAllBOP))
                         	{
                         		player.addStat(achAllBOP, 1);
-                        		player.dropPlayerItem(new ItemStack(Items.bopDisc.get(), 1, 0));
+                        		if (player.inventory.getFirstEmptyStack() >= 0)
+            					{
+	                        		EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.bopDisc.get(), 1, 0));
+	                    			if (!world.isRemote)
+	                    			{
+	                    				world.spawnEntityInWorld(entityitem);
+	                    				
+	                    				if (!(player instanceof FakePlayer))
+	                    				{
+	                    					entityitem.onCollideWithPlayer(player);
+	                    				}
+	                    			}
+            					}
+                        		else
+                        		{
+                        			player.dropPlayerItem(new ItemStack(Items.bopDisc.get(), 1, 0));
+                        		}
                         	}
                         }
                     }
@@ -133,7 +151,7 @@ public class BOPAchievements
 			}
 		}
 	}
-
+	
 	private static void addAchievementDesc(String ach, String name, String desc)
 	{
 		LanguageRegistry.instance().addStringLocalization("achievement." + ach, "en_US", name);
