@@ -19,6 +19,28 @@ public class BlockBOPLog extends Block
 	{
 		CAT1, CAT2, CAT3, CAT4;
 	}
+	//logs1
+	//Acacia			(0)
+	//Cherry			(1)
+	//Dark				(2)
+	//Fir				(3)
+	
+	//logs2
+	//Loftwood			(0)
+	//Magic				(1)
+	//Mangrove			(2)
+	//Palm				(3)
+	
+	//logs3
+	//Redwood			(0)
+	//Willow			(1)
+	//Dead				(2)
+	//Giant Flower Stem (3)
+	
+	//logs4
+	//Pine				(0)
+	//Hellbark			(1)
+	//Jacaranda			(2)
 
 	private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda"};
 	private Icon[] textures;
