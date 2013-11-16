@@ -140,6 +140,8 @@ public class BOPBlocks
 		Blocks.ivy = Optional.of((new BlockIvy(BOPConfigurationIDs.ivyID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.ivy"));
 		Blocks.leaves1 = Optional.of((new BlockBOPLeaves(BOPConfigurationIDs.leaves1ID, LeafCategory.CAT1)).setUnlocalizedName("bop.leaves1"));
 		Blocks.leaves2 = Optional.of((new BlockBOPLeaves(BOPConfigurationIDs.leaves2ID, LeafCategory.CAT2)).setUnlocalizedName("bop.leaves2"));
+		Blocks.leaves3 = Optional.of((new BlockBOPLeaves(BOPConfigurationIDs.leaves3ID, LeafCategory.CAT3)).setUnlocalizedName("bop.leaves3"));
+	    Blocks.leaves4 = Optional.of((new BlockBOPLeaves(BOPConfigurationIDs.leaves4ID, LeafCategory.CAT4)).setUnlocalizedName("bop.leaves4"));
 		Blocks.foliage = Optional.of((new BlockBOPFoliage(BOPConfigurationIDs.foliageID)).setUnlocalizedName("bop.foliage"));
 		Blocks.ashStone = Optional.of(new BlockBOPGeneric(BOPConfigurationIDs.ashStoneID, Material.rock, BlockType.ASH_STONE));
 		Blocks.hardIce = Optional.of(new BlockBOPGeneric(BOPConfigurationIDs.hardIceID, Material.rock, BlockType.HARD_ICE));
@@ -229,6 +231,8 @@ public class BOPBlocks
 		registerBlock(Blocks.ivy.get(), ItemBOPIvy.class);
 		registerBlock(Blocks.leaves1.get(), ItemBlockLeaves.class);
 		registerBlock(Blocks.leaves2.get(), ItemBlockLeaves.class);
+	    registerBlock(Blocks.leaves3.get(), ItemBlockLeaves.class);
+	    registerBlock(Blocks.leaves4.get(), ItemBlockLeaves.class);
 		registerBlock(Blocks.foliage.get(), ItemBlockFoliage.class);
 		registerBlock(Blocks.ashStone.get());
 		registerBlock(Blocks.hardIce.get());
