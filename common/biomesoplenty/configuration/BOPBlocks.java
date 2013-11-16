@@ -213,7 +213,7 @@ public class BOPBlocks
 		Blocks.hellBarkStairs = Optional.of((new BlockBOPStairs(BOPConfigurationIDs.hellBarkStairsID, Blocks.planks.get(), Category.HELL_BARK)).setUnlocalizedName("bop.hellBarkStairs"));
 		Blocks.jacarandaStairs = Optional.of((new BlockBOPStairs(BOPConfigurationIDs.jacarandaStairsID, Blocks.planks.get(), Category.JACARANDA)).setUnlocalizedName("bop.jacarandaStairs"));
 		
-		Blocks.leavesColorized1 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeavesID, ColourizedLeafCategory.CAT1)).setUnlocalizedName("bop.leavesColorized1"));
+		Blocks.leavesColorized1 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves1ID, ColourizedLeafCategory.CAT1)).setUnlocalizedName("bop.leavesColorized1"));
 	    Blocks.leavesColorized2 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves2ID, ColourizedLeafCategory.CAT2)).setUnlocalizedName("bop.leavesColorized2"));
 	    //Blocks.leavesColorized3 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves3ID, ColourizedLeafCategory.CAT3)).setUnlocalizedName("bop.leavesColorized3"));
 	    //Blocks.leavesColorized4 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves4ID, ColourizedLeafCategory.CAT4)).setUnlocalizedName("bop.leavesColorized4"));

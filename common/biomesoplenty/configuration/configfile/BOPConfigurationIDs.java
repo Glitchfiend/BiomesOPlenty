@@ -94,8 +94,10 @@ public class BOPConfigurationIDs
 	public static int hellBarkStairsID;
 	public static int jacarandaStairsID;
 
-	public static int colourizedLeavesID;
+	public static int colourizedLeaves1ID;
 	public static int colourizedLeaves2ID;
+	public static int colourizedLeaves3ID;
+	public static int colourizedLeaves4ID;
 
 	public static int crystalID;
 	public static int cloudID;
@@ -352,8 +354,10 @@ public class BOPConfigurationIDs
 			leaves2ID = config.getBlock("Leaf Block ID 2", 1951, null).getInt();
 			leaves3ID = config.getBlock("Leaf Block ID 3", 1952, null).getInt();
 			leaves4ID = config.getBlock("Leaf Block ID 4", 1953, null).getInt();
-			colourizedLeavesID = config.getBlock("Colourized Leaves ID", 1955, null).getInt();
+			colourizedLeaves1ID = config.getBlock("Colourized Leaves 1 ID", 1955, null).getInt();
 			colourizedLeaves2ID = config.getBlock("Colourized Leaves 2 ID", 1956, null).getInt();
+	        colourizedLeaves2ID = config.getBlock("Colourized Leaves 3 ID", 1957, null).getInt();
+	        colourizedLeaves2ID = config.getBlock("Colourized Leaves 4 ID", 1958, null).getInt();
 			leavesFruitID = config.getBlock("Fruit Leaf Block ID", 1960, null).getInt();
 			leavesFruit2ID = config.getBlock("Fruit Leaf Block 2 ID", 1961, null).getInt();
 			petalsID = config.getBlock("Petal ID", 1962, null).getInt();

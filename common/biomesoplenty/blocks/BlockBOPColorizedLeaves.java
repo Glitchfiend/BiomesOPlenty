@@ -134,9 +134,14 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     @Override
     @SideOnly(Side.CLIENT)
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
-        for (int i = 0; i < textures[0].length; ++i) {
-            list.add(new ItemStack(blockID, 1, i));
+    public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) 
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            if (category != ColourizedLeafCategory.CAT2 || i < 2) 
+            {
+                list.add(new ItemStack(blockID, 1, i));
+            }
         }
     }
 
@@ -186,7 +191,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
         int meta = world.getBlockMetadata(x, y, z);
 
-        if ((meta & 8) != 0/* && (meta & 4) == 0*/)
+        if ((meta & 4) != 0/* && (meta & 4) == 0*/)
         {
             byte b0 = 4;
             int i1 = b0 + 1;
@@ -336,9 +341,10 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         return ret;
     }
 
-    public String getLeafType(int meta)
+    public String getLeafType(int metadata)
     {
-        return leaves[getTypeFromMeta(meta)];
+        int type = getTypeFromMeta(metadata) + (category.ordinal() * 4);
+        return leaves[type >= leaves.length ? 0 : type];
     }
 
     private static int getTypeFromMeta(int meta)
