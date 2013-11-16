@@ -13,11 +13,14 @@ public class MultipartIntegration
 		addMicroblock(Blocks.driedDirt.get());
 		addMicroblock(Blocks.redRock.get(), 0, 2);
 		addMicroblock(Blocks.ash.get());
-		addMicroblock(Blocks.leaves1.get(), 0, 7);
-		addMicroblock(Blocks.leaves2.get(), 0, 5);
+		addMicroblock(Blocks.leaves1.get(), 0, 3);
+		addMicroblock(Blocks.leaves2.get(), 0, 3);
+		addMicroblock(Blocks.leaves3.get(), 0, 3);
+		addMicroblock(Blocks.leaves4.get(), 0, 1);
 		addMicroblock(Blocks.ashStone.get());
 		addMicroblock(Blocks.hardIce.get());
 		addMicroblock(Blocks.leavesFruit.get(), 0, 0);
+		addMicroblock(Blocks.leavesFruit2.get(), 0, 0);
 		addMicroblock(Blocks.mudBrick.get());
 		addMicroblock(Blocks.originGrass.get());
 		addMicroblock(Blocks.longGrass.get());
@@ -36,7 +39,8 @@ public class MultipartIntegration
 		addMicroblock(Blocks.cragRock.get());
 		addMicroblock(Blocks.cloud.get());
 		addMicroblock(Blocks.planks.get(), 0, 13);
-		addMicroblock(Blocks.leavesColorized.get(), 0, 5);
+		addMicroblock(Blocks.leavesColorized1.get(), 0, 3);
+		addMicroblock(Blocks.leavesColorized2.get(), 0, 3);
     }
     
     // Register a microblock.

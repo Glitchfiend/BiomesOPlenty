@@ -78,7 +78,7 @@ public class WorldGenRedwoodTree2 extends WorldGenerator
 						{
 							var12 = par1World.getBlockId(var10, var8, var11);
 
-							if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != Blocks.logs3.get().blockID)
+							if (var12 != 0 && var12 != Blocks.leavesColorized1.get().blockID && var12 != Block.grass.blockID && var12 != Block.dirt.blockID && var12 != Blocks.logs3.get().blockID)
 							{
 								var7 = false;
 							}
@@ -149,9 +149,9 @@ public class WorldGenRedwoodTree2 extends WorldGenerator
 
 								if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var14, var11, var16)])
 								{
-									this.setBlockAndMetadata(par1World, var14, var11 + 12, var16, Blocks.leavesColorized.get().blockID, 3);
-									this.setBlockAndMetadata(par1World, var14, var11 + 6, var16, Blocks.leavesColorized.get().blockID, 3);
-									this.setBlockAndMetadata(par1World, var14, var11, var16, Blocks.leavesColorized.get().blockID, 3);
+									this.setBlockAndMetadata(par1World, var14, var11 + 12, var16, Blocks.leavesColorized1.get().blockID, 3);
+									this.setBlockAndMetadata(par1World, var14, var11 + 6, var16, Blocks.leavesColorized1.get().blockID, 3);
+									this.setBlockAndMetadata(par1World, var14, var11, var16, Blocks.leavesColorized1.get().blockID, 3);
 								}
 							}
 						}
@@ -161,7 +161,7 @@ public class WorldGenRedwoodTree2 extends WorldGenerator
 					{
 						var12 = par1World.getBlockId(par3, par4 + var11, par5);
 
-						if (var12 == 0 || var12 == Blocks.leavesColorized.get().blockID)
+						if (var12 == 0 || var12 == Blocks.leavesColorized1.get().blockID)
 						{
 							//1
 							this.setBlockAndMetadata(par1World, par3, par4 + (var6), par5, Blocks.logs3.get().blockID, metaWood);

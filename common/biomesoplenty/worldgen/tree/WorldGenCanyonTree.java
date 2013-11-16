@@ -49,7 +49,7 @@ public class WorldGenCanyonTree extends WorldGenerator
 
 							Block block = Block.blocksList[var15];
 
-							if (var15 != 0 && (block == null || var15 != Blocks.leavesColorized.get().blockID))
+							if (var15 != 0 && (block == null || var15 != Blocks.leavesColorized1.get().blockID))
 							{
 								var10 = false;
 							}
@@ -88,7 +88,7 @@ public class WorldGenCanyonTree extends WorldGenerator
 								if ((Math.abs(var15) != var18 || Math.abs(var17) != var18 || var18 <= 0) &&
 										(block == null || block.canBeReplacedByLeaves(par1World, var14, var13, var16)))
 								{
-									this.setBlockAndMetadata(par1World, var14, var13, var16, Blocks.leavesColorized.get().blockID, 0);
+									this.setBlockAndMetadata(par1World, var14, var13, var16, Blocks.leavesColorized1.get().blockID, 0);
 								}
 							}
 						}
@@ -109,7 +109,7 @@ public class WorldGenCanyonTree extends WorldGenerator
 
 						Block block = Block.blocksList[var14];
 
-						if (var14 == 0 || block == null || var14 == Blocks.leavesColorized.get().blockID)
+						if (var14 == 0 || block == null || var14 == Blocks.leavesColorized1.get().blockID)
 						{
 							this.setBlockAndMetadata(par1World, par3, par4 + var13, par5, Blocks.logs1.get().blockID,0);
 						}

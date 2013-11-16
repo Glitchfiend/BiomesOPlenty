@@ -53,7 +53,7 @@ public class WorldGenSequoiaOrange extends WorldGenerator
 						{
 							var15 = var1.getBlockId(var13, var11, var14);
 
-							if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
+							if (var15 != 0 && var15 != Blocks.leaves2.get().blockID)
 							{
 								var10 = false;
 							}
@@ -112,16 +112,11 @@ public class WorldGenSequoiaOrange extends WorldGenerator
 	
 												if ((Math.abs(var21) != var15 || Math.abs(var23) != var15 || var15 <= 0) && !Block.opaqueCubeLookup[var1.getBlockId(var20, var19, var22)])
 												{
-													this.setBlockAndMetadata(var1, var20, var19, var22, Blocks.leaves1.get().blockID, 7);
-													this.setBlockAndMetadata(var1, var20 + 1, var19, var22, Blocks.leaves1.get().blockID, 7);
-													this.setBlockAndMetadata(var1, var20 - 1, var19, var22, Blocks.leaves1.get().blockID, 7);
-													this.setBlockAndMetadata(var1, var20, var19, var22 + 1, Blocks.leaves1.get().blockID, 7);
-													this.setBlockAndMetadata(var1, var20, var19, var22 - 1, Blocks.leaves1.get().blockID, 7);
-													
-													//this.setBlockAndMetadata(var1, var20 + 1, var19, var22 + 1, Blocks.leaves1.get().blockID, 0);
-													//this.setBlockAndMetadata(var1, var20 - 1, var19, var22 - 1, Blocks.leaves1.get().blockID, 0);
-													//this.setBlockAndMetadata(var1, var20 - 1, var19, var22 + 1, Blocks.leaves1.get().blockID, 0);
-													//this.setBlockAndMetadata(var1, var20 + 1, var19, var22 - 1, Blocks.leaves1.get().blockID, 0);
+													this.setBlockAndMetadata(var1, var20, var19, var22, Blocks.leaves2.get().blockID, 3);
+													this.setBlockAndMetadata(var1, var20 + 1, var19, var22, Blocks.leaves2.get().blockID, 3);
+													this.setBlockAndMetadata(var1, var20 - 1, var19, var22, Blocks.leaves2.get().blockID, 3);
+													this.setBlockAndMetadata(var1, var20, var19, var22 + 1, Blocks.leaves2.get().blockID, 3);
+													this.setBlockAndMetadata(var1, var20, var19, var22 - 1, Blocks.leaves2.get().blockID, 3);
 												}
 											}
 										}

@@ -49,8 +49,8 @@ public class MFRIntegration
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static void registerFarmables()
     {
-        Optional[] bopLeaves = { Blocks.leaves1, Blocks.leaves2, Blocks.leavesColorized, Blocks.treeMoss, Blocks.willow, Blocks.ivy, Blocks.moss };
-        Optional[] bopFruitLeaves = { Blocks.leavesFruit };
+        Optional[] bopLeaves = { Blocks.leaves1, Blocks.leaves2, Blocks.leaves3, Blocks.leaves4, Blocks.leavesColorized1, Blocks.leavesColorized2, Blocks.treeMoss, Blocks.willow, Blocks.ivy, Blocks.moss };
+        Optional[] bopFruitLeaves = { Blocks.leavesFruit, Blocks.leavesFruit2 };
         Optional[] bopLogs = { Blocks.logs1, Blocks.logs2, Blocks.logs3, Blocks.logs4, Blocks.bamboo };
         Optional[] bopMiscStandardHarvestables = { Blocks.flowers, Blocks.plants, Blocks.foliage, Blocks.mushrooms };
         Optional[] bopSaplings = { Blocks.saplings, Blocks.colorizedSaplings };

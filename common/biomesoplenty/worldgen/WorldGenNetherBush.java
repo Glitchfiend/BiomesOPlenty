@@ -36,11 +36,11 @@ public class WorldGenNetherBush extends WorldGenerator
 			var1.setBlock(var3, var4, var5, Block.netherrack.blockID);
 			this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.logs4.get().blockID, 1);
 			this.setBlockAndMetadata(var1, var3, var4 + 2, var5, Blocks.logs4.get().blockID, 1);
-			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Blocks.leaves2.get().blockID, 4);
-			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Blocks.leaves2.get().blockID, 4);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Blocks.leaves2.get().blockID, 4);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Blocks.leaves2.get().blockID, 4);
-			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Blocks.leaves2.get().blockID, 4);
+			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Blocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Blocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Blocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Blocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Blocks.leaves4.get().blockID, 0);
 			return true;
 		}
 	}

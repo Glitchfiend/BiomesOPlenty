@@ -36,11 +36,11 @@ public class WorldGenOutbackTree extends WorldGenerator
 			var1.setBlock(var3, var4 + 1, var5, Blocks.logs1.get().blockID,0,2);
 			var1.setBlock(var3, var4 + 2, var5, Blocks.logs1.get().blockID,0,2);
 			var1.setBlock(var3, var4 + 3, var5, Blocks.logs1.get().blockID,0,2);
-			var1.setBlock(var3 + 1, var4 + 3, var5, Blocks.leavesColorized.get().blockID, 0, 2);
-			var1.setBlock(var3 - 1, var4 + 3, var5, Blocks.leavesColorized.get().blockID, 0, 2);
-			var1.setBlock(var3, var4 + 3, var5 + 1, Blocks.leavesColorized.get().blockID, 0, 2);
-			var1.setBlock(var3, var4 + 3, var5 - 1, Blocks.leavesColorized.get().blockID, 0, 2);
-			var1.setBlock(var3, var4 + 4, var5, Blocks.leavesColorized.get().blockID, 0, 2);
+			var1.setBlock(var3 + 1, var4 + 3, var5, Blocks.leavesColorized1.get().blockID, 0, 2);
+			var1.setBlock(var3 - 1, var4 + 3, var5, Blocks.leavesColorized1.get().blockID, 0, 2);
+			var1.setBlock(var3, var4 + 3, var5 + 1, Blocks.leavesColorized1.get().blockID, 0, 2);
+			var1.setBlock(var3, var4 + 3, var5 - 1, Blocks.leavesColorized1.get().blockID, 0, 2);
+			var1.setBlock(var3, var4 + 4, var5, Blocks.leavesColorized1.get().blockID, 0, 2);
 			return true;
 		}
 	}

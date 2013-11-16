@@ -294,7 +294,7 @@ public class WorldGenAcacia extends WorldGenerator
 				if (var5 == 0)
 				{
 					if(x1 == -size + x && z1 == -size + z ){} else if(x1 == -size + x && z1 == size + z ){} else if(x1 == size + x && z1 == -size + z ){} else if(x1 == size + x && z1 == size + z ){}
-					else { par1World.setBlock(x1, y, z1, Blocks.leavesColorized.get().blockID, 0, 2); }
+					else { par1World.setBlock(x1, y, z1, Blocks.leavesColorized1.get().blockID, 0, 2); }
 				}
 			}
 		}

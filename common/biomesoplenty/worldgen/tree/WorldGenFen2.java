@@ -51,7 +51,7 @@ public class WorldGenFen2 extends WorldGenerator
 						{
 							var15 = par1World.getBlockId(var13, var11, var14);
 
-							if (var15 != 0 && var15 != Blocks.leaves1.get().blockID)
+							if (var15 != 0 && var15 != Blocks.leaves2.get().blockID)
 							{
 								var10 = false;
 							}
@@ -93,7 +93,7 @@ public class WorldGenFen2 extends WorldGenerator
 
 								if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var17, var16, var19)])
 								{
-									this.setBlockAndMetadata(par1World, var17, var16, var19, Blocks.leaves1.get().blockID, 4);
+									this.setBlockAndMetadata(par1World, var17, var16, var19, Blocks.leaves2.get().blockID, 0);
 								}
 							}
 						}
@@ -121,7 +121,7 @@ public class WorldGenFen2 extends WorldGenerator
 					{
 						var17 = par1World.getBlockId(par3, par4 + var16, par5);
 
-						if (var17 == 0 || var17 == Blocks.leaves1.get().blockID)
+						if (var17 == 0 || var17 == Blocks.leaves2.get().blockID)
 						{
 							this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 0);
 						}

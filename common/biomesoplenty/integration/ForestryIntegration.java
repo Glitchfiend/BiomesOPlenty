@@ -301,7 +301,10 @@ public class ForestryIntegration
 	{
 		GlobalManager.leafBlockIds.add(Blocks.leaves1.get().blockID);
 		GlobalManager.leafBlockIds.add(Blocks.leaves2.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leavesColorized.get().blockID);
+		GlobalManager.leafBlockIds.add(Blocks.leaves3.get().blockID);
+		GlobalManager.leafBlockIds.add(Blocks.leaves4.get().blockID);
+		GlobalManager.leafBlockIds.add(Blocks.leavesColorized1.get().blockID);
+		GlobalManager.leafBlockIds.add(Blocks.leavesColorized2.get().blockID);
 		GlobalManager.leafBlockIds.add(Blocks.leavesFruit.get().blockID);
 		GlobalManager.leafBlockIds.add(Blocks.leavesFruit2.get().blockID);
 
@@ -347,7 +350,10 @@ public class ForestryIntegration
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves2.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesColorized.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves3.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves4.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesColorized1.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesColorized2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesFruit.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesFruit2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.bamboo.get(), 1, 0));

@@ -34,11 +34,11 @@ public class WorldGenPromisedBush extends WorldGenerator
 			var1.setBlock(var3, var4, var5, Blocks.holyDirt.get().blockID);
 			this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.logs2.get().blockID,0);
 			this.setBlockAndMetadata(var1, var3, var4 + 2, var5, Blocks.logs2.get().blockID,0);
-			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Blocks.leaves1.get().blockID, 6);
-			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Blocks.leaves1.get().blockID, 6);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Blocks.leaves1.get().blockID, 6);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Blocks.leaves1.get().blockID, 6);
-			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Blocks.leaves1.get().blockID, 6);
+			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Blocks.leaves2.get().blockID, 2);
+			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Blocks.leaves2.get().blockID, 2);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Blocks.leaves2.get().blockID, 2);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Blocks.leaves2.get().blockID, 2);
+			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Blocks.leaves2.get().blockID, 2);
 			return true;
 		}
 	}

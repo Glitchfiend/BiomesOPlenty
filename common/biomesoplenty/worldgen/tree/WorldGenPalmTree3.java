@@ -72,30 +72,30 @@ public class WorldGenPalmTree3 extends WorldGenerator
 	
 	public void generateTop(World world, int x, int y, int z)
 	{
-		buildBlock(world, x + 2, y - 1, z, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 2, y - 1, z, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y - 1, z + 2, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y - 1, z - 2, Blocks.leavesColorized.get().blockID, 2);
+		buildBlock(world, x + 2, y - 1, z, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 2, y - 1, z, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y - 1, z + 2, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y - 1, z - 2, Blocks.leavesColorized1.get().blockID, 2);
 	
-		buildBlock(world, x + 1, y, z, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 1, y, z, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y, z + 1, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y, z - 1, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x + 2, y, z + 2, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 2, y, z - 2, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x + 2, y, z - 2, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 2, y, z + 2, Blocks.leavesColorized.get().blockID, 2);
+		buildBlock(world, x + 1, y, z, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 1, y, z, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y, z + 1, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y, z - 1, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x + 2, y, z + 2, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 2, y, z - 2, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x + 2, y, z - 2, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 2, y, z + 2, Blocks.leavesColorized1.get().blockID, 2);
 
-		buildBlock(world, x + 1, y + 1, z - 1, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 1, y + 1, z + 1, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x + 1, y + 1, z + 1, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 1, y + 1, z - 1, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y + 1, z, Blocks.leavesColorized.get().blockID, 2);
+		buildBlock(world, x + 1, y + 1, z - 1, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 1, y + 1, z + 1, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x + 1, y + 1, z + 1, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 1, y + 1, z - 1, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y + 1, z, Blocks.leavesColorized1.get().blockID, 2);
 
-		buildBlock(world, x + 2, y + 2, z, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x - 2, y + 2, z, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y + 2, z + 2, Blocks.leavesColorized.get().blockID, 2);
-		buildBlock(world, x, y + 2, z - 2, Blocks.leavesColorized.get().blockID, 2);
+		buildBlock(world, x + 2, y + 2, z, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x - 2, y + 2, z, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y + 2, z + 2, Blocks.leavesColorized1.get().blockID, 2);
+		buildBlock(world, x, y + 2, z - 2, Blocks.leavesColorized1.get().blockID, 2);
 	}
 	
 	public void buildBlock(World world, int x, int y, int z, int id, int meta)

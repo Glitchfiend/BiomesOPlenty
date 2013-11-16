@@ -29,7 +29,28 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         CAT1, CAT2, CAT3, CAT4;
     }
 
-    //Yellow Autumn - Dark = Leaves 1, Dead - Orange Autumn = Leaves 2, Origin - White Cherry = Leaves 3, Hellbark - Jacaranda = Leaves 4
+    //leaves1
+    //Yellow Autumn (0)
+    //Bamboo 		(1)
+    //Magic			(2)
+    //Dark			(3)
+    
+    //leaves2
+    //Dead			(0)
+    //Fir			(1)
+    //Loftwood		(2)
+    //Orange Autumn (3)
+    
+    //leaves3
+    //Origin		(0)
+    //Pink Cherry	(1)
+    //Maple			(2)
+    //White Cherry	(3)
+    
+    //leaves4
+    //Hellbark		(0)
+    //Jacaranda		(1)
+    
     private static final String[] leaves = new String[] {"yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
 
     private static final float[] fallingLeavesChance = new float[] {0.1F, 0.008F, 0.016F, 0.008F, 0.0F, 0.008F, 0.016F, 0.1F, 0.008F, 0.1F, 0.008F, 0.1F, 0.008F, 0.008F};

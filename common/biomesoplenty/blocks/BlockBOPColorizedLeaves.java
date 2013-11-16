@@ -30,6 +30,16 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         CAT1, CAT2, CAT3, CAT4;
     }
     
+    //colorizedLeaves1
+    //Acacia		(0)
+    //Mangrove 		(1)
+    //Palm			(2)
+    //Redwood		(3)
+    
+    //colorizedLeaves2
+    //Willow		(0)
+    //Pine			(1)
+    
     private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
     private Icon[][] textures;
     private final ColourizedLeafCategory category;

@@ -40,12 +40,12 @@ public class BlockReferences {
 		hellBarkPlank (Blocks.planks, 12),
 		jacarandaPlank (Blocks.planks, 13),
 
-		acaciaLeaves (Blocks.leavesColorized, 0),
-		mangroveLeaves (Blocks.leavesColorized, 1),
-		palmLeaves (Blocks.leavesColorized, 2),
-		redwoodLeaves (Blocks.leavesColorized, 3),
-		willowLeaves (Blocks.leavesColorized, 4),
-		pineLeaves (Blocks.leavesColorized, 5),
+		acaciaLeaves (Blocks.leavesColorized1, 0),
+		mangroveLeaves (Blocks.leavesColorized1, 1),
+		palmLeaves (Blocks.leavesColorized1, 2),
+		redwoodLeaves (Blocks.leavesColorized1, 3),
+		willowLeaves (Blocks.leavesColorized2, 0),
+		pineLeaves (Blocks.leavesColorized2, 1),
 
 		yellowAutumnLeaves (Blocks.leaves1, 0),
 		bambooLeaves (Blocks.leaves1, 1),

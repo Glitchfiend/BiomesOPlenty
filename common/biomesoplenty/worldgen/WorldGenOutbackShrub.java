@@ -23,7 +23,7 @@ public class WorldGenOutbackShrub extends WorldGenerator
 	{
 		int var15;
 
-		for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized.get().blockID) && par4 > 0; --par4)
+		for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized1.get().blockID) && par4 > 0; --par4)
 		{
 			;
 		}
@@ -50,7 +50,7 @@ public class WorldGenOutbackShrub extends WorldGenerator
 
 						if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || par2Random.nextInt(2) != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var11, var8, var13)])
 						{
-							this.setBlockAndMetadata(par1World, var11, var8, var13, Blocks.leavesColorized.get().blockID, 0);
+							this.setBlockAndMetadata(par1World, var11, var8, var13, Blocks.leavesColorized1.get().blockID, 0);
 						}
 					}
 				}

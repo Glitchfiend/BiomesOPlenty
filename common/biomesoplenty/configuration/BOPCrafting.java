@@ -374,10 +374,14 @@ public class BOPCrafting
 		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.hellBarkStairs.get()));
 		OreDictionary.registerOre("stairWood", new ItemStack(Blocks.jacarandaStairs.get()));
 
-		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesColorized.get(), 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesColorized1.get(), 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesColorized2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves2.get(), 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves3.get(), 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leaves4.get(), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesFruit.get(), 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("treeLeaves", new ItemStack(Blocks.leavesFruit2.get(), 1, OreDictionary.WILDCARD_VALUE));
 		
 		OreDictionary.registerOre("blockMud", new ItemStack(Blocks.mud.get()));
 		OreDictionary.registerOre("blockAsh", new ItemStack(Blocks.ash.get()));

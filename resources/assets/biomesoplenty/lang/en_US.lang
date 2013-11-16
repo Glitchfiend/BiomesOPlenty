@@ -228,17 +228,19 @@ tile.bop.leaves1.yellowautumn.name=Yellow Autumn Leaves
 tile.bop.leaves1.bamboo.name=Bamboo Leaves
 tile.bop.leaves1.magic.name=Magic Leaves
 tile.bop.leaves1.dark.name=Dark Leaves
-tile.bop.leaves1.dead.name=Dying Leaves
-tile.bop.leaves1.fir.name=Fir Leaves
-tile.bop.leaves1.holy.name=Loftwood Leaves
-tile.bop.leaves1.orangeautumn.name=Orange Autumn Leaves
 
-tile.bop.leaves2.origin.name=Origin Leaves
-tile.bop.leaves2.pinkcherry.name=Pink Cherry Leaves
-tile.bop.leaves2.maple.name=Maple Leaves
-tile.bop.leaves2.whitecherry.name=White Cherry Leaves
-tile.bop.leaves2.hellbark.name=Hellbark Leaves
-tile.bop.leaves2.jacaranda.name=Jacaranda Leaves
+tile.bop.leaves2.dead.name=Dying Leaves
+tile.bop.leaves2.fir.name=Fir Leaves
+tile.bop.leaves2.holy.name=Loftwood Leaves
+tile.bop.leaves2.orangeautumn.name=Orange Autumn Leaves
+
+tile.bop.leaves3.origin.name=Origin Leaves
+tile.bop.leaves3.pinkcherry.name=Pink Cherry Leaves
+tile.bop.leaves3.maple.name=Maple Leaves
+tile.bop.leaves3.whitecherry.name=White Cherry Leaves
+
+tile.bop.leaves4.hellbark.name=Hellbark Leaves
+tile.bop.leaves4.jacaranda.name=Jacaranda Leaves
 
 tile.bop.woodenDoubleSlab1.acaciaSlab.name=Acacia Wood Slab
 tile.bop.woodenDoubleSlab1.cherrySlab.name=Cherry Wood Slab
@@ -282,12 +284,13 @@ tile.bop.pineStairs.name=Pine Wood Stairs
 tile.bop.hellBarkStairs.name=Hellbark Wood Stairs
 tile.bop.jacarandaStairs.name=Jacaranda Wood Stairs
 
-tile.bop.leavesColorized.acacia.name=Acacia Leaves
-tile.bop.leavesColorized.mangrove.name=Mangrove Leaves
-tile.bop.leavesColorized.palm.name=Palm Leaves
-tile.bop.leavesColorized.redwood.name=Redwood Leaves
-tile.bop.leavesColorized.willow.name=Willow Leaves
-tile.bop.leavesColorized.pine.name=Pine Leaves
+tile.bop.leavesColorized1.acacia.name=Acacia Leaves
+tile.bop.leavesColorized1.mangrove.name=Mangrove Leaves
+tile.bop.leavesColorized1.palm.name=Palm Leaves
+tile.bop.leavesColorized1.redwood.name=Redwood Leaves
+
+tile.bop.leavesColorized2.willow.name=Willow Leaves
+tile.bop.leavesColorized2.pine.name=Pine Leaves
 
 item.bop.food.berries.name=Berry
 item.bop.food.shroompowder.name=Shroom Powder

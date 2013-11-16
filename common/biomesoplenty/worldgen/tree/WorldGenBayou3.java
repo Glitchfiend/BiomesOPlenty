@@ -51,7 +51,7 @@ public class WorldGenBayou3 extends WorldGenerator
 						{
 							var12 = par1World.getBlockId(var10, var8, var11);
 
-							if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID)
+							if (var12 != 0 && var12 != Blocks.leavesColorized2.get().blockID)
 							{
 								if (var12 != Block.waterStill.blockID && var12 != Block.waterMoving.blockID)
 								{
@@ -103,7 +103,7 @@ public class WorldGenBayou3 extends WorldGenerator
 					{
 						var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-						if (var10 == 0 || var10 == Blocks.leavesColorized.get().blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
+						if (var10 == 0 || var10 == Blocks.leavesColorized2.get().blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
 						{
 							this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Blocks.logs3.get().blockID, 1);
 						}

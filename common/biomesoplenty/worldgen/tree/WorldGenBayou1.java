@@ -55,7 +55,7 @@ public class WorldGenBayou1 extends WorldGenerator
 						{
 							var12 = par1World.getBlockId(var10, var8, var11);
 
-							if (var12 != 0 && var12 != Blocks.leavesColorized.get().blockID)
+							if (var12 != 0 && var12 != Blocks.leavesColorized2.get().blockID)
 							{
 								if (var12 != Block.waterStill.blockID && var12 != Block.waterMoving.blockID)
 								{
@@ -134,7 +134,7 @@ public class WorldGenBayou1 extends WorldGenerator
 
 								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
 								{
-									this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesColorized.get().blockID, 4);
+									this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesColorized2.get().blockID, 0);
 								}
 							}
 						}
@@ -144,7 +144,7 @@ public class WorldGenBayou1 extends WorldGenerator
 					{
 						var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-						if (var10 == 0 || var10 == Blocks.leavesColorized.get().blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
+						if (var10 == 0 || var10 == Blocks.leavesColorized2.get().blockID || var10 == Block.waterMoving.blockID || var10 == Block.waterStill.blockID)
 						{
 							this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Blocks.logs3.get().blockID, 1);
 						}
@@ -159,7 +159,7 @@ public class WorldGenBayou1 extends WorldGenerator
 						{
 							for (var13 = par5 - var11; var13 <= par5 + var11; ++var13)
 							{
-								if (par1World.getBlockId(var12, var16, var13) == Blocks.leavesColorized.get().blockID)
+								if (par1World.getBlockId(var12, var16, var13) == Blocks.leavesColorized2.get().blockID)
 								{
 									if (par2Random.nextInt(4) == 0 && par1World.getBlockId(var12 - 1, var16, var13) == 0)
 									{

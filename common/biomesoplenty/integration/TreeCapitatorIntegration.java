@@ -14,9 +14,12 @@ public class TreeCapitatorIntegration
         int logs2 = Blocks.logs2.get().blockID;
         int logs3 = Blocks.logs3.get().blockID;
         int logs4 = Blocks.logs4.get().blockID;
-        int leavesColorized = Blocks.leavesColorized.get().blockID;
+        int leavesColorized1 = Blocks.leavesColorized1.get().blockID;
+        int leavesColorized2 = Blocks.leavesColorized1.get().blockID;
         int leaves1 = Blocks.leaves1.get().blockID;
         int leaves2 = Blocks.leaves2.get().blockID;
+        int leaves3 = Blocks.leaves3.get().blockID;
+        int leaves4 = Blocks.leaves4.get().blockID;
         
         NBTTagCompound tpModCfg = new NBTTagCompound();
         tpModCfg.setString("modID", "BiomesOPlenty");
@@ -60,7 +63,7 @@ public class TreeCapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "acacia");
         tree.setString("logs", String.format("%d,0; %d,4; %d,8", logs1, logs1, logs1));
-        tree.setString("leaves", String.format("%d,0; %d,8", leavesColorized, leavesColorized));
+        tree.setString("leaves", String.format("%d,0; %d,8", leavesColorized1, leavesColorized1));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         // BoP cherry
@@ -106,14 +109,14 @@ public class TreeCapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "mangrove");
         tree.setString("logs", String.format("%d,2; %d,6; %d,10", logs2, logs2, logs2));
-        tree.setString("leaves", String.format("%d,1; %d,9", leavesColorized, leavesColorized));
+        tree.setString("leaves", String.format("%d,1; %d,9", leavesColorized1, leavesColorized1));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         // BoP palm
         tree = new NBTTagCompound();
         tree.setString("treeName", "palm");
         tree.setString("logs", String.format("%d,3; %d,7; %d,11", logs2, logs2, logs2));
-        tree.setString("leaves", String.format("%d,2; %d,10", leavesColorized, leavesColorized));
+        tree.setString("leaves", String.format("%d,2; %d,10", leavesColorized1, leavesColorized1));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         
@@ -124,14 +127,14 @@ public class TreeCapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "redwood");
         tree.setString("logs", String.format("%d,0; %d,4; %d,8", logs3, logs3, logs3));
-        tree.setString("leaves", String.format("%d,3; %d,11", leavesColorized, leavesColorized));
+        tree.setString("leaves", String.format("%d,3; %d,11", leavesColorized1, leavesColorized1));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         // BoP willow
         tree = new NBTTagCompound();
         tree.setString("treeName", "willow");
         tree.setString("logs", String.format("%d,1; %d,5; %d,9", logs3, logs3, logs3));
-        tree.setString("leaves", String.format("%d,4; %d,12", leavesColorized, leavesColorized));
+        tree.setString("leaves", String.format("%d,4; %d,12", leavesColorized2, leavesColorized2));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         // BoP dead
@@ -156,7 +159,7 @@ public class TreeCapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "pine");
         tree.setString("logs", String.format("%d,0; %d,4; %d,8", logs4, logs4, logs4));
-        tree.setString("leaves", String.format("%d,5; %d,13", leavesColorized, leavesColorized));
+        tree.setString("leaves", String.format("%d,5; %d,13", leavesColorized2, leavesColorized2));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         // BoP hellbark
