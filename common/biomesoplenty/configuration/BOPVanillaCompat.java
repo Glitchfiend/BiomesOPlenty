@@ -46,7 +46,6 @@ public class BOPVanillaCompat {
 			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
 			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 
-			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Items.bopDisc.get()), 1, 1, 4));
 			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
 			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
 			

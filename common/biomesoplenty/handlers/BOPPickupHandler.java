@@ -70,7 +70,7 @@ public class BOPPickupHandler implements IPickupNotifier
 		}
 		
 		//Phantom Menace
-		if (item.getEntityItem().itemID == Items.miscItems.get().itemID && (item.getEntityItem().getItemDamage() == 16))
+		if (item.getEntityItem().itemID == Items.miscItems.get().itemID && (item.getEntityItem().getItemDamage() == 10))
 		{
 			player.addStat(BOPAchievements.achPhantom, 1);
 		}

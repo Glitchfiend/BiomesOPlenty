@@ -1,8 +1,8 @@
 package biomesoplenty.configuration;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.util.MathHelper;
@@ -12,7 +12,6 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Fluids;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -40,6 +39,8 @@ public class BOPAchievements
 	public static Achievement achPromised;
 	public static Achievement achCelestial;
 	public static Achievement achAmbrosia;
+	
+	public static Achievement achAllBOP;
 
 	public static AchievementPage pageBiome;
 	
@@ -68,8 +69,10 @@ public class BOPAchievements
 		achCelestial = (new Achievement(3094, "bop.achCelestial", -1, -4, new ItemStack(Items.miscItems.get(), 1, 4), achPromised)).registerAchievement();
 		achAmbrosia = (new Achievement(3095, "bop.achAmbrosia", 0, -6, new ItemStack(Items.food.get(), 1, 10), achCelestial)).registerAchievement();
 		
+		achAllBOP = (new Achievement(3096, "bop.achAllBOP", 0, -8, new ItemStack(Items.food.get(), 1, 7), null)).registerAchievement().setSpecial();
+		
 		biomesOPlentyAchievementList = new Achievement[] { achFlower, achFlowerBand, achDartBlower, achScythe, achEnderporter, achBerry, achMoss, achThorn, achCoral,
-				achHoney, achWitherWart, achGrave, achPhantom, achPromised, achCelestial, achAmbrosia};
+				achHoney, achWitherWart, achGrave, achPhantom, achPromised, achCelestial, achAmbrosia, achAllBOP};
 		
 		pageBiome = new AchievementPage("Biomes O\' Plenty", biomesOPlentyAchievementList);
 		
@@ -91,8 +94,21 @@ public class BOPAchievements
 					int x = MathHelper.floor_double(player.posX);
 					int y = MathHelper.floor_double(player.boundingBox.minY);
 					int z = MathHelper.floor_double(player.posZ);
-
+					
+					int i = 0;
 					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
+					
+					if (world.isRemote)
+                    {
+                        if (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAmbrosia) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achPhantom) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achCoral) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achEnderporter))
+                        {
+                        	if (!Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAllBOP))
+                        	{
+                        		player.addStat(achAllBOP, 1);
+                        		player.dropPlayerItem(new ItemStack(Items.bopDisc.get(), 1, 0));
+                        	}
+                        }
+                    }
 					
 					if (biomeID == Biomes.promisedLandForest.get().biomeID)
 					{
