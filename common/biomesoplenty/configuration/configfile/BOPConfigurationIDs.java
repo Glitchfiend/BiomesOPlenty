@@ -305,6 +305,7 @@ public class BOPConfigurationIDs
 	public static int phantomID;
 	public static int waspID;
 	public static int birdID;
+	public static int pixieID;
 	
 	public static void init(File configFile)
 	{
@@ -504,6 +505,7 @@ public class BOPConfigurationIDs
 			phantomID = config.get("Mob IDs", "Phantom ID", 107, null).getInt();
 	        waspID = config.get("Mob IDs", "Wasp ID", 108, null).getInt();
 	        birdID = config.get("Mob IDs", "Bird ID", 109, null).getInt();
+	        pixieID = config.get("Mob IDs", "Pixie ID", 110, null).getInt();
 
 			//Projectile IDs
 			entityMudballID = config.get("Entity IDs", "Mudball ID", 103, null).getInt();;

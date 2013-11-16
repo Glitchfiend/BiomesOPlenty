@@ -320,6 +320,7 @@ item.bop.miscItems.greendye.name=Green Dye
 item.bop.miscItems.whitedye.name=White Dye
 item.bop.miscItems.blackdye.name=Black Dye
 item.bop.miscItems.ghastlysoul.name=Ghastly Soul
+item.bop.miscItems.pixiedust.name=Pixie Dust
 
 item.bop.jarEmpty.name=Empty Jar
 item.bop.jarFilled.jarhoney.name=Honey Jar
@@ -406,6 +407,7 @@ entity.BiomesOPlenty.Phantom.name=Phantom
 entity.BiomesOPlenty.Rosester.name=Rosester
 entity.BiomesOPlenty.Wasp.name=Wasp
 entity.BiomesOPlenty.Bird.name=Bird
+entity.BiomesOPlenty.Pixie.name=Pixie
 
 achievement.bop.achFlower=Flower Child
 achievement.bop.achFlower.desc=Become one with nature!

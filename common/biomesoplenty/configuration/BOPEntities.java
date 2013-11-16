@@ -11,6 +11,7 @@ import biomesoplenty.entities.EntityBird;
 import biomesoplenty.entities.EntityGlob;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.entities.EntityPhantom;
+import biomesoplenty.entities.EntityPixie;
 import biomesoplenty.entities.EntityRosester;
 import biomesoplenty.entities.EntityWasp;
 import biomesoplenty.entities.projectiles.EntityDart;
@@ -109,6 +110,18 @@ public class BOPEntities {
 		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent() && Biomes.promisedLandShrub.isPresent())
 			{
 				EntityRegistry.addSpawn(EntityBird.class, 10, 3, 5, EnumCreatureType.creature, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get(), Biomes.promisedLandShrub.get());
+			}
+		}
+		
+		if (BOPConfigurationIDs.pixieID > 0)
+		{
+		    EntityRegistry.registerModEntity(EntityPixie.class, "Pixie", BOPConfigurationIDs.pixieID, BiomesOPlenty.instance, 80, 3, true);
+
+		    registerEntityEgg(EntityPixie.class, 16560347, 16645116);
+		    
+		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent() && Biomes.promisedLandShrub.isPresent())
+			{
+				EntityRegistry.addSpawn(EntityPixie.class, 5, 1, 3, EnumCreatureType.monster, Biomes.promisedLandForest.get(), Biomes.promisedLandSwamp.get(), Biomes.promisedLandPlains.get(), Biomes.promisedLandShrub.get());
 			}
 		}
 	}
