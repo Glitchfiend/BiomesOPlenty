@@ -33,6 +33,7 @@ import biomesoplenty.entities.render.RenderPixie;
 import biomesoplenty.entities.render.RenderRosester;
 import biomesoplenty.entities.render.RenderWasp;
 import biomesoplenty.particles.EntityDandelionFX;
+import biomesoplenty.particles.EntityMagicTreeFX;
 import biomesoplenty.particles.EntitySteamFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -121,6 +122,10 @@ public class ClientProxy extends CommonProxy {
 		else if (string == "steam") 
 		{
 			entityfx = new EntitySteamFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
+		}
+		else if (string == "magictree") 
+		{
+			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
 
 		mc.effectRenderer.addEffect(entityfx);

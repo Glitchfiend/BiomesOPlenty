@@ -144,6 +144,11 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
             double d2 = z + random.nextFloat();
             world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
+        
+        if (world.getBlockId(x, y, z) == Blocks.leaves1.get().blockID && world.getBlockMetadata(x, y, z) == 2)
+        {
+            BiomesOPlenty.proxy.spawnParticle("magictree", x + random.nextFloat(), y - 16.0F, z + random.nextFloat());
+        }
 
         super.randomDisplayTick(world, x, y, z, random);
 
