@@ -102,6 +102,8 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 		case 1:
 		case 2:
 		case 3:
+		case 10:
+		case 11:
 			if (world.rand.nextInt(8) != 0)
 				return ret;
 
