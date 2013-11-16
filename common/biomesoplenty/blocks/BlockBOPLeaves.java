@@ -364,7 +364,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
     private static int getTypeFromMeta(int meta)
     {
-        meta = meta & 7;
+        meta = meta & 3;
         if (meta < 0 || meta >= leaves.length) {
             meta = 0;
         }
@@ -386,7 +386,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public void beginLeavesDecay(World world, int x, int y, int z)
     {
-        world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 4);
+        world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 4, 4);
     }
 
     @Override

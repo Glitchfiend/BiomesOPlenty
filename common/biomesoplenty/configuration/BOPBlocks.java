@@ -16,6 +16,7 @@ import biomesoplenty.blocks.BlockBOPFlower;
 import biomesoplenty.blocks.BlockBOPFlower2;
 import biomesoplenty.blocks.BlockBOPFoliage;
 import biomesoplenty.blocks.BlockBOPGeneric;
+import biomesoplenty.blocks.BlockBOPColorizedLeaves.ColourizedLeafCategory;
 import biomesoplenty.blocks.BlockBOPGeneric.BlockType;
 import biomesoplenty.blocks.BlockBOPGrass;
 import biomesoplenty.blocks.BlockBOPLeaves;
@@ -210,7 +211,11 @@ public class BOPBlocks
 		Blocks.pineStairs = Optional.of((new BlockBOPStairs(BOPConfigurationIDs.pineStairsID, Blocks.planks.get(), Category.PINE)).setUnlocalizedName("bop.pineStairs"));
 		Blocks.hellBarkStairs = Optional.of((new BlockBOPStairs(BOPConfigurationIDs.hellBarkStairsID, Blocks.planks.get(), Category.HELL_BARK)).setUnlocalizedName("bop.hellBarkStairs"));
 		Blocks.jacarandaStairs = Optional.of((new BlockBOPStairs(BOPConfigurationIDs.jacarandaStairsID, Blocks.planks.get(), Category.JACARANDA)).setUnlocalizedName("bop.jacarandaStairs"));
-		Blocks.leavesColorized = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeavesID)).setUnlocalizedName("bop.leavesColorized"));
+		
+		Blocks.leavesColorized1 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeavesID, ColourizedLeafCategory.CAT1)).setUnlocalizedName("bop.leavesColorized1"));
+	    Blocks.leavesColorized2 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves2ID, ColourizedLeafCategory.CAT2)).setUnlocalizedName("bop.leavesColorized2"));
+	    //Blocks.leavesColorized3 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves3ID, ColourizedLeafCategory.CAT3)).setUnlocalizedName("bop.leavesColorized3"));
+	    //Blocks.leavesColorized4 = Optional.of((new BlockBOPColorizedLeaves(BOPConfigurationIDs.colourizedLeaves4ID, ColourizedLeafCategory.CAT4)).setUnlocalizedName("bop.leavesColorized4"));
 	}
 
 	private static void registerBlocks()
@@ -304,7 +309,10 @@ public class BOPBlocks
 		registerBlock(Blocks.hellBarkStairs.get());
 		registerBlock(Blocks.jacarandaStairs.get());
 
-		registerBlock(Blocks.leavesColorized.get(), ItemBlockColorizedLeaves.class);
+		registerBlock(Blocks.leavesColorized1.get(), ItemBlockColorizedLeaves.class);
+	    registerBlock(Blocks.leavesColorized2.get(), ItemBlockColorizedLeaves.class);
+	    //registerBlock(Blocks.leavesColorized3.get(), ItemBlockColorizedLeaves.class);
+	    //registerBlock(Blocks.leavesColorized4.get(), ItemBlockColorizedLeaves.class);
 	}
 	
 	private static void registerTileEntities()
