@@ -13,18 +13,18 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
-public class EntityMagicTreeFX extends EntityFX
+public class EntityPixieTrailFX extends EntityFX
 {
-    private static final String texture = "biomesoplenty:textures/particles/magictree.png";
+    private static final String texture = "biomesoplenty:textures/particles/pixietrail.png";
 
-    float magicTreeParticleScale;
+    float pixieTrailParticleScale;
 
-    public EntityMagicTreeFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12)
+    public EntityPixieTrailFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12)
     {
         this(par1World, par2, par4, par6, par8, par10, par12, 1.0F);
     }
 
-    public EntityMagicTreeFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12, float par14)
+    public EntityPixieTrailFX(World par1World, double par2, double par4, double par6, double par8, double par10, double par12, float par14)
     {
         super(par1World, par2, par4, par6, 0.0D, 0.0D, 0.0D);
         this.motionX *= 0.10000000149011612D;
@@ -35,10 +35,10 @@ public class EntityMagicTreeFX extends EntityFX
         this.motionZ += par12;
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
-        this.magicTreeParticleScale = this.particleScale;
-        this.particleMaxAge = (int)((8.0D / (Math.random() * 0.8D + 0.2D)) * 64);
+        this.pixieTrailParticleScale = this.particleScale;
+        this.particleMaxAge = (int)((8.0D / (Math.random() * 0.8D + 0.2D)) * 8);
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
-        this.particleAge = (particleMaxAge / 16) + (int)((particleMaxAge / 16) * par1World.rand.nextInt(7));
+        this.particleAge = (particleMaxAge / 2) + (int)((particleMaxAge / 2) * par1World.rand.nextInt(7));
         this.noClip = false;
     }
 
@@ -87,7 +87,7 @@ public class EntityMagicTreeFX extends EntityFX
         float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * (double)par2 - interpPosZ);
 
         tessellator.startDrawingQuads();
-        tessellator.setBrightness(150);
+        tessellator.setBrightness(175);
 
         tessellator.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, 1.0F);
         tessellator.addVertexWithUV((double)(f11 - par3 * f10 - par6 * f10), (double)(f12 - par4 * f10), (double)(f13 - par5 * f10 - par7 * f10), (double)f7, (double)f9);
@@ -119,7 +119,6 @@ public class EntityMagicTreeFX extends EntityFX
         }
 
         this.setParticleTextureIndex(7 - particleAge * 8 / particleMaxAge);
-        motionY -= 0.0004D;
         this.moveEntity(motionX, motionY, motionZ);
 
         if (posY == prevPosY)

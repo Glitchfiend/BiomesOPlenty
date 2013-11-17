@@ -1,5 +1,6 @@
 package biomesoplenty.entities;
 
+import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -88,6 +89,20 @@ public class EntityPixie extends EntityFlyingMob
 			this.entityDropItem(new ItemStack(Items.miscItems.get(), 1, 11), 0.0F);
 		}
 	}
+	
+    @Override
+    public void onEntityUpdate()
+    {
+    	super.onEntityUpdate();
+
+    	for (int i = 0; i < 3; i++)
+    	{
+    		if (this.rand.nextInt(3) == 0)
+    		{
+    			BiomesOPlenty.proxy.spawnParticle("pixietrail", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width);
+    		}
+    	}
+    }
     
     @Override
     protected String getLivingSound()
