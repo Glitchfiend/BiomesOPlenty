@@ -34,6 +34,7 @@ public class BiomeGenNetherGarden extends BiomeGenBase
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.burningBlossomsPerChunk = 8;
 		customBiomeDecorator.waspHivesPerChunk = 1;
+		customBiomeDecorator.generateUndergroundLakes = false;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

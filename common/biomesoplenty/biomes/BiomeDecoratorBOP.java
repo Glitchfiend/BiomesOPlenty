@@ -446,6 +446,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 	public boolean generateQuicksand;
 	public boolean generateSponge;
 	public boolean generateMossySkystone;
+	public boolean generateUndergroundLakes;
 
 	public BiomeDecoratorBOP(BiomeGenBase par1BiomeGenBase)
 	{
@@ -687,6 +688,7 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 		generateQuicksand = false;
 		generateSponge = false;
 		generateMossySkystone = false;
+		generateUndergroundLakes = true;
 		biome = par1BiomeGenBase;
 	}
 
@@ -775,10 +777,13 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 {
 				 if (var9999 == 1)
 				 {
-					 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-					 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
-					 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-					 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+					 if (generateUndergroundLakes)
+					 {
+						 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+						 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
+						 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+						 (new WorldGenLakes(Fluids.springWater.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+					 }
 				 }
 			 }
 		 }
@@ -802,10 +807,13 @@ public class BiomeDecoratorBOP extends BiomeDecorator
 			 {
 				 if (var9998 == 1)
 				 {
-					 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
-					 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
-					 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
-					 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+					 if (generateUndergroundLakes)
+					 {
+						 var3 = chunk_X + randomGenerator.nextInt(16) + 8;
+						 var4 = randomGenerator.nextInt(randomGenerator.nextInt(randomGenerator.nextInt(32) + 8) + 8);
+						 var5 = chunk_Z + randomGenerator.nextInt(16) + 8;
+						 (new WorldGenLakes(Fluids.liquidPoison.get().blockID)).generate(currentWorld, randomGenerator, var3, var4, var5);
+					 }
 				 }
 			 }
 		 }

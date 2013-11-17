@@ -29,6 +29,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
 		customBiomeDecorator.stalagmitesPerChunk = -999;
 		customBiomeDecorator.stalactitesPerChunk = -999;
 		customBiomeDecorator.minersDelightPerChunk = -999;
+		customBiomeDecorator.generateUndergroundLakes = false;
 	}
 
 	/**
