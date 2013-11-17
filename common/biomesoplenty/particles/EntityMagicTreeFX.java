@@ -29,12 +29,12 @@ public class EntityMagicTreeFX extends EntityFX
         this.motionX += par8;
         this.motionY += par10;
         this.motionZ += par12;
-        this.particleRed = this.particleGreen = this.particleBlue = (float)(Math.random() * 0.30000001192092896D);
         this.particleScale *= 0.75F;
         this.particleScale *= par14;
         this.magicTreeParticleScale = this.particleScale;
-        this.particleMaxAge = (int)(8.0D / (Math.random() * 0.8D + 0.2D));
+        this.particleMaxAge = (int)((8.0D / (Math.random() * 0.8D + 0.2D)) * 64);
         this.particleMaxAge = (int)((float)this.particleMaxAge * par14);
+        this.particleAge = (particleMaxAge / 16) + (int)((particleMaxAge / 16) * par1World.rand.nextInt(7));
         this.noClip = false;
 	}
 
@@ -59,9 +59,9 @@ public class EntityMagicTreeFX extends EntityFX
 		GL11.glPushMatrix();
 
 		GL11.glDepthMask(false);
-		GL11.glEnable(3042);
-		GL11.glBlendFunc(770, 1);
-
+	    GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(770, 1);
+		
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(texture));
 		
         float f6 = (float)this.particleTextureIndexX / 16.0F;
@@ -81,12 +81,11 @@ public class EntityMagicTreeFX extends EntityFX
         float f11 = (float)(this.prevPosX + (this.posX - this.prevPosX) * (double)par2 - interpPosX);
         float f12 = (float)(this.prevPosY + (this.posY - this.prevPosY) * (double)par2 - interpPosY);
         float f13 = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * (double)par2 - interpPosZ);
-        float f14 = 1.0F;
         
 		tessellator.startDrawingQuads();
-		tessellator.setBrightness(10);
+	    tessellator.setBrightness(240);
         
-        tessellator.setColorRGBA_F(this.particleRed * f14, this.particleGreen * f14, this.particleBlue * f14, this.particleAlpha);
+        tessellator.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, 1.0F);
         tessellator.addVertexWithUV((double)(f11 - par3 * f10 - par6 * f10), (double)(f12 - par4 * f10), (double)(f13 - par5 * f10 - par7 * f10), (double)f7, (double)f9);
         tessellator.addVertexWithUV((double)(f11 - par3 * f10 + par6 * f10), (double)(f12 + par4 * f10), (double)(f13 - par5 * f10 + par7 * f10), (double)f7, (double)f8);
         tessellator.addVertexWithUV((double)(f11 + par3 * f10 + par6 * f10), (double)(f12 + par4 * f10), (double)(f13 + par5 * f10 + par7 * f10), (double)f6, (double)f8);
@@ -94,7 +93,7 @@ public class EntityMagicTreeFX extends EntityFX
         
 		tessellator.draw();
 
-		GL11.glDisable(3042);
+	    GL11.glDisable(GL11.GL_BLEND);
 		GL11.glDepthMask(true);
 
 		GL11.glPopMatrix();

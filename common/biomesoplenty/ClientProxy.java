@@ -125,7 +125,7 @@ public class ClientProxy extends CommonProxy {
 		}
 		else if (string == "magictree") 
 		{
-			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
+			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, 0.0D, -0.02D, 0.0D);
 		}
 
 		mc.effectRenderer.addEffect(entityfx);
