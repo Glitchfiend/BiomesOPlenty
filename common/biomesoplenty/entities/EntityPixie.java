@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 public class EntityPixie extends EntityFlyingCreature
@@ -102,6 +103,44 @@ public class EntityPixie extends EntityFlyingCreature
     			BiomesOPlenty.proxy.spawnParticle("pixietrail", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width);
     		}
     	}
+    }
+    
+    /**
+     * Checks to make sure the light is not too bright where the mob is spawning
+     */
+    protected boolean isValidLightLevel()
+    {
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+
+        if (this.worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > this.rand.nextInt(32))
+        {
+            return false;
+        }
+        else
+        {
+            int l = this.worldObj.getBlockLightValue(i, j, k);
+
+            if (this.worldObj.isThundering())
+            {
+                int i1 = this.worldObj.skylightSubtracted;
+                this.worldObj.skylightSubtracted = 10;
+                l = this.worldObj.getBlockLightValue(i, j, k);
+                this.worldObj.skylightSubtracted = i1;
+            }
+
+            return l <= this.rand.nextInt(8);
+        }
+    }
+    
+    /**
+     * Checks if the entity's current position is a valid location to spawn this entity.
+     */
+    @Override
+    public boolean getCanSpawnHere()
+    {
+        return this.isValidLightLevel() && super.getCanSpawnHere();
     }
     
     @Override

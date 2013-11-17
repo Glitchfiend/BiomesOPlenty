@@ -1,11 +1,11 @@
 package biomesoplenty.entities;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.passive.EntityAmbientCreature;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityFlyingCreature extends EntityLiving
+public class EntityFlyingCreature extends EntityAmbientCreature
 {
     public EntityFlyingCreature(World par1World)
     {
