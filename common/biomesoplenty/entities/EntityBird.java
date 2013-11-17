@@ -8,7 +8,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityBird extends EntityFlyingMob
+public class EntityBird extends EntityFlyingCreature
 {
     public int courseChangeCooldown;
     public double waypointX;

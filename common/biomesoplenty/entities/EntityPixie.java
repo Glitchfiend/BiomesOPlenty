@@ -9,7 +9,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityPixie extends EntityFlyingMob
+public class EntityPixie extends EntityFlyingCreature
 {
     public int courseChangeCooldown;
     public double waypointX;

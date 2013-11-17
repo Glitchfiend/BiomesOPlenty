@@ -1,15 +1,19 @@
 package biomesoplenty.items;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumMovingObjectType;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.common.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Fluids;
 import biomesoplenty.api.Items;
+import biomesoplenty.entities.EntityPixie;
 
 public class ItemJarEmpty extends Item
 {
@@ -74,6 +78,45 @@ public class ItemJarEmpty extends Item
             }
 
             return par1ItemStack;
+        }
+    }
+	
+    /**
+     * Returns true if the item can be used on the given entity, e.g. shears on sheep.
+     */
+    public boolean itemInteractionForEntity(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, EntityLivingBase par3EntityLivingBase)
+    {
+        if (par3EntityLivingBase instanceof EntityPixie)
+        {
+            EntityPixie entitypixie = (EntityPixie)par3EntityLivingBase;
+
+            entitypixie.setDead();
+                
+            --par1ItemStack.stackSize;
+            
+    		if (par2EntityPlayer.inventory.getFirstEmptyStack() >= 0)
+			{
+        		EntityItem entityitem = new EntityItem(par2EntityPlayer.worldObj, par2EntityPlayer.posX, par2EntityPlayer.posY, par2EntityPlayer.posZ, new ItemStack(Items.jarFilled.get(), 1, 2));
+    			if (!par2EntityPlayer.worldObj.isRemote)
+    			{
+    				par2EntityPlayer.worldObj.spawnEntityInWorld(entityitem);
+    				
+    				if (!(par2EntityPlayer instanceof FakePlayer))
+    				{
+    					entityitem.onCollideWithPlayer(par2EntityPlayer);
+    				}
+    			}
+			}
+    		else
+    		{
+                par2EntityPlayer.dropPlayerItem(new ItemStack(Items.jarFilled.get(), 1, 2));
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
