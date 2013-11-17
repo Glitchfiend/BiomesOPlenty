@@ -2,14 +2,17 @@ package biomesoplenty.items;
 
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingData;
-import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Facing;
 import net.minecraft.util.Icon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Items;
@@ -73,48 +76,65 @@ public class ItemJarFilled extends Item
 		}
 	}
 	
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
-	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-	{
-		if (par1ItemStack.getItemDamage() == 2)
-		{
-			if (par3EntityPlayer.ridingEntity != null)
-				return par1ItemStack;
-			else
-			{
-				if (par3EntityPlayer.dimension == 0 || par3EntityPlayer.dimension == BOPConfigurationIDs.promisedLandDimID)
-				{
-					--par1ItemStack.stackSize;
-					
-	                if (par1ItemStack.stackSize <= 0)
-	                {
-	                    return new ItemStack(Items.jarEmpty.get(), 1, 0);
-	                }
-	
-	                if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.jarEmpty.get(), 1, 0)))
-	                {
-	                    par3EntityPlayer.dropPlayerItem(new ItemStack(Items.jarEmpty.get(), 1, 0));
-	                }
+    @Override
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float xoffset, float yoffset, float zoffset)
+    {
+            if (itemStack.getItemDamage() == 2)
+            {
+                if (entityPlayer.dimension == 0 || entityPlayer.dimension == BOPConfigurationIDs.promisedLandDimID)
+                {
+                    int i1 = world.getBlockId(x, y, z);
+                    x += Facing.offsetsXForSide[side];
+                    y += Facing.offsetsYForSide[side];
+                    z += Facing.offsetsZForSide[side];
+                    double d0 = 0.0D;
 
-	    			EntityPixie pixie = new EntityPixie(par2World);
-		            pixie.setLocationAndAngles((double)par3EntityPlayer.posX, (double)par3EntityPlayer.posY + 1.0F, (double)par3EntityPlayer.posZ, 0.0F, 0.0F);
-		            pixie.onSpawnWithEgg((EntityLivingData)null);
-		            par2World.spawnEntityInWorld(pixie);
-		            pixie.playLivingSound();
-				}
-				else
-				{
-					if (!par3EntityPlayer.worldObj.isRemote)
-					{
-						par3EntityPlayer.addChatMessage("\u00a75Pixies cannot survive in this environment!");
-					}
-				}
-			}
-		}
-		
-		return par1ItemStack;
-	}
-}
+                    if (side == 1 && Block.blocksList[i1] != null && Block.blocksList[i1].getRenderType() == 11)
+                    {
+                        d0 = 0.5D;
+                    }
+
+                    if (!world.isRemote)
+                    {
+                        EntityPixie entity = new EntityPixie(world);
+                        entity.setLocationAndAngles(x, y, z, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0F), 0.0F);
+                        entity.rotationYawHead = entity.rotationYaw;
+                        entity.renderYawOffset = entity.rotationYaw;
+                        entity.onSpawnWithEgg((EntityLivingData)null);
+                        world.spawnEntityInWorld(entity);
+                        entity.playLivingSound();
+
+                        if (itemStack.hasDisplayName())
+                        {
+                            ((EntityLiving)entity).setCustomNameTag(itemStack.getDisplayName());
+                        }
+                    }
+
+                    if (!entityPlayer.capabilities.isCreativeMode)
+                    {
+                        --itemStack.stackSize;
+
+                        if (itemStack.stackSize <= 0)
+                        {
+                            itemStack = new ItemStack(Items.jarEmpty.get(), 1, 0);
+                        }
+
+                        if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.jarEmpty.get(), 1, 0)))
+                        {
+                            entityPlayer.dropPlayerItem(new ItemStack(Items.jarEmpty.get(), 1, 0));
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (!world.isRemote)
+                    {
+                        entityPlayer.addChatMessage("\u00a75Pixies cannot survive in this environment!");
+                    }
+                }
+            }
+
+            return true;
+        }
+    }
