@@ -1,11 +1,14 @@
 package biomesoplenty;
 
+import java.util.Random;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelChicken;
 import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.util.MathHelper;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.BambooRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
@@ -102,6 +105,8 @@ public class ClientProxy extends CommonProxy {
 	public void spawnParticle(String string, double x, double y, double z)
 	{
 		EntityFX entityfx = null;
+		
+		Random rand = new Random();
 
 		if (string == "mud") 
 		{
@@ -125,10 +130,17 @@ public class ClientProxy extends CommonProxy {
 		}
 		else if (string == "magictree") 
 		{
-			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, 0.0D, -0.02D, 0.0D);
+			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
 		}
 
 		mc.effectRenderer.addEffect(entityfx);
+	}
+	
+	public static double generatRandomPositiveNegitiveValue(double max, double min) 
+	{
+	    Random rand = new Random();
+	    double d = -min + (Math.random() * ((max - (-min)) + 1));
+	    return d;
 	}
 
 	@Override
