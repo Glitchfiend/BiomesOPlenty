@@ -22,6 +22,7 @@ public class BiomeGenNetherDesert extends BiomeGenBase
 		customBiomeDecorator.thornsPerChunk = 10;
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.waspHivesPerChunk = 1;
+		customBiomeDecorator.generateUndergroundLakes = false;
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();

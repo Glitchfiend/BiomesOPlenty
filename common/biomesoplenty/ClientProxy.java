@@ -37,6 +37,7 @@ import biomesoplenty.entities.render.RenderRosester;
 import biomesoplenty.entities.render.RenderWasp;
 import biomesoplenty.particles.EntityDandelionFX;
 import biomesoplenty.particles.EntityMagicTreeFX;
+import biomesoplenty.particles.EntityPixieTrailFX;
 import biomesoplenty.particles.EntitySteamFX;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -131,6 +132,10 @@ public class ClientProxy extends CommonProxy {
 		else if (string == "magictree") 
 		{
 			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
+		}
+		else if (string == "pixietrail") 
+		{
+			entityfx = new EntityPixieTrailFX(mc.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
 		}
 
 		mc.effectRenderer.addEffect(entityfx);

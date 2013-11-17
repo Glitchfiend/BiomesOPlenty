@@ -49,6 +49,7 @@ public class BiomeGenPromisedLandSwamp extends BiomeGenBase implements IWCFog
 		spawnableCaveCreatureList.clear();
 		customBiomeDecorator.generatePumpkins = false;
 		customBiomeDecorator.generateMossySkystone = true;
+		customBiomeDecorator.generateUndergroundLakes = false;
 		//customBiomeDecorator.generateClouds = true;
 		//this.customBiomeDecorator.generateLakes = false;
 		theWorldGenerator = new WorldGenWaterSpring(Block.waterMoving.blockID, 8);
