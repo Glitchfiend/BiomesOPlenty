@@ -325,6 +325,7 @@ item.bop.miscItems.pixiedust.name=Pixie Dust
 item.bop.jarEmpty.name=Empty Jar
 item.bop.jarFilled.jarhoney.name=Honey Jar
 item.bop.jarFilled.jarpoison.name=Poison Extract Jar
+item.bop.jarFilled.jarpixie.name=Pixie Jar
 
 item.bop.gems.amethyst.name=Amethyst
 item.bop.gems.ruby.name=Ruby

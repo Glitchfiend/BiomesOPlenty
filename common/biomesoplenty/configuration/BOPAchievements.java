@@ -100,7 +100,7 @@ public class BOPAchievements
 					int i = 0;
 					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 					
-					//if (world.isRemote)
+					if (!world.isRemote)
                     {
                         if (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAmbrosia) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achPhantom) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achCoral) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achEnderporter))
                         {

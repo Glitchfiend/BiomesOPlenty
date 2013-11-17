@@ -117,7 +117,7 @@ public class BOPEntities {
 		{
 		    EntityRegistry.registerModEntity(EntityPixie.class, "Pixie", BOPConfigurationIDs.pixieID, BiomesOPlenty.instance, 80, 3, true);
 
-		    registerEntityEgg(EntityPixie.class, 16560347, 16645116);
+		    registerEntityEgg(EntityPixie.class, 16742365, 16645116);
 		    
 		    if (Biomes.promisedLandForest.isPresent() && Biomes.promisedLandSwamp.isPresent() && Biomes.promisedLandPlains.isPresent() && Biomes.promisedLandShrub.isPresent())
 			{
