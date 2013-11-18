@@ -228,17 +228,19 @@ tile.bop.leaves1.yellowautumn.name=Gelbes Herbstlaub
 tile.bop.leaves1.bamboo.name=Bambuslaub
 tile.bop.leaves1.magic.name=Magisches Laub
 tile.bop.leaves1.dark.name=Dunkles Laub
-tile.bop.leaves1.dead.name=Sterbendes Laub
-tile.bop.leaves1.fir.name=Tannenlaub
-tile.bop.leaves1.holy.name=Heiliges Laub
-tile.bop.leaves1.orangeautumn.name=Orangefarbenes Herbstlaub
 
-tile.bop.leaves2.origin.name=Ursprüngliches Laub
-tile.bop.leaves2.pinkcherry.name=Pinkfarbenes Kirschlaub
-tile.bop.leaves2.maple.name=Ahornlaub
-tile.bop.leaves2.whitecherry.name=Weißes Kirschlaub
-tile.bop.leaves2.hellbark.name=Höllenrindenlaub
-tile.bop.leaves2.jacaranda.name=Jacarandalaub
+tile.bop.leaves2.dead.name=Sterbendes Laub
+tile.bop.leaves2.fir.name=Tannenlaub
+tile.bop.leaves2.holy.name=Heiliges Laub
+tile.bop.leaves2.orangeautumn.name=Orangefarbenes Herbstlaub
+
+tile.bop.leaves3.origin.name=Ursprüngliches Laub
+tile.bop.leaves3.pinkcherry.name=Pinkfarbenes Kirschlaub
+tile.bop.leaves3.maple.name=Ahornlaub
+tile.bop.leaves3.whitecherry.name=Weißes Kirschlaub
+
+tile.bop.leaves4.hellbark.name=Höllenrindenlaub
+tile.bop.leaves4.jacaranda.name=Jacarandalaub
 
 tile.bop.woodenDoubleSlab1.acaciaSlab.name=Akazienholzstufe
 tile.bop.woodenDoubleSlab1.cherrySlab.name=Kirschholzstufe
@@ -282,12 +284,13 @@ tile.bop.pineStairs.name=Pinienholztreppe
 tile.bop.hellBarkStairs.name=Höllenrindenholztreppe
 tile.bop.jacarandaStairs.name=Jacarandaholztreppe
 
-tile.bop.leavesColorized.acacia.name=Akazienlaub
-tile.bop.leavesColorized.mangrove.name=Mangrovenlaub
-tile.bop.leavesColorized.palm.name=Palmlaub
-tile.bop.leavesColorized.redwood.name=Mammutbaumlaub
-tile.bop.leavesColorized.willow.name=Weidenlaub
-tile.bop.leavesColorized.pine.name=Pinienlaub
+tile.bop.leavesColorized1.acacia.name=Akazienlaub
+tile.bop.leavesColorized1.mangrove.name=Mangrovenlaub
+tile.bop.leavesColorized1.palm.name=Palmlaub
+tile.bop.leavesColorized1.redwood.name=Mammutbaumlaub
+
+tile.bop.leavesColorized2.willow.name=Weidenlaub
+tile.bop.leavesColorized2.pine.name=Pinienlaub
 
 item.bop.food.berries.name=Beere
 item.bop.food.shroompowder.name=Pilzpulver
@@ -298,6 +301,7 @@ item.bop.food.saladveggie.name=Gemüsesalat
 item.bop.food.saladshroom.name=Pilzsalat
 item.bop.food.persimmon.name=Kaki
 item.bop.food.filledhoneycomb.name=Gefüllte Honigwabe
+item.bop.food.ambrosia.name=Ambrosia
 
 item.bop.dartblower.name=Blasrohr
 item.bop.dart.dart.name=Dart
@@ -307,7 +311,7 @@ item.bop.mudball.name=Matschball
 
 item.bop.miscItems.mudbrick.name=Matschziegel
 item.bop.miscItems.ash.name=Aschehaufen
-
+item.bop.miscItems.fleshchunk.name=Fleischbrocken
 item.bop.miscItems.emptyhoneycomb.name=Leere Honigwabe
 item.bop.miscItems.crystalshard.name=Himmlischer Kristallsplitter
 item.bop.miscItems.bluedye.name=Blauer Farbstoff
@@ -316,9 +320,12 @@ item.bop.miscItems.greendye.name=Grüner Farbstoff
 item.bop.miscItems.whitedye.name=Weißer Farbstoff
 item.bop.miscItems.blackdye.name=Schwarzer Farbstoff
 item.bop.miscItems.ghastlysoul.name=Umhergeisternde Seele
-item.bop.miscItems.jarempty.name=Leeres Glas
-item.bop.miscItems.jarhoney.name=Honigglas
-item.bop.miscItems.jarpoison.name=Glas mit Giftextrakt
+item.bop.miscItems.pixiedust.name=Feenstaub
+
+item.bop.jarEmpty.name=Leeres Glas
+item.bop.jarFilled.jarhoney.name=Honigglas
+item.bop.jarFilled.jarpoison.name=Glas mit Giftextrakt
+item.bop.jarFilled.jarpixie.name=Feenglas
 
 item.bop.gems.amethyst.name=Amethyst
 item.bop.gems.ruby.name=Rubin
@@ -391,9 +398,9 @@ fluid.bop.honey.name=Honig
 phrase.bop.promisedPortalOverworld=Ein Portal zum gelobten Land ist im Himmel entstanden.
 phrase.bop.promisedPortalOther=Ein Portal ist im Himmel entstanden.
 
-phrase.bop.useBOPATGWorldtype=Der Biomes-O-Plenty-Welttyp oder ATG-Welttyp muss genutzt werden, damit die neuen Biome generiert werden. Diese Nachricht wird nur einmal angezeigt.
-phrase.bop.useBOPWorldtype==Der Biomes-O-Plenty-Welttyp muss genutzt werden, damit die neuen Biome generiert werde. Diese Nachricht wird nur einmal angezeigt.
-phrase.bop.updateAvaliable=Eine neue Biomes-O-Plenty-Version ist verfügbar: v%s für Minecraft %s
+phrase.bop.useBOPATGWorldtype=Der Biomes-O'-Plenty-Welttyp oder ATG-Welttyp muss genutzt werden, damit die neuen Biome generiert werden. Diese Nachricht wird nur einmal angezeigt.
+phrase.bop.useBOPWorldtype=Der Biomes-O'-Plenty-Welttyp muss genutzt werden, damit die neuen Biome generiert werde. Diese Nachricht wird nur einmal angezeigt.
+phrase.bop.updateAvaliable=Du verwendest nicht die neueste Biomes-O-Plenty-Version. Die neueste empfohlene Version ist: v%s für Minecraft %s
 
 entity.BiomesOPlenty.Glob.name=Glob
 entity.BiomesOPlenty.JungleSpider.name=Dschungelspinne
@@ -401,6 +408,7 @@ entity.BiomesOPlenty.Phantom.name=Phantom
 entity.BiomesOPlenty.Rosester.name=Rosester
 entity.BiomesOPlenty.Wasp.name=Wespe
 entity.BiomesOPlenty.Bird.name=Vogel
+entity.BiomesOPlenty.Pixie.name=Fee
 
 achievement.bop.achFlower=Blumenkind
 achievement.bop.achFlower.desc=Werde eins mit der Natur!
@@ -436,8 +444,11 @@ achievement.bop.achPromised=Immer Weiter Hoch!
 achievement.bop.achPromised.desc=Willkommen zum Gelobten Land!
 achievement.bop.achCelestial=Blauer Himmel
 achievement.bop.achCelestial.desc=I am the one who...blocks...
-achievement.bop.achBird=Frei wie ein Vogel
-achievement.bop.achBird.desc=Nunja, nicht mehr.
+achievement.bop.achAmbrosia=Getränk der Götter
+achievement.bop.achAmbrosia.desc=Stillt euren Durst, meine Freunde.
+
+achievement.bop.achAllBOP=Achievements O' Plenty
+achievement.bop.achAllBOP.desc=Du hast alle Biomes-O'-Plenty-Errungenschaften bekommen!
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
