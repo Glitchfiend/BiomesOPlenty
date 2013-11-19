@@ -21,6 +21,17 @@ public class BOPCrossIntegration {
 			}
 		}
 		
+		if (Loader.isModLoaded("ThermalExpansion"))
+		{
+		    try {
+		        TEIntegration.init();
+		    }
+		    catch (Exception e) {
+		        System.out.println("[BiomesOPlenty] There was an error while integrating Thermal Expansion with Biomes O' Plenty!");
+		        e.printStackTrace(System.err);
+		    }
+		}
+
 		if (Loader.isModLoaded("Thaumcraft"))
 		{
 			try {
@@ -77,18 +88,6 @@ public class BOPCrossIntegration {
 				e.printStackTrace(System.err);
 			}
 		}
-
-		if (Loader.isModLoaded("ThermalExpansion"))
-		{
-			try {
-				TEIntegration.init();
-			}
-			catch (Exception e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating Thermal Expansion with Biomes O' Plenty!");
-				e.printStackTrace(System.err);
-			}
-		}
-		
 
 		if (Loader.isModLoaded("ATG"))
 		{
