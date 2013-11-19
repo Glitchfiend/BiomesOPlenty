@@ -128,7 +128,7 @@ public class BOPConfigurationBiomeGen
 			//Biome generation
 			alpsGen = config.get("Biomes To Generate", "Alps", true).getBoolean(false);
 			arcticGen = config.get("Biomes To Generate", "Arctic", true).getBoolean(false);
-			autumnHillsGen = config.get("Biomes To Generate", "AutumnHills", false).getBoolean(false);
+			autumnHillsGen = config.get("Biomes To Generate", "AutumnHills", true).getBoolean(false);
 			badlandsGen = config.get("Biomes To Generate", "Badlands", true).getBoolean(false);
 			bambooForestGen = config.get("Biomes To Generate", "BambooForest", true).getBoolean(false);
 			bayouGen = config.get("Biomes To Generate", "Bayou", true).getBoolean(false);
@@ -161,7 +161,7 @@ public class BOPConfigurationBiomeGen
 			hotSpringsGen = config.get("Biomes To Generate", "HotSprings", true).getBoolean(false);
 			icyHillsGen = config.get("Biomes To Generate", "IcyHills", true).getBoolean(false);
 			jadeCliffsGen = config.get("Biomes To Generate", "JadeCliffs", true).getBoolean(false);
-			lavenderFieldsGen = config.get("Biomes To Generate", "LavenderFields", false).getBoolean(false);
+			lavenderFieldsGen = config.get("Biomes To Generate", "LavenderFields", true).getBoolean(false);
 			lushDesertGen = config.get("Biomes To Generate", "LushDesert", true).getBoolean(false);
 			lushSwampGen = config.get("Biomes To Generate", "LushSwamp", true).getBoolean(false);
 			mangroveGen = config.get("Biomes To Generate", "Mangrove", true).getBoolean(false);
@@ -178,9 +178,9 @@ public class BOPConfigurationBiomeGen
 			orchardGen = config.get("Biomes To Generate", "Orchard", true).getBoolean(false);
 			originValleyGen = config.get("Biomes To Generate", "OriginValley", true).getBoolean(false);
 			outbackGen = config.get("Biomes To Generate", "Outback", true).getBoolean(false);
-			overgrownGreensGen = config.get("Biomes To Generate", "OvergrownGreens", false).getBoolean(false);
+			overgrownGreensGen = config.get("Biomes To Generate", "OvergrownGreens", true).getBoolean(false);
 			pastureGen = config.get("Biomes To Generate", "Pasture", true).getBoolean(false);
-			polarGen = config.get("Biomes To Generate", "Polar", true).getBoolean(false);
+			polarGen = config.get("Biomes To Generate", "Polar", false).getBoolean(false);
 			prairieGen = config.get("Biomes To Generate", "Prairie", true).getBoolean(false);
 			quagmireGen = config.get("Biomes To Generate", "Quagmire", true).getBoolean(false);
 			rainforestGen = config.get("Biomes To Generate", "Rainforest", true).getBoolean(false);
@@ -191,7 +191,7 @@ public class BOPConfigurationBiomeGen
 			seasonalForestGen = config.get("Biomes To Generate", "SeasonalForest", true).getBoolean(false);
 			shieldGen = config.get("Biomes To Generate", "Shield", true).getBoolean(false);
 			shrublandGen = config.get("Biomes To Generate", "Shrubland", true).getBoolean(false);
-			silkgladesGen = config.get("Biomes To Generate", "Silkglades", false).getBoolean(false);
+			silkgladesGen = config.get("Biomes To Generate", "Silkglades", true).getBoolean(false);
 			sludgepitGen = config.get("Biomes To Generate", "Sludgepit", true).getBoolean(false);
 			spruceWoodsGen = config.get("Biomes To Generate", "SpruceWoods", true).getBoolean(false);
 			steppeGen = config.get("Biomes To Generate", "Steppe", true).getBoolean(false);
