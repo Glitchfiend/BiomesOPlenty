@@ -10,6 +10,8 @@ import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenWasteland;
 import biomesoplenty.worldgen.WorldGenWasteland2;
+import biomesoplenty.worldgen.WorldGenWasteland3;
+import biomesoplenty.worldgen.WorldGenWasteland4;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
 public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
@@ -24,8 +26,10 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
         theBiomeDecorator = new BiomeDecoratorBOP(this);
         customBiomeDecorator = (BiomeDecoratorBOP) theBiomeDecorator;
         customBiomeDecorator.treesPerChunk = 0;
+        customBiomeDecorator.grassPerChunk = 20;
         customBiomeDecorator.deadGrassPerChunk = 14;
         customBiomeDecorator.poisonWaterPerChunk = 10;
+        customBiomeDecorator.waterLakesPerChunk = 2;
         waterColorMultiplier = 15073024;
         spawnableCreatureList.clear();
         spawnableWaterCreatureList.clear();
@@ -41,6 +45,15 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
                 : (par1Random.nextInt(2) == 0 ? new WorldGenWasteland2()
                         : new WorldGenWasteland());
     }
+    
+	/**
+	 * Gets a WorldGen appropriate for this biome.
+	 */
+	@Override
+	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	{
+		return par1Random.nextInt(2) == 0 ? new WorldGenWasteland4() : new WorldGenWasteland3();
+	}
 
     /**
      * Provides the basic grass color based on the biome temperature and
@@ -68,7 +81,7 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
     @Override
     public int getFogColour()
     {
-        return 5662280;
+        return 12106885;
     }
 
     /**
@@ -79,7 +92,7 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
     {
         if (BOPConfigurationMisc.skyColors)
         {
-            return 10465942;
+            return 9477744;
         }
         else
         {
@@ -104,6 +117,6 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
     public float getFogCloseness()
     {
         // TODO Auto-generated method stub
-        return 0.6F;
+        return 0.3F;
     }
 }
