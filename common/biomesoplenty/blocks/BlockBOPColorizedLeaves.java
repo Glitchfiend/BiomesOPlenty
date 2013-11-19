@@ -312,7 +312,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     @Override
     public int damageDropped(int meta)
     {
-        return (getTypeFromMeta(meta) + category.ordinal() * 4) + 1;
+        return getTypeFromMeta(meta) + category.ordinal() * 4;
     }
 
     @Override
