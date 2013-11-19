@@ -98,14 +98,6 @@ public class BOPAchievements
 					int x = MathHelper.floor_double(player.posX);
 					int y = MathHelper.floor_double(player.boundingBox.minY);
 					int z = MathHelper.floor_double(player.posZ);
-					
-					for (Achievement ach : biomesOPlentyAchievementList)
-					{
-					    if (ach != achAllBOP)
-					    {
-					        player.addStat(ach,  1);
-					    }
-					}
 
 					int i = 0;
 					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
