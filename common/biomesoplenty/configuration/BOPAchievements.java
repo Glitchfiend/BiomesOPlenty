@@ -16,7 +16,9 @@ import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 public class BOPAchievements
 {
@@ -97,36 +99,27 @@ public class BOPAchievements
 					int y = MathHelper.floor_double(player.boundingBox.minY);
 					int z = MathHelper.floor_double(player.posZ);
 					
+					for (Achievement ach : biomesOPlentyAchievementList)
+					{
+					    if (ach != achAllBOP)
+					    {
+					        player.addStat(ach,  1);
+					    }
+					}
+
 					int i = 0;
 					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 					
-					if (!world.isRemote)
-                    {
-                        if (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAmbrosia) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achPhantom) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achCoral) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achEnderporter))
-                        {
-                        	if (!Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAllBOP))
-                        	{
-                        		player.addStat(achAllBOP, 1);
-                        		if (player.inventory.getFirstEmptyStack() >= 0)
-            					{
-	                        		EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.bopDisc.get(), 1, 0));
-	                    			if (!world.isRemote)
-	                    			{
-	                    				world.spawnEntityInWorld(entityitem);
-	                    				
-	                    				if (!(player instanceof FakePlayer))
-	                    				{
-	                    					entityitem.onCollideWithPlayer(player);
-	                    				}
-	                    			}
-            					}
-                        		else
-                        		{
-                        			player.dropPlayerItem(new ItemStack(Items.bopDisc.get(), 1, 0));
-                        		}
-                        	}
-                        }
-                    }
+					if (FMLClientHandler.instance().getSide() == Side.CLIENT)
+					{
+					    if (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAmbrosia) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achPhantom) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achCoral) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achEnderporter))
+					    {
+					        if (!Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAllBOP))
+					        {
+					            player.addStat(achAllBOP, 1);
+					        }
+					    }
+					}
 					
 					if (biomeID == Biomes.promisedLandForest.get().biomeID)
 					{
