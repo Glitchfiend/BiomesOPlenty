@@ -2,21 +2,19 @@ package biomesoplenty.configuration;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.AchievementPage;
-import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
-import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 
@@ -102,7 +100,7 @@ public class BOPAchievements
 					int i = 0;
 					int biomeID = world.getBiomeGenForCoords(x, z).biomeID;
 					
-					if (FMLClientHandler.instance().getSide() == Side.CLIENT)
+					if (FMLCommonHandler.instance().getSide().isClient())
 					{
 					    if (Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achAmbrosia) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achPhantom) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achCoral) && Minecraft.getMinecraft().statFileWriter.hasAchievementUnlocked(achEnderporter))
 					    {
