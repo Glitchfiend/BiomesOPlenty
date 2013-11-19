@@ -15,55 +15,50 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BOPBiomeColourBlending implements IClassTransformer
 {
-    private static String SIDE = FMLLaunchHandler.side().name();
-    
     @Override
     public byte[] transform(String name, String newname, byte[] bytes)
     {
-        if (SIDE.equals("CLIENT"))
+        if (name.equals("net.minecraft.block.BlockFluid")) 
         {
-            if (name.equals("net.minecraft.block.BlockFluid")) 
-            {
-                return BlockFluid.patchColourMultiplier(newname, bytes, false);
-            }
+            return BlockFluid.patchColourMultiplier(newname, bytes, false);
+        }
 
-            if (name.equals("net.minecraft.block.BlockGrass")) 
-            {
-                return BlockGrass.patchColourMultiplier(newname, bytes, false);
-            }
+        if (name.equals("net.minecraft.block.BlockGrass")) 
+        {
+            return BlockGrass.patchColourMultiplier(newname, bytes, false);
+        }
 
-            if (name.equals("net.minecraft.block.BlockLeaves")) 
-            {
-                return BlockLeaves.patchColourMultiplier(newname, bytes, false);
-            }
+        if (name.equals("net.minecraft.block.BlockLeaves")) 
+        {
+            return BlockLeaves.patchColourMultiplier(newname, bytes, false);
+        }
 
-            if (name.equals("net.minecraft.block.BlockTallGrass")) 
-            {
-                return BlockTallGrass.patchColourMultiplier(newname, bytes, false);
-            }
+        if (name.equals("net.minecraft.block.BlockTallGrass")) 
+        {
+            return BlockTallGrass.patchColourMultiplier(newname, bytes, false);
+        }
 
-            if (name.equals("apc"))
-            { 
-                return BlockFluid.patchColourMultiplier(newname, bytes, true);
-            }
+        if (name.equals("apc"))
+        { 
+            return BlockFluid.patchColourMultiplier(newname, bytes, true);
+        }
 
 
-            if (name.equals("aon")) 
-            {
-                return BlockGrass.patchColourMultiplier(newname, bytes, true);
-            }
+        if (name.equals("aon")) 
+        {
+            return BlockGrass.patchColourMultiplier(newname, bytes, true);
+        }
 
 
-            if (name.equals("aoz")) 
-            {
-                return BlockLeaves.patchColourMultiplier(newname, bytes, true);
-            }
+        if (name.equals("aoz")) 
+        {
+            return BlockLeaves.patchColourMultiplier(newname, bytes, true);
+        }
 
 
-            if (name.equals("aqv")) 
-            {
-                return BlockTallGrass.patchColourMultiplier(newname, bytes, true);
-            }
+        if (name.equals("aqv")) 
+        {
+            return BlockTallGrass.patchColourMultiplier(newname, bytes, true);
         }
 
         return bytes;

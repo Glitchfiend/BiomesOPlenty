@@ -81,7 +81,7 @@ public class BOPCrossIntegration {
 		if (Loader.isModLoaded("ThermalExpansion"))
 		{
 			try {
-//				TEIntegration.init();
+				TEIntegration.init();
 			}
 			catch (Exception e) {
 				System.out.println("[BiomesOPlenty] There was an error while integrating Thermal Expansion with Biomes O' Plenty!");
