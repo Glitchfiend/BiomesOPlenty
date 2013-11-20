@@ -35,6 +35,9 @@ public class TEIntegration
 	    NBTTagCompound pulverizerCompound = new NBTTagCompound();
 	    
 	    pulverizerCompound.setInteger("energy", energy);
+	    pulverizerCompound.setCompoundTag("input", new NBTTagCompound());
+	    pulverizerCompound.setCompoundTag("primaryOutput", new NBTTagCompound());
+	    pulverizerCompound.setCompoundTag("secondaryOutput", new NBTTagCompound());
 	    input.writeToNBT(pulverizerCompound.getCompoundTag("input"));
 	    primaryOutput.writeToNBT(pulverizerCompound.getCompoundTag("primaryOutput"));
 	    if (secondaryOutput != null) secondaryOutput.writeToNBT(pulverizerCompound.getCompoundTag("secondaryOutput"));
