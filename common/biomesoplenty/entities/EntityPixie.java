@@ -96,12 +96,15 @@ public class EntityPixie extends EntityFlyingCreature
     {
     	super.onEntityUpdate();
 
-    	for (int i = 0; i < 7; i++)
+    	if (this.worldObj.isRemote)
     	{
-    		if (this.rand.nextInt(2) == 0)
-    		{
-    			BiomesOPlenty.proxy.spawnParticle("pixietrail", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width);
-    		}
+    	    for (int i = 0; i < 7; i++)
+    	    {
+    	        if (this.rand.nextInt(2) == 0)
+    	        {
+    	            BiomesOPlenty.proxy.spawnParticle("pixietrail", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width);
+    	        }
+    	    }
     	}
     }
     
