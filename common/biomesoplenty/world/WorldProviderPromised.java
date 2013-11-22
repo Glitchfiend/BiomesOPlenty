@@ -1,17 +1,19 @@
 package biomesoplenty.world;
 
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
+import worldcore.interfaces.IWCLighting;
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class WorldProviderPromised extends WorldProvider
+public class WorldProviderPromised extends WorldProvider implements IWCLighting
 {
 	public boolean hasNoSky = false;
 
@@ -152,4 +154,16 @@ public class WorldProviderPromised extends WorldProvider
 	{
 		return new ChunkProviderPromised(worldObj, worldObj.getSeed());
 	}
+	
+	@Override
+	public boolean isLightingDisabled()
+	{
+	    return true;
+	}
+
+    @Override
+    public Float[] getLightingMultipliers(WorldClient worldclient)
+    {
+        return new Float[] { 0.92F, 0.98F, 0.95F };
+    }
 }
