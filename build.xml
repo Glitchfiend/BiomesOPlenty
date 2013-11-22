@@ -22,6 +22,7 @@
 	<property name="forge.dir" value="${build.dir}/forge" />
 	<property name="fmp.dir" value="${build.dir}/fmp" />
     <property name="ccc.dir" value="${build.dir}/ccc" />
+    <property name="worldcore.dir" value="${build.dir}/worldcore" />
 	<property name="mcp.dir" value="${forge.dir}/mcp" />
 
 	<property name="mod.name" value="BiomesOPlenty-universal-${mc.version}-${mod.version}.${mod.build}.jar" />
@@ -31,12 +32,14 @@
 
 	<property name="forge.name" value="minecraftforge-src-${mc.version}-${forge.version}.zip" />
 	<property name="ccc.name" value="CodeChickenCore-dev%20${ccc.version}.jar" />
+    <property name="worldcore.name" value="WorldCore-dev-${mc.version}-${worldcore.version}.jar" />
 	<property name="fmp.name" value="ForgeMultipart-dev-${mc.version}-${fmp.version}.jar" />
 
 
 	<!-- Check downloaded dependencies -->
 	<available property="forge-downloaded" file="${download.dir}/${forge.name}" />
 	<available property="ccc-downloaded" file="${download.dir}/${ccc.name}" />
+    <available property="worldcore-downloaded" file="${download.dir}/${worldcore.name}" />
 	<available property="fmp-downloaded" file="${download.dir}/${fmp.name}" />
 
 	<!-- Check installed dependencies -->
@@ -49,6 +52,12 @@
 		<and>
 			<isset property="forge-installed" />
 			<equals arg1="${build.dependencies.fmp}" arg2="${fmp.version}" />
+		</and>
+	</condition>
+	<condition property="worldcore-installed">
+		<and>
+			<isset property="forge-installed" />
+			<equals arg1="${build.dependencies.worldcore}" arg2="${worldcore.version}" />
 		</and>
 	</condition>
 
@@ -66,6 +75,10 @@
 	<target name="download-ccc" unless="ccc-downloaded">
         <get src="http://www.chickenbones.craftsaddle.org/Files/New_Versions/${mc.version}/${ccc.name}" dest="${download.dir}" usetimestamp="true" />
     </target>
+    
+    <target name="download-worldcore" unless="worldcore-downloaded">
+		<get src="http://files.minecraftforge.net/WorldCore/${worldcore.name}" dest="${download.dir}" usetimestamp="true" />
+	</target>
 
 	<target name="download-fmp" unless="fmp-downloaded">
 		<get src="http://files.minecraftforge.net/ForgeMultipart/${fmp.name}" dest="${download.dir}" usetimestamp="true" />
@@ -119,8 +132,28 @@
                 <entry key="ccc.name" value="${ccc.name}" />
         </propertyfile>
     </target>
+    
+    <target name="install-worldcore" depends="download-worldcore" unless="worldcore-installed">
+		<echo message="Deleting old WorldCore" />
+		<delete file="${mcp.dir}/lib/${build.dependencies.worldcore.name}" />
+		<delete dir="${fmp.dir}" />
+
+		<echo message="Installing WorldCore" />
+		<copy file="${download.dir}/${worldcore.name}" todir="${mcp.dir}/lib" />
+		<unzip src="${download.dir}/${worldcore.name}" dest="${worldcore.dir}">
+			<patternset>
+				<include name="**/*.class" />
+			</patternset>
+		</unzip>
+
+		<echo message="Updating build.dependencies" />
+		<propertyfile file="${build.dependencies.file}">
+			<entry key="worldcore" value="${worldcore.version}" />
+			<entry key="worldcore.name" value="${worldcore.name}" />
+		</propertyfile>
+	</target>
 	
-	<target name="install-fmp" depends="install-forge,download-fmp" unless="fmp-installed">
+	<target name="install-fmp" depends="download-fmp" unless="fmp-installed">
 		<echo message="Deleting old ForgeMultipart" />
 		<delete file="${mcp.dir}/lib/${build.dependencies.fmp.name}" />
 		<delete dir="${fmp.dir}" />
@@ -140,7 +173,7 @@
 		</propertyfile>
 	</target>
 
-	<target name="install-dependencies" depends="install-forge,install-fmp,install-ccc" />
+	<target name="install-dependencies" depends="install-forge,install-worldcore,install-fmp,install-ccc" />
 
 	<!-- Targets for building -->
 	<target name="recompile">
@@ -201,6 +234,11 @@
 			<fileset dir="${fmp.dir}" />
 		</copy>
 		
+		<echo message="Copying WorldCore" />
+		<copy todir="${mcp.dir}/bin/minecraft">
+			<fileset dir="${worldcore.dir}" />
+		</copy>
+		
 		<echo message="Copying CodeChickenCore" />
         <copy todir="${mcp.dir}/bin/minecraft">
             <fileset dir="${ccc.dir}" />
@@ -222,6 +260,16 @@
 			</fileset>
 			<fileset dir="${mcp.dir}/reobf/minecraft">
 				<present present="both" targetdir="${fmp.dir}" />
+			</fileset>
+		</delete>
+		
+		<echo message="Removing WorldCore" />
+		<delete includeemptydirs="true">
+			<fileset dir="${mcp.dir}/bin/minecraft">
+				<present present="both" targetdir="${worldcore.dir}" />
+			</fileset>
+			<fileset dir="${mcp.dir}/reobf/minecraft">
+				<present present="both" targetdir="${worldcore.dir}" />
 			</fileset>
 		</delete>
 		
