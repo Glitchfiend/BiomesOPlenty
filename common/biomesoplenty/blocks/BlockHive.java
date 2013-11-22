@@ -51,6 +51,9 @@ public class BlockHive extends Block
 	@Override
 	public Icon getIcon(int side, int meta)
 	{
+        if (meta < 0 || meta >= hiveTypes.length) {
+            meta = 0;
+        }
 		return textures[meta];
 	}
 	
