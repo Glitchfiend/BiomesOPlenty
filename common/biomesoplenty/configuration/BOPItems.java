@@ -211,7 +211,7 @@ public class BOPItems {
         registerItem(Items.flippers.get());
 	}
 
-	private static void registerItem(Item item)
+	public static void registerItem(Item item)
 	{
 	    GameRegistry.registerItem(item, item.getUnlocalizedName().replace("item.", ""));
 	}

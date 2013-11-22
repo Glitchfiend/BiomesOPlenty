@@ -1,5 +1,8 @@
 package biomesoplenty.configuration;
 
+import static biomesoplenty.configuration.BOPBlocks.registerBlock;
+import static biomesoplenty.configuration.BOPItems.registerItem;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,6 +30,7 @@ public class BOPFluids
 		initializeLiquids();
 		initializeContainers();
 		registerBlocks();
+		registerItems();
 	}
 
 	private static void registerFluids()
@@ -61,8 +65,13 @@ public class BOPFluids
 
 	private static void registerBlocks()
 	{
-		GameRegistry.registerBlock(Fluids.liquidPoison.get(), "liquidPoison");
-		GameRegistry.registerBlock(Fluids.springWater.get(), "springWater");
-		GameRegistry.registerBlock(Fluids.honey.get(), "honey");
+		registerBlock(Fluids.liquidPoison.get());
+		registerBlock(Fluids.springWater.get());
+		registerBlock(Fluids.honey.get());
+	}
+	
+	private static void registerItems()
+	{
+	    registerItem(Fluids.bopBucket.get());
 	}
 }

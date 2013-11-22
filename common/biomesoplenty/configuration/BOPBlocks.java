@@ -335,12 +335,12 @@ public class BOPBlocks
 		MinecraftForge.addGrassPlant(Blocks.foliage.get(), 11, 75);
 	}
 
-	private static void registerBlock(Block block)
+	public static void registerBlock(Block block)
 	{
 	    GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
 	}
 
-	private static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
+	public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
 	{
 	    GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
 	}
