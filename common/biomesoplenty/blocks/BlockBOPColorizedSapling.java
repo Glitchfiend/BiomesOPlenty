@@ -131,41 +131,39 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		{
 			switch (meta)
 			{
-			case 0: // Acacia Tree
-			obj = new WorldGenAcacia(false);
-			break;
+			    case 0: // Acacia Tree
+			        obj = new WorldGenAcacia(false);
+			        break;
 
-			case 1: // Mangrove Tree
-			obj = new WorldGenMangrove(false);
-			break;
+			    case 1: // Mangrove Tree
+			        obj = new WorldGenMangrove(false);
+			        break;
 
-			case 2: // Palm Tree
-				rnd = random.nextInt(4);
+			    case 2: // Palm Tree
+			        rnd = random.nextInt(4);
 
-				if (rnd == 0) {
-					obj = new WorldGenPalmTree1();
-				} else {
-					obj = new WorldGenPalmTree3();
-				}
-				break;
+			        if (rnd == 0) {
+			            obj = new WorldGenPalmTree1();
+			        } else {
+			            obj = new WorldGenPalmTree3();
+			        }
+			        break;
 
-			case 3: // Redwood Tree
-				if (this.isSameSapling(world, x + 1, y, z, 3) && this.isSameSapling(world, x - 1, y, z, 3) && this.isSameSapling(world, x, y, z + 1, 3) && this.isSameSapling(world, x, y, z - 1, 3) && this.isSameSapling(world, x + 1, y, z + 1, 3) && this.isSameSapling(world, x + 1, y, z - 1, 3) && this.isSameSapling(world, x - 1, y, z + 1, 3) && this.isSameSapling(world, x - 1, y, z - 1, 3)) {
-					obj = new WorldGenRedwoodTree2(false);
-				}
-				break;
+			    case 3: // Redwood Tree
+			        obj = new WorldGenRedwoodTree2(false);
+			        break;
 
-			case 4: // Willow Tree
-				obj = new WorldGenWillow();
-				break;
+			    case 4: // Willow Tree
+			        obj = new WorldGenWillow();
+			        break;
 
-			case 5: // Pine Tree
-				obj = new WorldGenPineTree();
-				break;
+			    case 5: // Pine Tree
+			        obj = new WorldGenPineTree();
+			        break;
 
-			case 6: // Sacred Oak
-				obj = new WorldGenMassiveTree(false);
-				break;
+			    case 6: // Sacred Oak
+			        obj = new WorldGenMassiveTree(false);
+			        break;
 			}
 		}
 
