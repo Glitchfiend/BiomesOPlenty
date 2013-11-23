@@ -1,0 +1,4 @@
+Adubbz:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
+Amnet:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
+Forstride:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
+ted80:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png

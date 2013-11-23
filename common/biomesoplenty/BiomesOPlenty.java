@@ -20,6 +20,7 @@ import biomesoplenty.configuration.configfile.BOPConfigurationIDs;
 import biomesoplenty.configuration.configfile.BOPConfigurationMisc;
 import biomesoplenty.eventhandlers.BonemealEventHandler;
 import biomesoplenty.eventhandlers.BreakSpeedEventHandler;
+import biomesoplenty.eventhandlers.CapeEventHandler;
 import biomesoplenty.eventhandlers.EntityEventHandler;
 import biomesoplenty.eventhandlers.FlipperMovementEventHandler;
 import biomesoplenty.eventhandlers.FluidEventHandler;
@@ -113,6 +114,10 @@ public class BiomesOPlenty
 		MinecraftForge.EVENT_BUS.register(new BreakSpeedEventHandler());
 		MinecraftForge.EVENT_BUS.register(new MovementHandler());
 		MinecraftForge.EVENT_BUS.register(new FlipperMovementEventHandler());
+		if (event.getSide() == Side.CLIENT)
+		{
+		    MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
+		}
 
 		proxy.registerRenderers();
 
