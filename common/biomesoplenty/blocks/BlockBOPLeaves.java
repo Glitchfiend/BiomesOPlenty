@@ -190,7 +190,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
         int meta = world.getBlockMetadata(x, y, z);
 
-        if ((meta & 4) != 0/* && (meta & 4) == 0*/)
+        if ((meta & 8) != 0 && (meta & 4) == 0)
         {
             byte b0 = 4;
             int i1 = b0 + 1;
@@ -418,7 +418,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public void beginLeavesDecay(World world, int x, int y, int z)
     {
-        world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 4, 4);
+        world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) | 8, 4);
     }
 
     @Override
