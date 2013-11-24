@@ -137,6 +137,7 @@ tile.bop.holyGrass.smolderinggrass.name=Тлеющая трава
 tile.bop.holyStone.holystone.name=Небесный камень
 tile.bop.holyStone.holycobble.name=Небесный булыжник
 tile.bop.holyStone.holybrick.name=Небесные кирпичи
+tile.bop.holyStone.holystonemossy.name=Замшелый небесный камень
 
 tile.bop.holyCobbleStairs.name=Ступеньки из небесного булыжника
 tile.bop.holyBricksStairs.name=Ступеньки из небесных кирпичей
@@ -162,24 +163,16 @@ tile.bop.moss.name=Мох
 
 tile.bop.cloud.name=Блок облака
 
-tile.bop.hive.honeycomb.name=Блок сот
+tile.bop.hive.honeycomb.name=Блок медовых соты
 tile.bop.hive.hive.name=Блок улья
-tile.bop.hive.honeycombempty.name=Пустой блок сот
-tile.bop.hive.honeycombfilled.name=Заполненный блок сот
+tile.bop.hive.honeycombempty.name=Пустой блок медовых сот
+tile.bop.hive.honeycombfilled.name=Заполненный блок медовых сот
 
 tile.bop.honeyBlock.name=Блок мёда
 
 tile.bop.bones.bones_small.name=Малый сегмент кости
 tile.bop.bones.bones_medium.name=Средний сегмент кости
 tile.bop.bones.bones_large.name=Большой сегмент кости
-
-tile.bop.glass.celestialLens.name=Небесные линзы
-
-tile.bop.glass.sacrificialfocus_empty.name=Жертвенный фокус
-tile.bop.glass.sacrificialfocus_active.name=Жертвенный фокус
-tile.bop.glass.sacrificialfocus_villager.name=Жертвенный фокус
-
-tile.bop.altar.altarframe.name=Каркас алтаря
 
 tile.bop.puddle.name=Лужица
 
@@ -235,17 +228,19 @@ tile.bop.leaves1.yellowautumn.name=Жёлтая осенняя листва
 tile.bop.leaves1.bamboo.name=Листва бамбука
 tile.bop.leaves1.magic.name=Магическая листва
 tile.bop.leaves1.dark.name=Тёмная листва
-tile.bop.leaves1.dead.name=Погибающая листва
-tile.bop.leaves1.fir.name=Листва пихты
-tile.bop.leaves1.holy.name=Листва лофтвуда
-tile.bop.leaves1.orangeautumn.name=Оранжевая осенняя листва
 
-tile.bop.leaves2.origin.name=Оригинальная листва
-tile.bop.leaves2.pinkcherry.name=Листва розовой вишни
-tile.bop.leaves2.maple.name=Листва клёна
-tile.bop.leaves2.whitecherry.name=Листва белой вишни
-tile.bop.leaves2.hellbark.name=Адская листва
-tile.bop.leaves2.jacaranda.name=Листва жакаранды
+tile.bop.leaves2.dead.name=Погибающая листва
+tile.bop.leaves2.fir.name=Листва пихты
+tile.bop.leaves2.holy.name=Листва лофтвуда
+tile.bop.leaves2.orangeautumn.name=Оранжевая осенняя листва
+
+tile.bop.leaves3.origin.name=Оригинальная листва
+tile.bop.leaves3.pinkcherry.name=Листва розовой вишни
+tile.bop.leaves3.maple.name=Листва клёна
+tile.bop.leaves3.whitecherry.name=Листва белой вишни
+
+tile.bop.leaves4.hellbark.name=Адская листва
+tile.bop.leaves4.jacaranda.name=Листва жакаранды
 
 tile.bop.woodenDoubleSlab1.acaciaSlab.name=Плита из древесины акации
 tile.bop.woodenDoubleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
@@ -316,22 +311,29 @@ item.bop.mudball.name=Комок грязи
 
 item.bop.miscItems.mudbrick.name=Кирпич из грязи
 item.bop.miscItems.ash.name=Кучка пепла
-item.bop.miscItems.amethyst.name=Аметист
-item.bop.miscItems.poison.name=Яд
+item.bop.miscItems.fleshchunk.name=Кусок плоти
+item.bop.miscItems.emptyhoneycomb.name=Пустые медовые соты
 item.bop.miscItems.crystalshard.name=Осколок небесного кристалла
 item.bop.miscItems.bluedye.name=Синий краситель
 item.bop.miscItems.browndye.name=Коричневый краситель
 item.bop.miscItems.greendye.name=Зелёный краситель
 item.bop.miscItems.whitedye.name=Белый краситель
 item.bop.miscItems.blackdye.name=Чёрный краситель
-item.bop.miscItems.ruby.name=Рубин
-item.bop.miscItems.peridot.name=Оливин
-item.bop.miscItems.topaz.name=Топаз
-item.bop.miscItems.tanzanite.name=Танзанит
-item.bop.miscItems.malachite.name=Малахит
-item.bop.miscItems.sapphire.name=Сапфир
 item.bop.miscItems.ghastlysoul.name=Жуткий дух
 item.bop.miscItems.pixiedust.name=Пыльца феи
+
+item.bop.jarEmpty.name=Пустая банка
+item.bop.jarFilled.jarhoney.name=Банка мёда
+item.bop.jarFilled.jarpoison.name=Poison Extract Jar
+item.bop.jarFilled.jarpixie.name=Банка для фей
+
+item.bop.gems.amethyst.name=Аметист
+item.bop.gems.ruby.name=Рубин
+item.bop.gems.peridot.name=Оливин
+item.bop.gems.topaz.name=Топаз
+item.bop.gems.tanzanite.name=Танзанит
+item.bop.gems.malachite.name=Малахит
+item.bop.gems.sapphire.name=Сапфир
 
 item.bop.pickaxeMud.name=Кирка из грязи
 item.bop.hatchetMud.name=Топор из грязи
@@ -367,10 +369,6 @@ item.bop.ancientStaff.staffpole.name=Древко древнего посоха
 item.bop.ancientStaff.stafftopper.name=Верхушка древнего посоха
 item.bop.ancientStaff.ancientstaffbroken.name=Истощённый древний посох
 
-item.bop.soulManipulator.soulmanipulator_empty.name=Манипулятор духа
-item.bop.soulManipulator.soulmanipulator_ghastlysoul.name=Манипулятор жуткого духа
-item.bop.soulManipulator.soulmanipulator_villager.name=Манипулятор духа жителей
-
 item.bop.enderporter.name=Телепортер Края
 
 item.bop.bopDisc.name=Музыкальная пластинка
@@ -387,12 +385,15 @@ item.bop.flippers.name=Ласты
 item.bop.bopBucket.amethyst_empty.name=Аметистовое ведро
 item.bop.bopBucket.amethyst_spring_water.name=Аметистовое ведро родниковой воды
 item.bop.bopBucket.liquid_poison.name=Ведро яда
+item.bop.bopBucket.honey.name=Ведро мёда
 
 tile.bop.liquidPoison.name=Жидкий яд
 tile.bop.springWater.name=Родниковая вода
+tile.bop.honey.name=Мёд
 
 fluid.bop.liquidPoison=Жидкий яд
 fluid.bop.springWater=Родниковая вода
+fluid.bop.honey.name=Мёд
 
 phrase.bop.promisedPortalOverworld=Врата в "Землю Обетованную" открылись выше.
 phrase.bop.promisedPortalOther=Врата в обычный мир открылись выше.
