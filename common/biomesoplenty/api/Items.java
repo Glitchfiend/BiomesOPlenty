@@ -40,6 +40,7 @@ public class Items
 	public static Optional<? extends Item> ancientStaff         = Optional.absent();
 	public static Optional<? extends Item> enderporter          = Optional.absent();
 	public static Optional<? extends Item> food			    	= Optional.absent();
+	public static Optional<? extends Item> beetrootseeds		= Optional.absent();
 	public static Optional<? extends Item> miscItems            = Optional.absent();
 	public static Optional<? extends Item> jarEmpty            = Optional.absent();
 	public static Optional<? extends Item> jarFilled            = Optional.absent();

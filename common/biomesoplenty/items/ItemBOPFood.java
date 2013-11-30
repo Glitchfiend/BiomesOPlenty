@@ -17,7 +17,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia"};
+	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "beetroot", "beetrootsoup"};
 	private Icon[] textures;
 	
 	public ItemBOPFood(int par1)
@@ -101,6 +101,14 @@ public class ItemBOPFood extends ItemFood
 				player.getFoodStats().addStats(6, 0.8F);
 				break;
 				
+			case 11:
+				player.getFoodStats().addStats(0, 0.4F);
+				break;
+				
+			case 12:
+				player.getFoodStats().addStats(4, 0.2F);
+				break;
+				
 			default:
 				player.getFoodStats().addStats(0, 0.0F);
 				break;
@@ -120,9 +128,14 @@ public class ItemBOPFood extends ItemFood
         	case 6:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
                     player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+        		
         	case 10:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle)))
                     player.dropPlayerItem(new ItemStack(Item.glassBottle.itemID, 1, 0));
+        		
+        	case 12:
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
         		break;
         }
         

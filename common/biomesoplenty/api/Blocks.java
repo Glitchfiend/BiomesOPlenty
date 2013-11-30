@@ -72,6 +72,7 @@ public class Blocks
 	public static Optional<? extends Block> leaves2                     = Optional.absent();
 	public static Optional<? extends Block> leaves3                     = Optional.absent();
 	public static Optional<? extends Block> leaves4                     = Optional.absent();
+	public static Optional<? extends Block> beetroot                     = Optional.absent();
 	
 	public static Optional<? extends Block> leavesColorized1             = Optional.absent();
 	public static Optional<? extends Block> leavesColorized2             = Optional.absent();

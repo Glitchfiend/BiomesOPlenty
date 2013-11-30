@@ -43,6 +43,7 @@ public class BOPConfigurationIDs
 	public static int leaves3ID;
 	public static int leaves4ID;
 	public static int foliageID;
+	public static int beetrootID;
 
 	public static int leavesFruitID;
 	public static int leavesFruit2ID;
@@ -110,6 +111,7 @@ public class BOPConfigurationIDs
 
 	//Item IDs
 	public static int foodID;
+	public static int beetrootseedsID;
 
 	public static int ancientStaffID;
 	public static int enderporterID;
@@ -433,10 +435,14 @@ public class BOPConfigurationIDs
 			liquidPoisonStillID = config.get("Liquid IDs", "Liquid Poison Still ID (ID before this must be free!)", 2030, null).getInt();
 			honeyStillID = config.get("Liquid IDs", "Honey Still ID (ID before this must be free!)", 2032, null).getInt();
 			
+			//Beetroot Crop
+			beetrootID = config.getBlock("Beetroot Crop ID", 2034, null).getInt();
+			
 			///////////ITEMS/////////////
 			
 			//Misc Items
 			miscItemsID = config.getItem("Misc Items ID", 21003).getInt();
+			beetrootseedsID = config.getItem("Beetroot Seeds ID", 21004, null).getInt();
 			
 			//Jars
 			jarEmptyID = config.getItem("Jar (Empty) ID", 21005).getInt();

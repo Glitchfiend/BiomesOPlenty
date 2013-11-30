@@ -1,6 +1,7 @@
 package biomesoplenty.eventhandlers;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.BonemealEvent;
@@ -132,6 +133,16 @@ public class BonemealEventHandler
 					worldgengiantfloweryellow.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
 				}
 			}
+		}
+		else if (event.ID == Blocks.beetroot.get().blockID)
+		{
+	        if (event.world.getBlockMetadata(event.X, event.Y, event.Z) != 7)
+	        {
+	            if (!event.world.isRemote)
+	            {
+	                ((BlockCrops)Block.blocksList[Blocks.beetroot.get().blockID]).fertilize(event.world, event.X, event.Y, event.Z);
+	            }
+	        }
 		}
 		else if (event.ID == Blocks.holyGrass.get().blockID && event.world.getBlockMetadata(event.X, event.Y, event.Z) == 0)
 		{

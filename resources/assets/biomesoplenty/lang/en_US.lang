@@ -302,6 +302,10 @@ item.bop.food.saladshroom.name=Shroom Salad
 item.bop.food.persimmon.name=Persimmon
 item.bop.food.filledhoneycomb.name=Filled Honeycomb
 item.bop.food.ambrosia.name=Ambrosia
+item.bop.food.beetroot.name=Beetroot
+item.bop.food.beetrootsoup.name=Beetroot Soup
+
+item.bop.beetrootseeds.name=Beetroot Seeds
 
 item.bop.dartblower.name=Dart Blower
 item.bop.dart.dart.name=Dart
