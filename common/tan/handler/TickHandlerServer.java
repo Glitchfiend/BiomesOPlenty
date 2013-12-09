@@ -2,7 +2,6 @@ package tan.handler;
 
 import java.util.EnumSet;
 
-import tan.core.TANPlayerStats;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,6 +37,6 @@ public class TickHandlerServer implements ITickHandler
     
     public static void onPlayerTick(World world, EntityPlayerMP player)
     {
-        TANPlayerStats.update(world, player);
+        TANPlayerStatHandler.update(world, player);
     }
 }

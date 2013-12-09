@@ -7,7 +7,9 @@ import java.io.IOException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.INetworkManager;
+import tan.api.PlayerStatRegistry;
 import tan.network.PacketTypeHandler;
+import tan.stats.TemperatureStat;
 import cpw.mods.fml.common.network.Player;
 
 public class PacketSendStats extends PacketTAN
@@ -23,7 +25,7 @@ public class PacketSendStats extends PacketTAN
     {
         super(PacketTypeHandler.sendStats);
         
-        temperature = tanCompound.getFloat("Temp");
+        temperature = tanCompound.getFloat(PlayerStatRegistry.getStatName(TemperatureStat.class));
     }
 
     @Override
@@ -45,9 +47,7 @@ public class PacketSendStats extends PacketTAN
         
         NBTTagCompound tanCompound = entityPlayer.getEntityData().getCompoundTag("ToughAsNails");
         
-        tanCompound.setFloat("Temp", temperature);
-        
-        System.out.println(temperature);
+        tanCompound.setFloat(PlayerStatRegistry.getStatName(TemperatureStat.class), temperature);
         
         entityPlayer.getEntityData().setCompoundTag("ToughAsNails", tanCompound);
     }

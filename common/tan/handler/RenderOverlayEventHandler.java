@@ -12,6 +12,8 @@ import net.minecraftforge.event.ForgeSubscribe;
 
 import org.lwjgl.opengl.GL11;
 
+import tan.api.PlayerStatRegistry;
+import tan.stats.TemperatureStat;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class RenderOverlayEventHandler
@@ -31,35 +33,41 @@ public class RenderOverlayEventHandler
         {
             NBTTagCompound tanData = minecraft.thePlayer.getEntityData().getCompoundTag("ToughAsNails");
             
-            int temperature = MathHelper.floor_float(tanData.getFloat("Temp"));
+            renderTemperature(scaledRes, minecraft, fontRenderer, tanData);
 
-            int temperatureXPos = scaledRes.getScaledWidth() / 2 - 8;
-            int temperatureYPos = scaledRes.getScaledHeight() - 52;
-            
-            minecraft.mcProfiler.startSection("temperatureBall");
-            {   
-                this.drawTexturedModalRect(temperatureXPos, temperatureYPos, 16, 0, 16, 16);
-                GL11.glColor4f(1.0F, 1.0F, 1.0F, temperature / 100F + 0.5F);
-                this.drawTexturedModalRect(temperatureXPos, temperatureYPos, 0, 0, 16, 16);
-            }
-            minecraft.mcProfiler.endSection();
-            
-            minecraft.mcProfiler.startSection("temperatureLevel");
-            {
-                GL11.glPushMatrix();
-                {
-                    String text = temperature + "°C";
-                    
-                    GL11.glTranslatef((float)(temperatureXPos - (fontRenderer.getStringWidth(text) / 2) + 12), (float)(temperatureYPos + 6), 0.0F);
-                    GL11.glScalef(0.65F, 0.65F, 0.0F);
-                    
-                    drawStringWithBorder(fontRenderer, text, 0, 0, 0, 16777215);
-                }
-                GL11.glPopMatrix();
-            }
             minecraft.mcProfiler.endSection();
         }
         bindTexture(new ResourceLocation("minecraft:textures/gui/icons.png"));
+    }
+    
+    private void renderTemperature(ScaledResolution scaledRes, Minecraft minecraft, FontRenderer fontRenderer, NBTTagCompound tanData)
+    {
+        int temperature = MathHelper.floor_float(tanData.getFloat(PlayerStatRegistry.getStatName(TemperatureStat.class)));
+
+        int temperatureXPos = scaledRes.getScaledWidth() / 2 - 8;
+        int temperatureYPos = scaledRes.getScaledHeight() - 52;
+        
+        minecraft.mcProfiler.startSection("temperatureBall");
+        {   
+            this.drawTexturedModalRect(temperatureXPos, temperatureYPos, 16, 0, 16, 16);
+            GL11.glColor4f(1.0F, 1.0F, 1.0F, temperature / 100F + 0.5F);
+            this.drawTexturedModalRect(temperatureXPos, temperatureYPos, 0, 0, 16, 16);
+        }
+        minecraft.mcProfiler.endSection();
+        
+        minecraft.mcProfiler.startSection("temperatureLevel");
+        {
+            GL11.glPushMatrix();
+            {
+                String text = temperature + "°C";
+                
+                GL11.glTranslatef((float)(temperatureXPos - (fontRenderer.getStringWidth(text) / 2) + 12), (float)(temperatureYPos + 6), 0.0F);
+                GL11.glScalef(0.65F, 0.65F, 0.0F);
+                
+                drawStringWithBorder(fontRenderer, text, 0, 0, 0, 16777215);
+            }
+            GL11.glPopMatrix();
+        }
     }
 
     public static void bindTexture(ResourceLocation resourceLocation)
