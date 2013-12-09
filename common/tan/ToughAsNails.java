@@ -39,8 +39,11 @@ public class ToughAsNails
     {
         TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);
         
-        MinecraftForge.EVENT_BUS.register(new RenderOverlayEventHandler());
-        
+        if (proxy instanceof ClientProxy)
+        {
+            MinecraftForge.EVENT_BUS.register(new RenderOverlayEventHandler());
+        }
+
         NetworkRegistry.instance().registerConnectionHandler(new ConnectionHandler());
     }
     
