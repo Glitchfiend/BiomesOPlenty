@@ -1,0 +1,17 @@
+[{
+    "modid": "ToughAsNails",
+    "name": "Tough As Nails",
+    "description": "Adds many hardcore aspects to the regular game",
+    "version": "@VERSION@",
+    "mcversion": "@MCVERSION@",
+    "url": "",
+    "updateUrl": "",
+    "authors": ["Adubbz", "Amnet", "Forstride"],
+    "logoFile": "pack.png",
+    "screenshots": [],
+    "parent": "",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "useDependencyInformation": "false"
+}]
