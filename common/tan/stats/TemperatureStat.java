@@ -53,13 +53,9 @@ public class TemperatureStat extends TANStat
         }
         
         rate = (rate / averageRates.size()) / 10;
-        
-        System.out.println(rate);
 
         if (world.rand.nextFloat() <= rate)
         {
-            System.out.println("Success");
-            
             if (temperature > aimedTemperature)
             {
                 temperature -= 0.1F;
