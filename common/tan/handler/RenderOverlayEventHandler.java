@@ -34,8 +34,6 @@ public class RenderOverlayEventHandler
             NBTTagCompound tanData = minecraft.thePlayer.getEntityData().getCompoundTag("ToughAsNails");
             
             renderTemperature(scaledRes, minecraft, fontRenderer, tanData);
-
-            minecraft.mcProfiler.endSection();
         }
         bindTexture(new ResourceLocation("minecraft:textures/gui/icons.png"));
     }
@@ -50,7 +48,7 @@ public class RenderOverlayEventHandler
         minecraft.mcProfiler.startSection("temperatureBall");
         {   
             this.drawTexturedModalRect(temperatureXPos, temperatureYPos, 16, 0, 16, 16);
-            GL11.glColor4f(1.0F, 1.0F, 1.0F, temperature / 100F + 0.5F);
+            GL11.glColor4f(1.0F, 1.0F, 1.0F, temperature / 20F - 1.35F);
             this.drawTexturedModalRect(temperatureXPos, temperatureYPos, 0, 0, 16, 16);
         }
         minecraft.mcProfiler.endSection();
@@ -68,6 +66,7 @@ public class RenderOverlayEventHandler
             }
             GL11.glPopMatrix();
         }
+        minecraft.mcProfiler.endSection();
     }
 
     public static void bindTexture(ResourceLocation resourceLocation)
