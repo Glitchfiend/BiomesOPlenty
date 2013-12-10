@@ -2,7 +2,7 @@ package tan;
 
 import net.minecraftforge.common.MinecraftForge;
 import tan.core.TANPlayerStats;
-import tan.core.TANTemperatureSources;
+import tan.core.TANTemperature;
 import tan.handler.ConnectionHandler;
 import tan.handler.RenderOverlayEventHandler;
 import tan.handler.TickHandlerServer;
@@ -33,7 +33,7 @@ public class ToughAsNails
     public void preInit(FMLPreInitializationEvent event)
     {
         TANPlayerStats.init();
-        TANTemperatureSources.init();
+        TANTemperature.init();
     }
     
     @EventHandler

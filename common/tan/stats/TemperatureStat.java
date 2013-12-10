@@ -1,19 +1,15 @@
 package tan.stats;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
-import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.biome.BiomeGenBase;
 import tan.api.TANStat;
-import tan.api.TemperatureRegistry;
-import tan.api.TemperatureSource;
+import tan.api.temperature.ITemperatureModifier;
+import tan.api.temperature.TemperatureRegistry;
 
 public class TemperatureStat extends TANStat
 { 
-    private ArrayList<Float> averageAimedTemperatures = new ArrayList<Float>();
-    private ArrayList<Float> averageRates = new ArrayList<Float>();
-    
     @Override
     public void update()
     {
@@ -24,19 +20,18 @@ public class TemperatureStat extends TANStat
         float originalTemperature = tanData.getFloat(getStatName());
         float temperature = originalTemperature;
 
-        float aimedTemperature = 0F;
-        float rate = 0F;
+        float[] temperatureRainfall = getEnvironmentTemperatureRainfall(x, y, z);
         
-        calculateSourceAndEnvironment(x, y, z);
+        float aimedTemperature = temperatureRainfall[0];
         
-        for (float averageAimedTemperature : averageAimedTemperatures)
+        for (ITemperatureModifier temperatureModifier : TemperatureRegistry.temperatureModifiers)
         {
-            aimedTemperature += averageAimedTemperature;
+            float modifier = temperatureModifier.modifyTemperature(world, player);
+            
+            aimedTemperature += modifier;
         }
         
-        aimedTemperature /= averageAimedTemperatures.size();
-        
-        DecimalFormat twoDForm = new DecimalFormat("#.#");   
+        DecimalFormat twoDForm = new DecimalFormat("#.##");   
 
         try
         {
@@ -47,27 +42,26 @@ public class TemperatureStat extends TANStat
 
         }
         
-        for (float averageRate : averageRates)
-        {
-            rate += averageRate;
-        }
-        
-        rate = (rate / averageRates.size()) / 10;
-
-        if (world.rand.nextFloat() <= rate)
+        if (world.rand.nextFloat() <= temperatureRainfall[1])
         {
             if (temperature > aimedTemperature)
             {
-                temperature -= 0.1F;
+                temperature -= 0.01F;
             }
             else if (temperature < aimedTemperature)
             {
-                temperature += 0.1F;
+                temperature += 0.01F;
             }
         }
         
-        averageAimedTemperatures.clear();
-        averageRates.clear();
+        try
+        {
+            temperature = Float.parseFloat(twoDForm.format(temperature));
+        }
+        catch (Exception e)
+        {
+
+        }
 
         if (temperature != originalTemperature)
         {
@@ -77,18 +71,15 @@ public class TemperatureStat extends TANStat
         }
     }
     
-    private void calculateSourceAndEnvironment(int x, int y, int z)
+    private float[] getEnvironmentTemperatureRainfall(int x, int y, int z)
     {
-        float averageAimedSourceTemperature = 0F;
-        float averageSourceRate = 0F;
-        
-        int sourceDivider = 0;
+        float[] temperatureRainfall = new float[2];
         
         float averageAimedEnvironmentTemperature = 0F;
-        float averageEnvironmentRate = 0F;
-        
+        float rainfall = 0.25F;
+
         int environmentDivider = 0;
-        
+
         for (int ix = -2; ix <= 2; ix++)
         {
             for (int iy = -1; iy <= 1; iy++)
@@ -98,39 +89,39 @@ public class TemperatureStat extends TANStat
                     int blockID = world.getBlockId(x + ix, y + iy, z + iz);
                     int metadata = world.getBlockMetadata(x + ix, y + iy, z + iz);
                     
-                    TemperatureSource temperatureSource = TemperatureRegistry.getTemperatureSource(blockID, metadata);
-                    
-                    if (temperatureSource != null)
-                    {
-                        averageAimedSourceTemperature += temperatureSource.temperature;
-                        averageSourceRate += temperatureSource.rate;
-                        
-                        sourceDivider++;
-                    }
-                    else
-                    {
-                        averageAimedEnvironmentTemperature += ((world.getBiomeGenForCoords(x + ix, z + iz).temperature / 2) * 20) + 27;
-                        averageEnvironmentRate += 0.25F;
+                    BiomeGenBase biome = world.getBiomeGenForCoords(x + ix, z + iz);
 
-                        environmentDivider++;
-                    }
+                    averageAimedEnvironmentTemperature += ((biome.temperature / 2) * 20) + 27;
+                    
+                    rainfall = (biome.rainfall / 2) / 10;
+
+                    environmentDivider++;
                 }
             }
         }
         
-        if (sourceDivider != 0) 
-        {
-            float aimedSourceTemperature = averageAimedSourceTemperature /= sourceDivider;
-            averageAimedTemperatures.add(aimedSourceTemperature);
-        }
-        if (environmentDivider != 0) 
-        {
-           float aimedEnvironmentTemperature = averageAimedEnvironmentTemperature /= environmentDivider;
-           averageAimedTemperatures.add(aimedEnvironmentTemperature);
-        }
+        temperatureRainfall[0] = averageAimedEnvironmentTemperature / environmentDivider;
+        temperatureRainfall[1] = rainfall;
+
+        return temperatureRainfall;
+    }
+
+    public boolean isDay()
+    {
+        float celestialAngle = world.getCelestialAngle(0.0F);
         
-        if (sourceDivider != 0) averageRates.add(averageSourceRate /= sourceDivider);
-        if (environmentDivider != 0) averageRates.add(averageEnvironmentRate /= environmentDivider);
+        if (celestialAngle >= 0.75F && celestialAngle <= 1.0F || celestialAngle >= 0.0F && celestialAngle <= 0.25F) return true;
+        
+        return false;
+    }
+    
+    public boolean isNight()
+    {
+        float celestialAngle = world.getCelestialAngle(0.0F);
+
+        if (celestialAngle >= 0.25F && celestialAngle <= 0.75F) return true;
+        
+        return false;
     }
 
     @Override
