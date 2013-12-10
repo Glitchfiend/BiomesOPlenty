@@ -62,6 +62,10 @@ public class TemperatureStat extends TANStat
         {
 
         }
+        
+        System.out.println("Aimed Temp " + aimedTemperature);
+        System.out.println("Rain/Speed " + temperatureRainfall[1]);
+        System.out.println("Current Temp " + temperature);
 
         if (temperature != originalTemperature)
         {
@@ -93,7 +97,10 @@ public class TemperatureStat extends TANStat
 
                     averageAimedEnvironmentTemperature += ((biome.temperature / 2) * 20) + 27;
                     
-                    rainfall = (biome.rainfall / 2) / 10;
+                    if (biome.rainfall != 0F)
+                    {
+                        rainfall = biome.rainfall / 2;
+                    }
 
                     environmentDivider++;
                 }
@@ -104,24 +111,6 @@ public class TemperatureStat extends TANStat
         temperatureRainfall[1] = rainfall;
 
         return temperatureRainfall;
-    }
-
-    public boolean isDay()
-    {
-        float celestialAngle = world.getCelestialAngle(0.0F);
-        
-        if (celestialAngle >= 0.75F && celestialAngle <= 1.0F || celestialAngle >= 0.0F && celestialAngle <= 0.25F) return true;
-        
-        return false;
-    }
-    
-    public boolean isNight()
-    {
-        float celestialAngle = world.getCelestialAngle(0.0F);
-
-        if (celestialAngle >= 0.25F && celestialAngle <= 0.75F) return true;
-        
-        return false;
     }
 
     @Override
