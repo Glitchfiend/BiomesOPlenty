@@ -100,7 +100,7 @@ tile.bop.saplings.originSapling.name=Ursprünglicher Setzling
 tile.bop.saplings.pinkcherrySapling.name=Pinkfarbener Kirschsetzling
 tile.bop.saplings.mapleSapling.name=Ahornsetzling
 tile.bop.saplings.whitecherrySapling.name=Weißer Kirschsetzling
-tile.bop.saplings.hellbarkSapling.name=Höllenrindensetzling
+tile.bop.saplings.hellbarkSapling.name=Höllrindensetzling
 tile.bop.saplings.jacarandaSapling.name=Jacarandasetzling
 tile.bop.saplings.persimmonSapling.name=Kakibaumsetzling
 
@@ -202,7 +202,7 @@ tile.bop.planks.redwoodPlank.name=Mammutbaumholzbretter
 tile.bop.planks.willowPlank.name=Weidenholzbretter
 tile.bop.planks.bambooThatching.name=Bambusbretter
 tile.bop.planks.pinePlank.name=Pinienholzbretter
-tile.bop.planks.hellBarkPlank.name=Höllenrindenholzbretter
+tile.bop.planks.hellBarkPlank.name=Höllrindenholzbretter
 tile.bop.planks.jacarandaPlank.name=Jacarandaholzbretter
 
 tile.bop.wood1.acaciaWood.name=Akazienholz
@@ -221,7 +221,7 @@ tile.bop.wood3.deadWood.name=Totes Holz
 tile.bop.wood3.bigflowerstemWood.name=Riesiger Blumenstamm
 
 tile.bop.wood4.pineWood.name=Pinienholz
-tile.bop.wood4.hellbarkWood.name=Höllenrindenholz
+tile.bop.wood4.hellbarkWood.name=Höllrindenholz
 tile.bop.wood4.jacarandaWood.name=Jacarandaholz
 
 tile.bop.leaves1.yellowautumn.name=Gelbes Herbstlaub
@@ -239,7 +239,7 @@ tile.bop.leaves3.pinkcherry.name=Pinkfarbenes Kirschlaub
 tile.bop.leaves3.maple.name=Ahornlaub
 tile.bop.leaves3.whitecherry.name=Weißes Kirschlaub
 
-tile.bop.leaves4.hellbark.name=Höllenrindenlaub
+tile.bop.leaves4.hellbark.name=Höllrindenlaub
 tile.bop.leaves4.jacaranda.name=Jacarandalaub
 
 tile.bop.woodenDoubleSlab1.acaciaSlab.name=Akazienholzstufe
@@ -253,7 +253,7 @@ tile.bop.woodenDoubleSlab1.palmSlab.name=Palmholzstufe
 tile.bop.woodenDoubleSlab2.redwoodSlab.name=Mammutbaumholzstufe
 tile.bop.woodenDoubleSlab2.willowSlab.name=Weidenholzstufe
 tile.bop.woodenDoubleSlab2.pineSlab.name=Pinienholzstufe
-tile.bop.woodenDoubleSlab2.hell_barkSlab.name=Höllenrindenholzstufe
+tile.bop.woodenDoubleSlab2.hell_barkSlab.name=Höllrindenholzstufe
 tile.bop.woodenDoubleSlab2.jacarandaSlab.name=Jacarandaholzstufe
 
 tile.bop.woodenSingleSlab1.acaciaSlab.name=Akazienholzstufe
@@ -267,7 +267,7 @@ tile.bop.woodenSingleSlab1.palmSlab.name=Palmholzstufe
 tile.bop.woodenSingleSlab2.redwoodSlab.name=Mammutbaumholzstufe
 tile.bop.woodenSingleSlab2.willowSlab.name=Weidenholzstufe
 tile.bop.woodenSingleSlab2.pineSlab.name=Pinienholzstufe
-tile.bop.woodenSingleSlab2.hell_barkSlab.name=Höllenrindenholzstufe
+tile.bop.woodenSingleSlab2.hell_barkSlab.name=Höllrindenholzstufe
 tile.bop.woodenSingleSlab2.jacarandaSlab.name=Jacarandaholzstufe
 
 tile.bop.acaciaStairs.name=Akazienholztreppe
@@ -281,7 +281,7 @@ tile.bop.palmStairs.name=Palmholztreppe
 tile.bop.redwoodStairs.name=Mammutbaumholztreppe
 tile.bop.willowStairs.name=Weidenholztreppe
 tile.bop.pineStairs.name=Pinienholztreppe
-tile.bop.hellBarkStairs.name=Höllenrindenholztreppe
+tile.bop.hellBarkStairs.name=Höllrindenholztreppe
 tile.bop.jacarandaStairs.name=Jacarandaholztreppe
 
 tile.bop.leavesColorized1.acacia.name=Akazienlaub
