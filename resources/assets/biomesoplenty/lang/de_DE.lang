@@ -302,6 +302,10 @@ item.bop.food.saladshroom.name=Pilzsalat
 item.bop.food.persimmon.name=Kaki
 item.bop.food.filledhoneycomb.name=Gefüllte Honigwabe
 item.bop.food.ambrosia.name=Ambrosia
+item.bop.food.beetroot.name=Rotrübe
+item.bop.food.beetrootsoup.name=Rotrübensuppe
+
+item.bop.beetrootseeds.name=Rotrübensamen
 
 item.bop.dartblower.name=Blasrohr
 item.bop.dart.dart.name=Dart
