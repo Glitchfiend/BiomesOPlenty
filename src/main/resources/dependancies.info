@@ -1,0 +1,9 @@
+[
+{
+    "repo": "http://files.minecraftforge.net/WorldCore/",
+    "file": "WorldCore-universal-${minecraft_version}-${worldcore_version}.jar",
+    "dev": "WorldCore-dev-${minecraft_version}-${worldcore_version}.jar",
+    "class": "worldcore.asm.WCFMLLoadingPlugin",
+    "version": "${worldcore_version}"
+}
+]
