@@ -32,10 +32,6 @@ repositories {
                 name 'CB FS'
                 artifactPattern "http://www.chickenbones.craftsaddle.org/Files/New_Versions/1.6.4/[module]-dev%20[revision].[ext]"
         }
-        maven {
-          name 'ForgeFS'
-          url 'http://files.minecraftforge.net/maven'
-     }
 }
 
 dependencies {
@@ -89,10 +85,6 @@ jar {
 task sourceJar(type: Jar) {
         from sourceSets.main.allSource
         appendix = 'src'
-}
-
-javadoc {
-        failOnError = false
 }
 
 task apiJar(type: Jar) {
