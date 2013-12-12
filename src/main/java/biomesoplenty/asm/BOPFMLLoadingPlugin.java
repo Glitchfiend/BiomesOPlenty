@@ -13,12 +13,18 @@ public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
 {
     private static String SIDE = FMLLaunchHandler.side().name();
     
+    public static File location;
+    
     public BOPFMLLoadingPlugin()
     {
         DepLoader.load();
     }
     
-    public static File location;
+    /*TODO: Remove in 1.7*/
+    public String[] getLibraryRequestClass()
+    {
+        return null;
+    }
 
     @Override
     public String[] getASMTransformerClass()
