@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockStone;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -91,12 +92,12 @@ public class BlockStoneFormations extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.stone.blockID;
+		return Block.blocksList[id] instanceof BlockStone;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
-			return id == Block.stone.blockID;
+			return Block.blocksList[id] instanceof BlockStone;
 	}
 
 	@Override
@@ -111,13 +112,13 @@ public class BlockStoneFormations extends BlockFlower
 			switch (meta)
 			{
 			case 0: // Stalagmite
-				return idbottom == Block.stone.blockID;
+				return Block.blocksList[idbottom] instanceof BlockStone;
 				
 			case 1: // Stalactite
-				return idtop == Block.stone.blockID;
+			    return Block.blocksList[idtop] instanceof BlockStone;
 
 			default:
-				return idbottom == Block.stone.blockID;
+			    return Block.blocksList[idbottom] instanceof BlockStone;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
