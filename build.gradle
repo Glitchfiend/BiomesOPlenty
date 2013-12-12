@@ -24,53 +24,52 @@ configFile.withReader {
 }
 
 repositories {
-        ivy {
-                name 'Forge FS legacy'
-                artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
-        }
-        ivy {
-                name 'CB FS'
-                artifactPattern "http://www.chickenbones.craftsaddle.org/Files/New_Versions/1.6.4/[module]-dev%20[revision].[ext]"
-        }
+    ivy {
+        name 'Forge FS legacy'
+        artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
+    }
+    ivy {
+        name 'CB FS'
+        artifactPattern "http://www.chickenbones.craftsaddle.org/Files/New_Versions/1.6.4/[module]-dev%20[revision].[ext]"
+    }
 }
 
 dependencies {
-     compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
-     compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
-     compile name: 'CodeChickenCore', version: "${config.ccc_version}", ext: 'jar'
+    compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
+    compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
+    compile name: 'CodeChickenCore', version: "${config.ccc_version}", ext: 'jar'
 }
 
-group = "biomesoplenty"    
+group = "biomesoplenty"
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
 minecraft {
-        version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-        assetDir = "run/assets"
-        
-        replace "1.42.666.42.1", config.forge_version
+    version = config.minecraft_version + "-" + config.forge_version // grab latest forge
+    assetDir = "run/assets"
+
+    replace "1.42.666.42.1", config.forge_version
 }
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 
-processResources
-{
-        // replace stuff in the files we want.
+processResources {
+    // replace stuff in the files we want.
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
         include '**/*.properties'
-                
+
         // replaces
         expand ([
-        'mod_version': project.config.mod_version, 
-        'minecraft_version': project.config.minecraft_version, 
-        'build_number': project.config.build_number, 
-        'worldcore_version': project.config.worldcore_version
+            'mod_version': project.config.mod_version,
+            'minecraft_version': project.config.minecraft_version,
+            'build_number': project.config.build_number,
+            'worldcore_version': project.config.worldcore_version
         ])
     }
-        
-        // copy everything else, thats we didnt do before
+
+    // copy everything else, thats we didnt do before
     from(sourceSets.main.resources.srcDirs) {
         exclude '**/*.info'
         exclude '**/*.properties'
@@ -83,17 +82,17 @@ jar {
         attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
         attributes 'FMLCorePluginContainsFMLMod': 'true'
     }
-        appendix = 'universal'
+    appendix = 'universal'
 }
 
 // add a source jar
 task sourceJar(type: Jar) {
-        from sourceSets.main.allSource
-        appendix = 'src'
+    from sourceSets.main.allSource
+    appendix = 'src'
 }
 
 task apiJar(type: Jar) {
-    from(sourceSets.main.java) 
+    from(sourceSets.main.java)
     {
         include "biomesoplenty/api/*"
     }
@@ -102,12 +101,12 @@ task apiJar(type: Jar) {
 
 // because the normal output has been made to be obfuscated
 task deobfJar(type: Jar) {
-        from sourceSets.main.output
-        appendix = 'deobf'
+    from sourceSets.main.output
+    appendix = 'deobf'
 }
 
 artifacts {
-        archives sourceJar
-        archives deobfJar
-        archives apiJar
+    archives sourceJar
+    archives deobfJar
+    archives apiJar
 }
