@@ -97,7 +97,7 @@ task createChangelog(type: ChangelogTask) {
     setAuthName(new DelayedString(project, 'console_script'));
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
-    setOutput(new DelayedFile(project, 'build/libs/${project.version}'));
+    setOutput(new DelayedFile(project, 'build/libs/' + jobName + '-changelog-' + "${project.version}" + '.txt'));
 }
 
 tasks.build.dependsOn('createChangelog')
