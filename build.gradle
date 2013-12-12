@@ -62,7 +62,12 @@ processResources
         include '**/*.properties'
                 
         // replaces
-        expand 'mod_version': project.config.mod_version, 'minecraft_version': project.config.minecraft_version, 'build_number': project.config.build_number, 'worldcore_version': project.config.worldcore_version
+        expand ([
+        'mod_version': project.config.mod_version, 
+        'minecraft_version': project.config.minecraft_version, 
+        'build_number': project.config.build_number, 
+        'worldcore_version': project.config.worldcore_version
+        ])
     }
         
         // copy everything else, thats we didnt do before
