@@ -86,12 +86,14 @@ jar {
 }
 
 import net.minecraftforge.gradle.tasks.dev.ChangelogTask
+import net.minecraftforge.gradle.common.Constants
 import net.minecraftforge.gradle.delayed.*
 
 task createChangelog(type: ChangelogTask) {
 	def jobName = "${System.getenv().JOB_NAME}"
 	def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
+	getOutputs().uptoDateWhen(Constants.CALL_FALSE)
 	setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
 	setJobName(new DelayedString(project, jobName.toString()));
     setAuthName(new DelayedString(project, 'console_script'));
