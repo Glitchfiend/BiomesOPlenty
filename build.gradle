@@ -28,16 +28,11 @@ repositories {
         name 'Forge FS legacy'
         artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
     }
-    ivy {
-        name 'CB FS'
-        artifactPattern "http://www.chickenbones.craftsaddle.org/Files/New_Versions/1.6.4/[module]-dev%20[revision].[ext]"
-    }
 }
 
 dependencies {
     compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
     compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
-    compile name: 'CodeChickenCore', version: "${config.ccc_version}", ext: 'jar'
 }
 
 group = "biomesoplenty"
