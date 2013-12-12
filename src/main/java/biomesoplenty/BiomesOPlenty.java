@@ -77,8 +77,7 @@ public class BiomesOPlenty
 		BOPItems.init();
 		BOPFluids.init();
 		BOPCrafting.init();
-		if ((new CallableMinecraftVersion(null)).minecraftVersion() != "1.6.2")
-			BOPStructures.init();
+		BOPStructures.init();
 		BOPBiomes.init();
 		BOPEntities.init();
 		BOPVanillaCompat.init();
@@ -104,10 +103,9 @@ public class BiomesOPlenty
 	public void load(FMLInitializationEvent event)
 	{
 		// Add helpers for compatibility
-		MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
-		if (ForgeVersion.buildVersion >= 891 || proxy instanceof ClientProxy)
-			MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
-		MinecraftForge.EVENT_BUS.register(new BOPAchievements());
+	    MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
+	    MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
+	    MinecraftForge.EVENT_BUS.register(new BOPAchievements());
 		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new EntityEventHandler());
 		MinecraftForge.EVENT_BUS.register(new FluidEventHandler());
