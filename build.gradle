@@ -89,11 +89,14 @@ import net.minecraftforge.gradle.tasks.dev.ChangelogTask
 import net.minecraftforge.gradle.delayed.*
 
 task createChangelog(type: ChangelogTask) {
+	def jobName = "${System.getenv().JOB_NAME}"
+	assert jobName instanceof String
+
 	setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
-	setJobName(new DelayedString(project, archivesBaseName);
+	setJobName(new DelayedString(project, jobName));
     setAuthName(new DelayedString(project, 'console_script'));
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
-    setTargetBuild({'${System.getenv().BUILD_NUMBER}'});
+    setTargetBuild({"${System.getenv().BUILD_NUMBER}"});
     setOutput(new DelayedFile(project, 'build/libs/${project.version}'));
 }
 
