@@ -97,6 +97,8 @@ task createChangelog(type: ChangelogTask) {
     setOutput(new DelayedFile(project, "build/libs/${project.version}"));
 }
 
+tasks.build.dependsOn('createChangelog')
+
 // add a source jar
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
