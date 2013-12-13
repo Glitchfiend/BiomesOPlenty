@@ -44,7 +44,7 @@ minecraft {
     assetDir = "run/assets"
 
 	replaceIn "BiomesOPlenty.java"
-    	replace "1.42.666.42.1", config.forge_version
+    	replace "1.42.666.42.1", '9.11.1.952'
 }
 
 // add some stuff to the version
