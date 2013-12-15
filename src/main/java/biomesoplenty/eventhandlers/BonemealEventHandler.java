@@ -134,13 +134,13 @@ public class BonemealEventHandler
 				}
 			}
 		}
-		else if (event.ID == Blocks.beetroot.get().blockID)
+		else if (event.ID == Blocks.turnip.get().blockID)
 		{
 	        if (event.world.getBlockMetadata(event.X, event.Y, event.Z) != 7)
 	        {
 	            if (!event.world.isRemote)
 	            {
-	                ((BlockCrops)Block.blocksList[Blocks.beetroot.get().blockID]).fertilize(event.world, event.X, event.Y, event.Z);
+	                ((BlockCrops)Block.blocksList[Blocks.turnip.get().blockID]).fertilize(event.world, event.X, event.Y, event.Z);
 	            }
 	        }
 		}

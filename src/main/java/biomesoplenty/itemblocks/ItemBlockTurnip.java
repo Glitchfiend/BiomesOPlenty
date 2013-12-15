@@ -6,12 +6,12 @@ import net.minecraft.util.Icon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemBlockBeetroot extends ItemBlock
+public class ItemBlockTurnip extends ItemBlock
 {
 	@SideOnly(Side.CLIENT)
 	private Icon texture;
 
-	public ItemBlockBeetroot(int par1)
+	public ItemBlockTurnip(int par1)
 	{
 		super(par1);
 	}

@@ -113,7 +113,7 @@ public class BOPItems {
 	{
 		// Item declaration
 		Items.food = Optional.of(new ItemBOPFood(BOPConfigurationIDs.foodID).setUnlocalizedName("bop.food"));
-		Items.beetrootseeds = Optional.of(new ItemBOPSeeds(BOPConfigurationIDs.beetrootseedsID, Blocks.beetroot.get().blockID, Block.tilledField.blockID).setUnlocalizedName("bop.beetrootseeds"));
+		Items.turnipseeds = Optional.of(new ItemBOPSeeds(BOPConfigurationIDs.turnipseedsID, Blocks.turnip.get().blockID, Block.tilledField.blockID).setUnlocalizedName("bop.turnipseeds"));
 		Items.miscItems = Optional.of(new ItemBOP(BOPConfigurationIDs.miscItemsID).setUnlocalizedName("bop.miscItems"));
 		Items.jarEmpty = Optional.of(new ItemJarEmpty(BOPConfigurationIDs.jarEmptyID).setUnlocalizedName("bop.jarEmpty"));
 		Items.jarFilled = Optional.of(new ItemJarFilled(BOPConfigurationIDs.jarFilledID).setUnlocalizedName("bop.jarFilled").setContainerItem(Items.jarEmpty.get()));
@@ -165,7 +165,7 @@ public class BOPItems {
 	private static void registerItems()
 	{
         registerItem(Items.food.get());
-        registerItem(Items.beetrootseeds.get());
+        registerItem(Items.turnipseeds.get());
         registerItem(Items.miscItems.get());
         registerItem(Items.jarEmpty.get()); 
         registerItem(Items.jarFilled.get()); 

@@ -33,7 +33,7 @@ public class ItemBOPSeeds extends Item implements IPlantable
 	@Override
 	public void registerIcons(IconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("biomesoplenty:beetrootseeds");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:turnipseeds");
 	}
 
     /**

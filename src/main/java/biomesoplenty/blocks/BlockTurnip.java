@@ -11,12 +11,12 @@ import net.minecraft.util.Icon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBeetroot extends BlockCrops
+public class BlockTurnip extends BlockCrops
 {
     @SideOnly(Side.CLIENT)
     private Icon[] iconArray;
 
-    public BlockBeetroot(int par1)
+    public BlockTurnip(int par1)
     {
         super(par1);
     }
@@ -50,7 +50,7 @@ public class BlockBeetroot extends BlockCrops
     @Override
     protected int getSeedItem()
     {
-        return Items.beetrootseeds.get().itemID;
+        return Items.turnipseeds.get().itemID;
     }
 
     /**

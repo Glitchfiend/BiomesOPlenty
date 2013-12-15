@@ -124,6 +124,15 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 			}
 			break;
 			
+		case 12:
+			if (world.rand.nextInt(32) != 0)
+				return ret;
+
+			if (world.rand.nextInt(2) == 0) {
+				ret.add(new ItemStack(Items.turnipseeds.get(),1));
+			}
+			break;
+			
 		case 8:
 		    ret.add(new ItemStack(Items.food.get(), 1, 0));
 		    break;

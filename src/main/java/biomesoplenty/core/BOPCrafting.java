@@ -292,7 +292,6 @@ public class BOPCrafting
 		//Plants
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 2, 1), new Object[] {new ItemStack(Blocks.mushrooms.get(),1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.jarFilled.get(), 1, 1), new Object[] {new ItemStack(Blocks.foliage.get(),1,7), new ItemStack(Items.jarEmpty.get(),1, 0)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 12), new Object[] {new ItemStack(Items.food.get(),1,11), new ItemStack(Item.bowlEmpty,1, 0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 4), new Object[] {Item.bowlEmpty, new ItemStack(Items.food.get(), 1, 0), Item.appleRed, Item.melon});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 5), new Object[] {Item.bowlEmpty, new ItemStack(Items.food.get(), 1, 2), Item.carrot, Item.potato});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.food.get(), 1, 6), new Object[] {Item.bowlEmpty, new ItemStack(Blocks.mushrooms.get(), 1, 0), new ItemStack(Blocks.mushrooms.get(), 1, 1), new ItemStack(Blocks.mushrooms.get(), 1, 2)});
@@ -304,7 +303,6 @@ public class BOPCrafting
 		FurnaceRecipes.smelting().addSmelting(Blocks.redRock.get().blockID, 1, new ItemStack(Blocks.redRock.get(), 1, 0), 0.1F);
 		FurnaceRecipes.smelting().addSmelting(Blocks.holyStone.get().blockID, 1, new ItemStack(Blocks.holyStone.get(), 1, 0), 0.1F);
 		FurnaceRecipes.smelting().addSmelting(Blocks.plants.get().blockID, 12, new ItemStack(Item.dyePowder, 1, 2), 0.2F);
-		FurnaceRecipes.smelting().addSmelting(Items.food.get().itemID, 11, new ItemStack(Item.dyePowder, 1, 1), 0.2F);
 		FurnaceRecipes.smelting().addSmelting(Items.mudball.get().itemID, 0, new ItemStack(Items.miscItems.get(), 1, 0), 0F);
 
 		FurnaceRecipes.smelting().addSmelting(Blocks.logs1.get().blockID, new ItemStack(Item.coal, 1, 1), 15F);
