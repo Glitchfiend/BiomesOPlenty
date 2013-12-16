@@ -43,29 +43,29 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random par5Random)
 	{
-		if (par1World.isAirBlock(par2, par3 + 1, par4))
+		if (world.isAirBlock(x, y + 1, z))
 		{
 			int var6;
 
-			for (var6 = 1; par1World.getBlockId(par2, par3 - var6, par4) == blockID; ++var6)
+			for (var6 = 1; world.getBlockId(x, y - var6, z) == blockID; ++var6)
 			{
 				;
 			}
 
 			if (var6 < 3)
 			{
-				int var7 = par1World.getBlockMetadata(par2, par3, par4);
+				int var7 = world.getBlockMetadata(x, y, z);
 
 				if (var7 == 15)
 				{
-					par1World.setBlock(par2, par3 + 1, par4, blockID);
-					par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 2);
+					world.setBlock(x, y + 1, z, blockID);
+					world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 				}
 				else
 				{
-					par1World.setBlockMetadataWithNotify(par2, par3, par4, var7 + 1, 2);
+					world.setBlockMetadataWithNotify(x, y, z, var7 + 1, 2);
 				}
 			}
 		}

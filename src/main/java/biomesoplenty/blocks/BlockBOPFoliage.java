@@ -178,24 +178,35 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
 		if (world.getBlockId(x, y, z) != blockID)
+		{
 			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z))
 					&& this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-		else
+		}
+		
 			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z))
 					&& this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbourID)
 	{
-		super.onNeighborBlockChange(world, x, y, z, neighborID);
+	    int metadata = world.getBlockMetadata(x, y, z);
+	    
+	    if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM) 
+	    {
+	        if (world.getBlockId(x, y + 1, z) != blockID)
+	        {
+	            world.setBlock(x, y, z, Block.tallGrass.blockID, 1, 2);
+	        }
+	        else if (!canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z)))
+	        {
+	            this.dropBlockAsItem(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);
+	            world.setBlockToAir(x, y + 1, z);
+	        }
+	    }
+
+		super.onNeighborBlockChange(world, x, y, z, neighbourID);
 		this.checkFlowerChange(world, x, y, z);
-		if (world.getBlockMetadata(x, y, z) == GRASSTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != GRASSBOTTOM) {
-			world.setBlockToAir(x, y, z);
-		}
-		if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM && world.getBlockId(x, y + 1, z) != blockID) {
-			world.setBlock(x, y, z, Block.tallGrass.blockID, 1, 2);
-		}
 	}
 
 	@Override
