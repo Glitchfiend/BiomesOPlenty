@@ -30,8 +30,6 @@ import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
-import biomesoplenty.asm.BOPBiomeColourBlending;
-import biomesoplenty.asm.biomecolourblending.BlockGrass;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -244,7 +242,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public int getRenderType ()
+	public int getRenderType()
 	{
 		return RenderUtils.foliageModel;
 	}
@@ -253,12 +251,12 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 	@SideOnly(Side.CLIENT)
 	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
 	{
-		if (par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 9)
-		{
-			return BOPBiomeColourBlending.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
-		}
-		
-		return BOPBiomeColourBlending.getGrassColourMultiplier(par1IBlockAccess, par2, par3, par4);
+        if (par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 9)
+        {
+                return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
+        }
+        
+        return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeGrassColor();
 	}
 
 	@Override

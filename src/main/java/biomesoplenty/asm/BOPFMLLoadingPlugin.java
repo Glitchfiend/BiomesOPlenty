@@ -29,11 +29,6 @@ public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
     @Override
     public String[] getASMTransformerClass()
     {
-        if (SIDE.equals("CLIENT"))
-        {
-            return new String[] {BOPBiomeColourBlending.class.getName()};
-        }
-        
         return null;
     }
 

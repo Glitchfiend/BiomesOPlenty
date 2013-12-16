@@ -27,10 +27,6 @@ public class BOPConfigurationMisc
 
 	public static int promisedLandSkyColor;
 	
-	public static int grassColourSmoothingArea;
-	public static int leavesColourSmoothingArea;
-	public static int waterColourSmoothingArea;
-	
 	public static void init(File configFile)
 	{
 		config = new Configuration(configFile);
@@ -56,10 +52,6 @@ public class BOPConfigurationMisc
 			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
 
 			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
-			
-			grassColourSmoothingArea = config.get("Biome Transition Colour Smoothing", "Grass Colour Smoothing Area", 1, "In Vanilla this is 1. Set to 5 for optimal smoothing").getInt();
-	        leavesColourSmoothingArea = config.get("Biome Transition Colour Smoothing", "Leaves Colour Smoothing Area", 1, "In Vanilla this is 1. Set to 5 for optimal smoothing").getInt();
-	        waterColourSmoothingArea = config.get("Biome Transition Colour Smoothing", "Water Colour Smoothing Area", 1, "In Vanilla this is 1. Set to 5 for optimal smoothing").getInt();
 
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Misc Config!");
 		}

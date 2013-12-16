@@ -16,7 +16,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.asm.BOPBiomeColourBlending;
 
 public class BlockIvy extends Block implements IShearable
 {
@@ -243,14 +242,10 @@ public class BlockIvy extends Block implements IShearable
 		return ColorizerFoliage.getFoliageColorBasic();
 	}
 
-	/**
-	 * Returns a integer with hex for 0xrrggbb with this color multiplied against the blocks color. Note only called
-	 * when first determining what to render.
-	 */
 	@Override
 	public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
 	{
-        return BOPBiomeColourBlending.getLeavesColourMultiplier(par1IBlockAccess, par2, par3, par4);
+        return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
 	}
 
 	/**
