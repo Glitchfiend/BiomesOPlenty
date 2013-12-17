@@ -35,7 +35,7 @@ public class WorldGenNetherWart extends WorldGenerator
 			int var8 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
 			int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 			int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
-			int var999 = par2Random.nextInt(12);
+			int var999 = par2Random.nextInt(16);
 
 			if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == Block.netherrack.blockID)
 			{
