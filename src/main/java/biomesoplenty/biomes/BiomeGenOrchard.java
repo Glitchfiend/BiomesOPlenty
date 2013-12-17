@@ -64,8 +64,7 @@ public class BiomeGenOrchard extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
-		//return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenAppleTree1() : new WorldGenAppleTree2());
-		return new WorldGenApple(false);
+		return (WorldGenerator)(par1Random.nextInt(3) == 0 ? new WorldGenApple(false) : this.worldGeneratorTrees);
 	}
 
 	/**
