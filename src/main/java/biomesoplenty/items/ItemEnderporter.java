@@ -37,7 +37,7 @@ public class ItemEnderporter extends Item
 			return par1ItemStack;
 		else
 		{
-			if (par3EntityPlayer.dimension == 0)
+			if (par3EntityPlayer.worldObj.provider.isSurfaceWorld())
 			{
 				par1ItemStack.damageItem(1, par3EntityPlayer);
 				par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 999));
