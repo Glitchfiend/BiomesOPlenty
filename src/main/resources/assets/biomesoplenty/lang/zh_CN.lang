@@ -34,31 +34,47 @@ tile.bop.plants.reed.name=芦苇
 tile.bop.plants.cactus.name=仙人球
 tile.bop.plants.root.name=根
 
---I've stopped here at the moment, will finish the rest of the translation shortly.
-
-tile.bop.flowers.clover.name=苜蓿
+tile.bop.flowers.clover.name=苜
 tile.bop.flowers.swampflower.name=沼泽花
-tile.bop.flowers.deadbloom.name=死亡花
-tile.bop.flowers.glowflower.name=闪光花
-tile.bop.flowers.hydrangea.name=绣球花
+tile.bop.flowers.deadbloom.name=死亡之花
+tile.bop.flowers.glowflower.name=发光的花
+tile.bop.flowers.hydrangea.name=蓝色的绣球花
 tile.bop.flowers.wildflower.name=野花
-tile.bop.flowers.violet.name=紫罗兰
-tile.bop.flowers.anemone.name=银莲花
-tile.bop.flowers.lilyflower.name=水百合
-tile.bop.flowers.aloe.name=龙舌兰
+tile.bop.flowers.violet.name=紫色
+tile.bop.flowers.anemone.name=白色海葵
+tile.bop.flowers.lilyflower.name=睡莲
+tile.bop.flowers.rainbowflower.name=色度菌群
+tile.bop.flowers.bromeliad.name=凤梨
 tile.bop.flowers.sunflowerbottom.name=向日葵
 tile.bop.flowers.sunflowertop.name=向日葵
-tile.bop.flowers.dandelion.name=蒲公英
+tile.bop.flowers.dandelion.name=蒲公英粉扑
 
-tile.bop.foliage.algae.name=海藻
-tile.bop.foliage.shortgrass.name=小草
-tile.bop.foliage.mediumgrass.name=矮草
+tile.bop.flowers2.hibiscus.name=粉红色的芙蓉
+tile.bop.flowers2.lilyofthevalley.name=铃兰
+tile.bop.flowers2.burningblossom.name=燃烧之花
+tile.bop.flowers2.lavender.name=薰衣草
+tile.bop.flowers2.goldenrod.name=黄花
+tile.bop.flowers2.bluebells.name=风铃草
+tile.bop.flowers2.minersdelight.name=矿工的喜悦
+tile.bop.flowers2.icyiris.name=冰冷的虹膜
+
+tile.bop.stoneFormations.stalagmite.name=石笋
+tile.bop.stoneFormations.stalactite.name=石钟乳
+
+tile.bop.foliage.algae.name=藻类
+tile.bop.foliage.shortgrass.name=短草
+tile.bop.foliage.mediumgrass.name=中型草
 tile.bop.foliage.highgrassbottom.name=高草
 tile.bop.foliage.bush.name=灌木
-tile.bop.foliage.sprout.name=野菜
+tile.bop.foliage.sprout.name=芽
 tile.bop.foliage.highgrasstop.name=高草
 tile.bop.foliage.poisonivy.name=毒藤
 tile.bop.foliage.berrybush.name=浆果灌木
+tile.bop.foliage.shrub.name=灌木
+tile.bop.foliage.wheatgrass.name=小麦草
+tile.bop.foliage.dampgrass.name=潮湿的草地
+tile.bop.foliage.koru.name=科鲁
+tile.bop.foliage.cloverpatch.name=三叶草补丁
 
 tile.bop.petals.bigflowerred.name=巨大红色花
 tile.bop.petals.bigfloweryellow.name=巨大黄色花
@@ -67,6 +83,7 @@ tile.bop.mushrooms.toadstool.name=毒菌
 tile.bop.mushrooms.portobello.name=双孢蘑菇
 tile.bop.mushrooms.bluemilk.name=蓝牛奶伞菌
 tile.bop.mushrooms.glowshroom.name=夜光菇
+tile.bop.mushrooms.flatmushroom.name=平蘑菇
 
 tile.bop.saplings.appleSapling.name=苹果树苗
 tile.bop.saplings.yellowautumnSapling.name=黄色秋天树苗
@@ -79,10 +96,11 @@ tile.bop.saplings.holySapling.name=阁楼木树苗
 tile.bop.saplings.orangeautumnSapling.name=橙色秋天树苗
 tile.bop.saplings.originSapling.name=起源树苗
 tile.bop.saplings.pinkcherrySapling.name=粉色樱桃树苗
-tile.bop.saplings.mapleSapling.name=枫树树苗
+tile.bop.saplings.mapleSapling.name=枫树苗
 tile.bop.saplings.whitecherrySapling.name=白色樱桃树树苗
 tile.bop.saplings.hellbarkSapling.name=地狱皮树苗
 tile.bop.saplings.jacarandaSapling.name=蓝花楹木树苗
+tile.bop.saplings.persimmonSapling.name=柿子树苗
 
 tile.bop.colorizedSaplings.acaciaSapling.name=刺槐树树苗
 tile.bop.colorizedSaplings.mangroveSapling.name=红树树苗
@@ -91,15 +109,21 @@ tile.bop.colorizedSaplings.redwoodSapling.name=红木树苗
 tile.bop.colorizedSaplings.willowSapling.name=柳树树苗
 tile.bop.colorizedSaplings.pineSapling.name=松树树苗
 
-tile.bop.willow.name=柳树
-tile.bop.ivy.name=藤蔓
-tile.bop.leavesFruit.name=苹果树叶
-tile.bop.bamboo.name=竹子
-tile.bop.mudBricksStairs.name=泥巴砖块楼梯
-tile.bop.originGrass.name=源草
-tile.bop.treeMoss.name=树藓
+tile.bop.willow.name=柳
+tile.bop.ivy.name=常春藤
+tile.bop.leavesFruit.name=苹果叶
+tile.bop.leavesFruit2.name=柿叶
+tile.bop.bamboo.name=竹
+tile.bop.mudBricksStairs.name=泥砖楼梯
+tile.bop.originGrass.name=原产地草块
+tile.bop.longGrass.name=长草块
+tile.bop.treeMoss.name=树苔
 
-tile.bop.coral.kelpsingle.name=巨藻
+tile.bop.coral.kelpsingle.name=海带
+tile.bop.coral.pinkcoral.name=粉红色珊瑚
+tile.bop.coral.orangecoral.name=橙色的珊瑚
+tile.bop.coral.bluecoral.name=蓝珊瑚
+tile.bop.coral.glowcoral.name=发光的珊瑚
 
 tile.bop.redCobbleStairs.name=红岩圆石楼梯                 
 tile.bop.redBricksStairs.name=红岩砖块楼梯
@@ -110,6 +134,7 @@ tile.bop.holyGrass.smolderinggrass.name=阴燃草
 tile.bop.holyStone.holystone.name=苍空石
 tile.bop.holyStone.holycobble.name=苍空圆石
 tile.bop.holyStone.holybrick.name=苍空砖块
+tile.bop.holyStone.holystonemossy.name=长满青苔的金快快
 
 tile.bop.holyCobbleStairs.name=苍空圆石楼梯
 tile.bop.holyBricksStairs.name=苍空砖块楼梯
@@ -135,17 +160,16 @@ tile.bop.moss.name=苔藓
 
 tile.bop.cloud.name=云块
 
+tile.bop.hive.honeycomb.name=蜂窝块
+tile.bop.hive.hive.name=蜂巢块
+tile.bop.hive.honeycombempty.name=空蜂窝块
+tile.bop.hive.honeycombfilled.name=填充蜂窝块
+
+tile.bop.honeyBlock.name=蜂蜜块
+
 tile.bop.bones.bones_small.name=一小截骨头
 tile.bop.bones.bones_medium.name=一截骨头
 tile.bop.bones.bones_large.name=一大截骨头
-
-tile.bop.glass.celestialLens.name=仙域透镜
-
-tile.bop.glass.sacrificialfocus_empty.name=献祭之核
-tile.bop.glass.sacrificialfocus_active.name=献祭之核
-tile.bop.glass.sacrificialfocus_villager.name=献祭之核
-
-tile.bop.altar.altarframe.name=祭坛框架
 
 tile.bop.puddle.name=胶土
 
@@ -197,21 +221,23 @@ tile.bop.wood4.pineWood.name=松树原木
 tile.bop.wood4.hellbarkWood.name=地狱皮树原木
 tile.bop.wood4.jacarandaWood.name=蓝花楹树原木
 
-tile.bop.leaves1.yellowautumn.name=黄色秋天树叶
+tile.bop.leaves1.yellowautumn.name=黄色的秋叶
 tile.bop.leaves1.bamboo.name=竹叶
-tile.bop.leaves1.magic.name=魔法树叶
-tile.bop.leaves1.dark.name=黑暗树叶
-tile.bop.leaves1.dead.name=垂死树叶
-tile.bop.leaves1.fir.name=杉树树叶
-tile.bop.leaves1.holy.name=阁楼树树叶
-tile.bop.leaves1.orangeautumn.name=橙色秋天树叶
+tile.bop.leaves1.magic.name=神奇的叶子
+tile.bop.leaves1.dark.name=黑叶
 
-tile.bop.leaves2.origin.name=Origin树叶
-tile.bop.leaves2.pinkcherry.name=粉樱桃树叶
-tile.bop.leaves2.maple.name=枫树叶
-tile.bop.leaves2.whitecherry.name=白樱桃树叶
-tile.bop.leaves2.hellbark.name=地狱皮树叶
-tile.bop.leaves2.jacaranda.name=蓝花楹树叶
+tile.bop.leaves2.dead.name=快死的叶子
+tile.bop.leaves2.fir.name=杉叶
+tile.bop.leaves2.holy.name=高大的落叶
+tile.bop.leaves2.orangeautumn.name=橙色秋叶
+
+tile.bop.leaves3.origin.name=叶起源
+tile.bop.leaves3.pinkcherry.name=粉红色的樱花叶
+tile.bop.leaves3.maple.name=枫叶
+tile.bop.leaves3.whitecherry.name=海特樱叶
+
+tile.bop.leaves4.hellbark.name=地狱树皮树叶
+tile.bop.leaves4.jacaranda.name=蓝花楹树叶
 
 tile.bop.woodenDoubleSlab1.acaciaSlab.name=刺槐树木板
 tile.bop.woodenDoubleSlab1.cherrySlab.name=樱桃树木板
@@ -263,8 +289,18 @@ tile.bop.leavesColorized.willow.name=柳树叶
 tile.bop.leavesColorized.pine.name=松树叶
 
 item.bop.food.berries.name=浆果
-item.bop.food.shroompowder.name=蘑菇粉
+item.bop.food.shroompowder.name=菇粉
+item.bop.food.wildcarrots.name=野胡萝卜
 item.bop.food.sunflowerseeds.name=葵花籽
+item.bop.food.saladfruit.name=水果沙拉
+item.bop.food.saladveggie.name=蔬菜沙拉
+item.bop.food.saladshroom.name=S菇沙拉
+item.bop.food.persimmon.name=柿子
+item.bop.food.filledhoneycomb.name=填充蜂窝
+item.bop.food.ambrosia.name=神的食物
+item.bop.food.turnip.name=芜菁
+
+item.bop.turnipseeds.name=萝卜种子
 
 item.bop.dartblower.name=飞镖吹筒
 item.bop.dart.dart.name=飞镖
@@ -273,22 +309,30 @@ item.bop.dart.poisondart.name=毒飞镖
 item.bop.mudball.name=泥球
 
 item.bop.miscItems.mudbrick.name=泥砖
-item.bop.miscItems.ash.name=一小堆灰烬
-item.bop.miscItems.amethyst.name=紫晶
-item.bop.miscItems.poison.name=毒药
-item.bop.miscItems.crystalshard.name=仙域水晶碎片
-item.bop.miscItems.bluedye.name=蓝色染料
+item.bop.miscItems.ash.name=一堆灰烬
+item.bop.miscItems.fleshchunk.name=肉大块
+item.bop.miscItems.emptyhoneycomb.name=蜂窝状空
+item.bop.miscItems.crystalshard.name=天体水晶碎片
+item.bop.miscItems.bluedye.name=蓝染
 item.bop.miscItems.browndye.name=棕色染料
 item.bop.miscItems.greendye.name=绿色染料
 item.bop.miscItems.whitedye.name=白色染料
 item.bop.miscItems.blackdye.name=黑色染料
-item.bop.miscItems.ruby.name=红宝石
-item.bop.miscItems.peridot.name=橄榄石
-item.bop.miscItems.topaz.name=黄玉
-item.bop.miscItems.tanzanite.name=坦桑石
-item.bop.miscItems.apatite.name=磷灰石
-item.bop.miscItems.sapphire.name=蓝宝石
-item.bop.miscItems.ghastlysoul.name=幽魂灵魂
+item.bop.miscItems.ghastlysoul.name=可怕的灵魂
+item.bop.miscItems.pixiedust.name=精灵之尘
+
+item.bop.jarEmpty.name=空罐子
+item.bop.jarFilled.jarhoney.name=蜜罐里
+item.bop.jarFilled.jarpoison.name=毒提取罐
+item.bop.jarFilled.jarpixie.name=精灵罐
+
+item.bop.gems.amethyst.name=紫晶
+item.bop.gems.ruby.name=红宝石
+item.bop.gems.peridot.name=贵橄榄石
+item.bop.gems.topaz.name=黄玉
+item.bop.gems.tanzanite.name=坦桑
+item.bop.gems.malachite.name=孔雀石
+item.bop.gems.sapphire.name=蓝宝石
 
 item.bop.pickaxeMud.name=泥巴镐
 item.bop.hatchetMud.name=泥巴斧
@@ -341,18 +385,73 @@ item.bop.flowerBand.exoticflowerband.name=异域之花环
 item.bop.bopBucket.amethyst_empty.name=紫晶桶
 item.bop.bopBucket.amethyst_spring_water.name=泉水桶
 item.bop.bopBucket.liquid_poison.name=毒液桶
+item.bop.bopBucket.honey.name=蜂蜜桶
 
 tile.bop.liquidPoison.name=毒液
 tile.bop.springWater.name=泉水
+tile.bop.honey.name=蜂蜜
 
 fluid.bop.liquidPoison.name=毒液
 fluid.bop.springWater.name=泉水
+fluid.bop.honey.name=蜂蜜
 
 phrase.bop.promisedPortalOverworld=通往应许之地的神迹之门降临于苍穹之上.
 phrase.bop.promisedPortalOther=神迹之门降临于苍穹之上.
 
-itemGroup.tabBiomesOPlenty=超多生态群落
+phrase.bop.useBOPATGWorldtype=丰盛的世界型或互生地形生成世界型的生物群系，必须以新的生物群落产生使用。此消息将只显示一次。
+phrase.bop.useBOPWorldtype=大量的世界类型的生物群落，必须以使新的生物群落，以产生可以使用。此消息将只显示一次。
+phrase.bop.updateAvaliable=您不使用大量的生物群落最新推荐版本。最新推荐的版本是：v％s 来的 Minecraft ％s
 
-generator.BIOMESOP=超多生态群落
+entity.BiomesOPlenty.Glob.name=水珠
+entity.BiomesOPlenty.JungleSpider.name=丛林蜘蛛
+entity.BiomesOPlenty.Phantom.name=幻象
+entity.BiomesOPlenty.Rosester.name=玫瑰公鸡
+entity.BiomesOPlenty.Wasp.name=黄蜂
+entity.BiomesOPlenty.Bird.name=鸟
+entity.BiomesOPlenty.Pixie.name=小精灵
+
+achievement.bop.achFlower=花的孩子
+achievement.bop.achFlower.desc=与自然合二为一！
+
+achievement.bop.achBerry=浆果采摘
+achievement.bop.achBerry.desc=在生活中简单的事情。 。 。
+achievement.bop.achMoss=滚石
+achievement.bop.achMoss.desc=它收集没有这一点。
+achievement.bop.achThorn=相当棘手
+achievement.bop.achThorn.desc=比仙人掌致命的！
+achievement.bop.achCoral=营养
+achievement.bop.achCoral.desc=怎么样了一块蒸珊瑚？
+
+achievement.bop.achFlowerBand=花的力量
+achievement.bop.achFlowerBand.desc=甜，男人。
+achievement.bop.achDartBlower=全自动
+achievement.bop.achDartBlower.desc=你会拍摄自己的眼睛了！
+achievement.bop.achScythe=除草剂
+achievement.bop.achScythe.desc=死神的日常工作
+achievement.bop.achEnderporter=家，甜蜜的家
+achievement.bop.achEnderporter.desc=使用安德传送点。
+
+achievement.bop.achHoney=苦乐参半
+achievement.bop.achHoney.desc=血与蜜之地。
+achievement.bop.achWitherWart=衰变
+achievement.bop.achWitherWart.desc=伪装大师。
+achievement.bop.achGrave=掘墓人
+achievement.bop.achGrave.desc=下一个阻尼器的。
+achievement.bop.achPhantom=幽灵的威胁
+achievement.bop.achPhantom.desc=灵魂窃取
+
+achievement.bop.achPromised=企图不上了！
+achievement.bop.achPromised.desc=欢迎来到应许之地！
+achievement.bop.achCelestial=碧落
+achievement.bop.achCelestial.desc=我是一个谁块。
+achievement.bop.achAmbrosia=众神的饮料
+achievement.bop.achAmbrosia.desc=留渴了，我的朋友。
+
+achievement.bop.achAllBOP=大量的成就
+achievement.bop.achAllBOP.desc=你得到了所有的丰盛成果生物群落！
+
+itemGroup.tabBiomesOPlenty=大量的生物群落
+
+generator.BIOMESOP=大量的生物群落
 
 
