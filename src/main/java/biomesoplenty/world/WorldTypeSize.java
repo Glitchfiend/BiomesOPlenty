@@ -11,7 +11,8 @@ public class WorldTypeSize
 	@ForgeSubscribe
 	public void BiomeSize(WorldTypeEvent.BiomeSize event)
 	{
-		if (event.worldType.getWorldTypeName() == "BIOMESOP") {
+		if (event.worldType.getWorldTypeName() == "BIOMESOP" || event.worldType.getWorldTypeName() == "ATG") 
+		{
 			event.newSize = (byte)BOPConfigurationTerrainGen.biomeSize;
 			
 			if (BOPConfigurationTerrainGen.netherOverride)
