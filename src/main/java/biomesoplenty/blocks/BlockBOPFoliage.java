@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -34,7 +34,7 @@ import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFoliage extends BlockFlower implements IShearable
+public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 {
 	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch"};
 
@@ -48,7 +48,7 @@ public class BlockBOPFoliage extends BlockFlower implements IShearable
 
 	public BlockBOPFoliage(int blockID)
 	{
-		super(blockID, Material.vine);
+		super(blockID);
 		float f = 0.4F;
 		setBurnProperties(this.blockID, 60, 100);
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
