@@ -108,7 +108,7 @@ public class EntityRosester extends EntityChicken
             int k = MathHelper.floor_double(this.posY);
             int l = MathHelper.floor_double(this.posZ + (double)((float)(i / 2 % 2 * 2 - 1) * 0.25F));
 
-            if (this.worldObj.isAirBlock(j, k, l) && this.worldObj.getBiomeGenForCoords(j, l).getFloatTemperature() > 0.3F && Block.plantRed.canPlaceBlockAt(this.worldObj, j, k, l))
+            if (this.worldObj.isAirBlock(j, k, l) && this.worldObj.getBiomeGenForCoords(j, l).getFloatTemperature() > 0.3F && Block.plantRed.canPlaceBlockAt(this.worldObj, j, k, l) && this.worldObj.rand.nextInt(300) == 0)
             {
                 this.worldObj.setBlock(j, k, l, Block.plantRed.blockID);
             }
