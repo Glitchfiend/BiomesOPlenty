@@ -1,34 +1,40 @@
-tile.bop.mud.mud.name=泥巴
+tile.bop.mud.mud.name=泥
 tile.bop.mud.quicksand.name=流沙
 
-tile.bop.generic.ash_stone.name=火山灰岩
-tile.bop.generic.hard_sand.name=硬化沙子
-tile.bop.generic.hard_dirt.name=硬化泥土
-tile.bop.generic.hard_ice.name=硬化冰块
-tile.bop.generic.dried_dirt.name=干燥泥土
-tile.bop.generic.crag_rock.name=崖壁岩石
-tile.bop.generic.mud_brick.name=泥巴砖块
-tile.bop.generic.holy_dirt.name=纯净泥土
-tile.bop.generic.crystal.name=仙域水晶
+tile.bop.generic.ash_stone.name=灰石材
+tile.bop.generic.hard_sand.name=硬化砂
+tile.bop.generic.hard_dirt.name=硬化污垢
+tile.bop.generic.hard_ice.name=硬化冰
+tile.bop.generic.dried_dirt.name=干燥的灰尘
+tile.bop.generic.crag_rock.name=岩岩石
+tile.bop.generic.mud_brick.name=泥砖
+tile.bop.generic.holy_dirt.name=纯化的污垢
+tile.bop.generic.crystal.name=天体晶
 
-tile.bop.redRocks.redrock.name=红岩
-tile.bop.redRocks.redcobble.name=红岩圆石
-tile.bop.redRocks.redbrick.name=红岩砖块
+tile.bop.redRocks.redrock.name=红石
+tile.bop.redRocks.redcobble.name=红石鹅卵石
+tile.bop.redRocks.redbrick.name=红石砖
 
-tile.bop.ash.name=灰烬块
+tile.bop.ash.name=灰块
+tile.bop.flesh.name=肉
 
-tile.bop.plants.deadgrass.name=枯萎草
+tile.bop.plants.deadgrass.name=不死草
 tile.bop.plants.desertgrass.name=沙漠草
-tile.bop.plants.desertsprouts.name=沙漠野菜
+tile.bop.plants.desertsprouts.name=沙漠豆芽
 tile.bop.plants.dunegrass.name=沙丘草
-tile.bop.plants.holytallgrass.name=纯净高草
+tile.bop.plants.holytallgrass.name=纯化草丛
 tile.bop.plants.thorn.name=荆棘
 tile.bop.plants.barley.name=大麦
 tile.bop.plants.cattail.name=香蒲
 tile.bop.plants.cattailtop.name=香蒲
 tile.bop.plants.cattailbottom.name=香蒲
+tile.bop.plants.rivercane.name=江藤
+tile.bop.plants.witherwart.name=疣体枯萎
 tile.bop.plants.reed.name=芦苇
 tile.bop.plants.cactus.name=仙人球
+tile.bop.plants.root.name=根
+
+--I've stopped here at the moment, will finish the rest of the translation shortly.
 
 tile.bop.flowers.clover.name=苜蓿
 tile.bop.flowers.swampflower.name=沼泽花
