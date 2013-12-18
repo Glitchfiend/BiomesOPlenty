@@ -131,8 +131,8 @@ tile.bop.coral.glowcoral.name=Светящийся коралл
 tile.bop.redCobbleStairs.name=Ступеньки из красного булыжника      
 tile.bop.redBricksStairs.name=Кирпичные ступеньки из красного камня
 
-tile.bop.holyGrass.holygrass.name=Очищенная трава
-tile.bop.holyGrass.smolderinggrass.name=Тлеющая трава
+tile.bop.holyGrass.holygrass.name=Блок очищенной травы
+tile.bop.holyGrass.smolderinggrass.name=Блок тлеющей травы
 
 tile.bop.holyStone.holystone.name=Небесный камень
 tile.bop.holyStone.holycobble.name=Небесный булыжник
@@ -300,8 +300,11 @@ item.bop.food.saladfruit.name=Фруктовый салат
 item.bop.food.saladveggie.name=Овощной салат
 item.bop.food.saladshroom.name=Грибной салат
 item.bop.food.persimmon.name=Хурма
-item.bop.food.filledhoneycomb.name=Заполненные соты
+item.bop.food.filledhoneycomb.name=Заполненные медовые соты
 item.bop.food.ambrosia.name=Амброзия
+item.bop.food.turnip.name=Репа
+
+item.bop.turnipseeds.name=Семена репы
 
 item.bop.dartblower.name=Духовая трубка
 item.bop.dart.dart.name=Дротик
@@ -384,7 +387,7 @@ item.bop.flippers.name=Ласты
 
 item.bop.bopBucket.amethyst_empty.name=Аметистовое ведро
 item.bop.bopBucket.amethyst_spring_water.name=Аметистовое ведро родниковой воды
-item.bop.bopBucket.liquid_poison.name=Ведро яда
+item.bop.bopBucket.liquid_poison.name=Ведро жидкого яда
 item.bop.bopBucket.honey.name=Ведро мёда
 
 tile.bop.liquidPoison.name=Жидкий яд
