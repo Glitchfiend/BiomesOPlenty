@@ -181,7 +181,6 @@ public class TreeCapitatorIntegration
         treeList.appendTag(tree);
         
         tpModCfg.setTag("trees", treeList);
-        tpModCfg.setString("axeIDList", String.format("%d", Items.axeAmethyst.get().itemID));
         
         FMLInterModComms.sendMessage("TreeCapitator", "ThirdPartyModConfig", tpModCfg);
     }
