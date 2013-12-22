@@ -34,7 +34,7 @@ public class WorldGenNetherGrass extends WorldGenerator
 			int var8 = par3 + par2Random.nextInt(8) - par2Random.nextInt(8);
 			int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 			int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
-			int var99 = par2Random.nextInt(6);
+			int var99 = par2Random.nextInt(9);
 
 			if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == Block.netherrack.blockID)
 			{
@@ -52,7 +52,27 @@ public class WorldGenNetherGrass extends WorldGenerator
 
 				if (var99 == 2)
 				{
-					par1World.setBlock(var8, var9, var10, Block.tallGrass.blockID, 0, 2);
+					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 1, 2);
+				}
+				
+				if (var99 == 5)
+				{
+					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 2, 2);
+				}
+				
+				if (var99 == 6)
+				{
+					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 10, 2);
+				}
+				
+				if (var99 == 7)
+				{
+					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 11, 2);
+				}
+				
+				if (var99 == 8)
+				{
+					par1World.setBlock(var8, var9, var10, Block.tallGrass.blockID, 1, 2);
 				}
 
 				if (var99 == 3)
