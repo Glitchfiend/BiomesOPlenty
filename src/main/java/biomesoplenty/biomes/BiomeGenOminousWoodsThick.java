@@ -104,7 +104,7 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IWCFog
 	public int getSkyColorByTemp(float par1)
 	{
 		if (BOPConfigurationMisc.skyColors)
-			return 5069168;
+			return 5522002;
 		else
 		{
 			par1 /= 3.0F;
