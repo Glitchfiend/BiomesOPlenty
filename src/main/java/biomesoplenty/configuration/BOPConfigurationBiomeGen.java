@@ -145,7 +145,7 @@ public class BOPConfigurationBiomeGen
 			deadForestGen = config.get("Biomes To Generate", "DeadForest", true).getBoolean(false);
 			deadForestSnowGen = config.get("Biomes To Generate", "DeadForestSnow", true).getBoolean(false);
 			deadSwampGen = config.get("Biomes To Generate", "DeadSwamp", true).getBoolean(false);
-			deadlandsGen = config.get("Biomes To Generate", "Deadlands", true).getBoolean(false);
+			deadlandsGen = config.get("Biomes To Generate", "Deadlands", false).getBoolean(false);
 			deciduousForestGen = config.get("Biomes To Generate", "DeciduousForest", true).getBoolean(false);
 			dunesGen = config.get("Biomes To Generate", "Dunes", true).getBoolean(false);
 			fenGen = config.get("Biomes To Generate", "Fen", true).getBoolean(false);
