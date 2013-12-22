@@ -683,8 +683,7 @@ public class ChunkProviderBOPNaturaHell implements IChunkProvider
 		 return 0;
 	 }
 
-    @Override
-    public int getRespawnDimension (EntityPlayerMP player)
+    public int getRespawnDimension(EntityPlayerMP player)
     {
         try
         {
