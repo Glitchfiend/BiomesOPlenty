@@ -270,6 +270,7 @@ public class ForestryIntegration
 		addFermenterRecipeSapling(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 
 		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.food.get(), 0)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
+		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.food.get(), 8)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
 	}
 
 	private static void addFermenterRecipeSapling(ItemStack resource) 
@@ -311,6 +312,7 @@ public class ForestryIntegration
 		GlobalManager.dirtBlockIds.add(Blocks.ash.get().blockID);
 		GlobalManager.dirtBlockIds.add(Blocks.hardDirt.get().blockID);
 		GlobalManager.dirtBlockIds.add(Blocks.holyGrass.get().blockID);
+		GlobalManager.dirtBlockIds.add(Blocks.longGrass.get().blockID);
 		GlobalManager.dirtBlockIds.add(Blocks.mud.get().blockID);
 		GlobalManager.dirtBlockIds.add(Blocks.originGrass.get().blockID);
 		GlobalManager.dirtBlockIds.add(Blocks.redRock.get().blockID);
@@ -324,17 +326,24 @@ public class ForestryIntegration
 	{
 		// Miner's Backpack
 		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.holyDirt.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 2));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 4));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 6));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 8));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 10));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 12));
 		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.holyStone.get(), 1, 0));
 		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.redRock.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.driedDirt.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.holyGrass.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.overgrownNetherrack.get(), 1, 0));
 		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.cragRock.get(), 1, 0));
 		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.ashStone.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Items.miscItems.get(), 1, 2));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(Items.gems.get(), 1, OreDictionary.WILDCARD_VALUE));
 
 		// Digger's Backpack
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.holyGrass.get(), 1, 1));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.holyGrass.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.holyDirt.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.longGrass.get(), 1, 0));
 		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.mud.get(), 1, OreDictionary.WILDCARD_VALUE));
 		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.hardDirt.get(), 1, 0));
 		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.hardSand.get(), 1, 0));

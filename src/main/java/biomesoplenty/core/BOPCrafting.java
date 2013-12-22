@@ -162,6 +162,7 @@ public class BOPCrafting
 		addRecipeToFront(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
 		addRecipeToFront(new ItemStack(Blocks.jacarandaStairs.get(), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(Blocks.planks.get(), 1, 13)});
 
+		GameRegistry.addRecipe(new ItemStack(Blocks.overgrownNetherrack.get(), 1, 0), new Object[] {"SSS", "SNS", "SSS", 'S', Item.seeds, 'N', Block.netherrack});
 		GameRegistry.addRecipe(new ItemStack(Block.cloth, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(Blocks.plants.get(), 1, 7)});
 		GameRegistry.addRecipe(new ItemStack(Item.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(Items.miscItems.get(), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(Blocks.mud.get(), 1), new Object[] {"MM", "MM", 'M', Items.mudball.get()});
