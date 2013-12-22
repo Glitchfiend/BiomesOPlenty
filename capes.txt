@@ -2,3 +2,7 @@ Adubbz:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.pn
 futureamnet:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
 TDWP_FTW:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
 ted80:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
+
+eanataw:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
+
+Vexatos:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
