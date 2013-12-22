@@ -3,6 +3,7 @@ package biomesoplenty.biomes;
 import java.awt.Color;
 import java.util.Random;
 
+import worldcore.interfaces.IWCFog;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.world.World;
@@ -17,7 +18,7 @@ import biomesoplenty.worldgen.tree.WorldGenBirchWillow;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree;
 import biomesoplenty.worldgen.tree.WorldGenWillow;
 
-public class BiomeGenSilkglades extends BiomeGenBase
+public class BiomeGenSilkglades extends BiomeGenBase implements IWCFog
 {
 	private BiomeDecoratorBOP customBiomeDecorator;
 
@@ -104,6 +105,22 @@ public class BiomeGenSilkglades extends BiomeGenBase
 	 {
 		 return 14146486;
 	 }
+	 
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour()
+	{
+		return 10062450;
+	}
+	
+    @Override
+    public float getFogCloseness()
+    {
+        // TODO Auto-generated method stub
+        return 0.8F;
+    }
 
 	 /**
 	  * takes temperature, returns color
