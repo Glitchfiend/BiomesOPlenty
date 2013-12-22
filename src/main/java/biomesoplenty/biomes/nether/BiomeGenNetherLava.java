@@ -11,6 +11,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenFire;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.Blocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
 import biomesoplenty.worldgen.WorldGenLavaSpring;
 
@@ -24,11 +25,11 @@ public class BiomeGenNetherLava extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		topBlock = (byte)Block.netherrack.blockID;
-		fillerBlock = (byte)Block.netherrack.blockID;
+		topBlock = (byte)Blocks.ash.get().blockID;
+		fillerBlock = (byte)Blocks.ash.get().blockID;
 		customBiomeDecorator.grassPerChunk = 8;
 		customBiomeDecorator.netherLavaPerChunk = 20;
-		customBiomeDecorator.smolderingGrassPerChunk = 2;
+		customBiomeDecorator.smolderingGrassPerChunk = 5;
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.burningBlossomsPerChunk = 4;
 		customBiomeDecorator.waspHivesPerChunk = 1;
