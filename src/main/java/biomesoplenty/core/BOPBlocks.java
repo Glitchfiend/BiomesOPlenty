@@ -47,6 +47,7 @@ import biomesoplenty.blocks.BlockLongGrass;
 import biomesoplenty.blocks.BlockMoss;
 import biomesoplenty.blocks.BlockMud;
 import biomesoplenty.blocks.BlockOriginGrass;
+import biomesoplenty.blocks.BlockOvergrownNetherrack;
 import biomesoplenty.blocks.BlockPromisedPortal;
 import biomesoplenty.blocks.BlockPuddle;
 import biomesoplenty.blocks.BlockStoneFormations;
@@ -158,6 +159,7 @@ public class BOPBlocks
 		Blocks.stoneSingleSlab = Optional.of((BlockHalfSlab)(new BlockBOPSlab(BOPConfigurationIDs.stoneSingleSlabID, false, Material.rock, SlabCategory.STONE)).setUnlocalizedName("bop.stoneSingleSlab"));
 		Blocks.originGrass = Optional.of((new BlockOriginGrass(BOPConfigurationIDs.originGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.originGrass"));
 		Blocks.longGrass = Optional.of((new BlockLongGrass(BOPConfigurationIDs.longGrassID)).setHardness(0.6F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.longGrass"));
+		Blocks.overgrownNetherrack = Optional.of((new BlockOvergrownNetherrack(BOPConfigurationIDs.overgrownNetherrackID)).setHardness(0.4F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.overgrownNetherrack"));
 		Blocks.treeMoss = Optional.of((new BlockTreeMoss(BOPConfigurationIDs.treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.treeMoss"));
 		Blocks.logs1 = Optional.of((new BlockBOPLog(BOPConfigurationIDs.logs1ID,LogCategory.CAT1)).setUnlocalizedName("bop.wood1"));
 		Blocks.logs2 = Optional.of((new BlockBOPLog(BOPConfigurationIDs.logs2ID,LogCategory.CAT2)).setUnlocalizedName("bop.wood2"));
@@ -252,6 +254,7 @@ public class BOPBlocks
 		registerBlock(Blocks.mudBricksStairs.get());
 		registerBlock(Blocks.originGrass.get());
 		registerBlock(Blocks.longGrass.get());
+		registerBlock(Blocks.overgrownNetherrack.get());
 		registerBlock(Blocks.treeMoss.get());
 		registerBlock(Blocks.logs1.get(), ItemBlockLog.class);
 		registerBlock(Blocks.logs2.get(), ItemBlockLog.class);

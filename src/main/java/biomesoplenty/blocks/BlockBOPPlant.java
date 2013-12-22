@@ -139,14 +139,14 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		else if (metadata == 15)
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
 		else
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID;
+			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
 		return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holyGrass.get().blockID
-				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyDirt.get().blockID;
+				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyDirt.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
@@ -200,7 +200,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 				return idRoot == Block.grass.blockID || idRoot == Block.dirt.blockID || idRoot == Block.tilledField.blockID || idRoot == Blocks.longGrass.get().blockID || idRoot == Blocks.holyGrass.get().blockID || idRoot == Blocks.holyDirt.get().blockID;
 				
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.overgrownNetherrack.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);

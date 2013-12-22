@@ -99,6 +99,7 @@ public class Blocks
 
 	//Nether
 	public static Optional<? extends Block> bones                       = Optional.absent();
+	public static Optional<? extends Block> overgrownNetherrack         = Optional.absent();
 
 	public static Optional<? extends Block> amethystOre                 = Optional.absent();
 

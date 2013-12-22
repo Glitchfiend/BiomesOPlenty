@@ -38,7 +38,7 @@ public class WorldGenNetherGrass extends WorldGenerator
 
 			if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == Block.netherrack.blockID)
 			{
-				par1World.setBlock(var8, var9 - 1, var10, Block.grass.blockID, 0, 2);
+				par1World.setBlock(var8, var9 - 1, var10, Blocks.overgrownNetherrack.get().blockID, 0, 2);
 
 				if (var99 == 0)
 				{

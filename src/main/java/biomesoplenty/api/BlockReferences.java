@@ -149,6 +149,8 @@ public class BlockReferences {
 		smallBoneSegment (Blocks.bones, 0),
 		mediumBoneSegment (Blocks.bones, 1),
 		largeBoneSegment (Blocks.bones, 2),
+		
+		overgrownNetherrack (Blocks.overgrownNetherrack, 0),
 
 		kelp (Blocks.coral, 0),
 		

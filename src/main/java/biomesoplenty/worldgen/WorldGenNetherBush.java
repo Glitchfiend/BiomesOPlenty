@@ -20,7 +20,7 @@ public class WorldGenNetherBush extends WorldGenerator
 		int var6 = var1.getBlockId(var3, var4, var5);
 		int var99 = var1.getBlockId(var3, var4 + 1, var5);
 
-		if (var6 != Block.netherrack.blockID && var6 != Block.grass.blockID && var99 != 0)
+		if (var6 != Block.netherrack.blockID && var6 != Blocks.overgrownNetherrack.get().blockID && var99 != 0)
 			return false;
 		else
 		{

@@ -73,6 +73,7 @@ public class BOPConfigurationIDs
 	public static int mossID;
 
 	public static int puddleID;
+	public static int overgrownNetherrackID;
 
 	public static int planksID;
 
@@ -345,6 +346,7 @@ public class BOPConfigurationIDs
 			honeyBlockID = config.getBlock("Honey Block ID", 1925, null).getInt();
 			bonesID = config.getBlock("Bones ID", 1926, null).getInt();
 			puddleID = config.getBlock("Puddle ID", 1927, null).getInt();
+			overgrownNetherrackID = config.getBlock("Overgrown Netherrack ID", 1928, null).getInt();
 			
 			//Logs
 			logs1ID = config.getBlock("Log Block ID 1", 1940, null).getInt();
