@@ -38,8 +38,8 @@ public class WorldGenPineTree extends WorldGenerator
 			}
 			
 			//settings========
-			int baselength = 4 + var2.nextInt(4);
-			int branches = 1 + var2.nextInt(3);
+			int baselength = 4 + var2.nextInt(6);
+			int branches = 2 + var2.nextInt(4);
 			//================
 			
 			int h = 1;
@@ -90,25 +90,112 @@ public class WorldGenPineTree extends WorldGenerator
 			}
 		}
 		
+		int var99999 = rand.nextInt(2);
+		int var99998 = rand.nextInt(2);
+		int var99997 = rand.nextInt(2);
+		int var99996 = rand.nextInt(2);
+		
 		if(n % 2 == 0)
 		{
-			buildBlock(world, x + 1, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x + 2, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x + 2, y, z - 1, Blocks.leavesColorized2.get().blockID, 1);
+			//1
+			if (var99998 == 0)
+			{
+				buildBlock(world, x + 1, y - 1, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x + 2, y - 1, z - 1, Blocks.leavesColorized2.get().blockID, 1);
+				if (var99999 == 0)
+				{
+					buildBlock(world, x + 2, y - 2, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+				else
+				{
+					buildBlock(world, x + 2, y - 1, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+			}
+			else
+			{
+				buildBlock(world, x + 1, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x + 2, y, z - 1, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x + 2, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+			}
 			
-			buildBlock(world, x - 2, y, z + 1, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x - 2, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x - 1, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+			//2
+			if (var99997 == 0)
+			{
+				buildBlock(world, x - 2, y - 1, z + 1, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x - 1, y - 1, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				if (var99996 == 0)
+				{
+					buildBlock(world, x - 2, y - 2, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+				else
+				{
+					buildBlock(world, x - 2, y - 1, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+			}
+			else
+			{
+				buildBlock(world, x - 2, y, z + 1, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x - 1, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x - 2, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+			}
 		}
 		else
 		{
-			buildBlock(world, x + 2, y, z + 1, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x + 2, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x + 1, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+			//1
+			if (var99998 == 0)
+			{
+				buildBlock(world, x + 2, y - 1, z + 1, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x + 1, y - 1, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				if (var99999 == 0)
+				{
+					buildBlock(world, x + 2, y - 2, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+				else
+				{
+					buildBlock(world, x + 2, y - 1, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+			}
+			else
+			{
+				buildBlock(world, x + 2, y, z + 1, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x + 1, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				if (var99999 == 0)
+				{
+					buildBlock(world, x + 2, y - 1, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+				else
+				{
+					buildBlock(world, x + 2, y, z + 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+			}
 			
-			buildBlock(world, x - 1, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x - 2, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
-			buildBlock(world, x - 2, y, z - 1, Blocks.leavesColorized2.get().blockID, 1);
+			//2
+			if (var99997 == 0)
+			{
+				buildBlock(world, x - 1, y - 1, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x - 2, y - 1, z - 1, Blocks.leavesColorized2.get().blockID, 1);
+				if (var99996 == 0)
+				{
+					buildBlock(world, x - 2, y - 2, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+				else
+				{
+					buildBlock(world, x - 2, y - 1, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+			}
+			else
+			{
+				buildBlock(world, x - 1, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				buildBlock(world, x - 2, y, z - 1, Blocks.leavesColorized2.get().blockID, 1);
+				if (var99996 == 0)
+				{
+					buildBlock(world, x - 2, y - 1, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+				else
+				{
+					buildBlock(world, x - 2, y, z - 2, Blocks.leavesColorized2.get().blockID, 1);
+				}
+			}
 		}
 		
 		buildBlock(world, x, y, z, Blocks.logs4.get().blockID, 0);
