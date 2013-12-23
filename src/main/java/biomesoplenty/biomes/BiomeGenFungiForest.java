@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenSequoia;
@@ -83,7 +83,7 @@ public class BiomeGenFungiForest extends BiomeGenBase implements IWCFog
 	 @Override
 	 public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	 {
-		 return (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1))));
+		 return (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 2) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 1))));
 	 }
 
 	 /**

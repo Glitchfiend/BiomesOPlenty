@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCoral extends WorldGenerator
 {
@@ -32,7 +32,7 @@ public class WorldGenCoral extends WorldGenerator
 
 			if ((par1World.getBlockId(i1, j1, k1) == Block.waterStill.blockID || par1World.getBlockId(i1, j1, k1) == Block.waterMoving.blockID) && (par1World.getBlockId(i1, j1 + 1, k1) == Block.waterStill.blockID || par1World.getBlockId(i1, j1 + 1, k1) == Block.waterMoving.blockID) && Block.blocksList[plantBlockId].canPlaceBlockOnSide(par1World, i1, j1, k1, 1, new ItemStack(plantBlockId, 1, plantBlockMeta)))
 			{
-				par1World.setBlock(i1, j1, k1, Blocks.coral.get().blockID, 4 + var999, 2);
+				par1World.setBlock(i1, j1, k1, BOPBlocks.coral.get().blockID, 4 + var999, 2);
 			}
 		}
 

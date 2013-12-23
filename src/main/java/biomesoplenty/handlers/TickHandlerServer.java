@@ -11,7 +11,7 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.ForgeDirection;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
@@ -48,7 +48,7 @@ public class TickHandlerServer implements ITickHandler
 
 					if (worldserver.isRaining() && canCreatePuddle(worldserver, j1 + k, l1, k1 + l))
 					{
-						worldserver.setBlock(j1 + k, l1 - 1, k1 + l, Blocks.puddle.get().blockID);
+						worldserver.setBlock(j1 + k, l1 - 1, k1 + l, BOPBlocks.puddle.get().blockID);
 					}
 				}
 			}

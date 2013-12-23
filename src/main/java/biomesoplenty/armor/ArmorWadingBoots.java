@@ -6,7 +6,7 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 
 public class ArmorWadingBoots extends ItemArmor
 {
@@ -23,7 +23,7 @@ public class ArmorWadingBoots extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.itemID == Items.wadingBoots.get().itemID)
+		if (stack.itemID == BOPItems.wadingBoots.get().itemID)
 			return "biomesoplenty:textures/armor/wadingboots.png";
 		
 		return null;

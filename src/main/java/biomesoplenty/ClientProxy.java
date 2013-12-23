@@ -9,7 +9,7 @@ import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.util.MathHelper;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.blocks.renderers.BambooRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.GraveRenderer;
@@ -43,7 +43,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 
-	public static Minecraft mc = Minecraft.getMinecraft();
+	/*public static Minecraft mc = Minecraft.getMinecraft();
 	public static int puddleRenderPass;
 
 	@Override
@@ -152,5 +152,5 @@ public class ClientProxy extends CommonProxy {
 	public int addArmor(String armor)
 	{
 		return RenderingRegistry.addNewArmourRendererPrefix(armor);
-	}
+	}*/
 }

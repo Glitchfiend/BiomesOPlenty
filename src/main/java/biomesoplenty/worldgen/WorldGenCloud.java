@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCloud extends WorldGenerator
 {
@@ -31,20 +31,20 @@ public class WorldGenCloud extends WorldGenerator
 			{
 				if (par1World.isAirBlock(var7, var8, var9) && par1World.isAirBlock(var7 - 1, var8, var9) && par1World.isAirBlock(var7 + 1, var8, var9) && par1World.isAirBlock(var7, var8, var9 - 1) && par1World.isAirBlock(var7, var8, var9 + 1) && par1World.isAirBlock(var7, var8 - 1, var9) && par1World.isAirBlock(var7, var8 + 1, var9))
 				{
-					par1World.setBlock(var7, var8, var9, Blocks.cloud.get().blockID, 0, 2);
-					par1World.setBlock(var7 - 1, var8, var9, Blocks.cloud.get().blockID, 0, 2);
-					par1World.setBlock(var7 + 1, var8, var9, Blocks.cloud.get().blockID, 0, 2);
-					par1World.setBlock(var7, var8, var9 - 1, Blocks.cloud.get().blockID, 0, 2);
-					par1World.setBlock(var7, var8, var9 + 1, Blocks.cloud.get().blockID, 0, 2);
-					par1World.setBlock(var7, var8 - 1, var9, Blocks.cloud.get().blockID, 0, 2);
-					par1World.setBlock(var7, var8 + 1, var9, Blocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7, var8, var9, BOPBlocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7 - 1, var8, var9, BOPBlocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7 + 1, var8, var9, BOPBlocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7, var8, var9 - 1, BOPBlocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7, var8, var9 + 1, BOPBlocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7, var8 - 1, var9, BOPBlocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7, var8 + 1, var9, BOPBlocks.cloud.get().blockID, 0, 2);
 				}
 			}
 			else
 			{
 				if (par1World.isAirBlock(var7, var8, var9))
 				{
-					par1World.setBlock(var7, var8, var9, Blocks.cloud.get().blockID, 0, 2);
+					par1World.setBlock(var7, var8, var9, BOPBlocks.cloud.get().blockID, 0, 2);
 				}
 			}
 		}

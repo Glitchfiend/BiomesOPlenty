@@ -2,29 +2,32 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import javax.swing.Icon;
+
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPFood extends ItemFood
 {
 	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip"};
-	private Icon[] textures;
+	private IIcon[] textures;
 	
-	public ItemBOPFood(int par1)
+	public ItemBOPFood(int id)
 	{
-		super(par1, 0, 0.0F, false);
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-		setHasSubtypes(true);
+		super(id, 0, false);
+		this.setHasSubtypes(true);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
 	@Override
@@ -116,18 +119,19 @@ public class ItemBOPFood extends ItemFood
         switch (itemstack.getItemDamage())
         {
         	case 4:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
+        			//TODO: player.dropPlayerItem(ItemStack itemStack)?
+                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
         	case 5:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
+                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
         	case 6:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
+                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
         		
         	case 10:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle)))
-                    player.dropPlayerItem(new ItemStack(Item.glassBottle.itemID, 1, 0));
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle)))
+                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.glass_bottle, 1, 0), false);
         		break;
         }
         
@@ -135,9 +139,9 @@ public class ItemBOPFood extends ItemFood
     }
 	
     @Override
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
+    public EnumAction getItemUseAction(ItemStack itemStack)
     {
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 10)
     	{
     		return EnumAction.drink;
     	}
@@ -146,21 +150,21 @@ public class ItemBOPFood extends ItemFood
     }
     
 	@Override
-    public int getItemStackLimit(ItemStack par1ItemStack)
+    public int getItemStackLimit(ItemStack itemStack)
     {
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 4)
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 4)
     	{
     		return 1;
     	}
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 5)
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 5)
     	{
     		return 1;
     	}
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 6)
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 6)
     	{
     		return 1;
     	}
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 10)
     	{
     		return 1;
     	}
@@ -168,28 +172,25 @@ public class ItemBOPFood extends ItemFood
         return 64;
     }
     
-    /**
-     * How long it takes to use or consume an item
-     */
     @Override
-    public int getMaxItemUseDuration(ItemStack par1ItemStack)
+    public int getMaxItemUseDuration(ItemStack itemStack)
     {
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 0)
-    	{
-    		return 8;
-    	}
-    	
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 3)
-    	{
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 0)
+    	{             
+    		return 8; 
+    	}             
+    	              
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 3)
+    	{             
     		return 12;
-    	}
-    	
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 9)
-    	{
+    	}             
+    	              
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 9)
+    	{             
     		return 16;
-    	}
-    	
-    	if (par1ItemStack.itemID == this.itemID && par1ItemStack.getItemDamage() == 10)
+    	}             
+    	              
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 10)
     	{
     		return 64;
     	}
@@ -240,32 +241,35 @@ public class ItemBOPFood extends ItemFood
         }
     }
 	
-	@Override
-    public void getSubItems(int itemID, CreativeTabs par2CreativeTabs, List list)
+	//@Override
+    //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
+    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
     {
 		for (int i = 0; i < foodTypes.length; ++i) 
 		{
 			if (i != 7)
 			{
-				list.add(new ItemStack(itemID, 1, i));
+				list.add(new ItemStack(item, 1, i));
 			}
 		}
     }
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[foodTypes.length];
+		textures = new IIcon[foodTypes.length];
 
-		for (int i = 0; i < foodTypes.length; ++i) {
+		for (int i = 0; i < foodTypes.length; ++i) 
+		{
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+ foodTypes[i]);
 		}
 	}
 
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
-		if (meta < 0 || meta >= textures.length) {
+		if (meta < 0 || meta >= textures.length) 
+		{
 			meta = 0;
 		}
 
@@ -276,7 +280,8 @@ public class ItemBOPFood extends ItemFood
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		int meta = itemStack.getItemDamage();
-		if (meta < 0 || meta >= foodTypes.length) {
+		if (meta < 0 || meta >= foodTypes.length) 
+		{
 			meta = 0;
 		}
 

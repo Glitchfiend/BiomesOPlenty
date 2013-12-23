@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BiomeGenPolar extends BiomeGenBase
 {
@@ -41,7 +41,7 @@ public class BiomeGenPolar extends BiomeGenBase
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 8, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 8, 2);
 			}
 		}
 	}

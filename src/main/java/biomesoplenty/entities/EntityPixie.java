@@ -1,7 +1,7 @@
 package biomesoplenty.entities;
 
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -87,7 +87,7 @@ public class EntityPixie extends EntityFlyingCreature
 
 		for (int var4 = 0; var4 < var3; ++var4)
 		{
-			this.entityDropItem(new ItemStack(Items.miscItems.get(), 1, 11), 0.0F);
+			this.entityDropItem(new ItemStack(BOPItems.miscItems.get(), 1, 11), 0.0F);
 		}
 	}
 	

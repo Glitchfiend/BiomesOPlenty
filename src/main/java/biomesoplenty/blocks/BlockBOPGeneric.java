@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 
 public class BlockBOPGeneric extends Block
 {
@@ -126,7 +126,7 @@ public class BlockBOPGeneric extends Block
 		switch (type)
 		{
 		case CRYSTAL:
-			return Items.miscItems.get().itemID;
+			return BOPItems.miscItems.get().itemID;
 
 		default:
 			return blockID;

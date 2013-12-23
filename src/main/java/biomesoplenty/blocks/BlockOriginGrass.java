@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BlockOriginGrass extends Block
 {
@@ -121,7 +121,7 @@ public class BlockOriginGrass extends Block
 
 					if (par1World.getBlockId(var7, var8, var9) == Block.dirt.blockID && par1World.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
 					{
-						par1World.setBlock(var7, var8, var9, Blocks.originGrass.get().blockID);
+						par1World.setBlock(var7, var8, var9, BOPBlocks.originGrass.get().blockID);
 					}
 				}
 			}

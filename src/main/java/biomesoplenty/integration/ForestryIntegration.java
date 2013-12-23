@@ -4,8 +4,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.configuration.BOPConfigurationIDs;
 import forestry.api.apiculture.FlowerManager;
 import forestry.api.core.EnumHumidity;
@@ -266,11 +266,11 @@ public class ForestryIntegration
 
 	private static void addFermenterRecipes()
 	{
-		addFermenterRecipeSapling(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
-		addFermenterRecipeSapling(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+		addFermenterRecipeSapling(new ItemStack(BOPBlocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+		addFermenterRecipeSapling(new ItemStack(BOPBlocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
 
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.food.get(), 0)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
-		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(Items.food.get(), 8)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
+		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(BOPItems.food.get(), 0)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
+		RecipeManagers.squeezerManager.addRecipe(10, new ItemStack[] {new ItemStack(BOPItems.food.get(), 8)}, new FluidStack(FluidRegistry.getFluid("juice"), 50), ItemInterface.getItem("mulch"), 5);
 	}
 
 	private static void addFermenterRecipeSapling(ItemStack resource) 
@@ -294,78 +294,78 @@ public class ForestryIntegration
 		for (int i = 0; i < 10; ++i) 
 		{
 			if (i != 2)
-				FlowerManager.plainFlowers.add(new ItemStack(Blocks.flowers.get(), 1, i));
+				FlowerManager.plainFlowers.add(new ItemStack(BOPBlocks.flowers.get(), 1, i));
 		}
 	}
 
 	private static void addBlocksToManager()
 	{
-		GlobalManager.leafBlockIds.add(Blocks.leaves1.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leaves2.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leaves3.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leaves4.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leavesColorized1.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leavesColorized2.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leavesFruit.get().blockID);
-		GlobalManager.leafBlockIds.add(Blocks.leavesFruit2.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leaves1.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leaves2.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leaves3.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leaves4.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leavesColorized1.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leavesColorized2.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leavesFruit.get().blockID);
+		GlobalManager.leafBlockIds.add(BOPBlocks.leavesFruit2.get().blockID);
 
-		GlobalManager.dirtBlockIds.add(Blocks.ash.get().blockID);
-		GlobalManager.dirtBlockIds.add(Blocks.hardDirt.get().blockID);
-		GlobalManager.dirtBlockIds.add(Blocks.holyGrass.get().blockID);
-		GlobalManager.dirtBlockIds.add(Blocks.longGrass.get().blockID);
-		GlobalManager.dirtBlockIds.add(Blocks.mud.get().blockID);
-		GlobalManager.dirtBlockIds.add(Blocks.originGrass.get().blockID);
-		GlobalManager.dirtBlockIds.add(Blocks.redRock.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.ash.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.hardDirt.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.holyGrass.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.longGrass.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.mud.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.originGrass.get().blockID);
+		GlobalManager.dirtBlockIds.add(BOPBlocks.redRock.get().blockID);
 
-		GlobalManager.sandBlockIds.add(Blocks.hardSand.get().blockID);
+		GlobalManager.sandBlockIds.add(BOPBlocks.hardSand.get().blockID);
 
-		GlobalManager.snowBlockIds.add(Blocks.hardIce.get().blockID);
+		GlobalManager.snowBlockIds.add(BOPBlocks.hardIce.get().blockID);
 	}
 
 	private static void addBlocksToBackpacks()
 	{
 		// Miner's Backpack
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 2));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 4));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 6));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 8));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 10));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.amethystOre.get(), 1, 12));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.holyStone.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.redRock.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.driedDirt.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.overgrownNetherrack.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.cragRock.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Blocks.ashStone.get(), 1, 0));
-		BackpackManager.backpackItems[MINER].add(new ItemStack(Items.gems.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 2));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 4));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 6));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 8));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 10));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.amethystOre.get(), 1, 12));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.holyStone.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.redRock.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.driedDirt.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.overgrownNetherrack.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.cragRock.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPBlocks.ashStone.get(), 1, 0));
+		BackpackManager.backpackItems[MINER].add(new ItemStack(BOPItems.gems.get(), 1, OreDictionary.WILDCARD_VALUE));
 
 		// Digger's Backpack
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.holyGrass.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.holyDirt.get(), 1, 0));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.longGrass.get(), 1, 0));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.mud.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.hardDirt.get(), 1, 0));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.hardSand.get(), 1, 0));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.originGrass.get(), 1, 0));
-		BackpackManager.backpackItems[DIGGER].add(new ItemStack(Blocks.ash.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.holyGrass.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.holyDirt.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.longGrass.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.mud.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.hardDirt.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.hardSand.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.originGrass.get(), 1, 0));
+		BackpackManager.backpackItems[DIGGER].add(new ItemStack(BOPBlocks.ash.get(), 1, 0));
 
 		// Forester's Backpack
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs1.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs2.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs3.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.logs4.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves2.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves3.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leaves4.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesColorized1.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesColorized2.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesFruit.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.leavesFruit2.get(), 1, OreDictionary.WILDCARD_VALUE));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.bamboo.get(), 1, 0));
-		BackpackManager.backpackItems[FORESTER].add(new ItemStack(Blocks.petals.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.logs1.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.logs2.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.logs3.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.logs4.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.colorizedSaplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.saplings.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leaves1.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leaves2.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leaves3.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leaves4.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leavesColorized1.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leavesColorized2.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leavesFruit.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.leavesFruit2.get(), 1, OreDictionary.WILDCARD_VALUE));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.bamboo.get(), 1, 0));
+		BackpackManager.backpackItems[FORESTER].add(new ItemStack(BOPBlocks.petals.get(), 1, OreDictionary.WILDCARD_VALUE));
 	}
 }

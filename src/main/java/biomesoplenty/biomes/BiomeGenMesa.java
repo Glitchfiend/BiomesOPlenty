@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 
 public class BiomeGenMesa extends BiomeGenBase implements IWCFog
@@ -21,8 +21,8 @@ public class BiomeGenMesa extends BiomeGenBase implements IWCFog
 	{
 		super(par1);
 		spawnableCreatureList.clear();
-		topBlock = (byte)Blocks.redRock.get().blockID;
-		fillerBlock = (byte)Blocks.redRock.get().blockID;
+		topBlock = (byte)BOPBlocks.redRock.get().blockID;
+		fillerBlock = (byte)BOPBlocks.redRock.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
@@ -49,7 +49,7 @@ public class BiomeGenMesa extends BiomeGenBase implements IWCFog
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 2, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 2, 2);
 			}
 		}
 	}

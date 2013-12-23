@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.blocks.BlockBOPFoliage;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
@@ -27,7 +27,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 
 		if (modelId == RenderUtils.foliageModel)
 		{
-			if (block == Blocks.foliage.get())
+			if (block == BOPBlocks.foliage.get())
 			{
 				if (meta == 0)
 					return renderBlockAlgae(renderer, block, x, y, z);
@@ -183,7 +183,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			f3 = f6;
 		}
 
-		if ((renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 8 || renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9) && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID)
+		if ((renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 8 || renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9) && renderer.blockAccess.getBlockId(par2, par3, par4) == BOPBlocks.foliage.get().blockID)
 		{
 			tessellator.setColorOpaque_F(f, f, f);
 		}
@@ -196,7 +196,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		double d1 = par3;
 		double d2 = par4;
 
-		if (par1Block == Blocks.foliage.get())
+		if (par1Block == BOPBlocks.foliage.get())
 		{
 			long i1;
 			if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == GRASSTOP) {
@@ -211,15 +211,15 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
 		}
 
-		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.flowers.get().blockID) 
+		if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 10 && renderer.blockAccess.getBlockId(par2, par3, par4) == BOPBlocks.flowers.get().blockID) 
 		{
 			renderer.drawCrossedSquares(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
 		} 
-		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 8 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
+		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 8 && renderer.blockAccess.getBlockId(par2, par3, par4) == BOPBlocks.foliage.get().blockID) 
 		{
 			renderBerryBush(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
-		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9 && renderer.blockAccess.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
+		else if (renderer.blockAccess.getBlockMetadata(par2, par3, par4) == 9 && renderer.blockAccess.getBlockId(par2, par3, par4) == BOPBlocks.foliage.get().blockID) 
 		{
 			renderShrub(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
@@ -233,8 +233,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	private static void renderBerryBush(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
         Tessellator tessellator = Tessellator.instance;
-        Icon berryBush = renderer.getBlockIconFromSideAndMetadata(Blocks.foliage.get(), 0, 8);
-        Icon berryBushBerry = ((BlockBOPFoliage)Blocks.foliage.get()).berryBushBerry;
+        Icon berryBush = renderer.getBlockIconFromSideAndMetadata(BOPBlocks.foliage.get(), 0, 8);
+        Icon berryBushBerry = ((BlockBOPFoliage)BOPBlocks.foliage.get()).berryBushBerry;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
         RenderUtils.renderCrossedSquaresFromIcon(berryBush, par1, par2, par3, par4, renderer);
@@ -245,8 +245,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	private static void renderShrub(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
         Tessellator tessellator = Tessellator.instance;
-        Icon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(Blocks.foliage.get(), 0, 9);
-        Icon shrubBranch = ((BlockBOPFoliage)Blocks.foliage.get()).shrubBranch;
+        Icon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(BOPBlocks.foliage.get(), 0, 9);
+        Icon shrubBranch = ((BlockBOPFoliage)BOPBlocks.foliage.get()).shrubBranch;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
         RenderUtils.renderCrossedSquaresFromIcon(shrubLeaf, par1, par2, par3, par4, renderer);

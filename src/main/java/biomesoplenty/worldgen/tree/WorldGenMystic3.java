@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenMystic3 extends WorldGenerator
 {
@@ -162,7 +162,7 @@ public class WorldGenMystic3 extends WorldGenerator
 	 */
 	 private void generateVines(World par1World, int par2, int par3, int par4, int par5)
 	{
-		this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.ivy.get().blockID, par5);
+		this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.ivy.get().blockID, par5);
 		int var6 = 8;
 
 		while (true)
@@ -172,7 +172,7 @@ public class WorldGenMystic3 extends WorldGenerator
 			if (par1World.getBlockId(par2, par3, par4) != 0 || var6 <= 0)
 				return;
 
-			this.setBlockAndMetadata(par1World, par2, par3, par4, Blocks.ivy.get().blockID, par5);
+			this.setBlockAndMetadata(par1World, par2, par3, par4, BOPBlocks.ivy.get().blockID, par5);
 			--var6;
 		}
 	}

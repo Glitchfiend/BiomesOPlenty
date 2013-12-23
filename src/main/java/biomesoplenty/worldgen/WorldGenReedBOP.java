@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenReedBOP extends WorldGenerator
 {
@@ -21,11 +21,11 @@ public class WorldGenReedBOP extends WorldGenerator
 			{
 				int l1 = 1 + par2Random.nextInt(par2Random.nextInt(3) + 1);
 
-				if (Blocks.plants.get().canBlockStay(par1World, i1, j1, k1))
+				if (BOPBlocks.plants.get().canBlockStay(par1World, i1, j1, k1))
 				{
 					for (int i2 = 0; i2 < l1; ++i2)
 					{
-						par1World.setBlock(i1, j1 + i2, k1, Blocks.plants.get().blockID, 8, 2);
+						par1World.setBlock(i1, j1 + i2, k1, BOPBlocks.plants.get().blockID, 8, 2);
 					}
 				}
 			}

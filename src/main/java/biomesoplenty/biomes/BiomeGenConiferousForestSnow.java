@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.tree.WorldGenTaiga3;
 import biomesoplenty.worldgen.tree.WorldGenTaiga4;
 import biomesoplenty.worldgen.tree.WorldGenTaiga9;
@@ -50,7 +50,7 @@ public class BiomeGenConiferousForestSnow extends BiomeGenBase
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 8, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 8, 2);
 			}
 		}
 	}
@@ -70,6 +70,6 @@ public class BiomeGenConiferousForestSnow extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
+		return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 2) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 1);
 	}
 }

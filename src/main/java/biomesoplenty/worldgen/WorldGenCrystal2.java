@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCrystal2 extends WorldGenerator
 {
@@ -13,11 +13,11 @@ public class WorldGenCrystal2 extends WorldGenerator
 	{
 		if (!par1World.isAirBlock(par3, par4, par5))
 			return false;
-		else if (par1World.getBlockId(par3, par4 + 1, par5) != Blocks.holyStone.get().blockID)
+		else if (par1World.getBlockId(par3, par4 + 1, par5) != BOPBlocks.holyStone.get().blockID)
 			return false;
 		else
 		{
-			par1World.setBlock(par3, par4, par5, Blocks.crystal.get().blockID, 0, 2);
+			par1World.setBlock(par3, par4, par5, BOPBlocks.crystal.get().blockID, 0, 2);
 
 			for (int l = 0; l < 1500; ++l)
 			{
@@ -63,7 +63,7 @@ public class WorldGenCrystal2 extends WorldGenerator
 							j2 = par1World.getBlockId(i1, j1, k1 + 1);
 						}
 
-						if (j2 == Blocks.crystal.get().blockID)
+						if (j2 == BOPBlocks.crystal.get().blockID)
 						{
 							++l1;
 						}
@@ -71,7 +71,7 @@ public class WorldGenCrystal2 extends WorldGenerator
 
 					if (l1 == 1)
 					{
-						par1World.setBlock(i1, j1, k1, Blocks.crystal.get().blockID, 0, 2);
+						par1World.setBlock(i1, j1, k1, BOPBlocks.crystal.get().blockID, 0, 2);
 					}
 				}
 			}

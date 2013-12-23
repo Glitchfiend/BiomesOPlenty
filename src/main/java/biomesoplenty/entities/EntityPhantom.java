@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.api.Potions;
 
 public class EntityPhantom extends EntityMob
@@ -93,7 +93,7 @@ public class EntityPhantom extends EntityMob
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.entityDropItem(new ItemStack(Items.miscItems.get().itemID, 1, 10), 1);
+            this.entityDropItem(new ItemStack(BOPItems.miscItems.get().itemID, 1, 10), 1);
         }
     }
 	

@@ -7,7 +7,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenIvy extends WorldGenerator
 {
@@ -24,7 +24,7 @@ public class WorldGenIvy extends WorldGenerator
                 {
                     if (Block.vine.canPlaceBlockOnSide(par1World, par3, par4, par5, j1))
                     {
-                        par1World.setBlock(par3, par4, par5, Blocks.ivy.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[j1]], 2);
+                        par1World.setBlock(par3, par4, par5, BOPBlocks.ivy.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[j1]], 2);
                         break;
                     }
                 }

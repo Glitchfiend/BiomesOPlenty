@@ -14,8 +14,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 
 public class BlockAsh extends Block
 {
@@ -59,7 +59,7 @@ public class BlockAsh extends Block
 	@Override
 	public boolean isFireSource(World world, int x, int y, int z, int metadata, ForgeDirection side)
 	{
-		if (blockID == Blocks.ash.get().blockID && side == UP)
+		if (blockID == BOPBlocks.ash.get().blockID && side == UP)
 			return true;
 		return false;
 	}
@@ -71,7 +71,7 @@ public class BlockAsh extends Block
 		{
 			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == BOPItems.wadingBoots.get().itemID)
 			{
 				return;
 			}
@@ -87,7 +87,7 @@ public class BlockAsh extends Block
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return Items.miscItems.get().itemID;
+		return BOPItems.miscItems.get().itemID;
 	}
 
 	@Override

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenWasteland extends WorldGenerator
 {
@@ -18,7 +18,7 @@ public class WorldGenWasteland extends WorldGenerator
 
 		int var6 = var1.getBlockId(var3, var4, var5);
 
-		if (var6 != Blocks.driedDirt.get().blockID)
+		if (var6 != BOPBlocks.driedDirt.get().blockID)
 			return false;
 		else
 		{
@@ -31,94 +31,94 @@ public class WorldGenWasteland extends WorldGenerator
 				}
 			}
 			
-			var1.setBlock(var3, var4, var5, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4, var5, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4, var5 + 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4, var5 - 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 2, var4, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 2, var4, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 2, var4, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 2, var4, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 2, var4, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 2, var4, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4, var5 - 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4, var5 - 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4, var5 - 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4, var5 + 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4, var5 + 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4, var5 + 2, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 2, var4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 2, var4, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 2, var4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 2, var4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 2, var4, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 2, var4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4, var5 - 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4, var5 - 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4, var5 - 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4, var5 + 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4, var5 + 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4, var5 + 2, BOPBlocks.driedDirt.get().blockID);
 
-			var1.setBlock(var3, var4 + 1, var5, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 + 1, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 1, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 1, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 1, var5 + 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 1, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 1, var5 + 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 + 1, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 1, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 1, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 1, var5 - 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 1, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 1, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 1, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 1, var5 - 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 2, var4 + 1, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 2, var4 + 1, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 2, var4 + 1, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 2, var4 + 1, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 2, var4 + 1, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 2, var4 + 1, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 1, var5 - 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 1, var5 - 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 1, var5 - 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 1, var5 + 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 1, var5 + 2, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 1, var5 + 2, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 2, var4 + 1, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 2, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 2, var4 + 1, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 2, var4 + 1, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 2, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 2, var4 + 1, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 1, var5 - 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 1, var5 - 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 1, var5 - 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 1, var5 + 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 1, var5 + 2, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 1, var5 + 2, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 + 2, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 2, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 2, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 2, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 2, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 2, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 2, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 2, var5 - 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 2, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 2, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 2, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 2, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 2, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 2, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 2, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 2, var5 - 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3, var4 + 2, var5, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 2, var5, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 + 3, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 3, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 3, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 3, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 3, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 3, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 - 1, var4 + 3, var5 + 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 3, var5 - 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 3, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 3, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 3, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 3, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 3, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 3, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 3, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 3, var5 - 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3, var4 + 3, var5, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 3, var5, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 + 4, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 4, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 4, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 4, var5 + 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 4, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 4, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3, var4 + 4, var5, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 4, var5, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3 - 1, var4 + 5, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3 + 1, var4 + 5, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 5, var5 - 1, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 5, var5 + 1, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3 - 1, var4 + 5, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3 + 1, var4 + 5, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 5, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 5, var5 + 1, BOPBlocks.driedDirt.get().blockID);
 			
-			var1.setBlock(var3, var4 + 5, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 6, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 7, var5, Blocks.driedDirt.get().blockID);
-			var1.setBlock(var3, var4 + 8, var5, Blocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 5, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 6, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 7, var5, BOPBlocks.driedDirt.get().blockID);
+			var1.setBlock(var3, var4 + 8, var5, BOPBlocks.driedDirt.get().blockID);
 
 			return true;
 		}

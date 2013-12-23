@@ -6,7 +6,7 @@ import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
 
 public class BiomeGenNetherBlood extends BiomeGenBase
@@ -18,8 +18,8 @@ public class BiomeGenNetherBlood extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		topBlock = (byte)Blocks.flesh.get().blockID;
-		fillerBlock = (byte)Blocks.flesh.get().blockID;
+		topBlock = (byte)BOPBlocks.flesh.get().blockID;
+		fillerBlock = (byte)BOPBlocks.flesh.get().blockID;
 		customBiomeDecorator.gravesPerChunk = 1;
 		customBiomeDecorator.waspHivesPerChunk = 1;
 		customBiomeDecorator.generateUndergroundLakes = false;

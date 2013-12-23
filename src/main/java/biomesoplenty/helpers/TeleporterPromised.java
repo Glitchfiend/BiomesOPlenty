@@ -12,7 +12,7 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class TeleporterPromised extends Teleporter
 {
@@ -92,9 +92,9 @@ public class TeleporterPromised extends Teleporter
 
 					for (int var26 = worldServerInstance.getActualHeight() - 1; var26 >= 0; --var26)
 					{
-						if (worldServerInstance.getBlockId(var48, var26, var23) == Blocks.promisedPortal.get().blockID)
+						if (worldServerInstance.getBlockId(var48, var26, var23) == BOPBlocks.promisedPortal.get().blockID)
 						{
-							while (worldServerInstance.getBlockId(var48, var26 - 1, var23) == Blocks.promisedPortal.get().blockID)
+							while (worldServerInstance.getBlockId(var48, var26 - 1, var23) == BOPBlocks.promisedPortal.get().blockID)
 							{
 								--var26;
 							}
@@ -128,22 +128,22 @@ public class TeleporterPromised extends Teleporter
 			var27 = k + 0.5D;
 			int var50 = -1;
 
-			if (worldServerInstance.getBlockId(i - 1, j, k) == Blocks.promisedPortal.get().blockID)
+			if (worldServerInstance.getBlockId(i - 1, j, k) == BOPBlocks.promisedPortal.get().blockID)
 			{
 				var50 = 2;
 			}
 
-			if (worldServerInstance.getBlockId(i + 1, j, k) == Blocks.promisedPortal.get().blockID)
+			if (worldServerInstance.getBlockId(i + 1, j, k) == BOPBlocks.promisedPortal.get().blockID)
 			{
 				var50 = 0;
 			}
 
-			if (worldServerInstance.getBlockId(i, j, k - 1) == Blocks.promisedPortal.get().blockID)
+			if (worldServerInstance.getBlockId(i, j, k - 1) == BOPBlocks.promisedPortal.get().blockID)
 			{
 				var50 = 3;
 			}
 
-			if (worldServerInstance.getBlockId(i, j, k + 1) == Blocks.promisedPortal.get().blockID)
+			if (worldServerInstance.getBlockId(i, j, k + 1) == BOPBlocks.promisedPortal.get().blockID)
 			{
 				var50 = 1;
 			}
@@ -552,9 +552,9 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 6, j + 8, k + 3, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 6, j + 8, k + 4, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 6, j + 8, k + 5, Block.blockNetherQuartz.blockID);
-		worldServerInstance.setBlock(i + 6, j + 8, k + 6, Blocks.promisedPortal.get().blockID);
-		worldServerInstance.setBlock(i + 6, j + 8, k + 7, Blocks.promisedPortal.get().blockID);
-		worldServerInstance.setBlock(i + 6, j + 8, k + 8, Blocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 6, j + 8, k + 6, BOPBlocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 6, j + 8, k + 7, BOPBlocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 6, j + 8, k + 8, BOPBlocks.promisedPortal.get().blockID);
 		worldServerInstance.setBlock(i + 6, j + 8, k + 9, Block.blockNetherQuartz.blockID);
 		worldServerInstance.setBlock(i + 6, j + 8, k + 10, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 6, j + 8, k + 11, Block.dirt.blockID);
@@ -648,9 +648,9 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 7, j + 8, k + 3, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 7, j + 8, k + 4, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 7, j + 8, k + 5, Block.blockNetherQuartz.blockID);
-		worldServerInstance.setBlock(i + 7, j + 8, k + 6, Blocks.promisedPortal.get().blockID);
-		worldServerInstance.setBlock(i + 7, j + 8, k + 7, Blocks.promisedPortal.get().blockID);
-		worldServerInstance.setBlock(i + 7, j + 8, k + 8, Blocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 7, j + 8, k + 6, BOPBlocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 7, j + 8, k + 7, BOPBlocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 7, j + 8, k + 8, BOPBlocks.promisedPortal.get().blockID);
 		worldServerInstance.setBlock(i + 7, j + 8, k + 9, Block.blockNetherQuartz.blockID);
 		worldServerInstance.setBlock(i + 7, j + 8, k + 10, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 7, j + 8, k + 11, Block.dirt.blockID);
@@ -738,9 +738,9 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 8, j + 8, k + 3, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 8, j + 8, k + 4, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 8, j + 8, k + 5, Block.blockNetherQuartz.blockID);
-		worldServerInstance.setBlock(i + 8, j + 8, k + 6, Blocks.promisedPortal.get().blockID);
-		worldServerInstance.setBlock(i + 8, j + 8, k + 7, Blocks.promisedPortal.get().blockID);
-		worldServerInstance.setBlock(i + 8, j + 8, k + 8, Blocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 8, j + 8, k + 6, BOPBlocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 8, j + 8, k + 7, BOPBlocks.promisedPortal.get().blockID);
+		worldServerInstance.setBlock(i + 8, j + 8, k + 8, BOPBlocks.promisedPortal.get().blockID);
 		worldServerInstance.setBlock(i + 8, j + 8, k + 9, Block.blockNetherQuartz.blockID);
 		worldServerInstance.setBlock(i + 8, j + 8, k + 10, Block.dirt.blockID);
 		worldServerInstance.setBlock(i + 8, j + 8, k + 11, Block.dirt.blockID);
@@ -1047,47 +1047,47 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 13, j + 9, k + 6, Block.grass.blockID);
 		worldServerInstance.setBlock(i + 13, j + 9, k + 7, Block.grass.blockID);
 		worldServerInstance.setBlock(i + 13, j + 9, k + 8, Block.grass.blockID);
-		worldServerInstance.setBlock(i + 0, j + 0, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 1, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 2, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 3, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 3, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 4, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 4, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 5, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 5, k + 7, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 5, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 6, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 6, k + 7, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 6, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 7, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 7, k + 7, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 7, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 8, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 8, k + 7, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 8, k + 8, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 9, k + 6, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 9, k + 7, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 0, j + 9, k + 8, Blocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 0, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 1, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 2, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 3, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 3, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 4, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 4, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 5, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 5, k + 7, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 5, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 6, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 6, k + 7, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 6, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 7, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 7, k + 7, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 7, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 8, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 8, k + 7, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 8, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 9, k + 6, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 9, k + 7, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 0, j + 9, k + 8, BOPBlocks.ivy.get().blockID, 8, 2);
 		worldServerInstance.setBlock(i + 1, j + 10, k + 6, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 1, j + 10, k + 7, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 1, j + 10, k + 8, Block.tallGrass.blockID, 2, 2);
-		worldServerInstance.setBlock(i + 2, j + 2, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 2, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 3, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 3, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 4, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 4, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 5, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 5, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 6, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 6, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 7, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 7, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 8, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 8, k + 11, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 9, k + 3, Blocks.ivy.get().blockID, 8, 2);
-		worldServerInstance.setBlock(i + 2, j + 9, k + 11, Blocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 2, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 2, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 3, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 3, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 4, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 4, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 5, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 5, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 6, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 6, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 7, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 7, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 8, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 8, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 9, k + 3, BOPBlocks.ivy.get().blockID, 8, 2);
+		worldServerInstance.setBlock(i + 2, j + 9, k + 11, BOPBlocks.ivy.get().blockID, 8, 2);
 		worldServerInstance.setBlock(i + 2, j + 10, k + 4, Block.plantRed.blockID);
 		worldServerInstance.setBlock(i + 2, j + 10, k + 5, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 2, j + 10, k + 6, Block.tallGrass.blockID, 2, 2);
@@ -1095,78 +1095,78 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 2, j + 10, k + 8, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 2, j + 10, k + 9, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 2, j + 10, k + 10, Block.plantRed.blockID);
-		worldServerInstance.setBlock(i + 3, j + 5, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 3, j + 5, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 3, j + 6, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 3, j + 6, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 3, j + 7, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 3, j + 7, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 3, j + 8, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 3, j + 8, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 3, j + 9, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 3, j + 9, k + 12, Blocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 3, j + 5, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 3, j + 5, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 3, j + 6, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 3, j + 6, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 3, j + 7, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 3, j + 7, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 3, j + 8, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 3, j + 8, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 3, j + 9, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 3, j + 9, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
 		worldServerInstance.setBlock(i + 3, j + 10, k + 3, Block.plantYellow.blockID);
 		worldServerInstance.setBlock(i + 3, j + 10, k + 11, Block.plantYellow.blockID);
 		worldServerInstance.setBlock(i + 4, j + 10, k + 2, Block.plantRed.blockID);
 		worldServerInstance.setBlock(i + 4, j + 10, k + 12, Block.plantRed.blockID);
 		worldServerInstance.setBlock(i + 5, j + 10, k + 2, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 5, j + 10, k + 12, Block.tallGrass.blockID, 2, 2);
-		worldServerInstance.setBlock(i + 6, j + 0, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 1, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 2, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 3, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 3, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 4, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 4, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 5, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 5, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 6, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 6, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 7, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 7, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 8, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 8, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 6, j + 9, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 6, j + 9, k + 14, Blocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 0, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 1, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 2, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 3, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 3, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 4, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 4, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 5, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 5, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 6, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 6, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 7, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 7, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 8, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 8, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 6, j + 9, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 6, j + 9, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
 		worldServerInstance.setBlock(i + 6, j + 10, k + 1, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 6, j + 10, k + 2, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 6, j + 10, k + 12, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 6, j + 10, k + 13, Block.tallGrass.blockID, 2, 2);
-		worldServerInstance.setBlock(i + 7, j + 1, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 1, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 2, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 2, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 3, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 3, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 4, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 4, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 5, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 5, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 6, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 6, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 7, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 7, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 8, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 8, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 7, j + 9, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 7, j + 9, k + 14, Blocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 1, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 1, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 2, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 2, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 3, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 3, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 4, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 4, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 5, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 5, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 6, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 6, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 7, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 7, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 8, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 8, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 7, j + 9, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 7, j + 9, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
 		worldServerInstance.setBlock(i + 7, j + 10, k + 1, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 7, j + 10, k + 2, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 7, j + 10, k + 12, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 7, j + 10, k + 13, Block.tallGrass.blockID, 2, 2);
-		worldServerInstance.setBlock(i + 8, j + 3, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 8, j + 4, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 8, j + 4, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 8, j + 5, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 8, j + 5, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 8, j + 6, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 8, j + 6, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 8, j + 7, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 8, j + 7, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 8, j + 8, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 8, j + 8, k + 14, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 8, j + 9, k + 0, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 8, j + 9, k + 14, Blocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 3, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 4, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 8, j + 4, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 5, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 8, j + 5, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 6, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 8, j + 6, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 7, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 8, j + 7, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 8, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 8, j + 8, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 8, j + 9, k + 0, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 8, j + 9, k + 14, BOPBlocks.ivy.get().blockID, 4, 2);
 		worldServerInstance.setBlock(i + 8, j + 10, k + 1, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 8, j + 10, k + 2, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 8, j + 10, k + 12, Block.tallGrass.blockID, 2, 2);
@@ -1175,34 +1175,34 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 9, j + 10, k + 12, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 10, j + 10, k + 2, Block.plantRed.blockID);
 		worldServerInstance.setBlock(i + 10, j + 10, k + 12, Block.plantRed.blockID);
-		worldServerInstance.setBlock(i + 11, j + 5, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 11, j + 5, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 11, j + 6, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 11, j + 6, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 11, j + 7, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 11, j + 7, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 11, j + 8, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 11, j + 8, k + 12, Blocks.ivy.get().blockID, 4, 2);
-		worldServerInstance.setBlock(i + 11, j + 9, k + 2, Blocks.ivy.get().blockID, 1, 2);
-		worldServerInstance.setBlock(i + 11, j + 9, k + 12, Blocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 11, j + 5, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 11, j + 5, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 11, j + 6, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 11, j + 6, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 11, j + 7, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 11, j + 7, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 11, j + 8, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 11, j + 8, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
+		worldServerInstance.setBlock(i + 11, j + 9, k + 2, BOPBlocks.ivy.get().blockID, 1, 2);
+		worldServerInstance.setBlock(i + 11, j + 9, k + 12, BOPBlocks.ivy.get().blockID, 4, 2);
 		worldServerInstance.setBlock(i + 11, j + 10, k + 3, Block.plantYellow.blockID);
 		worldServerInstance.setBlock(i + 11, j + 10, k + 11, Block.plantYellow.blockID);
-		worldServerInstance.setBlock(i + 12, j + 2, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 2, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 3, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 3, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 4, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 4, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 5, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 5, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 6, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 6, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 7, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 7, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 8, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 8, k + 11, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 9, k + 3, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 12, j + 9, k + 11, Blocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 2, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 2, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 3, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 3, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 4, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 4, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 5, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 5, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 6, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 6, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 7, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 7, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 8, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 8, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 9, k + 3, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 12, j + 9, k + 11, BOPBlocks.ivy.get().blockID, 2, 2);
 		worldServerInstance.setBlock(i + 12, j + 10, k + 4, Block.plantRed.blockID);
 		worldServerInstance.setBlock(i + 12, j + 10, k + 5, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 12, j + 10, k + 6, Block.tallGrass.blockID, 2, 2);
@@ -1213,30 +1213,30 @@ public class TeleporterPromised extends Teleporter
 		worldServerInstance.setBlock(i + 13, j + 10, k + 6, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 13, j + 10, k + 7, Block.tallGrass.blockID, 2, 2);
 		worldServerInstance.setBlock(i + 13, j + 10, k + 8, Block.tallGrass.blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 0, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 1, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 2, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 2, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 3, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 3, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 4, k + 6, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 4, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 4, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 5, k + 6, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 5, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 5, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 6, k + 6, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 6, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 6, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 7, k + 6, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 7, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 7, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 8, k + 6, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 8, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 8, k + 8, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 9, k + 6, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 9, k + 7, Blocks.ivy.get().blockID, 2, 2);
-		worldServerInstance.setBlock(i + 14, j + 9, k + 8, Blocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 0, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 1, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 2, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 2, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 3, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 3, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 4, k + 6, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 4, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 4, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 5, k + 6, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 5, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 5, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 6, k + 6, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 6, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 6, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 7, k + 6, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 7, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 7, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 8, k + 6, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 8, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 8, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 9, k + 6, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 9, k + 7, BOPBlocks.ivy.get().blockID, 2, 2);
+		worldServerInstance.setBlock(i + 14, j + 9, k + 8, BOPBlocks.ivy.get().blockID, 2, 2);
 
 		return true;
 	}

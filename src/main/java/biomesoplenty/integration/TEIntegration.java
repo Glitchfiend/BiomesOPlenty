@@ -3,7 +3,7 @@ package biomesoplenty.integration;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class TEIntegration
@@ -15,9 +15,9 @@ public class TEIntegration
 
 	private static void addPulverizerRecipes()
 	{
-		addPulverizerRecipe(160, new ItemStack(Blocks.bones.get(), 1, 0), new ItemStack(Item.dyePowder, 6, 15));
-		addPulverizerRecipe(220, new ItemStack(Blocks.bones.get(), 1, 1), new ItemStack(Item.dyePowder, 12, 15));
-		addPulverizerRecipe(280, new ItemStack(Blocks.bones.get(), 1, 2), new ItemStack(Item.dyePowder, 24, 15));
+		addPulverizerRecipe(160, new ItemStack(BOPBlocks.bones.get(), 1, 0), new ItemStack(Item.dyePowder, 6, 15));
+		addPulverizerRecipe(220, new ItemStack(BOPBlocks.bones.get(), 1, 1), new ItemStack(Item.dyePowder, 12, 15));
+		addPulverizerRecipe(280, new ItemStack(BOPBlocks.bones.get(), 1, 2), new ItemStack(Item.dyePowder, 24, 15));
 	}
 	
     private static void addPulverizerRecipe(int energy, ItemStack input, ItemStack primaryOutput)

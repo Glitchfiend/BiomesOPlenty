@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.tree.WorldGenJacaranda;
 
 public class BiomeGenLavenderFields extends BiomeGenBase
@@ -65,7 +65,7 @@ public class BiomeGenLavenderFields extends BiomeGenBase
 
 			if (var10 == Block.stone.blockID)
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 4, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 4, 2);
 			}
 		}
 	}

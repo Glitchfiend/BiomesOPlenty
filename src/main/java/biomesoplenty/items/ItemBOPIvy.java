@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -29,7 +29,7 @@ public class ItemBOPIvy extends ItemColored
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
-		return Blocks.ivy.get().getRenderColor(itemStack.getItemDamage());
+		return BOPBlocks.ivy.get().getRenderColor(itemStack.getItemDamage());
 	}
 
 	@Override

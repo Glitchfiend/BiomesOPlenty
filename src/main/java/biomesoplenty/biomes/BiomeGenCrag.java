@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 
 public class BiomeGenCrag extends BiomeGenBase implements IWCFog
@@ -22,8 +22,8 @@ public class BiomeGenCrag extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.treesPerChunk = -999;
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
-		topBlock = (byte)Blocks.cragRock.get().blockID;
-		fillerBlock = (byte)Blocks.cragRock.get().blockID;
+		topBlock = (byte)BOPBlocks.cragRock.get().blockID;
+		fillerBlock = (byte)BOPBlocks.cragRock.get().blockID;
 		waterColorMultiplier = 944693;
 	}
 	
@@ -43,7 +43,7 @@ public class BiomeGenCrag extends BiomeGenBase implements IWCFog
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 12, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
 	}

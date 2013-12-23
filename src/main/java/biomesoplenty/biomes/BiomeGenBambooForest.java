@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.tree.WorldGenBambooTree;
 
 public class BiomeGenBambooForest extends BiomeGenBase implements IWCFog
@@ -48,7 +48,7 @@ public class BiomeGenBambooForest extends BiomeGenBase implements IWCFog
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 6, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 6, 2);
 			}
 		}
 	}
@@ -69,7 +69,7 @@ public class BiomeGenBambooForest extends BiomeGenBase implements IWCFog
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
+		return par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 2) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 1);
 	}
 
 	/**

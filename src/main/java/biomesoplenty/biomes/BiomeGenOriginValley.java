@@ -5,7 +5,7 @@ import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.tree.WorldGenOriginTree;
 
@@ -18,7 +18,7 @@ public class BiomeGenOriginValley extends BiomeGenBase
 		super(par1);
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		topBlock = (byte)Blocks.originGrass.get().blockID;
+		topBlock = (byte)BOPBlocks.originGrass.get().blockID;
 		customBiomeDecorator.treesPerChunk = 4;
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.generatePumpkins = false;

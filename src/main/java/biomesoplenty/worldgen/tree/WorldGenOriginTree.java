@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenOriginTree extends WorldGenerator
 {
@@ -49,7 +49,7 @@ public class WorldGenOriginTree extends WorldGenerator
 						{
 							var12 = par1World.getBlockId(var10, var8, var11);
 
-							if (var12 != 0 && var12 != Blocks.leaves3.get().blockID)
+							if (var12 != 0 && var12 != BOPBlocks.leaves3.get().blockID)
 							{
 								var7 = false;
 							}
@@ -68,7 +68,7 @@ public class WorldGenOriginTree extends WorldGenerator
 			{
 				var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if ((var8 == Blocks.originGrass.get().blockID || var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+				if ((var8 == BOPBlocks.originGrass.get().blockID || var8 == Block.grass.blockID || var8 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
 				{
 					this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
 					int var16;
@@ -88,7 +88,7 @@ public class WorldGenOriginTree extends WorldGenerator
 
 								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var12, var16, var14)])
 								{
-									this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leaves3.get().blockID, 0);
+									this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leaves3.get().blockID, 0);
 								}
 							}
 						}
@@ -98,7 +98,7 @@ public class WorldGenOriginTree extends WorldGenerator
 					{
 						var10 = par1World.getBlockId(par3, par4 + var16, par5);
 
-						if (var10 == 0 || var10 == Blocks.leaves3.get().blockID)
+						if (var10 == 0 || var10 == BOPBlocks.leaves3.get().blockID)
 						{
 							this.setBlockAndMetadata(par1World, par3, par4 + var16, par5, Block.wood.blockID, 0);
 						}

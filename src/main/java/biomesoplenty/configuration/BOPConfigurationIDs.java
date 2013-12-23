@@ -1,9 +1,11 @@
 package biomesoplenty.configuration;
 
 import java.io.File;
-import java.util.logging.Level;
 
-import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.config.Configuration;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
@@ -321,116 +323,116 @@ public class BOPConfigurationIDs
 			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
 			
 			//Terrain Blocks
-			mudID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Mud ID", 160, null).getInt();
-			driedDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Dried Dirt ID", 161, null).getInt();
-			redRockID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Red Rock ID", 162, null).getInt();
-			ashID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Ash Block ID", 163, null).getInt();
-			ashStoneID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Ash Stone ID", 164, null).getInt();
-			hardIceID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Hard Ice ID", 165, null).getInt();
-			originGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Origin Grass ID", 166, null).getInt();
-			hardSandID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Hard Sand ID", 167, null).getInt();
-			hardDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Hard Dirt ID", 168, null).getInt();
-			holyGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Holy Grass ID", 169, null).getInt();
-			holyDirtID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Holy Dirt ID", 170, null).getInt();
-			holyStoneID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Skystone ID", 171, null).getInt();
-			cragRockID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Crag Rock ID", 172, null).getInt();
-			longGrassID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Long Grass ID", 173, null).getInt();
-			fleshID = config.getTerrainBlock("Terrain Block IDs - MUST BE BELOW 255", "Flesh ID", 174, null).getInt();
+			mudID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Mud ID", 160, null).getInt();
+			driedDirtID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Dried Dirt ID", 161, null).getInt();
+			redRockID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Red Rock ID", 162, null).getInt();
+			ashID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Ash Block ID", 163, null).getInt();
+			ashStoneID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Ash Stone ID", 164, null).getInt();
+			hardIceID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Hard Ice ID", 165, null).getInt();
+			originGrassID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Origin Grass ID", 166, null).getInt();
+			hardSandID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Hard Sand ID", 167, null).getInt();
+			hardDirtID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Hard Dirt ID", 168, null).getInt();
+			holyGrassID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Holy Grass ID", 169, null).getInt();
+			holyDirtID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Holy Dirt ID", 170, null).getInt();
+			holyStoneID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Skystone ID", 171, null).getInt();
+			cragRockID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Crag Rock ID", 172, null).getInt();
+			longGrassID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Long Grass ID", 173, null).getInt();
+			fleshID = config.get("Terrain Block IDs - MUST BE BELOW 255", "Flesh ID", 174, null).getInt();
 			
 			//Building Blocks
-			mudBrickBlockID = config.getBlock("Mud Bricks ID", 1920, null).getInt();
-			amethystOreID = config.getBlock("Amethyst Ore ID", 1921, null).getInt();
-			crystalID = config.getBlock("Crystal ID", 1922, null).getInt();
-			cloudID = config.getBlock("Cloud ID", 1923, null).getInt();
-			hiveID = config.getBlock("Hive ID", 1924, null).getInt();
-			honeyBlockID = config.getBlock("Honey Block ID", 1925, null).getInt();
-			bonesID = config.getBlock("Bones ID", 1926, null).getInt();
-			puddleID = config.getBlock("Puddle ID", 1927, null).getInt();
-			overgrownNetherrackID = config.getBlock("Overgrown Netherrack ID", 1928, null).getInt();
+			mudBrickBlockID = config.get("block", "Mud Bricks ID", 1920, null).getInt();
+			amethystOreID = config.get("block", "Amethyst Ore ID", 1921, null).getInt();
+			crystalID = config.get("block", "Crystal ID", 1922, null).getInt();
+			cloudID = config.get("block", "Cloud ID", 1923, null).getInt();
+			hiveID = config.get("block", "Hive ID", 1924, null).getInt();
+			honeyBlockID = config.get("block", "Honey Block ID", 1925, null).getInt();
+			bonesID = config.get("block", "Bones ID", 1926, null).getInt();
+			puddleID = config.get("block", "Puddle ID", 1927, null).getInt();
+			overgrownNetherrackID = config.get("block", "Overgrown Netherrack ID", 1928, null).getInt();
 			
 			//Logs
-			logs1ID = config.getBlock("Log Block ID 1", 1940, null).getInt();
-			logs2ID = config.getBlock("Log Block ID 2", 1941, null).getInt();
-			logs3ID = config.getBlock("Log Block ID 3", 1942, null).getInt();
-			logs4ID = config.getBlock("Log Block ID 4", 1943, null).getInt();
+			logs1ID = config.get("block", "Log Block ID 1", 1940, null).getInt();
+			logs2ID = config.get("block", "Log Block ID 2", 1941, null).getInt();
+			logs3ID = config.get("block", "Log Block ID 3", 1942, null).getInt();
+			logs4ID = config.get("block", "Log Block ID 4", 1943, null).getInt();
 			
 			//Leaves
-			leaves1ID = config.getBlock("Leaf Block ID 1", 1950, null).getInt();
-			leaves2ID = config.getBlock("Leaf Block ID 2", 1951, null).getInt();
-			leaves3ID = config.getBlock("Leaf Block ID 3", 1952, null).getInt();
-			leaves4ID = config.getBlock("Leaf Block ID 4", 1953, null).getInt();
-			colourizedLeaves1ID = config.getBlock("Colourized Leaves 1 ID", 1955, null).getInt();
-			colourizedLeaves2ID = config.getBlock("Colourized Leaves 2 ID", 1956, null).getInt();
-	        	colourizedLeaves3ID = config.getBlock("Colourized Leaves 3 ID", 1957, null).getInt();
-	        	colourizedLeaves4ID = config.getBlock("Colourized Leaves 4 ID", 1958, null).getInt();
-			leavesFruitID = config.getBlock("Fruit Leaf Block ID", 1960, null).getInt();
-			leavesFruit2ID = config.getBlock("Fruit Leaf Block 2 ID", 1961, null).getInt();
-			petalsID = config.getBlock("Petal ID", 1962, null).getInt();
+			leaves1ID = config.get("block", "Leaf Block ID 1", 1950, null).getInt();
+			leaves2ID = config.get("block", "Leaf Block ID 2", 1951, null).getInt();
+			leaves3ID = config.get("block", "Leaf Block ID 3", 1952, null).getInt();
+			leaves4ID = config.get("block", "Leaf Block ID 4", 1953, null).getInt();
+			colourizedLeaves1ID = config.get("block", "Colourized Leaves 1 ID", 1955, null).getInt();
+			colourizedLeaves2ID = config.get("block", "Colourized Leaves 2 ID", 1956, null).getInt();
+	        	colourizedLeaves3ID = config.get("block", "Colourized Leaves 3 ID", 1957, null).getInt();
+	        	colourizedLeaves4ID = config.get("block", "Colourized Leaves 4 ID", 1958, null).getInt();
+			leavesFruitID = config.get("block", "Fruit Leaf Block ID", 1960, null).getInt();
+			leavesFruit2ID = config.get("block", "Fruit Leaf Block 2 ID", 1961, null).getInt();
+			petalsID = config.get("block", "Petal ID", 1962, null).getInt();
 			
 			//Planks
-			planksID = config.getBlock("Planks ID", 1970, null).getInt();
+			planksID = config.get("block", "Planks ID", 1970, null).getInt();
 			
 			//Wood Stairs
-			acaciaStairsID = config.getBlock("Acacia Stairs ID", 1971, null).getInt();
-			cherryStairsID = config.getBlock("Cherry Stairs ID", 1972, null).getInt();
-			darkStairsID = config.getBlock("Dark Stairs ID", 1973, null).getInt();
-			firStairsID = config.getBlock("Fir Stairs ID", 1974, null).getInt();
-			holyStairsID = config.getBlock("Holy Stairs ID", 1975, null).getInt();
-			magicStairsID = config.getBlock("Magic Stairs ID", 1976, null).getInt();
-			mangroveStairsID = config.getBlock("Mangrove Stairs ID", 1977, null).getInt();
-			palmStairsID = config.getBlock("Palm Stairs ID", 1978, null).getInt();
-			redwoodStairsID = config.getBlock("Redwood Stairs ID", 1979, null).getInt();
-			willowStairsID = config.getBlock("Willow Stairs ID", 1980, null).getInt();
-			pineStairsID = config.getBlock("Pine Stairs ID", 1981, null).getInt();
-			hellBarkStairsID = config.getBlock("Hell Bark Stairs ID", 1982, null).getInt();
-			jacarandaStairsID = config.getBlock("Jacaranda ID", 1983, null).getInt();
+			acaciaStairsID = config.get("block", "Acacia Stairs ID", 1971, null).getInt();
+			cherryStairsID = config.get("block", "Cherry Stairs ID", 1972, null).getInt();
+			darkStairsID = config.get("block", "Dark Stairs ID", 1973, null).getInt();
+			firStairsID = config.get("block", "Fir Stairs ID", 1974, null).getInt();
+			holyStairsID = config.get("block", "Holy Stairs ID", 1975, null).getInt();
+			magicStairsID = config.get("block", "Magic Stairs ID", 1976, null).getInt();
+			mangroveStairsID = config.get("block", "Mangrove Stairs ID", 1977, null).getInt();
+			palmStairsID = config.get("block", "Palm Stairs ID", 1978, null).getInt();
+			redwoodStairsID = config.get("block", "Redwood Stairs ID", 1979, null).getInt();
+			willowStairsID = config.get("block", "Willow Stairs ID", 1980, null).getInt();
+			pineStairsID = config.get("block", "Pine Stairs ID", 1981, null).getInt();
+			hellBarkStairsID = config.get("block", "Hell Bark Stairs ID", 1982, null).getInt();
+			jacarandaStairsID = config.get("block", "Jacaranda ID", 1983, null).getInt();
 
 			//Wood Slabs
-			woodenDoubleSlab1ID = config.getBlock("Wooden Double Slab 1 ID", 1984, null).getInt();
-			woodenSingleSlab1ID = config.getBlock("Wooden Single Slab 1 ID", 1985, null).getInt();
-			woodenDoubleSlab2ID = config.getBlock("Wooden Double Slab 2 ID", 1986, null).getInt();
-			woodenSingleSlab2ID = config.getBlock("Wooden Single Slab 2 ID", 1987, null).getInt();
+			woodenDoubleSlab1ID = config.get("block", "Wooden Double Slab 1 ID", 1984, null).getInt();
+			woodenSingleSlab1ID = config.get("block", "Wooden Single Slab 1 ID", 1985, null).getInt();
+			woodenDoubleSlab2ID = config.get("block", "Wooden Double Slab 2 ID", 1986, null).getInt();
+			woodenSingleSlab2ID = config.get("block", "Wooden Single Slab 2 ID", 1987, null).getInt();
 			
 			//Stone Stairs
-			mudBrickStairsID = config.getBlock("Mud Brick Stairs ID", 1988, null).getInt();
-			redCobbleStairsID = config.getBlock("Red Cobble Stairs ID", 1989, null).getInt();
-			redBrickStairsID = config.getBlock("Red Brick Stairs ID", 1990, null).getInt();
-			holyCobbleStairsID = config.getBlock("Skystone Cobble Stairs ID", 1991, null).getInt();
-			holyBrickStairsID = config.getBlock("Skystone Brick Stairs ID", 1992, null).getInt();
+			mudBrickStairsID = config.get("block", "Mud Brick Stairs ID", 1988, null).getInt();
+			redCobbleStairsID = config.get("block", "Red Cobble Stairs ID", 1989, null).getInt();
+			redBrickStairsID = config.get("block", "Red Brick Stairs ID", 1990, null).getInt();
+			holyCobbleStairsID = config.get("block", "Skystone Cobble Stairs ID", 1991, null).getInt();
+			holyBrickStairsID = config.get("block", "Skystone Brick Stairs ID", 1992, null).getInt();
 			
 			//Stone Slabs
-			stoneDoubleSlabID = config.getBlock("Stone Double Slab ID", 1996, null).getInt();
-			stoneSingleSlabID = config.getBlock("Stone Single Slab ID", 1997, null).getInt();
+			stoneDoubleSlabID = config.get("block", "Stone Double Slab ID", 1996, null).getInt();
+			stoneSingleSlabID = config.get("block", "Stone Single Slab ID", 1997, null).getInt();
 			
 			//Saplings
-			saplingsID = config.getBlock("Sapling ID", 1998, null).getInt();
-			colourizedSaplingsID = config.getBlock("Colourized Sapling ID", 1999, null).getInt();
+			saplingsID = config.get("block", "Sapling ID", 1998, null).getInt();
+			colourizedSaplingsID = config.get("block", "Colourized Sapling ID", 1999, null).getInt();
 			
 			//Flowers
-			flowersID = config.getBlock("Flower ID", 2000, null).getInt();
-			flowers2ID = config.getBlock("Flower 2 ID", 2001, null).getInt();
+			flowersID = config.get("block", "Flower ID", 2000, null).getInt();
+			flowers2ID = config.get("block", "Flower 2 ID", 2001, null).getInt();
 			
 			//Foliage
-			foliageID = config.getBlock("Foliage ID", 2006, null).getInt();
-			willowID = config.getBlock("Willow ID", 2008, null).getInt();
-			ivyID = config.getBlock("Ivy ID", 2009, null).getInt();
+			foliageID = config.get("block", "Foliage ID", 2006, null).getInt();
+			willowID = config.get("block", "Willow ID", 2008, null).getInt();
+			ivyID = config.get("block", "Ivy ID", 2009, null).getInt();
 
 			//Plants
-			plantsID = config.getBlock("Plant ID", 2013, null).getInt();
-			bambooID = config.getBlock("Bamboo ID", 2014, null).getInt();
-			mossID = config.getBlock("Moss ID", 2015, null).getInt();
-			treeMossID = config.getBlock("Tree Moss ID", 2016, null).getInt();
+			plantsID = config.get("block", "Plant ID", 2013, null).getInt();
+			bambooID = config.get("block", "Bamboo ID", 2014, null).getInt();
+			mossID = config.get("block", "Moss ID", 2015, null).getInt();
+			treeMossID = config.get("block", "Tree Moss ID", 2016, null).getInt();
 			
 			//Mushrooms
-			mushroomsID = config.getBlock("Mushroom ID", 2017, null).getInt();
+			mushroomsID = config.get("block", "Mushroom ID", 2017, null).getInt();
 			
 			//Coral
-			coralID = config.getBlock("Coral ID", 2018, null).getInt();
+			coralID = config.get("block", "Coral ID", 2018, null).getInt();
 			
 			//Other
-			promisedLandPortalID = config.getBlock("Promised Land Portal ID", 2025, null).getInt();
-			stoneFormationsID = config.getBlock("Stone Formations ID", 2026, null).getInt();
-			graveID = config.getBlock("Grave ID", 2027, null).getInt();
+			promisedLandPortalID = config.get("block", "Promised Land Portal ID", 2025, null).getInt();
+			stoneFormationsID = config.get("block", "Stone Formations ID", 2026, null).getInt();
+			graveID = config.get("block", "Grave ID", 2027, null).getInt();
 			
 			//Liquid Ids
 			springWaterStillID = config.get("Liquid IDs", "Spring Water Still ID (ID before this must be free!)", 2028, null).getInt();
@@ -438,72 +440,72 @@ public class BOPConfigurationIDs
 			honeyStillID = config.get("Liquid IDs", "Honey Still ID (ID before this must be free!)", 2032, null).getInt();
 			
 			//Turnip Crop
-			turnipID = config.getBlock("Turnip Crop ID", 2034, null).getInt();
+			turnipID = config.get("block", "Turnip Crop ID", 2034, null).getInt();
 			
 			///////////ITEMS/////////////
 			
 			//Misc Items
-			miscItemsID = config.getItem("Misc Items ID", 21003).getInt();
-			turnipseedsID = config.getItem("Turnip Seeds ID", 21004, null).getInt();
+			miscItemsID = config.get("item", "Misc Items ID", 21003).getInt();
+			turnipseedsID = config.get("item", "Turnip Seeds ID", 21004, null).getInt();
 			
 			//Jars
-			jarEmptyID = config.getItem("Jar (Empty) ID", 21005).getInt();
-			jarFilledID = config.getItem("Jar (Filled) ID", 21006).getInt();
+			jarEmptyID = config.get("item", "Jar (Empty) ID", 21005).getInt();
+			jarFilledID = config.get("item", "Jar (Filled) ID", 21006).getInt();
 			
-			mudballID = config.getItem("Mud Ball ID", 21007).getInt();
+			mudballID = config.get("item", "Mud Ball ID", 21007).getInt();
 			
 			//Gems
-			gemsID = config.getItem("Gems ID", 21008).getInt();
+			gemsID = config.get("item", "Gems ID", 21008).getInt();
 
 			//Food
-			foodID = config.getItem("Food ID", 21009, null).getInt();
+			foodID = config.get("item", "Food ID", 21009, null).getInt();
 			
 			//Tools
-			ancientStaffID = config.getItem("Ancient Staff ID", 21010).getInt();
-			enderporterID = config.getItem("Enderporter ID", 21011).getInt();
-			bopBucketID = config.getItem("Spring Water Bucket ID", 21012, null).getInt();
-			wadingBootsID = config.getItem("Wading Boots ID", 21013).getInt();
-			flippersID = config.getItem("Flippers ID", 21014).getInt();
-			flowerBandID = config.getItem("Flower Band ID", 21015, null).getInt();
+			ancientStaffID = config.get("item", "Ancient Staff ID", 21010).getInt();
+			enderporterID = config.get("item", "Enderporter ID", 21011).getInt();
+			bopBucketID = config.get("item", "Spring Water Bucket ID", 21012, null).getInt();
+			wadingBootsID = config.get("item", "Wading Boots ID", 21013).getInt();
+			flippersID = config.get("item", "Flippers ID", 21014).getInt();
+			flowerBandID = config.get("item", "Flower Band ID", 21015, null).getInt();
 			
 			//Darts
-			dartBlowerID = config.getItem("Dart Blower ID", 21016).getInt();
-			dartID = config.getItem("Dart ID", 21017).getInt();
+			dartBlowerID = config.get("item", "Dart Blower ID", 21016).getInt();
+			dartID = config.get("item", "Dart ID", 21017).getInt();
 
 			//Mud Tools
-			swordMudID = config.getItem("Muddy Sword ID", 21018, null).getInt();
-			shovelMudID = config.getItem("Muddy Shovel ID", 21019, null).getInt();
-			pickaxeMudID = config.getItem("Muddy Pickaxe ID", 21020, null).getInt();
-			axeMudID = config.getItem("Muddy Axe ID", 21021, null).getInt();
-			hoeMudID = config.getItem("Muddy Hoe ID", 21022, null).getInt();
-			scytheMudID = config.getItem("Mud Scythe ID", 21023).getInt();
-			helmetMudID = config.getItem("Muddy Helmet ID", 21024, null).getInt();
-			chestplateMudID = config.getItem("Muddy Chestplate ID", 21025, null).getInt();
-			leggingsMudID = config.getItem("Muddy Leggings ID", 21026, null).getInt();
-			bootsMudID = config.getItem("Muddy Boots ID", 21027, null).getInt();
+			swordMudID = config.get("item", "Muddy Sword ID", 21018, null).getInt();
+			shovelMudID = config.get("item", "Muddy Shovel ID", 21019, null).getInt();
+			pickaxeMudID = config.get("item", "Muddy Pickaxe ID", 21020, null).getInt();
+			axeMudID = config.get("item", "Muddy Axe ID", 21021, null).getInt();
+			hoeMudID = config.get("item", "Muddy Hoe ID", 21022, null).getInt();
+			scytheMudID = config.get("item", "Mud Scythe ID", 21023).getInt();
+			helmetMudID = config.get("item", "Muddy Helmet ID", 21024, null).getInt();
+			chestplateMudID = config.get("item", "Muddy Chestplate ID", 21025, null).getInt();
+			leggingsMudID = config.get("item", "Muddy Leggings ID", 21026, null).getInt();
+			bootsMudID = config.get("item", "Muddy Boots ID", 21027, null).getInt();
 
 			//Amethyst Tools
-			swordAmethystID = config.getItem("Amethyst Sword ID", 21028, null).getInt();
-			shovelAmethystID = config.getItem("Amethyst Shovel ID", 21029, null).getInt();
-			pickaxeAmethystID = config.getItem("Amethyst Pickaxe ID", 21030, null).getInt();
-			axeAmethystID = config.getItem("Amethyst Axe ID", 21031, null).getInt();
-			hoeAmethystID = config.getItem("Amethyst Hoe ID", 21032, null).getInt();
-			scytheAmethystID = config.getItem("Amethyst Scythe ID", 21033).getInt();
-			helmetAmethystID = config.getItem("Amethyst Helmet ID", 21034, null).getInt();
-			chestplateAmethystID = config.getItem("Amethyst Chestplate ID", 21035, null).getInt();
-			leggingsAmethystID = config.getItem("Amethyst Leggings ID", 21036, null).getInt();
-			bootsAmethystID = config.getItem("Amethyst Boots ID", 21037, null).getInt();
+			swordAmethystID = config.get("item", "Amethyst Sword ID", 21028, null).getInt();
+			shovelAmethystID = config.get("item", "Amethyst Shovel ID", 21029, null).getInt();
+			pickaxeAmethystID = config.get("item", "Amethyst Pickaxe ID", 21030, null).getInt();
+			axeAmethystID = config.get("item", "Amethyst Axe ID", 21031, null).getInt();
+			hoeAmethystID = config.get("item", "Amethyst Hoe ID", 21032, null).getInt();
+			scytheAmethystID = config.get("item", "Amethyst Scythe ID", 21033).getInt();
+			helmetAmethystID = config.get("item", "Amethyst Helmet ID", 21034, null).getInt();
+			chestplateAmethystID = config.get("item", "Amethyst Chestplate ID", 21035, null).getInt();
+			leggingsAmethystID = config.get("item", "Amethyst Leggings ID", 21036, null).getInt();
+			bootsAmethystID = config.get("item", "Amethyst Boots ID", 21037, null).getInt();
 
 			//Scythes
-			scytheWoodID = config.getItem("Wood Scythe ID", 21038).getInt();
-			scytheStoneID = config.getItem("Stone Scythe ID", 21039).getInt();
-			scytheIronID = config.getItem("Iron Scythe ID", 21040).getInt();
-			scytheGoldID = config.getItem("Gold Scythe ID", 21041).getInt();
-			scytheDiamondID = config.getItem("Diamond Scythe ID", 21042).getInt();
+			scytheWoodID = config.get("item", "Wood Scythe ID", 21038).getInt();
+			scytheStoneID = config.get("item", "Stone Scythe ID", 21039).getInt();
+			scytheIronID = config.get("item", "Iron Scythe ID", 21040).getInt();
+			scytheGoldID = config.get("item", "Gold Scythe ID", 21041).getInt();
+			scytheDiamondID = config.get("item", "Diamond Scythe ID", 21042).getInt();
 			
 			//Music Discs
-			bopDiscID = config.getItem("Traversia Music Disc ID", 21043, null).getInt();
-			bopDiscMudID = config.getItem("Muddy Music Disc ID", 21044, null).getInt();
+			bopDiscID = config.get("item", "Traversia Music Disc ID", 21043, null).getInt();
+			bopDiscMudID = config.get("item", "Muddy Music Disc ID", 21044, null).getInt();
 			
 
 			//Mob IDs
@@ -664,7 +666,7 @@ public class BOPConfigurationIDs
 		}
 		catch (Exception e)
 		{
-			FMLLog.log(Level.SEVERE, e, "Biomes O Plenty has had a problem loading its configuration");
+			FMLLog.log(Level.ERROR, e, "Biomes O Plenty has had a problem loading its configuration");
 		}
 		finally
 		{

@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCattailBonemeal extends WorldGenerator
 {
@@ -39,12 +39,12 @@ public class WorldGenCattailBonemeal extends WorldGenerator
 			int var999 = par1World.getBlockId(par3, par4, par5);
 			int var998 = par1World.getBlockMetadata(par3, par4, par5);
 
-			if (var999 == Blocks.plants.get().blockID && var998 == 7 && Block.blocksList[highCattailID].canBlockStay(par1World, var8, var9, var10))
+			if (var999 == BOPBlocks.plants.get().blockID && var998 == 7 && Block.blocksList[highCattailID].canBlockStay(par1World, var8, var9, var10))
 			{
 				if (par1World.getBlockMaterial(var8 - 1, var9 - 1, var10) == Material.water ? true : (par1World.getBlockMaterial(var8 + 1, var9 - 1, var10) == Material.water ? true : (par1World.getBlockMaterial(var8, var9 - 1, var10 - 1) == Material.water ? true : par1World.getBlockMaterial(var8, var9 - 1, var10 + 1) == Material.water)))
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.plants.get().blockID, 10, 2);
-					par1World.setBlock(var8, var9 + 1, var10, Blocks.plants.get().blockID, 9, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.plants.get().blockID, 10, 2);
+					par1World.setBlock(var8, var9 + 1, var10, BOPBlocks.plants.get().blockID, 9, 2);
 				}
 			}
 		}

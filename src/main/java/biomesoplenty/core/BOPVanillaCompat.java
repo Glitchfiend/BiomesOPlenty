@@ -4,8 +4,8 @@ import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.entities.projectiles.DispenserBehaviorDart;
 import biomesoplenty.entities.projectiles.DispenserBehaviorMudball;
@@ -15,8 +15,8 @@ public class BOPVanillaCompat {
 	public static void init()
 	{
 		// Dispenser behavior for mud balls
-		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.mudball.get(), new DispenserBehaviorMudball());
-		BlockDispenser.dispenseBehaviorRegistry.putObject(Items.dart.get(), new DispenserBehaviorDart());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.mudball.get(), new DispenserBehaviorMudball());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItems.dart.get(), new DispenserBehaviorDart());
 
 		ChestGenHooks desertTemple;
 		ChestGenHooks dungeon;
@@ -38,25 +38,25 @@ public class BOPVanillaCompat {
 
 		if (BOPConfigurationMisc.dungeonLoot == true)
 		{
-			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
+			dungeon.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 
-			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
-			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 4, 6, 15));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.miscItems.get(), 1, 1), 2, 8, 25));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.plants.get(),1,5), 4, 6, 15));
 
-			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
-			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.flowers.get(),1,3), 1, 4, 25));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.flowers.get(),1,2), 1, 4, 25));
 
-			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,3), 1, 4, 25));
-			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.flowers.get(),1,2), 1, 4, 25));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.flowers.get(),1,3), 1, 4, 25));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.flowers.get(),1,2), 1, 4, 25));
 			
-			desertTemple.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
+			desertTemple.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 			
-			jungleTemple.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.colorizedSaplings.get(),1,6), 1, 1, 1));
+			jungleTemple.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.colorizedSaplings.get(),1,6), 1, 1, 1));
 
-			village.addItem(new WeightedRandomChestContent(new ItemStack(Blocks.plants.get(),1,5), 2, 6, 25));
-			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.miscItems.get(), 1, 1), 2, 8, 25));
-			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.wadingBoots.get(), 1, 0), 1, 1, 5));
-			village.addItem(new WeightedRandomChestContent(new ItemStack(Items.flippers.get(), 1, 0), 1, 1, 5));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlocks.plants.get(),1,5), 2, 6, 25));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.miscItems.get(), 1, 1), 2, 8, 25));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.wadingBoots.get(), 1, 0), 1, 1, 5));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItems.flippers.get(), 1, 0), 1, 1, 5));
 		}
 	}
 }

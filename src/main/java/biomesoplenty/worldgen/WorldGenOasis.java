@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenOasis extends WorldGenerator
 {
@@ -45,7 +45,7 @@ public class WorldGenOasis extends WorldGenerator
 						{
 							int var13 = par1World.getBlockId(var8, var12, var9);
 
-							if (var13 == Block.sand.blockID || var13 == Blocks.redRock.get().blockID)
+							if (var13 == Block.sand.blockID || var13 == BOPBlocks.redRock.get().blockID)
 							{
 								par1World.setBlock(var8, var12, var9, sandID);
 							}

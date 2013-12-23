@@ -11,7 +11,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BlockMoss extends Block
 {
@@ -181,7 +181,7 @@ public class BlockMoss extends Block
 	 */
 	private boolean canBePlacedOn(int par1)
 	{
-		if (par1 != Block.wood.blockID && par1 != Blocks.logs3.get().blockID && par1 != Block.stone.blockID)
+		if (par1 != Block.wood.blockID && par1 != BOPBlocks.logs3.get().blockID && par1 != Block.stone.blockID)
 			return false;
 		else
 			return true;

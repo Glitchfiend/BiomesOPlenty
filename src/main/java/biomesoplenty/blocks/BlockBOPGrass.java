@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderEnd;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BlockBOPGrass extends Block
 {
@@ -134,14 +134,14 @@ public class BlockBOPGrass extends Block
 			if (world.provider.isHellWorld)
 			{
 				world.setBlock(x, y + 1, z, Block.fire.blockID);
-				world.setBlock(x, y, z, Blocks.holyGrass.get().blockID, 1, 2);
+				world.setBlock(x, y, z, BOPBlocks.holyGrass.get().blockID, 1, 2);
 			}
 
 			if (!world.isRemote)
 			{
 				if (world.getBlockLightValue(x, y + 1, z) < 4 && Block.lightOpacity[world.getBlockId(x, y + 1, z)] > 2)
 				{
-					world.setBlock(x, y, z, Blocks.holyDirt.get().blockID);
+					world.setBlock(x, y, z, BOPBlocks.holyDirt.get().blockID);
 				}
 				else if (world.getBlockLightValue(x, y + 1, z) >= 9)
 				{
@@ -152,9 +152,9 @@ public class BlockBOPGrass extends Block
 						int var9 = z + random.nextInt(3) - 1;
 						int var10 = world.getBlockId(var7, var8 + 1, var9);
 
-						if (world.getBlockId(var7, var8, var9) == Blocks.holyDirt.get().blockID && world.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
+						if (world.getBlockId(var7, var8, var9) == BOPBlocks.holyDirt.get().blockID && world.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
 						{
-							world.setBlock(var7, var8, var9, Blocks.holyGrass.get().blockID, 0, 2);
+							world.setBlock(var7, var8, var9, BOPBlocks.holyGrass.get().blockID, 0, 2);
 						}
 					}
 				}
@@ -185,7 +185,7 @@ public class BlockBOPGrass extends Block
 	@Override
 	public int idDropped(int meta, Random par2Random, int par3)
 	{
-		return meta == 0 ? Blocks.holyDirt.get().blockID : Block.dirt.blockID;
+		return meta == 0 ? BOPBlocks.holyDirt.get().blockID : Block.dirt.blockID;
 	}
 
 }

@@ -6,7 +6,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenMoss extends WorldGenerator
 {
@@ -21,13 +21,13 @@ public class WorldGenMoss extends WorldGenerator
 			{
 				for (int var8 = 2; var8 <= 5; ++var8)
 				{
-					if (Blocks.moss.get().canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
+					if (BOPBlocks.moss.get().canPlaceBlockOnSide(par1World, par3, par4, par5, var8))
 					{
 						int var999 = par2Random.nextInt(4);
 						
 						if (var999 == 0)
 						{
-							par1World.setBlock(par3, par4, par5, Blocks.moss.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+							par1World.setBlock(par3, par4, par5, BOPBlocks.moss.get().blockID, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
 						}
 						break;
 					}

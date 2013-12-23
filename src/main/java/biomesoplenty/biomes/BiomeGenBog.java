@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenBogBush;
 import biomesoplenty.worldgen.WorldGenCypress1;
 import biomesoplenty.worldgen.WorldGenCypress2;
@@ -63,7 +63,7 @@ public class BiomeGenBog extends BiomeGenBase
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 10, 2);
+				par1World.setBlock(var77, var88, var99, BOPBlocks.amethystOre.get().blockID, 10, 2);
 			}
 		}
 
@@ -91,7 +91,7 @@ public class BiomeGenBog extends BiomeGenBase
 	 @Override
 	 public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	 {
-		 return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
+		 return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 2);
 	 }
 
 	 /**

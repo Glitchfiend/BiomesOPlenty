@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCattail extends WorldGenerator
 {
@@ -26,10 +26,10 @@ public class WorldGenCattail extends WorldGenerator
 			int y = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 			int z = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-			if (world.isAirBlock(x, y, z) && Blocks.plants.get().canBlockStay(world, x, y, z))
+			if (world.isAirBlock(x, y, z) && BOPBlocks.plants.get().canBlockStay(world, x, y, z))
 			{
 				if ((world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)))) {
-					world.setBlock(x, y, z, Blocks.plants.get().blockID, 7, 2);
+					world.setBlock(x, y, z, BOPBlocks.plants.get().blockID, 7, 2);
 				}
 			}
 		}

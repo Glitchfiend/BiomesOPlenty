@@ -6,7 +6,7 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 
 public class ArmorMuddy extends ItemArmor
 {
@@ -22,9 +22,9 @@ public class ArmorMuddy extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.itemID == Items.helmetMud.get().itemID || stack.itemID == Items.chestplateMud.get().itemID || stack.itemID == Items.bootsMud.get().itemID)
+		if (stack.itemID == BOPItems.helmetMud.get().itemID || stack.itemID == BOPItems.chestplateMud.get().itemID || stack.itemID == BOPItems.bootsMud.get().itemID)
 			return "biomesoplenty:textures/armor/mud_1.png";
-		if (stack.itemID == Items.leggingsMud.get().itemID)
+		if (stack.itemID == BOPItems.leggingsMud.get().itemID)
 			return "biomesoplenty:textures/armor/mud_2.png";
 		
 		return null;

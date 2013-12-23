@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenIvy;
 import biomesoplenty.worldgen.tree.WorldGenLargeTree;
 import biomesoplenty.worldgen.tree.WorldGenOvergrownTree;
@@ -47,7 +47,7 @@ public class BiomeGenOvergrownGreens extends BiomeGenBase
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 4, 2);
+				par1World.setBlock(var77, var88, var99, BOPBlocks.amethystOre.get().blockID, 4, 2);
 			}
 		}
 

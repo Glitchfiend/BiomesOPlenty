@@ -1,13 +1,10 @@
 package biomesoplenty;
 
-import net.minecraft.crash.CallableMinecraftVersion;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.ForgeVersion;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.configuration.BOPConfigurationIDs;
-import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.core.BOPAchievements;
 import biomesoplenty.core.BOPBiomes;
 import biomesoplenty.core.BOPBlocks;
@@ -25,12 +22,7 @@ import biomesoplenty.eventhandlers.EntityEventHandler;
 import biomesoplenty.eventhandlers.FlipperMovementEventHandler;
 import biomesoplenty.eventhandlers.FluidEventHandler;
 import biomesoplenty.eventhandlers.VillageMaterialEventHandler;
-import biomesoplenty.handlers.BOPCraftHandler;
-import biomesoplenty.handlers.BOPPickupHandler;
 import biomesoplenty.handlers.MovementHandler;
-import biomesoplenty.handlers.SoundHandler;
-import biomesoplenty.handlers.TickHandlerClient;
-import biomesoplenty.handlers.TickHandlerServer;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
@@ -44,13 +36,9 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", dependencies="after:Natura; required-after:Forge@[1.42.666.42.1,)")
-@NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class BiomesOPlenty
 {
 	@Instance("BiomesOPlenty")
@@ -68,25 +56,25 @@ public class BiomesOPlenty
 		configPath = event.getModConfigurationDirectory() + "/biomesoplenty/";
 		BOPConfiguration.init(configPath);
 		
-		Version.check();
+		//Version.check();
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
-		BOPPotions.init();
+		/*BOPPotions.init();*/
 		BOPBlocks.init();
 		BOPItems.init();
-		BOPFluids.init();
+		/*BOPFluids.init();
 		BOPCrafting.init();
 		BOPStructures.init();
 		BOPBiomes.init();
 		BOPEntities.init();
-		BOPVanillaCompat.init();
+		BOPVanillaCompat.init();*/
 		
-		GameRegistry.registerCraftingHandler(new BOPCraftHandler());
-		GameRegistry.registerPickupHandler(new BOPPickupHandler());
+		//GameRegistry.registerCraftingHandler(new BOPCraftHandler());
+		//GameRegistry.registerPickupHandler(new BOPPickupHandler());
 
 		// Achievement declaration
-		if (BOPConfigurationMisc.achievements)
+		/*if (BOPConfigurationMisc.achievements)
 		{
 			BOPAchievements.init();
 		}
@@ -96,14 +84,14 @@ public class BiomesOPlenty
 			MinecraftForge.EVENT_BUS.register(new SoundHandler());
 		}
 		
-		BOPCrossIntegration.preInit();
+		BOPCrossIntegration.preInit();*/
 	}
 
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
 		// Add helpers for compatibility
-	    MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
+	    /*MinecraftForge.TERRAIN_GEN_BUS.register(new WorldTypeSize());
 	    MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
 	    MinecraftForge.EVENT_BUS.register(new BOPAchievements());
 		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
@@ -127,18 +115,18 @@ public class BiomesOPlenty
 		DimensionManager.registerProviderType(BOPConfigurationIDs.promisedLandDimID, WorldProviderPromised.class, false);
 		DimensionManager.registerDimension(BOPConfigurationIDs.promisedLandDimID, BOPConfigurationIDs.promisedLandDimID);
 		
-		BOPCrossIntegration.init();
+		BOPCrossIntegration.init();*/
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
-		BOPCrossIntegration.postInit();
+		//BOPCrossIntegration.postInit();
 
 		//Initialize new world type
-		BOPBiomes.WTBiomesOP = new WorldTypeBOP();
+		//BOPBiomes.WTBiomesOP = new WorldTypeBOP();
 		
-		TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
-		TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);
+		//TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
+		//TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);
 	}
 }

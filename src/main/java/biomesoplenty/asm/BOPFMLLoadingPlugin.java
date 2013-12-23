@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
-@TransformerExclusions({ "biomesoplenty.asm" })
+/*@TransformerExclusions({ "biomesoplenty.asm" })
 public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
 {
     private static String SIDE = FMLLaunchHandler.side().name();
@@ -21,7 +21,7 @@ public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
     }
     
     /*TODO: Remove in 1.7*/
-    public String[] getLibraryRequestClass()
+    /*public String[] getLibraryRequestClass()
     {
         return null;
     }
@@ -49,4 +49,4 @@ public class BOPFMLLoadingPlugin implements IFMLLoadingPlugin
     {
         location = (File)data.get("coremodLocation");
     }
-}
+}*/

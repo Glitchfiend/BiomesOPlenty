@@ -2,7 +2,7 @@ package biomesoplenty.worldgen;
 
 import java.util.Random;
 
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -15,7 +15,7 @@ public class WorldGenDesertCactus extends WorldGenerator
         int var999 = par1World.getBlockId(par3, par4, par5);
         int var998 = par1World.getBlockMetadata(par3, par4, par5);
 
-        if (var999 == Blocks.plants.get().blockID && var998 == 12)
+        if (var999 == BOPBlocks.plants.get().blockID && var998 == 12)
         {
             int l1 = 1 + par2Random.nextInt(par2Random.nextInt(3) + 1);
 

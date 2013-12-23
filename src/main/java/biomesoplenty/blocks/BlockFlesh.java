@@ -14,8 +14,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 
 public class BlockFlesh extends Block
 {
@@ -52,12 +52,12 @@ public class BlockFlesh extends Block
 
 		if (par5Random.nextInt(4) == 0)
 		{
-			par1World.spawnParticle("tilecrack_" + String.valueOf(Blocks.flesh.get().blockID) + "_0", par2 + par5Random.nextFloat(), par3 - 0.4F, par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			par1World.spawnParticle("tilecrack_" + String.valueOf(BOPBlocks.flesh.get().blockID) + "_0", par2 + par5Random.nextFloat(), par3 - 0.4F, par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 		
 		if (par5Random.nextInt(12) == 0)
 		{
-			par1World.spawnParticle("tilecrack_" + String.valueOf(Blocks.flesh.get().blockID) + "_0", par2 + par5Random.nextFloat(), par3 + 1.0F, par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			par1World.spawnParticle("tilecrack_" + String.valueOf(BOPBlocks.flesh.get().blockID) + "_0", par2 + par5Random.nextFloat(), par3 + 1.0F, par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
@@ -68,7 +68,7 @@ public class BlockFlesh extends Block
 		{
 			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == BOPItems.wadingBoots.get().itemID)
 			{
 				return;
 			}
@@ -84,7 +84,7 @@ public class BlockFlesh extends Block
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
-		return Items.miscItems.get().itemID;
+		return BOPItems.miscItems.get().itemID;
 	}
 	
 	@Override

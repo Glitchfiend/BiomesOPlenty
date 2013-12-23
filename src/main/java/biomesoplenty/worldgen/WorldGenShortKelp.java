@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenShortKelp extends WorldGenerator
 {
@@ -79,8 +79,8 @@ public class WorldGenShortKelp extends WorldGenerator
 
 					if (var17 == Block.waterStill.blockID || var17 == Block.waterMoving.blockID)
 					{
-						this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 0);
-						this.setBlockAndMetadata(var1, var3, var4 + var16, var5, Blocks.coral.get().blockID, 1);
+						this.setBlockAndMetadata(var1, var3, var4, var5, BOPBlocks.coral.get().blockID, 0);
+						this.setBlockAndMetadata(var1, var3, var4 + var16, var5, BOPBlocks.coral.get().blockID, 1);
 						++var999;
 					}
 				}
@@ -91,12 +91,12 @@ public class WorldGenShortKelp extends WorldGenerator
 					{
 						if (var999 == 0)
 						{
-							this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 3);
+							this.setBlockAndMetadata(var1, var3, var4, var5, BOPBlocks.coral.get().blockID, 3);
 						}
 						else
 						{
-							this.setBlockAndMetadata(var1, var3, var4, var5, Blocks.coral.get().blockID, 0);
-							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, Blocks.coral.get().blockID, 2);
+							this.setBlockAndMetadata(var1, var3, var4, var5, BOPBlocks.coral.get().blockID, 0);
+							this.setBlockAndMetadata(var1, var3, var4 + var999, var5, BOPBlocks.coral.get().blockID, 2);
 						}
 					}
 				

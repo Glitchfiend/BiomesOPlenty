@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenDeadTree3 extends WorldGenerator
 {
@@ -333,19 +333,19 @@ public class WorldGenDeadTree3 extends WorldGenerator
 		 int var4 = basePos[2];
 		 int[] var5 = new int[] {var1, var2, var4};
 		 int[] var6 = new int[] {var1, var3, var4};
-		 this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
+		 this.placeBlockLine(var5, var6, BOPBlocks.logs3.get().blockID);
 
 		 if (trunkSize == 2)
 		 {
 			 ++var5[0];
 			 ++var6[0];
-			 this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
+			 this.placeBlockLine(var5, var6, BOPBlocks.logs3.get().blockID);
 			 ++var5[2];
 			 ++var6[2];
-			 this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
+			 this.placeBlockLine(var5, var6, BOPBlocks.logs3.get().blockID);
 			 var5[0] += -1;
 			 var6[0] += -1;
-			 this.placeBlockLine(var5, var6, Blocks.logs3.get().blockID);
+			 this.placeBlockLine(var5, var6, BOPBlocks.logs3.get().blockID);
 		 }
 	 }
 
@@ -366,7 +366,7 @@ public class WorldGenDeadTree3 extends WorldGenerator
 
 			 if (this.leafNodeNeedsBase(var6))
 			 {
-				 this.placeBlockLine(var3, var5, Blocks.logs3.get().blockID);
+				 this.placeBlockLine(var3, var5, BOPBlocks.logs3.get().blockID);
 			 }
 		 }
 	 }
@@ -441,7 +441,7 @@ public class WorldGenDeadTree3 extends WorldGenerator
 		 int[] var2 = new int[] {basePos[0], basePos[1] + heightLimit - 1, basePos[2]};
 		 int var3 = worldObj.getBlockId(basePos[0], basePos[1] - 1, basePos[2]);
 
-		 if (var3 != 2 && var3 != 3 && var3 != Blocks.holyGrass.get().blockID && var3 != Blocks.driedDirt.get().blockID && var3 != Blocks.redRock.get().blockID)
+		 if (var3 != 2 && var3 != 3 && var3 != BOPBlocks.holyGrass.get().blockID && var3 != BOPBlocks.driedDirt.get().blockID && var3 != BOPBlocks.redRock.get().blockID)
 			 return false;
 		 else
 		 {

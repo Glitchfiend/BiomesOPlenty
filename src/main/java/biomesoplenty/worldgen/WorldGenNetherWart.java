@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationTerrainGen;
 
 public class WorldGenNetherWart extends WorldGenerator
@@ -61,7 +61,7 @@ public class WorldGenNetherWart extends WorldGenerator
 				{
 					if (BOPConfigurationTerrainGen.witherWartGen)
 					{
-						par1World.setBlock(var8, var9, var10, Blocks.plants.get().blockID, 13, 2);
+						par1World.setBlock(var8, var9, var10, BOPBlocks.plants.get().blockID, 13, 2);
 					}
 				}
 			}

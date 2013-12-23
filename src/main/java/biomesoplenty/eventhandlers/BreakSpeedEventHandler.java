@@ -12,7 +12,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BreakSpeedEventHandler 
 {
@@ -43,9 +43,9 @@ public class BreakSpeedEventHandler
 					{
 						Block block = Block.blocksList[world.getBlockId(i, j, k)];
 
-						if (Blocks.shearBlockIds.get(block.blockID) != null)
+						if (BOPBlocks.shearBlockIds.get(block.blockID) != null)
 						{
-							event.newSpeed = Float.parseFloat(Blocks.shearBlockIds.get(block.blockID).toString());
+							event.newSpeed = Float.parseFloat(BOPBlocks.shearBlockIds.get(block.blockID).toString());
 						}
 						else if (block.blockID == Block.web.blockID | block.blockID == Block.leaves.blockID)
 						{

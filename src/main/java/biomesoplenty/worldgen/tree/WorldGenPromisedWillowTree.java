@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenPromisedWillowTree extends WorldGenerator
 {
@@ -77,9 +77,9 @@ public class WorldGenPromisedWillowTree extends WorldGenerator
 			{
 				var8 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if ((var8 == Blocks.holyGrass.get().blockID || var8 == Blocks.holyDirt.get().blockID) && par4 < 128 - var6 - 1)
+				if ((var8 == BOPBlocks.holyGrass.get().blockID || var8 == BOPBlocks.holyDirt.get().blockID) && par4 < 128 - var6 - 1)
 				{
-					this.setBlock(par1World, par3, par4 - 1, par5, Blocks.holyDirt.get().blockID);
+					this.setBlock(par1World, par3, par4 - 1, par5, BOPBlocks.holyDirt.get().blockID);
 					int var13;
 					int var16;
 

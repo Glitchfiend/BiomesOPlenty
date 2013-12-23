@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.biomes.BiomeDecoratorBOP;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 
@@ -50,7 +50,7 @@ public class BiomeGenDesertNew extends BiomeGenBase implements IWCFog
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 2, 2);
+				par1World.setBlock(var77, var88, var99, BOPBlocks.amethystOre.get().blockID, 2, 2);
 			}
 		}
 

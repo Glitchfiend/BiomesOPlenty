@@ -2,30 +2,30 @@ package biomesoplenty.integration;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class TreeCapitatorIntegration
 {
     public static void init()
     {
-        int logs1 = Blocks.logs1.get().blockID;
-        int logs2 = Blocks.logs2.get().blockID;
-        int logs3 = Blocks.logs3.get().blockID;
-        int logs4 = Blocks.logs4.get().blockID;
-        int leavesColorized1 = Blocks.leavesColorized1.get().blockID;
-        int leavesColorized2 = Blocks.leavesColorized2.get().blockID;
-        int leavesColorized3 = Blocks.leavesColorized3.get().blockID;
-        int leavesColorized4 = Blocks.leavesColorized4.get().blockID;
-        int leaves1 = Blocks.leaves1.get().blockID;
-        int leaves2 = Blocks.leaves2.get().blockID;
-        int leaves3 = Blocks.leaves3.get().blockID;
-        int leaves4 = Blocks.leaves4.get().blockID;
+        int logs1 = BOPBlocks.logs1.get().blockID;
+        int logs2 = BOPBlocks.logs2.get().blockID;
+        int logs3 = BOPBlocks.logs3.get().blockID;
+        int logs4 = BOPBlocks.logs4.get().blockID;
+        int leavesColorized1 = BOPBlocks.leavesColorized1.get().blockID;
+        int leavesColorized2 = BOPBlocks.leavesColorized2.get().blockID;
+        int leavesColorized3 = BOPBlocks.leavesColorized3.get().blockID;
+        int leavesColorized4 = BOPBlocks.leavesColorized4.get().blockID;
+        int leaves1 = BOPBlocks.leaves1.get().blockID;
+        int leaves2 = BOPBlocks.leaves2.get().blockID;
+        int leaves3 = BOPBlocks.leaves3.get().blockID;
+        int leaves4 = BOPBlocks.leaves4.get().blockID;
         
         NBTTagCompound tpModCfg = new NBTTagCompound();
         tpModCfg.setString("modID", "BiomesOPlenty");
-        tpModCfg.setString("axeIDList", Items.axeAmethyst.get().itemID + "; " + Items.axeMud.get().itemID);
+        tpModCfg.setString("axeIDList", BOPItems.axeAmethyst.get().itemID + "; " + BOPItems.axeMud.get().itemID);
         
         NBTTagList treeList = new NBTTagList();
         
@@ -38,7 +38,7 @@ public class TreeCapitatorIntegration
         tree.setString("treeName", "vanilla_oak");
         tree.setString("logs", "");
         tree.setString("leaves", String.format("%d,0; %d,3; %d; %d,0; %d,0; %d,2; 18,2; 18,10",
-                leaves2, leaves2, Blocks.leavesFruit.get().blockID, Blocks.leavesFruit2.get().blockID, leaves2, leaves3));
+                leaves2, leaves2, BOPBlocks.leavesFruit.get().blockID, BOPBlocks.leavesFruit2.get().blockID, leaves2, leaves3));
 
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
@@ -151,7 +151,7 @@ public class TreeCapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "big_flower");
         tree.setString("logs", String.format("%d,3; %d,7; %d,11", logs3, logs3, logs3));
-        tree.setString("leaves", "" + Blocks.petals.get().blockID);
+        tree.setString("leaves", "" + BOPBlocks.petals.get().blockID);
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         

@@ -6,7 +6,7 @@ import java.util.Random;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenWasteland;
 import biomesoplenty.worldgen.WorldGenWasteland2;
@@ -21,8 +21,8 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
     public BiomeGenWasteland(int par1)
     {
         super(par1);
-        topBlock = (byte) Blocks.driedDirt.get().blockID;
-        fillerBlock = (byte) Blocks.driedDirt.get().blockID;
+        topBlock = (byte) BOPBlocks.driedDirt.get().blockID;
+        fillerBlock = (byte) BOPBlocks.driedDirt.get().blockID;
         theBiomeDecorator = new BiomeDecoratorBOP(this);
         customBiomeDecorator = (BiomeDecoratorBOP) theBiomeDecorator;
         customBiomeDecorator.treesPerChunk = 0;

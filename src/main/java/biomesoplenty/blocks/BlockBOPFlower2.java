@@ -17,7 +17,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -170,17 +170,17 @@ public class BlockBOPFlower2 extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.netherrack.blockID || id == Blocks.longGrass.get().blockID || id == Block.stone.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.netherrack.blockID || id == BOPBlocks.longGrass.get().blockID || id == Block.stone.blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
 		if (metadata == 2) // Burning Blossom
-			return id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+			return id == Block.netherrack.blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 		else if (metadata == 6) // Burning Blossom
 			return id == Block.stone.blockID;
 		else
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
@@ -194,13 +194,13 @@ public class BlockBOPFlower2 extends BlockFlower
 			switch (meta)
 			{
 			case 2: // Burning Blossom
-				return id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return id == Block.netherrack.blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 				
 			case 6: // Miner's Delight
 				return id == Block.stone.blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);

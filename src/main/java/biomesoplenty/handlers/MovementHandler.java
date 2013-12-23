@@ -5,7 +5,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class MovementHandler 
 {
@@ -22,7 +22,7 @@ public class MovementHandler
 
 		int blockID = world.getBlockId(x, y, z);
 
-		if (blockID == Blocks.puddle.get().blockID)
+		if (blockID == BOPBlocks.puddle.get().blockID)
 		{
 			if ((entity.motionX > 0 || entity.motionX < 0) || (entity.motionZ > 0 || entity.motionZ < 0))
 			{

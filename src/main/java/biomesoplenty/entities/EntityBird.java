@@ -1,6 +1,6 @@
 package biomesoplenty.entities;
 
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCanyonTree extends WorldGenerator
 {
@@ -49,7 +49,7 @@ public class WorldGenCanyonTree extends WorldGenerator
 
 							Block block = Block.blocksList[var15];
 
-							if (var15 != 0 && (block == null || var15 != Blocks.leavesColorized1.get().blockID))
+							if (var15 != 0 && (block == null || var15 != BOPBlocks.leavesColorized1.get().blockID))
 							{
 								var10 = false;
 							}
@@ -68,9 +68,9 @@ public class WorldGenCanyonTree extends WorldGenerator
 			{
 				var11 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if ((var11 == Blocks.hardDirt.get().blockID) && par4 < 128 - var6 - 1)
+				if ((var11 == BOPBlocks.hardDirt.get().blockID) && par4 < 128 - var6 - 1)
 				{
-					this.setBlock(par1World, par3, par4 - 1, par5, Blocks.hardDirt.get().blockID);
+					this.setBlock(par1World, par3, par4 - 1, par5, BOPBlocks.hardDirt.get().blockID);
 					var18 = 0;
 
 					for (var13 = par4 + var6; var13 >= par4 + var7; --var13)
@@ -88,7 +88,7 @@ public class WorldGenCanyonTree extends WorldGenerator
 								if ((Math.abs(var15) != var18 || Math.abs(var17) != var18 || var18 <= 0) &&
 										(block == null || block.canBeReplacedByLeaves(par1World, var14, var13, var16)))
 								{
-									this.setBlockAndMetadata(par1World, var14, var13, var16, Blocks.leavesColorized1.get().blockID, 0);
+									this.setBlockAndMetadata(par1World, var14, var13, var16, BOPBlocks.leavesColorized1.get().blockID, 0);
 								}
 							}
 						}
@@ -109,9 +109,9 @@ public class WorldGenCanyonTree extends WorldGenerator
 
 						Block block = Block.blocksList[var14];
 
-						if (var14 == 0 || block == null || var14 == Blocks.leavesColorized1.get().blockID)
+						if (var14 == 0 || block == null || var14 == BOPBlocks.leavesColorized1.get().blockID)
 						{
-							this.setBlockAndMetadata(par1World, par3, par4 + var13, par5, Blocks.logs1.get().blockID,0);
+							this.setBlockAndMetadata(par1World, par3, par4 + var13, par5, BOPBlocks.logs1.get().blockID,0);
 						}
 					}
 

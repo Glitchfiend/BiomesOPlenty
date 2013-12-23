@@ -1,10 +1,11 @@
 package biomesoplenty.configuration;
 
 import java.io.File;
-import java.util.logging.Level;
 
-import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.Property;
+import org.apache.logging.log4j.Level;
+
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
@@ -36,7 +37,7 @@ public class BOPConfigurationMain
 		}
 		catch (Exception e)
 		{
-			FMLLog.log(Level.SEVERE, e, "Biomes O Plenty has had a problem loading its configuration");
+			FMLLog.log(Level.ERROR, "Biomes O Plenty has had a problem loading its configuration", e);
 		}
 		finally
 		{

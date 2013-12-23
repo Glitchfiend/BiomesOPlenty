@@ -20,7 +20,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -187,23 +187,23 @@ public class BlockBOPFlower extends BlockFlower
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.sand.blockID || id == BOPBlocks.hardDirt.get().blockID || id == BOPBlocks.redRock.get().blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
 		if (metadata == 6) //Tulip
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.holyGrass.get().blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 		if (metadata == 10) //Lily Flower
 			return id == Block.waterlily.blockID;
 		if (metadata == 11) //Rainbow Flower
-			return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID || id == Block.grass.blockID || id == Block.dirt.blockID;
+			return id == BOPBlocks.holyGrass.get().blockID || id == BOPBlocks.holyDirt.get().blockID || id == Block.grass.blockID || id == Block.dirt.blockID;
 		if (metadata == 12) //Aloe
-			return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+			return id == BOPBlocks.hardDirt.get().blockID || id == BOPBlocks.redRock.get().blockID || id == Block.sand.blockID;
 		if (metadata == 14) //Sunflower Top
 			return id == blockID;
 		else
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
@@ -217,22 +217,22 @@ public class BlockBOPFlower extends BlockFlower
 			switch (meta)
 			{
 			case 6: // Tulip
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.holyGrass.get().blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 
 			case 10: // Lily Flower
 				return id == Block.waterlily.blockID;
 
 			case 11: // Rainbow Flower
-				return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID || id == Block.grass.blockID || id == Block.dirt.blockID;
+				return id == BOPBlocks.holyGrass.get().blockID || id == BOPBlocks.holyDirt.get().blockID || id == Block.grass.blockID || id == Block.dirt.blockID;
 
 			case 12: // Aloe
-				return id == Blocks.hardDirt.get().blockID || id == Blocks.redRock.get().blockID || id == Block.sand.blockID;
+				return id == BOPBlocks.hardDirt.get().blockID || id == BOPBlocks.redRock.get().blockID || id == Block.sand.blockID;
 
 			case 14: // Sunflower Top
 				return id == blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);

@@ -28,8 +28,8 @@ import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -127,12 +127,12 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 				return ret;
 
 			if (world.rand.nextInt(2) == 0) {
-				ret.add(new ItemStack(Items.turnipseeds.get(),1));
+				ret.add(new ItemStack(BOPItems.turnipseeds.get(),1));
 			}
 			break;
 			
 		case 8:
-		    ret.add(new ItemStack(Items.food.get(), 1, 0));
+		    ret.add(new ItemStack(BOPItems.food.get(), 1, 0));
 		    break;
 		}
 
@@ -152,7 +152,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 			return id == Block.waterStill.blockID;
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
@@ -161,7 +161,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.longGrass.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
@@ -171,7 +171,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		else if (metadata == ALGAE)
 			return blockID == Block.waterStill.blockID;
 		else
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.overgrownNetherrack.get().blockID;
+			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == BOPBlocks.longGrass.get().blockID || blockID == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
@@ -374,7 +374,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		if (meta == 8)
 		{
 			world.setBlock(x, y, z, blockID, 4, 3);
-			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.food.get(), 1, 0));
+			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 0));
 			if (!world.isRemote) {
 				world.spawnEntityInWorld(entityitem);
 				if (!(player instanceof FakePlayer))
@@ -409,7 +409,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		} 
 		else if (world.getBlockMetadata(x, y, z) == 8) 
 		{
-			ret.add(new ItemStack(Blocks.foliage.get(), 1, 4));
+			ret.add(new ItemStack(BOPBlocks.foliage.get(), 1, 4));
 		} 
 		else 
 		{

@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree;
 
@@ -21,8 +21,8 @@ public class BiomeGenQuagmire extends BiomeGenBase implements IWCFog
 		super(par1);
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
-		topBlock = (byte)Blocks.mud.get().blockID;
-		fillerBlock = (byte)Blocks.mud.get().blockID;
+		topBlock = (byte)BOPBlocks.mud.get().blockID;
+		fillerBlock = (byte)BOPBlocks.mud.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 0;
@@ -54,7 +54,7 @@ public class BiomeGenQuagmire extends BiomeGenBase implements IWCFog
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 10, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 10, 2);
 			}
 		}
 	}

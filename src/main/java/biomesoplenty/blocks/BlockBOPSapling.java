@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenNetherBush;
 import biomesoplenty.worldgen.tree.WorldGenApple;
 import biomesoplenty.worldgen.tree.WorldGenAutumn;
@@ -86,7 +86,7 @@ public class BlockBOPSapling extends BlockSapling
 			switch (meta)
 			{
 			case 7: // Loftwood
-			return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID;
+			return id == BOPBlocks.holyGrass.get().blockID || id == BOPBlocks.holyDirt.get().blockID;
 
 			default:
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
@@ -98,7 +98,7 @@ public class BlockBOPSapling extends BlockSapling
 	protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
 	{
 		if (metadata == 7) //Loftwood
-			return blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
+			return blockID == BOPBlocks.holyGrass.get().blockID || blockID == BOPBlocks.holyDirt.get().blockID;
 		else
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
 	}
@@ -112,7 +112,7 @@ public class BlockBOPSapling extends BlockSapling
 					(soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this));
 		else
 			return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) &&
-					(soil != null && (soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this) || soil.blockID == Blocks.holyGrass.get().blockID));
+					(soil != null && (soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this) || soil.blockID == BOPBlocks.holyGrass.get().blockID));
 	}
 
 	@Override

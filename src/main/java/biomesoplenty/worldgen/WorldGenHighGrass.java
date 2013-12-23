@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenHighGrass extends WorldGenerator
 {
@@ -37,8 +37,8 @@ public class WorldGenHighGrass extends WorldGenerator
 
 			if (par1World.isAirBlock(var8, var9, var10) && Block.blocksList[tallGrassID].canBlockStay(par1World, var8, var9, var10))
 			{
-				par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 3, 2);
-				par1World.setBlock(var8, var9 + 1, var10, Blocks.foliage.get().blockID, 6, 2);
+				par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 3, 2);
+				par1World.setBlock(var8, var9 + 1, var10, BOPBlocks.foliage.get().blockID, 6, 2);
 			}
 		}
 

@@ -15,7 +15,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.configuration.BOPConfigurationIDs;
 import biomesoplenty.entities.EntityPixie;
 import cpw.mods.fml.relauncher.Side;
@@ -116,12 +116,12 @@ public class ItemJarFilled extends Item
 
                         if (itemStack.stackSize <= 0)
                         {
-                            itemStack = new ItemStack(Items.jarEmpty.get(), 1, 0);
+                            itemStack = new ItemStack(BOPItems.jarEmpty.get(), 1, 0);
                         }
 
-                        if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.jarEmpty.get(), 1, 0)))
+                        if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(BOPItems.jarEmpty.get(), 1, 0)))
                         {
-                            entityPlayer.dropPlayerItem(new ItemStack(Items.jarEmpty.get(), 1, 0));
+                            entityPlayer.dropPlayerItem(new ItemStack(BOPItems.jarEmpty.get(), 1, 0));
                         }
                     }
 

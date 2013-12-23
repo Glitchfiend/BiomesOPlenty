@@ -4,7 +4,9 @@ import net.minecraft.item.Item;
 
 import com.google.common.base.Optional;
 
-public class Items
+import cpw.mods.fml.common.registry.GameRegistry;
+
+public class BOPItems
 {
 	public static Optional<? extends Item> bopDisc              = Optional.absent();
 	public static Optional<? extends Item> bopDiscMud           = Optional.absent();
@@ -53,4 +55,9 @@ public class Items
 	public static Optional<? extends Item> flowerBand           = Optional.absent();
 	public static Optional<? extends Item> wadingBoots          = Optional.absent();
 	public static Optional<? extends Item> flippers		        = Optional.absent();
+	
+	public static Item get(String name)
+	{
+		return GameRegistry.findItem("BiomesOPlenty", name);
+	}
 }

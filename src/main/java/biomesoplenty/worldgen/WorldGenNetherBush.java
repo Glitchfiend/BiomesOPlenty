@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenNetherBush extends WorldGenerator
 {
@@ -20,7 +20,7 @@ public class WorldGenNetherBush extends WorldGenerator
 		int var6 = var1.getBlockId(var3, var4, var5);
 		int var99 = var1.getBlockId(var3, var4 + 1, var5);
 
-		if (var6 != Block.netherrack.blockID && var6 != Blocks.overgrownNetherrack.get().blockID && var99 != 0)
+		if (var6 != Block.netherrack.blockID && var6 != BOPBlocks.overgrownNetherrack.get().blockID && var99 != 0)
 			return false;
 		else
 		{
@@ -34,13 +34,13 @@ public class WorldGenNetherBush extends WorldGenerator
 			}
 
 			var1.setBlock(var3, var4, var5, Block.netherrack.blockID);
-			this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.logs4.get().blockID, 1);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5, Blocks.logs4.get().blockID, 1);
-			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, Blocks.leaves4.get().blockID, 0);
-			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, Blocks.leaves4.get().blockID, 0);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, Blocks.leaves4.get().blockID, 0);
-			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, Blocks.leaves4.get().blockID, 0);
-			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, Blocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 1, var5, BOPBlocks.logs4.get().blockID, 1);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5, BOPBlocks.logs4.get().blockID, 1);
+			this.setBlockAndMetadata(var1, var3 + 1, var4 + 2, var5, BOPBlocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3 - 1, var4 + 2, var5, BOPBlocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 + 1, BOPBlocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 2, var5 - 1, BOPBlocks.leaves4.get().blockID, 0);
+			this.setBlockAndMetadata(var1, var3, var4 + 3, var5, BOPBlocks.leaves4.get().blockID, 0);
 			return true;
 		}
 	}

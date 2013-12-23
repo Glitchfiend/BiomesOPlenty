@@ -12,7 +12,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.tree.WorldGenOminous1;
 import biomesoplenty.worldgen.tree.WorldGenOminous3;
@@ -67,7 +67,7 @@ public class BiomeGenOminousWoodsThick extends BiomeGenBase implements IWCFog
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(6) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
+		return par1Random.nextInt(6) == 0 ? new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 1) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 2);
 	}
 
 	/**

@@ -10,7 +10,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -52,7 +52,7 @@ public class BlockCloud extends Block
 		{
 			InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
 
-			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == BOPItems.wadingBoots.get().itemID)
 			{
 				return;
 			}

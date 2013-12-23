@@ -8,7 +8,7 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
 import worldcore.interfaces.IWCLighting;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationIDs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -66,7 +66,7 @@ public class WorldProviderPromised extends WorldProvider implements IWCLighting
 	public boolean canCoordinateBeSpawn(int par1, int par2)
 	{
 		int var3 = worldObj.getFirstUncoveredBlock(par1, par2);
-		return var3 == Blocks.holyGrass.get().blockID;
+		return var3 == BOPBlocks.holyGrass.get().blockID;
 	}
 
 	@Override

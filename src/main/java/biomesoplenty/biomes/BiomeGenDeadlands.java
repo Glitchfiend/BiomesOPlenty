@@ -12,7 +12,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenDeadlands;
 
@@ -25,8 +25,8 @@ public class BiomeGenDeadlands extends BiomeGenBase implements IWCFog
 	public BiomeGenDeadlands(int par1)
 	{
 		super(par1);
-		topBlock = (byte)Blocks.ash.get().blockID;
-		fillerBlock = (byte)Blocks.ash.get().blockID;
+		topBlock = (byte)BOPBlocks.ash.get().blockID;
+		fillerBlock = (byte)BOPBlocks.ash.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;

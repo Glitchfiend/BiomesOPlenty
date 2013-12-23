@@ -4,17 +4,17 @@ import java.util.Random;
 
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenPromisedLandPortal extends WorldGenerator
 {
 	@Override
 	public boolean generate(World var1, Random var2, int var3, int var4, int var5)
 	{
-		var1.setBlock(0, 64, 0, Blocks.promisedPortal.get().blockID);
-		var1.setBlock(0, 64, 1, Blocks.promisedPortal.get().blockID);
-		var1.setBlock(1, 64, 0, Blocks.promisedPortal.get().blockID);
-		var1.setBlock(0, 64, 1, Blocks.promisedPortal.get().blockID);
+		var1.setBlock(0, 64, 0, BOPBlocks.promisedPortal.get().blockID);
+		var1.setBlock(0, 64, 1, BOPBlocks.promisedPortal.get().blockID);
+		var1.setBlock(1, 64, 0, BOPBlocks.promisedPortal.get().blockID);
+		var1.setBlock(0, 64, 1, BOPBlocks.promisedPortal.get().blockID);
 		var1.setBlock(0, 65, 0, 0);
 		var1.setBlock(0, 65, 1, 0);
 		var1.setBlock(1, 65, 0, 0);

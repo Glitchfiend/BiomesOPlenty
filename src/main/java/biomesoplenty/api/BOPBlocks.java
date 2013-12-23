@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.BlockSlab;
 
 import com.google.common.base.Optional;
 
-public class Blocks
+public class BOPBlocks
 {
 	// Worldgen Blocks
 	public static Optional<? extends Block> ash                         = Optional.absent();
@@ -56,12 +56,12 @@ public class Blocks
 	public static Optional<? extends Block> jacarandaStairs             = Optional.absent();
 
 	// Slabs
-	public static Optional<? extends BlockHalfSlab> woodenSingleSlab1   = Optional.absent();
-	public static Optional<? extends BlockHalfSlab> woodenDoubleSlab1   = Optional.absent();
-	public static Optional<? extends BlockHalfSlab> woodenSingleSlab2   = Optional.absent();
-	public static Optional<? extends BlockHalfSlab> woodenDoubleSlab2   = Optional.absent();
-	public static Optional<? extends BlockHalfSlab> stoneSingleSlab     = Optional.absent();
-	public static Optional<? extends BlockHalfSlab> stoneDoubleSlab     = Optional.absent();
+	public static Optional<? extends BlockSlab> woodenSingleSlab1   = Optional.absent();
+	public static Optional<? extends BlockSlab> woodenDoubleSlab1   = Optional.absent();
+	public static Optional<? extends BlockSlab> woodenSingleSlab2   = Optional.absent();
+	public static Optional<? extends BlockSlab> woodenDoubleSlab2   = Optional.absent();
+	public static Optional<? extends BlockSlab> stoneSingleSlab     = Optional.absent();
+	public static Optional<? extends BlockSlab> stoneDoubleSlab     = Optional.absent();
 
 	// Plants
 	public static Optional<? extends Block> flowers                     = Optional.absent();

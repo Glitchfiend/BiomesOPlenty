@@ -5,7 +5,7 @@ import java.util.Random;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenVolcano;
 
@@ -17,8 +17,8 @@ public class BiomeGenVolcano extends BiomeGenBase
 	{
 		super(par1);
 		spawnableCreatureList.clear();
-		topBlock = (byte)Blocks.ashStone.get().blockID;
-		fillerBlock = (byte)Blocks.ashStone.get().blockID;
+		topBlock = (byte)BOPBlocks.ashStone.get().blockID;
+		fillerBlock = (byte)BOPBlocks.ashStone.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 0;

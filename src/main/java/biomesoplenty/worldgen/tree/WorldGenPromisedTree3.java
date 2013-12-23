@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenPromisedTree3 extends WorldGenerator
 {
@@ -74,18 +74,18 @@ public class WorldGenPromisedTree3 extends WorldGenerator
 				var13 = var1.getBlockId(var3, var4 - 1, var5 - 1);
 				var14 = var1.getBlockId(var3 - 1, var4 - 1, var5 - 1);
 
-				if ((var11 == Blocks.holyGrass.get().blockID || var11 == Blocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
+				if ((var11 == BOPBlocks.holyGrass.get().blockID || var11 == BOPBlocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
 				{
-					if ((var24 == Blocks.holyGrass.get().blockID || var24 == Blocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
+					if ((var24 == BOPBlocks.holyGrass.get().blockID || var24 == BOPBlocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
 					{
-						if ((var13 == Blocks.holyGrass.get().blockID || var13 == Blocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
+						if ((var13 == BOPBlocks.holyGrass.get().blockID || var13 == BOPBlocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
 						{
-							if ((var14 == Blocks.holyGrass.get().blockID | var14 == Blocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
+							if ((var14 == BOPBlocks.holyGrass.get().blockID | var14 == BOPBlocks.holyDirt.get().blockID) && var4 < 256 - var6 - 1)
 							{
-								var1.setBlock(var3, var4 - 1, var5, Blocks.holyDirt.get().blockID, 0, 2);
-								var1.setBlock(var3 - 1, var4 - 1, var5, Blocks.holyDirt.get().blockID, 0, 2);
-								var1.setBlock(var3, var4 - 1, var5 - 1, Blocks.holyDirt.get().blockID, 0, 2);
-								var1.setBlock(var3 - 1, var4 - 1, var5 - 1, Blocks.holyDirt.get().blockID, 0, 2);
+								var1.setBlock(var3, var4 - 1, var5, BOPBlocks.holyDirt.get().blockID, 0, 2);
+								var1.setBlock(var3 - 1, var4 - 1, var5, BOPBlocks.holyDirt.get().blockID, 0, 2);
+								var1.setBlock(var3, var4 - 1, var5 - 1, BOPBlocks.holyDirt.get().blockID, 0, 2);
+								var1.setBlock(var3 - 1, var4 - 1, var5 - 1, BOPBlocks.holyDirt.get().blockID, 0, 2);
 								var15 = var2.nextInt(2);
 								int var16 = 1;
 								boolean var17 = false;

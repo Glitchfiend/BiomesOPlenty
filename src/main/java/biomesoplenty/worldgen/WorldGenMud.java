@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenMud extends WorldGenerator
 {
@@ -47,7 +47,7 @@ public class WorldGenMud extends WorldGenerator
 
 							if (var13 == Block.dirt.blockID || var13 == Block.grass.blockID)
 							{
-								par1World.setBlock(var8, var12, var9, Blocks.mud.get().blockID);
+								par1World.setBlock(var8, var12, var9, BOPBlocks.mud.get().blockID);
 							}
 						}
 					}

@@ -10,7 +10,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.worldgen.tree.WorldGenMassiveTree;
@@ -62,7 +62,7 @@ public class BiomeGenSacredSprings extends BiomeGenBase implements IWCFog
             if (var100 == Block.stone.blockID)
             {
                 par1World.setBlock(var77, var88, var99,
-                        Blocks.amethystOre.get().blockID, 12, 2);
+                        BOPBlocks.amethystOre.get().blockID, 12, 2);
             }
         }
 

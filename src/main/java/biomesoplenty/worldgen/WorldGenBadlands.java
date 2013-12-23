@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenBadlands extends WorldGenerator
 {
@@ -64,7 +64,7 @@ public class WorldGenBadlands extends WorldGenerator
 							{
 								double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
 
-								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Block.hardenedClay.blockID || par1World.getBlockId(var38, var41, var44) == Blocks.holyGrass.get().blockID)
+								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && par1World.getBlockId(var38, var41, var44) == Block.hardenedClay.blockID || par1World.getBlockId(var38, var41, var44) == BOPBlocks.holyGrass.get().blockID)
 								{
 									par1World.setBlock(var38, var41, var44, minableBlockId, 14, 2);
 								}

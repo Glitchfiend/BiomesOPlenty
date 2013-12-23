@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -275,7 +275,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
         @Override
         public int idDropped(int par1, Random par2Random, int par3)
         {
-                return Blocks.saplings.get().blockID;
+                return BOPBlocks.saplings.get().blockID;
         }
 
         @Override

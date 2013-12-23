@@ -11,7 +11,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.entities.EntityJungleSpider;
 import biomesoplenty.worldgen.tree.WorldGenRainforest1;
@@ -66,7 +66,7 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase implements IWCFog
                             var9, Block.stone.blockID))
             {
                 par1World.setBlock(var7, var8, var9,
-                        Blocks.amethystOre.get().blockID, 6, 2);
+                        BOPBlocks.amethystOre.get().blockID, 6, 2);
             }
         }
     }

@@ -5,7 +5,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 
 public class ItemBOPPickaxe extends ItemPickaxe
 {
@@ -21,7 +21,7 @@ public class ItemBOPPickaxe extends ItemPickaxe
 	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
 	{
-		if (textureID == 1 && par2ItemStack.itemID == Items.miscItems.get().itemID && par2ItemStack.getItemDamage() == 2)
+		if (textureID == 1 && par2ItemStack.itemID == BOPItems.miscItems.get().itemID && par2ItemStack.getItemDamage() == 2)
 		{
 			return true;
 		}

@@ -16,8 +16,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -145,9 +145,9 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
             world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
         }
         
-        if (world.getBlockId(x, y, z) == Blocks.leaves1.get().blockID && world.getBlockMetadata(x, y, z) == 2)
+        if (world.getBlockId(x, y, z) == BOPBlocks.leaves1.get().blockID && world.getBlockMetadata(x, y, z) == 2)
         {
-            if (!(world.getBlockId(x, y - 1, z) == Blocks.leaves1.get().blockID && world.getBlockMetadata(x, y - 1, z) == 2))
+            if (!(world.getBlockId(x, y - 1, z) == BOPBlocks.leaves1.get().blockID && world.getBlockMetadata(x, y - 1, z) == 2))
             {
             	if (random.nextInt(5) == 0)
             	{
@@ -336,7 +336,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     @Override
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return Blocks.saplings.get().blockID;
+        return BOPBlocks.saplings.get().blockID;
     }
 
     @Override
@@ -352,7 +352,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         }
 
         if (((meta & 3) == 0 || (meta & 3) == 4 || (meta & 3) == 7) && (world.rand.nextInt(50) == 0)) {
-            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+            this.dropBlockAsItem_do(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 8));
         }
     }
 

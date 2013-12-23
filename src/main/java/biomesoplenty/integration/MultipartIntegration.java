@@ -1,13 +1,9 @@
 package biomesoplenty.integration;
 
-import net.minecraft.block.Block;
-import biomesoplenty.api.Blocks;
-import codechicken.microblock.BlockMicroMaterial;
-import codechicken.microblock.MicroMaterialRegistry;
 
 public class MultipartIntegration
 {
-	protected static void init()
+	/*protected static void init()
 	{
 		addMicroblock(Blocks.mud.get(), 0, 1);
 		addMicroblock(Blocks.driedDirt.get());
@@ -56,5 +52,5 @@ public class MultipartIntegration
         {
             MicroMaterialRegistry.registerMaterial(new BlockMicroMaterial(b, i), b.getUnlocalizedName() + "." + i);
         }
-    }
+    }*/
 }

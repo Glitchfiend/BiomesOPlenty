@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockGrave extends Block
@@ -56,18 +56,18 @@ public class BlockGrave extends Block
 	@Override
     public void onNeighborBlockChange(World world, int x, int y, int z, int neighbourID) 
 	{
-		if (neighbourID == Blocks.grave.get().blockID)
+		if (neighbourID == BOPBlocks.grave.get().blockID)
 		{
 			if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 2)
 			{
-				if (world.getBlockId(x, y + 1, z) != Blocks.grave.get().blockID)
+				if (world.getBlockId(x, y + 1, z) != BOPBlocks.grave.get().blockID)
 				{
 		            world.destroyBlock(x, y, z, true);
 				}
 			}
 			else
 			{
-				if (world.getBlockId(x, y - 1, z) != Blocks.grave.get().blockID)
+				if (world.getBlockId(x, y - 1, z) != BOPBlocks.grave.get().blockID)
 				{
 		            world.destroyBlock(x, y, z, true);
 				}
@@ -80,8 +80,8 @@ public class BlockGrave extends Block
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		if (meta == 0) ret.add(new ItemStack(Blocks.grave.get(), 1));
-		else if (meta == 2) ret.add(new ItemStack(Blocks.grave.get(), 1));
+		if (meta == 0) ret.add(new ItemStack(BOPBlocks.grave.get(), 1));
+		else if (meta == 2) ret.add(new ItemStack(BOPBlocks.grave.get(), 1));
 
 		return ret;
 	}

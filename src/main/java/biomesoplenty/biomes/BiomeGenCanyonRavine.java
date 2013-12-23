@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenCanyonShrub;
 import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
@@ -20,8 +20,8 @@ public class BiomeGenCanyonRavine extends BiomeGenBase
 		spawnableCreatureList.clear();
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		topBlock = (byte)Blocks.hardDirt.get().blockID;
-		fillerBlock = (byte)Blocks.hardDirt.get().blockID;
+		topBlock = (byte)BOPBlocks.hardDirt.get().blockID;
+		fillerBlock = (byte)BOPBlocks.hardDirt.get().blockID;
 		customBiomeDecorator.treesPerChunk = 4;
 		customBiomeDecorator.flowersPerChunk = -999;
 		customBiomeDecorator.canyonGrassPerChunk = 3;
@@ -56,7 +56,7 @@ public class BiomeGenCanyonRavine extends BiomeGenBase
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 2, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 2, 2);
 			}
 		}
 	}

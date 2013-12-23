@@ -5,9 +5,9 @@ import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import biomesoplenty.api.BlockReferences;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.api.Fluids;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.blocks.BlockBOPAmethyst;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
@@ -15,9 +15,9 @@ public class ThaumcraftIntegration {
 
 	public static void init()
 	{
-		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.leavesFruit.get(), 1, 3));
-		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.leavesFruit.get(), 1, 11));
-		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(Blocks.foliage.get(), 1, 8));
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(BOPBlocks.leavesFruit.get(), 1, 3));
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(BOPBlocks.leavesFruit.get(), 1, 11));
+		FMLInterModComms.sendMessage("Thaumcraft", "harvestClickableCrop", new ItemStack(BOPBlocks.foliage.get(), 1, 8));
 	}
 	
 	public static void postInit()
@@ -144,37 +144,37 @@ public class ThaumcraftIntegration {
 		
 		for (int i = 10; i < 15; i++)
 		{
-			ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, i, (new AspectList()).add(Aspect.GREED, 4).add(Aspect.CRYSTAL, 8));
+			ThaumcraftApi.registerObjectTag(BOPItems.miscItems.get().itemID, i, (new AspectList()).add(Aspect.GREED, 4).add(Aspect.CRYSTAL, 8));
 		}
 		
 		String[] oreTypes = BlockBOPAmethyst.types;
 		
 		for (int i = 2; i < oreTypes.length; i+=2)
 		{
-			ThaumcraftApi.registerObjectTag(Blocks.amethystOre.get().blockID, i, (new AspectList()).add(Aspect.GREED, 3).add(Aspect.CRYSTAL, 7).add(Aspect.STONE, 4));
+			ThaumcraftApi.registerObjectTag(BOPBlocks.amethystOre.get().blockID, i, (new AspectList()).add(Aspect.GREED, 3).add(Aspect.CRYSTAL, 7).add(Aspect.STONE, 4));
 		}
 
 		//Items
 		/*Amethyst*/
-		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 2, (new AspectList()).add(Aspect.GREED, 8).add(Aspect.ORDER, 8).add(Aspect.CRYSTAL, 8));
+		ThaumcraftApi.registerObjectTag(BOPItems.miscItems.get().itemID, 2, (new AspectList()).add(Aspect.GREED, 8).add(Aspect.ORDER, 8).add(Aspect.CRYSTAL, 8));
 		/*Ashes*/
-		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 1, (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
+		ThaumcraftApi.registerObjectTag(BOPItems.miscItems.get().itemID, 1, (new AspectList()).add(Aspect.ENTROPY, 1).add(Aspect.EXCHANGE, 1));
 		/*Celestial Crystal Shard*/
-		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 4, (new AspectList()).add(Aspect.CRYSTAL, 8).add(Aspect.LIGHT, 2).add(Aspect.MAGIC, 2).add(Aspect.GREED, 4));
+		ThaumcraftApi.registerObjectTag(BOPItems.miscItems.get().itemID, 4, (new AspectList()).add(Aspect.CRYSTAL, 8).add(Aspect.LIGHT, 2).add(Aspect.MAGIC, 2).add(Aspect.GREED, 4));
 		/*Mudbrick*/
-		ThaumcraftApi.registerObjectTag(Items.miscItems.get().itemID, 0, (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 1));
+		ThaumcraftApi.registerObjectTag(BOPItems.miscItems.get().itemID, 0, (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 1));
 		/*Dart*/
-		ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 0, (new AspectList()).add(Aspect.WEAPON, 1));
+		ThaumcraftApi.registerObjectTag(BOPItems.dart.get().itemID, 0, (new AspectList()).add(Aspect.WEAPON, 1));
 		/*Poison Dart*/
-		ThaumcraftApi.registerObjectTag(Items.dart.get().itemID, 1, (new AspectList()).add(Aspect.PLANT, 2).add(Aspect.WEAPON, 2));
+		ThaumcraftApi.registerObjectTag(BOPItems.dart.get().itemID, 1, (new AspectList()).add(Aspect.PLANT, 2).add(Aspect.WEAPON, 2));
 		/*Spring Water Bucket*/
 		ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 0, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 4).add(Aspect.LIFE, 2).add(Aspect.HEAL, 4));
 		/*Liquid Poison Bucket*/
 		ThaumcraftApi.registerObjectTag(Fluids.bopBucket.get().itemID, 1, (new AspectList()).add(Aspect.METAL, 13).add(Aspect.VOID, 1).add(Aspect.WATER, 2).add(Aspect.WEAPON, 4).add(Aspect.POISON, 4));
-		ThaumcraftApi.registerObjectTag(Items.food.get().itemID, 0, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
-		ThaumcraftApi.registerObjectTag(Items.mudball.get().itemID, 0, (new AspectList()).add(Aspect.WATER, 1).add(Aspect.EARTH, 2));
-		ThaumcraftApi.registerObjectTag(Items.bopDisc.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.CROP, 4));
-		ThaumcraftApi.registerObjectTag(Items.bopDiscMud.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.EARTH, 2).add(Aspect.WATER, 2));
+		ThaumcraftApi.registerObjectTag(BOPItems.food.get().itemID, 0, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));
+		ThaumcraftApi.registerObjectTag(BOPItems.mudball.get().itemID, 0, (new AspectList()).add(Aspect.WATER, 1).add(Aspect.EARTH, 2));
+		ThaumcraftApi.registerObjectTag(BOPItems.bopDisc.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.CROP, 4));
+		ThaumcraftApi.registerObjectTag(BOPItems.bopDiscMud.get().itemID, -1, (new AspectList()).add(Aspect.SENSES, 12).add(Aspect.GREED, 4).add(Aspect.EARTH, 2).add(Aspect.WATER, 2));
 
 		//Placer Items
 		ThaumcraftApi.registerObjectTag(getBID("barley"), getBMeta("barley"), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1));

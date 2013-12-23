@@ -9,8 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.core.BOPItems;
 
 public class ItemBOPScythe extends Item
@@ -144,7 +144,7 @@ public class ItemBOPScythe extends Item
 							stack.damageItem(1, entity);
 						}
     					
-    					if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
+    					if (block.blockID == BOPBlocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
     					{
     						if (meta == 1)
     						{
@@ -154,7 +154,7 @@ public class ItemBOPScythe extends Item
     						else if (meta == 2)
     						{
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 1, 2);
+    							world.setBlock(x + aX, y + aY, z + aZ, BOPBlocks.foliage.get().blockID, 1, 2);
     						}
     						else if (meta == 6)
     						{
@@ -165,7 +165,7 @@ public class ItemBOPScythe extends Item
     					else if (block.blockID == Block.tallGrass.blockID)
     					{
     						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 2, 2);
+    						world.setBlock(x + aX, y + aY, z + aZ, BOPBlocks.foliage.get().blockID, 2, 2);
     					}
     					else if (block.blockID != Block.waterlily.blockID && block instanceof BlockFlower)
     					{
@@ -271,7 +271,7 @@ public class ItemBOPScythe extends Item
     							stack.damageItem(1, entity);
     						}
     						
-    						if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
+    						if (block.blockID == BOPBlocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
     						{
     							if (meta == 1)
     							{
@@ -281,7 +281,7 @@ public class ItemBOPScythe extends Item
     							else if (meta == 2)
     							{
     								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 1, 2);
+    								world.setBlock(x + aX, y + aY, z + aZ, BOPBlocks.foliage.get().blockID, 1, 2);
     							}
     							else if (meta == 6)
     							{
@@ -292,7 +292,7 @@ public class ItemBOPScythe extends Item
     						else if (block.blockID == Block.tallGrass.blockID)
     						{
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 2, 2);
+    							world.setBlock(x + aX, y + aY, z + aZ, BOPBlocks.foliage.get().blockID, 2, 2);
     						}
     						else if (block.blockID != Block.waterlily.blockID && block instanceof BlockFlower)
     						{
@@ -311,9 +311,9 @@ public class ItemBOPScythe extends Item
 	{
 		float strength = 0;
 
-		if (Blocks.shearBlockIds.get(par2Block.blockID) != null)
+		if (BOPBlocks.shearBlockIds.get(par2Block.blockID) != null)
 		{
-			strength = Float.parseFloat(Blocks.shearBlockIds.get(par2Block.blockID).toString());
+			strength = Float.parseFloat(BOPBlocks.shearBlockIds.get(par2Block.blockID).toString());
 		}
 		else
 		{
@@ -352,7 +352,7 @@ public class ItemBOPScythe extends Item
 		{
 			return true;
 		}
-		if (textureID == 6 && par2ItemStack.itemID == Items.miscItems.get().itemID && par2ItemStack.getItemDamage() == 2)
+		if (textureID == 6 && par2ItemStack.itemID == BOPItems.miscItems.get().itemID && par2ItemStack.getItemDamage() == 2)
 		{
 			return true;
 		}

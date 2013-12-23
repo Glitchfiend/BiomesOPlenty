@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenLilyflower extends WorldGenerator
 {
@@ -21,7 +21,7 @@ public class WorldGenLilyflower extends WorldGenerator
 			if (par1World.isAirBlock(i1, j1, k1) && Block.waterlily.canPlaceBlockAt(par1World, i1, j1, k1))
 			{
 				par1World.setBlock(i1, j1, k1, Block.waterlily.blockID, 0, 2);
-				par1World.setBlock(i1, j1 + 1, k1, Blocks.flowers.get().blockID, 10, 2);
+				par1World.setBlock(i1, j1 + 1, k1, BOPBlocks.flowers.get().blockID, 10, 2);
 			}
 		}
 

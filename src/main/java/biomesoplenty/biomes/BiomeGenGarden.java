@@ -8,7 +8,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.entities.EntityRosester;
 import biomesoplenty.worldgen.WorldGenBOPShrub;
 import biomesoplenty.worldgen.WorldGenGiantFlowerRed;
@@ -22,7 +22,7 @@ public class BiomeGenGarden extends BiomeGenBase
 	public BiomeGenGarden(int par1)
 	{
 		super(par1);
-		topBlock = (byte)Blocks.longGrass.get().blockID;
+		topBlock = (byte)BOPBlocks.longGrass.get().blockID;
 		fillerBlock = (byte)Block.dirt.blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
@@ -63,7 +63,7 @@ public class BiomeGenGarden extends BiomeGenBase
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 4, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 4, 2);
 			}
 		}
 	}
@@ -74,7 +74,7 @@ public class BiomeGenGarden extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2)));
+		return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 1) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 2)));
 	}
 
 	/**

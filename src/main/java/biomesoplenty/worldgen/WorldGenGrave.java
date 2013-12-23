@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenGrave extends WorldGenerator
 {
@@ -40,13 +40,13 @@ public class WorldGenGrave extends WorldGenerator
 			{
 				if (var999 == 0 || var999 == 1)
 				{
-					var1.setBlock(var3, var4 + 1, var5, Blocks.grave.get().blockID, 0, 2);
-					var1.setBlock(var3, var4 + 2, var5, Blocks.grave.get().blockID, 1, 2);
+					var1.setBlock(var3, var4 + 1, var5, BOPBlocks.grave.get().blockID, 0, 2);
+					var1.setBlock(var3, var4 + 2, var5, BOPBlocks.grave.get().blockID, 1, 2);
 				}
 				else
 				{
-					var1.setBlock(var3, var4 + 1, var5, Blocks.grave.get().blockID, 2, 2);
-					var1.setBlock(var3, var4 + 2, var5, Blocks.grave.get().blockID, 3, 2);
+					var1.setBlock(var3, var4 + 1, var5, BOPBlocks.grave.get().blockID, 2, 2);
+					var1.setBlock(var3, var4 + 2, var5, BOPBlocks.grave.get().blockID, 3, 2);
 				}
 			}
 

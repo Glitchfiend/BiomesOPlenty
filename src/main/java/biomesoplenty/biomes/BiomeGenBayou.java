@@ -10,7 +10,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.configuration.BOPConfigurationMisc;
 import biomesoplenty.worldgen.WorldGenMoss;
 import biomesoplenty.worldgen.tree.WorldGenBayou1;
@@ -77,7 +77,7 @@ public class BiomeGenBayou extends BiomeGenBase implements IWCFog
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 10, 2);
+				par1World.setBlock(var77, var88, var99, BOPBlocks.amethystOre.get().blockID, 10, 2);
 			}
 		}
 

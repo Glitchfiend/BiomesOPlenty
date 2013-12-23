@@ -13,7 +13,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.entities.EntityWasp;
 
 public class BlockHive extends Block
@@ -70,12 +70,12 @@ public class BlockHive extends Block
 	{
 		if (meta == 0)
 		{
-			return Items.miscItems.get().itemID;
+			return BOPItems.miscItems.get().itemID;
 		}
 		
 		if (meta == 3)
 		{
-			return Items.food.get().itemID;
+			return BOPItems.food.get().itemID;
 		}
 		
 		return this.blockID;

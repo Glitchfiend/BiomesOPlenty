@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 
 public class EntityGlob extends EntityLiving implements IMob
 {
@@ -271,12 +271,12 @@ public class EntityGlob extends EntityLiving implements IMob
 		
 		if (rand.nextInt(1000) == 0)
 		{
-			this.entityDropItem(new ItemStack(Items.bopDiscMud.get(), 1, 1), 0.0F);
+			this.entityDropItem(new ItemStack(BOPItems.bopDiscMud.get(), 1, 1), 0.0F);
 		}
 
 		for (int var4 = 0; var4 < var3; ++var4)
 		{
-			this.entityDropItem(new ItemStack(Items.mudball.get(), 1, 1), 0.0F);
+			this.entityDropItem(new ItemStack(BOPItems.mudball.get(), 1, 1), 0.0F);
 		}
 		
 

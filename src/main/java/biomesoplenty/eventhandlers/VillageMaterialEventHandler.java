@@ -5,7 +5,7 @@ import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import biomesoplenty.api.Biomes;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class VillageMaterialEventHandler
 {
@@ -155,42 +155,42 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.firStairs.get().blockID;
+				event.replacement = BOPBlocks.firStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.firStairs.get().blockID;
+				event.replacement = BOPBlocks.firStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.replacement = BOPBlocks.woodenSingleSlab1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -317,21 +317,21 @@ public class VillageMaterialEventHandler
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs4.get().blockID;
+				event.replacement = BOPBlocks.logs4.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.jacarandaStairs.get().blockID;
+				event.replacement = BOPBlocks.jacarandaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -349,42 +349,42 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.redRock.get().blockID;
+				event.replacement = BOPBlocks.redRock.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.replacement = BOPBlocks.acaciaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.redCobbleStairs.get().blockID;
+				event.replacement = BOPBlocks.redCobbleStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.stoneSingleSlab.get().blockID;
+				event.replacement = BOPBlocks.stoneSingleSlab.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -533,21 +533,21 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -561,14 +561,14 @@ public class VillageMaterialEventHandler
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.replacement = BOPBlocks.acaciaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.replacement = BOPBlocks.woodenSingleSlab1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -641,42 +641,42 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.replacement = BOPBlocks.acaciaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.replacement = BOPBlocks.acaciaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.replacement = BOPBlocks.woodenSingleSlab1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -724,42 +724,42 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.firStairs.get().blockID;
+				event.replacement = BOPBlocks.firStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.firStairs.get().blockID;
+				event.replacement = BOPBlocks.firStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.replacement = BOPBlocks.woodenSingleSlab1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -800,42 +800,42 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs1.get().blockID;
+				event.replacement = BOPBlocks.logs1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.replacement = BOPBlocks.acaciaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.acaciaStairs.get().blockID;
+				event.replacement = BOPBlocks.acaciaStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.woodenSingleSlab1.get().blockID;
+				event.replacement = BOPBlocks.woodenSingleSlab1.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
@@ -930,42 +930,42 @@ public class VillageMaterialEventHandler
 			//Cobblestone
 			if (event.original == Block.cobblestone.blockID)
 			{
-				event.replacement = Blocks.logs3.get().blockID;
+				event.replacement = BOPBlocks.logs3.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Logs
 			if (event.original == Block.wood.blockID)
 			{
-				event.replacement = Blocks.logs3.get().blockID;
+				event.replacement = BOPBlocks.logs3.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Block.planks.blockID)
 			{
-				event.replacement = Blocks.planks.get().blockID;
+				event.replacement = BOPBlocks.planks.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Block.stairsWoodOak.blockID)
 			{
-				event.replacement = Blocks.willowStairs.get().blockID;
+				event.replacement = BOPBlocks.willowStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Cobblestone Stairs
 			if (event.original == Block.stairsCobblestone.blockID)
 			{
-				event.replacement = Blocks.willowStairs.get().blockID;
+				event.replacement = BOPBlocks.willowStairs.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			
 			//Stone Slabs
 			if (event.original == Block.stoneSingleSlab.blockID)
 			{
-				event.replacement = Blocks.woodenSingleSlab2.get().blockID;
+				event.replacement = BOPBlocks.woodenSingleSlab2.get().blockID;
 				event.setResult(Result.DENY);
 			}
 			

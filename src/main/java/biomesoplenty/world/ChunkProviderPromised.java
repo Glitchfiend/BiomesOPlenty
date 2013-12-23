@@ -16,7 +16,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.world.noise.NoiseOctaves;
 
 public class ChunkProviderPromised implements IChunkProvider
@@ -108,7 +108,7 @@ public class ChunkProviderPromised implements IChunkProvider
 
 								if (var46 > 0.0D)
 								{
-									var51 = Blocks.holyStone.get().blockID;
+									var51 = BOPBlocks.holyStone.get().blockID;
 								}
 
 								par3ArrayOfByte[var42] = (byte)var51;
@@ -157,14 +157,14 @@ public class ChunkProviderPromised implements IChunkProvider
 					{
 						var8 = -1;
 					}
-					else if (var13 == (byte)Blocks.holyStone.get().blockID)
+					else if (var13 == (byte)BOPBlocks.holyStone.get().blockID)
 					{
 						if (var8 == -1)
 						{
 							if (var7 <= 0)
 							{
 								var9 = 0;
-								var10 = (byte)Blocks.holyStone.get().blockID;
+								var10 = (byte)BOPBlocks.holyStone.get().blockID;
 							}
 							else if (var11 >= var98 - 4 && var11 <= var98 + 1)
 							{
@@ -509,9 +509,9 @@ public class ChunkProviderPromised implements IChunkProvider
 			 int z = var5 + endWorld.rand.nextInt(16);
 			 int b = endWorld.getBlockId(x, y, z);
 
-			 if (b == Blocks.holyStone.get().blockID)
+			 if (b == BOPBlocks.holyStone.get().blockID)
 			 {
-				 endWorld.setBlock(x, y, z, Blocks.amethystOre.get().blockID, 0, 2);
+				 endWorld.setBlock(x, y, z, BOPBlocks.amethystOre.get().blockID, 0, 2);
 			 }
 		 }
 

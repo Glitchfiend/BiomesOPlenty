@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenMarsh extends WorldGenerator
 {
@@ -113,16 +113,16 @@ public class WorldGenMarsh extends WorldGenerator
 
 					if (par2Random.nextInt(3) == 0)
 					{
-						par1World.setBlock(par3, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
-						par1World.setBlock(par3 - 1, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3 - 1, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
-						par1World.setBlock(par3 + 1, par4 + 1, par5, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3 + 1, par4 + 2, par5, Blocks.foliage.get().blockID, 6, 2);
-						par1World.setBlock(par3, par4 + 1, par5 - 1, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3, par4 + 2, par5 - 1, Blocks.foliage.get().blockID, 6, 2);
-						par1World.setBlock(par3, par4 + 1, par5 + 1, Blocks.foliage.get().blockID, 3, 2);
-						par1World.setBlock(par3, par4 + 2, par5 + 1, Blocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3, par4 + 1, par5, BOPBlocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3, par4 + 2, par5, BOPBlocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3 - 1, par4 + 1, par5, BOPBlocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3 - 1, par4 + 2, par5, BOPBlocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3 + 1, par4 + 1, par5, BOPBlocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3 + 1, par4 + 2, par5, BOPBlocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3, par4 + 1, par5 - 1, BOPBlocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3, par4 + 2, par5 - 1, BOPBlocks.foliage.get().blockID, 6, 2);
+						par1World.setBlock(par3, par4 + 1, par5 + 1, BOPBlocks.foliage.get().blockID, 3, 2);
+						par1World.setBlock(par3, par4 + 2, par5 + 1, BOPBlocks.foliage.get().blockID, 6, 2);
 					}
 					else
 					{

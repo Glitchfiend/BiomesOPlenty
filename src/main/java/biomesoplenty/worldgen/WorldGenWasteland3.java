@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenWasteland3 extends WorldGenerator
 {
@@ -23,7 +23,7 @@ public class WorldGenWasteland3 extends WorldGenerator
 		int var97 = var1.getBlockId(var3, var4, var5 - 1);
 		int var98 = var1.getBlockId(var3, var4, var5 + 1);
 
-		if (var6 != Blocks.driedDirt.get().blockID || var95 != Blocks.driedDirt.get().blockID || var96 != Blocks.driedDirt.get().blockID || var97 != Blocks.driedDirt.get().blockID || var98 != Blocks.driedDirt.get().blockID )
+		if (var6 != BOPBlocks.driedDirt.get().blockID || var95 != BOPBlocks.driedDirt.get().blockID || var96 != BOPBlocks.driedDirt.get().blockID || var97 != BOPBlocks.driedDirt.get().blockID || var98 != BOPBlocks.driedDirt.get().blockID )
 			return false;
 		else
 		{
@@ -40,23 +40,23 @@ public class WorldGenWasteland3 extends WorldGenerator
 
 			if (var999 == 0)
 			{
-				var1.setBlock(var3, var4, var5, Blocks.driedDirt.get().blockID);
-				var1.setBlock(var3 - 1, var4, var5, Blocks.driedDirt.get().blockID);
-				var1.setBlock(var3 + 1, var4, var5, Blocks.driedDirt.get().blockID);
-				var1.setBlock(var3, var4, var5 - 1, Blocks.driedDirt.get().blockID);
-				var1.setBlock(var3, var4, var5 + 1, Blocks.driedDirt.get().blockID);
-				this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.driedDirt.get().blockID, 0);
-				this.setBlockAndMetadata(var1, var3 + 1, var4 + 1, var5, Blocks.driedDirt.get().blockID, 0);
-				this.setBlockAndMetadata(var1, var3 - 1, var4 + 1, var5, Blocks.driedDirt.get().blockID, 0);
-				this.setBlockAndMetadata(var1, var3, var4 + 1, var5 + 1, Blocks.driedDirt.get().blockID, 0);
-				this.setBlockAndMetadata(var1, var3, var4 + 1, var5 - 1, Blocks.driedDirt.get().blockID, 0);
-				this.setBlockAndMetadata(var1, var3, var4 + 2, var5, Blocks.driedDirt.get().blockID, 0);
+				var1.setBlock(var3, var4, var5, BOPBlocks.driedDirt.get().blockID);
+				var1.setBlock(var3 - 1, var4, var5, BOPBlocks.driedDirt.get().blockID);
+				var1.setBlock(var3 + 1, var4, var5, BOPBlocks.driedDirt.get().blockID);
+				var1.setBlock(var3, var4, var5 - 1, BOPBlocks.driedDirt.get().blockID);
+				var1.setBlock(var3, var4, var5 + 1, BOPBlocks.driedDirt.get().blockID);
+				this.setBlockAndMetadata(var1, var3, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID, 0);
+				this.setBlockAndMetadata(var1, var3 + 1, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID, 0);
+				this.setBlockAndMetadata(var1, var3 - 1, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID, 0);
+				this.setBlockAndMetadata(var1, var3, var4 + 1, var5 + 1, BOPBlocks.driedDirt.get().blockID, 0);
+				this.setBlockAndMetadata(var1, var3, var4 + 1, var5 - 1, BOPBlocks.driedDirt.get().blockID, 0);
+				this.setBlockAndMetadata(var1, var3, var4 + 2, var5, BOPBlocks.driedDirt.get().blockID, 0);
 				return true;
 			}
 			if (var999 == 1)
 			{
-				var1.setBlock(var3, var4, var5, Blocks.driedDirt.get().blockID);
-				this.setBlockAndMetadata(var1, var3, var4 + 1, var5, Blocks.driedDirt.get().blockID, 0);
+				var1.setBlock(var3, var4, var5, BOPBlocks.driedDirt.get().blockID);
+				this.setBlockAndMetadata(var1, var3, var4 + 1, var5, BOPBlocks.driedDirt.get().blockID, 0);
 				return true;
 			}
 

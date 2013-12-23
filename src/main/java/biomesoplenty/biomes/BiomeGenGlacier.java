@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BiomeGenGlacier extends BiomeGenBase
 {
@@ -15,8 +15,8 @@ public class BiomeGenGlacier extends BiomeGenBase
 	{
 		super(par1);
 		spawnableCreatureList.clear();
-		topBlock = (byte)Blocks.hardIce.get().blockID;
-		fillerBlock = (byte)Blocks.hardIce.get().blockID;
+		topBlock = (byte)BOPBlocks.hardIce.get().blockID;
+		fillerBlock = (byte)BOPBlocks.hardIce.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
@@ -42,7 +42,7 @@ public class BiomeGenGlacier extends BiomeGenBase
 			Block block = Block.blocksList[var10]; 
 			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 8, 2);
+				par1World.setBlock(var7, var8, var9, BOPBlocks.amethystOre.get().blockID, 8, 2);
 			}
 		}
 	}

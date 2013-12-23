@@ -23,8 +23,8 @@ import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.configuration.BOPConfigurationIDs;
 import biomesoplenty.core.BOPAchievements;
 import biomesoplenty.entities.ai.EntityAITemptArmour;
@@ -41,19 +41,19 @@ public class EntityEventHandler
 			return;
 
 		if (entity instanceof EntityChicken) {
-			((EntityLiving)entity).tasks.addTask(3, new EntityAITemptArmour((EntityCreature) entity, 0.25F, Items.flowerBand.get().itemID, 0, false));
+			((EntityLiving)entity).tasks.addTask(3, new EntityAITemptArmour((EntityCreature) entity, 0.25F, BOPItems.flowerBand.get().itemID, 0, false));
 		}
 
 		if (entity instanceof EntitySheep) {
-			((EntityLiving)entity).tasks.addTask(3, new EntityAITemptArmour((EntityCreature) entity, 0.25F, Items.flowerBand.get().itemID, 1, false));
+			((EntityLiving)entity).tasks.addTask(3, new EntityAITemptArmour((EntityCreature) entity, 0.25F, BOPItems.flowerBand.get().itemID, 1, false));
 		}
 
 		if (entity instanceof EntityPig) {
-			((EntityLiving)entity).tasks.addTask(4, new EntityAITemptArmour((EntityCreature) entity, 0.25F, Items.flowerBand.get().itemID, 2, false));
+			((EntityLiving)entity).tasks.addTask(4, new EntityAITemptArmour((EntityCreature) entity, 0.25F, BOPItems.flowerBand.get().itemID, 2, false));
 		}
 
 		if (entity instanceof EntityCow) {
-			((EntityLiving)entity).tasks.addTask(3, new EntityAITemptArmour((EntityCreature) entity, 0.25F, Items.flowerBand.get().itemID, 3, false));
+			((EntityLiving)entity).tasks.addTask(3, new EntityAITemptArmour((EntityCreature) entity, 0.25F, BOPItems.flowerBand.get().itemID, 3, false));
 		}
 	}
 
@@ -107,7 +107,7 @@ public class EntityEventHandler
 		{
 			int itemDamage = itemstack.getItemDamage();
 			
-			if (itemstack.itemID == Items.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
+			if (itemstack.itemID == BOPItems.miscItems.get().itemID && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
 			{
 				int dyeMeta = convertToDyeMeta(itemDamage);      
 				int i = BlockColored.getBlockFromDye(dyeMeta);

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.WorldGenChaparral2;
 import biomesoplenty.worldgen.WorldGenChaparral3;
 import biomesoplenty.worldgen.tree.WorldGenDeciduous2;
@@ -46,7 +46,7 @@ public class BiomeGenTimber extends BiomeGenBase
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
-		return par1Random.nextInt(5) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
+		return par1Random.nextInt(5) == 0 ? new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 2) : new WorldGenTallGrass(BOPBlocks.foliage.get().blockID, 1);
 	}
 	
 	@Override

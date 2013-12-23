@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.blocks.BlockBOPPlant;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
@@ -139,7 +139,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		if (meta == 14)
 		{
 			renderer.drawCrossedSquares(par1Block, meta, d0, d1, d2, 1.0F);
-			RenderUtils.renderCrossedSquaresFromIcon(((BlockBOPPlant)Blocks.plants.get()).reedbottom, d0, d1 - 1, d2, 1.0F, renderer);
+			RenderUtils.renderCrossedSquaresFromIcon(((BlockBOPPlant)BOPBlocks.plants.get()).reedbottom, d0, d1 - 1, d2, 1.0F, renderer);
 		}
 		else
 		{

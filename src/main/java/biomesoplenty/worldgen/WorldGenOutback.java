@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenOutback extends WorldGenerator
 {
@@ -37,7 +37,7 @@ public class WorldGenOutback extends WorldGenerator
 			
 			int var999 = par2Random.nextInt(5);
 
-			if (par1World.isAirBlock(var8, var9, var10) && (par1World.getBlockId(var8, var9 - 1, var10) == Blocks.hardSand.get().blockID || par1World.getBlockId(var8, var9 - 1, var10) == Block.sand.blockID || par1World.getBlockId(var8, var9 - 1, var10) == Block.stone.blockID))
+			if (par1World.isAirBlock(var8, var9, var10) && (par1World.getBlockId(var8, var9 - 1, var10) == BOPBlocks.hardSand.get().blockID || par1World.getBlockId(var8, var9 - 1, var10) == Block.sand.blockID || par1World.getBlockId(var8, var9 - 1, var10) == Block.stone.blockID))
 			{
 				par1World.setBlock(var8, var9 - 1, var10, Block.grass.blockID, 0, 2);
 				
@@ -47,11 +47,11 @@ public class WorldGenOutback extends WorldGenerator
 				}
 				else if (var999 == 1)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 10, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 10, 2);
 				}
 				else if (var999 == 2)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 11, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 11, 2);
 				}
 				else
 				{

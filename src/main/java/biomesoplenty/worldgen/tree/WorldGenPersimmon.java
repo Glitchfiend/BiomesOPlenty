@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenPersimmon extends WorldGenerator
 {
@@ -95,31 +95,31 @@ public class WorldGenPersimmon extends WorldGenerator
 
 									if (var99 == 44)
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 3);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 3);
 									}
 									else if (var99 ==30)
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 2);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 2);
 									}
 									else if (var99 == 15)
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 2);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 2);
 									}
 									else if (var99 == 10)
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 1);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 1);
 									}
 									else if (var99 == 5)
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 1);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 1);
 									}
 									else if (var99 == 0)
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 1);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 1);
 									}
 									else
 									{
-										this.setBlockAndMetadata(par1World, var12, var16, var14, Blocks.leavesFruit2.get().blockID, 0);
+										this.setBlockAndMetadata(par1World, var12, var16, var14, BOPBlocks.leavesFruit2.get().blockID, 0);
 									}
 								}
 							}

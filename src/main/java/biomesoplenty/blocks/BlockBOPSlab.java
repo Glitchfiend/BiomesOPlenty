@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BlockBOPSlab extends BlockHalfSlab
 {
@@ -119,12 +119,12 @@ public class BlockBOPSlab extends BlockHalfSlab
 	{
 		if (isDoubleSlab)
 		{
-			if (blockID == Blocks.woodenDoubleSlab1.get().blockID)
-				return Blocks.woodenSingleSlab1.get().blockID;
-			if (blockID == Blocks.woodenDoubleSlab2.get().blockID)
-				return Blocks.woodenSingleSlab2.get().blockID;
+			if (blockID == BOPBlocks.woodenDoubleSlab1.get().blockID)
+				return BOPBlocks.woodenSingleSlab1.get().blockID;
+			if (blockID == BOPBlocks.woodenDoubleSlab2.get().blockID)
+				return BOPBlocks.woodenSingleSlab2.get().blockID;
 			else
-				return Blocks.stoneSingleSlab.get().blockID;
+				return BOPBlocks.stoneSingleSlab.get().blockID;
 		}
 		else
 			return blockID;
@@ -191,7 +191,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 	@Override
 	public int idPicked(World par1World, int par2, int par3, int par4)
 	{
-		return !isDoubleSlab ? blockID : (blockID == Blocks.woodenDoubleSlab1.get().blockID ? Blocks.woodenSingleSlab1.get().blockID : (blockID == Blocks.woodenDoubleSlab2.get().blockID ? Blocks.woodenSingleSlab2.get().blockID : Blocks.stoneSingleSlab.get().blockID));
+		return !isDoubleSlab ? blockID : (blockID == BOPBlocks.woodenDoubleSlab1.get().blockID ? BOPBlocks.woodenSingleSlab1.get().blockID : (blockID == BOPBlocks.woodenDoubleSlab2.get().blockID ? BOPBlocks.woodenSingleSlab2.get().blockID : BOPBlocks.stoneSingleSlab.get().blockID));
 	}
 
 	@Override

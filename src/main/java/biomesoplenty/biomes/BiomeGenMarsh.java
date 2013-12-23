@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class BiomeGenMarsh extends BiomeGenBase implements IWCFog
 {
@@ -54,7 +54,7 @@ public class BiomeGenMarsh extends BiomeGenBase implements IWCFog
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 12, 2);
+				par1World.setBlock(var77, var88, var99, BOPBlocks.amethystOre.get().blockID, 12, 2);
 			}
 		}
 	}

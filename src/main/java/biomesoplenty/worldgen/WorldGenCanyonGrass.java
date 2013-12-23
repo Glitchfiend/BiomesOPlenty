@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenCanyonGrass extends WorldGenerator
 {
@@ -35,7 +35,7 @@ public class WorldGenCanyonGrass extends WorldGenerator
 			int var9 = par4 + par2Random.nextInt(4) - par2Random.nextInt(4);
 			int var10 = par5 + par2Random.nextInt(8) - par2Random.nextInt(8);
 
-			if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == Blocks.hardDirt.get().blockID)
+			if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == BOPBlocks.hardDirt.get().blockID)
 			{
 				par1World.setBlock(var8, var9 - 1, var10, Block.grass.blockID, 0, 2);
 				par1World.setBlock(var8, var9, var10, tallGrassID, tallGrassMetadata, 2);

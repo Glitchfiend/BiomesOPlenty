@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenNetherGrass extends WorldGenerator
 {
@@ -38,7 +38,7 @@ public class WorldGenNetherGrass extends WorldGenerator
 
 			if (par1World.isAirBlock(var8, var9, var10) && par1World.getBlockId(var8, var9 - 1, var10) == Block.netherrack.blockID)
 			{
-				par1World.setBlock(var8, var9 - 1, var10, Blocks.overgrownNetherrack.get().blockID, 0, 2);
+				par1World.setBlock(var8, var9 - 1, var10, BOPBlocks.overgrownNetherrack.get().blockID, 0, 2);
 
 				if (var99 == 0)
 				{
@@ -52,22 +52,22 @@ public class WorldGenNetherGrass extends WorldGenerator
 
 				if (var99 == 2)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 1, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 1, 2);
 				}
 				
 				if (var99 == 5)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 2, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 2, 2);
 				}
 				
 				if (var99 == 6)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 10, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 10, 2);
 				}
 				
 				if (var99 == 7)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.foliage.get().blockID, 11, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.foliage.get().blockID, 11, 2);
 				}
 				
 				if (var99 == 8)
@@ -77,59 +77,59 @@ public class WorldGenNetherGrass extends WorldGenerator
 
 				if (var99 == 3)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.logs4.get().blockID, 1, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.logs4.get().blockID, 1, 2);
 					if (par1World.isAirBlock(var8, var9 + 1, var10))
 					{
-						par1World.setBlock(var8, var9 + 1, var10, Blocks.logs4.get().blockID, 1, 2);
+						par1World.setBlock(var8, var9 + 1, var10, BOPBlocks.logs4.get().blockID, 1, 2);
 					}
 					if (par1World.isAirBlock(var8 + 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 + 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8 + 1, var9 + 1, var10, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8 - 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 - 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8 - 1, var9 + 1, var10, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 + 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 + 1, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8, var9 + 1, var10 + 1, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 - 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 - 1, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8, var9 + 1, var10 - 1, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 2, var10))
 					{
-						par1World.setBlock(var8, var9 + 2, var10, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8, var9 + 2, var10, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 				}
 
 				if (var99 == 4)
 				{
-					par1World.setBlock(var8, var9, var10, Blocks.logs4.get().blockID, 1, 2);
+					par1World.setBlock(var8, var9, var10, BOPBlocks.logs4.get().blockID, 1, 2);
 					if (par1World.isAirBlock(var8, var9 + 1, var10))
 					{
-						par1World.setBlock(var8, var9 + 1, var10, Blocks.logs4.get().blockID, 1, 2);
+						par1World.setBlock(var8, var9 + 1, var10, BOPBlocks.logs4.get().blockID, 1, 2);
 					}
 					if (par1World.isAirBlock(var8 + 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 + 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8 + 1, var9 + 1, var10, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8 - 1, var9 + 1, var10))
 					{
-						par1World.setBlock(var8 - 1, var9 + 1, var10, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8 - 1, var9 + 1, var10, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 + 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 + 1, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8, var9 + 1, var10 + 1, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 1, var10 - 1))
 					{
-						par1World.setBlock(var8, var9 + 1, var10 - 1, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8, var9 + 1, var10 - 1, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 					if (par1World.isAirBlock(var8, var9 + 2, var10))
 					{
-						par1World.setBlock(var8, var9 + 2, var10, Blocks.leaves2.get().blockID, 4, 2);
+						par1World.setBlock(var8, var9 + 2, var10, BOPBlocks.leaves2.get().blockID, 4, 2);
 					}
 				}
 			}

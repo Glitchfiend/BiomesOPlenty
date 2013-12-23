@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenNetherMushroom extends WorldGenerator
 {
@@ -82,7 +82,7 @@ public class WorldGenNetherMushroom extends WorldGenerator
 			{
 				j1 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if (j1 != Block.netherrack.blockID && j1 != Blocks.overgrownNetherrack.get().blockID)
+				if (j1 != Block.netherrack.blockID && j1 != BOPBlocks.overgrownNetherrack.get().blockID)
 					return false;
 				else
 				{

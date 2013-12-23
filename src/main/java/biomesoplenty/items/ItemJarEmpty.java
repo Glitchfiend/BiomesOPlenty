@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Fluids;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.entities.EntityPixie;
 
 public class ItemJarEmpty extends Item
@@ -67,12 +67,12 @@ public class ItemJarEmpty extends Item
 
                     if (par1ItemStack.stackSize <= 0)
                     {
-                        return new ItemStack(Items.jarFilled.get(), 1, 0);
+                        return new ItemStack(BOPItems.jarFilled.get(), 1, 0);
                     }
 
-                    if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.jarFilled.get(), 1, 0)))
+                    if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(BOPItems.jarFilled.get(), 1, 0)))
                     {
-                        par3EntityPlayer.dropPlayerItem(new ItemStack(Items.jarFilled.get(), 1, 0));
+                        par3EntityPlayer.dropPlayerItem(new ItemStack(BOPItems.jarFilled.get(), 1, 0));
                     }
                 }
             }
@@ -94,7 +94,7 @@ public class ItemJarEmpty extends Item
             
     		if (par2EntityPlayer.inventory.getFirstEmptyStack() >= 0)
 			{
-        		EntityItem entityitem = new EntityItem(par2EntityPlayer.worldObj, par2EntityPlayer.posX, par2EntityPlayer.posY, par2EntityPlayer.posZ, new ItemStack(Items.jarFilled.get(), 1, 2));
+        		EntityItem entityitem = new EntityItem(par2EntityPlayer.worldObj, par2EntityPlayer.posX, par2EntityPlayer.posY, par2EntityPlayer.posZ, new ItemStack(BOPItems.jarFilled.get(), 1, 2));
     			if (!par2EntityPlayer.worldObj.isRemote)
     			{
     				par2EntityPlayer.worldObj.spawnEntityInWorld(entityitem);
@@ -107,7 +107,7 @@ public class ItemJarEmpty extends Item
 			}
     		else
     		{
-                par2EntityPlayer.dropPlayerItem(new ItemStack(Items.jarFilled.get(), 1, 2));
+                par2EntityPlayer.dropPlayerItem(new ItemStack(BOPItems.jarFilled.get(), 1, 2));
             }
 
             return true;

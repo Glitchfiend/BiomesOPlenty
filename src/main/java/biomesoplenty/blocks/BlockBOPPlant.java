@@ -23,8 +23,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -113,13 +113,13 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		//case 2: // Desert Sprouts
 
 		if (metadata == 0) //Dead Grass
-			return blockID == Blocks.driedDirt.get().blockID || blockID == Block.sand.blockID;
+			return blockID == BOPBlocks.driedDirt.get().blockID || blockID == Block.sand.blockID;
 		else if (metadata == 1) //Desert Grass
-			return blockID == Blocks.redRock.get().blockID;
+			return blockID == BOPBlocks.redRock.get().blockID;
 		else if (metadata == 3) //Dune Grass
 			return blockID == Block.sand.blockID;
 		else if (metadata == 4) //Holy Tall Grass
-			return blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
+			return blockID == BOPBlocks.holyGrass.get().blockID || blockID == BOPBlocks.holyDirt.get().blockID;
 		else if (metadata == 5)
 			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.slowSand.blockID;
 		else if (metadata == 6)
@@ -131,22 +131,22 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		else if (metadata == 9)
 			return blockID == this.blockID;
 		else if (metadata == 12)
-			return blockID == Block.sand.blockID || blockID == Blocks.redRock.get().blockID || blockID == Block.slowSand.blockID;
+			return blockID == Block.sand.blockID || blockID == BOPBlocks.redRock.get().blockID || blockID == Block.slowSand.blockID;
 		else if (metadata == 13)
 			return blockID == Block.slowSand.blockID;
 		else if (metadata == 14)
 			return blockID == Block.waterStill.blockID;
 		else if (metadata == 15)
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
+			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == BOPBlocks.longGrass.get().blockID || blockID == BOPBlocks.holyGrass.get().blockID || blockID == BOPBlocks.holyDirt.get().blockID;
 		else
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.overgrownNetherrack.get().blockID;
+			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == BOPBlocks.longGrass.get().blockID || blockID == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int id)
 	{
-		return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holyGrass.get().blockID
-				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyDirt.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		return id == BOPBlocks.driedDirt.get().blockID || id == Block.sand.blockID || id == BOPBlocks.redRock.get().blockID || id == BOPBlocks.holyGrass.get().blockID
+				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.holyDirt.get().blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 	}
 
 	@Override
@@ -160,17 +160,17 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			switch (meta)
 			{
 			case 0: // Dead Grass
-			return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
+			return id == BOPBlocks.driedDirt.get().blockID || id == Block.sand.blockID;
 
 			case 1: // Desert Grass
-				return id == Blocks.redRock.get().blockID;
+				return id == BOPBlocks.redRock.get().blockID;
 
 			case 2: // Desert Sprouts
 			case 3: // Dune Grass
 				return id == Block.sand.blockID;
 
 			case 4: // Holy Tall Grass
-				return id == Blocks.holyGrass.get().blockID;
+				return id == BOPBlocks.holyGrass.get().blockID;
 
 			case 5: // Thorns
 				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.slowSand.blockID;
@@ -188,7 +188,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 				return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 
 			case 12: // Tiny Cactus
-				return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
+				return id == Block.sand.blockID || id == BOPBlocks.redRock.get().blockID || id == Block.slowSand.blockID;
 				
 			case 13: // Wither Wart
 				return id == Block.slowSand.blockID;
@@ -197,10 +197,10 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 				return id == Block.waterStill.blockID;
 				
 			case 15: // Reed
-				return idRoot == Block.grass.blockID || idRoot == Block.dirt.blockID || idRoot == Block.tilledField.blockID || idRoot == Blocks.longGrass.get().blockID || idRoot == Blocks.holyGrass.get().blockID || idRoot == Blocks.holyDirt.get().blockID;
+				return idRoot == Block.grass.blockID || idRoot == Block.dirt.blockID || idRoot == Block.tilledField.blockID || idRoot == BOPBlocks.longGrass.get().blockID || idRoot == BOPBlocks.holyGrass.get().blockID || idRoot == BOPBlocks.holyDirt.get().blockID;
 				
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == BOPBlocks.overgrownNetherrack.get().blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);
@@ -312,7 +312,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		
 		if (meta == 11)
 		{
-			return Items.food.get().itemID;
+			return BOPItems.food.get().itemID;
 		}
 		
         return this.blockID;
@@ -343,7 +343,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		}
 		else if (par1 == 11)
 		{
-			return Items.food.get().itemID;
+			return BOPItems.food.get().itemID;
 		}
 		else
 		{

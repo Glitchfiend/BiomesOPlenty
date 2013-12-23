@@ -18,8 +18,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -259,7 +259,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
                 if ((meta & 3) == 3)
                 {
                         world.setBlock(x, y, z, blockID, meta - 3, 3);
-                        EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+                        EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 8));
                         
                         if (!world.isRemote) {
                                 world.spawnEntityInWorld(entityitem);
@@ -275,7 +275,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
         @Override
         public int idDropped(int par1, Random par2Random, int par3)
         {
-                return Blocks.saplings.get().blockID;
+                return BOPBlocks.saplings.get().blockID;
         }
 
         @Override
@@ -303,13 +303,13 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
                 }
 
                 if ((meta & 3) == 3) {
-                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 8));
                 } else if ((meta & 3) == 2 && world.rand.nextInt(8) == 0) {
-                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 8));
                 } else if ((meta & 3) == 1 && world.rand.nextInt(16) == 0) {
-                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 8));
                 } else if ((meta & 3) == 0 && world.rand.nextInt(32) == 0) {
-                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+                        this.dropBlockAsItem_do(world, x, y, z, new ItemStack(BOPItems.food.get(), 1, 8));
                 }
         }
 

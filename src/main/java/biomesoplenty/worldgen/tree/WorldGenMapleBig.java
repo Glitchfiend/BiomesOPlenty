@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenMapleBig extends WorldGenerator
 {
@@ -167,7 +167,7 @@ public class WorldGenMapleBig extends WorldGenerator
 					var11[var9] = var10[var9] + var13;
 					int var14 = worldObj.getBlockId(var11[0], var11[1], var11[2]);
 
-					if (var14 != 0 && var14 != Blocks.leaves3.get().blockID)
+					if (var14 != 0 && var14 != BOPBlocks.leaves3.get().blockID)
 					{
 						++var13;
 					}
@@ -227,7 +227,7 @@ public class WorldGenMapleBig extends WorldGenerator
 		 for (int var5 = par2 + leafDistanceLimit; var4 < var5; ++var4)
 		 {
 			 float var6 = this.leafSize(var4 - par2);
-			 this.genTreeLayer(par1, var4, par3, var6, (byte)1, Blocks.leaves3.get().blockID);
+			 this.genTreeLayer(par1, var4, par3, var6, (byte)1, BOPBlocks.leaves3.get().blockID);
 		 }
 	 }
 
@@ -421,7 +421,7 @@ public class WorldGenMapleBig extends WorldGenerator
 				 var13[var7] = MathHelper.floor_double(par1ArrayOfInteger[var7] + var14 * var11);
 				 int var16 = worldObj.getBlockId(var13[0], var13[1], var13[2]);
 
-				 if (var16 != 0 && var16 != Blocks.leaves3.get().blockID)
+				 if (var16 != 0 && var16 != BOPBlocks.leaves3.get().blockID)
 				 {
 					 break;
 				 }

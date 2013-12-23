@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenMystic1 extends WorldGenerator
 {
@@ -70,7 +70,7 @@ public class WorldGenMystic1 extends WorldGenerator
 			{
 				var11 = par1World.getBlockId(par3, par4 - 1, par5);
 
-				if ((var11 == Blocks.holyGrass.get().blockID || var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
+				if ((var11 == BOPBlocks.holyGrass.get().blockID || var11 == Block.grass.blockID || var11 == Block.dirt.blockID) && par4 < 256 - var6 - 1)
 				{
 					this.setBlock(par1World, par3, par4 - 1, par5, Block.dirt.blockID);
 					var21 = par2Random.nextInt(2);

@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 import biomesoplenty.worldgen.tree.WorldGenAcacia;
 import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
@@ -20,8 +20,8 @@ public class BiomeGenLushDesert extends BiomeGenBase
 	public BiomeGenLushDesert(int par1)
 	{
 		super(par1);
-		topBlock = (byte)Blocks.redRock.get().blockID;
-		fillerBlock = (byte)Blocks.redRock.get().blockID;
+		topBlock = (byte)BOPBlocks.redRock.get().blockID;
+		fillerBlock = (byte)BOPBlocks.redRock.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 12;
@@ -70,7 +70,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 
 			if (var100 == Block.stone.blockID)
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 2, 2);
+				par1World.setBlock(var77, var88, var99, BOPBlocks.amethystOre.get().blockID, 2, 2);
 			}
 		}
 
@@ -81,7 +81,7 @@ public class BiomeGenLushDesert extends BiomeGenBase
 			 int var9 = par4 + par2Random.nextInt(16);
 			 int var10 = par1World.getBlockId(var7, var8, var9);
 
-			 if (var10 == Block.stone.blockID || var10 == Blocks.redRock.get().blockID)
+			 if (var10 == Block.stone.blockID || var10 == BOPBlocks.redRock.get().blockID)
 			 {
 				 par1World.setBlock(var7, var8, var9, Block.waterMoving.blockID, 0, 2);
 			 }

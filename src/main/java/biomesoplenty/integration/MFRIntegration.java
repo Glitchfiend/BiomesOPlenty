@@ -2,8 +2,8 @@ package biomesoplenty.integration;
 
 import biomesoplenty.api.Biomes;
 import biomesoplenty.api.BlockReferences;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPBlocks;
+import biomesoplenty.api.BOPItems;
 import biomesoplenty.integration.minefactoryreloaded.Fertilizable;
 import biomesoplenty.integration.minefactoryreloaded.FruitLeaves;
 import biomesoplenty.integration.minefactoryreloaded.Harvestable;
@@ -49,11 +49,11 @@ public class MFRIntegration
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private static void registerFarmables()
     {
-        Optional[] bopLeaves = { Blocks.leaves1, Blocks.leaves2, Blocks.leaves3, Blocks.leaves4, Blocks.leavesColorized1, Blocks.leavesColorized2, Blocks.treeMoss, Blocks.willow, Blocks.ivy, Blocks.moss };
-        Optional[] bopFruitLeaves = { Blocks.leavesFruit, Blocks.leavesFruit2 };
-        Optional[] bopLogs = { Blocks.logs1, Blocks.logs2, Blocks.logs3, Blocks.logs4, Blocks.bamboo };
-        Optional[] bopMiscStandardHarvestables = { Blocks.flowers, Blocks.plants, Blocks.foliage, Blocks.mushrooms };
-        Optional[] bopSaplings = { Blocks.saplings, Blocks.colorizedSaplings };
+        Optional[] bopLeaves = { BOPBlocks.leaves1, BOPBlocks.leaves2, BOPBlocks.leaves3, BOPBlocks.leaves4, BOPBlocks.leavesColorized1, BOPBlocks.leavesColorized2, BOPBlocks.treeMoss, BOPBlocks.willow, BOPBlocks.ivy, BOPBlocks.moss };
+        Optional[] bopFruitLeaves = { BOPBlocks.leavesFruit, BOPBlocks.leavesFruit2 };
+        Optional[] bopLogs = { BOPBlocks.logs1, BOPBlocks.logs2, BOPBlocks.logs3, BOPBlocks.logs4, BOPBlocks.bamboo };
+        Optional[] bopMiscStandardHarvestables = { BOPBlocks.flowers, BOPBlocks.plants, BOPBlocks.foliage, BOPBlocks.mushrooms };
+        Optional[] bopSaplings = { BOPBlocks.saplings, BOPBlocks.colorizedSaplings };
         
         for(Optional<? extends Block> leaves : bopLeaves)
         {
@@ -88,7 +88,7 @@ public class MFRIntegration
         FactoryRegistry.registerSludgeDrop(15, BlockReferences.getBlockItemStack("driedDirt"));
         FactoryRegistry.registerSludgeDrop(15, BlockReferences.getBlockItemStack("hardSand"));
         FactoryRegistry.registerSludgeDrop(15, BlockReferences.getBlockItemStack("hardDirt"));
-        FactoryRegistry.registerSludgeDrop(15, new ItemStack(Items.miscItems.get(), 4, 1));
-        FactoryRegistry.registerSludgeDrop(25, new ItemStack(Items.mudball.get(), 4));
+        FactoryRegistry.registerSludgeDrop(15, new ItemStack(BOPItems.miscItems.get(), 4, 1));
+        FactoryRegistry.registerSludgeDrop(25, new ItemStack(BOPItems.mudball.get(), 4));
     }
 }

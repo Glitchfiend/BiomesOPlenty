@@ -13,7 +13,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
+import biomesoplenty.api.BOPItems;
 
 public class BlockBOPAmethyst extends Block
 {
@@ -79,7 +79,7 @@ public class BlockBOPAmethyst extends Block
 	@Override
 	public int idDropped(int meta, Random par2Random, int par3)
 	{
-		return (meta % 2 == 0) ? Items.gems.get().itemID : this.blockID;
+		return (meta % 2 == 0) ? BOPItems.gems.get().itemID : this.blockID;
 	}
 
 	@Override

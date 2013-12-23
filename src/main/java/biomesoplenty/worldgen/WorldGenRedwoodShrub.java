@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
+import biomesoplenty.api.BOPBlocks;
 
 public class WorldGenRedwoodShrub extends WorldGenerator
 {
@@ -23,7 +23,7 @@ public class WorldGenRedwoodShrub extends WorldGenerator
 	{
 		int var15;
 
-		for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == Blocks.leavesColorized1.get().blockID) && par4 > 0; --par4)
+		for (boolean var6 = false; ((var15 = par1World.getBlockId(par3, par4, par5)) == 0 || var15 == BOPBlocks.leavesColorized1.get().blockID) && par4 > 0; --par4)
 		{
 			;
 		}
@@ -31,14 +31,14 @@ public class WorldGenRedwoodShrub extends WorldGenerator
 		int var7 = par1World.getBlockId(par3, par4, par5);
 		int var77 = par1World.getBlockMetadata(par3, par4, par5);
 
-		if (var7 == Blocks.logs3.get().blockID)
+		if (var7 == BOPBlocks.logs3.get().blockID)
 		{
 			if (var77 == 0)
 			{
 				if (par1World.isAirBlock(par3 - 1, par4, par5) || par1World.isAirBlock(par3 + 1, par4, par5) || par1World.isAirBlock(par3, par4, par5 - 1) || par1World.isAirBlock(par3, par4, par5 + 1))
 				{
 					++par4;
-					this.setBlockAndMetadata(par1World, par3, par4, par5, Blocks.logs3.get().blockID,0);
+					this.setBlockAndMetadata(par1World, par3, par4, par5, BOPBlocks.logs3.get().blockID,0);
 		
 					for (int var8 = par4; var8 <= par4 + 1; ++var8)
 					{
@@ -55,7 +55,7 @@ public class WorldGenRedwoodShrub extends WorldGenerator
 		
 								if ((Math.abs(var12) != var10 || Math.abs(var14) != var10 || par2Random.nextInt(2) != 0) && !Block.opaqueCubeLookup[par1World.getBlockId(var11, var8, var13)])
 								{
-									this.setBlockAndMetadata(par1World, var11, var8, var13, Blocks.leavesColorized1.get().blockID, 3);
+									this.setBlockAndMetadata(par1World, var11, var8, var13, BOPBlocks.leavesColorized1.get().blockID, 3);
 								}
 							}
 						}
