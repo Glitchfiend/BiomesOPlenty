@@ -23,6 +23,7 @@ import biomesoplenty.eventhandlers.FlipperMovementEventHandler;
 import biomesoplenty.eventhandlers.FluidEventHandler;
 import biomesoplenty.eventhandlers.VillageMaterialEventHandler;
 import biomesoplenty.handlers.MovementHandler;
+import biomesoplenty.handlers.SoundHandler;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import biomesoplenty.helpers.Version;
 import biomesoplenty.integration.BOPCrossIntegration;
@@ -60,14 +61,14 @@ public class BiomesOPlenty
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
 
-		/*BOPPotions.init();*/
+		//BOPPotions.init();
 		BOPBlocks.init();
 		BOPItems.init();
 		/*BOPFluids.init();
 		BOPCrafting.init();
-		BOPStructures.init();
-		BOPBiomes.init();
-		BOPEntities.init();
+		BOPStructures.init();*/
+		//BOPBiomes.init();
+		/*BOPEntities.init();
 		BOPVanillaCompat.init();*/
 		
 		//GameRegistry.registerCraftingHandler(new BOPCraftHandler());
@@ -78,12 +79,12 @@ public class BiomesOPlenty
 		{
 			BOPAchievements.init();
 		}
-		
+		*/
 		if (proxy instanceof ClientProxy)
 		{
-			MinecraftForge.EVENT_BUS.register(new SoundHandler());
+			//MinecraftForge.EVENT_BUS.register(new SoundHandler());
 		}
-		
+		/*
 		BOPCrossIntegration.preInit();*/
 	}
 
@@ -124,7 +125,7 @@ public class BiomesOPlenty
 		//BOPCrossIntegration.postInit();
 
 		//Initialize new world type
-		//BOPBiomes.WTBiomesOP = new WorldTypeBOP();
+		BOPBiomes.WTBiomesOP = new WorldTypeBOP();
 		
 		//TickRegistry.registerTickHandler(new TickHandlerClient(), Side.CLIENT);
 		//TickRegistry.registerTickHandler(new TickHandlerServer(), Side.SERVER);

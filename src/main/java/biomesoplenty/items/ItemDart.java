@@ -2,17 +2,12 @@ package biomesoplenty.items;
 
 import java.util.List;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.World;
+import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -20,22 +15,21 @@ public class ItemDart extends Item
 {
 	private static final String[] dartTypes = new String[] {"dart", "poisondart"};
 	@SideOnly(Side.CLIENT)
-	private Icon[] textures;
+	private IIcon[] textures;
 
-	public ItemDart(int par1)
+	public ItemDart()
 	{
-		super(par1);
-		setHasSubtypes(true);
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		this.setHasSubtypes(true);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
+    //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
+    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
 	{
 		for (int i = 0; i < dartTypes.length; ++i)
 		{
-			par3List.add(new ItemStack(par1, 1, i));
+			list.add(new ItemStack(item, 1, i));
 		}
 	}
 
@@ -52,9 +46,9 @@ public class ItemDart extends Item
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[dartTypes.length];
+		textures = new IIcon[dartTypes.length];
 
 		for (int i = 0; i < dartTypes.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:" + dartTypes[i]);
@@ -62,7 +56,7 @@ public class ItemDart extends Item
 	}
 
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
 		return textures[meta];
 	}

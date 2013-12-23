@@ -1,7 +1,11 @@
 package biomesoplenty.core;
 
 import net.minecraft.item.Item;
+import biomesoplenty.configuration.BOPConfigurationIDs;
 import biomesoplenty.items.ItemBOPFood;
+import biomesoplenty.items.ItemBOPRecord;
+import biomesoplenty.items.ItemBOPRecordMud;
+import biomesoplenty.items.ItemDart;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPItems 
@@ -43,17 +47,17 @@ public class BOPItems
 		Items.jarFilled = Optional.of(new ItemJarFilled(BOPConfigurationIDs.jarFilledID).setUnlocalizedName("bop.jarFilled").setContainerItem(Items.jarEmpty.get()));
 		Items.gems = Optional.of(new ItemGems(BOPConfigurationIDs.gemsID).setUnlocalizedName("bop.gems"));
 		Items.mudball = Optional.of(new ItemBOPMudball(BOPConfigurationIDs.mudballID).setUnlocalizedName("bop.mudball"));
-		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfigurationIDs.dartBlowerID).setUnlocalizedName("bop.dartblower"));
-		Items.dart = Optional.of(new ItemDart(BOPConfigurationIDs.dartID).setUnlocalizedName("bop.dart"));
+		Items.dartBlower = Optional.of(new ItemDartBlower(BOPConfigurationIDs.dartBlowerID).setUnlocalizedName("bop.dartblower"));*/
+		registerItem(new ItemDart().setUnlocalizedName("dart"));
 
-		Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfigurationIDs.ancientStaffID).setUnlocalizedName("bop.ancientStaff"));
+		/*Items.ancientStaff = Optional.of(new ItemBOPAncientStaff(BOPConfigurationIDs.ancientStaffID).setUnlocalizedName("bop.ancientStaff"));
 
-		Items.enderporter = Optional.of(new ItemEnderporter(BOPConfigurationIDs.enderporterID).setUnlocalizedName("bop.enderporter"));
+		Items.enderporter = Optional.of(new ItemEnderporter(BOPConfigurationIDs.enderporterID).setUnlocalizedName("bop.enderporter"));*/
 
-		Items.bopDisc = Optional.of(new ItemBOPRecord(BOPConfigurationIDs.bopDiscID, "bopdisc").setUnlocalizedName("bop.bopDisc"));
-		Items.bopDiscMud = Optional.of(new ItemBOPRecordMud(BOPConfigurationIDs.bopDiscMudID, "bopdiscmud").setUnlocalizedName("bop.bopDiscMud"));
+		registerItem(new ItemBOPRecord("bopdisc").setUnlocalizedName("bopDisc"));
+		//registerItem(new ItemBOPRecordMud("bopdiscmud").setUnlocalizedName("bopDiscMud"));
 
-		Items.swordMud = Optional.of((new ItemBOPSword(BOPConfigurationIDs.swordMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.swordMud"));
+		/*Items.swordMud = Optional.of((new ItemBOPSword(BOPConfigurationIDs.swordMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.swordMud"));
 		Items.shovelMud = Optional.of((new ItemBOPSpade(BOPConfigurationIDs.shovelMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.shovelMud"));
 		Items.pickaxeMud = Optional.of((new ItemBOPPickaxe(BOPConfigurationIDs.pickaxeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.pickaxeMud"));
 		Items.axeMud = Optional.of((new ItemBOPAxe(BOPConfigurationIDs.axeMudID, EnumToolMaterialMud, 0)).setUnlocalizedName("bop.hatchetMud"));
