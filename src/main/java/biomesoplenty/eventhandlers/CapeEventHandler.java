@@ -64,7 +64,7 @@ public class CapeEventHandler
 
                 capePlayers.add(abstractClientPlayer);
 
-                //ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), false, new String[]{"textureUploaded", "g"});
+                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), false, new String[]{"textureUploaded", "field_110559_g"});
 
                 new Thread(new CloakThread(abstractClientPlayer, cloakURL)).start();
                 event.renderCape = true;
@@ -138,13 +138,7 @@ public class CapeEventHandler
                         cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
                 bo.getGraphics().drawImage(cape, 0, 0, null);
 
-                for (Field field : ThreadDownloadImageData.class.getDeclaredFields())
-                {
-                    field.setAccessible(true);
-                    System.out.println(field.getName());
-                }
-
-                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), bo, new String[] { "bufferedImage", "d" });
+                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), bo, new String[] { "bufferedImage", "field_110560_d" });
             }
             catch (MalformedURLException e)
             {
