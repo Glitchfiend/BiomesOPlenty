@@ -15,6 +15,7 @@ import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.ThreadDownloadImageData;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -62,8 +63,8 @@ public class CapeEventHandler
 
                 capePlayers.add(abstractClientPlayer);
 
-                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), false, new String[] { "textureUploaded", "g" });
-                
+                ObfuscationReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), false, new String[]{"textureUploaded"});
+
                 new Thread(new CloakThread(abstractClientPlayer, cloakURL)).start();
                 event.renderCape = true;
             }
@@ -136,7 +137,7 @@ public class CapeEventHandler
                         cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
                 bo.getGraphics().drawImage(cape, 0, 0, null);
                 
-                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), bo, new String[] { "bufferedImage", "d" });
+                ObfuscationReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), bo, new String[] { "bufferedImage" });
             }
             catch (MalformedURLException e)
             {
