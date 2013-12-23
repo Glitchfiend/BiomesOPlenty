@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -136,7 +137,13 @@ public class CapeEventHandler
                 BufferedImage bo = new BufferedImage(cape.getWidth(null),
                         cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
                 bo.getGraphics().drawImage(cape, 0, 0, null);
-                
+
+                for (Field field : ThreadDownloadImageData.class.getDeclaredFields())
+                {
+                    field.setAccessible(true);
+                    System.out.println(field.getName());
+                }
+
                 ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), bo, new String[] { "bufferedImage", "d" });
             }
             catch (MalformedURLException e)
