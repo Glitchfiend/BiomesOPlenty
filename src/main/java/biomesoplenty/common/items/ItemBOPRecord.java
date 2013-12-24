@@ -12,6 +12,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
@@ -36,7 +37,7 @@ public class ItemBOPRecord extends ItemRecord
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("biomesoplenty:boprecord");
+		itemIcon = iconRegister.registerIcon("biomesoplenty:" + recordName);
 	}
 
 	@Override
@@ -71,7 +72,7 @@ public class ItemBOPRecord extends ItemRecord
 	//TODO:		  getRecordTitle()
 	public String func_150927_i()
 	{
-		return "Tim Rurkowski - Wanderer";
+		return StatCollector.translateToLocal("item.record." + this.field_150929_a + ".desc");
 	}
 
 	@Override
