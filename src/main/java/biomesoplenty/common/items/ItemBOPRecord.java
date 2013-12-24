@@ -1,4 +1,4 @@
-package biomesoplenty.items;
+package biomesoplenty.common.items;
 
 import java.util.HashMap;
 import java.util.List;

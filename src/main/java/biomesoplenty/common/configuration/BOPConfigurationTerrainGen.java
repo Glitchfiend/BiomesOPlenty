@@ -1,4 +1,4 @@
-package biomesoplenty.configuration;
+package biomesoplenty.common.configuration;
 
 import java.io.File;
 

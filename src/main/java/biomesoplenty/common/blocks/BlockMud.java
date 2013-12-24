@@ -1,4 +1,4 @@
-package biomesoplenty.blocks;
+package biomesoplenty.common.blocks;
 
 import java.util.List;
 import java.util.Random;

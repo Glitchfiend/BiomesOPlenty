@@ -1,4 +1,4 @@
-package biomesoplenty.entities.projectiles;
+package biomesoplenty.common.entities.projectiles;
 
 import java.util.List;
 

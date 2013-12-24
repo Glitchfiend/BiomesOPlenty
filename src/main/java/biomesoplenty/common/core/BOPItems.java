@@ -1,10 +1,10 @@
-package biomesoplenty.core;
+package biomesoplenty.common.core;
 
 import net.minecraft.item.Item;
-import biomesoplenty.items.ItemBOPFood;
-import biomesoplenty.items.ItemBOPRecord;
-import biomesoplenty.items.ItemDart;
-import biomesoplenty.items.ItemDartBlower;
+import biomesoplenty.common.items.ItemBOPFood;
+import biomesoplenty.common.items.ItemBOPRecord;
+import biomesoplenty.common.items.ItemDart;
+import biomesoplenty.common.items.ItemDartBlower;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPItems 

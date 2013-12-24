@@ -5,11 +5,9 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
-import net.minecraft.init.Items;
-import net.minecraft.util.MathHelper;
-import biomesoplenty.api.BOPItems;
+import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.client.render.entities.RenderDart;
-import biomesoplenty.entities.projectiles.EntityDart;
+import biomesoplenty.common.entities.projectiles.EntityDart;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy 
@@ -42,11 +40,11 @@ public class ClientProxy extends CommonProxy
 		} 
 		else*/ if (string == "dart") 
 		{
-			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItems.get("dart"), 0);
+			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("dart"), 0);
 		} 
 		else if (string == "poisondart") 
 		{
-			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItems.get("dart"), 1);
+			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("dart"), 1);
 		} 
 		/*else if (string == "dandelion") 
 		{

@@ -1,8 +1,8 @@
-package biomesoplenty.core;
+package biomesoplenty.common.core;
 
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.configuration.BOPConfigurationIDs;
-import biomesoplenty.entities.projectiles.EntityDart;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
+import biomesoplenty.common.entities.projectiles.EntityDart;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class BOPEntities 

@@ -1,8 +1,6 @@
-package biomesoplenty.items;
+package biomesoplenty.common.items;
 
 import java.util.List;
-
-import javax.swing.Icon;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;

@@ -1,11 +1,11 @@
 package biomesoplenty;
 
 import net.minecraft.creativetab.CreativeTabs;
-import biomesoplenty.configuration.BOPConfiguration;
-import biomesoplenty.core.BOPBlocks;
-import biomesoplenty.core.BOPEntities;
-import biomesoplenty.core.BOPItems;
-import biomesoplenty.helpers.CreativeTabsBOP;
+import biomesoplenty.common.configuration.BOPConfiguration;
+import biomesoplenty.common.core.BOPBlocks;
+import biomesoplenty.common.core.BOPEntities;
+import biomesoplenty.common.core.BOPItems;
+import biomesoplenty.common.helpers.CreativeTabsBOP;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;

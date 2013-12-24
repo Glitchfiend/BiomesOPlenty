@@ -1,11 +1,12 @@
-package biomesoplenty.configuration;
+package biomesoplenty.common.configuration;
 
 import java.io.File;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 

@@ -8,7 +8,7 @@ import net.minecraft.block.BlockSlab;
 
 import com.google.common.base.Optional;
 
-public class BOPBlocks
+public class BOPBlockHelper
 {
 	// Worldgen Blocks
 	public static Optional<? extends Block> ash                         = Optional.absent();

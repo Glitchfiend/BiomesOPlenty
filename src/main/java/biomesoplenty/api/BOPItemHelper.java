@@ -6,7 +6,7 @@ import com.google.common.base.Optional;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class BOPItems
+public class BOPItemHelper
 {
 	public static Optional<? extends Item> bopDisc              = Optional.absent();
 	public static Optional<? extends Item> bopDiscMud           = Optional.absent();
