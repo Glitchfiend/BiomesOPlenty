@@ -16,8 +16,6 @@ public class TreeCapitatorIntegration
         int logs4 = Blocks.logs4.get().blockID;
         int leavesColorized1 = Blocks.leavesColorized1.get().blockID;
         int leavesColorized2 = Blocks.leavesColorized2.get().blockID;
-        int leavesColorized3 = Blocks.leavesColorized3.get().blockID;
-        int leavesColorized4 = Blocks.leavesColorized4.get().blockID;
         int leaves1 = Blocks.leaves1.get().blockID;
         int leaves2 = Blocks.leaves2.get().blockID;
         int leaves3 = Blocks.leaves3.get().blockID;
