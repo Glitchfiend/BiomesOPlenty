@@ -3,6 +3,7 @@ package biomesoplenty;
 import net.minecraft.creativetab.CreativeTabs;
 import biomesoplenty.configuration.BOPConfiguration;
 import biomesoplenty.core.BOPBlocks;
+import biomesoplenty.core.BOPEntities;
 import biomesoplenty.core.BOPItems;
 import biomesoplenty.helpers.CreativeTabsBOP;
 import cpw.mods.fml.common.Mod;
@@ -37,6 +38,10 @@ public class BiomesOPlenty
 
 		BOPBlocks.init();
 		BOPItems.init();
+		BOPEntities.init();
+		
+		proxy.registerEventHandlers();
+		proxy.registerRenderers();
 	}
 
 	@EventHandler

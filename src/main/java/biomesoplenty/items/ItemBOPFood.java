@@ -23,9 +23,9 @@ public class ItemBOPFood extends ItemFood
 	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip"};
 	private IIcon[] textures;
 	
-	public ItemBOPFood(int id)
+	public ItemBOPFood(int healAmount)
 	{
-		super(id, 0, false);
+		super(healAmount, 0, false);
 		this.setHasSubtypes(true);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
