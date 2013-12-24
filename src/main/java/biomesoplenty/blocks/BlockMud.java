@@ -1,6 +1,7 @@
 package biomesoplenty.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -68,18 +70,9 @@ public class BlockMud extends Block
 		}
 	}
 
-	/*@Override
-	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-	{
-		if (par1IBlockAccess.getBlockMetadata(par2, par3, par4) == 0)
-			return par5 == 0 && minY > 0.0D ? true : (par5 == 1 && maxY < 1.0D ? true : (par5 == 2 && minZ > 0.0D ? true : (par5 == 3 && maxZ < 1.0D ? true : (par5 == 4 && minX > 0.0D ? true : (par5 == 5 && maxX < 1.0D ? true : !par1IBlockAccess.isBlockOpaqueCube(par2, par3, par4))))));
-			else
-				return true;
-	}*/
-
 	//@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	/*public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
@@ -88,7 +81,7 @@ public class BlockMud extends Block
 		}
 		else
 			return null;
-	}*/
+	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
@@ -117,28 +110,28 @@ public class BlockMud extends Block
 
 	//@Override
 	//TODO:	   getItemDropped()
-	/*public Item func_149650_a(int metadata, Random random, int par3)
+	public Item func_149650_a(int metadata, Random random, int par3)
 	{
 		/*TODO: FEATURE if (metadata == 0)
 			return BOPItems.mudball.get().itemID;
 		else*/
 			//TODO: getItemFromBlock()
-			/*return Item.func_150898_a(this);
-	}*/
+			return Item.func_150898_a(this);
+	}
 
-	//@Override
+	@Override
 	//TODO     damageDropped()
-	/*public int func_149692_a(int meta)
+	public int func_149692_a(int meta)
 	{
 		return meta;
-	}*/
+	}
 
 	//@Override
-	/*public int quantityDropped(int meta, int fortune, Random random)
+	public int quantityDropped(int meta, int fortune, Random random)
 	{
 		if (meta == 0)
 			return 4;
 		else
 			return 1;
-	}*/
+	}
 }

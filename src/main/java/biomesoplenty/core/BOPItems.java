@@ -18,7 +18,7 @@ public class BOPItems
 	private static void registerItems()
 	{
 		// Item declaration
-		registerItem(new ItemBOPFood(0).setUnlocalizedName("food")); //BUG: Crash on eating food
+		registerItem(new ItemBOPFood(0).setUnlocalizedName("food"));
 		
 		registerItem(new ItemDartBlower().setUnlocalizedName("dartBlower"));
 		registerItem(new ItemDart().setUnlocalizedName("dart"));
