@@ -33,7 +33,7 @@ public class BiomesOPlenty
 		
 		//Version.check();
 
-		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(),"tabBiomesOPlenty");
+		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
 
 		BOPBlocks.init();
 		BOPItems.init();
