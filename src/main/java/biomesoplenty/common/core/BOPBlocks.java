@@ -1,7 +1,9 @@
 package biomesoplenty.common.core;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemBlock;
 import biomesoplenty.common.blocks.BlockMud;
+import biomesoplenty.common.itemblocks.ItemBlockMud;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPBlocks 
@@ -15,7 +17,7 @@ public class BOPBlocks
 	{
 		// Block declaration
 		//TODO:						setBlockName
-		registerBlock(new BlockMud().func_149663_c("mud"));
+		registerBlock(new BlockMud().func_149663_c("mud"), ItemBlockMud.class);
 	}
 	
 	public static void registerBlock(Block block)
@@ -23,4 +25,10 @@ public class BOPBlocks
 		//TODO: 								getUnlocalizedName()
 	    GameRegistry.registerBlock(block, block.func_149739_a().replace("tile.", ""));
 	}
+	
+    public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
+    {
+		//TODO: 												getUnlocalizedName()
+        GameRegistry.registerBlock(block, itemBlockClass, block.func_149739_a().replace("tile.", ""));
+    }
 }

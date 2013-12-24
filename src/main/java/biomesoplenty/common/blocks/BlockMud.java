@@ -45,7 +45,7 @@ public class BlockMud extends Block
 
 		for (int i = 0; i < types.length; ++i) 
 		{
-			textures[i] = iconRegister.registerIcon("biomesoplenty:"+types[i]);
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+ types[i]);
 		}
 	}
 

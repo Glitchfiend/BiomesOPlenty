@@ -6,6 +6,7 @@ import biomesoplenty.common.core.BOPBlocks;
 import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
+import biomesoplenty.common.lib.BOPModInfo;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -14,7 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid="BiomesOPlenty", name="Biomes O' Plenty", dependencies="after:Natura; required-after:Forge@[1.42.666.42.1,)")
+@Mod(modid=BOPModInfo.modID, name=BOPModInfo.modName, dependencies="after:Natura; required-after:Forge@[1.42.666.42.1,)")
 public class BiomesOPlenty
 {
 	@Instance("BiomesOPlenty")
