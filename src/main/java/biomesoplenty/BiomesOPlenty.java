@@ -8,6 +8,7 @@ import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.lib.BOPModInfo;
+import biomesoplenty.common.world.WorldTypeBOP;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -55,5 +56,6 @@ public class BiomesOPlenty
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		BOPBiomes.worldTypeBOP = new WorldTypeBOP();
 	}
 }
