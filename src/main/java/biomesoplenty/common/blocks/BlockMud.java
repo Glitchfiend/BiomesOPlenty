@@ -16,6 +16,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 
 public class BlockMud extends Block
 {
@@ -112,9 +113,9 @@ public class BlockMud extends Block
 	//TODO:	   getItemDropped()
 	public Item func_149650_a(int metadata, Random random, int par3)
 	{
-		/*TODO: FEATURE if (metadata == 0)
-			return BOPItems.mudball.get().itemID;
-		else*/
+		if (metadata == 0)
+			return BOPItemHelper.get("mudball");
+		else
 			//TODO: getItemFromBlock()
 			return Item.func_150898_a(this);
 	}

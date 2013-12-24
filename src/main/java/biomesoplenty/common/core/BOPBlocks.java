@@ -3,6 +3,7 @@ package biomesoplenty.common.core;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import biomesoplenty.common.blocks.BlockAsh;
+import biomesoplenty.common.blocks.BlockCloud;
 import biomesoplenty.common.blocks.BlockMud;
 import biomesoplenty.common.itemblocks.ItemBlockMud;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -22,6 +23,8 @@ public class BOPBlocks
 		//TODO: Dried Dirt
 		//TODO: Red Rock
 		registerBlock(new BlockAsh().func_149663_c("ash"));
+		
+		registerBlock(new BlockCloud().func_149663_c("cloud"));
 	}
 	
 	public static void registerBlock(Block block)

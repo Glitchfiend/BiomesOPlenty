@@ -20,6 +20,9 @@ public class BlockAsh extends Block
 		//TODO:	Material.sand
 		super(Material.field_151595_p);
 		
+		//TODO: this.setStepSound(Block.soundSandFootstep);
+		this.func_149672_a(Block.field_149776_m);
+		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
