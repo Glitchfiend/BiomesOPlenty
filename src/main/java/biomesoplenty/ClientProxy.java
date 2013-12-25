@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.util.MathHelper;
 import biomesoplenty.api.Items;
 import biomesoplenty.blocks.renderers.BambooRenderer;
+import biomesoplenty.blocks.renderers.ColorizedLeavesRenderer;
 import biomesoplenty.blocks.renderers.FoliageRenderer;
 import biomesoplenty.blocks.renderers.GraveRenderer;
 import biomesoplenty.blocks.renderers.PlantsRenderer;
@@ -55,6 +56,7 @@ public class ClientProxy extends CommonProxy {
 		RenderUtils.bonesModel = RenderingRegistry.getNextAvailableRenderId();
 		RenderUtils.graveModel = RenderingRegistry.getNextAvailableRenderId();
 		RenderUtils.bambooModel = RenderingRegistry.getNextAvailableRenderId();
+		RenderUtils.colorizedLeavesModel = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(Items.mudball.get(), 0));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
@@ -100,6 +102,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(new PuddleRender());
 		RenderingRegistry.registerBlockHandler(new GraveRenderer());
 		RenderingRegistry.registerBlockHandler(new BambooRenderer());
+		RenderingRegistry.registerBlockHandler(new ColorizedLeavesRenderer());
 	}
 
 	@Override

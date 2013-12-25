@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -40,6 +41,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     
     private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
     private Icon[][] textures;
+    public Icon christmasLights;
     private final ColourizedLeafCategory category;
     int[] adjacentTreeBlocks;
     
@@ -59,6 +61,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     public void registerIcons(IconRegister iconRegister)
     {
         textures = new Icon[3][leaves.length];
+        
         if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
             for (int i = 0; i < leaves.length; ++i)
             {
@@ -72,6 +75,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
                 textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
                 textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
             }
+        
+        christmasLights = iconRegister.registerIcon("biomesoplenty:christmaslights");
     }
 
     public Icon getIconBetterLeaves(int metadata, float randomIndex)
@@ -142,6 +147,12 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     public boolean isOpaqueCube()
     {
         return Block.leaves.isOpaqueCube();
+    }
+    
+    @Override
+    public int getRenderType()
+    {
+        return RenderUtils.colorizedLeavesModel;
     }
 
     @Override
