@@ -24,7 +24,7 @@ public class BlockBOPAmethyst extends Block
 	{
 		super(Material.);
 		
-		setStepSound(Block.soundStoneFootstep);
+		this.setStepSound(Block.soundStoneFootstep);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -51,7 +51,8 @@ public class BlockBOPAmethyst extends Block
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z) {
+	public int getDamageValue(World world, int x, int y, int z) 
+	{
 		return world.getBlockMetadata(x, y, z);
 	}
 

@@ -1,4 +1,4 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -7,11 +7,12 @@ import biomesoplenty.common.blocks.BlockBOPLog;
 
 public class ItemBlockLog extends ItemBlock
 {
-	public ItemBlockLog(int par1)
+	public ItemBlockLog(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override
@@ -23,7 +24,8 @@ public class ItemBlockLog extends ItemBlock
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
-		BlockBOPLog block = (BlockBOPLog)Block.blocksList[itemStack.itemID];
+		//TODO:							block
+		BlockBOPLog block = (BlockBOPLog)field_150939_a;
 		return super.getUnlocalizedName() + "." + block.getWoodType(itemStack.getItemDamage()) + "Wood";
 	}
 }

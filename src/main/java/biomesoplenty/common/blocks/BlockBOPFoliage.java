@@ -42,9 +42,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public Icon shrubBranch;
 	public Icon berryBushBerry;
 
-	private static final int GRASSTOP = 6;
 	private static final int ALGAE = 0;
-	private static final int GRASSBOTTOM = 3;
 
 	public BlockBOPFoliage(int blockID)
 	{

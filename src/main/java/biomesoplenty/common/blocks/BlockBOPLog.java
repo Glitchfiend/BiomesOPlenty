@@ -2,15 +2,19 @@ package biomesoplenty.common.blocks;
 
 import java.util.List;
 
+import javax.swing.Icon;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPLog extends Block
@@ -19,6 +23,7 @@ public class BlockBOPLog extends Block
 	{
 		CAT1, CAT2, CAT3, CAT4;
 	}
+	
 	//logs1
 	//Acacia			(0)
 	//Cherry			(1)
@@ -43,26 +48,35 @@ public class BlockBOPLog extends Block
 	//Jacaranda			(2)
 
 	private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda"};
-	private Icon[] textures;
-	private Icon[] logHearts;
+	private IIcon[] textures;
+	private IIcon[] logHearts;
 
 	private final LogCategory category;
 
-	public BlockBOPLog(int blockID, LogCategory cat)
+	public BlockBOPLog(LogCategory cat)
 	{
-		super(blockID, Material.wood);
+		//TODO: Material.wood
+		super(Material.field_151575_d);
+		
 		category = cat;
-		setHardness(2.0F);
-		setResistance(5.0F);
-		setStepSound(Block.soundWoodFootstep);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setHardness
+		this.func_149711_c(2.0F);
+		//TODO: this.setResistance
+		this.func_149752_b(5.0F);
+		//TODO setStepSound(Block.soundWoodFootstep)
+		this.func_149672_a(Block.field_149766_f);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
-		textures = new Icon[types.length];
-		logHearts = new Icon[types.length];
+		textures = new IIcon[types.length];
+		logHearts = new IIcon[types.length];
 
 		for (int i = 0; i < types.length; ++i)
 		{
@@ -78,9 +92,11 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		int pos = meta & 12;
+		
 		if (pos == 0 && (side == 1 || side == 0) || pos == 4 && (side == 5 || side == 4) || pos == 8 && (side == 2 || side == 3))
 			return logHearts[(getTypeFromMeta(meta) + category.ordinal() * 4)];
 		else
@@ -88,8 +104,9 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		if (category != LogCategory.CAT4)
 		{
 			for (int i = 0; i < 4; ++i) {
@@ -105,20 +122,26 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+	//TODO:		breakBlock()
+	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
 	{
 		byte radius = 4;
 		int bounds = radius + 1;
 
-		if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) {
-			for (int i = -radius; i <= radius; ++i) {
-				for (int j = -radius; j <= radius; ++j) {
+		if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) 
+		{
+			for (int i = -radius; i <= radius; ++i) 
+			{
+				for (int j = -radius; j <= radius; ++j) 
+				{
 					for (int k = -radius; k <= radius; ++k)
 					{
-						int blockID = world.getBlockId(x + i, y + j, z + k);
+						//TODO:				getBlock()
+						Block block = world.func_147439_a(x + i, y + j, z + k);
 
-						if (Block.blocksList[blockID] != null) {
-							Block.blocksList[blockID].beginLeavesDecay(world, x + i, y + j, z + k);
+						if (block.isLeaves(world, x, y, z)) 
+						{
+							block.beginLeavesDecay(world, x + i, y + j, z + k);
 						}
 					}
 				}
@@ -127,7 +150,8 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
+	//TODO:		onBlockPlaced()
+	public int func_149660_a(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		int type = getTypeFromMeta(meta);
 		byte orientation = 0;
@@ -153,61 +177,73 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	public int getFlammability(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+	public int getFlammability(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		if (category == LogCategory.CAT4 && metadata == 1)
+		if (category == LogCategory.CAT4 && world.getBlockMetadata(x, y, z) == 1)
+		{
 			return 0;
+		}
 		else
 		{
-			super.setBurnProperties(blockID, 5, 5);
-			return blockFlammability[blockID];
+			return Blocks.fire.getFlammability(this);
 		}
 	}
 
 	@Override
-	public int getFireSpreadSpeed(World world, int x, int y, int z, int metadata, ForgeDirection face)
+	public int getFireSpreadSpeed(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		if (category == LogCategory.CAT4 && metadata == 1)
+		if (category == LogCategory.CAT4 && world.getBlockMetadata(x, y, z) == 1)
+		{
 			return 0;
+		}
 		else
-			return blockFireSpreadSpeed[blockID];
+		{
+			return Blocks.fire.getEncouragement(this);
+		}
 	}
 
 	@Override
-	public boolean isFlammable(IBlockAccess world, int x, int y, int z, int metadata, ForgeDirection face)
+	public boolean isFlammable(IBlockAccess world, int x, int y, int z, ForgeDirection face)
 	{
-		if (category == LogCategory.CAT4 && metadata == 1)
+		if (category == LogCategory.CAT4 && world.getBlockMetadata(x, y, z) == 1)
+		{
 			return false;
+		}
 		else
-			return getFlammability(world, x, y, z, metadata, face) > 0;
+		{
+			return getFlammability(world, x, y, z, face) > 0;
+		}
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO:	   damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return getTypeFromMeta(meta);
 	}
 
 	@Override
-	protected ItemStack createStackedBlock(int meta)
+	//TODO:				createStackedBlock()
+	protected ItemStack func_149644_j(int meta)
 	{
-		return new ItemStack(blockID, 1, getTypeFromMeta(meta));
+		return new ItemStack(this, 1, getTypeFromMeta(meta));
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 31;
 	}
 
 	@Override
-	public boolean canSustainLeaves(World world, int x, int y, int z)
+	public boolean canSustainLeaves(IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}
 
 	@Override
-	public boolean isWood(World world, int x, int y, int z)
+	public boolean isWood(IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}
