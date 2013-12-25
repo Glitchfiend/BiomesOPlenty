@@ -59,7 +59,8 @@ public class BlockTurnip extends BlockCrops
     }
     
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta == 7 ? 11 : 0;
 	}

@@ -18,14 +18,16 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPGrass extends Block
 {
-	private IIcon[][] blockIcon = new IIcon[2][6];
+	private IIcon[][] 		//TODO: blockIcon
+		this.field_149761_L = new IIcon[2][6];
 
 	public BlockBOPGrass()
 	{
 		super(Material.grass);
 		this.setTickRandomly(true);
 		setStepSound(Block.soundGrassFootstep);
-		setHardness(0.6F);
+				//TODO: this.setHardness
+		this.func_149711_c(0.6F);
 		//setLightValue(0.25F);
 		
 		//TODO: this.setCreativeTab()
@@ -36,43 +38,60 @@ public class BlockBOPGrass extends Block
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-		blockIcon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
-		blockIcon[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
-		blockIcon[0][2] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-		blockIcon[0][3] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-		blockIcon[0][4] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-		blockIcon[0][5] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
+				//TODO: blockIcon
+		this.field_149761_L[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
+				//TODO: blockIcon
+		this.field_149761_L[0][2] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[0][3] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[0][4] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[0][5] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
 
-		blockIcon[1][0] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_bottom");
-		blockIcon[1][1] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_top");
-		blockIcon[1][2] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
-		blockIcon[1][3] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
-		blockIcon[1][4] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
-		blockIcon[1][5] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[1][0] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_bottom");
+				//TODO: blockIcon
+		this.field_149761_L[1][1] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_top");
+				//TODO: blockIcon
+		this.field_149761_L[1][2] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[1][3] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[1][4] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+				//TODO: blockIcon
+		this.field_149761_L[1][5] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
 	}
 
 	@Override
 	//TODO:		 getIcon()
 	public IIcon func_149691_a(int side, int meta)
 	{
-		if (meta < 0 || meta >= blockIcon.length)
+		if (meta < 0 || meta >= 		//TODO: blockIcon
+		this.field_149761_L.length)
 	        meta = 1;
-		if (side < 0 || side >= blockIcon[meta].length)
+		if (side < 0 || side >= 		//TODO: blockIcon
+		this.field_149761_L[meta].length)
 	        side = 1;
 	    
-		return blockIcon[meta][side];
+		return 		//TODO: blockIcon
+		this.field_149761_L[meta][side];
 	}
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < 2; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta;
 	}
@@ -164,7 +183,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 1)
 		{

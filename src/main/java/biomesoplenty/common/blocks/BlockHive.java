@@ -27,7 +27,8 @@ public class BlockHive extends Block
 	}
 	
     @Override
-    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+	//TODO:		breakBlock()
+	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
     {
     	if (world.getBlockMetadata(x, y, z) == 2)
     	{
@@ -83,7 +84,8 @@ public class BlockHive extends Block
 	}
 	
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		if (meta == 0)
 		{

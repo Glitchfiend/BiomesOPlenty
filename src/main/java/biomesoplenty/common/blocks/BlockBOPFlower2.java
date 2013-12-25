@@ -32,12 +32,13 @@ public class BlockBOPFlower2 extends BlockFlower
 		this.setTickRandomly(true);
 		float var4 = 0.2F;
 		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
-	public BlockBOPFlower2(int blockID)
+	public BlockBOPFlower2()
 	{
-		this(blockID, Material.plants);
+		this(Material.plants);
 	}
 
 	@Override
@@ -138,11 +139,9 @@ public class BlockBOPFlower2 extends BlockFlower
 		}
 	}
 
-	/**
-	 * A randomly called display update to be able to add particles or other items for display
-	 */
 	@Override
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	//TODO: 	randomDisplayTick()
+	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
 		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
 		int meta = par1World.getBlockMetadata(par2, par3, par4);
@@ -162,7 +161,8 @@ public class BlockBOPFlower2 extends BlockFlower
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < plants2.length; ++i)
 		{
 			list.add(new ItemStack(blockID, 1, i));
@@ -224,7 +224,8 @@ public class BlockBOPFlower2 extends BlockFlower
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta & 15;
 	}

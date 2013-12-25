@@ -23,7 +23,8 @@ public class BlockBOPSapling extends BlockSapling
 
 	public BlockBOPSapling()
 	{
-		setHardness(0.0F);
+				//TODO: this.setHardness
+		this.func_149711_c(0.0F);
 		setStepSound(Block.soundGrassFootstep);
 		
 		//TODO: this.setCreativeTab()
@@ -55,7 +56,8 @@ public class BlockBOPSapling extends BlockSapling
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < saplings.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
@@ -213,7 +215,8 @@ public class BlockBOPSapling extends BlockSapling
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta & TYPES;
 	}

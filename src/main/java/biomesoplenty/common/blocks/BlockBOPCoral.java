@@ -63,7 +63,8 @@ public class BlockBOPCoral extends BlockFlower
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < coral.length; ++i)
 		{
 			if (i > 2)
@@ -153,7 +154,8 @@ public class BlockBOPCoral extends BlockFlower
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		if (meta < 3)
 		{

@@ -37,7 +37,8 @@ public class BlockBOPStairs extends BlockStairs
 		category = cat;
 		setBurnProperties(this.blockID, 5, 20);
 		this.setLightOpacity(0);
-		this.setHardness(model.blockHardness);
+		this.		//TODO: this.setHardness
+		this.func_149711_c(model.blockHardness);
         this.setResistance(model.blockResistance / 3.0F);
         
 		//TODO: this.setCreativeTab()

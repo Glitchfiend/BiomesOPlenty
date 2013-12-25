@@ -12,33 +12,38 @@ public class BlockHoney extends Block
 {
 	public BlockHoney()
 	{
-		super(Material.glass);
+		//TODO: Material.glass
+		super(Material.field_151592_s);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("biomesoplenty:honeyblock");
+		//TODO: blockIcon
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:honeyblock");
 	}
 	
     @Override
-	@SideOnly(Side.CLIENT)
-    public int getRenderBlockPass()
+	//TODO:	   getRenderBlockPass()
+	public int func_149701_w()
     {
         return 1;
     }
     
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
     {
-        return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, 1 - par5);
+        return super.func_149646_a(world, x, y, z, 1 - side);
     }
 
     @Override
-	public boolean isOpaqueCube()
+	//TODO:		   isOpaqueCube()
+	public boolean func_149662_c()
     {
         return false;
     }

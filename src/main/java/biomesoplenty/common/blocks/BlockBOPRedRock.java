@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -19,7 +20,8 @@ public class BlockBOPRedRock extends Block
 
 	public BlockBOPRedRock()
 	{
-		super(Material.rock);
+		//TODO: Material.rock
+		super(Material.field_151576_e);
 		setStepSound(Block.soundStoneFootstep);
 		
 		//TODO: this.setCreativeTab()
@@ -50,20 +52,23 @@ public class BlockBOPRedRock extends Block
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z) {
+	public int getDamageValue(World world, int x, int y, int z) 
+	{
 		return world.getBlockMetadata(x, y, z);
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < types.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta == 0 ? 1 : meta;
 	}

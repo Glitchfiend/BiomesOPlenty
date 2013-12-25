@@ -43,7 +43,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		setTickRandomly(true);
 		float var3 = 0.4F;
 		setBurnProperties(blockID, 60, 100);
-		setHardness(0.0F);
+				//TODO: this.setHardness
+		this.func_149711_c(0.0F);
 		setStepSound(Block.soundGrassFootstep);
 		setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
 		
@@ -355,7 +356,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		if (meta == 9)
 		{

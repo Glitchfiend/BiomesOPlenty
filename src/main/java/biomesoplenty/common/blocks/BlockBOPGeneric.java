@@ -30,39 +30,48 @@ public class BlockBOPGeneric extends Block
 		switch (type)
 		{
 		case ASH_STONE:
-			setHardness(1.0F).setStepSound(Block.soundStoneFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(1.0F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case CRAG_ROCK:
-			setHardness(1.0F).setStepSound(Block.soundGravelFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(1.0F).setStepSound(Block.soundGravelFootstep);
 			break;
 
 		case DRIED_DIRT:
-			setHardness(0.1F).setStepSound(Block.soundStoneFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(0.1F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HARD_DIRT:
-			setHardness(0.9F).setStepSound(Block.soundStoneFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(0.9F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HARD_ICE:
-			setHardness(0.75F).setStepSound(Block.soundStoneFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(0.75F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HARD_SAND:
-			setHardness(0.7F).setStepSound(Block.soundSandFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(0.7F).setStepSound(Block.soundSandFootstep);
 			break;
 
 		case MUD_BRICK:
-			setHardness(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(1.0F).setResistance(2.0F).setStepSound(Block.soundStoneFootstep);
 			break;
 
 		case HOLY_DIRT:
-			setHardness(0.6F).setStepSound(Block.soundGravelFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(0.6F).setStepSound(Block.soundGravelFootstep);
 			break;
 
 		case CRYSTAL:
-			setHardness(0.15F).setResistance(5.0F).setLightValue(1.0F).setStepSound(Block.soundGlassFootstep);
+					//TODO: this.setHardness
+		this.func_149711_c(0.15F).setResistance(5.0F).setLightValue(1.0F).setStepSound(Block.soundGlassFootstep);
 			break;
 
 		default:
@@ -137,7 +146,8 @@ public class BlockBOPGeneric extends Block
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		switch (type)
 		{

@@ -19,7 +19,8 @@ public class BlockBOPSkystone extends Block
 
 	public BlockBOPSkystone()
 	{
-		super(Material.rock);
+		//TODO: Material.rock
+		super(Material.field_151576_e);
 		setStepSound(Block.soundStoneFootstep);
 		
 		//TODO: this.setCreativeTab()
@@ -55,14 +56,16 @@ public class BlockBOPSkystone extends Block
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < types.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		if (meta == 0)
 		{

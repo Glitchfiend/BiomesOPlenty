@@ -19,7 +19,8 @@ public class BlockBOPPlank extends Block
 	{
 		super(Material.wood);
 		setBurnProperties(this.blockID, 5, 20);
-		setHardness(2.0F);
+				//TODO: this.setHardness
+		this.func_149711_c(2.0F);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -49,14 +50,16 @@ public class BlockBOPPlank extends Block
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < woodTypes.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta;
 	}

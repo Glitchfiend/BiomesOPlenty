@@ -21,7 +21,8 @@ public class BlockBones extends Block {
 	public BlockBones(int blockID)
 	{
 		super(blockID, Material.rock);
-		setHardness(3.0F);
+				//TODO: this.setHardness
+		this.func_149711_c(3.0F);
 		setResistance(5.0F);
 		
 		//TODO: this.setCreativeTab()
@@ -55,7 +56,8 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -203,7 +205,8 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public boolean isOpaqueCube()
+	//TODO:		   isOpaqueCube()
+	public boolean func_149662_c()
 	{
 		return false;
 	}
@@ -227,7 +230,8 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		if (meta == 3 || meta == 4) {
 			meta = 0;

@@ -15,9 +15,11 @@ public class BlockGrave extends Block
 {	
 	public BlockGrave()
 	{
-		super(Material.rock);
+		//TODO: Material.rock
+		super(Material.field_151576_e);
 
-		setHardness(5f);
+				//TODO: this.setHardness
+		this.func_149711_c(5f);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -27,7 +29,8 @@ public class BlockGrave extends Block
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("biomesoplenty:grave");
+				//TODO: blockIcon
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:grave");
 	}
     
 	@Override
@@ -95,7 +98,8 @@ public class BlockGrave extends Block
 	}
 
 	@Override
-	public boolean isOpaqueCube()
+	//TODO:		   isOpaqueCube()
+	public boolean func_149662_c()
 	{
 		return false;
 	}

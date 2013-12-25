@@ -61,7 +61,8 @@ public class BlockPuddle extends Block
     }
     
     @Override
-    public int getRenderBlockPass()
+	//TODO:	   getRenderBlockPass()
+	public int func_149701_w()
     {
     	return 1;
     }

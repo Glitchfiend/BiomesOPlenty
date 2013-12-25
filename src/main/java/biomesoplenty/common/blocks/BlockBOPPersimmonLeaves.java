@@ -35,7 +35,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		super(Material.leaves, false);
 		setBurnProperties(this.blockID, 30, 60);
 		this.setTickRandomly(true);
-		setHardness(0.2F);
+				//TODO: this.setHardness
+		this.func_149711_c(0.2F);
 		setLightOpacity(1);
 		setStepSound(Block.soundGrassFootstep);
 		
@@ -82,14 +83,16 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public boolean isOpaqueCube()
+	//TODO:		   isOpaqueCube()
+	public boolean func_149662_c()
 	{
 		return Block.leaves.isOpaqueCube();
 	}
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		list.add(new ItemStack(blockID, 1, 0));
 	}
 
@@ -283,7 +286,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return 15;
 	}

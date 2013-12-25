@@ -47,7 +47,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		float f = 0.4F;
 		setBurnProperties(this.blockID, 60, 100);
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
-		setHardness(0.0F);
+				//TODO: this.setHardness
+		this.func_149711_c(0.0F);
 		setStepSound(Block.soundGrassFootstep);
 		
 		//TODO: this.setCreativeTab()

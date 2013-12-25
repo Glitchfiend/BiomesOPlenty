@@ -25,15 +25,13 @@ public class BlockFlesh extends Block
 	}
 
 	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("biomesoplenty:flesh");
+		//TODO: blockIcon
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:flesh");
 	}
 
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-	 * cleared to be reused)
-	 */
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
 	{
@@ -41,13 +39,11 @@ public class BlockFlesh extends Block
 		return AxisAlignedBB.getAABBPool().getAABB(par2, par3, par4, par2 + 1, par3 + 1 - var5, par4 + 1);
 	}
 
-	/**
-	 * A randomly called display update to be able to add particles or other items for display
-	 */
 	@Override
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	//TODO: 	randomDisplayTick()
+	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
-		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
+		super.func_149734_b(par1World, par2, par3, par4, par5Random);
 
 		if (par5Random.nextInt(4) == 0)
 		{
@@ -77,9 +73,6 @@ public class BlockFlesh extends Block
 		entity.motionZ *= 0.9D;
 	}
 	
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3)
 	{
@@ -87,14 +80,12 @@ public class BlockFlesh extends Block
 	}
 	
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return 3;
 	}
 
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
 	@Override
 	public int quantityDropped(Random par1Random)
 	{

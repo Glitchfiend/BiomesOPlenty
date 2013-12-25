@@ -151,7 +151,8 @@ public class BlockBOPFlower extends BlockFlower
 	 * A randomly called display update to be able to add particles or other items for display
 	 */
 	@Override
-	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	//TODO: 	randomDisplayTick()
+	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
 		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
 		int meta = par1World.getBlockMetadata(par2, par3, par4);
@@ -171,7 +172,8 @@ public class BlockBOPFlower extends BlockFlower
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		for (int i = 0; i < plants.length; ++i)
 		{
 			if (i != 14)
@@ -259,7 +261,8 @@ public class BlockBOPFlower extends BlockFlower
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		if (meta == 14)
 			return 13 & 15;

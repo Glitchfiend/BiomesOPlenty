@@ -193,7 +193,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+	//TODO:		breakBlock()
+	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
     {
         byte radius = 1;
         int bounds = radius + 1;
@@ -394,7 +395,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
     {
         return true;
     }

@@ -13,11 +13,13 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockOvergrownNetherrack extends Block
 {
-	private IIcon[] blockIcon = new IIcon[6];
+	private IIcon[] 		//TODO: blockIcon
+		this.field_149761_L = new IIcon[6];
 
 	public BlockOvergrownNetherrack()
 	{
-		super(Material.rock);
+		//TODO: Material.rock
+		super(Material.field_151576_e);
 		this.setTickRandomly(true);
 		
 		//TODO: this.setCreativeTab()
@@ -25,14 +27,21 @@ public class BlockOvergrownNetherrack extends Block
 	}
 
 	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
-		blockIcon[0] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack3");
-		blockIcon[1] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack1");
-		blockIcon[2] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
-		blockIcon[3] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
-		blockIcon[4] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
-		blockIcon[5] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
+				//TODO: blockIcon
+		this.field_149761_L[0] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack3");
+				//TODO: blockIcon
+		this.field_149761_L[1] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack1");
+				//TODO: blockIcon
+		this.field_149761_L[2] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
+				//TODO: blockIcon
+		this.field_149761_L[3] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
+				//TODO: blockIcon
+		this.field_149761_L[4] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
+				//TODO: blockIcon
+		this.field_149761_L[5] = par1IconRegister.registerIcon("biomesoplenty:overgrownnetherrack2");
 	}
 
 	/**
@@ -41,10 +50,12 @@ public class BlockOvergrownNetherrack extends Block
 	@Override
 	public IIcon getIcon(int par1, int par2)
 	{
-	    if (par1 < 0 || par1 >= blockIcon.length)
+	    if (par1 < 0 || par1 >= 		//TODO: blockIcon
+		this.field_149761_L.length)
 	        par1 = 1;
         
-		return blockIcon[par1];
+		return 		//TODO: blockIcon
+		this.field_149761_L[par1];
 	}
 
 	/**

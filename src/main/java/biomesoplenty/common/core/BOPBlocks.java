@@ -7,6 +7,7 @@ import biomesoplenty.common.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.common.blocks.BlockBOPLog;
 import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.common.blocks.BlockCloud;
+import biomesoplenty.common.blocks.BlockHoney;
 import biomesoplenty.common.blocks.BlockMud;
 import biomesoplenty.common.itemblocks.ItemBlockColorizedSapling;
 import biomesoplenty.common.itemblocks.ItemBlockLog;
@@ -30,6 +31,8 @@ public class BOPBlocks
 		registerBlock(new BlockAsh().func_149663_c("ash"));
 		
 		registerBlock(new BlockCloud().func_149663_c("cloud"));
+		
+		registerBlock(new BlockHoney().func_149663_c("honeyBlock"));
 		
 		registerBlock(new BlockBOPLog(LogCategory.CAT1).func_149663_c("logs1"), ItemBlockLog.class);
 		registerBlock(new BlockBOPLog(LogCategory.CAT2).func_149663_c("logs2"), ItemBlockLog.class);

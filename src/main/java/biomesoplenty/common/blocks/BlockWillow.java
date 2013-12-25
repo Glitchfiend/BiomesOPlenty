@@ -29,9 +29,11 @@ public class BlockWillow extends Block implements IShearable
 	}
 
 	@Override
-	public void registerIcons(IIconRegister par1IconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
-		blockIcon = par1IconRegister.registerIcon("biomesoplenty:willow");
+				//TODO: blockIcon
+		this.field_149761_L = par1IconRegister.registerIcon("biomesoplenty:willow");
 	}
 
 	/**
@@ -57,7 +59,8 @@ public class BlockWillow extends Block implements IShearable
 	 * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
 	 */
 	@Override
-	public boolean isOpaqueCube()
+	//TODO:		   isOpaqueCube()
+	public boolean func_149662_c()
 	{
 		return false;
 	}

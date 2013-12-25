@@ -93,7 +93,8 @@ public class BlockBOPMushroom extends BlockFlower
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) 
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < plants.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
@@ -157,7 +158,8 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta & 15;
 	}

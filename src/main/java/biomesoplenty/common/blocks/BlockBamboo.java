@@ -138,7 +138,8 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public boolean isOpaqueCube()
+	//TODO:		   isOpaqueCube()
+	public boolean func_149662_c()
 	{
 		return false;
 	}

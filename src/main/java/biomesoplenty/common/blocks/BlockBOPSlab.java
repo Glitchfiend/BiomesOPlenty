@@ -35,7 +35,8 @@ public class BlockBOPSlab extends BlockHalfSlab
 		if (material == Material.wood)
 		{
 			setBurnProperties(blockID, 5, 20);
-			setHardness(2.0F);
+					//TODO: this.setHardness
+		this.func_149711_c(2.0F);
 			setResistance(5.0F);
 			setStepSound(Block.soundWoodFootstep);
 		}
@@ -86,7 +87,8 @@ public class BlockBOPSlab extends BlockHalfSlab
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
 		int max = 0;
 
 		if (category == SlabCategory.WOOD1) {
@@ -112,7 +114,8 @@ public class BlockBOPSlab extends BlockHalfSlab
 	}
 
 	@Override
-	public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
 	{
 		return meta & 7;
 	}

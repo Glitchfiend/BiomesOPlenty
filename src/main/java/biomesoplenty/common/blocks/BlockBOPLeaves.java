@@ -64,7 +64,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
         super(Material.leaves, false);
         category = cat;
         this.setTickRandomly(true);
-        setHardness(0.2F);
+        		//TODO: this.setHardness
+		this.func_149711_c(0.2F);
         setLightOpacity(1);
         setStepSound(Block.soundGrassFootstep);
         
@@ -163,7 +164,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+	//TODO:		breakBlock()
+	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
     {
         byte radius = 1;
         int bounds = radius + 1;
@@ -412,7 +414,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
     {
         return true;
     }
