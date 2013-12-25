@@ -15,12 +15,14 @@ public class BlockBOPPlank extends Block
 	private static final String[] woodTypes = new String[] {"plank_acacia", "plank_cherry", "plank_dark", "plank_fir", "plank_holy", "plank_magic", "plank_mangrove", "plank_palm", "plank_redwood", "plank_willow", "bamboothatching", "plank_pine", "plank_hell_bark", "plank_jacaranda"};
 	private Icon[] textures;
 
-	public BlockBOPPlank(int blockID)
+	public BlockBOPPlank()
 	{
-		super(blockID, Material.wood);
+		super(Material.wood);
 		setBurnProperties(this.blockID, 5, 20);
 		setHardness(2.0F);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

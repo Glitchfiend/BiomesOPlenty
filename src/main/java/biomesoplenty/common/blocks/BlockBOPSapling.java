@@ -39,12 +39,13 @@ public class BlockBOPSapling extends BlockSapling
 	private Icon[] textures;
 	private static final int TYPES = 15;
 
-	public BlockBOPSapling(int par1)
+	public BlockBOPSapling()
 	{
-		super(par1);
 		setHardness(0.0F);
 		setStepSound(Block.soundGrassFootstep);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

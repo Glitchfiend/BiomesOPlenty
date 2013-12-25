@@ -15,12 +15,14 @@ import biomesoplenty.api.Blocks;
 
 public class BlockMoss extends Block
 {
-	public BlockMoss(int par1)
+	public BlockMoss()
 	{
-		super(par1, Material.vine);
+		super(Material.vine);
 		setBurnProperties(blockID, 15, 100);
 		this.setTickRandomly(true);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

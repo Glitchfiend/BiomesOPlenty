@@ -11,6 +11,8 @@ import biomesoplenty.api.Items;
 
 public class BlockBOPGeneric extends Block
 {
+	//TODO: FEATURE KILL THIS AWFUL CLASS
+	
 	public enum BlockType
 	{
 		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;
@@ -19,10 +21,11 @@ public class BlockBOPGeneric extends Block
 	private Icon texture;
 	private BlockType type;
 
-	public BlockBOPGeneric(int id, Material material, BlockType type)
+	public BlockBOPGeneric(BlockType type)
 	{
-		super(id, material);
+		super(material);
 		this.type = type;
+		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 
 		switch (type)

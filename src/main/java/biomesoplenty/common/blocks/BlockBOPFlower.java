@@ -33,18 +33,15 @@ public class BlockBOPFlower extends BlockFlower
 	private static final int SUNFLOWERTOP = 14;
 	private static final int SUNFLOWERBOTTOM = 13;
 
-	protected BlockBOPFlower(int blockID, Material material)
+	protected BlockBOPFlower()
 	{
-		super(blockID, material);
+		super(material);
 		this.setTickRandomly(true);
 		float var4 = 0.2F;
 		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-	}
-
-	public BlockBOPFlower(int blockID)
-	{
-		this(blockID, Material.plants);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

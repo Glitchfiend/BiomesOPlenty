@@ -31,15 +31,17 @@ public class BlockBOPStairs extends BlockStairs
 
 	private final Category category;
 
-	public BlockBOPStairs(int blockID, Block model, Category cat)
+	public BlockBOPStairs(Block model, Category cat)
 	{
-		super(blockID, model, 0);
+		super(model, 0);
 		category = cat;
 		setBurnProperties(this.blockID, 5, 20);
 		this.setLightOpacity(0);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		this.setHardness(model.blockHardness);
         this.setResistance(model.blockResistance / 3.0F);
+        
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

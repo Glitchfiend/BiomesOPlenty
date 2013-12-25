@@ -4,41 +4,40 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPMushroom extends BlockFlower
 {
 	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
-	protected BlockBOPMushroom(int blockID, Material material)
+	protected BlockBOPMushroom()
 	{
-		super(blockID, material);
-		this.setTickRandomly(true);
+		super(bmaterial);
+		
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		float var4 = 0.2F;
+		
 		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-	}
-
-	public BlockBOPMushroom(int blockID)
-	{
-		this(blockID, Material.plants);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[plants.length];
+		textures = new IIcon[plants.length];
 
 		for (int i = 0; i < plants.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
@@ -46,9 +45,10 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
-		if (meta < 0 || meta >= textures.length) {
+		if (meta < 0 || meta >= textures.length) 
+		{
 			meta = 0;
 		}
 
@@ -56,7 +56,7 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType ()
+	public int getRenderType()
 	{
 		return 1;
 	}
@@ -91,7 +91,8 @@ public class BlockBOPMushroom extends BlockFlower
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) {
+	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < plants.length; ++i) {
 			list.add(new ItemStack(blockID, 1, i));
 		}
@@ -124,7 +125,8 @@ public class BlockBOPMushroom extends BlockFlower
 		int meta = itemStack.getItemDamage();
 		//boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
 
-		if (itemStack.itemID == blockID) {
+		if (itemStack.itemID == blockID)
+		{
 			switch (meta)
 			{
 			case 0: // Toadstool

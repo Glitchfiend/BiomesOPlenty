@@ -21,8 +21,10 @@ public class BlockFlesh extends Block
 {
 	public BlockFlesh(int par1)
 	{
-		super(par1, Material.sponge);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		super(Material.sponge);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

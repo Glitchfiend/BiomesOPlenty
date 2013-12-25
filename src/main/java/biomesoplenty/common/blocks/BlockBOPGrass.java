@@ -23,14 +23,16 @@ public class BlockBOPGrass extends Block
 {
 	private Icon[][] blockIcon = new Icon[2][6];
 
-	public BlockBOPGrass(int par1)
+	public BlockBOPGrass()
 	{
-		super(par1, Material.grass);
+		super(Material.grass);
 		this.setTickRandomly(true);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		setStepSound(Block.soundGrassFootstep);
 		setHardness(0.6F);
 		//setLightValue(0.25F);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

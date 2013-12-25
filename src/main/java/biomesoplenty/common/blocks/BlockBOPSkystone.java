@@ -17,11 +17,13 @@ public class BlockBOPSkystone extends Block
 	private static final String[] types = new String[] {"holystone", "holycobble", "holybrick", "holystonemossy"};
 	private Icon[] textures = {null, null, null};
 
-	public BlockBOPSkystone(int par1)
+	public BlockBOPSkystone()
 	{
-		super(par1, Material.rock);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		super(Material.rock);
 		setStepSound(Block.soundStoneFootstep);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

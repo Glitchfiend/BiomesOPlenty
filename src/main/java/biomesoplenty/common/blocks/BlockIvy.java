@@ -19,11 +19,13 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockIvy extends Block implements IShearable
 {
-	public BlockIvy(int par1)
+	public BlockIvy()
 	{
-		super(par1, Material.vine);
+		super(Material.vine);
 		this.setTickRandomly(true);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

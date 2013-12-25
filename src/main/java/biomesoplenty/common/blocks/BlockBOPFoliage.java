@@ -44,15 +44,16 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	private static final int ALGAE = 0;
 
-	public BlockBOPFoliage(int blockID)
+	public BlockBOPFoliage()
 	{
-		super(blockID);
 		float f = 0.4F;
 		setBurnProperties(this.blockID, 60, 100);
 		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 		setHardness(0.0F);
 		setStepSound(Block.soundGrassFootstep);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

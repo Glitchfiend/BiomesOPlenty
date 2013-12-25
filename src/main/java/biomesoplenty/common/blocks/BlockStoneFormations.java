@@ -26,13 +26,15 @@ public class BlockStoneFormations extends BlockFlower
 	private static final String[] forms = new String[] {"stalagmite", "stalactite"};
 	private Icon[] textures;
 
-	protected BlockStoneFormations(int blockID, Material material)
+	protected BlockStoneFormations(Material material)
 	{
-		super(blockID, material);
+		super(material);
 		this.setTickRandomly(true);
 		float var4 = 0.2F;
 		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	public BlockStoneFormations(int blockID)

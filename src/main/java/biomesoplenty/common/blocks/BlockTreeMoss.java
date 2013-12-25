@@ -17,12 +17,14 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockTreeMoss extends Block implements IShearable
 {
-	public BlockTreeMoss(int par1)
+	public BlockTreeMoss()
 	{
 		super(par1, Material.vine);
 		this.setTickRandomly(true);
 		setBurnProperties(blockID, 15, 100);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

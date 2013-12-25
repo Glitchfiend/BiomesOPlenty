@@ -20,15 +20,17 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	private static final String[] petals = new String[] {"bigflowerred", "bigfloweryellow"};
 	private Icon[][] textures;
 
-	public BlockBOPPetals(int blockID)
+	public BlockBOPPetals()
 	{
-		super(blockID, Material.leaves, false);
+		super(Material.leaves, false);
 		setBurnProperties(this.blockID, 30, 60);
 		this.setTickRandomly(true);
 		setHardness(0.2F);
 		setLightOpacity(1);
 		setStepSound(Block.soundGrassFootstep);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

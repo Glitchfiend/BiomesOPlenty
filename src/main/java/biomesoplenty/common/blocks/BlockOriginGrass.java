@@ -17,11 +17,13 @@ public class BlockOriginGrass extends Block
 {
 	private Icon[] blockIcon = new Icon[6];
 
-	public BlockOriginGrass(int par1)
+	public BlockOriginGrass()
 	{
-		super(par1, Material.grass);
+		super(Material.grass);
 		this.setTickRandomly(true);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

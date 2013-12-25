@@ -18,12 +18,14 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockWillow extends Block implements IShearable
 {
-	public BlockWillow(int par1)
+	public BlockWillow()
 	{
 		super(par1, Material.vine);
 		setBurnProperties(blockID, 15, 100);
 		this.setTickRandomly(true);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

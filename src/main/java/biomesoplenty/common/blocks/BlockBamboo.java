@@ -22,7 +22,7 @@ public class BlockBamboo extends Block
 	{
 		super(Material.plants);
 		
-		setBurnProperties(blockID, 5, 5);
+		this.setBurnProperties(this, 5, 5);
 		this.setTickRandomly(true);
 		
 		//TODO: this.setCreativeTab()
@@ -30,23 +30,23 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon("biomesoplenty:bamboo");
+		bambooSide = iconRegister.registerIcon("biomesoplenty:bamboo");
 		bambooTop = iconRegister.registerIcon("biomesoplenty:bambootop");
 	}
 	
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (side > 1)
-			return blockIcon;
+			return bambooSide;
 		else
 			return bambooTop;
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random par5Random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (world.isAirBlock(x, y + 1, z))
 		{

@@ -38,16 +38,18 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	private static final int CATTAILTOP = 9;
 	private static final int CATTAILBOTTOM = 10;
 
-	public BlockBOPPlant(int par1)
+	public BlockBOPPlant()
 	{
-		super(par1, Material.vine);
+		super(Material.vine);
 		setTickRandomly(true);
 		float var3 = 0.4F;
 		setBurnProperties(blockID, 60, 100);
 		setHardness(0.0F);
 		setStepSound(Block.soundGrassFootstep);
 		setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

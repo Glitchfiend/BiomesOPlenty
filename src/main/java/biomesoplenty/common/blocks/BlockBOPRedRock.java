@@ -17,11 +17,13 @@ public class BlockBOPRedRock extends Block
 	private static final String[] types = new String[] {"redrock", "redcobble", "redbrick"};
 	private Icon[] textures = {null, null, null};
 
-	public BlockBOPRedRock(int par1)
+	public BlockBOPRedRock()
 	{
-		super(par1, Material.rock);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		super(Material.rock);
 		setStepSound(Block.soundStoneFootstep);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

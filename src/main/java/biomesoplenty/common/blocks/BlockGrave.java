@@ -4,22 +4,22 @@ import java.util.ArrayList;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockGrave extends Block
 {	
-	public BlockGrave(int id)
+	public BlockGrave()
 	{
-		super(id, Material.rock);
+		super(Material.rock);
 
 		setHardness(5f);
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
 	@Override

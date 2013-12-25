@@ -3,17 +3,16 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.Icon;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 
 public class BlockBOPSlab extends BlockHalfSlab
 {
@@ -28,9 +27,9 @@ public class BlockBOPSlab extends BlockHalfSlab
 
 	private final SlabCategory category;
 
-	public BlockBOPSlab(int par1, boolean par2, Material material, SlabCategory cat)
+	public BlockBOPSlab(boolean par2, Material material, SlabCategory cat)
 	{
-		super(par1, par2, material);
+		super(par2, material);
 		isDoubleSlab = par2;
 		category = cat;
 		if (material == Material.wood)
@@ -44,8 +43,10 @@ public class BlockBOPSlab extends BlockHalfSlab
 			setStepSound(Block.soundStoneFootstep);
 		}
 
-		if (!par2) {
-			this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		if (!par2) 
+		{
+			//TODO: this.setCreativeTab()
+			this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 		}
 
 		useNeighborBrightness[blockID] = true;

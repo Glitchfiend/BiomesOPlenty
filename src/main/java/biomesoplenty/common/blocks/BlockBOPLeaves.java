@@ -59,15 +59,17 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     private final LeafCategory category;
     int[] adjacentTreeBlocks;
 
-    public BlockBOPLeaves(int blockID, LeafCategory cat)
+    public BlockBOPLeaves(LeafCategory cat)
     {
-        super(blockID, Material.leaves, false);
+        super(Material.leaves, false);
         category = cat;
         this.setTickRandomly(true);
         setHardness(0.2F);
         setLightOpacity(1);
         setStepSound(Block.soundGrassFootstep);
-        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+        
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
     }
 
     @Override

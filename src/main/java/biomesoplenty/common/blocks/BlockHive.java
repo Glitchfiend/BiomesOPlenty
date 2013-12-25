@@ -21,10 +21,12 @@ public class BlockHive extends Block
 	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty", "honeycombfilled"};
 	private Icon[] textures;
 	
-	public BlockHive(int par1)
+	public BlockHive()
 	{
-		super(par1, Material.wood);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		super(Material.wood);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
     @Override

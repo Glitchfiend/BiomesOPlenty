@@ -14,10 +14,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockHoney extends Block
 {
-	public BlockHoney(int par1)
+	public BlockHoney()
 	{
-		super(par1, Material.glass);
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		super(Material.glass);
+		
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
