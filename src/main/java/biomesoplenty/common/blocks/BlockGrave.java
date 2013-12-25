@@ -24,7 +24,8 @@ public class BlockGrave extends Block
 	}
 	
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		blockIcon = iconRegister.registerIcon("biomesoplenty:grave");
 	}

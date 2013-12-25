@@ -45,7 +45,8 @@ public class BlockBOPStairs extends BlockStairs
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		if (isStoneCategory(category.toString()))
 		{
@@ -116,7 +117,8 @@ public class BlockBOPStairs extends BlockStairs
 	}
 
 	@Override
-	public IIcon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		int adjCat = category.ordinal();
 

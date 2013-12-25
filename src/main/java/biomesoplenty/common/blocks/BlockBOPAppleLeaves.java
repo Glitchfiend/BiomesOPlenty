@@ -44,7 +44,8 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		textures = new IIcon[3][4];
 		if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
@@ -74,7 +75,8 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 
 	@Override
-	public IIcon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		return textures[(!isOpaqueCube() ? 0 : 1)][meta & 3];
 	}

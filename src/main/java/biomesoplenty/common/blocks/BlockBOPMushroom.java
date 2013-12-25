@@ -35,7 +35,8 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		textures = new IIcon[plants.length];
 
@@ -45,7 +46,8 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public IIcon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) 
 		{

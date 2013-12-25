@@ -29,14 +29,16 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		bambooSide = iconRegister.registerIcon("biomesoplenty:bamboo");
 		bambooTop = iconRegister.registerIcon("biomesoplenty:bambootop");
 	}
 	
 	@Override
-	public IIcon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		if (side > 1)
 			return bambooSide;

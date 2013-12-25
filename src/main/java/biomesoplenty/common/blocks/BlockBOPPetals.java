@@ -34,7 +34,8 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		textures = new IIcon[petals.length][2];
 
@@ -45,7 +46,8 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	public IIcon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		return textures[meta < 0 || meta >= textures.length ? 0 : meta][0];
 	}

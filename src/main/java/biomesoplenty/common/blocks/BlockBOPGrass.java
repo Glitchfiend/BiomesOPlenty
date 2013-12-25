@@ -33,7 +33,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public void registerIcons(IIconRegister iconRegister)
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
 	{
 		blockIcon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
 		blockIcon[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
@@ -51,7 +52,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public IIcon getIcon(int side, int meta)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
 	{
 		if (meta < 0 || meta >= blockIcon.length)
 	        meta = 1;
