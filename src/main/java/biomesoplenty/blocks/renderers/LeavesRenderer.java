@@ -10,9 +10,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.blocks.BlockBOPColorizedLeaves;
+import biomesoplenty.blocks.BlockBOPLeaves;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
-public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
+public class LeavesRenderer implements ISimpleBlockRenderingHandler
 {
 
     @Override
@@ -24,10 +25,10 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
     {
-        BlockBOPColorizedLeaves colorizedLeaves = (BlockBOPColorizedLeaves)block;
+        BlockBOPLeaves leaves = (BlockBOPLeaves)block;
         
-        Icon christmasLights = colorizedLeaves.christmasLights;
-        Icon christmasLightsOff = colorizedLeaves.christmasLightsOff;
+        Icon christmasLights = leaves.christmasLights;
+        Icon christmasLightsOff = leaves.christmasLightsOff;
         
         renderer.renderStandardBlock(block, x, y, z);
         
@@ -35,7 +36,7 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 
         if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26)
         {
-        	if (world.getBlockId(x, y, z) == Blocks.leavesColorized2.get().blockID)
+        	if (world.getBlockId(x, y, z) == Blocks.leaves2.get().blockID)
         	{
 	            if (world.getBlockMetadata(x, y, z) == 1 || world.getBlockMetadata(x, y, z) == 5 || world.getBlockMetadata(x, y, z) == 9)
 	            {
@@ -78,6 +79,6 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
     @Override
     public int getRenderId()
     {
-        return RenderUtils.colorizedLeavesModel;
+        return RenderUtils.leavesModel;
     }
 }

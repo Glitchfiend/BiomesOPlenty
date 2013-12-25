@@ -18,6 +18,7 @@ import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.Blocks;
 import biomesoplenty.api.Items;
+import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -56,6 +57,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     private static final float[] fallingLeavesChance = new float[] {0.1F, 0.008F, 0.016F, 0.008F, 0.0F, 0.008F, 0.016F, 0.1F, 0.008F, 0.1F, 0.008F, 0.1F, 0.008F, 0.008F};
 
     private Icon[][] textures;
+    public Icon christmasLights;
+    public Icon christmasLightsOff;
     private final LeafCategory category;
     int[] adjacentTreeBlocks;
 
@@ -87,6 +90,9 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
                 textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
                 textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
             }
+        
+        christmasLights = iconRegister.registerIcon("biomesoplenty:christmaslights");
+        christmasLightsOff = iconRegister.registerIcon("biomesoplenty:christmaslightsoff");
     }
 
     public Icon getIconBetterLeaves(int metadata, float randomIndex)
@@ -118,6 +124,12 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     public boolean isOpaqueCube()
     {
         return Block.leaves.isOpaqueCube();
+    }
+    
+    @Override
+    public int getRenderType()
+    {
+        return RenderUtils.leavesModel;
     }
 
     @Override
