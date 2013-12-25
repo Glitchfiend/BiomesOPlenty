@@ -4,18 +4,18 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPRedRock extends Block
 {
 	private static final String[] types = new String[] {"redrock", "redcobble", "redbrick"};
-	private Icon[] textures = {null, null, null};
+	private IIcon[] textures = {null, null, null};
 
 	public BlockBOPRedRock()
 	{
@@ -27,9 +27,9 @@ public class BlockBOPRedRock extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[types.length];
+		textures = new IIcon[types.length];
 
 		for (int i = 0; i < types.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+types[i]);
@@ -37,7 +37,7 @@ public class BlockBOPRedRock extends Block
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) 
 		{

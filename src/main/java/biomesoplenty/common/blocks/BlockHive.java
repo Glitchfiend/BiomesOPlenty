@@ -5,21 +5,18 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
-import biomesoplenty.entities.EntityWasp;
 
 public class BlockHive extends Block
 {
 	private static final String[] hiveTypes = new String[] {"honeycomb", "hive", "honeycombempty", "honeycombfilled"};
-	private Icon[] textures;
+	private IIcon[] textures;
 	
 	public BlockHive()
 	{
@@ -41,9 +38,9 @@ public class BlockHive extends Block
     }
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[hiveTypes.length];
+		textures = new IIcon[hiveTypes.length];
 
 		for (int i = 0; i < hiveTypes.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+hiveTypes[i]);
@@ -51,7 +48,7 @@ public class BlockHive extends Block
 	}
 	
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
         if (meta < 0 || meta >= hiveTypes.length) {
             meta = 0;

@@ -1,30 +1,25 @@
 package biomesoplenty.common.blocks;
 
 import java.util.List;
-import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockStoneFormations extends BlockFlower
 {
 	private static final String[] forms = new String[] {"stalagmite", "stalactite"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
 	protected BlockStoneFormations(Material material)
 	{
@@ -43,9 +38,9 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[forms.length];
+		textures = new IIcon[forms.length];
 
 		for (int i = 0; i < forms.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:" + forms[i]);
@@ -53,7 +48,7 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;

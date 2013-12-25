@@ -4,18 +4,18 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.Icon;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 
 public class BlockOriginGrass extends Block
 {
-	private Icon[] blockIcon = new Icon[6];
+	private IIcon[] blockIcon = new IIcon[6];
 
 	public BlockOriginGrass()
 	{
@@ -27,7 +27,7 @@ public class BlockOriginGrass extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IIconRegister par1IconRegister)
 	{
 		blockIcon[0] = par1IconRegister.registerIcon("biomesoplenty:origingrass3");
 		blockIcon[1] = par1IconRegister.registerIcon("biomesoplenty:origingrass1");
@@ -41,7 +41,7 @@ public class BlockOriginGrass extends Block
 	 * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
 	 */
 	@Override
-	public Icon getIcon(int par1, int par2)
+	public IIcon getIcon(int par1, int par2)
 	{
 	    if (par1 < 0 || par1 >= blockIcon.length)
 	        par1 = 1;

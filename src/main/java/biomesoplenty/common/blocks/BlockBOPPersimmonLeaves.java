@@ -7,27 +7,27 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearable
 {
-	private Icon[][] textures;
-	private Icon[] betterTextures;
+	private IIcon[][] textures;
+	private IIcon[] betterTextures;
 	int[] adjacentTreeBlocks;
 
 	public BlockBOPPersimmonLeaves()
@@ -44,9 +44,9 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[3][4];
+		textures = new IIcon[3][4];
 		if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
 			for (int i = 0; i < 4; ++i)
 			{
@@ -62,19 +62,19 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 			}
 	}
 
-	public Icon getIconBetterLeaves(int metadata, float randomIndex)
+	public IIcon getIconBetterLeaves(int metadata, float randomIndex)
 	{
 		return textures[2][metadata & 3];
 	}
 
-	public Icon getIconFallingLeaves(int metadata)
+	public IIcon getIconFallingLeaves(int metadata)
 	{
 		return textures[1][metadata & 3];
 	}
 
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		return textures[(!isOpaqueCube() ? 0 : 1)][meta & 3];
 	}

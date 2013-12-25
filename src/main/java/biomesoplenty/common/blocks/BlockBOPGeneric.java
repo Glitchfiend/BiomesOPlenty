@@ -3,11 +3,10 @@ package biomesoplenty.common.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.init.Items;
+import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Items;
 
 public class BlockBOPGeneric extends Block
 {
@@ -18,7 +17,7 @@ public class BlockBOPGeneric extends Block
 		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;
 	}
 
-	private Icon texture;
+	private IIcon texture;
 	private BlockType type;
 
 	public BlockBOPGeneric(BlockType type)
@@ -78,7 +77,7 @@ public class BlockBOPGeneric extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		switch (type)
 		{
@@ -163,7 +162,7 @@ public class BlockBOPGeneric extends Block
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		return texture;
 	}

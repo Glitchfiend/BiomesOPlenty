@@ -7,10 +7,10 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
@@ -18,7 +18,7 @@ import biomesoplenty.BiomesOPlenty;
 public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 {
 	private static final String[] petals = new String[] {"bigflowerred", "bigfloweryellow"};
-	private Icon[][] textures;
+	private IIcon[][] textures;
 
 	public BlockBOPPetals()
 	{
@@ -34,9 +34,9 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[petals.length][2];
+		textures = new IIcon[petals.length][2];
 
 		for (int i = 0; i < petals.length; ++i) {
 			textures[i][0] = iconRegister.registerIcon("biomesoplenty:" + petals[i]);
@@ -45,12 +45,12 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		return textures[meta < 0 || meta >= textures.length ? 0 : meta][0];
 	}
 	
-	public Icon getIconBetterLeaves(int meta, float randomIndex)
+	public IIcon getIconBetterLeaves(int meta, float randomIndex)
 	{
 		return textures[meta < 0 || meta >= textures.length ? 0 : meta][1];
 	}

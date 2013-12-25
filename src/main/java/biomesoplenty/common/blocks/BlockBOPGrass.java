@@ -1,27 +1,24 @@
 package biomesoplenty.common.blocks;
 
-import static net.minecraftforge.common.ForgeDirection.UP;
-
 import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProviderEnd;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
 
 public class BlockBOPGrass extends Block
 {
-	private Icon[][] blockIcon = new Icon[2][6];
+	private IIcon[][] blockIcon = new IIcon[2][6];
 
 	public BlockBOPGrass()
 	{
@@ -36,7 +33,7 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		blockIcon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
 		blockIcon[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
@@ -54,7 +51,7 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= blockIcon.length)
 	        meta = 1;

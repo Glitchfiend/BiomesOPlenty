@@ -3,14 +3,13 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import javax.swing.Icon;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -18,11 +17,11 @@ import biomesoplenty.BiomesOPlenty;
 public class BlockBOPAmethyst extends Block
 {
 	public static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "malachiteore", "malachiteblock", "sapphireore", "sapphireblock"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
 	public BlockBOPAmethyst()
 	{
-		super(Material.);
+		super(Material);
 		
 		this.setStepSound(Block.soundStoneFootstep);
 		
@@ -31,9 +30,9 @@ public class BlockBOPAmethyst extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[types.length];
+		textures = new IIcon[types.length];
 
 		for (int i = 0; i < types.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+types[i]);
@@ -41,7 +40,7 @@ public class BlockBOPAmethyst extends Block
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;

@@ -2,14 +2,13 @@ package biomesoplenty.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import biomesoplenty.configuration.BOPConfigurationIDs;
-import biomesoplenty.helpers.TeleporterPromised;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,7 +20,7 @@ public class BlockPromisedPortal extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister par1IconRegister)
+	public void registerIcons(IIconRegister par1IconRegister)
 	{
 		blockIcon = par1IconRegister.registerIcon("biomesoplenty:portal");
 	}

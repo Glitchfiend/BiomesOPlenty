@@ -5,8 +5,8 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.util.Icon;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPStairs extends BlockStairs
@@ -27,7 +27,7 @@ public class BlockBOPStairs extends BlockStairs
 
 	private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda"};
 	private static final String[] stoneTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
 	private final Category category;
 
@@ -45,11 +45,11 @@ public class BlockBOPStairs extends BlockStairs
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		if (isStoneCategory(category.toString()))
 		{
-			textures = new Icon[stoneTypes.length];
+			textures = new IIcon[stoneTypes.length];
 
 			for (int i = 0; i < stoneTypes.length; ++i) {
 				textures[i] = iconRegister.registerIcon("biomesoplenty:"+stoneTypes[i]);
@@ -57,7 +57,7 @@ public class BlockBOPStairs extends BlockStairs
 		}
 		else
 		{
-			textures = new Icon[woodTypes.length];
+			textures = new IIcon[woodTypes.length];
 
 			for (int i = 0; i < woodTypes.length; ++i) {
 				textures[i] = iconRegister.registerIcon("biomesoplenty:plank_"+woodTypes[i]);
@@ -116,7 +116,7 @@ public class BlockBOPStairs extends BlockStairs
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		int adjCat = category.ordinal();
 

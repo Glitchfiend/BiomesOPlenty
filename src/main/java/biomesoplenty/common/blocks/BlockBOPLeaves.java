@@ -7,17 +7,17 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -55,7 +55,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
     private static final float[] fallingLeavesChance = new float[] {0.1F, 0.008F, 0.016F, 0.008F, 0.0F, 0.008F, 0.016F, 0.1F, 0.008F, 0.1F, 0.008F, 0.1F, 0.008F, 0.008F};
 
-    private Icon[][] textures;
+    private IIcon[][] textures;
     private final LeafCategory category;
     int[] adjacentTreeBlocks;
 
@@ -73,9 +73,9 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public void registerIcons(IconRegister iconRegister)
+    public void registerIcons(IIconRegister iconRegister)
     {
-        textures = new Icon[3][leaves.length];
+        textures = new IIcon[3][leaves.length];
         if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
             for (int i = 0; i < leaves.length; ++i)
             {
@@ -91,13 +91,13 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
             }
     }
 
-    public Icon getIconBetterLeaves(int metadata, float randomIndex)
+    public IIcon getIconBetterLeaves(int metadata, float randomIndex)
     {
         int type = getTypeFromMeta(metadata) + (category.ordinal() * 4);
         return textures[2][type >= leaves.length ? 0 : type];
     }
 
-    public Icon getIconFallingLeaves(int metadata)
+    public IIcon getIconFallingLeaves(int metadata)
     {
         int type = getTypeFromMeta(metadata) + (category.ordinal() * 4);
         return textures[1][type >= leaves.length ? 0 : type];
@@ -110,7 +110,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public Icon getIcon(int side, int metadata)
+    public IIcon getIcon(int side, int metadata)
     {
         int type = getTypeFromMeta(metadata) + (category.ordinal() * 4);
         return textures[(!isOpaqueCube() ? 0 : 1)][type >= leaves.length ? 0 : type];

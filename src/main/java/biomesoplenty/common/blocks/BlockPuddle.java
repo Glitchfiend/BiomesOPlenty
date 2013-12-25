@@ -4,21 +4,20 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.ClientProxy;
-import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPuddle extends Block
 {
     @SideOnly(Side.CLIENT)
-    private Icon field_94441_a;
+    private IIcon field_94441_a;
     @SideOnly(Side.CLIENT)
-    private Icon field_94440_b;
+    private IIcon field_94440_b;
 
     public BlockPuddle(int par1)
     {
@@ -83,7 +82,7 @@ public class BlockPuddle extends Block
     @Override
 	@SideOnly(Side.CLIENT)
 
-    public Icon getIcon(int par1, int par2)
+    public IIcon getIcon(int par1, int par2)
     {
         return Block.dirt.getBlockTextureFromSide(par1);
     }
@@ -103,7 +102,7 @@ public class BlockPuddle extends Block
 
     @Override
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister par1IconRegister)
+    public void registerIcons(IIconRegister par1IconRegister)
     {
     }
 }

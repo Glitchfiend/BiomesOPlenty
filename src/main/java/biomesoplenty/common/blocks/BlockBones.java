@@ -4,20 +4,19 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.blocks.renderers.RenderUtils;
 
 public class BlockBones extends Block {
 	//Meta 3 & 4 used by alternate small bone rotations, 5 & 6 are used by alternate medium bone rotations
 	private static final String[] boneTypes = new String[] {"bones_small", "bones_medium", "bones_large"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
 	public BlockBones(int blockID)
 	{
@@ -30,9 +29,9 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[boneTypes.length];
+		textures = new IIcon[boneTypes.length];
 
 		for (int i = 0; i < boneTypes.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+boneTypes[i]);
@@ -40,7 +39,7 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;

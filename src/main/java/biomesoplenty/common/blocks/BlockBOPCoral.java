@@ -6,10 +6,10 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockBOPCoral extends BlockFlower
 {
 	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
 	public BlockBOPCoral(int blockID)
 	{
@@ -33,9 +33,9 @@ public class BlockBOPCoral extends BlockFlower
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[coral.length];
+		textures = new IIcon[coral.length];
 
 		for (int i = 0; i < coral.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:" + coral[i]);
@@ -43,7 +43,7 @@ public class BlockBOPCoral extends BlockFlower
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;

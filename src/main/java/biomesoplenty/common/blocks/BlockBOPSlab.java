@@ -3,14 +3,14 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import javax.swing.Icon;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
@@ -22,7 +22,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 	}
 	private static final String[] woodTypes = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda"};
 	private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
-	private Icon[] textures;
+	private IIcon[] textures;
 	protected final boolean isDoubleSlab;
 
 	private final SlabCategory category;
@@ -53,11 +53,11 @@ public class BlockBOPSlab extends BlockHalfSlab
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		if (category == SlabCategory.STONE)
 		{
-			textures = new Icon[rockTypes.length];
+			textures = new IIcon[rockTypes.length];
 
 			for (int i = 0; i < rockTypes.length; ++i) {
 				textures[i] = iconRegister.registerIcon("biomesoplenty:"+rockTypes[i]);
@@ -65,7 +65,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 		}
 		else
 		{
-			textures = new Icon[woodTypes.length];
+			textures = new IIcon[woodTypes.length];
 
 			for (int i = 0; i < woodTypes.length; ++i) {
 				textures[i] = iconRegister.registerIcon("biomesoplenty:plank_"+woodTypes[i]);
@@ -74,7 +74,7 @@ public class BlockBOPSlab extends BlockHalfSlab
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (category == SlabCategory.STONE)
 			return textures[getTypeFromMeta(meta)];

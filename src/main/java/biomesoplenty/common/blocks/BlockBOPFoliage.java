@@ -6,31 +6,29 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.api.Items;
-import biomesoplenty.blocks.renderers.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -38,9 +36,9 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 {
 	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch"};
 
-	private Icon[] textures;
-	public Icon shrubBranch;
-	public Icon berryBushBerry;
+	private IIcon[] textures;
+	public IIcon shrubBranch;
+	public IIcon berryBushBerry;
 
 	private static final int ALGAE = 0;
 
@@ -57,9 +55,9 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[foliageTypes.length];
+		textures = new IIcon[foliageTypes.length];
 
 		for (int i = 0; i < textures.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
@@ -70,7 +68,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta >= textures.length) {
 			meta = 0;

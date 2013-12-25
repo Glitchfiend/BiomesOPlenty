@@ -5,38 +5,20 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenNetherBush;
-import biomesoplenty.worldgen.tree.WorldGenApple;
-import biomesoplenty.worldgen.tree.WorldGenAutumn;
-import biomesoplenty.worldgen.tree.WorldGenAutumn2;
-import biomesoplenty.worldgen.tree.WorldGenBambooTree;
-import biomesoplenty.worldgen.tree.WorldGenBambooTree2;
-import biomesoplenty.worldgen.tree.WorldGenCherry1;
-import biomesoplenty.worldgen.tree.WorldGenCherry2;
-import biomesoplenty.worldgen.tree.WorldGenDeadTree2;
-import biomesoplenty.worldgen.tree.WorldGenJacaranda;
-import biomesoplenty.worldgen.tree.WorldGenMaple;
-import biomesoplenty.worldgen.tree.WorldGenMystic2;
-import biomesoplenty.worldgen.tree.WorldGenOminous1;
-import biomesoplenty.worldgen.tree.WorldGenOminous2;
-import biomesoplenty.worldgen.tree.WorldGenOriginTree;
-import biomesoplenty.worldgen.tree.WorldGenPersimmon;
-import biomesoplenty.worldgen.tree.WorldGenPromisedTree;
-import biomesoplenty.worldgen.tree.WorldGenTaiga9;
 
 public class BlockBOPSapling extends BlockSapling
 {
 	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
-	private Icon[] textures;
+	private IIcon[] textures;
 	private static final int TYPES = 15;
 
 	public BlockBOPSapling()
@@ -49,9 +31,9 @@ public class BlockBOPSapling extends BlockSapling
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[saplings.length];
+		textures = new IIcon[saplings.length];
 
 		for (int i = 0; i < saplings.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:sapling_" + saplings[i]);
@@ -60,7 +42,7 @@ public class BlockBOPSapling extends BlockSapling
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= saplings.length) {
 			meta = 0;

@@ -4,16 +4,16 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPPlank extends Block
 {
 	private static final String[] woodTypes = new String[] {"plank_acacia", "plank_cherry", "plank_dark", "plank_fir", "plank_holy", "plank_magic", "plank_mangrove", "plank_palm", "plank_redwood", "plank_willow", "bamboothatching", "plank_pine", "plank_hell_bark", "plank_jacaranda"};
-	private Icon[] textures;
+	private IIcon[] textures;
 
 	public BlockBOPPlank()
 	{
@@ -26,9 +26,9 @@ public class BlockBOPPlank extends Block
 	}
 
 	@Override
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[woodTypes.length];
+		textures = new IIcon[woodTypes.length];
 
 		for (int i = 0; i < woodTypes.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+woodTypes[i]);
@@ -36,7 +36,7 @@ public class BlockBOPPlank extends Block
 	}
 
 	@Override
-	public Icon getIcon(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
