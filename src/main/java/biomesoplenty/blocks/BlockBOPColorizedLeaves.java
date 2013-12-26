@@ -42,7 +42,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
     private Icon[][] textures;
     public Icon christmasLights;
-    public Icon christmasLightsOff;
     private final ColourizedLeafCategory category;
     int[] adjacentTreeBlocks;
     
@@ -78,7 +77,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
             }
         
         christmasLights = iconRegister.registerIcon("biomesoplenty:christmaslights");
-        christmasLightsOff = iconRegister.registerIcon("biomesoplenty:christmaslightsoff");
     }
 
     public Icon getIconBetterLeaves(int metadata, float randomIndex)

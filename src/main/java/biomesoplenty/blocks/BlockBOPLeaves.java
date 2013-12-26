@@ -7,6 +7,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -58,7 +59,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
     private Icon[][] textures;
     public Icon christmasLights;
-    public Icon christmasLightsOff;
     private final LeafCategory category;
     int[] adjacentTreeBlocks;
 
@@ -92,7 +92,6 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
             }
         
         christmasLights = iconRegister.registerIcon("biomesoplenty:christmaslights");
-        christmasLightsOff = iconRegister.registerIcon("biomesoplenty:christmaslightsoff");
     }
 
     public Icon getIconBetterLeaves(int metadata, float randomIndex)

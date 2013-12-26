@@ -28,7 +28,6 @@ public class LeavesRenderer implements ISimpleBlockRenderingHandler
         BlockBOPLeaves leaves = (BlockBOPLeaves)block;
         
         Icon christmasLights = leaves.christmasLights;
-        Icon christmasLightsOff = leaves.christmasLightsOff;
         
         renderer.renderStandardBlock(block, x, y, z);
         
@@ -44,14 +43,7 @@ public class LeavesRenderer implements ISimpleBlockRenderingHandler
 	                {
 	                    if (direction != ForgeDirection.UP && direction != ForgeDirection.DOWN)
 	                    {
-	                    	if (Minecraft.getMinecraft().theWorld.isDaytime())
-	                    	{
-	                    		RenderUtils.renderFace(renderer, block, christmasLightsOff, world, x, y, z, direction);
-	                        }
-	                    	else
-	                    	{
-	                    		RenderUtils.renderFace(renderer, block, christmasLights, world, x, y, z, 200, direction);
-	                    	}
+	                    	RenderUtils.renderFace(renderer, block, christmasLights, world, x, y, z, 200, direction);
 	                    }
 	                    else
 	                    {

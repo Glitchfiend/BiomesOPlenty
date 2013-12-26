@@ -27,7 +27,6 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
         BlockBOPColorizedLeaves colorizedLeaves = (BlockBOPColorizedLeaves)block;
         
         Icon christmasLights = colorizedLeaves.christmasLights;
-        Icon christmasLightsOff = colorizedLeaves.christmasLightsOff;
         
         renderer.renderStandardBlock(block, x, y, z);
         
@@ -43,14 +42,7 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 	                {
 	                    if (direction != ForgeDirection.UP && direction != ForgeDirection.DOWN)
 	                    {
-	                    	if (Minecraft.getMinecraft().theWorld.isDaytime())
-	                    	{
-	                    		RenderUtils.renderFace(renderer, block, christmasLightsOff, world, x, y, z, direction);
-	                        }
-	                    	else
-	                    	{
-	                    		RenderUtils.renderFace(renderer, block, christmasLights, world, x, y, z, 200, direction);
-	                    	}
+	                    	RenderUtils.renderFace(renderer, block, christmasLights, world, x, y, z, 200, direction);
 	                    }
 	                    else
 	                    {
