@@ -40,13 +40,16 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	public BlockBOPPlant()
 	{
 		super(Material.vine);
+		
 		setTickRandomly(true);
 		float var3 = 0.4F;
 		setBurnProperties(blockID, 60, 100);
-				//TODO: this.setHardness
+		//TODO: this.setHardness
 		this.func_149711_c(0.0F);
-		setStepSound(Block.soundGrassFootstep);
-		setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+		//TODO: setBlockBounds
+		this.func_149676_a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -77,37 +80,42 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public int getRenderType ()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return RenderUtils.plantsModel;
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
 		case 6:
 		case 7:
-			this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
 			break;
 
 		default:
-			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		for (int i = 0; i < plants.length; ++i) {
+		for (int i = 0; i < plants.length; ++i) 
+		{
 			if (i != CATTAILTOP && i!= CATTAILBOTTOM && i!= 11)
 			{
-				list.add(new ItemStack(blockID, 1, i));
+				list.add(new ItemStack(block, 1, i));
 			}
 		}
 	}
@@ -240,9 +248,11 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World world, int x, int y, int z, int neighborID)
 	{
-		super.onNeighborBlockChange(world, x, y, z, neighborID);
+		super.	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(world, x, y, z, neighborID);
 		this.checkFlowerChange(world, x, y, z);
 		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
 		{
@@ -271,7 +281,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 5)
@@ -339,7 +350,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
 		if (par1 > 5 && par1 != 11)
 		{
@@ -389,7 +401,8 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
+	//TODO:		harvestBlock()
+	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.harvestBlock(world, player, x, y, z, meta);
 		
@@ -455,7 +468,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 7 || world.getBlockMetadata(x, y, z) == 8 || world.getBlockMetadata(x, y, z) == 9)
 			return false;

@@ -8,17 +8,18 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 
 public class BlockFlesh extends Block
 {
 	public BlockFlesh(int par1)
 	{
-		super(Material.sponge);
+		//TODO: Material.sponge
+		super(Material.field_151583_m);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -33,40 +34,44 @@ public class BlockFlesh extends Block
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		float var5 = 0.125F;
-		return AxisAlignedBB.getAABBPool().getAABB(par2, par3, par4, par2 + 1, par3 + 1 - var5, par4 + 1);
+		return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - var5, z + 1);
 	}
 
 	@Override
 	//TODO: 	randomDisplayTick()
 	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
-		super.func_149734_b(par1World, par2, par3, par4, par5Random);
+		super.func_149734_b(world, x, y, z, random);
 
-		if (par5Random.nextInt(4) == 0)
+		if (random.nextInt(4) == 0)
 		{
-			par1World.spawnParticle("tilecrack_" + String.valueOf(Blocks.flesh.get().blockID) + "_0", par2 + par5Random.nextFloat(), par3 - 0.4F, par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			//TODO:											         getIdFromBlock()
+			world.spawnParticle("blockcrack_" + String.valueOf(Block.func_149682_b(this)) + "_0", x + random.nextFloat(), y - 0.4F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 		
-		if (par5Random.nextInt(12) == 0)
+		if (random.nextInt(12) == 0)
 		{
-			par1World.spawnParticle("tilecrack_" + String.valueOf(Blocks.flesh.get().blockID) + "_0", par2 + par5Random.nextFloat(), par3 + 1.0F, par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			//TODO:											         getIdFromBlock()
+			world.spawnParticle("blockcrack_" + String.valueOf(Block.func_149682_b(this)) + "_0", x + random.nextFloat(), y + 1.0F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
 		if (entity instanceof EntityPlayer)
 		{
 			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			/*TODO FEATURE if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
 			{
 				return;
-			}
+			}*/
 		}
 
 		entity.motionX *= 0.9D;
@@ -74,9 +79,10 @@ public class BlockFlesh extends Block
 	}
 	
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return Items.miscItems.get().itemID;
+		return BOPItemHelper.get("misc");
 	}
 	
 	@Override
@@ -87,8 +93,9 @@ public class BlockFlesh extends Block
 	}
 
 	@Override
-	public int quantityDropped(Random par1Random)
+	//TODO:    getQuantityDropped()
+	public int func_149745_a(Random random)
 	{
-		return par1Random.nextInt(5);
+		return random.nextInt(5);
 	}
 }

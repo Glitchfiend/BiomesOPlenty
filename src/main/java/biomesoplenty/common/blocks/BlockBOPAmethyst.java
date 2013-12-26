@@ -4,15 +4,17 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 
 public class BlockBOPAmethyst extends Block
 {
@@ -24,7 +26,8 @@ public class BlockBOPAmethyst extends Block
 		//TODO: Material.rock
 		super(Material.field_151576_e);
 		
-		this.setStepSound(Block.soundStoneFootstep);
+		//TODO setStepSound(Block.soundStoneFootstep)
+		this.func_149672_a(Block.field_149780_i);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -53,23 +56,25 @@ public class BlockBOPAmethyst extends Block
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z) 
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
 	{
 		return world.getBlockMetadata(x, y, z);
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
 	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		for (int i = 0; i < types.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+		for (int i = 0; i < types.length; ++i) 
+		{
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
 	@Override
-	public float getBlockHardness(World world, int x, int y, int z)
+	//TODO:		 getBlockHardness()
+	public float func_149712_f(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -85,9 +90,11 @@ public class BlockBOPAmethyst extends Block
 	}
 
 	@Override
-	public int idDropped(int meta, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return (meta % 2 == 0) ? Items.gems.get().itemID : this.blockID;
+		//TODO:														  getItemFromBlock()
+		return (metadata % 2 == 0) ? BOPItemHelper.get("gems") : Item.func_150898_a(this);
 	}
 
 	@Override
@@ -157,35 +164,43 @@ public class BlockBOPAmethyst extends Block
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
-		return (meta % 2 == 0) ? quantityDroppedWithBonus(fortune, random) : 1;
+		//TODO:					quantityDroppedWithBonus()
+		return (meta % 2 == 0) ? func_149679_a(fortune, random) : 1;
 	}
 
 	@Override
-	public int quantityDroppedWithBonus(int bonus, Random par2Random)
+	//TODO:		quantityDroppedWithBonus()
+	public int func_149679_a(int bonus, Random random)
 	{
-		if (bonus > 0 && blockID != this.idDropped(0, par2Random, bonus))
+		//TODO:				   getItemForBlock()		getItem()
+		if (bonus > 0 && Item.func_150898_a(this) != this.func_149650_a(0, random, bonus))
 		{
-			int rnd = par2Random.nextInt(bonus + 2) - 1;
+			int rnd = random.nextInt(bonus + 2) - 1;
 
 			if (rnd < 0) {
 				rnd = 0;
 			}
 
-			return this.quantityDropped(par2Random) * (rnd + 1);
+			//TODO:		quantityDropped()
+			return this.func_149745_a(random) * (rnd + 1);
 		}
 		else
-			return this.quantityDropped(par2Random);
+			return this.func_149745_a(random);
 	}
 
 	@Override
-	public void dropBlockAsItemWithChance(World world, int par2, int par3, int par4, int par5, float par6, int par7)
+	//TODO: 	dropBlockAsItemWithChance()
+	public void func_149690_a(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
-		super.dropBlockAsItemWithChance(world, par2, par3, par4, par5, par6, par7);
+		//TODO: dropBlockAsItemWithChance()
+		super.func_149690_a(world, x, y, z, metadata, chance, fortune);
 
-		if (this.idDropped(par5, world.rand, par7) != blockID)
+		//TODO:	 getItemDropped()									  getItemFromBlock()
+		if (this.func_149650_a(metadata, world.rand, fortune) != Item.func_150898_a(this))
 		{
 			int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 3, 7);
-			this.dropXpOnBlockBreak(world, par2, par3, par4, var8);
+			//TODO: dropXpOnBlockBreak()
+			this.func_149657_c(world, x, y, z, var8);
 		}
 	}
 }

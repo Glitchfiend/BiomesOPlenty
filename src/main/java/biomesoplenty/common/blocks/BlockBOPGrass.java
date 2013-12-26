@@ -24,8 +24,10 @@ public class BlockBOPGrass extends Block
 	public BlockBOPGrass()
 	{
 		super(Material.grass);
-		this.setTickRandomly(true);
-		setStepSound(Block.soundGrassFootstep);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
 				//TODO: this.setHardness
 		this.func_149711_c(0.6F);
 		//setLightValue(0.25F);
@@ -147,7 +149,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
+	public void 	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World world, int x, int y, int z, Random random)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
@@ -196,7 +199,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
 		if (world.getBlockMetadata(x, y, z) == 1) {
 			entity.setFire(2);
@@ -204,7 +208,8 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public int idDropped(int meta, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
 		return meta == 0 ? Blocks.holyDirt.get().blockID : Block.dirt.blockID;
 	}

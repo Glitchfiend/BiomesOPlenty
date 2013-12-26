@@ -8,6 +8,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -21,12 +22,16 @@ public class BlockBOPCoral extends BlockFlower
 	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	private IIcon[] textures;
 
-	public BlockBOPCoral(int blockID)
+	public BlockBOPCoral()
 	{
-		super(blockID, Material.water);
-		this.setTickRandomly(true);
+		super(Material.water);
+		
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
+		
 		float f = 0.4F;
-		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
+				//TODO: setBlockBounds
+		this.func_149676_a0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -47,7 +52,8 @@ public class BlockBOPCoral extends BlockFlower
 	//TODO:		 getIcon()
 	public IIcon func_149691_a(int side, int meta)
 	{
-		if (meta < 0 || meta >= textures.length) {
+		if (meta < 0 || meta >= textures.length) 
+		{
 			meta = 0;
 		}
 
@@ -55,21 +61,22 @@ public class BlockBOPCoral extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 1;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < coral.length; ++i)
 		{
 			if (i > 2)
 			{
-				list.add(new ItemStack(blockID, 1, i));
+				list.add(new ItemStack(block, 1, i));
 			}
 		}
 	}
@@ -113,9 +120,11 @@ public class BlockBOPCoral extends BlockFlower
 	}
 	
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		super.onNeighborBlockChange(world, x, y, z, neighborID);
+		//TODO: onNeighborBlockChange()
+		super.func_149695_a(world, x, y, z, neighborBlock);
 		
 		if (world.getBlockMetadata(x, y, z) == 0 && world.getBlockId(x, y + 1, z) != blockID)
 		{
@@ -185,9 +194,12 @@ public class BlockBOPCoral extends BlockFlower
 	public int getDamageValue(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta < 3) {
+		
+		if (meta < 3) 
+		{
 			meta = 3;
 		}
+		
 		return meta;
 	}
 
@@ -203,12 +215,8 @@ public class BlockBOPCoral extends BlockFlower
 	@Override
 	public boolean isBlockReplaceable(World world, int x, int y, int z)
 	{
-		//ItemStack itemstack = new ItemStack(Blocks.flowers.get(), 1, 10);
-
-		if (world.getBlockMetadata(x, y, z) == 10)
-			//if (!world.isRemote)
-			//world.spawnEntityInWorld(new EntityItem(world, x, y, z, itemstack));
-			return true;
+		if (world.getBlockMetadata(x, y, z) == 10) return true;
+		
 		return false;
 	}
 }

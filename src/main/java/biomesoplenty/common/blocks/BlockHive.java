@@ -7,11 +7,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 
 public class BlockHive extends Block
 {
@@ -20,7 +21,8 @@ public class BlockHive extends Block
 	
 	public BlockHive()
 	{
-		super(Material.wood);
+		//TODO: Material.wood
+		super(Material.field_151575_d);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -32,9 +34,9 @@ public class BlockHive extends Block
     {
     	if (world.getBlockMetadata(x, y, z) == 2)
     	{
-			EntityWasp wasp = new EntityWasp(world);
+			/*TODO: FEATURE EntityWasp wasp = new EntityWasp(world);
 			wasp.setLocationAndAngles((double)x + 0.6, (double)y, (double)z + 0.3, 0.0F, 0.0F);
-			world.spawnEntityInWorld(wasp);
+			world.spawnEntityInWorld(wasp);*/
     	}
     }
 
@@ -44,7 +46,8 @@ public class BlockHive extends Block
 	{
 		textures = new IIcon[hiveTypes.length];
 
-		for (int i = 0; i < hiveTypes.length; ++i) {
+		for (int i = 0; i < hiveTypes.length; ++i) 
+		{
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+hiveTypes[i]);
 		}
 	}
@@ -53,34 +56,40 @@ public class BlockHive extends Block
 	//TODO:		 getIcon()
 	public IIcon func_149691_a(int side, int meta)
 	{
-        if (meta < 0 || meta >= hiveTypes.length) {
+        if (meta < 0 || meta >= hiveTypes.length) 
+        {
             meta = 0;
         }
+        
 		return textures[meta];
 	}
 	
 	@Override
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		for (int i = 0; i < hiveTypes.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+		for (int i = 0; i < hiveTypes.length; ++i) 
+		{
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 	
 	@Override
-	public int idDropped(int meta, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		if (meta == 0)
+		if (metadata == 0)
 		{
-			return Items.miscItems.get().itemID;
+			return BOPItemHelper.get("misc");
 		}
 		
-		if (meta == 3)
+		if (metadata == 3)
 		{
-			return Items.food.get().itemID;
+			return BOPItemHelper.get("food");
 		}
 		
-		return this.blockID;
+		//TODO:     getItemFromBlock()
+		return Item.func_150898_a(this);
 	}
 	
 	@Override

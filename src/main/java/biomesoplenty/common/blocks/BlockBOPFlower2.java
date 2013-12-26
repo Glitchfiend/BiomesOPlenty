@@ -29,9 +29,11 @@ public class BlockBOPFlower2 extends BlockFlower
 	protected BlockBOPFlower2(int blockID, Material material)
 	{
 		super(blockID, material);
-		this.setTickRandomly(true);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		float var4 = 0.2F;
-		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+				//TODO: setBlockBounds
+		this.func_149676_a0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
 		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -64,7 +66,8 @@ public class BlockBOPFlower2 extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 1;
 	}
@@ -80,20 +83,23 @@ public class BlockBOPFlower2 extends BlockFlower
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(par2, par3, par4);
 
 		switch (meta)
 		{
 		default:
-			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
 	
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
 		if (world.getBlockMetadata(x, y, z) == 2)
 		{
@@ -114,7 +120,8 @@ public class BlockBOPFlower2 extends BlockFlower
 	}
 	
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
+	//TODO:		harvestBlock()
+	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.harvestBlock(world, player, x, y, z, meta);
 		
@@ -209,9 +216,11 @@ public class BlockBOPFlower2 extends BlockFlower
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		//super.onNeighborBlockChange(world, x, y, z, neighborID);
+		super.func_149695_a(world, x, y, z, neighborBlock);
+		
 		this.checkFlowerChange(world, x, y, z);
 	}
 	
@@ -254,12 +263,8 @@ public class BlockBOPFlower2 extends BlockFlower
 	@Override
 	public boolean isBlockReplaceable(World world, int x, int y, int z)
 	{
-		//ItemStack itemstack = new ItemStack(Blocks.flowers.get(), 1, 10);
-
-		if (world.getBlockMetadata(x, y, z) == 10)
-			//if (!world.isRemote)
-			//world.spawnEntityInWorld(new EntityItem(world, x, y, z, itemstack));
-			return true;
+		if (world.getBlockMetadata(x, y, z) == 10) return true;
+		
 		return false;
 	}
 }

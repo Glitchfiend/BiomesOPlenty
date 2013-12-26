@@ -9,8 +9,11 @@ import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
@@ -22,14 +25,18 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 
 	public BlockBOPPetals()
 	{
-		super(Material.leaves, false);
-		setBurnProperties(this.blockID, 30, 60);
-		this.setTickRandomly(true);
-				//TODO: this.setHardness
-		this.func_149711_c(0.2F);
-		setLightOpacity(1);
-		setStepSound(Block.soundGrassFootstep);
+    	//TODO:	Material.leaves
+        super(Material.field_151584_j, false);
 		
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 30, 60);
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
+		//TODO: this.setHardness
+		this.func_149711_c(0.2F);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -59,21 +66,24 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < textures.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		if (par1 == 0)
-			return Block.plantRed.blockID;
+		if (metadata == 0)
+			//TODO:		getItemFromBlock()
+			return Item.func_150898_a(Blocks.red_flower);
 		else
-			return Block.plantYellow.blockID;
+			//TODO:     getItemFromBlock()
+			return Item.func_150898_a(Blocks.yellow_flower);
 	}
 
 	@Override
@@ -84,13 +94,14 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	}
 
 	@Override
-	public int quantityDropped(Random random)
+	//TODO:    quantityDropped()
+	public int func_149745_a(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

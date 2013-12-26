@@ -22,7 +22,8 @@ public class BlockIvy extends Block implements IShearable
 	public BlockIvy()
 	{
 		super(Material.vine);
-		this.setTickRandomly(true);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -42,14 +43,16 @@ public class BlockIvy extends Block implements IShearable
 	@Override
 	public void setBlockBoundsForItemRender()
 	{
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				//TODO: setBlockBounds
+		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 	/**
 	 * The type of render function that is called for this block
 	 */
 	@Override
-	public int getRenderType()
+	public int 	//TODO		getRenderType()
+	public int func_149645_b()()
 	{
 		return 20;
 	}
@@ -69,7 +72,8 @@ public class BlockIvy extends Block implements IShearable
 	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
 	 */
 	@Override
-	public boolean renderAsNormalBlock()
+	public boolean 	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()()
 	{
 		return false;
 	}
@@ -78,7 +82,8 @@ public class BlockIvy extends Block implements IShearable
 	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
 	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
 		int var6 = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
 		float var7 = 1.0F;
@@ -143,7 +148,8 @@ public class BlockIvy extends Block implements IShearable
 			var12 = 1.0F;
 		}
 
-		this.setBlockBounds(var7, var8, var9, var10, var11, var12);
+				//TODO: setBlockBounds
+		this.func_149676_avar7, var8, var9, var10, var11, var12);
 	}
 
 	/**
@@ -151,7 +157,8 @@ public class BlockIvy extends Block implements IShearable
 	 * cleared to be reused)
 	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		return null;
 	}
@@ -194,7 +201,8 @@ public class BlockIvy extends Block implements IShearable
 		else
 		{
 			Block var2 = Block.blocksList[par1];
-			return var2.renderAsNormalBlock() && var2.blockMaterial.blocksMovement();
+			return var2.	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()() && var2.blockMaterial.blocksMovement();
 		}
 	}
 
@@ -258,7 +266,8 @@ public class BlockIvy extends Block implements IShearable
 	 * their own) Args: x, y, z, neighbor blockID
 	 */
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+	public void 	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World par1World, int par2, int par3, int par4, int par5)
 	{
 		if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
 		{
@@ -271,7 +280,8 @@ public class BlockIvy extends Block implements IShearable
 	 * Ticks the block if it's been scheduled
 	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void 	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 	}
 
@@ -336,7 +346,8 @@ public class BlockIvy extends Block implements IShearable
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune
 	{
 		return 0;
 	}
@@ -345,7 +356,8 @@ public class BlockIvy extends Block implements IShearable
 	 * Returns the quantity of items to drop on block destruction.
 	 */
 	@Override
-	public int quantityDropped(Random par1Random)
+	//TODO:    getQuantityDropped()
+	public int func_149745_a(Random random)
 	{
 		return 0;
 	}
@@ -361,7 +373,7 @@ public class BlockIvy extends Block implements IShearable
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

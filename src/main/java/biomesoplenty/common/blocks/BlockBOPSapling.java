@@ -8,6 +8,7 @@ import net.minecraft.block.BlockSapling;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -25,7 +26,8 @@ public class BlockBOPSapling extends BlockSapling
 	{
 				//TODO: this.setHardness
 		this.func_149711_c(0.0F);
-		setStepSound(Block.soundGrassFootstep);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -55,74 +57,71 @@ public class BlockBOPSapling extends BlockSapling
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
-		for (int i = 0; i < saplings.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
+		for (int i = 0; i < saplings.length; ++i) 
+		{
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
 	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+	//TODO:		   canPlaceBlockOnSide
+	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		int id = world.getBlockId(x, y - 1, z);
-		int meta = itemStack.getItemDamage();
+		//TODO:					  getBlock()
+		Block block = world.func_147439_a(x, y - 1, z);
+		int meta = world.getBlockMetadata(x, y - 1, z);
 
-		if (itemStack.itemID == blockID && id != 0) {
 			switch (meta)
 			{
-			case 7: // Loftwood
-			return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID;
+			/*TODO FEATURE case 7: // Loftwood
+				return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID;*/
 
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || blocksList[id].canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+				return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			}
-		} else
-			return this.canPlaceBlockOnSide(world, x, y, z, side);
-	}
-
-	protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
-	{
-		if (metadata == 7) //Loftwood
-			return blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
-		else
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID;
 	}
 
 	@Override
-	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
-		if (par1World.getBlockMetadata(par2, par3, par4) != 7)
-			return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) &&
-					(soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this));
+		//TODO:			   getBlock()
+		Block soil = world.func_147439_a(x, y - 1, z);
+		
+		if (world.getBlockMetadata(x, y, z) != 1)
+			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
+					(soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
 		else
-			return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) &&
-					(soil != null && (soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this) || soil.blockID == Blocks.holyGrass.get().blockID));
+			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
+					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) /*TODO FEATURE || soil == Blocks.holyGrass*/));
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
+	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)
 	{
-		if (world.isRemote)
-			return;
-
-		this.checkFlowerChange(world, x, y, z);
-
-		if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0) {
-			this.growTree(world, x, y, z, random);
+		if (!world.isRemote)
+		{
+			if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0) 
+			{
+				//TODO: growTree()
+				this.func_149878_d(world, x, y, z, random);
+			}
 		}
 	}
 
 	@Override
-	public void growTree(World world, int x, int y, int z, Random random)
+	//TODO:		growTree()
+	public void func_149878_d(World world, int x, int y, int z, Random random)
 	{
 		int meta = world.getBlockMetadata(x, y, z) & TYPES;
 		Object obj = null;
 		int rnd = random.nextInt(8);
 
-		if (obj == null)
+		/*TODO: FEATURE if (obj == null)
 		{
 			switch (meta)
 			{
@@ -202,14 +201,17 @@ public class BlockBOPSapling extends BlockSapling
 				obj = new WorldGenPersimmon(false);
 				break;
 			}
-		}
+		}*/
 
 		if (obj != null)
 		{
-			world.setBlockToAir(x, y, z);
+			//TODO: setBlockToAir()
+			world.func_147468_f(x, y, z);
 
-			if (!((WorldGenerator)obj).generate(world, random, x, y, z)) {
-				world.setBlock(x, y, z, blockID, meta, 2);
+			if (!((WorldGenerator)obj).generate(world, random, x, y, z)) 
+			{
+				//TODO: setBlock()
+				world.func_147465_d(x, y, z, this, meta, 2);
 			}
 		}
 	}
@@ -222,7 +224,8 @@ public class BlockBOPSapling extends BlockSapling
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z)
 	{
 		return world.getBlockMetadata(x, y, z) & TYPES;
 	}

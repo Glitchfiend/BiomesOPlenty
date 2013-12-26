@@ -8,10 +8,12 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 
 public class BlockAsh extends Block
 {
@@ -20,7 +22,7 @@ public class BlockAsh extends Block
 		//TODO:	Material.sand
 		super(Material.field_151595_p);
 		
-		//TODO: this.setStepSound(Block.soundSandFootstep);
+		//TODO setStepSound(Block.soundSandFootstep)
 		this.func_149672_a(Block.field_149776_m);
 		
 		//TODO: this.setCreativeTab()
@@ -86,11 +88,10 @@ public class BlockAsh extends Block
 
 	//@Override
 	//TODO:	   getItemDropped()
-	//TODO: FEATURE
-	/*public Item func_149650_a(int metadata, Random random, int par3)
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return Items.miscItems.get().itemID;
-	}*/
+		return BOPItemHelper.get("misc");
+	}
 
 	@Override
 	//TODO     damageDropped()

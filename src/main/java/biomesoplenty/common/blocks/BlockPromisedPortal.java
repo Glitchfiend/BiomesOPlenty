@@ -45,7 +45,8 @@ public class BlockPromisedPortal extends Block
 	 * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
 	 * coordinates.  Args: blockAccess, x, y, z, side
 	 */
-	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, 1 - par5);
 	}
@@ -55,7 +56,8 @@ public class BlockPromisedPortal extends Block
 	 * cleared to be reused)
 	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		return null;
 	}

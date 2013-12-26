@@ -19,7 +19,8 @@ public class BlockMoss extends Block
 	{
 		super(Material.vine);
 		setBurnProperties(blockID, 15, 100);
-		this.setTickRandomly(true);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -29,32 +30,25 @@ public class BlockMoss extends Block
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-				//TODO: blockIcon
-		this.field_149761_L = par1IconRegister.registerIcon("biomesoplenty:moss");
+		//TODO: blockIcon
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:moss");
 	}
 
-	/**
-	 * Sets the block's bounds for rendering it as an item
-	 */
+
 	@Override
 	public void setBlockBoundsForItemRender()
 	{
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				//TODO: setBlockBounds
+		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
-	/**
-	 * The type of render function that is called for this block
-	 */
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 20;
 	}
 
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-	 * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-	 */
 	@Override
 	//TODO:		   isOpaqueCube()
 	public boolean func_149662_c()
@@ -62,20 +56,16 @@ public class BlockMoss extends Block
 		return false;
 	}
 
-	/**
-	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-	 */
 	@Override
-	public boolean renderAsNormalBlock()
+	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()
 	{
 		return false;
 	}
 
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
 		int var6 = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
 		float var7 = 1.0F;
@@ -140,22 +130,17 @@ public class BlockMoss extends Block
 			var12 = 1.0F;
 		}
 
-		this.setBlockBounds(var7, var8, var9, var10, var11, var12);
+				//TODO: setBlockBounds
+		this.func_149676_avar7, var8, var9, var10, var11, var12);
 	}
 
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-	 * cleared to be reused)
-	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		return null;
 	}
 
-	/**
-	 * checks to see if you can place this block can be placed on that side of a block: BlockLever overrides
-	 */
 	@Override
 	public boolean canPlaceBlockOnSide(World par1World, int par2, int par3, int par4, int par5)
 	{
@@ -232,9 +217,6 @@ public class BlockMoss extends Block
 		return ColorizerFoliage.getFoliageColorBasic();
 	}
 
-	/**
-	 * Returns the color this block should be rendered. Used by leaves.
-	 */
 	@Override
 	public int getRenderColor(int par1)
 	{
@@ -247,12 +229,9 @@ public class BlockMoss extends Block
         return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
 	}
 
-	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-	 * their own) Args: x, y, z, neighbor blockID
-	 */
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
 		if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
 		{
@@ -265,7 +244,8 @@ public class BlockMoss extends Block
 	 * Ticks the block if it's been scheduled
 	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void 	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 	}
 
@@ -300,9 +280,6 @@ public class BlockMoss extends Block
 		}
 	}
 
-	/**
-	 * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
-	 */
 	@Override
 	public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
 	{
@@ -327,7 +304,8 @@ public class BlockMoss extends Block
 	}
 
 	@Override
-	public int quantityDropped(Random par1Random)
+	//TODO:    getQuantityDropped()
+	public int func_149745_a(Random random)
 	{
 		return 1;
 	}

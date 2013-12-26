@@ -24,9 +24,11 @@ public class BlockStoneFormations extends BlockFlower
 	protected BlockStoneFormations(Material material)
 	{
 		super(material);
-		this.setTickRandomly(true);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		float var4 = 0.2F;
-		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+				//TODO: setBlockBounds
+		this.func_149676_a0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -60,20 +62,23 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType()
+	public int 	//TODO		getRenderType()
+	public int func_149645_b()()
 	{
 		return 1;
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(par2, par3, par4);
 
 		switch (meta)
 		{
 		default:
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 			break;
 		}
 	}
@@ -125,9 +130,11 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+	public void 	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World world, int x, int y, int z, int neighborID)
 	{
-		//super.onNeighborBlockChange(world, x, y, z, neighborID);
+		//super.	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(world, x, y, z, neighborID);
 		this.checkFlowerChange(world, x, y, z);
 	}
 	

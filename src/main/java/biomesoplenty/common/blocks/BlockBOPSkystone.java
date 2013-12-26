@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -21,7 +22,9 @@ public class BlockBOPSkystone extends Block
 	{
 		//TODO: Material.rock
 		super(Material.field_151576_e);
-		setStepSound(Block.soundStoneFootstep);
+			
+		//TODO setStepSound(Block.soundStoneFootstep)
+		this.func_149672_a(Block.field_149780_i);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -50,16 +53,20 @@ public class BlockBOPSkystone extends Block
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z) {
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
+	{
 		return world.getBlockMetadata(x, y, z);
 	}
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
-		for (int i = 0; i < types.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
+		for (int i = 0; i < types.length; ++i) 
+		{
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
@@ -80,10 +87,12 @@ public class BlockBOPSkystone extends Block
 	}
 
 	@Override
-	public float getBlockHardness(World world, int x, int y, int z)
+	//TODO:		 getBlockHardness()
+	public float func_149712_f(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		float hardness = blockHardness;
+		//TODO:			 blockHardness
+		float hardness = field_149782_v;
 
 		switch (meta)
 		{
@@ -111,7 +120,8 @@ public class BlockBOPSkystone extends Block
 	public float getExplosionResistance(Entity par1Entity, World world, int x, int y, int z, double explosionX, double explosionY, double explosionZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		float resistance = blockResistance;
+		//TODO:			   blockResistance
+		float resistance = field_149781_w;
 
 		switch (meta)
 		{

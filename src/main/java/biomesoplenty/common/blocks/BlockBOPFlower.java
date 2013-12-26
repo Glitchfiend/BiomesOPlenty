@@ -12,6 +12,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -34,9 +35,13 @@ public class BlockBOPFlower extends BlockFlower
 	protected BlockBOPFlower()
 	{
 		super(material);
-		this.setTickRandomly(true);
+		
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
+		
 		float var4 = 0.2F;
-		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+		//TODO: setBlockBounds
+		this.func_149676_a(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -65,7 +70,8 @@ public class BlockBOPFlower extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return RenderUtils.foliageModel;
 	}
@@ -83,49 +89,60 @@ public class BlockBOPFlower extends BlockFlower
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
 		case 0:
-			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
 			break;
 
 		case 5:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.8F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.8F, 0.7F);
 			break;
 
 		case 6:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
 			break;
 
 		case 9:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
 			break;
 
 		case 10:
-			this.setBlockBounds(0.3F, -0.97F, 0.3F, 0.7F, -0.7F, 0.7F);
-			//this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.3F, -0.97F, 0.3F, 0.7F, -0.7F, 0.7F);
+			//		//TODO: setBlockBounds
+		this.func_149676_a0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
 			break;
 
 		case 11:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 
 		case 15:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
 			break;
 
 		default:
-			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+					//TODO: setBlockBounds
+		this.func_149676_a0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
@@ -147,15 +164,14 @@ public class BlockBOPFlower extends BlockFlower
 		}
 	}
 
-	/**
-	 * A randomly called display update to be able to add particles or other items for display
-	 */
 	@Override
 	//TODO: 	randomDisplayTick()
 	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
 		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
+		
 		int meta = par1World.getBlockMetadata(par2, par3, par4);
+		
 		if (meta == 2)
 		{
 			if (par5Random.nextInt(4) != 0)
@@ -171,14 +187,14 @@ public class BlockBOPFlower extends BlockFlower
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < plants.length; ++i)
 		{
 			if (i != 14)
 			{
-				list.add(new ItemStack(blockID, 1, i));
+				list.add(new ItemStack(block, 1, i));
 			}
 		}
 	}
@@ -238,14 +254,19 @@ public class BlockBOPFlower extends BlockFlower
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		//super.onNeighborBlockChange(world, x, y, z, neighborID);
+		super.func_149695_a(world, x, y, z, neighborBlock);
+		
 		this.checkFlowerChange(world, x, y, z);
-		if (world.getBlockMetadata(x, y, z) == SUNFLOWERTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != SUNFLOWERBOTTOM) {
+		
+		if (world.getBlockMetadata(x, y, z) == SUNFLOWERTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != SUNFLOWERBOTTOM) 
+		{
 			world.setBlockToAir(x, y, z);
 		}
-		if (world.getBlockMetadata(x, y, z) == SUNFLOWERBOTTOM && world.getBlockId(x, y + 1, z) != blockID) {
+		if (world.getBlockMetadata(x, y, z) == SUNFLOWERBOTTOM && world.getBlockId(x, y + 1, z) != blockID) 
+		{
 			world.setBlockToAir(x, y, z);
 		}
 	}
@@ -301,15 +322,16 @@ public class BlockBOPFlower extends BlockFlower
 	}
 	
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
+	//TODO:		harvestBlock()
+	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
-		super.harvestBlock(world, player, x, y, z, meta);
+		super.func_149636_a(world, player, x, y, z, meta);
 		
 		ItemStack equippedItem = player.getCurrentEquippedItem();
 		
 		if (equippedItem != null)
 		{
-			if (equippedItem.itemID != Item.shears.itemID)
+			if (equippedItem.getItem() != Items.shears)
 			{
 				if (meta == 2)
 				{
@@ -335,12 +357,8 @@ public class BlockBOPFlower extends BlockFlower
 	@Override
 	public boolean isBlockReplaceable(World world, int x, int y, int z)
 	{
-		//ItemStack itemstack = new ItemStack(Blocks.flowers.get(), 1, 10);
-
-		if (world.getBlockMetadata(x, y, z) == 10)
-			//if (!world.isRemote)
-			//world.spawnEntityInWorld(new EntityItem(world, x, y, z, itemstack));
-			return true;
+		if (world.getBlockMetadata(x, y, z) == 10) return true;
+		
 		return false;
 	}
 }

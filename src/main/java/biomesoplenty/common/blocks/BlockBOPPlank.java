@@ -6,6 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
@@ -17,9 +19,12 @@ public class BlockBOPPlank extends Block
 
 	public BlockBOPPlank()
 	{
-		super(Material.wood);
-		setBurnProperties(this.blockID, 5, 20);
-				//TODO: this.setHardness
+		//TODO: Material.wood
+		super(Material.field_151575_d);
+		
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
+		//TODO: this.setHardness
 		this.func_149711_c(2.0F);
 		
 		//TODO: this.setCreativeTab()
@@ -51,9 +56,11 @@ public class BlockBOPPlank extends Block
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
-		for (int i = 0; i < woodTypes.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
+		for (int i = 0; i < woodTypes.length; ++i) 
+		{
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 

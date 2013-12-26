@@ -34,11 +34,13 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	{
 		super(Material.leaves, false);
 		setBurnProperties(this.blockID, 30, 60);
-		this.setTickRandomly(true);
-				//TODO: this.setHardness
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
+		//TODO: this.setHardness
 		this.func_149711_c(0.2F);
 		setLightOpacity(1);
-		setStepSound(Block.soundGrassFootstep);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -90,10 +92,10 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
-		list.add(new ItemStack(blockID, 1, 0));
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
+		list.add(new ItemStack(block, 1, 0));
 	}
 
 	@Override
@@ -135,7 +137,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
+	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World world, int x, int y, int z, Random random)
 	{
 		if (world.isRemote)
 			return;
@@ -260,7 +263,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if ((meta & 3) == 3)
@@ -280,7 +283,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
 		return Blocks.saplings.get().blockID;
 	}
@@ -293,13 +297,15 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public int quantityDropped(Random random)
+	//TODO:    quantityDropped()
+	public int func_149745_a(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;
 	}
 
 	@Override
-	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int meta, float chance, int par7)
+	//TODO: 	dropBlockAsItemWithChance()
+	public void func_149690_a(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
 		if (world.isRemote)
 			return;
@@ -322,7 +328,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}
@@ -342,7 +348,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}

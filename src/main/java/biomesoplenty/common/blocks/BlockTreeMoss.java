@@ -19,8 +19,10 @@ public class BlockTreeMoss extends Block implements IShearable
 {
 	public BlockTreeMoss()
 	{
-		super(par1, Material.vine);
-		this.setTickRandomly(true);
+		super(Material.vine);
+		
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		setBurnProperties(blockID, 15, 100);
 		
 		//TODO: this.setCreativeTab()
@@ -32,23 +34,20 @@ public class BlockTreeMoss extends Block implements IShearable
 	public void func_149651_a(IIconRegister iconRegister)
 	{
 				//TODO: blockIcon
-		this.field_149761_L = par1IconRegister.registerIcon("biomesoplenty:treemoss");
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:treemoss");
 	}
 
-	/**
-	 * Sets the block's bounds for rendering it as an item
-	 */
 	@Override
 	public void setBlockBoundsForItemRender()
 	{
-		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		//TODO: setBlockBounds
+		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
-	/**
-	 * The type of render function that is called for this block
-	 */
+
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 20;
 	}
@@ -68,27 +67,27 @@ public class BlockTreeMoss extends Block implements IShearable
 	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
 	 */
 	@Override
-	public boolean renderAsNormalBlock()
+	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()
 	{
 		return false;
 	}
 
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int var6 = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+		int metadata = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+		
 		float var7 = 1.0F;
 		float var8 = 1.0F;
 		float var9 = 1.0F;
 		float var10 = 0.0F;
 		float var11 = 0.0F;
 		float var12 = 0.0F;
-		boolean var13 = var6 > 0;
+		boolean var13 = metadata > 0;
 
-		if ((var6 & 2) != 0)
+		if ((metadata & 2) != 0)
 		{
 			var10 = Math.max(var10, 0.0625F);
 			var7 = 0.0F;
@@ -99,7 +98,7 @@ public class BlockTreeMoss extends Block implements IShearable
 			var13 = true;
 		}
 
-		if ((var6 & 8) != 0)
+		if ((metadata & 8) != 0)
 		{
 			var7 = Math.min(var7, 0.9375F);
 			var10 = 1.0F;
@@ -110,7 +109,7 @@ public class BlockTreeMoss extends Block implements IShearable
 			var13 = true;
 		}
 
-		if ((var6 & 4) != 0)
+		if ((metadata & 4) != 0)
 		{
 			var12 = Math.max(var12, 0.0625F);
 			var9 = 0.0F;
@@ -121,7 +120,7 @@ public class BlockTreeMoss extends Block implements IShearable
 			var13 = true;
 		}
 
-		if ((var6 & 1) != 0)
+		if ((metadata & 1) != 0)
 		{
 			var9 = Math.min(var9, 0.9375F);
 			var12 = 1.0F;
@@ -142,7 +141,8 @@ public class BlockTreeMoss extends Block implements IShearable
 			var12 = 1.0F;
 		}
 
-		this.setBlockBounds(var7, var8, var9, var10, var11, var12);
+		//TODO: setBlockBounds
+		this.func_149676_a(var7, var8, var9, var10, var11, var12);
 	}
 
 	/**
@@ -150,14 +150,12 @@ public class BlockTreeMoss extends Block implements IShearable
 	 * cleared to be reused)
 	 */
 	@Override
-	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4)
+	//TODO: getCollisionBoundingBoxFromPool
+	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
 		return null;
 	}
 
-	/**
-	 * checks to see if you can place this block can be placed on that side of a block: BlockLever overrides
-	 */
 	@Override
 	public boolean canPlaceBlockOnSide(World par1World, int par2, int par3, int par4, int par5)
 	{
@@ -183,9 +181,6 @@ public class BlockTreeMoss extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * returns true if a vine can be placed on that block (checks for render as normal block and if it is solid)
-	 */
 	private boolean canBePlacedOn(int par1)
 	{
 		if (par1 == 0)
@@ -193,13 +188,11 @@ public class BlockTreeMoss extends Block implements IShearable
 		else
 		{
 			Block var2 = Block.blocksList[par1];
-			return var2.renderAsNormalBlock() && var2.blockMaterial.blocksMovement();
+			//TODO:     renderAsNormalBlock()
+			return var2.func_149686_d() && var2.blockMaterial.blocksMovement();
 		}
 	}
 
-	/**
-	 * Returns if the vine can stay in the world. It also changes the metadata according to neighboring blocks.
-	 */
 	private boolean canVineStay(World par1World, int par2, int par3, int par4)
 	{
 		int var5 = par1World.getBlockMetadata(par2, par3, par4);
@@ -231,12 +224,9 @@ public class BlockTreeMoss extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-	 * their own) Args: x, y, z, neighbor blockID
-	 */
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
 		if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
 		{
@@ -245,17 +235,16 @@ public class BlockTreeMoss extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)
 	{
 	}
 
 	/**
 	 * called before onBlockPlacedBy by ItemBlock and ItemReed
 	 */
+	@Override
 	public void updateBlockMetadata(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8)
 	{
 		byte var9 = 0;
@@ -314,7 +303,8 @@ public class BlockTreeMoss extends Block implements IShearable
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune
 	{
 		return 0;
 	}
@@ -323,7 +313,8 @@ public class BlockTreeMoss extends Block implements IShearable
 	 * Returns the quantity of items to drop on block destruction.
 	 */
 	@Override
-	public int quantityDropped(Random par1Random)
+	//TODO:    getQuantityDropped()
+	public int func_149745_a(Random random)
 	{
 		return 0;
 	}
@@ -339,7 +330,7 @@ public class BlockTreeMoss extends Block implements IShearable
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

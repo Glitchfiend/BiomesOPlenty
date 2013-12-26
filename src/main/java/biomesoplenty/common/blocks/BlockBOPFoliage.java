@@ -45,12 +45,15 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public BlockBOPFoliage()
 	{
 		float f = 0.4F;
-		setBurnProperties(this.blockID, 60, 100);
-		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
-				//TODO: this.setHardness
-		this.func_149711_c(0.0F);
-		setStepSound(Block.soundGrassFootstep);
 		
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 60, 100);
+		setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
+		//TODO: this.setHardness
+		this.func_149711_c(0.0F);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -81,13 +84,16 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void getSubBlocks(int blockID, CreativeTabs par2CreativeTabs, List list)
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < foliageTypes.length; ++i)
-			if (i != GRASSTOP) {
-				list.add(new ItemStack(blockID, 1, i));
+		{
+			if (i != GRASSTOP) 
+			{
+				list.add(new ItemStack(block, 1, i));
 			}
+		}
 	}
 
 	@Override
@@ -188,7 +194,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbourID)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
@@ -205,31 +212,32 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	        }
 	    }
 
-		super.onNeighborBlockChange(world, x, y, z, neighbourID);
+		super.func_149695_a(world, x, y, z, neighborBlock);
 		this.checkFlowerChange(world, x, y, z);
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int x, int y, int z, Entity par5Entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
-		int meta = par1World.getBlockMetadata(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
 
-		if (!par1World.isRemote && meta == 7) 
+		if (!world.isRemote && meta == 7) 
 		{
-			if (par5Entity instanceof EntityLivingBase)
+			if (entity instanceof EntityLivingBase)
 			{
-				if (par5Entity instanceof EntityPlayer)
+				if (entity instanceof EntityPlayer)
 				{
-					InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
+					InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-					if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+					if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == Items.leather_boots) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].getItem() == Items.leather_leggings)))
 					{
-						((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+						((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 					}
 				}
 				else
 				{
-					((EntityLivingBase)par5Entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+					((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
 				}
 			}
 		}
@@ -253,7 +261,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return RenderUtils.foliageModel;
 	}
@@ -281,7 +290,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
 		return -1;
 	}
@@ -311,9 +321,10 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess iblockaccess, int x, int y, int z)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = iblockaccess.getBlockMetadata(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		float minX;
 		float minY;
@@ -362,13 +373,14 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
+	//TODO:		harvestBlock()
+	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.harvestBlock(world, player, x, y, z, meta);
 	}
 
 	@Override
-	public boolean onBlockActivated (World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 8)
@@ -393,7 +405,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

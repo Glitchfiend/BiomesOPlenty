@@ -19,8 +19,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
 {
@@ -50,13 +48,15 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         super(Material.field_151584_j, false);
         
         this.category = cat;
-        this.setTickRandomly(true);
         
-        this.setBurnProperties(this, 30, 60);
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 30, 60);
 		//TODO: this.setHardness
 		this.func_149711_c(0.2F);
-        setLightOpacity(1);
-        setStepSound(Block.soundGrassFootstep);
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
         
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -216,7 +216,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public void updateTick(World world, int x, int y, int z, Random random)
+    //TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)
     {
         if (world.isRemote)
             return;
@@ -342,7 +343,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
     {
         return getTypeFromMeta(meta) + category.ordinal() * 4;
     }
@@ -388,12 +390,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         return meta;
     }
 
-    @SideOnly(Side.CLIENT)
-    public void setGraphicsLevel(boolean par1)
-    {
-        graphicsLevel = par1;
-    }
-
     @Override
 	//TODO			shouldSideBeRendered
     public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
@@ -408,7 +404,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public boolean isLeaves(World world, int x, int y, int z)
+    public boolean isLeaves(IBlockAccess world, int x, int y, int z)
     {
         return true;
     }

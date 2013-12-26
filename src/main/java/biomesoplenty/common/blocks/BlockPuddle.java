@@ -22,8 +22,10 @@ public class BlockPuddle extends Block
     public BlockPuddle(int par1)
     {
         super(par1, Material.ground);
-        this.setTickRandomly(true);
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8135F, 1.0F);
+        		//TODO: setTickRandomly()
+		this.func_149675_a(true);
+        		//TODO: setBlockBounds
+		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 0.8135F, 1.0F);
         this.setLightOpacity(0);
     }
 
@@ -46,13 +48,15 @@ public class BlockPuddle extends Block
     }
 
 	@Override
-    public boolean renderAsNormalBlock()
+    public boolean 	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()()
     {
         return false;
     }
     
 	@Override
-    public void updateTick(World world, int x, int y, int z, Random par5Random)
+    public void 	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World world, int x, int y, int z, Random par5Random)
     {
     	if (!world.isRaining() && world.rand.nextInt(2) == 0)
     	{
@@ -75,7 +79,8 @@ public class BlockPuddle extends Block
     }
     
     @Override
-    public int getRenderType()
+    public int 	//TODO		getRenderType()
+	public int func_149645_b()()
     {
         return RenderUtils.puddleModel;
     }
@@ -89,7 +94,8 @@ public class BlockPuddle extends Block
     }
 
     @Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune
     {
         return Block.dirt.idDropped(0, par2Random, par3);
     }

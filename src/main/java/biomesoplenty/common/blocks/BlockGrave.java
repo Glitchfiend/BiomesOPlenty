@@ -34,34 +34,40 @@ public class BlockGrave extends Block
 	}
     
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
 			case 0:
-				this.setBlockBounds(0.0F, 0.0F, 0.31F, 1.0F, 1.6875F, 0.69F);
+						//TODO: setBlockBounds
+		this.func_149676_a(0.0F, 0.0F, 0.31F, 1.0F, 1.6875F, 0.69F);
 				break;
 
 			case 1:
-				this.setBlockBounds(0.0F, -1.0F, 0.31F, 1.0F, 0.6875F, 0.69F);
+						//TODO: setBlockBounds
+		this.func_149676_a(0.0F, -1.0F, 0.31F, 1.0F, 0.6875F, 0.69F);
 				break;
 				
 			case 2:
-				this.setBlockBounds(0.31F, 0.0F, 0.0F, 0.69F, 1.6875F, 1.0F);
+						//TODO: setBlockBounds
+		this.func_149676_a(0.31F, 0.0F, 0.0F, 0.69F, 1.6875F, 1.0F);
 				break;
 
 			case 3:
-				this.setBlockBounds(0.31F, -1.0F, 0.0F, 0.69F, 0.6875F, 1.0F);
+						//TODO: setBlockBounds
+		this.func_149676_a(0.31F, -1.0F, 0.0F, 0.69F, 0.6875F, 1.0F);
 				break;
 		}
 	}
 	
 	@Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, int neighbourID) 
+    //TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		if (neighbourID == Blocks.grave.get().blockID)
+		if (neighborBlock == this)
 		{
 			if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 2)
 			{
@@ -92,7 +98,8 @@ public class BlockGrave extends Block
 	}
 
 	@Override
-	public boolean renderAsNormalBlock()
+	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()
 	{
 		return false;
 	}
@@ -105,7 +112,8 @@ public class BlockGrave extends Block
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return RenderUtils.graveModel;
 	}

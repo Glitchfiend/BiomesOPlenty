@@ -7,8 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
@@ -19,10 +21,13 @@ public class BlockBamboo extends Block
 	
 	public BlockBamboo()
 	{
-		super(Material.plants);
+		//TODO: Material.plants
+		super(Material.field_151585_k);
 		
-		this.setBurnProperties(this, 5, 5);
-		this.setTickRandomly(true);
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 5, 5);
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -47,13 +52,16 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
+	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)
 	{
-		if (world.isAirBlock(x, y + 1, z))
+		//TODO:   isAirBlock()
+		if (world.func_147437_c(x, y + 1, z))
 		{
 			int var6;
 
-			for (var6 = 1; world.getBlockId(x, y - var6, z) == blockID; ++var6)
+			//TODO:				 getBlock()
+			for (var6 = 1; world.func_147439_a(x, y - var6, z) == this; ++var6)
 			{
 				;
 			}
@@ -64,7 +72,8 @@ public class BlockBamboo extends Block
 
 				if (var7 == 15)
 				{
-					world.setBlock(x, y + 1, z, blockID);
+					//TODO: setBlock()
+					world.func_147465_d(x, y + 1, z, this, 0, 2);
 					world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 				}
 				else
@@ -87,19 +96,22 @@ public class BlockBamboo extends Block
 	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
     {
 		float pixel = 0.0625F;
-        this.setBlockBounds((pixel * 4), 0.0F, (pixel * 4), 1.0F - (pixel * 4), 1.0F, 1.0F - (pixel * 4));
+        //TODO: setBlockBounds
+		this.func_149676_a((pixel * 4), 0.0F, (pixel * 4), 1.0F - (pixel * 4), 1.0F, 1.0F - (pixel * 4));
         super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
         this.setBlockBoundsForItemRender();
     }
     
     @Override
-    public void setBlockBoundsForItemRender()
+    //TODO:		setBlockBoundsForItemRender()
+    public void func_149683_g()
     {
-        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        //TODO: setBlockBounds
+		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
 	@Override
-	public boolean canBeReplacedByLeaves(World world, int x, int y, int z)
+	public boolean canBeReplacedByLeaves(IBlockAccess world, int x, int y, int z)
 	{
 		return false;
 	}
@@ -117,9 +129,10 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		this.checkBlockCoordValid(par1World, par2, par3, par4);
+		this.checkBlockCoordValid(world, x, y, z);
 	}
 
 	protected final void checkBlockCoordValid(World par1World, int par2, int par3, int par4)
@@ -145,19 +158,21 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public boolean renderAsNormalBlock()
+	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()
 	{
 		return false;
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return RenderUtils.bambooModel;
 	}
 
 	@Override
-	public boolean canSustainLeaves(World world, int x, int y, int z)
+	public boolean canSustainLeaves(IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

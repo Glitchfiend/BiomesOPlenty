@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import biomesoplenty.BiomesOPlenty;
 
@@ -34,12 +35,11 @@ public class BlockBOPStairs extends BlockStairs
 	public BlockBOPStairs(Block model, Category cat)
 	{
 		super(model, 0);
+		
 		category = cat;
-		setBurnProperties(this.blockID, 5, 20);
-		this.setLightOpacity(0);
-		this.		//TODO: this.setHardness
-		this.func_149711_c(model.blockHardness);
-        this.setResistance(model.blockResistance / 3.0F);
+		
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
         
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);

@@ -21,7 +21,8 @@ public class BlockOriginGrass extends Block
 	public BlockOriginGrass()
 	{
 		super(Material.grass);
-		this.setTickRandomly(true);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -114,7 +115,8 @@ public class BlockOriginGrass extends Block
 	 * Ticks the block if it's been scheduled
 	 */
 	@Override
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void 	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		if (!par1World.isRemote)
 		{
@@ -144,7 +146,8 @@ public class BlockOriginGrass extends Block
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune
 	{
 		return Block.dirt.idDropped(0, par2Random, par3);
 	}

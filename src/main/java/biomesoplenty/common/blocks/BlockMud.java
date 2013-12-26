@@ -31,7 +31,7 @@ public class BlockMud extends Block
 		//TODO: this.setHardness
 		this.func_149711_c(0.6F);
 		
-		//TODO: this.setStepSound(Block.soundSandFootstep);
+		//TODO setStepSound(Block.soundSandFootstep)
 		this.func_149672_a(Block.field_149776_m);
 	
 		//TODO: this.setCreativeTab()
@@ -71,7 +71,7 @@ public class BlockMud extends Block
 		}
 	}
 
-	//@Override
+	@Override
 	//TODO: getCollisionBoundingBoxFromPool
 	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
 	{
@@ -111,7 +111,7 @@ public class BlockMud extends Block
 
 	//@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int par3)
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
 		if (metadata == 0)
 			return BOPItemHelper.get("mudball");
@@ -127,7 +127,7 @@ public class BlockMud extends Block
 		return meta;
 	}
 
-	//@Override
+	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
 		if (meta == 0)

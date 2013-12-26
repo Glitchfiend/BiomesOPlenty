@@ -7,6 +7,7 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -26,9 +27,11 @@ public class BlockBOPMushroom extends BlockFlower
 		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
+		
 		float var4 = 0.2F;
 		
-		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+		//TODO: setBlockBounds
+		this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -58,7 +61,8 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 1;
 	}
@@ -74,43 +78,39 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
 		case 0:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 
 		default:
-			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+					//TODO: setBlockBounds
+		this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 		}
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
 	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		for (int i = 0; i < plants.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+		for (int i = 0; i < plants.length; ++i) 
+		{
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
-	@Override
-	protected boolean canThisPlantGrowOnThisBlockID(int id)
-	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-	}
-
-	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
+	protected boolean canThisPlantGrowOnThisBlock(Block block, int metadata)
 	{
 		if (metadata == 0) //Toadstool
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
 		if (metadata == 1) //Portobello
 			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID | id == Blocks.holyGrass.get().blockID;
 		if (metadata == 2) //Blue Milk Cap
@@ -152,9 +152,11 @@ public class BlockBOPMushroom extends BlockFlower
 	}
 
 	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+		//TODO:			   								getBlock()
+		return this.canThisPlantGrowOnThisBlockID(world.func_147439_a(x, y - 1, z), world.getBlockMetadata(x, y, z));
 	}
 
 	@Override

@@ -63,7 +63,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     {
         super(Material.leaves, false);
         category = cat;
-        this.setTickRandomly(true);
+        		//TODO: setTickRandomly()
+		this.func_149675_a(true);
         		//TODO: this.setHardness
 		this.func_149711_c(0.2F);
         setLightOpacity(1);
@@ -187,7 +188,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public void updateTick(World world, int x, int y, int z, Random random)
+    public void 	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)(World world, int x, int y, int z, Random random)
     {
         if (world.isRemote)
             return;
@@ -344,7 +346,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public void dropBlockAsItemWithChance(World world, int x, int y, int z, int meta, float chance, int par7)
+	//TODO: 	dropBlockAsItemWithChance()
+	public void func_149690_a(World world, int x, int y, int z, int metadata, float chance, int fortune)
     {
         if (world.isRemote)
             return;
@@ -361,7 +364,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
     }
 
     @Override
-    public int damageDropped(int meta)
+	//TODO     damageDropped()
+	public int func_149692_a(int meta)
     {
         return (getTypeFromMeta(meta) + category.ordinal() * 4) + 1;
     }

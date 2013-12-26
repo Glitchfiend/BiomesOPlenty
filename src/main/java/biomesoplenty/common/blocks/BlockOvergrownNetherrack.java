@@ -20,7 +20,8 @@ public class BlockOvergrownNetherrack extends Block
 	{
 		//TODO: Material.rock
 		super(Material.field_151576_e);
-		this.setTickRandomly(true);
+				//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -88,7 +89,8 @@ public class BlockOvergrownNetherrack extends Block
 	 * Returns the ID of the items to drop on destruction.
 	 */
 	@Override
-	public int idDropped(int par1, Random par2Random, int par3)
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune
 	{
 		return Block.netherrack.idDropped(0, par2Random, par3);
 	}

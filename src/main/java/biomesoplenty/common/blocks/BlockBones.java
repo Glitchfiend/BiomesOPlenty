@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
@@ -13,16 +14,20 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
-public class BlockBones extends Block {
+public class BlockBones extends Block 
+{
 	//Meta 3 & 4 used by alternate small bone rotations, 5 & 6 are used by alternate medium bone rotations
 	private static final String[] boneTypes = new String[] {"bones_small", "bones_medium", "bones_large"};
 	private IIcon[] textures;
 
-	public BlockBones(int blockID)
+	public BlockBones()
 	{
-		super(blockID, Material.rock);
-				//TODO: this.setHardness
+		//TODO: Material.rock
+		super(Material.field_151576_e);
+		
+		//TODO: this.setHardness
 		this.func_149711_c(3.0F);
+		
 		setResistance(5.0F);
 		
 		//TODO: this.setCreativeTab()
@@ -35,7 +40,8 @@ public class BlockBones extends Block {
 	{
 		textures = new IIcon[boneTypes.length];
 
-		for (int i = 0; i < boneTypes.length; ++i) {
+		for (int i = 0; i < boneTypes.length; ++i) 
+		{
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+boneTypes[i]);
 		}
 	}
@@ -117,7 +123,8 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess iblockaccess, int x, int y, int z)
+	//TODO:     setBlockBoundsBasedOnState()
+	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = iblockaccess.getBlockMetadata(x, y, z);
 
@@ -184,7 +191,8 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 3 || meta == 4) {
@@ -197,10 +205,11 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public void getSubBlocks(int blockID, CreativeTabs creativeTabs, List list)
+	//TODO:		getSubBlocks()
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < boneTypes.length; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
@@ -212,19 +221,22 @@ public class BlockBones extends Block {
 	}
 
 	@Override
-	public boolean renderAsNormalBlock()
-	{
-		return false;
-	}
+	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()
+    {
+        return false;
+    }
 
 	@Override
-	public int getRenderType()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return RenderUtils.bonesModel;
 	}
 
 	@Override
-	public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}
@@ -233,10 +245,12 @@ public class BlockBones extends Block {
 	//TODO     damageDropped()
 	public int func_149692_a(int meta)
 	{
-		if (meta == 3 || meta == 4) {
+		if (meta == 3 || meta == 4) 
+		{
 			meta = 0;
 		}
-		if (meta == 5 || meta == 6) {
+		if (meta == 5 || meta == 6) 
+		{
 			meta = 1;
 		}
 		return meta;
