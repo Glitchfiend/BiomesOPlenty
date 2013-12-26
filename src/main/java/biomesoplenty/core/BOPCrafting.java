@@ -323,6 +323,8 @@ public class BOPCrafting
 
 		OreDictionary.registerOre("stickWood", new ItemStack(Blocks.bamboo.get()));
 		OreDictionary.registerOre("stickWood", new ItemStack(Blocks.plants.get(), 1, 8));
+		
+		OreDictionary.registerOre("blockMeatRaw", new ItemStack(Blocks.flesh.get(), 1, 0));
 
 		OreDictionary.registerOre("dyeBlue", new ItemStack(Items.miscItems.get(), 1, 5));
 		OreDictionary.registerOre("dyeBrown", new ItemStack(Items.miscItems.get(), 1, 6));
