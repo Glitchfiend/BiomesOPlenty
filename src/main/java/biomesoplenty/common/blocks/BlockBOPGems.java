@@ -16,12 +16,12 @@ import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
 
-public class BlockBOPAmethyst extends Block
+public class BlockBOPGems extends Block
 {
 	public static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "malachiteore", "malachiteblock", "sapphireore", "sapphireblock"};
 	private IIcon[] textures;
 
-	public BlockBOPAmethyst()
+	public BlockBOPGems()
 	{
 		//TODO: Material.rock
 		super(Material.field_151576_e);

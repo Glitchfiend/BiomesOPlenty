@@ -1,21 +1,21 @@
-package biomesoplenty.itemblocks;
-
-import javax.swing.Icon;
+package biomesoplenty.common.itemblocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 public class ItemBlockSapling extends ItemBlock
 {
 	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
 	private static final int MAX = 15;
 
-	public ItemBlockSapling(int par1)
+	public ItemBlockSapling(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override
@@ -31,11 +31,10 @@ public class ItemBlockSapling extends ItemBlock
 		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(saplings[meta]).append("Sapling").toString();
 	}
 
-
-
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
-		return Block.blocksList[itemID].getIcon(0, meta);
+		//TODO:	linkedBlock   getIcon
+		return field_150939_a.func_149691_a(0, meta);
 	}
 }

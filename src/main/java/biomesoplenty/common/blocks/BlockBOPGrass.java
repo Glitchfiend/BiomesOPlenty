@@ -17,6 +17,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 
 public class BlockBOPGrass extends Block
 {
@@ -24,7 +25,8 @@ public class BlockBOPGrass extends Block
 
 	public BlockBOPGrass()
 	{
-		super(Material.grass);
+		//TODO:	Material.grass
+		super(Material.field_151577_b);
 		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
@@ -85,18 +87,18 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public boolean isFireSource(IBlockAccess world, int x, int y, int z, ForgeDirection side)
+	public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
 	{
-		int blockId = world.getBlockId(x, y, z);
+		int metadata = world.getBlockMetadata(x, y, z);
 		
 		if (metadata == 0)
 		{
-			if (blockId == this.blockID && side == UP && world.provider.dimensionId == -1)
+			if (side == ForgeDirection.UP && world.provider.dimensionId == -1)
 				return true;
 		}
 		else if (metadata == 1) return true;
 
-		return super.isFireSource(world, x, y, z, metadata, side);
+		return super.isFireSource(world, x, y, z, side);
 	}
 
 	@Override
@@ -107,12 +109,12 @@ public class BlockBOPGrass extends Block
 		{
 			if (world.provider.isHellWorld)
 			{
-				world.playSound(par2, par3, par4, "mob.ghast.death", 20.0F, 0.95F + (float)Math.random() * 0.1F, true);
+				world.playSound(x, y, z, "mob.ghast.death", 20.0F, 0.95F + (float)Math.random() * 0.1F, true);
 
 				for (int l = 0; l < 8; ++l)
 				{
-					world.spawnParticle("flame", par2 + Math.random(), par3 + Math.random(), par4 + Math.random(), 0.0D, 0.0D, 0.0D);
-					world.spawnParticle("smoke", par2 + Math.random(), par3 + Math.random(), par4 + Math.random(), 0.0D, 0.0D, 0.0D);
+					world.spawnParticle("flame", x + Math.random(), y + Math.random(), z + Math.random(), 0.0D, 0.0D, 0.0D);
+					world.spawnParticle("smoke", x + Math.random(), y + Math.random(), z + Math.random(), 0.0D, 0.0D, 0.0D);
 				}
 			}
 		}
@@ -149,28 +151,34 @@ public class BlockBOPGrass extends Block
 		{
 			if (world.provider.isHellWorld)
 			{
-				world.setBlock(x, y + 1, z, Block.fire.blockID);
-				world.setBlock(x, y, z, Blocks.holyGrass.get().blockID, 1, 2);
+				//TODO: setBlock()
+				world.func_147465_d(x, y + 1, z, Blocks.fire, 0, 2);
+				//TODO: setBlock()
+				world.func_147465_d(x, y, z, this, 1, 2);
 			}
 
 			if (!world.isRemote)
 			{
-				if (world.getBlockLightValue(x, y + 1, z) < 4 && Block.lightOpacity[world.getBlockId(x, y + 1, z)] > 2)
+				if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 				{
-					world.setBlock(x, y, z, Blocks.holyDirt.get().blockID);
+					//TODO: setBlock()
+					world.func_147465_d(x, y, z, BOPBlockHelper.get("holyDirt"), 0, 2);
 				}
 				else if (world.getBlockLightValue(x, y + 1, z) >= 9)
 				{
 					for (int var6 = 0; var6 < 4; ++var6)
 					{
-						int var7 = x + random.nextInt(3) - 1;
-						int var8 = y + random.nextInt(5) - 3;
-						int var9 = z + random.nextInt(3) - 1;
-						int var10 = world.getBlockId(var7, var8 + 1, var9);
+						int rX = x + random.nextInt(3) - 1;
+						int rY = y + random.nextInt(5) - 3;
+						int rZ = z + random.nextInt(3) - 1;
+						//TODO:			    getBlock()
+	                    Block block = world.func_147439_a(rX, rY + 1, rZ);
 
-						if (world.getBlockId(var7, var8, var9) == Blocks.holyDirt.get().blockID && world.getBlockLightValue(var7, var8 + 1, var9) >= 4 && Block.lightOpacity[var10] <= 2)
+	                    //TODO:	  getBlock()
+						if (world.func_147439_a(rX, rY, rZ) == BOPBlockHelper.get("holyDirt") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
-							world.setBlock(var7, var8, var9, Blocks.holyGrass.get().blockID, 0, 2);
+							//TODO: setBlock()
+							world.func_147465_d(rX, rY, rZ, BOPBlockHelper.get("holyGrass"), 0, 2);
 						}
 					}
 				}
@@ -205,7 +213,8 @@ public class BlockBOPGrass extends Block
 	//TODO:	   getItemDropped()
 	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return metadata == 0 ? Blocks.holyDirt.get().blockID : Blocks.dirt
+		//TODO:						getItemFromBlock()									getItemFromBlock()
+		return metadata == 0 ? Item.func_150898_a(BOPBlockHelper.get("holyDirt")) : Item.func_150898_a(Blocks.dirt);
 	}
 
 }

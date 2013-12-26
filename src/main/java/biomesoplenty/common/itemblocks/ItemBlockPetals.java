@@ -1,5 +1,6 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
@@ -7,11 +8,12 @@ public class ItemBlockPetals extends ItemBlock
 {
 	private static final String[] petals = new String[] {"bigflowerred", "bigfloweryellow"};
 
-	public ItemBlockPetals(int par1)
+	public ItemBlockPetals(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override

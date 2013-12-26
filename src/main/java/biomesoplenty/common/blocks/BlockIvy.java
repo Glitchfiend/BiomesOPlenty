@@ -67,23 +67,21 @@ public class BlockIvy extends Block implements IShearable
 		return false;
 	}
 
-	/**
-	 * Updates the blocks bounds based on its current state. Args: world, x, y, z
-	 */
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
 	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int var6 = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+		int metadata = world.getBlockMetadata(x, y, z);
+		
 		float var7 = 1.0F;
 		float var8 = 1.0F;
 		float var9 = 1.0F;
 		float var10 = 0.0F;
 		float var11 = 0.0F;
 		float var12 = 0.0F;
-		boolean var13 = var6 > 0;
+		boolean var13 = metadata > 0;
 
-		if ((var6 & 2) != 0)
+		if ((metadata & 2) != 0)
 		{
 			var10 = Math.max(var10, 0.0625F);
 			var7 = 0.0F;
@@ -94,7 +92,7 @@ public class BlockIvy extends Block implements IShearable
 			var13 = true;
 		}
 
-		if ((var6 & 8) != 0)
+		if ((metadata & 8) != 0)
 		{
 			var7 = Math.min(var7, 0.9375F);
 			var10 = 1.0F;
@@ -105,7 +103,7 @@ public class BlockIvy extends Block implements IShearable
 			var13 = true;
 		}
 
-		if ((var6 & 4) != 0)
+		if ((metadata & 4) != 0)
 		{
 			var12 = Math.max(var12, 0.0625F);
 			var9 = 0.0F;
@@ -116,7 +114,7 @@ public class BlockIvy extends Block implements IShearable
 			var13 = true;
 		}
 
-		if ((var6 & 1) != 0)
+		if ((metadata & 1) != 0)
 		{
 			var9 = Math.min(var9, 0.9375F);
 			var12 = 1.0F;
@@ -148,9 +146,6 @@ public class BlockIvy extends Block implements IShearable
 		return null;
 	}
 
-	/**
-	 * checks to see if you can place this block can be placed on that side of a block: BlockLever overrides
-	 */
 	@Override
 	public boolean canPlaceBlockOnSide(World par1World, int par2, int par3, int par4, int par5)
 	{
@@ -253,7 +248,7 @@ public class BlockIvy extends Block implements IShearable
 
 	@Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
+	public void func_149674_a(World world, int x, int y, int z, Random random)
 	{
 	}
 
@@ -327,19 +322,13 @@ public class BlockIvy extends Block implements IShearable
 	}
 
 	@Override
-	public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
-	{
-		super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
-	}
-
-	@Override
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}
 
 	@Override
-	public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		ret.add(new ItemStack(this, 1, 0));

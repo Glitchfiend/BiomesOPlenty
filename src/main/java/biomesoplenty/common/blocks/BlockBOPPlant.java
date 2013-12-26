@@ -25,6 +25,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.client.render.blocks.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -162,60 +163,59 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+	//TODO:		   canPlaceBlockOnSide
+	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		int id = world.getBlockId(x, y - 1, z);
-		int idRoot = world.getBlockId(x, y + 1, z);
-		int meta = itemStack.getItemDamage();
+		Block block = world.getBlockId(x, y - 1, z);
+		int meta = world.getBlockMetadata(x, y - 1, z);
+		int root = world.getBlockId(x, y + 1, z);
 
-		if (itemStack.itemID == blockID) {
 			switch (meta)
 			{
 			case 0: // Dead Grass
-			return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID;
+			return block == Blocks.driedDirt.get().blockID || block == Block.sand.blockID;
 
 			case 1: // Desert Grass
-				return id == Blocks.redRock.get().blockID;
+				return block == Blocks.redRock.get().blockID;
 
 			case 2: // Desert Sprouts
 			case 3: // Dune Grass
-				return id == Block.sand.blockID;
+				return block == Block.sand.blockID;
 
 			case 4: // Holy Tall Grass
-				return id == Blocks.holyGrass.get().blockID;
+				return block == Blocks.holyGrass.get().blockID;
 
 			case 5: // Thorns
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.slowSand.blockID;
+				return block == Block.grass.blockID || block == Block.dirt.blockID || block == Block.slowSand.blockID;
 				
 			case 6: // Barley
-				return id == Block.grass.blockID || id == Block.dirt.blockID;
+				return block == Block.grass.blockID || block == Block.dirt.blockID;
 
 			case 7: // Cattail
-				return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
+				return block != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 
 			case 8: // River Cane
-				return id == blockID || id == Block.grass.blockID;
+				return block == blockID || block == Block.grass.blockID;
 
 			case 10: // High Cattail Bottom
-				return id != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
+				return block != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
 
 			case 12: // Tiny Cactus
-				return id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Block.slowSand.blockID;
+				return block == Block.sand.blockID || block == Blocks.redRock.get().blockID || block == Block.slowSand.blockID;
 				
 			case 13: // Wither Wart
-				return id == Block.slowSand.blockID;
+				return block == Block.slowSand.blockID;
 				
 			case 14: // Reed
-				return id == Block.waterStill.blockID;
+				return block == Blocks.water;
 				
 			case 15: // Reed
-				return idRoot == Block.grass.blockID || idRoot == Block.dirt.blockID || idRoot == Block.tilledField.blockID || idRoot == Blocks.longGrass.get().blockID || idRoot == Blocks.holyGrass.get().blockID || idRoot == Blocks.holyDirt.get().blockID;
+				return root == Block.grass.blockID || root == Block.dirt.blockID || root == Block.tilledField.blockID || root == Blocks.longGrass.get().blockID || root == Blocks.holyGrass.get().blockID || root == Blocks.holyDirt.get().blockID;
 				
 			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+				return block == Block.grass.blockID || block == Block.dirt.blockID || block == Block.tilledField.blockID || block == Blocks.overgrownNetherrack.get().blockID;
 			}
-		} else
-			return this.canPlaceBlockOnSide(world, x, y, z, side);
+		} 
 	}
 
 	@Override
@@ -249,10 +249,9 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 
 	@Override
 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World world, int x, int y, int z, int neighborID)
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		super.	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(world, x, y, z, neighborID);
+		super.func_149695_a(World world, int x, int y, int z, Block neighborBlock)(world, x, y, z, neighborID);
 		this.checkFlowerChange(world, x, y, z);
 		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
 		{
@@ -405,7 +404,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	//TODO:		harvestBlock()
 	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
-		super.harvestBlock(world, player, x, y, z, meta);
+		super.func_149636_a(world, player, x, y, z, meta);
 		
 		if (meta == 13)
 		{
@@ -416,7 +415,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		
 		if (equippedItem != null)
 		{
-			if (equippedItem.itemID != Item.shears.itemID)
+			if (equippedItem.getItem() != Items.shears)
 			{
 				if (meta == 5)
 				{
@@ -460,11 +459,13 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
     }
 
 	@Override
-	public boolean isBlockReplaceable(World world, int x, int y, int z)
+	//TODO: 	   isBlockReplaceable
+	public boolean func_149742_c(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == 5 || meta == 8)
-			return false;
+		
+		if (meta == 5 || meta == 8) return false;
+		
 		return true;
 	}
 
@@ -478,7 +479,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
@@ -487,7 +488,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 
 	@Override
-	public boolean isBlockFoliage(World world, int x, int y, int z)
+	public boolean isBlockFoliage(IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

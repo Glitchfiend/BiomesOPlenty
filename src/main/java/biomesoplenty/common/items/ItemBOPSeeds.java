@@ -2,11 +2,15 @@ package biomesoplenty.common.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPSeeds extends Item implements IPlantable
@@ -29,21 +33,21 @@ public class ItemBOPSeeds extends Item implements IPlantable
 	}
 
 	/*TODO: FEATURE @Override
-    public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int par4, int par5, int par6, int par7, float par8, float par9, float par10)
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitVecX, float hitVecY, float hitVecZ)
     {
-        if (par7 != 1)
+        if (side != 1)
         {
             return false;
         }
-        else if (par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack) && par2EntityPlayer.canPlayerEdit(par4, par5 + 1, par6, par7, par1ItemStack))
+        else if (player.canPlayerEdit(x, y, z, side, itemStack) && player.canPlayerEdit(x, y + 1, z, side, itemStack))
         {
-            int i1 = par3World.getBlockId(par4, par5, par6);
+            int i1 = world.getBlockId(x, y, z);
             Block soil = Block.blocksList[i1];
 
-            if (soil != null && soil.canSustainPlant(par3World, par4, par5, par6, ForgeDirection.UP, this) && par3World.isAirBlock(par4, par5 + 1, par6))
+            if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z))
             {
-                par3World.setBlock(par4, par5 + 1, par6, this.blockType);
-                --par1ItemStack.stackSize;
+                world.setBlock(x, y + 1, z, this.blockType);
+                --itemStack.stackSize;
                 return true;
             }
             else

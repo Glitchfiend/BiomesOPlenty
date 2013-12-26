@@ -1,6 +1,7 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.common.blocks.BlockBOPSlab;
@@ -9,17 +10,18 @@ import com.google.common.base.Optional;
 
 public class ItemBlockSlab extends ItemSlab
 {
-	private static Optional<BlockHalfSlab>	singleSlab	= Optional.absent();
-	private static Optional<BlockHalfSlab>	doubleSlab	= Optional.absent();
+	private static BlockSlab singleSlab;
+	private static BlockSlab doubleSlab;
 
-	static public void setSlabs(BlockHalfSlab singleSlab, BlockHalfSlab doubleSlab)
+	public static void setSlabs(BlockSlab singleSlab, BlockSlab doubleSlab)
 	{
-		ItemBlockSlab.singleSlab = Optional.of(singleSlab);
-		ItemBlockSlab.doubleSlab = Optional.of(doubleSlab);
+		ItemBlockSlab.singleSlab = singleSlab;
+		ItemBlockSlab.doubleSlab = doubleSlab;
 	}
 
-	public ItemBlockSlab(int id) {
-		super(id, singleSlab.get(), doubleSlab.get(), id == doubleSlab.get().blockID);
+	public ItemBlockSlab(Block block) 
+	{
+		super(block, singleSlab, doubleSlab, block == doubleSlab);
 	}
 
 	@Override
@@ -29,9 +31,12 @@ public class ItemBlockSlab extends ItemSlab
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack itemStack) {
-		BlockBOPSlab slab = (BlockBOPSlab)Block.blocksList[itemStack.itemID];
+	public String getUnlocalizedName(ItemStack itemStack) 
+	{
+		//TODO:									getBlockFromItem
+		BlockBOPSlab slab = (BlockBOPSlab)Block.func_149634_a(itemStack.getItem());
 
-		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(slab.getFullSlabName(itemStack.getItemDamage())).toString();
+		//TODO:																		getFullSlabName()
+		return super.getUnlocalizedName() + "." + (new StringBuilder()).append(slab.func_150002_b(itemStack.getItemDamage())).toString();
 	}
 }

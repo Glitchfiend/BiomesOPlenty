@@ -33,18 +33,15 @@ public class BlockWillow extends Block implements IShearable
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-				//TODO: blockIcon
-		this.field_149761_L = par1IconRegister.registerIcon("biomesoplenty:willow");
+	    //TODO: blockIcon
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:willow");
 	}
 
-	/**
-	 * Sets the block's bounds for rendering it as an item
-	 */
 	@Override
 	public void setBlockBoundsForItemRender()
 	{
 				//TODO: setBlockBounds
-		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 	/**
@@ -149,13 +146,9 @@ public class BlockWillow extends Block implements IShearable
 		}
 
 				//TODO: setBlockBounds
-		this.func_149676_avar7, var8, var9, var10, var11, var12);
+		this.func_149676_a(var7, var8, var9, var10, var11, var12);
 	}
 
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-	 * cleared to be reused)
-	 */
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
 	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
@@ -265,12 +258,9 @@ public class BlockWillow extends Block implements IShearable
         return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
 	}
 
-	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-	 * their own) Args: x, y, z, neighbor blockID
-	 */
+
 	@Override
-	public void 	//TODO:		onNeighborBlockChange()
+	//TODO:		onNeighborBlockChange()
 	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World par1World, int par2, int par3, int par4, int par5)
 	{
 		if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
@@ -280,11 +270,8 @@ public class BlockWillow extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
 	@Override
-	public void 	//TODO:		updateTick()
+	//TODO:		updateTick()
 	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 	}

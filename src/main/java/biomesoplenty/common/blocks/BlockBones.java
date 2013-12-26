@@ -13,6 +13,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.client.render.blocks.RenderUtils;
 
 public class BlockBones extends Block 
 {
@@ -28,7 +29,8 @@ public class BlockBones extends Block
 		//TODO: this.setHardness
 		this.func_149711_c(3.0F);
 		
-		setResistance(5.0F);
+		//TODO: this.setResistance
+		this.func_149752_b(5.0F);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -93,7 +95,8 @@ public class BlockBones extends Block
 	}
 
 	@Override
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
+	//TODO:				 getSelectedBoundingBoxFromPool()
+	public AxisAlignedBB func_149633_g(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -126,7 +129,7 @@ public class BlockBones extends Block
 	//TODO:     setBlockBoundsBasedOnState()
 	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = iblockaccess.getBlockMetadata(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		float minX;
 		float minY;
@@ -187,7 +190,8 @@ public class BlockBones extends Block
 			break;
 		}
 
-		setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
+		//TODO: this.setBlockBounds()
+		this.func_149676_a(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
 	@Override

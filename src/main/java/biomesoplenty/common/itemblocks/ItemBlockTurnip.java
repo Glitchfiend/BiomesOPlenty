@@ -1,23 +1,23 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
-import javax.swing.Icon;
-
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockTurnip extends ItemBlock
 {
 	@SideOnly(Side.CLIENT)
-	private Icon texture;
+	private IIcon texture;
 
-	public ItemBlockTurnip(int par1)
+	public ItemBlockTurnip(Block block)
 	{
-		super(par1);
+		super(block);
 	}
 
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
 		return texture;
 	}

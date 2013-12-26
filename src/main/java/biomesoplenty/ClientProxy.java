@@ -6,6 +6,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.client.render.blocks.BambooRenderer;
+import biomesoplenty.client.render.blocks.GraveRenderer;
+import biomesoplenty.client.render.blocks.RenderUtils;
+import biomesoplenty.client.render.blocks.SmallBlockRenderer;
 import biomesoplenty.client.render.entities.RenderDart;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -24,7 +28,19 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void registerRenderers()
 	{
+        RenderUtils.foliageModel = RenderingRegistry.getNextAvailableRenderId();
+        RenderUtils.plantsModel = RenderingRegistry.getNextAvailableRenderId();
+        RenderUtils.bonesModel = RenderingRegistry.getNextAvailableRenderId();
+        RenderUtils.graveModel = RenderingRegistry.getNextAvailableRenderId();
+        RenderUtils.bambooModel = RenderingRegistry.getNextAvailableRenderId();
+		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
+		
+        //TODO: FEATURE RenderingRegistry.registerBlockHandler(new FoliageRenderer());
+		//TODO: FEATURE RenderingRegistry.registerBlockHandler(new PlantsRenderer());
+		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
+        RenderingRegistry.registerBlockHandler(new GraveRenderer());
+        RenderingRegistry.registerBlockHandler(new BambooRenderer());
 	}
 	
 	@Override

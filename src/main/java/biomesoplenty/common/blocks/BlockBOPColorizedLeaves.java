@@ -18,6 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
@@ -100,7 +101,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public int getBlockColor()
+    //TODO:	   getBlockColor()
+    public int func_149635_D()
     {
         double temperature = 0.5D;
         double humidity = 1.0D;
@@ -108,7 +110,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public int getRenderColor(int par1)
+    //TODO:	   getRenderColor()
+    public int func_149741_i(int par1)
     {
         switch (par1)
         {
@@ -124,7 +127,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
+    //TODO:	   colorMultiplier()
+    public int func_149720_d(IBlockAccess world, int x, int y, int z)
     {
     	int var6 = 0;
     	int var7 = 0;
@@ -134,7 +138,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     	{
     		for (int var10 = -1; var10 <= 1; ++var10)
     		{
-    			int var11 = par1IBlockAccess.getBiomeGenForCoords(par2 + var10, par4 + var9).getBiomeFoliageColor();
+    			//TODO:														getBiomeFoliageColor()
+    			int var11 = world.getBiomeGenForCoords(x + var10, z + var9).func_150571_c(x + var10, y, z + var9);
     			var6 += (var11 & 16711680) >> 16;
     		var7 += (var11 & 65280) >> 8;
     		var8 += var11 & 255;
@@ -335,14 +340,18 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     private void removeLeaves(World world, int x, int y, int z)
     {
-        this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-        world.setBlockToAir(x, y, z);
+    	//TODO: dropBlockAsItem
+        this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+        //TODO: setBlockToAir
+        world.func_147468_f(x, y, z);
     }
 
     @Override
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return Blocks.colorizedSaplings.get().blockID;
+	//TODO:	   getItemDropped()
+	public Item func_149650_a(int metadata, Random random, int fortune)
+	{
+    	//TODO:		getItemFromBlock()
+        return Item.func_150898_a(BOPBlockHelper.get("colorizedSaplings"));
     }
 
     @Override
@@ -353,14 +362,16 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public int getDamageValue(World par1World, int par2, int par3, int par4)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
     {
-        return getTypeFromMeta(par1World.getBlockMetadata(par2, par3, par4));
+        return getTypeFromMeta(world.getBlockMetadata(x, y, z));
     }
 
     @Override
-    public int quantityDropped(Random random)
-    {
+	//TODO:    quantityDropped()
+	public int func_149745_a(Random random)
+	{
         return random.nextInt(20) == 0 ? 1 : 0;
     }
 

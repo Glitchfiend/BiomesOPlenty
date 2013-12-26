@@ -21,6 +21,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.BOPItemHelper;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -36,8 +38,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
     	//TODO:	Material.leaves
         super(Material.field_151584_j, false);
 		
-		setBurnProperties(this.blockID, 30, 60);
-		
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 30, 60);
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		//TODO: this.setHardness
@@ -150,7 +152,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 
 	@Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)(World world, int x, int y, int z, Random random)
+	public void func_149674_a(World world, int x, int y, int z, Random random)
 	{
 		if (world.isRemote)
 			return;
@@ -158,8 +160,10 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		int meta = world.getBlockMetadata(x, y, z);
 		if (random.nextInt(25) == 0)
 			if (meta > 0)
-				if ((meta & 3) < 3) {
-					world.setBlock(x, y, z, blockID, ++meta, 3);
+				if ((meta & 3) < 3) 
+				{
+					//TODO: setBlock()
+					world.func_147465_d(x, y, z, this, ++meta, 3);
 				}
 
 		if ((meta & 8) != 0/* && (meta & 4) == 0*/)
@@ -189,9 +193,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 					{
 						for (j2 = -b0; j2 <= b0; ++j2)
 						{
-							k2 = world.getBlockId(x + l1, y + i2, z + j2);
-
-							Block block = Block.blocksList[k2];
+                        	//TODO:				world.getBlock()
+                            Block block = world.func_147439_a(x + l1, y + i2, z + j2);
 
 							if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
 							{
@@ -268,20 +271,24 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		}
 	}
 
-	private void removeLeaves(World world, int x, int y, int z)
-	{
-		this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-		world.setBlockToAir(x, y, z);
-	}
+    private void removeLeaves(World world, int x, int y, int z)
+    {
+    	//TODO: dropBlockAsItem
+        this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+        //TODO: setBlockToAir
+        world.func_147468_f(x, y, z);
+    }
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+	//TODO:			onBlockActivated
+	public boolean func_149727_a(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if ((meta & 3) == 3)
 		{
-			world.setBlock(x, y, z, blockID, meta - 3, 3);
-			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
+			//TODO: setBlock
+			world.func_147465_d(x, y, z, this, meta - 3, 3);
+			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
 
 			if (!world.isRemote) 
 			{
@@ -299,7 +306,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	//TODO:	   getItemDropped()
 	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return Blocks.saplings.get().blockID;
+		return Item.func_150898_a(BOPBlockHelper.get("saplings"));
 	}
 
 	@Override
@@ -325,19 +332,20 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 
 		if (world.rand.nextInt(20) == 0)
 		{
-			int var9 = this.idDropped(meta, world.rand, par7);
-			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(var9, 1, this.damageDropped(meta)));
+			//TODO:			 getItemDropped()
+			Item item = this.func_149650_a(metadata, world.rand, fortune);
+			//TODO:dropBlockAsItem_do											damageDropped()
+			this.func_149642_a(world, x, y, z, new ItemStack(item, 1, this.func_149692_a(metadata)));
 		}
 
-		if ((meta & 3) == 3) {
-			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
-		} else if ((meta & 3) == 2 && world.rand.nextInt(8) == 0) {
-			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
-		} else if ((meta & 3) == 1 && world.rand.nextInt(16) == 0) {
-			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
-		} else if ((meta & 3) == 0 && world.rand.nextInt(32) == 0) {
-			this.dropBlockAsItem_do(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
-		}
+		//TODO:															dropBlockAsItem_do	
+		if ((metadata & 3) == 3) this.func_149642_a(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		//TODO:															dropBlockAsItem_do	
+		else if ((metadata & 3) == 2 && world.rand.nextInt(8) == 0) this.func_149642_a(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		//TODO:															dropBlockAsItem_do	
+		else if ((metadata & 3) == 1 && world.rand.nextInt(16) == 0) this.func_149642_a(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		//TODO:															dropBlockAsItem_do	
+		else if ((metadata & 3) == 0 && world.rand.nextInt(32) == 0) this.func_149642_a(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
 	}
 
 	@Override

@@ -1,7 +1,8 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
 import javax.swing.Icon;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -11,11 +12,12 @@ public class ItemBlockPersimmonLeaves extends ItemBlock
 	@SideOnly(Side.CLIENT)
 	private Icon texture;
 
-	public ItemBlockPersimmonLeaves(int par1)
+	public ItemBlockPersimmonLeaves(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override

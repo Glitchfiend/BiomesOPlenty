@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.client.render.blocks.RenderUtils;
 
 public class BlockGrave extends Block
 {	
@@ -71,28 +72,32 @@ public class BlockGrave extends Block
 		{
 			if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 2)
 			{
-				if (world.getBlockId(x, y + 1, z) != Blocks.grave.get().blockID)
+				//TODO:	  getBlock()
+				if (world.func_147439_a(x, y + 1, z) != this)
 				{
-		            world.destroyBlock(x, y, z, true);
+					//TODO: destroyBlock()
+		            world.func_147480_a(x, y, z, true);
 				}
 			}
 			else
 			{
-				if (world.getBlockId(x, y - 1, z) != Blocks.grave.get().blockID)
+				//TODO:   getBlock()
+				if (world.func_147439_a(x, y - 1, z) != this)
 				{
-		            world.destroyBlock(x, y, z, true);
+					//TODO: destroyBlock()
+		            world.func_147480_a(x, y, z, true);
 				}
 			}
 		}
 	}
 	
 	@Override
-	public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int meta, int fortune)
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int meta, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		if (meta == 0) ret.add(new ItemStack(Blocks.grave.get(), 1));
-		else if (meta == 2) ret.add(new ItemStack(Blocks.grave.get(), 1));
+		if (meta == 0) ret.add(new ItemStack(this, 1));
+		else if (meta == 2) ret.add(new ItemStack(this, 1));
 
 		return ret;
 	}

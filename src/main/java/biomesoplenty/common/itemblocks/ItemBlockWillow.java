@@ -1,26 +1,26 @@
 package biomesoplenty.common.itemblocks;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
-import biomesoplenty.api.Blocks;
+import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockWillow extends ItemColored
 {
 	@SideOnly(Side.CLIENT)
-	private Icon texture;
+	private IIcon texture;
 
-	public ItemBlockWillow(int par1)
+	public ItemBlockWillow(Block block)
 	{
-		super(par1, false);
+		super(block, false);
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		texture = iconRegister.registerIcon("biomesoplenty:willow");
 	}
@@ -33,7 +33,7 @@ public class ItemBlockWillow extends ItemColored
 	}
 
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
 		return texture;
 	}

@@ -1,5 +1,6 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
@@ -7,11 +8,12 @@ public class ItemBlockPlank extends ItemBlock
 {
 	private static final String[] woodTypes = new String[] {"acaciaPlank", "cherryPlank", "darkPlank", "firPlank", "holyPlank", "magicPlank", "mangrovePlank", "palmPlank", "redwoodPlank", "willowPlank", "bambooThatching", "pinePlank", "hellBarkPlank", "jacarandaPlank"};
 
-	public ItemBlockPlank(int par1)
+	public ItemBlockPlank(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override
@@ -24,7 +26,8 @@ public class ItemBlockPlank extends ItemBlock
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		int meta = itemStack.getItemDamage();
-		if (meta < 0 || meta >= woodTypes.length) {
+		if (meta < 0 || meta >= woodTypes.length) 
+		{
 			meta = 0;
 		}
 

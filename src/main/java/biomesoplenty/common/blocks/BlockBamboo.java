@@ -13,6 +13,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.client.render.blocks.RenderUtils;
 
 public class BlockBamboo extends Block
 {
@@ -85,7 +86,8 @@ public class BlockBamboo extends Block
 	}
 	
 	@Override
-    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
+	//TODO:				 getSelectedBoundingBoxFromPool()
+    public AxisAlignedBB func_149633_g(World world, int x, int y, int z)
     {
 		float pixel = 0.0625F;
 		
@@ -93,13 +95,15 @@ public class BlockBamboo extends Block
     }
 	
     @Override
-	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
+    //TODO:		addCollisionBoxesToList()
+	public void func_149743_a(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
     {
 		float pixel = 0.0625F;
         //TODO: setBlockBounds
 		this.func_149676_a((pixel * 4), 0.0F, (pixel * 4), 1.0F - (pixel * 4), 1.0F, 1.0F - (pixel * 4));
-        super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
-        this.setBlockBoundsForItemRender();
+        super.func_149743_a(world, x, y, z, axisAlignedBB, list, entity);
+        //TODO: setBlockBoundsForItemRender()
+        this.func_149683_g();
     }
     
     @Override
@@ -117,12 +121,15 @@ public class BlockBamboo extends Block
 	}
 
 	@Override
-	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+	//TODO:		   canPlaceBlockAt
+	public boolean func_149742_c(World world, int x, int y, int z)
 	{
-		int var5 = par1World.getBlockId(par2, par3 - 1, par4);
-		if (var5 == blockID)
+		//TODO:					getBlock
+		Block block = world.func_147439_a(x, y - 1, z);
+		
+		if (block == this)
 			return true;
-		else if (var5 == Block.grass.blockID)
+		else if (block == Blocks.grass)
 			return true;
 		else
 			return false;
@@ -135,19 +142,24 @@ public class BlockBamboo extends Block
 		this.checkBlockCoordValid(world, x, y, z);
 	}
 
-	protected final void checkBlockCoordValid(World par1World, int par2, int par3, int par4)
+	public final void checkBlockCoordValid(World world, int x, int y, int z)
 	{
-		if (!this.canBlockStay(par1World, par2, par3, par4))
+		//TODO:	  canBlockStay()
+		if (!this.func_149718_j(world, x, y, z))
 		{
-			this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-			par1World.setBlock(par2, par3, par4, 0);
+			//TODO: dropBlockAsItem()
+			this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			//TODO: setBlockToAir
+			world.func_147468_f(x, y, z);
 		}
 	}
 
 	@Override
-	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		return this.canPlaceBlockAt(par1World, par2, par3, par4);
+		//TODO:		canPlaceBlockAt
+		return this.func_149742_c(world, x, y, z);
 	}
 
 	@Override

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,7 +17,7 @@ import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPCoral extends BlockFlower
+public class BlockBOPCoral extends BlockBush
 {
 	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	private IIcon[] textures;
@@ -30,7 +30,7 @@ public class BlockBOPCoral extends BlockFlower
 		this.func_149675_a(true);
 		
 		float f = 0.4F;
-				//TODO: setBlockBounds
+		//TODO: setBlockBounds
 		this.func_149676_a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 		
 		//TODO: this.setCreativeTab()
@@ -100,20 +100,20 @@ public class BlockBOPCoral extends BlockFlower
 	@Override
 	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		int id = world.getBlockId(x, y - 1, z);
+		int block = world.getBlockId(x, y - 1, z);
 		int meta = itemStack.getItemDamage();
 
 		if (itemStack.itemID == blockID) {
 			switch (meta)
 			{
 			case 1: // Kelp Middle
-				return id == blockID;
+				return block == blockID;
 
 			case 2: // Kelp Top
-				return id == blockID;
+				return block == blockID;
 
 			default:
-				return id == Block.dirt.blockID || id == Block.sand.blockID || id == Block.sponge.blockID || id == Block.stone.blockID || id == Block.blockClay.blockID;
+				return block == Block.dirt.blockID || block == Block.sand.blockID || block == Blocks.sponge || block == Block.stone || block == Block.blockClay.blockID;
 			}
 		} else
 			return this.canPlaceBlockOnSide(world, x, y, z, side);

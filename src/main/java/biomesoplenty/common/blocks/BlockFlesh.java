@@ -16,7 +16,7 @@ import biomesoplenty.api.BOPItemHelper;
 
 public class BlockFlesh extends Block
 {
-	public BlockFlesh(int par1)
+	public BlockFlesh()
 	{
 		//TODO: Material.sponge
 		super(Material.field_151583_m);

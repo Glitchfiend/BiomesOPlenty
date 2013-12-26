@@ -3,7 +3,7 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -13,17 +13,15 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPMushroom extends BlockFlower
+public class BlockBOPMushroom extends BlockBush
 {
 	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
 	private IIcon[] textures;
 
 	protected BlockBOPMushroom()
 	{
-		super(bmaterial);
+		super(0);
 		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
@@ -126,30 +124,25 @@ public class BlockBOPMushroom extends BlockFlower
 	{
 		int id = world.getBlockId(x, y - 1, z);
 		int meta = itemStack.getItemDamage();
-		//boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
 
-		if (itemStack.itemID == blockID)
+		switch (meta)
 		{
-			switch (meta)
-			{
-			case 0: // Toadstool
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		case 0: // Toadstool
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
 
-			case 1: // Portobello
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+		case 1: // Portobello
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 
-			case 2: // Blue Milk Cap
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
+		case 2: // Blue Milk Cap
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
 
-			case 3: // Glowshroom
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		case 3: // Glowshroom
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
 
-			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-			}
-		} else
-			return this.canPlaceBlockOnSide(world, x, y, z, side);
-	}
+		default:
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		}
+	} 
 
 	@Override
 	//TODO:		   canBlockStay()

@@ -4,11 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockAmethyst extends ItemBlock
+public class ItemBlockGems extends ItemBlock
 {
 	private static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "malachiteore", "malachiteblock", "sapphireore", "sapphireblock"};
 
-	public ItemBlockAmethyst(Block block)
+	public ItemBlockGems(Block block)
 	{
 		super(block);
 		

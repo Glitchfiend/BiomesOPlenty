@@ -1,15 +1,15 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
 import java.util.Random;
 
-import javax.swing.IIcon;
-
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -39,12 +39,12 @@ public class ItemBlockFlower extends ItemBlock
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIIcons(IIconRegister IIconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[2];
 
-		textures[0] = IIconRegister.registerIIcon("biomesoplenty:item_sunflower");
-		textures[1] = IIconRegister.registerIIcon("biomesoplenty:item_rainbowflower");
+		textures[0] = iconRegister.registerIcon("biomesoplenty:item_sunflower");
+		textures[1] = iconRegister.registerIcon("biomesoplenty:item_rainbowflower");
 	}
 
 	@Override
@@ -59,14 +59,14 @@ public class ItemBlockFlower extends ItemBlock
 	}
 
 	@Override
-	public IIcon getIIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
 		if (meta == 11)
 			return textures[1];
 		else if (meta == 13)
 			return textures[0];
 		else
-			return Block.blocksList[itemID].getIIcon(0, meta);
+			return Block.blocksList[itemID].getIcon(0, meta);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class ItemBlockFlower extends ItemBlock
 	}
 
 	@Override
-	public void onUsingItemTick(ItemStack stack, EntityPlayer player, int count)
+	public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
 	{
 		Vec3 vec = player.getLook(0.5F);
 		Random rnd = player.getRNG();

@@ -1,5 +1,6 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
@@ -7,11 +8,12 @@ public class ItemBlockSkystone extends ItemBlock
 {
 	private static final String[] types = new String[] {"holystone", "holycobble", "holybrick", "holystonemossy"};
 
-	public ItemBlockSkystone(int par1)
+	public ItemBlockSkystone(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override
@@ -21,7 +23,8 @@ public class ItemBlockSkystone extends ItemBlock
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack itemstack) {
+	public String getUnlocalizedName(ItemStack itemstack) 
+	{
 		int meta = itemstack.getItemDamage();
 		if (meta < 0 || meta >= types.length) {
 			meta = 0;

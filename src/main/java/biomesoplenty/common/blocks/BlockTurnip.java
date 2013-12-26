@@ -12,16 +12,6 @@ public class BlockTurnip extends BlockCrops
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
 
-    public BlockTurnip(int par1)
-    {
-        super(par1);
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-     */
     @Override
     public IIcon getIcon(int par1, int par2)
     {
@@ -40,18 +30,12 @@ public class BlockTurnip extends BlockCrops
         }
     }
 
-    /**
-     * Generate a seed ItemStack for this crop.
-     */
     @Override
     protected int getSeedItem()
     {
         return Items.turnipseeds.get().itemID;
     }
 
-    /**
-     * Generate a crop produce ItemStack for this crop.
-     */
     @Override
     protected int getCropItem()
     {
@@ -65,12 +49,6 @@ public class BlockTurnip extends BlockCrops
 		return meta == 7 ? 11 : 0;
 	}
 
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IIconRegister. This
-     * is the only chance you get to register icons.
-     */
     @Override
     public void registerIcons(IIconRegister par1IconRegister)
     {

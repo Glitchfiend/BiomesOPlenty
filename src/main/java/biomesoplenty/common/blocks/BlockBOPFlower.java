@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,7 +25,7 @@ import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower extends BlockFlower
+public class BlockBOPFlower extends BlockBush
 {
 	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "sunflowerbottom", "sunflowertop", "dandelion"};
 	private IIcon[] textures;
@@ -35,14 +36,14 @@ public class BlockBOPFlower extends BlockFlower
 	protected BlockBOPFlower()
 	{
 		super(material);
-		
+
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
-		
+
 		float var4 = 0.2F;
 		//TODO: setBlockBounds
 		this.func_149676_a(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -97,45 +98,45 @@ public class BlockBOPFlower extends BlockFlower
 		switch (meta)
 		{
 		case 0:
-					//TODO: setBlockBounds
-		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 0.015625F, 1.0F);
 			break;
 
 		case 5:
-					//TODO: setBlockBounds
-		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.8F, 0.7F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.8F, 0.7F);
 			break;
 
 		case 6:
-					//TODO: setBlockBounds
-		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
 			break;
 
 		case 9:
-					//TODO: setBlockBounds
-		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
 			break;
 
 		case 10:
-					//TODO: setBlockBounds
-		this.func_149676_a0.3F, -0.97F, 0.3F, 0.7F, -0.7F, 0.7F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.3F, -0.97F, 0.3F, 0.7F, -0.7F, 0.7F);
 			//		//TODO: setBlockBounds
-		this.func_149676_a0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+			this.func_149676_a(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
 			break;
 
 		case 11:
-					//TODO: setBlockBounds
-		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 
 		case 15:
-					//TODO: setBlockBounds
-		this.func_149676_a0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
 			break;
 
 		default:
-					//TODO: setBlockBounds
-		this.func_149676_a0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
@@ -145,7 +146,7 @@ public class BlockBOPFlower extends BlockFlower
 	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		
+
 		if (!world.isRemote && meta == 2 && entity instanceof EntityLivingBase) 
 		{
 			if (entity instanceof EntityPlayer)
@@ -169,9 +170,9 @@ public class BlockBOPFlower extends BlockFlower
 	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
 		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
-		
+
 		int meta = par1World.getBlockMetadata(par2, par3, par4);
-		
+
 		if (meta == 2)
 		{
 			if (par5Random.nextInt(4) != 0)
@@ -208,7 +209,7 @@ public class BlockBOPFlower extends BlockFlower
 	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
 	{
 		if (metadata == 6) //Tulip
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyGrass.get().blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
 		if (metadata == 10) //Lily Flower
 			return id == Block.waterlily.blockID;
 		if (metadata == 11) //Rainbow Flower
@@ -258,9 +259,9 @@ public class BlockBOPFlower extends BlockFlower
 	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
 		super.func_149695_a(world, x, y, z, neighborBlock);
-		
+
 		this.checkFlowerChange(world, x, y, z);
-		
+
 		if (world.getBlockMetadata(x, y, z) == SUNFLOWERTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != SUNFLOWERBOTTOM) 
 		{
 			world.setBlockToAir(x, y, z);
@@ -321,15 +322,15 @@ public class BlockBOPFlower extends BlockFlower
 				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
 		}
 	}
-	
+
 	@Override
 	//TODO:		harvestBlock()
 	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.func_149636_a(world, player, x, y, z, meta);
-		
+
 		ItemStack equippedItem = player.getCurrentEquippedItem();
-		
+
 		if (equippedItem != null)
 		{
 			if (equippedItem.getItem() != Items.shears)
@@ -359,7 +360,7 @@ public class BlockBOPFlower extends BlockFlower
 	public boolean isBlockReplaceable(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 10) return true;
-		
+
 		return false;
 	}
 }
