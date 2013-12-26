@@ -15,13 +15,13 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockOriginGrass extends Block
 {
-	private IIcon[] 		//TODO: blockIcon
-		this.field_149761_L = new IIcon[6];
+	private IIcon[] icon = new IIcon[6];
 
 	public BlockOriginGrass()
 	{
 		super(Material.grass);
-				//TODO: setTickRandomly()
+		
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
@@ -32,18 +32,12 @@ public class BlockOriginGrass extends Block
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-				//TODO: blockIcon
-		this.field_149761_L[0] = par1IconRegister.registerIcon("biomesoplenty:origingrass3");
-				//TODO: blockIcon
-		this.field_149761_L[1] = par1IconRegister.registerIcon("biomesoplenty:origingrass1");
-				//TODO: blockIcon
-		this.field_149761_L[2] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
-				//TODO: blockIcon
-		this.field_149761_L[3] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
-				//TODO: blockIcon
-		this.field_149761_L[4] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
-				//TODO: blockIcon
-		this.field_149761_L[5] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		this.icon[0] = par1IconRegister.registerIcon("biomesoplenty:origingrass3");
+		this.icon[1] = par1IconRegister.registerIcon("biomesoplenty:origingrass1");
+		this.icon[2] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		this.icon[3] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		this.icon[4] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
+		this.icon[5] = par1IconRegister.registerIcon("biomesoplenty:origingrass2");
 	}
 
 	/**
@@ -56,29 +50,8 @@ public class BlockOriginGrass extends Block
 		this.field_149761_L.length)
 	        par1 = 1;
         
-		return 		//TODO: blockIcon
-		this.field_149761_L[par1];
+		return icon[par1];
 	}
-
-	/**
-	 * Retrieves the block texture to use based on the display side. Args: iBlockAccess, x, y, z, side
-	 */
-	/*public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-        if (par5 == 1)
-        {
-            return 32;
-        }
-        else if (par5 == 0)
-        {
-            return 34;
-        }
-        else
-        {
-            Material var6 = par1IBlockAccess.getBlockMaterial(par2, par3 + 1, par4);
-            return var6 != Material.snow && var6 != Material.craftedSnow ? 33 : 33;
-        }
-    }*/
 
 	@Override
 	public boolean canSustainPlant(World world, int x, int y, int z, ForgeDirection direction, IPlantable plant)
@@ -111,11 +84,8 @@ public class BlockOriginGrass extends Block
 			return false;
 	}
 
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
 	@Override
-	public void 	//TODO:		updateTick()
+	//TODO:		updateTick()
 	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		if (!par1World.isRemote)
@@ -142,12 +112,9 @@ public class BlockOriginGrass extends Block
 		}
 	}
 
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
 		return Block.dirt.idDropped(0, par2Random, par3);
 	}

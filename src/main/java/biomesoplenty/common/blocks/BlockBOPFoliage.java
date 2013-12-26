@@ -280,7 +280,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == GRASSTOP) {

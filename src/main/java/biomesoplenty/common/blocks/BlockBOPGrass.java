@@ -9,29 +9,31 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPGrass extends Block
 {
-	private IIcon[][] 		//TODO: blockIcon
-		this.field_149761_L = new IIcon[2][6];
+	private IIcon[][] icon = new IIcon[2][6];
 
 	public BlockBOPGrass()
 	{
 		super(Material.grass);
-				//TODO: setTickRandomly()
+		
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
-				//TODO: this.setHardness
+		//TODO: this.setHardness
 		this.func_149711_c(0.6F);
 		//setLightValue(0.25F);
-		
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -40,54 +42,38 @@ public class BlockBOPGrass extends Block
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-				//TODO: blockIcon
-		this.field_149761_L[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
-				//TODO: blockIcon
-		this.field_149761_L[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
-				//TODO: blockIcon
-		this.field_149761_L[0][2] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-				//TODO: blockIcon
-		this.field_149761_L[0][3] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-				//TODO: blockIcon
-		this.field_149761_L[0][4] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-				//TODO: blockIcon
-		this.field_149761_L[0][5] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-
-				//TODO: blockIcon
-		this.field_149761_L[1][0] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_bottom");
-				//TODO: blockIcon
-		this.field_149761_L[1][1] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_top");
-				//TODO: blockIcon
-		this.field_149761_L[1][2] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
-				//TODO: blockIcon
-		this.field_149761_L[1][3] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
-				//TODO: blockIcon
-		this.field_149761_L[1][4] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
-				//TODO: blockIcon
-		this.field_149761_L[1][5] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
+		
+		this.icon[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
+		this.icon[0][2] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		this.icon[0][3] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		this.icon[0][4] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		this.icon[0][5] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		
+		this.icon[1][0] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_bottom");
+		this.icon[1][1] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_top");
+		this.icon[1][2] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		this.icon[1][3] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		this.icon[1][4] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
+		this.icon[1][5] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_side");
 	}
 
 	@Override
 	//TODO:		 getIcon()
 	public IIcon func_149691_a(int side, int meta)
 	{
-		if (meta < 0 || meta >= 		//TODO: blockIcon
-		this.field_149761_L.length)
-	        meta = 1;
-		if (side < 0 || side >= 		//TODO: blockIcon
-		this.field_149761_L[meta].length)
-	        side = 1;
+		if (meta < 0 || meta >= this.icon.length) meta = 1;
+		if (side < 0 || side >= this.icon[meta].length) side = 1;
 	    
-		return 		//TODO: blockIcon
-		this.field_149761_L[meta][side];
+		return this.icon[meta][side];
 	}
 
 	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < 2; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
@@ -99,7 +85,7 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public boolean isFireSource(World world, int x, int y, int z, int metadata, ForgeDirection side)
+	public boolean isFireSource(IBlockAccess world, int x, int y, int z, ForgeDirection side)
 	{
 		int blockId = world.getBlockId(x, y, z);
 		
@@ -114,9 +100,11 @@ public class BlockBOPGrass extends Block
 	}
 
 	@Override
-	public int onBlockPlaced(World world, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int meta)
+	//TODO:		onBlockPlaced()
+	public int func_149660_a(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		if (meta == 0)
+		{
 			if (world.provider.isHellWorld)
 			{
 				world.playSound(par2, par3, par4, "mob.ghast.death", 20.0F, 0.95F + (float)Math.random() * 0.1F, true);
@@ -127,30 +115,35 @@ public class BlockBOPGrass extends Block
 					world.spawnParticle("smoke", par2 + Math.random(), par3 + Math.random(), par4 + Math.random(), 0.0D, 0.0D, 0.0D);
 				}
 			}
+		}
+		
 		return meta;
 	}
 
 	@Override
-	public void randomDisplayTick(World world, int x, int y, int z, Random random)
+	//TODO: 	randomDisplayTick()
+	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
 		if (!world.isRemote)
 			return;
 
 		if (world.getBlockMetadata(x, y, z) == 1)
 		{
-			if (random.nextInt(4) == 0) {
+			if (random.nextInt(4) == 0) 
+			{
 				world.spawnParticle("smoke", x + random.nextFloat(), y + 1.1F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 			}
 
-			if (random.nextInt(6) == 0) {
+			if (random.nextInt(6) == 0) 
+			{
 				world.spawnParticle("flame", x + random.nextFloat(), y + 1.1F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
 
 	@Override
-	public void 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)(World world, int x, int y, int z, Random random)
+	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
@@ -195,7 +188,8 @@ public class BlockBOPGrass extends Block
 			return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - f, z + 1);
 		}
 
-		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
+		//TODO:		getCollisionBoundingBoxFromPool()
+		return super.func_149668_a(world, x, y, z);
 	}
 
 	@Override
@@ -211,7 +205,7 @@ public class BlockBOPGrass extends Block
 	//TODO:	   getItemDropped()
 	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return meta == 0 ? Blocks.holyDirt.get().blockID : Block.dirt.blockID;
+		return metadata == 0 ? Blocks.holyDirt.get().blockID : Blocks.dirt
 	}
 
 }

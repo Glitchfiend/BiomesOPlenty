@@ -119,7 +119,8 @@ public class BlockGrave extends Block
 	}
 	
 	@Override
-	public boolean shouldSideBeRendered(IBlockAccess iblockaccess, int i, int j, int k, int l)
+	//TODO			shouldSideBeRendered
+    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}

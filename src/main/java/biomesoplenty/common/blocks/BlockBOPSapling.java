@@ -24,11 +24,11 @@ public class BlockBOPSapling extends BlockSapling
 
 	public BlockBOPSapling()
 	{
-				//TODO: this.setHardness
+		//TODO: this.setHardness
 		this.func_149711_c(0.0F);
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
-		
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}

@@ -18,8 +18,9 @@ public class BlockMoss extends Block
 	public BlockMoss()
 	{
 		super(Material.vine);
+		
 		setBurnProperties(blockID, 15, 100);
-				//TODO: setTickRandomly()
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
@@ -38,8 +39,8 @@ public class BlockMoss extends Block
 	@Override
 	public void setBlockBoundsForItemRender()
 	{
-				//TODO: setBlockBounds
-		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		//TODO: setBlockBounds
+		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
 	@Override
@@ -67,16 +68,17 @@ public class BlockMoss extends Block
 	//TODO:     setBlockBoundsBasedOnState()
 	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int var6 = par1IBlockAccess.getBlockMetadata(par2, par3, par4);
+		int metadata = world.getBlockMetadata(x, y, z);
+		
 		float var7 = 1.0F;
 		float var8 = 1.0F;
 		float var9 = 1.0F;
 		float var10 = 0.0F;
 		float var11 = 0.0F;
 		float var12 = 0.0F;
-		boolean var13 = var6 > 0;
+		boolean var13 = metadata > 0;
 
-		if ((var6 & 2) != 0)
+		if ((metadata & 2) != 0)
 		{
 			var10 = Math.max(var10, 0.0625F);
 			var7 = 0.0F;
@@ -87,7 +89,7 @@ public class BlockMoss extends Block
 			var13 = true;
 		}
 
-		if ((var6 & 8) != 0)
+		if ((metadata & 8) != 0)
 		{
 			var7 = Math.min(var7, 0.9375F);
 			var10 = 1.0F;
@@ -98,7 +100,7 @@ public class BlockMoss extends Block
 			var13 = true;
 		}
 
-		if ((var6 & 4) != 0)
+		if ((metadata & 4) != 0)
 		{
 			var12 = Math.max(var12, 0.0625F);
 			var9 = 0.0F;
@@ -109,7 +111,7 @@ public class BlockMoss extends Block
 			var13 = true;
 		}
 
-		if ((var6 & 1) != 0)
+		if ((metadata & 1) != 0)
 		{
 			var9 = Math.min(var9, 0.9375F);
 			var12 = 1.0F;
@@ -130,8 +132,8 @@ public class BlockMoss extends Block
 			var12 = 1.0F;
 		}
 
-				//TODO: setBlockBounds
-		this.func_149676_avar7, var8, var9, var10, var11, var12);
+		//TODO: setBlockBounds
+		this.func_149676_a(var7, var8, var9, var10, var11, var12);
 	}
 
 	@Override
@@ -166,9 +168,6 @@ public class BlockMoss extends Block
 		}
 	}
 
-	/**
-	 * returns true if a vine can be placed on that block (checks for render as normal block and if it is solid)
-	 */
 	private boolean canBePlacedOn(int par1)
 	{
 		if (par1 != Block.wood.blockID && par1 != Blocks.logs3.get().blockID && par1 != Block.stone.blockID)
@@ -281,11 +280,12 @@ public class BlockMoss extends Block
 	}
 
 	@Override
-	public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+	//TODO:		onBlockPlaced()
+	public int func_149660_a(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		byte b0 = 0;
 
-		switch (par5)
+		switch (side)
 		{
 		case 2:
 			b0 = 1;
@@ -300,7 +300,7 @@ public class BlockMoss extends Block
 			b0 = 2;
 		}
 
-		return b0 != 0 ? b0 : par9;
+		return b0 != 0 ? b0 : meta;
 	}
 
 	@Override

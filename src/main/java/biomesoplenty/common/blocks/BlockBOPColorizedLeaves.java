@@ -126,22 +126,22 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     @Override
     public int colorMultiplier(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
     {
-        int var6 = 0;
-        int var7 = 0;
-        int var8 = 0;
+    	int var6 = 0;
+    	int var7 = 0;
+    	int var8 = 0;
 
-        for (int var9 = -1; var9 <= 1; ++var9)
-        {
-                for (int var10 = -1; var10 <= 1; ++var10)
-                {
-                        int var11 = par1IBlockAccess.getBiomeGenForCoords(par2 + var10, par4 + var9).getBiomeFoliageColor();
-                        var6 += (var11 & 16711680) >> 16;
-                var7 += (var11 & 65280) >> 8;
-        var8 += var11 & 255;
-                }
-        }
+    	for (int var9 = -1; var9 <= 1; ++var9)
+    	{
+    		for (int var10 = -1; var10 <= 1; ++var10)
+    		{
+    			int var11 = par1IBlockAccess.getBiomeGenForCoords(par2 + var10, par4 + var9).getBiomeFoliageColor();
+    			var6 += (var11 & 16711680) >> 16;
+    		var7 += (var11 & 65280) >> 8;
+    		var8 += var11 & 255;
+    		}
+    	}
 
-        return (var6 / 9 & 255) << 16 | (var7 / 9 & 255) << 8 | var8 / 9 & 255;
+    	return (var6 / 9 & 255) << 16 | (var7 / 9 & 255) << 8 | var8 / 9 & 255;
     }
 
     @Override
@@ -189,7 +189,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     	//TODO: 	randomDisplayTick()
         super.func_149734_b(world, x, y, z, random);
-
     }
 
     @Override
@@ -199,16 +198,21 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         byte radius = 1;
         int bounds = radius + 1;
 
-        if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) {
-            for (int i = -radius; i <= radius; ++i) {
-                for (int j = -radius; j <= radius; ++j) {
+        if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) 
+        {
+            for (int i = -radius; i <= radius; ++i) 
+            {
+                for (int j = -radius; j <= radius; ++j) 
+                {
                     for (int k = -radius; k <= radius; ++k)
                     {
-                        int blockID = world.getBlockId(x + i, y + j, z + k);
+						//TODO:				getBlock()
+						Block block = world.func_147439_a(x + i, y + j, z + k);
 
-                        if (Block.blocksList[blockID] != null) {
-                            Block.blocksList[blockID].beginLeavesDecay(world, x + i, y + j, z + k);
-                        }
+						if (block.isLeaves(world, x, y, z)) 
+						{
+							block.beginLeavesDecay(world, x + i, y + j, z + k);
+						}
                     }
                 }
             }
@@ -251,9 +255,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
                     {
                         for (j2 = -b0; j2 <= b0; ++j2)
                         {
-                            k2 = world.getBlockId(x + l1, y + i2, z + j2);
-
-                            Block block = Block.blocksList[k2];
+                        	//TODO:				world.getBlock()
+                            Block block = world.func_147439_a(x + l1, y + i2, z + j2);
 
                             if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
                             {
@@ -362,13 +365,13 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
 
     @Override
-    public boolean isShearable(ItemStack item, World world, int x, int y, int z)
+    public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
     {
         return true;
     }
 
     @Override
-    public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+    public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         ret.add(new ItemStack(this, 1, getTypeFromMeta(world.getBlockMetadata(x, y, z))));

@@ -36,7 +36,8 @@ public class BlockBOPSlab extends BlockSlab
 
 		category = cat;
 		
-		if (material == Material.wood)
+		//TODO: 		Material.wood
+		if (material == Material.field_151575_d)
 		{
 			//TODO:		setBurnProperties() getIdFromBlock()
 			Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
@@ -45,10 +46,11 @@ public class BlockBOPSlab extends BlockSlab
 			setResistance(5.0F);
 			setStepSound(Block.soundWoodFootstep);
 		}
-		else if (material == Material.rock) 
+		//TODO: 			Material.rock
+		else if (material == Material.field_151576_e) 
 		{
-			//TODO setStepSound(Block.sound)
-			this.func_149672_a(Block.soundStoneFootstep);
+			//TODO setStepSound(Block.soundStoneFootstep)
+			this.func_149672_a(Block.field_149780_i);
 		}
 
 		if (!isDoubleSlab) 
@@ -106,7 +108,7 @@ public class BlockBOPSlab extends BlockSlab
 		}
 
 		for (int i = 0; i < max; ++i) {
-			list.add(new ItemStack(blockID, 1, i));
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
@@ -140,7 +142,8 @@ public class BlockBOPSlab extends BlockSlab
 				return Blocks.stoneSingleSlab.get().blockID;
 		}
 		else
-			return blockID;
+			//TODO:		getItemForBlock()
+			return Item.func_150898_a(this);
 	}
 
 	@Override

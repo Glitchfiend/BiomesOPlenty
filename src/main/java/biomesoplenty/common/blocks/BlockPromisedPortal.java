@@ -14,47 +14,36 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPromisedPortal extends Block
 {
-	public BlockPromisedPortal(int par1)
+	public BlockPromisedPortal()
 	{
-		super(par1, Material.portal);
+		//TODO:	Material.portal
+		super(Material.field_151567_E);
 	}
 
 	@Override
 	//TODO:		registerIcons()
 	public void func_149651_a(IIconRegister iconRegister)
 	{
-				//TODO: blockIcon
-		this.field_149761_L = par1IconRegister.registerIcon("biomesoplenty:portal");
+		//TODO: blockIcon
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:portal");
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-
-	/**
-	 * Returns which pass should this block be rendered on. 0 for solids and 1 for alpha
-	 */
-	public int getRenderBlockPass()
+	//TODO:	   getRenderBlockPass()
+	public int func_149701_w()
 	{
 		return 1;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-
-	/**
-	 * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
-	 * coordinates.  Args: blockAccess, x, y, z, side
-	 */
 	//TODO			shouldSideBeRendered
     public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
 	{
-		return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, 1 - par5);
+		//TODO:		 shouldSideBeRendered()
+		return super.func_149646_a(world, x, y, z, 1 - side);
 	}
 
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-	 * cleared to be reused)
-	 */
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
 	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
@@ -62,10 +51,6 @@ public class BlockPromisedPortal extends Block
 		return null;
 	}
 
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-	 * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-	 */
 	@Override
 	//TODO:		   isOpaqueCube()
 	public boolean func_149662_c()
@@ -74,13 +59,14 @@ public class BlockPromisedPortal extends Block
 	}
 
 	@Override
-	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity)
+	//TODO:		onEntityCollidedWithBlock()
+	public void func_149670_a(World world, int x, int y, int z, Entity entity)
 	{
-		if (par5Entity.ridingEntity == null && par5Entity.riddenByEntity == null)
+		if (entity.ridingEntity == null && entity.riddenByEntity == null)
 		{
-			if (par5Entity instanceof EntityPlayerMP)
+			if (entity instanceof EntityPlayerMP)
 			{
-				EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
+				/*TODO: FEATURE EntityPlayerMP thePlayer = (EntityPlayerMP) par5Entity;
 				if (par5Entity.dimension != BOPConfigurationIDs.promisedLandDimID)
 				{
 					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, BOPConfigurationIDs.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfigurationIDs.promisedLandDimID)));
@@ -88,7 +74,7 @@ public class BlockPromisedPortal extends Block
 				else
 				{
 					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(0)));
-				}
+				}*/
 			}
 		}
 	}

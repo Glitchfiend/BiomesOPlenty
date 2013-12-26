@@ -156,7 +156,7 @@ public class BlockBOPMushroom extends BlockFlower
 	public boolean func_149718_j(World world, int x, int y, int z)
 	{
 		//TODO:			   								getBlock()
-		return this.canThisPlantGrowOnThisBlockID(world.func_147439_a(x, y - 1, z), world.getBlockMetadata(x, y, z));
+		return this.canThisPlantGrowOnThisBlock(world.func_147439_a(x, y - 1, z), world.getBlockMetadata(x, y, z));
 	}
 
 	@Override

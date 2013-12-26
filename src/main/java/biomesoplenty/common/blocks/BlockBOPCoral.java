@@ -31,7 +31,7 @@ public class BlockBOPCoral extends BlockFlower
 		
 		float f = 0.4F;
 				//TODO: setBlockBounds
-		this.func_149676_a0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
+		this.func_149676_a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
@@ -191,7 +191,8 @@ public class BlockBOPCoral extends BlockFlower
 	}
 	
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		

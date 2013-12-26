@@ -26,21 +26,18 @@ public class BlockBOPFlower2 extends BlockFlower
 	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight", "icyiris"};
 	private IIcon[] textures;
 
-	protected BlockBOPFlower2(int blockID, Material material)
+	protected BlockBOPFlower2()
 	{
-		super(blockID, material);
-				//TODO: setTickRandomly()
+		super(Material.plants);
+
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		float var4 = 0.2F;
-				//TODO: setBlockBounds
-		this.func_149676_a0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
-	}
+		//TODO: setBlockBounds
+		this.func_149676_a(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
 
-	public BlockBOPFlower2()
-	{
-		this(Material.plants);
+		//TODO: this.setCreativeTab()
+		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
@@ -86,17 +83,17 @@ public class BlockBOPFlower2 extends BlockFlower
 	//TODO:     setBlockBoundsBasedOnState()
 	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
 		default:
-					//TODO: setBlockBounds
-		this.func_149676_a0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+			//TODO: setBlockBounds
+			this.func_149676_a(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
-	
+
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
 	public void func_149670_a(World world, int x, int y, int z, Entity entity)
@@ -118,15 +115,16 @@ public class BlockBOPFlower2 extends BlockFlower
 			}
 		}
 	}
-	
+
 	@Override
 	//TODO:		harvestBlock()
 	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
-		super.harvestBlock(world, player, x, y, z, meta);
-		
+		//TODO: harvestBlock()
+		super.func_149636_a(world, player, x, y, z, meta);
+
 		ItemStack equippedItem = player.getCurrentEquippedItem();
-		
+
 		if (equippedItem != null)
 		{
 			if (equippedItem.itemID != Item.shears.itemID)
@@ -150,8 +148,11 @@ public class BlockBOPFlower2 extends BlockFlower
 	//TODO: 	randomDisplayTick()
 	public void func_149734_b(World world, int x, int y, int z, Random random)
 	{
-		super.randomDisplayTick(par1World, par2, par3, par4, par5Random);
-		int meta = par1World.getBlockMetadata(par2, par3, par4);
+		//TODO: randomDisplayTick()
+		super.func_149734_b(world, x, y, z, random);
+
+		int meta = par1World.getBlockMetadata(x, y, z);
+
 		if (meta == 2)
 		{
 			if (par5Random.nextInt(2) == 0)
@@ -167,12 +168,12 @@ public class BlockBOPFlower2 extends BlockFlower
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < plants2.length; ++i)
 		{
-			list.add(new ItemStack(blockID, 1, i));
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
@@ -204,7 +205,7 @@ public class BlockBOPFlower2 extends BlockFlower
 			{
 			case 2: // Burning Blossom
 				return id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-				
+
 			case 6: // Miner's Delight
 				return id == Block.stone.blockID;
 
@@ -220,12 +221,13 @@ public class BlockBOPFlower2 extends BlockFlower
 	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
 		super.func_149695_a(world, x, y, z, neighborBlock);
-		
+
 		this.checkFlowerChange(world, x, y, z);
 	}
-	
+
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -264,7 +266,7 @@ public class BlockBOPFlower2 extends BlockFlower
 	public boolean isBlockReplaceable(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 10) return true;
-		
+
 		return false;
 	}
 }

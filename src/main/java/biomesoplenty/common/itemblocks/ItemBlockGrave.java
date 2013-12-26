@@ -15,11 +15,12 @@ public class ItemBlockGrave extends ItemBlock
 {
 	private Icon grave;
 	
-	public ItemBlockGrave(int par1)
+	public ItemBlockGrave(Block block)
 	{
-		super(par1);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 	
 	@Override

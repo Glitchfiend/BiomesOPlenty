@@ -8,6 +8,7 @@ import net.minecraft.block.BlockStone;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -23,20 +24,16 @@ public class BlockStoneFormations extends BlockFlower
 
 	protected BlockStoneFormations(Material material)
 	{
-		super(material);
-				//TODO: setTickRandomly()
+		super(Material.vine);
+
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		float var4 = 0.2F;
-				//TODO: setBlockBounds
-		this.func_149676_a0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
-		
+		//TODO: setBlockBounds
+		this.func_149676_a(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
-	}
-
-	public BlockStoneFormations(int blockID)
-	{
-		this(blockID, Material.vine);
 	}
 
 	@Override
@@ -62,8 +59,8 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public int 	//TODO		getRenderType()
-	public int func_149645_b()()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 1;
 	}
@@ -72,25 +69,25 @@ public class BlockStoneFormations extends BlockFlower
 	//TODO:     setBlockBoundsBasedOnState()
 	public void func_149719_a(IBlockAccess world, int x, int y, int z)
 	{
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		switch (meta)
 		{
 		default:
 					//TODO: setBlockBounds
-		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 			break;
 		}
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) {
+	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	{
 		for (int i = 0; i < forms.length; ++i)
 		{
-			list.add(new ItemStack(blockID, 1, i));
+			list.add(new ItemStack(block, 1, i));
 		}
 	}
 
@@ -130,16 +127,16 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public void 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World world, int x, int y, int z, int neighborID)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		//super.	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(world, x, y, z, neighborID);
+		super.func_149695_a(world, x, y, z, neighborBlock);
 		this.checkFlowerChange(world, x, y, z);
 	}
 	
 	@Override
-	public int getDamageValue(World world, int x, int y, int z)
+	//TODO:	   getDamageValue()
+	public int func_149643_k(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 

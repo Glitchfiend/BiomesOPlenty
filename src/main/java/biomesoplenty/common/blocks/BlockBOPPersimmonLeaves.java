@@ -13,6 +13,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
@@ -32,13 +33,15 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 
 	public BlockBOPPersimmonLeaves()
 	{
-		super(Material.leaves, false);
+    	//TODO:	Material.leaves
+        super(Material.field_151584_j, false);
+		
 		setBurnProperties(this.blockID, 30, 60);
-				//TODO: setTickRandomly()
+		
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		//TODO: this.setHardness
 		this.func_149711_c(0.2F);
-		setLightOpacity(1);
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
 		
@@ -81,14 +84,16 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	//TODO:		 getIcon()
 	public IIcon func_149691_a(int side, int meta)
 	{
-		return textures[(!isOpaqueCube() ? 0 : 1)][meta & 3];
+		//TODO:			  isOpaqueCube()
+		return textures[(!func_149662_c() ? 0 : 1)][meta & 3];
 	}
 
 	@Override
 	//TODO:		   isOpaqueCube()
 	public boolean func_149662_c()
 	{
-		return Block.leaves.isOpaqueCube();
+		//TODO:				 isOpaqueCube()
+		return Blocks.leaves.func_149662_c();
 	}
 
 	@Override
@@ -98,43 +103,50 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		list.add(new ItemStack(block, 1, 0));
 	}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(World world, int x, int y, int z, Random random)
-	{
-		if (world.canLightningStrikeAt(x, y + 1, z) && !world.doesBlockHaveSolidTopSurface(x, y - 1, z) && random.nextInt(15) == 1)
-		{
-			double d0 = x + random.nextFloat();
-			double d1 = y - 0.05D;
-			double d2 = z + random.nextFloat();
-			world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
-		}
+    @Override
+	//TODO: 	randomDisplayTick()
+	public void func_149734_b(World world, int x, int y, int z, Random random)
+    {
+    	//TODO:												  doesBlockHaveSolidTopSurface
+        if (world.canLightningStrikeAt(x, y + 1, z) && !World.func_147466_a(world, x, y - 1, z) && random.nextInt(15) == 1)
+        {
+            double d0 = x + random.nextFloat();
+            double d1 = y - 0.05D;
+            double d2 = z + random.nextFloat();
+            world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        }
 
-		super.randomDisplayTick(world, x, y, z, random);
+    	//TODO: 	randomDisplayTick()
+        super.func_149734_b(world, x, y, z, random);
+    }
 
-	}
+    @Override
+	//TODO:		breakBlock()
+	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
+    {
+        byte radius = 1;
+        int bounds = radius + 1;
 
-	@Override
-	public void breakBlock(World world, int x, int y, int z, int par5, int par6)
-	{
-		byte radius = 1;
-		int bounds = radius + 1;
+        if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) 
+        {
+            for (int i = -radius; i <= radius; ++i) 
+            {
+                for (int j = -radius; j <= radius; ++j) 
+                {
+                    for (int k = -radius; k <= radius; ++k)
+                    {
+						//TODO:				getBlock()
+						Block block = world.func_147439_a(x + i, y + j, z + k);
 
-		if (world.checkChunksExist(x - bounds, y - bounds, z - bounds, x + bounds, y + bounds, z + bounds)) {
-			for (int i = -radius; i <= radius; ++i) {
-				for (int j = -radius; j <= radius; ++j) {
-					for (int k = -radius; k <= radius; ++k)
-					{
-						int blockID = world.getBlockId(x + i, y + j, z + k);
-
-						if (Block.blocksList[blockID] != null) {
-							Block.blocksList[blockID].beginLeavesDecay(world, x + i, y + j, z + k);
+						if (block.isLeaves(world, x, y, z)) 
+						{
+							block.beginLeavesDecay(world, x + i, y + j, z + k);
 						}
-					}
-				}
-			}
-		}
-	}
+                    }
+                }
+            }
+        }
+    }
 
 	@Override
 	//TODO:		updateTick()
@@ -271,7 +283,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 			world.setBlock(x, y, z, blockID, meta - 3, 3);
 			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.food.get(), 1, 8));
 
-			if (!world.isRemote) {
+			if (!world.isRemote) 
+			{
 				world.spawnEntityInWorld(entityitem);
 				if (!(player instanceof FakePlayer))
 					entityitem.onCollideWithPlayer(player);
@@ -334,17 +347,11 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public ArrayList<ItemStack> onSheared(ItemStack item, World world, int x, int y, int z, int fortune)
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune)
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		ret.add(new ItemStack(this, 1, 0));
 		return ret;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void setGraphicsLevel(boolean par1)
-	{
-		graphicsLevel = par1;
 	}
 
 	@Override
@@ -361,7 +368,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 	}
 
 	@Override
-	public boolean isLeaves(World world, int x, int y, int z)
+	public boolean isLeaves(IBlockAccess world, int x, int y, int z)
 	{
 		return true;
 	}

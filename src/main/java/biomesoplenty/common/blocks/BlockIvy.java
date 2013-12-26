@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Direction;
@@ -22,7 +23,8 @@ public class BlockIvy extends Block implements IShearable
 	public BlockIvy()
 	{
 		super(Material.vine);
-				//TODO: setTickRandomly()
+		
+		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		
 		//TODO: this.setCreativeTab()
@@ -34,33 +36,23 @@ public class BlockIvy extends Block implements IShearable
 	public void func_149651_a(IIconRegister iconRegister)
 	{
 				//TODO: blockIcon
-		this.field_149761_L = par1IconRegister.registerIcon("biomesoplenty:ivy");
+		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:ivy");
 	}
 
-	/**
-	 * Sets the block's bounds for rendering it as an item
-	 */
 	@Override
 	public void setBlockBoundsForItemRender()
 	{
-				//TODO: setBlockBounds
-		this.func_149676_a0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		//TODO: setBlockBounds
+		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
-	/**
-	 * The type of render function that is called for this block
-	 */
 	@Override
-	public int 	//TODO		getRenderType()
-	public int func_149645_b()()
+	//TODO		getRenderType()
+	public int func_149645_b()
 	{
 		return 20;
 	}
 
-	/**
-	 * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-	 * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-	 */
 	@Override
 	//TODO:		   isOpaqueCube()
 	public boolean func_149662_c()
@@ -68,12 +60,9 @@ public class BlockIvy extends Block implements IShearable
 		return false;
 	}
 
-	/**
-	 * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
-	 */
 	@Override
-	public boolean 	//TODO:		   renderAsNormalBlock()
-    public boolean func_149686_d()()
+	//TODO:		   renderAsNormalBlock()
+    public boolean func_149686_d()
 	{
 		return false;
 	}
@@ -149,13 +138,9 @@ public class BlockIvy extends Block implements IShearable
 		}
 
 				//TODO: setBlockBounds
-		this.func_149676_avar7, var8, var9, var10, var11, var12);
+		this.func_149676_a(var7, var8, var9, var10, var11, var12);
 	}
 
-	/**
-	 * Returns a bounding box from the pool of bounding boxes (this means this box can change after the pool has been
-	 * cleared to be reused)
-	 */
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
 	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
@@ -191,9 +176,6 @@ public class BlockIvy extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * returns true if a vine can be placed on that block (checks for render as normal block and if it is solid)
-	 */
 	private boolean canBePlacedOn(int par1)
 	{
 		if (par1 == 0)
@@ -201,8 +183,8 @@ public class BlockIvy extends Block implements IShearable
 		else
 		{
 			Block var2 = Block.blocksList[par1];
-			return var2.	//TODO:		   renderAsNormalBlock()
-    public boolean func_149686_d()() && var2.blockMaterial.blocksMovement();
+			//TODO:     renderAsNormalBlock
+			return var2.func_149686_d() && var2.blockMaterial.blocksMovement();
 		}
 	}
 
@@ -246,9 +228,6 @@ public class BlockIvy extends Block implements IShearable
 		return ColorizerFoliage.getFoliageColorBasic();
 	}
 
-	/**
-	 * Returns the color this block should be rendered. Used by leaves.
-	 */
 	@Override
 	public int getRenderColor(int par1)
 	{
@@ -261,13 +240,9 @@ public class BlockIvy extends Block implements IShearable
         return par1IBlockAccess.getBiomeGenForCoords(par2, par4).getBiomeFoliageColor();
 	}
 
-	/**
-	 * Lets the block know when one of its neighbor changes. Doesn't know which neighbor changed (coordinates passed are
-	 * their own) Args: x, y, z, neighbor blockID
-	 */
 	@Override
-	public void 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)(World par1World, int par2, int par3, int par4, int par5)
+	//TODO:		onNeighborBlockChange()
+	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
 		if (!par1World.isRemote && !this.canVineStay(par1World, par2, par3, par4))
 		{
@@ -276,11 +251,8 @@ public class BlockIvy extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * Ticks the block if it's been scheduled
-	 */
 	@Override
-	public void 	//TODO:		updateTick()
+	//TODO:		updateTick()
 	public void func_149674_a(World world, int x, int y, int z, Random random)(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 	}
@@ -316,15 +288,13 @@ public class BlockIvy extends Block implements IShearable
 		}
 	}
 
-	/**
-	 * Called when a block is placed using its ItemBlock. Args: World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
-	 */
 	@Override
-	public int onBlockPlaced(World par1World, int par2, int par3, int par4, int par5, float par6, float par7, float par8, int par9)
+	//TODO:		onBlockPlaced()
+	public int func_149660_a(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		byte b0 = 0;
 
-		switch (par5)
+		switch (side)
 		{
 		case 2:
 			b0 = 1;
@@ -339,22 +309,16 @@ public class BlockIvy extends Block implements IShearable
 			b0 = 2;
 		}
 
-		return b0 != 0 ? b0 : par9;
+		return b0 != 0 ? b0 : meta;
 	}
 
-	/**
-	 * Returns the ID of the items to drop on destruction.
-	 */
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune
+	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		return 0;
+		return null;
 	}
 
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
 	@Override
 	//TODO:    getQuantityDropped()
 	public int func_149745_a(Random random)
@@ -362,10 +326,6 @@ public class BlockIvy extends Block implements IShearable
 		return 0;
 	}
 
-	/**
-	 * Called when the player destroys a block with an item that can harvest it. (i, j, k) are the coordinates of the
-	 * block and l is the block's subtype/damage.
-	 */
 	@Override
 	public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
 	{
@@ -393,7 +353,7 @@ public class BlockIvy extends Block implements IShearable
 	}
 
 	@Override
-	public boolean isLadder(World world, int x, int y, int z, EntityLivingBase entity)
+	public boolean isLadder(IBlockAccess world, int x, int y, int z, EntityLivingBase entity)
 	{
 		return true;
 	}
