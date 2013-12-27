@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -13,15 +14,17 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 
 public class BlockBOPMushroom extends BlockBush
 {
 	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
 	private IIcon[] textures;
 
-	protected BlockBOPMushroom()
+	public BlockBOPMushroom()
 	{
-		super(0);
+		//TODO:	Material.plants
+		super(Material.field_151585_k);
 		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
@@ -104,52 +107,44 @@ public class BlockBOPMushroom extends BlockBush
 			list.add(new ItemStack(block, 1, i));
 		}
 	}
-
-	protected boolean canThisPlantGrowOnThisBlock(Block block, int metadata)
+	
+	public boolean isValidPosition(World world, int x, int y, int z)
 	{
-		if (metadata == 0) //Toadstool
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-		if (metadata == 1) //Portobello
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID | id == Blocks.holyGrass.get().blockID;
-		if (metadata == 2) //Blue Milk Cap
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
-		if (metadata == 3) //Glowshroom
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-		else
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		//TODO:					  getBlock()
+		Block block = world.func_147439_a(x, y - 1, z);
+		int metadata = world.getBlockMetadata(x, y, z);
+		
+		switch (metadata)
+		{
+		case 0: // Toadstool
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+
+		case 1: // Portobello
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("holyGrass");
+
+		case 2: // Blue Milk Cap
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("holyGrass");
+
+		case 3: // Glowshroom
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.stone || block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
+
+		default:
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("overgrownNetherrack");
+		}
 	}
 
 	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+	//TODO:		   canPlaceBlockOnSide
+	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		int id = world.getBlockId(x, y - 1, z);
-		int meta = itemStack.getItemDamage();
-
-		switch (meta)
-		{
-		case 0: // Toadstool
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-
-		case 1: // Portobello
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
-
-		case 2: // Blue Milk Cap
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.holyGrass.get().blockID;
-
-		case 3: // Glowshroom
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Block.stone.blockID || id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-
-		default:
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.mycelium.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-		}
+		return isValidPosition(world, x, y, z);
 	} 
 
 	@Override
 	//TODO:		   canBlockStay()
 	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		//TODO:			   								getBlock()
-		return this.canThisPlantGrowOnThisBlock(world.func_147439_a(x, y - 1, z), world.getBlockMetadata(x, y, z));
+		return isValidPosition(world, x, y, z);
 	}
 
 	@Override

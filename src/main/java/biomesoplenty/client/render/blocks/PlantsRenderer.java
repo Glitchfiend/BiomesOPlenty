@@ -1,12 +1,13 @@
-package biomesoplenty.blocks.renderers;
+package biomesoplenty.client.render.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.BlockBOPPlant;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.blocks.BlockBOPPlant;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class PlantsRenderer implements ISimpleBlockRenderingHandler
@@ -26,23 +27,30 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			if (meta < 5)
 				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 5)
-				return renderer.renderCrossedSquares(block, x, y, z);
+				//TODO:			renderCrossedSquares
+				return renderer.func_147746_l(block, x, y, z);
 			if (meta == 6)
 				return renderBlockCrops(block, x, y, z, renderer);
 			if (meta == 7)
-				return renderer.renderBlockCrops(block, x, y, z);
+				//TODO: 		renderBlockCrops
+				return renderer.func_147796_n(block, x, y, z);
 			if (meta == 8)
-				return renderer.renderBlockCrops(block, x, y, z);
+				//TODO: 		renderBlockCrops
+				return renderer.func_147796_n(block, x, y, z);
 			if (meta == 9)
-				return renderer.renderBlockCrops(block, x, y, z);
+				//TODO: 		renderBlockCrops
+				return renderer.func_147796_n(block, x, y, z);
 			if (meta == 10)
-				return renderer.renderBlockCrops(block, x, y, z);
+				//TODO: 		renderBlockCrops
+				return renderer.func_147796_n(block, x, y, z);
 			if (meta == 11)
-				return renderer.renderBlockCrops(block, x, y, z);
+				//TODO: 		renderBlockCrops
+				return renderer.func_147796_n(block, x, y, z);
 			if (meta == 12)
 				return renderCrossedSquares(block, x, y, z, renderer, true);
 			if (meta == 13)
-				return renderer.renderBlockCrops(block, x, y, z);
+				//TODO: 		renderBlockCrops
+				return renderer.func_147796_n(block, x, y, z);
 			if (meta == 14)
 			{
 				return renderCrossedSquares(block, x, y, z, renderer, false);
@@ -68,7 +76,10 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 	private boolean renderBlockCrops(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer)
 	{
 		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(par1Block.getMixedBrightnessForBlock(renderer.blockAccess, par2, par3, par4));
+		//TODO:						  blockAccess
+		IBlockAccess world = renderer.field_147845_a;
+		//TODO:								getMixedBrightnessForBlock()
+		tessellator.setBrightness(par1Block.func_149677_c(world, par2, par3, par4));
 		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
 
 		double d0 = par2;
@@ -81,16 +92,21 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.125D;
 		d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.125D;
 
-		renderer.renderBlockCropsImpl(par1Block, renderer.blockAccess.getBlockMetadata(par2, par3, par4), d0, par3 - 0.0625F, d2);
+		//TODO:	 renderCropBlocksImpl()
+		renderer.func_147795_a(par1Block, world.getBlockMetadata(par2, par3, par4), d0, par3 - 0.0625F, d2);
 		return true;
 	}
 
 	private boolean renderCrossedSquares(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer, boolean colourMultiply)
 	{
 		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(par1Block.getMixedBrightnessForBlock(renderer.blockAccess, par2, par3, par4));
+		//TODO:						  blockAccess
+		IBlockAccess world = renderer.field_147845_a;
+		//TODO:								getMixedBrightnessForBlock()
+		tessellator.setBrightness(par1Block.func_149677_c(world, par2, par3, par4));
 		float f = 1.0F;
-		int l = par1Block.colorMultiplier(renderer.blockAccess, par2, par3, par4);
+		//TODO:			  colorMultiplier()
+		int l = par1Block.func_149720_d(world, par2, par3, par4);
 		float f1 = (l >> 16 & 255) / 255.0F;
 		float f2 = (l >> 8 & 255) / 255.0F;
 		float f3 = (l & 255) / 255.0F;
@@ -119,7 +135,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 
 		long i1 = par2 * 3129871 ^ par4 * 116129781L ^ par3;
 		
-		int meta = renderer.blockAccess.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(par2, par3, par4);
 
 		if (meta == 15)
 		{
@@ -138,12 +154,15 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		
 		if (meta == 14)
 		{
-			renderer.drawCrossedSquares(par1Block, meta, d0, d1, d2, 1.0F);
-			RenderUtils.renderCrossedSquaresFromIcon(((BlockBOPPlant)Blocks.plants.get()).reedbottom, d0, d1 - 1, d2, 1.0F, renderer);
+			//TODO:	 drawCrossedSquares()
+			renderer.func_147730_a(par1Block, meta, d0, d1, d2, 1.0F);
+			//TODO:	 drawCrossedSquares()
+			renderer.func_147765_a(((BlockBOPPlant)BOPBlockHelper.get("plants")).reedbottom, d0, d1 - 1, d2, 1.0F);
 		}
 		else
 		{
-			renderer.drawCrossedSquares(par1Block, meta, d0, d1, d2, 1.0F);
+			//TODO:	 drawCrossedSquares()
+			renderer.func_147730_a(par1Block, meta, d0, d1, d2, 1.0F);
 		}
 		return true;
 	}

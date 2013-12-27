@@ -8,6 +8,7 @@ import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -24,7 +25,8 @@ public class BlockBOPCoral extends BlockBush
 
 	public BlockBOPCoral()
 	{
-		super(Material.water);
+		//TODO: Material.water
+		super(Material.field_151586_h);
 		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
@@ -81,42 +83,30 @@ public class BlockBOPCoral extends BlockBush
 		}
 	}
 
-	@Override
-	protected boolean canThisPlantGrowOnThisBlockID(int id)
+	public boolean isValidPosition(World world, int x, int y, int z)
 	{
-		return id == Block.dirt.blockID || id == Block.sand.blockID || id == Block.sponge.blockID || id == Block.stone.blockID || id == Block.blockClay.blockID || id == blockID;
+		//TODO:					  getBlock()
+		Block block = world.func_147439_a(x, y - 1, z);
+		int metadata = world.getBlockMetadata(x, y, z);
+
+		switch (metadata)
+		{
+		case 1: // Kelp Middle
+			return block == this;
+
+		case 2: // Kelp Top
+			return block == this;
+
+		default:
+			return block == Blocks.dirt || block == Blocks.sand|| block == Blocks.sponge || block == Blocks.stone || block == Blocks.clay;
+		}
 	}
 
-	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
-	{
-		if (metadata == 1)
-			return id == blockID;
-		if (metadata == 2)
-			return id == blockID;
-		else
-			return id == Block.dirt.blockID || id == Block.sand.blockID || id == Block.sponge.blockID || id == Block.stone.blockID || id == Block.blockClay.blockID;
-	}
-
 	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
+	//TODO:		   canPlaceBlockOnSide
+	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		int block = world.getBlockId(x, y - 1, z);
-		int meta = itemStack.getItemDamage();
-
-		if (itemStack.itemID == blockID) {
-			switch (meta)
-			{
-			case 1: // Kelp Middle
-				return block == blockID;
-
-			case 2: // Kelp Top
-				return block == blockID;
-
-			default:
-				return block == Block.dirt.blockID || block == Block.sand.blockID || block == Blocks.sponge || block == Block.stone || block == Block.blockClay.blockID;
-			}
-		} else
-			return this.canPlaceBlockOnSide(world, x, y, z, side);
+		return isValidPosition(world, x, y, z);
 	}
 	
 	@Override
@@ -126,14 +116,17 @@ public class BlockBOPCoral extends BlockBush
 		//TODO: onNeighborBlockChange()
 		super.func_149695_a(world, x, y, z, neighborBlock);
 		
-		if (world.getBlockMetadata(x, y, z) == 0 && world.getBlockId(x, y + 1, z) != blockID)
+		//TODO:					  							getBlock()
+		if (world.getBlockMetadata(x, y, z) == 0 && world.func_147439_a(x, y + 1, z) != this)
 		{
 			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
 		
-		if (world.getBlockMetadata(x, y, z) == 1 && world.getBlockId(x, y + 1, z) != blockID)
+		//TODO:					  							getBlock()
+		if (world.getBlockMetadata(x, y, z) == 1 && world.func_147439_a(x, y + 1, z) != this)
 		{
-			if (world.getBlockId(x, y - 1, z) == blockID)
+			//TODO:		getBlock()
+			if (world.func_147439_a(x, y - 1, z) == this)
 			{
 				world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 			}
@@ -141,24 +134,25 @@ public class BlockBOPCoral extends BlockBush
 		
 		if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 1 || world.getBlockMetadata(x, y, z) == 2)
 		{
-			this.checkBlockCoordValid(world, x, y, z);
+			//TODO:				  getBlock()
+			for (int i = 1; world.func_147439_a(x, y + i, z) == this; i++)
+			{
+				//TODO:	  canBlockStay()
+				if (!this.func_149718_j(world, x, y + i, z))
+				{
+					//TODO: dropBlockAsItem()
+					this.func_149697_b(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
+					//TODO: setBlock()
+					world.func_147465_d(x, y + i, z, Blocks.water, 0, 2);
+				}
+			}
 		}
 		
-		if (world.getBlockId(x, y, z) != this.blockID)
+		//TODO:		getBlock()
+		if (world.func_147439_a(x, y, z) != this)
 		{
-			world.setBlock(x, y, z, Block.waterMoving.blockID, 0, 2);
-		}
-	}
-	
-	protected final void checkBlockCoordValid(World world, int x, int y, int z)
-	{
-		for (int i = 1; world.getBlockId(x, y + i, z) == blockID; i++)
-		{
-			if (!this.canBlockStay(world, x, y + i, z))
-			{
-				this.dropBlockAsItem(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
-				world.setBlock(x, y + i, z, Block.waterMoving.blockID, 0, 2);
-			}
+			//TODO: setBlock()
+			world.func_147465_d(x, y, z, Blocks.water, 0, 2);
 		}
 	}
 
@@ -205,16 +199,15 @@ public class BlockBOPCoral extends BlockBush
 	}
 
 	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		if (world.getBlockId(x, y, z) != blockID)
-			return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-		else
-			return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
+		return isValidPosition(world, x, y, z);
 	}
 
 	@Override
-	public boolean isBlockReplaceable(World world, int x, int y, int z)
+	//TODO: 	   isBlockReplaceable
+	public boolean func_149742_c(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 10) return true;
 		

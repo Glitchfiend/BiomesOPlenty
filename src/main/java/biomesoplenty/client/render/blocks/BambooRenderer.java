@@ -58,6 +58,8 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
         //TODO:		  getMixedBrightnessForBlock()
         int m = block.func_149677_c(world, x, y, z);
 
+        //Need to make public: renderAllFaces, renderMinY, renderMaxY
+        
         //TODO:		renderAllFaces			 shouldSideBeRendered()
         if (renderer.field_147837_f || block.func_149646_a(world, x, y - 1, z, 0))
         {

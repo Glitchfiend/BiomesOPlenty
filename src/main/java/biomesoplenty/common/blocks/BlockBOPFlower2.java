@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,23 +12,27 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.client.render.blocks.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower2 extends BlockFlower
+public class BlockBOPFlower2 extends BlockBush
 {
 	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight", "icyiris"};
 	private IIcon[] textures;
 
-	protected BlockBOPFlower2()
+	public BlockBOPFlower2()
 	{
-		super(Material.plants);
+		//TODO:	Material.plants
+		super(Material.field_151585_k);
 
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
@@ -104,13 +108,6 @@ public class BlockBOPFlower2 extends BlockFlower
 			{
 				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
-				{
-					entity.setFire(1);
-				}
-			}
-			else
-			{
 				entity.setFire(1);
 			}
 		}
@@ -127,7 +124,7 @@ public class BlockBOPFlower2 extends BlockFlower
 
 		if (equippedItem != null)
 		{
-			if (equippedItem.itemID != Item.shears.itemID)
+			if (equippedItem.getItem() != Items.shears)
 			{
 				if (meta == 2)
 				{
@@ -151,17 +148,17 @@ public class BlockBOPFlower2 extends BlockFlower
 		//TODO: randomDisplayTick()
 		super.func_149734_b(world, x, y, z, random);
 
-		int meta = par1World.getBlockMetadata(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		if (meta == 2)
 		{
-			if (par5Random.nextInt(2) == 0)
+			if (random.nextInt(2) == 0)
 			{
-				par1World.spawnParticle("smoke", par2 + par5Random.nextFloat(), par3 + par5Random.nextFloat(), par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("smoke", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 			}
-			if (par5Random.nextInt(4) == 0)
+			if (random.nextInt(4) == 0)
 			{
-				par1World.spawnParticle("flame", par2 + par5Random.nextFloat(), par3 + par5Random.nextFloat(), par4 + par5Random.nextFloat(), 0.0D, 0.0D, 0.0D);
+				world.spawnParticle("flame", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
@@ -177,53 +174,31 @@ public class BlockBOPFlower2 extends BlockFlower
 		}
 	}
 
-	@Override
-	protected boolean canThisPlantGrowOnThisBlockID(int id)
+	public boolean isValidPosition(World world, int x, int y, int z)
 	{
-		return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Block.netherrack.blockID || id == Blocks.longGrass.get().blockID || id == Block.stone.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-	}
+		//TODO:					  getBlock()
+		Block block = world.func_147439_a(x, y - 1, z);
+		int metadata = world.getBlockMetadata(x, y, z);
+		
+		switch (metadata)
+		{
+		case 2: // Burning Blossom
+			return block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
 
-	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
-	{
-		if (metadata == 2) // Burning Blossom
-			return id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-		else if (metadata == 6) // Burning Blossom
-			return id == Block.stone.blockID;
-		else
-			return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
-	}
+		case 6: // Miner's Delight
+			return block == Blocks.stone;
 
-	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
-	{
-		int id = world.getBlockId(x, y - 1, z);
-		int meta = itemStack.getItemDamage();
-		//boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
-
-		if (itemStack.itemID == blockID) {
-			switch (meta)
-			{
-			case 2: // Burning Blossom
-				return id == Block.netherrack.blockID || id == Blocks.overgrownNetherrack.get().blockID;
-
-			case 6: // Miner's Delight
-				return id == Block.stone.blockID;
-
-			default:
-				return id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.longGrass.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
-			}
-		} else
-			return this.canPlaceBlockOnSide(world, x, y, z, side);
+		default:
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+		}
 	}
 
 	@Override
-	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	//TODO:		   canPlaceBlockOnSide
+	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		super.func_149695_a(world, x, y, z, neighborBlock);
-
-		this.checkFlowerChange(world, x, y, z);
-	}
+		return isValidPosition(world, x, y, z);
+	} 
 
 	@Override
 	//TODO:	   getDamageValue()
@@ -242,31 +217,14 @@ public class BlockBOPFlower2 extends BlockFlower
 	}
 
 	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		if (world.getBlockId(x, y, z) != blockID)
-		{
-			if (meta == 2 || meta == 6)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-			else
-				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-		}
+		if (meta == 2 || meta == 6)
+			return this.isValidPosition(world, x, y, z);
 		else
-		{
-			if (meta == 2 || meta == 6)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-			else
-				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-		}
-	}
-
-	@Override
-	public boolean isBlockReplaceable(World world, int x, int y, int z)
-	{
-		if (world.getBlockMetadata(x, y, z) == 10) return true;
-
-		return false;
+			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z);
 	}
 }

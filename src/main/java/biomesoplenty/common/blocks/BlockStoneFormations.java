@@ -3,7 +3,7 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -17,14 +17,15 @@ import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockStoneFormations extends BlockFlower
+public class BlockStoneFormations extends BlockBush
 {
 	private static final String[] forms = new String[] {"stalagmite", "stalactite"};
 	private IIcon[] textures;
 
-	protected BlockStoneFormations(Material material)
+	public BlockStoneFormations()
 	{
-		super(Material.vine);
+		//TODO:	Material.vine
+        super(Material.field_151582_l);
 
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
@@ -90,48 +91,32 @@ public class BlockStoneFormations extends BlockFlower
 			list.add(new ItemStack(block, 1, i));
 		}
 	}
-
-	@Override
-	protected boolean canThisPlantGrowOnThisBlockID(int id)
+	
+	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		return Block.blocksList[id] instanceof BlockStone;
-	}
+		//TODO:					  getBlock()
+		Block blockBottom = world.func_147439_a(x, y - 1, z);
+		//TODO:				   getBlock()
+		Block blockTop = world.func_147439_a(x, y + 1, z);
+		
+		switch (metadata)
+		{
+		case 0: // Stalagmite
+			return blockBottom instanceof BlockStone;
+			
+		case 1: // Stalactite
+		    return blockTop instanceof BlockStone;
 
-	protected boolean canThisPlantGrowOnThisBlockID(int id, int metadata)
-	{
-			return Block.blocksList[id] instanceof BlockStone;
-	}
-
-	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side, ItemStack itemStack)
-	{
-		int idbottom = world.getBlockId(x, y - 1, z);
-		int idtop = world.getBlockId(x, y + 1, z);
-		int meta = itemStack.getItemDamage();
-		//boolean sky = world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z);
-
-		if (itemStack.itemID == blockID) {
-			switch (meta)
-			{
-			case 0: // Stalagmite
-				return Block.blocksList[idbottom] instanceof BlockStone;
-				
-			case 1: // Stalactite
-			    return Block.blocksList[idtop] instanceof BlockStone;
-
-			default:
-			    return Block.blocksList[idbottom] instanceof BlockStone;
-			}
-		} else
-			return this.canPlaceBlockOnSide(world, x, y, z, side);
+		default:
+		    return blockBottom instanceof BlockStone;
+		}
 	}
 
 	@Override
-	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	//TODO:			canReplace()
+    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		super.func_149695_a(world, x, y, z, neighborBlock);
-		this.checkFlowerChange(world, x, y, z);
+		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
 	@Override
@@ -151,28 +136,17 @@ public class BlockStoneFormations extends BlockFlower
 	}
 
 	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		if (world.getBlockId(x, y, z) != blockID)
-		{
-			if (meta == 1)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z));
-			else
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-		}
-		else
-		{
-			if (meta == 1)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z), world.getBlockMetadata(x, y, z));
-			else
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-		}
+		return this.isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
-	public boolean isBlockReplaceable(World world, int x, int y, int z)
+	//TODO: 	   isBlockReplaceable
+	public boolean func_149742_c(World world, int x, int y, int z)
 	{
 		return true;
 	}

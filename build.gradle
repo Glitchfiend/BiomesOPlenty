@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.0-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.1-SNAPSHOT'
     }
 }
 
@@ -31,8 +31,8 @@ repositories {
 }
 
 dependencies {
-    compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
-    compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
+    //compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
+    //compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
 }
 
 group = "biomesoplenty"
@@ -44,7 +44,7 @@ minecraft {
     assetDir = "run/assets"
 
 	replaceIn "BiomesOPlenty.java"
-    	replace "1.42.666.42.1", '9.11.1.952'
+    	replace "1.42.666.42.1", config.forge_version
 }
 
 // add some stuff to the version

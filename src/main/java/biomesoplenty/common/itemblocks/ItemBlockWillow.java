@@ -1,5 +1,6 @@
 package biomesoplenty.common.itemblocks;
 
+import biomesoplenty.api.BOPBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
@@ -29,7 +30,8 @@ public class ItemBlockWillow extends ItemColored
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
-		return Blocks.willow.get().getRenderColor(itemStack.getItemDamage());
+		//TODO:							 getRenderColor()
+		return BOPBlockHelper.get("willow").func_149741_i(itemStack.getItemDamage());
 	}
 
 	@Override

@@ -120,6 +120,7 @@ tile.bop.bamboo.name=Bambus
 tile.bop.mudBricksStairs.name=Lehmziegelstufen
 tile.bop.originGrass.name=Ursprüngliches Gras
 tile.bop.longGrass.name=Langes Gras
+tile.bop.overgrownNetherrack.name=Überwucherter Netherstein
 tile.bop.treeMoss.name=Baummoos
 
 tile.bop.coral.kelpsingle.name=Seetang
@@ -302,10 +303,9 @@ item.bop.food.saladshroom.name=Pilzsalat
 item.bop.food.persimmon.name=Kaki
 item.bop.food.filledhoneycomb.name=Gefüllte Honigwabe
 item.bop.food.ambrosia.name=Ambrosia
-item.bop.food.beetroot.name=Rotrübe
-item.bop.food.beetrootsoup.name=Rotrübensuppe
+item.bop.food.turnip.name=Rübe
 
-item.bop.beetrootseeds.name=Rotrübensamen
+item.bop.turnipseeds.name=Rübensamen
 
 item.bop.dartblower.name=Blasrohr
 item.bop.dart.dart.name=Dart

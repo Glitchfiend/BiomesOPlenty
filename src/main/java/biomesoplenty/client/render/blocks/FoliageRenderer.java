@@ -6,8 +6,8 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.blocks.BlockBOPFoliage;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.blocks.BlockBOPFoliage;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
@@ -24,31 +24,27 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-
-		if (modelId == RenderUtils.foliageModel)
+		
+		if (block == BOPBlockHelper.get("foliage"))
 		{
-			if (block == Blocks.foliage.get())
-			{
-				if (meta == 0)
-					return renderBlockAlgae(renderer, block, x, y, z);
-				else if (meta == 13)
-					return renderBlockClover(renderer, block, x, y, z);
-				else
-					return renderCrossedSquares(block, x, y, z, renderer);
-			}
+			if (meta == 0)
+				return renderBlockAlgae(renderer, block, x, y, z);
+			else if (meta == 13)
+				return renderBlockClover(renderer, block, x, y, z);
 			else
-			{
-				if (meta == 0)
-					return renderBlockAlgae(renderer, block, x, y, z);
-				else
-					return renderCrossedSquares(block, x, y, z, renderer);
-			}
+				return renderCrossedSquares(block, x, y, z, renderer);
 		}
-		return true;
+		else
+		{
+			if (meta == 0)
+				return renderBlockAlgae(renderer, block, x, y, z);
+			else
+				return renderCrossedSquares(block, x, y, z, renderer);
+		}
 	}
 
 	@Override
-	public boolean shouldRender3DInInventory()
+	public boolean shouldRender3DInInventory(int modelId)
 	{
 		return false;
 	}
@@ -62,15 +58,23 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
     public boolean renderBlockAlgae(RenderBlocks renderer, Block block, int x, int y, int z)
     {
         Tessellator tessellator = Tessellator.instance;
-        Icon icon = renderer.getBlockIconFromSide(block, 1);
+		//TODO:						  blockAccess
+		IBlockAccess world = renderer.field_147845_a;
+		//TODO:				  getBlockIconFromSide()
+        IIcon icon = renderer.func_147777_a(block, 1);
 
-        if (renderer.hasOverrideBlockTexture())
+        //Need to make public: overrideBlockTexture
+        
+        //TODO:		hasOverrideBlockTexture()
+        if (renderer.func_147744_b())
         {
-            icon = renderer.overrideBlockTexture;
+        	//TODO:			overrideBlockTexture
+            icon = renderer.field_147840_d;
         }
         
 		float cf = 1.0F;
-		int cl = block.colorMultiplier(renderer.blockAccess, x, y, z);
+		//TODO:			colorMUltiplier()
+		int cl = block.func_149720_d(world, x, y, z);
 		float c1 = (cl >> 16 & 255) / 255.0F;
 		float c2 = (cl >> 8 & 255) / 255.0F;
 		float c3 = (cl & 255) / 255.0F;
@@ -95,7 +99,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         long l = (long)(x * 3129871) ^ (long)z * 116129781L ^ (long)y;
         l = l * l * 42317861L + l * 11L;
         int i1 = (int)(l >> 16 & 3L);
-        tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
+        //TODO:							getMixedBrightnessForBlock()
+        tessellator.setBrightness(block.func_149677_c(world, x, y, z));
         float f1 = (float)x + 0.5F;
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
@@ -114,15 +119,21 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
     public boolean renderBlockClover(RenderBlocks renderer, Block block, int x, int y, int z)
     {
         Tessellator tessellator = Tessellator.instance;
-        IIcon icon = renderer.getBlockIconFromSideAndMetadata(block, 1, 13);
+		//TODO:						  blockAccess
+		IBlockAccess world = renderer.field_147845_a;
+		//TODO:				  getBlockIconFromSideAndMetadata()
+        IIcon icon = renderer.func_147787_a(block, 1, 13);
 
-        if (renderer.hasOverrideBlockTexture())
+        //TODO:		hasOverrideBlockTexture()
+        if (renderer.func_147744_b())
         {
-            icon = renderer.overrideBlockTexture;
+        	//TODO:			overrideBlockTexture
+            icon = renderer.field_147840_d;
         }
         
 		float cf = 1.0F;
-		int cl = block.colorMultiplier(renderer.blockAccess, x, y, z);
+		//TODO:			colorMultiplier()
+		int cl = block.func_149720_d(world, x, y, z);
 		float c1 = (cl >> 16 & 255) / 255.0F;
 		float c2 = (cl >> 8 & 255) / 255.0F;
 		float c3 = (cl & 255) / 255.0F;
@@ -147,7 +158,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
         long l = (long)(x * 3129871) ^ (long)z * 116129781L ^ (long)y;
         l = l * l * 42317861L + l * 11L;
         int i1 = (int)(l >> 16 & 3L);
-        tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
+        //TODO:							getMixedBrightnessForBlock()
+        tessellator.setBrightness(block.func_149677_c(world, x, y, z));
         float f1 = (float)x + 0.5F;
         float f2 = (float)z + 0.5F;
         float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
@@ -169,9 +181,11 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		//TODO:						  blockAccess
 		IBlockAccess world = renderer.field_147845_a;
 		
-		tessellator.setBrightness(par1Block.getMixedBrightnessForBlock(world, par2, par3, par4));
+		//TODO:								getMixedBrightnessForBlock()
+		tessellator.setBrightness(par1Block.func_149677_c(world, par2, par3, par4));
 		float f = 1.0F;
-		int l = par1Block.colorMultiplier(world, par2, par3, par4);
+		//TODO:				colorMultiplier()
+		int l = par1Block.func_149720_d(world, par2, par3, par4);
 		float f1 = (l >> 16 & 255) / 255.0F;
 		float f2 = (l >> 8 & 255) / 255.0F;
 		float f3 = (l & 255) / 255.0F;
@@ -186,7 +200,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			f3 = f6;
 		}
 
-		if ((world.getBlockMetadata(par2, par3, par4) == 8 || world.getBlockMetadata(par2, par3, par4) == 9) && world.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID)
+		//TODO:																										  getBlock()
+		if ((world.getBlockMetadata(par2, par3, par4) == 8 || world.getBlockMetadata(par2, par3, par4) == 9) && world.func_147439_a(par2, par3, par4) == BOPBlockHelper.get("foliage"))
 		{
 			tessellator.setColorOpaque_F(f, f, f);
 		}
@@ -199,7 +214,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		double d1 = par3;
 		double d2 = par4;
 
-		if (par1Block == Blocks.foliage.get())
+		if (par1Block == BOPBlockHelper.get("foliage"))
 		{
 			long i1;
 			if (world.getBlockMetadata(par2, par3, par4) == GRASSTOP) {
@@ -214,21 +229,26 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
 		}
 
-		if (world.getBlockMetadata(par2, par3, par4) == 10 && world.getBlockId(par2, par3, par4) == Blocks.flowers.get().blockID) 
+		//TODO:														getBlock()
+		if (world.getBlockMetadata(par2, par3, par4) == 10 && world.func_147439_a(par2, par3, par4) == BOPBlockHelper.get("flowers")) 
 		{
-			renderer.drawCrossedSquares(par1Block, world.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
+			//TODO:	 drawCrossedSquares()
+			renderer.func_147730_a(par1Block, world.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
 		} 
-		else if (world.getBlockMetadata(par2, par3, par4) == 8 && world.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
+		//TODO:															getBlock()
+		else if (world.getBlockMetadata(par2, par3, par4) == 8 && world.func_147439_a(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
 		{
 			renderBerryBush(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
-		else if (world.getBlockMetadata(par2, par3, par4) == 9 && world.getBlockId(par2, par3, par4) == Blocks.foliage.get().blockID) 
+		//TODO:															getBlock()
+		else if (world.getBlockMetadata(par2, par3, par4) == 9 && world.func_147439_a(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
 		{
 			renderShrub(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
 		else 
 		{
-			renderer.drawCrossedSquares(par1Block, world.getBlockMetadata(par2, par3, par4), d0, d1, d2, 1.0F);
+			//TODO:	 drawCrossedSquares()	 getIcon()
+			renderer.func_147765_a(par1Block.func_149691_a(0, world.getBlockMetadata(par2, par3, par4)), d0, d1, d2, 1.0F);
 		}
 		
 		return true;
@@ -237,24 +257,30 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	private static void renderBerryBush(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
         Tessellator tessellator = Tessellator.instance;
-        Icon berryBush = renderer.getBlockIconFromSideAndMetadata(Blocks.foliage.get(), 0, 8);
-        Icon berryBushBerry = ((BlockBOPFoliage)Blocks.foliage.get()).berryBushBerry;
+        //TODO:					   getBlockIconFromSideAndMetadata()
+        IIcon berryBush = renderer.func_147787_a(BOPBlockHelper.get("foliage"), 0, 8);
+        IIcon berryBushBerry = ((BlockBOPFoliage)BOPBlockHelper.get("foliage")).berryBushBerry;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
-        RenderUtils.renderCrossedSquaresFromIcon(berryBush, par1, par2, par3, par4, renderer);
+		//TODO:	 drawCrossedSquares()
+		renderer.func_147765_a(berryBush, par1, par2, par3, par4);
 		tessellator.setColorOpaque_F(par4, par4, par4);
-        RenderUtils.renderCrossedSquaresFromIcon(berryBushBerry, par1, par2, par3, par4, renderer);
+		//TODO:	 drawCrossedSquares()
+		renderer.func_147765_a(berryBushBerry, par1, par2, par3, par4);
 	}
 	
 	private static void renderShrub(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
 	{
         Tessellator tessellator = Tessellator.instance;
-        IIcon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(Blocks.foliage.get(), 0, 9);
-        IIcon shrubBranch = ((BlockBOPFoliage)Blocks.foliage.get()).shrubBranch;
+        //TODO:					   getBlockIconFromSideAndMetadata()
+        IIcon shrubLeaf = renderer.func_147787_a(BOPBlockHelper.get("foliage"), 0, 9);
+        IIcon shrubBranch = ((BlockBOPFoliage)BOPBlockHelper.get("foliage")).shrubBranch;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
-        RenderUtils.renderCrossedSquaresFromIcon(shrubLeaf, par1, par2, par3, par4, renderer);
+		//TODO:	 drawCrossedSquares()
+		renderer.func_147765_a(shrubLeaf, par1, par2, par3, par4);
 		tessellator.setColorOpaque_F(par4, par4, par4);
-        RenderUtils.renderCrossedSquaresFromIcon(shrubBranch, par1, par2, par3, par4, renderer);
+		//TODO:	 drawCrossedSquares()
+        renderer.func_147765_a(shrubBranch, par1, par2, par3, par4);
 	}
 }

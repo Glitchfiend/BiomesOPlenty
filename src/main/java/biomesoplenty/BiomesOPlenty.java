@@ -51,6 +51,7 @@ public class BiomesOPlenty
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
+
 	}
 
 	@EventHandler

@@ -2,8 +2,9 @@ package biomesoplenty.common.blocks;
 
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
+import biomesoplenty.api.BOPItemHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -13,16 +14,17 @@ public class BlockTurnip extends BlockCrops
     private IIcon[] iconArray;
 
     @Override
-    public IIcon getIcon(int par1, int par2)
-    {
-        if (par2 < 7)
+	//TODO:		 getIcon()
+	public IIcon func_149691_a(int side, int meta)
+	{
+        if (meta < 7)
         {
-            if (par2 == 6)
+            if (meta == 6)
             {
-                par2 = 5;
+                meta = 5;
             }
 
-            return this.iconArray[par2 >> 1];
+            return this.iconArray[meta >> 1];
         }
         else
         {
@@ -31,15 +33,17 @@ public class BlockTurnip extends BlockCrops
     }
 
     @Override
-    protected int getSeedItem()
+    //TODO:			getSeedItem()
+    protected Item func_149866_i()
     {
-        return Items.turnipseeds.get().itemID;
+        return BOPItemHelper.get("turnipSeeds");
     }
 
     @Override
-    protected int getCropItem()
+    //TODO:		  getCropItem()
+    protected Item func_149865_P()
     {
-        return Items.food.get().itemID;
+        return BOPItemHelper.get("food");
     }
     
 	@Override
@@ -50,13 +54,15 @@ public class BlockTurnip extends BlockCrops
 	}
 
     @Override
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
+	//TODO:		registerIcons()
+	public void func_149651_a(IIconRegister iconRegister)
+	{
         this.iconArray = new IIcon[4];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-            this.iconArray[i] = par1IconRegister.registerIcon("biomesoplenty:" + this.getTextureName() + "_stage_" + i);
+        	//TODO:																  getTextureName()
+            this.iconArray[i] = iconRegister.registerIcon("biomesoplenty:" + this.func_149641_N() + "_stage_" + i);
         }
     }
 }

@@ -9,6 +9,10 @@ import biomesoplenty.common.blocks.BlockBOPAppleLeaves;
 import biomesoplenty.common.blocks.BlockBOPColorizedLeaves;
 import biomesoplenty.common.blocks.BlockBOPColorizedLeaves.ColourizedLeafCategory;
 import biomesoplenty.common.blocks.BlockBOPColorizedSapling;
+import biomesoplenty.common.blocks.BlockBOPCoral;
+import biomesoplenty.common.blocks.BlockBOPFlower;
+import biomesoplenty.common.blocks.BlockBOPFlower2;
+import biomesoplenty.common.blocks.BlockBOPFoliage;
 import biomesoplenty.common.blocks.BlockBOPGems;
 import biomesoplenty.common.blocks.BlockBOPGeneric;
 import biomesoplenty.common.blocks.BlockBOPGeneric.BlockType;
@@ -17,9 +21,11 @@ import biomesoplenty.common.blocks.BlockBOPLeaves;
 import biomesoplenty.common.blocks.BlockBOPLeaves.LeafCategory;
 import biomesoplenty.common.blocks.BlockBOPLog;
 import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
+import biomesoplenty.common.blocks.BlockBOPMushroom;
 import biomesoplenty.common.blocks.BlockBOPPersimmonLeaves;
 import biomesoplenty.common.blocks.BlockBOPPetals;
 import biomesoplenty.common.blocks.BlockBOPPlank;
+import biomesoplenty.common.blocks.BlockBOPPlant;
 import biomesoplenty.common.blocks.BlockBOPRedRock;
 import biomesoplenty.common.blocks.BlockBOPSapling;
 import biomesoplenty.common.blocks.BlockBOPSkystone;
@@ -34,29 +40,46 @@ import biomesoplenty.common.blocks.BlockFlesh;
 import biomesoplenty.common.blocks.BlockGrave;
 import biomesoplenty.common.blocks.BlockHive;
 import biomesoplenty.common.blocks.BlockHoney;
+import biomesoplenty.common.blocks.BlockIvy;
 import biomesoplenty.common.blocks.BlockLongGrass;
+import biomesoplenty.common.blocks.BlockMoss;
 import biomesoplenty.common.blocks.BlockMud;
 import biomesoplenty.common.blocks.BlockOriginGrass;
 import biomesoplenty.common.blocks.BlockOvergrownNetherrack;
 import biomesoplenty.common.blocks.BlockPromisedPortal;
+import biomesoplenty.common.blocks.BlockStoneFormations;
+import biomesoplenty.common.blocks.BlockTreeMoss;
+import biomesoplenty.common.blocks.BlockTurnip;
+import biomesoplenty.common.blocks.BlockWillow;
 import biomesoplenty.common.itemblocks.ItemBlockAppleLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockBamboo;
 import biomesoplenty.common.itemblocks.ItemBlockBones;
 import biomesoplenty.common.itemblocks.ItemBlockColorizedLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockColorizedSapling;
+import biomesoplenty.common.itemblocks.ItemBlockCoral;
+import biomesoplenty.common.itemblocks.ItemBlockFlower;
+import biomesoplenty.common.itemblocks.ItemBlockFlower2;
+import biomesoplenty.common.itemblocks.ItemBlockFoliage;
 import biomesoplenty.common.itemblocks.ItemBlockGems;
 import biomesoplenty.common.itemblocks.ItemBlockGrave;
 import biomesoplenty.common.itemblocks.ItemBlockHive;
+import biomesoplenty.common.itemblocks.ItemBlockIvy;
 import biomesoplenty.common.itemblocks.ItemBlockLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockLog;
+import biomesoplenty.common.itemblocks.ItemBlockMoss;
 import biomesoplenty.common.itemblocks.ItemBlockMud;
+import biomesoplenty.common.itemblocks.ItemBlockMushroom;
 import biomesoplenty.common.itemblocks.ItemBlockPersimmonLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockPetals;
 import biomesoplenty.common.itemblocks.ItemBlockPlank;
+import biomesoplenty.common.itemblocks.ItemBlockPlant;
 import biomesoplenty.common.itemblocks.ItemBlockRedRock;
 import biomesoplenty.common.itemblocks.ItemBlockSapling;
 import biomesoplenty.common.itemblocks.ItemBlockSkystone;
 import biomesoplenty.common.itemblocks.ItemBlockSlab;
+import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
+import biomesoplenty.common.itemblocks.ItemBlockTurnip;
+import biomesoplenty.common.itemblocks.ItemBlockWillow;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPBlocks 
@@ -77,20 +100,20 @@ public class BOPBlocks
         registerBlock(new BlockBOPRedRock().func_149663_c("redRock"), ItemBlockRedRock.class);
 		registerBlock(new BlockAsh().func_149663_c("ash"));
         registerBlock(new BlockFlesh().func_149663_c("flesh"));
-        //Blocks.plants = Optional.of((new BlockBOPPlant(BOPConfigurationIDs.plantsID)).setUnlocalizedName("bop.plants"));
-        //Blocks.flowers = Optional.of((new BlockBOPFlower(BOPConfigurationIDs.flowersID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.flowers"));
-        //Blocks.flowers2 = Optional.of((new BlockBOPFlower2(BOPConfigurationIDs.flowers2ID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.flowers2"));
-        //Blocks.stoneFormations = Optional.of((new BlockStoneFormations(BOPConfigurationIDs.stoneFormationsID)).setHardness(0.5F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("bop.stoneFormations"));
-        //Blocks.mushrooms = Optional.of((new BlockBOPMushroom(BOPConfigurationIDs.mushroomsID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.mushrooms"));
-        //Blocks.coral = Optional.of((new BlockBOPCoral(BOPConfigurationIDs.coralID)).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.coral"));
-        //Blocks.willow = Optional.of((new BlockWillow(BOPConfigurationIDs.willowID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.willow"));
-        //Blocks.ivy = Optional.of((new BlockIvy(BOPConfigurationIDs.ivyID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.ivy"));
+        registerBlock(new BlockBOPPlant().func_149663_c("plants"), ItemBlockPlant.class);
+        registerBlock(new BlockBOPFlower().func_149663_c("flowers"), ItemBlockFlower.class);
+        registerBlock(new BlockBOPFlower2().func_149663_c("flowers2"), ItemBlockFlower2.class);
+        registerBlock(new BlockStoneFormations().func_149663_c("stoneFormations"), ItemBlockStoneFormations.class);
+        registerBlock(new BlockBOPMushroom().func_149663_c("mushrooms"), ItemBlockMushroom.class);
+        registerBlock(new BlockBOPCoral().func_149663_c("coral"), ItemBlockCoral.class);
+        registerBlock(new BlockWillow().func_149663_c("willow"), ItemBlockWillow.class);
+        registerBlock(new BlockIvy().func_149663_c("ivy"), ItemBlockIvy.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT1).func_149663_c("leaves1"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT2).func_149663_c("leaves2"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).func_149663_c("leaves3"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT4).func_149663_c("leaves4"), ItemBlockLeaves.class);
-        //Blocks.foliage = Optional.of((new BlockBOPFoliage(BOPConfigurationIDs.foliageID)).setUnlocalizedName("bop.foliage"));
-        //Blocks.turnip = Optional.of((new BlockTurnip(BOPConfigurationIDs.turnipID)).setUnlocalizedName("bop.turnip").setTextureName("turnip"));
+        registerBlock(new BlockBOPFoliage().func_149663_c("foliage"), ItemBlockFoliage.class);
+        registerBlock(new BlockTurnip().func_149663_c("turnip"), ItemBlockTurnip.class);
 		//TODO:									   rock
         registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.ASH_STONE).func_149663_c("ashStone"));
 		//TODO:									   rock
@@ -108,7 +131,8 @@ public class BOPBlocks
         registerBlock(new BlockOvergrownNetherrack().func_149663_c("overgrownNetherrack"));
         registerBlock(new BlockBOPGrass().func_149663_c("grass"));
         
-        //Blocks.treeMoss = Optional.of((new BlockTreeMoss(BOPConfigurationIDs.treeMossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.treeMoss"));
+        registerBlock(new BlockTreeMoss().func_149663_c("treeMoss"));
+        
 		registerBlock(new BlockBOPLog(LogCategory.CAT1).func_149663_c("logs1"), ItemBlockLog.class);
 		registerBlock(new BlockBOPLog(LogCategory.CAT2).func_149663_c("logs2"), ItemBlockLog.class);
 		registerBlock(new BlockBOPLog(LogCategory.CAT3).func_149663_c("logs3"), ItemBlockLog.class);
@@ -133,8 +157,8 @@ public class BOPBlocks
         registerBlock(new BlockPromisedPortal().func_149663_c("promisedPortal"));
 
 		registerBlock(new BlockBOPGems().func_149663_c("gemOre"), ItemBlockGems.class);
-        //
-        //Blocks.moss = Optional.of((new BlockMoss(BOPConfigurationIDs.mossID)).setHardness(0.2F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("bop.moss"));
+       
+		registerBlock(new BlockMoss().func_149663_c("moss"), ItemBlockMoss.class);
 
 		//TODO:									   rock
         registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.CRAG_ROCK).func_149663_c("cragRock"));

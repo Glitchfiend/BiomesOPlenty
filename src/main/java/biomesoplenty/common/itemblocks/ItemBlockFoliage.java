@@ -1,15 +1,16 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
-import javax.swing.Icon;
-
+import biomesoplenty.api.BOPBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,21 +19,22 @@ public class ItemBlockFoliage extends ItemColored
 {
 	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch"};
 	@SideOnly(Side.CLIENT)
-	private Icon[] textures;
+	private IIcon[] textures;
 	private static final int GRASSTOP = 6;
 
-	public ItemBlockFoliage(int par1)
+	public ItemBlockFoliage(Block block)
 	{
-		super(par1, true);
-		setMaxDamage(0);
-		setHasSubtypes(true);
+		super(block, true);
+		
+		this.setMaxDamage(0);
+		this.setHasSubtypes(true);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new Icon[foliageTypes.length];
+		textures = new IIcon[foliageTypes.length];
 
 		for (int i = 0; i < foliageTypes.length; ++i) {
 			textures[i] = iconRegister.registerIcon("biomesoplenty:" + foliageTypes[i]);
@@ -50,7 +52,8 @@ public class ItemBlockFoliage extends ItemColored
 		if (itemStack.getItemDamage() == 3 || itemStack.getItemDamage() == 8 || itemStack.getItemDamage() == 9)
 			return 16777215;
 		else
-			return Blocks.foliage.get().getRenderColor(itemStack.getItemDamage());
+			//TODO:							 getRenderColor()
+			return BOPBlockHelper.get("foliage").func_149741_i(itemStack.getItemDamage());
 	}
 
 	@Override
@@ -71,11 +74,12 @@ public class ItemBlockFoliage extends ItemColored
 	}
 
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
 		if (meta == GRASSTOP) {
 			meta = 3;
 		}
+		
 		return textures[meta];
 	}
 
@@ -91,7 +95,7 @@ public class ItemBlockFoliage extends ItemColored
 			return itemStack;
 		else
 		{
-			if (movingobjectposition.typeOfHit == EnumMovingObjectType.TILE)
+			if (movingobjectposition.typeOfHit == MovingObjectType.BLOCK)
 			{
 				int i = movingobjectposition.blockX;
 				int j = movingobjectposition.blockY;
@@ -103,9 +107,11 @@ public class ItemBlockFoliage extends ItemColored
 				if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
 					return itemStack;
 
-				if (world.getBlockMaterial(i, j, k) == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
+				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
+				if (world.func_147439_a(i, j, k).func_149688_o() == Material.field_151586_h && world.getBlockMetadata(i, j, k) == 0 && world.func_147437_c(i, j + 1, k))
 				{
-					world.setBlock(i, j + 1, k, itemStack.itemID, 0, 2);
+					//TODO:	setBlock()				linkedBlock
+					world.func_147465_d(i, j + 1, k, field_150939_a, 0, 2);
 
 					if (!player.capabilities.isCreativeMode)
 					{
@@ -115,75 +121,6 @@ public class ItemBlockFoliage extends ItemColored
 			}
 
 			return itemStack;
-		}
-	}
-
-	@Override
-	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
-	{
-		if (itemStack.getItemDamage() == 0)
-			return super.onItemUse(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ);
-
-		int id = world.getBlockId(x, y, z);
-
-		if (id == Block.snow.blockID && (world.getBlockMetadata(x, y, z) & 7) < 1) {
-			side = 1;
-		} else if (!Block.blocksList[id].isBlockReplaceable(world, x, y, z))
-		{
-			if (side == 0) {
-				--y;
-			}
-
-			if (side == 1) {
-				++y;
-			}
-
-			if (side == 2) {
-				--z;
-			}
-
-			if (side == 3) {
-				++z;
-			}
-
-			if (side == 4) {
-				--x;
-			}
-
-			if (side == 5) {
-				++x;
-			}
-		}
-
-		if (!player.canPlayerEdit(x, y, z, side, itemStack))
-			return false;
-		else if (itemStack.stackSize == 0)
-			return false;
-		else
-		{
-			if (world.canPlaceEntityOnSide(this.getBlockID(), x, y, z, false, side, (Entity)null, itemStack))
-			{
-				Block block = Block.blocksList[this.getBlockID()];
-				int j1 = block.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, 0);
-
-				if (world.setBlock(x, y, z, this.getBlockID(), itemStack.getItemDamage(), 3))
-				{
-					if (itemStack.getItemDamage() == 3 && world.getBlockMaterial(x, y + 1, z).isReplaceable()) {
-						world.setBlock(x, y + 1, z, this.getBlockID(), GRASSTOP, 2);
-					}
-
-					if (world.getBlockId(x, y, z) == this.getBlockID())
-					{
-						Block.blocksList[this.getBlockID()].onBlockPlacedBy(world, x, y, z, player, itemStack);
-						Block.blocksList[this.getBlockID()].onPostBlockPlaced(world, x, y, z, j1);
-					}
-
-					world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, block.stepSound.getPlaceSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
-					--itemStack.stackSize;
-				}
-			}
-
-			return true;
 		}
 	}
 }

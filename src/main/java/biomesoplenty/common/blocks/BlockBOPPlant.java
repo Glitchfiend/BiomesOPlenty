@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -21,15 +21,18 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.client.render.blocks.RenderUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPPlant extends BlockFlower implements IShearable
+public class BlockBOPPlant extends BlockBush implements IShearable
 {
 	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
 	private IIcon[] textures;
@@ -40,11 +43,14 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 
 	public BlockBOPPlant()
 	{
-		super(Material.vine);
+		//TODO:	Material.plants
+		super(Material.field_151585_k);
 		
-		setTickRandomly(true);
+		//TODO: setTickRandomly()
+		this.func_149675_a(true);
 		float var3 = 0.4F;
-		setBurnProperties(blockID, 60, 100);
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 60, 100);
 		//TODO: this.setHardness
 		this.func_149711_c(0.0F);
 		//TODO setStepSound(Block.soundGrassFootstep)
@@ -121,160 +127,113 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 		}
 	}
 
-	protected boolean canThisPlantGrowOnThisBlockID(int blockID, int metadata)
+	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		//case 2: // Desert Sprouts
+		//TODO:					  getBlock()
+		Block block = world.func_147439_a(x, y - 1, z);
+		//TODO:					  getBlock()
+		Block root = world.func_147439_a(x, y + 1, z);
+		
+		switch (metadata)
+		{
+		case 0: // Dead Grass
+		return block == BOPBlockHelper.get("driedDirt") || block == Blocks.sand;
 
-		if (metadata == 0) //Dead Grass
-			return blockID == Blocks.driedDirt.get().blockID || blockID == Block.sand.blockID;
-		else if (metadata == 1) //Desert Grass
-			return blockID == Blocks.redRock.get().blockID;
-		else if (metadata == 3) //Dune Grass
-			return blockID == Block.sand.blockID;
-		else if (metadata == 4) //Holy Tall Grass
-			return blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
-		else if (metadata == 5)
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.slowSand.blockID;
-		else if (metadata == 6)
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID;
-		else if (metadata == 7)
-			return blockID == Block.grass.blockID;
-		else if (metadata == 8)
-			return blockID == this.blockID || blockID == Block.grass.blockID;
-		else if (metadata == 9)
-			return blockID == this.blockID;
-		else if (metadata == 12)
-			return blockID == Block.sand.blockID || blockID == Blocks.redRock.get().blockID || blockID == Block.slowSand.blockID;
-		else if (metadata == 13)
-			return blockID == Block.slowSand.blockID;
-		else if (metadata == 14)
-			return blockID == Block.waterStill.blockID;
-		else if (metadata == 15)
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.holyGrass.get().blockID || blockID == Blocks.holyDirt.get().blockID;
-		else
-			return blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.tilledField.blockID || blockID == Blocks.longGrass.get().blockID || blockID == Blocks.overgrownNetherrack.get().blockID;
-	}
+		case 1: // Desert Grass
+			return block == BOPBlockHelper.get("redRock");
 
-	@Override
-	protected boolean canThisPlantGrowOnThisBlockID(int id)
-	{
-		return id == Blocks.driedDirt.get().blockID || id == Block.sand.blockID || id == Blocks.redRock.get().blockID || id == Blocks.holyGrass.get().blockID
-				|| id == Block.grass.blockID || id == Block.dirt.blockID || id == Block.tilledField.blockID || id == Blocks.holyDirt.get().blockID || id == Blocks.overgrownNetherrack.get().blockID;
+		case 2: // Desert Sprouts
+		case 3: // Dune Grass
+			return block == Blocks.sand;
+
+		case 4: // Holy Tall Grass
+			return block == BOPBlockHelper.get("holyGrass");
+
+		case 5: // Thorns
+			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand;
+			
+		case 6: // Barley
+			return block == Blocks.grass || block == Blocks.dirt;
+
+		case 7: // Cattail
+			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
+			return block != Blocks.grass ? false : (world.func_147439_a(x - 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x + 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x, y - 1, z - 1).func_149688_o() == Material.field_151586_h ? true : world.func_147439_a(x, y - 1, z + 1).func_149688_o() == Material.field_151586_h)));
+
+		case 8: // River Cane
+			return block == this || block == Blocks.grass;
+
+		case 10: // High Cattail Bottom
+			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
+			return block != Blocks.grass ? false : (world.func_147439_a(x - 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x + 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x, y - 1, z - 1).func_149688_o() == Material.field_151586_h ? true : world.func_147439_a(x, y - 1, z + 1).func_149688_o() == Material.field_151586_h)));
+
+		case 12: // Tiny Cactus
+			return block == Blocks.sand || block == BOPBlockHelper.get("redRock") || block == Blocks.soul_sand;
+			
+		case 13: // Wither Wart
+			return block == Blocks.soul_sand;
+			
+		case 14: // Reed
+			return block == Blocks.water;
+			
+		case 15: // Reed
+			return root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("holyGrass") || root == BOPBlockHelper.get("holyDirt");
+			
+		default:
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("overgrownNetherrack");
+		}
 	}
 
 	@Override
 	//TODO:		   canPlaceBlockOnSide
 	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		Block block = world.getBlockId(x, y - 1, z);
-		int meta = world.getBlockMetadata(x, y - 1, z);
-		int root = world.getBlockId(x, y + 1, z);
-
-			switch (meta)
-			{
-			case 0: // Dead Grass
-			return block == Blocks.driedDirt.get().blockID || block == Block.sand.blockID;
-
-			case 1: // Desert Grass
-				return block == Blocks.redRock.get().blockID;
-
-			case 2: // Desert Sprouts
-			case 3: // Dune Grass
-				return block == Block.sand.blockID;
-
-			case 4: // Holy Tall Grass
-				return block == Blocks.holyGrass.get().blockID;
-
-			case 5: // Thorns
-				return block == Block.grass.blockID || block == Block.dirt.blockID || block == Block.slowSand.blockID;
-				
-			case 6: // Barley
-				return block == Block.grass.blockID || block == Block.dirt.blockID;
-
-			case 7: // Cattail
-				return block != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
-
-			case 8: // River Cane
-				return block == blockID || block == Block.grass.blockID;
-
-			case 10: // High Cattail Bottom
-				return block != Block.grass.blockID ? false : (world.getBlockMaterial(x - 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x + 1, y - 1, z) == Material.water ? true : (world.getBlockMaterial(x, y - 1, z - 1) == Material.water ? true : world.getBlockMaterial(x, y - 1, z + 1) == Material.water)));
-
-			case 12: // Tiny Cactus
-				return block == Block.sand.blockID || block == Blocks.redRock.get().blockID || block == Block.slowSand.blockID;
-				
-			case 13: // Wither Wart
-				return block == Block.slowSand.blockID;
-				
-			case 14: // Reed
-				return block == Blocks.water;
-				
-			case 15: // Reed
-				return root == Block.grass.blockID || root == Block.dirt.blockID || root == Block.tilledField.blockID || root == Blocks.longGrass.get().blockID || root == Blocks.holyGrass.get().blockID || root == Blocks.holyDirt.get().blockID;
-				
-			default:
-				return block == Block.grass.blockID || block == Block.dirt.blockID || block == Block.tilledField.blockID || block == Blocks.overgrownNetherrack.get().blockID;
-			}
-		} 
+		return this.isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
-	public boolean canBlockStay(World world, int x, int y, int z)
+	//TODO:		   canBlockStay()
+	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		int id = world.getBlockId(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
-        Block block = Block.blocksList[id];
+		int metadata = world.getBlockMetadata(x, y, z);
 
-		if (world.getBlockId(x, y, z) != blockID)
-		{
-			if (meta == 5 || meta == 13)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-			else if (meta == 8)
-				return block == null || block.isBlockReplaceable(world, x, y, z);
-			else if (meta == 15)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z));
-			else
-				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z));
-		}
-		else
-		{
-			if (meta == 5 || meta == 13)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-			else if (meta == 15)
-				return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z), world.getBlockMetadata(x, y, z));
-			else
-				return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z), world.getBlockMetadata(x, y, z));
-		}
+        if (metadata == 5 || metadata == 13 || metadata == 15)
+        	return this.isValidPosition(world, x, y, z, metadata);
+        else
+        	return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, metadata);
 	}
 
 	@Override
 	//TODO:		onNeighborBlockChange()
 	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
-		super.func_149695_a(World world, int x, int y, int z, Block neighborBlock)(world, x, y, z, neighborID);
-		this.checkFlowerChange(world, x, y, z);
-		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlockId(x, y - 1, z) == blockID && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
+		super.func_149695_a(world, x, y, z, neighborBlock);
+
+		//TODO:													   getBlock()
+		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.func_147439_a(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
 		{
-			world.setBlockToAir(x, y, z);
+			//TODO: setBlockToAir()
+			world.func_147468_f(x, y, z);
 		}
-		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlockId(x, y + 1, z) != blockID) 
+		//TODO:																getBlock()
+		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.func_147439_a(x, y + 1, z) != this) 
 		{
-			world.setBlockToAir(x, y, z);
+			//TODO: setBlockToAir()
+			world.func_147468_f(x, y, z);
 		}
-		else if (world.getBlockId(x, y, z) != blockID || world.getBlockMetadata(x, y, z) != 8) 
+		//TODO:			getBlock()
+		else if (world.func_147439_a(x, y, z) != this || world.getBlockMetadata(x, y, z) != 8) 
 		{
-			this.checkBlockCoordValid(world, x, y, z);
-		}
-	}
-	
-	protected final void checkBlockCoordValid(World world, int x, int y, int z)
-	{
-		for (int i = 1; world.getBlockId(x, y + i, z) == blockID; i++)
-		{
-			if (!this.canBlockStay(world, x, y + i, z))
+			//TODO:				  getBlock()
+			for (int i = 1; world.func_147439_a(x, y + i, z) == this; i++)
 			{
-				this.dropBlockAsItem(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
-				world.setBlock(x, y + i, z, 0);
+				//TODO:	  canBlockStay()
+				if (!this.func_149718_j(world, x, y + i, z))
+				{
+					//TODO: dropBlockAsItem
+					this.func_149697_b(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
+					//TODO: setBlockToAir()
+					world.func_147468_f(x, y, z);
+				}
 			}
 		}
 	}
@@ -290,7 +249,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			{
 				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == Items.leather_boots) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].getItem() == Items.leather_leggings)))
 				{
 					entity.attackEntityFrom(DamageSource.cactus, 1);
 				}
@@ -306,7 +265,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 			{
 				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Item.bootsLeather.itemID) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].itemID == Item.legsLeather.itemID)))
+				if (!((inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == Items.leather_boots) && (inventory.armorInventory[1] != null && inventory.armorInventory[1].getItem() == Items.leather_leggings)))
 				{
 					entity.attackEntityFrom(DamageSource.cactus, 1);
 				}
@@ -319,17 +278,16 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	}
 	
 	@Override
-    public int idPicked(World world, int x, int y, int z)
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
     {
-		int blockID = world.getBlockId(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		if (meta == 11)
 		{
-			return Items.food.get().itemID;
+			return new ItemStack(BOPItemHelper.get("food"));
 		}
 		
-        return this.blockID;
+        return new ItemStack(this, 1);
     }
 
 	@Override
@@ -353,17 +311,18 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	//TODO:	   getItemDropped()
 	public Item func_149650_a(int metadata, Random random, int fortune)
 	{
-		if (par1 > 5 && par1 != 11)
+		if (metadata > 5 && metadata != 11)
 		{
-			return blockID;
+			//TODO:		getItemFromBlock()
+			return Item.func_150898_a(this);
 		}
-		else if (par1 == 11)
+		else if (metadata == 11)
 		{
-			return Items.food.get().itemID;
+			return BOPItemHelper.get("food");
 		}
 		else
 		{
-			return -1;
+			return null;
 		}
 	}
 
@@ -434,7 +393,7 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 	
     @Override
 	@SideOnly(Side.CLIENT)
-    public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
+    public boolean addDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
     {
 		if (meta == 13)
 		{
@@ -485,11 +444,5 @@ public class BlockBOPPlant extends BlockFlower implements IShearable
 
 		ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z)));
 		return ret;
-	}
-
-	@Override
-	public boolean isBlockFoliage(IBlockAccess world, int x, int y, int z)
-	{
-		return true;
 	}
 }

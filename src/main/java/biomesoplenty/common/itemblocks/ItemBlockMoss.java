@@ -1,30 +1,31 @@
-package biomesoplenty.itemblocks;
+package biomesoplenty.common.itemblocks;
 
-import javax.swing.Icon;
-
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockMoss extends ItemBlock
 {
 	@SideOnly(Side.CLIENT)
-	private Icon texture;
+	private IIcon texture;
 
-	public ItemBlockMoss(int par1)
+	public ItemBlockMoss(Block block)
 	{
-		super(par1);
+		super(block);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister)
+	public void registerIcons(IIconRegister iconRegister)
 	{
 		texture = iconRegister.registerIcon("biomesoplenty:item_moss");
 	}
 
 	@Override
-	public Icon getIconFromDamage(int meta)
+	public IIcon getIconFromDamage(int meta)
 	{
 		return texture;
 	}
