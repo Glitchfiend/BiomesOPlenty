@@ -72,7 +72,7 @@ public class ItemBOPRecord extends ItemRecord
 	//TODO:		  getRecordTitle()
 	public String func_150927_i()
 	{
-		return StatCollector.translateToLocal("item.record." + this.field_150929_a + ".desc");
+		return StatCollector.translateToLocal("item." + this.field_150929_a + ".desc");
 	}
 
 	@Override

@@ -105,13 +105,6 @@ public class BlockBOPGeneric extends Block
 			break;
 		}
 	}
-	
-	@Override
-	//TODO:		  getUnlocalizedName()
-	public String func_149739_a() 
-	{
-		return "tile.bop.generic" + "." + type.toString().toLowerCase();
-	}
 
 	@Override
 	//TODO:		registerIcons()
