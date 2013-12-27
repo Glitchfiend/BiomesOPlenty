@@ -13,6 +13,12 @@ public class BlockHoney extends Block
 		//TODO: Material.glass
 		super(Material.field_151592_s);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.5F);
+		
+		//TODO setStepSound(Block.soundStoneFootstep)
+		this.func_149672_a(Block.field_149780_i);
+		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}

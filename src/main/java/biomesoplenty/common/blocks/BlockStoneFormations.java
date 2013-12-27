@@ -27,6 +27,12 @@ public class BlockStoneFormations extends BlockBush
 		//TODO:	Material.vine
         super(Material.field_151582_l);
 
+		//TODO: this.setHardness
+		this.func_149711_c(0.5F);
+        
+		//TODO setStepSound(Block.soundStoneFootstep)
+		this.func_149672_a(Block.field_149780_i);
+        
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		float var4 = 0.2F;

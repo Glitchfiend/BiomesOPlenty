@@ -1,5 +1,6 @@
 package biomesoplenty.common.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraftforge.common.IShearable;
@@ -9,6 +10,12 @@ public class BlockIvy extends BlockVine implements IShearable
 {
 	public BlockIvy()
 	{
+		//TODO: this.setHardness
+		this.func_149711_c(0.2F);
+		
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		

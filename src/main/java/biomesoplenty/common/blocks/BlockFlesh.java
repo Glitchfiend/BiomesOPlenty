@@ -21,6 +21,12 @@ public class BlockFlesh extends Block
 		//TODO: Material.sponge
 		super(Material.field_151583_m);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.4F);	
+		
+		//TODO setStepSound(Block.soundGravelFootstep)
+		this.func_149672_a(Block.field_149767_g);
+		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}

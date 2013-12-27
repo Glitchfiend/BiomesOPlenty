@@ -51,14 +51,16 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		float f = 0.4F;
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.0F);
+		
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+		
 		//TODO:		setBurnProperties() getIdFromBlock()
 		Blocks.fire.func_149842_a(func_149682_b(this), 60, 100);
 		//TODO: setBlockBounds
 		this.func_149676_a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
-		//TODO: this.setHardness
-		this.func_149711_c(0.0F);
-		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
 
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);

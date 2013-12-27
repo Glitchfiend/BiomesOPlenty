@@ -25,6 +25,12 @@ public class BlockBamboo extends Block
 		//TODO: Material.plants
 		super(Material.field_151585_k);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.2F);
+		
+		//TODO setStepSound(Block.soundWoodFootstep)
+		this.func_149672_a(Block.field_149766_f);
+		
 		//TODO:		setBurnProperties() getIdFromBlock()
 		Blocks.fire.func_149842_a(func_149682_b(this), 5, 5);
 		//TODO: setTickRandomly()

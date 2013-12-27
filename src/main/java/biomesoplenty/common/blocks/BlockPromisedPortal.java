@@ -18,6 +18,14 @@ public class BlockPromisedPortal extends Block
 	{
 		//TODO:	Material.portal
 		super(Material.field_151567_E);
+		
+		//TODO:	this.setUnbreakable()
+		this.func_149722_s();
+		//TODO: this.setResistance
+		this.func_149752_b(6000000.0F);
+		
+		//TODO: this.setLightValue
+		this.func_149715_a(1.0F);
 	}
 
 	@Override

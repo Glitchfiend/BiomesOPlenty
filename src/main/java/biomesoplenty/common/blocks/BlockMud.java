@@ -26,6 +26,7 @@ public class BlockMud extends Block
 
 	public BlockMud()
 	{
+		//TODO:	Material.sand
 		super(Material.field_151595_p);
 		
 		//TODO: this.setHardness

@@ -28,12 +28,15 @@ public class BlockBOPGrass extends Block
 		//TODO:	Material.grass
 		super(Material.field_151577_b);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.6F);
+		this.setHarvestLevel("shovel", 0);
+		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
-		//TODO: this.setHardness
-		this.func_149711_c(0.6F);
+
 		//setLightValue(0.25F);
 
 		//TODO: this.setCreativeTab()

@@ -16,6 +16,15 @@ public class BlockCloud extends Block
 		//TODO:	Material.cloth
 		super(Material.field_151580_n);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.1F);
+		
+		//TODO setStepSound(Block.soundClothFootstep)
+		this.func_149672_a(Block.field_149775_l);
+		
+		//TODO:	setLightOpacity()
+		this.func_149713_g(3);
+		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}

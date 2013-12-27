@@ -22,10 +22,14 @@ public class BlockBOPPlank extends Block
 		//TODO: Material.wood
 		super(Material.field_151575_d);
 		
-		//TODO:		setBurnProperties() getIdFromBlock()
-		Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
 		//TODO: this.setHardness
 		this.func_149711_c(2.0F);
+		
+		//TODO setStepSound(Block.soundWoodFootstep)
+		this.func_149672_a(Block.field_149766_f);
+		
+		//TODO:		setBurnProperties() getIdFromBlock()
+		Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);

@@ -96,7 +96,7 @@ public class BlockBOPGeneric extends Block
 			//TODO: this.setResistance
 			this.func_149752_b(5.0F);
 			//TODO: this.setLightValue
-			this.func_149715_a(1.0F); //I think?
+			this.func_149715_a(1.0F);
 			//TODO setStepSound(Block.soundGravelFootstep)
 			this.func_149672_a(Block.field_149778_k);
 			break;

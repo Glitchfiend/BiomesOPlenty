@@ -22,6 +22,9 @@ public class BlockAsh extends Block
 		//TODO:	Material.sand
 		super(Material.field_151595_p);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.4F);	
+		
 		//TODO setStepSound(Block.soundSandFootstep)
 		this.func_149672_a(Block.field_149776_m);
 		

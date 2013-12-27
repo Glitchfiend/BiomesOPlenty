@@ -26,6 +26,12 @@ public class BlockBOPMushroom extends BlockBush
 		//TODO:	Material.plants
 		super(Material.field_151585_k);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.0F);
+		
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		

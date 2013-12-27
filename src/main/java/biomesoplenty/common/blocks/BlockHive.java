@@ -24,6 +24,12 @@ public class BlockHive extends Block
 		//TODO: Material.wood
 		super(Material.field_151575_d);
 		
+		//TODO: this.setHardness
+		this.func_149711_c(0.5F);
+		
+		//TODO setStepSound(Block.soundGrassFootstep)
+		this.func_149672_a(Block.field_149779_h);
+		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}
