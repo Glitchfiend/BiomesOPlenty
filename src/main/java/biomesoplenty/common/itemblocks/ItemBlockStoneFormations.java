@@ -20,12 +20,20 @@ public class ItemBlockStoneFormations extends ItemBlock
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 	}
+	
+	@Override
+	public int getMetadata(int meta)
+	{
+		return meta & 15;
+	}
+
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemStack)
 	{
 		int meta = itemStack.getItemDamage();
-		if (meta < 0 || meta >= forms.length) {
+		if (meta < 0 || meta >= forms.length) 
+		{
 			meta = 0;
 		}
 
