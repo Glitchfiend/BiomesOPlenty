@@ -155,7 +155,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		if (meta == 14)
 		{
 			//TODO:	 drawCrossedSquares()
-			renderer.func_147730_a(par1Block, meta, d0, d1, d2, 1.0F);
+			renderer.func_147765_a(par1Block.func_149691_a(0, world.getBlockMetadata(par2, par3, par4)), d0, d1, d2, 1.0F);
 			//TODO:	 drawCrossedSquares()
 			renderer.func_147765_a(((BlockBOPPlant)BOPBlockHelper.get("plants")).reedbottom, d0, d1 - 1, d2, 1.0F);
 		}
