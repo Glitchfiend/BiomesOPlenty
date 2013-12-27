@@ -35,14 +35,14 @@ public class BlockBOPStairs extends BlockStairs
 	public BlockBOPStairs(Block model, Category cat)
 	{
 		super(model, 0);
-		
+
 		category = cat;
-		
+
 		if (isWoodCategory(category.toString())) 
 		{
 			//TODO: this.setHardness
 			this.func_149711_c(2.0F);
-			
+
 			//TODO setStepSound(Block.soundWoodFootstep)
 			this.func_149672_a(Block.field_149766_f);
 		}
@@ -50,14 +50,17 @@ public class BlockBOPStairs extends BlockStairs
 		{
 			//TODO: this.setHardness
 			this.func_149711_c(3.0F);
-			
+
 			//TODO 	setStepSound(Block.soundStoneFootstep)
 			this.func_149672_a(Block.field_149780_i);
 		}
 
 		//TODO:		setBurnProperties() getIdFromBlock()
 		Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
-        
+
+		//TODO: useNeighborBrightness?
+		field_149783_u = true;
+
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 	}

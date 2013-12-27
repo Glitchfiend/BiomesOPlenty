@@ -61,6 +61,9 @@ public class BlockBOPSlab extends BlockSlab
 			//TODO: this.setCreativeTab()
 			this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
 		}
+		
+		//TODO: useNeighborBrightness?
+		field_149783_u = true;
 	}
 
 	@Override
