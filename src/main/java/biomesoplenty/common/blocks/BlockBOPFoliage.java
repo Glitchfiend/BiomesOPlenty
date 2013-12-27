@@ -155,18 +155,17 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		return ret;
 	}
 	
-	public boolean isValidPosition(World world, int x, int y, int z)
+	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
 		Block block = world.func_147439_a(x, y - 1, z);
-		int metadata = world.getBlockMetadata(x, y, z);
 		
 		switch (metadata)
 		{
 		case GRASSTOP:
 			return block == this;
 
-		case ALGAE: // Dead Grass
+		case ALGAE: // Algae
 			return block == Blocks.water;
 
 		default:
@@ -175,17 +174,17 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	//TODO:		   canPlaceBlockOnSide
-	public boolean func_149707_d(World world, int x, int y, int z, int side)
+	//TODO:			canReplace()
+    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return isValidPosition(world, x, y, z);
+		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 
 	@Override
 	//TODO:		   canBlockStay()
 	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z);
+		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
@@ -203,7 +202,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	            world.func_147465_d(x, y, z, Blocks.tallgrass, 1, 2);
 	        }
 	        //TODO:											getBlock()
-	        else if (!this.isValidPosition(world, x, y, z))
+	        else if (!this.isValidPosition(world, x, y, z, metadata))
 	        {
 	        	//TODO: dropBlockAsItem()
 	            this.func_149697_b(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);

@@ -89,11 +89,10 @@ public class BlockBOPCoral extends BlockBush
 		}
 	}
 
-	public boolean isValidPosition(World world, int x, int y, int z)
+	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
 		Block block = world.func_147439_a(x, y - 1, z);
-		int metadata = world.getBlockMetadata(x, y, z);
 
 		switch (metadata)
 		{
@@ -109,10 +108,10 @@ public class BlockBOPCoral extends BlockBush
 	}
 
 	@Override
-	//TODO:		   canPlaceBlockOnSide
-	public boolean func_149707_d(World world, int x, int y, int z, int side)
+	//TODO:			canReplace()
+    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return isValidPosition(world, x, y, z);
+		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
 	@Override
@@ -208,7 +207,7 @@ public class BlockBOPCoral extends BlockBush
 	//TODO:		   canBlockStay()
 	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		return isValidPosition(world, x, y, z);
+		return isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override

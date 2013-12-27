@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 
 public class BlockBOPSapling extends BlockSapling
 {
@@ -65,23 +66,27 @@ public class BlockBOPSapling extends BlockSapling
 			list.add(new ItemStack(block, 1, i));
 		}
 	}
+	
+	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
+	{
+		//TODO:					  getBlock()
+		Block block = world.func_147439_a(x, y - 1, z);
+		
+		switch (metadata)
+		{
+		case 7: // Loftwood
+			return block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt");
+
+		default:
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
+		}
+	}
 
 	@Override
 	//TODO:		   canPlaceBlockOnSide
 	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		//TODO:					  getBlock()
-		Block block = world.func_147439_a(x, y - 1, z);
-		int meta = world.getBlockMetadata(x, y - 1, z);
-
-			switch (meta)
-			{
-			/*TODO FEATURE case 7: // Loftwood
-				return id == Blocks.holyGrass.get().blockID || id == Blocks.holyDirt.get().blockID;*/
-
-			default:
-				return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
-			}
+		return isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
@@ -96,7 +101,7 @@ public class BlockBOPSapling extends BlockSapling
 					(soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
 		else
 			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
-					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) /*TODO FEATURE || soil == Blocks.holyGrass*/));
+					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) || soil == BOPBlockHelper.get("holyGrass")));
 	}
 
 	@Override

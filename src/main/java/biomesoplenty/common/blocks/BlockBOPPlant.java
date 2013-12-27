@@ -186,10 +186,10 @@ public class BlockBOPPlant extends BlockBush implements IShearable
 	}
 
 	@Override
-	//TODO:		   canPlaceBlockOnSide
-	public boolean func_149707_d(World world, int x, int y, int z, int side)
+	//TODO:			canReplace()
+    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return this.isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
+		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 
 	@Override

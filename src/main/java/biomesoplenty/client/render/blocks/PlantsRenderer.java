@@ -73,40 +73,40 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		return RenderUtils.plantsModel;
 	}
 
-	private boolean renderBlockCrops(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer)
+	private boolean renderBlockCrops(Block block, int x, int y, int z, RenderBlocks renderer)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		//TODO:						  blockAccess
 		IBlockAccess world = renderer.field_147845_a;
 		//TODO:								getMixedBrightnessForBlock()
-		tessellator.setBrightness(par1Block.func_149677_c(world, par2, par3, par4));
+		tessellator.setBrightness(block.func_149677_c(world, x, y, z));
 		tessellator.setColorOpaque_F(1.0F, 1.0F, 1.0F);
 
-		double d0 = par2;
-		double d1 = par3;
-		double d2 = par4;
+		double d0 = x;
+		double d1 = y;
+		double d2 = z;
 
-		long i1 = par2 * 3129871 ^ par4 * 116129781L ^ par3;
+		long i1 = x * 3129871 ^ z * 116129781L ^ y;
 
 		i1 = i1 * i1 * 42317861L + i1 * 11L;
 		d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.125D;
 		d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.125D;
 
 		//TODO:	 renderCropBlocksImpl()
-		renderer.func_147795_a(par1Block, world.getBlockMetadata(par2, par3, par4), d0, par3 - 0.0625F, d2);
+		renderer.func_147795_a(block, world.getBlockMetadata(x, y, z), d0, y - 0.0625F, d2);
 		return true;
 	}
 
-	private boolean renderCrossedSquares(Block par1Block, int par2, int par3, int par4, RenderBlocks renderer, boolean colourMultiply)
+	private boolean renderCrossedSquares(Block block, int x, int y, int z, RenderBlocks renderer, boolean colourMultiply)
 	{
 		Tessellator tessellator = Tessellator.instance;
 		//TODO:						  blockAccess
 		IBlockAccess world = renderer.field_147845_a;
 		//TODO:								getMixedBrightnessForBlock()
-		tessellator.setBrightness(par1Block.func_149677_c(world, par2, par3, par4));
+		tessellator.setBrightness(block.func_149677_c(world, x, y, z));
 		float f = 1.0F;
 		//TODO:			  colorMultiplier()
-		int l = par1Block.func_149720_d(world, par2, par3, par4);
+		int l = block.func_149720_d(world, x, y, z);
 		float f1 = (l >> 16 & 255) / 255.0F;
 		float f2 = (l >> 8 & 255) / 255.0F;
 		float f3 = (l & 255) / 255.0F;
@@ -129,13 +129,13 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		}
 
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		double d0 = par2;
-		double d1 = par3;
-		double d2 = par4;
+		double d0 = x;
+		double d1 = y;
+		double d2 = z;
 
-		long i1 = par2 * 3129871 ^ par4 * 116129781L ^ par3;
+		long i1 = x * 3129871 ^ z * 116129781L ^ y;
 		
-		int meta = world.getBlockMetadata(par2, par3, par4);
+		int meta = world.getBlockMetadata(x, y, z);
 
 		if (meta == 15)
 		{
@@ -155,14 +155,14 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		if (meta == 14)
 		{
 			//TODO:	 drawCrossedSquares()
-			renderer.func_147765_a(par1Block.func_149691_a(0, world.getBlockMetadata(par2, par3, par4)), d0, d1, d2, 1.0F);
+			renderer.func_147765_a(block.func_149691_a(0, world.getBlockMetadata(x, y, z)), d0, d1, d2, 1.0F);
 			//TODO:	 drawCrossedSquares()
 			renderer.func_147765_a(((BlockBOPPlant)BOPBlockHelper.get("plants")).reedbottom, d0, d1 - 1, d2, 1.0F);
 		}
 		else
 		{
 			//TODO:	 drawCrossedSquares()
-			renderer.func_147730_a(par1Block, meta, d0, d1, d2, 1.0F);
+			renderer.func_147765_a(block.func_149691_a(0, world.getBlockMetadata(x, y, z)), d0, d1, d2, 1.0F);
 		}
 		return true;
 	}

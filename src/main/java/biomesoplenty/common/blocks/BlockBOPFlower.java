@@ -211,11 +211,10 @@ public class BlockBOPFlower extends BlockBush
 		}
 	}
 
-	public boolean isValidPosition(World world, int x, int y, int z)
+	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
 		Block block = world.func_147439_a(x, y - 1, z);
-		int metadata = world.getBlockMetadata(x, y, z);
 		
 		switch (metadata)
 		{
@@ -240,10 +239,10 @@ public class BlockBOPFlower extends BlockBush
 	}
 
 	@Override
-	//TODO:		   canPlaceBlockOnSide
-	public boolean func_149707_d(World world, int x, int y, int z, int side)
+	//TODO:			canReplace()
+    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return isValidPosition(world, x, y, z);
+		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	} 
 
 	@Override
@@ -253,9 +252,9 @@ public class BlockBOPFlower extends BlockBush
 		int meta = world.getBlockMetadata(x, y, z);
 
 		if (meta == 11)
-			return this.isValidPosition(world, x, y, z);
+			return this.isValidPosition(world, x, y, z, meta);
 		else
-			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && isValidPosition(world, x, y, z);
+			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && isValidPosition(world, x, y, z, meta);
 	}
 
 	@Override
