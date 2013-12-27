@@ -1,5 +1,9 @@
 package biomesoplenty.common.core;
 
+import java.lang.reflect.Constructor;
+
+import org.apache.logging.log4j.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
@@ -81,7 +85,13 @@ import biomesoplenty.common.itemblocks.ItemBlockSlab;
 import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
 import biomesoplenty.common.itemblocks.ItemBlockTurnip;
 import biomesoplenty.common.itemblocks.ItemBlockWillow;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.LoaderException;
+import cpw.mods.fml.common.LoaderState;
+import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPBlocks 
 {
@@ -174,19 +184,29 @@ public class BOPBlocks
 
 		registerBlock(new BlockBOPPlank().func_149663_c("planks"), ItemBlockPlank.class);
 
-		//TODO:										  wood
-		registerBlock(new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenDoubleSlab1"), ItemBlockSlab.class);
-		//TODO:										  wood
-		registerBlock(new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenSingleSlab1"), ItemBlockSlab.class);
-		//TODO:										  wood
-		registerBlock(new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenDoubleSlab2"), ItemBlockSlab.class);
-		//TODO:										  wood
-		registerBlock(new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenSingleSlab2"), ItemBlockSlab.class);
-
-		//TODO:										  stone
-		registerBlock(new BlockBOPSlab(true, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneDoubleSlab"), ItemBlockSlab.class);
-		//TODO:										  stone
-		registerBlock(new BlockBOPSlab(false, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneSingleSlab"), ItemBlockSlab.class);
+		//TODO:															 wood
+		BlockBOPSlab woodenSingleSlab1 = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenSingleSlab1");
+		//TODO:															 wood
+		BlockBOPSlab woodenDoubleSlab1 = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenDoubleSlab1");
+		
+		registerBlock(woodenSingleSlab1, new ItemBlockSlab(woodenSingleSlab1, woodenSingleSlab1, woodenDoubleSlab1));
+		registerBlock(woodenDoubleSlab1, new ItemBlockSlab(woodenDoubleSlab1, woodenSingleSlab1, woodenDoubleSlab1));		
+		
+		//TODO:															 wood
+		BlockBOPSlab woodenSingleSlab2 = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenSingleSlab2");
+		//TODO:															 wood
+		BlockBOPSlab woodenDoubleSlab2 = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenDoubleSlab2");
+		
+		registerBlock(woodenSingleSlab2, new ItemBlockSlab(woodenSingleSlab2, woodenSingleSlab2, woodenDoubleSlab2));
+		registerBlock(woodenDoubleSlab2, new ItemBlockSlab(woodenDoubleSlab2, woodenSingleSlab2, woodenDoubleSlab2));
+		
+		//TODO:															 stone
+		BlockBOPSlab stoneSingleSlab = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneSingleSlab");
+		//TODO:															 stone
+		BlockBOPSlab stoneDoubleSlab = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneDoubleSlab");
+		
+		registerBlock(stoneSingleSlab, new ItemBlockSlab(stoneSingleSlab, stoneSingleSlab, stoneDoubleSlab));
+		registerBlock(stoneDoubleSlab, new ItemBlockSlab(stoneDoubleSlab, stoneSingleSlab, stoneDoubleSlab));
 		
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.ACACIA).func_149663_c("acaciaStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.CHERRY).func_149663_c("cherryStairs"));
@@ -240,5 +260,30 @@ public class BOPBlocks
     {
 		//TODO: 												getUnlocalizedName()
         GameRegistry.registerBlock(block, itemBlockClass, block.func_149739_a().replace("tile.", ""));
+    }
+    
+    public static Block registerBlock(Block block, ItemBlock itemblock)
+    {
+		//TODO: 			getUnlocalizedName()
+    	String name = block.func_149739_a().replace("tile.", "");
+    	
+        if (Loader.instance().isInState(LoaderState.CONSTRUCTING))
+        {
+            FMLLog.warning("The mod %s is attempting to register a block whilst it it being constructed. This is bad modding practice - please use a proper mod lifecycle event.", Loader.instance().activeModContainer());
+        }
+        try
+        {
+            assert block != null : "registerBlock: block cannot be null";
+            assert itemblock != null : "registerBlock: itemblock cannot be null";
+
+            ReflectionHelper.findMethod(GameData.class, null, new String[] { "registerBlockAndItem" }, ItemBlock.class, Block.class, String.class, String.class).invoke(null, itemblock, block, name, null);
+            
+            return block;
+        }
+        catch (Exception e)
+        {
+        	FMLLog.log(Level.ERROR, e, "Caught an exception during block registration");
+        	throw new LoaderException(e);
+        }
     }
 }
