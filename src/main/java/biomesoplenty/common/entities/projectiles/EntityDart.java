@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -18,6 +19,7 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.ClientProxy;
+import biomesoplenty.api.BOPPotionHelper;
 
 public class EntityDart extends EntityArrow
 {
@@ -162,7 +164,7 @@ public class EntityDart extends EntityArrow
 					
 					if (movingobjectposition.entityHit instanceof EntityLivingBase) 
 					{
-						//TODO: FEATURE ((EntityLiving)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(Potions.paralysis.get().id, 100));
+						((EntityLivingBase)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(BOPPotionHelper.get("paralysis").id, 100));
 					}
 				}
 

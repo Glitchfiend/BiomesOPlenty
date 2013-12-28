@@ -3,11 +3,6 @@ package biomesoplenty;
 
 public class CommonProxy 
 {
-	public void registerEventHandlers()
-	{
-		
-	}
-	
 	//Client Only
 	public void registerRenderers() 
 	{

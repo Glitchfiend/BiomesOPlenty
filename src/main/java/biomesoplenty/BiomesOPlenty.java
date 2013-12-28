@@ -1,12 +1,15 @@
 package biomesoplenty;
 
 import net.minecraft.creativetab.CreativeTabs;
+import biomesoplenty.client.eventhandlers.BOPClientEventHandlers;
 import biomesoplenty.common.configuration.BOPConfiguration;
 import biomesoplenty.common.core.BOPArmor;
 import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.core.BOPBlocks;
 import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPItems;
+import biomesoplenty.common.core.BOPPotions;
+import biomesoplenty.common.eventhandler.BOPCommonEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.lib.BOPModInfo;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -40,13 +43,16 @@ public class BiomesOPlenty
 
 		tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
 
+		BOPPotions.init();
 		BOPBlocks.init();
 		BOPItems.init();
 		BOPArmor.init();
 		BOPBiomes.init();
 		BOPEntities.init();
 		
-		proxy.registerEventHandlers();
+		if (proxy instanceof ClientProxy) BOPClientEventHandlers.init();
+		BOPCommonEventHandlers.init();
+		
 		proxy.registerRenderers();
 	}
 

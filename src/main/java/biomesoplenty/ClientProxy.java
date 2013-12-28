@@ -27,12 +27,6 @@ public class ClientProxy extends CommonProxy
 {
 	public static Minecraft minecraft = Minecraft.getMinecraft();
 	
-	@Override
-	public void registerEventHandlers()
-	{
-		
-	}
-	
 	//Client Only
 	@Override
 	public void registerRenderers()
