@@ -80,10 +80,10 @@ public class BlockAsh extends Block
 		{
 			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-			/*TODO: FEATURE if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItemHelper.get("wadingBoots"))
 			{
 				return;
-			}*/
+			}
 		}
 
 		entity.motionX *= 0.4D;

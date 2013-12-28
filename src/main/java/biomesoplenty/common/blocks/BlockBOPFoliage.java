@@ -143,7 +143,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 			if (world.rand.nextInt(2) == 0) 
 			{
-				/*TODO: FEATURE ret.add(new ItemStack(Items.turnipseeds.get(), 1));*/
+				ret.add(new ItemStack(BOPItemHelper.get("turnipSeeds"), 1));
 			}
 			break;
 			

@@ -1,12 +1,18 @@
 package biomesoplenty.common.items;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.common.core.BOPItems;
 
 public class ItemBOPScythe extends Item
 {
@@ -24,10 +30,10 @@ public class ItemBOPScythe extends Item
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
-   /*TODO: FEATURE @Override
-	public boolean onBlockDestroyed(ItemStack itemstack, World world, int meta, int x, int y, int z, EntityLivingBase entity)
+    @Override
+    //TODO:			onBlockDestroyed()?
+	public boolean func_150894_a(ItemStack itemstack, World world, Block block, int x, int y, int z, EntityLivingBase entity)
     {
-        Block block = Block.blocksList[world.getBlockId(x, y, z)];
         int radius = 1;
         int height = 3;
         
@@ -51,7 +57,7 @@ public class ItemBOPScythe extends Item
         	
         	radius = 3;
         }
-        else if (toolMaterial == BOPItems.ToolMaterialAmethyst)
+        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         {
         	if (block != null)
         	{
@@ -105,7 +111,8 @@ public class ItemBOPScythe extends Item
     		{
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				Block block = Block.blocksList[world.getBlockId(x + aX, y + aY, z + aZ)];
+    				//TODO:		  	getBlock()
+    				Block block = world.func_147439_a(x + aX, y + aY, z + aZ);
     				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
     				if (block != null)
@@ -124,7 +131,7 @@ public class ItemBOPScythe extends Item
     							stack.damageItem(1, entity);
     						}
     			        }
-    			        else if (toolMaterial == BOPItems.ToolMaterialAmethyst)
+    			        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
     			        {
     						if (world.rand.nextInt(9) == 0)
     						{
@@ -136,35 +143,43 @@ public class ItemBOPScythe extends Item
 							stack.damageItem(1, entity);
 						}
     					
-    					if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
+    					if (block == BOPBlockHelper.get("foliage") && (meta == 1 || meta == 2 || meta == 6))
     					{
     						if (meta == 1)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							//TODO: dropBlockAsItem()
+    							block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+    							//TODO: setBlockToAir()
+    							world.func_147468_f(x + aX, y + aY, z + aZ);
     						}
     						else if (meta == 2)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 1, 2);
+    							//TODO: dropBlockAsItem()
+    							block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+        						//TODO: setBlock()
+    							world.func_147465_d(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 1, 2);
     						}
     						else if (meta == 6)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							//TODO: dropBlockAsItem()
+    							block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+    							//TODO: setBlockToAir()
+    							world.func_147468_f(x + aX, y + aY, z + aZ);
     						}
     					}
-    					else if (block.blockID == Block.tallGrass.blockID)
+    					else if (block == Blocks.tallgrass)
     					{
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 2, 2);
+							//TODO: dropBlockAsItem()
+    						block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+    						//TODO: setBlock()
+    						world.func_147465_d(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 2, 2);
     					}
-    					else if (block.blockID != Block.waterlily.blockID && block instanceof BlockFlower)
+    					else if (block != Blocks.waterlily && block instanceof BlockFlower)
     					{
-    						System.out.println(block.getBlockDropped(world, x + aX, y + aY, z + aZ, meta, 1));
-
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlockToAir(x + aX, y + aY, z + aZ);
+							//TODO: dropBlockAsItem()
+    						block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+							//TODO: setBlockToAir()
+    						world.func_147468_f(x + aX, y + aY, z + aZ);
     					}
     				}
     			}
@@ -180,7 +195,8 @@ public class ItemBOPScythe extends Item
     		{
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				Block block = Block.blocksList[world.getBlockId(x + aX, y + aY, z + aZ)];
+    				//TODO:		  	getBlock()
+    				Block block = world.func_147439_a(x + aX, y + aY, z + aZ);
     				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
     				if (block != null)
@@ -201,7 +217,7 @@ public class ItemBOPScythe extends Item
         							stack.damageItem(1, entity);
         						}
         			        }
-        			        else if (toolMaterial == BOPItems.ToolMaterialAmethyst)
+        			        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         			        {
         						if (world.rand.nextInt(8) == 0)
         						{
@@ -213,8 +229,10 @@ public class ItemBOPScythe extends Item
     							stack.damageItem(1, entity);
     						}
 
-    						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlockToAir(x + aX, y + aY, z + aZ);
+							//TODO: dropBlockAsItem()
+    						block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+							//TODO: setBlockToAir()
+    						world.func_147468_f(x + aX, y + aY, z + aZ);
     					}
     				}
     			}
@@ -232,7 +250,8 @@ public class ItemBOPScythe extends Item
     			{
     				if ((aX + aZ < radius * 2) && (-aX + aZ < radius * 2) && (aX + -aZ < radius * 2) && (-aX + -aZ < radius * 2))
     				{
-    					Block block = Block.blocksList[world.getBlockId(x + aX, y + aY, z + aZ)];
+        				//TODO:		  	getBlock()
+        				Block block = world.func_147439_a(x + aX, y + aY, z + aZ);
     					int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
     					if (block != null)
@@ -251,7 +270,7 @@ public class ItemBOPScythe extends Item
         							stack.damageItem(1, entity);
         						}
         			        }
-        			        else if (toolMaterial == BOPItems.ToolMaterialAmethyst)
+        			        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         			        {
         						if (world.rand.nextInt(10) == 0)
         						{
@@ -263,40 +282,50 @@ public class ItemBOPScythe extends Item
     							stack.damageItem(1, entity);
     						}
     						
-    						if (block.blockID == Blocks.foliage.get().blockID && (meta == 1 || meta == 2 || meta == 6))
+    						if (block == BOPBlockHelper.get("foliage") && (meta == 1 || meta == 2 || meta == 6))
     						{
     							if (meta == 1)
     							{
-    								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlockToAir(x + aX, y + aY, z + aZ);
+        							//TODO: dropBlockAsItem()
+    								block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+        							//TODO: setBlockToAir()
+    								world.func_147468_f(x + aX, y + aY, z + aZ);
     							}
     							else if (meta == 2)
     							{
-    								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 1, 2);
+        							//TODO: dropBlockAsItem()
+    								block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+    	    						//TODO: setBlock()
+    								world.func_147465_d(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 1, 2);
     							}
     							else if (meta == 6)
     							{
-    								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlockToAir(x + aX, y + aY, z + aZ);
+        							//TODO: dropBlockAsItem()
+    								block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+        							//TODO: setBlockToAir()
+    								world.func_147468_f(x + aX, y + aY, z + aZ);
     							}
     						}
-    						else if (block.blockID == Block.tallGrass.blockID)
+    						else if (block == Blocks.tallgrass)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, Blocks.foliage.get().blockID, 2, 2);
+    							//TODO: dropBlockAsItem()
+    							block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+        						//TODO: setBlock()
+    							world.func_147465_d(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 2, 2);
     						}
-    						else if (block.blockID != Block.waterlily.blockID && block instanceof BlockFlower)
+    						else if (block != Blocks.waterlily && block instanceof BlockFlower)
     						{
-    							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlockToAir(x + aX, y + aY, z + aZ);
+    							//TODO: dropBlockAsItem()
+    							block.func_149697_b(world, x + aX, y + aY, z + aZ, meta, 0);
+    							//TODO: setBlockToAir()
+    							world.func_147468_f(x + aX, y + aY, z + aZ);
     						}
     					}
     				}
     			}
     		}
     	}
-    }*/
+    }
     
 	//@Override
 	//TODO:		 getStrVsBlock
