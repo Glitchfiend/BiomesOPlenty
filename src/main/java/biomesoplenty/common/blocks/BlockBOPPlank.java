@@ -24,6 +24,7 @@ public class BlockBOPPlank extends Block
 		
 		//TODO: this.setHardness
 		this.func_149711_c(2.0F);
+		this.setHarvestLevel("axe", 0);
 		
 		//TODO setStepSound(Block.soundWoodFootstep)
 		this.func_149672_a(Block.field_149766_f);

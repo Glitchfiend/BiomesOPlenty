@@ -233,23 +233,6 @@ public class BOPBlocks
         registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT2).func_149663_c("colorizedLeaves2"), ItemBlockColorizedLeaves.class);
 	}
 	
-	private static void setHarvestLevels()
-	{
-        /*TODO MinecraftForge.setBlockHarvestLevel(Blocks.originGrass.get(), "shovel", 0);
-        MinecraftForge.setBlockHarvestLevel(Blocks.longGrass.get(), "shovel", 0);
-        MinecraftForge.setBlockHarvestLevel(Blocks.hardSand.get(), "shovel", 0);
-        MinecraftForge.setBlockHarvestLevel(Blocks.holyGrass.get(), 0, "pickaxe", 0);
-
-        MinecraftForge.setBlockHarvestLevel(Blocks.driedDirt.get(), "pickaxe", 0);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 0, "pickaxe", 3);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 2, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 4, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 6, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 8, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 10, "pickaxe", 2);
-        MinecraftForge.setBlockHarvestLevel(Blocks.amethystOre.get(), 12, "pickaxe", 2);*/
-	}
-	
 	public static void registerBlock(Block block)
 	{
 		//TODO: 								getUnlocalizedName()

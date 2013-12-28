@@ -26,6 +26,7 @@ public class BlockOriginGrass extends Block
 		
 		//TODO: this.setHardness
 		this.func_149711_c(0.6F);
+		this.setHarvestLevel("shovel", 0);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);

@@ -26,6 +26,13 @@ public class BlockBOPGems extends Block
 		//TODO: Material.rock
 		super(Material.field_151576_e);
 		
+		this.setHarvestLevel("pickaxe", 3, 0);
+		
+		for (int i = 1; i < 16; i++)
+		{
+			this.setHarvestLevel("pickaxe", 2, i);
+		}
+		
 		//TODO setStepSound(Block.soundStoneFootstep)
 		this.func_149672_a(Block.field_149780_i);
 		

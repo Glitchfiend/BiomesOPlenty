@@ -60,6 +60,8 @@ public class BlockBOPLog extends Block
 		
 		//TODO: this.setHardness
 		this.func_149711_c(2.0F);
+		this.setHarvestLevel("axe", 0);
+		
 		//TODO: this.setResistance
 		this.func_149752_b(5.0F);
 		//TODO setStepSound(Block.soundWoodFootstep)

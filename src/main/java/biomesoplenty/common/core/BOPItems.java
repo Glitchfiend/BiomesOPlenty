@@ -68,11 +68,11 @@ public class BOPItems
 		registerItem(new ItemBOPAxe(BOPItemHelper.toolMaterialMud, 0).setUnlocalizedName("axeMud"));
 		registerItem(new ItemBOPHoe(BOPItemHelper.toolMaterialMud, 0).setUnlocalizedName("hoeMud"));
 		
-		registerItem(new ItemBOPSword(BOPItemHelper.toolMaterialMud, 1).setUnlocalizedName("swordAmethyst"));
-		registerItem(new ItemBOPSpade(BOPItemHelper.toolMaterialMud, 1).setUnlocalizedName("shovelAmethyst"));
-		registerItem(new ItemBOPPickaxe(BOPItemHelper.toolMaterialMud, 1).setUnlocalizedName("pickaxeAmethyst"));
-		registerItem(new ItemBOPAxe(BOPItemHelper.toolMaterialMud, 1).setUnlocalizedName("axeAmethyst"));
-		registerItem(new ItemBOPHoe(BOPItemHelper.toolMaterialMud, 1).setUnlocalizedName("hoeAmethyst"));
+		registerItem(new ItemBOPSword(BOPItemHelper.toolMaterialAmethyst, 1).setUnlocalizedName("swordAmethyst"));
+		registerItem(new ItemBOPSpade(BOPItemHelper.toolMaterialAmethyst, 1).setUnlocalizedName("shovelAmethyst"));
+		registerItem(new ItemBOPPickaxe(BOPItemHelper.toolMaterialAmethyst, 1).setUnlocalizedName("pickaxeAmethyst"));
+		registerItem(new ItemBOPAxe(BOPItemHelper.toolMaterialAmethyst, 1).setUnlocalizedName("axeAmethyst"));
+		registerItem(new ItemBOPHoe(BOPItemHelper.toolMaterialAmethyst, 1).setUnlocalizedName("hoeAmethyst"));
 		
 		registerItem(new ItemBOPScythe(ToolMaterial.WOOD, 0).setUnlocalizedName("scytheWood"));
 		registerItem(new ItemBOPScythe(ToolMaterial.STONE, 1).setUnlocalizedName("scytheStone"));
