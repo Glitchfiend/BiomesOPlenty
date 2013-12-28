@@ -1,9 +1,14 @@
 package biomesoplenty.common.blocks;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import biomesoplenty.api.BOPItemHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,6 +17,12 @@ public class BlockTurnip extends BlockCrops
 {
     @SideOnly(Side.CLIENT)
     private IIcon[] iconArray;
+    
+    public BlockTurnip()
+    {
+    	//TODO:	setTextureName()
+    	this.func_149658_d("turnip");
+    }
 
     @Override
 	//TODO:		 getIcon()
@@ -46,7 +57,28 @@ public class BlockTurnip extends BlockCrops
         return BOPItemHelper.get("food");
     }
     
-	@Override
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
+    {
+    	//TODO: REMOVE UPON FORGE PR ACCEPTED
+    	
+        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
+
+        int count = quantityDropped(metadata, fortune, world.rand);
+        
+        for (int i = 0; i < count; i++)
+        {
+            Item item = func_149650_a(metadata, world.rand, fortune);
+            if (item != null)
+            {
+                ret.add(new ItemStack(item, 1, func_149692_a(metadata)));
+            }
+        }
+        
+        return ret;
+    }
+    
+	//@Override
 	//TODO     damageDropped()
 	public int func_149692_a(int meta)
 	{

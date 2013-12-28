@@ -304,7 +304,7 @@ item.food.filledhoneycomb.name=Filled Honeycomb
 item.food.ambrosia.name=Ambrosia
 item.food.turnip.name=Turnip
 
-item.turnipseeds.name=Turnip Seeds
+item.turnipSeeds.name=Turnip Seeds
 
 item.dartBlower.name=Dart Blower
 item.dart.dart.name=Dart
@@ -407,6 +407,9 @@ phrase.bop.promisedPortalOther=A gateway to the Overworld has appeared in the sk
 phrase.bop.useBOPATGWorldtype=The Biomes O' Plenty world type or ATG world type must be used in order for the new biomes to generate. This message will only display once.
 phrase.bop.useBOPWorldtype=The Biomes O' Plenty world type must be used in order for the new biomes to generate. This message will only display once.
 phrase.bop.updateAvaliable=You are not using the latest recommended version of Biomes O' Plenty. The latest recommended version is: v%s for Minecraft %s
+
+potion.paralysis=Paralysis
+potion.possession=Possession
 
 entity.BiomesOPlenty.Glob.name=Glob
 entity.BiomesOPlenty.JungleSpider.name=Jungle Spider

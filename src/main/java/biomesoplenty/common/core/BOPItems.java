@@ -1,8 +1,10 @@
 package biomesoplenty.common.core;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.items.ItemBOPAncientStaff;
 import biomesoplenty.common.items.ItemBOPAxe;
@@ -13,6 +15,7 @@ import biomesoplenty.common.items.ItemBOPMudball;
 import biomesoplenty.common.items.ItemBOPPickaxe;
 import biomesoplenty.common.items.ItemBOPRecord;
 import biomesoplenty.common.items.ItemBOPScythe;
+import biomesoplenty.common.items.ItemBOPSeeds;
 import biomesoplenty.common.items.ItemBOPSpade;
 import biomesoplenty.common.items.ItemBOPSword;
 import biomesoplenty.common.items.ItemDart;
@@ -45,7 +48,7 @@ public class BOPItems
 	private static void registerItems()
 	{
 		registerItem(new ItemBOPFood(0).setUnlocalizedName("food"));
-		//turnip seeds
+		registerItem(new ItemBOPSeeds(BOPBlockHelper.get("turnip"), Blocks.farmland).setUnlocalizedName("turnipSeeds"));
 		registerItem(new ItemBOPMisc().setUnlocalizedName("misc"));
 		registerItem(new ItemGems().setUnlocalizedName("gems"));
 		registerItem(new ItemBOPMudball().setUnlocalizedName("mudball"));

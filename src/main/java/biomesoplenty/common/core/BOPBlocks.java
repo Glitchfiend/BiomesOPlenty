@@ -1,13 +1,11 @@
 package biomesoplenty.common.core;
 
-import java.lang.reflect.Constructor;
-
-import org.apache.logging.log4j.Level;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.common.MinecraftForge;
+
+import org.apache.logging.log4j.Level;
+
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.blocks.BlockAsh;
 import biomesoplenty.common.blocks.BlockBOPAppleLeaves;
@@ -83,7 +81,6 @@ import biomesoplenty.common.itemblocks.ItemBlockSapling;
 import biomesoplenty.common.itemblocks.ItemBlockSkystone;
 import biomesoplenty.common.itemblocks.ItemBlockSlab;
 import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
-import biomesoplenty.common.itemblocks.ItemBlockTurnip;
 import biomesoplenty.common.itemblocks.ItemBlockWillow;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
@@ -124,7 +121,7 @@ public class BOPBlocks
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).func_149663_c("leaves3"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT4).func_149663_c("leaves4"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPFoliage().func_149663_c("foliage"), ItemBlockFoliage.class);
-        registerBlock(new BlockTurnip().func_149663_c("turnip"), ItemBlockTurnip.class);
+        registerBlock(new BlockTurnip().func_149663_c("turnip"));
 		//TODO:									   rock
         registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.ASH_STONE).func_149663_c("ashStone"));
 		//TODO:									   rock

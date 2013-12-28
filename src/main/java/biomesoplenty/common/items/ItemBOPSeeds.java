@@ -32,7 +32,7 @@ public class ItemBOPSeeds extends Item implements IPlantable
 		itemIcon = iconRegister.registerIcon("biomesoplenty:turnipseeds");
 	}
 
-	/*TODO: FEATURE @Override
+	@Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitVecX, float hitVecY, float hitVecZ)
     {
         if (side != 1)
@@ -41,12 +41,14 @@ public class ItemBOPSeeds extends Item implements IPlantable
         }
         else if (player.canPlayerEdit(x, y, z, side, itemStack) && player.canPlayerEdit(x, y + 1, z, side, itemStack))
         {
-            int i1 = world.getBlockId(x, y, z);
-            Block soil = Block.blocksList[i1];
+    		//TODO:			   getBlock()
+    		Block soil = world.func_147439_a(x, y, z);
 
-            if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z))
+    		//TODO:																					   isAirBlock()
+            if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.func_147437_c(x, y + 1, z))
             {
-                world.setBlock(x, y + 1, z, this.blockType);
+            	//TODO:	setBlock()
+                world.func_147465_d(x, y + 1, z, this.blockType, 0, 2);
                 --itemStack.stackSize;
                 return true;
             }
@@ -59,7 +61,7 @@ public class ItemBOPSeeds extends Item implements IPlantable
         {
             return false;
         }
-    }*/
+    }
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
