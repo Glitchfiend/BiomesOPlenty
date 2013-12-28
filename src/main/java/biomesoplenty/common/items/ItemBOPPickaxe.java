@@ -16,6 +16,8 @@ public class ItemBOPPickaxe extends ItemPickaxe
 		
 		this.textureID = texture;
 		
+		this.setHarvestLevel("pickaxe", 4);
+		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 

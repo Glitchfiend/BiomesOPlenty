@@ -16,7 +16,9 @@ public class ItemBOPSpade extends ItemSpade
 		
 		this.textureID = texture;
 		
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		this.setHarvestLevel("shovel", 4);
+		
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

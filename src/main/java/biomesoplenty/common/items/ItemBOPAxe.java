@@ -17,6 +17,8 @@ public class ItemBOPAxe extends ItemAxe
 		
 		this.textureID = texture;
 		
+		this.setHarvestLevel("axe", 4);
+		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 

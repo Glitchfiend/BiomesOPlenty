@@ -31,6 +31,7 @@ public class BlockMud extends Block
 		
 		//TODO: this.setHardness
 		this.func_149711_c(0.6F);
+		this.setHarvestLevel("shovel", 0);
 		
 		//TODO setStepSound(Block.soundSandFootstep)
 		this.func_149672_a(Block.field_149776_m);
