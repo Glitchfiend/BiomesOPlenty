@@ -125,7 +125,8 @@ public class ItemBlockFlower extends ItemBlock
 	@Override
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
 	{
-		if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote) {
+		if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote) 
+		{
 			--par1ItemStack.stackSize;
 		}
 	}

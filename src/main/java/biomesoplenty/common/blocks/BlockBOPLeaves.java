@@ -162,20 +162,32 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 			double d2 = z + random.nextFloat();
 			world.spawnParticle("dripWater", d0, d1, d2, 0.0D, 0.0D, 0.0D);
 		}
-
-		/*TODO: FEATURE if (world.getBlockId(x, y, z) == Blocks.leaves1.get().blockID && world.getBlockMetadata(x, y, z) == 2)
+		
+		//TODO:		getBlock()
+		if (world.func_147439_a(x, y, z) == BOPBlockHelper.get("leaves1") && isType(world.getBlockMetadata(x, y, z), 2))
         {
-            if (!(world.getBlockId(x, y - 1, z) == Blocks.leaves1.get().blockID && world.getBlockMetadata(x, y - 1, z) == 2))
+			//TODO:		getBlock()
+            if (!(world.func_147439_a(x, y - 1, z) == BOPBlockHelper.get("leaves1") && isType(world.getBlockMetadata(x, y - 1, z), 2)))
             {
             	if (random.nextInt(5) == 0)
             	{
             		BiomesOPlenty.proxy.spawnParticle("magictree", x + random.nextFloat(), y + 0.9F, z + random.nextFloat());
             	}
             }
-        }*/
+        }
 
 		//TODO: 	randomDisplayTick()
 		super.func_149734_b(world, x, y, z, random);
+	}
+	
+	public boolean isType(int metadata, int baseMeta)
+	{
+		for (int type = baseMeta; type <= baseMeta + (4 * 3); type += 4)
+		{
+			if (metadata == type) return true;
+		}
+		
+		return false;
 	}
 
     @Override

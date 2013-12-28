@@ -6,7 +6,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.util.MathHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.client.particles.EntityDandelionFX;
+import biomesoplenty.client.particles.EntityMagicTreeFX;
+import biomesoplenty.client.particles.EntityPixieTrailFX;
+import biomesoplenty.client.particles.EntitySteamFX;
 import biomesoplenty.client.render.blocks.BambooRenderer;
 import biomesoplenty.client.render.blocks.FoliageRenderer;
 import biomesoplenty.client.render.blocks.GraveRenderer;
@@ -67,22 +72,22 @@ public class ClientProxy extends CommonProxy
 		{
 			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("dart"), 1);
 		} 
-		/*else if (string == "dandelion") 
+		else if (string == "dandelion") 
 		{
-			entityfx = new EntityDandelionFX(mc.theWorld, x, y, z, 2.0F);
+			entityfx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
 		} 
 		else if (string == "steam") 
 		{
-			entityfx = new EntitySteamFX(mc.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
+			entityfx = new EntitySteamFX(minecraft.theWorld, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
 		else if (string == "magictree") 
 		{
-			entityfx = new EntityMagicTreeFX(mc.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
+			entityfx = new EntityMagicTreeFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
 		}
 		else if (string == "pixietrail") 
 		{
-			entityfx = new EntityPixieTrailFX(mc.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
-		}*/
+			entityfx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
+		}
 
 		minecraft.effectRenderer.addEffect(entityfx);
 	}
