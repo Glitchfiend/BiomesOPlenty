@@ -1,7 +1,6 @@
 package biomesoplenty;
 
 import net.minecraft.creativetab.CreativeTabs;
-import biomesoplenty.client.eventhandlers.BOPClientEventHandlers;
 import biomesoplenty.common.configuration.BOPConfiguration;
 import biomesoplenty.common.core.BOPArmor;
 import biomesoplenty.common.core.BOPBiomes;
@@ -50,7 +49,6 @@ public class BiomesOPlenty
 		BOPBiomes.init();
 		BOPEntities.init();
 		
-		if (proxy instanceof ClientProxy) BOPClientEventHandlers.init();
 		BOPCommonEventHandlers.init();
 		
 		proxy.registerRenderers();

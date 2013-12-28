@@ -57,27 +57,6 @@ public class BlockTurnip extends BlockCrops
         return BOPItemHelper.get("food");
     }
     
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
-    {
-    	//TODO: REMOVE UPON FORGE PR ACCEPTED
-    	
-        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
-
-        int count = quantityDropped(metadata, fortune, world.rand);
-        
-        for (int i = 0; i < count; i++)
-        {
-            Item item = func_149650_a(metadata, world.rand, fortune);
-            if (item != null)
-            {
-                ret.add(new ItemStack(item, 1, func_149692_a(metadata)));
-            }
-        }
-        
-        return ret;
-    }
-    
 	//@Override
 	//TODO     damageDropped()
 	public int func_149692_a(int meta)
