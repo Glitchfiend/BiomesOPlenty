@@ -91,4 +91,10 @@ public class ClientProxy extends CommonProxy
 
 		minecraft.effectRenderer.addEffect(entityfx);
 	}
+	
+	@Override
+	public int addArmor(String armor)
+	{
+		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
 }

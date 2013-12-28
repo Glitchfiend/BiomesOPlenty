@@ -16,4 +16,9 @@ public class CommonProxy
 	public void spawnParticle(String string, double x, double y, double z)
 	{
 	}
+	
+	public int addArmor(String armor)
+	{
+		return 0;
+	}
 }
