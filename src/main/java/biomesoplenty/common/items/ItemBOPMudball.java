@@ -6,12 +6,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.entities.projectiles.EntityMudball;
 
 public class ItemBOPMudball extends Item
 {
 	public ItemBOPMudball()
 	{
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
@@ -21,18 +22,18 @@ public class ItemBOPMudball extends Item
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
-		if (!par3EntityPlayer.capabilities.isCreativeMode) 
+		if (!player.capabilities.isCreativeMode) 
 		{
 			--itemStack.stackSize;
 		}
 
-		par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
-		if (!par2World.isRemote) 
+		if (!world.isRemote) 
 		{
-			//TODO: FEATURE par2World.spawnEntityInWorld(new EntityMudball(par2World, par3EntityPlayer));
+			world.spawnEntityInWorld(new EntityMudball(world, player));
 		}
 
 		return itemStack;

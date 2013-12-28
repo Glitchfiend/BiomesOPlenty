@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.client.render.blocks.BambooRenderer;
 import biomesoplenty.client.render.blocks.FoliageRenderer;
@@ -14,6 +15,7 @@ import biomesoplenty.client.render.blocks.RenderUtils;
 import biomesoplenty.client.render.blocks.SmallBlockRenderer;
 import biomesoplenty.client.render.entities.RenderDart;
 import biomesoplenty.common.entities.projectiles.EntityDart;
+import biomesoplenty.common.entities.projectiles.EntityMudball;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy 
@@ -37,6 +39,7 @@ public class ClientProxy extends CommonProxy
         RenderUtils.bambooModel = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
+		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPItemHelper.get("mudball"), 0));
 		
         RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());
@@ -52,11 +55,11 @@ public class ClientProxy extends CommonProxy
 		
 		Random rand = new Random();
 
-		/*if (string == "mud") 
+		if (string == "mud") 
 		{
-			entityfx = new EntityBreakingFX(mc.theWorld, x, y, z, Items.mudball.get());
+			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("mudball"));
 		} 
-		else*/ if (string == "dart") 
+		else if (string == "dart") 
 		{
 			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("dart"), 0);
 		} 
