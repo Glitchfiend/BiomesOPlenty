@@ -18,7 +18,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
-	private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine", "sacredoak"};
+	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine"};
 	private IIcon[] textures;
 	private static final int TYPES = 15;
 
@@ -126,8 +126,8 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		{
 			switch (meta)
 			{
-			    case 0: // Acacia Tree
-			        obj = new WorldGenAcacia(false);
+			    case 0: // Sacred Oak Tree
+			        obj = new WorldGenMassiveTree(false);
 			        break;
 
 			    case 1: // Mangrove Tree
@@ -154,10 +154,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
 
 			    case 5: // Pine Tree
 			        obj = new WorldGenPineTree();
-			        break;
-
-			    case 6: // Sacred Oak
-			        obj = new WorldGenMassiveTree(false);
 			        break;
 			}
 		}*/

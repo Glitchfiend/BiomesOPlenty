@@ -104,13 +104,12 @@ tile.saplings.hellbarkSapling.name=Hellbark Sapling
 tile.saplings.jacarandaSapling.name=Jacaranda Sapling
 tile.saplings.persimmonSapling.name=Persimmon Sapling
 
-tile.colorizedSaplings.acaciaSapling.name=Acacia Sapling
+tile.colorizedSaplings.sacredoakSapling.name=Sacred Oak Sapling
 tile.colorizedSaplings.mangroveSapling.name=Mangrove Sapling
 tile.colorizedSaplings.palmSapling.name=Palm Sapling
 tile.colorizedSaplings.redwoodSapling.name=Redwood Sapling
 tile.colorizedSaplings.willowSapling.name=Willow Sapling
 tile.colorizedSaplings.pineSapling.name=Pine Sapling
-tile.colorizedSaplings.sacredoakSapling.name=Sacred Oak Sapling
 
 tile.willow.name=Willow
 tile.ivy.name=Ivy
@@ -187,7 +186,7 @@ tile.stoneSingleSlab.mudbrickSlab.name=Mud Bricks Slab
 tile.stoneSingleSlab.holycobbleSlab.name=Skystone Cobblestone Slab
 tile.stoneSingleSlab.holybrickSlab.name=Skystone Bricks Slab
 
-tile.planks.acaciaPlank.name=Acacia Wood Planks
+tile.planks.sacredoakPlank.name=Sacred Oak Wood Planks
 tile.planks.cherryPlank.name=Cherry Wood Planks
 tile.planks.darkPlank.name=Dark Wood Planks
 tile.planks.firPlank.name=Fir Wood Planks
@@ -202,7 +201,7 @@ tile.planks.pinePlank.name=Pine Wood Planks
 tile.planks.hellBarkPlank.name=Hellbark Wood Planks
 tile.planks.jacarandaPlank.name=Jacaranda Wood Planks
 
-tile.logs1.acaciaWood.name=Acacia Wood
+tile.logs1.sacredoakWood.name=Sacred Oak Wood
 tile.logs1.cherryWood.name=Cherry Wood
 tile.logs1.darkWood.name=Dark Wood
 tile.logs1.firWood.name=Fir Wood
@@ -239,7 +238,7 @@ tile.leaves3.whitecherry.name=White Cherry Leaves
 tile.leaves4.hellbark.name=Hellbark Leaves
 tile.leaves4.jacaranda.name=Jacaranda Leaves
 
-tile.colorizedLeaves1.acacia.name=Acacia Leaves
+tile.colorizedLeaves1.sacredoak.name=Sacred Oak Leaves
 tile.colorizedLeaves1.mangrove.name=Mangrove Leaves
 tile.colorizedLeaves1.palm.name=Palm Leaves
 tile.colorizedLeaves1.redwood.name=Redwood Leaves
@@ -250,7 +249,7 @@ tile.colorizedLeaves2.pine.name=Pine Leaves
 tile.appleLeaves.name=Apple Leaves
 tile.persimmonLeaves.name=Persimmon Leaves
 
-tile.woodenDoubleSlab1.acaciaSlab.name=Acacia Wood Slab
+tile.woodenDoubleSlab1.sacredoakSlab.name=Sacred Oak Wood Slab
 tile.woodenDoubleSlab1.cherrySlab.name=Cherry Wood Slab
 tile.woodenDoubleSlab1.darkSlab.name=Dark Wood Slab
 tile.woodenDoubleSlab1.firSlab.name=Fir Wood Slab
@@ -264,7 +263,7 @@ tile.woodenDoubleSlab2.pineSlab.name=Pine Wood Slab
 tile.woodenDoubleSlab2.hell_barkSlab.name=Hellbark Wood Slab
 tile.woodenDoubleSlab2.jacarandaSlab.name=Jacaranda Wood Slab
 
-tile.woodenSingleSlab1.acaciaSlab.name=Acacia Wood Slab
+tile.woodenSingleSlab1.sacredoakSlab.name=Sacred Oak Wood Slab
 tile.woodenSingleSlab1.cherrySlab.name=Cherry Wood Slab
 tile.woodenSingleSlab1.darkSlab.name=Dark Wood Slab
 tile.woodenSingleSlab1.firSlab.name=Fir Wood Slab
@@ -278,7 +277,7 @@ tile.woodenSingleSlab2.pineSlab.name=Pine Wood Slab
 tile.woodenSingleSlab2.hell_barkSlab.name=Hellbark Wood Slab
 tile.woodenSingleSlab2.jacarandaSlab.name=Jacaranda Wood Slab
 
-tile.acaciaStairs.name=Acacia Wood Stairs
+tile.sacredoakStairs.name=Sacred Oak Wood Stairs
 tile.cherryStairs.name=Cherry Wood Stairs
 tile.darkStairs.name=Dark Wood Stairs
 tile.firStairs.name=Fir Wood Stairs
