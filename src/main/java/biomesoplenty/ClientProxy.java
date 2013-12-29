@@ -3,6 +3,8 @@ package biomesoplenty;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelChicken;
+import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -18,7 +20,22 @@ import biomesoplenty.client.render.blocks.GraveRenderer;
 import biomesoplenty.client.render.blocks.PlantsRenderer;
 import biomesoplenty.client.render.blocks.RenderUtils;
 import biomesoplenty.client.render.blocks.SmallBlockRenderer;
-import biomesoplenty.client.render.entities.RenderDart;
+import biomesoplenty.client.render.entities.RenderBird;
+import biomesoplenty.client.render.entities.RenderGlob;
+import biomesoplenty.client.render.entities.RenderJungleSpider;
+import biomesoplenty.client.render.entities.RenderPhantom;
+import biomesoplenty.client.render.entities.RenderPixie;
+import biomesoplenty.client.render.entities.RenderRosester;
+import biomesoplenty.client.render.entities.RenderWasp;
+import biomesoplenty.client.render.entities.projectiles.RenderDart;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
+import biomesoplenty.common.entities.EntityBird;
+import biomesoplenty.common.entities.EntityGlob;
+import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.entities.EntityPhantom;
+import biomesoplenty.common.entities.EntityPixie;
+import biomesoplenty.common.entities.EntityRosester;
+import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -39,6 +56,41 @@ public class ClientProxy extends CommonProxy
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPItemHelper.get("mudball"), 0));
+		
+        if (BOPConfigurationIDs.globID > 0)
+        {
+                RenderingRegistry.registerEntityRenderingHandler(EntityGlob.class, new RenderGlob(new ModelSlime(16), new ModelSlime(0), 0.25F));
+        }
+        
+        if (BOPConfigurationIDs.jungleSpiderID > 0)
+        {
+                RenderingRegistry.registerEntityRenderingHandler(EntityJungleSpider.class, new RenderJungleSpider());
+        }
+        
+        if (BOPConfigurationIDs.rosesterID > 0)
+        {
+                RenderingRegistry.registerEntityRenderingHandler(EntityRosester.class, new RenderRosester(new ModelChicken(), 0.3F));
+        }
+        
+        if (BOPConfigurationIDs.phantomID > 0)
+        {
+                RenderingRegistry.registerEntityRenderingHandler(EntityPhantom.class, new RenderPhantom());
+        }
+
+        if (BOPConfigurationIDs.waspID > 0)
+        {
+            RenderingRegistry.registerEntityRenderingHandler(EntityWasp.class, new RenderWasp());
+        }
+        
+        if (BOPConfigurationIDs.birdID > 0)
+        {
+            RenderingRegistry.registerEntityRenderingHandler(EntityBird.class, new RenderBird());
+        }
+        
+        if (BOPConfigurationIDs.pixieID > 0)
+        {
+            RenderingRegistry.registerEntityRenderingHandler(EntityPixie.class, new RenderPixie());
+        }
 		
         RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());

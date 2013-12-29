@@ -4,10 +4,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 
 public class BlockCloud extends Block
 {
@@ -52,15 +56,15 @@ public class BlockCloud extends Block
 	{
 		entity.fallDistance = 0.0F;
 		
-		/*TODO: FEATURE if (par5Entity instanceof EntityPlayer)
+		if (entity instanceof EntityPlayer)
 		{
-			InventoryPlayer inventory = ((EntityPlayer)par5Entity).inventory;
+			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItemHelper.get("wadingBoots"))
 			{
 				return;
 			}
-		}*/
+		}
 
 		entity.motionX *= 0.8D;
 		entity.motionZ *= 0.8D;

@@ -1,4 +1,4 @@
-package biomesoplenty.client.render.entities;
+package biomesoplenty.client.render.entities.projectiles;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
