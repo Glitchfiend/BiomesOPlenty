@@ -9,6 +9,7 @@ import biomesoplenty.common.core.BOPCrafting;
 import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.core.BOPPotions;
+import biomesoplenty.common.core.BOPVanillaCompat;
 import biomesoplenty.common.eventhandler.BOPCommonEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.utils.BOPModInfo;
@@ -50,6 +51,7 @@ public class BiomesOPlenty
 		BOPCrafting.init();
 		BOPBiomes.init();
 		BOPEntities.init();
+		BOPVanillaCompat.init();
 		
 		BOPCommonEventHandlers.init();
 		
