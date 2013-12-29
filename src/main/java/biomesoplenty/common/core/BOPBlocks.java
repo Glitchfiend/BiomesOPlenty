@@ -186,24 +186,24 @@ public class BOPBlocks
 		//TODO:															 wood
 		BlockBOPSlab woodenDoubleSlab1 = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenDoubleSlab1");
 		
-		registerBlock(woodenSingleSlab1, new ItemBlockSlab(woodenSingleSlab1, woodenSingleSlab1, woodenDoubleSlab1));
-		registerBlock(woodenDoubleSlab1, new ItemBlockSlab(woodenDoubleSlab1, woodenSingleSlab1, woodenDoubleSlab1));		
+		registerBlock(woodenSingleSlab1, ItemBlockSlab.class, woodenSingleSlab1, woodenDoubleSlab1);
+		registerBlock(woodenDoubleSlab1, ItemBlockSlab.class, woodenSingleSlab1, woodenDoubleSlab1);		
 		
 		//TODO:															 wood
 		BlockBOPSlab woodenSingleSlab2 = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenSingleSlab2");
 		//TODO:															 wood
 		BlockBOPSlab woodenDoubleSlab2 = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenDoubleSlab2");
 		
-		registerBlock(woodenSingleSlab2, new ItemBlockSlab(woodenSingleSlab2, woodenSingleSlab2, woodenDoubleSlab2));
-		registerBlock(woodenDoubleSlab2, new ItemBlockSlab(woodenDoubleSlab2, woodenSingleSlab2, woodenDoubleSlab2));
+		registerBlock(woodenSingleSlab2, ItemBlockSlab.class, woodenSingleSlab2, woodenDoubleSlab2);
+		registerBlock(woodenDoubleSlab2, ItemBlockSlab.class, woodenSingleSlab2, woodenDoubleSlab2);
 		
 		//TODO:															 stone
 		BlockBOPSlab stoneSingleSlab = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneSingleSlab");
 		//TODO:															 stone
 		BlockBOPSlab stoneDoubleSlab = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneDoubleSlab");
 		
-		registerBlock(stoneSingleSlab, new ItemBlockSlab(stoneSingleSlab, stoneSingleSlab, stoneDoubleSlab));
-		registerBlock(stoneDoubleSlab, new ItemBlockSlab(stoneDoubleSlab, stoneSingleSlab, stoneDoubleSlab));
+		registerBlock(stoneSingleSlab, ItemBlockSlab.class, stoneSingleSlab, stoneDoubleSlab);
+		registerBlock(stoneDoubleSlab, ItemBlockSlab.class, stoneSingleSlab, stoneDoubleSlab);
 		
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.ACACIA).func_149663_c("acaciaStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.CHERRY).func_149663_c("cherryStairs"));
@@ -242,28 +242,9 @@ public class BOPBlocks
         GameRegistry.registerBlock(block, itemBlockClass, block.func_149739_a().replace("tile.", ""));
     }
     
-    public static Block registerBlock(Block block, ItemBlock itemblock)
+    public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass, Object... constructorArgs)
     {
-		//TODO: 			getUnlocalizedName()
-    	String name = block.func_149739_a().replace("tile.", "");
-    	
-        if (Loader.instance().isInState(LoaderState.CONSTRUCTING))
-        {
-            FMLLog.warning("The mod %s is attempting to register a block whilst it it being constructed. This is bad modding practice - please use a proper mod lifecycle event.", Loader.instance().activeModContainer());
-        }
-        try
-        {
-            assert block != null : "registerBlock: block cannot be null";
-            assert itemblock != null : "registerBlock: itemblock cannot be null";
-
-            ReflectionHelper.findMethod(GameData.class, null, new String[] { "registerBlockAndItem" }, ItemBlock.class, Block.class, String.class, String.class).invoke(null, itemblock, block, name, null);
-            
-            return block;
-        }
-        catch (Exception e)
-        {
-        	FMLLog.log(Level.ERROR, e, "Caught an exception during block registration");
-        	throw new LoaderException(e);
-        }
+		//TODO: 												getUnlocalizedName()
+        GameRegistry.registerBlock(block, itemBlockClass, block.func_149739_a().replace("tile.", ""), null, constructorArgs);
     }
 }

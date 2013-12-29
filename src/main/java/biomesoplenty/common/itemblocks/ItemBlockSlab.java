@@ -10,7 +10,7 @@ import com.google.common.base.Optional;
 
 public class ItemBlockSlab extends ItemSlab
 {
-	public ItemBlockSlab(Block block, BlockSlab singleSlab, BlockSlab doubleSlab) 
+	public ItemBlockSlab(Block block, BlockBOPSlab singleSlab, BlockBOPSlab doubleSlab) 
 	{
 		super(block, singleSlab, doubleSlab, block == doubleSlab);
 	}
