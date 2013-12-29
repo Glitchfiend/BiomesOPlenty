@@ -232,8 +232,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		//TODO:														getBlock()
 		if (world.getBlockMetadata(par2, par3, par4) == 10 && world.func_147439_a(par2, par3, par4) == BOPBlockHelper.get("flowers")) 
 		{
-			//TODO:	 drawCrossedSquares()
-			renderer.func_147730_a(par1Block, world.getBlockMetadata(par2, par3, par4), d0, d1 - 1, d2, 1.0F);
+			//TODO:	 drawCrossedSquares()	 getIcon()
+			renderer.func_147765_a(par1Block.func_149691_a(0, world.getBlockMetadata(par2, par3, par4)), d0, d1 - 1, d2, 1.0F);
 		} 
 		//TODO:															getBlock()
 		else if (world.getBlockMetadata(par2, par3, par4) == 8 && world.func_147439_a(par2, par3, par4) == BOPBlockHelper.get("foliage")) 

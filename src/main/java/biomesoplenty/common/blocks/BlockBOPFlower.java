@@ -129,8 +129,6 @@ public class BlockBOPFlower extends BlockBush
 
 		case 10:
 			//TODO: setBlockBounds
-			this.func_149676_a(0.3F, -0.97F, 0.3F, 0.7F, -0.7F, 0.7F);
-			//		//TODO: setBlockBounds
 			this.func_149676_a(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
 			break;
 
