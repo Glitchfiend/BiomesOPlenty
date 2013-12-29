@@ -116,8 +116,8 @@ public class ItemBlockBones extends ItemBlock
 
 			if (placeBlockAt(itemstack, player, world, x, y, z, side, hitVecX, hitVecY, hitVecZ, k1))
 			{
-				//TODO:													  stepSound.getPlaceSound()				stepSound.getVolume()						stepSound.getPitch()
-				world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, block.field_149762_H.func_150496_b(), (block.field_149762_H.func_150497_c() + 1.0F) / 2.0F, block.field_149762_H.func_150494_d() * 0.8F);
+				//TODO:												linkedBlock	  stepSound.getPlaceSound()			linkedBlock	stepSound.getVolume()							  linkedBlock   stepSound.getPitch()
+				world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, field_150939_a.field_149762_H.func_150496_b(), (field_150939_a.field_149762_H.func_150497_c() + 1.0F) / 2.0F, field_150939_a.field_149762_H.func_150494_d() * 0.8F);
 				--itemstack.stackSize;
 			}
 
