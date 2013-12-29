@@ -95,6 +95,7 @@ public class BOPBlocks
 	public static void init()
 	{
 		initializeBlocks();
+		registerShearBlocks();
 	}
 
 	private static void initializeBlocks()
@@ -228,6 +229,11 @@ public class BOPBlocks
 
         registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT1).func_149663_c("colorizedLeaves1"), ItemBlockColorizedLeaves.class);
         registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT2).func_149663_c("colorizedLeaves2"), ItemBlockColorizedLeaves.class);
+	}
+	
+	private static void registerShearBlocks()
+	{
+		//BOPBlockHelper.addShearBlock(block, speed);
 	}
 	
 	public static void registerBlock(Block block)

@@ -5,11 +5,12 @@ import java.util.HashMap;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.common.utils.ListUtils;
 import cpw.mods.fml.common.IFuelHandler;
 
 public class FurnaceFuelHandler implements IFuelHandler 
 {
-	private static HashMap<String, Integer> fuelMap = new HashMap();
+	private static HashMap<ItemStack, Integer> fuelMap = new HashMap();
 	
 	@Override
 	public int getBurnTime(ItemStack fuel) 
@@ -45,11 +46,11 @@ public class FurnaceFuelHandler implements IFuelHandler
 	
 	private static void addFuel(ItemStack stack, int value)
 	{
-		fuelMap.put(stack.getItem().getUnlocalizedName() + ";" + stack.getItemDamage(), value);
+		fuelMap.put(stack, value);
 	}
 	
 	private static int getFuelValue(ItemStack stack)
 	{
-		return fuelMap.get(stack.getItem().getUnlocalizedName() + ";" + stack.getItemDamage());
+		return ListUtils.getItemStackMapValue(fuelMap, stack);
 	}
 }

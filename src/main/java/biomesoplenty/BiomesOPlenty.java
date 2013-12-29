@@ -11,7 +11,7 @@ import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.core.BOPPotions;
 import biomesoplenty.common.eventhandler.BOPCommonEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
-import biomesoplenty.common.lib.BOPModInfo;
+import biomesoplenty.common.utils.BOPModInfo;
 import biomesoplenty.common.world.WorldTypeBOP;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

@@ -1,4 +1,4 @@
-package biomesoplenty.common.lib;
+package biomesoplenty.common.utils;
 
 public class BOPModInfo 
 {
