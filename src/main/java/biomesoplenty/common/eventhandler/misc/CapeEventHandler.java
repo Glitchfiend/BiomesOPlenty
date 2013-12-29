@@ -86,7 +86,7 @@ public class CapeEventHandler
             int linetracker = 1;
             while ((str = br.readLine()) != null)
             {
-                if (!str.startsWith("--"))
+                if (!str.startsWith("--") && !str.isEmpty())
                 {
                     if (str.contains(":"))
                     {
