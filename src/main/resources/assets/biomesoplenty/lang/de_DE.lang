@@ -104,13 +104,12 @@ tile.saplings.hellbarkSapling.name=Höllrindensetzling
 tile.saplings.jacarandaSapling.name=Jacarandasetzling
 tile.saplings.persimmonSapling.name=Persimonensetzling
 
-tile.colorizedSaplings.acaciaSapling.name=Akaziensetzling
+tile.colorizedSaplings.sacredoakSapling.name=Himmeleichensetzling
 tile.colorizedSaplings.mangroveSapling.name=Mangrovensetzling
 tile.colorizedSaplings.palmSapling.name=Palmsetzling
 tile.colorizedSaplings.redwoodSapling.name=Mammutbaumsetzling
 tile.colorizedSaplings.willowSapling.name=Weidensetzling
 tile.colorizedSaplings.pineSapling.name=Piniensetzling
-tile.colorizedSaplings.sacredoakSapling.name=Heiliger Eichensetzling
 
 tile.willow.name=Weide
 tile.ivy.name=Efeu
@@ -187,7 +186,7 @@ tile.stoneSingleSlab.mudbrickSlab.name=Lehmziegelstufe
 tile.stoneSingleSlab.holycobbleSlab.name=Heilige Kopfsteinpflasterstufe
 tile.stoneSingleSlab.holybrickSlab.name=Heilige Ziegelstufe
 
-tile.planks.acaciaPlank.name=Akazienholzbretter
+tile.planks.sacredoakPlank.name=Himmeleichenholzbretter
 tile.planks.cherryPlank.name=Kirschholzbretter
 tile.planks.darkPlank.name=Dunkle Holzbretter
 tile.planks.firPlank.name=Tannenholzbretter
@@ -202,7 +201,7 @@ tile.planks.pinePlank.name=Pinienholzbretter
 tile.planks.hellBarkPlank.name=Höllrindenholzbretter
 tile.planks.jacarandaPlank.name=Jacarandaholzbretter
 
-tile.logs1.acaciaWood.name=Akazienholz
+tile.logs1.sacredoakWood.name=Himmeleichenholz
 tile.logs1.cherryWood.name=Kirschholz
 tile.logs1.darkWood.name=Dunkles Holz
 tile.logs1.firWood.name=Tannenholz
@@ -239,7 +238,7 @@ tile.leaves3.whitecherry.name=Weißes Kirschlaub
 tile.leaves4.hellbark.name=Höllrindenlaub
 tile.leaves4.jacaranda.name=Jacarandalaub
 
-tile.colorizedLeaves1.acacia.name=Akazienlaub
+tile.colorizedLeaves1.sacredoak.name=Himmeleichenlaub
 tile.colorizedLeaves1.mangrove.name=Mangrovenlaub
 tile.colorizedLeaves1.palm.name=Palmlaub
 tile.colorizedLeaves1.redwood.name=Mammutbaumlaub
@@ -250,7 +249,7 @@ tile.colorizedLeaves2.pine.name=Pinienlaub
 tile.appleLeaves.name=Apfellaub
 tile.persimmonLeaves.name=Persimonenlaub
 
-tile.woodenDoubleSlab1.acaciaSlab.name=Akazienholzstufe
+tile.woodenDoubleSlab1.sacredoakSlab.name=Himmeleichenholzstufe
 tile.woodenDoubleSlab1.cherrySlab.name=Kirschholzstufe
 tile.woodenDoubleSlab1.darkSlab.name=Dunkle Holzstufe
 tile.woodenDoubleSlab1.firSlab.name=Tannenholzstufe
@@ -264,7 +263,7 @@ tile.woodenDoubleSlab2.pineSlab.name=Pinienholzstufe
 tile.woodenDoubleSlab2.hell_barkSlab.name=Höllrindenholzstufe
 tile.woodenDoubleSlab2.jacarandaSlab.name=Jacarandaholzstufe
 
-tile.woodenSingleSlab1.acaciaSlab.name=Akazienholzstufe
+tile.woodenSingleSlab1.sacredoakSlab.name=Himmeleichenholzstufe
 tile.woodenSingleSlab1.cherrySlab.name=Kirschholzstufe
 tile.woodenSingleSlab1.darkSlab.name=Dunkle Holzstufe
 tile.woodenSingleSlab1.firSlab.name=Tannenholzstufe
@@ -278,7 +277,7 @@ tile.woodenSingleSlab2.pineSlab.name=Pinienholzstufe
 tile.woodenSingleSlab2.hell_barkSlab.name=Höllrindenholzstufe
 tile.woodenSingleSlab2.jacarandaSlab.name=Jacarandaholzstufe
 
-tile.acaciaStairs.name=Akazienholztreppe
+tile.sacredoakStairs.name=Himmeleichenholztreppe
 tile.cherryStairs.name=Kirschholztreppe
 tile.darkStairs.name=Dunkle Holztreppe
 tile.firStairs.name=Tannenholztreppe
@@ -304,7 +303,7 @@ item.food.filledhoneycomb.name=Gefüllte Honigwabe
 item.food.ambrosia.name=Ambrosia
 item.food.turnip.name=Rübe
 
-item.turnipseeds.name=Rübensamen
+item.turnipSeeds.name=Rübensamen
 
 item.dartBlower.name=Blasrohr
 item.dart.dart.name=Dart
@@ -407,6 +406,9 @@ phrase.bop.promisedPortalOther=Ein Portal ist im Himmel entstanden.
 phrase.bop.useBOPATGWorldtype=Der Biomes-O'-Plenty-Welttyp oder ATG-Welttyp muss genutzt werden, damit die neuen Biome generiert werden. Diese Nachricht wird nur einmal angezeigt.
 phrase.bop.useBOPWorldtype=Der Biomes-O'-Plenty-Welttyp muss genutzt werden, damit die neuen Biome generiert werde. Diese Nachricht wird nur einmal angezeigt.
 phrase.bop.updateAvaliable=Du verwendest nicht die neueste Biomes-O-Plenty-Version. Die neueste empfohlene Version ist: v%s für Minecraft %s
+
+potion.paralysis=Paralyse
+potion.possession=Besessenheit
 
 entity.BiomesOPlenty.Glob.name=Glob
 entity.BiomesOPlenty.JungleSpider.name=Dschungelspinne
