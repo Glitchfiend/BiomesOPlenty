@@ -1,7 +1,7 @@
 package biomesoplenty.common.entities.projectiles.dispenser;
 
 import net.minecraft.dispenser.BehaviorProjectileDispense;
-import net.minecraft.dispenser.iPosition;
+import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.world.World;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
@@ -9,8 +9,8 @@ import biomesoplenty.common.entities.projectiles.EntityMudball;
 public class DispenserBehaviourMudball extends BehaviorProjectileDispense
 {
 	@Override
-	protected IProjectile getProjectileEntity(World world, iPosition par2IPosition)
+	protected IProjectile getProjectileEntity(World world, IPosition iPosition)
 	{
-		return new EntityMudball(world, par2IPosition.getX(), par2IPosition.getY(), par2IPosition.getZ());
+		return new EntityMudball(world, iPosition.getX(), iPosition.getY(), iPosition.getZ());
 	}
 }

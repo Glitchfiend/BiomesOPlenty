@@ -7,14 +7,21 @@ import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
+import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 
 public class BOPCommonEventHandlers 
 {
 	public static void init()
 	{
+		registerWorldEventHandlers();
 		registerEntityEventHandlers();
 		registerPotionEventHandlers();
 		registerMiscEventHandlers();
+	}
+	
+	private static void registerWorldEventHandlers()
+	{
+		MinecraftForge.EVENT_BUS.register(new DecorateBiomeEventHandler());
 	}
 	
 	private static void registerEntityEventHandlers()
