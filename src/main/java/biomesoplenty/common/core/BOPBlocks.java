@@ -206,7 +206,7 @@ public class BOPBlocks
 		registerBlock(stoneSingleSlab, ItemBlockSlab.class, stoneSingleSlab, stoneDoubleSlab);
 		registerBlock(stoneDoubleSlab, ItemBlockSlab.class, stoneSingleSlab, stoneDoubleSlab);
 		
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.ACACIA).func_149663_c("acaciaStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.SACREDOAK).func_149663_c("sacredoakStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.CHERRY).func_149663_c("cherryStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.DARK).func_149663_c("darkStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.FIR).func_149663_c("firStairs"));

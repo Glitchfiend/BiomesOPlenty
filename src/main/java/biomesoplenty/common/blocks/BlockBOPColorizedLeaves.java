@@ -29,7 +29,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     }
     
     //colorizedLeaves1
-    //Acacia		(0)
+    //Sacred Oak	(0)
     //Mangrove 		(1)
     //Palm			(2)
     //Redwood		(3)
@@ -38,7 +38,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     //Willow		(0)
     //Pine			(1)
     
-    private static final String[] leaves = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine"};
+    private static final String[] leaves = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine"};
     private IIcon[][] textures;
     private final ColourizedLeafCategory category;
     int[] adjacentTreeBlocks;
@@ -115,12 +115,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
         switch (par1)
         {
-            case 0:
-                return ColorizerFoliage.getFoliageColorBirch();
-
-            case 3:
-                return ColorizerFoliage.getFoliageColorPine();
-
             default:
                 return ColorizerFoliage.getFoliageColorBasic();
         }

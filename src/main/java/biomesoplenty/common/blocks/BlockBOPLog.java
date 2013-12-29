@@ -23,7 +23,7 @@ public class BlockBOPLog extends Block
 	}
 	
 	//logs1
-	//Acacia			(0)
+	//Sacred Oak		(0)
 	//Cherry			(1)
 	//Dark				(2)
 	//Fir				(3)
@@ -45,7 +45,7 @@ public class BlockBOPLog extends Block
 	//Hellbark			(1)
 	//Jacaranda			(2)
 
-	private static final String[] types = new String[] {"acacia", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda"};
+	private static final String[] types = new String[] {"sacredoak", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda"};
 	private IIcon[] textures;
 	private IIcon[] logHearts;
 

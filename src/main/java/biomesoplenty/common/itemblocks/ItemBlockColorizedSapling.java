@@ -7,7 +7,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemBlockColorizedSapling extends ItemBlock
 {
-	private static final String[] saplings = new String[] {"acacia", "mangrove", "palm", "redwood", "willow", "pine", "sacredoak"};
+	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine"};
 
 	public ItemBlockColorizedSapling(Block block)
 	{
