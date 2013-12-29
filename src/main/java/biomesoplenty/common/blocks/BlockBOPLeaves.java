@@ -77,6 +77,8 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
+		//TODO:	setLightOpacity()
+		this.func_149713_g(1);
 
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);

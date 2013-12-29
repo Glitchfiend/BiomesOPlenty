@@ -11,12 +11,14 @@ public class ItemWadingBoots extends ItemArmor
 {
 	public int textureID = 0;
 
-	public ItemWadingBoots(ArmorMaterial par2EnumArmorMaterial, int par3, int par4) 
+	public ItemWadingBoots(ArmorMaterial armorMaterial, int renderIndex, int armorType) 
 	{
-		super(par2EnumArmorMaterial, par3, par4);
-		textureID = par4;
-		setMaxDamage(0);
-		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		super(armorMaterial, renderIndex, armorType);
+		
+		textureID = armorType;
+		
+		this.setMaxDamage(0);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override

@@ -46,6 +46,8 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		this.func_149711_c(0.2F);
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
+		//TODO:	setLightOpacity()
+		this.func_149713_g(1);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);

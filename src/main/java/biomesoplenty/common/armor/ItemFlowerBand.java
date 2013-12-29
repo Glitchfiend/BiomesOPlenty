@@ -2,6 +2,7 @@ package biomesoplenty.common.armor;
 
 import java.util.List;
 
+import biomesoplenty.BiomesOPlenty;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -18,13 +19,15 @@ public class ItemFlowerBand extends ItemArmor
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 
-	public ItemFlowerBand(ArmorMaterial par2EnumArmorMaterial, int renderIndex, int armorType) 
+	public ItemFlowerBand(ArmorMaterial armorMaterial, int renderIndex, int armorType) 
 	{
-		super(par2EnumArmorMaterial, renderIndex, armorType);
+		super(armorMaterial, renderIndex, armorType);
 		
-		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 		this.maxStackSize = 8;
+		
+		this.setHasSubtypes(true);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
