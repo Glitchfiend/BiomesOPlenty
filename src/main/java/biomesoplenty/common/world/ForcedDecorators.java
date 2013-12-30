@@ -29,8 +29,8 @@ public class ForcedDecorators
 		return forcedDecoratorMap.get(biomeID);
 	}
 	
-	public static boolean biomeHasForcedDecorator(BiomeGenBase biome)
+	public static boolean biomeHasForcedDecorator(int biomeID)
 	{
-		return forcedDecoratorMap.containsKey(biome.biomeID);
+		return forcedDecoratorMap.containsKey(biomeID);
 	}
 }

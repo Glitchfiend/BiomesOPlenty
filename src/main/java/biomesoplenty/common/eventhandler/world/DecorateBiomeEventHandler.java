@@ -22,8 +22,11 @@ public class DecorateBiomeEventHandler
 		int chunkZ = event.chunkZ;
 
 		Random random = event.rand;
+		
+		int x = chunkX + 8;
+		int z = chunkZ + 8;
 
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX / 16, chunkZ / 16);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
 		
 		IBOPDecoration bopDecoration = null;
 		
@@ -31,7 +34,7 @@ public class DecorateBiomeEventHandler
 		{
 			bopDecoration = (IBOPDecoration)biome;
 		}
-		else if (ForcedDecorators.biomeHasForcedDecorator(biome))
+		else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
 		{
 			bopDecoration = ForcedDecorators.getForcedDecorator(biome.biomeID);
 		}
@@ -44,12 +47,12 @@ public class DecorateBiomeEventHandler
 
 				for (int i = 0; i < worldGenPerChunk; i++)
 				{
-					int x = chunkX + random.nextInt(16) + 8;
-					int z = chunkZ + random.nextInt(16) + 8;
-
+					int randX = x + random.nextInt(16);
+					int randZ = z + random.nextInt(16);
+					
 					WorldGenerator worldGenerator = WorldGenFieldAssociation.getAssociatedWorldGenerator(worldGeneratorField);
 
-					worldGenerator.generate(world, random, x, world.getTopSolidOrLiquidBlock(x, z), z);
+					worldGenerator.generate(world, random, randX, world.getTopSolidOrLiquidBlock(randX, randZ), randZ);
 				}
 			}
 		}
