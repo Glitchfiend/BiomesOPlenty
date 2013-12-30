@@ -5,6 +5,7 @@ ted80:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/dev_cape.png
 
 Vrrtep_aTun:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 Speedynutty68:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
+bonny_von_scotty:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 
 Vexatos:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
 Heptaforce:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
