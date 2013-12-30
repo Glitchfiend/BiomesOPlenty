@@ -4,6 +4,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeListEntry;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeTemperatureType;
+import biomesoplenty.common.biomes.BiomeGenSacredSprings;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.world.WorldGenFieldAssociation;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
@@ -46,7 +48,7 @@ public class BOPBiomes
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.icePlains, BOPBiomeTemperatureType.ICY));  
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150584_S, BOPBiomeTemperatureType.ICY));
         
-        //EXAMPLE FOR FORSTRIDE - registerBiome(new BOPBiomeListEntry(new BiomeGenBla(BOPConfigurationIDs.bla).setBiomeName("bla"), BOPBiomeTemperature.BLA));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenSacredSprings(BOPConfigurationIDs.sacredSpringsID).setBiomeName("Sacred Springs"), BOPBiomeTemperatureType.WARM));
 	}
 	
 	public static void registerBiome(BOPBiomeListEntry biome)
