@@ -6,9 +6,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import biomesoplenty.common.world.ForcedDecorators;
-import biomesoplenty.common.world.IBOPDecoration;
 import biomesoplenty.common.world.WorldGenFieldAssociation;
+import biomesoplenty.common.world.decoration.ForcedDecorators;
+import biomesoplenty.common.world.decoration.IBOPDecoration;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class DecorateBiomeEventHandler 

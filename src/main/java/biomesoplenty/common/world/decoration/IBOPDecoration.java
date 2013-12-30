@@ -1,4 +1,4 @@
-package biomesoplenty.common.world;
+package biomesoplenty.common.world.decoration;
 
 public interface IBOPDecoration 
 {

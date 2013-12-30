@@ -1,6 +1,6 @@
 package biomesoplenty.common.world.forceddecorators;
 
-import biomesoplenty.common.world.IBOPDecoration;
+import biomesoplenty.common.world.decoration.IBOPDecoration;
 
 public class SwampForcedDecorator implements IBOPDecoration
 {
