@@ -14,43 +14,49 @@ import biomesoplenty.common.world.generators.trees.WorldGenSacredOak;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BiomeGenSacredSprings extends BiomeGenBase
+public class BiomeGenSacredSprings extends BOPBiome
 {
-    //private BiomeDecoratorBOP customBiomeDecorator;
-
-    @SuppressWarnings("unchecked")
-    public BiomeGenSacredSprings(int par1)
+    public BiomeGenSacredSprings(int id)
     {
-        super(par1);
-        theBiomeDecorator.treesPerChunk = 30;
-        theBiomeDecorator.grassPerChunk = 4;
-        theBiomeDecorator.waterlilyPerChunk = 5;
+        super(id);
+        
+        this.theBiomeDecorator.treesPerChunk = 30;
+        this.theBiomeDecorator.grassPerChunk = 4;
+        this.theBiomeDecorator.waterlilyPerChunk = 5;
+        
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
     }
 
-    //Trees
+    @Override
+    //TODO:						getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random rand)
     {
     	return (WorldGenAbstractTree)(rand.nextInt(150) == 0 ? new WorldGenSacredOak(false) : new WorldGenShrub(0, 0));
     }
     
-    //Grasses
-    public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+    @Override
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
     {
-        return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
+        return random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
     }
     
-    //Grass Color
-    @SideOnly(Side.CLIENT)
-    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    @Override
+    //TODO:		getBiomeGrassColor()
+	public int func_150558_b(int x, int y, int z)
     {
     	return 39259;
     }
     
-    //Foliage Color
     @SideOnly(Side.CLIENT)
-    public int func_150571_c(int p_150571_1_, int p_150571_2_, int p_150571_3_)
+    //TODO:		getBiomeFoliageColor()
+    public int func_150571_c(int x, int y, int z)
     {
         return 39259;
     }
+
+	@Override
+	public int getWorldGenPerChunk(String fieldName)
+	{
+		return 0;
+	}
 }

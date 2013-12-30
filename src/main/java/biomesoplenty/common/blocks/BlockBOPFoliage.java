@@ -184,7 +184,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	//TODO:		   canBlockStay()
 	public boolean func_149718_j(World world, int x, int y, int z)
 	{
-		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
+		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, -1);
 	}
 
 	@Override

@@ -53,6 +53,33 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 	{
 		super(par1);
 	}
+	
+	 @Override
+	 public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
+	 {
+		 worldObj = par1World;
+		 long var6 = par2Random.nextLong();
+		 rand.setSeed(var6);
+		 basePos[0] = par3;
+		 basePos[1] = par4;
+		 basePos[2] = par5;
+
+		 if (heightLimit == 0)
+		 {
+			 heightLimit = 50;
+		 }
+
+		 if (!this.validTreeLocation())
+			 return false;
+		 else
+		 {
+			 this.generateLeafNodeList();
+			 this.generateLeaves();
+			 this.generateTrunk();
+			 this.generateLeafNodeBases();
+			 return true;
+		 }
+	 }
 
 	/**
 	 * Generates a list of leaf nodes for the tree, to be populated by generateLeaves.
@@ -140,7 +167,7 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 		System.arraycopy(var2, 0, leafNodes, 0, var4);
 	}
 
-	void genTreeLayer(int par1, int par2, int par3, float par4, byte par5, Block par6)
+	void genTreeLayer(int par1, int par2, int par3, float par4, byte par5, Block leaves)
 	{
 		int var7 = (int)(par4 + 0.618D);
 		byte var8 = otherCoordPairs[par5];
@@ -166,17 +193,17 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 				else
 				{
 					var11[var9] = var10[var9] + var13;
-					Block block = worldObj.func_147439_a(var8, var12, var9);
-					//int var14 = worldObj.getBlockId(var11[0], var11[1], var11[2]);
+					//TODO:					getBlock()
+					Block block = worldObj.func_147439_a(var11[0], var11[1], var11[2]);
 
-					if (block != Blocks.air && block != BOPBlockHelper.get("colorizedLeaves1"))
+					if (block != Blocks.air && block != leaves)
 					{
 						++var13;
 					}
 					else
 					{
-						//this.setBlockAndMetadata(worldObj, var11[0], var11[1], var11[2], par6, 4);
-						worldObj.func_147449_b(var11[0], var11[1], var11[2], BOPBlockHelper.get("colorizedLeaves1"));
+						//TODO:	setBlock()
+						this.func_150515_a(worldObj, var11[0], var11[1], var11[2], leaves);
 						++var13;
 					}
 				}
@@ -295,8 +322,8 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 					 }
 				 }
 
-				 //this.setBlockAndMetadata(worldObj, var14[0], var14[1], var14[2], par3, var17);
-				 worldObj.func_147449_b(var14[0], var14[1], var14[2], BOPBlockHelper.get("colorizedLeaves1"));
+				 //TODO: setBlockAndMetadata()
+				 this.func_150516_a(worldObj, var14[0], var14[1], var14[2], par3, var17);
 			 }
 		 }
 	 }
@@ -433,7 +460,8 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 				 var13[var5] = par1ArrayOfInteger[var5] + var14;
 				 var13[var6] = MathHelper.floor_double(par1ArrayOfInteger[var6] + var14 * var9);
 				 var13[var7] = MathHelper.floor_double(par1ArrayOfInteger[var7] + var14 * var11);
-				// int var16 = worldObj.getBlockId(var13[0], var13[1], var13[2]);
+				 
+				 //TODO:				getBlock()
 				 Block block = worldObj.func_147439_a(var13[0], var13[1], var13[2]);
 
 				 if (block != Blocks.air && block != BOPBlockHelper.get("colorizedLeaves1"))
@@ -454,9 +482,11 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 	 {
 		 int[] var1 = new int[] {basePos[0], basePos[1], basePos[2]};
 		 int[] var2 = new int[] {basePos[0], basePos[1] + heightLimit - 1, basePos[2]};
+		 
+		 //TODO:			getBlock()
 		 Block block = worldObj.func_147439_a(basePos[0], basePos[1] - 1, basePos[2]);
 
-		 if (block != Blocks.grass && block != Blocks.dirt)
+		 if (block != Blocks.dirt && block != Blocks.grass)
 			 return false;
 		 else
 		 {
@@ -489,32 +519,5 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 
 		 scaleWidth = par3;
 		 leafDensity = par5;
-	 }
-
-	 @Override
-	 public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
-	 {
-		 worldObj = par1World;
-		 long var6 = par2Random.nextLong();
-		 rand.setSeed(var6);
-		 basePos[0] = par3;
-		 basePos[1] = par4;
-		 basePos[2] = par5;
-
-		 if (heightLimit == 0)
-		 {
-			 heightLimit = 50;
-		 }
-
-		 if (!this.validTreeLocation())
-			 return false;
-		 else
-		 {
-			 this.generateLeafNodeList();
-			 this.generateLeaves();
-			 this.generateTrunk();
-			 this.generateLeafNodeBases();
-			 return true;
-		 }
 	 }
 }

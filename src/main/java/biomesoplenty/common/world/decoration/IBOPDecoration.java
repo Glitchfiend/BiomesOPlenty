@@ -1,6 +1,8 @@
 package biomesoplenty.common.world.decoration;
 
-public interface IBOPDecoration 
+import net.minecraft.world.biome.BiomeGenBase;
+
+public interface IBOPDecoration
 {
 	public int getWorldGenPerChunk(String fieldName);
 }

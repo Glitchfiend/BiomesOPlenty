@@ -3,6 +3,7 @@ package biomesoplenty.common.eventhandler.world;
 import java.util.Random;
 
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -10,11 +11,12 @@ import biomesoplenty.common.world.WorldGenFieldAssociation;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class DecorateBiomeEventHandler 
 {
 	@SubscribeEvent
-	public void onBiomeDecorate(DecorateBiomeEvent.Pre event)
+	public void onBiomeDecorate(DecorateBiomeEvent.Post event)
 	{
 		World world = event.world;
 
@@ -56,5 +58,35 @@ public class DecorateBiomeEventHandler
 				}
 			}
 		}
+	}
+	
+	public static void decorate(World world, Random random, BiomeGenBase biome, int x, int z)
+	{
+		BiomeDecorator biomeDecorator = biome.theBiomeDecorator;
+		
+        if (biomeDecorator.currentWorld != null)
+        {
+            return;
+        }
+        else
+        {
+            biomeDecorator.currentWorld = world;
+            biomeDecorator.randomGenerator = random;
+            biomeDecorator.chunk_X = x;
+            biomeDecorator.chunk_Z = z;
+            
+            //TODO:			decorate
+            try
+            {
+            	ReflectionHelper.findMethod(BiomeDecorator.class, biomeDecorator, new String[] { "func_150513_a" }, BiomeGenBase.class).invoke(biomeDecorator, biome);
+            }
+            catch (Exception e)
+            {
+
+            }
+            
+            biomeDecorator.currentWorld = null;
+            biomeDecorator.randomGenerator = null;
+        }
 	}
 }
