@@ -456,7 +456,7 @@ achievement.bop.achAmbrosia=Напиток богов
 achievement.bop.achAmbrosia.desc=Stay thirst, my friends.
 
 achievement.bop.achAllBOP=Achievements O' Plenty
-achievement.bop.achAlldesc=Вы получили все достижения Biomes O' Plenty!
+achievement.bop.achAllBOP.desc=Вы получили все достижения Biomes O' Plenty!
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
