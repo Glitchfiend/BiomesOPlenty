@@ -24,7 +24,6 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.theBiomeDecorator.treesPerChunk = 30;
         this.theBiomeDecorator.grassPerChunk = 4;
         this.theBiomeDecorator.waterlilyPerChunk = 5;
-        
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
     }
 
@@ -32,7 +31,7 @@ public class BiomeGenSacredSprings extends BOPBiome
     //TODO:						getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random rand)
     {
-    	return (WorldGenAbstractTree)(rand.nextInt(150) == 0 ? new WorldGenSacredOak(false) : new WorldGenShrub(0, 0));
+    	return (WorldGenAbstractTree)(rand.nextInt(200) == 0 ? new WorldGenSacredOak(false) : new WorldGenShrub(0, 0));
     }
     
     @Override
@@ -40,6 +39,20 @@ public class BiomeGenSacredSprings extends BOPBiome
     {
         return random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
     }
+    
+    @Override
+	public WorldGenBOPFlowers getRandomWorldGenForBOPFlowers(Random random)
+    {
+    	return random.nextInt(3) == 0 ? new WorldGenBOPFlowers(BOPBlockHelper.get("flowers"), 6) : new WorldGenBOPFlowers(Blocks.red_flower, 1);
+    }
+    
+    @Override
+	public int getWorldGenPerChunk(String fieldName)
+	{
+    	if (fieldName.equals("bopFlowersPerChunk")) return 2;
+    	
+		return 0;
+	}
     
     @Override
     //TODO:		getBiomeGrassColor()
