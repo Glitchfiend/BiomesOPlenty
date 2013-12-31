@@ -1,5 +1,7 @@
 package biomesoplenty.common.eventhandler.world;
 
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FLOWERS;
+
 import java.util.Random;
 
 import net.minecraft.world.World;
@@ -7,6 +9,7 @@ import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.common.world.WorldGenFieldAssociation;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
@@ -52,9 +55,21 @@ public class DecorateBiomeEventHandler
 					int randX = x + random.nextInt(16);
 					int randZ = z + random.nextInt(16);
 					
-					WorldGenerator worldGenerator = WorldGenFieldAssociation.getAssociatedWorldGenerator(worldGeneratorField);
+					WorldGenerator worldGenerator = null;
 
-					worldGenerator.generate(world, random, randX, world.getTopSolidOrLiquidBlock(randX, randZ), randZ);
+					if (worldGeneratorField.equals("bopFlowersPerChunk") && TerrainGen.decorate(world, random, chunkX, chunkZ, FLOWERS))
+					{
+						worldGenerator = bopDecoration.getRandomWorldGenForBOPFlowers(random);
+					}
+					else
+					{
+						WorldGenFieldAssociation.getAssociatedWorldGenerator(worldGeneratorField);
+					}
+					
+					if (worldGenerator != null)
+					{
+						worldGenerator.generate(world, random, randX, world.getTopSolidOrLiquidBlock(randX, randZ), randZ);
+					}
 				}
 			}
 		}

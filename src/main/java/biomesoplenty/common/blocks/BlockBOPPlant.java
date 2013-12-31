@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EffectRenderer;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -29,10 +28,11 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.client.render.blocks.RenderUtils;
+import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPPlant extends BlockBush implements IShearable
+public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 {
 	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
 	private IIcon[] textures;
@@ -189,15 +189,8 @@ public class BlockBOPPlant extends BlockBush implements IShearable
 	//TODO:			canReplace()
     public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
-	}
-
-	@Override
-	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
-	{
-		int metadata = world.getBlockMetadata(x, y, z);
-
+		int metadata = itemStack.getItemDamage();
+		
         if (metadata == 5 || metadata == 13 || metadata == 15)
         	return this.isValidPosition(world, x, y, z, metadata);
         else

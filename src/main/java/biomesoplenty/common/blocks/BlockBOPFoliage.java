@@ -177,20 +177,41 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	//TODO:			canReplace()
     public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
+		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
-
-	@Override
-	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
-	{
-		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, -1);
-	}
+	
+    @Override
+	//TODO:		updateTick()
+	public void func_149674_a(World world, int x, int y, int z, Random random)
+    {
+    	//TODO:				getBlock()
+    	Block block = world.func_147439_a(x, y, z);
+    	
+    	//TODO:	updateTick()
+        super.func_149695_a(world, x, y, z, block);
+        
+        this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
+    }
+	
+    public void dropIfCantStay(World world, int x, int y, int z, ItemStack stack)
+    {
+    	//TODO:	  canReplace
+        if (!this.func_149705_a(world, x, y, z, 0, stack))
+        {
+        	//TODO:	dropBlockAsItem()
+            this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            //TODO:	setBlockToAir()
+            world.func_147468_f(x, y, z);
+        }
+    }
 
 	@Override
 	//TODO:		onNeighborBlockChange()
 	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
+		//TODO:												getBlock()
+		dropIfCantStay(world, x, y, z, new ItemStack(world.func_147439_a(x, y, z), 1, world.getBlockMetadata(x, y, z)));
+		
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
 	    if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM) 

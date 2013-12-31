@@ -18,6 +18,7 @@ public class WorldGenFieldAssociation
 	private static void associateFieldsWithGenerators()
 	{
 		associateField("mudPerChunk", new WorldGenMud(7));
+		associateField("bopFlowersPerChunk", null);
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)

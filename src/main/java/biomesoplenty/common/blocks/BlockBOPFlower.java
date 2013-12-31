@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -25,10 +23,11 @@ import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.client.render.blocks.RenderUtils;
+import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower extends BlockBush
+public class BlockBOPFlower extends BOPBlockWorldDecor
 {
 	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "sunflowerbottom", "sunflowertop", "dandelion"};
 	private IIcon[] textures;
@@ -209,6 +208,7 @@ public class BlockBOPFlower extends BlockBush
 		}
 	}
 
+	@Override
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
@@ -235,30 +235,11 @@ public class BlockBOPFlower extends BlockBush
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
 		}
 	}
-
-	@Override
-	//TODO:			canReplace()
-    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
-	{
-		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
-	} 
-
-	@Override
-	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
-	{
-		int meta = world.getBlockMetadata(x, y, z);
-
-		if (meta == 11)
-			return this.isValidPosition(world, x, y, z, meta);
-		else
-			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && isValidPosition(world, x, y, z, meta);
-	}
-
 	@Override
 	//TODO:		onNeighborBlockChange()
 	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
 	{
+		//TODO:	onNeighborBlockChange()
 		super.func_149695_a(world, x, y, z, neighborBlock);
 
 		//TODO:														getBlock()

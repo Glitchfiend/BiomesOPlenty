@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,11 +19,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.client.render.blocks.RenderUtils;
+import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower2 extends BlockBush
+public class BlockBOPFlower2 extends BOPBlockWorldDecor
 {
 	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight", "icyiris"};
 	private IIcon[] textures;
@@ -180,6 +179,7 @@ public class BlockBOPFlower2 extends BlockBush
 		}
 	}
 
+	@Override
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
@@ -199,13 +199,6 @@ public class BlockBOPFlower2 extends BlockBush
 	}
 
 	@Override
-	//TODO:			canReplace()
-    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
-	{
-		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
-	} 
-
-	@Override
 	//TODO:	   getDamageValue()
 	public int func_149643_k(World world, int x, int y, int z) 
 	{
@@ -219,17 +212,5 @@ public class BlockBOPFlower2 extends BlockBush
 	public int func_149692_a(int meta)
 	{
 		return meta & 15;
-	}
-
-	@Override
-	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
-	{
-		int meta = world.getBlockMetadata(x, y, z);
-
-		if (meta == 2 || meta == 6)
-			return this.isValidPosition(world, x, y, z, meta);
-		else
-			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, meta);
 	}
 }

@@ -86,7 +86,7 @@ public class BlockBOPSapling extends BlockSapling
 	//TODO:		   canPlaceBlockOnSide
 	public boolean func_149707_d(World world, int x, int y, int z, int side)
 	{
-		return isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
+		return isValidPosition(world, x, y, z, -1);
 	}
 
 	@Override

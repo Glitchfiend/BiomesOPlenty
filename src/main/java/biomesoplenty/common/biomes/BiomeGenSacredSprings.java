@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.generators.WorldGenBOPFlowers;
 import biomesoplenty.common.world.generators.trees.WorldGenSacredOak;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -53,10 +54,4 @@ public class BiomeGenSacredSprings extends BOPBiome
     {
         return 39259;
     }
-
-	@Override
-	public int getWorldGenPerChunk(String fieldName)
-	{
-		return 0;
-	}
 }

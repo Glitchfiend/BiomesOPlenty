@@ -3,7 +3,6 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,10 +13,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockStoneFormations extends BlockBush
+public class BlockStoneFormations extends BOPBlockWorldDecor
 {
 	private static final String[] forms = new String[] {"stalagmite", "stalactite"};
 	private IIcon[] textures;
@@ -139,15 +139,6 @@ public class BlockStoneFormations extends BlockBush
 	public int func_149692_a(int meta)
 	{
 		return meta & 15;
-	}
-
-	@Override
-	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
-	{
-		int meta = world.getBlockMetadata(x, y, z);
-
-		return this.isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override

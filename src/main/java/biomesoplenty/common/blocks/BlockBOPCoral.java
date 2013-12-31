@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,10 +14,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBOPCoral extends BlockBush
+public class BlockBOPCoral extends BOPBlockWorldDecor
 {
 	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
 	private IIcon[] textures;
@@ -105,13 +105,6 @@ public class BlockBOPCoral extends BlockBush
 		default:
 			return block == Blocks.dirt || block == Blocks.sand|| block == Blocks.sponge || block == Blocks.stone || block == Blocks.clay;
 		}
-	}
-
-	@Override
-	//TODO:			canReplace()
-    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
-	{
-		return isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
 	@Override
@@ -201,13 +194,6 @@ public class BlockBOPCoral extends BlockBush
 		}
 		
 		return meta;
-	}
-
-	@Override
-	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
-	{
-		return isValidPosition(world, x, y, z, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
