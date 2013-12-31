@@ -11,17 +11,25 @@ public class WorldGenBOPFlowers extends WorldGenerator
 {
     private Block flower;
     private int flowerMeta;
+    private int groupCount = 64;
 
     public WorldGenBOPFlowers(Block flower, int flowerMeta)
     {
         this.flower = flower;
         this.flowerMeta = flowerMeta;
     }
+    
+    public WorldGenBOPFlowers(Block flower, int flowerMeta, int groupCount)
+    {
+        this.flower = flower;
+        this.flowerMeta = flowerMeta;
+        this.groupCount = groupCount;
+    }
 
     @Override
 	public boolean generate(World world, Random random, int x, int y, int z)
     {
-        for (int l = 0; l < 64; ++l)
+        for (int l = 0; l < groupCount; ++l)
         {
             int i1 = x + random.nextInt(8) - random.nextInt(8);
             int j1 = y + random.nextInt(4) - random.nextInt(4);

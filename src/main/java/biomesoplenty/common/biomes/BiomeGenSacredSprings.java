@@ -17,9 +17,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BiomeGenSacredSprings extends BOPBiome
 {
+	private static final Height sacredSpringsHeight = new Height(0F, 1F);
+	
     public BiomeGenSacredSprings(int id)
     {
         super(id);
+        
+        //TODO: setHeight()
+        this.func_150570_a(sacredSpringsHeight);
         
         this.theBiomeDecorator.treesPerChunk = 30;
         this.theBiomeDecorator.grassPerChunk = 4;
