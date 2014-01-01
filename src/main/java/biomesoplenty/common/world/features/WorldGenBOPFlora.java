@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.generators;
+package biomesoplenty.common.world.features;
 
 import java.util.Random;
 
@@ -7,19 +7,19 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenBOPFlowers extends WorldGenerator
+public class WorldGenBOPFlora extends WorldGenerator
 {
     private Block flower;
     private int flowerMeta;
     private int groupCount = 64;
 
-    public WorldGenBOPFlowers(Block flower, int flowerMeta)
+    public WorldGenBOPFlora(Block flower, int flowerMeta)
     {
         this.flower = flower;
         this.flowerMeta = flowerMeta;
     }
     
-    public WorldGenBOPFlowers(Block flower, int flowerMeta, int groupCount)
+    public WorldGenBOPFlora(Block flower, int flowerMeta, int groupCount)
     {
         this.flower = flower;
         this.flowerMeta = flowerMeta;

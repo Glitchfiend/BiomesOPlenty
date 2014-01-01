@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.generators.WorldGenBOPFlowers;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
 {
@@ -28,7 +28,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
 	}
     
     @Override
-	public WorldGenBOPFlowers getRandomWorldGenForBOPFlowers(Random random)
+	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
     {
     	return null;
     }
