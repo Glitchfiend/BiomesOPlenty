@@ -55,8 +55,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		float var3 = 0.4F;
-		//TODO:		setBurnProperties() getIdFromBlock()
-		Blocks.fire.func_149842_a(func_149682_b(this), 60, 100);
+		//TODO: FEATURE Blocks.fire.setFireInfo(this, 60, 100);
 		//TODO: setBlockBounds
 		this.func_149676_a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
 		

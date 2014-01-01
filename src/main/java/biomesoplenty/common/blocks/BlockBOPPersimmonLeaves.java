@@ -38,8 +38,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
     	//TODO:	Material.leaves
         super(Material.field_151584_j, false);
 		
-		//TODO:		setBurnProperties() getIdFromBlock()
-		Blocks.fire.func_149842_a(func_149682_b(this), 30, 60);
+      //TODO: FEATURE Blocks.fire.setFireInfo(this, 30, 60);
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		//TODO: this.setHardness

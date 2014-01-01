@@ -54,9 +54,7 @@ public class BlockBOPStairs extends BlockStairs
 			//TODO 	setStepSound(Block.soundStoneFootstep)
 			this.func_149672_a(Block.field_149780_i);
 		}
-
-		//TODO:		setBurnProperties() getIdFromBlock()
-		Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
+		//TODO: FEATURE Blocks.fire.setFireInfo(this, 5, 20);
 
 		//TODO: useNeighborBrightness?
 		field_149783_u = true;

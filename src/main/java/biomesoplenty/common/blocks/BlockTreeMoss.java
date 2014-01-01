@@ -18,8 +18,7 @@ public class BlockTreeMoss extends BlockVine
 		
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
-		//TODO:		setBurnProperties() getIdFromBlock()
-		Blocks.fire.func_149842_a(func_149682_b(this), 15, 100);
+		//TODO: FEATURE Blocks.fire.setFireInfo(this, 15, 100);
 		
 		//TODO: this.setCreativeTab()
 		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);

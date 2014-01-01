@@ -40,8 +40,7 @@ public class BlockBOPSlab extends BlockSlab
 		//TODO: 		Material.wood
 		if (material == Material.field_151575_d)
 		{
-			//TODO:		setBurnProperties() getIdFromBlock()
-			Blocks.fire.func_149842_a(func_149682_b(this), 5, 20);
+			//TODO: FEATURE Blocks.fire.setFireInfo(this, 5, 20);
 			//TODO: this.setHardness
 			this.func_149711_c(2.0F);
 			//TODO: this.setResistance
