@@ -110,7 +110,6 @@ tile.bop.colorizedSaplings.palmSapling.name=棕榈树苗
 tile.bop.colorizedSaplings.redwoodSapling.name=红木树苗
 tile.bop.colorizedSaplings.willowSapling.name=柳树树苗
 tile.bop.colorizedSaplings.pineSapling.name=松树树苗
-tile.bop.colorizedSaplings.sacredoakSapling.name=神圣橡树树苗
 
 tile.bop.willow.name=柳树
 tile.bop.ivy.name=藤蔓
@@ -192,7 +191,7 @@ tile.bop.stoneSingleSlab.mudbrickSlab.name=泥巴砖块台阶
 tile.bop.stoneSingleSlab.holycobbleSlab.name=苍空石圆石台阶
 tile.bop.stoneSingleSlab.holybrickSlab.name=苍空石砖块台阶
 
-tile.bop.planks.acaciaPlank.name=刺槐树木板
+tile.bop.planks.sacredoakPlank.name=神圣橡树木板
 tile.bop.planks.cherryPlank.name=樱桃树木板
 tile.bop.planks.darkPlank.name=黑暗树木板
 tile.bop.planks.firPlank.name=杉树木板
@@ -207,7 +206,7 @@ tile.bop.planks.pinePlank.name=松树木板
 tile.bop.planks.hellBarkPlank.name=地狱皮树木板
 tile.bop.planks.jacarandaPlank.name=蓝花楹树木板
 
-tile.bop.wood1.acaciaWood.name=刺槐树原木
+tile.bop.wood1.sacredoakWood.name=神圣橡树原木
 tile.bop.wood1.cherryWood.name=樱桃树原木
 tile.bop.wood1.darkWood.name=黑暗树原木
 tile.bop.wood1.firWood.name=杉树原木
@@ -243,7 +242,7 @@ tile.bop.leaves2.whitecherry.name=白樱桃树叶
 tile.bop.leaves2.hellbark.name=地狱皮树叶
 tile.bop.leaves2.jacaranda.name=蓝花楹树叶
 
-tile.bop.woodenDoubleSlab1.acaciaSlab.name=刺槐树木板
+tile.bop.woodenDoubleSlab1.sacredoakSlab.name=神圣橡树木板
 tile.bop.woodenDoubleSlab1.cherrySlab.name=樱桃树木板
 tile.bop.woodenDoubleSlab1.darkSlab.name=黑暗树木板
 tile.bop.woodenDoubleSlab1.firSlab.name=杉树木板
@@ -257,7 +256,7 @@ tile.bop.woodenDoubleSlab2.pineSlab.name=松树木板
 tile.bop.woodenDoubleSlab2.hell_barkSlab.name=地狱皮树木板
 tile.bop.woodenDoubleSlab2.jacarandaSlab.name=蓝花楹树木板
 
-tile.bop.woodenSingleSlab1.acaciaSlab.name=刺槐树台阶
+tile.bop.woodenSingleSlab1.sacredoakSlab.name=神圣橡树台阶
 tile.bop.woodenSingleSlab1.cherrySlab.name=樱桃树台阶
 tile.bop.woodenSingleSlab1.darkSlab.name=黑暗树台阶
 tile.bop.woodenSingleSlab1.firSlab.name=杉树台阶
@@ -271,7 +270,7 @@ tile.bop.woodenSingleSlab2.pineSlab.name=松树台阶
 tile.bop.woodenSingleSlab2.hell_barkSlab.name=地狱皮树台阶
 tile.bop.woodenSingleSlab2.jacarandaSlab.name=蓝花楹树台阶
 
-tile.bop.acaciaStairs.name=刺槐木楼梯
+tile.bop.sacredoakStairs.name=神圣橡木楼梯
 tile.bop.cherryStairs.name=樱桃木楼梯
 tile.bop.darkStairs.name=黑暗木楼梯
 tile.bop.firStairs.name=冷杉木楼梯
@@ -285,7 +284,7 @@ tile.bop.pineStairs.name=松树木楼梯
 tile.bop.hellBarkStairs.name=地狱皮木楼梯
 tile.bop.jacarandaStairs.name=蓝花楹树楼梯
 
-tile.bop.leavesColorized.acacia.name=刺槐树叶
+tile.bop.leavesColorized.sacredoak.name=神圣橡树树叶
 tile.bop.leavesColorized.mangrove.name=红树叶
 tile.bop.leavesColorized.palm.name=棕榈叶
 tile.bop.leavesColorized.redwood.name=红杉叶
@@ -305,7 +304,7 @@ item.bop.food.filledhoneycomb.name=蜂蜜蜂巢
 item.bop.food.ambrosia.name=仙馔密酒
 item.bop.food.turnip.name=芜菁
 
-item.bop.turnipseeds.name=芜菁种子
+item.turnipSeeds.name=芜菁种子
 
 item.bop.dartblower.name=飞镖吹筒
 item.bop.dart.dart.name=飞镖
@@ -378,6 +377,9 @@ item.bop.enderporter.name=末地逃逸护符
 item.bop.bopDisc.name=音乐唱片
 item.bop.bopDiscMud.name=音乐唱片
 
+item.bopdisc.desc=Tim Rurkowski - 流浪者
+item.bopdiscmud.desc=???
+
 item.bop.flowerBand.dullflowerband.name=黯淡之花环
 item.bop.flowerBand.plainflowerband.name=平凡之花环
 item.bop.flowerBand.lushflowerband.name=丰饶之花环
@@ -405,6 +407,9 @@ phrase.bop.promisedPortalOther=神迹之门降临于苍穹之上.
 phrase.bop.useBOPATGWorldtype=为了使得新生态群落生成必须选用超多生态群落地形生成器或ATG地形生成器. 该信息仅显示一次.
 phrase.bop.useBOPWorldtype=为了使得新生态群落生成必须选用超多生态群落地形生成器. 该信息仅显示一次.
 phrase.bop.updateAvaliable=你现在使用的并非超多生态群落的最新版本.最新推进版本为: v%s,基于Minecraft %s
+
+potion.paralysis=麻痹
+potion.possession=财富
 
 entity.BiomesOPlenty.Glob.name=小球
 entity.BiomesOPlenty.JungleSpider.name=丛林蜘蛛
