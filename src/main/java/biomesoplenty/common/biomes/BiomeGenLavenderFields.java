@@ -1,21 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.tree.WorldGenJacaranda;
 
 public class BiomeGenLavenderFields extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenLavenderFields(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 1;
@@ -24,20 +17,24 @@ public class BiomeGenLavenderFields extends BiomeGenBase
 		customBiomeDecorator.wheatGrassPerChunk = 5;
 		customBiomeDecorator.lavenderPerChunk = 999;
 		customBiomeDecorator.generatePumpkins = true;
+		*/
 	}
 	
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return par1Random.nextInt(3) == 0 ? this.worldGeneratorBigTree : new WorldGenJacaranda(false);
 	}
+	*/
 	
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
@@ -69,4 +66,5 @@ public class BiomeGenLavenderFields extends BiomeGenBase
 			}
 		}
 	}
+	*/
 }

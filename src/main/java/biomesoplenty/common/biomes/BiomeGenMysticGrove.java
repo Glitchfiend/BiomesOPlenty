@@ -1,30 +1,15 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.awt.Color;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfigurationMain;
-import biomesoplenty.configuration.BOPConfigurationMisc;
-import biomesoplenty.worldgen.tree.WorldGenJacaranda;
-import biomesoplenty.worldgen.tree.WorldGenMystic2;
-import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
-public class BiomeGenMysticGrove extends BiomeGenBase implements IWCFog
+public class BiomeGenMysticGrove extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenMysticGrove(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		if (BOPConfigurationMain.realisticTrees)
@@ -56,56 +41,68 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IWCFog
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		spawnableMonsterList.add(new SpawnListEntry(EntityWitch.class, 10, 4, 4));
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return par1Random.nextInt(4) == 0 ? new WorldGenMystic2(false) : (par1Random.nextInt(3) == 0 ? new WorldGenJacaranda(false) : ((par1Random.nextInt(3) == 0 ? this.worldGeneratorBigTree : ((par1Random.nextInt(8) == 0 ? new WorldGenSwampTall() : this.worldGeneratorTrees)))));
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
 		return (par1Random.nextInt(5) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 1) : (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Block.tallGrass.blockID, 1)));
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
 		return 6934491;
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 7397529;
 	}
+	*/
 	
 	/**
 	 * Fog Color
 	 */
+	/*
 	@Override
 	public int getFogColour()
 	{
 		return 16755401;
 	}
+	*/
 
 	/**
 	 * takes temperature, returns color
 	 */
+	/*
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
@@ -135,4 +132,5 @@ public class BiomeGenMysticGrove extends BiomeGenBase implements IWCFog
         // TODO Auto-generated method stub
         return 1.0F;
     }
+    */
 }

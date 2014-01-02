@@ -1,22 +1,13 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.awt.Color;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfigurationMisc;
 
-public class BiomeGenCrag extends BiomeGenBase implements IWCFog
+public class BiomeGenCrag extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
-
 	public BiomeGenCrag(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
@@ -25,8 +16,10 @@ public class BiomeGenCrag extends BiomeGenBase implements IWCFog
 		topBlock = (byte)Blocks.cragRock.get().blockID;
 		fillerBlock = (byte)Blocks.cragRock.get().blockID;
 		waterColorMultiplier = 944693;
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -47,19 +40,23 @@ public class BiomeGenCrag extends BiomeGenBase implements IWCFog
 			}
 		}
 	}
+	*/
 	
 	/**
 	 * Fog Color
 	 */
+	/*
 	@Override
 	public int getFogColour()
 	{
 		return 10514245;
 	}
+	*/
 
 	/**
 	 * takes temperature, returns color
 	 */
+	/*
 	 @Override
 	 public int getSkyColorByTemp(float par1)
 	 {
@@ -89,4 +86,5 @@ public class BiomeGenCrag extends BiomeGenBase implements IWCFog
         // TODO Auto-generated method stub
         return 1.0F;
     }
+    */
 }

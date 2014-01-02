@@ -1,26 +1,14 @@
-package biomesoplenty.biomes;
-
-import java.awt.Color;
-import java.util.Random;
+package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfigurationMisc;
-import biomesoplenty.worldgen.WorldGenWasteland;
-import biomesoplenty.worldgen.WorldGenWasteland2;
-import biomesoplenty.worldgen.WorldGenWasteland3;
-import biomesoplenty.worldgen.WorldGenWasteland4;
-import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
-public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
+public class BiomeGenWasteland extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
 
     public BiomeGenWasteland(int par1)
     {
         super(par1);
+        /*
         topBlock = (byte) Blocks.driedDirt.get().blockID;
         fillerBlock = (byte) Blocks.driedDirt.get().blockID;
         theBiomeDecorator = new BiomeDecoratorBOP(this);
@@ -33,11 +21,13 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
         waterColorMultiplier = 15073024;
         spawnableCreatureList.clear();
         spawnableWaterCreatureList.clear();
+        */
     }
 
     /**
      * Gets a WorldGen appropriate for this biome.
      */
+    /*
     @Override
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
@@ -45,48 +35,58 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
                 : (par1Random.nextInt(2) == 0 ? new WorldGenWasteland2()
                         : new WorldGenWasteland());
     }
+    */
     
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+    /*
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
 		return par1Random.nextInt(2) == 0 ? new WorldGenWasteland4() : new WorldGenWasteland3();
 	}
+	*/
 
     /**
      * Provides the basic grass color based on the biome temperature and
      * rainfall
      */
+    /*
     @Override
     public int getBiomeGrassColor()
     {
         return 10330232;
     }
+    */
 
     /**
      * Provides the basic foliage color based on the biome temperature and
      * rainfall
      */
+    /*
     @Override
     public int getBiomeFoliageColor()
     {
         return 10067541;
     }
+    */
 
     /**
      * Fog Color
      */
+    /*
     @Override
     public int getFogColour()
     {
         return 12106885;
     }
+    */
 
     /**
      * takes temperature, returns color
      */
+    /*
     @Override
     public int getSkyColorByTemp(float par1)
     {
@@ -119,4 +119,5 @@ public class BiomeGenWasteland extends BiomeGenBase implements IWCFog
         // TODO Auto-generated method stub
         return 0.3F;
     }
+    */
 }

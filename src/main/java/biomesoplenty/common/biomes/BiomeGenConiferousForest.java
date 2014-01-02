@@ -1,27 +1,15 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.tree.WorldGenTaiga3;
-import biomesoplenty.worldgen.tree.WorldGenTaiga4;
-import biomesoplenty.worldgen.tree.WorldGenTaiga9;
 
 public class BiomeGenConiferousForest extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenConiferousForest(int par1)
 	{
 		super(par1);
+		/*
 		spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
@@ -40,20 +28,24 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 		customBiomeDecorator.gravelPerChunk = 1;
 		customBiomeDecorator.gravelPerChunk2 = 1;
 		customBiomeDecorator.cloverPatchesPerChunk = 10;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return par1Random.nextInt(3) == 0 ? new WorldGenTaiga3(false) : (par1Random.nextInt(5) == 0 ? new WorldGenTaiga4(false) : new WorldGenTaiga9(false));
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
@@ -80,4 +72,5 @@ public class BiomeGenConiferousForest extends BiomeGenBase
 			}
 		}
 	}
+	*/
 }

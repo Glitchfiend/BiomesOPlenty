@@ -1,22 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenCanyonShrub;
-import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
 public class BiomeGenCanyon extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenCanyon(int par1)
 	{
 		super(par1);
+		/*
 		spawnableCreatureList.clear();
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
@@ -29,11 +21,13 @@ public class BiomeGenCanyon extends BiomeGenBase
 		customBiomeDecorator.waterReedsPerChunk = 2;
 		customBiomeDecorator.generatePumpkins = false;
 		customBiomeDecorator.generateCanyon = true;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
@@ -60,22 +54,27 @@ public class BiomeGenCanyon extends BiomeGenBase
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 11123300;
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
 		return 11123300;
 	}
+	*/
 }

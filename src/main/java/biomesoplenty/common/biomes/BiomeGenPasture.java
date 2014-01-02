@@ -1,29 +1,24 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenBOPTallGrass;
 
 public class BiomeGenPasture extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenPasture(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 0;
 		customBiomeDecorator.grassPerChunk = 999;
 		customBiomeDecorator.flowersPerChunk = -999;
 		spawnableCreatureList.clear();
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -44,40 +39,49 @@ public class BiomeGenPasture extends BiomeGenBase
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
 		return new WorldGenBOPTallGrass(Blocks.plants.get().blockID, 6);
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return worldGeneratorBigTree;
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
 		return 13166666;
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 13166666;
 	}
+	*/
 }

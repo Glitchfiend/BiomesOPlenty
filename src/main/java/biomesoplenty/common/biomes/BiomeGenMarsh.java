@@ -1,22 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
 
-public class BiomeGenMarsh extends BiomeGenBase implements IWCFog
+public class BiomeGenMarsh extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenMarsh(int par1)
 	{
 		super(par1);
+		/*
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
@@ -36,8 +28,10 @@ public class BiomeGenMarsh extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.waterReedsPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
+		*/
 	}
 
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -71,4 +65,5 @@ public class BiomeGenMarsh extends BiomeGenBase implements IWCFog
         // TODO Auto-generated method stub
         return 0.6F;
     }
+    */
 }

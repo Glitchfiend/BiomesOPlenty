@@ -1,21 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.tree.WorldGenMaple;
-import biomesoplenty.worldgen.tree.WorldGenTaiga5;
 
 public class BiomeGenMapleWoods extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenMapleWoods(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 9;
@@ -24,11 +17,13 @@ public class BiomeGenMapleWoods extends BiomeGenBase
 		customBiomeDecorator.violetsPerChunk = 2;
 		customBiomeDecorator.poisonIvyPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 2;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
@@ -55,4 +50,5 @@ public class BiomeGenMapleWoods extends BiomeGenBase
 			}
 		}
 	}
+	*/
 }

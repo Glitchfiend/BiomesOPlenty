@@ -1,20 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.tree.WorldGenPineTree;
 
 public class BiomeGenMountain extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenMountain(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 2;
@@ -23,11 +17,13 @@ public class BiomeGenMountain extends BiomeGenBase
 		customBiomeDecorator.berryBushesPerChunk = 3;
 		customBiomeDecorator.shrubsPerChunk = 10;
 		customBiomeDecorator.waterReedsPerChunk = 4;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
@@ -54,4 +50,5 @@ public class BiomeGenMountain extends BiomeGenBase
 			}
 		}
 	}
+	*/
 }

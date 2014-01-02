@@ -1,24 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenTaiga2;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
 
 public class BiomeGenMeadow extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenMeadow(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 2;
@@ -36,8 +26,10 @@ public class BiomeGenMeadow extends BiomeGenBase
 		customBiomeDecorator.cloverPatchesPerChunk = 15;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -58,19 +50,23 @@ public class BiomeGenMeadow extends BiomeGenBase
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return par1Random.nextInt(5) == 0 ? new WorldGenTaiga2(false) : new WorldGenShrub(0, 1);
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	 @Override
 	 public int getBiomeGrassColor()
 	 {
@@ -82,4 +78,5 @@ public class BiomeGenMeadow extends BiomeGenBase
 	 {
 		 return 6533741;
 	 }
+	 */
 }

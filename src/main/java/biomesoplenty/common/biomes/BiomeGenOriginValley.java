@@ -1,21 +1,14 @@
-package biomesoplenty.biomes;
-
-import java.awt.Color;
-import java.util.Random;
+package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfigurationMisc;
-import biomesoplenty.worldgen.tree.WorldGenOriginTree;
 
 public class BiomeGenOriginValley extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenOriginValley(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		topBlock = (byte)Blocks.originGrass.get().blockID;
@@ -30,38 +23,46 @@ public class BiomeGenOriginValley extends BiomeGenBase
 		customBiomeDecorator.stalactitesPerChunk = -999;
 		customBiomeDecorator.minersDelightPerChunk = -999;
 		customBiomeDecorator.generateUndergroundLakes = false;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return new WorldGenOriginTree(false);
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
 		return 10682207;
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 3866368;
 	}
+	*/
 
 	/**
 	 * takes temperature, returns color
 	 */
+	/*
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
@@ -84,4 +85,5 @@ public class BiomeGenOriginValley extends BiomeGenBase
 			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
 		}
 	}
+	*/
 }

@@ -1,31 +1,16 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.awt.Color;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfigurationMisc;
-import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.worldgen.tree.WorldGenRainforest1;
 
-public class BiomeGenTropicalRainforest extends BiomeGenBase implements IWCFog
+public class BiomeGenTropicalRainforest extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
 
     @SuppressWarnings("unchecked")
     public BiomeGenTropicalRainforest(int par1)
     {
         super(par1);
-        spawnableMonsterList
-                .add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        /*
+        spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         theBiomeDecorator = new BiomeDecoratorBOP(this);
         customBiomeDecorator = (BiomeDecoratorBOP) theBiomeDecorator;
         customBiomeDecorator.treesPerChunk = 12;
@@ -42,11 +27,12 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase implements IWCFog
         customBiomeDecorator.lilyflowersPerChunk = 2;
         customBiomeDecorator.shrubsPerChunk = 15;
         customBiomeDecorator.wheatGrassPerChunk = 5;
-        spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class,
-                12, 6, 6));
+        spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
         waterColorMultiplier = 6160128;
+        */
     }
 
+    /*
     @Override
     public void decorate(World par1World, Random par2Random, int par3, int par4)
     {
@@ -70,10 +56,12 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase implements IWCFog
             }
         }
     }
+    */
 
     /**
      * Gets a WorldGen appropriate for this biome.
      */
+    /*
     @Override
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
@@ -81,39 +69,47 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase implements IWCFog
                 4 + par1Random.nextInt(7), 3, 3, true)
                 : new WorldGenRainforest1(false);
     }
+    */
 
     /**
      * Provides the basic grass color based on the biome temperature and
      * rainfall
      */
+    /*
     @Override
     public int getBiomeGrassColor()
     {
         return 11002176;
     }
+    */
 
     /**
      * Provides the basic foliage color based on the biome temperature and
      * rainfall
      */
+    /*
     @Override
     public int getBiomeFoliageColor()
     {
         return 8970560;
     }
+    */
 
     /**
      * Fog Color
      */
+    /*
     @Override
     public int getFogColour()
     {
         return 16228194;
     }
+    */
 
     /**
      * takes temperature, returns color
      */
+    /*
     @Override
     public int getSkyColorByTemp(float par1)
     {
@@ -146,4 +142,5 @@ public class BiomeGenTropicalRainforest extends BiomeGenBase implements IWCFog
         // TODO Auto-generated method stub
         return 0.8F;
     }
+    */
 }

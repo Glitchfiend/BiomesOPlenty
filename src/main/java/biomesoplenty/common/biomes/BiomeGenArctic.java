@@ -1,20 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
 
-public class BiomeGenArctic extends BiomeGenBase implements IWCFog
+public class BiomeGenArctic extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenArctic(int par1)
 	{
 		super(par1);
+		/*
 		spawnableCreatureList.clear();
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
@@ -23,8 +17,10 @@ public class BiomeGenArctic extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.grassPerChunk = -999;
 		customBiomeDecorator.sandPerChunk = -999;
 		customBiomeDecorator.sandPerChunk2 = -999;
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -45,35 +41,44 @@ public class BiomeGenArctic extends BiomeGenBase implements IWCFog
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
 		return 11176526;
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 11903827;
 	}
+	*/
 	
+	/*
 	@Override
 	public int getFogColour()
 	{
 		return 12638463;
 	}
+	*/
 	
+	/*
     @Override
     public float getFogCloseness()
     {
         // TODO Auto-generated method stub
         return 0.4F;
     }
+    */
 }

@@ -1,21 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.tree.WorldGenCherry1;
-import biomesoplenty.worldgen.tree.WorldGenCherry2;
 
 public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenCherryBlossomGrove(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 3;
@@ -29,11 +22,13 @@ public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 		customBiomeDecorator.shrubsPerChunk = 2;
 		customBiomeDecorator.cloverPatchesPerChunk = 15;
 		customBiomeDecorator.generatePumpkins = false;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
@@ -60,10 +55,12 @@ public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
@@ -75,4 +72,5 @@ public class BiomeGenCherryBlossomGrove extends BiomeGenBase
 	{
 		return 10747818;
 	}
+	*/
 }

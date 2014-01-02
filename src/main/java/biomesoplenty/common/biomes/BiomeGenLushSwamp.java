@@ -1,24 +1,15 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.tree.WorldGenSwampTall;
 
 public class BiomeGenLushSwamp extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenLushSwamp(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 10;
@@ -38,8 +29,10 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 		customBiomeDecorator.waterReedsPerChunk = 6;
 		customBiomeDecorator.cloverPatchesPerChunk = 10;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -60,13 +53,16 @@ public class BiomeGenLushSwamp extends BiomeGenBase
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		return new WorldGenSwampTall();
 	}
+	*/
 }

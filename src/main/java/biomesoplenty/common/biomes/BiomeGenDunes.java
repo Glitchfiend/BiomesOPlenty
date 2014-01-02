@@ -1,19 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.Blocks;
 
 public class BiomeGenDunes extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenDunes(int par1)
 	{
 		super(par1);
+		/*
 		spawnableCreatureList.clear();
 		topBlock = (byte)Block.sand.blockID;
 		fillerBlock = (byte)Block.sand.blockID;
@@ -27,8 +22,10 @@ public class BiomeGenDunes extends BiomeGenBase
 		customBiomeDecorator.reedsPerChunk = -999;
 		customBiomeDecorator.waterReedsPerChunk = 4;
 		customBiomeDecorator.generateLakes = false;
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -49,4 +46,5 @@ public class BiomeGenDunes extends BiomeGenBase
 			}
 		}
 	}
+	*/
 }

@@ -1,28 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.tree.WorldGenDeadTree;
-import biomesoplenty.worldgen.tree.WorldGenFen1;
-import biomesoplenty.worldgen.tree.WorldGenFen2;
 
-public class BiomeGenFen extends BiomeGenBase implements IWCFog
+public class BiomeGenFen extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenFen(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 10;
@@ -46,11 +32,13 @@ public class BiomeGenFen extends BiomeGenBase implements IWCFog
 		customBiomeDecorator.koruPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 7;
 		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
@@ -86,28 +74,34 @@ public class BiomeGenFen extends BiomeGenBase implements IWCFog
 			var5.generate(par1World, par2Random, var7, var8, var9);
 		}
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	 @Override
 	 public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	 {
 		 return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1)));
 	 }
+	 */
 
 	 /**
 	  * Provides the basic grass color based on the biome temperature and rainfall
 	  */
+	/*
 	 @Override
 	 public int getBiomeGrassColor()
 	 {
 		 return 12240001;
 	 }
+	 */
 
 	 /**
 	  * Provides the basic foliage color based on the biome temperature and rainfall
 	  */
+	/*
 	 @Override
 	 public int getBiomeFoliageColor()
 	 {
@@ -126,4 +120,5 @@ public class BiomeGenFen extends BiomeGenBase implements IWCFog
 	    // TODO Auto-generated method stub
 	    return 0.8F;
 	}
+	*/
 }

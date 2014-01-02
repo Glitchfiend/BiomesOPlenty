@@ -1,18 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenHighland extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenHighland(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
@@ -22,8 +18,10 @@ public class BiomeGenHighland extends BiomeGenBase
 		customBiomeDecorator.potatoesPerChunk = -999;
 		customBiomeDecorator.generateBoulders = false;
 		customBiomeDecorator.carrotsPerChunk = 1;
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -44,4 +42,5 @@ public class BiomeGenHighland extends BiomeGenBase
 			}
 		}
 	}
+	*/
 }

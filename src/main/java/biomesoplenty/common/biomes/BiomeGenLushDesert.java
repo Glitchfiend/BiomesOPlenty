@@ -1,25 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.tree.WorldGenAcacia;
-import biomesoplenty.worldgen.tree.WorldGenDeadTree3;
 
 public class BiomeGenLushDesert extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenLushDesert(int par1)
 	{
 		super(par1);
+		/*
 		topBlock = (byte)Blocks.redRock.get().blockID;
 		fillerBlock = (byte)Blocks.redRock.get().blockID;
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
@@ -42,11 +31,13 @@ public class BiomeGenLushDesert extends BiomeGenBase
 		customBiomeDecorator.generateSand = true;
 		customBiomeDecorator.generatePumpkins = false;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	 {
@@ -87,4 +78,5 @@ public class BiomeGenLushDesert extends BiomeGenBase
 			 }
 		 }
 	 }
+	 */
 }

@@ -1,23 +1,14 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.worldgen.WorldGenMoss;
-import biomesoplenty.worldgen.tree.WorldGenPineTree;
-import biomesoplenty.worldgen.tree.WorldGenTaiga5;
-import biomesoplenty.worldgen.tree.WorldGenTaiga9;
 
 public class BiomeGenShield extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	public BiomeGenShield(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 7;
@@ -31,11 +22,13 @@ public class BiomeGenShield extends BiomeGenBase
 		customBiomeDecorator.shrubsPerChunk = 4;
 		customBiomeDecorator.waterReedsPerChunk = 4;
 		customBiomeDecorator.generateStoneInGrass2 = true;
+		*/
 	}
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
@@ -56,22 +49,27 @@ public class BiomeGenShield extends BiomeGenBase
 			var5.generate(par1World, par2Random, var7, var8, var9);
 		}
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeGrassColor()
 	{
 		return 6586168;
 	}
+	*/
 
 	/**
 	 * Provides the basic foliage color based on the biome temperature and rainfall
 	 */
+	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 7902787;
 	}
+	*/
 }

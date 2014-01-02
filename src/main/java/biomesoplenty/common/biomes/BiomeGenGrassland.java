@@ -1,28 +1,15 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.entity.passive.EntityPig;
-import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
 
 public class BiomeGenGrassland extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenGrassland(int par1)
 	{
 		super(par1);
+		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = -999;
@@ -41,8 +28,10 @@ public class BiomeGenGrassland extends BiomeGenBase
 		spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 12, 4, 4));
 		spawnableCreatureList.add(new SpawnListEntry(EntityCow.class, 10, 4, 4));
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+		*/
 	}
 	
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -63,19 +52,23 @@ public class BiomeGenGrassland extends BiomeGenBase
 			}
 		}
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	{
 		return par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
 	}
+	*/
 
 	/**
 	 * Provides the basic grass color based on the biome temperature and rainfall
 	 */
+	/*
 	 @Override
 	 public int getBiomeGrassColor()
 	 {
@@ -87,4 +80,5 @@ public class BiomeGenGrassland extends BiomeGenBase
 	 {
 		 return 8379261;
 	 }
+	 */
 }

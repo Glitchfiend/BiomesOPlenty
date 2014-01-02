@@ -1,25 +1,13 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.worldgen.WorldGenBogBush;
-import biomesoplenty.worldgen.WorldGenCypress1;
-import biomesoplenty.worldgen.WorldGenCypress2;
-import biomesoplenty.worldgen.WorldGenMarsh;
 
 public class BiomeGenBog extends BiomeGenBase
 {
-	private BiomeDecoratorBOP customBiomeDecorator;
-
 	public BiomeGenBog(int par1)
 	{
 		super(par1);
+		/*
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
@@ -44,8 +32,10 @@ public class BiomeGenBog extends BiomeGenBase
 		customBiomeDecorator.koruPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 10;
 		customBiomeDecorator.generatePumpkins = false;
+		*/
 	}
 
+	/*
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
@@ -75,40 +65,49 @@ public class BiomeGenBog extends BiomeGenBase
 			var5.generate(par1World, par2Random, var7, var8, var9);
 		}
 	}
+	*/
 
 	/**
 	 * Gets a WorldGen appropriate for this biome.
 	 */
+	/*
 	 @Override
 	 public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
 	{
 		 return par1Random.nextInt(3) == 0 ? new WorldGenCypress1(false) : (par1Random.nextInt(6) == 0 ? new WorldGenCypress2(false) : new WorldGenBogBush());
 	}
+	*/
 
 	 /**
 	  * Gets a WorldGen appropriate for this biome.
 	  */
+	/*
 	 @Override
 	 public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
 	 {
 		 return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
 	 }
+	 */
 
 	 /**
 	  * Provides the basic grass color based on the biome temperature and rainfall
 	  */
+	/*
 	 @Override
 	 public int getBiomeGrassColor()
 	 {
 		 return 14193503;
 	 }
+	 */
 
 	 /**
 	  * Provides the basic foliage color based on the biome temperature and rainfall
 	  */
+	/*
 	 @Override
 	 public int getBiomeFoliageColor()
 	 {
 		 return 14345593;
 	 }
+	 */
 }

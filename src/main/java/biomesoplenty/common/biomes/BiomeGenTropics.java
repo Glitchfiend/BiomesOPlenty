@@ -1,29 +1,15 @@
-package biomesoplenty.biomes;
+package biomesoplenty.common.biomes;
 
-import java.awt.Color;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.SpawnListEntry;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import worldcore.interfaces.IWCFog;
-import biomesoplenty.api.Blocks;
-import biomesoplenty.configuration.BOPConfigurationMisc;
-import biomesoplenty.entities.EntityJungleSpider;
-import biomesoplenty.worldgen.WorldGenTropicsShrub;
-import biomesoplenty.worldgen.tree.WorldGenPalmTree1;
 
-public class BiomeGenTropics extends BiomeGenBase implements IWCFog
+public class BiomeGenTropics extends BiomeGenBase
 {
-    private BiomeDecoratorBOP customBiomeDecorator;
 
     @SuppressWarnings("unchecked")
     public BiomeGenTropics(int par1)
     {
         super(par1);
+        /*
         theBiomeDecorator = new BiomeDecoratorBOP(this);
         customBiomeDecorator = (BiomeDecoratorBOP) theBiomeDecorator;
         customBiomeDecorator.treesPerChunk = 12;
@@ -38,11 +24,12 @@ public class BiomeGenTropics extends BiomeGenBase implements IWCFog
         customBiomeDecorator.hibiscusPerChunk = 45;
         customBiomeDecorator.shrubsPerChunk = 4;
         customBiomeDecorator.generatePumpkins = false;
-        spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class,
-                12, 6, 6));
+        spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
         spawnableCreatureList.clear();
+        */
     }
 
+    /*
     @Override
     public void decorate(World par1World, Random par2Random, int par3, int par4)
     {
@@ -66,10 +53,12 @@ public class BiomeGenTropics extends BiomeGenBase implements IWCFog
             }
         }
     }
+    */
 
     /**
      * Gets a WorldGen appropriate for this biome.
      */
+    /*
     @Override
     public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
     {
@@ -77,19 +66,23 @@ public class BiomeGenTropics extends BiomeGenBase implements IWCFog
                 : (par1Random.nextInt(2) == 0 ? new WorldGenTropicsShrub()
                         : new WorldGenShrub(0, 0));
     }
+    */
 
     /**
      * Fog Color
      */
+    /*
     @Override
     public int getFogColour()
     {
         return 7724287;
     }
+    */
 
     /**
      * takes temperature, returns color
      */
+    /*
     @Override
     public int getSkyColorByTemp(float par1)
     {
@@ -122,4 +115,5 @@ public class BiomeGenTropics extends BiomeGenBase implements IWCFog
         // TODO Auto-generated method stub
         return 1.0F;
     }
+    */
 }
