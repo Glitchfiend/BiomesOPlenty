@@ -2,11 +2,11 @@ package biomesoplenty.common.world.decoration;
 
 import java.util.Random;
 
-import biomesoplenty.common.world.generators.WorldGenBOPFlowers;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public interface IBOPDecoration
 {
-	public WorldGenBOPFlowers getRandomWorldGenForBOPFlowers(Random random);
+	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random);
 	
 	public int getWorldGenPerChunk(String fieldName);
 }

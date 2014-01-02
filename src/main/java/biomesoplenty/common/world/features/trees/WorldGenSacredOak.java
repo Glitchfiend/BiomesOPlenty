@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.generators.trees;
+package biomesoplenty.common.world.features.trees;
 
 import java.util.Random;
 

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.common.world.generators.WorldGenMud;
+import biomesoplenty.common.world.features.WorldGenMud;
 
 public class WorldGenFieldAssociation 
 {

@@ -10,8 +10,8 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.entities.EntityJungleSpider;
-import biomesoplenty.common.world.generators.WorldGenBOPFlowers;
-import biomesoplenty.common.world.generators.trees.WorldGenSacredOak;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -46,9 +46,9 @@ public class BiomeGenSacredSprings extends BOPBiome
     }
     
     @Override
-	public WorldGenBOPFlowers getRandomWorldGenForBOPFlowers(Random random)
+	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
     {
-    	return random.nextInt(3) == 0 ? new WorldGenBOPFlowers(BOPBlockHelper.get("flowers"), 6) : new WorldGenBOPFlowers(Blocks.red_flower, 1);
+    	return random.nextInt(3) == 0 ? new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6) : new WorldGenBOPFlora(Blocks.red_flower, 1);
     }
     
     @Override

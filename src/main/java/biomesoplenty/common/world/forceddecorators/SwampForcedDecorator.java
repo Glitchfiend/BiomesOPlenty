@@ -3,7 +3,7 @@ package biomesoplenty.common.world.forceddecorators;
 import java.util.Random;
 
 import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.generators.WorldGenBOPFlowers;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class SwampForcedDecorator implements IBOPDecoration
 {
@@ -16,7 +16,7 @@ public class SwampForcedDecorator implements IBOPDecoration
 	}
 
 	@Override
-	public WorldGenBOPFlowers getRandomWorldGenForBOPFlowers(Random random) 
+	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random) 
 	{
 		return null;
 	}
