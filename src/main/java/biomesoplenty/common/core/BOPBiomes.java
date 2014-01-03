@@ -123,16 +123,16 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenDeadSwamp(BOPConfigurationIDs.deadSwampID).setBiomeName("Dead Swamp"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenDeciduousForest(BOPConfigurationIDs.deciduousForestID).setBiomeName("Deciduous Forest"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenDunes(BOPConfigurationIDs.dunesID).setBiomeName("Dunes"), BOPBiomeTemperatureType.HOT));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenFen(BOPConfigurationIDs.fenID).setBiomeName("Fen"), BOPBiomeTemperatureType.WARM));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenFen(BOPConfigurationIDs.fenID).setBiomeName("Fen"), BOPBiomeTemperatureType.WARM));*/
         registerBiome(new BOPBiomeListEntry(new BiomeGenField(BOPConfigurationIDs.fieldID).setBiomeName("Field"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenFrostForest(BOPConfigurationIDs.frostForestID).setBiomeName("Frost Forest"), BOPBiomeTemperatureType.ICY));
+       /* registerBiome(new BOPBiomeListEntry(new BiomeGenFrostForest(BOPConfigurationIDs.frostForestID).setBiomeName("Frost Forest"), BOPBiomeTemperatureType.ICY));
         registerBiome(new BOPBiomeListEntry(new BiomeGenGrassland(BOPConfigurationIDs.grasslandID).setBiomeName("Grassland"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenGrove(BOPConfigurationIDs.groveID).setBiomeName("Grove"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenHeathland(BOPConfigurationIDs.heathlandID).setBiomeName("Heathland"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenHighland(BOPConfigurationIDs.highlandID).setBiomeName("Highland"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenJadeCliffs(BOPConfigurationIDs.jadeCliffsID).setBiomeName("Jade Cliffs"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenLavenderFields(BOPConfigurationIDs.lavenderFieldsID).setBiomeName("Lavender Fields"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenLushDesert(BOPConfigurationIDs.lushDesertID).setBiomeName("Lush Desert"), BOPBiomeTemperatureType.HOT));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenJadeCliffs(BOPConfigurationIDs.jadeCliffsID).setBiomeName("Jade Cliffs"), BOPBiomeTemperatureType.WARM));*/
+        registerOnlyBiome(new BOPBiomeListEntry(new BiomeGenLavenderFields(BOPConfigurationIDs.lavenderFieldsID).setBiomeName("Lavender Fields"), BOPBiomeTemperatureType.WARM));
+        /*registerBiome(new BOPBiomeListEntry(new BiomeGenLushDesert(BOPConfigurationIDs.lushDesertID).setBiomeName("Lush Desert"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenLushSwamp(BOPConfigurationIDs.lushSwampID).setBiomeName("Lush Swamp"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMapleWoods(BOPConfigurationIDs.mapleWoodsID).setBiomeName("Maple Woods"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMarsh(BOPConfigurationIDs.marshID).setBiomeName("Marsh"), BOPBiomeTemperatureType.WARM));
