@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenDeadSwamp extends BiomeGenBase
+public class BiomeGenDeadSwamp extends BOPBiome
 {
 
 	public BiomeGenDeadSwamp(int par1)

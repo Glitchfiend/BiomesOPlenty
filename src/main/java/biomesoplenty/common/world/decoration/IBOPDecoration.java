@@ -8,5 +8,7 @@ public interface IBOPDecoration
 {
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random);
 	
+	public WorldGenBOPFlora getRandomWorldGenForBOPPlants(Random random);
+	
 	public int getWorldGenPerChunk(String fieldName);
 }

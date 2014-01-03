@@ -2,28 +2,35 @@ package biomesoplenty.common.biomes;
 
 import java.util.Random;
 
+import biomesoplenty.api.BOPBlockHelper;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 
-public class BiomeGenAlps extends BiomeGenBase
+public class BiomeGenAlps extends BOPBiome
 {
-	//private BiomeDecoratorBOP customBiomeDecorator;
-
+	private static final Height biomeHeight = new Height(2.0F, 3.0F);
+	
 	public BiomeGenAlps(int id)
 	{
 		super(id);
 		
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO:	setColor()
+        this.setColor(13421772);
+        this.setTemperatureRainfall(0.0F, 0.5F);
+		
 		this.topBlock = Blocks.stone;
 		this.fillerBlock = Blocks.stone;
-		/*theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = -999;
-		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.grassPerChunk = -999;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;*/
+		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.flowersPerChunk = -999;
+		this.theBiomeDecorator.grassPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
 	}
 	
 	@Override
@@ -41,10 +48,11 @@ public class BiomeGenAlps extends BiomeGenBase
 			//TODO:				getBlock()
 			Block block = world.func_147439_a(x, y, z);
 
-			/*TODO: FEATURE if (block != null && block.isGenMineableReplaceable(world, x, y, z, Blocks.stone))
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, Blocks.amethystOre.get().blockID, 8, 2);
-			}*/
+				//TODO:	setBlock()
+				world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 8, 2);
+			}
 		}
 	}
 }

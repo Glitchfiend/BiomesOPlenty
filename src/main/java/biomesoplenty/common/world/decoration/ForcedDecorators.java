@@ -3,11 +3,12 @@ package biomesoplenty.common.world.decoration;
 import java.util.HashMap;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.common.world.forceddecorators.ForcedDecorator;
 import biomesoplenty.common.world.forceddecorators.SwampForcedDecorator;
 
 public class ForcedDecorators 
 {
-	public static HashMap<Integer, IBOPDecoration> forcedDecoratorMap = new HashMap();
+	public static HashMap<Integer, ForcedDecorator> forcedDecoratorMap = new HashMap();
 	
 	public static void init()
 	{
@@ -19,7 +20,7 @@ public class ForcedDecorators
 		addForcedDecorator(BiomeGenBase.swampland.biomeID, new SwampForcedDecorator());
 	}
 	
-	public static void addForcedDecorator(int biomeID, IBOPDecoration decorator)
+	public static void addForcedDecorator(int biomeID, ForcedDecorator decorator)
 	{
 		forcedDecoratorMap.put(biomeID, decorator);
 	}

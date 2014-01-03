@@ -32,4 +32,10 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     {
     	return null;
     }
+    
+    @Override
+	public WorldGenBOPFlora getRandomWorldGenForBOPPlants(Random random)
+    {
+    	return null;
+    }
 }

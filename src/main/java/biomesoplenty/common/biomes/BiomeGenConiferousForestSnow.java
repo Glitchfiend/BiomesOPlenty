@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenConiferousForestSnow extends BiomeGenBase
+public class BiomeGenConiferousForestSnow extends BOPBiome
 {
 
 	public BiomeGenConiferousForestSnow(int par1)

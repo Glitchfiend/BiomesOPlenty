@@ -72,9 +72,12 @@ public class BOPBiomes
 {
 	public static WorldTypeBOP worldTypeBOP;
 	
+	private static BiomeGenBase onlyBiome;
+	
 	public static void init()
 	{
 		registerBiomes();
+		useOnlyBiome();
 		
 		WorldGenFieldAssociation.init();
 		ForcedDecorators.init();
@@ -83,33 +86,33 @@ public class BOPBiomes
 	private static void registerBiomes()
 	{
 		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.desert, BOPBiomeTemperatureType.HOT));
-		/*addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.desert, BOPBiomeTemperatureType.HOT)); 
+		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.desert, BOPBiomeTemperatureType.HOT)); 
 		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.desert, BOPBiomeTemperatureType.HOT)); 
 		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150588_X, BOPBiomeTemperatureType.HOT));
 		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150588_X, BOPBiomeTemperatureType.HOT));
-		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.plains, BOPBiomeTemperatureType.HOT));*/
+		addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.plains, BOPBiomeTemperatureType.HOT));
 		
-        /*addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.forest, BOPBiomeTemperatureType.WARM));
+        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.forest, BOPBiomeTemperatureType.WARM));
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150585_R, BOPBiomeTemperatureType.WARM));
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.extremeHills, BOPBiomeTemperatureType.WARM));
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.plains, BOPBiomeTemperatureType.WARM));
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150583_P, BOPBiomeTemperatureType.WARM)); 
-        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.swampland, BOPBiomeTemperatureType.WARM));*/
+        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.swampland, BOPBiomeTemperatureType.WARM));
         
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.forest, BOPBiomeTemperatureType.COOL)); 
-        /*addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.extremeHills, BOPBiomeTemperatureType.COOL));  
+        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.extremeHills, BOPBiomeTemperatureType.COOL));  
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.taiga, BOPBiomeTemperatureType.COOL)); 
-        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.plains, BOPBiomeTemperatureType.COOL));*/
+        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.plains, BOPBiomeTemperatureType.COOL));
 
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.icePlains, BOPBiomeTemperatureType.ICY));  
-        /*addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.icePlains, BOPBiomeTemperatureType.ICY)); 
+        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.icePlains, BOPBiomeTemperatureType.ICY)); 
         addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.icePlains, BOPBiomeTemperatureType.ICY));  
-        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150584_S, BOPBiomeTemperatureType.ICY));*/
+        addBiomeToList(new BOPBiomeListEntry(BiomeGenBase.field_150584_S, BOPBiomeTemperatureType.ICY));
         
-        registerBiome(new BOPBiomeListEntry(new BiomeGenAlps(BOPConfigurationIDs.alpsID).setBiomeName("Alps"), BOPBiomeTemperatureType.ICY));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenArctic(BOPConfigurationIDs.arcticID).setBiomeName("Arctic"), BOPBiomeTemperatureType.ICY));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenBambooForest(BOPConfigurationIDs.bambooForestID).setBiomeName("Bamboo Forest"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenBayou(BOPConfigurationIDs.bayouID).setBiomeName("Bayou"), BOPBiomeTemperatureType.WARM));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenAlps(BOPConfigurationIDs.alpsID).setBiomeName("Alps"), BOPBiomeTemperatureType.ICY)); 
+        registerBiome(new BOPBiomeListEntry(new BiomeGenArctic(BOPConfigurationIDs.arcticID).setBiomeName("Arctic"), BOPBiomeTemperatureType.ICY)); /*DONE*/
+        registerOnlyBiome(new BOPBiomeListEntry(new BiomeGenBambooForest(BOPConfigurationIDs.bambooForestID).setBiomeName("Bamboo Forest"), BOPBiomeTemperatureType.WARM));
+        /*registerBiome(new BOPBiomeListEntry(new BiomeGenBayou(BOPConfigurationIDs.bayouID).setBiomeName("Bayou"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenBog(BOPConfigurationIDs.bogID).setBiomeName("Bog"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenBorealForest(BOPConfigurationIDs.borealForestID).setBiomeName("Boreal Forest"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenBrushland(BOPConfigurationIDs.brushlandID).setBiomeName("Brushland"), BOPBiomeTemperatureType.HOT));
@@ -164,7 +167,24 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenVolcano(BOPConfigurationIDs.volcanoID).setBiomeName("Volcano"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), BOPBiomeTemperatureType.WARM));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), BOPBiomeTemperatureType.WARM));*/
+	}
+	
+	private static void useOnlyBiome()
+	{
+		if (onlyBiome != null)
+		{
+			for (BOPBiomeTemperatureType temperatureType : BOPBiomeHelper.BOPBiomeTemperatureType.values())
+			{
+				BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).clear();
+				addBiomeToList(new BOPBiomeListEntry(onlyBiome, temperatureType));
+			}
+		}
+	}
+	
+	public static void registerOnlyBiome(BOPBiomeListEntry biome)
+	{
+		onlyBiome = biome.biome;
 	}
 	
 	public static void registerBiome(BOPBiomeListEntry biome)

@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenRainforest extends BiomeGenBase
+public class BiomeGenRainforest extends BOPBiome
 {
 
 	@SuppressWarnings("unchecked")

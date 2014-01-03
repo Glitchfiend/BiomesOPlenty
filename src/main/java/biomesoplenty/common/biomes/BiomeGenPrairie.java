@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenPrairie extends BiomeGenBase
+public class BiomeGenPrairie extends BOPBiome
 {
 
 	public BiomeGenPrairie(int par1)

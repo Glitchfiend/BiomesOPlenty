@@ -120,12 +120,6 @@ public class BlockBamboo extends Block
     }
 
 	@Override
-	public boolean canBeReplacedByLeaves(IBlockAccess world, int x, int y, int z)
-	{
-		return false;
-	}
-
-	@Override
 	//TODO:		   canPlaceBlockAt
 	public boolean func_149742_c(World world, int x, int y, int z)
 	{
@@ -186,6 +180,12 @@ public class BlockBamboo extends Block
 	public int func_149645_b()
 	{
 		return RenderUtils.bambooModel;
+	}
+	
+	@Override
+	public boolean canBeReplacedByLeaves(IBlockAccess world, int x, int y, int z)
+	{
+		return true;
 	}
 
 	@Override

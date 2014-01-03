@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenMysticGrove extends BiomeGenBase
+public class BiomeGenMysticGrove extends BOPBiome
 {
 
 	@SuppressWarnings("unchecked")

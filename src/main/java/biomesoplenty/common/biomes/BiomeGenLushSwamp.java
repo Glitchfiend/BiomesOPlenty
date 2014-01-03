@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenLushSwamp extends BiomeGenBase
+public class BiomeGenLushSwamp extends BOPBiome
 {
 
 	@SuppressWarnings("unchecked")

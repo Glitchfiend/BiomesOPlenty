@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenTemperateRainforest extends BiomeGenBase
+public class BiomeGenTemperateRainforest extends BOPBiome
 {
 
 	public BiomeGenTemperateRainforest(int par1)

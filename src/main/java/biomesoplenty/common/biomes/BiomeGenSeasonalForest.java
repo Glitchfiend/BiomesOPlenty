@@ -2,7 +2,7 @@ package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenSeasonalForest extends BiomeGenBase
+public class BiomeGenSeasonalForest extends BOPBiome
 {
 
     @SuppressWarnings("unchecked")

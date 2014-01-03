@@ -5,6 +5,7 @@ import java.util.Set;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.common.world.features.WorldGenMud;
+import biomesoplenty.common.world.features.WorldGenRiverCane;
 
 public class WorldGenFieldAssociation 
 {
@@ -19,6 +20,8 @@ public class WorldGenFieldAssociation
 	{
 		associateField("mudPerChunk", new WorldGenMud(7));
 		associateField("bopFlowersPerChunk", null);
+		associateField("riverCanePerChunk", new WorldGenRiverCane());
+		associateField("bopPlantsPerChunk", null);
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)

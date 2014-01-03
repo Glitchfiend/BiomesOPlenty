@@ -61,6 +61,10 @@ public class DecorateBiomeEventHandler
 					{
 						worldGenerator = bopDecoration.getRandomWorldGenForBOPFlowers(random);
 					}
+					if (worldGeneratorField.equals("bopPlantsPerChunk"))
+					{
+						worldGenerator = bopDecoration.getRandomWorldGenForBOPPlants(random);
+					}
 					else
 					{
 						WorldGenFieldAssociation.getAssociatedWorldGenerator(worldGeneratorField);

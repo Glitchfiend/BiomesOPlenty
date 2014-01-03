@@ -9,20 +9,20 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenBOPFlora extends WorldGenerator
 {
-    private Block flower;
-    private int flowerMeta;
+    private Block flora;
+    private int floraMeta;
     private int groupCount = 64;
 
-    public WorldGenBOPFlora(Block flower, int flowerMeta)
+    public WorldGenBOPFlora(Block flora, int floraMeta)
     {
-        this.flower = flower;
-        this.flowerMeta = flowerMeta;
+        this.flora = flora;
+        this.floraMeta = floraMeta;
     }
     
-    public WorldGenBOPFlora(Block flower, int flowerMeta, int groupCount)
+    public WorldGenBOPFlora(Block flora, int floraMeta, int groupCount)
     {
-        this.flower = flower;
-        this.flowerMeta = flowerMeta;
+        this.flora = flora;
+        this.floraMeta = floraMeta;
         this.groupCount = groupCount;
     }
 
@@ -36,10 +36,10 @@ public class WorldGenBOPFlora extends WorldGenerator
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
             //TODO:	  isAirBlock()																		 canReplace()
-            if (world.func_147437_c(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && this.flower.func_149705_a(world, i1, j1, k1, 0, new ItemStack(flower, 1, flowerMeta)))
+            if (world.func_147437_c(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && this.flora.func_149705_a(world, i1, j1, k1, 0, new ItemStack(flora, 1, floraMeta)))
             {
             	//TODO:	setBlock()
-                world.func_147465_d(i1, j1, k1, this.flower, this.flowerMeta, 2);
+                world.func_147465_d(i1, j1, k1, this.flora, this.floraMeta, 2);
             }
         }
 

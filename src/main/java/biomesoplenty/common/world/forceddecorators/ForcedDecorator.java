@@ -5,13 +5,23 @@ import java.util.Random;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
-public class SwampForcedDecorator extends ForcedDecorator
+public class ForcedDecorator implements IBOPDecoration
 {
 	@Override
 	public int getWorldGenPerChunk(String fieldName) 
 	{
-		if (fieldName.equals("mudPerChunk")) return 3;
-		
 		return 0;
+	}
+
+	@Override
+	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random) 
+	{
+		return null;
+	}
+
+	@Override
+	public WorldGenBOPFlora getRandomWorldGenForBOPPlants(Random random)
+	{
+		return null;
 	}
 }
