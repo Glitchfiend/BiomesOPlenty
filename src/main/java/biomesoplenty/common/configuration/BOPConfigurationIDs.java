@@ -51,8 +51,7 @@ public class BOPConfigurationIDs
 	public static int deciduousForestID;
 	public static int dunesID;
 	public static int fenID;
-	public static int fieldID;
-	public static int fieldForestID;
+	public static int flowerFieldID;
 	public static int frostForestID;
 	public static int fungiForestID;
 	public static int gardenID;
@@ -208,7 +207,6 @@ public class BOPConfigurationIDs
 			jungleHillsNewID = config.get("Biome IDs", "Jungle Hills (Sub-Biome) ID", 37).getInt();
 			silkgladesID = config.get("Biome IDs", "Silkglades ID", 38).getInt();
 			savannaPlateauID = config.get("Biome IDs", "Savanna Plateau (Sub-Biome) ID", 39).getInt();
-			fieldForestID = config.get("Biome IDs", "Forested Field (Sub-Biome) ID", 40).getInt();
 			seasonalSpruceForestID = config.get("Biome IDs", "Seasonal Spruce Forest (Sub-Biome) ID", 41).getInt();
 			alpsBaseID = config.get("Biome IDs", "Alps Forest (Sub-Biome) ID", 42).getInt();
 			alpsForestID = config.get("Biome IDs", "Alps Mountainside (Sub-Biome) ID", 43).getInt();
@@ -267,7 +265,7 @@ public class BOPConfigurationIDs
 			deciduousForestID = config.get("Biome IDs", "Deciduous Forest ID", 189).getInt();
 			dunesID = config.get("Biome IDs", "Dunes ID", 190).getInt();
 			fenID = config.get("Biome IDs", "Fen ID", 191).getInt();
-			fieldID = config.get("Biome IDs", "Field ID", 192).getInt();
+			flowerFieldID = config.get("Biome IDs", "Flower Field ID", 192).getInt();
 			frostForestID = config.get("Biome IDs", "Frost Forest ID", 193).getInt();
 			fungiForestID = config.get("Biome IDs", "Fungi Forest ID", 194).getInt();
 			gardenID = config.get("Biome IDs", "Garden ID", 195).getInt();

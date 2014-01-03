@@ -12,6 +12,7 @@ public class BOPWorldFeatures
 		public int shrubsPerChunk = 0;
 		public int bushesPerChunk = 0;
 		public int cloverPatchesPerChunk = 0;
+		public int lavenderPerChunk = 0;
 
 		public int bopFlowersPerChunk = 0;
 	}

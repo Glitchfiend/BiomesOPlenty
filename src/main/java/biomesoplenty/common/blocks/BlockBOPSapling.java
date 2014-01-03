@@ -17,6 +17,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BlockBOPSapling extends BlockSapling
 {
@@ -197,13 +198,13 @@ public class BlockBOPSapling extends BlockSapling
 
 			case 13: // Hellbark
 				obj = new WorldGenNetherBush();
-				break;
+				break;*/
 
 			case 14: // Jacaranda
-				obj = new WorldGenJacaranda(false);
+				obj = new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1);
 				break;
 				
-			case 15: // Persimmon
+			/*case 15: // Persimmon
 				obj = new WorldGenPersimmon(false);
 				break;*/
 			}
