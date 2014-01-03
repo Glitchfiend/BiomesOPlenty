@@ -73,15 +73,16 @@ public class BiomeGenBambooForest extends BOPBiome
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1);
+		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1)));
 	}
 
 	@Override
 	//TODO:		getBiomeGrassColor()
-	public int func_150558_b(int x, int y, int z)
-	{
-		return 10739795;
-	}
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    {
+        double d0 = field_150606_ad.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
+        return d0 < -0.7D ? 13949781 : (d0 < -0.3 ? 12311892 : 10739795);
+    }
 
 	@Override
 	//TODO:		getBiomeFoliageColor()

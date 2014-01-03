@@ -36,7 +36,7 @@ public class BOPConfigurationBiomeGen
 	public static boolean deciduousForestGen;
 	public static boolean dunesGen;
 	public static boolean fenGen;
-	public static boolean fieldGen;
+	public static boolean flowerFieldGen;
 	public static boolean frostForestGen;
 	public static boolean fungiForestGen;
 	public static boolean gardenGen;
@@ -151,7 +151,7 @@ public class BOPConfigurationBiomeGen
 			deciduousForestGen = config.get("Biomes To Generate", "DeciduousForest", true).getBoolean(false);
 			dunesGen = config.get("Biomes To Generate", "Dunes", true).getBoolean(false);
 			fenGen = config.get("Biomes To Generate", "Fen", true).getBoolean(false);
-			fieldGen = config.get("Biomes To Generate", "Field", true).getBoolean(false);
+			flowerFieldGen = config.get("Biomes To Generate", "FlowerField", true).getBoolean(false);
 			frostForestGen = config.get("Biomes To Generate", "FrostForest", true).getBoolean(false);
 			fungiForestGen = config.get("Biomes To Generate", "FungiForest", true).getBoolean(false);
 			gardenGen = config.get("Biomes To Generate", "Garden", true).getBoolean(false);
