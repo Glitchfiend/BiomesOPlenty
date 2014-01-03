@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 
 public class BlockBOPSapling extends BlockSapling
 {
@@ -126,29 +127,29 @@ public class BlockBOPSapling extends BlockSapling
 		Object obj = null;
 		int rnd = random.nextInt(8);
 
-		/*TODO: FEATURE if (obj == null)
+		if (obj == null)
 		{
 			switch (meta)
 			{
-			case 0: // Apple Tree
+			/*case 0: // Apple Tree
 			obj = new WorldGenApple(false);
 			break;
 
 			case 1: // Autumn Tree
 			obj = new WorldGenAutumn(false);
-			break;
+			break;*/
 
 			case 2: // Bamboo Tree
 				rnd = random.nextInt(8);
 
 				if (rnd == 0) {
-					obj = new WorldGenBambooTree(false);
+					obj = new WorldGenBulbTree(BOPBlockHelper.get("bamboo"), BOPBlockHelper.get("leaves1"), 0, 1, false, 10, 12, false);
 				} else {
-					obj = new WorldGenBambooTree2(false);
+					obj = new WorldGenBulbTree(BOPBlockHelper.get("bamboo"), BOPBlockHelper.get("leaves1"), 0, 1, false, 11, 3, false);
 				}
 				break;
 
-			case 3: // Magic Tree
+			/*case 3: // Magic Tree
 				obj = new WorldGenMystic2(false);
 				break;
 
@@ -204,9 +205,9 @@ public class BlockBOPSapling extends BlockSapling
 				
 			case 15: // Persimmon
 				obj = new WorldGenPersimmon(false);
-				break;
+				break;*/
 			}
-		}*/
+		}
 
 		if (obj != null)
 		{
