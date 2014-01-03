@@ -26,10 +26,13 @@ public class BiomeGenSacredSprings extends BOPBiome
         //TODO: setHeight()
         this.func_150570_a(sacredSpringsHeight);
         
+        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
+        
         this.theBiomeDecorator.treesPerChunk = 30;
         this.theBiomeDecorator.grassPerChunk = 4;
         this.theBiomeDecorator.waterlilyPerChunk = 5;
-        this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
+        
+        this.bopWorldFeatures.perChunk.bopFlowersPerChunk = 2;
     }
 
     @Override
@@ -50,14 +53,6 @@ public class BiomeGenSacredSprings extends BOPBiome
     {
     	return random.nextInt(3) == 0 ? new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6) : new WorldGenBOPFlora(Blocks.red_flower, 1);
     }
-    
-    @Override
-	public int getWorldGenPerChunk(String fieldName)
-	{
-    	if (fieldName.equals("bopFlowersPerChunk")) return 2;
-    	
-		return 0;
-	}
     
     @Override
     //TODO:		getBiomeGrassColor()
