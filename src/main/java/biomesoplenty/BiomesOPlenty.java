@@ -13,7 +13,9 @@ import biomesoplenty.common.core.BOPVanillaCompat;
 import biomesoplenty.common.eventhandler.BOPCommonEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.utils.BOPModInfo;
+import biomesoplenty.common.world.WorldGenFieldAssociation;
 import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.common.world.decoration.ForcedDecorators;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -50,6 +52,8 @@ public class BiomesOPlenty
 		BOPArmor.init();
 		BOPCrafting.init();
 		BOPBiomes.init();
+		WorldGenFieldAssociation.init();
+		ForcedDecorators.init();
 		BOPEntities.init();
 		BOPVanillaCompat.init();
 		

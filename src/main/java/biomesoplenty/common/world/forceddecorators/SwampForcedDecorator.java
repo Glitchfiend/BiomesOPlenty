@@ -7,11 +7,8 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class SwampForcedDecorator extends ForcedDecorator
 {
-	@Override
-	public int getWorldGenPerChunk(String fieldName) 
+	public SwampForcedDecorator()
 	{
-		if (fieldName.equals("mudPerChunk")) return 3;
-		
-		return 0;
+		this.bopWorldFeatures.perChunk.mudPerChunk = 3;
 	}
 }

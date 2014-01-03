@@ -11,7 +11,7 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 
 public class BiomeGenArctic extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(0.2F, 0.2F);
+	private static final Height biomeHeight = new Height(0F, 0F);
 	
 	public BiomeGenArctic(int id)
 	{

@@ -8,7 +8,7 @@ import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
-public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
+public class BOPBiome extends BiomeGenBase implements IBOPDecoration
 {
 	public BOPBiome(int biomeID) 
 	{
@@ -22,19 +22,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     }
     
     @Override
-	public int getWorldGenPerChunk(String fieldName)
-	{
-		return 0;
-	}
-    
-    @Override
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
-    {
-    	return null;
-    }
-    
-    @Override
-	public WorldGenBOPFlora getRandomWorldGenForBOPPlants(Random random)
     {
     	return null;
     }

@@ -31,11 +31,13 @@ public class BiomeGenBambooForest extends BOPBiome
 		this.theBiomeDecorator.treesPerChunk = 30;
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.flowersPerChunk = -999;
-		//this.theBiomeDecorator.bushesPerChunk = 5;
-		//TODO: FEATURE ? this.theBiomeDecorator.generatePumpkins = false;
 		
-		//customBiomeDecorator.wheatGrassPerChunk = 3;
-		//customBiomeDecorator.cloverPatchesPerChunk = 10;
+		this.bopWorldFeatures.perChunk.riverCanePerChunk = 6;
+		this.bopWorldFeatures.perChunk.shrubsPerChunk = 6;
+		this.bopWorldFeatures.perChunk.bushesPerChunk = 5;
+		this.bopWorldFeatures.perChunk.cloverPatchesPerChunk = 10;
+		
+		this.bopWorldFeatures.doGeneration.generatePumpkins = false;
 	}
 
 	@Override
@@ -71,21 +73,7 @@ public class BiomeGenBambooForest extends BOPBiome
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1);
-	}
-	
-	@Override
-	public WorldGenBOPFlora getRandomWorldGenForBOPPlants(Random random)
-	{
-		return null;
-	}
-	
-    @Override
-	public int getWorldGenPerChunk(String fieldName)
-	{
-    	if (fieldName.equals("riverCanePerChunk")) return 6;
-    	
-		return 0;
+		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1);
 	}
 
 	@Override
