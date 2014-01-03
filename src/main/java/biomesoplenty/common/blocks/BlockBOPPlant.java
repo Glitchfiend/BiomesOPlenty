@@ -216,19 +216,15 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			world.func_147468_f(x, y, z);
 		}
 		//TODO:			getBlock()
-		else if (world.func_147439_a(x, y, z) != this || world.getBlockMetadata(x, y, z) != 8) 
+		else if (world.getBlockMetadata(x, y, z) == 8) 
 		{
-			//TODO:				  getBlock()
-			for (int i = 1; world.func_147439_a(x, y + i, z) == this; i++)
+			//TODO:	  canReplace()
+			if (!this.func_149705_a(world, x, y, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 8)))
 			{
-				//TODO:	  canBlockStay()
-				if (!this.func_149718_j(world, x, y + i, z))
-				{
-					//TODO: dropBlockAsItem
-					this.func_149697_b(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
-					//TODO: setBlockToAir()
-					world.func_147468_f(x, y, z);
-				}
+				//TODO: dropBlockAsItem
+				this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+				//TODO: setBlockToAir()
+				world.func_147468_f(x, y, z);
 			}
 		}
 	}
@@ -282,7 +278,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return new ItemStack(BOPItemHelper.get("food"));
 		}
 		
-        return new ItemStack(this, 1);
+        return new ItemStack(this, 1, meta);
     }
 
 	@Override
