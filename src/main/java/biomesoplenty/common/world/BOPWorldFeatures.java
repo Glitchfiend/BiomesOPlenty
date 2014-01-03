@@ -7,11 +7,11 @@ public class BOPWorldFeatures
 	
 	public class PerChunk
 	{
-		public int mudPerChunk;
-		public int riverCanePerChunk;
-		public int shrubsPerChunk;
-		public int bushesPerChunk;
-		public int cloverPatchesPerChunk;
+		public int mudPerChunk = 0;
+		public int riverCanePerChunk = 0;
+		public int shrubsPerChunk = 0;
+		public int bushesPerChunk = 0;
+		public int cloverPatchesPerChunk = 0;
 		
 		public int bopFlowersPerChunk;
 	}

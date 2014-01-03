@@ -6,7 +6,7 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public interface IBOPDecoration
 {
-	public BOPWorldFeatures bopWorldFeatures = new BOPWorldFeatures();
-	
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random);
+	
+	public BOPWorldFeatures getWorldFeatures();
 }

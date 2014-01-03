@@ -55,7 +55,7 @@ public class DecorateBiomeEventHandler
 			{
 				try
 				{
-					int worldGenPerChunk = worldGeneratorField.getInt(bopDecoration.bopWorldFeatures.perChunk);
+					int worldGenPerChunk = worldGeneratorField.getInt(bopDecoration.getWorldFeatures().perChunk);
 
 					for (int i = 0; i < worldGenPerChunk; i++)
 					{
@@ -117,7 +117,7 @@ public class DecorateBiomeEventHandler
 		{
 			if (event.type == EventType.PUMPKIN)
 			{
-				if (!bopDecoration.bopWorldFeatures.doGeneration.generatePumpkins) event.setCanceled(true);
+				if (!bopDecoration.getWorldFeatures().doGeneration.generatePumpkins) event.setCanceled(true);
 			}
 		}
 	}
