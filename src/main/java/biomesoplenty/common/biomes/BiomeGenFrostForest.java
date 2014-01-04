@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -36,9 +35,6 @@ public class BiomeGenFrostForest extends BOPBiome
 		
 		this.bopWorldFeatures.perChunk.shrubsPerChunk = 1;
 		this.bopWorldFeatures.perChunk.bopFlowersPerChunk = 3;
-		/*customBiomeDecorator.icyIrisPerChunk = 3;
-		customBiomeDecorator.wheatGrassPerChunk = 1;
-		customBiomeDecorator.violetsPerChunk = 1;*/
 		this.bopWorldFeatures.doGeneration.generatePumpkins = false;
 	}
 

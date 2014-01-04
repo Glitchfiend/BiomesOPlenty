@@ -15,6 +15,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
@@ -122,15 +124,15 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		Object obj = null;
 		int rnd = random.nextInt(8);
 
-		/*TODO: FEATURE if (obj == null)
+		if (obj == null)
 		{
 			switch (meta)
 			{
 			    case 0: // Sacred Oak Tree
-			        obj = new WorldGenMassiveTree(false);
+			        obj = new WorldGenSacredOak(false);
 			        break;
 
-			    case 1: // Mangrove Tree
+			    /*case 1: // Mangrove Tree
 			        obj = new WorldGenMangrove(false);
 			        break;
 
@@ -150,13 +152,13 @@ public class BlockBOPColorizedSapling extends BlockSapling
 
 			    case 4: // Willow Tree
 			        obj = new WorldGenWillow();
-			        break;
+			        break;*/
 
 			    case 5: // Pine Tree
 			        obj = new WorldGenPineTree();
 			        break;
 			}
-		}*/
+		}
 
 		if (obj != null)
 		{

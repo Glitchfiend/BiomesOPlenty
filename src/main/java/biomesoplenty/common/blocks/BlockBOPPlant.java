@@ -275,7 +275,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		
 		if (meta == 11)
 		{
-			return new ItemStack(BOPItemHelper.get("food"));
+			return new ItemStack(BOPItemHelper.get("food"), 1, 2);
 		}
 		
         return new ItemStack(this, 1, meta);

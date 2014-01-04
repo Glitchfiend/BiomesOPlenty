@@ -33,6 +33,7 @@ public class WorldGenFieldAssociation
 		associateField("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
 		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
 		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
+		associateField("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)

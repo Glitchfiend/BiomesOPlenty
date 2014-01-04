@@ -19,6 +19,7 @@ public class BOPWorldFeatures
 		public int desertSproutsPerChunk = 0;
 		public int bromeliadsPerChunk = 0;
 		public int waterReedsPerChunk = 0;
+		public int wildCarrotsPerChunk = 0;
 
 		public int bopFlowersPerChunk = 0;
 	}
