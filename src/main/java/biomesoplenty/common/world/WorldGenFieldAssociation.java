@@ -2,6 +2,7 @@ package biomesoplenty.common.world;
 
 import java.util.HashMap;
 
+import net.minecraft.world.gen.feature.WorldGenDoublePlant;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
@@ -34,6 +35,11 @@ public class WorldGenFieldAssociation
 		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
 		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
 		associateField("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
+		
+		WorldGenDoublePlant doubleTallGrass = new WorldGenDoublePlant();
+		//TODO:			setMetadata() ?
+		doubleTallGrass.func_150548_a(2);
+		associateField("doubleTallGrassPerChunk", doubleTallGrass);
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)

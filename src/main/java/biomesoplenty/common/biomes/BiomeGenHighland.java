@@ -1,46 +1,63 @@
 package biomesoplenty.common.biomes;
 
+import java.util.Random;
+
+import biomesoplenty.api.BOPBlockHelper;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenHighland extends BOPBiome
 {
+	private static final Height biomeHeight = new Height(0.9F, 1.9F);
 
-	public BiomeGenHighland(int par1)
+	public BiomeGenHighland(int id)
 	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = -999;
-		customBiomeDecorator.highGrassPerChunk = 25;
-		customBiomeDecorator.grassPerChunk = 25;
-		customBiomeDecorator.wheatGrassPerChunk = 10;
-		customBiomeDecorator.potatoesPerChunk = -999;
-		customBiomeDecorator.generateBoulders = false;
-		customBiomeDecorator.carrotsPerChunk = 1;
-		*/
+		super(id);
+		
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO:	setColor()
+        this.setColor(8170854);
+        this.setTemperatureRainfall(0.5F, 0.5F);
+		
+		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.grassPerChunk = 25;
+		
+		this.bopWorldFeatures.perChunk.doubleTallGrassPerChunk = 25;
+		this.bopWorldFeatures.perChunk.wildCarrotsPerChunk = 1;
 	}
 	
-	/*
 	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 3 + par2Random.nextInt(6);
+		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : new WorldGenTallGrass(Blocks.tallgrass, 1);
+	}
+	
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
 
 		for (int var6 = 0; var6 < var5; ++var6)
 		{
-			int var7 = par3 + par2Random.nextInt(16);
-			int var8 = par2Random.nextInt(28) + 4;
-			int var9 = par4 + par2Random.nextInt(16);
-			int var10 = par1World.getBlockId(var7, var8, var9);
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
+			
+			//TODO:				getBlock()
+			Block block = world.func_147439_a(x, y, z);
 
-			Block block = Block.blocksList[var10]; 
-			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				par1World.setBlock(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
+				//TODO:	setBlock()
+				world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
 			}
 		}
 	}
-	*/
 }
