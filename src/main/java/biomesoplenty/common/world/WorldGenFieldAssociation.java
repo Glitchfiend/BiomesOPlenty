@@ -35,6 +35,7 @@ public class WorldGenFieldAssociation
 		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
 		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
 		associateField("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
+		associateField("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
 		
 		WorldGenDoublePlant doubleTallGrass = new WorldGenDoublePlant();
 		//TODO:			setMetadata() ?

@@ -1,82 +1,92 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.Random;
+
+import net.minecraft.entity.monster.EntityCaveSpider;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.passive.EntityBat;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
 public class BiomeGenOminousWoods extends BOPBiome
 {
 
-	@SuppressWarnings("unchecked")
-	public BiomeGenOminousWoods(int par1)
+	public BiomeGenOminousWoods(int id)
 	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 8;
-		customBiomeDecorator.grassPerChunk = 1;
-		customBiomeDecorator.wheatGrassPerChunk = 1;
-		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.deathbloomsPerChunk = 1;
-		customBiomeDecorator.mushroomsPerChunk = 8;
-		customBiomeDecorator.reedsPerChunk = -999;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.thornsPerChunk = 9;
-		customBiomeDecorator.poisonIvyPerChunk = 3;
-		customBiomeDecorator.poisonWaterPerChunk = 15;
-		waterColorMultiplier = 1973030;
+		super(id);
+
+		
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();
 		spawnableWaterCreatureList.clear();
-		spawnableMonsterList.add(new SpawnListEntry(EntityCaveSpider.class, 5, 1, 2));
-		spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 10, 1, 4));
-		spawnableCaveCreatureList.add(new SpawnListEntry(EntityBat.class, 10, 8, 8));
-		*/
+		
+		this.spawnableMonsterList.add(new SpawnListEntry(EntityCaveSpider.class, 5, 1, 2));
+		this.spawnableMonsterList.add(new SpawnListEntry(EntityEnderman.class, 10, 1, 4));
+		this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityBat.class, 10, 8, 8));
+		
+		this.waterColorMultiplier = 1973030;
+		
+		this.theBiomeDecorator.treesPerChunk = 8;
+		this.theBiomeDecorator.grassPerChunk = 1;
+		this.theBiomeDecorator.flowersPerChunk = -999;
+		this.theBiomeDecorator.mushroomsPerChunk = 8;
+		this.theBiomeDecorator.reedsPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
+		
+		this.bopWorldFeatures.perChunk.bopFlowersPerChunk = 1;
+		this.bopWorldFeatures.perChunk.thornsPerChunk = 9;
+		this.bopWorldFeatures.perChunk.poisonIvyPerChunk = 3;
+		//TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 15;
 	}
 
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+	//TODO:						getRandomWorldGenForTrees()
+	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenOminous1(false) : (par1Random.nextInt(6) == 0 ? new WorldGenDeadTree3(false) : new WorldGenOminous2());
+		return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6) : (random.nextInt(6) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("holyGrass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3));
 	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
+	
+    @Override
+	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
+    {
+    	return new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 2);
+    }
+	
 	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return par1Random.nextInt(6) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 0) : new WorldGenTallGrass(Block.tallGrass.blockID, 1);
+		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : (random.nextInt(6) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 0) : new WorldGenTallGrass(Blocks.tallgrass, 1));
 	}
-	*/
 
-	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
-	 */
-	/*
 	@Override
-	public int getBiomeGrassColor()
-	{
-		return 4145489;
-	}
-	*/
-
-	/**
-	 * Provides the basic foliage color based on the biome temperature and rainfall
-	 */
-	/*
-	@Override
-	public int getBiomeFoliageColor()
+	//TODO:		getBiomeGrassColor()
+	public int func_150558_b(int x, int y, int z)
 	{
 		return 4145489;
 	}
-	*/
+
+	@Override
+	//TODO:		getBiomeFoliageColor()
+	public int func_150571_c(int x, int y, int z)
+	{
+		return 4145489;
+	}
+	
+	@Override
+	public int getSkyColorByTemp(float par1)
+	{
+		if (BOPConfigurationMisc.skyColors) return 5522002;
+		else return super.getSkyColorByTemp(par1);
+	}
 	
 	/**
 	 * Fog Color
@@ -89,34 +99,7 @@ public class BiomeGenOminousWoods extends BOPBiome
 	}
 	*/
 
-	/**
-	 * takes temperature, returns color
-	 */
-	/*
-	@Override
-	public int getSkyColorByTemp(float par1)
-	{
-		if (BOPConfigurationMisc.skyColors)
-			return 5522002;
-		else
-		{
-			par1 /= 3.0F;
-
-			if (par1 < -1.0F)
-			{
-				par1 = -1.0F;
-			}
-
-			if (par1 > 1.0F)
-			{
-				par1 = 1.0F;
-			}
-
-			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
-		}
-	}
-
-    @Override
+    /*@Override
     public float getFogCloseness()
     {
         return 0.1F;

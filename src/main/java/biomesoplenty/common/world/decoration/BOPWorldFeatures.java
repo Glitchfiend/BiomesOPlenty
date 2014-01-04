@@ -21,6 +21,7 @@ public class BOPWorldFeatures
 		public int waterReedsPerChunk = 0;
 		public int wildCarrotsPerChunk = 0;
 		public int doubleTallGrassPerChunk = 0;
+		public int poisonIvyPerChunk = 0;
 
 		public int bopFlowersPerChunk = 0;
 	}

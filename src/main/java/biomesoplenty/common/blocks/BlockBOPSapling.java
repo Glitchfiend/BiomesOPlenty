@@ -16,6 +16,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
@@ -154,17 +156,17 @@ public class BlockBOPSapling extends BlockSapling
 				obj = new WorldGenMystic2(false);
 				break;
 
-			case 4: // Dark Tree
+			*/case 4: // Dark Tree
 				rnd = random.nextInt(8);
 
 				if (rnd == 0) {
-					obj = new WorldGenOminous2();
+					obj = new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3);
 				} else {
-					obj = new WorldGenOminous1(false);
+					obj = new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6);
 				}
 				break;
 
-			case 5: // Dead Tree
+			/*case 5: // Dead Tree
 				obj = new WorldGenDeadTree2(false);
 				break;
 

@@ -14,6 +14,7 @@ import biomesoplenty.common.biomes.BiomeGenFrostForest;
 import biomesoplenty.common.biomes.BiomeGenHighland;
 import biomesoplenty.common.biomes.BiomeGenJadeCliffs;
 import biomesoplenty.common.biomes.BiomeGenLavenderFields;
+import biomesoplenty.common.biomes.BiomeGenOminousWoods;
 import biomesoplenty.common.biomes.BiomeGenSacredSprings;
 import biomesoplenty.common.biomes.BiomeGenThicket;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -90,8 +91,8 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenMeadow(BOPConfigurationIDs.meadowID).setBiomeName("Meadow"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMoor(BOPConfigurationIDs.moorID).setBiomeName("Moor"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMountain(BOPConfigurationIDs.mountainID).setBiomeName("Mountain"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenMysticGrove(BOPConfigurationIDs.mysticGroveID).setBiomeName("Mystic Grove"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID).setBiomeName("Ominous Woods"), BOPBiomeTemperatureType.COOL));*/
+        registerBiome(new BOPBiomeListEntry(new BiomeGenMysticGrove(BOPConfigurationIDs.mysticGroveID).setBiomeName("Mystic Grove"), BOPBiomeTemperatureType.WARM));*/
+        registerBiome(new BOPBiomeListEntry(new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID).setBiomeName("Ominous Woods"), BOPBiomeTemperatureType.COOL));
         //registerBiome(new BOPBiomeListEntry(new BiomeGenOriginValley(BOPConfigurationIDs.originValleyID).setBiomeName("Origin Valley"), BOPBiomeTemperatureType.WARM));
         /*registerBiome(new BOPBiomeListEntry(new BiomeGenOutback(BOPConfigurationIDs.outbackID).setBiomeName("Outback"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenPasture(BOPConfigurationIDs.pastureID).setBiomeName("Pasture"), BOPBiomeTemperatureType.WARM));
