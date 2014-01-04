@@ -11,7 +11,7 @@ public class WorldGenBOPFlora extends WorldGenerator
 {
     private Block flora;
     private int floraMeta;
-    private int groupCount = 7;
+    private int groupCount = 14;
 
     public WorldGenBOPFlora(Block flora, int floraMeta)
     {

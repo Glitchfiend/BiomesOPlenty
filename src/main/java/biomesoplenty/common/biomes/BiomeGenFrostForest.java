@@ -5,17 +5,29 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class BiomeGenFrostForest extends BOPBiome
 {
-
+	private static final Height biomeHeight = new Height(0.2F, 0.3F);
+	
 	public BiomeGenFrostForest(int id)
 	{
 		super(id);
+		
+		//TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        
+        //TODO:	setColor()
+        this.setColor(11261628);
+        this.setTemperatureRainfall(0.0F, 0.5F);
+        this.setEnableSnow();
 		
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.grassPerChunk = 1;
@@ -38,9 +50,15 @@ public class BiomeGenFrostForest extends BOPBiome
 	}
 	
     @Override
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
+    {
+        return random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
+    }
+	
+    @Override
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
     {
-    	return null;
+    	return random.nextInt(5) == 0 ? new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 7) : new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8);
     }
 	
 	@Override
