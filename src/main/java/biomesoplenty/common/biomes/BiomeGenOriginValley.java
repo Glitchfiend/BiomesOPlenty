@@ -8,6 +8,7 @@ public class BiomeGenOriginValley extends BOPBiome
 	public BiomeGenOriginValley(int par1)
 	{
 		super(par1);
+		
 		/*
 		theBiomeDecorator = new BiomeDecoratorBOP(this);
 		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
@@ -37,31 +38,18 @@ public class BiomeGenOriginValley extends BOPBiome
 	}
 	*/
 
-	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
-	 */
-	/*
-	@Override
+	/*@Override
 	public int getBiomeGrassColor()
 	{
 		return 10682207;
 	}
-	*/
 
-	/**
-	 * Provides the basic foliage color based on the biome temperature and rainfall
-	 */
-	/*
 	@Override
 	public int getBiomeFoliageColor()
 	{
 		return 3866368;
-	}
-	*/
+	}*/
 
-	/**
-	 * takes temperature, returns color
-	 */
 	/*
 	@Override
 	public int getSkyColorByTemp(float par1)

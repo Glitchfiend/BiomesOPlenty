@@ -32,9 +32,6 @@ public abstract class BOPBlockWorldDecor extends BlockBush
     	//TODO:				getBlock()
     	Block block = world.func_147439_a(x, y, z);
     	
-    	//TODO:	updateTick()
-        super.func_149695_a(world, x, y, z, block);
-        
         this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
     }
 	

@@ -225,7 +225,7 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		case 11: // Rainbow Flower
 			return block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt") || block == Blocks.grass || block == Blocks.dirt;
 
-		case 12: // Aloe
+		case 12: // Bromeliad
 			return block == BOPBlockHelper.get("hardDirt") || block == BOPBlockHelper.get("redRock") || block == Blocks.sand;
 
 		case 14: // Sunflower Top
@@ -271,10 +271,8 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 	//TODO     damageDropped()
 	public int func_149692_a(int meta)
 	{
-		if (meta == 14)
-			return 13 & 15;
-		else
-			return meta & 15;
+		if (meta == 14) return 13;
+		else return meta;
 	}
 
 	@Override

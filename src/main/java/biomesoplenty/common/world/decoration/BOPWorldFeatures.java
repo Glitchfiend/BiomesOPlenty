@@ -13,6 +13,12 @@ public class BOPWorldFeatures
 		public int bushesPerChunk = 0;
 		public int cloverPatchesPerChunk = 0;
 		public int lavenderPerChunk = 0;
+		public int thornsPerChunk = 0;
+		public int stalagmitesPerChunk = 3;
+        public int stalactitesPerChunk = 6;
+		public int desertSproutsPerChunk = 0;
+		public int bromeliadsPerChunk = 0;
+		public int waterReedsPerChunk = 0;
 
 		public int bopFlowersPerChunk = 0;
 	}

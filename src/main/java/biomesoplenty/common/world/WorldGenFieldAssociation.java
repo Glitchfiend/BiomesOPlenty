@@ -1,13 +1,14 @@
 package biomesoplenty.common.world;
 
 import java.util.HashMap;
-import java.util.Set;
 
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMud;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
+import biomesoplenty.common.world.features.WorldGenWaterReeds;
 
 public class WorldGenFieldAssociation 
 {
@@ -26,6 +27,12 @@ public class WorldGenFieldAssociation
 		associateField("bushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 4));
 		associateField("cloverPatchesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 13, 128));
 		associateField("lavenderPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 3));
+		associateField("thornsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 5));
+		associateField("stalagmitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 0));
+		associateField("stalactitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 1));
+		associateField("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
+		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
+		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)
