@@ -5,17 +5,26 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenDunes extends BOPBiome
 {
-
+	private static final Height biomeHeight = new Height(0.5F, 1.3F);
+	
 	public BiomeGenDunes(int id)
 	{
 		super(id);
 
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO:	setColor()
+        this.setColor(15064744);
+        this.setDisableRain();
+        this.setTemperatureRainfall(2.0F, 0.05F);
+		
 		spawnableCreatureList.clear();
 		
 		topBlock = Blocks.sand;
