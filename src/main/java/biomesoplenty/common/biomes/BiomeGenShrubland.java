@@ -1,69 +1,77 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenShrub;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
 
 public class BiomeGenShrubland extends BOPBiome
 {
-
-	public BiomeGenShrubland(int par1)
-	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 0;
-		customBiomeDecorator.flowersPerChunk = 0;
-		customBiomeDecorator.grassPerChunk = 5;
-		customBiomeDecorator.wheatGrassPerChunk = 2;
-		customBiomeDecorator.bushesPerChunk = 7;
-		customBiomeDecorator.shrubsPerChunk = 5;
-		customBiomeDecorator.generatePumpkins = false;
-		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
-		*/
-	}
+	private static final Height biomeHeight = new Height(0.2F, 0.2F);
 	
-	/*
-	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
+	public BiomeGenShrubland(int id)
 	{
-		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 12 + par2Random.nextInt(6);
+		super(id);
+
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO:	setColor()
+        this.setColor(8168286);
+        this.setTemperatureRainfall(0.6F, 0.05F);
+		
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+
+		this.theBiomeDecorator.treesPerChunk = 0;
+		this.theBiomeDecorator.flowersPerChunk = 0;
+		this.theBiomeDecorator.grassPerChunk = 5;
+
+		this.bopWorldFeatures.perChunk.bushesPerChunk = 7;
+		this.bopWorldFeatures.perChunk.shrubsPerChunk = 5;
+		this.bopWorldFeatures.doGeneration.generatePumpkins = false;
+	}
+
+	@Override
+	//TODO:						getRandomWorldGenForTrees()
+	public WorldGenAbstractTree func_150567_a(Random random)
+	{
+
+		return new WorldGenShrub(0, 0);
+	}
+
+	@Override
+	public WorldGenerator getRandomWorldGenForGrass(Random random)
+	{
+		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : new WorldGenTallGrass(Blocks.tallgrass, 1);
+	}
+
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
 
 		for (int var6 = 0; var6 < var5; ++var6)
 		{
-			int var7 = par3 + par2Random.nextInt(16);
-			int var8 = par2Random.nextInt(28) + 4;
-			int var9 = par4 + par2Random.nextInt(16);
-			int var10 = par1World.getBlockId(var7, var8, var9);
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
 
-			Block block = Block.blocksList[var10]; 
-			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
+			//TODO:				getBlock()
+			Block block = world.func_147439_a(x, y, z);
+
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 4, 2);
+				//TODO:	setBlock()
+				world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
 			}
 		}
 	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return new WorldGenShrub(0, 0);
-	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-	{
-		return new WorldGenTallGrass(Blocks.foliage.get().blockID, 1);
-	}
-	*/
 }
