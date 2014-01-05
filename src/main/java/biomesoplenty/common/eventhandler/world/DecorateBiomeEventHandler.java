@@ -5,9 +5,11 @@ import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.Ev
 import java.lang.reflect.Field;
 import java.util.Random;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenPumpkin;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
@@ -18,6 +20,7 @@ import biomesoplenty.common.world.WorldGenFieldAssociation;
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
@@ -117,7 +120,32 @@ public class DecorateBiomeEventHandler
 		{
 			if (event.type == EventType.PUMPKIN)
 			{
-				if (!bopDecoration.getWorldFeatures().doGeneration.generatePumpkins) event.setCanceled(true);
+				if (!bopDecoration.getWorldFeatures().doGeneration.generatePumpkins) event.setResult(Result.DENY);
+			}
+			else if (event.type == EventType.LAKE)
+			{
+				if (biome.theBiomeDecorator.generateLakes)
+				{
+					for (int i = 0; i < bopDecoration.getWorldFeatures().perChunk.waterLakesPerChunk; ++i)
+					{
+						int randX = x + random.nextInt(16);
+						int randY = random.nextInt(random.nextInt(248) + 8);
+						int randZ = z + random.nextInt(16);
+
+						(new WorldGenLiquids(Blocks.flowing_water)).generate(world, random, randX, randY, randZ);
+					}
+
+					for (int i = 0; i < bopDecoration.getWorldFeatures().perChunk.lavaLakesPerChunk; ++i)
+					{
+						int randX = x + random.nextInt(16);
+						int randY = random.nextInt(random.nextInt(random.nextInt(240) + 8) + 8);
+						int randZ = z + random.nextInt(16);
+						
+						(new WorldGenLiquids(Blocks.flowing_lava)).generate(world, random, randX, randY, randZ);
+					}
+				}
+
+				event.setResult(Result.DENY);
 			}
 		}
 	}

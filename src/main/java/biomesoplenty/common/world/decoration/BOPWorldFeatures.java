@@ -23,6 +23,9 @@ public class BOPWorldFeatures
 		public int doubleTallGrassPerChunk = 0;
 		public int poisonIvyPerChunk = 0;
 		public int berryBushesPerChunk = 0;
+		public int waterLakesPerChunk = 50;
+		public int lavaLakesPerChunk = 20;
+		public int portobellosPerChunk = 0;
 
 		public int bopFlowersPerChunk = 0;
 	}

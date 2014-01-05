@@ -15,7 +15,8 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityPixieTrailFX extends EntityFX
 {
-    private static final String texture = "biomesoplenty:textures/particles/pixietrail.png";
+    private static final ResourceLocation texture = new ResourceLocation("biomesoplenty:textures/particles/pixietrail.png");
+    private static final ResourceLocation particles = new ResourceLocation("textures/particle/particles.png");
 
     float pixieTrailParticleScale;
 
@@ -66,7 +67,7 @@ public class EntityPixieTrailFX extends EntityFX
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(770, 1);
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(texture));
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 
         float f6 = (float)this.particleTextureIndexX / 16.0F;
         float f7 = f6 + 0.0624375F;
@@ -102,7 +103,7 @@ public class EntityPixieTrailFX extends EntityFX
 
         GL11.glPopMatrix();
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("textures/particle/particles.png"));
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(particles);
         tessellator.startDrawingQuads();
     }
 

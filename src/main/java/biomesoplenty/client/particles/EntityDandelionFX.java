@@ -11,8 +11,9 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityDandelionFX extends EntityFX
 {
-	private static final String texture = "biomesoplenty:textures/particles/dandelion.png";
-
+	private static final ResourceLocation texture = new ResourceLocation("biomesoplenty:textures/particles/dandelion.png");
+    private static final ResourceLocation particles = new ResourceLocation("textures/particle/particles.png");
+	
 	public EntityDandelionFX(World par1World, double par2, double par4, double par6, float par8)
 	{
 		super(par1World, par2, par4, par6, 0.0D, 0.0D, 0.0D);
@@ -39,7 +40,7 @@ public class EntityDandelionFX extends EntityFX
 		GL11.glDepthMask(false);
 		GL11.glEnable(3042);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(texture));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 
 		float sizeFactor = 0.1F * particleScale;
 		float var13 = (float)(prevPosX + (posX - prevPosX) * par2 - EntityFX.interpPosX);
@@ -62,7 +63,7 @@ public class EntityDandelionFX extends EntityFX
 
 		GL11.glPopMatrix();
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("/particles.png"));
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(particles);
 		tessellator.startDrawingQuads();
 	}
 

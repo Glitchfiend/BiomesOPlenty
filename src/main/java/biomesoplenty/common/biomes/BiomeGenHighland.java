@@ -1,5 +1,6 @@
 package biomesoplenty.common.biomes;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import biomesoplenty.api.BOPBlockHelper;
@@ -32,11 +33,17 @@ public class BiomeGenHighland extends BOPBiome
 		this.bopWorldFeatures.perChunk.wildCarrotsPerChunk = 1;
 	}
 	
-	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random random)
-	{
-		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : new WorldGenTallGrass(Blocks.tallgrass, 1);
-	}
+    @Override
+	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+    	HashMap<WorldGenerator, Double> grassMap = new HashMap();
+    	
+    	grassMap.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+    	grassMap.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+    	grassMap.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
+    	
+    	return grassMap;
+    }
 	
 	@Override
 	public void decorate(World world, Random random, int chunkX, int chunkZ)

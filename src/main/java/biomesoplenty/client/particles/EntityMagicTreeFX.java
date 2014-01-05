@@ -1,11 +1,7 @@
 package biomesoplenty.client.particles;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.Direction;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -15,7 +11,8 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class EntityMagicTreeFX extends EntityFX
 {
-    private static final String texture = "biomesoplenty:textures/particles/magictree.png";
+    private static final ResourceLocation texture = new ResourceLocation("biomesoplenty:textures/particles/magictree.png");
+    private static final ResourceLocation particles = new ResourceLocation("textures/particle/particles.png");
 
     float magicTreeParticleScale;
 
@@ -66,7 +63,7 @@ public class EntityMagicTreeFX extends EntityFX
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(770, 1);
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(texture));
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
 
         float f6 = (float)this.particleTextureIndexX / 16.0F;
         float f7 = f6 + 0.0624375F;
@@ -102,7 +99,7 @@ public class EntityMagicTreeFX extends EntityFX
 
         GL11.glPopMatrix();
 
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("textures/particle/particles.png"));
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(particles);
         tessellator.startDrawingQuads();
     }
 

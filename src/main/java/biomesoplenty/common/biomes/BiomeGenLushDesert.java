@@ -11,8 +11,6 @@ public class BiomeGenLushDesert extends BOPBiome
 		/*
 		topBlock = (byte)Blocks.redRock.get().blockID;
 		fillerBlock = (byte)Blocks.redRock.get().blockID;
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 12;
 		customBiomeDecorator.grassPerChunk = 8;
 		customBiomeDecorator.shrubsPerChunk = 10;
