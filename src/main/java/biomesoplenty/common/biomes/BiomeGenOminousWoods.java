@@ -6,6 +6,7 @@ import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -18,11 +19,17 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
 public class BiomeGenOminousWoods extends BOPBiome
 {
-
+	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	
 	public BiomeGenOminousWoods(int id)
 	{
 		super(id);
 
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO:	setColor()
+        this.setColor(4145489);
+        this.setTemperatureRainfall(0.8F, 0.9F);
 		
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();

@@ -15,6 +15,7 @@ import biomesoplenty.common.biomes.BiomeGenHighland;
 import biomesoplenty.common.biomes.BiomeGenJadeCliffs;
 import biomesoplenty.common.biomes.BiomeGenLavenderFields;
 import biomesoplenty.common.biomes.BiomeGenOminousWoods;
+import biomesoplenty.common.biomes.BiomeGenRainforest;
 import biomesoplenty.common.biomes.BiomeGenSacredSprings;
 import biomesoplenty.common.biomes.BiomeGenThicket;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -97,9 +98,9 @@ public class BOPBiomes
         /*registerBiome(new BOPBiomeListEntry(new BiomeGenOutback(BOPConfigurationIDs.outbackID).setBiomeName("Outback"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenPasture(BOPConfigurationIDs.pastureID).setBiomeName("Pasture"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenPrairie(BOPConfigurationIDs.prairieID).setBiomeName("Prairie"), BOPBiomeTemperatureType.WARM));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenQuagmire(BOPConfigurationIDs.quagmireID).setBiomeName("Quagmire"), BOPBiomeTemperatureType.WARM));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenQuagmire(BOPConfigurationIDs.quagmireID).setBiomeName("Quagmire"), BOPBiomeTemperatureType.WARM));*/
         registerBiome(new BOPBiomeListEntry(new BiomeGenRainforest(BOPConfigurationIDs.rainforestID).setBiomeName("Rainforest"), BOPBiomeTemperatureType.HOT));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenRedwoodForest(BOPConfigurationIDs.redwoodForestID).setBiomeName("Redwood Forest"), BOPBiomeTemperatureType.WARM));*/  
+        /*registerBiome(new BOPBiomeListEntry(new BiomeGenRedwoodForest(BOPConfigurationIDs.redwoodForestID).setBiomeName("Redwood Forest"), BOPBiomeTemperatureType.WARM));*/  
         registerBiome(new BOPBiomeListEntry(new BiomeGenSacredSprings(BOPConfigurationIDs.sacredSpringsID).setBiomeName("Sacred Springs"), BOPBiomeTemperatureType.WARM));
         /*registerBiome(new BOPBiomeListEntry(new BiomeGenSeasonalForest(BOPConfigurationIDs.seasonalForestID).setBiomeName("Seasonal Forest"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenShield(BOPConfigurationIDs.shieldID).setBiomeName("Shield"), BOPBiomeTemperatureType.COOL));
