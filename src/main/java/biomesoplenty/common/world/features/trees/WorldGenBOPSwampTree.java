@@ -18,7 +18,10 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 	private int woodMeta;
 	private int leavesMeta;
 	
-    public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta)
+	private int minTreeHeight;
+	private int randomTreeHeight;
+	
+    public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta, int minTreeHeight, int randomTreeHeight)
     {
         super(false);
         
@@ -27,6 +30,9 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
         
         this.woodMeta = woodMeta;
         this.leavesMeta = leavesMeta;
+        
+        this.minTreeHeight = minTreeHeight;
+        this.randomTreeHeight = randomTreeHeight;
     }
 
     @Override

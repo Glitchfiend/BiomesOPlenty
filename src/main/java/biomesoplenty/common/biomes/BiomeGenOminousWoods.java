@@ -59,7 +59,7 @@ public class BiomeGenOminousWoods extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6) : (random.nextInt(6) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("holyGrass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3));
+		return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6) : (random.nextInt(6) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("holyGrass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, 5, 4));
 	}
 	
     @Override

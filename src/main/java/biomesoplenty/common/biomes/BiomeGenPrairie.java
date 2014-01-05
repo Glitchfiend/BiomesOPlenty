@@ -9,8 +9,6 @@ public class BiomeGenPrairie extends BOPBiome
 	{
 		super(par1);
 		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 1;
 		customBiomeDecorator.grassPerChunk = 999;
 		customBiomeDecorator.whiteFlowersPerChunk = 20;
@@ -18,7 +16,6 @@ public class BiomeGenPrairie extends BOPBiome
 		customBiomeDecorator.portobellosPerChunk = 2;
 		customBiomeDecorator.berryBushesPerChunk = 2;
 		customBiomeDecorator.wheatGrassPerChunk = 25;
-		customBiomeDecorator.carrotsPerChunk = 1;
 		customBiomeDecorator.shrubsPerChunk = 3;
 		customBiomeDecorator.waterReedsPerChunk = 4;
 		spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
