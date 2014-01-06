@@ -32,10 +32,10 @@ public class DecorateBiomeEventHandler
 
 		Random random = event.rand;
 		
-		int x = chunkX * 16;
-		int z = chunkZ * 16;
+		int x = chunkX + 8;
+		int z = chunkZ + 8;
 
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x + 16, z + 16);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
 		
 		IBOPDecoration bopDecoration = null;
 		

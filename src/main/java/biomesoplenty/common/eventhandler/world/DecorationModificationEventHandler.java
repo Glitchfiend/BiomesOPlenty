@@ -63,10 +63,10 @@ public class DecorationModificationEventHandler
 
 		Random random = event.rand;
 		
-		int x = chunkX * 16;
-		int z = chunkZ * 16;
+		int x = chunkX + 8;
+		int z = chunkZ + 8;
 		
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x + 16, z + 16);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
 		IBOPDecoration bopDecoration = null;
 
 		if (biome instanceof IBOPDecoration)
@@ -88,9 +88,9 @@ public class DecorationModificationEventHandler
 				{
 					if (random.nextInt(4) == 0)
 					{
-						int randX = x + random.nextInt(16) + 8;
+						int randX = x + random.nextInt(16);
 						int randY = random.nextInt(256);
-						int randZ = z + random.nextInt(16) + 8;
+						int randZ = z + random.nextInt(16);
 
 						(new WorldGenLakes(Blocks.water)).generate(world, random, randX, randY, randZ);
 					}
@@ -104,9 +104,9 @@ public class DecorationModificationEventHandler
 				{
 					if (random.nextInt(8) == 0)
 					{
-						int randX = x + random.nextInt(16) + 8;
+						int randX = x + random.nextInt(16);
 						int randY = random.nextInt(random.nextInt(248) + 8);
-						int randZ = z + random.nextInt(16) + 8;
+						int randZ = z + random.nextInt(16);
 
 						if (randY < 63 || random.nextInt(10) == 0)
 						{

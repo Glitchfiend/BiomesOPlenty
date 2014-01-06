@@ -47,8 +47,8 @@ public class WorldGenRiverCane extends WorldGeneratorBOP
 	{
 		for (int i = 0; i < worldGeneratorField.getInt(bopDecoration.getWorldFeatures()); i++)
 		{
-			int randX = x + random.nextInt(16) + 8;
-			int randZ = z + random.nextInt(16) + 8;
+			int randX = x + random.nextInt(16);
+			int randZ = z + random.nextInt(16);
 
 			worldGenerator.generate(world, random, randX, world.getTopSolidOrLiquidBlock(randX, randZ), randZ);
 		}
