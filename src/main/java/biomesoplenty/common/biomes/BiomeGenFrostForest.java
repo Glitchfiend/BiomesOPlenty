@@ -33,9 +33,9 @@ public class BiomeGenFrostForest extends BOPBiome
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.mushroomsPerChunk = -999;
 		
-		this.bopWorldFeatures.perChunk.shrubsPerChunk = 1;
-		this.bopWorldFeatures.perChunk.bopFlowersPerChunk = 3;
-		this.bopWorldFeatures.doGeneration.generatePumpkins = false;
+		this.bopWorldFeatures.shrubsPerChunk = 1;
+		this.bopWorldFeatures.bopFlowersPerChunk = 3;
+		this.bopWorldFeatures.generatePumpkins = false;
 	}
 
 	@Override

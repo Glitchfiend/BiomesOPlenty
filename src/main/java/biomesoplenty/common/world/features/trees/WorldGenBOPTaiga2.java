@@ -20,8 +20,19 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 	
 	private final int metaWood;
 	private final int metaLeaves;
+	
+	private final int minI;
+	private final int randomI;
+	
+	private final int minK;
+	private final int randomK;
 
 	public WorldGenBOPTaiga2(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight)
+	{
+		this(wood, leaves, metaWood, metaLeaves, doBlockNotify, minTreeHeight, randomTreeHeight, 1, 2, 2, 2);
+	}
+	
+	public WorldGenBOPTaiga2(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int minI, int randomI, int minK, int randomK)
 	{
 		super(doBlockNotify);
 		
@@ -31,15 +42,21 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 		this.metaLeaves = metaLeaves;
 		this.minTreeHeight = minTreeHeight;
 		this.randomTreeHeight = randomTreeHeight;
+		
+		this.minI = minI;
+		this.randomI = randomI;
+		
+		this.minK = minK;
+		this.randomK = randomK;
 	}
 
     @Override
 	public boolean generate(World world, Random random, int x, int y, int z)
     {
         int l = random.nextInt(randomTreeHeight) + minTreeHeight;
-        int i1 = 1 + random.nextInt(2);
+        int i1 = minI + random.nextInt(randomI);
         int j1 = l - i1;
-        int k1 = 2 + random.nextInt(2);
+        int k1 = minK + random.nextInt(randomK);
         boolean flag = true;
 
         if (y >= 1 && y + l + 1 <= 256)

@@ -38,8 +38,8 @@ public class BiomeGenMysticGrove extends BOPBiome
 		customBiomeDecorator.lilyflowersPerChunk = 3;
 		customBiomeDecorator.poisonWaterPerChunk = 1;*/
 		
-		this.bopWorldFeatures.perChunk.cloverPatchesPerChunk = 10;
-		this.bopWorldFeatures.perChunk.shrubsPerChunk = 4;
+		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
+		this.bopWorldFeatures.shrubsPerChunk = 4;
 
 	}
 

@@ -30,7 +30,7 @@ public class BiomeGenLavenderFields extends BOPBiome
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 20;
 		
-		this.bopWorldFeatures.perChunk.lavenderPerChunk = 999;
+		this.bopWorldFeatures.lavenderPerChunk = 999;
 	}
 	
 	@Override

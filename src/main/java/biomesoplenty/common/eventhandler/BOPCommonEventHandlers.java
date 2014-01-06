@@ -8,6 +8,7 @@ import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
+import biomesoplenty.common.eventhandler.world.DecorationModificationEventHandler;
 
 public class BOPCommonEventHandlers 
 {
@@ -22,6 +23,7 @@ public class BOPCommonEventHandlers
 	private static void registerWorldEventHandlers()
 	{
 		MinecraftForge.EVENT_BUS.register(new DecorateBiomeEventHandler());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new DecorationModificationEventHandler());
 	}
 	
 	private static void registerEntityEventHandlers()

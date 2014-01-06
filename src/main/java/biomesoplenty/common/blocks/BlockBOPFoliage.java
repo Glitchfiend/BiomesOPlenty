@@ -159,6 +159,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		//TODO:					  getBlock()
 		Block block = world.func_147439_a(x, y - 1, z);
 		
+    	if (block == Blocks.air) return false;
+		
 		switch (metadata)
 		{
 		case GRASSTOP:
@@ -176,6 +178,9 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	//TODO:			canReplace()
     public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
+    	//TODO:	  getBlock()
+    	if (world.func_147439_a(x, y - 1, z) == Blocks.air) return false;
+		
 		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
@@ -185,9 +190,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
     {
     	//TODO:				getBlock()
     	Block block = world.func_147439_a(x, y, z);
-    	
-    	//TODO:	updateTick()
-        super.func_149695_a(world, x, y, z, block);
         
         this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
     }

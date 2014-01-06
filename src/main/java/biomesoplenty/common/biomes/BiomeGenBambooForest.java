@@ -32,12 +32,12 @@ public class BiomeGenBambooForest extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		
-		this.bopWorldFeatures.perChunk.riverCanePerChunk = 6;
-		this.bopWorldFeatures.perChunk.shrubsPerChunk = 6;
-		this.bopWorldFeatures.perChunk.bushesPerChunk = 5;
-		this.bopWorldFeatures.perChunk.cloverPatchesPerChunk = 10;
+		this.bopWorldFeatures.riverCanePerChunk = 6;
+		this.bopWorldFeatures.shrubsPerChunk = 6;
+		this.bopWorldFeatures.bushesPerChunk = 5;
+		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
 		
-		this.bopWorldFeatures.doGeneration.generatePumpkins = false;
+		this.bopWorldFeatures.generatePumpkins = false;
 	}
 
 	@Override

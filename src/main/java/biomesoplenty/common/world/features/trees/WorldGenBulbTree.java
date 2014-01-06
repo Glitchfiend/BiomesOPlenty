@@ -105,7 +105,7 @@ public class WorldGenBulbTree extends WorldGenAbstractTree
                     for (k1 = y - b0 + l; k1 <= y + l; ++k1)
                     {
                         i3 = k1 - (y + l);
-                        l1 = b1 + 1 - i3 / 2;
+                        l1 = b1 + 1 - i3 / 3;
 
                         for (i2 = x - l1; i2 <= x + l1; ++i2)
                         {
@@ -137,38 +137,38 @@ public class WorldGenBulbTree extends WorldGenAbstractTree
                             //TODO:	setBlockAndMetadata()
 							this.func_150516_a(world, x, y + k1, z, wood, metaWood);
 
-							this.func_150516_a(world, x - 1, y + (l - 4), z, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 4), z, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 4), z - 1, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 4), z + 1, leaves, 1);
+							this.func_150516_a(world, x - 1, y + (l - 4), z, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 4), z, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 4), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 4), z + 1, leaves, metaLeaves);
 
-							this.func_150516_a(world, x - 1, y + (l - 5), z + 1, leaves, 1);
-							this.func_150516_a(world, x - 1, y + (l - 5), z - 1, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 5), z + 1, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 5), z - 1, leaves, 1);
-							this.func_150516_a(world, x - 1, y + (l - 5), z, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 5), z, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 5), z - 1, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 5), z + 1, leaves, 1);
+							this.func_150516_a(world, x - 1, y + (l - 5), z + 1, leaves, metaLeaves);
+							this.func_150516_a(world, x - 1, y + (l - 5), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 5), z + 1, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 5), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x - 1, y + (l - 5), z, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 5), z, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 5), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 5), z + 1, leaves, metaLeaves);
 
-							this.func_150516_a(world, x - 1, y + (l - 6), z, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 6), z, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 6), z - 1, leaves, 1);
-							this.func_150516_a(world, x, y + (l), z + 1, leaves, 1);
+							this.func_150516_a(world, x - 1, y + (l - 6), z, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 6), z, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 6), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l), z + 1, leaves, metaLeaves);
 
-							this.func_150516_a(world, x - 1, y + (l - 7), z + 1, leaves, 1);
-							this.func_150516_a(world, x - 1, y + (l - 7), z - 1, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 7), z + 1, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 7), z - 1, leaves, 1);
-							this.func_150516_a(world, x - 1, y + (l - 7), z, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 7), z, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 7), z - 1, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 7), z + 1, leaves, 1);
+							this.func_150516_a(world, x - 1, y + (l - 7), z + 1, leaves, metaLeaves);
+							this.func_150516_a(world, x - 1, y + (l - 7), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 7), z + 1, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 7), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x - 1, y + (l - 7), z, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 7), z, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 7), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 7), z + 1, leaves, metaLeaves);
 
-							this.func_150516_a(world, x - 1, y + (l - 8), z, leaves, 1);
-							this.func_150516_a(world, x + 1, y + (l - 8), z, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 8), z - 1, leaves, 1);
-							this.func_150516_a(world, x, y + (l - 8), z + 1, leaves, 1);
+							this.func_150516_a(world, x - 1, y + (l - 8), z, leaves, metaLeaves);
+							this.func_150516_a(world, x + 1, y + (l - 8), z, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 8), z - 1, leaves, metaLeaves);
+							this.func_150516_a(world, x, y + (l - 8), z + 1, leaves, metaLeaves);
 
                             if (this.vinesGrow && k1 > 0)
                             {

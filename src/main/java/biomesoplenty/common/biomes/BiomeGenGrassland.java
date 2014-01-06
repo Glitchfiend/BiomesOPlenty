@@ -42,11 +42,11 @@ public class BiomeGenGrassland extends BOPBiome
 		this.theBiomeDecorator.reedsPerChunk = 35;
 		this.theBiomeDecorator.mushroomsPerChunk = 20;
 		
-		this.bopWorldFeatures.perChunk.waterLakesPerChunk = 15;
-		this.bopWorldFeatures.perChunk.portobellosPerChunk = 3;
-		this.bopWorldFeatures.perChunk.riverCanePerChunk = 5;
-		this.bopWorldFeatures.perChunk.waterReedsPerChunk = 2;
-		this.bopWorldFeatures.doGeneration.generatePumpkins = false;
+		this.bopWorldFeatures.waterPondsPerChunk = 15;
+		this.bopWorldFeatures.portobellosPerChunk = 3;
+		this.bopWorldFeatures.riverCanePerChunk = 5;
+		this.bopWorldFeatures.waterReedsPerChunk = 2;
+		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	
 	@Override

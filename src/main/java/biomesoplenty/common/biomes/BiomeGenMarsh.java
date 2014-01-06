@@ -1,59 +1,87 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.HashMap;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenMarsh extends BOPBiome
 {
-
-	public BiomeGenMarsh(int par1)
+	private static final Height biomeHeight = new Height(0.2F, 0.2F);
+	
+	public BiomeGenMarsh(int id)
 	{
-		super(par1);
-		/*
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = -999;
-		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.grassPerChunk = 50;
-		customBiomeDecorator.wheatGrassPerChunk = 50;
-		customBiomeDecorator.highGrassPerChunk = 50;
-		customBiomeDecorator.reedsPerChunk = -999;
-		customBiomeDecorator.waterLakesPerChunk = 100;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.mudPerChunk = 1;
-		customBiomeDecorator.mudPerChunk2 = 1;
-		customBiomeDecorator.koruPerChunk = 1;
-		customBiomeDecorator.waterReedsPerChunk = 10;
-		customBiomeDecorator.generatePumpkins = false;
-		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
-		*/
-	}
-
-	/*
-	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
-	{
-		super.decorate(par1World, par2Random, par3, par4);
+		super(id);
 		
-		 int var55 = 12 + par2Random.nextInt(6);
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO:	setColor()
+        this.setColor(6725742);
+        this.setTemperatureRainfall(0.5F, 0.9F);
 
-		for (int var66 = 0; var66 < var55; ++var66)
+		this.spawnableCreatureList.clear();
+		this.spawnableWaterCreatureList.clear();
+		
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
+
+		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.flowersPerChunk = -999;
+		this.theBiomeDecorator.grassPerChunk = 50;
+		
+		this.theBiomeDecorator.reedsPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
+		
+		this.bopWorldFeatures.koruPerChunk = 1;
+		this.bopWorldFeatures.doubleTallGrassPerChunk = 50;
+		this.bopWorldFeatures.mudPerChunk = 1;
+		this.bopWorldFeatures.waterPondsPerChunk = 100;
+		this.bopWorldFeatures.waterReedsPerChunk = 10;
+		this.bopWorldFeatures.generatePumpkins = false;
+	}
+	
+    @Override
+	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+    	HashMap<WorldGenerator, Double> grassMap = new HashMap();
+    	
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+    	
+    	return grassMap;
+    }
+
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
+
+		for (int var6 = 0; var6 < var5; ++var6)
 		{
-			int var77 = par3 + par2Random.nextInt(16);
-			int var88 = par2Random.nextInt(28) + 4;
-			int var99 = par4 + par2Random.nextInt(16);
-			int var100 = par1World.getBlockId(var77, var88, var99);
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
+			
+			//TODO:				getBlock()
+			Block block = world.func_147439_a(x, y, z);
 
-			if (var100 == Block.stone.blockID)
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 12, 2);
+				//TODO:	setBlock()
+				world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 12, 2);
 			}
 		}
 	}
 	
-	@Override
+	/*@Override
 	public int getFogColour()
 	{
 		return 12638463;

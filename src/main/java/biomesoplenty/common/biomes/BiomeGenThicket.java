@@ -27,8 +27,8 @@ public class BiomeGenThicket extends BOPBiome
 		this.theBiomeDecorator.treesPerChunk = 17;
 		this.theBiomeDecorator.grassPerChunk = 1;
 
-		this.bopWorldFeatures.perChunk.thornsPerChunk = 25;
-		this.bopWorldFeatures.perChunk.shrubsPerChunk = 15;
+		this.bopWorldFeatures.thornsPerChunk = 25;
+		this.bopWorldFeatures.shrubsPerChunk = 15;
 	}
 
 	@Override

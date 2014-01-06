@@ -11,8 +11,7 @@ public class BiomeGenConiferousForest extends BOPBiome
 		super(par1);
 		/*
 		spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
+
 		customBiomeDecorator.treesPerChunk = 8;
 		customBiomeDecorator.grassPerChunk = 10;
 		customBiomeDecorator.mushroomsPerChunk = 8;

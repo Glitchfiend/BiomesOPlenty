@@ -5,22 +5,18 @@ import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.Ev
 import java.lang.reflect.Field;
 import java.util.Random;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenLiquids;
-import net.minecraft.world.gen.feature.WorldGenPumpkin;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
-import biomesoplenty.common.world.WorldGenFieldAssociation;
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
-import cpw.mods.fml.common.eventhandler.Event.Result;
+import biomesoplenty.common.world.generation.ForcedBOPWorldGenerators;
+import biomesoplenty.common.world.generation.IWorldGeneratorBOP;
+import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
@@ -36,10 +32,10 @@ public class DecorateBiomeEventHandler
 
 		Random random = event.rand;
 		
-		int x = chunkX + 8;
-		int z = chunkZ + 8;
+		int x = chunkX * 16;
+		int z = chunkZ * 16;
 
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x + 16, z + 16);
 		
 		IBOPDecoration bopDecoration = null;
 		
@@ -54,31 +50,37 @@ public class DecorateBiomeEventHandler
 
 		if (bopDecoration != null)
 		{
-			for (Field worldGeneratorField : BOPWorldFeatures.PerChunk.class.getFields())
+			for (Field worldGeneratorField : BOPWorldFeatures.class.getFields())
 			{
 				try
 				{
-					int worldGenPerChunk = worldGeneratorField.getInt(bopDecoration.getWorldFeatures().perChunk);
+					WorldGenerator worldGenerator = null;
 
-					for (int i = 0; i < worldGenPerChunk; i++)
+					if (worldGeneratorField.getName().equals("bopFlowersPerChunk") && TerrainGen.decorate(world, random, chunkX, chunkZ, FLOWERS))
 					{
-						int randX = x + random.nextInt(16);
-						int randZ = z + random.nextInt(16);
+						worldGenerator = bopDecoration.getRandomWorldGenForBOPFlowers(random);
+					}
+					else
+					{
+						worldGenerator = WorldGenFieldAssociation.getAssociatedWorldGenerator(worldGeneratorField.getName());
+					}
 
-						WorldGenerator worldGenerator = null;
-
-						if (worldGeneratorField.getName().equals("bopFlowersPerChunk") && TerrainGen.decorate(world, random, chunkX, chunkZ, FLOWERS))
+					if (worldGenerator != null)
+					{
+						IWorldGeneratorBOP worldGeneratorBOP = null;
+						
+						if (worldGenerator instanceof IWorldGeneratorBOP)
 						{
-							worldGenerator = bopDecoration.getRandomWorldGenForBOPFlowers(random);
+							 worldGeneratorBOP = (IWorldGeneratorBOP)worldGenerator;
 						}
-						else
+						else if (ForcedBOPWorldGenerators.hasForcedGenerator(worldGenerator.getClass()))
 						{
-							worldGenerator = WorldGenFieldAssociation.getAssociatedWorldGenerator(worldGeneratorField.getName());
+							worldGeneratorBOP = ForcedBOPWorldGenerators.getForcedGenerator(worldGenerator.getClass());
 						}
-
-						if (worldGenerator != null)
+						
+						if (worldGeneratorBOP != null)
 						{
-							worldGenerator.generate(world, random, randX, world.getTopSolidOrLiquidBlock(randX, randZ), randZ);
+							worldGeneratorBOP.doGeneration(world, random, worldGeneratorField, worldGenerator, biome, bopDecoration, x, z);
 						}
 					}
 				}
@@ -89,67 +91,7 @@ public class DecorateBiomeEventHandler
 			}
 		}
 	}
-	
-	@SubscribeEvent
-	public void modifyDecor(Decorate event)
-	{
-		World world = event.world;
 
-		int chunkX = event.chunkX;
-		int chunkZ = event.chunkZ;
-
-		Random random = event.rand;
-		
-		int x = chunkX + 8;
-		int z = chunkZ + 8;
-		
-		
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
-		IBOPDecoration bopDecoration = null;
-		
-		if (biome instanceof IBOPDecoration)
-		{
-			bopDecoration = (IBOPDecoration)biome;
-		}
-		else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
-		{
-			bopDecoration = ForcedDecorators.getForcedDecorator(biome.biomeID);
-		}
-		
-		if (bopDecoration != null)
-		{
-			if (event.type == EventType.PUMPKIN)
-			{
-				if (!bopDecoration.getWorldFeatures().doGeneration.generatePumpkins) event.setResult(Result.DENY);
-			}
-			else if (event.type == EventType.LAKE)
-			{
-				if (biome.theBiomeDecorator.generateLakes)
-				{
-					for (int i = 0; i < bopDecoration.getWorldFeatures().perChunk.waterLakesPerChunk; ++i)
-					{
-						int randX = x + random.nextInt(16);
-						int randY = random.nextInt(random.nextInt(248) + 8);
-						int randZ = z + random.nextInt(16);
-
-						(new WorldGenLiquids(Blocks.flowing_water)).generate(world, random, randX, randY, randZ);
-					}
-
-					for (int i = 0; i < bopDecoration.getWorldFeatures().perChunk.lavaLakesPerChunk; ++i)
-					{
-						int randX = x + random.nextInt(16);
-						int randY = random.nextInt(random.nextInt(random.nextInt(240) + 8) + 8);
-						int randZ = z + random.nextInt(16);
-						
-						(new WorldGenLiquids(Blocks.flowing_lava)).generate(world, random, randX, randY, randZ);
-					}
-				}
-
-				event.setResult(Result.DENY);
-			}
-		}
-	}
-	
 	public static void decorate(World world, Random random, BiomeGenBase biome, int x, int z)
 	{
 		BiomeDecorator biomeDecorator = biome.theBiomeDecorator;

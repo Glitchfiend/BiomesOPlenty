@@ -1,8 +1,10 @@
-package biomesoplenty.common.world;
+package biomesoplenty.common.world.generation;
 
 import java.util.HashMap;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
@@ -38,6 +40,9 @@ public class WorldGenFieldAssociation
 		associateField("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
 		associateField("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));
 		associateField("portobellosPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 1));
+		associateField("koruPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 12));
+		associateField("toadstoolsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 0));
+		associateField("blueMilksPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 2));
 		
 		WorldGenDoublePlant doubleTallGrass = new WorldGenDoublePlant();
 		//TODO:			setMetadata() ?
