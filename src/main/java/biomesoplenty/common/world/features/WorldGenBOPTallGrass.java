@@ -60,8 +60,9 @@ public class WorldGenBOPTallGrass extends WorldGeneratorBOP
 		{
 			int randX = x + random.nextInt(16);
 			int randZ = z + random.nextInt(16);
+			int randY = random.nextInt(world.getHeightValue(randX, randZ));
 
-			worldGenerator.generate(world, random, randX, world.getTopSolidOrLiquidBlock(randX, randZ), randZ);
+			worldGenerator.generate(world, random, randX, randY, randZ);
 		}
 	}
 }

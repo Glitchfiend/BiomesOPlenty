@@ -2,14 +2,13 @@ package biomesoplenty.common.world.generation;
 
 import java.util.HashMap;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
-import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMud;
+import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
 import biomesoplenty.common.world.features.WorldGenWaterReeds;
 
@@ -43,6 +42,9 @@ public class WorldGenFieldAssociation
 		associateField("koruPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 12));
 		associateField("toadstoolsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 0));
 		associateField("blueMilksPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 2));
+		
+		associateField("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24));
+		associateField("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48));
 		
 		WorldGenDoublePlant doubleTallGrass = new WorldGenDoublePlant();
 		//TODO:			setMetadata() ?

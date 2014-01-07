@@ -52,7 +52,9 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 			//================
 			
 			int h = 1;
-			buildBlock(world, x, y, z, Blocks.dirt, 0);
+			
+            var6.onPlantGrow(world, x, y - 1, z, x, y, z);
+            
 			for(int b = 0; b < baselength; b++)
 			{
 				buildBlock(world, x, y + h, z, BOPBlockHelper.get("logs4"), 0);

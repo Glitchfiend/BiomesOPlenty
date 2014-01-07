@@ -2,6 +2,13 @@ package biomesoplenty.common.world.decoration;
 
 public class BOPWorldFeatures 
 {
+	public boolean generatePumpkins = true;
+	public boolean generateQuicksand = false;
+	public boolean generateCanyon = false;
+	
+	public int waterPondsPerChunk = 0;
+	public int lavaPondsPerChunk = 0;
+	
 	public int mudPerChunk = 0;
 	public int riverCanePerChunk = 0;
 	public int shrubsPerChunk = 0;
@@ -18,15 +25,10 @@ public class BOPWorldFeatures
 	public int doubleTallGrassPerChunk = 0;
 	public int poisonIvyPerChunk = 0;
 	public int berryBushesPerChunk = 0;
-	public int waterPondsPerChunk = 0;
-	public int lavaPondsPerChunk = 0;
 	public int portobellosPerChunk = 0;
 	public int koruPerChunk = 0;
 	public int toadstoolsPerChunk = 0;
 	public int blueMilksPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
-
-	public boolean generatePumpkins = true;
-	public boolean generateQuicksand = false;
 }

@@ -3,14 +3,12 @@ package biomesoplenty.common.biomes;
 import java.util.HashMap;
 import java.util.Random;
 
-import biomesoplenty.api.BOPBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenHighland extends BOPBiome
 {
@@ -38,9 +36,9 @@ public class BiomeGenHighland extends BOPBiome
     {
     	HashMap<WorldGenerator, Double> grassMap = new HashMap();
     	
-    	grassMap.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-    	grassMap.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-    	grassMap.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     	
     	return grassMap;
     }
