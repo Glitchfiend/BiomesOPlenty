@@ -26,7 +26,22 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     @Override
 	public void decorate(World world, Random random, int x, int z)
     {
-    	DecorateBiomeEventHandler.decorate(world, random, this, x, z);
+        try
+        {
+            super.decorate(world, random, x, z);
+        }
+        catch (Exception e)
+        {
+            Throwable cause = e.getCause();
+            
+            if (e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage().equals("Already decorating!!")))
+            {
+            }
+            else
+            {
+                e.printStackTrace();
+            }
+        }
     }
     
     @Override

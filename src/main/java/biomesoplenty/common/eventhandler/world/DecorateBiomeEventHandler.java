@@ -8,8 +8,10 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
@@ -86,39 +88,17 @@ public class DecorateBiomeEventHandler
 				}
 				catch (Exception e)
 				{
-					e.printStackTrace();
+		            Throwable cause = e.getCause();
+		            
+		            if (e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage().equals("Already decorating!!")))
+		            {
+		            }
+		            else
+		            {
+		                e.printStackTrace();
+		            }
 				}
 			}
 		}
-	}
-
-	public static void decorate(World world, Random random, BiomeGenBase biome, int x, int z)
-	{
-		BiomeDecorator biomeDecorator = biome.theBiomeDecorator;
-		
-        if (biomeDecorator.currentWorld != null)
-        {
-            return;
-        }
-        else
-        {
-            biomeDecorator.currentWorld = world;
-            biomeDecorator.randomGenerator = random;
-            biomeDecorator.chunk_X = x;
-            biomeDecorator.chunk_Z = z;
-            
-            //TODO:			decorate
-            try
-            {
-            	ReflectionHelper.findMethod(BiomeDecorator.class, biomeDecorator, new String[] { "func_150513_a" }, BiomeGenBase.class).invoke(biomeDecorator, biome);
-            }
-            catch (Exception e)
-            {
-
-            }
-            
-            biomeDecorator.currentWorld = null;
-            biomeDecorator.randomGenerator = null;
-        }
 	}
 }
