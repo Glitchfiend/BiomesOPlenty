@@ -1,93 +1,112 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.HashMap;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenChaparral2;
+import biomesoplenty.common.world.features.trees.WorldGenPoplar;
+import biomesoplenty.common.world.features.trees.WorldGenPoplar2;
 
 public class BiomeGenGrove extends BOPBiome
 {
+    private static final Height biomeHeight = new Height(0.3F, 0.4F);
 
-	public BiomeGenGrove(int par1)
+	public BiomeGenGrove(int id)
 	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 3;
-		customBiomeDecorator.flowersPerChunk = 5;
-		customBiomeDecorator.tinyFlowersPerChunk = 80;
-		customBiomeDecorator.whiteFlowersPerChunk = 15;
-		customBiomeDecorator.grassPerChunk = 8;
-		customBiomeDecorator.wheatGrassPerChunk = 4;
-		customBiomeDecorator.sproutsPerChunk = 1;
-		customBiomeDecorator.lilyflowersPerChunk = 3;
-		customBiomeDecorator.berryBushesPerChunk = 2;
-		customBiomeDecorator.shrubsPerChunk = 3;
-		customBiomeDecorator.cloverPatchesPerChunk = 20;
-		customBiomeDecorator.generatePumpkins = false;
-		*/
+		super(id);
+		
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO: setColor()
+        this.setColor(5341009);
+        this.setTemperatureRainfall(0.4F, 0.8F);
+
+		this.theBiomeDecorator.treesPerChunk = 3;
+		this.theBiomeDecorator.flowersPerChunk = 5;
+		this.theBiomeDecorator.grassPerChunk = 8;
+		
+		this.bopWorldFeatures.bopFlowersPerChunk = 50;
+		this.bopWorldFeatures.sproutsPerChunk = 1;
+		this.bopWorldFeatures.berryBushesPerChunk = 2;
+		this.bopWorldFeatures.shrubsPerChunk = 3;
+		this.bopWorldFeatures.cloverPatchesPerChunk = 20;
+		this.bopWorldFeatures.generatePumpkins = false;
 	}
 
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
 	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenChaparral2() : par1Random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
-	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
+    //TODO:                     getRandomWorldGenForTrees()
+    public WorldGenAbstractTree func_150567_a(Random random)
+    {
+		return random.nextInt(2) == 0 ? new WorldGenChaparral2() : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
 	}
 	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 16D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 3D);
+        
+        return flowerMap;
+    }
+
 	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
+	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
 	{
-		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 3 + par2Random.nextInt(6);
+	    HashMap<WorldGenerator, Double> grassMap = new HashMap();
 
-		for (int var6 = 0; var6 < var5; ++var6)
-		{
-			int var7 = par3 + par2Random.nextInt(16);
-			int var8 = par2Random.nextInt(28) + 4;
-			int var9 = par4 + par2Random.nextInt(16);
-			int var10 = par1World.getBlockId(var7, var8, var9);
+	    grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+	    grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
+	    grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+	    grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 
-			Block block = Block.blocksList[var10]; 
-			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
-			{
-				par1World.setBlock(var7, var8, var9, Block.oreEmerald.blockID, 0, 2);
-			}
-		}
+	    return grassMap;
 	}
-	*/
 
-	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
-	 */
-	/*
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ)
+    {
+        super.decorate(world, random, chunkX, chunkZ);
+        int var5 = 12 + random.nextInt(6);
+
+        for (int var6 = 0; var6 < var5; ++var6)
+        {
+            int x = chunkX + random.nextInt(16);
+            int y = random.nextInt(28) + 4;
+            int z = chunkZ + random.nextInt(16);
+            
+            //TODO:             getBlock()
+            Block block = world.func_147439_a(x, y, z);
+
+            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+            {
+                //TODO: setBlock()
+                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
+            }
+        }
+    }
+
 	@Override
-	public int getBiomeGrassColor()
-	{
+    //TODO:     getBiomeGrassColor()
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    {
 		return 5341009;
 	}
-	*/
 
-	/**
-	 * Provides the basic foliage color based on the biome temperature and rainfall
-	 */
-	/*
 	@Override
-	public int getBiomeFoliageColor()
-	{
+    //TODO:     getBiomeFoliageColor()
+    public int func_150571_c(int x, int y, int z)
+    {
 		return 6396257;
 	}
-	*/
 }

@@ -5,6 +5,7 @@ public class BOPWorldFeatures
 	public boolean generatePumpkins = true;
 	public boolean generateQuicksand = false;
 	public boolean generateCanyon = false;
+	public boolean generateStoneInGrass = false;
 	
 	public int waterPoolsPerChunk = 0;
 	public int lavaPoolsPerChunk = 0;
@@ -35,6 +36,7 @@ public class BOPWorldFeatures
 	public int cattailsPerChunk = 0;
 	public int highCattailsPerChunk = 0;
 	public int algaePerChunk = 0;
+	public int sproutsPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }

@@ -10,35 +10,35 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
+public class WorldGenBOPTaiga3 extends WorldGenAbstractTree
 {
-	private final int minTreeHeight;
-	private final int randomTreeHeight;
+    private final int minTreeHeight;
+    private final int randomTreeHeight;
 
-	private final Block wood;
-	private final Block leaves;
-	
-	private final int metaWood;
-	private final int metaLeaves;
-	
-	private final int altNo;
+    private final Block wood;
+    private final Block leaves;
+    
+    private final int metaWood;
+    private final int metaLeaves;
+    
+    private final int altNo;
 
-	public WorldGenBOPTaiga2(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int altNo)
-	{
-		super(doBlockNotify);
-		
-		this.wood = wood;
-		this.leaves = leaves;
-		this.metaWood = metaWood;
-		this.metaLeaves = metaLeaves;
-		this.minTreeHeight = minTreeHeight;
-		this.randomTreeHeight = randomTreeHeight;
-		
-		this.altNo = altNo;
-	}
+    public WorldGenBOPTaiga3(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int altNo)
+    {
+        super(doBlockNotify);
+        
+        this.wood = wood;
+        this.leaves = leaves;
+        this.metaWood = metaWood;
+        this.metaLeaves = metaLeaves;
+        this.minTreeHeight = minTreeHeight;
+        this.randomTreeHeight = randomTreeHeight;
+        
+        this.altNo = altNo;
+    }
 
     @Override
-	public boolean generate(World world, Random random, int x, int y, int z)
+    public boolean generate(World world, Random random, int x, int y, int z)
     {
         int l = random.nextInt(randomTreeHeight) + minTreeHeight;
         int i1;
@@ -47,40 +47,10 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 
         switch (altNo)
         {
-            case 1:
-                i1 = 2 + random.nextInt(4);
-                j1 = l - i1;
-                k1 = 2 + random.nextInt(4);
-                break;
-
-            case 2:
-                i1 = 4 + random.nextInt(4);
-                j1 = l - i1;
-                k1 = 2;
-                break;
-                
-            case 3:
-                i1 = 1 - random.nextInt(4);
-                j1 = l - i1;
-                k1 = 2 + random.nextInt(2);
-                break;
-                
-            case 4:
-                i1 = 8 + random.nextInt(4);
-                j1 = l - i1;
-                k1 = 2 + random.nextInt(2);
-                break;
-                
-            case 5:
-                i1 = 2;
-                j1 = l - i1;
-                k1 = 2 + random.nextInt(2);
-                break;
-
             default:
-                i1 = 1 + random.nextInt(2);
+                i1 = 10 + random.nextInt(5);
                 j1 = l - i1;
-                k1 = 1 + random.nextInt(2);
+                k1 = 4;
                 break;
         }
 
@@ -132,11 +102,24 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
             else
             {
                 Block block1 = world.func_147439_a(x, y - 1, z);
+                Block block2 = world.func_147439_a(x + 1, y - 1, z);
+                Block block3 = world.func_147439_a(x - 1, y - 1, z);
+                Block block4 = world.func_147439_a(x, y - 1, z + 1);
+                Block block5 = world.func_147439_a(x, y - 1, z - 1);
 
-                boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                block2.canSustainPlant(world, x + 1, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                block3.canSustainPlant(world, x - 1, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                block4.canSustainPlant(world, x, y - 1, z + 1, ForgeDirection.UP, (BlockSapling)Blocks.sapling) &&
+                block5.canSustainPlant(world, x, y - 1, z - 1, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
+                
                 if (isSoil && y < 256 - l - 1)
                 {
                     block1.onPlantGrow(world, x, y - 1, z, x, y, z);
+                    block1.onPlantGrow(world, x + 1, y - 1, z, x + 1, y, z);
+                    block1.onPlantGrow(world, x - 1, y - 1, z, x - 1, y, z);
+                    block1.onPlantGrow(world, x, y - 1, z + 1, x, y, z + 1);
+                    block1.onPlantGrow(world, x, y - 1, z - 1, x, y, z - 1);
                     l3 = random.nextInt(2);
                     i2 = 1;
                     byte b0 = 0;
@@ -157,8 +140,12 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 
                                 if ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && world.func_147439_a(l2, k2, j3).canBeReplacedByLeaves(world, l2, k2, j3))
                                 {
-                                    //TODO:	setBlockAndMetadata()
+                                    //TODO: setBlockAndMetadata()
                                     this.func_150516_a(world, l2, k2, j3, leaves, this.metaLeaves);
+                                    this.func_150516_a(world, l2 + 1, k2, j3, leaves, this.metaLeaves);
+                                    this.func_150516_a(world, l2 - 1, k2, j3, leaves, this.metaLeaves);
+                                    this.func_150516_a(world, l2, k2, j3 + 1, leaves, this.metaLeaves);
+                                    this.func_150516_a(world, l2, k2, j3 - 1, leaves, this.metaLeaves);
                                 }
                             }
                         }
@@ -182,14 +169,18 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 
                     i4 = random.nextInt(3);
 
-                    for (k2 = 0; k2 < l - i4; ++k2)
+                    for (int i = 0; i < l - i4; ++i)
                     {
-                        Block block2 = world.func_147439_a(x, y + k2, z);
+                        Block block6 = world.func_147439_a(x, y + i, z);
 
-                        if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z))
+                        if (block6.isAir(world, x, y + i, z) || block6.isLeaves(world, x, y + i, z))
                         {
-                            //TODO:	setBlockAndMetadata()
-							this.func_150516_a(world, x, y + k2, z, wood, metaWood);
+                            //TODO: setBlockAndMetadata()
+                            this.func_150516_a(world, x, y + i, z, wood, metaWood);
+                            this.func_150516_a(world, x + 1, y + i, z, wood, metaWood);
+                            this.func_150516_a(world, x - 1, y + i, z, wood, metaWood);
+                            this.func_150516_a(world, x, y + i, z + 1, wood, metaWood);
+                            this.func_150516_a(world, x, y + i, z - 1, wood, metaWood);
                         }
                     }
 
