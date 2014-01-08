@@ -15,26 +15,26 @@ import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 public class WorldGenMoss extends WorldGeneratorBOP
 {
 	@Override
-	public boolean generate(World world, Random par2Random, int par3, int par4, int par5)
+	public boolean generate(World world, Random random, int x, int y, int z)
 	{
-		int var6 = par3;
+		int var6 = x;
 
-		for (int var7 = par5; par4 < 80; ++par4)
+		for (int var7 = z; y < 80; ++y)
 		{
 			//TODO:	  isAirBlock()
-			if (world.func_147437_c(par3, par4, par5))
+			if (world.func_147437_c(x, y, z))
 			{
 				for (int var8 = 2; var8 <= 5; ++var8)
 				{
 					//TODO:							canPlaceBlockOnSide()
-					if (BOPBlockHelper.get("moss").func_149707_d(world, par3, par4, par5, var8))
+					if (BOPBlockHelper.get("moss").func_149707_d(world, x, y, z, var8))
 					{
-						int var999 = par2Random.nextInt(4);
+						int var999 = random.nextInt(4);
 
 						if (var999 == 0)
 						{
 							//TODO:	setBlock()
-							world.func_147465_d(par3, par4, par5, BOPBlockHelper.get("moss"), 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+							world.func_147465_d(x, y, z, BOPBlockHelper.get("moss"), 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
 						}
 						break;
 					}
@@ -42,8 +42,8 @@ public class WorldGenMoss extends WorldGeneratorBOP
 			}
 			else
 			{
-				par3 = var6 + par2Random.nextInt(4) - par2Random.nextInt(4);
-				par5 = var7 + par2Random.nextInt(4) - par2Random.nextInt(4);
+				x = var6 + random.nextInt(4) - random.nextInt(4);
+				z = var7 + random.nextInt(4) - random.nextInt(4);
 			}
 		}
 
@@ -55,9 +55,9 @@ public class WorldGenMoss extends WorldGeneratorBOP
 	{
 		for (int i = 0; i < worldGeneratorField.getInt(bopDecoration.getWorldFeatures()); i++)
 		{
-			int randX = x + random.nextInt(16);
-			int randZ = z + random.nextInt(16);
-			int randY = random.nextInt(world.getHeightValue(randX, randZ));
+			int randX = x + random.nextInt(16) + 8;
+			int randZ = z + random.nextInt(16) + 8;
+			int randY = random.nextInt(world.getHeightValue(randX, randZ) * 2);
 
 			worldGenerator.generate(world, random, randX, randY, randZ);
 		}

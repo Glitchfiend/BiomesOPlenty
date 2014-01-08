@@ -28,8 +28,8 @@ public class WorldGenWaterReeds extends WorldGeneratorBOP
 			{
 				for (int i = 2; i > -2; --i)
 				{
-					//TODO:		getBlock()														getBlock()
-					if (world.func_147439_a(i1 - i, j1 - 1, k1 - i) != Blocks.water && world.func_147439_a(i1 - i, j1 - 1, k1 - i) != Blocks.flowing_water)
+					//TODO:		getBlock()
+					if (world.func_147439_a(i1 - i, j1 - 1, k1 - i) != Blocks.water)
 					{
 		            	//TODO:	setBlock()
 						world.func_147465_d(i1, j1, k1, BOPBlockHelper.get("plants"), 14, 2);
@@ -46,9 +46,9 @@ public class WorldGenWaterReeds extends WorldGeneratorBOP
 	{
 		for (int i = 0; i < worldGeneratorField.getInt(bopDecoration.getWorldFeatures()); i++)
 		{
-			int randX = x + random.nextInt(16);
-			int randZ = z + random.nextInt(16);
-			int randY = random.nextInt(world.getHeightValue(randX, randZ));
+			int randX = x + random.nextInt(16) + 8;
+			int randZ = z + random.nextInt(16) + 8;
+			int randY = random.nextInt(world.getHeightValue(randX, randZ) * 2);
 
 			worldGenerator.generate(world, random, randX, randY, randZ);
 		}

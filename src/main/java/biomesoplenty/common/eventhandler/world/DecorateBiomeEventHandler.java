@@ -23,7 +23,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 public class DecorateBiomeEventHandler 
 {
 	@SubscribeEvent
-	public void onBiomeDecorate(DecorateBiomeEvent.Post event)
+	public void onBiomeDecorate(DecorateBiomeEvent.Pre event)
 	{
 		World world = event.world;
 
@@ -32,10 +32,10 @@ public class DecorateBiomeEventHandler
 
 		Random random = event.rand;
 		
-		int x = chunkX + 8;
-		int z = chunkZ + 8;
+		int x = chunkX;
+		int z = chunkZ;
 
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x + 8, z + 8);
 		
 		IBOPDecoration bopDecoration = null;
 		

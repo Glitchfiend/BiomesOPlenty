@@ -2,14 +2,18 @@ package biomesoplenty.common.world.generation;
 
 import java.util.HashMap;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMud;
-import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
+import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenWaterReeds;
 
 public class WorldGenFieldAssociation 
@@ -23,7 +27,16 @@ public class WorldGenFieldAssociation
 	
 	private static void associateFieldsWithGenerators()
 	{
-		associateField("mudPerChunk", new WorldGenMud(7));
+	    associateField("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24));
+	    associateField("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48));
+
+	    associateField("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water));
+	    associateField("lavaPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_lava));
+	    
+	    associateField("waterLakesPerChunk", new WorldGenLakes(Blocks.water));
+	    associateField("lavaLakesPerChunk", new WorldGenLakes(Blocks.lava));
+	    
+	    associateField("mudPerChunk", new WorldGenMud(7));
 		associateField("riverCanePerChunk", new WorldGenRiverCane());
 		associateField("shrubsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 9));
 		associateField("bushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 4));
@@ -42,9 +55,9 @@ public class WorldGenFieldAssociation
 		associateField("koruPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 12));
 		associateField("toadstoolsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 0));
 		associateField("blueMilksPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 2));
-		
-		associateField("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24));
-		associateField("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48));
+	    associateField("cattailsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 7));
+	    associateField("highCattailsPerChunk", new WorldGenBOPDoubleFlora(BOPBlockHelper.get("plants"), BOPBlockHelper.get("plants"), 10, 9));
+	    associateField("algaePerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 0));
 		
 		WorldGenDoublePlant doubleTallGrass = new WorldGenDoublePlant();
 		//TODO:			setMetadata() ?

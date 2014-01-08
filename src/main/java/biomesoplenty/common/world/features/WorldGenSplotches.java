@@ -30,10 +30,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
 		float var6 = random.nextFloat() * (float)Math.PI;
-		double var7 = x + MathHelper.sin(var6) * numberOfBlocks / 8.0F;
-		double var9 = x - MathHelper.sin(var6) * numberOfBlocks / 8.0F;
-		double var11 = z + MathHelper.cos(var6) * numberOfBlocks / 8.0F;
-		double var13 = z - MathHelper.cos(var6) * numberOfBlocks / 8.0F;
+		double var7 = x + 8 + MathHelper.sin(var6) * numberOfBlocks / 8.0F;
+		double var9 = x + 8 - MathHelper.sin(var6) * numberOfBlocks / 8.0F;
+		double var11 = z + 8 + MathHelper.cos(var6) * numberOfBlocks / 8.0F;
+		double var13 = z + 8 - MathHelper.cos(var6) * numberOfBlocks / 8.0F;
 		double var15 = y + random.nextInt(3) - 2;
 		double var17 = y + random.nextInt(3) - 2;
 

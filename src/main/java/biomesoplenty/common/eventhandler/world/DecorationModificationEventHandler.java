@@ -50,6 +50,10 @@ public class DecorationModificationEventHandler
 					event.setResult(Result.DENY);
 				}
 			}
+			else if (event.type == Decorate.EventType.LAKE)
+			{
+			    event.setResult(Result.DENY);
+			}
 		}
 	}
 	
@@ -79,42 +83,7 @@ public class DecorationModificationEventHandler
 		}
 		
 		if (bopDecoration != null)
-		{
-			if (event.type == Populate.EventType.LAKE)
-			{
-				event.setResult(Result.DENY);
-
-				for (int i = 0; i < bopDecoration.getWorldFeatures().waterPondsPerChunk; i++)
-				{
-					if (random.nextInt(4) == 0)
-					{
-						int randX = x + random.nextInt(16);
-						int randY = random.nextInt(256);
-						int randZ = z + random.nextInt(16);
-
-						(new WorldGenLakes(Blocks.water)).generate(world, random, randX, randY, randZ);
-					}
-				}
-			}
-			else if (event.type == Populate.EventType.LAVA)
-			{
-				event.setResult(Result.DENY);
-
-				for (int i = 0; i < bopDecoration.getWorldFeatures().lavaPondsPerChunk; i++)
-				{
-					if (random.nextInt(8) == 0)
-					{
-						int randX = x + random.nextInt(16);
-						int randY = random.nextInt(random.nextInt(248) + 8);
-						int randZ = z + random.nextInt(16);
-
-						if (randY < 63 || random.nextInt(10) == 0)
-						{
-							(new WorldGenLakes(Blocks.lava)).generate(world, random, randX, randY, randZ);
-						}
-					}
-				}
-			}
+		{			
 		}
 	}
 }

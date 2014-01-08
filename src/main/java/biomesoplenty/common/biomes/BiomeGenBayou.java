@@ -74,14 +74,14 @@ public class BiomeGenBayou extends BOPBiome
 			}
 		}
 
-		for (int i = 0; i < 20; i++)
-		{
-			int x = chunkX + random.nextInt(16);
-			int y = 58;
-			int z = chunkZ + random.nextInt(16);
+        for (int i = 0; i < 20; i++)
+        {
+            int x = chunkX + random.nextInt(16) + 8;
+            short y = 58;
+            int z = chunkZ + random.nextInt(16) + 8;
 
-			new WorldGenMoss().generate(world, random, x, y, z);
-		}
+            new WorldGenMoss().generate(world, random, x, y, z);
+        }
 	}
 
 	@Override

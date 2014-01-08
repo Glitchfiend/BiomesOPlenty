@@ -2,8 +2,10 @@ package biomesoplenty.common.world.generation;
 
 import java.util.HashMap;
 
-import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.forceddecorators.ForcedDecorator;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
+import biomesoplenty.common.world.forcedworldgenerators.LakesForcedGenerator;
+import biomesoplenty.common.world.forcedworldgenerators.PondForcedGenerator;
 
 public class ForcedBOPWorldGenerators 
 {
@@ -16,7 +18,8 @@ public class ForcedBOPWorldGenerators
 	
 	private static void addForcedGenerators()
 	{
-		
+		addForcedGenerator(WorldGenLiquids.class, new PondForcedGenerator());
+		addForcedGenerator(WorldGenLakes.class, new LakesForcedGenerator());
 	}
 	
 	public static void addForcedGenerator(Class worldGenClass, ForcedWorldGeneratorBOP generator)

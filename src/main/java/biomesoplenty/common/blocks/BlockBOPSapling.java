@@ -162,7 +162,7 @@ public class BlockBOPSapling extends BlockSapling
 				if (rnd == 0) {
 					obj = new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, 5, 4);
 				} else {
-					obj = new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6);
+					obj = new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6, 0);
 				}
 				break;
 

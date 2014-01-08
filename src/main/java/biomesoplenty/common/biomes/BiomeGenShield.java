@@ -1,5 +1,6 @@
 package biomesoplenty.common.biomes;
 
+import biomesoplenty.common.world.features.WorldGenMoss;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BiomeGenShield extends BOPBiome
@@ -39,15 +40,15 @@ public class BiomeGenShield extends BOPBiome
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
 		super.decorate(par1World, par2Random, par3, par4);
-		WorldGenMoss var5 = new WorldGenMoss();
 
-		for (int var6 = 0; var6 < 20; ++var6)
-		{
-			int var7 = par3 + par2Random.nextInt(16) + 8;
-			byte var8 = 58;
-			int var9 = par4 + par2Random.nextInt(16) + 8;
-			var5.generate(par1World, par2Random, var7, var8, var9);
-		}
+        for (int i = 0; i < 20; i++)
+        {
+            int x = chunkX + random.nextInt(16) + 8;
+            short y = 58;
+            int z = chunkZ + random.nextInt(16) + 8;
+
+            new WorldGenMoss().generate(world, random, x, y, z);
+        }
 	}
 	*/
 

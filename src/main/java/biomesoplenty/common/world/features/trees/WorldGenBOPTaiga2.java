@@ -21,18 +21,9 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 	private final int metaWood;
 	private final int metaLeaves;
 	
-	private final int minI;
-	private final int randomI;
-	
-	private final int minK;
-	private final int randomK;
+	private final int altNo;
 
-	public WorldGenBOPTaiga2(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight)
-	{
-		this(wood, leaves, metaWood, metaLeaves, doBlockNotify, minTreeHeight, randomTreeHeight, 1, 2, 2, 2);
-	}
-	
-	public WorldGenBOPTaiga2(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int minI, int randomI, int minK, int randomK)
+	public WorldGenBOPTaiga2(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int altNo)
 	{
 		super(doBlockNotify);
 		
@@ -43,20 +34,44 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
 		this.minTreeHeight = minTreeHeight;
 		this.randomTreeHeight = randomTreeHeight;
 		
-		this.minI = minI;
-		this.randomI = randomI;
-		
-		this.minK = minK;
-		this.randomK = randomK;
+		this.altNo = altNo;
 	}
 
     @Override
 	public boolean generate(World world, Random random, int x, int y, int z)
     {
         int l = random.nextInt(randomTreeHeight) + minTreeHeight;
-        int i1 = minI + random.nextInt(randomI);
-        int j1 = l - i1;
-        int k1 = minK + random.nextInt(randomK);
+        int i1;
+        int j1;
+        int k1;
+
+        switch (altNo)
+        {
+            case 1:
+                i1 = 2 + random.nextInt(4);
+                j1 = l - i1;
+                k1 = 2 + random.nextInt(4);
+                break;
+
+            case 2:
+                i1 = 4 + random.nextInt(4);
+                j1 = l - i1;
+                k1 = 2;
+                break;
+                
+            case 3:
+                i1 = 1 - random.nextInt(4);
+                j1 = l - i1;
+                k1 = 2 + random.nextInt(2);
+                break;
+
+            default:
+                i1 = 1 + random.nextInt(2);
+                j1 = l - i1;
+                k1 = 1 + random.nextInt(2);
+                break;
+        }
+
         boolean flag = true;
 
         if (y >= 1 && y + l + 1 <= 256)

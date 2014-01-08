@@ -1,114 +1,127 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.HashMap;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.WorldGenMoss;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga1;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
 public class BiomeGenFen extends BOPBiome
 {
-
-	public BiomeGenFen(int par1)
+    private static final Height biomeHeight = new Height(0.2F, 0.4F);
+    
+	public BiomeGenFen(int id)
 	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 10;
-		customBiomeDecorator.grassPerChunk = 15;
-		customBiomeDecorator.highGrassPerChunk = 1;
-		customBiomeDecorator.waterlilyPerChunk = 1;
-		customBiomeDecorator.cattailsPerChunk = 1;
-		customBiomeDecorator.highCattailsPerChunk = 1;
-		customBiomeDecorator.pondsPerChunk = 99;
-		customBiomeDecorator.toadstoolsPerChunk = 2;
-		customBiomeDecorator.mushroomsPerChunk = 8;
-		customBiomeDecorator.mudPerChunk = 1;
-		customBiomeDecorator.mudPerChunk2 = 1;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.reedsBOPPerChunk = 5;
-		customBiomeDecorator.algaePerChunk = 1;
-		customBiomeDecorator.portobellosPerChunk = 1;
-		customBiomeDecorator.wheatGrassPerChunk = 8;
-		customBiomeDecorator.waterReedsPerChunk = 10;
-		customBiomeDecorator.koruPerChunk = 1;
-		customBiomeDecorator.shrubsPerChunk = 7;
-		spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
-		*/
-	}
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenFen2(false) : (par1Random.nextInt(20) == 0 ? new WorldGenDeadTree(false) : new WorldGenFen1());
-	}
-
-	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
-	{
-		super.decorate(par1World, par2Random, par3, par4);
-		WorldGenMoss var5 = new WorldGenMoss();
+		super(id);
 		
-		 int var55 = 12 + par2Random.nextInt(6);
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO: setColor()
+        this.setColor(12240001);
+        this.setTemperatureRainfall(0.4F, 0.4F);
+		
+		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 
-		for (int var66 = 0; var66 < var55; ++var66)
+		this.theBiomeDecorator.treesPerChunk = 10;
+		this.theBiomeDecorator.mushroomsPerChunk = 8;
+		this.theBiomeDecorator.grassPerChunk = 15;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
+		
+		this.bopWorldFeatures.doubleTallGrassPerChunk = 1;
+		this.bopWorldFeatures.cattailsPerChunk = 1;
+		this.bopWorldFeatures.highCattailsPerChunk = 1;
+		this.bopWorldFeatures.waterPoolsPerChunk = 99;
+		this.bopWorldFeatures.toadstoolsPerChunk = 2;
+		this.bopWorldFeatures.mudPerChunk = 1;
+		this.bopWorldFeatures.riverCanePerChunk = 5;
+		this.bopWorldFeatures.algaePerChunk = 1;
+		this.bopWorldFeatures.portobellosPerChunk = 1;
+		this.bopWorldFeatures.waterReedsPerChunk = 10;
+		this.bopWorldFeatures.koruPerChunk = 1;
+		this.bopWorldFeatures.shrubsPerChunk = 7;
+	}
+
+	@Override
+	//TODO:						getRandomWorldGenForTrees()
+	public WorldGenAbstractTree func_150567_a(Random random)
+	{
+		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 10, 12, 3) : 
+		(random.nextInt(20) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
+		new WorldGenBOPTaiga1(Blocks.log, Blocks.leaves, 0, 0, false, 7, 5, 1));
+	}
+	
+    @Override
+	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+    	HashMap<WorldGenerator, Double> grassMap = new HashMap();
+    	
+    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+    	
+    	return grassMap;
+    }
+
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
+
+		for (int i = 0; i < var5; ++i)
 		{
-			int var77 = par3 + par2Random.nextInt(16);
-			int var88 = par2Random.nextInt(28) + 4;
-			int var99 = par4 + par2Random.nextInt(16);
-			int var100 = par1World.getBlockId(var77, var88, var99);
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
 
-			if (var100 == Block.stone.blockID)
+			//TODO:				getBlock()
+			Block block = world.func_147439_a(x, y, z);
+
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				par1World.setBlock(var77, var88, var99, Blocks.amethystOre.get().blockID, 10, 2);
+				//TODO:	setBlock()
+				world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
 			}
 		}
 
-		for (int var6 = 0; var6 < 20; ++var6)
+		for (int i = 0; i < 20; i++)
 		{
-			int var7 = par3 + par2Random.nextInt(16) + 8;
-			byte var8 = 58;
-			int var9 = par4 + par2Random.nextInt(16) + 8;
-			var5.generate(par1World, par2Random, var7, var8, var9);
+			int x = chunkX + random.nextInt(16) + 8;
+            short y = 58;
+			int z = chunkZ + random.nextInt(16) + 8;
+
+			new WorldGenMoss().generate(world, random, x, y, z);
 		}
 	}
-	*/
 
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	 @Override
-	 public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-	 {
-		 return (par1Random.nextInt(4) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : (par1Random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.foliage.get().blockID, 2) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 1)));
-	 }
-	 */
-
-	 /**
-	  * Provides the basic grass color based on the biome temperature and rainfall
-	  */
-	/*
-	 @Override
-	 public int getBiomeGrassColor()
-	 {
-		 return 12240001;
-	 }
-	 */
-
-	 /**
-	  * Provides the basic foliage color based on the biome temperature and rainfall
-	  */
-	/*
-	 @Override
-	 public int getBiomeFoliageColor()
-	 {
-		 return 13547897;
-	 }
-	 
 	@Override
+	//TODO:		getBiomeGrassColor()
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    {
+		return 12240001;
+	}
+
+	@Override
+	//TODO:		getBiomeFoliageColor()
+	public int func_150571_c(int x, int y, int z)
+	{
+		return 13547897;
+	}
+
+	/*@Override
 	public int getFogColour()
 	{
 		return 12638463;

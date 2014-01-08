@@ -55,9 +55,9 @@ public class WorldGenBOPFlora extends WorldGeneratorBOP
 	{
 		for (int i = 0; i < worldGeneratorField.getInt(bopDecoration.getWorldFeatures()); i++)
 		{
-			int randX = x + random.nextInt(16);
-			int randZ = z + random.nextInt(16);
-			int randY = random.nextInt(world.getHeightValue(randX, randZ));
+			int randX = x + random.nextInt(16) + 8;
+			int randZ = z + random.nextInt(16) + 8;
+			int randY = random.nextInt(world.getHeightValue(randX, randZ) * 2);
 
 			worldGenerator.generate(world, random, randX, randY, randZ);
 		}

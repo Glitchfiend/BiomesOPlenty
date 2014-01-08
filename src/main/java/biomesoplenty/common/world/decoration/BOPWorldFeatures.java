@@ -6,8 +6,11 @@ public class BOPWorldFeatures
 	public boolean generateQuicksand = false;
 	public boolean generateCanyon = false;
 	
-	public int waterPondsPerChunk = 0;
-	public int lavaPondsPerChunk = 0;
+	public int waterPoolsPerChunk = 0;
+	public int lavaPoolsPerChunk = 0;
+	
+	public int waterLakesPerChunk = 0;
+	public int lavaLakesPerChunk = 0;
 	
 	public int mudPerChunk = 0;
 	public int riverCanePerChunk = 0;
@@ -29,6 +32,9 @@ public class BOPWorldFeatures
 	public int koruPerChunk = 0;
 	public int toadstoolsPerChunk = 0;
 	public int blueMilksPerChunk = 0;
+	public int cattailsPerChunk = 0;
+	public int highCattailsPerChunk = 0;
+	public int algaePerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }
