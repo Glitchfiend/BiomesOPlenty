@@ -54,17 +54,19 @@ public class BiomeGenSacredSprings extends BOPBiome
     	return random.nextInt(3) == 0 ? new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6) : new WorldGenBOPFlora(Blocks.red_flower, 1);
     }
     
-    @Override
-    //TODO:		getBiomeGrassColor()
-	public int func_150558_b(int x, int y, int z)
+	@Override
+	//TODO:		getBiomeGrassColor()
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
-    	return 39259;
+		double d0 = field_150606_ad.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
+        return d0 < -0.1D ? 39285 : 39259;
     }
     
     @SideOnly(Side.CLIENT)
     //TODO:		getBiomeFoliageColor()
     public int func_150571_c(int x, int y, int z)
     {
-        return 39259;
+    	double d0 = field_150606_ad.func_151601_a((double)x * 0.0225D, (double)z* 0.0225D);
+        return d0 < -0.1D ? 39285 : 39259;
     }
 }
