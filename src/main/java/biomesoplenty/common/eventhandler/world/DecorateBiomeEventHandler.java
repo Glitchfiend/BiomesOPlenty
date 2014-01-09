@@ -90,7 +90,7 @@ public class DecorateBiomeEventHandler
 				{
 		            Throwable cause = e.getCause();
 		            
-		            if (e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage().equals("Already decorating!!")))
+		            if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
 		            {
 		            }
 		            else

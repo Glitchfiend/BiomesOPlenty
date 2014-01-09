@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenLushDesert extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.4F);
+    private static final Height biomeHeight = new Height(0.2F, 0.9F);
     
     public BiomeGenLushDesert(int id)
     {
@@ -29,8 +29,8 @@ public class BiomeGenLushDesert extends BOPBiome
         //TODO: setHeight()
         this.func_150570_a(biomeHeight);
         //TODO: setColor()
-        this.setColor(10739795);
-        this.setTemperatureRainfall(1.2F, 0.9F);
+        this.setColor(9087277);
+        this.setTemperatureRainfall(0.8F, 0.2F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 

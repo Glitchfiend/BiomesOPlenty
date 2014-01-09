@@ -34,7 +34,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
         {
             Throwable cause = e.getCause();
             
-            if (e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage().equals("Already decorating!!")))
+            if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
             {
             }
             else
@@ -60,7 +60,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     @Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		if (!getWeightedWorldGenForGrass().isEmpty())
+		if (getWeightedWorldGenForBOPFlowers() != null && !getWeightedWorldGenForGrass().isEmpty())
 		{
 			return getRandomWeightedWorldGenerator(getWeightedWorldGenForGrass());
 		}
