@@ -11,8 +11,8 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.entities.ai.EntityAITemptArmor;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class TemptEventHandler 
 {
@@ -25,7 +25,7 @@ public class TemptEventHandler
 			return;
 
 		//TODO: FEATURE Remove Reflection
-		EntityAITasks tasks = ReflectionHelper.getPrivateValue(EntityLiving.class, ((EntityLiving)entity), new String[] { "tasks", "field_75732_c" });
+		EntityAITasks tasks = ObfuscationReflectionHelper.getPrivateValue(EntityLiving.class, ((EntityLiving)entity), new String[] { "tasks" });
 		
 		if (entity instanceof EntityChicken) 
 		{
