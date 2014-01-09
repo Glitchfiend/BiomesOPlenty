@@ -11,7 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.api.BOPBlockHelper;
 
-public class WorldGenBayou1 extends WorldGenAbstractTree
+public class WorldGenBayou2 extends WorldGenAbstractTree
 {
     private Block wood;
     private Block leaves;
@@ -19,7 +19,7 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
     private int woodMeta;
     private int leavesMeta;
 
-    public WorldGenBayou1(Block wood, Block leaves, int woodMeta, int leavesMeta)
+    public WorldGenBayou2(Block wood, Block leaves, int woodMeta, int leavesMeta)
     {
         super(false);
 
@@ -35,7 +35,7 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
     {
         int l;
 
-        for (l = random.nextInt(8) + 10; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
+        for (l = random.nextInt(5) + 8; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
         {
             ;
         }
@@ -124,14 +124,6 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
                     this.func_150516_a(world, x + 1, y + 1, z, this.wood, this.woodMeta);
                     this.func_150516_a(world, x, y + 1, z - 1, this.wood, this.woodMeta);
                     this.func_150516_a(world, x, y + 1, z + 1, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x - 1, y + 2, z, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x + 1, y + 2, z, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x, y + 2, z - 1, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x, y + 2, z + 1, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x - 1, y + 3, z, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x + 1, y + 3, z, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x, y + 3, z - 1, this.wood, this.woodMeta);
-                    this.func_150516_a(world, x, y + 3, z + 1, this.wood, this.woodMeta);
 
                     int l1;
                     int l2;
@@ -140,7 +132,7 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
                     for (k2 = y - 3 + l; k2 <= y + l; ++k2)
                     {
                         j1 = k2 - (y + l);
-                        k1 = 2 - j1 / 4;
+                        k1 = 2 - j1 / 2;
 
                         for (l2 = x - k1; l2 <= x + k1; ++l2)
                         {
@@ -241,4 +233,3 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
         }
     }
 }
-

@@ -1,6 +1,8 @@
 package biomesoplenty.common.world.features;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -18,12 +20,18 @@ public class WorldGenSplotches extends WorldGeneratorBOP
 	private int splotchBlockMeta;
 
 	private int numberOfBlocks;
+	
+	private List blockList;
 
-	public WorldGenSplotches(Block quicksandBlock, int quicksandBlockMeta, int numberOfBlocks)
+	public WorldGenSplotches(Block quicksandBlock, int quicksandBlockMeta, int numberOfBlocks, Block... blockList)
 	{
+	    super(true);
+	    
 		this.splotchBlock = quicksandBlock;
 		this.splotchBlockMeta = quicksandBlockMeta;
 		this.numberOfBlocks = numberOfBlocks;
+		
+		this.blockList = Arrays.asList(blockList);
 	}
 
 	@Override
@@ -68,8 +76,8 @@ public class WorldGenSplotches extends WorldGeneratorBOP
 							{
 								double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
 
-								//TODO:																	getBlock()														getBlock()														getBlock()
-								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (world.func_147439_a(var38, var41, var44) == Blocks.grass || world.func_147439_a(var38, var41, var44) == Blocks.dirt || world.func_147439_a(var38, var41, var44) == Blocks.sand))
+								//TODO:																	getBlock()														
+								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && (blockList.contains(world.func_147439_a(var38, var41, var44))))
 								{
 									//TODO:	setBlockAndMetadata()
 									this.func_150516_a(world, var38, var41, var44, splotchBlock, splotchBlockMeta);
@@ -117,6 +125,28 @@ public class WorldGenSplotches extends WorldGeneratorBOP
 		    {
 		        int randX = x + random.nextInt(16);
 		        int randY = random.nextInt(64) + 64;
+		        int randZ = z + random.nextInt(16);
+
+		        worldGenerator.generate(world, random, randX, randY, randZ);
+		    }
+		}
+		else if (fieldName.equals("generateGrass") && bopDecoration.getWorldFeatures().generateGrass)
+		{
+		    for (int i = 0; i < 15; ++i)
+		    {
+		        int randX = x + random.nextInt(16);
+		        int randY = random.nextInt(128);
+		        int randZ = z + random.nextInt(16);
+
+		        worldGenerator.generate(world, random, randX, randY, randZ);
+		    }
+		}
+		else if (fieldName.equals("generateSand") && bopDecoration.getWorldFeatures().generateGrass)
+		{
+		    for (int i = 0; i < 15; ++i)
+		    {
+		        int randX = x + random.nextInt(16);
+		        int randY = random.nextInt(128);
 		        int randZ = z + random.nextInt(16);
 
 		        worldGenerator.generate(world, random, randX, randY, randZ);

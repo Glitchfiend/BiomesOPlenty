@@ -1,97 +1,117 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.HashMap;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
 public class BiomeGenDeadSwamp extends BOPBiome
 {
-
-	public BiomeGenDeadSwamp(int par1)
+    private static final Height biomeHeight = new Height(0.1F, 0.2F);
+    
+	public BiomeGenDeadSwamp(int id)
 	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 2;
-		customBiomeDecorator.grassPerChunk = 25;
-		customBiomeDecorator.highGrassPerChunk = 1;
-		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.reedsPerChunk = -999;
-		customBiomeDecorator.mudPerChunk = 3;
-		customBiomeDecorator.mudPerChunk2 = 3;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.reedsBOPPerChunk = 2;
-		customBiomeDecorator.wheatGrassPerChunk = 10;
-		customBiomeDecorator.waterReedsPerChunk = 4;
-		customBiomeDecorator.koruPerChunk = 1;
-		spawnableCreatureList.clear();
-		spawnableWaterCreatureList.clear();
-		waterColorMultiplier = 10661201;
-		*/
+		super(id);
+		
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO: setColor()
+        this.setColor(9154376);
+        this.setTemperatureRainfall(0.8F, 0.9F);
+
+		this.spawnableCreatureList.clear();
+		this.spawnableWaterCreatureList.clear();
+		
+		this.waterColorMultiplier = 10661201;
+
+		this.theBiomeDecorator.treesPerChunk = 2;
+		this.theBiomeDecorator.grassPerChunk = 25;
+		this.theBiomeDecorator.flowersPerChunk = -999;
+		this.theBiomeDecorator.reedsPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
+		
+		this.bopWorldFeatures.mudPerChunk = 3;
+	    this.bopWorldFeatures.doubleTallGrassPerChunk = 1;
+	    this.bopWorldFeatures.riverCanePerChunk = 2;
+		this.bopWorldFeatures.waterReedsPerChunk = 4;
+		this.bopWorldFeatures.koruPerChunk = 1;
 	}
+
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+        HashMap<WorldGenerator, Double> grassMap = new HashMap();
+
+        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+
+        return grassMap;
+    }
+
+    @Override
+    //TODO:                     getRandomWorldGenForTrees()
+    public WorldGenAbstractTree func_150567_a(Random random)
+    {
+        return new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud"));
+    }
 	
-	/*
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ)
+    {
+        super.decorate(world, random, chunkX, chunkZ);
+        int var5 = 12 + random.nextInt(6);
+
+        for (int var6 = 0; var6 < var5; ++var6)
+        {
+            int x = chunkX + random.nextInt(16);
+            int y = random.nextInt(28) + 4;
+            int z = chunkZ + random.nextInt(16);
+            
+            //TODO:             getBlock()
+            Block block = world.func_147439_a(x, y, z);
+
+            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+            {
+                //TODO: setBlock()
+                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+            }
+        }
+    }
+
 	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
-	{
-		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 12 + par2Random.nextInt(6);
-
-		for (int var6 = 0; var6 < var5; ++var6)
-		{
-			int var7 = par3 + par2Random.nextInt(16);
-			int var8 = par2Random.nextInt(28) + 4;
-			int var9 = par4 + par2Random.nextInt(16);
-			int var10 = par1World.getBlockId(var7, var8, var9);
-
-			Block block = Block.blocksList[var10]; 
-			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
-			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 10, 2);
-			}
-		}
-	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-	{
-		return par1Random.nextInt(9) == 0 ? new WorldGenTallGrass(Block.tallGrass.blockID, 1) : new WorldGenTallGrass(Blocks.foliage.get().blockID, 2);
-	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return new WorldGenDeadTree(false);
-	}
-	*/
-
-	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
-	 */
-	/*
-	@Override
-	public int getBiomeGrassColor()
-	{
+    //TODO:     getBiomeGrassColor()
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    {
 		return 6713420;
 	}
 
 	@Override
-	public int getBiomeFoliageColor()
-	{
+    //TODO:     getBiomeFoliageColor()
+    public int func_150571_c(int x, int y, int z)
+    {
 		return 6713420;
 	}
 	
-	@Override
+    @Override
+    public int getSkyColorByTemp(float par1)
+    {
+        if (BOPConfigurationMisc.skyColors) return 6451816;
+        else return super.getSkyColorByTemp(par1);
+    }
+	
+	/*@Override
 	public int getFogColour()
 	{
 		return 9219993;
@@ -104,32 +124,4 @@ public class BiomeGenDeadSwamp extends BOPBiome
         return 0.6F;
     }
     */
-
-	/**
-	 * takes temperature, returns color
-	 */
-	/*
-	@Override
-	public int getSkyColorByTemp(float par1)
-	{
-		if (BOPConfigurationMisc.skyColors)
-			return 6451816;
-		else
-		{
-			par1 /= 3.0F;
-
-			if (par1 < -1.0F)
-			{
-				par1 = -1.0F;
-			}
-
-			if (par1 > 1.0F)
-			{
-				par1 = 1.0F;
-			}
-
-			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
-		}
-	}
-	*/
 }

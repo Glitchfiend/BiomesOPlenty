@@ -21,7 +21,14 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 	private int minTreeHeight;
 	private int randomTreeHeight;
 	
+	private Block vineBlock;
+	
     public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta, int minTreeHeight, int randomTreeHeight)
+    {
+        this(wood, leaves, woodMeta, leavesMeta, minTreeHeight, randomTreeHeight, Blocks.vine);
+    }
+	
+    public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta, int minTreeHeight, int randomTreeHeight, Block vineBlock)
     {
         super(false);
         
@@ -33,6 +40,8 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
         
         this.minTreeHeight = minTreeHeight;
         this.randomTreeHeight = randomTreeHeight;
+        
+        this.vineBlock = vineBlock;
     }
 
     @Override
@@ -40,7 +49,7 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
     {
         int l;
 
-        for (l = random.nextInt(4) + 5; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
+        for (l = random.nextInt(randomTreeHeight) + minTreeHeight; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
         {
             ;
         }
@@ -192,10 +201,9 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
         }
     }
 
-    // JAVADOC METHOD $$ func_76536_b
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.func_150516_a(par1World, par2, par3, par4, Blocks.vine, par5);
+        this.func_150516_a(par1World, par2, par3, par4, vineBlock, par5);
         int i1 = 4;
 
         while (true)
@@ -207,7 +215,7 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
                 return;
             }
 
-            this.func_150516_a(par1World, par2, par3, par4, Blocks.vine, par5);
+            this.func_150516_a(par1World, par2, par3, par4, vineBlock, par5);
             --i1;
         }
     }

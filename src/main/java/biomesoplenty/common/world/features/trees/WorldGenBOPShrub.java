@@ -27,7 +27,7 @@ public class WorldGenBOPShrub extends WorldGenTrees
 		this(wood, leaves, metaWood, metaLeaves, 0, 256, soilBlocks);
 	}
 	
-    public WorldGenBOPShrub(Block wood, Block leaves, int metaWood, int metaLevaes, int minHeight, int maxHeight, Block... soilBlocks)
+    public WorldGenBOPShrub(Block wood, Block leaves, int metaWood, int metaLeaves, int minHeight, int maxHeight, Block... soilBlocks)
     {
         super(false);
         

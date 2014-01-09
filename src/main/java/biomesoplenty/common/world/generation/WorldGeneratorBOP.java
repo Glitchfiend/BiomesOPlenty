@@ -10,6 +10,16 @@ import biomesoplenty.common.world.decoration.IBOPDecoration;
 
 public abstract class WorldGeneratorBOP extends WorldGenerator implements IWorldGeneratorBOP
 {
-	@Override
+	public WorldGeneratorBOP(boolean doBlockNotify)
+    {
+	    super(doBlockNotify);
+    }
+	
+	public WorldGeneratorBOP()
+	{
+	    this(false);
+	}
+
+    @Override
 	public abstract void doGeneration(World world, Random random, Field worldGeneratorField, WorldGenerator worldGenerator, BiomeGenBase biome, IBOPDecoration bopDecoration, int x, int z) throws Exception;
 }
