@@ -41,6 +41,7 @@ public class BOPWorldFeatures
 	public int sproutsPerChunk = 0;
 	public int tinyCactiPerChunk = 0;
 	public int oasesPerChunk = 0;
+	public int sunflowersPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }

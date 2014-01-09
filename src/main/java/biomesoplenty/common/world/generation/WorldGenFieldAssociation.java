@@ -65,10 +65,8 @@ public class WorldGenFieldAssociation
 	    associateField("tinyCactiPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 12));
 	    associateField("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, BOPBlockHelper.get("redRock")));
 		
-		WorldGenDoublePlant doubleTallGrass = new WorldGenDoublePlant();
-		//TODO:			setMetadata() ?
-		doubleTallGrass.func_150548_a(2);
-		associateField("doubleTallGrassPerChunk", doubleTallGrass);
+	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
+	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)

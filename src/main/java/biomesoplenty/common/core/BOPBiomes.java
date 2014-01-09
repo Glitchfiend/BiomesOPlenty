@@ -34,6 +34,7 @@ import biomesoplenty.common.biomes.BiomeGenLushDesert;
 import biomesoplenty.common.biomes.BiomeGenLushSwamp;
 import biomesoplenty.common.biomes.BiomeGenMapleWoods;
 import biomesoplenty.common.biomes.BiomeGenMarsh;
+import biomesoplenty.common.biomes.BiomeGenMeadow;
 import biomesoplenty.common.biomes.BiomeGenMountain;
 import biomesoplenty.common.biomes.BiomeGenOminousWoods;
 import biomesoplenty.common.biomes.BiomeGenPasture;
@@ -113,7 +114,7 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenLushSwamp(BOPConfigurationIDs.lushSwampID).setBiomeName("Lush Swamp"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMapleWoods(BOPConfigurationIDs.mapleWoodsID).setBiomeName("Maple Woods"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMarsh(BOPConfigurationIDs.marshID).setBiomeName("Marsh"), BOPBiomeTemperatureType.WARM));
-        //registerBiome(new BOPBiomeListEntry(new BiomeGenMeadow(BOPConfigurationIDs.meadowID).setBiomeName("Meadow"), BOPBiomeTemperatureType.COOL));
+        registerOnlyBiome(new BOPBiomeListEntry(new BiomeGenMeadow(BOPConfigurationIDs.meadowID).setBiomeName("Meadow"), BOPBiomeTemperatureType.COOL));
         //registerBiome(new BOPBiomeListEntry(new BiomeGenMoor(BOPConfigurationIDs.moorID).setBiomeName("Moor"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenMountain(BOPConfigurationIDs.mountainID).setBiomeName("Mountain"), BOPBiomeTemperatureType.WARM));
         //registerBiome(new BOPBiomeListEntry(new BiomeGenMysticGrove(BOPConfigurationIDs.mysticGroveID).setBiomeName("Mystic Grove"), BOPBiomeTemperatureType.WARM));

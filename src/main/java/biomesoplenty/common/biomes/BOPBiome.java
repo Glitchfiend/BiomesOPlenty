@@ -60,7 +60,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     @Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		if (getWeightedWorldGenForBOPFlowers() != null && !getWeightedWorldGenForGrass().isEmpty())
+		if (getWeightedWorldGenForGrass() != null && !getWeightedWorldGenForGrass().isEmpty())
 		{
 			return getRandomWeightedWorldGenerator(getWeightedWorldGenForGrass());
 		}
