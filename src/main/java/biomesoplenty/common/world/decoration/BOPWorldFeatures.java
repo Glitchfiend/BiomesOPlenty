@@ -8,6 +8,7 @@ public class BOPWorldFeatures
 	public boolean generateStoneInGrass = false;
 	public boolean generateGrass = false;
 	public boolean generateSand = false;
+	public boolean generateQuagmire = false;
 	
 	public int waterPoolsPerChunk = 0;
 	public int lavaPoolsPerChunk = 0;

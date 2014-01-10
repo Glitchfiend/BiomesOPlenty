@@ -32,6 +32,7 @@ public class WorldGenFieldAssociation
 	    associateField("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("holyGrass")));
 	    associateField("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
 	    associateField("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
+	    associateField("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
 
 	    associateField("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water));
 	    associateField("lavaPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_lava));
