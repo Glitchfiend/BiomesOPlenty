@@ -20,7 +20,7 @@ public class BiomeGenCrag extends BOPBiome
         this.func_150570_a(biomeHeight);
         //TODO:	setColor()
         this.setColor(5209457);
-        this.setTemperatureRainfall(0.4F, 0.2F);
+        this.setTemperatureRainfall(2.0F, 0.0F);
 		
 		this.spawnableCreatureList.clear();
 		this.spawnableWaterCreatureList.clear();
