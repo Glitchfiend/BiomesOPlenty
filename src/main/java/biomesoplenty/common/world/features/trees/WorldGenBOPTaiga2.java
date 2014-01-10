@@ -82,6 +82,12 @@ public class WorldGenBOPTaiga2 extends WorldGenAbstractTree
                 j1 = l - i1;
                 k1 = 2 + random.nextInt(2);
                 break;
+                
+            case 7:
+                i1 = 2;
+                j1 = l - i1;
+                k1 = 3;
+                break;
 
             default:
                 i1 = 1 + random.nextInt(2);
