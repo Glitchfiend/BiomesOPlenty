@@ -10,7 +10,7 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBrush1;
 import biomesoplenty.common.world.features.trees.WorldGenBrush2;
-import biomesoplenty.common.world.features.trees.WorldGenChaparral2;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenBrushland extends BOPBiome
 {
@@ -40,7 +40,7 @@ public class BiomeGenBrushland extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(2) == 0 ? new WorldGenBrush2() : (random.nextInt(5) == 0 ?  new WorldGenBrush1() : new WorldGenChaparral2());
+		return random.nextInt(2) == 0 ? new WorldGenBrush2(Blocks.log, Blocks.leaves, 3, 0, Blocks.grass) : (random.nextInt(5) == 0 ?  new WorldGenBrush1() : new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand));
 	}
 	
     @Override

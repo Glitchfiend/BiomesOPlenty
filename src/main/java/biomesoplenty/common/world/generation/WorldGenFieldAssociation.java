@@ -3,7 +3,6 @@ package biomesoplenty.common.world.generation;
 import java.util.HashMap;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.WorldGenDoublePlant;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -11,6 +10,7 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.WorldGenGrassSplatter;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
 import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenWaterReeds;
@@ -66,6 +66,7 @@ public class WorldGenFieldAssociation
 	    associateField("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, BOPBlockHelper.get("redRock")));
 	    associateField("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
 	    associateField("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
+	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());
 		
 	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
 	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));

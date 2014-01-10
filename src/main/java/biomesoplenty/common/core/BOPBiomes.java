@@ -40,6 +40,7 @@ import biomesoplenty.common.biomes.BiomeGenMountain;
 import biomesoplenty.common.biomes.BiomeGenMysticGrove;
 import biomesoplenty.common.biomes.BiomeGenOminousWoods;
 import biomesoplenty.common.biomes.BiomeGenOriginValley;
+import biomesoplenty.common.biomes.BiomeGenOutback;
 import biomesoplenty.common.biomes.BiomeGenPasture;
 import biomesoplenty.common.biomes.BiomeGenRainforest;
 import biomesoplenty.common.biomes.BiomeGenSacredSprings;
@@ -123,7 +124,7 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenMysticGrove(BOPConfigurationIDs.mysticGroveID).setBiomeName("Mystic Grove"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID).setBiomeName("Ominous Woods"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenOriginValley(BOPConfigurationIDs.originValleyID).setBiomeName("Origin Valley"), BOPBiomeTemperatureType.WARM));
-        /*registerBiome(new BOPBiomeListEntry(new BiomeGenOutback(BOPConfigurationIDs.outbackID).setBiomeName("Outback"), BOPBiomeTemperatureType.HOT));*/
+        registerBiome(new BOPBiomeListEntry(new BiomeGenOutback(BOPConfigurationIDs.outbackID).setBiomeName("Outback"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenPasture(BOPConfigurationIDs.pastureID).setBiomeName("Pasture"), BOPBiomeTemperatureType.WARM));
         //registerBiome(new BOPBiomeListEntry(new BiomeGenPrairie(BOPConfigurationIDs.prairieID).setBiomeName("Prairie"), BOPBiomeTemperatureType.WARM));
         /*registerBiome(new BOPBiomeListEntry(new BiomeGenQuagmire(BOPConfigurationIDs.quagmireID).setBiomeName("Quagmire"), BOPBiomeTemperatureType.WARM));*/

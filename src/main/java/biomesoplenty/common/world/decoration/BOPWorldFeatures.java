@@ -44,6 +44,7 @@ public class BOPWorldFeatures
 	public int sunflowersPerChunk = 0;
 	public int minersDelightPerChunk = 2;
 	public int rootsPerChunk = 9;
+	public int grassSplatterPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }

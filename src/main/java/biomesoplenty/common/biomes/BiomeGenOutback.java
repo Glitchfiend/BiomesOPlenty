@@ -1,61 +1,72 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenOutback extends BOPBiome
 {
+    private static final Height biomeHeight = new Height(0.3F, 0.4F);
 
-	public BiomeGenOutback(int par1)
+	public BiomeGenOutback(int id)
 	{
-		super(par1);
-		/*
-		spawnableCreatureList.clear();
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		topBlock = (byte)Blocks.hardSand.get().blockID;
-		fillerBlock = (byte)Blocks.hardSand.get().blockID;
-		customBiomeDecorator.treesPerChunk = 3;
-		customBiomeDecorator.flowersPerChunk = -999;
-		customBiomeDecorator.outbackPerChunk = 10;
-		customBiomeDecorator.deadBushPerChunk = 7;
-		customBiomeDecorator.tinyCactiPerChunk = 2;
-		customBiomeDecorator.cactiPerChunk = 4;
-		customBiomeDecorator.bushesPerChunk = 5;
-		customBiomeDecorator.generatePumpkins = false;
-		*/
+		super(id);
+		
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO: setColor()
+        this.setColor(10843716);
+        this.setTemperatureRainfall(0.8F, 0.05F);
+
+		this.spawnableCreatureList.clear();
+		
+		this.topBlock = BOPBlockHelper.get("hardSand");
+		this.fillerBlock = BOPBlockHelper.get("hardSand");
+		this.theBiomeDecorator.treesPerChunk = 3;
+		this.theBiomeDecorator.flowersPerChunk = -999;
+	    this.theBiomeDecorator.deadBushPerChunk = 7;
+	    this.theBiomeDecorator.cactiPerChunk = 4;
+		
+		this.bopWorldFeatures.grassSplatterPerChunk = 10;
+		this.bopWorldFeatures.tinyCactiPerChunk = 2;
+		this.bopWorldFeatures.bushesPerChunk = 5;
+		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	
-	/*
-	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
-	{
-		super.decorate(par1World, par2Random, par3, par4);
-		int var5 = 12 + par2Random.nextInt(6);
+    @Override
+    //TODO:                     getRandomWorldGenForTrees()
+    public WorldGenAbstractTree func_150567_a(Random random)
+    {
+        return random.nextInt(3) == 0 ? new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPBlockHelper.get("hardSand")) : 
+        new WorldGenMiniShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPBlockHelper.get("hardSand"));
+    }
+	
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ)
+    {
+        super.decorate(world, random, chunkX, chunkZ);
+        int var5 = 12 + random.nextInt(6);
 
-		for (int var6 = 0; var6 < var5; ++var6)
-		{
-			int var7 = par3 + par2Random.nextInt(16);
-			int var8 = par2Random.nextInt(28) + 4;
-			int var9 = par4 + par2Random.nextInt(16);
-			int var10 = par1World.getBlockId(var7, var8, var9);
+        for (int var6 = 0; var6 < var5; ++var6)
+        {
+            int x = chunkX + random.nextInt(16);
+            int y = random.nextInt(28) + 4;
+            int z = chunkZ + random.nextInt(16);
+            
+            //TODO:             getBlock()
+            Block block = world.func_147439_a(x, y, z);
 
-			Block block = Block.blocksList[var10]; 
-			if (block != null && block.isGenMineableReplaceable(par1World, var7, var8, var9, Block.stone.blockID))
-			{
-				par1World.setBlock(var7, var8, var9, Blocks.amethystOre.get().blockID, 2, 2);
-			}
-		}
-	}
-	*/
-
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return par1Random.nextInt(3) == 0 ? new WorldGenOutbackShrub(0,0) : new WorldGenOutbackTree();
-	}
-	*/
+            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+            {
+                //TODO: setBlock()
+                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
+            }
+        }
+    }
 }

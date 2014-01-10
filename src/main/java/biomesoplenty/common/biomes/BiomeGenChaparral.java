@@ -13,7 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
-import biomesoplenty.common.world.features.trees.WorldGenChaparral2;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import biomesoplenty.common.world.features.trees.WorldGenChaparral3;
 
 public class BiomeGenChaparral extends BOPBiome
@@ -50,7 +50,7 @@ public class BiomeGenChaparral extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(2) == 0 ? new WorldGenChaparral2() : (random.nextInt(5) == 0 ?  new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : new WorldGenChaparral3());
+        return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : (random.nextInt(5) == 0 ?  new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : new WorldGenChaparral3());
     }
 
     @Override

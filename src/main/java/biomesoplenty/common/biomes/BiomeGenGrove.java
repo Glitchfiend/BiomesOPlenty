@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenChaparral2;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar2;
 
@@ -46,7 +46,7 @@ public class BiomeGenGrove extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-		return random.nextInt(2) == 0 ? new WorldGenChaparral2() : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
+		return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
 	}
 	
     @Override
