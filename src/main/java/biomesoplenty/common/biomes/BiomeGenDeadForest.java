@@ -26,7 +26,7 @@ public class BiomeGenDeadForest extends BOPBiome
         this.func_150570_a(biomeHeight);
         //TODO:	setColor()
         this.setColor(12362085);
-        this.setTemperatureRainfall(1.2F, 0.1F);
+        this.setTemperatureRainfall(0.2F, 0.8F);
 
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.grassPerChunk = 1;
