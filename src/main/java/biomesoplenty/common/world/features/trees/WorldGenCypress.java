@@ -52,6 +52,12 @@ public class WorldGenCypress extends WorldGenAbstractTree
                 j1 = l - i1;
                 k1 = 1;
                 break;
+               
+            case 2:
+                i1 = random.nextInt(5) + 3;
+                j1 = l - i1;
+                k1 = 1;
+                break;
             
             default:
                 i1 = 3 + random.nextInt(2);
@@ -133,7 +139,7 @@ public class WorldGenCypress extends WorldGenAbstractTree
 
                                 if ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && world.func_147439_a(l2, k2, j3).canBeReplacedByLeaves(world, l2, k2, j3))
                                 {
-                                    if (random.nextInt(3) != 0)
+                                    if (random.nextInt(2) != 0)
                                     {
                                         //TODO: setBlockAndMetadata()
                                         this.func_150516_a(world, l2, k2, j3, leaves, this.metaLeaves);

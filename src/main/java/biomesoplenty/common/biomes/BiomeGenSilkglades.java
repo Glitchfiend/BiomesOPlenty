@@ -9,8 +9,6 @@ public class BiomeGenSilkglades extends BOPBiome
 	{
 		super(par1);
 		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
 		customBiomeDecorator.treesPerChunk = 6;
 		customBiomeDecorator.grassPerChunk = 2;
 		customBiomeDecorator.wheatGrassPerChunk = 1;
