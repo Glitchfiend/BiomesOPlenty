@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 public class DecorateBiomeEventHandler 
 {
 	@SubscribeEvent
-	public void onBiomeDecorate(DecorateBiomeEvent.Pre event)
+	public void onBiomeDecorate(DecorateBiomeEvent.Post event)
 	{
 		World world = event.world;
 

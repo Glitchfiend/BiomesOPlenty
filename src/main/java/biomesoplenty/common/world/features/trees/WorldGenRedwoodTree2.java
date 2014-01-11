@@ -128,7 +128,7 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
                 {
                     for (int ix = -2; ix <= 2; ix++)
                     {
-                        for (int iz = -2; iz <= 3; iz++)
+                        for (int iz = -2; iz <= 2; iz++)
                         {
                             if (((ix != -2 && ix != 2) || (iz == 0)) && ((iz != -2 && iz != 2) || (ix == 0)))
                             {
