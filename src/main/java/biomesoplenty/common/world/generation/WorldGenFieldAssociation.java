@@ -12,6 +12,7 @@ import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenGrassSplatter;
+import biomesoplenty.common.world.features.WorldGenLog;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
 import biomesoplenty.common.world.features.WorldGenRockpile;
 import biomesoplenty.common.world.features.WorldGenSplotches;
@@ -73,6 +74,7 @@ public class WorldGenFieldAssociation
 	    associateField("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
 	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());
 	    associateField("rockpilesPerChunk", new WorldGenRockpile());
+	    associateField("logsPerChunk", new WorldGenLog());
 		
 	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
 	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));

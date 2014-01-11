@@ -23,12 +23,14 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 	
 	private Block vineBlock;
 	
+	private int vineMeta;
+	
     public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta, int minTreeHeight, int randomTreeHeight)
     {
-        this(wood, leaves, woodMeta, leavesMeta, minTreeHeight, randomTreeHeight, Blocks.vine);
+        this(wood, leaves, woodMeta, leavesMeta, minTreeHeight, randomTreeHeight, Blocks.vine, -1);
     }
 	
-    public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta, int minTreeHeight, int randomTreeHeight, Block vineBlock)
+    public WorldGenBOPSwampTree(Block wood, Block leaves, int woodMeta, int leavesMeta, int minTreeHeight, int randomTreeHeight, Block vineBlock, int vineMeta)
     {
         super(false);
         
@@ -42,6 +44,8 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
         this.randomTreeHeight = randomTreeHeight;
         
         this.vineBlock = vineBlock;
+        
+        this.vineMeta = vineMeta;
     }
 
     @Override
@@ -203,6 +207,8 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
+        if (vineMeta != -1) par5 = vineMeta;
+        
         this.func_150516_a(par1World, par2, par3, par4, vineBlock, par5);
         int i1 = 4;
 

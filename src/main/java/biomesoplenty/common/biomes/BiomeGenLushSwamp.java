@@ -52,7 +52,7 @@ public class BiomeGenLushSwamp extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("ivy"));
+        return new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("ivy"), -1);
     }
     
     @Override

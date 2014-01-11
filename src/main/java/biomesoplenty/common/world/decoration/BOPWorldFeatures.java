@@ -49,6 +49,7 @@ public class BOPWorldFeatures
 	public int rootsPerChunk = 9;
 	public int grassSplatterPerChunk = 0;
 	public int rockpilesPerChunk = 0;
+	public int logsPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }
