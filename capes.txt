@@ -9,6 +9,7 @@ bonny_von_scotty:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/d
 digitalgadget:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 0uti:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 Kris1432:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
+SeductiveSmoke:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 
 Vexatos:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
 Heptaforce:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
