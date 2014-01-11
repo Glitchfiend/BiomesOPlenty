@@ -4,7 +4,9 @@ import java.util.HashMap;
 
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
+import net.minecraft.world.gen.feature.WorldGenMelon;
 import biomesoplenty.common.world.forcedworldgenerators.LakesForcedGenerator;
+import biomesoplenty.common.world.forcedworldgenerators.MelonForcedGenerator;
 import biomesoplenty.common.world.forcedworldgenerators.PondForcedGenerator;
 
 public class ForcedBOPWorldGenerators 
@@ -20,6 +22,7 @@ public class ForcedBOPWorldGenerators
 	{
 		addForcedGenerator(WorldGenLiquids.class, new PondForcedGenerator());
 		addForcedGenerator(WorldGenLakes.class, new LakesForcedGenerator());
+		addForcedGenerator(WorldGenMelon.class, new MelonForcedGenerator());
 	}
 	
 	public static void addForcedGenerator(Class worldGenClass, ForcedWorldGeneratorBOP generator)

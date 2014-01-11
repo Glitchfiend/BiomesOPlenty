@@ -5,6 +5,7 @@ import java.util.HashMap;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
+import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -12,6 +13,7 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenGrassSplatter;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
+import biomesoplenty.common.world.features.WorldGenRockpile;
 import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenWaterReeds;
 import biomesoplenty.common.world.features.WorldGenWaterside;
@@ -34,6 +36,7 @@ public class WorldGenFieldAssociation
 	    associateField("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
 	    associateField("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
 	    associateField("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
+	    associateField("generateMelons", new WorldGenMelon());
 
 	    associateField("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water));
 	    associateField("lavaPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_lava));
@@ -69,6 +72,7 @@ public class WorldGenFieldAssociation
 	    associateField("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
 	    associateField("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
 	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());
+	    associateField("rockpilesPerChunk", new WorldGenRockpile());
 		
 	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
 	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));

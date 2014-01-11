@@ -1,99 +1,131 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase;
+import java.util.HashMap;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityOcelot;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenTrees;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.WorldGenRainforestTree1;
 
 public class BiomeGenTropicalRainforest extends BOPBiome
 {
+    private static final Height biomeHeight = new Height(0.3F, 0.7F);
 
-    @SuppressWarnings("unchecked")
-    public BiomeGenTropicalRainforest(int par1)
+    public BiomeGenTropicalRainforest(int id)
     {
-        super(par1);
-        /*
-        spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
-        theBiomeDecorator = new BiomeDecoratorBOP(this);
-        customBiomeDecorator = (BiomeDecoratorBOP) theBiomeDecorator;
-        customBiomeDecorator.treesPerChunk = 12;
-        customBiomeDecorator.grassPerChunk = 9;
-        customBiomeDecorator.highGrassPerChunk = 4;
-        customBiomeDecorator.reedsPerChunk = 10;
-        customBiomeDecorator.waterlilyPerChunk = 2;
-        customBiomeDecorator.orangeFlowersPerChunk = 10;
-        customBiomeDecorator.generatePumpkins = false;
-        customBiomeDecorator.generateMelons = true;
-        customBiomeDecorator.sproutsPerChunk = 2;
-        customBiomeDecorator.generateQuicksand = true;
-        customBiomeDecorator.poisonIvyPerChunk = 4;
-        customBiomeDecorator.lilyflowersPerChunk = 2;
-        customBiomeDecorator.shrubsPerChunk = 15;
-        customBiomeDecorator.wheatGrassPerChunk = 5;
-        spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
-        waterColorMultiplier = 6160128;
-        */
+        super(id);
+        
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO: setColor()
+        this.setColor(8970560);
+        this.setTemperatureRainfall(1.2F, 0.9F);
+
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
+        
+        this.waterColorMultiplier = 6160128;
+
+        this.theBiomeDecorator.treesPerChunk = 12;
+        this.theBiomeDecorator.grassPerChunk = 9;
+        this.theBiomeDecorator.reedsPerChunk = 10;
+        this.theBiomeDecorator.waterlilyPerChunk = 2;
+        
+        this.bopWorldFeatures.bopFlowersPerChunk = 10;
+        this.bopWorldFeatures.doubleTallGrassPerChunk = 4;
+        this.bopWorldFeatures.generatePumpkins = false;
+        this.bopWorldFeatures.generateMelons = true;
+        this.bopWorldFeatures.sproutsPerChunk = 2;
+        this.bopWorldFeatures.generateQuicksand = true;
+        this.bopWorldFeatures.poisonIvyPerChunk = 4;
+        this.bopWorldFeatures.shrubsPerChunk = 15;
+    }
+    
+    @Override
+    //TODO:                     getRandomWorldGenForTrees()
+    public WorldGenAbstractTree func_150567_a(Random random)
+    {
+        return random.nextInt(5) == 0 ? new WorldGenTrees(false, 4 + random.nextInt(7), 3, 3, true) : 
+        new WorldGenRainforestTree1(Blocks.log, Blocks.leaves, 3, 3, false, 8, 8);
+    }
+    
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 1D);
+        
+        return flowerMap;
+    }
+    
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+        HashMap<WorldGenerator, Double> grassMap = new HashMap();
+        
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        
+        return grassMap;
     }
 
-    /*
     @Override
-    public void decorate(World par1World, Random par2Random, int par3, int par4)
+    public void decorate(World world, Random random, int chunkX, int chunkZ)
     {
-        super.decorate(par1World, par2Random, par3, par4);
-        int var5 = 12 + par2Random.nextInt(6);
+        super.decorate(world, random, chunkX, chunkZ);
+        int var5 = 12 + random.nextInt(6);
 
         for (int var6 = 0; var6 < var5; ++var6)
         {
-            int var7 = par3 + par2Random.nextInt(16);
-            int var8 = par2Random.nextInt(28) + 4;
-            int var9 = par4 + par2Random.nextInt(16);
-            int var10 = par1World.getBlockId(var7, var8, var9);
+            int x = chunkX + random.nextInt(16);
+            int y = random.nextInt(28) + 4;
+            int z = chunkZ + random.nextInt(16);
+            
+            //TODO:             getBlock()
+            Block block = world.func_147439_a(x, y, z);
 
-            Block block = Block.blocksList[var10];
-            if (block != null
-                    && block.isGenMineableReplaceable(par1World, var7, var8,
-                            var9, Block.stone.blockID))
+            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                par1World.setBlock(var7, var8, var9,
-                        Blocks.amethystOre.get().blockID, 6, 2);
+                //TODO: setBlock()
+                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
             }
         }
     }
-    */
 
-    /**
-     * Gets a WorldGen appropriate for this biome.
-     */
-    /*
     @Override
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-    {
-        return par1Random.nextInt(5) == 0 ? new WorldGenTrees(false,
-                4 + par1Random.nextInt(7), 3, 3, true)
-                : new WorldGenRainforest1(false);
-    }
-    */
-
-    /**
-     * Provides the basic grass color based on the biome temperature and
-     * rainfall
-     */
-    /*
-    @Override
-    public int getBiomeGrassColor()
+    //TODO:     getBiomeGrassColor()
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
         return 11002176;
     }
-    */
 
-    /**
-     * Provides the basic foliage color based on the biome temperature and
-     * rainfall
-     */
-    /*
+
     @Override
-    public int getBiomeFoliageColor()
+    //TODO:     getBiomeFoliageColor()
+    public int func_150571_c(int x, int y, int z)
     {
         return 8970560;
     }
-    */
+    
+    @Override
+    public int getSkyColorByTemp(float par1)
+    {
+        if (BOPConfigurationMisc.skyColors) return 11128415;
+        else return super.getSkyColorByTemp(par1);
+    }
 
     /**
      * Fog Color
@@ -106,37 +138,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     }
     */
 
-    /**
-     * takes temperature, returns color
-     */
-    /*
-    @Override
-    public int getSkyColorByTemp(float par1)
-    {
-        if (BOPConfigurationMisc.skyColors)
-        {
-            return 11128415;
-        }
-        else
-        {
-            par1 /= 3.0F;
-
-            if (par1 < -1.0F)
-            {
-                par1 = -1.0F;
-            }
-
-            if (par1 > 1.0F)
-            {
-                par1 = 1.0F;
-            }
-
-            return Color.getHSBColor(0.62222224F - par1 * 0.05F,
-                    0.5F + par1 * 0.1F, 1.0F).getRGB();
-        }
-    }
-
-    @Override
+    /*@Override
     public float getFogCloseness()
     {
         // TODO Auto-generated method stub
