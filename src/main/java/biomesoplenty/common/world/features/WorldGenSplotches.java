@@ -130,6 +130,17 @@ public class WorldGenSplotches extends WorldGeneratorBOP
 		        worldGenerator.generate(world, random, randX, randY, randZ);
 		    }
 		}
+		else if (fieldName.equals("generateStoneInGrass2") && bopDecoration.getWorldFeatures().generateStoneInGrass2)
+		{
+		    for (int i = 0; i < 20; ++i)
+		    {
+		        int randX = x + random.nextInt(16);
+		        int randY = random.nextInt(64) + 64;
+		        int randZ = z + random.nextInt(16);
+
+		        worldGenerator.generate(world, random, randX, randY, randZ);
+		    }
+		}
 		else if (fieldName.equals("generateGrass") && bopDecoration.getWorldFeatures().generateGrass)
 		{
 		    for (int i = 0; i < 15; ++i)

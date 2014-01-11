@@ -47,6 +47,8 @@ import biomesoplenty.common.biomes.BiomeGenQuagmire;
 import biomesoplenty.common.biomes.BiomeGenRainforest;
 import biomesoplenty.common.biomes.BiomeGenRedwoodForest;
 import biomesoplenty.common.biomes.BiomeGenSacredSprings;
+import biomesoplenty.common.biomes.BiomeGenSeasonalForest;
+import biomesoplenty.common.biomes.BiomeGenShield;
 import biomesoplenty.common.biomes.BiomeGenShrubland;
 import biomesoplenty.common.biomes.BiomeGenThicket;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -134,8 +136,8 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenRainforest(BOPConfigurationIDs.rainforestID).setBiomeName("Rainforest"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenRedwoodForest(BOPConfigurationIDs.redwoodForestID).setBiomeName("Redwood Forest"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenSacredSprings(BOPConfigurationIDs.sacredSpringsID).setBiomeName("Sacred Springs"), BOPBiomeTemperatureType.WARM));
-        /*registerBiome(new BOPBiomeListEntry(new BiomeGenSeasonalForest(BOPConfigurationIDs.seasonalForestID).setBiomeName("Seasonal Forest"), BOPBiomeTemperatureType.COOL));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenShield(BOPConfigurationIDs.shieldID).setBiomeName("Shield"), BOPBiomeTemperatureType.COOL));*/
+        registerBiome(new BOPBiomeListEntry(new BiomeGenSeasonalForest(BOPConfigurationIDs.seasonalForestID).setBiomeName("Seasonal Forest"), BOPBiomeTemperatureType.COOL));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenShield(BOPConfigurationIDs.shieldID).setBiomeName("Shield"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenShrubland(BOPConfigurationIDs.shrublandID).setBiomeName("Shrubland"), BOPBiomeTemperatureType.COOL));
         //registerBiome(new BOPBiomeListEntry(new BiomeGenSilkglades(BOPConfigurationIDs.silkgladesID).setBiomeName("Silkglades"), BOPBiomeTemperatureType.COOL));
         /*registerBiome(new BOPBiomeListEntry(new BiomeGenSludgepit(BOPConfigurationIDs.sludgepitID).setBiomeName("Sludgepit"), BOPBiomeTemperatureType.WARM));
@@ -145,9 +147,9 @@ public class BOPBiomes
         /*registerBiome(new BOPBiomeListEntry(new BiomeGenTimber(BOPConfigurationIDs.timberID).setBiomeName("Timber"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenTropicalRainforest(BOPConfigurationIDs.tropicalRainforestID).setBiomeName("Tropical Rainforest"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenTropics(BOPConfigurationIDs.tropicsID).setBiomeName("Tropics"), BOPBiomeTemperatureType.HOT));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenTundra(BOPConfigurationIDs.tundraID).setBiomeName("Tundra"), BOPBiomeTemperatureType.ICY));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenVolcano(BOPConfigurationIDs.volcanoID).setBiomeName("Volcano"), BOPBiomeTemperatureType.HOT));
-        registerBiome(new BOPBiomeListEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), BOPBiomeTemperatureType.HOT));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenTundra(BOPConfigurationIDs.tundraID).setBiomeName("Tundra"), BOPBiomeTemperatureType.ICY));*/
+        //registerBiome(new BOPBiomeListEntry(new BiomeGenVolcano(BOPConfigurationIDs.volcanoID).setBiomeName("Volcano"), BOPBiomeTemperatureType.HOT));
+        /*registerBiome(new BOPBiomeListEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), BOPBiomeTemperatureType.WARM));*/
 	}

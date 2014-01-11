@@ -6,6 +6,7 @@ public class BOPWorldFeatures
 	public boolean generateQuicksand = false;
 	public boolean generateCanyon = false;
 	public boolean generateStoneInGrass = false;
+	public boolean generateStoneInGrass2 = false;
 	public boolean generateGrass = false;
 	public boolean generateSand = false;
 	public boolean generateQuagmire = false;

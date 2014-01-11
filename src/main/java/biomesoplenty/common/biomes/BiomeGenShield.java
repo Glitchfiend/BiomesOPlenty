@@ -1,45 +1,71 @@
 package biomesoplenty.common.biomes;
 
+import java.util.HashMap;
+import java.util.Random;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenShrub;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
-import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
 public class BiomeGenShield extends BOPBiome
 {
+    private static final Height biomeHeight = new Height(0.1F, 0.3F);
 
-	public BiomeGenShield(int par1)
+	public BiomeGenShield(int id)
 	{
-		super(par1);
-		/*
-		theBiomeDecorator = new BiomeDecoratorBOP(this);
-		customBiomeDecorator = (BiomeDecoratorBOP)theBiomeDecorator;
-		customBiomeDecorator.treesPerChunk = 7;
-		customBiomeDecorator.grassPerChunk = 12;
-		customBiomeDecorator.wheatGrassPerChunk = 6;
-		customBiomeDecorator.mushroomsPerChunk = 4;
-		customBiomeDecorator.sandPerChunk = -999;
-		customBiomeDecorator.sandPerChunk2 = -999;
-		customBiomeDecorator.gravelPerChunk = 6;
-		customBiomeDecorator.gravelPerChunk2 = 6;
-		customBiomeDecorator.shrubsPerChunk = 4;
-		customBiomeDecorator.waterReedsPerChunk = 4;
-		customBiomeDecorator.generateStoneInGrass2 = true;
-		*/
-	}
+		super(id);
+		
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        //TODO: setColor()
+        this.setColor(6586168);
+        this.setTemperatureRainfall(0.5F, 0.8F);
 
-	/**
-	 * Gets a WorldGen appropriate for this biome.
-	 */
-	/*
-	@Override
-	public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
-	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenShrub(0,0) : (par1Random.nextInt(4) == 0 ? new WorldGenPineTree() : (par1Random.nextInt(6) == 0 ? new WorldGenTaiga9(false) : new WorldGenTaiga5(false)));
+		this.theBiomeDecorator.treesPerChunk = 7;
+		this.theBiomeDecorator.grassPerChunk = 12;
+		this.theBiomeDecorator.mushroomsPerChunk = 4;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
+		
+		this.bopWorldFeatures.shrubsPerChunk = 4;
+		this.bopWorldFeatures.waterReedsPerChunk = 4;
+		this.bopWorldFeatures.generateStoneInGrass2 = true;
 	}
 
 	@Override
-	public void decorate(World par1World, Random par2Random, int par3, int par4)
-	{
-		super.decorate(par1World, par2Random, par3, par4);
+    //TODO:                     getRandomWorldGenForTrees()
+    public WorldGenAbstractTree func_150567_a(Random random)
+    {
+		return random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : 
+		(random.nextInt(4) == 0 ? new WorldGenPineTree() : 
+		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 10, 10, 5) : 
+		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6)));
+	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+        HashMap<WorldGenerator, Double> grassMap = new HashMap();
+        
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        
+        return grassMap;
+    }
+
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ)
+    {
+        super.decorate(world, random, chunkX, chunkZ);
 
         for (int i = 0; i < 20; i++)
         {
@@ -49,28 +75,19 @@ public class BiomeGenShield extends BOPBiome
 
             new WorldGenMoss().generate(world, random, x, y, z);
         }
-	}
-	*/
+    }
 
-	/**
-	 * Provides the basic grass color based on the biome temperature and rainfall
-	 */
-	/*
 	@Override
-	public int getBiomeGrassColor()
-	{
+    //TODO:     getBiomeGrassColor()
+    public int func_150558_b(int x, int y, int z)
+    {
 		return 6586168;
 	}
-	*/
-
-	/**
-	 * Provides the basic foliage color based on the biome temperature and rainfall
-	 */
-	/*
+	
 	@Override
-	public int getBiomeFoliageColor()
-	{
+    //TODO:     getBiomeFoliageColor()
+    public int func_150571_c(int x, int y, int z)
+    {
 		return 7902787;
 	}
-	*/
 }
