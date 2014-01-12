@@ -25,7 +25,7 @@ public class TemptEventHandler
 			return;
 
 		//TODO: FEATURE Remove Reflection                                                                                             tasks
-		EntityAITasks tasks = ObfuscationReflectionHelper.getPrivateValue(EntityLiving.class, ((EntityLiving)entity), new String[] { "field_75732_c" });
+		EntityAITasks tasks = ObfuscationReflectionHelper.getPrivateValue(EntityLiving.class, ((EntityLiving)entity), new String[] { "field_70714_bg" });
 		
 		if (entity instanceof EntityChicken) 
 		{
