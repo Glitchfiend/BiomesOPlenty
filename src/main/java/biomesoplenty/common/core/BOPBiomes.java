@@ -60,6 +60,7 @@ import biomesoplenty.common.biomes.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biomes.BiomeGenTropics;
 import biomesoplenty.common.biomes.BiomeGenTundra;
 import biomesoplenty.common.biomes.BiomeGenVolcano;
+import biomesoplenty.common.biomes.BiomeGenWasteland;
 import biomesoplenty.common.biomes.BiomeGenWetland;
 import biomesoplenty.common.biomes.BiomeGenWoodland;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -160,7 +161,7 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenTropics(BOPConfigurationIDs.tropicsID).setBiomeName("Tropics"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenTundra(BOPConfigurationIDs.tundraID).setBiomeName("Tundra"), BOPBiomeTemperatureType.ICY));
         registerBiome(new BOPBiomeListEntry(new BiomeGenVolcano(BOPConfigurationIDs.volcanoID).setBiomeName("Volcano"), BOPBiomeTemperatureType.HOT));
-        //registerBiome(new BOPBiomeListEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), BOPBiomeTemperatureType.HOT));
+        registerOnlyBiome(new BOPBiomeListEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), BOPBiomeTemperatureType.HOT));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), BOPBiomeTemperatureType.WARM));
 	}

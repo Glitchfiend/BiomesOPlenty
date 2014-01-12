@@ -54,6 +54,10 @@ public class BOPWorldFeatures
 	public int lavaSpoutsPerChunk = 0;
 	public int cobwebsPerChunk = 0;
 	public int cobwebNestsPerChunk = 0;
+	public int wasteland1PerChunk = 0;
+	public int wasteland2PerChunk = 0;
+	public int wasteland3PerChunk = 0;
+	public int wasteland4PerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }

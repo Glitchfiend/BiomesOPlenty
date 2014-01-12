@@ -18,6 +18,10 @@ import biomesoplenty.common.world.features.WorldGenLog;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
 import biomesoplenty.common.world.features.WorldGenRockpile;
 import biomesoplenty.common.world.features.WorldGenSplotches;
+import biomesoplenty.common.world.features.WorldGenWasteland;
+import biomesoplenty.common.world.features.WorldGenWasteland2;
+import biomesoplenty.common.world.features.WorldGenWasteland3;
+import biomesoplenty.common.world.features.WorldGenWasteland4;
 import biomesoplenty.common.world.features.WorldGenWaterReeds;
 import biomesoplenty.common.world.features.WorldGenWaterside;
 
@@ -81,7 +85,11 @@ public class WorldGenFieldAssociation
 	    associateField("lavaSpoutsPerChunk", new WorldGenLavaSpout());
 	    associateField("cobwebsPerChunk", new WorldGenBOPFlora(Blocks.web, 0));
 	    associateField("cobwebNestsPerChunk", new WorldGenCobwebNest());
-		
+	    associateField("wasteland1PerChunk", new WorldGenWasteland());
+	    associateField("wasteland2PerChunk", new WorldGenWasteland2());
+	    associateField("wasteland3PerChunk", new WorldGenWasteland3());
+	    associateField("wasteland4PerChunk", new WorldGenWasteland4());
+
 	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
 	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));
 	}

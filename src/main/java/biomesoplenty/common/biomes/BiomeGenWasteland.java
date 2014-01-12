@@ -1,19 +1,31 @@
 package biomesoplenty.common.biomes;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
 public class BiomeGenWasteland extends BOPBiome
 {
+    private static final Height biomeHeight = new Height(0.3F, 0.4F);
 
     public BiomeGenWasteland(int id)
     {
         super(id);
+        
+        //TODO: setHeight()
+        this.func_150570_a(biomeHeight);
+        this.setDisableRain();
+        //TODO: setColor()
+        this.setColor(5919808);
+        this.setTemperatureRainfall(2.0F, 0.05F);
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
@@ -27,15 +39,18 @@ public class BiomeGenWasteland extends BOPBiome
         
        //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 10;
         this.bopWorldFeatures.waterLakesPerChunk = 2;
+        this.bopWorldFeatures.wasteland1PerChunk = 1;
+        this.bopWorldFeatures.wasteland2PerChunk = 1;
+        this.bopWorldFeatures.wasteland3PerChunk = 1;
+        this.bopWorldFeatures.wasteland4PerChunk = 1;
     }
 
-    /*@Override
-    public WorldGenerator getRandomWorldGenForTrees(Random par1Random)
+    @Override
+    //TODO:                     getRandomWorldGenForTrees()
+    public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return par1Random.nextInt(6) == 0 ? new WorldGenDeadTree3(false)
-                : (par1Random.nextInt(2) == 0 ? new WorldGenWasteland2()
-                        : new WorldGenWasteland());
-    }*/
+        return new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("holyGrass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock"));
+    }
     
     @Override
     public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
@@ -46,13 +61,6 @@ public class BiomeGenWasteland extends BOPBiome
         
         return grassMap;
     }
-    
-    
-	/*@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random par1Random)
-	{
-		return par1Random.nextInt(2) == 0 ? new WorldGenWasteland4() : new WorldGenWasteland3();
-	}*/
 
     @Override
     //TODO:     getBiomeGrassColor()
