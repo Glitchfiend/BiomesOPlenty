@@ -10,6 +10,7 @@ public class BOPWorldFeatures
 	public boolean generateGrass = false;
 	public boolean generateSand = false;
 	public boolean generateQuagmire = false;
+	public boolean generateAsh = false;
 	public boolean generateMelons = false;
 	
 	public int waterPoolsPerChunk = 0;
@@ -50,6 +51,7 @@ public class BOPWorldFeatures
 	public int grassSplatterPerChunk = 0;
 	public int rockpilesPerChunk = 0;
 	public int logsPerChunk = 0;
+	public int lavaSpoutsPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }

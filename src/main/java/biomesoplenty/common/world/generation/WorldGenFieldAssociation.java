@@ -12,6 +12,7 @@ import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenGrassSplatter;
+import biomesoplenty.common.world.features.WorldGenLavaSpout;
 import biomesoplenty.common.world.features.WorldGenLog;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
 import biomesoplenty.common.world.features.WorldGenRockpile;
@@ -37,6 +38,7 @@ public class WorldGenFieldAssociation
 	    associateField("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
 	    associateField("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
 	    associateField("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
+	    associateField("generateAsh", new WorldGenSplotches(BOPBlockHelper.get("ash"), 0, 32, BOPBlockHelper.get("ashStone"), Blocks.netherrack));
 	    associateField("generateMelons", new WorldGenMelon());
 
 	    associateField("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water));
@@ -75,6 +77,7 @@ public class WorldGenFieldAssociation
 	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());
 	    associateField("rockpilesPerChunk", new WorldGenRockpile());
 	    associateField("logsPerChunk", new WorldGenLog());
+	    associateField("lavaSpoutsPerChunk", new WorldGenLavaSpout());
 		
 	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
 	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));

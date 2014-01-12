@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.features;
+package biomesoplenty.common.world.features.trees;
 
 import java.util.Random;
 import net.minecraft.block.Block;

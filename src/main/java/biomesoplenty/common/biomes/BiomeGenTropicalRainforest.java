@@ -16,7 +16,7 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.EntityJungleSpider;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.WorldGenRainforestTree1;
+import biomesoplenty.common.world.features.trees.WorldGenRainforestTree1;
 
 public class BiomeGenTropicalRainforest extends BOPBiome
 {
