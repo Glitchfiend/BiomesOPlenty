@@ -50,6 +50,7 @@ import biomesoplenty.common.biomes.BiomeGenSacredSprings;
 import biomesoplenty.common.biomes.BiomeGenSeasonalForest;
 import biomesoplenty.common.biomes.BiomeGenShield;
 import biomesoplenty.common.biomes.BiomeGenShrubland;
+import biomesoplenty.common.biomes.BiomeGenSilkglades;
 import biomesoplenty.common.biomes.BiomeGenSludgepit;
 import biomesoplenty.common.biomes.BiomeGenSpruceWoods;
 import biomesoplenty.common.biomes.BiomeGenTemperateRainforest;
@@ -149,8 +150,8 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenSeasonalForest(BOPConfigurationIDs.seasonalForestID).setBiomeName("Seasonal Forest"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenShield(BOPConfigurationIDs.shieldID).setBiomeName("Shield"), BOPBiomeTemperatureType.COOL));
         registerBiome(new BOPBiomeListEntry(new BiomeGenShrubland(BOPConfigurationIDs.shrublandID).setBiomeName("Shrubland"), BOPBiomeTemperatureType.COOL));
-        //registerBiome(new BOPBiomeListEntry(new BiomeGenSilkglades(BOPConfigurationIDs.silkgladesID).setBiomeName("Silkglades"), BOPBiomeTemperatureType.COOL));
-        registerOnlyBiome(new BOPBiomeListEntry(new BiomeGenSludgepit(BOPConfigurationIDs.sludgepitID).setBiomeName("Sludgepit"), BOPBiomeTemperatureType.WARM));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenSilkglades(BOPConfigurationIDs.silkgladesID).setBiomeName("Silkglades"), BOPBiomeTemperatureType.COOL));
+        registerBiome(new BOPBiomeListEntry(new BiomeGenSludgepit(BOPConfigurationIDs.sludgepitID).setBiomeName("Sludgepit"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenSpruceWoods(BOPConfigurationIDs.spruceWoodsID).setBiomeName("Spruce Woods"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenTemperateRainforest(BOPConfigurationIDs.temperateRainforestID).setBiomeName("Temperate Rainforest"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenThicket(BOPConfigurationIDs.thicketID).setBiomeName("Thicket"), BOPBiomeTemperatureType.WARM));

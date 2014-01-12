@@ -4,10 +4,12 @@ import java.lang.reflect.Field;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
@@ -39,8 +41,10 @@ public class WorldGenBOPFlora extends WorldGeneratorBOP
             int j1 = y + random.nextInt(4) - random.nextInt(4);
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
-            //TODO:	  isAirBlock()																		 canReplace()
-            if (world.func_147437_c(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && this.flora.func_149705_a(world, i1, j1, k1, 0, new ItemStack(flora, 1, floraMeta)))
+            //TODO:	  isAirBlock()																		
+            if (world.func_147437_c(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && 
+            (flora == Blocks.web ? world.func_147439_a(i1, j1 + 1, k1) == BOPBlockHelper.get("leaves2") || world.func_147439_a(i1, j1 + 1, k1) == BOPBlockHelper.get("colorizedLeaves2") || world.func_147439_a(i1, j1 - 1, k1) == Blocks.grass : 
+            this.flora.func_149705_a(world, i1, j1, k1, 0, new ItemStack(flora, 1, floraMeta))))
             {
             	//TODO:	setBlock()
                 world.func_147465_d(i1, j1, k1, this.flora, this.floraMeta, 2);

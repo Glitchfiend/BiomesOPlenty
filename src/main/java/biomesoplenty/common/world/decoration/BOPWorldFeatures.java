@@ -52,6 +52,8 @@ public class BOPWorldFeatures
 	public int rockpilesPerChunk = 0;
 	public int logsPerChunk = 0;
 	public int lavaSpoutsPerChunk = 0;
+	public int cobwebsPerChunk = 0;
+	public int cobwebNestsPerChunk = 0;
 
 	public int bopFlowersPerChunk = 0;
 }
