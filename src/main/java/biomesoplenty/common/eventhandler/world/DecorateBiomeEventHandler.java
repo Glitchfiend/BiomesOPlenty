@@ -6,12 +6,9 @@ import java.lang.reflect.Field;
 import java.util.Random;
 
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
@@ -20,12 +17,11 @@ import biomesoplenty.common.world.generation.ForcedBOPWorldGenerators;
 import biomesoplenty.common.world.generation.IWorldGeneratorBOP;
 import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class DecorateBiomeEventHandler 
 {
 	@SubscribeEvent
-	public void onBiomeDecorate(DecorateBiomeEvent.Post event)
+	public void onBiomeDecorate(DecorateBiomeEvent.Pre event)
 	{
 		World world = event.world;
 
@@ -33,11 +29,8 @@ public class DecorateBiomeEventHandler
 		int chunkZ = event.chunkZ;
 
 		Random random = event.rand;
-		
-		int x = chunkX;
-		int z = chunkZ;
 
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x + 8, z + 8);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
 		
 		IBOPDecoration bopDecoration = null;
 		
@@ -82,7 +75,7 @@ public class DecorateBiomeEventHandler
 						
 						if (worldGeneratorBOP != null)
 						{
-							worldGeneratorBOP.doGeneration(world, random, worldGeneratorField, worldGenerator, biome, bopDecoration, x, z);
+							worldGeneratorBOP.doGeneration(world, random, worldGeneratorField, worldGenerator, biome, bopDecoration, chunkX, chunkZ);
 						}
 					}
 				}

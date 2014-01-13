@@ -13,8 +13,8 @@ public class BOPWorldFeatures
 	public boolean generateAsh = false;
 	public boolean generateMelons = false;
 	
-	public int waterPoolsPerChunk = 0;
-	public int lavaPoolsPerChunk = 0;
+	public int waterPoolsPerChunk = 50;
+	public int lavaPoolsPerChunk = 20;
 	
 	public int waterLakesPerChunk = 0;
 	public int lavaLakesPerChunk = 0;

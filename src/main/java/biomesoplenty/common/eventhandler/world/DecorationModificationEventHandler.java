@@ -19,6 +19,12 @@ public class DecorationModificationEventHandler
 	@SubscribeEvent
 	public void modifyDecor(Decorate event)
 	{
+        if (event.type == Decorate.EventType.LAKE)
+        {
+            event.setResult(Result.DENY);
+            return;
+        }
+	    
 		World world = event.world;
 
 		int chunkX = event.chunkX;
@@ -26,10 +32,7 @@ public class DecorationModificationEventHandler
 
 		Random random = event.rand;
 		
-		int x = chunkX + 8;
-		int z = chunkZ + 8;
-		
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
 		IBOPDecoration bopDecoration = null;
 
 		if (biome instanceof IBOPDecoration)
@@ -50,10 +53,6 @@ public class DecorationModificationEventHandler
 					event.setResult(Result.DENY);
 				}
 			}
-			else if (event.type == Decorate.EventType.LAKE)
-			{
-			    event.setResult(Result.DENY);
-			}
 		}
 	}
 	
@@ -67,10 +66,7 @@ public class DecorationModificationEventHandler
 
 		Random random = event.rand;
 		
-		int x = chunkX + 8;
-		int z = chunkZ + 8;
-		
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(x, z);
+		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
 		IBOPDecoration bopDecoration = null;
 
 		if (biome instanceof IBOPDecoration)
