@@ -18,18 +18,18 @@ public class PondForcedGenerator extends ForcedWorldGeneratorBOP
         {
             for (int i = 0; i < 50 + bopDecoration.getWorldFeatures().waterPoolsPerChunk; ++i)
             {
-                int randX = x + random.nextInt(16);
+                int randX = x + random.nextInt(16) + 8;
                 int randY = random.nextInt(random.nextInt(248) + 8);
-                int randZ = z + random.nextInt(16);
+                int randZ = z + random.nextInt(16) + 8;
                 
                 worldGenerator.generate(world, random, randX, randY, randZ);
             }
 
             for (int i = 0; i < 20 + bopDecoration.getWorldFeatures().lavaPoolsPerChunk; ++i)
             {
-                int randX = x + random.nextInt(16);
+                int randX = x + random.nextInt(16) + 8;
                 int randY = random.nextInt(random.nextInt(random.nextInt(240) + 8) + 8);
-                int randZ = z + random.nextInt(16);
+                int randZ = z + random.nextInt(16) + 8;
                 
                 worldGenerator.generate(world, random, randX, randY, randZ);
             }
