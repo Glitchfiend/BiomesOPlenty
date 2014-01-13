@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 
 public class BiomeGenBambooForest extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(0.2F, 0.4F);
+	private static final Height biomeHeight = new Height(0.1F, 0.3F);
 	
 	public BiomeGenBambooForest(int id)
 	{
@@ -27,7 +27,7 @@ public class BiomeGenBambooForest extends BOPBiome
         //TODO:	setColor()
         this.setColor(10739795);
         this.setTemperatureRainfall(1.2F, 0.9F);
-		
+        
 		this.theBiomeDecorator.treesPerChunk = 30;
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.flowersPerChunk = -999;
@@ -62,6 +62,14 @@ public class BiomeGenBambooForest extends BOPBiome
 			}
 		}
 	}
+	
+    public void func_150573_a(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    {
+        this.topBlock = Blocks.dirt;
+        this.field_150604_aj = 2;
+
+        this.func_150560_b(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+    }
 
 	@Override
 	//TODO:						getRandomWorldGenForTrees()
@@ -88,7 +96,8 @@ public class BiomeGenBambooForest extends BOPBiome
 	//TODO:		getBiomeFoliageColor()
 	public int func_150571_c(int x, int y, int z)
 	{
-		return 10739795;
+		double d0 = field_150606_ad.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+        return d0 < -0.7D ? 13949781 : (d0 < -0.3 ? 12311892 : 10739795);
 	}
 
 	/*@Override
