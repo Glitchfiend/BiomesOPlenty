@@ -4,6 +4,7 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
+import biomesoplenty.common.eventhandler.gui.MainMenuOverrideEventHandler;
 import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
@@ -44,6 +45,7 @@ public class BOPEventHandlers
 	private static void registerGUIEventHandlers()
 	{
 	    MinecraftForge.EVENT_BUS.register(StartupWarningEventHandler.instance);
+	    MinecraftForge.EVENT_BUS.register(new MainMenuOverrideEventHandler());
 	}
 	
 	private static void registerMiscEventHandlers()

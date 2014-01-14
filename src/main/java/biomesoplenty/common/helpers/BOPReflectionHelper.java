@@ -1,13 +1,9 @@
 package biomesoplenty.common.helpers;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import com.google.common.collect.BiMap;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPReflectionHelper
@@ -23,6 +19,35 @@ public class BOPReflectionHelper
         catch (ClassNotFoundException e)
         {
             return ObfuscationReflectionHelper.getPrivateValue(classToAccess, instance, obfFieldName);
+        }
+    }
+    
+    public static <T, E> void setPrivateFinalValue(Class <? super T > classToAccess, T instance, E value, String fieldName, String obfFieldName)
+    {
+        try
+        {
+            Field field = null;
+            
+            try
+            {
+                Class.forName("net.minecraft.world.World");
+                
+                field = ReflectionHelper.findField(classToAccess, fieldName);
+            } 
+            catch (ClassNotFoundException e)
+            {
+                field = ReflectionHelper.findField(classToAccess, ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), obfFieldName));
+            }
+            
+            Field modifiersField = Field.class.getDeclaredField("modifiers");
+            modifiersField.setAccessible(true);
+            modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+            
+            field.set(instance, value);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
 }
