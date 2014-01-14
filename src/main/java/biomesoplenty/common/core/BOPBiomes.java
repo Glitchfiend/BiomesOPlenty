@@ -71,6 +71,7 @@ import biomesoplenty.common.biomes.BiomeGenWasteland;
 import biomesoplenty.common.biomes.BiomeGenWetland;
 import biomesoplenty.common.biomes.BiomeGenWoodland;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.WorldTypeBOP;
 
 public class BOPBiomes 
@@ -172,14 +173,22 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), BOPBiomeTemperatureType.WARM));
         registerBiome(new BOPBiomeListEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), BOPBiomeTemperatureType.WARM));
 	}
-	
+
 	private static void addSpawnBiomes()
 	{
-	    //TODO: Spawn only on beaches.
-	    
-	    clearAllSpawnBiomes();
-	    
-	    addSpawnBiome(BiomeGenBase.beach);
+		if (BOPConfigurationMisc.onlySpawnOnBeaches)
+		{
+			clearAllSpawnBiomes();
+
+			addSpawnBiome(BiomeGenBase.beach);
+		}
+		else
+		{
+			for (BiomeGenBase biome : BOPBiomeHelper.biomeList.values())
+			{
+				addSpawnBiome(biome);
+			}
+		}
 	}
 	
 	public static void registerOnlyBiome(BOPBiomeListEntry biome)
