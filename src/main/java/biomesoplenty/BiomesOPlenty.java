@@ -10,7 +10,7 @@ import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.core.BOPPotions;
 import biomesoplenty.common.core.BOPVanillaCompat;
-import biomesoplenty.common.eventhandler.BOPCommonEventHandlers;
+import biomesoplenty.common.eventhandler.BOPEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.utils.BOPModInfo;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -59,7 +59,7 @@ public class BiomesOPlenty
 		BOPEntities.init();
 		BOPVanillaCompat.init();
 		
-		BOPCommonEventHandlers.init();
+		BOPEventHandlers.init();
 		
 		proxy.registerRenderers();
 	}

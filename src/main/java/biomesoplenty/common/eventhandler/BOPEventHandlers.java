@@ -4,19 +4,21 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
+import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorationModificationEventHandler;
 
-public class BOPCommonEventHandlers 
+public class BOPEventHandlers 
 {
 	public static void init()
 	{
 		registerWorldEventHandlers();
 		registerEntityEventHandlers();
 		registerPotionEventHandlers();
+		registerGUIEventHandlers();
 		registerMiscEventHandlers();
 	}
 	
@@ -37,6 +39,11 @@ public class BOPCommonEventHandlers
 	{
 		MinecraftForge.EVENT_BUS.register(new PotionParalysisEventHandler());
 		MinecraftForge.EVENT_BUS.register(new PotionPossessionEventHandler());
+	}
+	
+	private static void registerGUIEventHandlers()
+	{
+	    MinecraftForge.EVENT_BUS.register(StartupWarningEventHandler.instance);
 	}
 	
 	private static void registerMiscEventHandlers()

@@ -422,8 +422,10 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	@Override
 	public boolean isShearable(ItemStack item, IBlockAccess world, int x, int y, int z)
 	{
-		if (world.getBlockMetadata(x, y, z) == 7 || world.getBlockMetadata(x, y, z) == 8 || world.getBlockMetadata(x, y, z) == 9)
-			return false;
+	    int metadata = world.getBlockMetadata(x, y, z);
+	    
+		if (metadata == 7 || metadata == 8 || metadata == 9 || metadata == 11)
+		    return false;
 		else
 			return true;
 	}
