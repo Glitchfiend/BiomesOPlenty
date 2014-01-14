@@ -1,16 +1,15 @@
 package biomesoplenty.common.handlers;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import net.minecraft.item.ItemStack;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.common.utils.ListUtils;
 import cpw.mods.fml.common.IFuelHandler;
 
 public class FurnaceFuelHandler implements IFuelHandler 
 {
-	private static HashMap<ItemStack, Integer> fuelMap = new HashMap();
+	private static ArrayList<FuelValue> fuelList = new ArrayList<FuelValue>();
 	
 	@Override
 	public int getBurnTime(ItemStack fuel) 
@@ -46,11 +45,52 @@ public class FurnaceFuelHandler implements IFuelHandler
 	
 	private static void addFuel(ItemStack stack, int value)
 	{
-		fuelMap.put(stack, value);
+		fuelList.add(new FuelValue(stack, value));
 	}
 	
 	private static int getFuelValue(ItemStack stack)
 	{
-		return ListUtils.getItemStackMapValue(fuelMap, stack);
+		for (FuelValue fuelValue : fuelList)
+		{
+			ItemStack stackToCompareTo = fuelValue.getStack();
+
+			if (stackToCompareTo.getItem() == stack.getItem() && (stack.getItemDamage() == 32767 || stackToCompareTo.getItemDamage() == stack.getItemDamage())) return fuelValue.getValue();
+
+			return fuelValue.getValue();
+		}
+
+		return 0;
+	}
+
+	public static class FuelValue
+	{
+		private ItemStack stack;
+		private int value;
+		
+		public FuelValue(ItemStack stack, int value)
+		{
+			this.setStack(stack);
+			this.setValue(value);
+		}
+
+		public ItemStack getStack()
+		{
+			return stack;
+		}
+
+		public void setStack(ItemStack stack) 
+		{
+			this.stack = stack;
+		}
+
+		public int getValue()
+		{
+			return value;
+		}
+
+		public void setValue(int value) 
+		{
+			this.value = value;
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package biomesoplenty.common.utils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -13,7 +14,7 @@ public class ListUtils
 		{
 			ItemStack stackToCompareTo = entry.getKey();
 			
-			if (stackToCompareTo.getItem() == stack.getItem() && stackToCompareTo.getItemDamage() == stack.getItemDamage()) return entry.getValue();
+			if (stackToCompareTo.getItem() == stack.getItem() && (stack.getItemDamage() == 32767 || stackToCompareTo.getItemDamage() == stack.getItemDamage())) return entry.getValue();
 		}
 		
 		return null;
