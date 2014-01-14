@@ -48,30 +48,6 @@ public class StartupWarningGUI extends GuiScreen
         //TODO: buttonList
         this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 175, this.field_146295_m - 24, 350, 20, I18n.getStringParams("Cancel")));
     }
-    
-    @Override
-    public void confirmClicked(boolean par1, int par2)
-    {
-        if (par2 == 13)
-        {
-            if (par1)
-            {
-                try
-                {
-                    Class oclass = Class.forName("java.awt.Desktop");
-                    Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object)null, new Object[0]);
-                    oclass.getMethod("browse", new Class[] {URI.class}).invoke(object, new Object[] {new URI(this.link)});
-                }
-                catch (Throwable throwable)
-                {
-                    //field_146974_g.error("Couldn\'t open link", throwable);
-                }
-            }
-
-            //TODO: mc          displayGuiScreen
-            this.field_146297_k.func_147108_a(this);
-        }
-    }
 
     @Override
     //TODO:     onGuiClosed()
@@ -112,47 +88,20 @@ public class StartupWarningGUI extends GuiScreen
     }
     
     @Override
-    protected void mouseClicked(int x, int y, int eventButton)
-    {
-        super.mouseClicked(x, y, eventButton);
-        
-        int middleOfScreen = this.field_146294_l / 2;
-        int middleOfText = this.field_146289_q.getStringWidth(link) / 2;
-
-        if (x >= middleOfScreen - middleOfText && x <= middleOfScreen + middleOfText && y >= 108 && y <= 108 + 12)
-        {
-            GuiConfirmOpenLink guiconfirmopenlink = new GuiConfirmOpenLink(this, this.link, 13, true);
-            guiconfirmopenlink.func_146358_g();
-
-            //TODO: mc          displayGuiScreen()
-            this.field_146297_k.func_147108_a(guiconfirmopenlink);
-        }
-    }
-    
-    @Override
     public void drawScreen(int x, int y, float renderPartialTicks)
     {
-        String linkFormatting = "" + GREEN + UNDERLINE + ITALIC;
-        
         //TODO: drawDefaultBackground()
         this.func_146276_q_();
         
-        //EnumChatFormatting.
-        
         //TODO:                      fontRendererObj                                    width
-        this.drawCenteredString(this.field_146289_q, "" + YELLOW + BOLD + "WARNING: " + DARK_RED + "Biomes O' Plenty for 1.7 is NOT yet stable. Do not expect everything", this.field_146294_l / 2, 82, 0xFFFFFF);       
-        this.drawCenteredString(this.field_146289_q, "" + DARK_RED + "to be perfect.", this.field_146294_l / 2, 94, 0xFFFFFF); 
+        this.drawCenteredString(this.field_146289_q, "" + RED + "Biomes O' Plenty uses a custom worldtype for its biomes. When creating a world, it", this.field_146294_l / 2, 82, 0xFFFFFF);
+        this.drawCenteredString(this.field_146289_q, "" + RED + "may be enabled by clicking the 'World Type' button under 'More World Options'", this.field_146294_l / 2, 94, 0xFFFFFF);
+        this.drawCenteredString(this.field_146289_q, "" + RED + "until it displays 'Biomes O' Plenty'.", this.field_146294_l / 2, 106, 0xFFFFFF);
         
-        this.drawCenteredString(this.field_146289_q, linkFormatting + link, this.field_146294_l / 2, 120, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + GOLD + BOLD + UNDERLINE + "Biomes O' Plenty Worldtype", this.field_146294_l / 2, 156, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "Biomes O' Plenty uses a custom worldtype for its biomes. When creating a world, it", this.field_146294_l / 2, 180, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "may be enabled by clicking the 'World Type' button under 'More World Options'", this.field_146294_l / 2, 192, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "until it displays 'Biomes O' Plenty'.", this.field_146294_l / 2, 204, 0xFFFFFF);
+        this.drawCenteredString(this.field_146289_q, "" + RED + "The worldtype can be used on servers by changing the 'level-type' in", this.field_146294_l / 2, 132, 0xFFFFFF);
+        this.drawCenteredString(this.field_146289_q, "" + RED + "sever.properties to 'BIOMESOP' (without quotes)", this.field_146294_l / 2, 144, 0xFFFFFF);
         
-        this.drawCenteredString(this.field_146289_q, "" + RED + "The worldtype can be used on servers by changing the 'level-type' in", this.field_146294_l / 2, 230, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "sever.properties to 'BIOMESOP' (without quotes)", this.field_146294_l / 2, 242, 0xFFFFFF);
-        
-        this.drawCenteredString(this.field_146289_q, "" + DARK_RED + "This message will only display once.", this.field_146294_l / 2, 266, 0xFFFFFF);
+        this.drawCenteredString(this.field_146289_q, "" + DARK_RED + "This message will only display once.", this.field_146294_l / 2, 168, 0xFFFFFF);
         
         this.field_146297_k.getTextureManager().bindTexture(bopLogoTexture);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
