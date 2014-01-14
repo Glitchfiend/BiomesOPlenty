@@ -1,6 +1,13 @@
 package biomesoplenty.common.core;
 
+import static biomesoplenty.api.BOPBiomeHelper.get;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeListEntry;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeTemperatureType;
@@ -76,6 +83,7 @@ public class BOPBiomes
 	{
 		registerBiomes();
 		useOnlyBiome();
+		addSpawnBiomes();
 	}
 	
 	private static void registerBiomes()
@@ -165,16 +173,13 @@ public class BOPBiomes
         registerBiome(new BOPBiomeListEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), BOPBiomeTemperatureType.WARM));
 	}
 	
-	private static void useOnlyBiome()
+	private static void addSpawnBiomes()
 	{
-		if (onlyBiome != null)
-		{
-			for (BOPBiomeTemperatureType temperatureType : BOPBiomeHelper.BOPBiomeTemperatureType.values())
-			{
-				BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).clear();
-				addBiomeToList(new BOPBiomeListEntry(onlyBiome, temperatureType));
-			}
-		}
+	    //TODO: Spawn only on beaches.
+	    
+	    clearAllSpawnBiomes();
+	    
+	    addSpawnBiome(BiomeGenBase.beach);
 	}
 	
 	public static void registerOnlyBiome(BOPBiomeListEntry biome)
@@ -184,12 +189,34 @@ public class BOPBiomes
 	
 	public static void registerBiome(BOPBiomeListEntry biome)
 	{
-	    BOPBiomeHelper.registerBiome(biome.biome, biome.biome.biomeName);
+	    BOPBiomeHelper.registerBiome(biome.biome, StringUtils.remove(StringUtils.uncapitalize(WordUtils.capitalize(biome.biome.biomeName)), " "));
 	    addBiomeToList(biome);
 	}
 	
 	public static void addBiomeToList(BOPBiomeListEntry biome)
-	{
+	{ 
 	    BOPBiomeHelper.getCorrespondingTemperatureTypeList(biome.temperatureType).add(biome.biome);
+	}
+	
+	public static void addSpawnBiome(BiomeGenBase biome)
+	{
+	    BiomeManager.addSpawnBiome(biome);
+	}
+	
+	public static void clearAllSpawnBiomes()
+	{
+	    WorldChunkManager.allowedBiomes.clear();
+	}
+
+	private static void useOnlyBiome()
+	{
+	    if (onlyBiome != null)
+	    {
+	        for (BOPBiomeTemperatureType temperatureType : BOPBiomeHelper.BOPBiomeTemperatureType.values())
+	        {
+	            BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).clear();
+	            addBiomeToList(new BOPBiomeListEntry(onlyBiome, temperatureType));
+	        }
+	    }
 	}
 }
