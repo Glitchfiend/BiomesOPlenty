@@ -46,7 +46,7 @@ public class BOPConfigurationTerrainGen
 	public static boolean chaparralVillage;
 	public static boolean cherryBlossomGroveVillage;
 	public static boolean coniferousForestVillage;
-	public static boolean coniferousForestSnowVillage;
+	public static boolean snowyConiferousForest;
 	public static boolean cragVillage;
 	public static boolean deadForestVillage;
 	public static boolean deadForestSnowVillage;
@@ -55,7 +55,7 @@ public class BOPConfigurationTerrainGen
 	public static boolean deciduousForestVillage;
 	public static boolean dunesVillage;
 	public static boolean fenVillage;
-	public static boolean fieldVillage;
+	public static boolean flowerField;
 	public static boolean frostForestVillage;
 	public static boolean fungiForestVillage;
 	public static boolean gardenVillage;
@@ -163,7 +163,7 @@ public class BOPConfigurationTerrainGen
 			chaparralVillage = config.get("Allow Villages", "Chaparral", true).getBoolean(false);
 			cherryBlossomGroveVillage = config.get("Allow Villages", "CherryBlossomGrove", false).getBoolean(false);
 			coniferousForestVillage = config.get("Allow Villages", "ConiferousForest", true).getBoolean(false);
-			coniferousForestSnowVillage = config.get("Allow Villages", "ConiferousForestSnow", true).getBoolean(false);
+			snowyConiferousForest = config.get("Allow Villages", "SnowyConiferousForest", true).getBoolean(false);
 			//cragVillage = config.get("Allow Villages", "Crag", false).getBoolean(false);
 			deadForestVillage = config.get("Allow Villages", "DeadForest", false).getBoolean(false);
 			deadForestSnowVillage = config.get("Allow Villages", "DeadForestSnow", false).getBoolean(false);
@@ -172,7 +172,7 @@ public class BOPConfigurationTerrainGen
 			deciduousForestVillage = config.get("Allow Villages", "DeciduousForest", true).getBoolean(false);
 			dunesVillage = config.get("Allow Villages", "Dunes", false).getBoolean(false);
 			fenVillage = config.get("Allow Villages", "Fen", false).getBoolean(false);
-			fieldVillage = config.get("Allow Villages", "Field", true).getBoolean(false);
+			flowerField = config.get("Allow Villages", "FlowerField", true).getBoolean(false);
 			frostForestVillage = config.get("Allow Villages", "FrostForest", true).getBoolean(false);
 			//fungiForestVillage = config.get("Allow Villages", "FungiForest", false).getBoolean(false);
 			//gardenVillage = config.get("Allow Villages", "Garden", false).getBoolean(false);

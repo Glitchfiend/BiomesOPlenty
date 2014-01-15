@@ -1,13 +1,12 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.api.BOPBiomeHelper.get;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraftforge.common.BiomeManager;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeListEntry;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeTemperatureType;
@@ -72,6 +71,7 @@ import biomesoplenty.common.biomes.BiomeGenWetland;
 import biomesoplenty.common.biomes.BiomeGenWoodland;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 import biomesoplenty.common.world.WorldTypeBOP;
 
 public class BOPBiomes 
@@ -85,6 +85,7 @@ public class BOPBiomes
 		registerBiomes();
 		useOnlyBiome();
 		addSpawnBiomes();
+		addVillageBiomes();
 	}
 	
 	private static void registerBiomes()
@@ -195,6 +196,78 @@ public class BOPBiomes
 		}
 	}
 	
+	private static void addVillageBiomes()
+	{
+        addVillageBiome(BOPBiomeHelper.get("alps"), BOPConfigurationTerrainGen.alpsVillage);
+        addVillageBiome(BOPBiomeHelper.get("arctic"), BOPConfigurationTerrainGen.arcticVillage);
+        //addVillageBiome(BOPBiomeHelper.get("autumnHills"), BOPConfigurationTerrainGen.autumnHillsVillage); 
+        //addVillageBiome(BOPBiomeHelper.get("badlands"), BOPConfigurationTerrainGen.badlandsVillage); 
+        addVillageBiome(BOPBiomeHelper.get("bambooForest"), BOPConfigurationTerrainGen.bambooForestVillage); 
+        addVillageBiome(BOPBiomeHelper.get("bayou"), BOPConfigurationTerrainGen.bayouVillage);
+        addVillageBiome(BOPBiomeHelper.get("bog"), BOPConfigurationTerrainGen.bogVillage); 
+        addVillageBiome(BOPBiomeHelper.get("borealForest"), BOPConfigurationTerrainGen.borealForestVillage);
+        addVillageBiome(BOPBiomeHelper.get("brushland"), BOPConfigurationTerrainGen.brushlandVillage);
+        addVillageBiome(BOPBiomeHelper.get("canyon"), BOPConfigurationTerrainGen.canyonVillage);
+        addVillageBiome(BOPBiomeHelper.get("chaparral"), BOPConfigurationTerrainGen.chaparralVillage);
+        addVillageBiome(BOPBiomeHelper.get("cherryBlossomGrove"), BOPConfigurationTerrainGen.cherryBlossomGroveVillage); 
+        addVillageBiome(BOPBiomeHelper.get("coniferousForest"), BOPConfigurationTerrainGen.coniferousForestVillage);
+        addVillageBiome(BOPBiomeHelper.get("snowyConiferousForest"), BOPConfigurationTerrainGen.snowyConiferousForest);
+        addVillageBiome(BOPBiomeHelper.get("deadForest"), BOPConfigurationTerrainGen.deadForestVillage); 
+        //addVillageBiome(BOPBiomeHelper.get("deadForestSnow"), BOPConfigurationTerrainGen.deadForestSnowVillage); 
+        addVillageBiome(BOPBiomeHelper.get("deadSwamp"), BOPConfigurationTerrainGen.deadSwampVillage);
+        addVillageBiome(BOPBiomeHelper.get("deciduousForest"), BOPConfigurationTerrainGen.deciduousForestVillage);
+        addVillageBiome(BOPBiomeHelper.get("dunes"), BOPConfigurationTerrainGen.dunesVillage); 
+        addVillageBiome(BOPBiomeHelper.get("fen"), BOPConfigurationTerrainGen.fenVillage);
+        addVillageBiome(BOPBiomeHelper.get("flowerField"), BOPConfigurationTerrainGen.flowerField);
+        addVillageBiome(BOPBiomeHelper.get("frostForest"), BOPConfigurationTerrainGen.frostForestVillage); 
+        //addVillageBiome(BOPBiomeHelper.get("glacier"), BOPConfigurationTerrainGen.glacierVillage);
+        addVillageBiome(BOPBiomeHelper.get("grassland"), BOPConfigurationTerrainGen.grasslandVillage);
+        addVillageBiome(BOPBiomeHelper.get("grove"), BOPConfigurationTerrainGen.groveVillage);
+        addVillageBiome(BOPBiomeHelper.get("heathland"), BOPConfigurationTerrainGen.heathlandVillage);
+        addVillageBiome(BOPBiomeHelper.get("highland"), BOPConfigurationTerrainGen.highlandVillage);
+        //addVillageBiome(BOPBiomeHelper.get("hotSprings"), BOPConfigurationTerrainGen.hotSpringsVillage);
+        addVillageBiome(BOPBiomeHelper.get("jadeCliffs"), BOPConfigurationTerrainGen.jadeCliffsVillage);
+        addVillageBiome(BOPBiomeHelper.get("lushDesert"), BOPConfigurationTerrainGen.lushDesertVillage);
+        addVillageBiome(BOPBiomeHelper.get("lushSwamp"), BOPConfigurationTerrainGen.lushSwampVillage);
+        //addVillageBiome(BOPBiomeHelper.get("mangrove"), BOPConfigurationTerrainGen.mangroveVillage);
+        addVillageBiome(BOPBiomeHelper.get("mapleWoods"), BOPConfigurationTerrainGen.mapleWoodsVillage);
+        addVillageBiome(BOPBiomeHelper.get("marsh"), BOPConfigurationTerrainGen.marshVillage);
+        addVillageBiome(BOPBiomeHelper.get("meadow"), BOPConfigurationTerrainGen.meadowVillage);
+        //addVillageBiome(BOPBiomeHelper.get("meadowForest"), BOPConfigurationTerrainGen.meadowVillage);
+        //addVillageBiome(BOPBiomeHelper.get("mesa"), BOPConfigurationTerrainGen.mesaVillage); 
+        addVillageBiome(BOPBiomeHelper.get("moor"), BOPConfigurationTerrainGen.moorVillage); 
+        addVillageBiome(BOPBiomeHelper.get("mountain"), BOPConfigurationTerrainGen.mountainVillage); 
+        //addVillageBiome(BOPBiomeHelper.get("oasis"), BOPConfigurationTerrainGen.oasisVillage); 
+
+        //addVillageBiome(BOPBiomeHelper.get("orchard"), BOPConfigurationTerrainGen.orchardVillage);
+        addVillageBiome(BOPBiomeHelper.get("outback"), BOPConfigurationTerrainGen.outbackVillage);
+        //addVillageBiome(BOPBiomeHelper.get("overgrownGreens"), BOPConfigurationTerrainGen.overgrownGreensVillage);
+        addVillageBiome(BOPBiomeHelper.get("pasture"), BOPConfigurationTerrainGen.pastureVillage);
+        //addVillageBiome(BOPBiomeHelper.get("polar"), BOPConfigurationTerrainGen.polarVillage);
+        addVillageBiome(BOPBiomeHelper.get("prairie"), BOPConfigurationTerrainGen.prairieVillage);
+        addVillageBiome(BOPBiomeHelper.get("quagmire"), BOPConfigurationTerrainGen.quagmireVillage); 
+        addVillageBiome(BOPBiomeHelper.get("rainforest"), BOPConfigurationTerrainGen.rainforestVillage); 
+        addVillageBiome(BOPBiomeHelper.get("redwoodForest"), BOPConfigurationTerrainGen.redwoodForestVillage);
+
+        addVillageBiome(BOPBiomeHelper.get("seasonalForest"), BOPConfigurationTerrainGen.seasonalForestVillage); 
+        addVillageBiome(BOPBiomeHelper.get("shield"), BOPConfigurationTerrainGen.shieldVillage);
+        //addVillageBiome(BOPBiomeHelper.get("scrubland"), BOPConfigurationTerrainGen.scrublandVillage);
+        addVillageBiome(BOPBiomeHelper.get("shrubland"), BOPConfigurationTerrainGen.shrublandVillage);
+        addVillageBiome(BOPBiomeHelper.get("sludgepit"), BOPConfigurationTerrainGen.sludgepitVillage);
+        addVillageBiome(BOPBiomeHelper.get("spruceWoods"), BOPConfigurationTerrainGen.spruceWoodsVillage);
+        //addVillageBiome(BOPBiomeHelper.get("steppe"), BOPConfigurationTerrainGen.steppeVillage);
+        addVillageBiome(BOPBiomeHelper.get("temperateRainforest"), BOPConfigurationTerrainGen.temperateRainforestVillage); 
+        addVillageBiome(BOPBiomeHelper.get("thicket"), BOPConfigurationTerrainGen.thicketVillage);
+        addVillageBiome(BOPBiomeHelper.get("timber"), BOPConfigurationTerrainGen.timberVillage);
+        addVillageBiome(BOPBiomeHelper.get("tropicalRainforest"), BOPConfigurationTerrainGen.tropicalRainforestVillage);
+        addVillageBiome(BOPBiomeHelper.get("tropics"), BOPConfigurationTerrainGen.tropicsVillage);
+        addVillageBiome(BOPBiomeHelper.get("tundra"), BOPConfigurationTerrainGen.tundraVillage);
+        addVillageBiome(BOPBiomeHelper.get("volcano"), BOPConfigurationTerrainGen.volcanoVillage); 
+
+        addVillageBiome(BOPBiomeHelper.get("wetland"), BOPConfigurationTerrainGen.wetlandVillage);
+        addVillageBiome(BOPBiomeHelper.get("woodland"), BOPConfigurationTerrainGen.woodlandVillage);
+	}
+	
 	public static void registerOnlyBiome(BOPBiomeListEntry biome)
 	{
 		onlyBiome = biome.biome;
@@ -215,6 +288,11 @@ public class BOPBiomes
 	{
 	    BiomeManager.addSpawnBiome(biome);
 	}
+	
+    private static void addVillageBiome(BiomeGenBase biome, boolean flag)
+    {
+    	if (biome != null && flag) BiomeManager.addVillageBiome(biome, true);
+    }
 	
 	public static void clearAllSpawnBiomes()
 	{
