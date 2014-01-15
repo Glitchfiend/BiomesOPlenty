@@ -18,7 +18,7 @@ public class WorldChunkManagerBOP extends WorldChunkManager
     @Override
 	public ChunkPosition func_150795_a(int x, int z, int radius, List biomesToSpawnIn, Random random)
     {
-    	int spawnSearchRadius = BOPConfigurationMisc.spawnSearchRadius >= 256 ? BOPConfigurationMisc.spawnSearchRadius : 256;
+    	int spawnSearchRadius = BOPConfigurationMisc.spawnSearchRadius;
     	
     	return super.func_150795_a(x, z, spawnSearchRadius, biomesToSpawnIn, random);
     }

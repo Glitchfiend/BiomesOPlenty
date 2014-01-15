@@ -2,6 +2,7 @@ package biomesoplenty;
 
 import net.minecraft.creativetab.CreativeTabs;
 import biomesoplenty.common.configuration.BOPConfiguration;
+import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
 import biomesoplenty.common.core.BOPArmor;
 import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.core.BOPBlocks;
@@ -39,7 +40,7 @@ public class BiomesOPlenty
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
+	{		
 		configPath = event.getModConfigurationDirectory() + "/biomesoplenty/";
 		BOPConfiguration.init(configPath);
 		
@@ -54,6 +55,7 @@ public class BiomesOPlenty
 		BOPCrafting.init();
 		BOPBiomes.init();
 		WorldGenFieldAssociation.init();
+		BOPConfigurationWorldFeatures.init(BOPConfiguration.worldFeaturesConfigFile);
 		ForcedBOPWorldGenerators.init();
 		ForcedDecorators.init();
 		BOPEntities.init();

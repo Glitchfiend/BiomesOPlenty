@@ -55,6 +55,7 @@ public class BOPConfigurationMisc
 			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
 			
 			spawnSearchRadius = config.get("Spawn Settings", "Spawn Location Search Radius", 1024, "Must be 256 or higher").getInt();
+			if (spawnSearchRadius < 256) spawnSearchRadius = 256;
 			onlySpawnOnBeaches = config.get("Spawn Settings", "Only Spawn On Beaches", true).getBoolean(true);
 
 			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();

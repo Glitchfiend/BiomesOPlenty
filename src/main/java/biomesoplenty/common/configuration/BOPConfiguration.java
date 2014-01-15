@@ -5,6 +5,7 @@ import java.io.File;
 public class BOPConfiguration 
 {
 	public static File mainConfigFile;
+	public static File worldFeaturesConfigFile;
 	public static File biomeGenConfigFile;
 	public static File terrainGenConfigFile;
 	public static File idConfigFile;
@@ -13,6 +14,7 @@ public class BOPConfiguration
 	public static void init(String configpath)
 	{
 		mainConfigFile = new File(configpath + "main.cfg");
+		worldFeaturesConfigFile = new File(configpath + "worldfeatures.cfg");
 		biomeGenConfigFile = new File(configpath + "biomegen.cfg");
 		terrainGenConfigFile = new File(configpath + "terraingen.cfg");
 		idConfigFile = new File(configpath + "ids.cfg");

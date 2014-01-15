@@ -14,19 +14,9 @@ public class BOPConfigurationTerrainGen
 	public static Configuration config;
 	
 	public static int biomeSize;
-	public static boolean addToDefault;
+	//public static boolean addToDefault;
 	public static boolean vanillaEnhanced;
 	public static boolean netherOverride;
-	public static boolean stoneFormationGen;
-	public static boolean pumpkinGen;
-	public static boolean poisonIvyGen;
-	public static boolean thornGen;
-	public static boolean springWaterGen;
-	public static boolean poisonWaterGen;
-	public static boolean quicksandGen;
-	public static boolean exposedStone;
-	public static boolean witherWartGen;
-	public static boolean burningBlossomGen;
 	
 	public static int villageDistance;
 	public static int landmassPercentage;
@@ -126,25 +116,12 @@ public class BOPConfigurationTerrainGen
 			config.load();
 			
 			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt(4);
-			addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
+			//addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
 			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
-			pumpkinGen = config.get("Decoration Settings", "Generate Pumpkins Without Faces", true).getBoolean(true);
-			stoneFormationGen = config.get("Decoration Settings", "Generate Stone Formations", true, "Stalagmites, stalactites, etc.").getBoolean(true);
-			poisonIvyGen = config.get("Decoration Settings", "Generate Poison Ivy", true).getBoolean(true);
-			thornGen = config.get("Decoration Settings", "Generate Thorns", true).getBoolean(true);
-			springWaterGen = config.get("Decoration Settings", "Generate Hot Springs", true).getBoolean(true);
-			poisonWaterGen = config.get("Decoration Settings", "Generate Poison Pools", true).getBoolean(true);
-			quicksandGen = config.get("Decoration Settings", "Generate Quicksand", true).getBoolean(true);
-			witherWartGen = config.get("Decoration Settings", "Generate Wither Wart", true).getBoolean(true);
-			burningBlossomGen = config.get("Decoration Settings", "Generate Burning Blossoms", true).getBoolean(true);
-			exposedStone = config.get("Decoration Settings", "Generate Sections Of Exposed Stone", true).getBoolean(true);
 			
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
-			if (villageDistance < 8) 
-			{
-				villageDistance = 8;
-			}
+			if (villageDistance < 8) villageDistance = 8;
 			
 			landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
 
