@@ -12,6 +12,6 @@ public class WorldProviderSurfaceBOP extends WorldProviderSurface
     	//TODO:							getTopBlock()
     	Block topBlock = this.worldObj.func_147474_b(x, z);
     	
-        return topBlock == Blocks.sand && this.worldChunkMgr.getBiomesToSpawnIn().contains(this.worldObj.getBiomeGenForCoordsBody(x, z));
+        return topBlock == Blocks.sand || topBlock == Blocks.stone || topBlock == Blocks.snow_layer && this.worldChunkMgr.getBiomesToSpawnIn().contains(this.worldObj.getBiomeGenForCoordsBody(x, z));
     }
 }

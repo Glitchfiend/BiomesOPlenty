@@ -25,8 +25,6 @@ public class WorldGenLog extends WorldGeneratorBOP
         int length = 3 + random.nextInt(3);
         int direction = random.nextInt(2);
         boolean isAllowed = true;
-        
-        System.out.println(direction);
 
         for (int i = 0; i < length; i++)
         {

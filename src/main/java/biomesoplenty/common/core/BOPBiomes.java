@@ -181,6 +181,10 @@ public class BOPBiomes
 			clearAllSpawnBiomes();
 
 			addSpawnBiome(BiomeGenBase.beach);
+			//TODO:					   stoneBeach
+			addSpawnBiome(BiomeGenBase.field_150576_N);
+			//TODO:						coldBeach
+			addSpawnBiome(BiomeGenBase.field_150577_O);
 		}
 		else
 		{
