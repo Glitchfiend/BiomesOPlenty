@@ -2,6 +2,7 @@ package biomesoplenty.common.core;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 
 import org.apache.logging.log4j.Level;
@@ -95,7 +96,7 @@ public class BOPBlocks
 	public static void init()
 	{
 		initializeBlocks();
-		registerShearBlocks();
+		setFireInfo();
 	}
 
 	private static void initializeBlocks()
@@ -231,9 +232,40 @@ public class BOPBlocks
         registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT2).func_149663_c("colorizedLeaves2"), ItemBlockColorizedLeaves.class);
 	}
 	
-	private static void registerShearBlocks()
+	private static void setFireInfo()
 	{
-		//BOPBlockHelper.addShearBlock(block, speed);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("bamboo"), 5, 5);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("appleLeaves"), 30, 60);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("colorizedLeaves1"), 30, 60);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("colorizedLeaves2"), 30, 60);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("foliage"), 60, 100);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("persimmonLeaves"), 30, 60);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("petals"), 30, 60);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("planks"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("plants"), 60, 100);
+		
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("woodenSingleSlab1"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("woodenDoubleSlab1"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("woodenSingleSlab2"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("woodenDoubleSlab2"), 5, 20);
+		
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("sacredoakStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("cherryStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("darkStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("firStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("holyStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("magicStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("mangroveStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("palmStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("redwoodStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("willowStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("pineStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("hellBarkStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("jacarandaStairs"), 5, 20);
+		
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("moss"), 15, 100);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("treeMoss"), 15, 100);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("willow"), 15, 100);
 	}
 	
 	public static void registerBlock(Block block)

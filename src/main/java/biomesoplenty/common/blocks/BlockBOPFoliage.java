@@ -57,7 +57,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
 		
-		//TODO: FEATURE Blocks.fire.setFireInfo(this, 60, 100);
 		//TODO: setBlockBounds
 		this.func_149676_a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 

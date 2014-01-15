@@ -16,7 +16,6 @@ public class BlockWillow extends BlockVine
 		//TODO setStepSound(Block.soundGrassFootstep)
 		this.func_149672_a(Block.field_149779_h);
 		
-		//TODO: FEATURE Blocks.fire.setFireInfo(this, 15, 100);
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 
