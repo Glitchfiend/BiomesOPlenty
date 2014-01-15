@@ -327,23 +327,12 @@ public class ItemBOPScythe extends Item
     	}
     }
     
-	//@Override
+	@Override
 	//TODO:		 getStrVsBlock
-	/* TODO: FEATURE public float func_150893_a(ItemStack par1ItemStack, Block par2Block)
+	public float func_150893_a(ItemStack item, Block block)
 	{
-		float strength = 0;
-
-		if (Blocks.shearBlockIds.get(par2Block.blockID) != null)
-		{
-			strength = Float.parseFloat(Blocks.shearBlockIds.get(par2Block.blockID).toString());
-		}
-		else
-		{
-			strength = super.getStrVsBlock(par1ItemStack, par2Block);
-		}
-
-		return strength;
-	}*/
+		return Items.shears.func_150893_a(item, block);
+	}
 
 	@Override
     public int getItemEnchantability()
