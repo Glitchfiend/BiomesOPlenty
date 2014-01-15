@@ -10,9 +10,22 @@ import biomesoplenty.api.BOPBlockHelper;
 
 public class WorldGenPalmTree1 extends WorldGenAbstractTree
 {
-    public WorldGenPalmTree1()
+	private int strengthRand;
+	private int bMax;
+	private double offset;
+	
+	public WorldGenPalmTree1()
+	{
+		this(35, 10, 1.3D);
+	}
+	
+    public WorldGenPalmTree1(int strengthRand, int bMax, double offset)
     {
         super(false);
+        
+        this.strengthRand = strengthRand;
+        this.bMax = bMax;
+        this.offset = offset;
     }
 
     @Override
@@ -46,7 +59,7 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
             }
 
             //settings========
-                    double strength = random.nextInt(35) / 100D;
+                    double strength = random.nextInt(strengthRand) / 100D;
             //================
 
                     double xoff = 0;
@@ -59,18 +72,18 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
 
             int h = 1;
             buildBlock(world, x, y, z, Blocks.dirt, 0);
-            for(int b = 0; b < 10; b++)
+            for(int b = 0; b < bMax; b++)
             {
                 buildBlock(world, x + ((int) Math.floor(xoff)), y + h, z + ((int) Math.floor(yoff)), BOPBlockHelper.get("logs2"), 3);
-                if(b == 9)
+                if(b == bMax - 1)
                 {
                     generateTop(world, x + ((int) Math.floor(xoff)), y + h, z + ((int) Math.floor(yoff)));
                 }
                 else
                 {
                     h++;
-                    xoff *= 1.3D;
-                    yoff *= 1.3D;
+                    xoff *= offset;
+                    yoff *= offset;
                 }
             }
 

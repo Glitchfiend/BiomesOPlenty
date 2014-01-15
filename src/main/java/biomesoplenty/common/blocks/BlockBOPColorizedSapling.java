@@ -12,10 +12,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree2;
 import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 
 public class BlockBOPColorizedSapling extends BlockSapling
@@ -134,25 +139,23 @@ public class BlockBOPColorizedSapling extends BlockSapling
 
 			    /*case 1: // Mangrove Tree
 			        obj = new WorldGenMangrove(false);
-			        break;
+			        break;*/
 
 			    case 2: // Palm Tree
 			        rnd = random.nextInt(4);
 
-			        if (rnd == 0) {
-			            obj = new WorldGenPalmTree1();
-			        } else {
-			            obj = new WorldGenPalmTree3();
-			        }
+			        if (rnd == 0) obj = new WorldGenPalmTree1();
+			        else obj = new WorldGenPalmTree1(25, 8, 1.5D);
+
 			        break;
 
 			    case 3: // Redwood Tree
-			        obj = new WorldGenRedwoodTree2(false);
+			        obj = new WorldGenRedwoodTree2(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 20, 15);
 			        break;
 
 			    case 4: // Willow Tree
-			        obj = new WorldGenWillow();
-			        break;*/
+			        obj = new WorldGenBOPSwampTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0, 6, 9, BOPBlockHelper.get("colorizedLeaves2"), 0);
+			        break;
 
 			    case 5: // Pine Tree
 			        obj = new WorldGenPineTree();
