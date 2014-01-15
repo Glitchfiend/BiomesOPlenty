@@ -11,7 +11,7 @@ public class MapGenEventHandler
 	{
 		if (event.type == EventType.VILLAGE)
 		{
-			event.newGen = new BOPMapGenVillage();
+			event.newGen = new BOPMapGenVillageEventHandler();
 		}
 	}
 }

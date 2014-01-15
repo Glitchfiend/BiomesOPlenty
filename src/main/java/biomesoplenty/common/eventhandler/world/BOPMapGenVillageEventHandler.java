@@ -4,9 +4,9 @@ import net.minecraft.world.gen.structure.MapGenVillage;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
-public class BOPMapGenVillage extends MapGenVillage
+public class BOPMapGenVillageEventHandler extends MapGenVillage
 {
-	public BOPMapGenVillage()
+	public BOPMapGenVillageEventHandler()
 	{
 		super();
 		
