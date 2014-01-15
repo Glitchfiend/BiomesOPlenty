@@ -6,6 +6,7 @@ import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
 import biomesoplenty.common.eventhandler.gui.MainMenuEventHandler;
 import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
+import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
@@ -50,6 +51,7 @@ public class BOPEventHandlers
 	
 	private static void registerMiscEventHandlers()
 	{
+		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
 	}
 }

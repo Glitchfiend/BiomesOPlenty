@@ -217,13 +217,13 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		switch (metadata)
 		{
 		case 6: // Tulip
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
 
 		case 10: // Lily Flower
 			return block == Blocks.waterlily;
 
 		case 11: // Rainbow Flower
-			return block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt") || block == Blocks.grass || block == Blocks.dirt;
+			return block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("holyDirt") || block == Blocks.grass || block == Blocks.dirt;
 
 		case 12: // Bromeliad
 			return block == BOPBlockHelper.get("hardDirt") || block == BOPBlockHelper.get("redRock") || block == Blocks.sand;

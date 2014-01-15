@@ -181,7 +181,7 @@ public class BlockBOPGrass extends Block
 						if (world.func_147439_a(rX, rY, rZ) == BOPBlockHelper.get("holyDirt") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
 							//TODO: setBlock()
-							world.func_147465_d(rX, rY, rZ, BOPBlockHelper.get("holyGrass"), 0, 2);
+							world.func_147465_d(rX, rY, rZ, BOPBlockHelper.get("grass"), 0, 2);
 						}
 					}
 				}

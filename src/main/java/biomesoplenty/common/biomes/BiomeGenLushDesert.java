@@ -59,7 +59,7 @@ public class BiomeGenLushDesert extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(4) == 0 ? new WorldGenSavannaTree(false) : 
-        (random.nextInt(24) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("holyGrass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : 
+        (random.nextInt(24) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : 
         (random.nextInt(2) == 0 ? worldGeneratorTrees : new WorldGenShrub(0,0)));
     }
     

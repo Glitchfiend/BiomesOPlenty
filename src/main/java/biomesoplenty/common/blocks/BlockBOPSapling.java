@@ -80,7 +80,7 @@ public class BlockBOPSapling extends BlockSapling
 		switch (metadata)
 		{
 		case 7: // Loftwood
-			return block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt");
+			return block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("holyDirt");
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
@@ -106,7 +106,7 @@ public class BlockBOPSapling extends BlockSapling
 					(soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
 		else
 			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
-					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) || soil == BOPBlockHelper.get("holyGrass")));
+					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) || soil == BOPBlockHelper.get("grass")));
 	}
 
 	@Override

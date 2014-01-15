@@ -49,7 +49,7 @@ public class BiomeGenWasteland extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("holyGrass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock"));
+        return new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock"));
     }
     
     @Override
