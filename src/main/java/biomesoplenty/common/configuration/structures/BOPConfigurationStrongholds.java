@@ -118,7 +118,7 @@ public class BOPConfigurationStrongholds
 				String name = biome.biomeName;
 				String convertedName = BOPBiomeHelper.convertBiomeName(name);
 
-				if (config.get("Allow Strongholds", name.replace(" ", ""), enabledBiomes.contains(convertedName)).getBoolean(enabledBiomes.contains(convertedName)))
+				if (config.get("Allow Strongholds", name, enabledBiomes.contains(convertedName)).getBoolean(enabledBiomes.contains(convertedName)))
 				{
 					BiomeManager.addStrongholdBiome(biome);
 				}

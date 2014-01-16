@@ -113,7 +113,7 @@ public class BOPConfigurationVillages
 				String name = biome.biomeName;
 				String convertedName = BOPBiomeHelper.convertBiomeName(name);
 
-				if (config.get("Allow Villages", name.replace(" ", ""), enabledBiomes.contains(convertedName)).getBoolean(enabledBiomes.contains(convertedName)))
+				if (config.get("Allow Villages", name, enabledBiomes.contains(convertedName)).getBoolean(enabledBiomes.contains(convertedName)))
 				{
 					BiomeManager.addVillageBiome(biome, true);
 				}
