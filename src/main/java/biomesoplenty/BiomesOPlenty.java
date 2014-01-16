@@ -2,6 +2,7 @@ package biomesoplenty;
 
 import net.minecraft.creativetab.CreativeTabs;
 import biomesoplenty.common.configuration.BOPConfiguration;
+import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
 import biomesoplenty.common.configuration.structures.BOPConfigurationStrongholds;
 import biomesoplenty.common.configuration.structures.BOPConfigurationVillages;
@@ -56,6 +57,7 @@ public class BiomesOPlenty
 		BOPArmor.init();
 		BOPCrafting.init();
 		BOPBiomes.init();
+		BOPConfigurationBiomeGen.init(BOPConfiguration.biomeGenConfigFile);
 		BOPConfigurationVillages.init(BOPConfiguration.villagesConfigFile);
 		BOPConfigurationStrongholds.init(BOPConfiguration.strongholdsConfigFile);
 		WorldGenFieldAssociation.init();

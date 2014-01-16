@@ -25,7 +25,6 @@ public class BOPConfiguration
 		miscConfigFile = new File(configpath + "misc.cfg");
 
 		BOPConfigurationMain.init(mainConfigFile);
-		BOPConfigurationBiomeGen.init(biomeGenConfigFile);
 		BOPConfigurationTerrainGen.init(terrainGenConfigFile);
 		BOPConfigurationIDs.init(idConfigFile);
 		BOPConfigurationMisc.init(miscConfigFile);

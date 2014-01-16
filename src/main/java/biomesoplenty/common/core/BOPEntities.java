@@ -39,7 +39,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 
-				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPBiomeHelper.get("bambooForest"), BiomeGenBase.jungle, BOPBiomeHelper.get("tropicalRainforest")/*, Biomes.oasis.get()*/, BOPBiomeHelper.get("tropics"));
+				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPBiomeHelper.getBOPBiome("bambooForest"), BiomeGenBase.jungle, BOPBiomeHelper.getBOPBiome("tropicalRainforest")/*, Biomes.oasis.get()*/, BOPBiomeHelper.getBOPBiome("tropics"));
 		}
 
 		if (BOPConfigurationIDs.rosesterID > 0)
@@ -60,7 +60,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityGlob.class, 6836276, 8414787);
 
-			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPBiomeHelper.get("bog"), BOPBiomeHelper.get("deadSwamp"), BOPBiomeHelper.get("fen"), BOPBiomeHelper.get("moor"), BOPBiomeHelper.get("quagmire"), BOPBiomeHelper.get("sludgepit"), BiomeGenBase.swampland);
+			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPBiomeHelper.getBOPBiome("bog"), BOPBiomeHelper.getBOPBiome("deadSwamp"), BOPBiomeHelper.getBOPBiome("fen"), BOPBiomeHelper.getBOPBiome("moor"), BOPBiomeHelper.getBOPBiome("quagmire"), BOPBiomeHelper.getBOPBiome("sludgepit"), BiomeGenBase.swampland);
 		}
 
 		if (BOPConfigurationIDs.phantomID > 0)

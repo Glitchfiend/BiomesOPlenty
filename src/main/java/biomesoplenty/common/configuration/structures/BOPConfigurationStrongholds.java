@@ -3,14 +3,16 @@ package biomesoplenty.common.configuration.structures;
 import java.io.File;
 import java.util.ArrayList;
 
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.config.Configuration;
+
+import org.apache.logging.log4j.Level;
+
 import biomesoplenty.api.BOPBiomeHelper;
+import biomesoplenty.api.BOPBiomeHelper.BOPBiomeListEntry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationStrongholds
 {
@@ -109,8 +111,10 @@ public class BOPConfigurationStrongholds
 		{
 			config.load();
 			
-			for (BiomeGenBase biome : BOPBiomeHelper.biomeList.values())
+			for (BOPBiomeListEntry entry : BOPBiomeHelper.biomeList.values())
 			{
+				BiomeGenBase biome = entry.biome;
+				
 				String name = biome.biomeName;
 				String convertedName = BOPBiomeHelper.convertBiomeName(name);
 
