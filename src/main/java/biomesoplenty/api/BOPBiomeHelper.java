@@ -3,6 +3,9 @@ package biomesoplenty.api;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.common.world.GenLayerBiomeBOP;
 
@@ -18,6 +21,11 @@ public class BOPBiomeHelper
 	public static BiomeGenBase get(String name)
 	{
 		return biomeList.get(name);
+	}
+	
+	public static String convertBiomeName(String originalName)
+	{
+		return StringUtils.remove(StringUtils.uncapitalize(WordUtils.capitalize(originalName)), " ");
 	}
 	
 	public static ArrayList<BiomeGenBase> getCorrespondingTemperatureTypeList(BOPBiomeTemperatureType type)

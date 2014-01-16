@@ -8,6 +8,7 @@ public class BOPConfiguration
 	public static File worldFeaturesConfigFile;
 	public static File biomeGenConfigFile;
 	public static File terrainGenConfigFile;
+	public static File villagesConfigFile;
 	public static File idConfigFile;
 	public static File miscConfigFile;
 
@@ -17,6 +18,7 @@ public class BOPConfiguration
 		worldFeaturesConfigFile = new File(configpath + "worldfeatures.cfg");
 		biomeGenConfigFile = new File(configpath + "biomegen.cfg");
 		terrainGenConfigFile = new File(configpath + "terraingen.cfg");
+		villagesConfigFile = new File(configpath + "structures/villages.cfg");
 		idConfigFile = new File(configpath + "ids.cfg");
 		miscConfigFile = new File(configpath + "misc.cfg");
 
