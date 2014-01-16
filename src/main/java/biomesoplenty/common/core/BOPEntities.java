@@ -3,7 +3,10 @@ package biomesoplenty.common.core;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.entities.EntityBird;
 import biomesoplenty.common.entities.EntityGlob;
@@ -36,10 +39,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 
-			/*TODO: FEATURE if (Biomes.bambooForest.isPresent() && Biomes.jungleNew.isPresent() && Biomes.tropicalRainforest.isPresent() && Biomes.oasis.isPresent() && Biomes.tropics.isPresent())
-			{
-				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, Biomes.bambooForest.get(), Biomes.jungleNew.get(), Biomes.tropicalRainforest.get(), Biomes.oasis.get(), Biomes.tropics.get());
-			}*/
+				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPBiomeHelper.get("bambooForest"), BiomeGenBase.jungle, BOPBiomeHelper.get("tropicalRainforest")/*, Biomes.oasis.get()*/, BOPBiomeHelper.get("tropics"));
 		}
 
 		if (BOPConfigurationIDs.rosesterID > 0)
@@ -60,10 +60,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityGlob.class, 6836276, 8414787);
 
-			/*TODO: FEATURE if (Biomes.bog.isPresent() && Biomes.deadSwamp.isPresent() && Biomes.fen.isPresent() && Biomes.moor.isPresent() && Biomes.quagmire.isPresent() && Biomes.sludgepit.isPresent() && Biomes.swamplandNew.isPresent())
-			{
-				EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, Biomes.bog.get(), Biomes.deadSwamp.get(), Biomes.fen.get(), Biomes.moor.get(), Biomes.quagmire.get(), Biomes.sludgepit.get(), Biomes.swamplandNew.get());
-			}*/
+			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPBiomeHelper.get("bog"), BOPBiomeHelper.get("deadSwamp"), BOPBiomeHelper.get("fen"), BOPBiomeHelper.get("moor"), BOPBiomeHelper.get("quagmire"), BOPBiomeHelper.get("sludgepit"), BiomeGenBase.swampland);
 		}
 
 		if (BOPConfigurationIDs.phantomID > 0)
