@@ -9,6 +9,7 @@ public class BOPConfiguration
 	public static File biomeGenConfigFile;
 	public static File terrainGenConfigFile;
 	public static File villagesConfigFile;
+	public static File strongholdsConfigFile;
 	public static File idConfigFile;
 	public static File miscConfigFile;
 
@@ -19,6 +20,7 @@ public class BOPConfiguration
 		biomeGenConfigFile = new File(configpath + "biomegen.cfg");
 		terrainGenConfigFile = new File(configpath + "terraingen.cfg");
 		villagesConfigFile = new File(configpath + "structures/villages.cfg");
+		strongholdsConfigFile = new File(configpath + "structures/strongholds.cfg");
 		idConfigFile = new File(configpath + "ids.cfg");
 		miscConfigFile = new File(configpath + "misc.cfg");
 
