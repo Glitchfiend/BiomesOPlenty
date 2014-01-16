@@ -57,7 +57,7 @@ public class BiomeGenFlowerField extends BOPBiome
     @Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
     {
-    	return random.nextInt(7) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 7) : (random.nextInt(5) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 6) : (random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 5) : new WorldGenTallGrass(Blocks.red_flower, 4)));
+    	return random.nextInt(7) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 7) : (random.nextInt(5) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 6) : (random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 5) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(Blocks.red_flower, 4) : new WorldGenTallGrass(Blocks.tallgrass, 1))));
     }
     
     @Override
