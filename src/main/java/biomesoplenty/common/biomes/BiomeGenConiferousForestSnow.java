@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenConiferousForestSnow extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.6F);
+    private static final Height biomeHeight = new Height(0.2F, 0.4F);
     
     public BiomeGenConiferousForestSnow(int id)
     {

@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga3;
 
 public class BiomeGenConiferousForest extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.4F, 0.9F);
+    private static final Height biomeHeight = new Height(0.2F, 0.4F);
 
 	public BiomeGenConiferousForest(int id)
 	{
