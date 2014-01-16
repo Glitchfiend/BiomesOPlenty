@@ -21,8 +21,6 @@ public class BOPBiomeHelper
 	
 	public static BiomeGenBase get(String name)
 	{
-		for (String key : biomeList.keySet()) System.out.println(key);
-		
 		return biomeList.get(name).biome;
 	}
 	

@@ -13,11 +13,11 @@ public class BiomeSizeEventHandler
 		{
 			event.newSize = (byte)BOPConfigurationTerrainGen.biomeSize;
 
-			if (BOPConfigurationTerrainGen.netherOverride)
-			{
+			//if (BOPConfigurationTerrainGen.netherOverride)
+			//{
 				//DimensionManager.unregisterProviderType(-1);
 				//DimensionManager.registerProviderType(-1, WorldProviderBOPhell.class, true);
-			}
+			//}
 		}
 		else
 		{

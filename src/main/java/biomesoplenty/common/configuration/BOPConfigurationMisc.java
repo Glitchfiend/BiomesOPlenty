@@ -14,7 +14,7 @@ public class BOPConfigurationMisc
 	public static Configuration config;
 	
 	public static boolean skyColors;
-	public static boolean achievements;
+	//public static boolean achievements;
 	public static boolean dungeonLoot;
 	
 	public static boolean amethystTools;
@@ -24,9 +24,9 @@ public class BOPConfigurationMisc
 	public static boolean enderporterCrafting;
 	public static boolean dartCrafting;
 	public static boolean flowerbandCrafting;
-	public static boolean hotSpringsRegeneration;
+	//public static boolean hotSpringsRegeneration;
 
-	public static int promisedLandSkyColor;
+	//public static int promisedLandSkyColor;
 	
 	public static int spawnSearchRadius;
 	public static boolean onlySpawnOnBeaches;
@@ -39,9 +39,9 @@ public class BOPConfigurationMisc
 		{
 			config.load();
 
-			achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
+			//achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
-			hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
+			//hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
 
 			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
@@ -58,7 +58,7 @@ public class BOPConfigurationMisc
 			if (spawnSearchRadius < 256) spawnSearchRadius = 256;
 			onlySpawnOnBeaches = config.get("Spawn Settings", "Only Spawn On Beaches", true).getBoolean(true);
 
-			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
+			//promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
 
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Misc Config!");
 		}

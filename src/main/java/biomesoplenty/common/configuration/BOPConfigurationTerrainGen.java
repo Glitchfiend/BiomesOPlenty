@@ -15,10 +15,10 @@ public class BOPConfigurationTerrainGen
 	
 	public static int biomeSize;
 	//public static boolean addToDefault;
-	public static boolean vanillaEnhanced;
-	public static boolean netherOverride;
+	//public static boolean vanillaEnhanced;
+	//public static boolean netherOverride;
 	
-	public static int landmassPercentage;
+	//public static int landmassPercentage;
 
 	public static void init(File configFile)
 	{
@@ -30,10 +30,10 @@ public class BOPConfigurationTerrainGen
 			
 			biomeSize = config.get("Biomes O\' Plenty World Type Settings", "Biome Size", 4, "Default World Type has 4. Large Biomes World Type has 6.").getInt(4);
 			//addToDefault = config.get("Biome Settings", "Add Biomes To Default World", false).getBoolean(true);
-			vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
-			netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
+			//vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
+			//netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 			
-			landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
+			//landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
 			
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Terrain Gen Config!");
 		}
