@@ -36,7 +36,7 @@ public class BOPBiomeHelper
 		return StringUtils.remove(StringUtils.uncapitalize(WordUtils.capitalize(originalName)), " ");
 	}
 	
-	public static ArrayList<BiomeGenBase> getCorrespondingTemperatureTypeList(BOPBiomeTemperatureType type)
+	public static ArrayList<BiomeGenBase> getCorrespondingTemperatureTypeList(TemperatureType type)
 	{
 		switch (type)
 		{
@@ -57,7 +57,7 @@ public class BOPBiomeHelper
 		}
 	}
 	
-	public enum BOPBiomeTemperatureType
+	public enum TemperatureType
 	{
 		HOT, WARM, COOL, ICY;
 	}
@@ -65,9 +65,9 @@ public class BOPBiomeHelper
 	public static class BOPBiomeListEntry
 	{
 		public BiomeGenBase biome;
-		public BOPBiomeTemperatureType temperatureType;
+		public TemperatureType temperatureType;
 		
-		public BOPBiomeListEntry(BiomeGenBase biome, BOPBiomeTemperatureType temperatureType)
+		public BOPBiomeListEntry(BiomeGenBase biome, TemperatureType temperatureType)
 		{
 			this.biome = biome;
 			this.temperatureType = temperatureType;
