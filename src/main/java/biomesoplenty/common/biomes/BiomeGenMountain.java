@@ -14,7 +14,7 @@ import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
 public class BiomeGenMountain extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(1.0F, 1.5F);
+	private static final Height biomeHeight = new Height(0.4F, 0.9F);
 
 	public BiomeGenMountain(int id)
 	{

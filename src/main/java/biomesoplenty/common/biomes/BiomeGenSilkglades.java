@@ -18,7 +18,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenSilkglades extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.3F);
+    private static final Height biomeHeight = new Height(0.1F, 0.2F);
 
     public BiomeGenSilkglades(int id)
     {

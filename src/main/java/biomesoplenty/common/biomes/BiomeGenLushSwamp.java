@@ -17,7 +17,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 
 public class BiomeGenLushSwamp extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.3F);
+    private static final Height biomeHeight = new Height(0.0F, 0.1F);
 
     public BiomeGenLushSwamp(int id)
     {
