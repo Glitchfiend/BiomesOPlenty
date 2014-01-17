@@ -1,8 +1,9 @@
 package biomesoplenty.api;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,9 +13,9 @@ import biomesoplenty.common.world.GenLayerBiomeBOP;
 
 public class BOPBiomeHelper 
 {
-	public static HashMap<String, BOPBiomeListEntry> biomeList = new HashMap();
+	public static HashMap<String, BOPBiomeEntry> biomeList = new HashMap();
 	
-	public static void registerBiome(BOPBiomeListEntry biome, String name)
+	public static void registerBiome(BOPBiomeEntry biome, String name)
 	{
 		biomeList.put(name, biome);
 	}
@@ -34,7 +35,7 @@ public class BOPBiomeHelper
 		return StringUtils.remove(StringUtils.uncapitalize(WordUtils.capitalize(originalName)), " ");
 	}
 	
-	public static ArrayList<BiomeGenBase> getCorrespondingTemperatureTypeList(TemperatureType type)
+	public static List<BOPBiomeEntry> getCorrespondingTemperatureTypeList(TemperatureType type)
 	{
 		switch (type)
 		{
@@ -60,13 +61,14 @@ public class BOPBiomeHelper
 		HOT, WARM, COOL, ICY;
 	}
 	
-	public static class BOPBiomeListEntry
+	public static class BOPBiomeEntry extends WeightedRandom.Item
 	{
 		public BiomeGenBase biome;
 		public TemperatureType temperatureType;
 		
-		public BOPBiomeListEntry(BiomeGenBase biome, TemperatureType temperatureType)
+		public BOPBiomeEntry(BiomeGenBase biome, TemperatureType temperatureType, int weight)
 		{
+			super(weight);
 			this.biome = biome;
 			this.temperatureType = temperatureType;
 		}

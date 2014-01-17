@@ -1,19 +1,25 @@
 package biomesoplenty.common.world;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
+import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
-    public static ArrayList<BiomeGenBase> desertBiomes = new ArrayList();
-    public static ArrayList<BiomeGenBase> warmBiomes = new ArrayList();
-    public static ArrayList<BiomeGenBase> coldBiomes = new ArrayList();
-    public static ArrayList<BiomeGenBase> icyBiomes = new ArrayList();
+    public static List<BOPBiomeEntry> desertBiomes = new ArrayList<BOPBiomeEntry>();
+    public static List<BOPBiomeEntry> warmBiomes = new ArrayList<BOPBiomeEntry>();
+    public static List<BOPBiomeEntry> coldBiomes = new ArrayList<BOPBiomeEntry>();
+    public static List<BOPBiomeEntry> icyBiomes = new ArrayList<BOPBiomeEntry>();
 	
 	public GenLayerBiomeBOP(long par1, GenLayer parentLayer, WorldType worldType) 
 	{
@@ -63,7 +69,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = this.desertBiomes.get(this.nextInt(this.desertBiomes.size())).biomeID;
+                        aint1[j1 + i1 * par3] = getRandomBiome(desertBiomes).biome.biomeID;
                     }
                 }
                 else if (biomeID == 2)
@@ -74,7 +80,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = this.warmBiomes.get(this.nextInt(this.warmBiomes.size())).biomeID;
+                        aint1[j1 + i1 * par3] = getRandomBiome(warmBiomes).biome.biomeID;
                     }
                 }
                 else if (biomeID == 3)
@@ -86,12 +92,12 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = this.coldBiomes.get(this.nextInt(this.coldBiomes.size())).biomeID;
+                        aint1[j1 + i1 * par3] = getRandomBiome(coldBiomes).biome.biomeID;
                     }
                 }
                 else if (biomeID == 4)
                 {
-                    aint1[j1 + i1 * par3] = this.icyBiomes.get(this.nextInt(this.icyBiomes.size())).biomeID;
+                    aint1[j1 + i1 * par3] = getRandomBiome(icyBiomes).biome.biomeID;
                 }
                 else
                 {
@@ -101,5 +107,38 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         }
 
         return aint1;
+    }
+    
+    public BOPBiomeEntry getRandomBiome(Collection weightedItems)
+    {
+    	return getRandomBiome(weightedItems, WeightedRandom.getTotalWeight(weightedItems));
+    }
+    
+    public BOPBiomeEntry getRandomBiome(Collection weightedItems, int totalWeight)
+    {
+        if (totalWeight <= 0)
+        {
+            throw new IllegalArgumentException();
+        }
+        else
+        {
+            int j = this.nextInt(totalWeight);
+            Iterator iterator = weightedItems.iterator();
+            BOPBiomeEntry item;
+
+            do
+            {
+                if (!iterator.hasNext())
+                {
+                    return null;
+                }
+
+                item = (BOPBiomeEntry)iterator.next();
+                j -= item.itemWeight;
+            }
+            while (j >= 0);
+
+            return item;
+        }
     }
 }

@@ -10,7 +10,7 @@ import org.apache.commons.lang3.text.WordUtils;
 import org.apache.logging.log4j.Level;
 
 import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeListEntry;
+import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.common.world.GenLayerBiomeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
@@ -35,7 +35,7 @@ public class BOPConfigurationBiomeGen
 		{
 			config.load();
 
-			for (BOPBiomeListEntry entry : BOPBiomeHelper.biomeList.values())
+			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeList.values())
 			{
 				BiomeGenBase biome = entry.biome;
 				
@@ -44,7 +44,7 @@ public class BOPConfigurationBiomeGen
 
 				if (config.get("Biomes To Generate (There must be at least one from each category)", name + " (" + WordUtils.capitalize(entry.temperatureType.toString().toLowerCase()) + ")", !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
 				{
-					BOPBiomeHelper.getCorrespondingTemperatureTypeList(entry.temperatureType).add(biome);
+					BOPBiomeHelper.getCorrespondingTemperatureTypeList(entry.temperatureType).add(entry);
 				}
 			}
 			

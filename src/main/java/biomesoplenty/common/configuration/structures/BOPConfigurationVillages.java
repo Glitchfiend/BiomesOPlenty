@@ -11,7 +11,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.config.Configuration;
 import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeListEntry;
+import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 
 public class BOPConfigurationVillages
 {
@@ -106,7 +106,7 @@ public class BOPConfigurationVillages
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8) villageDistance = 8;
 			
-			for (BOPBiomeListEntry entry : BOPBiomeHelper.biomeList.values())
+			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeList.values())
 			{
 				BiomeGenBase biome = entry.biome;
 				
