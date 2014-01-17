@@ -44,8 +44,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 int l1 = (biomeID & 3840) >> 8;
                 biomeID &= -3841;
 
-                //TODO:	isOceanBiome()
-                if (this.func_151618_b(biomeID))
+                if (isOceanBiome(biomeID))
                 {
                     aint1[j1 + i1 * par3] = biomeID;
                 }
