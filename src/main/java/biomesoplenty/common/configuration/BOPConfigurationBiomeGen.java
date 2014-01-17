@@ -13,7 +13,7 @@ import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
 import biomesoplenty.common.core.BOPBiomes;
-import biomesoplenty.common.world.GenLayerBiomeBOP;
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
@@ -22,6 +22,15 @@ public class BOPConfigurationBiomeGen
 	public static Configuration config;
 	
 	public static ArrayList<String> disabledBiomes = new ArrayList();
+	
+	public static boolean oceanGen = false;
+	public static boolean frozenOceanGen = false;
+	public static boolean deepOceanGen = false;
+	public static boolean mushroomIslandGen = false;
+	public static boolean mesaPlateauFGen = false;
+	public static boolean mesaPlateauGen = false;
+	public static boolean jungleGen = false;
+	public static boolean megaTaigaGen = false;
 	
 	public static void addDefaultDisabledBiomes()
 	{
@@ -60,7 +69,18 @@ public class BOPConfigurationBiomeGen
 		        	BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(BOPBiomes.onlyBiome);
 		        }
 			}
-			
+			else
+			{		
+				oceanGen = config.get("Special Biomes To Generate", "Ocean", true).getBoolean(true);
+				frozenOceanGen = config.get("Special Biomes To Generate", "FrozenOcean", true).getBoolean(true);
+				deepOceanGen = config.get("Special Biomes To Generate", "Deep Ocean", true).getBoolean(true);
+				mushroomIslandGen = config.get("Special Biomes To Generate", "MushroomIsland", true).getBoolean(true);
+				mesaPlateauFGen = config.get("Special Biomes To Generate", "Mesa Plateau F", true).getBoolean(true);
+				mesaPlateauGen = config.get("Special Biomes To Generate", "Mesa Plateau", true).getBoolean(true);
+				jungleGen = config.get("Special Biomes To Generate", "Jungle", true).getBoolean(true);
+				megaTaigaGen = config.get("Special Biomes To Generate", "Mega Taiga", true).getBoolean(true);
+			}
+
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Biome Gen Config!");
 		}
 		catch (Exception e)

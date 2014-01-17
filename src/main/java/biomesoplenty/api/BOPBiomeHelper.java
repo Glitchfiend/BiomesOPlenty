@@ -9,7 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
-import biomesoplenty.common.world.GenLayerBiomeBOP;
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 
 public class BOPBiomeHelper 
 {

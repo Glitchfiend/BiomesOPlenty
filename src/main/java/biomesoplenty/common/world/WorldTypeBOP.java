@@ -1,5 +1,6 @@
 package biomesoplenty.common.world;
 
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
