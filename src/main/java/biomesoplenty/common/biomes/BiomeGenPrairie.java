@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
 public class BiomeGenPrairie extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.4F);
+    private static final Height biomeHeight = new Height(0.1F, 0.1F);
     
 	public BiomeGenPrairie(int id)
 	{

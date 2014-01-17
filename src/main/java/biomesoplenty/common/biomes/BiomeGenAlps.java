@@ -12,7 +12,7 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 
 public class BiomeGenAlps extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(2.0F, 3.0F);
+	private static final Height biomeHeight = new Height(0.5F, 1.5F);
 	
 	public BiomeGenAlps(int id)
 	{

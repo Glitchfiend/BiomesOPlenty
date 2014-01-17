@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
 public class BiomeGenQuagmire extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.3F);
+    private static final Height biomeHeight = new Height(0.0F, 0.1F);
     
     public BiomeGenQuagmire(int id)
     {

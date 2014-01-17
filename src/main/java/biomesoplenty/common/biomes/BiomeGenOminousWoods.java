@@ -19,7 +19,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
 public class BiomeGenOminousWoods extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.1F, 0.2F);
 	
 	public BiomeGenOminousWoods(int id)
 	{
