@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Level;
 
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
+import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
+import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.world.GenLayerBiomeBOP;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
@@ -44,8 +46,19 @@ public class BOPConfigurationBiomeGen
 
 				if (config.get("Biomes To Generate (There must be at least one from each category)", name + " (" + WordUtils.capitalize(entry.temperatureType.toString().toLowerCase()) + ")", !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
 				{
-					BOPBiomeHelper.getCorrespondingTemperatureTypeList(entry.temperatureType).add(entry);
+					if (BOPBiomes.onlyBiome != null ? entry == BOPBiomes.onlyBiome : true)
+					{
+						entry.addToCorrespondingTemperatureTypeList();
+					}
 				}
+			}
+			
+			if (BOPBiomes.onlyBiome != null)
+			{
+		        for (TemperatureType temperatureType : BOPBiomeHelper.TemperatureType.values())
+		        {
+		        	BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(BOPBiomes.onlyBiome);
+		        }
 			}
 			
 			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Biome Gen Config!");

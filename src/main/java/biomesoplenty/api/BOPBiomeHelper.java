@@ -72,5 +72,10 @@ public class BOPBiomeHelper
 			this.biome = biome;
 			this.temperatureType = temperatureType;
 		}
+		
+		public void addToCorrespondingTemperatureTypeList()
+		{
+			BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(this);
+		}
 	}
 }

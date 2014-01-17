@@ -75,12 +75,11 @@ public class BOPBiomes
 {
 	public static WorldTypeBOP worldTypeBOP;
 	
-	private static BiomeGenBase onlyBiome;
+	public static BOPBiomeEntry onlyBiome;
 	
 	public static void init()
 	{
 		registerBiomes();
-		useOnlyBiome();
 		addBiomesToDictionary();
 		addSpawnBiomes();
 	}
@@ -330,7 +329,8 @@ public class BOPBiomes
 	
 	public static void registerOnlyBiome(BOPBiomeEntry biome)
 	{
-		onlyBiome = biome.biome;
+		onlyBiome = biome;
+		registerBiome(biome);
 	}
 	
 	public static void registerVanillaBiome(BOPBiomeEntry biome)
@@ -343,11 +343,6 @@ public class BOPBiomes
 	    BOPBiomeHelper.registerBiome(biome, "biomesoplenty:" + BOPBiomeHelper.convertBiomeName(biome.biome.biomeName));
 	}
 	
-	public static void addBiomeToList(BOPBiomeEntry biome)
-	{ 
-	    BOPBiomeHelper.getCorrespondingTemperatureTypeList(biome.temperatureType).add(biome);
-	}
-	
 	public static void addSpawnBiome(BiomeGenBase biome)
 	{
 	    BiomeManager.addSpawnBiome(biome);
@@ -356,17 +351,5 @@ public class BOPBiomes
 	public static void clearAllSpawnBiomes()
 	{
 	    WorldChunkManager.allowedBiomes.clear();
-	}
-
-	private static void useOnlyBiome()
-	{
-	    if (onlyBiome != null)
-	    {
-	        for (TemperatureType temperatureType : BOPBiomeHelper.TemperatureType.values())
-	        {
-	            BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).clear();
-	            addBiomeToList(new BOPBiomeEntry(onlyBiome, temperatureType, 50));
-	        }
-	    }
 	}
 }
