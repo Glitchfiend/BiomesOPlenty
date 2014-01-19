@@ -91,7 +91,6 @@ processResources {
     }
 }
 
-// change the name of my obfuscated jar
 jar {
     manifest {
         //attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
@@ -139,9 +138,9 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
-    deployJars sourceJar
-    deployJars deobfJar
-    deployJars apiJar
+    archives sourceJar
+    archives deobfJar
+    archives apiJar
 }
 
 uploadArchives {
