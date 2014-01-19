@@ -137,9 +137,14 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
+	def jobName = "${System.getenv().JOB_NAME}"
+	def buildNumber = "${System.getenv().BUILD_NUMBER}"
+
     archives sourceJar
     archives deobfJar
     archives apiJar
+	
+	archives project.file('build/distributions/' + project.getName() + '-' + project.version + '-changelog.txt')
 }
 
 uploadArchives {
