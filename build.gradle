@@ -119,12 +119,12 @@ task createChangelog(type: ChangelogTask) {
 
 tasks.build.dependsOn('createChangelog')
 
-task sourceJar(type: Jar) {
+task sourceZip(type: Zip) {
     from sourceSets.main.allSource
     classifier = 'src'
 }
 
-task apiJar(type: Jar) {
+task apiZip(type: Zip) {
     from(sourceSets.main.java)
     {
         include "biomesoplenty/api/*"
@@ -139,9 +139,9 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
-    archives sourceJar
+    archives sourceZip
     archives deobfJar
-    archives apiJar
+    archives apiZip
 }
 
 uploadArchives {
