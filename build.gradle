@@ -139,7 +139,7 @@ artifacts {
     archives sourceJar
     archives deobfJar
     archives apiJar
-	archives createChangelog
+	archives project.file(createChangelog)
 }
 
 uploadArchives {
