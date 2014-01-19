@@ -139,7 +139,7 @@ artifacts {
     archives sourceJar
     archives deobfJar
     archives apiJar
-	archives project.file(createChangelog)
+	archives project.file('build/distributions/' + jobName + '-changelog-' + "${project.version}" + '.txt')
 }
 
 uploadArchives {
