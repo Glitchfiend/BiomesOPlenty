@@ -115,8 +115,6 @@ task createChangelog(type: ChangelogTask) {
     setOutput(new DelayedFile(project, 'build/distributions/' + jobName + '-changelog-' + "${project.version}" + '.txt'));
 }
 
-tasks.build.dependsOn('createChangelog')
-
 // add a source jar
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
@@ -141,6 +139,7 @@ artifacts {
     archives sourceJar
     archives deobfJar
     archives apiJar
+	archives createChangelog
 }
 
 uploadArchives {
