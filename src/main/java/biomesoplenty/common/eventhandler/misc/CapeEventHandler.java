@@ -21,6 +21,8 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class CapeEventHandler
 {
@@ -41,6 +43,7 @@ public class CapeEventHandler
     }
 
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public void onPreRenderSpecials(RenderPlayerEvent.Specials.Pre event)
     {
         if (Loader.isModLoaded("shadersmod"))
