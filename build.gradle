@@ -16,7 +16,7 @@ buildscript {
     }
 }
 
-apply plugin "maven"
+apply plugin: "maven"
 apply plugin: "forge"
 
 // define the properties file
