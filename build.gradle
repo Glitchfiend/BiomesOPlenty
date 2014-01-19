@@ -146,9 +146,7 @@ artifacts {
 
 uploadArchives {
     repositories {
-		mavenDeployer {
-			add getProject().repositories.mavenLocal()
-		}
+		add getProject().repositories.mavenLocal()
     }
     repositories.mavenDeployer {
 	    configuration = configurations.deployJars
