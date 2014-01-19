@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenChaparral3;
 
 public class BiomeGenChaparral extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.6F);
+    private static final Height biomeHeight = new Height(0.2F, 0.3F);
 
     public BiomeGenChaparral(int id)
     {

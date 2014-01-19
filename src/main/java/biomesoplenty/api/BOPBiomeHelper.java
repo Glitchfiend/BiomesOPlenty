@@ -1,26 +1,41 @@
 package biomesoplenty.api;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.common.world.GenLayerBiomeBOP;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 
 public class BOPBiomeHelper 
 {
-	public static HashMap<String, BiomeGenBase> biomeList = new HashMap();
+	public static HashMap<String, BOPBiomeEntry> biomeList = new HashMap();
 	
-	public static void registerBiome(BiomeGenBase biome, String name)
+	public static void registerBiome(BOPBiomeEntry biome, String name)
 	{
 		biomeList.put(name, biome);
 	}
 	
 	public static BiomeGenBase get(String name)
 	{
-		return biomeList.get(name);
+		return biomeList.get(name).biome;
 	}
 	
-	public static ArrayList<BiomeGenBase> getCorrespondingTemperatureTypeList(BOPBiomeTemperatureType type)
+	public static BiomeGenBase getBOPBiome(String name)
+	{
+		return get("biomesoplenty:" + name);
+	}
+	
+	public static String convertBiomeName(String originalName)
+	{
+		return StringUtils.remove(StringUtils.uncapitalize(WordUtils.capitalize(originalName)), " ");
+	}
+	
+	public static List<BOPBiomeEntry> getCorrespondingTemperatureTypeList(TemperatureType type)
 	{
 		switch (type)
 		{
@@ -41,20 +56,26 @@ public class BOPBiomeHelper
 		}
 	}
 	
-	public enum BOPBiomeTemperatureType
+	public enum TemperatureType
 	{
 		HOT, WARM, COOL, ICY;
 	}
 	
-	public static class BOPBiomeListEntry
+	public static class BOPBiomeEntry extends WeightedRandom.Item
 	{
 		public BiomeGenBase biome;
-		public BOPBiomeTemperatureType temperatureType;
+		public TemperatureType temperatureType;
 		
-		public BOPBiomeListEntry(BiomeGenBase biome, BOPBiomeTemperatureType temperatureType)
+		public BOPBiomeEntry(BiomeGenBase biome, TemperatureType temperatureType, int weight)
 		{
+			super(weight);
 			this.biome = biome;
 			this.temperatureType = temperatureType;
+		}
+		
+		public void addToCorrespondingTemperatureTypeList()
+		{
+			BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(this);
 		}
 	}
 }

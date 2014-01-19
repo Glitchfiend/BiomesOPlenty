@@ -8,6 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -38,7 +39,7 @@ public class WorldGenFieldAssociation
 	{
 	    associateField("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24, Blocks.grass, Blocks.dirt, Blocks.sand));
 	    associateField("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48, Blocks.stone));
-	    associateField("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("holyGrass")));
+	    associateField("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("grass")));
 	    associateField("generateStoneInGrass2", new WorldGenSplotches(Blocks.stone, 0, 48, Blocks.grass, Blocks.dirt));
 	    associateField("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
 	    associateField("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));

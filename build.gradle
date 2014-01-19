@@ -81,8 +81,8 @@ processResources {
 // change the name of my obfuscated jar
 jar {
     manifest {
-        attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
-        attributes 'FMLCorePluginContainsFMLMod': 'true'
+        //attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
+        //attributes 'FMLCorePluginContainsFMLMod': 'true'
     }
     appendix = 'universal'
 }

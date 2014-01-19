@@ -52,7 +52,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
-		//TODO: FEATURE Blocks.fire.setFireInfo(this, 30, 60);
 		//TODO: this.setHardness
 		this.func_149711_c(0.2F);
 		//TODO setStepSound(Block.soundGrassFootstep)

@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenPoplar2;
 
 public class BiomeGenGrove extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.4F);
+    private static final Height biomeHeight = new Height(0.1F, 0.2F);
 
 	public BiomeGenGrove(int id)
 	{

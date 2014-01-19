@@ -55,7 +55,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		float var3 = 0.4F;
-		//TODO: FEATURE Blocks.fire.setFireInfo(this, 60, 100);
 		//TODO: setBlockBounds
 		this.func_149676_a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
 		
@@ -149,7 +148,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.sand;
 
 		case 4: // Holy Tall Grass
-			return block == BOPBlockHelper.get("holyGrass");
+			return block == BOPBlockHelper.get("grass");
 
 		case 5: // Thorns
 			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand;
@@ -163,6 +162,9 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 		case 8: // River Cane
 			return block == this || block == Blocks.grass;
+			
+		case 9:
+			return block == this;
 
 		case 10: // High Cattail Bottom
 			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
@@ -178,7 +180,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water;
 			
 		case 15: // Root
-			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("holyGrass") || root == BOPBlockHelper.get("holyDirt"));
+			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("grass") || root == BOPBlockHelper.get("holyDirt"));
 			
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("overgrownNetherrack");
@@ -270,15 +272,22 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	
 	@Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
-    {
+	{
 		int meta = world.getBlockMetadata(x, y, z);
-		
-		if (meta == 11)
+
+		switch (meta)
 		{
+		case 9:
+			return new ItemStack(this, 1, 7);
+
+		case 10:
+			return new ItemStack(this, 1, 7);
+
+		case 11:
 			return new ItemStack(BOPItemHelper.get("food"), 1, 2);
 		}
-		
-        return new ItemStack(this, 1, meta);
+
+		return new ItemStack(this, 1, meta);
     }
 
 	@Override

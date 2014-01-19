@@ -17,7 +17,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenTundra extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.3F);
+    private static final Height biomeHeight = new Height(0.0F, 0.1F);
     
     public BiomeGenTundra(int id)
     {

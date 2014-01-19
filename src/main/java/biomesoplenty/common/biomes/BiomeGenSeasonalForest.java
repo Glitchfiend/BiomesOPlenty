@@ -17,7 +17,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenSeasonalForest extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.7F);
+    private static final Height biomeHeight = new Height(0.2F, 0.4F);
 
     public BiomeGenSeasonalForest(int id)
     {

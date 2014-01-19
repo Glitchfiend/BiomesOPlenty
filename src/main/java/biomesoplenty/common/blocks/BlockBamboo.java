@@ -30,8 +30,7 @@ public class BlockBamboo extends Block
 		
 		//TODO setStepSound(Block.soundWoodFootstep)
 		this.func_149672_a(Block.field_149766_f);
-		
-		//TODO: FEATURE Blocks.fire.setFireInfo(this, 5, 5);
+
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		

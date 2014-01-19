@@ -12,8 +12,6 @@ import biomesoplenty.api.BOPItemHelper;
 
 public class BlockBOPGeneric extends Block
 {
-	//TODO: FEATURE KILL THIS AWFUL CLASS
-	
 	public enum BlockType
 	{
 		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;

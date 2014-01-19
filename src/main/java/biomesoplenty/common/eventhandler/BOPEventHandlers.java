@@ -4,12 +4,17 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
+import biomesoplenty.common.eventhandler.gui.MainMenuEventHandler;
 import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
+import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
+import biomesoplenty.common.eventhandler.world.BiomeSizeEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorationModificationEventHandler;
+import biomesoplenty.common.eventhandler.world.MapGenEventHandler;
+import biomesoplenty.common.eventhandler.world.VillageMaterialEventHandler;
 
 public class BOPEventHandlers 
 {
@@ -26,6 +31,9 @@ public class BOPEventHandlers
 	{
 		MinecraftForge.EVENT_BUS.register(new DecorateBiomeEventHandler());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new DecorationModificationEventHandler());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new BiomeSizeEventHandler());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());
+		MinecraftForge.TERRAIN_GEN_BUS.register(new MapGenEventHandler());
 	}
 	
 	private static void registerEntityEventHandlers()
@@ -44,10 +52,12 @@ public class BOPEventHandlers
 	private static void registerGUIEventHandlers()
 	{
 	    MinecraftForge.EVENT_BUS.register(StartupWarningEventHandler.instance);
+	    MinecraftForge.EVENT_BUS.register(new MainMenuEventHandler());
 	}
 	
 	private static void registerMiscEventHandlers()
 	{
+		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
 	}
 }

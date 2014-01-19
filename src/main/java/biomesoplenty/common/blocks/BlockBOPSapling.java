@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
@@ -70,16 +71,16 @@ public class BlockBOPSapling extends BlockSapling
 			list.add(new ItemStack(block, 1, i));
 		}
 	}
-	
+
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
 		Block block = world.func_147439_a(x, y - 1, z);
-		
+
 		switch (metadata)
 		{
 		case 7: // Loftwood
-			return block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt");
+			return block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("holyDirt");
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
@@ -99,13 +100,13 @@ public class BlockBOPSapling extends BlockSapling
 	{
 		//TODO:			   getBlock()
 		Block soil = world.func_147439_a(x, y - 1, z);
-		
+
 		if (world.getBlockMetadata(x, y, z) != 1)
 			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
 					(soil != null && soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this));
 		else
 			return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) &&
-					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) || soil == BOPBlockHelper.get("holyGrass")));
+					(soil != null && (soil.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this) || soil == BOPBlockHelper.get("grass")));
 	}
 
 	@Override
@@ -136,11 +137,11 @@ public class BlockBOPSapling extends BlockSapling
 			{
 			/*case 0: // Apple Tree
 			obj = new WorldGenApple(false);
-			break;
+			break;*/
 
 			case 1: // Autumn Tree
-			obj = new WorldGenAutumn(false);
-			break;*/
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves1"), 2, 0, false, 5, 3, false);
+				break;
 
 			case 2: // Bamboo Tree
 				rnd = random.nextInt(8);
@@ -152,61 +153,59 @@ public class BlockBOPSapling extends BlockSapling
 				}
 				break;
 
-			/*case 3: // Magic Tree
-				obj = new WorldGenMystic2(false);
+			case 3: // Magic Tree
+				obj = new WorldGenOriginalTree(BOPBlockHelper.get("logs2"), BOPBlockHelper.get("leaves1"), 1, 2, false, 5, 3, false);
 				break;
 
-			*/case 4: // Dark Tree
+			case 4: // Dark Tree
 				rnd = random.nextInt(8);
 
-				if (rnd == 0) {
-					obj = new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, 5, 4);
-				} else {
-					obj = new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6, 0);
-				}
+				if (rnd == 0) obj = new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, 5, 4);
+				else obj = new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6, 0);
+
 				break;
 
-			/*case 5: // Dead Tree
-				obj = new WorldGenDeadTree2(false);
+			case 5: // Dead Tree
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 5, 3, false);
 				break;
 
 			case 6: // Fir Tree
-				obj = new WorldGenTaiga9(false);
+				obj = new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 10, 10, 5);
 				break;
 
-			case 7: // Holy Tree
+				/*case 7: // Holy Tree
 				obj = new WorldGenPromisedTree(false);
-				break;
+				break;*/
 
 			case 8: // Autumn Tree
-				obj = new WorldGenAutumn2(false);
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 3, false, 5, 3, false);
 				break;
 
 			case 9: // Origin Tree
-				obj = new WorldGenOriginTree(false);
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 0, false, 5, 3, false);
 				break;
 
 			case 10: // Pink Cherry Tree
-				obj = new WorldGenCherry1(false);
+				obj = new WorldGenBOPBigTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves3"), 1, 1);
 				break;
 
 			case 11: // Maple Tree
-				obj = new WorldGenMaple(false);
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 2, false, 5, 3, false);
 				break;
 
 			case 12: // White Cherry Tree
-				obj = new WorldGenCherry2(false);
+				obj = new WorldGenBOPBigTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves3"), 1, 3);
 				break;
 
-			case 13: // Hellbark
+				/*case 13: // Hellbark
 				obj = new WorldGenNetherBush();
 				break;*/
 
 			case 14: // Jacaranda
 				obj = new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1);
 				break;
-				
-			/*case 15: // Persimmon
+
+				/*case 15: // Persimmon
 				obj = new WorldGenPersimmon(false);
 				break;*/
 			}

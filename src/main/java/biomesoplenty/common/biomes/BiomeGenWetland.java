@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenWetland extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.3F, 0.5F);
+    private static final Height biomeHeight = new Height(0.0F, 0.2F);
 
     public BiomeGenWetland(int id)
     {

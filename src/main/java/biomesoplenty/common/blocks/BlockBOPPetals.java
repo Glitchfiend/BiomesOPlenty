@@ -28,7 +28,6 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
     	//TODO:	Material.leaves
         super(Material.field_151584_j, false);
 		
-      //TODO: FEATURE Blocks.fire.setFireInfo(this, 30, 60);
 		//TODO: setTickRandomly()
 		this.func_149675_a(true);
 		//TODO: this.setHardness
