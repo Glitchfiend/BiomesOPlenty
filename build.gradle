@@ -16,14 +16,6 @@ buildscript {
     }
 }
 
-configurations {
-    deployJars {
-	    archives sourceJar
-		archives deobfJar
-		archives apiJar
-	}
-}
-
 apply plugin: "maven"
 apply plugin: "forge"
 
@@ -142,13 +134,17 @@ task deobfJar(type: Jar) {
     appendix = 'deobf'
 }
 
+artifacts {
+    archives sourceJar
+    archives deobfJar
+    archives apiJar
+}
+
 uploadArchives {
     repositories {
         add getProject().repositories.mavenLocal()
     }
     repositories.mavenDeployer {
-        configuration = configurations.deployJars
-
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
             repository(url: project.filesmaven.url) {
