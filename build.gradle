@@ -17,14 +17,7 @@ buildscript {
 }
 
 configurations {
-    deployJars {
-		repositories {
-			mavenDeployer {
-			    repository(url: project.releaseRepoUrl)
-				snapshotRepository(url: project.snapshotRepoUrl)
-			}
-		}
-	}
+    deployJars
 }
 
 apply plugin: "maven"
@@ -154,6 +147,11 @@ artifacts {
 uploadArchives {
     repositories {
         add getProject().repositories.mavenLocal()
+		
+		mavenDeployer {
+			repository(url: project.releaseRepoUrl)
+			snapshotRepository(url: project.snapshotRepoUrl)
+		}
     }
     repositories.mavenDeployer {
 	    configuration = configurations.deployJars
