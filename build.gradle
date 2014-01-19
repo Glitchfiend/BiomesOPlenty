@@ -117,7 +117,7 @@ task createChangelog(type: ChangelogTask) {
 	project.getArtifacts().add("archives", getOutput());
 }
 
-//tasks.build.dependsOn('createChangelog')
+tasks.build.dependsOn('createChangelog')
 
 task sourceZip(type: Zip) {
     from sourceSets.main.allSource
