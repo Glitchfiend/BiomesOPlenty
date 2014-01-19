@@ -115,7 +115,8 @@ task createChangelog(type: ChangelogTask) {
     setOutput(new DelayedFile(project, 'build/distributions/' + jobName + '-changelog-' + "${project.version}" + '.txt'));
 }
 
-// add a source jar
+tasks.build.dependsOn('createChangelog')
+
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
     classifier = 'src'
