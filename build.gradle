@@ -45,10 +45,6 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
-project.ext {
-  releaseRepoUrl = "file://${project(':').projectDir}/../mvn-repo/releases"
-  snapshotRepoUrl = "file://${project(':').projectDir}/../mvn-repo/snapshots"
-}
 dependencies {
     //compile name: 'WorldCore', version: "${config.minecraft_version}-${config.worldcore_version}", ext: 'jar'
     //compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
@@ -150,11 +146,8 @@ artifacts {
 
 uploadArchives {
     repositories {
-        add getProject().repositories.mavenLocal()
-		
 		mavenDeployer {
-			repository(url: project.releaseRepoUrl)
-			snapshotRepository(url: project.snapshotRepoUrl)
+			add getProject().repositories.mavenLocal()
 		}
     }
     repositories.mavenDeployer {
