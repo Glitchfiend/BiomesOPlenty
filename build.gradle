@@ -23,6 +23,18 @@ configurations {
 apply plugin: "maven"
 apply plugin: "forge"
 
+repositories {
+    mavenLocal()
+    flatDir {
+        name "fileRepo"
+        dirs "repo"
+    }
+    ivy {
+        name 'Forge FS legacy'
+        artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
+    }
+}
+
 // define the properties file
 ext.configFile = file "build.properties"
 
@@ -31,13 +43,6 @@ configFile.withReader {
     def prop = new Properties()
     prop.load(it)
     project.ext.config = new ConfigSlurper().parse prop
-}
-
-repositories {
-    ivy {
-        name 'Forge FS legacy'
-        artifactPattern "http://files.minecraftforge.net/[module]/[module]-dev-[revision].[ext]"
-    }
 }
 
 dependencies {
@@ -59,6 +64,10 @@ minecraft {
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
+
+jenkins {
+    job = 'BiomesOPlenty'
+}
 
 processResources {
     // replace stuff in the files we want.
@@ -166,7 +175,7 @@ uploadArchives {
             scm {
                 url 'https://github.com/Glitchfiend/BiomesOPlenty'
                 connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
-                developerConnection 'scm:git:git@github.com:MinecraftForge/MinecraftForge.git'
+                developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
             }
 
             issueManagement {
