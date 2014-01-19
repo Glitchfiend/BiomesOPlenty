@@ -11,12 +11,15 @@ import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.client.gui.StartupWarningGUI;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class StartupWarningEventHandler
 {
     public static StartupWarningEventHandler instance = new StartupWarningEventHandler();
     
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public void openMainMenu(GuiOpenEvent event)
     {
         if (event.gui instanceof GuiMainMenu)
