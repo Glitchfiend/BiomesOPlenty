@@ -136,6 +136,9 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
+	def jobName = "${System.getenv().JOB_NAME}"
+	def buildNumber = "${System.getenv().BUILD_NUMBER}"
+
     archives sourceJar
     archives deobfJar
     archives apiJar
