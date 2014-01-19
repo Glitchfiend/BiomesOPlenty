@@ -118,32 +118,6 @@ task createChangelog(type: ChangelogTask) {
 
 tasks.build.dependsOn('createChangelog')
 
-// add a source jar
-task sourceJar(type: Jar) {
-    from sourceSets.main.allSource
-    appendix = 'src'
-}
-
-task apiJar(type: Jar) {
-    from(sourceSets.main.java)
-    {
-        include "biomesoplenty/api/*"
-    }
-    appendix = 'api'
-}
-
-// because the normal output has been made to be obfuscated
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    appendix = 'deobf'
-}
-
-artifacts {
-    archives sourceJar
-    archives deobfJar
-    archives apiJar
-}
-
 uploadArchives {
     repositories {
         add getProject().repositories.mavenLocal()
