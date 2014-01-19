@@ -113,7 +113,11 @@ task createChangelog(type: ChangelogTask) {
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
     setOutput(new DelayedFile(project, 'build/distributions/' + project.getName() + '-' + project.version + '-changelog.txt'));
+	
+	project.getArtifacts().add("archives", getOutput());
 }
+
+tasks.build.dependsOn('createChangelog')
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
@@ -138,8 +142,6 @@ artifacts {
     archives sourceJar
     archives deobfJar
     archives apiJar
-	
-	archives project.file(createChangelog().getOutput())
 }
 
 uploadArchives {
