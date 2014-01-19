@@ -112,7 +112,7 @@ task createChangelog(type: ChangelogTask) {
     setAuthName(new DelayedString(project, 'console_script'));
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
-    setOutput(new DelayedFile(project, 'build/distributions/' + jobName + '-changelog-' + "${project.version}" + '.txt'));
+    setOutput(new DelayedFile(project, 'build/distributions/' + jobName + "${project.version}" + 'changelog' + '.txt'));
 }
 
 tasks.build.dependsOn('createChangelog')
@@ -143,7 +143,7 @@ artifacts {
     archives sourceJar
     archives deobfJar
     archives apiJar
-	archives project.file('build/distributions/' + jobName + '-changelog-' + "${project.version}" + '.txt')
+	archives project.file('build/distributions/' + jobName + ${project.version}" + 'changelog' + '.txt')
 }
 
 uploadArchives {
