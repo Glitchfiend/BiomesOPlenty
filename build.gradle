@@ -17,7 +17,14 @@ buildscript {
 }
 
 configurations {
-    deployJars
+    deployJars {
+		repositories {
+			mavenDeployer {
+			    repository(url: project.releaseRepoUrl)
+				snapshotRepository(url: project.snapshotRepoUrl)
+			}
+		}
+	}
 }
 
 apply plugin: "maven"
