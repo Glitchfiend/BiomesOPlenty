@@ -97,7 +97,7 @@ jar {
         //attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPFMLLoadingPlugin'
         //attributes 'FMLCorePluginContainsFMLMod': 'true'
     }
-    appendix = 'universal'
+    classifier = 'universal'
 }
 
 import net.minecraftforge.gradle.tasks.dev.ChangelogTask
@@ -121,7 +121,7 @@ tasks.build.dependsOn('createChangelog')
 // add a source jar
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
-    appendix = 'src'
+    classifier = 'src'
 }
 
 task apiJar(type: Jar) {
@@ -129,13 +129,13 @@ task apiJar(type: Jar) {
     {
         include "biomesoplenty/api/*"
     }
-    appendix = 'api'
+    classifier = 'api'
 }
 
 // because the normal output has been made to be obfuscated
 task deobfJar(type: Jar) {
     from sourceSets.main.output
-    appendix = 'deobf'
+    classifier = 'deobf'
 }
 
 artifacts {
