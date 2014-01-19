@@ -156,7 +156,7 @@ uploadArchives {
         pom.project {
             name project.archivesBaseName
             packaging 'jar'
-            description 'Biomes O' Plenty'
+            description 'Biomes O Plenty'
             url 'https://github.com/Glitchfiend/BiomesOPlenty'
 
             scm {
