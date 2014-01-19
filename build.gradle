@@ -115,8 +115,6 @@ task createChangelog(type: ChangelogTask) {
     setOutput(new DelayedFile(project, 'build/distributions/' + project.getName() + '-' + project.version + '-changelog.txt'));
 }
 
-tasks.build.dependsOn('createChangelog')
-
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
     classifier = 'src'
@@ -137,14 +135,11 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
-	def jobName = "${System.getenv().JOB_NAME}"
-	def buildNumber = "${System.getenv().BUILD_NUMBER}"
-
     archives sourceJar
     archives deobfJar
     archives apiJar
 	
-	archives project.file('build/distributions/' + project.getName() + '-' + project.version + '-changelog.txt')
+	archives project.file(createChangelog().getOutput())
 }
 
 uploadArchives {
