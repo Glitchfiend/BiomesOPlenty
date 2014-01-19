@@ -117,7 +117,7 @@ task createChangelog(type: ChangelogTask) {
 	project.getArtifacts().add("archives", getOutput());
 }
 
-tasks.build.dependsOn('createChangelog')
+//tasks.build.dependsOn('createChangelog')
 
 task sourceZip(type: Zip) {
     from sourceSets.main.allSource
@@ -132,7 +132,6 @@ task apiZip(type: Zip) {
     classifier = 'api'
 }
 
-// because the normal output has been made to be obfuscated
 task deobfJar(type: Jar) {
     from sourceSets.main.output
     classifier = 'deobf'
