@@ -141,7 +141,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		return block == BOPBlockHelper.get("driedDirt") || block == Blocks.sand;
 
 		case 1: // Desert Grass
-			return block == BOPBlockHelper.get("redRock");
+			return block == Blocks.hardened_clay;
 
 		case 2: // Desert Sprouts
 		case 3: // Dune Grass
@@ -171,7 +171,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block != Blocks.grass ? false : (world.func_147439_a(x - 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x + 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x, y - 1, z - 1).func_149688_o() == Material.field_151586_h ? true : world.func_147439_a(x, y - 1, z + 1).func_149688_o() == Material.field_151586_h)));
 
 		case 12: // Tiny Cactus
-			return block == Blocks.sand || block == BOPBlockHelper.get("redRock") || block == Blocks.soul_sand;
+			return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.soul_sand;
 			
 		case 13: // Wither Wart
 			return block == Blocks.soul_sand;

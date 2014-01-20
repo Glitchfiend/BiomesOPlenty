@@ -77,7 +77,7 @@ public class WorldGenFieldAssociation
 	    associateField("algaePerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 0));
 	    associateField("sproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 5));
 	    associateField("tinyCactiPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 12));
-	    associateField("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, BOPBlockHelper.get("redRock")));
+	    associateField("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, Blocks.hardened_clay));
 	    associateField("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
 	    associateField("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
 	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());

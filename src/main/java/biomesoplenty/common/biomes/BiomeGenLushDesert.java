@@ -6,8 +6,8 @@ import java.util.Random;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenCypress;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
@@ -30,14 +30,14 @@ public class BiomeGenLushDesert extends BOPBiome
         this.func_150570_a(biomeHeight);
         //TODO: setColor()
         this.setColor(9087277);
-        this.setTemperatureRainfall(0.8F, 0.2F);
+        this.setTemperatureRainfall(1.0F, 0.3F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 
-        this.topBlock = BOPBlockHelper.get("redRock");
-        this.fillerBlock = BOPBlockHelper.get("redRock");
+        this.topBlock = Blocks.hardened_clay;
+        this.fillerBlock = Blocks.hardened_clay;
 
-        this.theBiomeDecorator.treesPerChunk = 12;
+        this.theBiomeDecorator.treesPerChunk = 6;
         this.theBiomeDecorator.grassPerChunk = 8;
         this.theBiomeDecorator.cactiPerChunk = 20;
         this.theBiomeDecorator.deadBushPerChunk = 2;
@@ -49,7 +49,6 @@ public class BiomeGenLushDesert extends BOPBiome
         this.bopWorldFeatures.waterLakesPerChunk = 5;
         this.bopWorldFeatures.waterReedsPerChunk = 4;
         this.bopWorldFeatures.bromeliadsPerChunk = 3;
-        this.bopWorldFeatures.generateGrass = true;
         this.bopWorldFeatures.generateSand = true;
         this.bopWorldFeatures.generatePumpkins = false;
     }
@@ -58,8 +57,8 @@ public class BiomeGenLushDesert extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(4) == 0 ? new WorldGenSavannaTree(false) : 
-        (random.nextInt(24) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : 
+        return random.nextInt(4) == 0 ? new WorldGenCypress(Blocks.log2, Blocks.leaves2, 0, 0, false, 7, 10, 2) : 
+        (random.nextInt(18) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), Blocks.hardened_clay) : 
         (random.nextInt(2) == 0 ? worldGeneratorTrees : new WorldGenShrub(0,0)));
     }
     
@@ -122,5 +121,24 @@ public class BiomeGenLushDesert extends BOPBiome
                 world.func_147465_d(x, y, z, Blocks.flowing_water, 0, 2);
             }
         }
+    }
+    
+    public void func_150573_a(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    {
+
+        if (p_150573_7_ > 1.75D)
+        {
+        	this.topBlock = Blocks.grass;
+            this.fillerBlock = Blocks.dirt;
+            this.field_150604_aj = 0;
+        }
+        else if (p_150573_7_ > -0.5D)
+        {
+            this.topBlock = Blocks.hardened_clay;
+            this.fillerBlock = Blocks.hardened_clay;
+            this.field_150604_aj = 0;
+        }
+
+        this.func_150560_b(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 }
