@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBrush1;
 import biomesoplenty.common.world.features.trees.WorldGenBrush2;
@@ -42,6 +43,16 @@ public class BiomeGenBrushland extends BOPBiome
 	{
 		return random.nextInt(2) == 0 ? new WorldGenBrush2(Blocks.log, Blocks.leaves, 3, 0, Blocks.grass) : (random.nextInt(5) == 0 ?  new WorldGenBrush1() : new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand));
 	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 0.5D);
+        
+        return flowerMap;
+    }
 	
     @Override
 	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()

@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
@@ -37,7 +38,7 @@ public class BiomeGenHeathland extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 10;
 	    this.theBiomeDecorator.deadBushPerChunk = 2;
 		
-		this.bopWorldFeatures.bopFlowersPerChunk = 30;
+		this.bopWorldFeatures.bopFlowersPerChunk = 20;
 		this.bopWorldFeatures.berryBushesPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 5;
 		this.bopWorldFeatures.generatePumpkins = false;
@@ -56,6 +57,8 @@ public class BiomeGenHeathland extends BOPBiome
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 1D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 0.5D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 0.25D);
         
         return flowerMap;
     }

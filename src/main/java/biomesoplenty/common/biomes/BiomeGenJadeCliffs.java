@@ -1,5 +1,6 @@
 package biomesoplenty.common.biomes;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -12,6 +13,8 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
 public class BiomeGenJadeCliffs extends BOPBiome
@@ -31,6 +34,7 @@ public class BiomeGenJadeCliffs extends BOPBiome
 		this.theBiomeDecorator.treesPerChunk = 12;
 		this.theBiomeDecorator.grassPerChunk = 3;
 
+		this.bopWorldFeatures.bopFlowersPerChunk = 3;
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
 	}
 	
@@ -40,6 +44,16 @@ public class BiomeGenJadeCliffs extends BOPBiome
 	{
 		return random.nextInt(4) == 0 ? new WorldGenShrub(0, 1) : new WorldGenPineTree();
 	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 0.5D);
+        
+        return flowerMap;
+    }
 
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)

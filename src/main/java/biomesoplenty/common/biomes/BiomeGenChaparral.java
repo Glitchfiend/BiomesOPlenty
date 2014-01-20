@@ -11,6 +11,8 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
 import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
@@ -37,6 +39,7 @@ public class BiomeGenChaparral extends BOPBiome
 		this.theBiomeDecorator.treesPerChunk = 8;
 		this.theBiomeDecorator.grassPerChunk = 20;
 		
+		this.bopWorldFeatures.bopFlowersPerChunk = 5;
 		this.bopWorldFeatures.bushesPerChunk = 10;
 		this.bopWorldFeatures.berryBushesPerChunk = 2;
 		this.bopWorldFeatures.generateStoneInGrass = true;
@@ -51,6 +54,17 @@ public class BiomeGenChaparral extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : (random.nextInt(5) == 0 ?  new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : new WorldGenChaparral3());
+    }
+    
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 1D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 0.5D);
+        
+        return flowerMap;
     }
 
     @Override

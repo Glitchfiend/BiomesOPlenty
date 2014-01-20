@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenCypress;
@@ -67,6 +68,7 @@ public class BiomeGenLushDesert extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 0.5D);
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 1D);
         
         return flowerMap;

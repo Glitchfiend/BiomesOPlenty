@@ -11,6 +11,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree;
 import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree2;
@@ -45,7 +47,17 @@ public class BiomeGenRedwoodForest extends BOPBiome
     {
         return random.nextInt(4) == 0 ? new WorldGenRedwoodTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 40, 10) : (random.nextInt(8) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree2(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 20, 15));
     }
-
+    
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 1D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 0.5D);
+        
+        return flowerMap;
+    }
 
     @Override
     public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()

@@ -61,6 +61,8 @@ public class BiomeGenLushSwamp extends BOPBiome
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 1D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 0.5D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 0.75D);
         
         return flowerMap;
     }

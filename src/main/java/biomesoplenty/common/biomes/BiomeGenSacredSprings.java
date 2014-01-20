@@ -1,5 +1,6 @@
 package biomesoplenty.common.biomes;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
@@ -10,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 import cpw.mods.fml.relauncher.Side;
@@ -49,9 +51,15 @@ public class BiomeGenSacredSprings extends BOPBiome
     }
     
     @Override
-	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
+	public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
     {
-    	return random.nextInt(3) == 0 ? new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6) : new WorldGenBOPFlora(Blocks.red_flower, 1);
+    	HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+    	
+    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 3D);
+    	flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6D);
+    	flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 5, 11, 5), 1D);
+    	
+    	return flowerMap;
     }
     
 	@Override

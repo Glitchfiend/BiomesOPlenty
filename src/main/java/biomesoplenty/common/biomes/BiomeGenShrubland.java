@@ -1,5 +1,6 @@
 package biomesoplenty.common.biomes;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -12,6 +13,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class BiomeGenShrubland extends BOPBiome
 {
@@ -45,6 +47,16 @@ public class BiomeGenShrubland extends BOPBiome
 
 		return new WorldGenShrub(0, 0);
 	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 0.5D);
+        
+        return flowerMap;
+    }
 
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)

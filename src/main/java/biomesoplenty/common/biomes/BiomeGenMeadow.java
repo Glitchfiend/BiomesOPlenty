@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
@@ -58,6 +59,8 @@ public class BiomeGenMeadow extends BOPBiome
         
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 3D);
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 1D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 5, 11, 3), 0.5D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 0.5D);
         
         return flowerMap;
     }

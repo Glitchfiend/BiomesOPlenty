@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
@@ -45,6 +46,16 @@ public class BiomeGenBorealForest extends BOPBiome
 		return random.nextInt(4) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, false, 8, 2, false) : (random.nextInt(5) == 0 ? new WorldGenShrub(0,0) : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves1"), 2, 0, false, 5, 3, false) : 
 		(random.nextInt(3) == 0 ? worldGeneratorTrees : new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 13, 9, 2))));
 	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 1D);
+        
+        return flowerMap;
+    }
 	
     @Override
 	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()

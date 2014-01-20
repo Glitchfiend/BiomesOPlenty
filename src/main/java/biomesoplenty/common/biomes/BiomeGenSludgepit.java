@@ -68,7 +68,7 @@ public class BiomeGenSludgepit extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 1D);
+        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
         
         return grassMap;
     }

@@ -5,13 +5,12 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 
 public class BiomeGenBambooForest extends BOPBiome
@@ -35,7 +34,6 @@ public class BiomeGenBambooForest extends BOPBiome
 		this.bopWorldFeatures.riverCanePerChunk = 6;
 		this.bopWorldFeatures.shrubsPerChunk = 6;
 		this.bopWorldFeatures.bushesPerChunk = 5;
-		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
 		
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
@@ -81,7 +79,7 @@ public class BiomeGenBambooForest extends BOPBiome
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1)));
+		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : (random.nextInt(8) == 0 ? new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1))));
 	}
 
 	@Override

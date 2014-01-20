@@ -10,6 +10,7 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
@@ -32,6 +33,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 15;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		
+		this.bopWorldFeatures.bopFlowersPerChunk = 10;
 		this.bopWorldFeatures.shrubsPerChunk = 2;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 15;
 		this.bopWorldFeatures.generatePumpkins = false;
@@ -52,6 +54,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 3D);
     	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6D);
     	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 5D);
+    	flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 1D);
     	
     	return flowerMap;
     }

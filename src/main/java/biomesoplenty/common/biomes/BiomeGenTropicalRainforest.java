@@ -14,6 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenRainforestTree1;
@@ -43,7 +44,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.theBiomeDecorator.waterlilyPerChunk = 2;
         
         this.bopWorldFeatures.bopFlowersPerChunk = 10;
-        this.bopWorldFeatures.doubleTallGrassPerChunk = 4;
+        this.bopWorldFeatures.doubleTallGrassPerChunk = 8;
         this.bopWorldFeatures.generatePumpkins = false;
         this.bopWorldFeatures.generateMelons = true;
         this.bopWorldFeatures.sproutsPerChunk = 2;
@@ -78,6 +79,8 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.75D);
+        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 1D);
         
         return grassMap;
     }

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -31,6 +33,7 @@ public class BiomeGenWoodland extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 7;
 		this.theBiomeDecorator.mushroomsPerChunk = 4;
 		
+		this.bopWorldFeatures.bopFlowersPerChunk = 5;
 		this.bopWorldFeatures.toadstoolsPerChunk = 3;
 		this.bopWorldFeatures.shrubsPerChunk = 20;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
@@ -44,6 +47,16 @@ public class BiomeGenWoodland extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(10) == 0 ? worldGeneratorBigTree : worldGeneratorTrees;
+    }
+    
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 1D);
+        
+        return flowerMap;
     }
 	
     @Override

@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga1;
@@ -60,6 +61,16 @@ public class BiomeGenFen extends BOPBiome
 		(random.nextInt(20) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
 		new WorldGenBOPTaiga1(Blocks.log, Blocks.leaves, 0, 0, false, 7, 5, 1));
 	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    {
+        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 0.5D);
+        
+        return flowerMap;
+    }
 	
     @Override
 	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()

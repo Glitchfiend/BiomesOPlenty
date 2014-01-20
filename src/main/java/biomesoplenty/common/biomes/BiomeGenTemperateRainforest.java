@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
@@ -62,11 +63,12 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         HashMap<WorldGenerator, Double> grassMap = new HashMap();
         
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 2D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
+        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 0.25D);
         
         return grassMap;
     }
