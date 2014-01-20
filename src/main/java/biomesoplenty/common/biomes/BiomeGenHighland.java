@@ -8,11 +8,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenHighland extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(0.7F, 1.2F);
+	private static final Height biomeHeight = new Height(0.5F, 1.0F);
 
 	public BiomeGenHighland(int id)
 	{
@@ -25,9 +26,9 @@ public class BiomeGenHighland extends BOPBiome
         this.setTemperatureRainfall(0.5F, 0.5F);
 		
 		this.theBiomeDecorator.treesPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 25;
+		this.theBiomeDecorator.grassPerChunk = 99;
 		
-		this.bopWorldFeatures.doubleTallGrassPerChunk = 25;
+		this.bopWorldFeatures.doubleTallGrassPerChunk = 99;
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
 	}
 	
@@ -36,9 +37,10 @@ public class BiomeGenHighland extends BOPBiome
     {
     	HashMap<WorldGenerator, Double> grassMap = new HashMap();
     	
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.25D);
+    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.25D);
+    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+    	grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8, 64), 1D);
     	
     	return grassMap;
     }

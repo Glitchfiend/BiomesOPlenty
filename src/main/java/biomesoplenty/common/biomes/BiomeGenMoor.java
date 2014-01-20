@@ -42,7 +42,7 @@ public class BiomeGenMoor extends BOPBiome
 		this.bopWorldFeatures.mudPerChunk = 1;
 		this.bopWorldFeatures.waterLakesPerChunk = 10;
 		this.bopWorldFeatures.bopFlowersPerChunk = 6;
-		this.bopWorldFeatures.koruPerChunk = 1;
+		this.bopWorldFeatures.koruPerChunk = 3;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	
