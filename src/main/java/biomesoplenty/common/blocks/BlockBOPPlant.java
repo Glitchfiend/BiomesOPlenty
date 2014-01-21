@@ -134,6 +134,8 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		Block block = world.func_147439_a(x, y - 1, z);
 		//TODO:					  getBlock()
 		Block root = world.func_147439_a(x, y + 1, z);
+		//TODO:					  getBlock()
+		Block reedwater = world.func_147439_a(x, y - 2, z);
 		
 		switch (metadata)
 		{
@@ -177,7 +179,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.soul_sand;
 			
 		case 14: // Reed
-			return block == Blocks.water;
+			return block == Blocks.water && reedwater != Blocks.water;
 			
 		case 15: // Root
 			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("grass") || root == BOPBlockHelper.get("holyDirt"));

@@ -105,12 +105,15 @@ public class ItemBlockPlant extends ItemBlock
 				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
 				if (world.func_147439_a(i, j, k).func_149688_o() == Material.field_151586_h && world.getBlockMetadata(i, j, k) == 0 && world.func_147437_c(i, j + 1, k))
 				{
-					//TODO:	setBlock()				linkedBlock
-					world.func_147465_d(i, j + 1, k, field_150939_a, 14, 2);
-
-					if (!player.capabilities.isCreativeMode)
+					if (world.func_147439_a(i, j - 1, k).func_149688_o() != Material.field_151586_h)
 					{
-						--itemStack.stackSize;
+						//TODO:	setBlock()				linkedBlock
+						world.func_147465_d(i, j + 1, k, field_150939_a, 14, 2);
+	
+						if (!player.capabilities.isCreativeMode)
+						{
+							--itemStack.stackSize;
+						}
 					}
 				}
 			}

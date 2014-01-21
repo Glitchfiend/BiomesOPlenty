@@ -37,6 +37,7 @@ public class BiomeGenShrubland extends BOPBiome
 
 		this.bopWorldFeatures.bushesPerChunk = 7;
 		this.bopWorldFeatures.shrubsPerChunk = 5;
+		this.bopWorldFeatures.waterReedsPerChunk = 3;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 
