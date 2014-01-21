@@ -9,6 +9,7 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
@@ -59,7 +60,7 @@ public class BiomeGenMysticGrove extends BOPBiome
 		return random.nextInt(4) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs2"), BOPBlockHelper.get("leaves1"), 1, 2, false, 5, 3, false) : 
 		(random.nextInt(3) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1) : 
 		((random.nextInt(3) == 0 ? this.worldGeneratorBigTree : 
-		((random.nextInt(8) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 6, 8) : this.worldGeneratorTrees)))));
+		((random.nextInt(8) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("ivy"), -1) : this.worldGeneratorTrees)))));
 	}
 	
     @Override
@@ -70,6 +71,9 @@ public class BiomeGenMysticGrove extends BOPBiome
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 3D);
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 3), 4D);
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 1D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 3), 2D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 1D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 1D);
         
         return flowerMap;
     }

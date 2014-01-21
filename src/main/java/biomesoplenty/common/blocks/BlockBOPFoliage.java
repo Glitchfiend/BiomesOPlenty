@@ -277,7 +277,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
     //TODO:	   getRenderColor()
     public int func_149741_i(int par1)
     {
-		return ColorizerFoliage.getFoliageColorBasic();
+		return ColorizerGrass.getGrassColor(0.5D, 1.0D);
 	}
 
 	@Override
