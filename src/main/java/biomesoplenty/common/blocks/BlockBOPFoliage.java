@@ -19,6 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerFoliage;
@@ -183,6 +184,29 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
+	@Override
+	//TODO: 	randomDisplayTick()
+	public void func_149734_b(World world, int x, int y, int z, Random random)
+	{
+		//TODO: randomDisplayTick()
+		super.func_149734_b(world, x, y, z, random);
+
+		int meta = world.getBlockMetadata(x, y, z);
+		int i = 5149489;
+		double d0 = (double)(i >> 16 & 255) / 255.0D;
+        double d1 = (double)(i >> 8 & 255) / 255.0D;
+        double d2 = (double)(i >> 0 & 255) / 255.0D;
+
+		if (meta == 7)
+		{
+			if (random.nextInt(32) == 0)
+			{
+				
+				world.spawnParticle("mobSpell", x + random.nextFloat(), y + random.nextFloat(), z + random.nextFloat(), d0, d1, d2);
+			}
+		}
+	}
+
     @Override
 	//TODO:		updateTick()
 	public void func_149674_a(World world, int x, int y, int z, Random random)
