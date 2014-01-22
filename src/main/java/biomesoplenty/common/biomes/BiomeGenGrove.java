@@ -56,8 +56,8 @@ public class BiomeGenGrove extends BOPBiome
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 16D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 3D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 5, 11, 3), 2D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 5, 11, 3), 4D);
         
         return flowerMap;
     }

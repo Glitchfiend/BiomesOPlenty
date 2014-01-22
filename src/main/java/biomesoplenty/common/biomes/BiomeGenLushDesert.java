@@ -68,8 +68,8 @@ public class BiomeGenLushDesert extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 0.5D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 1D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 4D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8D);
         
         return flowerMap;
     }

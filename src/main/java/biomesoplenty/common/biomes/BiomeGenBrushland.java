@@ -49,7 +49,7 @@ public class BiomeGenBrushland extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 0.5D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 5D);
         
         return flowerMap;
     }

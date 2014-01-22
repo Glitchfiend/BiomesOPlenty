@@ -58,7 +58,7 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 1D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8D);
         
         return flowerMap;
     }

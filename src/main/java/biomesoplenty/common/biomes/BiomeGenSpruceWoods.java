@@ -54,7 +54,7 @@ public class BiomeGenSpruceWoods extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 5), 1D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 5), 15D);
         
         return flowerMap;
     }

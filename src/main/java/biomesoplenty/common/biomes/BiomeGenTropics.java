@@ -62,11 +62,11 @@ public class BiomeGenTropics extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 0.5D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 0.75D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 0), 5D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 0.5D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 1D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 8D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 10D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 0), 15D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 7D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 6D);
         
         return flowerMap;
     }
