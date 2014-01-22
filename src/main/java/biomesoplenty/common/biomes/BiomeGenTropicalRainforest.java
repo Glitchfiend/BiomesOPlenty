@@ -66,7 +66,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 1D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 12D);
         
         return flowerMap;
     }

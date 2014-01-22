@@ -52,8 +52,8 @@ public class BiomeGenPrairie extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 4), 1D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 0.5D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 4), 12D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6D);
         
         return flowerMap;
     }

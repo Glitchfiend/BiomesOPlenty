@@ -78,8 +78,8 @@ public class BiomeGenWetland extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 1D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 0.5D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 10D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6D);
         
         return flowerMap;
     }

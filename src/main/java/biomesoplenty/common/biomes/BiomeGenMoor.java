@@ -42,7 +42,7 @@ public class BiomeGenMoor extends BOPBiome
 		this.bopWorldFeatures.mudPerChunk = 1;
 		this.bopWorldFeatures.waterLakesPerChunk = 10;
 		this.bopWorldFeatures.bopFlowersPerChunk = 6;
-		this.bopWorldFeatures.koruPerChunk = 3;
+		this.bopWorldFeatures.koruPerChunk = 6;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	
@@ -51,7 +51,7 @@ public class BiomeGenMoor extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 1D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 14D);
         
         return flowerMap;
     }

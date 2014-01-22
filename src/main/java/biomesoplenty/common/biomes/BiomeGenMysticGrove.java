@@ -68,12 +68,12 @@ public class BiomeGenMysticGrove extends BOPBiome
     {
         HashMap<WorldGenerator, Double> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 3D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 3), 4D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 1D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 3), 2D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 1D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 1D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 3), 10D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 3), 6D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 4D);
         
         return flowerMap;
     }

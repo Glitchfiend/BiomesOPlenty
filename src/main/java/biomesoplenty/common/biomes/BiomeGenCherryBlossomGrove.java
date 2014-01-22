@@ -51,10 +51,10 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
     {
     	HashMap<WorldGenerator, Double> flowerMap = new HashMap();
     	
-    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 3D);
-    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6D);
-    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 5D);
-    	flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 1D);
+    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12D);
+    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 8D);
+    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 6D);
+    	flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 4D);
     	
     	return flowerMap;
     }
