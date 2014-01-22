@@ -224,7 +224,7 @@ public class BlockBOPSlab extends BlockSlab
 		//TODO:  	isDoubleSlab		   getItemFromBlock()
 		Block block = !field_150004_a ? this : (this == BOPBlockHelper.get("woodenDoubleSlab1") ? BOPBlockHelper.get("woodenSingleSlab1") : (this == BOPBlockHelper.get("woodenDoubleSlab2") ? BOPBlockHelper.get("woodenSingleSlab2") : BOPBlockHelper.get("stoneSingleSlab")));
 		
-		return new ItemStack(block, 1);
+		return new ItemStack(block, 1, world.getBlockMetadata(x, y, z));
 	}
 
 	@Override
