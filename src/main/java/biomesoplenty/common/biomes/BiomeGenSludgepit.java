@@ -56,8 +56,8 @@ public class BiomeGenSludgepit extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(3) == 0 ? new WorldGenBogTree2(Blocks.log, Blocks.leaves, 0, 0, false, 7, 4) : 
-        new WorldGenBogTree1(Blocks.log, Blocks.leaves, 0, 0, false, 7, 5);
+        return random.nextInt(3) == 0 ? new WorldGenBogTree2(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 4) : 
+        new WorldGenBogTree1(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 5);
     }
     
     @Override

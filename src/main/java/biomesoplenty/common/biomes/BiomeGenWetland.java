@@ -69,7 +69,7 @@ public class BiomeGenWetland extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6) : 
+        return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(Blocks.log2, Blocks.leaves2, 1, 1, false, 9, 9, 6) : 
         new WorldGenBOPSwampTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0, 6, 9, BOPBlockHelper.get("colorizedLeaves2"), 0);
     }
     

@@ -89,7 +89,7 @@ public class BiomeGenBog extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(3) == 0 ? new WorldGenCypress(Blocks.log, Blocks.leaves, 0, 0, false, 8, 5, 0) : (random.nextInt(6) == 0 ? new WorldGenCypress(Blocks.log, Blocks.leaves, 2, 2, false, 4, 4, 1) : new WorldGenBogBush());
+        return random.nextInt(3) == 0 ? new WorldGenCypress(Blocks.log2, Blocks.leaves2, 1, 1, false, 8, 5, 0) : (random.nextInt(6) == 0 ? new WorldGenCypress(Blocks.log, Blocks.leaves, 2, 2, false, 4, 4, 1) : new WorldGenBogBush());
     }
 
     @Override

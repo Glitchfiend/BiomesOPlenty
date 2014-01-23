@@ -57,9 +57,9 @@ public class BiomeGenFen extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 10, 12, 3) : 
+		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 0, false, 10, 12, 3) : 
 		(random.nextInt(20) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
-		new WorldGenBOPTaiga1(Blocks.log, Blocks.leaves, 0, 0, false, 7, 5, 1));
+		new WorldGenBOPTaiga1(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 5, 1));
 	}
 	
     @Override

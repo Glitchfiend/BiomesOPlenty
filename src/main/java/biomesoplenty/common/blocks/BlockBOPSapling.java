@@ -178,7 +178,7 @@ public class BlockBOPSapling extends BlockSapling
 				break;*/
 
 			case 8: // Autumn Tree
-				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 3, false, 5, 3, false);
+				obj = new WorldGenOriginalTree(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 3, false, 5, 3, false);
 				break;
 
 			case 9: // Origin Tree

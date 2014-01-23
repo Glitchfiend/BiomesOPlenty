@@ -57,9 +57,9 @@ public class BiomeGenSeasonalForest extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(2) == 0 ?  new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 3, false, 5, 3, false)
+        return random.nextInt(2) == 0 ?  new WorldGenOriginalTree(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 3, false, 5, 3, false)
         : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves1"), 2, 0, false, 5, 3, false) 
-        : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 3)
+        : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 3)
         : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 2)
         : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 2, false, 5, 3, false)
         : (random.nextInt(5) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 5, 3, false)
