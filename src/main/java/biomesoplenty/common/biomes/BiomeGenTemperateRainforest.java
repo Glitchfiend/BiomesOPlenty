@@ -6,7 +6,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -68,7 +67,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
-        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 0.25D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
         
         return grassMap;
     }

@@ -23,6 +23,18 @@ public class BOPReflectionHelper
         }
     }
     
+    public static <T, E> void setPrivateValue(Class <? super T > classToAccess, T instance, E value, String fieldName, String obfFieldName)
+    {
+        if (isDeobfuscated)
+        {
+            ReflectionHelper.setPrivateValue(classToAccess, instance, value, fieldName);
+        } 
+        else
+        {
+            ObfuscationReflectionHelper.setPrivateValue(classToAccess, instance, value, obfFieldName);
+        }
+    }
+    
     public static <T, E> void setPrivateFinalValue(Class <? super T > classToAccess, T instance, E value, String fieldName, String obfFieldName)
     {
     	Field field = null;

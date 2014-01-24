@@ -28,7 +28,6 @@ public class BiomeGenHighland extends BOPBiome
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 99;
 		
-		this.bopWorldFeatures.doubleTallGrassPerChunk = 99;
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
 	}
 	
@@ -40,7 +39,7 @@ public class BiomeGenHighland extends BOPBiome
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.25D);
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.25D);
     	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-    	grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8, 64), 1D);
+    	grassMap.put(new WorldGenBOPDoubleFlora(2), 1D);
     	
     	return grassMap;
     }

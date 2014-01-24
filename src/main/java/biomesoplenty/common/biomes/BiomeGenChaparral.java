@@ -57,12 +57,12 @@ public class BiomeGenChaparral extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 8D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 4D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(4, 5), 8);
+        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 4);
         
         return flowerMap;
     }

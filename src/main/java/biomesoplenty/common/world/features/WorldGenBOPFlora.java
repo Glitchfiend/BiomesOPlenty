@@ -15,10 +15,12 @@ import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenBOPFlora extends WorldGeneratorBOP
 {
-    private Block flora;
-    private int floraMeta;
+    public Block flora;
+    public int floraMeta;
     private int groupCount = 64;
 
+    public WorldGenBOPFlora() {}
+    
     public WorldGenBOPFlora(Block flora, int floraMeta)
     {
         this.flora = flora;

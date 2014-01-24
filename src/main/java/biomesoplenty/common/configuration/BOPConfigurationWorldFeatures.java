@@ -38,8 +38,6 @@ public class BOPConfigurationWorldFeatures
 					WorldGenFieldAssociation.worldGeneratorMap.remove(key);
 				}
 			}
-
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated World Features Config!");
 		}
 		catch (Exception e)
 		{

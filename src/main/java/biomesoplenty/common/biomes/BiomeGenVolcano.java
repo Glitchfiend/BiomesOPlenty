@@ -1,6 +1,5 @@
 package biomesoplenty.common.biomes;
 
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 

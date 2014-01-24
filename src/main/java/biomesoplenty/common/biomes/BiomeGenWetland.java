@@ -3,6 +3,12 @@ package biomesoplenty.common.biomes;
 import java.util.HashMap;
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
@@ -10,14 +16,6 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenWetland extends BOPBiome
 {
@@ -74,12 +72,12 @@ public class BiomeGenWetland extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 10D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 10);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
         
         return flowerMap;
     }
@@ -93,7 +91,7 @@ public class BiomeGenWetland extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 0.75D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.75D);
 
         return grassMap;
     }

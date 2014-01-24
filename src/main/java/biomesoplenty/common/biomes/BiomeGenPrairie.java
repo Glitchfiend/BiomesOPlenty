@@ -48,12 +48,12 @@ public class BiomeGenPrairie extends BOPBiome
     }
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 4), 12D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 4), 12);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6);
         
         return flowerMap;
     }

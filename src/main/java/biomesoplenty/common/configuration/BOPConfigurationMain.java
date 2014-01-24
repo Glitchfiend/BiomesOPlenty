@@ -25,8 +25,6 @@ public class BOPConfigurationMain
 			config.load();
 
 			seenVersion = config.get("Vars", "Seen Version", "null");
-
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Main Config!");
 		}
 		catch (Exception e)
 		{

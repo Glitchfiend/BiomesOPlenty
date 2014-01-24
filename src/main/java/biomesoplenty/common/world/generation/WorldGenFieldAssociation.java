@@ -90,9 +90,6 @@ public class WorldGenFieldAssociation
 	    associateField("wasteland2PerChunk", new WorldGenWasteland2());
 	    associateField("wasteland3PerChunk", new WorldGenWasteland3());
 	    associateField("wasteland4PerChunk", new WorldGenWasteland4());
-
-	    associateField("doubleTallGrassPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 2, 8));
-	    associateField("sunflowersPerChunk", new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 0, 8));
 	}
 	
 	public static void associateField(String fieldName, WorldGenerator generator)

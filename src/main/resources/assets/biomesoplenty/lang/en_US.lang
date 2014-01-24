@@ -387,6 +387,9 @@ item.flowerBand.exoticflowerband.name=Exotic Flower Band
 item.wadingBoots.name=Wading Boots
 item.flippers.name=Flippers
 
+item.biomeBook.name=Book O' Biomes
+item.biomeFinder.name=Biome Finder
+
 item.bopBucket.amethyst_empty.name=Amethyst Bucket
 item.bopBucket.amethyst_spring_water.name=Spring Water Amethyst Bucket
 item.bopBucket.liquid_poison.name=Liquid Poison Bucket

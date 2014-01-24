@@ -6,7 +6,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
@@ -47,11 +46,11 @@ public class BiomeGenMoor extends BOPBiome
 	}
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 14D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 14);
         
         return flowerMap;
     }

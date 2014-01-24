@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -44,7 +43,6 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.theBiomeDecorator.waterlilyPerChunk = 2;
         
         this.bopWorldFeatures.bopFlowersPerChunk = 10;
-        this.bopWorldFeatures.doubleTallGrassPerChunk = 8;
         this.bopWorldFeatures.generatePumpkins = false;
         this.bopWorldFeatures.generateMelons = true;
         this.bopWorldFeatures.sproutsPerChunk = 2;
@@ -62,11 +60,11 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 12D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 12);
         
         return flowerMap;
     }
@@ -80,7 +78,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.75D);
-        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 1D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 1D);
         
         return grassMap;
     }

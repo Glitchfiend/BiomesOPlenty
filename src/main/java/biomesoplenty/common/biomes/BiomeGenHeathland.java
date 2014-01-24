@@ -52,13 +52,13 @@ public class BiomeGenHeathland extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 4D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6);
+        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 4);
         
         return flowerMap;
     }

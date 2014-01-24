@@ -3,9 +3,7 @@ package biomesoplenty.common.biomes;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;

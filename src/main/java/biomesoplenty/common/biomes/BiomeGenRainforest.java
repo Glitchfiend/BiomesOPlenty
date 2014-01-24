@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -50,14 +49,14 @@ public class BiomeGenRainforest extends BOPBiome
 	}
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 4D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 6D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+        flowerMap.put(new WorldGenBOPDoubleFlora(4, 5), 4);
+        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 6);
         
         return flowerMap;
     }

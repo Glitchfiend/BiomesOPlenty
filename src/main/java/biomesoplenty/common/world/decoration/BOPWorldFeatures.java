@@ -32,7 +32,6 @@ public class BOPWorldFeatures
 	public int bromeliadsPerChunk = 0;
 	public int waterReedsPerChunk = 0;
 	public int wildCarrotsPerChunk = 0;
-	public int doubleTallGrassPerChunk = 0;
 	public int poisonIvyPerChunk = 0;
 	public int berryBushesPerChunk = 0;
 	public int portobellosPerChunk = 0;
@@ -45,7 +44,6 @@ public class BOPWorldFeatures
 	public int sproutsPerChunk = 0;
 	public int tinyCactiPerChunk = 0;
 	public int oasesPerChunk = 0;
-	public int sunflowersPerChunk = 0;
 	public int minersDelightPerChunk = 2;
 	public int rootsPerChunk = 9;
 	public int grassSplatterPerChunk = 0;

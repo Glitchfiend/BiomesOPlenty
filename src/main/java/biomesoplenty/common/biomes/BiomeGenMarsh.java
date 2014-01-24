@@ -9,6 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenMarsh extends BOPBiome
@@ -39,7 +40,6 @@ public class BiomeGenMarsh extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		
 		this.bopWorldFeatures.koruPerChunk = 1;
-		this.bopWorldFeatures.doubleTallGrassPerChunk = 50;
 		this.bopWorldFeatures.mudPerChunk = 1;
 		this.bopWorldFeatures.waterLakesPerChunk = 100;
 		this.bopWorldFeatures.waterReedsPerChunk = 10;
@@ -54,6 +54,7 @@ public class BiomeGenMarsh extends BOPBiome
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
     	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
     	
     	return grassMap;
     }

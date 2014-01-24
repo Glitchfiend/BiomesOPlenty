@@ -7,7 +7,6 @@ import java.util.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
@@ -49,7 +48,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     {
 		if (getWeightedWorldGenForBOPFlowers() != null && !getWeightedWorldGenForBOPFlowers().isEmpty())
 		{
-			return (WorldGenBOPFlora)getRandomWeightedWorldGenerator(getWeightedWorldGenForBOPFlowers());
+			return getRandomWeightedWorldGenerator(getWeightedWorldGenForBOPFlowers());
 		}
 		else
 		{
@@ -70,31 +69,33 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
 		}
 	}
     
+    @Override
     public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
     {
     	return null;
     }
     
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    @Override
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
     	return null;
     }
     
-    public static WorldGenerator getRandomWeightedWorldGenerator(HashMap<WorldGenerator, Double> worldGeneratorMap)
+    public static <T extends WorldGenerator> T getRandomWeightedWorldGenerator(HashMap<T, ? extends Number> worldGeneratorMap)
     {
     	double completeWeight = 0D;
     	
-    	for (Double weight : worldGeneratorMap.values())
+    	for (Number weight : worldGeneratorMap.values())
     	{
-    		completeWeight += weight;
+    		completeWeight += Double.parseDouble(weight.toString());
     	}
     	
     	double random = Math.random() * completeWeight;
     	double countWeight = 0D;
     	
-    	for (Entry<WorldGenerator, Double> entry : worldGeneratorMap.entrySet())
+    	for (Entry<T, ? extends Number> entry : worldGeneratorMap.entrySet())
     	{
-    		countWeight += entry.getValue();
+    		countWeight += Double.parseDouble(entry.getValue().toString());
     		
     		if (countWeight >= random) return entry.getKey();
     	}

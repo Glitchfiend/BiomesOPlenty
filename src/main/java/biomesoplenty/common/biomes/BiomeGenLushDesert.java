@@ -3,21 +3,19 @@ package biomesoplenty.common.biomes;
 import java.util.HashMap;
 import java.util.Random;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenShrub;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenCypress;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenSavannaTree;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeGenLushDesert extends BOPBiome
 {
@@ -64,12 +62,12 @@ public class BiomeGenLushDesert extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 4D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(4, 5), 4);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8);
         
         return flowerMap;
     }

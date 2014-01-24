@@ -169,8 +169,6 @@ public class BOPConfigurationIDs
 			entityDartID = config.get("Entity IDs", "Dart ID", 104, null).getInt();;
 			entityPoisonDartID = config.get("Entity IDs", "Poison Dart ID", 105, null).getInt();;
 
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generating Biome ID's");
-
 			//23-79 ExtraBiomesXL
 
 			promisedLandShrubID = config.get("Biome IDs", "Sublime Shrubland (Promised Land) ID", 53).getInt();
@@ -297,8 +295,6 @@ public class BOPConfigurationIDs
 			wastelandID = config.get("Biome IDs", "Wasteland ID", 252).getInt();
 			wetlandID = config.get("Biome IDs", "Wetland ID", 253).getInt();
 			woodlandID = config.get("Biome IDs", "Woodland ID", 254).getInt();
-
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated IDs Config!");
 		}
 		catch (Exception e)
 		{

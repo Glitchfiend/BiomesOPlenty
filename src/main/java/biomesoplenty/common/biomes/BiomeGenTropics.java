@@ -43,7 +43,6 @@ public class BiomeGenTropics extends BOPBiome
         this.theBiomeDecorator.sandPerChunk2 = 50;
         
         this.bopWorldFeatures.bopFlowersPerChunk = 30;
-        this.bopWorldFeatures.sunflowersPerChunk = 2;
         this.bopWorldFeatures.shrubsPerChunk = 4;
         this.bopWorldFeatures.generatePumpkins = false;
     }
@@ -58,15 +57,16 @@ public class BiomeGenTropics extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 8D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 10D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 0), 15D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 7D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 6D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 8);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 10);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 0), 15);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 7);
+        flowerMap.put(new WorldGenBOPDoubleFlora(4, 5), 6);
+        flowerMap.put(new WorldGenBOPDoubleFlora(0, 3), 2);
         
         return flowerMap;
     }
@@ -79,7 +79,7 @@ public class BiomeGenTropics extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 0.25D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
         
         return grassMap;
     }

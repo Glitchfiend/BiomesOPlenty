@@ -59,8 +59,6 @@ public class BOPConfigurationMisc
 			onlySpawnOnBeaches = config.get("Spawn Settings", "Only Spawn On Beaches", true).getBoolean(true);
 
 			//promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
-
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Misc Config!");
 		}
 		catch (Exception e)
 		{

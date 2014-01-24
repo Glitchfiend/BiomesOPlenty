@@ -7,9 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenDoublePlant;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -39,7 +37,6 @@ public class BiomeGenMeadow extends BOPBiome
 		
 		this.bopWorldFeatures.bopFlowersPerChunk = 14;
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
-		this.bopWorldFeatures.sunflowersPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 5;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 15;
 		this.bopWorldFeatures.generatePumpkins = false;
@@ -53,14 +50,15 @@ public class BiomeGenMeadow extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 10D);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 5, 11, 3), 5D);
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 1, 7, 5), 4D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 10);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
+        flowerMap.put(new WorldGenBOPDoubleFlora(5, 3), 5);
+        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 4);
+        flowerMap.put(new WorldGenBOPDoubleFlora(0, 3), 2);
         
         return flowerMap;
     }

@@ -18,6 +18,7 @@ import biomesoplenty.common.items.ItemBOPScythe;
 import biomesoplenty.common.items.ItemBOPSeeds;
 import biomesoplenty.common.items.ItemBOPSpade;
 import biomesoplenty.common.items.ItemBOPSword;
+import biomesoplenty.common.items.ItemBiomeFinder;
 import biomesoplenty.common.items.ItemDart;
 import biomesoplenty.common.items.ItemDartBlower;
 import biomesoplenty.common.items.ItemEnderporter;
@@ -64,6 +65,9 @@ public class BOPItems
 		
 		registerItem(new ItemBOPRecord("bopdisc").setUnlocalizedName("bopDisc"));
 		registerItem(new ItemBOPRecord("bopdiscmud").setUnlocalizedName("bopDiscMud"));
+		
+		//registerItem(new ItemBiomeBook().setUnlocalizedName("biomeBook"));
+		registerItem(new ItemBiomeFinder().setUnlocalizedName("biomeFinder"));
 		
 		registerItem(new ItemBOPSword(BOPItemHelper.toolMaterialMud, 0).setUnlocalizedName("swordMud"));
 		registerItem(new ItemBOPSpade(BOPItemHelper.toolMaterialMud, 0).setUnlocalizedName("shovelMud"));

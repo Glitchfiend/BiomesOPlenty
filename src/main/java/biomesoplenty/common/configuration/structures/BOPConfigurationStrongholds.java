@@ -123,8 +123,6 @@ public class BOPConfigurationStrongholds
 					BiomeManager.addStrongholdBiome(biome);
 				}
 			}
-			
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Villages Config!");
 		}
 		catch (Exception e)
 		{

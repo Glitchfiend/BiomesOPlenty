@@ -34,8 +34,6 @@ public class BOPConfigurationTerrainGen
 			//netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 			
 			//landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
-			
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Terrain Gen Config!");
 		}
 		catch (Exception e)
 		{

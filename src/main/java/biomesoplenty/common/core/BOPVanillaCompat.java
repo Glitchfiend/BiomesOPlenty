@@ -1,14 +1,22 @@
 package biomesoplenty.common.core;
 
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourMudball;
+import biomesoplenty.common.world.decoration.ForcedDecorators;
+import biomesoplenty.common.world.decoration.IBOPDecoration;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class BOPVanillaCompat
 {
@@ -16,6 +24,7 @@ public class BOPVanillaCompat
 	{
 		registerDispenserBehaviours();
 		addDungeonLoot();
+		addBonemealFlowers();
 	}
 	
 	private static void registerDispenserBehaviours()
@@ -53,5 +62,45 @@ public class BOPVanillaCompat
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
 		}
+	}
+	
+	private static void addBonemealFlowers()
+	{
+	    //TODO:                                getBiomeGenArray()
+	    for (BiomeGenBase biome : BiomeGenBase.func_150565_n())
+	    {
+	        if (biome != null)
+	        {
+	            IBOPDecoration bopDecoration = null;
+
+	            if (biome instanceof IBOPDecoration)
+	            {
+	                bopDecoration = (IBOPDecoration)biome;
+	            }
+	            else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
+	            {
+	                bopDecoration = ForcedDecorators.getForcedDecorator(biome.biomeID);
+	            }
+
+	            if (bopDecoration != null)
+	            {
+	                if (bopDecoration.getWeightedWorldGenForBOPFlowers() != null && !bopDecoration.getWeightedWorldGenForBOPFlowers().isEmpty())
+	                {
+	                    HashMap<WorldGenBOPFlora, Integer> flowerMap = bopDecoration.getWeightedWorldGenForBOPFlowers();
+
+	                    for (Entry<WorldGenBOPFlora, Integer> entry : flowerMap.entrySet())
+	                    {
+	                        if (!(entry.getKey() instanceof WorldGenBOPDoubleFlora))
+	                        {
+	                            WorldGenBOPFlora flowerGenerator = entry.getKey();
+	                            int weight = entry.getValue();
+
+	                            biome.addFlower(flowerGenerator.flora, flowerGenerator.floraMeta, weight);
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	    }
 	}
 }

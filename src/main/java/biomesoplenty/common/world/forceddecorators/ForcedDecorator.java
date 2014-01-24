@@ -1,6 +1,9 @@
 package biomesoplenty.common.world.forceddecorators;
 
+import java.util.HashMap;
 import java.util.Random;
+
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
@@ -26,4 +29,16 @@ public class ForcedDecorator implements IBOPDecoration
 	{
 		return bopWorldFeatures;
 	}
+	
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+        return null;
+    }
+    
+    @Override
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
+    {
+        return null;
+    }
 }

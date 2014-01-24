@@ -7,7 +7,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
@@ -35,6 +34,7 @@ public class BiomeGenShrubland extends BOPBiome
 		this.theBiomeDecorator.flowersPerChunk = 0;
 		this.theBiomeDecorator.grassPerChunk = 5;
 
+	      this.bopWorldFeatures.bopFlowersPerChunk = 5;
 		this.bopWorldFeatures.bushesPerChunk = 7;
 		this.bopWorldFeatures.shrubsPerChunk = 5;
 		this.bopWorldFeatures.waterReedsPerChunk = 3;
@@ -45,16 +45,15 @@ public class BiomeGenShrubland extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-
 		return new WorldGenShrub(0, 0);
 	}
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
         
         return flowerMap;
     }

@@ -6,7 +6,6 @@ import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -14,8 +13,8 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
 public class BiomeGenOminousWoods extends BOPBiome
 {

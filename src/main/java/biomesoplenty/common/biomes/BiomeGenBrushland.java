@@ -31,6 +31,7 @@ public class BiomeGenBrushland extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 6;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		
+	    this.bopWorldFeatures.bopFlowersPerChunk = 5;
 		this.bopWorldFeatures.thornsPerChunk = 4;
 		this.bopWorldFeatures.shrubsPerChunk = 30;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
@@ -45,11 +46,11 @@ public class BiomeGenBrushland extends BOPBiome
 	}
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 5D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 5);
         
         return flowerMap;
     }

@@ -11,6 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
@@ -41,7 +42,6 @@ public class BiomeGenDeadSwamp extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		
 		this.bopWorldFeatures.mudPerChunk = 3;
-	    this.bopWorldFeatures.doubleTallGrassPerChunk = 1;
 	    this.bopWorldFeatures.riverCanePerChunk = 2;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
 		this.bopWorldFeatures.koruPerChunk = 1;
@@ -56,6 +56,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
 
         return grassMap;
     }

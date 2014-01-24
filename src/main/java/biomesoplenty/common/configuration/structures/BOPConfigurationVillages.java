@@ -118,8 +118,6 @@ public class BOPConfigurationVillages
 					BiomeManager.addVillageBiome(biome, true);
 				}
 			}
-			
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Villages Config!");
 		}
 		catch (Exception e)
 		{

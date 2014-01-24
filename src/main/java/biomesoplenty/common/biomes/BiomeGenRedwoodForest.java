@@ -6,7 +6,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -34,6 +33,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.theBiomeDecorator.treesPerChunk = 75;
         this.theBiomeDecorator.grassPerChunk = 16;
 
+        this.bopWorldFeatures.bopFlowersPerChunk = 5;
         this.bopWorldFeatures.bushesPerChunk = 4;
         this.bopWorldFeatures.berryBushesPerChunk = 1;
         this.bopWorldFeatures.shrubsPerChunk = 10;
@@ -49,12 +49,12 @@ public class BiomeGenRedwoodForest extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 4, 10, 5), 10D);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 8D);
+        flowerMap.put(new WorldGenBOPDoubleFlora(4, 5), 10);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 8);
         
         return flowerMap;
     }

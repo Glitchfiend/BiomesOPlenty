@@ -54,11 +54,11 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8);
         
         return flowerMap;
     }
@@ -73,7 +73,7 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.25D);
-        grassMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 3, 9, 64), 0.25D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3, 64), 0.25D);
 
         return grassMap;
     }

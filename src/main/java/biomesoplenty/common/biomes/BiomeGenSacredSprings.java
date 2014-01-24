@@ -51,13 +51,13 @@ public class BiomeGenSacredSprings extends BOPBiome
     }
     
     @Override
-	public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-    	HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
     	
-    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 10D);
-    	flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6D);
-    	flowerMap.put(new WorldGenBOPDoubleFlora(Blocks.double_plant, Blocks.double_plant, 5, 11, 5), 5D);
+    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 10);
+    	flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+    	flowerMap.put(new WorldGenBOPDoubleFlora(5, 5), 5);
     	
     	return flowerMap;
     }

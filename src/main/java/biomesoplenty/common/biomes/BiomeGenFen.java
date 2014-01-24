@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
@@ -39,7 +40,7 @@ public class BiomeGenFen extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		
-		this.bopWorldFeatures.doubleTallGrassPerChunk = 1;
+	    this.bopWorldFeatures.bopFlowersPerChunk = 5;
 		this.bopWorldFeatures.cattailsPerChunk = 1;
 		this.bopWorldFeatures.highCattailsPerChunk = 1;
 		this.bopWorldFeatures.waterPoolsPerChunk = 99;
@@ -63,11 +64,11 @@ public class BiomeGenFen extends BOPBiome
 	}
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6D);
+        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6);
         
         return flowerMap;
     }
@@ -82,6 +83,7 @@ public class BiomeGenFen extends BOPBiome
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
     	
     	return grassMap;
     }

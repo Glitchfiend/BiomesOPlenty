@@ -80,8 +80,6 @@ public class BOPConfigurationBiomeGen
 				jungleGen = config.get("Special Biomes To Generate", "Jungle", true).getBoolean(true);
 				megaTaigaGen = config.get("Special Biomes To Generate", "Mega Taiga", true).getBoolean(true);
 			}
-
-			FMLCommonHandler.instance().getFMLLogger().log(Level.INFO, "[BiomesOPlenty] Generated Biome Gen Config!");
 		}
 		catch (Exception e)
 		{

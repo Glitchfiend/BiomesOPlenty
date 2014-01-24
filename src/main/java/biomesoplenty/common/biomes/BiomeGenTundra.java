@@ -3,17 +3,15 @@ package biomesoplenty.common.biomes;
 import java.util.HashMap;
 import java.util.Random;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenTundra extends BOPBiome
 {
@@ -51,11 +49,11 @@ public class BiomeGenTundra extends BOPBiome
     }
     
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForBOPFlowers()
+    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
     {
-        HashMap<WorldGenerator, Double> flowerMap = new HashMap();
+        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 4D);
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 4);
         
         return flowerMap;
     }
