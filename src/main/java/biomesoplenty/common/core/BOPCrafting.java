@@ -264,6 +264,8 @@ public class BOPCrafting
 		}
 		
 		
+		GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("biomeFinder"), 1, 0), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald, 1, 0), 'R', new ItemStack(Items.redstone, 1, 0)});
+		
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("planks"), 1, 10), new Object[] {"##", "##", '#', BOPBlockHelper.get("bamboo")});
 		GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("jarEmpty"), 3, 0), new Object[] {"# #", "# #", "###", '#', Blocks.glass});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("food"), 1, 10), new Object[] {new ItemStack(BOPItemHelper.get("misc"), 1, 11), new ItemStack(Items.potionitem, 1, 0), new ItemStack(BOPBlockHelper.get("flowers2"), 1, 6), new ItemStack(BOPBlockHelper.get("coral"), 1, 3), new ItemStack(BOPBlockHelper.get("plants"), 1, 15), new ItemStack(BOPItemHelper.get("misc"), 1, 4), new ItemStack(BOPItemHelper.get("jarFilled"), 1, 0), new ItemStack(BOPItemHelper.get("food"), 1, 0), Items.sugar});
