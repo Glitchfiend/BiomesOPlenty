@@ -46,8 +46,7 @@ public class PacketBiomePosition extends AbstractPacket
         biomeCompound.setInteger("x", x);
         biomeCompound.setInteger("z", z);
         
-        if (!player.getEntityData().hasKey("biomePosition")) player.getEntityData().setTag("biomePosition", biomeCompound);
-        
+        player.getEntityData().setTag("biomePosition", biomeCompound);
         player.getEntityData().setBoolean("foundBiome", foundBiome);
     }
 

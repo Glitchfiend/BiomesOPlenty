@@ -115,8 +115,7 @@ public class ItemBiomeFinder extends Item
                     biomeCompound.setInteger("x", biomePosition.field_151329_a);
                     biomeCompound.setInteger("z", biomePosition.field_151328_c);
 
-                    if (!player.getEntityData().hasKey("biomePosition")) player.getEntityData().setTag("biomePosition", biomeCompound);
-                    
+                    player.getEntityData().setTag("biomePosition", biomeCompound);
                     player.getEntityData().setBoolean("foundBiome", true);
 
                     BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.field_151329_a, biomePosition.field_151328_c, true), (EntityPlayerMP)player);
