@@ -30,94 +30,100 @@ public class ItemBiomeFinder extends Item
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
     {
-        if (!world.isRemote)
+        if (!itemStack.hasTagCompound()) itemStack.setTagCompound(new NBTTagCompound());
+        
+        itemStack.getTagCompound().setInteger("biomeIdToFind", BOPBiomeHelper.getBOPBiome("lavenderFields").biomeID);
+        
+        int biomeIdToFind = itemStack.getTagCompound().getInteger("biomeIdToFind");
+        
+        if (!world.isRemote && !player.getEntityData().getBoolean("foundBiome"))
         {
-            if (!itemStack.hasTagCompound()) itemStack.setTagCompound(new NBTTagCompound());
+            //TODO:                                 getBiomeGenArray()
+            BiomeGenBase biomeToFind = BiomeGenBase.func_150565_n()[biomeIdToFind];
 
-            BiomeGenBase biomeToFind = BOPBiomeHelper.getBOPBiome("lavenderFields");
-            
-            int radius = 256;
-
-            WorldChunkManager chunkManager = world.getWorldChunkManager();
-
-            ChunkPosition finalFoundPosition1 = null;
-            
-            int playerX = MathHelper.floor_double(player.posX);
-            int playerZ = MathHelper.floor_double(player.posZ);
-            
-            for (int x = 10; x <= 10; x++)
+            if (biomeToFind != null)
             {
-                for (int z = -10; z <= 10; z++)
+                int radius = 256;
+
+                WorldChunkManager chunkManager = world.getWorldChunkManager();
+
+                ChunkPosition finalFoundPosition1 = null;
+
+                int playerX = MathHelper.floor_double(player.posX);
+                int playerZ = MathHelper.floor_double(player.posZ);
+
+                for (int x = 10; x <= 10; x++)
                 {
-                    ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 1024), playerZ + (z * 1024), radius, Arrays.asList(biomeToFind), world.rand);
-                    
-                    if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
+                    for (int z = -10; z <= 10; z++)
                     {
-                        finalFoundPosition1 = foundPosition;
-                        break;
+                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 1024), playerZ + (z * 1024), radius, Arrays.asList(biomeToFind), world.rand);
+
+                        if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
+                        {
+                            finalFoundPosition1 = foundPosition;
+                            break;
+                        }
                     }
                 }
-            }
-            
-            ChunkPosition finalFoundPosition2 = null;
-            
-            for (int x = -10; x <= 10; x++)
-            {
-                for (int z = 10; z >= -10; z--)
+
+                ChunkPosition finalFoundPosition2 = null;
+
+                for (int x = -10; x <= 10; x++)
                 {
-                    ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 1024), playerZ + (z * 1024), radius, Arrays.asList(biomeToFind), world.rand);
-                    
-                    if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
+                    for (int z = 10; z >= -10; z--)
                     {
-                        finalFoundPosition2 = foundPosition;
-                        break;
+                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 1024), playerZ + (z * 1024), radius, Arrays.asList(biomeToFind), world.rand);
+
+                        if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
+                        {
+                            finalFoundPosition2 = foundPosition;
+                            break;
+                        }
                     }
                 }
-            }
-            
-            ChunkPosition biomePosition = null;
-            
-            System.out.println((finalFoundPosition1 == null) + " " + (finalFoundPosition2 == null));
-            
-            if (finalFoundPosition1 != null && finalFoundPosition2 != null)
-            {
-                int f1X = finalFoundPosition1.field_151329_a;
-                int f1Z = finalFoundPosition1.field_151328_c;
 
-                int f2X = finalFoundPosition2.field_151329_a;
-                int f2Z = finalFoundPosition2.field_151328_c;
-                
-                System.out.println(f1X + " " + f1Z);
-                System.out.println(f2X + " " + f2Z);
+                ChunkPosition biomePosition = null;
 
-                if (Math.sqrt((f1X * f1X) + (f1Z * f1Z)) > Math.sqrt((f2X * f2X) + (f2Z * f2Z))) biomePosition = finalFoundPosition2;
-                else biomePosition = finalFoundPosition1;
-            }
-            else
-            {
-                if (finalFoundPosition1 == null) biomePosition = finalFoundPosition2;
-                else if (finalFoundPosition2 == null) biomePosition = finalFoundPosition1;
-            }
+                System.out.println((finalFoundPosition1 == null) + " " + (finalFoundPosition2 == null));
 
-            if (biomePosition != null)
-            {
-                System.out.println(biomePosition.field_151329_a + " " + biomePosition.field_151328_c);
-                
-                NBTTagCompound biomeCompound = new NBTTagCompound();
-                
-                biomeCompound.setInteger("x", biomePosition.field_151329_a);
-                biomeCompound.setInteger("z", biomePosition.field_151328_c);
-                
-                if (!player.getEntityData().hasKey("biomePositions")) player.getEntityData().setTag("biomePositions", new NBTTagCompound());
-                
-                NBTTagCompound biomePositions = player.getEntityData().getCompoundTag("biomePositions");
-                
-                if (!biomePositions.hasKey(biomeToFind.biomeName)) biomePositions.setTag(biomeToFind.biomeName, biomeCompound);
-                
-                BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomeToFind.biomeName, biomePosition.field_151329_a, biomePosition.field_151328_c), (EntityPlayerMP)player);
+                if (finalFoundPosition1 != null && finalFoundPosition2 != null)
+                {
+                    int f1X = finalFoundPosition1.field_151329_a;
+                    int f1Z = finalFoundPosition1.field_151328_c;
+
+                    int f2X = finalFoundPosition2.field_151329_a;
+                    int f2Z = finalFoundPosition2.field_151328_c;
+
+                    System.out.println(f1X + " " + f1Z);
+                    System.out.println(f2X + " " + f2Z);
+
+                    if (Math.sqrt((f1X * f1X) + (f1Z * f1Z)) > Math.sqrt((f2X * f2X) + (f2Z * f2Z))) biomePosition = finalFoundPosition2;
+                    else biomePosition = finalFoundPosition1;
+                }
+                else
+                {
+                    if (finalFoundPosition1 == null) biomePosition = finalFoundPosition2;
+                    else if (finalFoundPosition2 == null) biomePosition = finalFoundPosition1;
+                }
+
+                if (biomePosition != null)
+                {
+                    System.out.println(biomePosition.field_151329_a + " " + biomePosition.field_151328_c);
+
+                    NBTTagCompound biomeCompound = new NBTTagCompound();
+
+                    biomeCompound.setInteger("x", biomePosition.field_151329_a);
+                    biomeCompound.setInteger("z", biomePosition.field_151328_c);
+
+                    if (!player.getEntityData().hasKey("biomePosition")) player.getEntityData().setTag("biomePosition", biomeCompound);
+                    
+                    player.getEntityData().setBoolean("foundBiome", true);
+
+                    BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.field_151329_a, biomePosition.field_151328_c, true), (EntityPlayerMP)player);
+                }
+
+                System.out.println("Done looking");
             }
-            
-            System.out.println("Done looking");
         }
 
         return itemStack;

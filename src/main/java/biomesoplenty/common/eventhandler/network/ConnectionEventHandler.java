@@ -16,11 +16,12 @@ public class ConnectionEventHandler
     {
         EntityPlayer player = (EntityPlayer)event.player;
         
-        NBTTagCompound biomeToFindCompound = player.getEntityData().getCompoundTag("biomePositions").getCompoundTag("Lavender Fields");
+        NBTTagCompound biomeToFindCompound = player.getEntityData().getCompoundTag("biomePosition");
+        boolean foundBiome = player.getEntityData().getBoolean("foundBiome");
         
         if (biomeToFindCompound != null)
         {
-            BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition("Lavender Fields", biomeToFindCompound.getInteger("x"), biomeToFindCompound.getInteger("z")), (EntityPlayerMP)player);
+            BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomeToFindCompound.getInteger("x"), biomeToFindCompound.getInteger("z"), foundBiome), (EntityPlayerMP)player);
         }
     }
 }

@@ -12,6 +12,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
@@ -85,4 +86,10 @@ public class ItemBOPRecord extends ItemRecord
 	{
 		return (ItemBOPRecord)records.get(par0Str);
 	}
+	
+    @Override
+    public ResourceLocation getRecordResource(String name)
+    {
+        return new ResourceLocation("biomesoplenty:records/" + name.replace("records.", "") + ".ogg");
+    }
 }

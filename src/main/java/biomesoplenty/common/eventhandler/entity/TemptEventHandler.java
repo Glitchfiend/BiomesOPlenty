@@ -24,8 +24,7 @@ public class TemptEventHandler
 		if (!(entity instanceof EntityLiving))
 			return;
 
-		//TODO: FEATURE Remove Reflection
-		EntityAITasks tasks = BOPReflectionHelper.getPrivateValue(EntityLiving.class, ((EntityLiving)entity), "tasks", "field_70714_bg");
+		EntityAITasks tasks = ((EntityLiving)entity).tasks;
 		
 		if (entity instanceof EntityChicken) 
 		{

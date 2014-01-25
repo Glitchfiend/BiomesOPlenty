@@ -9,33 +9,33 @@ import biomesoplenty.common.network.AbstractPacket;
 
 public class PacketBiomePosition extends AbstractPacket
 {
-    private String biomeName;
     private int x;
     private int z;
+    private boolean foundBiome;
     
     public PacketBiomePosition() {}
     
-    public PacketBiomePosition(String biomeName, int x, int z)
+    public PacketBiomePosition(int x, int z, boolean foundBiome)
     {
-        this.biomeName = biomeName;
         this.x = x;
         this.z = z;
+        this.foundBiome = foundBiome;
     }
     
     @Override
     public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
     {
-        ByteBufUtils.writeUTF8String(buffer, biomeName);
         buffer.writeInt(x);
         buffer.writeInt(z);
+        buffer.writeBoolean(foundBiome);
     }
 
     @Override
     public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
     {
-        biomeName = ByteBufUtils.readUTF8String(buffer);
         x = buffer.readInt();
         z = buffer.readInt();
+        foundBiome = buffer.readBoolean();
     }
 
     @Override
@@ -46,11 +46,9 @@ public class PacketBiomePosition extends AbstractPacket
         biomeCompound.setInteger("x", x);
         biomeCompound.setInteger("z", z);
         
-        if (!player.getEntityData().hasKey("biomePositions")) player.getEntityData().setTag("biomePositions", new NBTTagCompound());
+        if (!player.getEntityData().hasKey("biomePosition")) player.getEntityData().setTag("biomePosition", biomeCompound);
         
-        NBTTagCompound biomePositions = player.getEntityData().getCompoundTag("biomePositions");
-        
-        if (!biomePositions.hasKey(biomeName)) biomePositions.setTag(biomeName, biomeCompound);
+        player.getEntityData().setBoolean("foundBiome", foundBiome);
     }
 
     @Override
