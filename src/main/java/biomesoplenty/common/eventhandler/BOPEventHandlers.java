@@ -1,5 +1,6 @@
 package biomesoplenty.common.eventhandler;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
@@ -8,6 +9,7 @@ import biomesoplenty.common.eventhandler.gui.MainMenuEventHandler;
 import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
+import biomesoplenty.common.eventhandler.network.ConnectionEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
 import biomesoplenty.common.eventhandler.world.BiomeSizeEventHandler;
@@ -20,11 +22,17 @@ public class BOPEventHandlers
 {
 	public static void init()
 	{
+	    registerNetworkEventHandlers();
 		registerWorldEventHandlers();
 		registerEntityEventHandlers();
 		registerPotionEventHandlers();
 		registerGUIEventHandlers();
 		registerMiscEventHandlers();
+	}
+	
+	private static void registerNetworkEventHandlers()
+	{
+	    FMLCommonHandler.instance().bus().register(new ConnectionEventHandler());
 	}
 	
 	private static void registerWorldEventHandlers()

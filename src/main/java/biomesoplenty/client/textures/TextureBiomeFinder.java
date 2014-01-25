@@ -47,8 +47,6 @@ public class TextureBiomeFinder extends TextureAtlasSprite
 
             if (par1World != null && !par8)
             {
-                //System.out.println(biomePosX + " " + biomePosZ);
-                
                 double d4 = (double)biomePosX - playerPosX;
                 double d5 = (double)biomePosZ - playerPosZ;
                 par6 %= 360.0D;
