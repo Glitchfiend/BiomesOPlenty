@@ -384,8 +384,12 @@ item.flowerBand.plainflowerband.name=Blumenband
 item.flowerBand.lushflowerband.name=Üppiges Blumenband
 item.flowerBand.exoticflowerband.name=Exotisches Blumenband
 
-item.wadingBoots.name=Watstiefel
+item.wadingBoots.name=Gummistiefel
 item.flippers.name=Schwimmflossen
+
+item.biomeBook.name=Biomlexikon
+item.biomeFinder.name=Biomradar
+item.biomeScroll.name=Biomschriftrolle
 
 item.bopBucket.amethyst_empty.name=Amethyst-Eimer
 item.bopBucket.amethyst_spring_water.name=Amethyst-Eimer mit Quellwasser
