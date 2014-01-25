@@ -387,6 +387,10 @@ item.flowerBand.exoticflowerband.name=Экзотический венок
 item.wadingBoots.name=Болотные сапоги
 item.flippers.name=Ласты
 
+item.biomeBook.name=Book O' Biomes
+item.biomeFinder.name=Радар биомов
+item.biomeScroll.name=Свиток биомов
+
 item.bopBucket.amethyst_empty.name=Аметистовое ведро
 item.bopBucket.amethyst_spring_water.name=Аметистовое ведро родниковой воды
 item.bopBucket.liquid_poison.name=Ведро жидкого яда
@@ -418,7 +422,7 @@ entity.BiomesOPlenty.Wasp.name=Оса
 entity.BiomesOPlenty.Bird.name=Птица
 entity.BiomesOPlenty.Pixie.name=Фея
 
-achievement.bop.achFlower=Flower Child
+achievement.bop.achFlower=Цветочное дитя
 achievement.bop.achFlower.desc=Станьте единым с природой!
 
 achievement.bop.achBerry=Сбор ягод
@@ -430,10 +434,10 @@ achievement.bop.achThorn.desc=Смертоноснее, чем кактусы!
 achievement.bop.achCoral=Nutritious
 achievement.bop.achCoral.desc=How about a big piece of steamed coral?
 
-achievement.bop.achFlowerBand=Flower Power
+achievement.bop.achFlowerBand=Цветочная энергия
 achievement.bop.achFlowerBand.desc=Привлекательный человек.
-achievement.bop.achDartBlower=Full Auto
-achievement.bop.achDartBlower.desc=You'll shoot your eye out, kid!
+achievement.bop.achDartBlower=Полная автоматика
+achievement.bop.achDartBlower.desc=Ты выбьешь себе глаз, дитя!
 achievement.bop.achScythe=Убийца растений
 achievement.bop.achScythe.desc=День работы мрачного жнеца.
 achievement.bop.achEnderporter=Дом, милый дом
