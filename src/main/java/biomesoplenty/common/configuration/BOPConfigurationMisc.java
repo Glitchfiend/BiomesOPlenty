@@ -26,7 +26,7 @@ public class BOPConfigurationMisc
 	public static boolean flowerbandCrafting;
 	//public static boolean hotSpringsRegeneration;
 
-	//public static int promisedLandSkyColor;
+	public static int promisedLandSkyColor;
 	
 	public static int spawnSearchRadius;
 	public static boolean onlySpawnOnBeaches;
@@ -58,7 +58,7 @@ public class BOPConfigurationMisc
 			if (spawnSearchRadius < 256) spawnSearchRadius = 256;
 			onlySpawnOnBeaches = config.get("Spawn Settings", "Only Spawn On Beaches", true).getBoolean(true);
 
-			//promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
+			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
 		}
 		catch (Exception e)
 		{
