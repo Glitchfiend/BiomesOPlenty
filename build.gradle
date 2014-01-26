@@ -1,12 +1,12 @@
 buildscript {
     repositories {
         mavenCentral()
-		mavenLocal()
+                mavenLocal()
         maven {
             name = "ForgeFS"
             url = "http://files.minecraftforge.net/maven"
         }
-		maven {
+                maven {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
@@ -58,16 +58,12 @@ minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
     assetDir = "run/assets"
 
-	replaceIn "BiomesOPlenty.java"
-    	replace "1.42.666.42.1", config.forge_version
+        replaceIn "BiomesOPlenty.java"
+            replace "1.42.666.42.1", config.forge_version
 }
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
-
-jenkins {
-    job = 'BiomesOPlenty'
-}
 
 processResources {
     // replace stuff in the files we want.
@@ -104,11 +100,11 @@ import net.minecraftforge.gradle.common.Constants
 import net.minecraftforge.gradle.delayed.*
 
 task createChangelog(type: ChangelogTask) {
-	def jobName = "${System.getenv().JOB_NAME}"
-	def buildNumber = "${System.getenv().BUILD_NUMBER}"
+        def jobName = "${System.getenv().JOB_NAME}"
+        def buildNumber = "${System.getenv().BUILD_NUMBER}"
 
-	setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
-	setJobName(new DelayedString(project, jobName.toString()));
+        setServerRoot(new DelayedString(project, 'http://ci.jenkins.minecraftforge.net/'))
+        setJobName(new DelayedString(project, jobName.toString()));
     setAuthName(new DelayedString(project, 'console_script'));
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
@@ -141,13 +137,17 @@ artifacts {
     archives apiZip
 }
 
+jenkins {
+    job = 'BiomesOPlenty'
+}
+
 uploadArchives {
     repositories {
-		add getProject().repositories.mavenLocal()
+                add getProject().repositories.mavenLocal()
     }
     repositories.mavenDeployer {
-	    configuration = configurations.deployJars
-	
+        configuration = configurations.deployJars
+        
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
             repository(url: project.filesmaven.url) {
@@ -168,6 +168,49 @@ uploadArchives {
             packaging 'jar'
             description 'Biomes O Plenty'
             url 'https://github.com/Glitchfiend/BiomesOPlenty'
-	    }
+
+            scm {
+                url 'https://github.com/Glitchfiend/BiomesOPlenty'
+                connection 'scm:git:git://github.com/Glitchfiend/BiomesOPlenty.git'
+                developerConnection 'scm:git:git@github.com:Glitchfiend/BiomesOPlenty.git'
+            }
+
+            issueManagement {
+                system 'github'
+                url 'https://github.com/Glitchfiend/BiomesOPlenty/issues'
+            }
+
+            licenses {
+                license {
+                    name 'Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported'
+                    url 'http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US'
+                    distribution 'repo'
+                }
+            }
+
+            developers {
+                developer {
+                    id 'Adubbz'
+                    name 'Adubbz'
+                    roles { role 'developer' }
+                }
+                developer {
+                    id 'Forstride'
+                    name 'Forstride'
+                    roles { role 'developer' }
+                }
+                developer {
+                    id 'Amnet'
+                    name 'Amnet'
+                    roles { role 'developer' }
+                }
+                                
+                                developer {
+                    id 'ted80'
+                    name 'ted80'
+                    roles { role 'developer' }
+                }
+            }
+        }
     }
 }
