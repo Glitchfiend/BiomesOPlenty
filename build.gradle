@@ -50,7 +50,7 @@ dependencies {
     //compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
 }
 
-group = com.github.glitchfiend.biomesoplenty
+group = 'com.github.glitchfiend.biomesoplenty'
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
