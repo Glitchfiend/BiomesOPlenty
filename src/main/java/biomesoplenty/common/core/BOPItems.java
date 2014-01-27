@@ -8,7 +8,7 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.items.ItemBOPAncientStaff;
 import biomesoplenty.common.items.ItemBOPAxe;
-import biomesoplenty.common.items.ItemBOPBiomeScroll;
+import biomesoplenty.common.items.ItemBOPBiomeEssence;
 import biomesoplenty.common.items.ItemBOPFood;
 import biomesoplenty.common.items.ItemBOPHoe;
 import biomesoplenty.common.items.ItemBOPMisc;
@@ -69,7 +69,7 @@ public class BOPItems
 		
 		//registerItem(new ItemBiomeBook().setUnlocalizedName("biomeBook"));
 		registerItem(new ItemBiomeFinder().setUnlocalizedName("biomeFinder"));
-		registerItem(new ItemBOPBiomeScroll().setUnlocalizedName("biomeScroll"));
+		registerItem(new ItemBOPBiomeEssence().setUnlocalizedName("biomeEssence"));
 		
 		registerItem(new ItemBOPSword(BOPItemHelper.toolMaterialMud, 0).setUnlocalizedName("swordMud"));
 		registerItem(new ItemBOPSpade(BOPItemHelper.toolMaterialMud, 0).setUnlocalizedName("shovelMud"));

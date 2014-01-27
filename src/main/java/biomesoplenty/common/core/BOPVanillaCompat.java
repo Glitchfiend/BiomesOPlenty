@@ -2,9 +2,11 @@ package biomesoplenty.common.core;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
@@ -20,6 +22,8 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class BOPVanillaCompat
 {
+    private static Random random = new Random();
+    
 	public static void init()
 	{
 		registerDispenserBehaviours();
@@ -61,6 +65,32 @@ public class BOPVanillaCompat
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("misc"), 1, 1), 2, 8, 25));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
+			
+			ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
+			
+			biomeEssence.setTagCompound(new NBTTagCompound());
+			
+			BiomeGenBase essenceBiome = null;
+			
+			while (essenceBiome == null)
+			{
+			    BiomeGenBase tempBiome = BiomeGenBase.func_150568_d(random.nextInt(BiomeGenBase.func_150565_n().length - 1));
+			    
+			    if (tempBiome != null)
+			    {
+			        essenceBiome = tempBiome;
+			    }
+			}
+			
+			biomeEssence.getTagCompound().setString("biome", essenceBiome.biomeName);
+
+			desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			jungleTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			mineshaft.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			strongholdCorridor.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			strongholdCrossing.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			strongholdLibrary.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
 		}
 	}
 	
