@@ -78,6 +78,7 @@ public class BOPVanillaCompat
 
 			        biomeEssence.setTagCompound(new NBTTagCompound());
 			        biomeEssence.getTagCompound().setString("biome", biome.biomeName);
+			        biomeEssence.getTagCompound().setInteger("color", biome.color);
 
 			        desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
 			        dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));

@@ -11,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 
 public class ItemBOPBiomeEssence extends Item
 {
@@ -33,6 +34,21 @@ public class ItemBOPBiomeEssence extends Item
             if (itemStack.getTagCompound().hasKey("biome")) infoList.add(itemStack.getTagCompound().getString("biome"));
         }
     }
+    
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getColorFromItemStack(ItemStack itemStack, int par2)
+	{
+		if (itemStack.hasTagCompound())
+        {
+            if (itemStack.getTagCompound().hasKey("color"))
+            {
+            	return itemStack.getTagCompound().getInteger("color");
+            }
+        }
+		
+		return 16777215;
+	}
     
 	@Override
 	public boolean hasEffect(ItemStack itemStack, int pass)
