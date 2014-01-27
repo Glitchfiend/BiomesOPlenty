@@ -20,8 +20,8 @@ configurations {
     deployJars
 }
 
-apply plugin: 'maven'
-apply plugin: 'forge'
+apply plugin: "maven"
+apply plugin: "forge"
 
 repositories {
     mavenLocal()
@@ -50,9 +50,9 @@ dependencies {
     //compile name: 'ForgeMultipart', version: "${config.minecraft_version}-${config.fmp_version}", ext: 'jar'
 }
 
-group = 'com.github.glitchfiend.biomesoplenty'
+group = "com.github.glitchfiend.biomesoplenty"
 version = config.mod_version
-archivesBaseName = 'BiomesOPlenty'
+archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
@@ -64,6 +64,10 @@ minecraft {
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
+
+jenkins {
+    job = 'BiomesOPlenty'
+}
 
 processResources {
     // replace stuff in the files we want.
@@ -137,16 +141,12 @@ artifacts {
     archives apiZip
 }
 
-jenkins {
-    job = 'BiomesOPlenty'
-}
-
 uploadArchives {
     repositories {
                 add getProject().repositories.mavenLocal()
     }
     repositories.mavenDeployer {
-        configuration = configurations.deployJars
+            configuration = configurations.deployJars
         
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
