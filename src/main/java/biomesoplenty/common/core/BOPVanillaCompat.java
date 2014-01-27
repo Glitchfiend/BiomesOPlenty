@@ -66,31 +66,24 @@ public class BOPVanillaCompat
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
 			
-			ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
-			
-			biomeEssence.setTagCompound(new NBTTagCompound());
-			
-			BiomeGenBase essenceBiome = null;
-			
-			while (essenceBiome == null)
+			for (BiomeGenBase biome : BiomeGenBase.func_150565_n())
 			{
-			    BiomeGenBase tempBiome = BiomeGenBase.func_150568_d(random.nextInt(BiomeGenBase.func_150565_n().length - 1));
-			    
-			    if (tempBiome != null)
+			    if (biome != null)
 			    {
-			        essenceBiome = tempBiome;
+			        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
+
+			        biomeEssence.setTagCompound(new NBTTagCompound());
+			        biomeEssence.getTagCompound().setString("biome", biome.biomeName);
+
+			        desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        jungleTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        mineshaft.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        strongholdCorridor.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        strongholdCrossing.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        strongholdLibrary.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
 			    }
 			}
-			
-			biomeEssence.getTagCompound().setString("biome", essenceBiome.biomeName);
-
-			desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			jungleTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			mineshaft.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			strongholdCorridor.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			strongholdCrossing.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			strongholdLibrary.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
 		}
 	}
 	
