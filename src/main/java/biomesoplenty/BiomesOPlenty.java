@@ -1,8 +1,10 @@
 package biomesoplenty;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.DimensionManager;
 import biomesoplenty.common.configuration.BOPConfiguration;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
 import biomesoplenty.common.configuration.structures.BOPConfigurationStrongholds;
 import biomesoplenty.common.configuration.structures.BOPConfigurationVillages;
@@ -20,6 +22,7 @@ import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.integration.TreecapitatorIntegration;
 import biomesoplenty.common.network.PacketPipeline;
 import biomesoplenty.common.utils.BOPModInfo;
+import biomesoplenty.common.world.WorldProviderPromised;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
 import biomesoplenty.common.world.generation.ForcedBOPWorldGenerators;
@@ -84,6 +87,8 @@ public class BiomesOPlenty
         packetPipeline.initalize();
         
         TreecapitatorIntegration.init();
+        DimensionManager.registerProviderType(BOPConfigurationIDs.promisedLandDimID, WorldProviderPromised.class, false);
+        DimensionManager.registerDimension(BOPConfigurationIDs.promisedLandDimID, BOPConfigurationIDs.promisedLandDimID);
     }
     
     @EventHandler
