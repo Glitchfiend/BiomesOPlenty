@@ -20,16 +20,18 @@ import net.minecraftforge.common.DimensionManager;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class WorldProviderPromised extends WorldProvider {
-	
+public class WorldProviderPromised extends WorldProvider 
+{
 	@Override
-	public void setDimension (int dim) {
+	public void setDimension (int dim) 
+	{
 		this.dimensionId = dim;
 		super.setDimension(dim);
 	}
 	
 	@Override
-	public long getSeed () {
+	public long getSeed () 
+	{
 		Long seed = super.getSeed();
 		return seed;
 	}
@@ -50,30 +52,23 @@ public class WorldProviderPromised extends WorldProvider {
 		dimensionId = BOPConfigurationIDs.promisedLandDimID;
 	}
 	
-	/**
-     * A message to display to the user when they transfer to this dimension.
-     *
-     * @return The message to be displayed
-     */
+    @Override
     public String getWelcomeMessage()
     {
         if (this instanceof WorldProviderPromised)
         {
-            return "Entering the "+getDimensionName();
+            return "Entering the " + getDimensionName();
         }
         return null;
     }
 
-    /**
-     * A Message to display to the user when they transfer out of this dismension.
-     *
-     * @return The message to be displayed
-     */
+
+    @Override
     public String getDepartMessage()
     {
         if (this instanceof WorldProviderPromised)
         {
-            return "Leaving the "+getDimensionName();
+            return "Leaving the "  +getDimensionName();
         }
         return null;
     }
@@ -105,11 +100,6 @@ public class WorldProviderPromised extends WorldProvider {
 	public float getCloudHeight()
 	{
 		return 0.0F;
-	}
-
-	public boolean darkenSkyDuringRain()
-	{
-		return false;
 	}
 
 	@Override
@@ -192,17 +182,4 @@ public class WorldProviderPromised extends WorldProvider {
 	//{
 	//	return new ChunkProviderPromised(worldObj, worldObj.getSeed());
 	//}
-	
-	//@Override
-	public boolean isLightingDisabled()
-	{
-	    return true;
-	}
-
-    //@Override
-    public Float[] getLightingMultipliers(WorldClient worldclient)
-    {
-        return new Float[] { 0.92F, 0.98F, 0.95F };
-    }
-
 }

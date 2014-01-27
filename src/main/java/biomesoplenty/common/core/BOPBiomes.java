@@ -173,9 +173,9 @@ public class BOPBiomes
         registerBiome(new BOPBiomeEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), TemperatureType.WARM, 50));
 
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandForest(BOPConfigurationIDs.promisedLandForestID).setBiomeName("Wonderous Woods"), TemperatureType.WARM, 50));
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandPlains(BOPConfigurationIDs.promisedLandPlainsID).setBiomeName("Majestic Meadow"), TemperatureType.WARM, 50));
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.promisedLandSwampID).setBiomeName("Blessed Bog"), TemperatureType.WARM, 50));
+        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandForest(BOPConfigurationIDs.wonderousWoodsID).setBiomeName("Wonderous Woods"), TemperatureType.WARM, 50));
+        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandPlains(BOPConfigurationIDs.majesticMeadowID).setBiomeName("Majestic Meadow"), TemperatureType.WARM, 50));
+        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.blessedBogID).setBiomeName("Blessed Bog"), TemperatureType.WARM, 50));
 	}
 
 	private static void addSpawnBiomes()
@@ -291,10 +291,10 @@ public class BOPBiomes
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("polar"), Type.FROZEN, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("prairie"), Type.PLAINS);
 
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("promisedLandForest"), Type.FOREST, Type.MAGICAL);
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("promisedLandPlains"), Type.PLAINS, Type.MAGICAL);
+        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("wonderousWoods"), Type.FOREST, Type.MAGICAL);
+        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("majesticMeadow"), Type.PLAINS, Type.MAGICAL);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("promisedLandShrub"), Type.PLAINS, Type.FOREST, Type.MAGICAL);
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("promisedLandSwamp"), Type.SWAMP, Type.MAGICAL);
+        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("blessedBog"), Type.SWAMP, Type.MAGICAL);
 
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("quagmire"), Type.WASTELAND, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("rainforest"), Type.JUNGLE, Type.HILLS, Type.FOREST);

@@ -97,10 +97,10 @@ public class BOPConfigurationIDs
 	public static int polarID;
 	public static int prairieID;
 
-	public static int promisedLandForestID;
-	public static int promisedLandPlainsID;
+	public static int wonderousWoodsID;
+	public static int majesticMeadowID;
 	public static int promisedLandShrubID;
-	public static int promisedLandSwampID;
+	public static int blessedBogID;
 
 	public static int quagmireID;
 	public static int rainforestID;
@@ -198,9 +198,9 @@ public class BOPConfigurationIDs
 			beachGravelID = config.get("Biome IDs", "Gravel Beach ID", 75).getInt();
 			beachOvergrownID = config.get("Biome IDs", "Overgrown Beach ID", 76).getInt();
 
-			promisedLandForestID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 77).getInt();
-			promisedLandPlainsID = config.get("Biome IDs", "Majestic Meadow (Promised Land) ID", 78).getInt();
-			promisedLandSwampID = config.get("Biome IDs", "Blessed Bog (Promised Land) ID", 79).getInt();
+			wonderousWoodsID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 77).getInt();
+			majesticMeadowID = config.get("Biome IDs", "Majestic Meadow (Promised Land) ID", 78).getInt();
+			blessedBogID = config.get("Biome IDs", "Blessed Bog (Promised Land) ID", 79).getInt();
 
 			netherBaseID = config.get("Biome IDs", "Nether Base (Nether) ID", 80).getInt();
 			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 81).getInt();
