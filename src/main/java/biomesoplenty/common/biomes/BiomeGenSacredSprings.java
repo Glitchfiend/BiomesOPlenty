@@ -27,6 +27,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         
         //TODO: setHeight()
         this.func_150570_a(biomeHeight);
+        this.setColor(39259);
         
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
         

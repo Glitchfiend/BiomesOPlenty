@@ -150,8 +150,8 @@ public class ItemBiomeFinder extends Item
                     {
                         boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
                         
-                        if (foundBiome) infoList.add(EnumChatFormatting.RED + "Found biome");
-                        else infoList.add("Right Click to Find Biome");
+                        if (foundBiome) infoList.add(EnumChatFormatting.DARK_GREEN + "Found biome!");
+                        else infoList.add(EnumChatFormatting.DARK_GRAY + "Right click to find biome");
                     }
                 }
             }
