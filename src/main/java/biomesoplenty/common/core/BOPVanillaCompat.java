@@ -49,6 +49,7 @@ public class BOPVanillaCompat
 		ChestGenHooks strongholdCrossing = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_CROSSING);
 		ChestGenHooks strongholdLibrary = ChestGenHooks.getInfo(ChestGenHooks.STRONGHOLD_LIBRARY);
 		ChestGenHooks village = ChestGenHooks.getInfo(ChestGenHooks.VILLAGE_BLACKSMITH);
+		ChestGenHooks bonusChest = ChestGenHooks.getInfo(ChestGenHooks.BONUS_CHEST);
 
 		if (BOPConfigurationMisc.dungeonLoot == true)
 		{
@@ -66,6 +67,9 @@ public class BOPVanillaCompat
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
 			
+			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
+			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
+			
 			for (BiomeGenBase biome : BiomeGenBase.func_150565_n())
 			{
 			    if (biome != null)
@@ -73,15 +77,17 @@ public class BOPVanillaCompat
 			        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
 
 			        biomeEssence.setTagCompound(new NBTTagCompound());
+
 			        biomeEssence.getTagCompound().setInteger("biomeID", biome.biomeID);
 
-			        desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			        dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			        jungleTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			        mineshaft.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			        strongholdCorridor.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			        strongholdCrossing.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
+			        dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
+			        jungleTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 2));
+			        mineshaft.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
+			        strongholdCorridor.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
+			        strongholdCrossing.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
 			        strongholdLibrary.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
+			        bonusChest.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
 			    }
 			}
 		}
