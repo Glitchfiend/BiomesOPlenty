@@ -73,7 +73,7 @@ public class BOPVanillaCompat
 			        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
 
 			        biomeEssence.setTagCompound(new NBTTagCompound());
-			        biomeEssence.getTagCompound().setString("biome", biome.biomeName);
+			        biomeEssence.getTagCompound().setInteger("biomeID", biome.biomeID);
 
 			        desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
 			        dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));

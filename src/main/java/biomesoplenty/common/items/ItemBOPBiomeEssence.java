@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPBiomeEssence extends Item
@@ -17,6 +18,18 @@ public class ItemBOPBiomeEssence extends Item
     public ItemBOPBiomeEssence()
     {
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+    }
+    
+    @Override
+    public boolean hasContainerItem(ItemStack itemStack)
+    {
+        return true;
+    }
+    
+    @Override
+    public ItemStack getContainerItem(ItemStack itemStack)
+    {
+        return itemStack;
     }
     
     @Override
@@ -30,10 +43,18 @@ public class ItemBOPBiomeEssence extends Item
     {
         if (itemStack.hasTagCompound())
         {
-            if (itemStack.getTagCompound().hasKey("biome")) infoList.add(itemStack.getTagCompound().getString("biome"));
+            if (itemStack.getTagCompound().hasKey("biomeID")) 
+            {
+                BiomeGenBase biome = BiomeGenBase.func_150565_n()[itemStack.getTagCompound().getInteger("biomeID")];
+
+                if (biome != null)
+                {
+                    infoList.add(biome.biomeName);
+                }
+            }
         }
     }
-    
+
 	@Override
 	public boolean hasEffect(ItemStack itemStack, int pass)
 	{

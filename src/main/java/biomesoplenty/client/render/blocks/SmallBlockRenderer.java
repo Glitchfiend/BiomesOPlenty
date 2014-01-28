@@ -1,5 +1,6 @@
 package biomesoplenty.client.render.blocks;
 
+import biomesoplenty.client.render.RenderUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;

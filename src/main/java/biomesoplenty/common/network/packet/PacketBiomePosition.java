@@ -1,10 +1,11 @@
 package biomesoplenty.common.network.packet;
 
-import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.network.AbstractPacket;
 
 public class PacketBiomePosition extends AbstractPacket
@@ -45,9 +46,16 @@ public class PacketBiomePosition extends AbstractPacket
         
         biomeCompound.setInteger("x", x);
         biomeCompound.setInteger("z", z);
-        
-        player.getEntityData().setTag("biomePosition", biomeCompound);
-        player.getEntityData().setBoolean("foundBiome", foundBiome);
+
+        ItemStack currentItem = player.getCurrentEquippedItem();
+
+        if (currentItem.getItem() == BOPItemHelper.get("biomeFinder"))
+        {
+            if (!currentItem.hasTagCompound()) currentItem.setTagCompound(new NBTTagCompound());
+
+            currentItem.getTagCompound().setBoolean("foundBiome", foundBiome);
+            currentItem.getTagCompound().setTag("biomePosition",  biomeCompound);
+        }
     }
 
     @Override

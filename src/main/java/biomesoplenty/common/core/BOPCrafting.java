@@ -1,7 +1,5 @@
 package biomesoplenty.common.core;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +17,7 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.handlers.FurnaceFuelHandler;
+import biomesoplenty.common.recipes.BiomeEssenceRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BOPCrafting
@@ -265,6 +264,7 @@ public class BOPCrafting
 		
 		
 		GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("biomeFinder"), 1, 0), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald, 1, 0), 'R', new ItemStack(Items.redstone, 1, 0)});
+		GameRegistry.addRecipe(new BiomeEssenceRecipe());
 		
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("planks"), 1, 10), new Object[] {"##", "##", '#', BOPBlockHelper.get("bamboo")});
 		GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("jarEmpty"), 3, 0), new Object[] {"# #", "# #", "###", '#', Blocks.glass});

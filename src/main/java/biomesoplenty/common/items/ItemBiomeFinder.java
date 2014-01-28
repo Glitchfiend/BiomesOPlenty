@@ -1,27 +1,28 @@
 package biomesoplenty.common.items;
 
 import java.util.Arrays;
+import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.client.textures.TextureBiomeFinder;
 import biomesoplenty.common.network.packet.PacketBiomePosition;
 
 public class ItemBiomeFinder extends Item
 {
+    public IIcon radarIcon;
+    
     public ItemBiomeFinder()
     {
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
@@ -32,14 +33,12 @@ public class ItemBiomeFinder extends Item
     {
         if (!itemStack.hasTagCompound()) itemStack.setTagCompound(new NBTTagCompound());
         
-        itemStack.getTagCompound().setInteger("biomeIdToFind", BOPBiomeHelper.getBOPBiome("lavenderFields").biomeID);
+        int biomeIDToFind = itemStack.getTagCompound().getInteger("biomeIDToFind");
         
-        int biomeIdToFind = itemStack.getTagCompound().getInteger("biomeIdToFind");
-        
-        if (!world.isRemote && !player.getEntityData().getBoolean("foundBiome"))
+        if (!world.isRemote && !itemStack.getTagCompound().getBoolean("foundBiome"))
         {
             //TODO:                                 getBiomeGenArray()
-            BiomeGenBase biomeToFind = BiomeGenBase.func_150565_n()[biomeIdToFind];
+            BiomeGenBase biomeToFind = BiomeGenBase.func_150565_n()[biomeIDToFind];
 
             if (biomeToFind != null)
             {
@@ -115,8 +114,8 @@ public class ItemBiomeFinder extends Item
                     biomeCompound.setInteger("x", biomePosition.field_151329_a);
                     biomeCompound.setInteger("z", biomePosition.field_151328_c);
 
-                    player.getEntityData().setTag("biomePosition", biomeCompound);
-                    player.getEntityData().setBoolean("foundBiome", true);
+                    itemStack.getTagCompound().setTag("biomePosition", biomeCompound);
+                    itemStack.getTagCompound().setBoolean("foundBiome", true);
 
                     BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.field_151329_a, biomePosition.field_151328_c, true), (EntityPlayerMP)player);
                 }
@@ -131,17 +130,31 @@ public class ItemBiomeFinder extends Item
     @Override
     public void registerIcons(IIconRegister iconRegister)
     {
-        if (iconRegister instanceof TextureMap)
-        {
-            TextureAtlasSprite texture = new TextureBiomeFinder("biomesoplenty:biomefinder");
-            ((TextureMap)iconRegister).setTextureEntry("biomesoplenty:biomefinder", texture);
-            this.itemIcon = texture;
-        }
+        radarIcon = iconRegister.registerIcon("biomesoplenty:biomeradar");
     }
     
-    /*@Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean advancedItemTooltips) 
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
     {
-        if (!itemStack.hasTagCompound()) itemStack.setTagCompound(new NBTTagCompound());
-    }*/
+        if (itemStack.hasTagCompound())
+        {
+            if (itemStack.getTagCompound().hasKey("biomeIDToFind")) 
+            {
+                BiomeGenBase biome = BiomeGenBase.func_150565_n()[itemStack.getTagCompound().getInteger("biomeIDToFind")];
+
+                if (biome != null)
+                {
+                    infoList.add(biome.biomeName);
+                    
+                    if (itemStack.getTagCompound().hasKey("foundBiome"))
+                    {
+                        boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
+                        
+                        if (foundBiome) infoList.add(EnumChatFormatting.RED + "Found biome");
+                        else infoList.add("Right Click to Find Biome");
+                    }
+                }
+            }
+        }
+    }
 }

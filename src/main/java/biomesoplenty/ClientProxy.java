@@ -9,16 +9,17 @@ import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.util.MathHelper;
+import net.minecraftforge.client.MinecraftForgeClient;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.client.particles.EntityDandelionFX;
 import biomesoplenty.client.particles.EntityMagicTreeFX;
 import biomesoplenty.client.particles.EntityPixieTrailFX;
 import biomesoplenty.client.particles.EntitySteamFX;
+import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.client.render.blocks.BambooRenderer;
 import biomesoplenty.client.render.blocks.FoliageRenderer;
 import biomesoplenty.client.render.blocks.GraveRenderer;
 import biomesoplenty.client.render.blocks.PlantsRenderer;
-import biomesoplenty.client.render.blocks.RenderUtils;
 import biomesoplenty.client.render.blocks.SmallBlockRenderer;
 import biomesoplenty.client.render.entities.RenderBird;
 import biomesoplenty.client.render.entities.RenderGlob;
@@ -28,6 +29,7 @@ import biomesoplenty.client.render.entities.RenderPixie;
 import biomesoplenty.client.render.entities.RenderRosester;
 import biomesoplenty.client.render.entities.RenderWasp;
 import biomesoplenty.client.render.entities.projectiles.RenderDart;
+import biomesoplenty.client.render.items.BiomeFinderRenderer;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.entities.EntityBird;
 import biomesoplenty.common.entities.EntityGlob;
@@ -91,6 +93,8 @@ public class ClientProxy extends CommonProxy
         {
             RenderingRegistry.registerEntityRenderingHandler(EntityPixie.class, new RenderPixie());
         }
+        
+        MinecraftForgeClient.registerItemRenderer(BOPItemHelper.get("biomeFinder"), new BiomeFinderRenderer());
 		
         RenderingRegistry.registerBlockHandler(new FoliageRenderer());
 		RenderingRegistry.registerBlockHandler(new PlantsRenderer());

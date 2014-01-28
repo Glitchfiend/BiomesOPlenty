@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.client.render.blocks.RenderUtils;
+import biomesoplenty.client.render.RenderUtils;
 
 public class BlockGrave extends Block
 {	
