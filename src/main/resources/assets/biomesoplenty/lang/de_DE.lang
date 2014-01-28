@@ -389,7 +389,7 @@ item.flippers.name=Schwimmflossen
 
 item.biomeBook.name=Biomlexikon
 item.biomeFinder.name=Biomradar
-item.biomeScroll.name=Biomschriftrolle
+item.biomeEssence.name=Biomessenz
 
 item.bopBucket.amethyst_empty.name=Amethyst-Eimer
 item.bopBucket.amethyst_spring_water.name=Amethyst-Eimer mit Quellwasser
