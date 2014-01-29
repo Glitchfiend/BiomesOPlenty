@@ -3,6 +3,7 @@ package biomesoplenty.common.items;
 import java.util.Arrays;
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -18,13 +19,23 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.common.network.packet.PacketBiomePosition;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBiomeFinder extends Item
 {
-    public IIcon radarIcon;
+	public IIcon[] biomeRadarIcons = new IIcon[32];
+	
+    private int tickCount = 0;
+    private int loopIndex = 0;
+    
+    public double currentAngle;
+    public double angleDelta;
     
     public ItemBiomeFinder()
     {
+    	this.setMaxStackSize(1);
+    	
         this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
     
@@ -83,7 +94,7 @@ public class ItemBiomeFinder extends Item
 
                 ChunkPosition biomePosition = null;
 
-                System.out.println((finalFoundPosition1 == null) + " " + (finalFoundPosition2 == null));
+                //System.out.println((finalFoundPosition1 == null) + " " + (finalFoundPosition2 == null));
 
                 if (finalFoundPosition1 != null && finalFoundPosition2 != null)
                 {
@@ -93,8 +104,8 @@ public class ItemBiomeFinder extends Item
                     int f2X = finalFoundPosition2.field_151329_a;
                     int f2Z = finalFoundPosition2.field_151328_c;
 
-                    System.out.println(f1X + " " + f1Z);
-                    System.out.println(f2X + " " + f2Z);
+                    //System.out.println(f1X + " " + f1Z);
+                    //System.out.println(f2X + " " + f2Z);
 
                     if (Math.sqrt((f1X * f1X) + (f1Z * f1Z)) > Math.sqrt((f2X * f2X) + (f2Z * f2Z))) biomePosition = finalFoundPosition2;
                     else biomePosition = finalFoundPosition1;
@@ -120,7 +131,7 @@ public class ItemBiomeFinder extends Item
                     BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.field_151329_a, biomePosition.field_151328_c, true), (EntityPlayerMP)player);
                 }
 
-                System.out.println("Done looking");
+                //System.out.println("Done looking");
             }
         }
 
@@ -130,7 +141,12 @@ public class ItemBiomeFinder extends Item
     @Override
     public void registerIcons(IIconRegister iconRegister)
     {
-        radarIcon = iconRegister.registerIcon("biomesoplenty:biomeradar");
+    	for (int i = 0; i < 32; i++)
+    	{
+    		this.biomeRadarIcons[i] = iconRegister.registerIcon("biomesoplenty:biomeradar/" + i);
+    	}
+    	
+        itemIcon = iconRegister.registerIcon("biomesoplenty:biomefinder");
     }
     
     @Override

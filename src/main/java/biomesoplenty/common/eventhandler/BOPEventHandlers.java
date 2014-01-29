@@ -1,6 +1,5 @@
 package biomesoplenty.common.eventhandler;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
@@ -17,6 +16,7 @@ import biomesoplenty.common.eventhandler.world.DecorateBiomeEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorationModificationEventHandler;
 import biomesoplenty.common.eventhandler.world.MapGenEventHandler;
 import biomesoplenty.common.eventhandler.world.VillageMaterialEventHandler;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class BOPEventHandlers 
 {

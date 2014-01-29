@@ -10,6 +10,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.IItemRenderer;
 
@@ -24,13 +25,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BiomeFinderRenderer implements IItemRenderer
 {
-    private int tickCount = 0;
-    private int loopIndex = 0;
-    
     private static ResourceLocation radarLocation = new ResourceLocation("biomesoplenty:textures/items/biomeradarstatic.png");
     
-    public double currentAngle;
-    public double angleDelta;
+    private double[] currentAngles = new double[BiomeGenBase.func_150565_n().length];
+    private double[] angleDeltas = new double[BiomeGenBase.func_150565_n().length];
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -50,13 +48,18 @@ public class BiomeFinderRenderer implements IItemRenderer
     @SideOnly(Side.CLIENT)
     public void renderItem(ItemRenderType type, ItemStack item, Object... data)
     {
+    	GL11.glPushMatrix();
+    	
         Tessellator tessellator = Tessellator.instance;
 
-        IIcon radarIcon = ((ItemBiomeFinder)BOPItemHelper.get("biomeFinder")).radarIcon;
-
-        int index = getIconIndexFacingBiome(item);
-
-        GL11.glEnable(3042);
+        NBTTagCompound stackCompound = item != null ? item.getTagCompound() : null;
+        int biomeID = stackCompound != null ? stackCompound.getInteger("biomeIDToFind") : 0;
+        boolean foundBiome = stackCompound != null ? stackCompound.getBoolean("foundBiome") : false;
+        NBTTagCompound biomePositionCompound = stackCompound != null ? stackCompound.getCompoundTag("biomePosition") : null;
+        
+        ItemBiomeFinder biomeFinder = ((ItemBiomeFinder)BOPItemHelper.get("biomeFinder"));
+        
+        IIcon radarIcon = foundBiome ? biomeFinder.biomeRadarIcons[getIconIndexFacingBiome(biomeID, biomePositionCompound)] : biomeFinder.getIconFromDamage(0);
         
         if (type.equals(IItemRenderer.ItemRenderType.ENTITY)) 
         {
@@ -66,104 +69,81 @@ public class BiomeFinderRenderer implements IItemRenderer
         TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
         texturemanager.bindTexture(texturemanager.getResourceLocation(item.getItemSpriteNumber()));
 
-        float f = (float)(0.01D / radarIcon.getIconWidth());
-        //            (originX     )
-        float minU = ((index * 15F) / radarIcon.getIconWidth() + f) / 2;
-        float maxU = (((index * 15F) + 16F) / radarIcon.getIconWidth() - f) / 2;
-        float minV = ((0 * 15F) / radarIcon.getIconHeight() + f);
-        float maxV = (((0 * 15F) + 16F) / radarIcon.getIconHeight() - f);
-
         GL11.glBlendFunc(770, 771);
         
         if (type.equals(IItemRenderer.ItemRenderType.INVENTORY))
         {
-            RenderUtils.renderIcon(index, 0, minU, maxU, minV, maxV, 0.001D);
+        	RenderUtils.renderIcon(radarIcon, 16.0D, 0.001D, 0.0F, 0.0F, -1.0F);
         }
-        else
+        else 
         {
-            ItemRenderer.renderItemIn2D(tessellator, maxU, minV, minU, maxV, radarIcon.getIconWidth(), radarIcon.getIconHeight(), 0.0625F);
+        	ItemRenderer.renderItemIn2D(tessellator, radarIcon.getMaxU(), radarIcon.getMinV(), radarIcon.getMinU(), radarIcon.getMaxV(), radarIcon.getIconWidth(), radarIcon.getIconHeight(), 0.0625F);
         }
-        
-        GL11.glDisable(3042);
+        GL11.glPopMatrix();
     }
 
-    private int getIconIndexFacingBiome(ItemStack itemStack)
+    @SideOnly(Side.CLIENT)
+    private int getIconIndexFacingBiome(int biomeID, NBTTagCompound biomePositionCompound)
     {
-        Minecraft minecraft = Minecraft.getMinecraft();
-        World world = minecraft.theWorld;
-        EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+    	Minecraft minecraft = Minecraft.getMinecraft();
+    	World world = minecraft.theWorld;
+    	EntityPlayer player = Minecraft.getMinecraft().thePlayer;
 
-        NBTTagCompound stackCompound = itemStack != null ? itemStack.getTagCompound() : null;
-        boolean foundBiome = stackCompound != null ? stackCompound.getBoolean("foundBiome") : false;
-        NBTTagCompound biomePositionCompound = stackCompound != null ? stackCompound.getCompoundTag("biomePosition") : null;
+    	if (biomePositionCompound != null)
+    	{
+    		double playerPosX = player.posX;
+    		double playerPosZ = player.posZ;
+    		int biomePosX = biomePositionCompound.getInteger("x");
+    		int biomePosZ = biomePositionCompound.getInteger("z");
+    		
+    		System.out.println(biomePosX);
 
-        if (foundBiome)
-        {
-            double playerPosX = player.posX;
-            double playerPosZ = player.posZ;
-            int biomePosX = biomePositionCompound.getInteger("x");
-            int biomePosZ = biomePositionCompound.getInteger("z");
+    		double d3 = 0.0D;
 
-            double d3 = 0.0D;
+    		if (world != null)
+    		{
+    			double d4 = (double)biomePosX - playerPosX;
+    			double d5 = (double)biomePosZ - playerPosZ;
+    			player.rotationYaw %= 360.0D;
+    			d3 = -((player.rotationYaw - 90.0D) * Math.PI / 180.0D - Math.atan2(d5, d4));
+    		}
 
-            if (world != null)
-            {
-                double d4 = (double)biomePosX - playerPosX;
-                double d5 = (double)biomePosZ - playerPosZ;
-                player.rotationYaw %= 360.0D;
-                d3 = -((player.rotationYaw - 90.0D) * Math.PI / 180.0D - Math.atan2(d5, d4));
-            }
+    		double d6;
 
-            double d6;
+    		for (d6 = d3 - this.currentAngles[biomeID]; d6 < -Math.PI; d6 += (Math.PI * 2D))
+    		{
+    			;
+    		}
 
-            for (d6 = d3 - this.currentAngle; d6 < -Math.PI; d6 += (Math.PI * 2D))
-            {
-                ;
-            }
+    		while (d6 >= Math.PI)
+    		{
+    			d6 -= (Math.PI * 2D);
+    		}
 
-            while (d6 >= Math.PI)
-            {
-                d6 -= (Math.PI * 2D);
-            }
+    		if (d6 < -1.0D)
+    		{
+    			d6 = -1.0D;
+    		}
 
-            if (d6 < -1.0D)
-            {
-                d6 = -1.0D;
-            }
+    		if (d6 > 1.0D)
+    		{
+    			d6 = 1.0D;
+    		}
 
-            if (d6 > 1.0D)
-            {
-                d6 = 1.0D;
-            }
+    		this.angleDeltas[biomeID] += d6 * 0.1D;
+    		this.angleDeltas[biomeID] *= 0.8D;
+    		this.currentAngles[biomeID] += this.angleDeltas[biomeID];
 
-            this.angleDelta += d6 * 0.1D;
-            this.angleDelta *= 0.8D;
-            this.currentAngle += this.angleDelta;
+    		int i;
 
-            int i;
+    		for (i = (int)((this.currentAngles[biomeID] / (Math.PI * 2D) + 1.0D) * (double)32) % 32; i < 0; i = (i + 32) % 32)
+    		{
+    			;
+    		}
 
-            for (i = (int)((this.currentAngle / (Math.PI * 2D) + 1.0D) * (double)32) % 32; i < 0; i = (i + 32) % 32)
-            {
-                ;
-            }
-            
-            return i;
-        }
-        else
-        {
-            if (tickCount++ > 3) 
-            { 
-                if (loopIndex++ < 31)
-                {
-                    tickCount = 0; 
-                }
-                else
-                {
-                    loopIndex = 0;
-                }
-            }
-            
-            return loopIndex;
-        }
+    		return i;
+    	}
+    	
+    	return 0;
     }
 }
