@@ -1,0 +1,74 @@
+{
+  "mob.bird.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/hurt"
+    ]
+  },
+  "mob.bird.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/bird/say"
+    ]
+  },
+  "mob.phantom.death": {
+    "category": "hostile",
+    "sounds": [
+      "mob/phantom/death"
+    ]
+  },
+  "mob.phantom.hurt": {
+    "category": "hostile",
+    "sounds": [
+      "mob/phantom/hurt"
+    ]
+  },
+  "mob.phantom.say": {
+    "category": "hostile",
+    "sounds": [
+      "mob/phantom/say"
+    ]
+  },
+  "mob.pixie.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/pixie/hurt"
+    ]
+  },
+  "mob.pixie.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/pixie/say"
+    ]
+  },
+  "mob.wasp.hurt": {
+    "category": "hostile",
+    "sounds": [
+      "mob/wasp/hurt"
+    ]
+  },
+  "mob.wasp.say": {
+    "category": "hostile",
+    "sounds": [
+      "mob/wasp/say"
+    ]
+  },
+  "records.wanderer": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/wanderer",
+        "stream": true
+      }
+    ]
+  },
+  "records.corruption": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/corruption",
+        "stream": true
+      }
+    ]
+  }
+}

@@ -64,8 +64,8 @@ public class BOPItems
 		registerItem(new ItemBOPAncientStaff().setUnlocalizedName("ancientStaff"));
 		registerItem(new ItemEnderporter().setUnlocalizedName("enderporter"));
 		
-		registerItem(new ItemBOPRecord("bopdisc").setUnlocalizedName("bopDisc"));
-		registerItem(new ItemBOPRecord("bopdiscmud").setUnlocalizedName("bopDiscMud"));
+		registerItem(new ItemBOPRecord("wanderer").setUnlocalizedName("record_wanderer"));
+		registerItem(new ItemBOPRecord("corruption").setUnlocalizedName("record_corruption"));
 		
 		//registerItem(new ItemBiomeBook().setUnlocalizedName("biomeBook"));
 		registerItem(new ItemBiomeFinder().setUnlocalizedName("biomeFinder"));

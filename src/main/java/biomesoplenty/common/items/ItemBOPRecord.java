@@ -38,7 +38,7 @@ public class ItemBOPRecord extends ItemRecord
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		itemIcon = iconRegister.registerIcon("biomesoplenty:" + recordName);
+		itemIcon = iconRegister.registerIcon("biomesoplenty:" + "record_" + recordName);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class ItemBOPRecord extends ItemRecord
 	//TODO:		  getRecordTitle()
 	public String func_150927_i()
 	{
-		return StatCollector.translateToLocal("item." + this.field_150929_a + ".desc");
+		return StatCollector.translateToLocal(this.getUnlocalizedName() + ".desc");
 	}
 
 	@Override
@@ -90,6 +90,6 @@ public class ItemBOPRecord extends ItemRecord
     @Override
     public ResourceLocation getRecordResource(String name)
     {
-        return new ResourceLocation("biomesoplenty:records/" + name.replace("records.", "") + ".ogg");
+        return new ResourceLocation("biomesoplenty:" + name);
     }
 }

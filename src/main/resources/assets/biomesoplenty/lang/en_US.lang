@@ -373,11 +373,11 @@ item.ancientStaff.ancientstaffbroken.name=Depleted Ancient Staff
 
 item.enderporter.name=Enderporter
 
-item.bopDisc.name=Music Disc
-item.bopDiscMud.name=Music Disc
+item.record_wanderer.name=Music Disc
+item.record_corruption.name=Music Disc
 
-item.bopdisc.desc=Tim Rurkowski - Wanderer
-item.bopdiscmud.desc=???
+item.record_wanderer.desc=Tim Rurkowski - Wanderer
+item.record_corruption.desc=???
 
 item.flowerBand.dullflowerband.name=Dull Flower Band
 item.flowerBand.plainflowerband.name=Plain Flower Band
