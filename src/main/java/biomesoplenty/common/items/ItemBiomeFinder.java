@@ -63,7 +63,7 @@ public class ItemBiomeFinder extends Item
                 {
                     for (int z = -10; z <= 10; z++)
                     {
-                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 1024), playerZ + (z * 1024), radius, Arrays.asList(biomeToFind), world.rand);
+                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 512), playerZ + (z * 512), radius, Arrays.asList(biomeToFind), world.rand);
 
                         if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
                         {
@@ -79,7 +79,7 @@ public class ItemBiomeFinder extends Item
                 {
                     for (int z = 10; z >= -10; z--)
                     {
-                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 1024), playerZ + (z * 1024), radius, Arrays.asList(biomeToFind), world.rand);
+                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 512), playerZ + (z * 512), radius, Arrays.asList(biomeToFind), world.rand);
 
                         if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
                         {

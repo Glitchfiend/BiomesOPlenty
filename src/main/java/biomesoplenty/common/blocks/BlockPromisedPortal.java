@@ -75,7 +75,6 @@ public class BlockPromisedPortal extends Block
 		{
 			if (entity instanceof EntityPlayerMP)
 			{
-				//TODO: FEATURE
 			    EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
 				if (entity.dimension != BOPConfigurationIDs.promisedLandDimID)
 				{
