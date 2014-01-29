@@ -291,10 +291,10 @@ public class BOPBiomes
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("polar"), Type.FROZEN, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("prairie"), Type.PLAINS);
 
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("wonderousWoods"), Type.FOREST, Type.MAGICAL);
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("majesticMeadow"), Type.PLAINS, Type.MAGICAL);
+        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("wonderousWoods"), Type.FOREST, Type.MAGICAL);
+        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("majesticMeadow"), Type.PLAINS, Type.MAGICAL);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("promisedLandShrub"), Type.PLAINS, Type.FOREST, Type.MAGICAL);
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("blessedBog"), Type.SWAMP, Type.MAGICAL);
+        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("blessedBog"), Type.SWAMP, Type.MAGICAL);
 
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("quagmire"), Type.WASTELAND, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("rainforest"), Type.JUNGLE, Type.HILLS, Type.FOREST);
