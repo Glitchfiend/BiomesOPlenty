@@ -185,14 +185,14 @@ public class ItemBiomeFinder extends Item
 
                 if (biome != null)
                 {
-                    infoList.add(biome.biomeName);
+                    infoList.add("" + EnumChatFormatting.BOLD + "Target: " + EnumChatFormatting.RESET + biome.biomeName);
                     
                     if (itemStack.getTagCompound().hasKey("foundBiome"))
                     {
                         boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
                         
-                        if (foundBiome) infoList.add(EnumChatFormatting.DARK_GREEN + "Found biome!");
-                        else infoList.add(EnumChatFormatting.DARK_GRAY + "Right click to find biome");
+                        if (foundBiome) infoList.add("" + EnumChatFormatting.DARK_GREEN + EnumChatFormatting.ITALIC + "Found biome!");
+                        else infoList.add("" + EnumChatFormatting.DARK_GRAY + EnumChatFormatting.ITALIC + "Right click to scan for biome");
                     }
                 }
             }
