@@ -26,11 +26,8 @@ public class ItemBiomeFinder extends Item
 {
 	public IIcon[] biomeRadarIcons = new IIcon[32];
 	
-    private int tickCount = 0;
-    private int loopIndex = 0;
-    
-    public double currentAngle;
-    public double angleDelta;
+    private double[] currentAngles = new double[BiomeGenBase.func_150565_n().length];
+    private double[] angleDeltas = new double[BiomeGenBase.func_150565_n().length];
     
     public ItemBiomeFinder()
     {
@@ -118,7 +115,7 @@ public class ItemBiomeFinder extends Item
 
                 if (biomePosition != null)
                 {
-                    System.out.println(biomePosition.field_151329_a + " " + biomePosition.field_151328_c);
+                    //System.out.println(biomePosition.field_151329_a + " " + biomePosition.field_151328_c);
 
                     NBTTagCompound biomeCompound = new NBTTagCompound();
 
@@ -150,6 +147,34 @@ public class ItemBiomeFinder extends Item
     }
     
     @Override
+    public boolean requiresMultipleRenderPasses()
+    {
+        return true;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(ItemStack itemStack, int renderPass)
+    {
+    	Minecraft minecraft = Minecraft.getMinecraft();
+    	World world = minecraft.theWorld;
+    	EntityPlayer player = minecraft.thePlayer;
+    	
+        NBTTagCompound stackCompound = itemStack != null ? itemStack.getTagCompound() : null;
+        
+        if (world != null && player != null && stackCompound != null && stackCompound.hasKey("biomeIDToFind") && stackCompound.hasKey("foundBiome"))
+        {
+            int biomeID = stackCompound.getInteger("biomeIDToFind");
+            boolean foundBiome = stackCompound.getBoolean("foundBiome");
+            NBTTagCompound biomePositionCompound = stackCompound.getCompoundTag("biomePosition");
+            
+            if (foundBiome) return this.biomeRadarIcons[getIconIndexFacingBiome(world, player, biomePositionCompound.getInteger("x"), biomePositionCompound.getInteger("z"), biomeID)];
+        }
+        
+        return itemIcon;
+    }
+    
+    @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
     {
         if (itemStack.hasTagCompound())
@@ -172,5 +197,53 @@ public class ItemBiomeFinder extends Item
                 }
             }
         }
+    }
+    
+    public int getIconIndexFacingBiome(World world, EntityPlayer player, int biomePosX, int biomePosZ, int biomeID)
+    {
+    	double d3 = 0.0D;
+
+    	if (world != null)
+    	{
+    		double d4 = (double)biomePosX - player.posX;
+    		double d5 = (double)biomePosZ - player.posZ;
+    		player.rotationYaw %= 360.0D;
+    		d3 = -((player.rotationYaw - 90.0D) * Math.PI / 180.0D - Math.atan2(d5, d4));
+    	}
+
+    	double d6;
+
+    	for (d6 = d3 - this.currentAngles[biomeID]; d6 < -Math.PI; d6 += (Math.PI * 2D))
+    	{
+    		;
+    	}
+
+    	while (d6 >= Math.PI)
+    	{
+    		d6 -= (Math.PI * 2D);
+    	}
+
+    	if (d6 < -1.0D)
+    	{
+    		d6 = -1.0D;
+    	}
+
+    	if (d6 > 1.0D)
+    	{
+    		d6 = 1.0D;
+    	}
+
+    	this.angleDeltas[biomeID] += d6 * 0.1D;
+    	this.angleDeltas[biomeID] *= 0.8D;
+    	this.currentAngles[biomeID] += this.angleDeltas[biomeID];
+
+    	int i;
+
+    	for (i = (int)((this.currentAngles[biomeID] / (Math.PI * 2D) + 1.0D) * (double)32) % 32; i < 0; i = (i + 32) % 32)
+    	{
+    		;
+    	}
+
+    	return i;
     }
 }
