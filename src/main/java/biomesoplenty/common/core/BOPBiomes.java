@@ -173,9 +173,9 @@ public class BOPBiomes
         registerBiome(new BOPBiomeEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), TemperatureType.WARM, 50));
 
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandForest(BOPConfigurationIDs.wonderousWoodsID).setBiomeName("Wonderous Woods"), TemperatureType.WARM, 50));
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandPlains(BOPConfigurationIDs.majesticMeadowID).setBiomeName("Majestic Meadow"), TemperatureType.WARM, 50));
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.blessedBogID).setBiomeName("Blessed Bog"), TemperatureType.WARM, 50));
+        //registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandForest(BOPConfigurationIDs.wonderousWoodsID).setBiomeName("Wonderous Woods"), TemperatureType.WARM, 50));
+        //registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandPlains(BOPConfigurationIDs.majesticMeadowID).setBiomeName("Majestic Meadow"), TemperatureType.WARM, 50));
+        //registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.blessedBogID).setBiomeName("Blessed Bog"), TemperatureType.WARM, 50));
 	}
 
 	private static void addSpawnBiomes()
