@@ -396,13 +396,13 @@ item.bopBucket.amethyst_spring_water.name=Spring Water Amethyst Bucket
 item.bopBucket.liquid_poison.name=Liquid Poison Bucket
 item.bopBucket.honey.name=Honey Bucket
 
-tile.bop.liquidPoison.name=Liquid Poison
-tile.bop.springWater.name=Spring Water
-tile.bop.honey.name=Honey
+tile.poison.name=Poison
+tile.springWater.name=Spring Water
+tile.honey.name=Honey
 
-fluid.bop.liquidPoison=Liquid Poison
-fluid.bop.springWater=Spring Water
-fluid.bop.honey.name=Honey
+fluid.poison=Poison
+fluid.springWater=Spring Water
+fluid.honey.name=Honey
 
 phrase.bop.promisedPortalOverworld=A gateway to the Promised Land has appeared in the sky above.
 phrase.bop.promisedPortalOther=A gateway to the Overworld has appeared in the sky above.

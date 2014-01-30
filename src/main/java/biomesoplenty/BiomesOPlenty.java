@@ -13,6 +13,7 @@ import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.core.BOPBlocks;
 import biomesoplenty.common.core.BOPCrafting;
 import biomesoplenty.common.core.BOPEntities;
+import biomesoplenty.common.core.BOPFluids;
 import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.core.BOPPackets;
 import biomesoplenty.common.core.BOPPotions;
@@ -63,6 +64,7 @@ public class BiomesOPlenty
         BOPPotions.init();
         BOPBlocks.init();
         BOPItems.init();
+        BOPFluids.init();
         BOPArmor.init();
         BOPCrafting.init();
         BOPBiomes.init();

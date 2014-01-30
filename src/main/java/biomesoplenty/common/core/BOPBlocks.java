@@ -95,11 +95,11 @@ public class BOPBlocks
 {
 	public static void init()
 	{
-		initializeBlocks();
+		registerBlocks();
 		setFireInfo();
 	}
 
-	private static void initializeBlocks()
+	private static void registerBlocks()
 	{
 		// Block declaration
 

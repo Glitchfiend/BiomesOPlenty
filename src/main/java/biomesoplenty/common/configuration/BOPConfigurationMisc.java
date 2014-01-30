@@ -24,7 +24,7 @@ public class BOPConfigurationMisc
 	public static boolean enderporterCrafting;
 	public static boolean dartCrafting;
 	public static boolean flowerbandCrafting;
-	//public static boolean hotSpringsRegeneration;
+	public static boolean hotSpringsRegeneration;
 
 	public static int promisedLandSkyColor;
 	
@@ -41,7 +41,7 @@ public class BOPConfigurationMisc
 
 			//achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
-			//hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
+			hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
 
 			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
