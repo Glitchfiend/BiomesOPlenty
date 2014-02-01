@@ -74,7 +74,7 @@ public class BiomeCacheHell
 
 			for (int var5 = 0; var5 < cache.size(); ++var5)
 			{
-				BiomeCacheBlockPromised var6 = (BiomeCacheBlockPromised)cache.get(var5);
+				BiomeCacheBlockHell var6 = (BiomeCacheBlockHell)cache.get(var5);
 				long var7 = var1 - var6.lastAccessTime;
 
 				if (var7 > 30000L || var7 < 0L)
