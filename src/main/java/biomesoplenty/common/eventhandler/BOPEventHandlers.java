@@ -7,6 +7,7 @@ import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
 import biomesoplenty.common.eventhandler.gui.MainMenuEventHandler;
 import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
+import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
 import biomesoplenty.common.eventhandler.network.ConnectionEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
@@ -66,6 +67,7 @@ public class BOPEventHandlers
 	private static void registerMiscEventHandlers()
 	{
 		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
+		MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
 		MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
 	}
 }

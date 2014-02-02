@@ -1,6 +1,7 @@
 package biomesoplenty.common.core;
 
 import static biomesoplenty.common.core.BOPBlocks.registerBlock;
+import static biomesoplenty.common.core.BOPItems.registerItem;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import biomesoplenty.api.BOPBlockHelper;
@@ -10,6 +11,7 @@ import biomesoplenty.common.fluids.SpringWaterFluid;
 import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
 import biomesoplenty.common.fluids.blocks.BlockSpringWaterFluid;
+import biomesoplenty.common.items.ItemBOPBucket;
 
 public class BOPFluids 
 {
@@ -17,7 +19,7 @@ public class BOPFluids
 	{
 		registerFluids();
 		registerFluidBlocks();
-		//initializeContainers();
+		registerFluidItems();
 		//registerItems();
 	}
 
@@ -36,19 +38,10 @@ public class BOPFluids
 		registerBlock(new BlockHoneyFluid().func_149663_c("honey"));
 	}
 
-	/*private static void initializeContainers()
+	private static void registerFluidItems()
 	{
-		Fluids.bopBucket = Optional.of((new ItemBOPBucket(BOPConfigurationIDs.bopBucketID).setMaxStackSize(1).setUnlocalizedName("bop.bopBucket")));
-
-		FluidContainerRegistry.registerFluidContainer(Fluids.liquidPoisonFluid.get(), new ItemStack(Fluids.bopBucket.get(), 1, 1), new ItemStack(Item.bucketEmpty));
-		FluidContainerRegistry.registerFluidContainer(Fluids.honeyFluid.get(), new ItemStack(Fluids.bopBucket.get(), 1, 3), new ItemStack(Item.bucketEmpty));
-		FluidContainerRegistry.registerFluidContainer(Fluids.springWaterFluid.get(), new ItemStack(Fluids.bopBucket.get(), 1, 2), new ItemStack(Fluids.bopBucket.get(), 1, 0));
+		registerItem(new ItemBOPBucket().setUnlocalizedName("bopBucket"));
 	}
-
-	private static void registerItems()
-	{
-		registerItem(Fluids.bopBucket.get());
-	}*/
 	
 	public static void registerFluid(Fluid fluid)
 	{

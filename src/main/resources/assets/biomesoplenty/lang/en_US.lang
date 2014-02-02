@@ -392,7 +392,7 @@ item.biomeFinder.name=Biome Radar
 item.biomeEssence.name=Biome Essence
 
 item.bopBucket.amethyst_empty.name=Amethyst Bucket
-item.bopBucket.amethyst_spring_water.name=Spring Water Amethyst Bucket
+item.bopBucket.spring_water.name=Spring Water Amethyst Bucket
 item.bopBucket.liquid_poison.name=Liquid Poison Bucket
 item.bopBucket.honey.name=Honey Bucket
 
