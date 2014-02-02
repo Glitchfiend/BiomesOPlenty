@@ -9,18 +9,12 @@ import biomesoplenty.api.BOPBiomeHelper;
 
 public class BiomeLayerHellBiomes extends BiomeLayerHell
 {
-	private int dimension = 0; 
-	
-	private static ArrayList<BiomeGenBase> netherBiomes = new ArrayList<BiomeGenBase>();
+	public static ArrayList<BiomeGenBase> netherBiomes = new ArrayList<BiomeGenBase>();
 	
     public BiomeLayerHellBiomes(long par1, BiomeLayerHell par3GenLayer)
     {
         super(par1);
 		parent = par3GenLayer;
-
-		//NETHER BIOMES
-		
-		//add biomes to netherBiomes array here
 
 		if (netherBiomes.size() == 0)
 		{

@@ -111,7 +111,7 @@ public class BOPConfigurationStrongholds
 		{
 			config.load();
 			
-			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeList.values())
+			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
 			{
 				BiomeGenBase biome = entry.biome;
 				

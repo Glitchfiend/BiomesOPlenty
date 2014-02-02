@@ -14,6 +14,7 @@ import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
 import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
+import biomesoplenty.common.world.layer.hell.BiomeLayerHellBiomes;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
@@ -45,15 +46,28 @@ public class BOPConfigurationBiomeGen
 		try
 		{
 			config.load();
-
-			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeList.values())
+			
+			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[-1 + 1].values())
 			{
 				BiomeGenBase biome = entry.biome;
 				
 				String name = biome.biomeName;
 				String convertedName = BOPBiomeHelper.convertBiomeName(name);
 
-				if (config.get("Biomes To Generate (There must be at least one from each category)", name + " (" + WordUtils.capitalize(entry.temperatureType.toString().toLowerCase()) + ")", !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
+				if (config.get("Nether Biomes To Generate (There must be at least one from each category)", name, !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
+				{
+					BiomeLayerHellBiomes.netherBiomes.add(biome);
+				}
+			}
+
+			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
+			{
+				BiomeGenBase biome = entry.biome;
+				
+				String name = biome.biomeName;
+				String convertedName = BOPBiomeHelper.convertBiomeName(name);
+
+				if (config.get("Overworld Biomes To Generate (There must be at least one from each category)", name + " (" + WordUtils.capitalize(entry.temperatureType.toString().toLowerCase()) + ")", !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
 				{
 					if (BOPBiomes.onlyBiome != null ? entry == BOPBiomes.onlyBiome : true)
 					{

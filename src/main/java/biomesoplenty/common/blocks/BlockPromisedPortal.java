@@ -78,7 +78,7 @@ public class BlockPromisedPortal extends Block
 			    EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
 				if (entity.dimension != BOPConfigurationIDs.promisedLandDimID)
 				{
-					//thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, BOPConfigurationIDs.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfigurationIDs.promisedLandDimID)));
+					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, BOPConfigurationIDs.promisedLandDimID, new TeleporterPromised(thePlayer.mcServer.worldServerForDimension(BOPConfigurationIDs.promisedLandDimID)));
 				}
 				else
 				{

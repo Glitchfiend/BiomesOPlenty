@@ -2,6 +2,7 @@ package biomesoplenty.api;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -9,25 +10,38 @@ import net.minecraft.world.biome.BiomeGenBase;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 
 public class BOPBiomeHelper 
 {
-	public static HashMap<String, BOPBiomeEntry> biomeList = new HashMap();
+	public static HashMap<String, BOPBiomeEntry>[] biomeLists = new HashMap[256];
+	
+	public static void init()
+	{
+		biomeLists[-1 + 1] = new HashMap();
+		biomeLists[0 + 1] = new HashMap();
+		biomeLists[BOPConfigurationIDs.promisedLandDimID + 1] = new HashMap();
+	}
+	
+	public static void registerBiome(BOPBiomeEntry biome, int dimID, String name)
+	{
+		biomeLists[dimID + 1].put(name, biome);
+	}
 	
 	public static void registerBiome(BOPBiomeEntry biome, String name)
 	{
-		biomeList.put(name, biome);
+		registerBiome(biome, 0, name);
+	}
+	
+	public static BiomeGenBase get(int dimID, String name)
+	{
+		return biomeLists[dimID + 1].get("biomesoplenty:" + name).biome;
 	}
 	
 	public static BiomeGenBase get(String name)
 	{
-		return biomeList.get(name).biome;
-	}
-	
-	public static BiomeGenBase getBOPBiome(String name)
-	{
-		return get("biomesoplenty:" + name);
+		return get(0, name);
 	}
 	
 	public static String convertBiomeName(String originalName)

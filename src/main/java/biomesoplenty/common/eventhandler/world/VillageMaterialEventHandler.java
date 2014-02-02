@@ -15,7 +15,7 @@ public class VillageMaterialEventHandler
 	public void getVillageBlockID(BiomeEvent.GetVillageBlockID event)
 	{
 		//Arctic
-		if (event.biome == BOPBiomeHelper.getBOPBiome("arctic"))
+		if (event.biome == BOPBiomeHelper.get("arctic"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -141,7 +141,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Brushland
-		if (event.biome == BOPBiomeHelper.getBOPBiome("brushland"))
+		if (event.biome == BOPBiomeHelper.get("brushland"))
 		{
 			//Gravel
 			if (event.original == Blocks.gravel)
@@ -152,7 +152,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Coniferous Forest
-		if (event.biome == BOPBiomeHelper.getBOPBiome("coniferousForest"))
+		if (event.biome == BOPBiomeHelper.get("coniferousForest"))
 		{	
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -263,7 +263,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Grove
-		if (event.biome == BOPBiomeHelper.getBOPBiome("grove"))
+		if (event.biome == BOPBiomeHelper.get("grove"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -314,7 +314,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Heathland
-		if (event.biome == BOPBiomeHelper.getBOPBiome("heathland"))
+		if (event.biome == BOPBiomeHelper.get("heathland"))
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -346,7 +346,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Lush Desert
-		if (event.biome == BOPBiomeHelper.getBOPBiome("lushDesert"))
+		if (event.biome == BOPBiomeHelper.get("lushDesert"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -399,7 +399,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Lush Swamp
-		if (event.biome == BOPBiomeHelper.getBOPBiome("lushSwamp"))
+		if (event.biome == BOPBiomeHelper.get("lushSwamp"))
 		{
 			//Gravel
 			if (event.original == Blocks.cobblestone)
@@ -410,7 +410,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Maple Woods
-		if (event.biome == BOPBiomeHelper.getBOPBiome("mapleWoods"))
+		if (event.biome == BOPBiomeHelper.get("mapleWoods"))
 		{	
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
@@ -421,7 +421,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Meadow
-		if (event.biome == BOPBiomeHelper.getBOPBiome("meadow"))
+		if (event.biome == BOPBiomeHelper.get("meadow"))
 		{	
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -523,7 +523,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Outback
-		if (event.biome == BOPBiomeHelper.getBOPBiome("outback"))
+		if (event.biome == BOPBiomeHelper.get("outback"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -620,7 +620,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Prairie
-		if (event.biome == BOPBiomeHelper.getBOPBiome("prairie"))
+		if (event.biome == BOPBiomeHelper.get("prairie"))
 		{
 			//Gravel
 			if (event.original == Blocks.gravel)
@@ -714,7 +714,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Snowy Coniferous Forest
-		if (event.biome == BOPBiomeHelper.getBOPBiome("snowyConiferousForest"))
+		if (event.biome == BOPBiomeHelper.get("snowyConiferousForest"))
 		{	
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -779,7 +779,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Spruce Woods
-		if (event.biome == BOPBiomeHelper.getBOPBiome("spruceWoods"))
+		if (event.biome == BOPBiomeHelper.get("spruceWoods"))
 		{	
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
@@ -862,7 +862,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Tropical Rainforest
-		if (event.biome == BOPBiomeHelper.getBOPBiome("tropicalRainforest"))
+		if (event.biome == BOPBiomeHelper.get("tropicalRainforest"))
 		{	
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -920,7 +920,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Wetland
-		if (event.biome == BOPBiomeHelper.getBOPBiome("wetland"))
+		if (event.biome == BOPBiomeHelper.get("wetland"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1000,7 +1000,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Coniferous Forest
-		if (event.biome == BOPBiomeHelper.getBOPBiome("coniferousForest"))
+		if (event.biome == BOPBiomeHelper.get("coniferousForest"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1050,7 +1050,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Grove
-		if (event.biome == BOPBiomeHelper.getBOPBiome("grove"))
+		if (event.biome == BOPBiomeHelper.get("grove"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1089,7 +1089,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Heathland
-		if (event.biome == BOPBiomeHelper.getBOPBiome("heathland"))
+		if (event.biome == BOPBiomeHelper.get("heathland"))
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -1107,7 +1107,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Lush Desert
-		if (event.biome == BOPBiomeHelper.getBOPBiome("lushDesert"))
+		if (event.biome == BOPBiomeHelper.get("lushDesert"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1133,7 +1133,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Maple Woods
-		if (event.biome == BOPBiomeHelper.getBOPBiome("mapleWoods"))
+		if (event.biome == BOPBiomeHelper.get("mapleWoods"))
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -1151,7 +1151,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Meadow
-		if (event.biome == BOPBiomeHelper.getBOPBiome("meadow"))
+		if (event.biome == BOPBiomeHelper.get("meadow"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1215,7 +1215,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Outback
-		if (event.biome == BOPBiomeHelper.getBOPBiome("outback"))
+		if (event.biome == BOPBiomeHelper.get("outback"))
 		{
 			//Wooden Planks
 			if (event.original == Blocks.planks)
@@ -1244,7 +1244,7 @@ public class VillageMaterialEventHandler
 		}*/
 		
 		//Snowy Coniferous Forest
-		if (event.biome == BOPBiomeHelper.getBOPBiome("snowyConiferousForest"))
+		if (event.biome == BOPBiomeHelper.get("snowyConiferousForest"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1276,7 +1276,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Spruce Woods
-		if (event.biome == BOPBiomeHelper.getBOPBiome("spruceWoods"))
+		if (event.biome == BOPBiomeHelper.get("spruceWoods"))
 		{
 			//Logs
 			if (event.original == Blocks.log)
@@ -1294,7 +1294,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Tropical Rainforest
-		if (event.biome == BOPBiomeHelper.getBOPBiome("tropicalRainforest"))
+		if (event.biome == BOPBiomeHelper.get("tropicalRainforest"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)
@@ -1326,7 +1326,7 @@ public class VillageMaterialEventHandler
 		}
 		
 		//Wetland
-		if (event.biome == BOPBiomeHelper.getBOPBiome("wetland"))
+		if (event.biome == BOPBiomeHelper.get("wetland"))
 		{
 			//Cobblestone
 			if (event.original == Blocks.cobblestone)

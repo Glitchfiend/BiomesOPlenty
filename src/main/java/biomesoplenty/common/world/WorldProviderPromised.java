@@ -1,5 +1,7 @@
 package biomesoplenty.common.world;
 
+import static biomesoplenty.common.configuration.BOPConfigurationIDs.promisedLandDimID;
+
 import org.apache.logging.log4j.Level;
 
 import biomesoplenty.api.BOPBiomeHelper;
@@ -45,10 +47,8 @@ public class WorldProviderPromised extends WorldProvider
 	@Override
 	public void registerWorldChunkManager()
 	{
-		if (BOPBiomeHelper.getBOPBiome("wonderousWoods") != null || BOPBiomeHelper.getBOPBiome("majesticMeadow") != null || BOPBiomeHelper.getBOPBiome("blessedBog") != null)
-		{
-			worldChunkMgr = new WorldChunkManagerPromised(worldObj);
-		}
+		worldChunkMgr = new WorldChunkManagerPromised(worldObj);
+
 		dimensionId = BOPConfigurationIDs.promisedLandDimID;
 	}
 	

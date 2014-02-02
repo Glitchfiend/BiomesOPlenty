@@ -12,6 +12,7 @@ import biomesoplenty.common.core.BOPArmor;
 import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.core.BOPBlocks;
 import biomesoplenty.common.core.BOPCrafting;
+import biomesoplenty.common.core.BOPDimensions;
 import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPFluids;
 import biomesoplenty.common.core.BOPItems;
@@ -90,10 +91,8 @@ public class BiomesOPlenty
         packetPipeline.initalize();
         
         TreecapitatorIntegration.init();
-		DimensionManager.unregisterProviderType(-1);
-		DimensionManager.registerProviderType(-1, WorldProviderBopHell.class, true);
-        //DimensionManager.registerProviderType(BOPConfigurationIDs.promisedLandDimID, WorldProviderPromised.class, false);
-        //DimensionManager.registerDimension(BOPConfigurationIDs.promisedLandDimID, BOPConfigurationIDs.promisedLandDimID);
+
+        BOPDimensions.init();
     }
     
     @EventHandler

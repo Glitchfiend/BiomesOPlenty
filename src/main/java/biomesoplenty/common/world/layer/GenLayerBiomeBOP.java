@@ -22,9 +22,9 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     public static List<BOPBiomeEntry> coldBiomes = new ArrayList<BOPBiomeEntry>();
     public static List<BOPBiomeEntry> icyBiomes = new ArrayList<BOPBiomeEntry>();
 	
-	public GenLayerBiomeBOP(long par1, GenLayer parentLayer, WorldType worldType) 
+	public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldType worldType) 
 	{
-		super(par1, parentLayer, worldType);
+		super(seed, parentLayer, worldType);
 	}
 
 	
