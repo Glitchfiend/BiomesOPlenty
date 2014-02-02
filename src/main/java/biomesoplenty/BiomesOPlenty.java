@@ -23,6 +23,7 @@ import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.integration.TreecapitatorIntegration;
 import biomesoplenty.common.network.PacketPipeline;
 import biomesoplenty.common.utils.BOPModInfo;
+import biomesoplenty.common.world.WorldProviderBopHell;
 import biomesoplenty.common.world.WorldProviderPromised;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
@@ -89,6 +90,8 @@ public class BiomesOPlenty
         packetPipeline.initalize();
         
         TreecapitatorIntegration.init();
+		DimensionManager.unregisterProviderType(-1);
+		DimensionManager.registerProviderType(-1, WorldProviderBopHell.class, true);
         //DimensionManager.registerProviderType(BOPConfigurationIDs.promisedLandDimID, WorldProviderPromised.class, false);
         //DimensionManager.registerDimension(BOPConfigurationIDs.promisedLandDimID, BOPConfigurationIDs.promisedLandDimID);
     }
