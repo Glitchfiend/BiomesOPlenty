@@ -87,6 +87,11 @@ public class BOPBiomeHelper
 			this.temperatureType = temperatureType;
 		}
 		
+		public BOPBiomeEntry(BiomeGenBase biome, int weight)
+		{
+			this(biome, TemperatureType.HOT, weight);
+		}
+		
 		public void addToCorrespondingTemperatureTypeList()
 		{
 			BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(this);
