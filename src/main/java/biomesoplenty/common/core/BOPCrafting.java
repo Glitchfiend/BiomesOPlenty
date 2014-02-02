@@ -37,30 +37,30 @@ public class BOPCrafting
 	private static void addCraftingRecipes()
 	{
 		//Plants
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 6), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,1)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 13), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,7)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 14), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,5)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 9), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,6)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 7), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,15)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 12), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,4)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 5), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,8)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 10), new Object[] {new ItemStack(BOPBlockHelper.get("mushrooms"),1,3)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 8), new Object[] {new ItemStack(BOPItemHelper.get("misc"), 1, 1)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 12), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,7)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 6), new Object[] {new ItemStack(BOPBlockHelper.get("mushrooms"),1,4)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 6), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,1)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 13), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,7)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 14), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,5)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 9), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,6)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 7), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,15)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 12), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,4)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 5), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,8)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 10), new Object[] {new ItemStack(BOPBlockHelper.get("mushrooms"),1,3)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 8), new Object[] {new ItemStack(BOPItemHelper.get("misc"), 1, 1)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 12), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,7)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 6), new Object[] {new ItemStack(BOPBlockHelper.get("mushrooms"),1,4)});
 		
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 9), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,0)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 8), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,1)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 14), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,2)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 5), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,3)});
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 2, 11), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,4)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 5), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,5)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 9), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,0)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 8), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,1)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 14), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,2)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 5), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,3)});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 11), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,4)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 5), new Object[] {new ItemStack(BOPBlockHelper.get("flowers2"),1,5)});
 
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 5), new Object[] {new ItemStack(BOPBlockHelper.get("mushrooms"),1,2)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 6), new Object[] {new ItemStack(BOPBlockHelper.get("plants"),1,7)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 7), new Object[] {new ItemStack(BOPBlockHelper.get("moss"),1,0)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 8), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,9)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 2, 9), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,2)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 5), new Object[] {new ItemStack(BOPBlockHelper.get("mushrooms"),1,2)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 6), new Object[] {new ItemStack(BOPBlockHelper.get("plants"),1,7)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 7), new Object[] {new ItemStack(BOPBlockHelper.get("moss"),1,0)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 8), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,9)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("misc"), 1, 9), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,2)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("food"), 4, 3), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,13)});
 
 		//Brick stairs and slabs

@@ -29,8 +29,8 @@ public class BiomeGenThicket extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 1;
 
 	    this.bopWorldFeatures.bopFlowersPerChunk = 5;
-		this.bopWorldFeatures.thornsPerChunk = 25;
-		this.bopWorldFeatures.shrubsPerChunk = 15;
+		this.bopWorldFeatures.thornsPerChunk = 55;
+		this.bopWorldFeatures.shrubsPerChunk = 5;
 	}
 
 	@Override
@@ -54,5 +54,19 @@ public class BiomeGenThicket extends BOPBiome
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
 		return random.nextInt(4) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 1) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10);
+	}
+	
+	@Override
+    //TODO:     getBiomeGrassColor()
+    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    {
+		return 11049591;
+	}
+
+	@Override
+    //TODO:     getBiomeFoliageColor()
+    public int func_150571_c(int x, int y, int z)
+    {
+		return 10854765;
 	}
 }
