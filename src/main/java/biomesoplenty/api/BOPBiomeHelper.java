@@ -89,7 +89,7 @@ public class BOPBiomeHelper
 		
 		public BOPBiomeEntry(BiomeGenBase biome, int weight)
 		{
-			this(biome, TemperatureType.HOT, weight);
+			this(biome, TemperatureType.WARM, weight);
 		}
 		
 		public void addToCorrespondingTemperatureTypeList()
