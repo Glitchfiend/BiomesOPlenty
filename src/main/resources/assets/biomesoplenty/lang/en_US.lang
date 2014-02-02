@@ -110,6 +110,7 @@ tile.colorizedSaplings.palmSapling.name=Palm Sapling
 tile.colorizedSaplings.redwoodSapling.name=Redwood Sapling
 tile.colorizedSaplings.willowSapling.name=Willow Sapling
 tile.colorizedSaplings.pineSapling.name=Pine Sapling
+tile.colorizedSaplings.mahoganySapling.name=Mahogany Sapling
 
 tile.willow.name=Willow
 tile.ivy.name=Ivy
@@ -200,6 +201,7 @@ tile.planks.bambooThatching.name=Bamboo Thatching
 tile.planks.pinePlank.name=Pine Wood Planks
 tile.planks.hellBarkPlank.name=Hellbark Wood Planks
 tile.planks.jacarandaPlank.name=Jacaranda Wood Planks
+tile.planks.mahoganyPlank.name=Mahogany Wood Planks
 
 tile.logs1.sacredoakWood.name=Sacred Oak Wood
 tile.logs1.cherryWood.name=Cherry Wood
@@ -219,6 +221,7 @@ tile.logs3.bigflowerstemWood.name=Giant Flower Stem
 tile.logs4.pineWood.name=Pine Wood
 tile.logs4.hellbarkWood.name=Hellbark Wood
 tile.logs4.jacarandaWood.name=Jacaranda Wood
+tile.logs4.mahoganyWood.name=Mahogany Wood
 
 tile.leaves1.yellowautumn.name=Yellow Autumn Leaves
 tile.leaves1.bamboo.name=Bamboo Leaves
@@ -245,6 +248,7 @@ tile.colorizedLeaves1.redwood.name=Redwood Leaves
 
 tile.colorizedLeaves2.willow.name=Willow Leaves
 tile.colorizedLeaves2.pine.name=Pine Leaves
+tile.colorizedLeaves2.mahogany.name=Mahogany Leaves
 
 tile.appleLeaves.name=Apple Leaves
 tile.persimmonLeaves.name=Persimmon Leaves
@@ -262,6 +266,7 @@ tile.woodenDoubleSlab2.willowSlab.name=Willow Wood Slab
 tile.woodenDoubleSlab2.pineSlab.name=Pine Wood Slab
 tile.woodenDoubleSlab2.hell_barkSlab.name=Hellbark Wood Slab
 tile.woodenDoubleSlab2.jacarandaSlab.name=Jacaranda Wood Slab
+tile.woodenDoubleSlab2.mahoganySlab.name=Mahogany Wood Slab
 
 tile.woodenSingleSlab1.sacredoakSlab.name=Sacred Oak Wood Slab
 tile.woodenSingleSlab1.cherrySlab.name=Cherry Wood Slab
@@ -276,6 +281,7 @@ tile.woodenSingleSlab2.willowSlab.name=Willow Wood Slab
 tile.woodenSingleSlab2.pineSlab.name=Pine Wood Slab
 tile.woodenSingleSlab2.hell_barkSlab.name=Hellbark Wood Slab
 tile.woodenSingleSlab2.jacarandaSlab.name=Jacaranda Wood Slab
+tile.woodenSingleSlab2.mahoganySlab.name=Mahogany Wood Slab
 
 tile.sacredoakStairs.name=Sacred Oak Wood Stairs
 tile.cherryStairs.name=Cherry Wood Stairs
@@ -290,6 +296,7 @@ tile.willowStairs.name=Willow Wood Stairs
 tile.pineStairs.name=Pine Wood Stairs
 tile.hellBarkStairs.name=Hellbark Wood Stairs
 tile.jacarandaStairs.name=Jacaranda Wood Stairs
+tile.mahoganyStairs.name=Mahogany Wood Stairs
 
 item.food.berries.name=Berry
 item.food.shroompowder.name=Shroom Powder

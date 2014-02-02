@@ -56,7 +56,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(5) == 0 ? new WorldGenTrees(false, 4 + random.nextInt(7), 3, 3, true) : 
-        new WorldGenRainforestTree1(Blocks.log, Blocks.leaves, 3, 3, false, 8, 8);
+        new WorldGenRainforestTree1(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("colorizedLeaves2"), 3, 2, false, 8, 8);
     }
     
     @Override

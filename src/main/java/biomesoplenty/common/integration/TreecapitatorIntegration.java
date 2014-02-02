@@ -179,6 +179,13 @@ public class TreecapitatorIntegration
         tree.setString("leaves", String.format("%s,1; %s,9", leaves4, leaves4));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
+        // BoP mahogany
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "mahogany");
+        tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs4, logs4, logs4));
+        tree.setString("leaves", String.format("%s,2; %s,10", leavesColorized2, leavesColorized2));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
         
         tpModCfg.setTag("trees", treeList);
         

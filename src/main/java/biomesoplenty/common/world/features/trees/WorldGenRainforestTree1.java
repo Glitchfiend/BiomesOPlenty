@@ -118,7 +118,7 @@ public class WorldGenRainforestTree1 extends WorldGenAbstractTree
 
                                     if (block1.isAir(world, i2, k1, k2) || block1.isLeaves(world, i2, k1, k2))
                                     {
-                                        this.func_150516_a(world, i2, k1, k2, Blocks.leaves, this.leavesMeta);
+                                        this.func_150516_a(world, i2, k1, k2, this.leaves, this.leavesMeta);
                                     }
                                 }
                             }

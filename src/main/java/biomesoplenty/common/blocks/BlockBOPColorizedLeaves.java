@@ -37,8 +37,9 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     //colorizedLeaves2
     //Willow		(0)
     //Pine			(1)
+    //Mahogany		(2)
     
-    private static final String[] leaves = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine"};
+    private static final String[] leaves = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany"};
     private IIcon[][] textures;
     private final ColourizedLeafCategory category;
     int[] adjacentTreeBlocks;
@@ -166,7 +167,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 	{
         for (int i = 0; i < 4; ++i)
         {
-            if (category != ColourizedLeafCategory.CAT2 || i < 2) 
+            if (category != ColourizedLeafCategory.CAT2 || i < 3) 
             {
                 list.add(new ItemStack(block, 1, i));
             }

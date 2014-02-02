@@ -39,6 +39,7 @@ public class FurnaceFuelHandler implements IFuelHandler
 		addFuel(new ItemStack(BOPBlockHelper.get("pineStairs")), 300);
 		addFuel(new ItemStack(BOPBlockHelper.get("jacarandaStairs")), 300);
 		addFuel(new ItemStack(BOPBlockHelper.get("hellBarkStairs")), 300);
+		addFuel(new ItemStack(BOPBlockHelper.get("mahoganyStairs")), 300);
 		
 		addFuel(new ItemStack(BOPItemHelper.get("misc"), 1, 1), 400);
 	}

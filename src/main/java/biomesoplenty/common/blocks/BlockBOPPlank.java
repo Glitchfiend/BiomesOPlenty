@@ -14,7 +14,7 @@ import biomesoplenty.BiomesOPlenty;
 
 public class BlockBOPPlank extends Block
 {
-	private static final String[] woodTypes = new String[] {"plank_sacredoak", "plank_cherry", "plank_dark", "plank_fir", "plank_holy", "plank_magic", "plank_mangrove", "plank_palm", "plank_redwood", "plank_willow", "bamboothatching", "plank_pine", "plank_hell_bark", "plank_jacaranda"};
+	private static final String[] woodTypes = new String[] {"plank_sacredoak", "plank_cherry", "plank_dark", "plank_fir", "plank_holy", "plank_magic", "plank_mangrove", "plank_palm", "plank_redwood", "plank_willow", "bamboothatching", "plank_pine", "plank_hell_bark", "plank_jacaranda", "plank_mahogany"};
 	private IIcon[] textures;
 
 	public BlockBOPPlank()

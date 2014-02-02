@@ -44,8 +44,9 @@ public class BlockBOPLog extends Block
 	//Pine				(0)
 	//Hellbark			(1)
 	//Jacaranda			(2)
+	//Mahogany			(3)
 
-	private static final String[] types = new String[] {"sacredoak", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda"};
+	private static final String[] types = new String[] {"sacredoak", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "dead", "bigflowerstem", "pine", "hellbark", "jacaranda", "mahogany"};
 	private IIcon[] textures;
 	private IIcon[] logHearts;
 
@@ -107,17 +108,8 @@ public class BlockBOPLog extends Block
 	//TODO:		getSubBlocks()
 	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		if (category != LogCategory.CAT4)
-		{
-			for (int i = 0; i < 4; ++i) {
-				list.add(new ItemStack(this, 1, i));
-			}
-		}
-		else
-		{
-			for (int i = 0; i < 3; ++i) {
-				list.add(new ItemStack(this, 1, i));
-			}
+		for (int i = 0; i < 4; ++i) {
+			list.add(new ItemStack(this, 1, i));
 		}
 	}
 

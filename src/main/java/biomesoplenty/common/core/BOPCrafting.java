@@ -160,6 +160,12 @@ public class BOPCrafting
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("woodenSingleSlab2"), 6, 4), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 13)});
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("jacarandaStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 13)});
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("jacarandaStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 13)});
+		
+		//Mahogany
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPBlockHelper.get("planks"), 4, 14), new Object[] {new ItemStack(BOPBlockHelper.get("logs4"), 1, 3)});
+		addRecipeToFront(new ItemStack(BOPBlockHelper.get("woodenSingleSlab2"), 6, 5), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 14)});
+		addRecipeToFront(new ItemStack(BOPBlockHelper.get("mahoganyStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 14)});
+		addRecipeToFront(new ItemStack(BOPBlockHelper.get("mahoganyStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 14)});
 
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("overgrownNetherrack"), 1, 0), new Object[] {"SSS", "SNS", "SSS", 'S', Items.wheat_seeds, 'N', Blocks.netherrack});
 		GameRegistry.addRecipe(new ItemStack(Blocks.wool, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(BOPBlockHelper.get("plants"), 1, 7)});
@@ -381,6 +387,7 @@ public class BOPCrafting
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("pineStairs")));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("hellBarkStairs")));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("jacarandaStairs")));
+		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("mahoganyStairs")));
 
 		OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlockHelper.get("colorizedLeaves1"), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlockHelper.get("colorizedLeaves2"), 1, OreDictionary.WILDCARD_VALUE));

@@ -20,12 +20,13 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+import biomesoplenty.common.world.features.trees.WorldGenRainforestTree1;
 import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree2;
 import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
-	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine"};
+	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany"};
 	private IIcon[] textures;
 	private static final int TYPES = 15;
 
@@ -160,6 +161,10 @@ public class BlockBOPColorizedSapling extends BlockSapling
 			    case 5: // Pine Tree
 			        obj = new WorldGenPineTree();
 			        break;
+			        
+			    case 6: //Mahogany Tree
+			    	obj = new WorldGenRainforestTree1(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("colorizedLeaves2"), 3, 2, false, 8, 8);
+			    	break;
 			}
 		}
 

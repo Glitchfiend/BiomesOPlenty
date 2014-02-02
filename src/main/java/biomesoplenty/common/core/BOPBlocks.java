@@ -220,6 +220,7 @@ public class BOPBlocks
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.PINE).func_149663_c("pineStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.HELL_BARK).func_149663_c("hellBarkStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.JACARANDA).func_149663_c("jacarandaStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MAHOGANY).func_149663_c("mahoganyStairs"));
 		
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_COBBLE).func_149663_c("redCobbleStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_BRICKS).func_149663_c("redBricksStairs"));
@@ -262,6 +263,7 @@ public class BOPBlocks
 		Blocks.fire.setFireInfo(BOPBlockHelper.get("pineStairs"), 5, 20);
 		Blocks.fire.setFireInfo(BOPBlockHelper.get("hellBarkStairs"), 5, 20);
 		Blocks.fire.setFireInfo(BOPBlockHelper.get("jacarandaStairs"), 5, 20);
+		Blocks.fire.setFireInfo(BOPBlockHelper.get("mahoganyStairs"), 5, 20);
 		
 		Blocks.fire.setFireInfo(BOPBlockHelper.get("moss"), 15, 100);
 		Blocks.fire.setFireInfo(BOPBlockHelper.get("treeMoss"), 15, 100);
