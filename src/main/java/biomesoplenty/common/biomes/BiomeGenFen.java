@@ -83,7 +83,7 @@ public class BiomeGenFen extends BOPBiome
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
     	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
+        grassMap.put(new WorldGenBOPDoubleFlora(2), 0.25D);
     	
     	return grassMap;
     }

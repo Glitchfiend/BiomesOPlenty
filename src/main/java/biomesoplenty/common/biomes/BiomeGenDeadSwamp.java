@@ -17,7 +17,7 @@ import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
 public class BiomeGenDeadSwamp extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
+    private static final Height biomeHeight = new Height(0.0F, 0.1F);
     
 	public BiomeGenDeadSwamp(int id)
 	{
@@ -34,7 +34,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
 		
 		this.waterColorMultiplier = 10661201;
 
-		this.theBiomeDecorator.treesPerChunk = 2;
+		this.theBiomeDecorator.treesPerChunk = 1;
 		this.theBiomeDecorator.grassPerChunk = 25;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.reedsPerChunk = -999;
@@ -56,7 +56,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        grassMap.put(new WorldGenBOPDoubleFlora(3), 0.25D);
+        grassMap.put(new WorldGenBOPDoubleFlora(2), 0.25D);
 
         return grassMap;
     }
