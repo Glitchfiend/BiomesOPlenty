@@ -26,26 +26,26 @@ public class BlockBOPGrass extends Block
 	public BlockBOPGrass()
 	{
 		//TODO:	Material.grass
-		super(Material.field_151577_b);
+		super(Material.grass);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.6F);
+		this.setHardness(0.6F);
 		this.setHarvestLevel("shovel", 0);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 
 		//setLightValue(0.25F);
 
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
 		
@@ -65,7 +65,7 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= this.icon.length) meta = 1;
 		if (side < 0 || side >= this.icon[meta].length) side = 1;
@@ -75,7 +75,7 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < 2; ++i) {
 			list.add(new ItemStack(block, 1, i));
@@ -84,7 +84,7 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta;
 	}
@@ -106,7 +106,7 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO:		onBlockPlaced()
-	public int func_149660_a(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		if (meta == 0)
 		{
@@ -127,7 +127,7 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		if (!world.isRemote)
 			return;
@@ -148,16 +148,16 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
 			if (world.provider.isHellWorld)
 			{
 				//TODO: setBlock()
-				world.func_147465_d(x, y + 1, z, Blocks.fire, 0, 2);
+				world.setBlock(x, y + 1, z, Blocks.fire, 0, 2);
 				//TODO: setBlock()
-				world.func_147465_d(x, y, z, this, 1, 2);
+				world.setBlock(x, y, z, this, 1, 2);
 			}
 
 			if (!world.isRemote)
@@ -165,7 +165,7 @@ public class BlockBOPGrass extends Block
 				if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 				{
 					//TODO: setBlock()
-					world.func_147465_d(x, y, z, BOPBlockHelper.get("holyDirt"), 0, 2);
+					world.setBlock(x, y, z, BOPBlockHelper.get("holyDirt"), 0, 2);
 				}
 				else if (world.getBlockLightValue(x, y + 1, z) >= 9)
 				{
@@ -175,13 +175,13 @@ public class BlockBOPGrass extends Block
 						int rY = y + random.nextInt(5) - 3;
 						int rZ = z + random.nextInt(3) - 1;
 						//TODO:			    getBlock()
-	                    Block block = world.func_147439_a(rX, rY + 1, rZ);
+	                    Block block = world.getBlock(rX, rY + 1, rZ);
 
 	                    //TODO:	  getBlock()
-						if (world.func_147439_a(rX, rY, rZ) == BOPBlockHelper.get("holyDirt") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
+						if (world.getBlock(rX, rY, rZ) == BOPBlockHelper.get("holyDirt") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
 							//TODO: setBlock()
-							world.func_147465_d(rX, rY, rZ, BOPBlockHelper.get("grass"), 0, 2);
+							world.setBlock(rX, rY, rZ, BOPBlockHelper.get("grass"), 0, 2);
 						}
 					}
 				}
@@ -191,7 +191,7 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 1)
 		{
@@ -200,12 +200,12 @@ public class BlockBOPGrass extends Block
 		}
 
 		//TODO:		getCollisionBoundingBoxFromPool()
-		return super.func_149668_a(world, x, y, z);
+		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
 	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (world.getBlockMetadata(x, y, z) == 1) {
 			entity.setFire(2);
@@ -214,10 +214,10 @@ public class BlockBOPGrass extends Block
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		//TODO:						getItemFromBlock()									getItemFromBlock()
-		return metadata == 0 ? Item.func_150898_a(BOPBlockHelper.get("holyDirt")) : Item.func_150898_a(Blocks.dirt);
+		return metadata == 0 ? Item.getItemFromBlock(BOPBlockHelper.get("holyDirt")) : Item.getItemFromBlock(Blocks.dirt);
 	}
 
 }

@@ -53,21 +53,21 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		float f = 0.4F;
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.0F);
+		this.setHardness(0.0F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: setBlockBounds
-		this.func_149676_a(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
+		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[foliageTypes.length];
 
@@ -81,7 +81,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta >= textures.length) {
 			meta = 0;
@@ -92,7 +92,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < foliageTypes.length; ++i)
 		{
@@ -157,7 +157,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
-		Block block = world.func_147439_a(x, y - 1, z);
+		Block block = world.getBlock(x, y - 1, z);
 		
     	if (block == Blocks.air) return false;
 		
@@ -176,20 +176,20 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
 	//TODO:			canReplace()
-    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
+    public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
     	//TODO:	  getBlock()
-    	if (world.func_147439_a(x, y - 1, z) == Blocks.air) return false;
+    	if (world.getBlock(x, y - 1, z) == Blocks.air) return false;
 		
 		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
 	@Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		//TODO: randomDisplayTick()
-		super.func_149734_b(world, x, y, z, random);
+		super.randomDisplayTick(world, x, y, z, random);
 
 		int meta = world.getBlockMetadata(x, y, z);
 		int i = 5149489;
@@ -209,10 +209,10 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
     @Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
     {
     	//TODO:				getBlock()
-    	Block block = world.func_147439_a(x, y, z);
+    	Block block = world.getBlock(x, y, z);
         
         this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
     }
@@ -220,48 +220,48 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
     public void dropIfCantStay(World world, int x, int y, int z, ItemStack stack)
     {
     	//TODO:	  canReplace
-        if (!this.func_149705_a(world, x, y, z, 0, stack))
+        if (!this.canReplace(world, x, y, z, 0, stack))
         {
         	//TODO:	dropBlockAsItem()
-            this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
             //TODO:	setBlockToAir()
-            world.func_147468_f(x, y, z);
+            world.setBlockToAir(x, y, z);
         }
     }
 
 	@Override
 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
 		//TODO:												getBlock()
-		dropIfCantStay(world, x, y, z, new ItemStack(world.func_147439_a(x, y, z), 1, world.getBlockMetadata(x, y, z)));
+		dropIfCantStay(world, x, y, z, new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)));
 		
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
 	    if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM) 
 	    {
 	    	//TODO:	 getBlock()
-	        if (world.func_147439_a(x, y + 1, z) != this)
+	        if (world.getBlock(x, y + 1, z) != this)
 	        {
 	        	//TODO: setBlock()
-	            world.func_147465_d(x, y, z, Blocks.tallgrass, 1, 2);
+	            world.setBlock(x, y, z, Blocks.tallgrass, 1, 2);
 	        }
 	        //TODO:											getBlock()
 	        else if (!this.isValidPosition(world, x, y, z, metadata))
 	        {
 	        	//TODO: dropBlockAsItem()
-	            this.func_149697_b(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);
+	            this.dropBlockAsItem(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);
 	            //TODO:	setBlockToAir()
-	            world.func_147468_f(x, y + 1, z);
+	            world.setBlockToAir(x, y + 1, z);
 	        }
 	    }
 
-		super.func_149695_a(world, x, y, z, neighborBlock);
+		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -288,7 +288,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
     //TODO:	   getBlockColor()
-    public int func_149635_D()
+    public int getBlockColor()
     {
 		double var1 = 0.5D;
 		double var3 = 1.0D;
@@ -299,35 +299,35 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	@Override
 	@SideOnly(Side.CLIENT)
     //TODO:	   getRenderColor()
-    public int func_149741_i(int par1)
+    public int getRenderColor(int par1)
     {
 		return ColorizerGrass.getGrassColor(0.5D, 1.0D);
 	}
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return RenderUtils.foliageModel;
 	}
 
 	@Override
     //TODO:	   colorMultiplier()
-    public int func_149720_d(IBlockAccess world, int x, int y, int z)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 9)
 		{
 			//TODO:									getBiomeFoliageColor()
-			return world.getBiomeGenForCoords(x, z).func_150571_c(x, y, z);
+			return world.getBiomeGenForCoords(x, z).getBiomeFoliageColor(x, y, z);
 		}
 
 		//TODO:									getBiomeGrassColor()
-		return world.getBiomeGenForCoords(x, z).func_150558_b(x, y, z);
+		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
 	}
 
 	@Override
 	//TODO:	   getDamageValue()
-	public int func_149643_k(World world, int x, int y, int z) 
+	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == GRASSTOP) {
@@ -338,14 +338,14 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return null;
 	}
 
 	@Override
 	//TODO:				 getSelectedBoundingBoxFromPool()
-    public AxisAlignedBB func_149633_g(World world, int x, int y, int z)
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
     {
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -370,7 +370,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
-	public void func_149719_a(IBlockAccess world, int x, int y, int z)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -418,19 +418,19 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		}
 
 		//TODO: setBlockBounds()
-		this.func_149676_a(minX, minY, minZ, maxX, maxY, maxZ);
+		this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
 	@Override
 	//TODO:			onBlockActivated
-	public boolean func_149727_a(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		if (meta == 8)
 		{
 			//TODO:	setBlock()
-			world.func_147465_d(x, y, z, this, 4, 3);
+			world.setBlock(x, y, z, this, 4, 3);
 			
 			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 0));
 			

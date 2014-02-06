@@ -50,7 +50,7 @@ public class ItemEnderporter extends Item
 				{
 					//TODO: addChatMessage()?
 					//TODO: BUG Whole text isn't purple
-					player.func_146105_b(new ChatComponentText("\u00a75A mystical energy is preventing you from using this in the current world."));
+					player.addChatComponentMessage(new ChatComponentText("\u00a75A mystical energy is preventing you from using this in the current world."));
 				}
 			}
 

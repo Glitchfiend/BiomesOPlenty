@@ -18,28 +18,28 @@ public class BlockPromisedPortal extends Block
 	public BlockPromisedPortal()
 	{
 		//TODO:	Material.portal
-		super(Material.field_151567_E);
+		super(Material.portal);
 		
 		//TODO:	this.setUnbreakable()
-		this.func_149722_s();
+		this.setBlockUnbreakable();
 		//TODO: this.setResistance
-		this.func_149752_b(6000000.0F);
+		this.setResistance(6000000.0F);
 		
 		//TODO: this.setLightValue
-		this.func_149715_a(1.0F);
+		this.setLightLevel(1.0F);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:portal");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:portal");
 	}
 
 	@Override
 	//TODO:	   getRenderBlockPass()
-	public int func_149701_w()
+	public int getRenderBlockPass()
 	{
 		return 1;
 	}
@@ -47,29 +47,29 @@ public class BlockPromisedPortal extends Block
 	@Override
 	@SideOnly(Side.CLIENT)
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		//TODO:		 shouldSideBeRendered()
-		return super.func_149646_a(world, x, y, z, 1 - side);
+		return super.shouldSideBeRendered(world, x, y, z, 1 - side);
 	}
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		return null;
 	}
 
 	@Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (entity.ridingEntity == null && entity.riddenByEntity == null)
 		{

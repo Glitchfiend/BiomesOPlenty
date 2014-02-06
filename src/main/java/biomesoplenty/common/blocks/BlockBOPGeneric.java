@@ -26,81 +26,81 @@ public class BlockBOPGeneric extends Block
 		this.type = type;
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 
 		switch (type)
 		{
 		case ASH_STONE:
 			//TODO: this.setHardness
-			this.func_149711_c(1.0F);		
+			this.setHardness(1.0F);		
 			//TODO setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case CRAG_ROCK:
 			//TODO: this.setHardness
-			this.func_149711_c(1.0F);
+			this.setHardness(1.0F);
 			//TODO setStepSound(Block.soundGravelFootstep)
-			this.func_149672_a(field_149767_g);
+			this.setStepSound(soundTypeGravel);
 			break;
 
 		case DRIED_DIRT:
 			//TODO: this.setHardness
-			this.func_149711_c(0.1F);		
+			this.setHardness(0.1F);		
 			this.setHarvestLevel("pickaxe", 0);
 			
 			//TODO setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HARD_DIRT:
 			//TODO: this.setHardness
-			this.func_149711_c(0.9F);
+			this.setHardness(0.9F);
 			//TODO setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HARD_ICE:
 			//TODO: this.setHardness
-			this.func_149711_c(0.75F);		
+			this.setHardness(0.75F);		
 			//TODO setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HARD_SAND:
 			//TODO: this.setHardness
-			this.func_149711_c(0.7F);
+			this.setHardness(0.7F);
 			this.setHarvestLevel("shovel", 0);
 			
 			//TODO setStepSound(Block.soundSandFootstep)
-			this.func_149672_a(Block.field_149776_m);
+			this.setStepSound(Block.soundTypeSand);
 			break;
 
 		case MUD_BRICK:
 			//TODO: this.setHardness
-			this.func_149711_c(1.0F);
+			this.setHardness(1.0F);
 			//TODO: this.setResistance
-			this.func_149752_b(2.0F);	
+			this.setResistance(2.0F);	
 			//TODO setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HOLY_DIRT:
 			//TODO: this.setHardness
-			this.func_149711_c(0.6F);
+			this.setHardness(0.6F);
 			//TODO setStepSound(Block.soundGravelFootstep)
-			this.func_149672_a(field_149767_g);
+			this.setStepSound(soundTypeGravel);
 			break;
 
 		case CRYSTAL:
 			//TODO: this.setHardness
-			this.func_149711_c(0.15F);
+			this.setHardness(0.15F);
 			//TODO: this.setResistance
-			this.func_149752_b(5.0F);
+			this.setResistance(5.0F);
 			//TODO: this.setLightValue
-			this.func_149715_a(1.0F);
+			this.setLightLevel(1.0F);
 			//TODO setStepSound(Block.soundGravelFootstep)
-			this.func_149672_a(Block.field_149778_k);
+			this.setStepSound(Block.soundTypeGlass);
 			break;
 
 		default:
@@ -110,7 +110,7 @@ public class BlockBOPGeneric extends Block
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		switch (type)
 		{
@@ -157,7 +157,7 @@ public class BlockBOPGeneric extends Block
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		switch (type)
 		{
@@ -166,13 +166,13 @@ public class BlockBOPGeneric extends Block
 
 		default:
 			//TODO:		getItemForBlock()
-			return Item.func_150898_a(this);
+			return Item.getItemFromBlock(this);
 		}
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		switch (type)
 		{
@@ -199,7 +199,7 @@ public class BlockBOPGeneric extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		return texture;
 	}

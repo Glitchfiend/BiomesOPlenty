@@ -41,29 +41,29 @@ public class BlockBOPStairs extends BlockStairs
 		if (isWoodCategory(category.toString())) 
 		{
 			//TODO: this.setHardness
-			this.func_149711_c(2.0F);
+			this.setHardness(2.0F);
 
 			//TODO setStepSound(Block.soundWoodFootstep)
-			this.func_149672_a(Block.field_149766_f);
+			this.setStepSound(Block.soundTypeWood);
 		}
 		else 
 		{
 			//TODO: this.setHardness
-			this.func_149711_c(3.0F);
+			this.setHardness(3.0F);
 
 			//TODO 	setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 		}
 		//TODO: useNeighborBrightness?
-		field_149783_u = true;
+		useNeighborBrightness = true;
 
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		if (isStoneCategory(category.toString()))
 		{
@@ -135,7 +135,7 @@ public class BlockBOPStairs extends BlockStairs
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		int adjCat = category.ordinal();
 

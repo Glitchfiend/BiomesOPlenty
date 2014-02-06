@@ -34,9 +34,9 @@ public class BOPVanillaCompat
 	private static void registerDispenserBehaviours()
 	{
 		//TODO:			dispenseBehaviourRegistry
-		BlockDispenser.field_149943_a.putObject(BOPItemHelper.get("mudball"), new DispenserBehaviourMudball());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItemHelper.get("mudball"), new DispenserBehaviourMudball());
 		//TODO:			dispenseBehaviourRegistry
-		BlockDispenser.field_149943_a.putObject(BOPItemHelper.get("dart"), new DispenserBehaviourDart());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItemHelper.get("dart"), new DispenserBehaviourDart());
 	}
 	
 	private static void addDungeonLoot()
@@ -70,7 +70,7 @@ public class BOPVanillaCompat
 			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
 			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
 			
-			for (BiomeGenBase biome : BiomeGenBase.func_150565_n())
+			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
 			{
 			    if (biome != null)
 			    {
@@ -96,7 +96,7 @@ public class BOPVanillaCompat
 	private static void addBonemealFlowers()
 	{
 	    //TODO:                                getBiomeGenArray()
-	    for (BiomeGenBase biome : BiomeGenBase.func_150565_n())
+	    for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
 	    {
 	        if (biome != null)
 	        {

@@ -21,7 +21,7 @@ public class WorldGenGrassSplatter extends WorldGeneratorBOP
 
         do
         {
-            block = world.func_147439_a(x, y, z);
+            block = world.getBlock(x, y, z);
             if (!(block.isLeaves(world, x, y, z) || block.isAir(world, x, y, z)))
             {
                 break;
@@ -38,25 +38,25 @@ public class WorldGenGrassSplatter extends WorldGeneratorBOP
             int var999 = random.nextInt(5);
 
             //TODO:    isAirBlock()
-            if (world.func_147437_c(randX, randY, randZ) && (world.func_147439_a(randX, randY - 1, randZ) == BOPBlockHelper.get("hardSand") || world.func_147439_a(randX, randY - 1, randZ) == Blocks.sand || world.func_147439_a(randX, randY - 1, randZ) == Blocks.stone))
+            if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("hardSand") || world.getBlock(randX, randY - 1, randZ) == Blocks.sand || world.getBlock(randX, randY - 1, randZ) == Blocks.stone))
             {
-                world.func_147465_d(randX, randY - 1, randZ, Blocks.grass, 0, 2);
+                world.setBlock(randX, randY - 1, randZ, Blocks.grass, 0, 2);
 
                 if (var999 == 0)
                 {
-                    world.func_147465_d(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
+                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
                 }
                 else if (var999 == 1)
                 {
-                    world.func_147465_d(randX, randY, randZ, BOPBlockHelper.get("foliage"), 10, 2);
+                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 10, 2);
                 }
                 else if (var999 == 2)
                 {
-                    world.func_147465_d(randX, randY, randZ, BOPBlockHelper.get("foliage"), 11, 2);
+                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 11, 2);
                 }
                 else
                 {
-                    world.func_147465_d(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
+                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
                 }
             }
         }

@@ -105,7 +105,7 @@ public class BiomeLayerHellZoom extends BiomeLayerHell
 		 }
 	 }
 
-	 public static BiomeLayerHell func_75915_a(long par0, BiomeLayerHell par2GenLayer, int par3)
+	 public static BiomeLayerHell magnify(long par0, BiomeLayerHell par2GenLayer, int par3)
 	 {
 		 Object object = par2GenLayer;
 

@@ -64,11 +64,11 @@ public class WorldGenWaterSpring extends WorldGenerator
 							{
 								double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
 
-								Block block = world.func_147439_a(var38, var41, var44);
+								Block block = world.getBlock(var38, var41, var44);
 								if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && block == BOPBlockHelper.get("holyStone"))
 								{
 									//world.setBlock(var38, var41, var44, minableBlockId);
-									world.func_147449_b(var38, var41, var44, minableBlockId);
+									world.setBlock(var38, var41, var44, minableBlockId);
 								}
 							}
 						}

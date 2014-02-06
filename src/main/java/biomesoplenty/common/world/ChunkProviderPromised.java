@@ -495,7 +495,7 @@ public class ChunkProviderPromised implements IChunkProvider
 	 @Override
 	 public void populate(IChunkProvider par1IChunkProvider, int par2, int par3)
 	 {
-		 BlockSand.field_149832_M = true;
+		 BlockSand.fallInstantly = true;
 
 		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));
 
@@ -508,11 +508,11 @@ public class ChunkProviderPromised implements IChunkProvider
 			 int x = var4 + endWorld.rand.nextInt(16);
 			 int y = endWorld.rand.nextInt(30) + 30;
 			 int z = var5 + endWorld.rand.nextInt(16);
-			 Block b = endWorld.func_147439_a(x, y, z);
+			 Block b = endWorld.getBlock(x, y, z);
 
 			 if (b == BOPBlockHelper.get("holyStone"))
 			 {
-				 endWorld.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
+				 endWorld.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
 			 }
 		 }
 
@@ -520,7 +520,7 @@ public class ChunkProviderPromised implements IChunkProvider
 
 		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));
 
-		 BlockSand.field_149832_M = false;
+		 BlockSand.fallInstantly = false;
 	 }
 
 	 /**

@@ -12,7 +12,7 @@ public class BiomeGenVolcano extends BOPBiome
         super(id);
         
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         this.setDisableRain();
         //TODO: setColor()
         this.setColor(6645093);

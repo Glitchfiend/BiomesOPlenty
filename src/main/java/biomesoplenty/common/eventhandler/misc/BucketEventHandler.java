@@ -30,7 +30,7 @@ public class BucketEventHandler
 		int z = event.target.blockZ;
 
 		//TODO:				getBlock()
-		Block block = world.func_147439_a(x, y, z);
+		Block block = world.getBlock(x, y, z);
 
 		Fluid fluidBlockFluid = FluidRegistry.lookupFluidForBlock(block);
 
@@ -42,7 +42,7 @@ public class BucketEventHandler
 			{
 				bopBucket.fill(bopBucketStack, new FluidStack(fluidBlockFluid, FluidContainerRegistry.BUCKET_VOLUME), true);
 
-				world.func_147468_f(x, y, z);
+				world.setBlockToAir(x, y, z);
 
 				event.result = bopBucketStack;
 				event.setResult(Result.ALLOW);

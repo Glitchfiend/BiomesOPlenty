@@ -120,7 +120,7 @@ public class EntityGlob extends EntityLiving implements IMob
 			 squishAmount = 1.0F;
 		 }
 
-		 this.func_70808_l();
+		 this.alterSquishAmount();
 
 		 if (worldObj.isRemote)
 		 {
@@ -170,7 +170,7 @@ public class EntityGlob extends EntityLiving implements IMob
 		 }
 	 }
 
-	 protected void func_70808_l()
+	 protected void alterSquishAmount()
 	 {
 		 squishAmount *= 0.6F;
 	 }
@@ -196,7 +196,7 @@ public class EntityGlob extends EntityLiving implements IMob
 	 {
 		 int i = this.getGlobSize();
 
-		 //func_110143_aJ() == getHealth
+		 //getHealth() == getHealth
 		 if (!worldObj.isRemote && i > 1 && this.getHealth() <= 0)
 		 {
 			 int j = 2 + rand.nextInt(3);
@@ -283,7 +283,7 @@ public class EntityGlob extends EntityLiving implements IMob
 		
 
 		//TODO: dropItem()
-		this.func_145779_a(Items.slime_ball, 1);
+		this.dropItem(Items.slime_ball, 1);
 	}
 
 	 /**

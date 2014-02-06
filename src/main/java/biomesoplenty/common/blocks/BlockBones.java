@@ -24,21 +24,21 @@ public class BlockBones extends Block
 	public BlockBones()
 	{
 		//TODO: Material.rock
-		super(Material.field_151576_e);
+		super(Material.rock);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(3.0F);
+		this.setHardness(3.0F);
 		
 		//TODO: this.setResistance
-		this.func_149752_b(5.0F);
+		this.setResistance(5.0F);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[boneTypes.length];
 
@@ -50,7 +50,7 @@ public class BlockBones extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
@@ -65,7 +65,7 @@ public class BlockBones extends Block
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -96,7 +96,7 @@ public class BlockBones extends Block
 
 	@Override
 	//TODO:				 getSelectedBoundingBoxFromPool()
-	public AxisAlignedBB func_149633_g(World world, int x, int y, int z)
+	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -127,7 +127,7 @@ public class BlockBones extends Block
 
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
-	public void func_149719_a(IBlockAccess world, int x, int y, int z)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -191,12 +191,12 @@ public class BlockBones extends Block
 		}
 
 		//TODO: this.setBlockBounds()
-		this.func_149676_a(minX, minY, minZ, maxX, maxY, maxZ);
+		this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
 	@Override
 	//TODO:	   getDamageValue()
-	public int func_149643_k(World world, int x, int y, int z) 
+	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 3 || meta == 4) {
@@ -210,7 +210,7 @@ public class BlockBones extends Block
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < boneTypes.length; ++i) {
 			list.add(new ItemStack(block, 1, i));
@@ -219,35 +219,35 @@ public class BlockBones extends Block
 
 	@Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO:		   renderAsNormalBlock()
-    public boolean func_149686_d()
+    public boolean renderAsNormalBlock()
     {
         return false;
     }
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return RenderUtils.bonesModel;
 	}
 
 	@Override
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		if (meta == 3 || meta == 4) 
 		{

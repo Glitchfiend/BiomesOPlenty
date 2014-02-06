@@ -160,7 +160,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 				else
 				{
 					aint1[b2] = aint[b2] + j1;
-					Block block1 = this.worldObj.func_147439_a(aint1[0], aint1[1], aint1[2]);
+					Block block1 = this.worldObj.getBlock(aint1[0], aint1[1], aint1[2]);
 
 					if (!block1.isAir(worldObj, aint1[0], aint1[1], aint1[2]) && !block1.isLeaves(worldObj, aint1[0], aint1[1], aint1[2]))
 					{
@@ -168,7 +168,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 					}
 					else
 					{
-						this.func_150516_a(this.worldObj, aint1[0], aint1[1], aint1[2], p_150529_6_, metaLeaves);
+						this.setBlockAndNotifyAdequately(this.worldObj, aint1[0], aint1[1], aint1[2], p_150529_6_, metaLeaves);
 						++j1;
 					}
 				}
@@ -176,7 +176,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 		}
 	}
 
-	// JAVADOC METHOD $$ func_76490_a
+	// JAVADOC METHOD $$ layerSize
 	float layerSize(int par1)
 	{
 		if ((double)par1 < (double)((float)this.heightLimit) * 0.3D)
@@ -212,7 +212,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 		return par1 >= 0 && par1 < this.leafDistanceLimit ? (par1 != 0 && par1 != this.leafDistanceLimit - 1 ? 3.0F : 2.0F) : -1.0F;
 	}
 
-	// JAVADOC METHOD $$ func_76491_a
+	// JAVADOC METHOD $$ generateLeafNode
 	void generateLeafNode(int par1, int par2, int par3)
 	{
 		int l = par2;
@@ -282,7 +282,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 					}
 				}
 
-				this.func_150516_a(this.worldObj, aint3[0], aint3[1], aint3[2], p_150530_3_, b5);
+				this.setBlockAndNotifyAdequately(this.worldObj, aint3[0], aint3[1], aint3[2], p_150530_3_, b5);
 			}
 		}
 	}
@@ -329,7 +329,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 		}
 	}
 
-	// JAVADOC METHOD $$ func_76494_d
+	// JAVADOC METHOD $$ generateLeafNodeBases
 	void generateLeafNodeBases()
 	{
 		int i = 0;
@@ -349,7 +349,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 		}
 	}
 
-	// JAVADOC METHOD $$ func_76496_a
+	// JAVADOC METHOD $$ checkBlockLine
 	int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger)
 	{
 		int[] aint2 = new int[] {0, 0, 0};
@@ -396,7 +396,7 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 				aint3[b1] = par1ArrayOfInteger[b1] + i;
 				aint3[b2] = MathHelper.floor_double((double)par1ArrayOfInteger[b2] + (double)i * d0);
 				aint3[b3] = MathHelper.floor_double((double)par1ArrayOfInteger[b3] + (double)i * d1);
-				Block block = this.worldObj.func_147439_a(aint3[0], aint3[1], aint3[2]);
+				Block block = this.worldObj.getBlock(aint3[0], aint3[1], aint3[2]);
 
 				if (!this.isReplaceable(worldObj, aint3[0], aint3[1], aint3[2]))
 				{
@@ -408,12 +408,12 @@ public class WorldGenBOPBigTree extends WorldGenAbstractTree
 		}
 	}
 
-	// JAVADOC METHOD $$ func_76497_e
+	// JAVADOC METHOD $$ validTreeLocation
 	boolean validTreeLocation()
 	{
 		int[] aint = new int[] {this.basePos[0], this.basePos[1], this.basePos[2]};
 		int[] aint1 = new int[] {this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
-		Block block = this.worldObj.func_147439_a(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
+		Block block = this.worldObj.getBlock(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 
 		boolean isSoil = block.canSustainPlant(worldObj, basePos[0], basePos[1] - 1, basePos[2], ForgeDirection.UP, (BlockSapling)Blocks.sapling);
 		if (!isSoil)

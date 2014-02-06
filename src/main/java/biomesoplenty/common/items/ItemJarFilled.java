@@ -73,7 +73,7 @@ public class ItemJarFilled extends Item
 
 	@Override
     //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
-    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
 	{
 		for (int meta = 0; meta < jars.length; ++meta) 
 		{
@@ -89,14 +89,14 @@ public class ItemJarFilled extends Item
                 if (entityPlayer.dimension == 0 || entityPlayer.dimension == BOPConfigurationIDs.promisedLandDimID)
                 {
                 	//TODO:				getBlock()
-                    Block block = world.func_147439_a(x, y, z);
+                    Block block = world.getBlock(x, y, z);
                     x += Facing.offsetsXForSide[side];
                     y += Facing.offsetsYForSide[side];
                     z += Facing.offsetsZForSide[side];
                     double d0 = 0.0D;
 
                     //TODO:									getRenderType()
-                    if (side == 1 && block != null && block.func_149645_b() == 11)
+                    if (side == 1 && block != null && block.getRenderType() == 11)
                     {
                         d0 = 0.5D;
                     }
@@ -139,7 +139,7 @@ public class ItemJarFilled extends Item
                     if (!world.isRemote)
                     {
                     	//TODO:		addChatMessage
-                        entityPlayer.func_146105_b(new ChatComponentText("\u00a75Pixies cannot survive in this environment!"));
+                        entityPlayer.addChatComponentMessage(new ChatComponentText("\u00a75Pixies cannot survive in this environment!"));
                     }
                 }
             }

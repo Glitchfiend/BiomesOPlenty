@@ -16,7 +16,7 @@ public class WorldGenRockpile extends WorldGeneratorBOP
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         //TODO:      isAirBlock()
-        while (world.func_147437_c(x, y, z) && y > 2)
+        while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
@@ -27,7 +27,7 @@ public class WorldGenRockpile extends WorldGeneratorBOP
         {
             for (int iz = -1; iz <= 1; iz++)
             {
-                if (world.func_147439_a(x + ix, y, z + iz) != Blocks.grass)
+                if (world.getBlock(x + ix, y, z + iz) != Blocks.grass)
                 {
                     isGrass = false;
                     break;
@@ -46,7 +46,7 @@ public class WorldGenRockpile extends WorldGeneratorBOP
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
                     //TODO:   isAirBlock()                                      isAirBlock()
-                    if (world.func_147437_c(x + var7, y - 1, z + var8) && world.func_147437_c(x + var7, y - 2, z + var8))
+                    if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                         return false;
                 }
             }
@@ -62,12 +62,12 @@ public class WorldGenRockpile extends WorldGeneratorBOP
                 this.func_150515_a(world, x, y, z - 1, Blocks.dirt);
                 this.func_150515_a(world, x, y, z + 1, Blocks.dirt);
                 //TODO: setBlockAndMetadata()
-                this.func_150516_a(world, x, y + 1, z, Blocks.stone, 0);
-                this.func_150516_a(world, x + 1, y + 1, z, Blocks.stone, 0);
-                this.func_150516_a(world, x - 1, y + 1, z, Blocks.stone, 0);
-                this.func_150516_a(world, x, y + 1, z + 1, Blocks.stone, 0);
-                this.func_150516_a(world, x, y + 1, z - 1, Blocks.stone, 0);
-                this.func_150516_a(world, x, y + 2, z, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z + 1, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z - 1, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 2, z, Blocks.stone, 0);
                 return true;
             }
             else if (var999 == 1)
@@ -75,7 +75,7 @@ public class WorldGenRockpile extends WorldGeneratorBOP
                 //TODO: setBlock()
                 this.func_150515_a(world, x, y, z, Blocks.dirt);
                 //TODO: setBlockAndMetadata()
-                this.func_150516_a(world, x, y + 1, z, Blocks.stone, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z, Blocks.stone, 0);
                 return true;
             }
 

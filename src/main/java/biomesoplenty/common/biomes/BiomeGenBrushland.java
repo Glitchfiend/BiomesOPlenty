@@ -22,7 +22,7 @@ public class BiomeGenBrushland extends BOPBiome
 		super(id);
 		
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(13222271);
         this.setTemperatureRainfall(2.0F, 0.05F);
@@ -69,14 +69,14 @@ public class BiomeGenBrushland extends BOPBiome
 
 	@Override
 	//TODO:		getBiomeGrassColor()
-    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 13222271;
 	}
 
 	@Override
 	//TODO:		getBiomeFoliageColor()
-	public int func_150571_c(int x, int y, int z)
+	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 11716223;
 	}

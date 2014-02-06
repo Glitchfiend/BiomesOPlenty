@@ -26,22 +26,22 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 	public BlockBOPPetals()
 	{
     	//TODO:	Material.leaves
-        super(Material.field_151584_j, false);
+        super(Material.leaves, false);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		//TODO: this.setHardness
-		this.func_149711_c(0.2F);
+		this.setHardness(0.2F);
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[petals.length][2];
 
@@ -53,7 +53,7 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		return textures[meta < 0 || meta >= textures.length ? 0 : meta][0];
 	}
@@ -65,7 +65,7 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < textures.length; ++i) {
 			list.add(new ItemStack(block, 1, i));
@@ -74,26 +74,26 @@ public class BlockBOPPetals extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata == 0)
 			//TODO:		getItemFromBlock()
-			return Item.func_150898_a(Blocks.red_flower);
+			return Item.getItemFromBlock(Blocks.red_flower);
 		else
 			//TODO:     getItemFromBlock()
-			return Item.func_150898_a(Blocks.yellow_flower);
+			return Item.getItemFromBlock(Blocks.yellow_flower);
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta & 15;
 	}
 
 	@Override
 	//TODO:    quantityDropped()
-	public int func_149745_a(Random random)
+	public int quantityDropped(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;
 	}

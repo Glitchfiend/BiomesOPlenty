@@ -26,7 +26,7 @@ public class BiomeGenLushDesert extends BOPBiome
         super(id);
         
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(9087277);
         this.setTemperatureRainfall(1.0F, 0.3F);
@@ -98,12 +98,12 @@ public class BiomeGenLushDesert extends BOPBiome
             int z = chunkZ + random.nextInt(16);
 
             //TODO:             getBlock()
-            Block block = world.func_147439_a(x, y, z);
+            Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
                 //TODO: setBlock()
-                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
+                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
             }
         }
 
@@ -113,17 +113,17 @@ public class BiomeGenLushDesert extends BOPBiome
             int y = random.nextInt(53) + 75;
             int z = chunkZ + random.nextInt(16);
 
-            Block block= world.func_147439_a(x, y, z);
+            Block block= world.getBlock(x, y, z);
 
             if (block != null && (block.isReplaceableOreGen(world, x, y, z, Blocks.stone) || block == BOPBlockHelper.get("redRock")))
             {
                 //TODO: setBlock()
-                world.func_147465_d(x, y, z, Blocks.flowing_water, 0, 2);
+                world.setBlock(x, y, z, Blocks.flowing_water, 0, 2);
             }
         }
     }
     
-    public void func_150573_a(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    public void genTerrainBlocks(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
     {
 
         if (p_150573_7_ > 1.75D)
@@ -139,6 +139,6 @@ public class BiomeGenLushDesert extends BOPBiome
             this.field_150604_aj = 0;
         }
 
-        this.func_150560_b(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+        this.genBiomeTerrain(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 }

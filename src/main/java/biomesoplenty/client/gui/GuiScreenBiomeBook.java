@@ -45,24 +45,24 @@ public class GuiScreenBiomeBook extends GuiScreenBook
         super.initGui();
         
         //TODO: buttonList
-        this.field_146292_n.remove(2);
-        this.field_146292_n.remove(1);
+        this.buttonList.remove(2);
+        this.buttonList.remove(1);
         
-        int i = (this.field_146294_l - 192) / 2;
+        int i = (this.width - 192) / 2;
         byte b0 = 2;
-        this.field_146292_n.add(this.buttonNextPage = new GuiScreenBiomeBook.NextPageButton(1, i + 120, b0 + 154, true));
-        this.field_146292_n.add(this.buttonPreviousPage = new GuiScreenBiomeBook.NextPageButton(2, i + 38, b0 + 154, false));
+        this.buttonList.add(this.buttonNextPage = new GuiScreenBiomeBook.NextPageButton(1, i + 120, b0 + 154, true));
+        this.buttonList.add(this.buttonPreviousPage = new GuiScreenBiomeBook.NextPageButton(2, i + 38, b0 + 154, false));
         
         pageLinks.clear();
         
         //TODO:                                      fontRendererObj
-        this.pageLinks.add(new PageLink(3, i + 41 + (field_146289_q.getStringWidth("Contents") / 2) + 7, b0 + 154, 0x6189CE, "Contents", 1, 2, 0));
+        this.pageLinks.add(new PageLink(3, i + 41 + (fontRendererObj.getStringWidth("Contents") / 2) + 7, b0 + 154, 0x6189CE, "Contents", 1, 2, 0));
         
         addLinks();
         
         for (PageLink link : pageLinks)
         {
-            this.field_146292_n.add(link);
+            this.buttonList.add(link);
         }
         
         updatePageButtons();
@@ -70,12 +70,12 @@ public class GuiScreenBiomeBook extends GuiScreenBook
     
     @Override
     //TODO:        actionPerformed()
-    protected void func_146284_a(GuiButton button)
+    protected void actionPerformed(GuiButton button)
     {
-        super.func_146284_a(button);
+        super.actionPerformed(button);
         
         //TODO:    enabled
-        if (button.field_146124_l)
+        if (button.enabled)
         {
             if (button instanceof PageLink)
             {
@@ -100,7 +100,7 @@ public class GuiScreenBiomeBook extends GuiScreenBook
     public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height)
     {
         //TODO:             minecraft
-        if (isDrawing) this.field_146297_k.getTextureManager().bindTexture(biomeBookTexture);
+        if (isDrawing) this.mc.getTextureManager().bindTexture(biomeBookTexture);
         
         isDrawing = false;
         
@@ -110,10 +110,10 @@ public class GuiScreenBiomeBook extends GuiScreenBook
     private void updatePageButtons()
     {
         int currentPage = getCurrentPage();
-        int bookTotalPages = BOPReflectionHelper.getPrivateValue(GuiScreenBook.class, this, "field_146476_w", "field_146476_w");
+        int bookTotalPages = BOPReflectionHelper.getPrivateValue(GuiScreenBook.class, this, "bookTotalPages", "bookTotalPages");
         
-        this.buttonNextPage.field_146125_m = currentPage < bookTotalPages - 1;
-        this.buttonPreviousPage.field_146125_m = currentPage > 0;
+        this.buttonNextPage.visible = currentPage < bookTotalPages - 1;
+        this.buttonPreviousPage.visible = currentPage > 0;
         
         for (PageLink link : pageLinks)
         {
@@ -123,13 +123,13 @@ public class GuiScreenBiomeBook extends GuiScreenBook
     
     public void addLinks()
     {
-        NBTTagList pages = BOPReflectionHelper.getPrivateValue(GuiScreenBook.class, this, "field_146483_y", "field_146483_y");
+        NBTTagList pages = BOPReflectionHelper.getPrivateValue(GuiScreenBook.class, this, "bookPages", "bookPages");
         
         Pattern pattern = Pattern.compile("<link>(.+?)</link>");
         
         for (int pageNo = 0; pageNo < pages.tagCount(); pageNo++)
         {
-            String pageText = pages.func_150307_f(pageNo);
+            String pageText = pages.getStringTagAt(pageNo);
             String[] lineSplitText = pageText.split("(?<=[\\n])");
             
            for (int line = 0; line < lineSplitText.length; line++)
@@ -149,11 +149,11 @@ public class GuiScreenBiomeBook extends GuiScreenBook
                    
                    String originalLinkString = "<link>" + originalLinkText + "</link>";
                    
-                   int i = (this.field_146294_l - 192) / 2;
+                   int i = (this.width - 192) / 2;
                    byte b0 = 2;
                    
                    //TODO:                                                   fontRendererObj
-                   this.pageLinks.add(new PageLink(3 + pageLinks.size(), i + 34 + field_146289_q.getStringWidth(lineText.split(originalLinkString)[0]), b0 + 31 + (line * 9), 0x6189CE, linkText, pageNo, 0, linkedPage));
+                   this.pageLinks.add(new PageLink(3 + pageLinks.size(), i + 34 + fontRendererObj.getStringWidth(lineText.split(originalLinkString)[0]), b0 + 31 + (line * 9), 0x6189CE, linkText, pageNo, 0, linkedPage));
                    
                    lineText = lineText.replace(originalLinkString , StringUtils.repeat(" ", linkText.length()));
                }
@@ -165,17 +165,17 @@ public class GuiScreenBiomeBook extends GuiScreenBook
            pages.func_150304_a(pageNo, new NBTTagString(StringUtils.join(lineSplitText)));
         }
         
-        BOPReflectionHelper.setPrivateValue(GuiScreenBook.class, this, pages, "field_146483_y", "field_146483_y");
+        BOPReflectionHelper.setPrivateValue(GuiScreenBook.class, this, pages, "bookPages", "bookPages");
     }
     
     public int getCurrentPage()
     {
-        return BOPReflectionHelper.getPrivateValue(GuiScreenBook.class, this, "field_146484_x", "field_146484_x");
+        return BOPReflectionHelper.getPrivateValue(GuiScreenBook.class, this, "currPage", "currPage");
     }
     
     public void setCurrentPage(int pageNo)
     {
-        BOPReflectionHelper.setPrivateValue(GuiScreenBook.class, this, pageNo, "field_146484_x", "field_146484_x");
+        BOPReflectionHelper.setPrivateValue(GuiScreenBook.class, this, pageNo, "currPage", "currPage");
     }
     
     @SideOnly(Side.CLIENT)
@@ -191,13 +191,13 @@ public class GuiScreenBiomeBook extends GuiScreenBook
 
         @Override
         //TODO:     drawButton()
-        public void func_146112_a(Minecraft minecraft, int mouseX, int mouseY)
+        public void drawButton(Minecraft minecraft, int mouseX, int mouseY)
         {
             //TODO:  drawButton
-            if (this.field_146125_m)
+            if (this.visible)
             {
                 //TODO:                             xPosition                        yPosition                       xPosition             width                           yPosition             height
-                boolean isHovering = mouseX >= this.field_146128_h && mouseY >= this.field_146129_i && mouseX < this.field_146128_h + this.field_146120_f && mouseY < this.field_146129_i + this.field_146121_g;
+                boolean isHovering = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                 minecraft.getTextureManager().bindTexture(GuiScreenBiomeBook.biomeBookTexture);
                 int k = 0;
@@ -214,7 +214,7 @@ public class GuiScreenBiomeBook extends GuiScreenBook
                 }
 
                 //TODO:                         xPosition            yPosition          
-                this.drawTexturedModalRect(this.field_146128_h, this.field_146129_i, k, l, 23, 13);
+                this.drawTexturedModalRect(this.xPosition, this.yPosition, k, l, 23, 13);
             }
         }
     }
@@ -231,7 +231,7 @@ public class GuiScreenBiomeBook extends GuiScreenBook
         public PageLink(int id, int xPosition, int yPosition, int colour, String text, int displayPage, int displayType, int pageNumber)
         {
             //TODO:                         fontRendererObj
-            super(id, xPosition, yPosition, field_146289_q.getStringWidth(text.replaceAll("\\P{InBasic_Latin}", "")), 12, "");
+            super(id, xPosition, yPosition, fontRendererObj.getStringWidth(text.replaceAll("\\P{InBasic_Latin}", "")), 12, "");
             
             this.colour = colour;
             this.text = text;
@@ -248,27 +248,27 @@ public class GuiScreenBiomeBook extends GuiScreenBook
             (displayType == 2 && getCurrentPage() >= displayPage);
             
             //TODO: enabled
-            this.field_146124_l = display;
+            this.enabled = display;
             //TODO: drawButton
-            this.field_146125_m = display;
+            this.visible = display;
         }
 
         @Override
         //TODO:     drawButton()
-        public void func_146112_a(Minecraft minecraft, int mouseX, int mouseY)
+        public void drawButton(Minecraft minecraft, int mouseX, int mouseY)
         {
             //TODO:  drawButton
-            if (this.field_146125_m)
+            if (this.visible)
             {
                 //TODO:                             xPosition                        yPosition                       xPosition             width                           yPosition             height
-                boolean isHovering = mouseX >= this.field_146128_h && mouseY >= this.field_146129_i && mouseX < this.field_146128_h + this.field_146120_f && mouseY < this.field_146129_i + this.field_146121_g;
+                boolean isHovering = mouseX >= this.xPosition && mouseY >= this.yPosition && mouseX < this.xPosition + this.width && mouseY < this.yPosition + this.height;
                 
                 GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
                 String moddedText = isHovering ? "" + EnumChatFormatting.UNDERLINE + text : text;
                 
                 //TODO:                 fontRendererObj             xPosition       yPosition                                                  
-                this.drawCenteredString(field_146289_q, moddedText, field_146128_h, field_146129_i, colour);
+                this.drawCenteredString(fontRendererObj, moddedText, xPosition, yPosition, colour);
             }
         }
         

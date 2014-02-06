@@ -26,7 +26,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         super(id);
         
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         this.setColor(39259);
         
         this.spawnableMonsterList.add(new BiomeGenBase.SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
@@ -65,17 +65,17 @@ public class BiomeGenSacredSprings extends BOPBiome
     
 	@Override
 	//TODO:		getBiomeGrassColor()
-    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
-		double d0 = field_150606_ad.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
+		double d0 = plantNoise.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
         return d0 < -0.1D ? 39285 : 39259;
     }
     
     @SideOnly(Side.CLIENT)
     //TODO:		getBiomeFoliageColor()
-    public int func_150571_c(int x, int y, int z)
+    public int getBiomeFoliageColor(int x, int y, int z)
     {
-    	double d0 = field_150606_ad.func_151601_a((double)x * 0.0225D, (double)z* 0.0225D);
+    	double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z* 0.0225D);
         return d0 < -0.1D ? 39285 : 39259;
     }
 }

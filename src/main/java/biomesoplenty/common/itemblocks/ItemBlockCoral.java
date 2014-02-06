@@ -59,7 +59,7 @@ public class ItemBlockCoral extends ItemBlock
 			return textures[0];
 		else
 			//TODO: block		  getIcon()
-			return field_150939_a.func_149691_a(0, meta);
+			return field_150939_a.getIcon(0, meta);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class ItemBlockCoral extends ItemBlock
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
 	{
 		//TODO:				getBlock()
-		Block block = world.func_147439_a(x, y, z);
+		Block block = world.getBlock(x, y, z);
 
 		if (block == Blocks.snow && (world.getBlockMetadata(x, y, z) & 7) < 1)
 		{
@@ -122,13 +122,13 @@ public class ItemBlockCoral extends ItemBlock
 		else if (!player.canPlayerEdit(x, y, z, side, itemstack))
 			return false;
 		//TODO:					   getBlockMaterial()
-		else if (y == 255 && block.func_149688_o().isSolid())
+		else if (y == 255 && block.getMaterial().isSolid())
 			return false;
 		//TODO:		   canPlaceEntityOnSide()?
-		else if (world.func_147472_a(block, x, y, z, false, side, player, itemstack))
+		else if (world.canPlaceEntityOnSide(block, x, y, z, false, side, player, itemstack))
 		{
 			//TODO:   getBlock()											   getBlock()
-			if (world.func_147439_a(x, y + 1, z) == Blocks.water)
+			if (world.getBlock(x, y + 1, z) == Blocks.water)
 			{
 				onItemUsePlaceBlock(itemstack, player, world, x, y, z, side, hitX, hitY, hitZ);
 
@@ -146,12 +146,12 @@ public class ItemBlockCoral extends ItemBlock
 		
 		int j1 = this.getMetadata(itemstack.getItemDamage());
 		//TODO:		   onBlockPlaced()
-		int k1 = block.func_149660_a(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, j1);
+		int k1 = block.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, j1);
 
 		if (placeBlockAt(itemstack, player, world, x, y, z, side, hitVecX, hitVecY, hitVecZ, k1))
 		{
 			//TODO:													  stepSound.getPlaceSound()				stepSound.getVolume()						stepSound.getPitch()
-			world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, block.field_149762_H.func_150496_b(), (block.field_149762_H.func_150497_c() + 1.0F) / 2.0F, block.field_149762_H.func_150494_d() * 0.8F);
+			world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, block.stepSound.func_150496_b(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
 			--itemstack.stackSize;
 		}
 	}

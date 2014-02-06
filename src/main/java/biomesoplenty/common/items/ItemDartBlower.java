@@ -40,7 +40,7 @@ public class ItemDartBlower extends Item
 		boolean flag = par3EntityPlayer.capabilities.isCreativeMode;
 
 		//TODO:								   hasItem()
-		if (flag || par3EntityPlayer.inventory.func_146028_b(BOPItemHelper.get("dart")))
+		if (flag || par3EntityPlayer.inventory.hasItem(BOPItemHelper.get("dart")))
 		{
 			EntityDart entityDart = new EntityDart(world, par3EntityPlayer, 1.0F);
 

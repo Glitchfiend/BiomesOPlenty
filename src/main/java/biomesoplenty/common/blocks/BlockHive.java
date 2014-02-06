@@ -23,21 +23,21 @@ public class BlockHive extends Block
 	public BlockHive()
 	{
 		//TODO: Material.wood
-		super(Material.field_151575_d);
+		super(Material.wood);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.5F);
+		this.setHardness(0.5F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
     @Override
 	//TODO:		breakBlock()
-	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
+	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
     {
     	if (world.getBlockMetadata(x, y, z) == 2)
     	{
@@ -49,7 +49,7 @@ public class BlockHive extends Block
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[hiveTypes.length];
 
@@ -61,7 +61,7 @@ public class BlockHive extends Block
 	
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
         if (meta < 0 || meta >= hiveTypes.length) 
         {
@@ -73,7 +73,7 @@ public class BlockHive extends Block
 	
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < hiveTypes.length; ++i) 
 		{
@@ -83,7 +83,7 @@ public class BlockHive extends Block
 	
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata == 0)
 		{
@@ -96,12 +96,12 @@ public class BlockHive extends Block
 		}
 		
 		//TODO:     getItemFromBlock()
-		return Item.func_150898_a(this);
+		return Item.getItemFromBlock(this);
 	}
 	
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		if (meta == 0)
 		{

@@ -61,7 +61,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 
 		for (int var7 = 0; var7 < par4 * par5; ++var7)
 		{
-			float var8 = BiomeGenBase.func_150565_n()[var6[var7]].getIntRainfall() / 65536.0F;
+			float var8 = BiomeGenBase.getBiomeGenArray()[var6[var7]].getIntRainfall() / 65536.0F;
 
 			if (var8 > 1.0F)
 			{
@@ -102,7 +102,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 
 		for (int var7 = 0; var7 < par4 * par5; ++var7)
 		{
-			float var8 = BiomeGenBase.func_150565_n()[var6[var7]].temperature / 65536.0F;
+			float var8 = BiomeGenBase.getBiomeGenArray()[var6[var7]].temperature / 65536.0F;
 
 			if (var8 > 1.0F)
 			{
@@ -132,7 +132,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 
 		for (int var7 = 0; var7 < par4 * par5; ++var7)
 		{
-			par1ArrayOfBiomeGenBase[var7] = BiomeGenBase.func_150565_n()[var6[var7]];
+			par1ArrayOfBiomeGenBase[var7] = BiomeGenBase.getBiomeGenArray()[var6[var7]];
 		}
 
 		return par1ArrayOfBiomeGenBase;
@@ -174,7 +174,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 
 			for (int var8 = 0; var8 < par4 * par5; ++var8)
 			{
-				par1ArrayOfBiomeGenBase[var8] = BiomeGenBase.func_150565_n()[var7[var8]];
+				par1ArrayOfBiomeGenBase[var8] = BiomeGenBase.getBiomeGenArray()[var7[var8]];
 			}
 
 			return par1ArrayOfBiomeGenBase;
@@ -199,7 +199,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 
 		for (int var12 = 0; var12 < var9 * var10; ++var12)
 		{
-			BiomeGenBase var13 = BiomeGenBase.func_150565_n()[var11[var12]];
+			BiomeGenBase var13 = BiomeGenBase.getBiomeGenArray()[var11[var12]];
 
 			if (!par4List.contains(var13))
 				return false;
@@ -215,7 +215,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 	@Override
 	@SuppressWarnings("rawtypes")
 	//TODO: findBiomePosition
-	public ChunkPosition func_150795_a(int par1, int par2, int par3, List par4List, Random par5Random)
+	public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random)
 	{
 		IntCache.resetIntCache();
 		int var6 = par1 - par3 >> 2;
@@ -232,7 +232,7 @@ public class WorldChunkManagerPromised extends WorldChunkManager
 		{
 			int var16 = var6 + var15 % var10 << 2;
 			int var17 = var7 + var15 / var10 << 2;
-			BiomeGenBase var18 = BiomeGenBase.func_150565_n()[var12[var15]];
+			BiomeGenBase var18 = BiomeGenBase.getBiomeGenArray()[var12[var15]];
 
 			if (par4List.contains(var18) && (var13 == null || par5Random.nextInt(var14 + 1) == 0))
 			{

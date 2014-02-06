@@ -19,28 +19,28 @@ public abstract class BOPBlockWorldDecor extends BlockBush
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
     	//TODO:	  getBlock()
-    	if (world.func_147439_a(x, y - 1, z) == Blocks.air) return false;
+    	if (world.getBlock(x, y - 1, z) == Blocks.air) return false;
 		
 		//TODO:	canPlaceBlockAt()
-		return func_149742_c(world, x, y, z);
+		return canPlaceBlockAt(world, x, y, z);
 	}
 	
     @Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
     {
     	//TODO:				getBlock()
-    	Block block = world.func_147439_a(x, y, z);
+    	Block block = world.getBlock(x, y, z);
     	
         this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
     }
 	
     @Override
     //TODO:			canReplace()
-    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
+    public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
     {
     	//TODO:	  getBlock()
-    	if (world.func_147439_a(x, y - 1, z) == Blocks.air) return false;
+    	if (world.getBlock(x, y - 1, z) == Blocks.air) return false;
 
     	return isValidPosition(world, x, y, z, itemStack.getItemDamage());
     } 
@@ -48,20 +48,20 @@ public abstract class BOPBlockWorldDecor extends BlockBush
     public void dropIfCantStay(World world, int x, int y, int z, ItemStack stack)
     {
     	//TODO:	  canReplace
-        if (!this.func_149705_a(world, x, y, z, 0, stack))
+        if (!this.canReplace(world, x, y, z, 0, stack))
         {
         	//TODO:	dropBlockAsItem()
-            this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
             //TODO:	setBlockToAir()
-            world.func_147468_f(x, y, z);
+            world.setBlockToAir(x, y, z);
         }
     }
 
 	@Override
 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
 		//TODO:												getBlock()
-		dropIfCantStay(world, x, y, z, new ItemStack(world.func_147439_a(x, y, z), 1, world.getBlockMetadata(x, y, z)));
+		dropIfCantStay(world, x, y, z, new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)));
 	}
 }

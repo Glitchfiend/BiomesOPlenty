@@ -33,7 +33,7 @@ public class WorldGenWaterside extends WorldGeneratorBOP
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        if (world.func_147439_a(x, y, z).func_149688_o() != Material.field_151586_h)
+        if (world.getBlock(x, y, z).getMaterial() != Material.water)
         {
             return false;
         }
@@ -53,11 +53,11 @@ public class WorldGenWaterside extends WorldGeneratorBOP
                     {
                         for (int i2 = y - b0; i2 <= y + b0; ++i2)
                         {
-                            Block block = world.func_147439_a(i1, i2, j1);
+                            Block block = world.getBlock(i1, i2, j1);
 
                             if (sideBlocks.contains(block))
                             {
-                                world.func_147465_d(i1, i2, j1, this.watersideBlock, 0, 2);
+                                world.setBlock(i1, i2, j1, this.watersideBlock, 0, 2);
                             }
                         }
                     }

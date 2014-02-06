@@ -20,30 +20,30 @@ public class BlockAsh extends Block
 	public BlockAsh()
 	{
 		//TODO:	Material.sand
-		super(Material.field_151595_p);
+		super(Material.sand);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.4F);	
+		this.setHardness(0.4F);	
 		this.setHarvestLevel("shovel", 0);
 		
 		//TODO setStepSound(Block.soundSandFootstep)
-		this.func_149672_a(Block.field_149776_m);
+		this.setStepSound(Block.soundTypeSand);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:ashblock");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:ashblock");
 	}
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		float yOffset = 0.125F;
 		return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - yOffset, z + 1);
@@ -51,9 +51,9 @@ public class BlockAsh extends Block
 
 	@Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
-		super.func_149734_b(world, x, y, z, random);
+		super.randomDisplayTick(world, x, y, z, random);
 
 		if (random.nextInt(2) == 0)
 		{
@@ -74,7 +74,7 @@ public class BlockAsh extends Block
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (entity instanceof EntityPlayer)
 		{
@@ -92,14 +92,14 @@ public class BlockAsh extends Block
 
 	//@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return BOPItemHelper.get("misc");
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return 1;
 	}

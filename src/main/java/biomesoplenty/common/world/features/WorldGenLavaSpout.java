@@ -18,13 +18,13 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         //TODO:      isAirBlock()
-        while (world.func_147437_c(x, y, z) && y > 2)
+        while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
 
         //TODO:             getBlock()
-        Block block = world.func_147439_a(x, y, z);
+        Block block = world.getBlock(x, y, z);
 
         if (block != BOPBlockHelper.get("ashStone"))
         {
@@ -37,7 +37,7 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
                     //TODO:   isAirBlock()                                      isAirBlock()
-                    if (world.func_147437_c(x + var7, y - 1, z + var8) && world.func_147437_c(x + var7, y - 2, z + var8))
+                    if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                     {
                         return false;
                     }
@@ -45,13 +45,13 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
             }
 
             //TODO: setBlock()
-            world.func_147449_b(x, y - 1, z, Blocks.flowing_lava);
-            world.func_147449_b(x, y, z, Blocks.flowing_lava);
-            world.func_147449_b(x, y + 1, z, Blocks.flowing_lava);
-            world.func_147449_b(x - 1, y + 1, z, Blocks.flowing_lava);
-            world.func_147449_b(x + 1, y + 1, z, Blocks.flowing_lava);
-            world.func_147449_b(x, y + 1, z - 1, Blocks.flowing_lava);
-            world.func_147449_b(x, y + 1, z + 1, Blocks.flowing_lava);
+            world.setBlock(x, y - 1, z, Blocks.flowing_lava);
+            world.setBlock(x, y, z, Blocks.flowing_lava);
+            world.setBlock(x, y + 1, z, Blocks.flowing_lava);
+            world.setBlock(x - 1, y + 1, z, Blocks.flowing_lava);
+            world.setBlock(x + 1, y + 1, z, Blocks.flowing_lava);
+            world.setBlock(x, y + 1, z - 1, Blocks.flowing_lava);
+            world.setBlock(x, y + 1, z + 1, Blocks.flowing_lava);
             return true;
         }
     }

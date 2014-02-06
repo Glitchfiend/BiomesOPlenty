@@ -55,26 +55,26 @@ public class BlockBOPLog extends Block
 	public BlockBOPLog(LogCategory cat)
 	{
 		//TODO: Material.wood
-		super(Material.field_151575_d);
+		super(Material.wood);
 		
 		category = cat;
 		
 		//TODO: this.setHardness
-		this.func_149711_c(2.0F);
+		this.setHardness(2.0F);
 		this.setHarvestLevel("axe", 0);
 		
 		//TODO: this.setResistance
-		this.func_149752_b(5.0F);
+		this.setResistance(5.0F);
 		//TODO setStepSound(Block.soundWoodFootstep)
-		this.func_149672_a(Block.field_149766_f);
+		this.setStepSound(Block.soundTypeWood);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[types.length];
 		logHearts = new IIcon[types.length];
@@ -94,7 +94,7 @@ public class BlockBOPLog extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		int pos = meta & 12;
 		
@@ -106,7 +106,7 @@ public class BlockBOPLog extends Block
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < 4; ++i) {
 			list.add(new ItemStack(this, 1, i));
@@ -115,7 +115,7 @@ public class BlockBOPLog extends Block
 
 	@Override
 	//TODO:		breakBlock()
-	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
+	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
 	{
 		byte radius = 4;
 		int bounds = radius + 1;
@@ -129,7 +129,7 @@ public class BlockBOPLog extends Block
 					for (int k = -radius; k <= radius; ++k)
 					{
 						//TODO:				getBlock()
-						Block block = world.func_147439_a(x + i, y + j, z + k);
+						Block block = world.getBlock(x + i, y + j, z + k);
 
 						if (block.isLeaves(world, x, y, z)) 
 						{
@@ -143,7 +143,7 @@ public class BlockBOPLog extends Block
 
 	@Override
 	//TODO:		onBlockPlaced()
-	public int func_149660_a(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
+	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta)
 	{
 		int type = getTypeFromMeta(meta);
 		byte orientation = 0;
@@ -209,21 +209,21 @@ public class BlockBOPLog extends Block
 
 	@Override
 	//TODO:	   damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return getTypeFromMeta(meta);
 	}
 
 	@Override
 	//TODO:				createStackedBlock()
-	protected ItemStack func_149644_j(int meta)
+	protected ItemStack createStackedBlock(int meta)
 	{
 		return new ItemStack(this, 1, getTypeFromMeta(meta));
 	}
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return 31;
 	}

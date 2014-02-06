@@ -23,7 +23,7 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 		int var6;
 		Block block;
 
-		for (var6 = par2Random.nextInt(8) + 6; world.func_147439_a(par3, par4 - 1, par5) == Blocks.water; --par4)
+		for (var6 = par2Random.nextInt(8) + 6; world.getBlock(par3, par4 - 1, par5) == Blocks.water; --par4)
 		{
 			;
 		}
@@ -57,7 +57,7 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 					{
 						if (var8 >= 0 && var8 < 128)
 						{
-							block = world.func_147439_a(var10, var8, var11);
+							block = world.getBlock(var10, var8, var11);
 
 							if (block.isAir(world, var10, var8, var11) || block.isLeaves(world, var10, var8, var11))
 							{
@@ -83,11 +83,11 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 				return false;
 			else
 			{
-				block = world.func_147439_a(par3, par4 - 1, par5);
+				block = world.getBlock(par3, par4 - 1, par5);
 
 				if ((block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt")) && par4 < 128 - var6 - 1)
 				{
-					this.func_150516_a(world, par3, par4 - 1, par5, BOPBlockHelper.get("holyDirt"), 0);
+					this.setBlockAndNotifyAdequately(world, par3, par4 - 1, par5, BOPBlockHelper.get("holyDirt"), 0);
 					int var13;
 					int var16;
 
@@ -104,9 +104,9 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 							{
 								int var15 = var14 - par5;
 
-								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !world.func_147439_a(var12, var16, var14).func_149662_c())
+								if ((Math.abs(var13) != var11 || Math.abs(var15) != var11 || par2Random.nextInt(2) != 0 && var10 != 0) && !world.getBlock(var12, var16, var14).isOpaqueCube())
 								{
-									this.func_150516_a(world, var12, var16, var14, Blocks.leaves, 4);
+									this.setBlockAndNotifyAdequately(world, var12, var16, var14, Blocks.leaves, 4);
 								}
 							}
 						}
@@ -114,12 +114,12 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 
 					for (var16 = 0; var16 < var6; ++var16)
 					{
-						Block block2 = world.func_147439_a(par3, par4 + var16, par5);
+						Block block2 = world.getBlock(par3, par4 + var16, par5);
 
 						//if (var10 == 0 || var10 == Block.leaves.blockID || block2 == Blocks.water)
 						if (block.isAir(world, par3, par4 + var16, par5) || block.isLeaves(world, par3, par4 + var16, par5) || block2 == Blocks.water)
 						{
-							this.func_150516_a(world, par3, par4 + var16, par5, Blocks.log, 0);
+							this.setBlockAndNotifyAdequately(world, par3, par4 + var16, par5, Blocks.log, 0);
 						}
 					}
 
@@ -134,25 +134,25 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 							for (var13 = par5 - var11; var13 <= par5 + var11; ++var13)
 							{
 								//if (world.getBlockId(var12, var16, var13) == Block.leaves.blockID)
-								Block block2 = world.func_147439_a(var12, var16, var13);
+								Block block2 = world.getBlock(var12, var16, var13);
 								if (!(block.isAir(world, var12, var16, var13) || block.isLeaves(world, var12, var16, var13)))
 								{
-									if (par2Random.nextInt(4) == 0 && world.func_147439_a(var12 - 1, var16, var13).isAir(world, var12 - 1, var16, var13))
+									if (par2Random.nextInt(4) == 0 && world.getBlock(var12 - 1, var16, var13).isAir(world, var12 - 1, var16, var13))
 									{
 										this.generateVines(world, var12 - 1, var16, var13, 8);
 									}
 
-									if (par2Random.nextInt(4) == 0 && world.func_147439_a(var12 + 1, var16, var13).isAir(world, var12 + 1, var16, var13))
+									if (par2Random.nextInt(4) == 0 && world.getBlock(var12 + 1, var16, var13).isAir(world, var12 + 1, var16, var13))
 									{									{
 										this.generateVines(world, var12 + 1, var16, var13, 2);
 									}
 
-									if (par2Random.nextInt(4) == 0 && world.func_147439_a(var12, var16, var13 - 1).isAir(world, var12, var16, var13 - 1))
+									if (par2Random.nextInt(4) == 0 && world.getBlock(var12, var16, var13 - 1).isAir(world, var12, var16, var13 - 1))
 									{
 										this.generateVines(world, var12, var16, var13 - 1, 1);
 									}
 
-									if (par2Random.nextInt(4) == 0 && world.func_147439_a(var12, var16, var13 + 1).isAir(world, var12, var16, var13 + 1))
+									if (par2Random.nextInt(4) == 0 && world.getBlock(var12, var16, var13 + 1).isAir(world, var12, var16, var13 + 1))
 									{
 										this.generateVines(world, var12, var16, var13 + 1, 4);
 									}
@@ -177,17 +177,17 @@ public class WorldGenPromisedWillowTree extends WorldGenAbstractTree
 	 */
 	 private void generateVines(World par1World, int par2, int par3, int par4, int par5)
 	{
-		this.func_150516_a(par1World, par2, par3, par4, Blocks.leaves, 4);
+		this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, Blocks.leaves, 4);
 		int var6 = 24;
 
 		while (true)
 		{
 			--par3;
 
-			if (!par1World.func_147439_a(par2, par3, par4).isAir(par1World, par2, par3, par4) || var6 <= 0)
+			if (!par1World.getBlock(par2, par3, par4).isAir(par1World, par2, par3, par4) || var6 <= 0)
 				return;
 
-			this.func_150516_a(par1World, par2, par3, par4, Blocks.leaves, 4);
+			this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, Blocks.leaves, 4);
 			--var6;
 		}
 	}

@@ -18,9 +18,9 @@ import net.minecraft.world.WorldServer;
 public class TeleporterPromised extends Teleporter
 {
 	private final WorldServer worldServerInstance;
-	private final LongHashMap field_85191_c = new LongHashMap();
+	private final LongHashMap destinationCoordinateCache = new LongHashMap();
 	@SuppressWarnings("rawtypes")
-	private final List field_85190_d = new ArrayList();
+	private final List destinationCoordinateKeys = new ArrayList();
 	private final boolean falling;
 
 	public TeleporterPromised(WorldServer worldServer)
@@ -71,9 +71,9 @@ public class TeleporterPromised extends Teleporter
 		double var27;
 		int var48;
 
-		if (field_85191_c.containsItem(var17))
+		if (destinationCoordinateCache.containsItem(var17))
 		{
-			PortalPosition portalposition = (PortalPosition) field_85191_c.getValueByKey(var17);
+			PortalPosition portalposition = (PortalPosition) destinationCoordinateCache.getValueByKey(var17);
 			var10 = 0.0D;
 			i = portalposition.posX;
 			j = 131;
@@ -93,9 +93,9 @@ public class TeleporterPromised extends Teleporter
 
 					for (int var26 = worldServerInstance.getActualHeight() - 1; var26 >= 0; --var26)
 					{
-						if (worldServerInstance.func_147439_a(var48, var26, var23) == BOPBlockHelper.get("promisedPortal"))
+						if (worldServerInstance.getBlock(var48, var26, var23) == BOPBlockHelper.get("promisedPortal"))
 						{
-							while (worldServerInstance.func_147439_a(var48, var26 - 1, var23) == BOPBlockHelper.get("promisedPortal"))
+							while (worldServerInstance.getBlock(var48, var26 - 1, var23) == BOPBlockHelper.get("promisedPortal"))
 							{
 								--var26;
 							}
@@ -120,8 +120,8 @@ public class TeleporterPromised extends Teleporter
 		{
 			if (var19)
 			{
-				field_85191_c.add(var17, new PortalPosition(i, j, k, worldServerInstance.getTotalWorldTime()));
-				field_85190_d.add(Long.valueOf(var17));
+				destinationCoordinateCache.add(var17, new PortalPosition(i, j, k, worldServerInstance.getTotalWorldTime()));
+				destinationCoordinateKeys.add(Long.valueOf(var17));
 			}
 
 			double var49 = i + 0.5D;
@@ -129,22 +129,22 @@ public class TeleporterPromised extends Teleporter
 			var27 = k + 0.5D;
 			int var50 = -1;
 
-			if (worldServerInstance.func_147439_a(i - 1, j, k) == BOPBlockHelper.get("promisedPortal"))
+			if (worldServerInstance.getBlock(i - 1, j, k) == BOPBlockHelper.get("promisedPortal"))
 			{
 				var50 = 2;
 			}
 
-			if (worldServerInstance.func_147439_a(i + 1, j, k) == BOPBlockHelper.get("promisedPortal"))
+			if (worldServerInstance.getBlock(i + 1, j, k) == BOPBlockHelper.get("promisedPortal"))
 			{
 				var50 = 0;
 			}
 
-			if (worldServerInstance.func_147439_a(i, j, k - 1) == BOPBlockHelper.get("promisedPortal"))
+			if (worldServerInstance.getBlock(i, j, k - 1) == BOPBlockHelper.get("promisedPortal"))
 			{
 				var50 = 3;
 			}
 
-			if (worldServerInstance.func_147439_a(i, j, k + 1) == BOPBlockHelper.get("promisedPortal"))
+			if (worldServerInstance.getBlock(i, j, k + 1) == BOPBlockHelper.get("promisedPortal"))
 			{
 				var50 = 1;
 			}
@@ -250,6 +250,6 @@ public class TeleporterPromised extends Teleporter
 	}
 	
 	boolean isAirBlock(World world, int x, int y, int z) {
-		return world.func_147439_a(x, y, z).isAir(world, x, y, z);
+		return world.getBlock(x, y, z).isAir(world, x, y, z);
 	}
 }

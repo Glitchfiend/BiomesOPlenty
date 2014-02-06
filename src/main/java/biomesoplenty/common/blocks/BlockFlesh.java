@@ -19,29 +19,29 @@ public class BlockFlesh extends Block
 	public BlockFlesh()
 	{
 		//TODO: Material.sponge
-		super(Material.field_151583_m);
+		super(Material.sponge);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.4F);	
+		this.setHardness(0.4F);	
 		
 		//TODO setStepSound(Block.soundGravelFootstep)
-		this.func_149672_a(Block.field_149767_g);
+		this.setStepSound(Block.soundTypeGravel);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:flesh");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:flesh");
 	}
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		float var5 = 0.125F;
 		return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - var5, z + 1);
@@ -49,26 +49,26 @@ public class BlockFlesh extends Block
 
 	@Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
-		super.func_149734_b(world, x, y, z, random);
+		super.randomDisplayTick(world, x, y, z, random);
 
 		if (random.nextInt(4) == 0)
 		{
 			//TODO:											         getIdFromBlock()
-			world.spawnParticle("blockcrack_" + String.valueOf(Block.func_149682_b(this)) + "_0", x + random.nextFloat(), y - 0.4F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("blockcrack_" + String.valueOf(Block.getIdFromBlock(this)) + "_0", x + random.nextFloat(), y - 0.4F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 		
 		if (random.nextInt(12) == 0)
 		{
 			//TODO:											         getIdFromBlock()
-			world.spawnParticle("blockcrack_" + String.valueOf(Block.func_149682_b(this)) + "_0", x + random.nextFloat(), y + 1.0F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
+			world.spawnParticle("blockcrack_" + String.valueOf(Block.getIdFromBlock(this)) + "_0", x + random.nextFloat(), y + 1.0F, z + random.nextFloat(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (entity instanceof EntityPlayer)
 		{
@@ -86,21 +86,21 @@ public class BlockFlesh extends Block
 	
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return BOPItemHelper.get("misc");
 	}
 	
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return 3;
 	}
 
 	@Override
 	//TODO:    getQuantityDropped()
-	public int func_149745_a(Random random)
+	public int quantityDropped(Random random)
 	{
 		return random.nextInt(5);
 	}

@@ -20,22 +20,22 @@ public class BlockBOPPlank extends Block
 	public BlockBOPPlank()
 	{
 		//TODO: Material.wood
-		super(Material.field_151575_d);
+		super(Material.wood);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(2.0F);
+		this.setHardness(2.0F);
 		this.setHarvestLevel("axe", 0);
 		
 		//TODO setStepSound(Block.soundWoodFootstep)
-		this.func_149672_a(Block.field_149766_f);
+		this.setStepSound(Block.soundTypeWood);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[woodTypes.length];
 
@@ -46,7 +46,7 @@ public class BlockBOPPlank extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
@@ -58,7 +58,7 @@ public class BlockBOPPlank extends Block
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < woodTypes.length; ++i) 
 		{
@@ -68,7 +68,7 @@ public class BlockBOPPlank extends Block
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta;
 	}

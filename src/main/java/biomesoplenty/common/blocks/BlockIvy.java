@@ -11,23 +11,23 @@ public class BlockIvy extends BlockVine implements IShearable
 	public BlockIvy()
 	{
 		//TODO: this.setHardness
-		this.func_149711_c(0.2F);
+		this.setHardness(0.2F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:ivy");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:ivy");
 	}
 }

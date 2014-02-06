@@ -18,33 +18,33 @@ public class BlockCloud extends Block
 	public BlockCloud()
 	{
 		//TODO:	Material.cloth
-		super(Material.field_151580_n);
+		super(Material.cloth);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.1F);
+		this.setHardness(0.1F);
 		
 		//TODO setStepSound(Block.soundClothFootstep)
-		this.func_149672_a(Block.field_149775_l);
+		this.setStepSound(Block.soundTypeCloth);
 		
 		//TODO:	setLightOpacity()
-		this.func_149713_g(3);
+		this.setLightOpacity(3);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:cloud");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:cloud");
 	}
 
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		float yOffset = 0.25F;
 		return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - yOffset, z + 1);
@@ -52,7 +52,7 @@ public class BlockCloud extends Block
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		entity.fallDistance = 0.0F;
 		
@@ -72,25 +72,25 @@ public class BlockCloud extends Block
 
 	@Override
 	//TODO:	   getRenderBlockPass()
-	public int func_149701_w()
+	public int getRenderBlockPass()
 	{
 		return 1;
 	}
 
 	@Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
     {
 		//TODO:					  getBlock()
-        Block block = world.func_147439_a(x, y, z);
+        Block block = world.getBlock(x, y, z);
         //TODO:					             shouldSideBeRendered
-        return block == this ? false : super.func_149646_a(world, x, y, z, side);
+        return block == this ? false : super.shouldSideBeRendered(world, x, y, z, side);
     }
 }

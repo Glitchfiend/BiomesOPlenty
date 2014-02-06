@@ -68,7 +68,7 @@ public class ItemBlockFlower extends ItemBlock
 			return textures[0];
 		else
 			//TODO: block		  getIcon()
-			return field_150939_a.func_149691_a(0, meta);
+			return field_150939_a.getIcon(0, meta);
 	}
 
 	@Override

@@ -88,26 +88,26 @@ public class BiomeGenMeadow extends BOPBiome
             int z = chunkZ + random.nextInt(16);
             
             //TODO:             getBlock()
-            Block block = world.func_147439_a(x, y, z);
+            Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
                 //TODO: setBlock()
-                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
+                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
             }
         }
     }
 
     @Override
     //TODO:     getBiomeGrassColor()
-    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
         return 6533741;
     }
 
     @Override
     //TODO:     getBiomeFoliageColor()
-    public int func_150571_c(int x, int y, int z)
+    public int getBiomeFoliageColor(int x, int y, int z)
     {
         return 6533741;
     }

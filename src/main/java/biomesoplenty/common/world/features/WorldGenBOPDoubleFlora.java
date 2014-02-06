@@ -63,23 +63,23 @@ public class WorldGenBOPDoubleFlora extends WorldGenBOPFlora
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
             //TODO:	  isAirBlock()
-            if (world.func_147437_c(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255))
+            if (world.isAirBlock(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255))
             {
                 if (isVanilla)
                 {
-                    if (Blocks.double_plant.func_149742_c(world, i1, j1, k1))
+                    if (Blocks.double_plant.canPlaceBlockAt(world, i1, j1, k1))
                     {
                         Blocks.double_plant.func_149889_c(world, i1, j1, k1, this.vanillaFloraMeta, 2);
                     }
                 }
                 else
                 {
-                    if (bottomFlora != null && this.bottomFlora.func_149705_a(world, i1, j1, k1, 0, new ItemStack(bottomFlora, 1, bottomFloraMeta)))
+                    if (bottomFlora != null && this.bottomFlora.canReplace(world, i1, j1, k1, 0, new ItemStack(bottomFlora, 1, bottomFloraMeta)))
                     {
                         //TODO: setBlock()
-                        world.func_147465_d(i1, j1, k1, this.bottomFlora, this.bottomFloraMeta, 2);
+                        world.setBlock(i1, j1, k1, this.bottomFlora, this.bottomFloraMeta, 2);
                         //TODO: setBlock()
-                        world.func_147465_d(i1, j1 + 1, k1, this.topFlora, this.topFloraMeta, 2);
+                        world.setBlock(i1, j1 + 1, k1, this.topFlora, this.topFloraMeta, 2);
                     }
                 }
             }

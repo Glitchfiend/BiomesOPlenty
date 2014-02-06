@@ -38,35 +38,35 @@ public class BlockBOPSlab extends BlockSlab
 		category = cat;
 		
 		//TODO: 		Material.wood
-		if (material == Material.field_151575_d)
+		if (material == Material.wood)
 		{
 			//TODO: this.setHardness
-			this.func_149711_c(2.0F);
+			this.setHardness(2.0F);
 			//TODO: this.setResistance
-			this.func_149752_b(5.0F);
+			this.setResistance(5.0F);
 			//TODO setStepSound(Block.soundWoodFootstep)
-			this.func_149672_a(Block.field_149766_f);
+			this.setStepSound(Block.soundTypeWood);
 		}
 		//TODO: 			Material.rock
-		else if (material == Material.field_151576_e) 
+		else if (material == Material.rock) 
 		{
 			//TODO setStepSound(Block.soundStoneFootstep)
-			this.func_149672_a(Block.field_149780_i);
+			this.setStepSound(Block.soundTypePiston);
 		}
 
 		if (!isDoubleSlab) 
 		{
 			//TODO: this.setCreativeTab()
-			this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+			this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 		}
 		
 		//TODO: useNeighborBrightness?
-		field_149783_u = true;
+		useNeighborBrightness = true;
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		if (category == SlabCategory.STONE)
 		{
@@ -90,7 +90,7 @@ public class BlockBOPSlab extends BlockSlab
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (category == SlabCategory.STONE)
 			return textures[getTypeFromMeta(meta)];
@@ -101,7 +101,7 @@ public class BlockBOPSlab extends BlockSlab
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		int max = 0;
 
@@ -130,40 +130,40 @@ public class BlockBOPSlab extends BlockSlab
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta & 7;
 	}
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		//TODO: isDoubleSlab
 		if (field_150004_a)
 		{
 			if (this == BOPBlockHelper.get("woodenDoubleSlab1"))
 				//TODO:		getItemFromBlock()
-				return Item.func_150898_a(BOPBlockHelper.get("woodenSingleSlab1"));
+				return Item.getItemFromBlock(BOPBlockHelper.get("woodenSingleSlab1"));
 			if (this == BOPBlockHelper.get("woodenDoubleSlab2"))
 				//TODO:		getItemFromBlock()
-				return Item.func_150898_a(BOPBlockHelper.get("woodenSingleSlab2"));
+				return Item.getItemFromBlock(BOPBlockHelper.get("woodenSingleSlab2"));
 			else
 				//TODO:		getItemFromBlock()
-				return Item.func_150898_a(BOPBlockHelper.get("stoneSingleSlab"));
+				return Item.getItemFromBlock(BOPBlockHelper.get("stoneSingleSlab"));
 		}
 		else
 			//TODO:		getItemForBlock()
-			return Item.func_150898_a(this);
+			return Item.getItemFromBlock(this);
 	}
 
 	@Override
 	//TODO:		 getBlockHardness()
-	public float func_149712_f(World world, int x, int y, int z)
+	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		//TODO:			 blockHardness
-		float hardness = field_149782_v;
+		float hardness = blockHardness;
 
 		if (category == SlabCategory.STONE)
 		{
@@ -193,7 +193,7 @@ public class BlockBOPSlab extends BlockSlab
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		//TODO:			   blockResistance
-		float resistance = field_149781_w;
+		float resistance = blockResistance;
 
 		if (category == SlabCategory.STONE)
 		{
@@ -229,7 +229,7 @@ public class BlockBOPSlab extends BlockSlab
 
 	@Override
 	//TODO:				createStackedBlock()
-	protected ItemStack func_149644_j(int meta)
+	protected ItemStack createStackedBlock(int meta)
 	{
 		return new ItemStack(this, 2, meta);
 	}

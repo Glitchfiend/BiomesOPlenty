@@ -98,15 +98,15 @@ public class BonemealEventHandler
 				case 7:
 					if (event.world.rand.nextFloat() < 0.45D)
 					{
-						world.func_147465_d(x, y, z, BOPBlockHelper.get("plants"), 10, 2);
-						world.func_147465_d(x, y + 1, z, BOPBlockHelper.get("plants"), 9, 2);
+						world.setBlock(x, y, z, BOPBlockHelper.get("plants"), 10, 2);
+						world.setBlock(x, y + 1, z, BOPBlockHelper.get("plants"), 9, 2);
 					}
 					break;
 				
 				case 12:
 					if (world.rand.nextFloat() < 0.45D)
 					{
-						world.func_147449_b(x, y, z, Blocks.cactus);
+						world.setBlock(x, y, z, Blocks.cactus);
 					}
 					break;
 				}
@@ -163,16 +163,16 @@ public class BonemealEventHandler
 					z += event.world.rand.nextInt(3) - 1;
 				}
 
-				if (event.world.func_147439_a(x, var14, z).isAir(world, x, var14, z))
+				if (event.world.getBlock(x, var14, z).isAir(world, x, var14, z))
 				{
-					if (BOPBlockHelper.get("plants").func_149705_a(world, x, var14, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 4)))
+					if (BOPBlockHelper.get("plants").canReplace(world, x, var14, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 4)))
 					{
 						event.setResult(Result.ALLOW);
 
 						if (!event.world.isRemote)
 						{
 							//TODO:     setBlock()
-							event.world.func_147465_d(x, var14, z, BOPBlockHelper.get("plants"), 4, 2);
+							event.world.setBlock(x, var14, z, BOPBlockHelper.get("plants"), 4, 2);
 						}
 					}
 				}

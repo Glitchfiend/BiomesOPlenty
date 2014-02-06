@@ -65,15 +65,15 @@ public class EntityDart extends EntityArrow
 		}
 
 		//TODO: worldObj.getBlock()
-		Block block = worldObj.func_147439_a(xTile, yTile, zTile);
+		Block block = worldObj.getBlock(xTile, yTile, zTile);
 
 		//TODO: block.getMaterial()  Material.air
-		if (block.func_149688_o() != Material.field_151579_a)
+		if (block.getMaterial() != Material.air)
 		{
 			//TODO: setBlockBoundsBasedOnState
-			block.func_149719_a(worldObj, xTile, yTile, zTile);
+			block.setBlockBoundsBasedOnState(worldObj, xTile, yTile, zTile);
 			//TODO:						        getCollisionBoundingBoxFromPool()
-			AxisAlignedBB axisalignedbb = block.func_149668_a(worldObj, xTile, yTile, zTile);
+			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
 
 			if (axisalignedbb != null && axisalignedbb.isVecInside(worldObj.getWorldVec3Pool().getVecFromPool(posX, posY, posZ)))
 			{
@@ -175,7 +175,7 @@ public class EntityDart extends EntityArrow
 						if (shootingEntity != null && movingobjectposition.entityHit != shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && shootingEntity instanceof EntityPlayerMP)
 						{
 							//TODO:													sendPacketToPlayer()
-							((EntityPlayerMP)shootingEntity).playerNetServerHandler.func_147359_a(new S2BPacketChangeGameState(6, 0.0F));
+							((EntityPlayerMP)shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
 						}
 					}
 

@@ -20,13 +20,13 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 	public boolean generate(World world, Random random, int x, int y, int z)
 	{
 		//TODO:		isAirBlock()
-		while (world.func_147437_c(x, y, z) && y > 2)
+		while (world.isAirBlock(x, y, z) && y > 2)
 		{
 			--y;
 		}
 
 		//TODO:			  getBlock()
-		Block var6 = world.func_147439_a(x, y, z);
+		Block var6 = world.getBlock(x, y, z);
 
 		if (var6 != Blocks.grass && var6 != BOPBlockHelper.get("hardDirt") && var6 != Blocks.stone && var6 != Blocks.dirt)
 		{
@@ -39,7 +39,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 				for (int var8 = -2; var8 <= 2; ++var8)
 				{
 					//TODO:	isAirBlock()												isAirBlock()											  isAirBlock()
-					if (world.func_147437_c(x + var7, y - 1, z + var8) && world.func_147437_c(x + var7, y - 2, z + var8) && !world.func_147437_c(x + var7, y, z + var8))
+					if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8) && !world.isAirBlock(x + var7, y, z + var8))
 					{
 						return false;
 					}
@@ -216,6 +216,6 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 	public void buildBlock(World world, int x, int y, int z, Block block, int meta)
 	{
 		//TODO:	setBlock()
-		world.func_147465_d(x, y, z, block, meta, 2);
+		world.setBlock(x, y, z, block, meta, 2);
 	}
 }

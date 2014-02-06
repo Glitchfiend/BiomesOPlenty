@@ -21,12 +21,12 @@ public class BlockTurnip extends BlockCrops
     public BlockTurnip()
     {
     	//TODO:	setTextureName()
-    	this.func_149658_d("turnip");
+    	this.setBlockTextureName("turnip");
     }
 
     @Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
         if (meta < 7)
         {
@@ -59,21 +59,21 @@ public class BlockTurnip extends BlockCrops
     
 	//@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta == 7 ? 11 : 0;
 	}
 
     @Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
         this.iconArray = new IIcon[4];
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
         	//TODO:																  getTextureName()
-            this.iconArray[i] = iconRegister.registerIcon("biomesoplenty:" + this.func_149641_N() + "_stage_" + i);
+            this.iconArray[i] = iconRegister.registerIcon("biomesoplenty:" + this.getTextureName() + "_stage_" + i);
         }
     }
 }
