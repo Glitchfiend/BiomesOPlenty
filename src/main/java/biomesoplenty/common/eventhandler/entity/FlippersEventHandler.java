@@ -17,7 +17,7 @@ public class FlippersEventHandler
 		{
 			EntityLiving entity = (EntityLiving)event.entity;
 
-			ItemStack itemstack = entity.getCurrentItemOrArmor(1);
+			ItemStack itemstack = entity.getEquipmentInSlot(1);
 
 			if (entity.isInWater())
 			{

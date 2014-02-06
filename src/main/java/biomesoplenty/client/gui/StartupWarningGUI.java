@@ -44,9 +44,9 @@ public class StartupWarningGUI extends GuiScreen
         //TODO: buttonList
         this.buttonList.clear();
         //TODO: buttonList
-        this.buttonList.add(new GuiButton(0, this.width / 2 - 175, this.height - 48, 350, 20, I18n.getStringParams("OK")));
+        this.buttonList.add(new GuiButton(0, this.width / 2 - 175, this.height - 48, 350, 20, I18n.format("OK")));
         //TODO: buttonList
-        this.buttonList.add(new GuiButton(1, this.width / 2 - 175, this.height - 24, 350, 20, I18n.getStringParams("Cancel")));
+        this.buttonList.add(new GuiButton(1, this.width / 2 - 175, this.height - 24, 350, 20, I18n.format("Cancel")));
     }
 
     @Override
