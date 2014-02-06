@@ -58,7 +58,7 @@ public class ItemGems extends Item
 
 	@Override
     //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
-    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
 	{
 		for (int meta = 0; meta < gems.length; ++meta) 
 		{

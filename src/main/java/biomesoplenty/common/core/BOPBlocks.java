@@ -104,133 +104,133 @@ public class BOPBlocks
 		// Block declaration
 
 		//TODO:						setBlockName
-		registerBlock(new BlockMud().func_149663_c("mud"), ItemBlockMud.class);
+		registerBlock(new BlockMud().setBlockName("mud"), ItemBlockMud.class);
 		//TODO:									   rock
-        registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.DRIED_DIRT).func_149663_c("driedDirt"));
-        registerBlock(new BlockBOPRedRock().func_149663_c("redRock"), ItemBlockRedRock.class);
-		registerBlock(new BlockAsh().func_149663_c("ash"));
-        registerBlock(new BlockFlesh().func_149663_c("flesh"));
-        registerBlock(new BlockBOPPlant().func_149663_c("plants"), ItemBlockPlant.class);
-        registerBlock(new BlockBOPFlower().func_149663_c("flowers"), ItemBlockFlower.class);
-        registerBlock(new BlockBOPFlower2().func_149663_c("flowers2"), ItemBlockFlower2.class);
-        registerBlock(new BlockStoneFormations().func_149663_c("stoneFormations"), ItemBlockStoneFormations.class);
-        registerBlock(new BlockBOPMushroom().func_149663_c("mushrooms"), ItemBlockMushroom.class);
-        registerBlock(new BlockBOPCoral().func_149663_c("coral"), ItemBlockCoral.class);
-        registerBlock(new BlockWillow().func_149663_c("willow"), ItemBlockWillow.class);
-        registerBlock(new BlockIvy().func_149663_c("ivy"), ItemBlockIvy.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT1).func_149663_c("leaves1"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT2).func_149663_c("leaves2"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).func_149663_c("leaves3"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT4).func_149663_c("leaves4"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPFoliage().func_149663_c("foliage"), ItemBlockFoliage.class);
-        registerBlock(new BlockTurnip().func_149663_c("turnip"));
+        registerBlock(new BlockBOPGeneric(Material.rock, BlockType.DRIED_DIRT).setBlockName("driedDirt"));
+        registerBlock(new BlockBOPRedRock().setBlockName("redRock"), ItemBlockRedRock.class);
+		registerBlock(new BlockAsh().setBlockName("ash"));
+        registerBlock(new BlockFlesh().setBlockName("flesh"));
+        registerBlock(new BlockBOPPlant().setBlockName("plants"), ItemBlockPlant.class);
+        registerBlock(new BlockBOPFlower().setBlockName("flowers"), ItemBlockFlower.class);
+        registerBlock(new BlockBOPFlower2().setBlockName("flowers2"), ItemBlockFlower2.class);
+        registerBlock(new BlockStoneFormations().setBlockName("stoneFormations"), ItemBlockStoneFormations.class);
+        registerBlock(new BlockBOPMushroom().setBlockName("mushrooms"), ItemBlockMushroom.class);
+        registerBlock(new BlockBOPCoral().setBlockName("coral"), ItemBlockCoral.class);
+        registerBlock(new BlockWillow().setBlockName("willow"), ItemBlockWillow.class);
+        registerBlock(new BlockIvy().setBlockName("ivy"), ItemBlockIvy.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT1).setBlockName("leaves1"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT2).setBlockName("leaves2"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).setBlockName("leaves3"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT4).setBlockName("leaves4"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPFoliage().setBlockName("foliage"), ItemBlockFoliage.class);
+        registerBlock(new BlockTurnip().setBlockName("turnip"));
 		//TODO:									   rock
-        registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.ASH_STONE).func_149663_c("ashStone"));
+        registerBlock(new BlockBOPGeneric(Material.rock, BlockType.ASH_STONE).setBlockName("ashStone"));
 		//TODO:									   rock
-        registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.HARD_ICE).func_149663_c("hardIce"));
+        registerBlock(new BlockBOPGeneric(Material.rock, BlockType.HARD_ICE).setBlockName("hardIce"));
         
-        registerBlock(new BlockBOPAppleLeaves().func_149663_c("appleLeaves"), ItemBlockAppleLeaves.class);
-        registerBlock(new BlockBOPPersimmonLeaves().func_149663_c("persimmonLeaves"), ItemBlockPersimmonLeaves.class);
+        registerBlock(new BlockBOPAppleLeaves().setBlockName("appleLeaves"), ItemBlockAppleLeaves.class);
+        registerBlock(new BlockBOPPersimmonLeaves().setBlockName("persimmonLeaves"), ItemBlockPersimmonLeaves.class);
         
-        registerBlock(new BlockBamboo().func_149663_c("bamboo"), ItemBlockBamboo.class);
+        registerBlock(new BlockBamboo().setBlockName("bamboo"), ItemBlockBamboo.class);
         //TODO:							  		   rock
-        registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.MUD_BRICK).func_149663_c("mudBricks"));
+        registerBlock(new BlockBOPGeneric(Material.rock, BlockType.MUD_BRICK).setBlockName("mudBricks"));
         
-        registerBlock(new BlockOriginGrass().func_149663_c("originGrass"));
-        registerBlock(new BlockLongGrass().func_149663_c("longGrass"));
-        registerBlock(new BlockOvergrownNetherrack().func_149663_c("overgrownNetherrack"));
-        registerBlock(new BlockBOPGrass().func_149663_c("grass"));
+        registerBlock(new BlockOriginGrass().setBlockName("originGrass"));
+        registerBlock(new BlockLongGrass().setBlockName("longGrass"));
+        registerBlock(new BlockOvergrownNetherrack().setBlockName("overgrownNetherrack"));
+        registerBlock(new BlockBOPGrass().setBlockName("grass"));
         
-        registerBlock(new BlockTreeMoss().func_149663_c("treeMoss"));
+        registerBlock(new BlockTreeMoss().setBlockName("treeMoss"));
         
-		registerBlock(new BlockBOPLog(LogCategory.CAT1).func_149663_c("logs1"), ItemBlockLog.class);
-		registerBlock(new BlockBOPLog(LogCategory.CAT2).func_149663_c("logs2"), ItemBlockLog.class);
-		registerBlock(new BlockBOPLog(LogCategory.CAT3).func_149663_c("logs3"), ItemBlockLog.class);
-		registerBlock(new BlockBOPLog(LogCategory.CAT4).func_149663_c("logs4"), ItemBlockLog.class);
+		registerBlock(new BlockBOPLog(LogCategory.CAT1).setBlockName("logs1"), ItemBlockLog.class);
+		registerBlock(new BlockBOPLog(LogCategory.CAT2).setBlockName("logs2"), ItemBlockLog.class);
+		registerBlock(new BlockBOPLog(LogCategory.CAT3).setBlockName("logs3"), ItemBlockLog.class);
+		registerBlock(new BlockBOPLog(LogCategory.CAT4).setBlockName("logs4"), ItemBlockLog.class);
 
-		registerBlock(new BlockBOPPetals().func_149663_c("petals"), ItemBlockPetals.class);
+		registerBlock(new BlockBOPPetals().setBlockName("petals"), ItemBlockPetals.class);
 		
-		registerBlock(new BlockBOPSapling().func_149663_c("saplings"), ItemBlockSapling.class);
-		registerBlock(new BlockBOPColorizedSapling().func_149663_c("colorizedSaplings"), ItemBlockColorizedSapling.class);
+		registerBlock(new BlockBOPSapling().setBlockName("saplings"), ItemBlockSapling.class);
+		registerBlock(new BlockBOPColorizedSapling().setBlockName("colorizedSaplings"), ItemBlockColorizedSapling.class);
 		
         //TODO:							  		   sand
-        registerBlock(new BlockBOPGeneric(Material.field_151595_p, BlockType.HARD_SAND).func_149663_c("hardSand"));
+        registerBlock(new BlockBOPGeneric(Material.sand, BlockType.HARD_SAND).setBlockName("hardSand"));
         //TODO:							  		   rock
-        registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.HARD_DIRT).func_149663_c("hardDirt"));
+        registerBlock(new BlockBOPGeneric(Material.rock, BlockType.HARD_DIRT).setBlockName("hardDirt"));
 		
 		//TODO:									   sand
-        registerBlock(new BlockBOPGeneric(Material.field_151595_p, BlockType.HOLY_DIRT).func_149663_c("holyDirt"));
-        registerBlock(new BlockBOPSkystone().func_149663_c("holyStone"), ItemBlockSkystone.class);
+        registerBlock(new BlockBOPGeneric(Material.sand, BlockType.HOLY_DIRT).setBlockName("holyDirt"));
+        registerBlock(new BlockBOPSkystone().setBlockName("holyStone"), ItemBlockSkystone.class);
   
 		//TODO:									   glass
-        registerBlock(new BlockBOPGeneric(Material.field_151592_s, BlockType.CRYSTAL).func_149663_c("crystal"));
-        registerBlock(new BlockPromisedPortal().func_149663_c("promisedPortal"));
+        registerBlock(new BlockBOPGeneric(Material.glass, BlockType.CRYSTAL).setBlockName("crystal"));
+        registerBlock(new BlockPromisedPortal().setBlockName("promisedPortal"));
 
-		registerBlock(new BlockBOPGems().func_149663_c("gemOre"), ItemBlockGems.class);
+		registerBlock(new BlockBOPGems().setBlockName("gemOre"), ItemBlockGems.class);
        
-		registerBlock(new BlockMoss().func_149663_c("moss"), ItemBlockMoss.class);
+		registerBlock(new BlockMoss().setBlockName("moss"), ItemBlockMoss.class);
 
 		//TODO:									   rock
-        registerBlock(new BlockBOPGeneric(Material.field_151576_e, BlockType.CRAG_ROCK).func_149663_c("cragRock"));
+        registerBlock(new BlockBOPGeneric(Material.rock, BlockType.CRAG_ROCK).setBlockName("cragRock"));
 
-		registerBlock(new BlockCloud().func_149663_c("cloud"));
+		registerBlock(new BlockCloud().setBlockName("cloud"));
 
-		registerBlock(new BlockHive().func_149663_c("hive"), ItemBlockHive.class);
-		registerBlock(new BlockHoney().func_149663_c("honeyBlock"));
+		registerBlock(new BlockHive().setBlockName("hive"), ItemBlockHive.class);
+		registerBlock(new BlockHoney().setBlockName("honeyBlock"));
 
-		registerBlock(new BlockBones().func_149663_c("bones"), ItemBlockBones.class);
-		registerBlock(new BlockGrave().func_149663_c("grave"), ItemBlockGrave.class);
+		registerBlock(new BlockBones().setBlockName("bones"), ItemBlockBones.class);
+		registerBlock(new BlockGrave().setBlockName("grave"), ItemBlockGrave.class);
 
-		registerBlock(new BlockBOPPlank().func_149663_c("planks"), ItemBlockPlank.class);
+		registerBlock(new BlockBOPPlank().setBlockName("planks"), ItemBlockPlank.class);
 
 		//TODO:															 wood
-		BlockBOPSlab woodenSingleSlab1 = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenSingleSlab1");
+		BlockBOPSlab woodenSingleSlab1 = (BlockBOPSlab)new BlockBOPSlab(false, Material.wood, SlabCategory.WOOD1).setBlockName("woodenSingleSlab1");
 		//TODO:															 wood
-		BlockBOPSlab woodenDoubleSlab1 = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD1).func_149663_c("woodenDoubleSlab1");
+		BlockBOPSlab woodenDoubleSlab1 = (BlockBOPSlab)new BlockBOPSlab(true, Material.wood, SlabCategory.WOOD1).setBlockName("woodenDoubleSlab1");
 		
 		registerBlock(woodenSingleSlab1, ItemBlockSlab.class, woodenSingleSlab1, woodenDoubleSlab1);
 		registerBlock(woodenDoubleSlab1, ItemBlockSlab.class, woodenSingleSlab1, woodenDoubleSlab1);		
 		
 		//TODO:															 wood
-		BlockBOPSlab woodenSingleSlab2 = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenSingleSlab2");
+		BlockBOPSlab woodenSingleSlab2 = (BlockBOPSlab)new BlockBOPSlab(false, Material.wood, SlabCategory.WOOD2).setBlockName("woodenSingleSlab2");
 		//TODO:															 wood
-		BlockBOPSlab woodenDoubleSlab2 = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151575_d, SlabCategory.WOOD2).func_149663_c("woodenDoubleSlab2");
+		BlockBOPSlab woodenDoubleSlab2 = (BlockBOPSlab)new BlockBOPSlab(true, Material.wood, SlabCategory.WOOD2).setBlockName("woodenDoubleSlab2");
 		
 		registerBlock(woodenSingleSlab2, ItemBlockSlab.class, woodenSingleSlab2, woodenDoubleSlab2);
 		registerBlock(woodenDoubleSlab2, ItemBlockSlab.class, woodenSingleSlab2, woodenDoubleSlab2);
 		
 		//TODO:															 stone
-		BlockBOPSlab stoneSingleSlab = (BlockBOPSlab)new BlockBOPSlab(false, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneSingleSlab");
+		BlockBOPSlab stoneSingleSlab = (BlockBOPSlab)new BlockBOPSlab(false, Material.rock, SlabCategory.STONE).setBlockName("stoneSingleSlab");
 		//TODO:															 stone
-		BlockBOPSlab stoneDoubleSlab = (BlockBOPSlab)new BlockBOPSlab(true, Material.field_151576_e, SlabCategory.STONE).func_149663_c("stoneDoubleSlab");
+		BlockBOPSlab stoneDoubleSlab = (BlockBOPSlab)new BlockBOPSlab(true, Material.rock, SlabCategory.STONE).setBlockName("stoneDoubleSlab");
 		
 		registerBlock(stoneSingleSlab, ItemBlockSlab.class, stoneSingleSlab, stoneDoubleSlab);
 		registerBlock(stoneDoubleSlab, ItemBlockSlab.class, stoneSingleSlab, stoneDoubleSlab);
 		
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.SACREDOAK).func_149663_c("sacredoakStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.CHERRY).func_149663_c("cherryStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.DARK).func_149663_c("darkStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.FIR).func_149663_c("firStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.HOLY).func_149663_c("holyStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MAGIC).func_149663_c("magicStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MANGROVE).func_149663_c("mangroveStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.PALM).func_149663_c("palmStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.REDWOOD).func_149663_c("redwoodStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.WILLOW).func_149663_c("willowStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.PINE).func_149663_c("pineStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.HELL_BARK).func_149663_c("hellBarkStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.JACARANDA).func_149663_c("jacarandaStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MAHOGANY).func_149663_c("mahoganyStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.SACREDOAK).setBlockName("sacredoakStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.CHERRY).setBlockName("cherryStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.DARK).setBlockName("darkStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.FIR).setBlockName("firStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.HOLY).setBlockName("holyStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MAGIC).setBlockName("magicStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MANGROVE).setBlockName("mangroveStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.PALM).setBlockName("palmStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.REDWOOD).setBlockName("redwoodStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.WILLOW).setBlockName("willowStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.PINE).setBlockName("pineStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.HELL_BARK).setBlockName("hellBarkStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.JACARANDA).setBlockName("jacarandaStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MAHOGANY).setBlockName("mahoganyStairs"));
 		
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_COBBLE).func_149663_c("redCobbleStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_BRICKS).func_149663_c("redBricksStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_COBBLE).setBlockName("redCobbleStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_BRICKS).setBlockName("redBricksStairs"));
 
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("holyStone"), Category.HOLY_COBBLE).func_149663_c("holyCobbleStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("holyStone"), Category.HOLY_BRICKS).func_149663_c("holyBricksStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.MUD_BRICKS).func_149663_c("mudBricksStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("holyStone"), Category.HOLY_COBBLE).setBlockName("holyCobbleStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("holyStone"), Category.HOLY_BRICKS).setBlockName("holyBricksStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.MUD_BRICKS).setBlockName("mudBricksStairs"));
 
-        registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT1).func_149663_c("colorizedLeaves1"), ItemBlockColorizedLeaves.class);
-        registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT2).func_149663_c("colorizedLeaves2"), ItemBlockColorizedLeaves.class);
+        registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT1).setBlockName("colorizedLeaves1"), ItemBlockColorizedLeaves.class);
+        registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT2).setBlockName("colorizedLeaves2"), ItemBlockColorizedLeaves.class);
 	}
 	
 	private static void setFireInfo()
@@ -273,18 +273,18 @@ public class BOPBlocks
 	public static void registerBlock(Block block)
 	{
 		//TODO: 								getUnlocalizedName()
-	    GameRegistry.registerBlock(block, block.func_149739_a().replace("tile.", ""));
+	    GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
 	}
 	
     public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
     {
 		//TODO: 												getUnlocalizedName()
-        GameRegistry.registerBlock(block, itemBlockClass, block.func_149739_a().replace("tile.", ""));
+        GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
     }
     
     public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass, Object... constructorArgs)
     {
 		//TODO: 												getUnlocalizedName()
-        GameRegistry.registerBlock(block, itemBlockClass, block.func_149739_a().replace("tile.", ""), null, constructorArgs);
+        GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""), null, constructorArgs);
     }
 }

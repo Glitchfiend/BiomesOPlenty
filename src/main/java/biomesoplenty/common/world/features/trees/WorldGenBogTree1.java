@@ -65,7 +65,7 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
                     {
                         if (i1 >= 0 && i1 < 256)
                         {
-                            block = par1World.func_147439_a(j1, i1, k1);
+                            block = par1World.getBlock(j1, i1, k1);
 
                             if (!this.isReplaceable(par1World, j1, i1, k1))
                             {
@@ -86,7 +86,7 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
             }
             else
             {
-                Block block2 = par1World.func_147439_a(par3, par4 - 1, par5);
+                Block block2 = par1World.getBlock(par3, par4 - 1, par5);
 
                 boolean isSoil = block2.canSustainPlant(par1World, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
 
@@ -114,11 +114,11 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
 
                                 if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || par2Random.nextInt(2) != 0 && i3 != 0)
                                 {
-                                    Block block1 = par1World.func_147439_a(i2, k1, k2);
+                                    Block block1 = par1World.getBlock(i2, k1, k2);
 
                                     if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2))
                                     {
-                                        this.func_150516_a(par1World, i2, k1, k2, this.leaves, this.leavesMeta);
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, this.leavesMeta);
                                     }
                                 }
                             }
@@ -127,40 +127,40 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
 
                     for (k1 = 0; k1 < l; ++k1)
                     {
-                        block = par1World.func_147439_a(par3, par4 + k1, par5);
+                        block = par1World.getBlock(par3, par4 + k1, par5);
 
                         if (block.isAir(par1World, par3, par4 + k1, par5) || block.isLeaves(par1World, par3, par4 + k1, par5))
                         {
                             //TODO: setBlockAndMetadata()
-                            this.func_150516_a(par1World, par3, par4 + k1, par5, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 1, par4 + k1, par5, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4 + k1, par5, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3, par4 + k1, par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3, par4 + k1, par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 1, par4, par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4, par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 1, par4, par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4, par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 1, par4 + 1, par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4 + 1, par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 1, par4 + 1, par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4 + 1, par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 2, par4, par5, this.wood, 4);
-                            this.func_150516_a(par1World, par3 + 2, par4, par5, this.wood, 4);
-                            this.func_150516_a(par1World, par3, par4, par5 - 2, this.wood, 8);
-                            this.func_150516_a(par1World, par3, par4, par5 + 2, this.wood, 8);
-                            this.func_150516_a(par1World, par3 - 1, par4 + (l - 4), par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4 + (l - 4), par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 1, par4 + (l - 4), par5 + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 1, par4 + (l - 4), par5 - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 - 2, par4 + (l - 4), par5, this.wood, 4);
-                            this.func_150516_a(par1World, par3 + 2, par4 + (l - 4), par5, this.wood, 4);
-                            this.func_150516_a(par1World, par3, par4 + (l - 4), par5 - 2, this.wood, 8);
-                            this.func_150516_a(par1World, par3, par4 + (l - 4), par5 + 2, this.wood, 8);
-                            this.func_150516_a(par1World, par3 - 3, par4 + (l - 3), par5, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3 + 3, par4 + (l - 3), par5, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3, par4 + (l - 3), par5 - 3, this.wood, this.woodMeta);
-                            this.func_150516_a(par1World, par3, par4 + (l - 3), par5 + 3, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + k1, par5, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + k1, par5, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + k1, par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4, par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4, par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4, par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4, par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + 1, par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + 1, par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + 1, par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + 1, par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 2, par4, par5, this.wood, 4);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 2, par4, par5, this.wood, 4);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4, par5 - 2, this.wood, 8);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4, par5 + 2, this.wood, 8);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + (l - 4), par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + (l - 4), par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 1, par4 + (l - 4), par5 + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 1, par4 + (l - 4), par5 - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 2, par4 + (l - 4), par5, this.wood, 4);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 2, par4 + (l - 4), par5, this.wood, 4);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 4), par5 - 2, this.wood, 8);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 4), par5 + 2, this.wood, 8);
+                            this.setBlockAndNotifyAdequately(par1World, par3 - 3, par4 + (l - 3), par5, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3 + 3, par4 + (l - 3), par5, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5 - 3, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(par1World, par3, par4 + (l - 3), par5 + 3, this.wood, this.woodMeta);
                         }
                     }
 
@@ -173,24 +173,24 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
                         {
                             for (j2 = par5 - l1; j2 <= par5 + l1; ++j2)
                             {
-                                if (par1World.func_147439_a(i2, k1, j2).isLeaves(par1World, i2, k1, j2))
+                                if (par1World.getBlock(i2, k1, j2).isLeaves(par1World, i2, k1, j2))
                                 {
-                                    if (par2Random.nextInt(4) == 0 && par1World.func_147439_a(i2 - 1, k1, j2).isAir(par1World, i2 - 1, k1, j2))
+                                    if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2 - 1, k1, j2).isAir(par1World, i2 - 1, k1, j2))
                                     {
                                         this.growVines(par1World, i2 - 1, k1, j2, 8);
                                     }
 
-                                    if (par2Random.nextInt(4) == 0 && par1World.func_147439_a(i2 + 1, k1, j2).isAir(par1World, i2 + 1, k1, j2))
+                                    if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2 + 1, k1, j2).isAir(par1World, i2 + 1, k1, j2))
                                     {
                                         this.growVines(par1World, i2 + 1, k1, j2, 2);
                                     }
 
-                                    if (par2Random.nextInt(4) == 0 && par1World.func_147439_a(i2, k1, j2 - 1).isAir(par1World, i2, k1, j2 - 1))
+                                    if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2, k1, j2 - 1).isAir(par1World, i2, k1, j2 - 1))
                                     {
                                         this.growVines(par1World, i2, k1, j2 - 1, 1);
                                     }
 
-                                    if (par2Random.nextInt(4) == 0 && par1World.func_147439_a(i2, k1, j2 + 1).isAir(par1World, i2, k1, j2 + 1))
+                                    if (par2Random.nextInt(4) == 0 && par1World.getBlock(i2, k1, j2 + 1).isAir(par1World, i2, k1, j2 + 1))
                                     {
                                         this.growVines(par1World, i2, k1, j2 + 1, 4);
                                     }
@@ -210,7 +210,7 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
     private void growVines(World world, int x, int y, int z, int flag)
     {
         //TODO: setBlockAndMetadata()
-        this.func_150516_a(world, x, y, z, Blocks.vine, flag);
+        this.setBlockAndNotifyAdequately(world, x, y, z, Blocks.vine, flag);
         int i1 = 4;
 
         while (true)
@@ -218,13 +218,13 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
             --y;
 
             //TODO:     getBlock()
-            if (world.func_147439_a(x, y, z).isAir(world, x, y, z) || i1 <= 0)
+            if (world.getBlock(x, y, z).isAir(world, x, y, z) || i1 <= 0)
             {
                 return;
             }
 
             //TODO: setBlockAndMetadata()
-            this.func_150516_a(world, x, y, z, Blocks.vine, flag);
+            this.setBlockAndNotifyAdequately(world, x, y, z, Blocks.vine, flag);
             --i1;
         }
     }
@@ -272,7 +272,7 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
     {
         int l;
 
-        for (l = random.nextInt(randomTreeHeight) + minTreeHeight; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
+        for (l = random.nextInt(randomTreeHeight) + minTreeHeight; world.getBlock(x, y - 1, z).getMaterial() == Material.water; --y)
         {
             ;
         }
@@ -304,7 +304,7 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
                     {
                         if (i1 >= 0 && i1 < 256)
                         {
-                            Block block = world.func_147439_a(j1, i1, k1);
+                            Block block = world.getBlock(j1, i1, k1);
 
                             if (!(block.isAir(world, j1, i1, k1) || block.isLeaves(world, j1, i1, k1)))
                             {
@@ -332,7 +332,7 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.func_147439_a(x, y - 1, z);
+                Block block1 = world.getBlock(x, y - 1, z);
 
                 boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 if (isSoil && y < 256 - l - 1)
@@ -355,9 +355,9 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
                             {
                                 int j2 = i2 - z;
 
-                                if ((Math.abs(l1) != k1 || Math.abs(j2) != k1 || random.nextInt(2) != 0 && j1 != 0) && world.func_147439_a(l2, k2, i2).canBeReplacedByLeaves(world, l2, k2, i2))
+                                if ((Math.abs(l1) != k1 || Math.abs(j2) != k1 || random.nextInt(2) != 0 && j1 != 0) && world.getBlock(l2, k2, i2).canBeReplacedByLeaves(world, l2, k2, i2))
                                 {
-                                    this.func_150516_a(world, l2, k2, i2, this.leaves, this.leavesMeta);
+                                    this.setBlockAndNotifyAdequately(world, l2, k2, i2, this.leaves, this.leavesMeta);
                                 }
                             }
                         }
@@ -365,40 +365,40 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
 
                     for (k2 = 0; k2 < l; ++k2)
                     {
-                        Block block2 = world.func_147439_a(x, y + k2, z);
+                        Block block2 = world.getBlock(x, y + k2, z);
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
                             //TODO: setBlockAndMetadata()
-                            this.func_150516_a(world, x, y + k2, z, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 1, y + k2, z, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y + k2, z, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x, y + k2, z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x, y + k2, z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 1, y, z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y, z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 1, y, z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y, z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 1, y + 1, z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y + 1, z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 1, y + 1, z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y + 1, z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 2, y, z, this.wood, this.woodMeta + 4);
-                            this.func_150516_a(world, x + 2, y, z, this.wood, this.woodMeta + 4);
-                            this.func_150516_a(world, x, y, z - 2, this.wood, this.woodMeta + 8);
-                            this.func_150516_a(world, x, y, z + 2, this.wood, this.woodMeta + 8);
-                            this.func_150516_a(world, x - 1, y + (l - 4), z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y + (l - 4), z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 1, y + (l - 4), z + 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 1, y + (l - 4), z - 1, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x - 2, y + (l - 4), z, this.wood, this.woodMeta + 4);
-                            this.func_150516_a(world, x + 2, y + (l - 4), z, this.wood, this.woodMeta + 4);
-                            this.func_150516_a(world, x, y + (l - 4), z - 2, this.wood, this.woodMeta + 8);
-                            this.func_150516_a(world, x, y + (l - 4), z + 2, this.wood, this.woodMeta + 8);
-                            this.func_150516_a(world, x - 3, y + (l - 3), z, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x + 3, y + (l - 3), z, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x, y + (l - 3), z - 3, this.wood, this.woodMeta);
-                            this.func_150516_a(world, x, y + (l - 3), z + 3, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + k2, z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + k2, z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + k2, z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + k2, z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y, z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y, z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y, z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y, z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 2, y, z, this.wood, this.woodMeta + 4);
+                            this.setBlockAndNotifyAdequately(world, x + 2, y, z, this.wood, this.woodMeta + 4);
+                            this.setBlockAndNotifyAdequately(world, x, y, z - 2, this.wood, this.woodMeta + 8);
+                            this.setBlockAndNotifyAdequately(world, x, y, z + 2, this.wood, this.woodMeta + 8);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + (l - 4), z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + (l - 4), z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + (l - 4), z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + (l - 4), z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 2, y + (l - 4), z, this.wood, this.woodMeta + 4);
+                            this.setBlockAndNotifyAdequately(world, x + 2, y + (l - 4), z, this.wood, this.woodMeta + 4);
+                            this.setBlockAndNotifyAdequately(world, x, y + (l - 4), z - 2, this.wood, this.woodMeta + 8);
+                            this.setBlockAndNotifyAdequately(world, x, y + (l - 4), z + 2, this.wood, this.woodMeta + 8);
+                            this.setBlockAndNotifyAdequately(world, x - 3, y + (l - 3), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 3, y + (l - 3), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (l - 3), z - 3, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (l - 3), z + 3, this.wood, this.woodMeta);
                         }
                     }
 
@@ -411,24 +411,24 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
                         {
                             for (l1 = z - k1; l1 <= z + k1; ++l1)
                             {
-                                if (world.func_147439_a(l2, k2, l1).isLeaves(world, l2, k2, l1))
+                                if (world.getBlock(l2, k2, l1).isLeaves(world, l2, k2, l1))
                                 {
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2 - 1, k2, l1).isAir(world, l2 - 1, k2, l1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2 - 1, k2, l1).isAir(world, l2 - 1, k2, l1))
                                     {
                                         this.generateVines(world, l2 - 1, k2, l1, 8);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2 + 1, k2, l1).isAir(world, l2 + 1, k2, l1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2 + 1, k2, l1).isAir(world, l2 + 1, k2, l1))
                                     {
                                         this.generateVines(world, l2 + 1, k2, l1, 2);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2, k2, l1 - 1).isAir(world, l2, k2, l1 - 1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l1 - 1).isAir(world, l2, k2, l1 - 1))
                                     {
                                         this.generateVines(world, l2, k2, l1 - 1, 1);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2, k2, l1 + 1).isAir(world, l2, k2, l1 + 1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l1 + 1).isAir(world, l2, k2, l1 + 1))
                                     {
                                         this.generateVines(world, l2, k2, l1 + 1, 4);
                                     }
@@ -451,22 +451,22 @@ public class WorldGenBogTree1 extends WorldGenAbstractTree
         }
     }
 
-    // JAVADOC METHOD $$ func_76536_b
+    // JAVADOC METHOD $$ generateVines
     private void generateVines(World par1World, int par2, int par3, int par4, int par5)
     {
-        this.func_150516_a(par1World, par2, par3, par4, Blocks.vine, par5);
+        this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, Blocks.vine, par5);
         int i1 = 4;
 
         while (true)
         {
             --par3;
 
-            if (!(par1World.func_147439_a(par2, par3, par4).isAir(par1World, par2, par3, par4)) || i1 <= 0)
+            if (!(par1World.getBlock(par2, par3, par4).isAir(par1World, par2, par3, par4)) || i1 <= 0)
             {
                 return;
             }
 
-            this.func_150516_a(par1World, par2, par3, par4, Blocks.vine, par5);
+            this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, Blocks.vine, par5);
             --i1;
         }
     }

@@ -35,7 +35,7 @@ public class ItemBiomeBook extends ItemEditableBook
         
         if (world.isRemote)
         {
-            Minecraft.getMinecraft().func_147108_a(new GuiScreenBiomeBook(player, itemStack));
+            Minecraft.getMinecraft().displayGuiScreen(new GuiScreenBiomeBook(player, itemStack));
         }
         
         return itemStack;
@@ -43,7 +43,7 @@ public class ItemBiomeBook extends ItemEditableBook
     
     @Override
     //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
-    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
     {
         ItemStack biomeBook = new ItemStack(item);
         

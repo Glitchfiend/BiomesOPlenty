@@ -107,7 +107,7 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
 
             case SERVER:
                 INetHandler netHandler = ctx.channel().attr(NetworkRegistry.NET_HANDLER).get();
-                player = ((NetHandlerPlayServer) netHandler).field_147369_b;
+                player = ((NetHandlerPlayServer) netHandler).playerEntity;
                 pkt.handleServerSide(player);
                 break;
 

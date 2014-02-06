@@ -241,7 +241,7 @@ public class ItemBOPFood extends ItemFood
 	
 	//@Override
     //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
-    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
     {
 		for (int i = 0; i < foodTypes.length; ++i) 
 		{

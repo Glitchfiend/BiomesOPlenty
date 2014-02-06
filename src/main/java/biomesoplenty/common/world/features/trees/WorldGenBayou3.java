@@ -37,7 +37,7 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
     {
         int l;
 
-        for (l = 7; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
+        for (l = 7; world.getBlock(x, y - 1, z).getMaterial() == Material.water; --y)
         {
             ;
         }
@@ -69,7 +69,7 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
                     {
                         if (i1 >= 0 && i1 < 256)
                         {
-                            Block block = world.func_147439_a(j1, i1, k1);
+                            Block block = world.getBlock(j1, i1, k1);
 
                             if (!(block.isAir(world, j1, i1, k1) || block.isLeaves(world, j1, i1, k1)))
                             {
@@ -97,7 +97,7 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.func_147439_a(x, y - 1, z);
+                Block block1 = world.getBlock(x, y - 1, z);
 
                 boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 if (isSoil && y < 256 - l - 1)
@@ -105,26 +105,26 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
                     block1.onPlantGrow(world, x, y - 1, z, x, y, z);
 
                     //TODO: setBlockAndMetadata()
-                    this.func_150516_a(world, x - 1, y, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x + 1, y, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y, z - 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y, z + 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x - 1, y + 1, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x + 1, y + 1, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 1, z - 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 1, z + 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x - 1, y + 2, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x + 1, y + 2, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 2, z - 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 2, z + 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x - 1, y + 3, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x + 1, y + 3, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 3, z - 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 3, z + 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x - 1, y + 4, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x + 1, y + 4, z, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 4, z - 1, this.wood, this.metaWood);
-                    this.func_150516_a(world, x, y + 4, z + 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x - 1, y, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x + 1, y, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y, z - 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y, z + 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 1, z - 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 1, z + 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x - 1, y + 2, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x + 1, y + 2, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 2, z - 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 2, z + 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x - 1, y + 3, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x + 1, y + 3, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 3, z - 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 3, z + 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x - 1, y + 4, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x + 1, y + 4, z, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 4, z - 1, this.wood, this.metaWood);
+                    this.setBlockAndNotifyAdequately(world, x, y + 4, z + 1, this.wood, this.metaWood);
 
                     int l1;
                     int l2;
@@ -132,12 +132,12 @@ public class WorldGenBayou3 extends WorldGenAbstractTree
 
                     for (k2 = 0; k2 < l; ++k2)
                     {
-                        Block block2 = world.func_147439_a(x, y + k2, z);
+                        Block block2 = world.getBlock(x, y + k2, z);
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
                             //TODO: setBlockAndMetadata()
-                            this.func_150516_a(world, x, y + k2, z, this.wood, this.metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.metaWood);
                         }
                     }
 

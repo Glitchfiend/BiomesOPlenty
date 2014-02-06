@@ -172,7 +172,7 @@ public class WorldGenDeadTree1 extends WorldGenAbstractTree
 				{
 					var11[var9] = var10[var9] + var13;
 					//TODO:					getBlock()
-					Block var14 = worldObj.func_147439_a(var11[0], var11[1], var11[2]);
+					Block var14 = worldObj.getBlock(var11[0], var11[1], var11[2]);
 
 					if (var14 != Blocks.air && var14 != Blocks.leaves)
 					{
@@ -181,7 +181,7 @@ public class WorldGenDeadTree1 extends WorldGenAbstractTree
 					else
 					{
 						 //TODO: setBlockAndMetadata()
-						this.func_150516_a(worldObj, var11[0], var11[1], var11[2], par6, 0);
+						this.setBlockAndNotifyAdequately(worldObj, var11[0], var11[1], var11[2], par6, 0);
 						++var13;
 					}
 				}
@@ -301,7 +301,7 @@ public class WorldGenDeadTree1 extends WorldGenAbstractTree
 				 }
 
 				 //TODO: setBlockAndMetadata()
-				 this.func_150516_a(worldObj, var14[0], var14[1], var14[2], par3, var17);
+				 this.setBlockAndNotifyAdequately(worldObj, var14[0], var14[1], var14[2], par3, var17);
 			 }
 		 }
 	 }
@@ -429,7 +429,7 @@ public class WorldGenDeadTree1 extends WorldGenAbstractTree
 				 var13[var6] = MathHelper.floor_double(par1ArrayOfInteger[var6] + var14 * var9);
 				 var13[var7] = MathHelper.floor_double(par1ArrayOfInteger[var7] + var14 * var11);
 				 //TODO:			 getBlock()
-				 Block var16 = worldObj.func_147439_a(var13[0], var13[1], var13[2]);
+				 Block var16 = worldObj.getBlock(var13[0], var13[1], var13[2]);
 
 				 if (var16 != Blocks.air && var16 != Blocks.leaves)
 				 {
@@ -450,7 +450,7 @@ public class WorldGenDeadTree1 extends WorldGenAbstractTree
 		 int[] var1 = new int[] {basePos[0], basePos[1], basePos[2]};
 		 int[] var2 = new int[] {basePos[0], basePos[1] + heightLimit - 1, basePos[2]};
 		 //TODO:			 getBlock()
-		 Block var3 = worldObj.func_147439_a(basePos[0], basePos[1] - 1, basePos[2]);
+		 Block var3 = worldObj.getBlock(basePos[0], basePos[1] - 1, basePos[2]);
 
 		 if (!soilBlocks.contains(var3))
 			 return false;

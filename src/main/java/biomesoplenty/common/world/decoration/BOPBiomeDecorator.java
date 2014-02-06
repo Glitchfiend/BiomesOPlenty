@@ -18,7 +18,7 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 public class BOPBiomeDecorator extends BiomeDecorator
 {
     @Override
-    public void func_150512_a(World world, Random random, BiomeGenBase biome, int chunk_X, int chunk_Z)
+    public void decorateChunk(World world, Random random, BiomeGenBase biome, int chunk_X, int chunk_Z)
     {
         if (this.currentWorld == null)
         {
@@ -26,17 +26,17 @@ public class BOPBiomeDecorator extends BiomeDecorator
             this.randomGenerator = random;
             this.chunk_X = chunk_X;
             this.chunk_Z = chunk_Z;
-            this.func_150513_a(biome);
+            this.genDecorations(biome);
             this.currentWorld = null;
             this.randomGenerator = null;
         }
     }
 
     @Override
-    protected void func_150513_a(BiomeGenBase biome)
+    protected void genDecorations(BiomeGenBase biome)
     {
         doBOPDecoration(biome);
-        super.func_150513_a(biome);
+        super.genDecorations(biome);
     }
     
     public void doBOPDecoration(BiomeGenBase biome)

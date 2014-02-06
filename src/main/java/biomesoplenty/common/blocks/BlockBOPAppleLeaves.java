@@ -35,24 +35,24 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 	public BlockBOPAppleLeaves()
 	{
     	//TODO:	Material.leaves
-        super(Material.field_151584_j, false);
+        super(Material.leaves, false);
 			
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		//TODO: this.setHardness
-		this.func_149711_c(0.2F);
+		this.setHardness(0.2F);
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		//TODO:	setLightOpacity()
-		this.func_149713_g(1);
+		this.setLightOpacity(1);
 
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[3][4];
 		if(Loader.isModLoaded("BetterGrassAndLeavesMod"))
@@ -83,33 +83,33 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		//TODO:			  isOpaqueCube()
-		return textures[(!func_149662_c() ? 0 : 1)][meta & 3];
+		return textures[(!isOpaqueCube() ? 0 : 1)][meta & 3];
 	}
 
     @Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
     {
     	//TODO:		   isOpaqueCube()
-        return Blocks.leaves.func_149662_c();
+        return Blocks.leaves.isOpaqueCube();
     }
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list)
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list)
 	{
 		list.add(new ItemStack(block, 1, 0));
 	}
 
     @Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
     {
     	//TODO:												  doesBlockHaveSolidTopSurface
-        if (world.canLightningStrikeAt(x, y + 1, z) && !World.func_147466_a(world, x, y - 1, z) && random.nextInt(15) == 1)
+        if (world.canLightningStrikeAt(x, y + 1, z) && !World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && random.nextInt(15) == 1)
         {
             double d0 = x + random.nextFloat();
             double d1 = y - 0.05D;
@@ -118,12 +118,12 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
         }
 
     	//TODO: 	randomDisplayTick()
-        super.func_149734_b(world, x, y, z, random);
+        super.randomDisplayTick(world, x, y, z, random);
     }
 
     @Override
 	//TODO:		breakBlock()
-	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
+	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
     {
         byte radius = 1;
         int bounds = radius + 1;
@@ -137,7 +137,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
                     for (int k = -radius; k <= radius; ++k)
                     {
 						//TODO:				getBlock()
-						Block block = world.func_147439_a(x + i, y + j, z + k);
+						Block block = world.getBlock(x + i, y + j, z + k);
 
 						if (block.isLeaves(world, x, y, z)) 
 						{
@@ -151,7 +151,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		if (world.isRemote)
 			return;
@@ -162,7 +162,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 				if ((meta & 3) < 3) 
 				{
 					//TODO: setBlock()
-					world.func_147465_d(x, y, z, this, ++meta, 3);
+					world.setBlock(x, y, z, this, ++meta, 3);
 				}
 
 		if ((meta & 8) != 0/* && (meta & 4) == 0*/)
@@ -193,7 +193,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 						for (j2 = -b0; j2 <= b0; ++j2)
 						{
                         	//TODO:				world.getBlock()
-                            Block block = world.func_147439_a(x + l1, y + i2, z + j2);
+                            Block block = world.getBlock(x + l1, y + i2, z + j2);
 
 							if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
 							{
@@ -273,21 +273,21 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
     private void removeLeaves(World world, int x, int y, int z)
     {
     	//TODO: dropBlockAsItem
-        this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+        this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
         //TODO: setBlockToAir
-        world.func_147468_f(x, y, z);
+        world.setBlockToAir(x, y, z);
     }
 
 	@Override
 	//TODO:			onBlockActivated
-	public boolean func_149727_a(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		if ((meta & 3) == 3)
 		{
 			//TODO: setBlock
-			world.func_147465_d(x, y, z, this, meta - 3, 3);
+			world.setBlock(x, y, z, this, meta - 3, 3);
 			
 			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(Items.apple, 1, 0));
 
@@ -304,28 +304,28 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Item.func_150898_a(BOPBlockHelper.get("saplings"));
+		return Item.getItemFromBlock(BOPBlockHelper.get("saplings"));
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return 0;
 	}
 
 	@Override
 	//TODO:    quantityDropped()
-	public int func_149745_a(Random random)
+	public int quantityDropped(Random random)
 	{
 		return random.nextInt(20) == 0 ? 1 : 0;
 	}
 
 	@Override
 	//TODO: 	dropBlockAsItemWithChance()
-	public void func_149690_a(World world, int x, int y, int z, int metadata, float chance, int fortune)
+	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
 		if (world.isRemote)
 			return;
@@ -333,19 +333,19 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 		if (world.rand.nextInt(20) == 0)
 		{
 			//TODO:			 getItemDropped()
-			Item item = this.func_149650_a(metadata, world.rand, fortune);
+			Item item = this.getItemDropped(metadata, world.rand, fortune);
 			//TODO:dropBlockAsItem_do											damageDropped()
-			this.func_149642_a(world, x, y, z, new ItemStack(item, 1, this.func_149692_a(metadata)));
+			this.dropBlockAsItem(world, x, y, z, new ItemStack(item, 1, this.damageDropped(metadata)));
 		}
 
 		//TODO:															dropBlockAsItem_do	
-		if ((metadata & 3) == 3) this.func_149642_a(world, x, y, z, new ItemStack(Items.apple, 1, 0));
+		if ((metadata & 3) == 3) this.dropBlockAsItem(world, x, y, z, new ItemStack(Items.apple, 1, 0));
 		//TODO:															dropBlockAsItem_do	
-		else if ((metadata & 3) == 2 && world.rand.nextInt(16) == 0) this.func_149642_a(world, x, y, z, new ItemStack(Items.apple, 1, 0));
+		else if ((metadata & 3) == 2 && world.rand.nextInt(16) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(Items.apple, 1, 0));
 		//TODO:															dropBlockAsItem_do	
-		else if ((metadata & 3) == 1 && world.rand.nextInt(48) == 0) this.func_149642_a(world, x, y, z, new ItemStack(Items.apple, 1, 0));
+		else if ((metadata & 3) == 1 && world.rand.nextInt(48) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(Items.apple, 1, 0));
 		//TODO:															dropBlockAsItem_do	
-		else if ((metadata & 3) == 0 && world.rand.nextInt(80) == 0) this.func_149642_a(world, x, y, z, new ItemStack(Items.apple, 1, 0));
+		else if ((metadata & 3) == 0 && world.rand.nextInt(80) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(Items.apple, 1, 0));
 	}
 
 	@Override
@@ -364,7 +364,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 
 	@Override
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}

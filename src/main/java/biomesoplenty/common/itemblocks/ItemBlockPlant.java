@@ -75,7 +75,7 @@ public class ItemBlockPlant extends ItemBlock
 			return textures[5];
 		else
 			//TODO: block		  getIcon()
-			return field_150939_a.func_149691_a(0, meta);
+			return field_150939_a.getIcon(0, meta);
 	}
 	
 	@Override
@@ -103,12 +103,12 @@ public class ItemBlockPlant extends ItemBlock
 					return itemStack;
 
 				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
-				if (world.func_147439_a(i, j, k).func_149688_o() == Material.field_151586_h && world.getBlockMetadata(i, j, k) == 0 && world.func_147437_c(i, j + 1, k))
+				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
 				{
-					if (world.func_147439_a(i, j - 1, k).func_149688_o() != Material.field_151586_h)
+					if (world.getBlock(i, j - 1, k).getMaterial() != Material.water)
 					{
 						//TODO:	setBlock()				linkedBlock
-						world.func_147465_d(i, j + 1, k, field_150939_a, 14, 2);
+						world.setBlock(i, j + 1, k, field_150939_a, 14, 2);
 	
 						if (!player.capabilities.isCreativeMode)
 						{

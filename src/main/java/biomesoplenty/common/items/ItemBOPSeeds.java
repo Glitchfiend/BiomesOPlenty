@@ -42,13 +42,13 @@ public class ItemBOPSeeds extends Item implements IPlantable
         else if (player.canPlayerEdit(x, y, z, side, itemStack) && player.canPlayerEdit(x, y + 1, z, side, itemStack))
         {
     		//TODO:			   getBlock()
-    		Block soil = world.func_147439_a(x, y, z);
+    		Block soil = world.getBlock(x, y, z);
 
     		//TODO:																					   isAirBlock()
-            if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.func_147437_c(x, y + 1, z))
+            if (soil != null && soil.canSustainPlant(world, x, y, z, ForgeDirection.UP, this) && world.isAirBlock(x, y + 1, z))
             {
             	//TODO:	setBlock()
-                world.func_147465_d(x, y + 1, z, this.blockType, 0, 2);
+                world.setBlock(x, y + 1, z, this.blockType, 0, 2);
                 --itemStack.stackSize;
                 return true;
             }

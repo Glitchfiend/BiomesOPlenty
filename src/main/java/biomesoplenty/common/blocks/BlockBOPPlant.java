@@ -44,27 +44,27 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	public BlockBOPPlant()
 	{
 		//TODO:	Material.plants
-		super(Material.field_151585_k);
+		super(Material.plants);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.0F);
+		this.setHardness(0.0F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		float var3 = 0.4F;
 		//TODO: setBlockBounds
-		this.func_149676_a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
+		this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[plants.length];
 
@@ -77,7 +77,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
@@ -88,14 +88,14 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return RenderUtils.plantsModel;
 	}
 
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
-	public void func_149719_a(IBlockAccess world, int x, int y, int z)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -104,19 +104,19 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		case 6:
 		case 7:
 			//TODO: setBlockBounds
-			this.func_149676_a(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
+			this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
 			break;
 
 		default:
 			//TODO: setBlockBounds
-			this.func_149676_a(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < plants.length; ++i) 
 		{
@@ -131,11 +131,11 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
-		Block block = world.func_147439_a(x, y - 1, z);
+		Block block = world.getBlock(x, y - 1, z);
 		//TODO:					  getBlock()
-		Block root = world.func_147439_a(x, y + 1, z);
+		Block root = world.getBlock(x, y + 1, z);
 		//TODO:					  getBlock()
-		Block reedwater = world.func_147439_a(x, y - 2, z);
+		Block reedwater = world.getBlock(x, y - 2, z);
 		
 		switch (metadata)
 		{
@@ -160,7 +160,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 		case 7: // Cattail
 			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
-			return block != Blocks.grass ? false : (world.func_147439_a(x - 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x + 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x, y - 1, z - 1).func_149688_o() == Material.field_151586_h ? true : world.func_147439_a(x, y - 1, z + 1).func_149688_o() == Material.field_151586_h)));
+			return block != Blocks.grass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
 
 		case 8: // River Cane
 			return block == this || block == Blocks.grass;
@@ -170,7 +170,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 		case 10: // High Cattail Bottom
 			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
-			return block != Blocks.grass ? false : (world.func_147439_a(x - 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x + 1, y - 1, z).func_149688_o() == Material.field_151586_h ? true : (world.func_147439_a(x, y - 1, z - 1).func_149688_o() == Material.field_151586_h ? true : world.func_147439_a(x, y - 1, z + 1).func_149688_o() == Material.field_151586_h)));
+			return block != Blocks.grass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
 
 		case 12: // Tiny Cactus
 			return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.soul_sand;
@@ -191,7 +191,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO:			canReplace()
-    public boolean func_149705_a(World world, int x, int y, int z, int side, ItemStack itemStack)
+    public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
 		int metadata = itemStack.getItemDamage();
 		
@@ -203,39 +203,39 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
-		super.func_149695_a(world, x, y, z, neighborBlock);
+		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 
 		//TODO:													   getBlock()
-		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.func_147439_a(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
+		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
 		{
 			//TODO: setBlockToAir()
-			world.func_147468_f(x, y, z);
+			world.setBlockToAir(x, y, z);
 		}
 		//TODO:																getBlock()
-		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.func_147439_a(x, y + 1, z) != this) 
+		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlock(x, y + 1, z) != this) 
 		{
 			//TODO: setBlockToAir()
-			world.func_147468_f(x, y, z);
+			world.setBlockToAir(x, y, z);
 		}
 		//TODO:			getBlock()
 		else if (world.getBlockMetadata(x, y, z) == 8) 
 		{
 			//TODO:	  canReplace()
-			if (!this.func_149705_a(world, x, y, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 8)))
+			if (!this.canReplace(world, x, y, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 8)))
 			{
 				//TODO: dropBlockAsItem
-				this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+				this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
 				//TODO: setBlockToAir()
-				world.func_147468_f(x, y, z);
+				world.setBlockToAir(x, y, z);
 			}
 		}
 	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 5)
@@ -294,7 +294,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO:	   getDamageValue()
-	public int func_149643_k(World world, int x, int y, int z) 
+	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == CATTAILTOP || meta == CATTAILBOTTOM) 
@@ -311,12 +311,12 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata > 5 && metadata != 11)
 		{
 			//TODO:		getItemFromBlock()
-			return Item.func_150898_a(this);
+			return Item.getItemFromBlock(this);
 		}
 		else if (metadata == 11)
 		{
@@ -330,7 +330,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		if (meta == 9)
 		{
@@ -363,9 +363,9 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO:		harvestBlock()
-	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
-		super.func_149636_a(world, player, x, y, z, meta);
+		super.harvestBlock(world, player, x, y, z, meta);
 		
 		if (meta == 13)
 		{
@@ -421,7 +421,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	@Override
 	//TODO: 	   isBlockReplaceable
-	public boolean func_149742_c(World world, int x, int y, int z)
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		

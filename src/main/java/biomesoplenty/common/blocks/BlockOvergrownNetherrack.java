@@ -20,24 +20,24 @@ public class BlockOvergrownNetherrack extends Block
 	public BlockOvergrownNetherrack()
 	{
 		//TODO: Material.rock
-		super(Material.field_151576_e);
+		super(Material.rock);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.4F);
+		this.setHardness(0.4F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.icons[0] = iconRegister.registerIcon("biomesoplenty:overgrownnetherrack3");
 		this.icons[1] = iconRegister.registerIcon("biomesoplenty:overgrownnetherrack1");
@@ -49,7 +49,7 @@ public class BlockOvergrownNetherrack extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 	    if (side < 0 || side >= this.icons.length) side = 1;
         
@@ -64,8 +64,8 @@ public class BlockOvergrownNetherrack extends Block
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Blocks.netherrack.func_149650_a(0, random, fortune);
+		return Blocks.netherrack.getItemDropped(0, random, fortune);
 	}
 }

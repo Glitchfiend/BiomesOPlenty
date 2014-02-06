@@ -95,15 +95,15 @@ public class BOPBiomes
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.desert, TemperatureType.HOT, 50));
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.desert, TemperatureType.HOT, 50)); 
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.desert, TemperatureType.HOT, 50)); 
-		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.field_150588_X, TemperatureType.HOT, 50));
-		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.field_150588_X, TemperatureType.HOT, 50));
+		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.savanna, TemperatureType.HOT, 50));
+		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.savanna, TemperatureType.HOT, 50));
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.plains, TemperatureType.HOT, 50));
 		       
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.forest, TemperatureType.WARM, 50));
-		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.field_150585_R, TemperatureType.WARM, 50));
+		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.roofedForest, TemperatureType.WARM, 50));
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.extremeHills, TemperatureType.WARM, 50));
 		registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.plains, TemperatureType.WARM, 50));
-        registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.field_150583_P, TemperatureType.WARM, 50)); 
+        registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.birchForest, TemperatureType.WARM, 50)); 
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.swampland, TemperatureType.WARM, 50));
                
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.forest, TemperatureType.COOL, 50)); 
@@ -114,7 +114,7 @@ public class BOPBiomes
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.icePlains, TemperatureType.ICY, 50));  
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.icePlains, TemperatureType.ICY, 50)); 
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.icePlains, TemperatureType.ICY, 50));  
-        registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.field_150584_S, TemperatureType.ICY, 50));
+        registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.coldTaiga, TemperatureType.ICY, 50));
         
         registerBiome(new BOPBiomeEntry(new BiomeGenAlps(BOPConfigurationIDs.alpsID).setBiomeName("Alps"), TemperatureType.ICY, 25)); 
         registerBiome(new BOPBiomeEntry(new BiomeGenArctic(BOPConfigurationIDs.arcticID).setBiomeName("Arctic"), TemperatureType.ICY, 50));
@@ -189,9 +189,9 @@ public class BOPBiomes
 
 			addSpawnBiome(BiomeGenBase.beach);
 			//TODO:					   stoneBeach
-			addSpawnBiome(BiomeGenBase.field_150576_N);
+			addSpawnBiome(BiomeGenBase.stoneBeach);
 			//TODO:						coldBeach
-			addSpawnBiome(BiomeGenBase.field_150577_O);
+			addSpawnBiome(BiomeGenBase.coldBeach);
 		}
 		else
 		{

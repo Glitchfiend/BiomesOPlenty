@@ -11,43 +11,43 @@ public class BlockHoney extends Block
 	public BlockHoney()
 	{
 		//TODO: Material.glass
-		super(Material.field_151592_s);
+		super(Material.glass);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.5F);
+		this.setHardness(0.5F);
 		
 		//TODO setStepSound(Block.soundStoneFootstep)
-		this.func_149672_a(Block.field_149780_i);
+		this.setStepSound(Block.soundTypePiston);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:honeyblock");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:honeyblock");
 	}
 	
     @Override
 	//TODO:	   getRenderBlockPass()
-	public int func_149701_w()
+	public int getRenderBlockPass()
     {
         return 1;
     }
     
     @Override
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
     {
-        return super.func_149646_a(world, x, y, z, 1 - side);
+        return super.shouldSideBeRendered(world, x, y, z, 1 - side);
     }
 
     @Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
     {
         return false;
     }

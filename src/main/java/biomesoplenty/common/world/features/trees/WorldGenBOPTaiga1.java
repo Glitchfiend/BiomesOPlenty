@@ -86,7 +86,7 @@ public class WorldGenBOPTaiga1 extends WorldGenAbstractTree
                     {
                         if (l1 >= 0 && l1 < 256)
                         {
-                            Block block = world.func_147439_a(i2, l1, j2);
+                            Block block = world.getBlock(i2, l1, j2);
 
                             if (!this.isReplaceable(world, i2, l1, j2))
                             {
@@ -107,7 +107,7 @@ public class WorldGenBOPTaiga1 extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.func_147439_a(x, y - 1, z);
+                Block block1 = world.getBlock(x, y - 1, z);
 
                 boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 if (isSoil && y < 256 - l - 1)
@@ -125,9 +125,9 @@ public class WorldGenBOPTaiga1 extends WorldGenAbstractTree
                             {
                                 int l2 = k2 - z;
 
-                                if ((Math.abs(j3) != i3 || Math.abs(l2) != i3 || i3 <= 0) && world.func_147439_a(j2, i2, k2).canBeReplacedByLeaves(world, j2, i2, k2))
+                                if ((Math.abs(j3) != i3 || Math.abs(l2) != i3 || i3 <= 0) && world.getBlock(j2, i2, k2).canBeReplacedByLeaves(world, j2, i2, k2))
                                 {
-                                    this.func_150516_a(world, j2, i2, k2, leaves, metaLeaves);
+                                    this.setBlockAndNotifyAdequately(world, j2, i2, k2, leaves, metaLeaves);
                                 }
                             }
                         }
@@ -144,11 +144,11 @@ public class WorldGenBOPTaiga1 extends WorldGenAbstractTree
 
                     for (i2 = 0; i2 < l - 1; ++i2)
                     {
-                        Block block2 = world.func_147439_a(x, y + i2, z);
+                        Block block2 = world.getBlock(x, y + i2, z);
 
                         if (block2.isAir(world, x, y + i2, z) || block2.isLeaves(world, x, y + i2, z))
                         {
-                            this.func_150516_a(world, x, y + i2, z, wood, metaWood);
+                            this.setBlockAndNotifyAdequately(world, x, y + i2, z, wood, metaWood);
                         }
                     }
 

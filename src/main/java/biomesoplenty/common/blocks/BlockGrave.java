@@ -17,26 +17,26 @@ public class BlockGrave extends Block
 	public BlockGrave()
 	{
 		//TODO: Material.rock
-		super(Material.field_151576_e);
+		super(Material.rock);
 
 				//TODO: this.setHardness
-		this.func_149711_c(5f);
+		this.setHardness(5f);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 	
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 				//TODO: blockIcon
-		this.field_149761_L = iconRegister.registerIcon("biomesoplenty:grave");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:grave");
 	}
     
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
-	public void func_149719_a(IBlockAccess world, int x, int y, int z)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -44,36 +44,36 @@ public class BlockGrave extends Block
 		{
 			case 0:
 						//TODO: setBlockBounds
-		this.func_149676_a(0.0F, 0.0F, 0.31F, 1.0F, 1.6875F, 0.69F);
+		this.setBlockBounds(0.0F, 0.0F, 0.31F, 1.0F, 1.6875F, 0.69F);
 				break;
 
 			case 1:
 						//TODO: setBlockBounds
-		this.func_149676_a(0.0F, -1.0F, 0.31F, 1.0F, 0.6875F, 0.69F);
+		this.setBlockBounds(0.0F, -1.0F, 0.31F, 1.0F, 0.6875F, 0.69F);
 				break;
 				
 			case 2:
 						//TODO: setBlockBounds
-		this.func_149676_a(0.31F, 0.0F, 0.0F, 0.69F, 1.6875F, 1.0F);
+		this.setBlockBounds(0.31F, 0.0F, 0.0F, 0.69F, 1.6875F, 1.0F);
 				break;
 
 			case 3:
 						//TODO: setBlockBounds
-		this.func_149676_a(0.31F, -1.0F, 0.0F, 0.69F, 0.6875F, 1.0F);
+		this.setBlockBounds(0.31F, -1.0F, 0.0F, 0.69F, 0.6875F, 1.0F);
 				break;
 		}
 	}
 	
 	@Override
     //TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
 		if (neighborBlock == this)
 		{
 			if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 2)
 			{
 				//TODO:	  getBlock()
-				if (world.func_147439_a(x, y + 1, z) != this)
+				if (world.getBlock(x, y + 1, z) != this)
 				{
 					//TODO: destroyBlock()
 		            world.func_147480_a(x, y, z, true);
@@ -82,7 +82,7 @@ public class BlockGrave extends Block
 			else
 			{
 				//TODO:   getBlock()
-				if (world.func_147439_a(x, y - 1, z) != this)
+				if (world.getBlock(x, y - 1, z) != this)
 				{
 					//TODO: destroyBlock()
 		            world.func_147480_a(x, y, z, true);
@@ -104,28 +104,28 @@ public class BlockGrave extends Block
 
 	@Override
 	//TODO:		   renderAsNormalBlock()
-    public boolean func_149686_d()
+    public boolean renderAsNormalBlock()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return RenderUtils.graveModel;
 	}
 	
 	@Override
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
 	{
 		return true;
 	}

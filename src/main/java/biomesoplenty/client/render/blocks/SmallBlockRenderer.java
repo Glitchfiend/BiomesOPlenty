@@ -20,51 +20,51 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			if (meta == 0)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
+				renderer.setRenderBounds(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 1)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
+				renderer.setRenderBounds(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 3)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.374F, 0.374F, 0.0F, 0.626F, 0.626F, 1.0F);
+				renderer.setRenderBounds(0.374F, 0.374F, 0.0F, 0.626F, 0.626F, 1.0F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 4)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.0F, 0.374F, 0.374F, 1.0F, 0.626F, 0.626F);
+				renderer.setRenderBounds(0.0F, 0.374F, 0.374F, 1.0F, 0.626F, 0.626F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 5)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.187F, 0.187F, 0.0F, 0.813F, 0.813F, 1.0F);
+				renderer.setRenderBounds(0.187F, 0.187F, 0.0F, 0.813F, 0.813F, 1.0F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else if (meta == 6)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.0F, 0.187F, 0.187F, 1.0F, 0.813F, 0.813F);
+				renderer.setRenderBounds(0.0F, 0.187F, 0.187F, 1.0F, 0.813F, 0.813F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 			else
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				//TODO: renderStandardBlock
-				renderer.func_147784_q(block, x, y, z);
+				renderer.renderStandardBlock(block, x, y, z);
 			}
 		}
 		return true;
@@ -80,43 +80,43 @@ public class SmallBlockRenderer implements ISimpleBlockRenderingHandler
 			if (metadata == 0)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
+				renderer.setRenderBounds(0.374F, 0.0F, 0.374F, 0.626F, 1.0F, 0.626F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 1)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
+				renderer.setRenderBounds(0.187F, 0.0F, 0.187F, 0.813F, 1.0F, 0.813F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 3)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.374F, 0.374F, 0.0F, 0.626F, 0.626F, 1.0F);
+				renderer.setRenderBounds(0.374F, 0.374F, 0.0F, 0.626F, 0.626F, 1.0F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 4)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.0F, 0.374F, 0.374F, 1.0F, 0.626F, 0.626F);
+				renderer.setRenderBounds(0.0F, 0.374F, 0.374F, 1.0F, 0.626F, 0.626F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 5)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.187F, 0.187F, 0.0F, 0.813F, 0.813F, 1.0F);
+				renderer.setRenderBounds(0.187F, 0.187F, 0.0F, 0.813F, 0.813F, 1.0F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else if (metadata == 6)
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.0F, 0.187F, 0.187F, 1.0F, 0.813F, 0.813F);
+				renderer.setRenderBounds(0.0F, 0.187F, 0.187F, 1.0F, 0.813F, 0.813F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 			else
 			{
 				//TODO: setRenderBounds
-				renderer.func_147782_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+				renderer.setRenderBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 				RenderUtils.renderStandardInvBlock(renderer, block, metadata);
 			}
 		}

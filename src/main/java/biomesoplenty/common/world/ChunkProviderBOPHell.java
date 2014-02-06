@@ -473,7 +473,7 @@ public class ChunkProviderBOPHell implements IChunkProvider
 	 @Override
 	 public void populate(IChunkProvider par1IChunkProvider, int par2, int par3)
 	 {
-		 BlockFalling.field_149832_M = true;
+		 BlockFalling.fallInstantly = true;
 
 		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
 
@@ -571,7 +571,7 @@ public class ChunkProviderBOPHell implements IChunkProvider
 
 		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
 
-		 BlockFalling.field_149832_M = false;
+		 BlockFalling.fallInstantly = false;
 	 }
 
 	 /**

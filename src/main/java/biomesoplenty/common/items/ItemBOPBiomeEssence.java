@@ -46,7 +46,7 @@ public class ItemBOPBiomeEssence extends Item
         {
             if (itemStack.getTagCompound().hasKey("biomeID")) 
             {
-                BiomeGenBase biome = BiomeGenBase.func_150565_n()[itemStack.getTagCompound().getInteger("biomeID")];
+                BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeID")];
 
                 if (biome != null)
                 {
@@ -64,7 +64,7 @@ public class ItemBOPBiomeEssence extends Item
         {
             if (itemStack.getTagCompound().hasKey("biomeID"))
             {
-                BiomeGenBase biome = BiomeGenBase.func_150565_n()[itemStack.getTagCompound().getInteger("biomeID")];
+                BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeID")];
                 
                 if (biome != null)
                 {

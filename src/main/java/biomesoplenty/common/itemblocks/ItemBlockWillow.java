@@ -31,7 +31,7 @@ public class ItemBlockWillow extends ItemColored
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
 		//TODO:							 getRenderColor()
-		return BOPBlockHelper.get("willow").func_149741_i(itemStack.getItemDamage());
+		return BOPBlockHelper.get("willow").getRenderColor(itemStack.getItemDamage());
 	}
 
 	@Override

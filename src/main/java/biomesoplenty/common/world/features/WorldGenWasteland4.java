@@ -18,16 +18,16 @@ public class WorldGenWasteland4 extends WorldGeneratorBOP
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         //TODO:      isAirBlock()
-        while (world.func_147437_c(x, y, z) && y > 2)
+        while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
 
-        Block var6 = world.func_147439_a(x, y, z);
-        Block var95 = world.func_147439_a(x - 1, y, z);
-        Block var96 = world.func_147439_a(x + 1, y, z);
-        Block var97 = world.func_147439_a(x, y, z - 1);
-        Block var98 = world.func_147439_a(x, y, z + 1);
+        Block var6 = world.getBlock(x, y, z);
+        Block var95 = world.getBlock(x - 1, y, z);
+        Block var96 = world.getBlock(x + 1, y, z);
+        Block var97 = world.getBlock(x, y, z - 1);
+        Block var98 = world.getBlock(x, y, z + 1);
 
         if (var6 != BOPBlockHelper.get("driedDirt") || var95 != BOPBlockHelper.get("driedDirt") || var96 != BOPBlockHelper.get("driedDirt") || var97 != BOPBlockHelper.get("driedDirt") || var98 != BOPBlockHelper.get("driedDirt") )
             return false;
@@ -38,7 +38,7 @@ public class WorldGenWasteland4 extends WorldGeneratorBOP
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
                     //TODO:  isAirBlock()                                       isAirBlock()
-                    if (world.func_147437_c(x + var7, y - 1, z + var8) && world.func_147437_c(x + var7, y - 2, z + var8))
+                    if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8))
                     {
                         return false;
                     }

@@ -52,7 +52,7 @@ public class WorldGenPromisedTree3 extends WorldGenAbstractTree
 					{
 						if (var11 >= 0 && var11 < 256)
 						{
-							Block block = world.func_147439_a(var13, var11, var14);
+							Block block = world.getBlock(var13, var11, var14);
 							
 							if (block.isAir(world, var13, var11, var14) || block.isLeaves(world, var13, var11, var14))
 							{
@@ -71,10 +71,10 @@ public class WorldGenPromisedTree3 extends WorldGenAbstractTree
 				return false;
 			else
 			{
-				Block block11 = world.func_147439_a(var3, var4 - 1, var5);
-				Block block24 = world.func_147439_a(var3 - 1, var4 - 1, var5);
-				Block block13 = world.func_147439_a(var3, var4 - 1, var5 - 1);
-				Block block14 = world.func_147439_a(var3 - 1, var4 - 1, var5 - 1);
+				Block block11 = world.getBlock(var3, var4 - 1, var5);
+				Block block24 = world.getBlock(var3 - 1, var4 - 1, var5);
+				Block block13 = world.getBlock(var3, var4 - 1, var5 - 1);
+				Block block14 = world.getBlock(var3 - 1, var4 - 1, var5 - 1);
 
 				if ((block11 == BOPBlockHelper.get("holyGrass") || block11 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
 				{
@@ -84,10 +84,10 @@ public class WorldGenPromisedTree3 extends WorldGenAbstractTree
 						{
 							if ((block14 == BOPBlockHelper.get("holyGrass") | block14 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
 							{
-								world.func_147465_d(var3, var4 - 1, var5, BOPBlockHelper.get("holyDirt"), 0, 2);
-								world.func_147465_d(var3 - 1, var4 - 1, var5, BOPBlockHelper.get("holyDirt"), 0, 2);
-								world.func_147465_d(var3, var4 - 1, var5 - 1, BOPBlockHelper.get("holyDirt"), 0, 2);
-								world.func_147465_d(var3 - 1, var4 - 1, var5 - 1, BOPBlockHelper.get("holyDirt"), 0, 2);
+								world.setBlock(var3, var4 - 1, var5, BOPBlockHelper.get("holyDirt"), 0, 2);
+								world.setBlock(var3 - 1, var4 - 1, var5, BOPBlockHelper.get("holyDirt"), 0, 2);
+								world.setBlock(var3, var4 - 1, var5 - 1, BOPBlockHelper.get("holyDirt"), 0, 2);
+								world.setBlock(var3 - 1, var4 - 1, var5 - 1, BOPBlockHelper.get("holyDirt"), 0, 2);
 								int var15 = var2.nextInt(2);
 								int var16 = 1;
 								boolean var17 = false;
@@ -107,12 +107,12 @@ public class WorldGenPromisedTree3 extends WorldGenAbstractTree
 										{
 											int var23 = var22 - var5;
 
-											if ((Math.abs(var21) != var15 || Math.abs(var23) != var15 || var15 <= 0) && !world.func_147439_a(var20, var19, var22).func_149662_c())
+											if ((Math.abs(var21) != var15 || Math.abs(var23) != var15 || var15 <= 0) && !world.getBlock(var20, var19, var22).isOpaqueCube())
 											{
-												this.func_150516_a(world, var20, var19, var22, Blocks.leaves, 0);
-												this.func_150516_a(world, var20 - 1, var19, var22, Blocks.leaves, 0);
-												this.func_150516_a(world, var20, var19, var22 - 1, Blocks.leaves, 0);
-												this.func_150516_a(world, var20 - 1, var19, var22 - 1, Blocks.leaves, 0);
+												this.setBlockAndNotifyAdequately(world, var20, var19, var22, Blocks.leaves, 0);
+												this.setBlockAndNotifyAdequately(world, var20 - 1, var19, var22, Blocks.leaves, 0);
+												this.setBlockAndNotifyAdequately(world, var20, var19, var22 - 1, Blocks.leaves, 0);
+												this.setBlockAndNotifyAdequately(world, var20 - 1, var19, var22 - 1, Blocks.leaves, 0);
 											}
 										}
 									}
@@ -138,14 +138,14 @@ public class WorldGenPromisedTree3 extends WorldGenAbstractTree
 
 								for (var19 = 0; var19 < var6 - var18; ++var19)
 								{
-									Block block = world.func_147439_a(var3, var4 + var19, var5);
+									Block block = world.getBlock(var3, var4 + var19, var5);
 
 									if (block.isAir(world, var3, var4 + var19, var5) || block == Blocks.leaves)
 									{
-										this.func_150516_a(world, var3, var4 + var19, var5, Blocks.log, 0);
-										this.func_150516_a(world, var3 - 1, var4 + var19, var5, Blocks.log, 0);
-										this.func_150516_a(world, var3, var4 + var19, var5 - 1, Blocks.log, 0);
-										this.func_150516_a(world, var3 - 1, var4 + var19, var5 - 1, Blocks.log, 0);
+										this.setBlockAndNotifyAdequately(world, var3, var4 + var19, var5, Blocks.log, 0);
+										this.setBlockAndNotifyAdequately(world, var3 - 1, var4 + var19, var5, Blocks.log, 0);
+										this.setBlockAndNotifyAdequately(world, var3, var4 + var19, var5 - 1, Blocks.log, 0);
+										this.setBlockAndNotifyAdequately(world, var3 - 1, var4 + var19, var5 - 1, Blocks.log, 0);
 									}
 								}
 

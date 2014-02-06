@@ -50,7 +50,7 @@ public class WorldGenBOPShrub extends WorldGenTrees
 
         do
         {
-            block = world.func_147439_a(x, y, z);
+            block = world.getBlock(x, y, z);
             if (!(block.isLeaves(world, x, y, z) || block.isAir(world, x, y, z)))
             {
                 break;
@@ -58,7 +58,7 @@ public class WorldGenBOPShrub extends WorldGenTrees
             --y;
         } while (y > 0);
 
-        Block block1 = world.func_147439_a(x, y, z);
+        Block block1 = world.getBlock(x, y, z);
 
         if (soilBlocks.contains(block1))
         {
@@ -66,7 +66,7 @@ public class WorldGenBOPShrub extends WorldGenTrees
             
             if (y > minHeight && y < maxHeight)
             {
-            	this.func_150516_a(world, x, y, z, wood, metaWood);
+            	this.setBlockAndNotifyAdequately(world, x, y, z, wood, metaWood);
 
             	for (int l = y; l <= y + 2; ++l)
             	{
@@ -81,9 +81,9 @@ public class WorldGenBOPShrub extends WorldGenTrees
             			{
             				int j2 = i2 - z;
 
-            				if ((Math.abs(l1) != j1 || Math.abs(j2) != j1 || random.nextInt(2) != 0) && world.func_147439_a(k1, l, i2).canBeReplacedByLeaves(world, k1, l, i2))
+            				if ((Math.abs(l1) != j1 || Math.abs(j2) != j1 || random.nextInt(2) != 0) && world.getBlock(k1, l, i2).canBeReplacedByLeaves(world, k1, l, i2))
             				{
-            					this.func_150516_a(world, k1, l, i2, leaves, metaLeaves);
+            					this.setBlockAndNotifyAdequately(world, k1, l, i2, leaves, metaLeaves);
             				}
             			}
             		}

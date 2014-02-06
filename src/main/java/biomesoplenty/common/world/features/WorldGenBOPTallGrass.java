@@ -29,7 +29,7 @@ public class WorldGenBOPTallGrass extends WorldGeneratorBOP
 
         do
         {
-            block = world.func_147439_a(x, y, z);
+            block = world.getBlock(x, y, z);
             if (!(block.isLeaves(world, x, y, z) || block.isAir(world, x, y, z)))
             {
                 break;
@@ -44,9 +44,9 @@ public class WorldGenBOPTallGrass extends WorldGeneratorBOP
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
             //TODO:	  isAirBlock()									canReplace()
-            if (world.func_147437_c(i1, j1, k1) && this.tallGrass.func_149705_a(world, i1, j1, k1, 0, new ItemStack(this.tallGrass, 1, this.tallGrassMetadata)))
+            if (world.isAirBlock(i1, j1, k1) && this.tallGrass.canReplace(world, i1, j1, k1, 0, new ItemStack(this.tallGrass, 1, this.tallGrassMetadata)))
             {
-                world.func_147465_d(i1, j1, k1, this.tallGrass, this.tallGrassMetadata, 2);
+                world.setBlock(i1, j1, k1, this.tallGrass, this.tallGrassMetadata, 2);
             }
         }
 

@@ -26,7 +26,7 @@ public class BiomeGenWetland extends BOPBiome
         super(id);
         
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(5215831);
         this.setTemperatureRainfall(0.8F, 0.9F);
@@ -110,12 +110,12 @@ public class BiomeGenWetland extends BOPBiome
             int z = chunkZ + random.nextInt(16);
 
             //TODO:             getBlock()
-            Block block = world.func_147439_a(x, y, z);
+            Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
                 //TODO: setBlock()
-                world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
             }
         }
 
@@ -131,14 +131,14 @@ public class BiomeGenWetland extends BOPBiome
 
     @Override
     //TODO:     getBiomeGrassColor()
-    public int func_150558_b(int x, int y, int z)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
         return 5935967;
     }
 
     @Override
     //TODO:     getBiomeFoliageColor()
-    public int func_150571_c(int x, int y, int z)
+    public int getBiomeFoliageColor(int x, int y, int z)
     {
         return 5215831;
     }

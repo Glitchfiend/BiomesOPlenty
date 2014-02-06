@@ -42,7 +42,7 @@ public class BOPPotions
 
 		for (Field f : fields)
 		{
-			if (f.getName().equals("potionTypes") || f.getName().equals("field_76425_a"))
+			if (f.getName().equals("potionTypes") || f.getName().equals("potionTypes"))
 			{
 				field = f;
 				break;

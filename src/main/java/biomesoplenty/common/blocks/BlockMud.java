@@ -27,22 +27,22 @@ public class BlockMud extends Block
 	public BlockMud()
 	{
 		//TODO:	Material.sand
-		super(Material.field_151595_p);
+		super(Material.sand);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.6F);
+		this.setHardness(0.6F);
 		this.setHarvestLevel("shovel", 0);
 		
 		//TODO setStepSound(Block.soundSandFootstep)
-		this.func_149672_a(Block.field_149776_m);
+		this.setStepSound(Block.soundTypeSand);
 	
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[types.length];
 
@@ -54,7 +54,7 @@ public class BlockMud extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
@@ -65,7 +65,7 @@ public class BlockMud extends Block
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < types.length; ++i) 
 		{
@@ -75,7 +75,7 @@ public class BlockMud extends Block
 
 	@Override
 	//TODO: getCollisionBoundingBoxFromPool
-	public AxisAlignedBB func_149668_a(World world, int x, int y, int z)
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
@@ -88,7 +88,7 @@ public class BlockMud extends Block
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (world.getBlockMetadata(x, y, z) == 0)
 		{
@@ -113,18 +113,18 @@ public class BlockMud extends Block
 
 	//@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata == 0)
 			return BOPItemHelper.get("mudball");
 		else
 			//TODO: getItemFromBlock()
-			return Item.func_150898_a(this);
+			return Item.getItemFromBlock(this);
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta;
 	}

@@ -22,19 +22,19 @@ public class WorldGenMoss extends WorldGeneratorBOP
 		for (int var7 = z; y < 80; ++y)
 		{
 			//TODO:	  isAirBlock()
-			if (world.func_147437_c(x, y, z))
+			if (world.isAirBlock(x, y, z))
 			{
 				for (int var8 = 2; var8 <= 5; ++var8)
 				{
 					//TODO:							canPlaceBlockOnSide()
-					if (BOPBlockHelper.get("moss").func_149707_d(world, x, y, z, var8))
+					if (BOPBlockHelper.get("moss").canPlaceBlockOnSide(world, x, y, z, var8))
 					{
 						int var999 = random.nextInt(4);
 
 						if (var999 == 0)
 						{
 							//TODO:	setBlock()
-							world.func_147465_d(x, y, z, BOPBlockHelper.get("moss"), 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+							world.setBlock(x, y, z, BOPBlockHelper.get("moss"), 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
 						}
 						break;
 					}

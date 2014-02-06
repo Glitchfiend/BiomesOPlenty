@@ -47,26 +47,26 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     public BlockBOPColorizedLeaves(ColourizedLeafCategory cat)
     {
     	//TODO:	Material.leaves
-        super(Material.field_151584_j, false);
+        super(Material.leaves, false);
         
         this.category = cat;
         
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		//TODO: this.setHardness
-		this.func_149711_c(0.2F);
+		this.setHardness(0.2F);
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		//TODO:	setLightOpacity()
-		this.func_149713_g(1);
+		this.setLightOpacity(1);
         
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
 
     @Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
     {
         textures = new IIcon[3][leaves.length];
         
@@ -103,7 +103,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
     //TODO:	   getBlockColor()
-    public int func_149635_D()
+    public int getBlockColor()
     {
         double temperature = 0.5D;
         double humidity = 1.0D;
@@ -112,7 +112,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
     //TODO:	   getRenderColor()
-    public int func_149741_i(int par1)
+    public int getRenderColor(int par1)
     {
         switch (par1)
         {
@@ -123,7 +123,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
     //TODO:	   colorMultiplier()
-    public int func_149720_d(IBlockAccess world, int x, int y, int z)
+    public int colorMultiplier(IBlockAccess world, int x, int y, int z)
     {
     	int var6 = 0;
     	int var7 = 0;
@@ -134,7 +134,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     		for (int var10 = -1; var10 <= 1; ++var10)
     		{
     			//TODO:														getBiomeFoliageColor()
-    			int var11 = world.getBiomeGenForCoords(x + var10, z + var9).func_150571_c(x + var10, y, z + var9);
+    			int var11 = world.getBiomeGenForCoords(x + var10, z + var9).getBiomeFoliageColor(x + var10, y, z + var9);
     			var6 += (var11 & 16711680) >> 16;
     		var7 += (var11 & 65280) >> 8;
     		var8 += var11 & 255;
@@ -146,24 +146,24 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int metadata)
+	public IIcon getIcon(int side, int metadata)
 	{
         int type = getTypeFromMeta(metadata) + (category.ordinal() * 4);
     	//TODO:		   isOpaqueCube()
-        return textures[(!func_149662_c() ? 0 : 1)][type >= leaves.length ? 0 : type];
+        return textures[(!isOpaqueCube() ? 0 : 1)][type >= leaves.length ? 0 : type];
     }
 
     @Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
     {
     	//TODO:		   isOpaqueCube()
-        return Blocks.leaves.func_149662_c();
+        return Blocks.leaves.isOpaqueCube();
     }
 
     @Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
         for (int i = 0; i < 4; ++i)
         {
@@ -176,10 +176,10 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
     {
     	//TODO:												  doesBlockHaveSolidTopSurface
-        if (world.canLightningStrikeAt(x, y + 1, z) && !World.func_147466_a(world, x, y - 1, z) && random.nextInt(15) == 1)
+        if (world.canLightningStrikeAt(x, y + 1, z) && !World.doesBlockHaveSolidTopSurface(world, x, y - 1, z) && random.nextInt(15) == 1)
         {
             double d0 = x + random.nextFloat();
             double d1 = y - 0.05D;
@@ -188,12 +188,12 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         }
 
     	//TODO: 	randomDisplayTick()
-        super.func_149734_b(world, x, y, z, random);
+        super.randomDisplayTick(world, x, y, z, random);
     }
 
     @Override
 	//TODO:		breakBlock()
-	public void func_149749_a(World world, int x, int y, int z, Block par5, int par6)
+	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
     {
         byte radius = 1;
         int bounds = radius + 1;
@@ -207,7 +207,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
                     for (int k = -radius; k <= radius; ++k)
                     {
 						//TODO:				getBlock()
-						Block block = world.func_147439_a(x + i, y + j, z + k);
+						Block block = world.getBlock(x + i, y + j, z + k);
 
 						if (block.isLeaves(world, x, y, z)) 
 						{
@@ -221,7 +221,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
     //TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
     {
         if (world.isRemote)
             return;
@@ -256,7 +256,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
                         for (j2 = -b0; j2 <= b0; ++j2)
                         {
                         	//TODO:				world.getBlock()
-                            Block block = world.func_147439_a(x + l1, y + i2, z + j2);
+                            Block block = world.getBlock(x + l1, y + i2, z + j2);
 
                             if (block != null && block.canSustainLeaves(world, x + l1, y + i2, z + j2))
                             {
@@ -336,36 +336,36 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     private void removeLeaves(World world, int x, int y, int z)
     {
     	//TODO: dropBlockAsItem
-        this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+        this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
         //TODO: setBlockToAir
-        world.func_147468_f(x, y, z);
+        world.setBlockToAir(x, y, z);
     }
 
     @Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
     	//TODO:		getItemFromBlock()
-        return Item.func_150898_a(BOPBlockHelper.get("colorizedSaplings"));
+        return Item.getItemFromBlock(BOPBlockHelper.get("colorizedSaplings"));
     }
 
     @Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
     {
         return getTypeFromMeta(meta) + category.ordinal() * 4;
     }
 
     @Override
 	//TODO:	   getDamageValue()
-	public int func_149643_k(World world, int x, int y, int z) 
+	public int getDamageValue(World world, int x, int y, int z) 
     {
         return getTypeFromMeta(world.getBlockMetadata(x, y, z));
     }
 
     @Override
 	//TODO:    quantityDropped()
-	public int func_149745_a(Random random)
+	public int quantityDropped(Random random)
 	{
         return random.nextInt(20) == 0 ? 1 : 0;
     }
@@ -401,7 +401,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 
     @Override
 	//TODO			shouldSideBeRendered
-    public boolean func_149646_a(IBlockAccess world, int x, int y, int z, int side)
+    public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)
     {
         return true;
     }

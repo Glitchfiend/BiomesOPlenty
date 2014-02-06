@@ -31,27 +31,27 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 	public BlockBOPFlower2()
 	{
 		//TODO:	Material.plants
-		super(Material.field_151585_k);
+		super(Material.plants);
 
 		//TODO: this.setHardness
-		this.func_149711_c(0.0F);
+		this.setHardness(0.0F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		float var4 = 0.2F;
 		//TODO: setBlockBounds
-		this.func_149676_a(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
+		this.setBlockBounds(0.5F - var4, 0.0F, 0.5F - var4, 0.5F + var4, var4 * 3.0F, 0.5F + var4);
 
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[plants2.length];
 
@@ -62,7 +62,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
@@ -73,7 +73,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return 1;
 	}
@@ -90,7 +90,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
-	public void func_149719_a(IBlockAccess world, int x, int y, int z)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -98,14 +98,14 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 		{
 		default:
 			//TODO: setBlockBounds
-			this.func_149676_a(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
 
 	@Override
 	//TODO:		onEntityCollidedWithBlock()
-	public void func_149670_a(World world, int x, int y, int z, Entity entity)
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		if (world.getBlockMetadata(x, y, z) == 2)
 		{
@@ -120,10 +120,10 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO:		harvestBlock()
-	public void func_149636_a(World world, EntityPlayer player, int x, int y, int z, int meta)
+	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		//TODO: harvestBlock()
-		super.func_149636_a(world, player, x, y, z, meta);
+		super.harvestBlock(world, player, x, y, z, meta);
 
 		ItemStack equippedItem = player.getCurrentEquippedItem();
 
@@ -148,10 +148,10 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO: 	randomDisplayTick()
-	public void func_149734_b(World world, int x, int y, int z, Random random)
+	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
 		//TODO: randomDisplayTick()
-		super.func_149734_b(world, x, y, z, random);
+		super.randomDisplayTick(world, x, y, z, random);
 
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -171,7 +171,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 	@Override
 	@SideOnly(Side.CLIENT)
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < plants2.length; ++i)
 		{
@@ -183,7 +183,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
-		Block block = world.func_147439_a(x, y - 1, z);
+		Block block = world.getBlock(x, y - 1, z);
 		
 		switch (metadata)
 		{
@@ -200,7 +200,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO:	   getDamageValue()
-	public int func_149643_k(World world, int x, int y, int z) 
+	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -209,7 +209,7 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta & 15;
 	}

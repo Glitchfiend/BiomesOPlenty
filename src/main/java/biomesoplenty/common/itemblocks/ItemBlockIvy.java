@@ -32,7 +32,7 @@ public class ItemBlockIvy extends ItemColored
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
 		//TODO:							 getRenderColor()
-		return BOPBlockHelper.get("ivy").func_149741_i(itemStack.getItemDamage());
+		return BOPBlockHelper.get("ivy").getRenderColor(itemStack.getItemDamage());
 	}
 
 	@Override

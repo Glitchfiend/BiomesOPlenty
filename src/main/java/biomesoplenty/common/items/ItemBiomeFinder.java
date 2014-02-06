@@ -26,8 +26,8 @@ public class ItemBiomeFinder extends Item
 {
 	public IIcon[] biomeRadarIcons = new IIcon[32];
 	
-    private double[] currentAngles = new double[BiomeGenBase.func_150565_n().length];
-    private double[] angleDeltas = new double[BiomeGenBase.func_150565_n().length];
+    private double[] currentAngles = new double[BiomeGenBase.getBiomeGenArray().length];
+    private double[] angleDeltas = new double[BiomeGenBase.getBiomeGenArray().length];
     
     public ItemBiomeFinder()
     {
@@ -46,7 +46,7 @@ public class ItemBiomeFinder extends Item
         if (!world.isRemote && !itemStack.getTagCompound().getBoolean("foundBiome"))
         {
             //TODO:                                 getBiomeGenArray()
-            BiomeGenBase biomeToFind = BiomeGenBase.func_150565_n()[biomeIDToFind];
+            BiomeGenBase biomeToFind = BiomeGenBase.getBiomeGenArray()[biomeIDToFind];
 
             if (biomeToFind != null)
             {
@@ -63,9 +63,9 @@ public class ItemBiomeFinder extends Item
                 {
                     for (int z = -10; z <= 10; z++)
                     {
-                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 512), playerZ + (z * 512), radius, Arrays.asList(biomeToFind), world.rand);
+                        ChunkPosition foundPosition = chunkManager.findBiomePosition(playerX + (x * 512), playerZ + (z * 512), radius, Arrays.asList(biomeToFind), world.rand);
 
-                        if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
+                        if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.chunkPosX, foundPosition.chunkPosZ) == biomeToFind) 
                         {
                             finalFoundPosition1 = foundPosition;
                             break;
@@ -79,9 +79,9 @@ public class ItemBiomeFinder extends Item
                 {
                     for (int z = 10; z >= -10; z--)
                     {
-                        ChunkPosition foundPosition = chunkManager.func_150795_a(playerX + (x * 512), playerZ + (z * 512), radius, Arrays.asList(biomeToFind), world.rand);
+                        ChunkPosition foundPosition = chunkManager.findBiomePosition(playerX + (x * 512), playerZ + (z * 512), radius, Arrays.asList(biomeToFind), world.rand);
 
-                        if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.field_151329_a, foundPosition.field_151328_c) == biomeToFind) 
+                        if (foundPosition != null && world.getBiomeGenForCoords(foundPosition.chunkPosX, foundPosition.chunkPosZ) == biomeToFind) 
                         {
                             finalFoundPosition2 = foundPosition;
                             break;
@@ -95,11 +95,11 @@ public class ItemBiomeFinder extends Item
 
                 if (finalFoundPosition1 != null && finalFoundPosition2 != null)
                 {
-                    int f1X = finalFoundPosition1.field_151329_a;
-                    int f1Z = finalFoundPosition1.field_151328_c;
+                    int f1X = finalFoundPosition1.chunkPosX;
+                    int f1Z = finalFoundPosition1.chunkPosZ;
 
-                    int f2X = finalFoundPosition2.field_151329_a;
-                    int f2Z = finalFoundPosition2.field_151328_c;
+                    int f2X = finalFoundPosition2.chunkPosX;
+                    int f2Z = finalFoundPosition2.chunkPosZ;
 
                     //System.out.println(f1X + " " + f1Z);
                     //System.out.println(f2X + " " + f2Z);
@@ -115,17 +115,17 @@ public class ItemBiomeFinder extends Item
 
                 if (biomePosition != null)
                 {
-                    //System.out.println(biomePosition.field_151329_a + " " + biomePosition.field_151328_c);
+                    //System.out.println(biomePosition.chunkPosX + " " + biomePosition.chunkPosZ);
 
                     NBTTagCompound biomeCompound = new NBTTagCompound();
 
-                    biomeCompound.setInteger("x", biomePosition.field_151329_a);
-                    biomeCompound.setInteger("z", biomePosition.field_151328_c);
+                    biomeCompound.setInteger("x", biomePosition.chunkPosX);
+                    biomeCompound.setInteger("z", biomePosition.chunkPosZ);
 
                     itemStack.getTagCompound().setTag("biomePosition", biomeCompound);
                     itemStack.getTagCompound().setBoolean("foundBiome", true);
 
-                    BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.field_151329_a, biomePosition.field_151328_c, true), (EntityPlayerMP)player);
+                    BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.chunkPosX, biomePosition.chunkPosZ, true), (EntityPlayerMP)player);
                 }
 
                 //System.out.println("Done looking");
@@ -181,7 +181,7 @@ public class ItemBiomeFinder extends Item
         {
             if (itemStack.getTagCompound().hasKey("biomeIDToFind")) 
             {
-                BiomeGenBase biome = BiomeGenBase.func_150565_n()[itemStack.getTagCompound().getInteger("biomeIDToFind")];
+                BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeIDToFind")];
 
                 if (biome != null)
                 {

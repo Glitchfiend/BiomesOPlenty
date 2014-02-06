@@ -24,15 +24,15 @@ public class WorldGenWaterReeds extends WorldGeneratorBOP
 			int k1 = z + random.nextInt(8) - random.nextInt(8);
 			
             //TODO:	  isAirBlock()												canReplace()
-			if (world.func_147437_c(i1, j1, k1) && BOPBlockHelper.get("plants").func_149705_a(world, i1, j1, k1, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 14)))
+			if (world.isAirBlock(i1, j1, k1) && BOPBlockHelper.get("plants").canReplace(world, i1, j1, k1, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 14)))
 			{
 				for (int i = 4; i > -4; --i)
 				{
 					//TODO:		getBlock()
-					if (world.func_147439_a(i1 - i, j1 - 1, k1 - i) != Blocks.water)
+					if (world.getBlock(i1 - i, j1 - 1, k1 - i) != Blocks.water)
 					{
 		            	//TODO:	setBlock()
-						world.func_147465_d(i1, j1, k1, BOPBlockHelper.get("plants"), 14, 2);
+						world.setBlock(i1, j1, k1, BOPBlockHelper.get("plants"), 14, 2);
 					}
 				}
 			}

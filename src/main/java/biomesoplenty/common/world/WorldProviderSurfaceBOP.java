@@ -13,7 +13,7 @@ public class WorldProviderSurfaceBOP extends WorldProviderSurface
     {
     	int y = getTopBlockCoord(this.worldObj, x, z);
     	//TODO:							getBlock()
-    	Block topBlock = this.worldObj.func_147439_a(x, y, z);
+    	Block topBlock = this.worldObj.getBlock(x, y, z);
     	boolean flag = topBlock == Blocks.sand || topBlock == Blocks.stone || topBlock == Blocks.snow_layer && this.worldChunkMgr.getBiomesToSpawnIn().contains(this.worldObj.getBiomeGenForCoordsBody(x, z));
     	boolean isClear = true;
     	
@@ -23,7 +23,7 @@ public class WorldProviderSurfaceBOP extends WorldProviderSurface
     		{
     			for (int iz = -1; iz <= 1; iz++)
     			{
-    				if (this.worldObj.func_147439_a(x, y, z).func_149688_o() == Material.field_151586_h)
+    				if (this.worldObj.getBlock(x, y, z).getMaterial() == Material.water)
     				{
     					isClear = false;
     					break;
@@ -39,7 +39,7 @@ public class WorldProviderSurfaceBOP extends WorldProviderSurface
     {
     	int y;
 
-    	for (y = 63; !world.func_147437_c(x, y + 1, z); ++y)
+    	for (y = 63; !world.isAirBlock(x, y + 1, z); ++y)
     	{
     		;
     	}

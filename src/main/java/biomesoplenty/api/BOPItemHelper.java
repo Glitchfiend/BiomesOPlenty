@@ -24,6 +24,6 @@ public class BOPItemHelper
     
     public static String getUniqueName(Item item)
     {
-        return GameData.itemRegistry.func_148750_c(item);
+        return GameData.itemRegistry.getNameForObject(item);
     }
 }

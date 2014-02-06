@@ -24,29 +24,29 @@ public class BlockBOPMushroom extends BlockBush
 	public BlockBOPMushroom()
 	{
 		//TODO:	Material.plants
-		super(Material.field_151585_k);
+		super(Material.plants);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.0F);
+		this.setHardness(0.0F);
 		
 		//TODO setStepSound(Block.soundGrassFootstep)
-		this.func_149672_a(Block.field_149779_h);
+		this.setStepSound(Block.soundTypeGrass);
 		
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		
 		float var4 = 0.2F;
 		
 		//TODO: setBlockBounds
-		this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[plants.length];
 
@@ -57,7 +57,7 @@ public class BlockBOPMushroom extends BlockBush
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) 
 		{
@@ -69,7 +69,7 @@ public class BlockBOPMushroom extends BlockBush
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return 1;
 	}
@@ -86,7 +86,7 @@ public class BlockBOPMushroom extends BlockBush
 
 	@Override
 	//TODO:     setBlockBoundsBasedOnState()
-	public void func_149719_a(IBlockAccess world, int x, int y, int z)
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -94,19 +94,19 @@ public class BlockBOPMushroom extends BlockBush
 		{
 		case 0:
 					//TODO: setBlockBounds
-		this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 
 		default:
 					//TODO: setBlockBounds
-		this.func_149676_a(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 		}
 	}
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < plants.length; ++i) 
 		{
@@ -117,7 +117,7 @@ public class BlockBOPMushroom extends BlockBush
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
 		//TODO:					  getBlock()
-		Block block = world.func_147439_a(x, y - 1, z);
+		Block block = world.getBlock(x, y - 1, z);
 		
 		switch (metadata)
 		{
@@ -140,21 +140,21 @@ public class BlockBOPMushroom extends BlockBush
 
 	@Override
 	//TODO:		   canPlaceBlockOnSide
-	public boolean func_149707_d(World world, int x, int y, int z, int side)
+	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
 	{
 		return isValidPosition(world, x, y, z, -1);
 	} 
 
 	@Override
 	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
+	public boolean canBlockStay(World world, int x, int y, int z)
 	{
 		return isValidPosition(world, x, y, z, -1);
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		return meta & 15;
 	}

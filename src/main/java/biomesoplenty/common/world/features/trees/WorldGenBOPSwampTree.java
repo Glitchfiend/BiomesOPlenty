@@ -53,7 +53,7 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
     {
         int l;
 
-        for (l = random.nextInt(randomTreeHeight) + minTreeHeight; world.func_147439_a(x, y - 1, z).func_149688_o() == Material.field_151586_h; --y)
+        for (l = random.nextInt(randomTreeHeight) + minTreeHeight; world.getBlock(x, y - 1, z).getMaterial() == Material.water; --y)
         {
             ;
         }
@@ -85,7 +85,7 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
                     {
                         if (i1 >= 0 && i1 < 256)
                         {
-                            Block block = world.func_147439_a(j1, i1, k1);
+                            Block block = world.getBlock(j1, i1, k1);
 
                             if (!(block.isAir(world, j1, i1, k1) || block.isLeaves(world, j1, i1, k1)))
                             {
@@ -113,7 +113,7 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = world.func_147439_a(x, y - 1, z);
+                Block block1 = world.getBlock(x, y - 1, z);
 
                 boolean isSoil = block1.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
                 if (isSoil && y < 256 - l - 1)
@@ -136,10 +136,10 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
                             {
                                 int j2 = i2 - z;
 
-                                if ((Math.abs(l1) != k1 || Math.abs(j2) != k1 || random.nextInt(2) != 0 && j1 != 0) && world.func_147439_a(l2, k2, i2).canBeReplacedByLeaves(world, l2, k2, i2))
+                                if ((Math.abs(l1) != k1 || Math.abs(j2) != k1 || random.nextInt(2) != 0 && j1 != 0) && world.getBlock(l2, k2, i2).canBeReplacedByLeaves(world, l2, k2, i2))
                                 {
                                 	//TODO:	setBlockAndMetadata()
-                                    this.func_150516_a(world, l2, k2, i2, this.leaves, this.leavesMeta);
+                                    this.setBlockAndNotifyAdequately(world, l2, k2, i2, this.leaves, this.leavesMeta);
                                 }
                             }
                         }
@@ -147,12 +147,12 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
 
                     for (k2 = 0; k2 < l; ++k2)
                     {
-                        Block block2 = world.func_147439_a(x, y + k2, z);
+                        Block block2 = world.getBlock(x, y + k2, z);
 
                         if (block2.isAir(world, x, y + k2, z) || block2.isLeaves(world, x, y + k2, z) || block2 == Blocks.flowing_water || block2 == Blocks.water)
                         {
                         	//TODO:	setBlockAndMetadata()
-                            this.func_150516_a(world, x, y + k2, z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + k2, z, this.wood, this.woodMeta);
                         }
                     }
 
@@ -165,24 +165,24 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
                         {
                             for (l1 = z - k1; l1 <= z + k1; ++l1)
                             {
-                                if (world.func_147439_a(l2, k2, l1).isLeaves(world, l2, k2, l1))
+                                if (world.getBlock(l2, k2, l1).isLeaves(world, l2, k2, l1))
                                 {
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2 - 1, k2, l1).isAir(world, l2 - 1, k2, l1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2 - 1, k2, l1).isAir(world, l2 - 1, k2, l1))
                                     {
                                         this.generateVines(world, l2 - 1, k2, l1, 8);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2 + 1, k2, l1).isAir(world, l2 + 1, k2, l1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2 + 1, k2, l1).isAir(world, l2 + 1, k2, l1))
                                     {
                                         this.generateVines(world, l2 + 1, k2, l1, 2);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2, k2, l1 - 1).isAir(world, l2, k2, l1 - 1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l1 - 1).isAir(world, l2, k2, l1 - 1))
                                     {
                                         this.generateVines(world, l2, k2, l1 - 1, 1);
                                     }
 
-                                    if (random.nextInt(4) == 0 && world.func_147439_a(l2, k2, l1 + 1).isAir(world, l2, k2, l1 + 1))
+                                    if (random.nextInt(4) == 0 && world.getBlock(l2, k2, l1 + 1).isAir(world, l2, k2, l1 + 1))
                                     {
                                         this.generateVines(world, l2, k2, l1 + 1, 4);
                                     }
@@ -209,19 +209,19 @@ public class WorldGenBOPSwampTree extends WorldGenAbstractTree
     {
         if (vineMeta != -1) par5 = vineMeta;
         
-        this.func_150516_a(par1World, par2, par3, par4, vineBlock, par5);
+        this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, vineBlock, par5);
         int i1 = 4;
 
         while (true)
         {
             --par3;
 
-            if (!(par1World.func_147439_a(par2, par3, par4).isAir(par1World, par2, par3, par4)) || i1 <= 0)
+            if (!(par1World.getBlock(par2, par3, par4).isAir(par1World, par2, par3, par4)) || i1 <= 0)
             {
                 return;
             }
 
-            this.func_150516_a(par1World, par2, par3, par4, vineBlock, par5);
+            this.setBlockAndNotifyAdequately(par1World, par2, par3, par4, vineBlock, par5);
             --i1;
         }
     }

@@ -23,24 +23,24 @@ public class BlockBamboo extends Block
 	public BlockBamboo()
 	{
 		//TODO: Material.plants
-		super(Material.field_151585_k);
+		super(Material.plants);
 		
 		//TODO: this.setHardness
-		this.func_149711_c(0.2F);
+		this.setHardness(0.2F);
 		
 		//TODO setStepSound(Block.soundWoodFootstep)
-		this.func_149672_a(Block.field_149766_f);
+		this.setStepSound(Block.soundTypeWood);
 
 		//TODO: setTickRandomly()
-		this.func_149675_a(true);
+		this.setTickRandomly(true);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		bambooSide = iconRegister.registerIcon("biomesoplenty:bamboo");
 		bambooTop = iconRegister.registerIcon("biomesoplenty:bambootop");
@@ -48,7 +48,7 @@ public class BlockBamboo extends Block
 	
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (side > 1)
 			return bambooSide;
@@ -58,15 +58,15 @@ public class BlockBamboo extends Block
 
 	@Override
 	//TODO:		updateTick()
-	public void func_149674_a(World world, int x, int y, int z, Random random)
+	public void updateTick(World world, int x, int y, int z, Random random)
 	{
 		//TODO:   isAirBlock()
-		if (world.func_147437_c(x, y + 1, z))
+		if (world.isAirBlock(x, y + 1, z))
 		{
 			int var6;
 
 			//TODO:				 getBlock()
-			for (var6 = 1; world.func_147439_a(x, y - var6, z) == this; ++var6)
+			for (var6 = 1; world.getBlock(x, y - var6, z) == this; ++var6)
 			{
 				;
 			}
@@ -78,7 +78,7 @@ public class BlockBamboo extends Block
 				if (var7 == 15)
 				{
 					//TODO: setBlock()
-					world.func_147465_d(x, y + 1, z, this, 0, 2);
+					world.setBlock(x, y + 1, z, this, 0, 2);
 					world.setBlockMetadataWithNotify(x, y, z, 0, 2);
 				}
 				else
@@ -91,7 +91,7 @@ public class BlockBamboo extends Block
 	
 	@Override
 	//TODO:				 getSelectedBoundingBoxFromPool()
-    public AxisAlignedBB func_149633_g(World world, int x, int y, int z)
+    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
     {
 		float pixel = 0.0625F;
 		
@@ -100,30 +100,30 @@ public class BlockBamboo extends Block
 	
     @Override
     //TODO:		addCollisionBoxesToList()
-	public void func_149743_a(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
+	public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB axisAlignedBB, List list, Entity entity)
     {
 		float pixel = 0.0625F;
         //TODO: setBlockBounds
-		this.func_149676_a((pixel * 4), 0.0F, (pixel * 4), 1.0F - (pixel * 4), 1.0F, 1.0F - (pixel * 4));
-        super.func_149743_a(world, x, y, z, axisAlignedBB, list, entity);
+		this.setBlockBounds((pixel * 4), 0.0F, (pixel * 4), 1.0F - (pixel * 4), 1.0F, 1.0F - (pixel * 4));
+        super.addCollisionBoxesToList(world, x, y, z, axisAlignedBB, list, entity);
         //TODO: setBlockBoundsForItemRender()
-        this.func_149683_g();
+        this.setBlockBoundsForItemRender();
     }
     
     @Override
     //TODO:		setBlockBoundsForItemRender()
-    public void func_149683_g()
+    public void setBlockBoundsForItemRender()
     {
         //TODO: setBlockBounds
-		this.func_149676_a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
 	@Override
 	//TODO:		   canPlaceBlockAt
-	public boolean func_149742_c(World world, int x, int y, int z)
+	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		//TODO:					getBlock
-		Block block = world.func_147439_a(x, y - 1, z);
+		Block block = world.getBlock(x, y - 1, z);
 		
 		if (block == this)
 			return true;
@@ -135,7 +135,7 @@ public class BlockBamboo extends Block
 
 	@Override
 	//TODO:		onNeighborBlockChange()
-	public void func_149695_a(World world, int x, int y, int z, Block neighborBlock)
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
 		this.checkBlockCoordValid(world, x, y, z);
 	}
@@ -143,40 +143,40 @@ public class BlockBamboo extends Block
 	public final void checkBlockCoordValid(World world, int x, int y, int z)
 	{
 		//TODO:	  canBlockStay()
-		if (!this.func_149718_j(world, x, y, z))
+		if (!this.canBlockStay(world, x, y, z))
 		{
 			//TODO: dropBlockAsItem()
-			this.func_149697_b(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+			this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
 			//TODO: setBlockToAir
-			world.func_147468_f(x, y, z);
+			world.setBlockToAir(x, y, z);
 		}
 	}
 
 	@Override
 	//TODO:		   canBlockStay()
-	public boolean func_149718_j(World world, int x, int y, int z)
+	public boolean canBlockStay(World world, int x, int y, int z)
 	{
 		//TODO:		canPlaceBlockAt
-		return this.func_149742_c(world, x, y, z);
+		return this.canPlaceBlockAt(world, x, y, z);
 	}
 
 	@Override
 	//TODO:		   isOpaqueCube()
-	public boolean func_149662_c()
+	public boolean isOpaqueCube()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO:		   renderAsNormalBlock()
-    public boolean func_149686_d()
+    public boolean renderAsNormalBlock()
 	{
 		return false;
 	}
 
 	@Override
 	//TODO		getRenderType()
-	public int func_149645_b()
+	public int getRenderType()
 	{
 		return RenderUtils.bambooModel;
 	}

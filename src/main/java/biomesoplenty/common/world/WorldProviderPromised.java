@@ -105,7 +105,7 @@ public class WorldProviderPromised extends WorldProvider
 	@Override
 	public boolean canCoordinateBeSpawn(int par1, int par2)
 	{
-		Block var3 = worldObj.func_147474_b(par1, par2);
+		Block var3 = worldObj.getTopBlock(par1, par2);
 		return var3 == BOPBlockHelper.get("grass");
 	}
 

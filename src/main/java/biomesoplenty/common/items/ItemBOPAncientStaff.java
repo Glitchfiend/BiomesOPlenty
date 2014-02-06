@@ -81,7 +81,7 @@ public class ItemBOPAncientStaff extends Item
 
 	@Override
     //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
-    public void func_150895_a(Item item, CreativeTabs creativeTabs, List list)
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
 	{
 		for (int meta = 0; meta < parts.length; ++meta) 
 		{
@@ -105,7 +105,7 @@ public class ItemBOPAncientStaff extends Item
 				for (int ix = -2; ix < 3; ix++) {
 					for (int iz = -2; iz < 3; iz++)
 						// is air block
-						if (!world.func_147439_a(i + ix, j + iy, k + iz).isAir(world, i + ix, j + iy, k + iz))
+						if (!world.getBlock(i + ix, j + iy, k + iz).isAir(world, i + ix, j + iy, k + iz))
 						{
 							isAir = false;
 						}
@@ -122,12 +122,12 @@ public class ItemBOPAncientStaff extends Item
 						if (player.dimension == 0)
 						{
 							//send player chat
-							player.func_145747_a(new ChatComponentTranslation("phrase.bop.promisedPortalOverworld"));
+							player.addChatMessage(new ChatComponentTranslation("phrase.bop.promisedPortalOverworld"));
 						}
 						else
 						{
 							//send player chat
-							player.func_145747_a(new ChatComponentTranslation("phrase.bop.promisedPortalOther"));
+							player.addChatMessage(new ChatComponentTranslation("phrase.bop.promisedPortalOther"));
 						}
 					}
 

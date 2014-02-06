@@ -11,9 +11,9 @@ public class EntityAITemptArmor extends EntityAIBase
 	/** The entity using this AI that is tempted by the player. */
 	private EntityCreature temptedEntity;
 	private float speedTowardsTarget;
-	private double field_75283_c;
-	private double field_75280_d;
-	private double field_75281_e;
+	private double targetX;
+	private double targetY;
+	private double targetZ;
 	private double field_75278_f;
 	private double field_75279_g;
 
@@ -24,7 +24,7 @@ public class EntityAITemptArmor extends EntityAIBase
 	 * A counter that is decremented each time the shouldExecute method is called. The shouldExecute method will always
 	 * return false if delayTemptCounter is greater than 0.
 	 */
-	private boolean field_75287_j;
+	private boolean isRunning;
 
 	/**
 	 * This field saves the ID of the items that can be used to breed entities with this behaviour.
@@ -69,7 +69,7 @@ public class EntityAITemptArmor extends EntityAIBase
 		{
 			if (temptedEntity.getDistanceSqToEntity(temptingPlayer) < 36.0D)
 			{
-				if (temptingPlayer.getDistanceSq(field_75283_c, field_75280_d, field_75281_e) > 0.010000000000000002D)
+				if (temptingPlayer.getDistanceSq(targetX, targetY, targetZ) > 0.010000000000000002D)
 					return false;
 
 				if (Math.abs(temptingPlayer.rotationPitch - field_75278_f) > 5.0D || Math.abs(temptingPlayer.rotationYaw - field_75279_g) > 5.0D)
@@ -77,9 +77,9 @@ public class EntityAITemptArmor extends EntityAIBase
 			}
 			else
 			{
-				field_75283_c = temptingPlayer.posX;
-				field_75280_d = temptingPlayer.posY;
-				field_75281_e = temptingPlayer.posZ;
+				targetX = temptingPlayer.posX;
+				targetY = temptingPlayer.posY;
+				targetZ = temptingPlayer.posZ;
 			}
 
 			field_75278_f = temptingPlayer.rotationPitch;
@@ -95,10 +95,10 @@ public class EntityAITemptArmor extends EntityAIBase
 	@Override
 	public void startExecuting()
 	{
-		field_75283_c = temptingPlayer.posX;
-		field_75280_d = temptingPlayer.posY;
-		field_75281_e = temptingPlayer.posZ;
-		field_75287_j = true;
+		targetX = temptingPlayer.posX;
+		targetY = temptingPlayer.posY;
+		targetZ = temptingPlayer.posZ;
+		isRunning = true;
 		field_75286_m = temptedEntity.getNavigator().getAvoidsWater();
 		temptedEntity.getNavigator().setAvoidsWater(false);
 	}
@@ -111,7 +111,7 @@ public class EntityAITemptArmor extends EntityAIBase
 	{
 		temptingPlayer = null;
 		temptedEntity.getNavigator().clearPathEntity();
-		field_75287_j = false;
+		isRunning = false;
 		temptedEntity.getNavigator().setAvoidsWater(field_75286_m);
 	}
 
@@ -133,8 +133,8 @@ public class EntityAITemptArmor extends EntityAIBase
 		}
 	}
 
-	public boolean func_75277_f()
+	public boolean isRunning()
 	{
-		return field_75287_j;
+		return isRunning;
 	}
 }

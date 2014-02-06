@@ -24,7 +24,7 @@ public class BlockBOPGems extends Block
 	public BlockBOPGems()
 	{
 		//TODO: Material.rock
-		super(Material.field_151576_e);
+		super(Material.rock);
 		
 		this.setHarvestLevel("pickaxe", 3, 0);
 		
@@ -34,15 +34,15 @@ public class BlockBOPGems extends Block
 		}
 		
 		//TODO setStepSound(Block.soundStoneFootstep)
-		this.func_149672_a(Block.field_149780_i);
+		this.setStepSound(Block.soundTypePiston);
 		
 		//TODO: this.setCreativeTab()
-		this.func_149647_a(BiomesOPlenty.tabBiomesOPlenty);
+		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
 	//TODO:		registerIcons()
-	public void func_149651_a(IIconRegister iconRegister)
+	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[types.length];
 
@@ -53,7 +53,7 @@ public class BlockBOPGems extends Block
 
 	@Override
 	//TODO:		 getIcon()
-	public IIcon func_149691_a(int side, int meta)
+	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
@@ -64,14 +64,14 @@ public class BlockBOPGems extends Block
 
 	@Override
 	//TODO:	   getDamageValue()
-	public int func_149643_k(World world, int x, int y, int z) 
+	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		return world.getBlockMetadata(x, y, z);
 	}
 
 	@Override
 	//TODO:		getSubBlocks()
-	public void func_149666_a(Item block, CreativeTabs creativeTabs, List list) 
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < types.length; ++i) 
 		{
@@ -81,7 +81,7 @@ public class BlockBOPGems extends Block
 
 	@Override
 	//TODO:		 getBlockHardness()
-	public float func_149712_f(World world, int x, int y, int z)
+	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
@@ -98,15 +98,15 @@ public class BlockBOPGems extends Block
 
 	@Override
 	//TODO:	   getItemDropped()
-	public Item func_149650_a(int metadata, Random random, int fortune)
+	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		//TODO:														  getItemFromBlock()
-		return (metadata % 2 == 0) ? BOPItemHelper.get("gems") : Item.func_150898_a(this);
+		return (metadata % 2 == 0) ? BOPItemHelper.get("gems") : Item.getItemFromBlock(this);
 	}
 
 	@Override
 	//TODO     damageDropped()
-	public int func_149692_a(int meta)
+	public int damageDropped(int meta)
 	{
 		if (meta == 0)
 		{
@@ -172,15 +172,15 @@ public class BlockBOPGems extends Block
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
 		//TODO:					quantityDroppedWithBonus()
-		return (meta % 2 == 0) ? func_149679_a(fortune, random) : 1;
+		return (meta % 2 == 0) ? quantityDroppedWithBonus(fortune, random) : 1;
 	}
 
 	@Override
 	//TODO:		quantityDroppedWithBonus()
-	public int func_149679_a(int bonus, Random random)
+	public int quantityDroppedWithBonus(int bonus, Random random)
 	{
 		//TODO:				   getItemForBlock()		getItem()
-		if (bonus > 0 && Item.func_150898_a(this) != this.func_149650_a(0, random, bonus))
+		if (bonus > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, bonus))
 		{
 			int rnd = random.nextInt(bonus + 2) - 1;
 
@@ -189,25 +189,25 @@ public class BlockBOPGems extends Block
 			}
 
 			//TODO:		quantityDropped()
-			return this.func_149745_a(random) * (rnd + 1);
+			return this.quantityDropped(random) * (rnd + 1);
 		}
 		else
-			return this.func_149745_a(random);
+			return this.quantityDropped(random);
 	}
 
 	@Override
 	//TODO: 	dropBlockAsItemWithChance()
-	public void func_149690_a(World world, int x, int y, int z, int metadata, float chance, int fortune)
+	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
 		//TODO: dropBlockAsItemWithChance()
-		super.func_149690_a(world, x, y, z, metadata, chance, fortune);
+		super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
 
 		//TODO:	 getItemDropped()									  getItemFromBlock()
-		if (this.func_149650_a(metadata, world.rand, fortune) != Item.func_150898_a(this))
+		if (this.getItemDropped(metadata, world.rand, fortune) != Item.getItemFromBlock(this))
 		{
 			int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 3, 7);
 			//TODO: dropXpOnBlockBreak()
-			this.func_149657_c(world, x, y, z, var8);
+			this.dropXpOnBlockBreak(world, x, y, z, var8);
 		}
 	}
 }

@@ -42,29 +42,29 @@ public class StartupWarningGUI extends GuiScreen
     {
         Keyboard.enableRepeatEvents(true);
         //TODO: buttonList
-        this.field_146292_n.clear();
+        this.buttonList.clear();
         //TODO: buttonList
-        this.field_146292_n.add(new GuiButton(0, this.field_146294_l / 2 - 175, this.field_146295_m - 48, 350, 20, I18n.getStringParams("OK")));
+        this.buttonList.add(new GuiButton(0, this.width / 2 - 175, this.height - 48, 350, 20, I18n.getStringParams("OK")));
         //TODO: buttonList
-        this.field_146292_n.add(new GuiButton(1, this.field_146294_l / 2 - 175, this.field_146295_m - 24, 350, 20, I18n.getStringParams("Cancel")));
+        this.buttonList.add(new GuiButton(1, this.width / 2 - 175, this.height - 24, 350, 20, I18n.getStringParams("Cancel")));
     }
 
     @Override
     //TODO:     onGuiClosed()
-    public void func_146281_b()
+    public void onGuiClosed()
     {
         Keyboard.enableRepeatEvents(false);
     }
 
     @Override
     //TODO:        actionPerformed()
-    protected void func_146284_a(GuiButton button)
+    protected void actionPerformed(GuiButton button)
     {
         //TODO:     enabled
-        if (button.field_146124_l)
+        if (button.enabled)
         {
             //TODO:    id
-            if (button.field_146127_k == 0)
+            if (button.id == 0)
             {
                 try
                 {
@@ -77,10 +77,10 @@ public class StartupWarningGUI extends GuiScreen
                 }
                 
                 //TODO:             displayGuiScreen()
-                this.field_146297_k.func_147108_a(this.parentGuiScreen);
+                this.mc.displayGuiScreen(this.parentGuiScreen);
             }
             //TODO:    id
-            if (button.field_146127_k == 1)
+            if (button.id == 1)
             {
                 System.exit(0);
             }
@@ -91,23 +91,23 @@ public class StartupWarningGUI extends GuiScreen
     public void drawScreen(int x, int y, float renderPartialTicks)
     {
         //TODO: drawDefaultBackground()
-        this.func_146276_q_();
+        this.drawDefaultBackground();
         
         //TODO:                      fontRendererObj                                    width
-        this.drawCenteredString(this.field_146289_q, "" + RED + "Biomes O' Plenty uses a custom worldtype for its biomes. When creating a world, it", this.field_146294_l / 2, 82, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "may be enabled by clicking the 'World Type' button under 'More World Options'", this.field_146294_l / 2, 94, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "until it displays 'Biomes O' Plenty'.", this.field_146294_l / 2, 106, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + "Biomes O' Plenty uses a custom worldtype for its biomes. When creating a world, it", this.width / 2, 82, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + "may be enabled by clicking the 'World Type' button under 'More World Options'", this.width / 2, 94, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + "until it displays 'Biomes O' Plenty'.", this.width / 2, 106, 0xFFFFFF);
         
-        this.drawCenteredString(this.field_146289_q, "" + RED + "The worldtype can be used on servers by changing the 'level-type' in", this.field_146294_l / 2, 132, 0xFFFFFF);
-        this.drawCenteredString(this.field_146289_q, "" + RED + "sever.properties to 'BIOMESOP' (without quotes)", this.field_146294_l / 2, 144, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + "The worldtype can be used on servers by changing the 'level-type' in", this.width / 2, 132, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + "sever.properties to 'BIOMESOP' (without quotes)", this.width / 2, 144, 0xFFFFFF);
         
-        this.drawCenteredString(this.field_146289_q, "" + DARK_RED + "This message will only display once.", this.field_146294_l / 2, 168, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + DARK_RED + "This message will only display once.", this.width / 2, 168, 0xFFFFFF);
         
-        this.field_146297_k.getTextureManager().bindTexture(bopLogoTexture);
+        this.mc.getTextureManager().bindTexture(bopLogoTexture);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
         //                              width                      x, y, u, v, width, height
-        this.drawTexturedModalRect(this.field_146294_l / 2 - 168 / 2, 0, 0, 0, 168, 80);
+        this.drawTexturedModalRect(this.width / 2 - 168 / 2, 0, 0, 0, 168, 80);
         
         
         super.drawScreen(x, y, renderPartialTicks);

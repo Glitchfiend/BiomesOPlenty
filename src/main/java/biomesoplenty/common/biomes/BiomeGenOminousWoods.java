@@ -25,7 +25,7 @@ public class BiomeGenOminousWoods extends BOPBiome
 		super(id);
 
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(4145489);
         this.setTemperatureRainfall(0.8F, 0.9F);
@@ -75,14 +75,14 @@ public class BiomeGenOminousWoods extends BOPBiome
 
 	@Override
 	//TODO:		getBiomeGrassColor()
-	public int func_150558_b(int x, int y, int z)
+	public int getBiomeGrassColor(int x, int y, int z)
 	{
 		return 4145489;
 	}
 
 	@Override
 	//TODO:		getBiomeFoliageColor()
-	public int func_150571_c(int x, int y, int z)
+	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 4145489;
 	}

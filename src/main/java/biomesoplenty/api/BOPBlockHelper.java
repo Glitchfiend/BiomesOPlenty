@@ -14,6 +14,6 @@ public class BOPBlockHelper
     
     public static String getUniqueName(Block block)
     {
-        return GameData.blockRegistry.func_148750_c(block);
+        return GameData.blockRegistry.getNameForObject(block);
     }
 }

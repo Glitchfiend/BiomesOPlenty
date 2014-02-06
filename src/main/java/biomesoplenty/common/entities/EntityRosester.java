@@ -111,10 +111,10 @@ public class EntityRosester extends EntityChicken
             int l = MathHelper.floor_double(this.posZ + (double)((float)(i / 2 % 2 * 2 - 1) * 0.25F));
 
             //TODO:										isAirBlock()														getFloatTemperature()								canPlaceBlockAt()							
-            if (!this.worldObj.isRemote && this.worldObj.func_147437_c(j, k, l) && this.worldObj.getBiomeGenForCoords(j, l).func_150564_a(j, k, l) > 0.3F && Blocks.red_flower.func_149742_c(this.worldObj, j, k, l) && this.worldObj.rand.nextInt(300) == 0)
+            if (!this.worldObj.isRemote && this.worldObj.isAirBlock(j, k, l) && this.worldObj.getBiomeGenForCoords(j, l).getFloatTemperature(j, k, l) > 0.3F && Blocks.red_flower.canPlaceBlockAt(this.worldObj, j, k, l) && this.worldObj.rand.nextInt(300) == 0)
             {
             	//TODO:		  setBlock()
-                this.worldObj.func_147465_d(j, k, l, Blocks.red_flower, 0, 2);
+                this.worldObj.setBlock(j, k, l, Blocks.red_flower, 0, 2);
             }
         }
 	}
@@ -149,7 +149,7 @@ public class EntityRosester extends EntityChicken
 
 	@Override
 	//TODO:			getDropItem()
-	protected Item func_146068_u()
+	protected Item getDropItem()
 	{
 		return Items.feather;
 	}
@@ -167,12 +167,12 @@ public class EntityRosester extends EntityChicken
 		if (this.isBurning())
 		{
 			//TODO: dropItem()
-			this.func_145779_a(Items.cooked_chicken, 1);
+			this.dropItem(Items.cooked_chicken, 1);
 		}
 		else
 		{
 			//TODO: dropItem()
-			this.func_145779_a(Items.chicken, 1);
+			this.dropItem(Items.chicken, 1);
 		}
 	}
 

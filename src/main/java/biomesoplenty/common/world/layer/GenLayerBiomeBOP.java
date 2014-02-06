@@ -59,12 +59,12 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                         if (this.nextInt(3) == 0 && BOPConfigurationBiomeGen.mesaPlateauGen)
                         {
                         	//TODO:								 mesaPlateau
-                            aint1[j1 + i1 * par3] = BiomeGenBase.field_150608_ab.biomeID;
+                            aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau.biomeID;
                         }
                         else if (BOPConfigurationBiomeGen.mesaPlateauFGen)
                         {
                         	//TODO:								 mesaPlateau F
-                            aint1[j1 + i1 * par3] = BiomeGenBase.field_150607_aa.biomeID;
+                            aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau_F.biomeID;
                         }
                     }
                     else
@@ -88,7 +88,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     if (l1 > 0 && BOPConfigurationBiomeGen.megaTaigaGen)
                     {
                     	//TODO:								 megaTaiga
-                        aint1[j1 + i1 * par3] = BiomeGenBase.field_150578_U.biomeID;
+                        aint1[j1 + i1 * par3] = BiomeGenBase.megaTaiga.biomeID;
                     }
                     else
                     {
@@ -144,6 +144,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     
     protected static boolean isOceanBiome(int biomeID)
     {
-        return biomeID == BiomeGenBase.ocean.biomeID && BOPConfigurationBiomeGen.oceanGen || biomeID == BiomeGenBase.field_150575_M.biomeID && BOPConfigurationBiomeGen.deepOceanGen || biomeID == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen;
+        return biomeID == BiomeGenBase.ocean.biomeID && BOPConfigurationBiomeGen.oceanGen || biomeID == BiomeGenBase.deepOcean.biomeID && BOPConfigurationBiomeGen.deepOceanGen || biomeID == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen;
     }
 }

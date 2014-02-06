@@ -52,7 +52,7 @@ public class WorldGenPromisedTree extends WorldGenAbstractTree
 					{
 						if (var11 >= 0 && var11 < 256)
 						{
-							block = world.func_147439_a(var13, var11, var14);
+							block = world.getBlock(var13, var11, var14);
 							
 							if (!(block.isAir(world, var13, var11, var14) || block.isLeaves(world, var13, var11, var14)))
                             {
@@ -72,12 +72,12 @@ public class WorldGenPromisedTree extends WorldGenAbstractTree
 			else
 			{
 				//var11 = world.getBlockId(par3, par4 - 1, par5);
-				block = world.func_147439_a(par3, par4 - 1, par5);
+				block = world.getBlock(par3, par4 - 1, par5);
 
 				if ((block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt")) && par4 < 256 - var6 - 1)
 				{
 					//this.setBlockAndMetadata(world, par3, par4 - 1, par5, Blocks.holyDirt.get().blockID, 0);
-					this.func_150516_a(world, par3, par4 - 1, par5, BOPBlockHelper.get("holyDirt"), 0);
+					this.setBlockAndNotifyAdequately(world, par3, par4 - 1, par5, BOPBlockHelper.get("holyDirt"), 0);
 					var21 = par2Random.nextInt(2);
 					var13 = 1;
 					byte var22 = 0;
@@ -97,10 +97,10 @@ public class WorldGenPromisedTree extends WorldGenAbstractTree
 							{
 								int var20 = var19 - par5;
 
-								if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !world.func_147439_a(var17, var16, var19).func_149662_c())
+								if ((Math.abs(var18) != var21 || Math.abs(var20) != var21 || var21 <= 0) && !world.getBlock(var17, var16, var19).isOpaqueCube())
 								{
 									//this.setBlockAndMetadata(world, var17, var16, var19, Blocks.leaves2.get().blockID, 2);
-									this.func_150516_a(world, var17, var16, var19, BOPBlockHelper.get("leaves2"), 2);
+									this.setBlockAndNotifyAdequately(world, var17, var16, var19, BOPBlockHelper.get("leaves2"), 2);
 								}
 							}
 						}
@@ -127,12 +127,12 @@ public class WorldGenPromisedTree extends WorldGenAbstractTree
 					for (var16 = 0; var16 < var6 - var15; ++var16)
 					{
 						//var17 = world.getBlockId(par3, par4 + var16, par5);
-						block = world.func_147439_a(par3, par4 + var16, par5);
+						block = world.getBlock(par3, par4 + var16, par5);
 
 						if (block.isAir(world, par3, par4 + var16, par5) || block.isLeaves(world, par3, par4 + var16, par5))
                         {
 							//this.setBlockAndMetadata(world, par3, par4 + var16, par5, Blocks.logs2.get().blockID,0);
-							this.func_150516_a(world, par3, par4 + var16, par5, BOPBlockHelper.get("logs2"), 0);
+							this.setBlockAndNotifyAdequately(world, par3, par4 + var16, par5, BOPBlockHelper.get("logs2"), 0);
 						}
 					}
 

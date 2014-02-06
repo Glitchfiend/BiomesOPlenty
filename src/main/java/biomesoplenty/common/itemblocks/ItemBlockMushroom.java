@@ -38,6 +38,6 @@ public class ItemBlockMushroom extends ItemBlock
 	public IIcon getIconFromDamage(int meta)
 	{
 		//TODO: block		  getIcon()
-		return field_150939_a.func_149691_a(0, meta);
+		return field_150939_a.getIcon(0, meta);
 	}
 }

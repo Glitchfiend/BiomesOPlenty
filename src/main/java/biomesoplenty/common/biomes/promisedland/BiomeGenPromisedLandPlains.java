@@ -68,7 +68,7 @@ public class BiomeGenPromisedLandPlains extends BOPBiome //implements IWCFog
 	
 	@Override
 	//TODO:		getBiomeGrassColor()
-    public int func_150558_b(int x, int y, int z)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
 		return 7925125;
 	}

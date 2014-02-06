@@ -22,7 +22,7 @@ public class BiomeGenBambooForest extends BOPBiome
 		super(id);
 
         //TODO: setHeight()
-        this.func_150570_a(biomeHeight);
+        this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(10739795);
         this.setTemperatureRainfall(1.2F, 0.9F);
@@ -51,22 +51,22 @@ public class BiomeGenBambooForest extends BOPBiome
 			int z = chunkZ + random.nextInt(16);
 			
 			//TODO:				getBlock()
-			Block block = world.func_147439_a(x, y, z);
+			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
 				//TODO:	setBlock()
-				world.func_147465_d(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
+				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
 			}
 		}
 	}
 	
-    public void func_150573_a(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    public void genTerrainBlocks(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
     {
         this.topBlock = Blocks.dirt;
         this.field_150604_aj = 2;
 
-        this.func_150560_b(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+        this.genBiomeTerrain(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 
 	@Override
@@ -84,17 +84,17 @@ public class BiomeGenBambooForest extends BOPBiome
 
 	@Override
 	//TODO:		getBiomeGrassColor()
-    public int func_150558_b(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
-        double d0 = field_150606_ad.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
+        double d0 = plantNoise.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
         return d0 < -0.7D ? 13949781 : (d0 < -0.3 ? 12311892 : 10739795);
     }
 
 	@Override
 	//TODO:		getBiomeFoliageColor()
-	public int func_150571_c(int x, int y, int z)
+	public int getBiomeFoliageColor(int x, int y, int z)
 	{
-		double d0 = field_150606_ad.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
         return d0 < -0.7D ? 13949781 : (d0 < -0.3 ? 12311892 : 10739795);
 	}
 

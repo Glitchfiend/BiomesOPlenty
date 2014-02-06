@@ -19,9 +19,9 @@ public abstract class BiomeLayerHell extends GenLayer
 		BiomeLayerHell obj = new BiomeLayerHellCreate(1L, false);
 		obj = new BiomeLayerHellFuzzyZoom(2000L, (obj));
 		for(int i = 1; i < 3; i++) { obj = new BiomeLayerHellZoom(2000L + i, (obj)); }
-		obj = BiomeLayerHellZoom.func_75915_a(1000L, ((obj)), 0);
+		obj = BiomeLayerHellZoom.magnify(1000L, ((obj)), 0);
 		obj = new BiomeLayerHellBiomes(200L, ((obj)));
-		obj = BiomeLayerHellZoom.func_75915_a(1000L, ((obj)), 2);
+		obj = BiomeLayerHellZoom.magnify(1000L, ((obj)), 2);
 		for(int j = 0; j < biomesize; j++) { obj = new BiomeLayerHellZoom(1000L + j, (obj)); }
 		BiomeLayerHellVoronoiZoom genlayervoronoizoom = new BiomeLayerHellVoronoiZoom(10L, ((obj)));
 		(obj).initWorldGenSeed(seed);

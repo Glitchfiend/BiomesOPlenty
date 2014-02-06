@@ -32,13 +32,13 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         //TODO:        isAirBlock()
-        while (world.func_147437_c(x, y, z) && y > 2)
+        while (world.isAirBlock(x, y, z) && y > 2)
         {
             --y;
         }
 
         //TODO:           getBlock()
-        Block block = world.func_147439_a(x, y, z);
+        Block block = world.getBlock(x, y, z);
 
         if (block != Blocks.grass)
         {
@@ -51,7 +51,7 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
                 for (int var8 = -2; var8 <= 2; ++var8)
                 {
                     //TODO: isAirBlock()                                                isAirBlock()                                               isAirBlock()
-                    if (world.func_147437_c(x + var7, y - 1, z + var8) && world.func_147437_c(x + var7, y - 2, z + var8) && !world.func_147437_c(x + var7, y, z + var8))
+                    if (world.isAirBlock(x + var7, y - 1, z + var8) && world.isAirBlock(x + var7, y - 2, z + var8) && !world.isAirBlock(x + var7, y, z + var8))
                     {
                         return false;
                     }
@@ -121,6 +121,6 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
 
     public void buildBlock(World world, int x, int y, int z, Block block, int meta)
     {
-        world.func_147465_d(x, y, z, block, meta, 2);
+        world.setBlock(x, y, z, block, meta, 2);
     }
 }

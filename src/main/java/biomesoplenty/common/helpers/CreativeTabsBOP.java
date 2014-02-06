@@ -14,7 +14,7 @@ public class CreativeTabsBOP extends CreativeTabs
 
 	@Override
 	//TODO: public ItemStack getIconItemStack()
-	public ItemStack func_151244_d() 
+	public ItemStack getIconItemStack() 
 	{
 		return new ItemStack(BOPItemHelper.get("food"), 1, 7);
 	}

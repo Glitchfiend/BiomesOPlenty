@@ -33,9 +33,9 @@ public class BOPFluids
 	private static void registerFluidBlocks()
 	{
 		//TODO:						setBlockName
-		registerBlock(new BlockPoisonFluid().func_149663_c("poison"));
-		registerBlock(new BlockSpringWaterFluid().func_149663_c("springWater"));
-		registerBlock(new BlockHoneyFluid().func_149663_c("honey"));
+		registerBlock(new BlockPoisonFluid().setBlockName("poison"));
+		registerBlock(new BlockSpringWaterFluid().setBlockName("springWater"));
+		registerBlock(new BlockHoneyFluid().setBlockName("honey"));
 	}
 
 	private static void registerFluidItems()

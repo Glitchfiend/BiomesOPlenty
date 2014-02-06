@@ -127,7 +127,7 @@ public class ModelBird extends ModelBase
     int z = MathHelper.floor_double(entity.posZ);
     
     //TODO:													isAirBlock()
-    if (!(entity.posY <= entity.prevPosY && entity.worldObj.func_147437_c(x, y - 1, z)))
+    if (!(entity.posY <= entity.prevPosY && entity.worldObj.isAirBlock(x, y - 1, z)))
     {
 	    WingRight.rotateAngleZ = MathHelper.cos(f2 * 1.7F) * (float)Math.PI * 0.25F;
 	    WingLeft.rotateAngleZ = -WingRight.rotateAngleZ;  

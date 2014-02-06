@@ -20,17 +20,17 @@ public class WorldGenCobwebNest extends WorldGeneratorBOP
         Block var15;
 
         //TODO:                                        getBlock()
-        for (boolean var6 = false; ((var15 = par1World.func_147439_a(par3, par4, par5)) == Blocks.air || var15 == Blocks.web) && par4 > 0; --par4)
+        for (boolean var6 = false; ((var15 = par1World.getBlock(par3, par4, par5)) == Blocks.air || var15 == Blocks.web) && par4 > 0; --par4)
         {
             ;
         }
 
-        Block block = par1World.func_147439_a(par3, par4, par5);
+        Block block = par1World.getBlock(par3, par4, par5);
 
         if (block == Blocks.grass)
         {
             ++par4;
-            this.func_150516_a(par1World, par3, par4, par5, Blocks.web, 0);
+            this.setBlockAndNotifyAdequately(par1World, par3, par4, par5, Blocks.web, 0);
 
             int var999 = par2Random.nextInt(3);
 
@@ -56,7 +56,7 @@ public class WorldGenCobwebNest extends WorldGeneratorBOP
 
                         if (Math.abs(var12) != var10 || Math.abs(var14) != var10 || par2Random.nextInt(2) != 0)
                         {
-                            this.func_150516_a(par1World, var11, var8, var13, Blocks.web, 0);
+                            this.setBlockAndNotifyAdequately(par1World, var11, var8, var13, Blocks.web, 0);
                         }
                     }
                 }

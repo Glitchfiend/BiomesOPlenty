@@ -77,10 +77,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                                 double var45 = (var44 + 0.5D - var24) / (var28 / 2.0D);
 
                                 //TODO:															 getBlock()														
-                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && world.func_147439_a(var38, var41, var44) != Blocks.air && (blockList.contains(world.func_147439_a(var38, var41, var44))))
+                                if (var39 * var39 + var42 * var42 + var45 * var45 < 1.0D && world.getBlock(var38, var41, var44) != Blocks.air && (blockList.contains(world.getBlock(var38, var41, var44))))
                                 {
                                     //TODO:	setBlockAndMetadata()
-                                    this.func_150516_a(world, var38, var41, var44, splotchBlock, splotchBlockMeta);
+                                    this.setBlockAndNotifyAdequately(world, var38, var41, var44, splotchBlock, splotchBlockMeta);
                                 }
                             }
                         }

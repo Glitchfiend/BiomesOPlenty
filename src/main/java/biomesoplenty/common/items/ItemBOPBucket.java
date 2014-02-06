@@ -47,7 +47,7 @@ public class ItemBOPBucket extends ItemFluidContainer
 			if (fluid == null || fluid.amount != capacity)
 			{
 				//TODO:				getBlock()
-				Block block = world.func_147439_a(x, y, z);
+				Block block = world.getBlock(x, y, z);
 
 				if (block instanceof BlockFluidBase)
 				{
@@ -72,7 +72,7 @@ public class ItemBOPBucket extends ItemFluidContainer
 
 				if (block != null) 
 				{
-					world.func_147449_b(x, y, z, block);
+					world.setBlock(x, y, z, block);
 					
 					return new ItemStack(Items.bucket);
 				}

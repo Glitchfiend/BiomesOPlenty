@@ -17,7 +17,7 @@ public class WorldGenLog extends WorldGeneratorBOP
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         //TODO:         isAirBlock()
-        while (!world.func_147437_c(x, y, z) && y > 2)
+        while (!world.isAirBlock(x, y, z) && y > 2)
         {
             ++y;
         }
@@ -35,7 +35,7 @@ public class WorldGenLog extends WorldGeneratorBOP
             else iz = i;
             
             //TODO:   isAirBlock()                               getBlock()
-            if (!world.func_147437_c(x + ix, y, z + iz) || world.func_147439_a(x + ix, y - 1, z + iz) != Blocks.grass)
+            if (!world.isAirBlock(x + ix, y, z + iz) || world.getBlock(x + ix, y - 1, z + iz) != Blocks.grass)
             {
                 isAllowed = false;
                 break;
@@ -46,8 +46,8 @@ public class WorldGenLog extends WorldGeneratorBOP
         {
             for (int i = 0; i < length; i++)
             {
-                if (direction == 0) world.func_147465_d(x + i, y, z, Blocks.log, 4, 2);
-                else world.func_147465_d(x, y, z + i, Blocks.log, 8, 2);
+                if (direction == 0) world.setBlock(x + i, y, z, Blocks.log, 4, 2);
+                else world.setBlock(x, y, z + i, Blocks.log, 8, 2);
             }
             
             return true;

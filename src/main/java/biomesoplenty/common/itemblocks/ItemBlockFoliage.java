@@ -53,7 +53,7 @@ public class ItemBlockFoliage extends ItemColored
 			return 16777215;
 		else
 			//TODO:							 getRenderColor()
-			return BOPBlockHelper.get("foliage").func_149741_i(itemStack.getItemDamage());
+			return BOPBlockHelper.get("foliage").getRenderColor(itemStack.getItemDamage());
 	}
 
 	@Override
@@ -108,10 +108,10 @@ public class ItemBlockFoliage extends ItemColored
 					return itemStack;
 
 				//TODO:	  getBlock()			getMaterial()						water															isAirBlock()
-				if (world.func_147439_a(i, j, k).func_149688_o() == Material.field_151586_h && world.getBlockMetadata(i, j, k) == 0 && world.func_147437_c(i, j + 1, k))
+				if (world.getBlock(i, j, k).getMaterial() == Material.water && world.getBlockMetadata(i, j, k) == 0 && world.isAirBlock(i, j + 1, k))
 				{
 					//TODO:	setBlock()				linkedBlock
-					world.func_147465_d(i, j + 1, k, field_150939_a, 0, 2);
+					world.setBlock(i, j + 1, k, field_150939_a, 0, 2);
 
 					if (!player.capabilities.isCreativeMode)
 					{
