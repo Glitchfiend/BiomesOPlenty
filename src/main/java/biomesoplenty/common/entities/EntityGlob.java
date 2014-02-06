@@ -49,7 +49,7 @@ public class EntityGlob extends EntityLiving implements IMob
         this.dataWatcher.updateObject(16, new Byte((byte)par1));
         this.setSize(0.6F * (float)par1, 0.6F * (float)par1);
         this.setPosition(this.posX, this.posY, this.posZ);
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute((double)(par1 * par1));
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue((double)(par1 * par1));
         this.setHealth(this.getMaxHealth());
         this.experienceValue = par1;
 	}

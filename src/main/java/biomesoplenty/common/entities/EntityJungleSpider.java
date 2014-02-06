@@ -22,9 +22,9 @@ public class EntityJungleSpider extends EntitySpider
     {
         super.applyEntityAttributes();
         //Max health
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(6.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(6.0D);
         //Movement speed
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.95D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.95D);
     }
 
 	@Override

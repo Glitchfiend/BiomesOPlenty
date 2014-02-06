@@ -31,7 +31,7 @@ public class EntityWasp extends EntityFlyingMob
     protected void applyEntityAttributes()
     {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(2.5D);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.5D);
     }
     
     @Override
