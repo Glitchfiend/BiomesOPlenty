@@ -35,30 +35,21 @@ public class BOPReflectionHelper
         }
     }
     
-    public static <T, E> void setPrivateFinalValue(Class <? super T > classToAccess, T instance, E value, String fieldName, String obfFieldName)
+    public static <T, E> void setPrivateFinalValue(Class <? super T > classToAccess, T instance, E value, String... fieldNames)
     {
-    	Field field = null;
-    	
-        try
-        {
-        	if (isDeobfuscated)
-        	{
-                field = ReflectionHelper.findField(classToAccess, fieldName);
-            } 
-        	else
-            {
-                field = ReflectionHelper.findField(classToAccess, ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), obfFieldName));
-            }
-            
-            Field modifiersField = Field.class.getDeclaredField("modifiers");
-            modifiersField.setAccessible(true);
-            modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-            
-            field.set(instance, value);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+    	Field field = ReflectionHelper.findField(classToAccess, ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldNames));
+
+    	try
+    	{
+    		Field modifiersField = Field.class.getDeclaredField("modifiers");
+    		modifiersField.setAccessible(true);
+    		modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+    		field.set(instance, value);
+    	}
+    	catch (Exception e)
+    	{
+    		e.printStackTrace();
+    	}
     }
 }
