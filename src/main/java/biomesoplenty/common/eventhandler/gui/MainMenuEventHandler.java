@@ -20,7 +20,7 @@ public class MainMenuEventHandler
         {
         	GuiMainMenu mainMenu = (GuiMainMenu)event.gui;
         	
-    		BOPReflectionHelper.setPrivateFinalValue(GuiMainMenu.class, mainMenu, bopTitlePanoramaPaths, "titlePanoramaPaths", "titlePanoramaPaths");
+    		BOPReflectionHelper.setPrivateFinalValue(GuiMainMenu.class, mainMenu, bopTitlePanoramaPaths, "titlePanoramaPaths", "field_73978_o");
         }
     }
 }
