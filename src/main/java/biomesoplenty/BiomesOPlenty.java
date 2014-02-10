@@ -88,7 +88,7 @@ public class BiomesOPlenty
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        packetPipeline.initalize();
+        packetPipeline.initialize();
         
         TreecapitatorIntegration.init();
 
