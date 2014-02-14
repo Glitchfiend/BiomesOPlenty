@@ -116,19 +116,21 @@ public class ItemBOPFood extends ItemFood
         switch (itemstack.getItemDamage())
         {
         	case 4:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+                    if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                        player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+                    break;
         	case 5:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+                    if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                        player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+                    break;                    
         	case 6:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
-                    player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
-        		
+                    if (!player.inventory.addItemStackToInventory(new ItemStack(Item.bowlEmpty)))
+                        player.dropPlayerItem(new ItemStack(Item.bowlEmpty.itemID, 1, 0));
+                    break;        		
         	case 10:
-        		if (!player.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle)))
-                    player.dropPlayerItem(new ItemStack(Item.glassBottle.itemID, 1, 0));
-        		break;
+                    if (!player.inventory.addItemStackToInventory(new ItemStack(Item.glassBottle)))
+                        player.dropPlayerItem(new ItemStack(Item.glassBottle.itemID, 1, 0));
+                    break;
         }
         
         return itemstack;
