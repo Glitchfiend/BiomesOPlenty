@@ -120,12 +120,17 @@ public class ItemBOPFood extends ItemFood
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
         			//TODO: player.dropPlayerItem(ItemStack itemStack)?
                     player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
+        		break;
+        		
         	case 5:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
                     player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
+        		break;
+        		
         	case 6:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
                     player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
+        		break;
         		
         	case 10:
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle)))
