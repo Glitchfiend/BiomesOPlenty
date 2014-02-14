@@ -4,7 +4,7 @@ import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.chunk.IChunkProvider;
 import cpw.mods.fml.common.Loader;
 
-public class WorldProviderBopHell extends WorldProviderHell
+public class WorldProviderBOPHell extends WorldProviderHell
 {
     @Override
 	public void registerWorldChunkManager()

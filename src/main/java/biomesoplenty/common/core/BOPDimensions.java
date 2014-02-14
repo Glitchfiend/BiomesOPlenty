@@ -1,7 +1,7 @@
 package biomesoplenty.common.core;
 
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
-import biomesoplenty.common.world.WorldProviderBopHell;
+import biomesoplenty.common.world.WorldProviderBOPHell;
 import biomesoplenty.common.world.WorldProviderPromised;
 import net.minecraftforge.common.DimensionManager;
 
@@ -21,7 +21,7 @@ public class BOPDimensions
 	
 	private static void registerProviders()
 	{
-		DimensionManager.registerProviderType(-1, WorldProviderBopHell.class, true);
+		DimensionManager.registerProviderType(-1, WorldProviderBOPHell.class, true);
         DimensionManager.registerProviderType(BOPConfigurationIDs.promisedLandDimID, WorldProviderPromised.class, false);
 	}
 	

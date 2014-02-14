@@ -233,7 +233,6 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	 */
 	@Override
 	@SuppressWarnings("rawtypes")
-	//TODO: findBiomePosition
 	public ChunkPosition findBiomePosition(int par1, int par2, int par3, List par4List, Random par5Random)
 	{
 		IntCache.resetIntCache();
@@ -263,19 +262,9 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 		return var13;
 	}
 
-	/**
-	 * Calls the WorldChunkManager's biomeCache.cleanupCache()
-	 */
 	@Override
 	public void cleanupCache()
 	{
 		biomeCache.cleanupCache();
 	}
-
-	//public GenLayer[] getModdedBiomeGenerators(WorldType worldType, long seed, GenLayer[] original)
-	//{
-	//    WorldTypeEvent.InitBiomeGens event = new WorldTypeEvent.InitBiomeGens(worldType, seed, original);
-	//    MinecraftForge.TERRAIN_GEN_BUS.post(event);
-	//    return event.newBiomeGens;
-	//}
 }

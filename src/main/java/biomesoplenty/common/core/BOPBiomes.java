@@ -1,7 +1,7 @@
 package biomesoplenty.common.core;
 
 import static biomesoplenty.common.configuration.BOPConfigurationIDs.promisedLandDimID;
-
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraftforge.common.BiomeDictionary;
@@ -88,6 +88,7 @@ public class BOPBiomes
 		registerBiomes();
 		addBiomesToDictionary();
 		addSpawnBiomes();
+		overrideBiomeProperties();
 	}
 	
 	private static void registerBiomes()
@@ -335,6 +336,12 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("wasteland"), Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("wetland"), Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("woodland"), Type.FOREST);
+	}
+	
+	private static void overrideBiomeProperties()
+	{
+		BiomeGenBase.hell.topBlock = Blocks.netherrack;
+		BiomeGenBase.hell.fillerBlock = Blocks.netherrack;
 	}
 	
 	public static void registerOnlyBiome(BOPBiomeEntry biome)
