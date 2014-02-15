@@ -245,6 +245,10 @@ public class BlockBOPSlab extends BlockSlab
 
 	private static int getTypeFromMeta(int meta)
 	{
-		return meta & 7;
+	    meta = meta & 7;
+	    if (meta < rockTypes.length)
+	        meta = 0;
+	    
+		return meta;
 	}
 }
