@@ -18,11 +18,13 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.utils.RandomFiltered;
 import biomesoplenty.common.world.noise.NoiseOctaves;
 
 public class ChunkProviderPromised implements IChunkProvider
 {
 	private Random endRNG;
+	private RandomFiltered endRNG2;
 	private NoiseOctaves field_912_k;
 	private NoiseOctaves field_911_l;
 	private NoiseOctaves field_910_m;
@@ -46,6 +48,8 @@ public class ChunkProviderPromised implements IChunkProvider
 	{
 		endWorld = par1World;
 		endRNG = new Random(par2);
+		// prevent Random.nextInt(-1) crashes
+               this.endRNG2 = new RandomFiltered(par2);
 		field_912_k = new NoiseOctaves(endRNG, 16);
 		field_911_l = new NoiseOctaves(endRNG, 16);
 		field_910_m = new NoiseOctaves(endRNG, 8);
@@ -497,7 +501,7 @@ public class ChunkProviderPromised implements IChunkProvider
 	 {
 		 BlockSand.fallInstantly = true;
 
-		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));
+		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(par1IChunkProvider, endWorld, endRNG2, par2, par3, false));
 
 		 int var4 = par2 * 16;
 		 int var5 = par3 * 16;
@@ -516,9 +520,9 @@ public class ChunkProviderPromised implements IChunkProvider
 			 }
 		 }
 
-		 var6.decorate(endWorld, endWorld.rand, var4, var5);
+		 var6.decorate(endWorld, endRNG2, var4, var5);
 
-		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, endWorld, endWorld.rand, par2, par3, false));
+		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, endWorld, endRNG2, par2, par3, false));
 
 		 BlockSand.fallInstantly = false;
 	 }
