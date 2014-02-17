@@ -74,7 +74,7 @@ public class WorldGenPromisedTree2 extends WorldGenAbstractTree
 			{
 				block = world.getBlock(par3, par4 - 1, par5);
 
-				if ((block == BOPBlockHelper.get("holyGrass") || block == BOPBlockHelper.get("holyDirt")) && par4 < 256 - var6 - 1)
+				if ((block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("holyDirt")) && par4 < 256 - var6 - 1)
 				{
 					//this.setBlockAndMetadata(world, par3, par4 - 1, par5, Blocks.holyDirt.get().blockID, 0);
 					this.setBlockAndNotifyAdequately(world, par3, par4 - 1, par5, BOPBlockHelper.get("holyDirt"), 0);

@@ -76,13 +76,13 @@ public class WorldGenPromisedTree3 extends WorldGenAbstractTree
 				Block block13 = world.getBlock(var3, var4 - 1, var5 - 1);
 				Block block14 = world.getBlock(var3 - 1, var4 - 1, var5 - 1);
 
-				if ((block11 == BOPBlockHelper.get("holyGrass") || block11 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
+				if ((block11 == BOPBlockHelper.get("grass") || block11 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
 				{
-					if ((block24 == BOPBlockHelper.get("holyGrass") || block24 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
+					if ((block24 == BOPBlockHelper.get("grass") || block24 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
 					{
-						if ((block13 == BOPBlockHelper.get("holyGrass") || block13 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
+						if ((block13 == BOPBlockHelper.get("grass") || block13 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
 						{
-							if ((block14 == BOPBlockHelper.get("holyGrass") | block14 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
+							if ((block14 == BOPBlockHelper.get("grass") | block14 == BOPBlockHelper.get("holyDirt")) && var4 < 256 - var6 - 1)
 							{
 								world.setBlock(var3, var4 - 1, var5, BOPBlockHelper.get("holyDirt"), 0, 2);
 								world.setBlock(var3 - 1, var4 - 1, var5, BOPBlockHelper.get("holyDirt"), 0, 2);

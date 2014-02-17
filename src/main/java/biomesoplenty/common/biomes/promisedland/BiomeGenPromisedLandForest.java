@@ -115,7 +115,7 @@ public class BiomeGenPromisedLandForest extends BOPBiome //implements IWCFog
 	@Override
 	public void decorate(World par1World, Random par2Random, int par3, int par4)
 	{
-		//super.decorate(par1World, par2Random, par3, par4);
+		super.decorate(par1World, par2Random, par3, par4);
 		int var5 = 100;
 		int var6;
 		int var7;
