@@ -93,9 +93,9 @@ public class BlockBOPSlab extends BlockSlab
 	public IIcon getIcon(int side, int meta)
 	{
 		if (category == SlabCategory.STONE)
-			return textures[getTypeFromMeta(meta)];
+			return textures[getRockType(meta)];
 		else
-			return textures[(getTypeFromMeta(meta) + category.ordinal() * 8)];
+			return textures[getWoodType(meta)];
 	}
 
 	@Override
@@ -123,7 +123,7 @@ public class BlockBOPSlab extends BlockSlab
 	public String func_150002_b(int meta)
 	{
 		if (category == SlabCategory.STONE)
-			return (new StringBuilder()).append(rockTypes[getTypeFromMeta(meta)]).append("Slab").toString();
+			return (new StringBuilder()).append(rockTypes[getRockType(meta)]).append("Slab").toString();
 		else
 			return (new StringBuilder()).append(woodTypes[getWoodType(meta)]).append("Slab").toString();
 	}
@@ -241,6 +241,15 @@ public class BlockBOPSlab extends BlockSlab
 			return meta;
 
 		return 0;
+	}
+	
+	private int getRockType(int meta)
+	{
+	    meta = getTypeFromMeta(meta);
+	    if (meta < rockTypes.length)
+	        return meta;
+	    
+	    return 0;
 	}
 
 	private static int getTypeFromMeta(int meta)
