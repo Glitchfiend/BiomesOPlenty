@@ -94,9 +94,9 @@ tile.saplings.magicSapling.name=Magischer Setzling
 tile.saplings.darkSapling.name=Dunkler Setzling
 tile.saplings.deadSapling.name=Sterbender Setzling
 tile.saplings.firSapling.name=Tannensetzling
-tile.saplings.holySapling.name=Heiliger Setzling
+tile.saplings.holySapling.name=Loftwood-Setzling
 tile.saplings.orangeautumnSapling.name=Oranger Herbstsetzling
-tile.saplings.originSapling.name=Ursprünglicher Setzling
+tile.saplings.originSapling.name=Ursprungssetzling
 tile.saplings.pinkcherrySapling.name=Pinkfarbener Kirschsetzling
 tile.saplings.mapleSapling.name=Ahornsetzling
 tile.saplings.whitecherrySapling.name=Weißer Kirschsetzling
@@ -110,12 +110,13 @@ tile.colorizedSaplings.palmSapling.name=Palmsetzling
 tile.colorizedSaplings.redwoodSapling.name=Mammutbaumsetzling
 tile.colorizedSaplings.willowSapling.name=Weidensetzling
 tile.colorizedSaplings.pineSapling.name=Piniensetzling
+tile.colorizedSaplings.mahoganySapling.name=Mahagonisetzling
 
 tile.willow.name=Weide
 tile.ivy.name=Efeu
 tile.bamboo.name=Bambus
 tile.mudBricksStairs.name=Lehmziegelstufen
-tile.originGrass.name=Ursprüngliches Gras
+tile.originGrass.name=Ursprungsgras
 tile.longGrass.name=Langes Gras
 tile.overgrownNetherrack.name=Überwucherter Netherstein
 tile.treeMoss.name=Baummoos
@@ -190,7 +191,7 @@ tile.planks.sacredoakPlank.name=Himmeleichenholzbretter
 tile.planks.cherryPlank.name=Kirschholzbretter
 tile.planks.darkPlank.name=Dunkle Holzbretter
 tile.planks.firPlank.name=Tannenholzbretter
-tile.planks.holyPlank.name=Heilige Holzbretter
+tile.planks.holyPlank.name=Loftwood-Bretter
 tile.planks.magicPlank.name=Magische Holzbretter
 tile.planks.mangrovePlank.name=Mangrovenholzbretter
 tile.planks.palmPlank.name=Palmholzbretter
@@ -200,13 +201,14 @@ tile.planks.bambooThatching.name=Bambusbretter
 tile.planks.pinePlank.name=Pinienholzbretter
 tile.planks.hellBarkPlank.name=Höllrindenholzbretter
 tile.planks.jacarandaPlank.name=Jacarandaholzbretter
+tile.planks.mahoganyPlank.name=Mahagoniholzbretter
 
 tile.logs1.sacredoakWood.name=Himmeleichenholz
 tile.logs1.cherryWood.name=Kirschholz
 tile.logs1.darkWood.name=Dunkles Holz
 tile.logs1.firWood.name=Tannenholz
 
-tile.logs2.holyWood.name=Heiliges Holz
+tile.logs2.holyWood.name=Loftwood
 tile.logs2.magicWood.name=Magisches Holz
 tile.logs2.mangroveWood.name=Mangrovenholz
 tile.logs2.palmWood.name=Palmholz
@@ -219,32 +221,34 @@ tile.logs3.bigflowerstemWood.name=Riesiger Blumenstamm
 tile.logs4.pineWood.name=Pinienholz
 tile.logs4.hellbarkWood.name=Höllrindenholz
 tile.logs4.jacarandaWood.name=Jacarandaholz
+tile.logs4.mahoganyWood.name=Mahagoniholz
 
 tile.leaves1.yellowautumn.name=Gelbes Herbstlaub
-tile.leaves1.bamboo.name=Bambuslaub
+tile.leaves1.bamboo.name=Bambusblätter
 tile.leaves1.magic.name=Magisches Laub
 tile.leaves1.dark.name=Dunkles Laub
 
 tile.leaves2.dead.name=Sterbendes Laub
-tile.leaves2.fir.name=Tannenlaub
-tile.leaves2.holy.name=Heiliges Laub
+tile.leaves2.fir.name=Tannenblätter
+tile.leaves2.holy.name=Loftwood-Blätter
 tile.leaves2.orangeautumn.name=Orangefarbenes Herbstlaub
 
-tile.leaves3.origin.name=Ursprüngliches Laub
+tile.leaves3.origin.name=Ursprungslaub
 tile.leaves3.pinkcherry.name=Pinkfarbenes Kirschlaub
-tile.leaves3.maple.name=Ahornlaub
+tile.leaves3.maple.name=Ahornblätter
 tile.leaves3.whitecherry.name=Weißes Kirschlaub
 
-tile.leaves4.hellbark.name=Höllrindenlaub
-tile.leaves4.jacaranda.name=Jacarandalaub
+tile.leaves4.hellbark.name=Höllrindenblätter
+tile.leaves4.jacaranda.name=Jacarandablätter
 
-tile.colorizedLeaves1.sacredoak.name=Himmeleichenlaub
-tile.colorizedLeaves1.mangrove.name=Mangrovenlaub
-tile.colorizedLeaves1.palm.name=Palmlaub
-tile.colorizedLeaves1.redwood.name=Mammutbaumlaub
+tile.colorizedLeaves1.sacredoak.name=Himmeleichenblätter
+tile.colorizedLeaves1.mangrove.name=Mangrovenblätter
+tile.colorizedLeaves1.palm.name=Palmblätter
+tile.colorizedLeaves1.redwood.name=Mammutbaumblätter
 
-tile.colorizedLeaves2.willow.name=Weidenlaub
-tile.colorizedLeaves2.pine.name=Pinienlaub
+tile.colorizedLeaves2.willow.name=Weidenblätter
+tile.colorizedLeaves2.pine.name=Pinienblätter
+tile.colorizedLeaves2.mahogany.name=Mahagoniblätter
 
 tile.appleLeaves.name=Apfellaub
 tile.persimmonLeaves.name=Persimonenlaub
@@ -253,7 +257,7 @@ tile.woodenDoubleSlab1.sacredoakSlab.name=Himmeleichenholzstufe
 tile.woodenDoubleSlab1.cherrySlab.name=Kirschholzstufe
 tile.woodenDoubleSlab1.darkSlab.name=Dunkle Holzstufe
 tile.woodenDoubleSlab1.firSlab.name=Tannenholzstufe
-tile.woodenDoubleSlab1.holySlab.name=Heilige Holzstufe
+tile.woodenDoubleSlab1.holySlab.name=Loftwood-Holzstufe
 tile.woodenDoubleSlab1.magicSlab.name=Magische Holzstufe
 tile.woodenDoubleSlab1.mangroveSlab.name=Mangrovenholzstufe
 tile.woodenDoubleSlab1.palmSlab.name=Palmholzstufe
@@ -262,12 +266,13 @@ tile.woodenDoubleSlab2.willowSlab.name=Weidenholzstufe
 tile.woodenDoubleSlab2.pineSlab.name=Pinienholzstufe
 tile.woodenDoubleSlab2.hell_barkSlab.name=Höllrindenholzstufe
 tile.woodenDoubleSlab2.jacarandaSlab.name=Jacarandaholzstufe
+tile.woodenDoubleSlab2.mahoganySlab.name=Mahagoniholzstufe
 
 tile.woodenSingleSlab1.sacredoakSlab.name=Himmeleichenholzstufe
 tile.woodenSingleSlab1.cherrySlab.name=Kirschholzstufe
 tile.woodenSingleSlab1.darkSlab.name=Dunkle Holzstufe
 tile.woodenSingleSlab1.firSlab.name=Tannenholzstufe
-tile.woodenSingleSlab1.holySlab.name=Heilige Holzstufe
+tile.woodenSingleSlab1.holySlab.name=Loftwood-Holzstufe
 tile.woodenSingleSlab1.magicSlab.name=Magische Holzstufe
 tile.woodenSingleSlab1.mangroveSlab.name=Mangrovenholzstufe
 tile.woodenSingleSlab1.palmSlab.name=Palmholzstufe
@@ -276,12 +281,13 @@ tile.woodenSingleSlab2.willowSlab.name=Weidenholzstufe
 tile.woodenSingleSlab2.pineSlab.name=Pinienholzstufe
 tile.woodenSingleSlab2.hell_barkSlab.name=Höllrindenholzstufe
 tile.woodenSingleSlab2.jacarandaSlab.name=Jacarandaholzstufe
+tile.woodenSingleSlab2.mahoganySlab.name=Mahagoniholzstufe
 
 tile.sacredoakStairs.name=Himmeleichenholztreppe
 tile.cherryStairs.name=Kirschholztreppe
 tile.darkStairs.name=Dunkle Holztreppe
 tile.firStairs.name=Tannenholztreppe
-tile.holyStairs.name=Heilige Holztreppe
+tile.holyStairs.name=Loftwood-Holztreppe
 tile.magicStairs.name=Magische Holztreppe
 tile.mangroveStairs.name=Mangrovenholztreppe
 tile.palmStairs.name=Palmholztreppe
@@ -290,6 +296,7 @@ tile.willowStairs.name=Weidenholztreppe
 tile.pineStairs.name=Pinienholztreppe
 tile.hellBarkStairs.name=Höllrindenholztreppe
 tile.jacarandaStairs.name=Jacarandaholztreppe
+tile.mahoganyStairs.name=Mahagoniholztreppe
 
 item.food.berries.name=Beere
 item.food.shroompowder.name=Pilzpulver
@@ -323,6 +330,7 @@ item.misc.whitedye.name=Weißer Farbstoff
 item.misc.blackdye.name=Schwarzer Farbstoff
 item.misc.ghastlysoul.name=Umhergeisternde Seele
 item.misc.pixiedust.name=Feenstaub
+item.misc.ichor.name=Ichor
 
 item.jarEmpty.name=Leeres Glas
 item.jarFilled.jarhoney.name=Honigglas
@@ -373,11 +381,11 @@ item.ancientStaff.ancientstaffbroken.name=Verbrauchter Antiker Stab
 
 item.enderporter.name=Enderporter
 
-item.bopDisc.name=Schallplatte
-item.bopDiscMud.name=Verdreckte Schallplatte
+item.record_wanderer.name=Schallplatte
+item.record_corruption.name=Verdreckte Schallplatte
 
-item.bopdisc.desc=Tim Rurkowski - Wanderer
-item.bopdiscmud.desc=???
+item.record_wanderer.desc=Tim Rurkowski - Wanderer
+item.record_corruption.desc=???
 
 item.flowerBand.dullflowerband.name=Einfaches Blumenband
 item.flowerBand.plainflowerband.name=Blumenband
@@ -392,17 +400,17 @@ item.biomeFinder.name=Biomradar
 item.biomeEssence.name=Biomessenz
 
 item.bopBucket.amethyst_empty.name=Amethyst-Eimer
-item.bopBucket.amethyst_spring_water.name=Amethyst-Eimer mit Quellwasser
+item.bopBucket.spring_water.name=Amethyst-Eimer mit Quellwasser
 item.bopBucket.liquid_poison.name=Eimer mit Flüssigem Gift
 item.bopBucket.honey.name=Eimer mit Honig
 
-tile.bop.liquidPoison.name=Flüssiges Gift
-tile.bop.springWater.name=Quellwasser
-tile.bop.honey.name=Honig
+tile.poison.name=Gift
+tile.springWater.name=Quellwasser
+tile.honey.name=Honig
 
-fluid.bop.liquidPoison=Flüssiges Gift
-fluid.bop.springWater=Quellwasser
-fluid.bop.honey.name=Honig
+fluid.poison=Gift
+fluid.springWater=Quellwasser
+fluid.honey.name=Honig
 
 phrase.bop.promisedPortalOverworld=Ein Portal zum gelobten Land ist im Himmel entstanden.
 phrase.bop.promisedPortalOther=Ein Portal ist im Himmel entstanden.
