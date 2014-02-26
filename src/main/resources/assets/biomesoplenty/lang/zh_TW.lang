@@ -5,7 +5,7 @@ tile.bop.generic.ash_stone.name=火山灰巖
 tile.bop.generic.hard_sand.name=硬化沙子
 tile.bop.generic.hard_dirt.name=硬化泥土
 tile.bop.generic.hard_ice.name=硬化冰塊
-tile.bop.generic.dried_dirt.name=干燥泥土
+tile.bop.generic.dried_dirt.name=乾燥泥土
 tile.bop.generic.crag_rock.name=崖壁巖石
 tile.bop.generic.mud_brick.name=泥巴磚塊
 tile.bop.generic.holy_dirt.name=純凈泥土
@@ -28,7 +28,7 @@ tile.bop.plants.barley.name=大麥
 tile.bop.plants.cattail.name=香蒲
 tile.bop.plants.cattailtop.name=香蒲
 tile.bop.plants.cattailbottom.name=香蒲
-tile.bop.plants.reed.name=蘆葦
+tile.bop.plants.rivercane.name=河水甘蔗
 tile.bop.plants.cactus.name=仙人球
 tile.bop.plants.witherwart.name=凋零疣
 tile.bop.plants.reed.name=蘆葦
@@ -110,7 +110,7 @@ tile.bop.colorizedSaplings.palmSapling.name=棕櫚樹苗
 tile.bop.colorizedSaplings.redwoodSapling.name=紅木樹苗
 tile.bop.colorizedSaplings.willowSapling.name=柳樹樹苗
 tile.bop.colorizedSaplings.pineSapling.name=松樹樹苗
-tile.bop.colorizedSaplings.sacredoakSapling.name=神圣橡樹樹苗
+tile.bop.colorizedSaplings.sacredoakSapling.name=神聖橡樹樹苗
 
 tile.bop.willow.name=柳樹
 tile.bop.ivy.name=藤蔓
@@ -155,26 +155,25 @@ tile.bop.amethystOre.topazore.name=黃玉礦石
 tile.bop.amethystOre.topazblock.name=黃玉塊
 tile.bop.amethystOre.tanzaniteore.name=坦桑礦石
 tile.bop.amethystOre.tanzaniteblock.name=坦桑石塊
-tile.bop.amethystOre.apatiteore.name=磷灰石礦石
-tile.bop.amethystOre.apatiteblock.name=磷灰石塊
+tile.bop.amethystOre.malachiteore.name=孔雀石礦石
+tile.bop.amethystOre.malachiteblock.name=孔雀石塊
 tile.bop.amethystOre.sapphireore.name=藍寶石礦石
 tile.bop.amethystOre.sapphireblock.name=藍寶石塊
 
 tile.bop.moss.name=苔蘚
 
-tile.bop.cloud.name=云塊
+tile.bop.cloud.name=雲塊
+
+tile.bop.hive.honeycomb.name=蜂窩塊
+tile.bop.hive.hive.name=蜂巢塊
+tile.bop.hive.honeycombempty.name=空蜂窩塊
+tile.bop.hive.honeycombfilled.name=填滿蜂窩塊
+
+tile.bop.honeyBlock.name=蜂蜜塊
 
 tile.bop.bones.bones_small.name=一小截骨頭
 tile.bop.bones.bones_medium.name=一截骨頭
 tile.bop.bones.bones_large.name=一大截骨頭
-
-tile.bop.glass.celestialLens.name=仙域透鏡
-
-tile.bop.glass.sacrificialfocus_empty.name=獻祭之核
-tile.bop.glass.sacrificialfocus_active.name=獻祭之核
-tile.bop.glass.sacrificialfocus_villager.name=獻祭之核
-
-tile.bop.altar.altarframe.name=祭壇框架
 
 tile.bop.puddle.name=膠土
 
@@ -231,17 +230,18 @@ tile.bop.leaves1.bamboo.name=竹葉
 tile.bop.leaves1.magic.name=魔法樹葉
 tile.bop.leaves1.dark.name=黑暗樹葉
 
-tile.bop.leaves1.dead.name=垂死樹葉
-tile.bop.leaves1.fir.name=杉樹樹葉
-tile.bop.leaves1.holy.name=閣樓樹樹葉
-tile.bop.leaves1.orangeautumn.name=橙色秋天樹葉
+tile.bop.leaves2.dead.name=垂死樹葉
+tile.bop.leaves2.fir.name=杉樹樹葉
+tile.bop.leaves2.holy.name=閣樓樹樹葉
+tile.bop.leaves2.orangeautumn.name=橙色秋天樹葉
 
-tile.bop.leaves2.origin.name=源樹葉
-tile.bop.leaves2.pinkcherry.name=粉櫻桃樹葉
-tile.bop.leaves2.maple.name=楓樹葉
-tile.bop.leaves2.whitecherry.name=白櫻桃樹葉
-tile.bop.leaves2.hellbark.name=地獄皮樹葉
-tile.bop.leaves2.jacaranda.name=藍花楹樹葉
+tile.bop.leaves3.origin.name=源樹葉
+tile.bop.leaves3.pinkcherry.name=粉櫻桃樹葉
+tile.bop.leaves3.maple.name=楓樹葉
+tile.bop.leaves3.whitecherry.name=白櫻桃樹葉
+
+tile.bop.leaves4.hellbark.name=地獄皮樹葉
+tile.bop.leaves4.jacaranda.name=藍花楹樹葉
 
 tile.bop.woodenDoubleSlab1.acaciaSlab.name=刺槐樹木板
 tile.bop.woodenDoubleSlab1.cherrySlab.name=櫻桃樹木板
@@ -285,17 +285,17 @@ tile.bop.pineStairs.name=松樹木樓梯
 tile.bop.hellBarkStairs.name=地獄皮木樓梯
 tile.bop.jacarandaStairs.name=藍花楹樹樓梯
 
-tile.bop.leavesColorized.acacia.name=刺槐樹葉
-tile.bop.leavesColorized.mangrove.name=紅樹葉
-tile.bop.leavesColorized.palm.name=棕櫚葉
-tile.bop.leavesColorized.redwood.name=紅杉葉
+tile.bop.leavesColorized1.acacia.name=刺槐樹葉
+tile.bop.leavesColorized1.mangrove.name=紅樹葉
+tile.bop.leavesColorized1.palm.name=棕櫚葉
+tile.bop.leavesColorized1.redwood.name=紅杉葉
 
-tile.bop.leavesColorized.willow.name=柳樹葉
-tile.bop.leavesColorized.pine.name=松樹葉
+tile.bop.leavesColorized2.willow.name=柳樹葉
+tile.bop.leavesColorized2.pine.name=松樹葉
 
 item.bop.food.berries.name=漿果
 item.bop.food.shroompowder.name=蘑菇粉
-item.bop.food.wildcarrots.name=野蘿卜
+item.bop.food.wildcarrots.name=野生蘿蔔
 item.bop.food.sunflowerseeds.name=葵花籽
 item.bop.food.saladfruit.name=水果沙拉
 item.bop.food.saladveggie.name=蔬菜沙拉
@@ -363,7 +363,7 @@ item.bop.scytheWood.name=木頭鐮刀
 item.bop.scytheStone.name=石頭鐮刀
 item.bop.scytheIron.name=鐵鐮刀
 item.bop.scytheGold.name=金鐮刀
-item.bop.scytheDiamond.name=鉆石鐮刀
+item.bop.scytheDiamond.name=鑽石鐮刀
 item.bop.scytheMud.name=泥土鐮刀
 item.bop.scytheAmethyst.name=紫晶鐮刀
 
