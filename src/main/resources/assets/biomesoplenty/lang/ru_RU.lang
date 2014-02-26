@@ -326,7 +326,7 @@ item.misc.pixiedust.name=Пыльца феи
 
 item.jarEmpty.name=Пустая банка
 item.jarFilled.jarhoney.name=Банка мёда
-item.jarFilled.jarpoison.name=Poison Extract Jar
+item.jarFilled.jarpoison.name=Банка ядовитого экстракта
 item.jarFilled.jarpixie.name=Банка для фей
 
 item.gems.amethyst.name=Аметист
@@ -350,7 +350,7 @@ item.bootsMud.name=Ботинки из грязи
 item.pickaxeAmethyst.name=Аметистовая кирка
 item.axeAmethyst.name=Аметистовый топор
 item.shovelAmethyst.name=Аметистовая лопата
-item.swordAmethyst.name=Апетистовый меч
+item.swordAmethyst.name=Аметистовый меч
 item.hoeAmethyst.name=Аметистовая мотыга
 item.helmetAmethyst.name=Аметистовый шлем
 item.chestplateAmethyst.name=Аметистовая кираса
@@ -422,19 +422,19 @@ entity.BiomesOPlenty.Wasp.name=Оса
 entity.BiomesOPlenty.Bird.name=Птица
 entity.BiomesOPlenty.Pixie.name=Фея
 
-achievement.bop.achFlower=Цветочное дитя
+achievement.bop.achFlower=Дитя цветов
 achievement.bop.achFlower.desc=Станьте единым с природой!
 
 achievement.bop.achBerry=Сбор ягод
 achievement.bop.achBerry.desc=Простые вещи в жизни...
 achievement.bop.achMoss=A Rolling Stone
 achievement.bop.achMoss.desc=It gathers none of this.
-achievement.bop.achThorn=Rather Thorny
+achievement.bop.achThorn=Довольно колючий
 achievement.bop.achThorn.desc=Смертоноснее, чем кактусы!
-achievement.bop.achCoral=Nutritious
-achievement.bop.achCoral.desc=How about a big piece of steamed coral?
+achievement.bop.achCoral=Питательно
+achievement.bop.achCoral.desc=Как на счет большой порции тушеных кораллов?
 
-achievement.bop.achFlowerBand=Цветочная энергия
+achievement.bop.achFlowerBand=Энергия цветов
 achievement.bop.achFlowerBand.desc=Привлекательный человек.
 achievement.bop.achDartBlower=Полная автоматика
 achievement.bop.achDartBlower.desc=Ты выбьешь себе глаз, дитя!
@@ -448,7 +448,7 @@ achievement.bop.achHoney.desc=Земли крови и мёда.
 achievement.bop.achWitherWart=Тление
 achievement.bop.achWitherWart.desc=Мастер маскировки.
 achievement.bop.achGrave=Могильщик
-achievement.bop.achGrave.desc=The next Dampe.
+achievement.bop.achGrave.desc=Придется попотеть.
 achievement.bop.achPhantom=Скрытая угроза
 achievement.bop.achPhantom.desc=Похититель душ...
 
@@ -457,10 +457,10 @@ achievement.bop.achPromised.desc=Добро пожаловать в "Землю 
 achievement.bop.achCelestial=Синее небо
 achievement.bop.achCelestial.desc=Я тот, кто...блоки...
 achievement.bop.achAmbrosia=Напиток богов
-achievement.bop.achAmbrosia.desc=Stay thirst, my friends.
+achievement.bop.achAmbrosia.desc=Утолите жажду, друзья мои.
 
-achievement.bop.achAllBOP=Achievements O' Plenty
-achievement.bop.achAllBOP.desc=Вы получили все достижения Biomes O' Plenty!
+achievement.bop.achAllBOP=Достижения O' Plenty
+achievement.bop.achAllBOP.desc=Вы получили все достижения биомов O' Plenty!
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
