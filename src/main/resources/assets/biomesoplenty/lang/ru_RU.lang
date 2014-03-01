@@ -110,6 +110,7 @@ tile.colorizedSaplings.palmSapling.name=Саженец пальмы
 tile.colorizedSaplings.redwoodSapling.name=Саженец красного дерева
 tile.colorizedSaplings.willowSapling.name=Саженец ивы
 tile.colorizedSaplings.pineSapling.name=Саженец сосны
+tile.colorizedSaplings.mahoganySapling.name=Саженец махагониевого дерева
 
 tile.willow.name=Ива
 tile.ivy.name=Плющ
@@ -200,6 +201,7 @@ tile.planks.bambooThatching.name=Бамбук
 tile.planks.pinePlank.name=Доски из древесины сосны
 tile.planks.hellBarkPlank.name=Доски из древесины адского дерева
 tile.planks.jacarandaPlank.name=Доски из древесины жакаранды
+tile.planks.mahoganyPlank.name=Доски из древесины махагониевого дерева
 
 tile.logs1.sacredoakWood.name=Древесина священного дуба
 tile.logs1.cherryWood.name=Древесина вишнёвого дерева
@@ -219,6 +221,7 @@ tile.logs3.bigflowerstemWood.name=Ствол гигантского цветка
 tile.logs4.pineWood.name=Древесина сосны
 tile.logs4.hellbarkWood.name=Древесина адского дерева
 tile.logs4.jacarandaWood.name=Древесина жакаранды
+tile.logs4.mahoganyWood.name=Махагониевая древесина
 
 tile.leaves1.yellowautumn.name=Жёлтая осенняя листва
 tile.leaves1.bamboo.name=Бамбуковая листва
@@ -245,6 +248,7 @@ tile.colorizedLeaves1.redwood.name=Листва красного дерева
 
 tile.colorizedLeaves2.willow.name=Ивовая листва
 tile.colorizedLeaves2.pine.name=Сосновая листва
+tile.colorizedLeaves2.mahogany.name=Махагониевая листва
 
 tile.appleLeaves.name=Листва яблони
 tile.persimmonLeaves.name=Листва хурмы
@@ -262,6 +266,7 @@ tile.woodenDoubleSlab2.willowSlab.name=Плита из древесины ивы
 tile.woodenDoubleSlab2.pineSlab.name=Плита из древесины сосны
 tile.woodenDoubleSlab2.hell_barkSlab.name=Плита из древесины адского дерева
 tile.woodenDoubleSlab2.jacarandaSlab.name=Плита из древесины жакаранды
+tile.woodenDoubleSlab2.mahoganySlab.name=Плита из махагониевой древесины
 
 tile.woodenSingleSlab1.sacredoakSlab.name=Плита из древесины священного дуба
 tile.woodenSingleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
@@ -276,6 +281,7 @@ tile.woodenSingleSlab2.willowSlab.name=Плита из древесины ивы
 tile.woodenSingleSlab2.pineSlab.name=Плита из древесины сосны
 tile.woodenSingleSlab2.hell_barkSlab.name=Плита из древесины адского дерева
 tile.woodenSingleSlab2.jacarandaSlab.name=Плита из древесины жакаранды
+tile.woodenSingleSlab2.mahoganySlab.name=Плита из махагониевой древесины
 
 tile.sacredoakStairs.name=Ступеньки из древесины священного дуба
 tile.cherryStairs.name=Ступеньки из древесины вишнёвого дерева
@@ -290,6 +296,7 @@ tile.willowStairs.name=Ступеньки из древесины ивы
 tile.pineStairs.name=Ступеньки из древесины сосны
 tile.hellBarkStairs.name=Ступеньки из древесины адского дерева
 tile.jacarandaStairs.name=Ступеньки из древесины жакаранды
+tile.mahoganyStairs.name=Ступеньки из махагониевой древесины
 
 item.food.berries.name=Ягода
 item.food.shroompowder.name=Молотый гриб
@@ -323,6 +330,7 @@ item.misc.whitedye.name=Белый краситель
 item.misc.blackdye.name=Чёрный краситель
 item.misc.ghastlysoul.name=Жуткий дух
 item.misc.pixiedust.name=Пыльца феи
+item.misc.ichor.name=Ихор
 
 item.jarEmpty.name=Пустая банка
 item.jarFilled.jarhoney.name=Банка мёда
@@ -373,11 +381,11 @@ item.ancientStaff.ancientstaffbroken.name=Истощённый древний п
 
 item.enderporter.name=Телепортер Края
 
-item.bopDisc.name=Музыкальная пластинка
-item.bopDiscMud.name=Музыкальная пластинка
+item.record_wanderer.name=Музыкальная пластинка
+item.record_corruption.name=Музыкальная пластинка
 
-item.bopdisc.desc=Tim Rurkowski - Wanderer
-item.bopdiscmud.desc=???
+item.record_wanderer.des=Tim Rurkowski - Wanderer
+item.record_corruption.desc=???
 
 item.flowerBand.dullflowerband.name=Скучный венок
 item.flowerBand.plainflowerband.name=Обычный венок
@@ -389,20 +397,20 @@ item.flippers.name=Ласты
 
 item.biomeBook.name=Book O' Biomes
 item.biomeFinder.name=Радар биомов
-item.biomeScroll.name=Свиток биомов
+item.biomeEssence.name=Эссенция биомов
 
 item.bopBucket.amethyst_empty.name=Аметистовое ведро
-item.bopBucket.amethyst_spring_water.name=Аметистовое ведро родниковой воды
+item.bopBucket.spring_water.name=Аметистовое ведро родниковой воды
 item.bopBucket.liquid_poison.name=Ведро жидкого яда
 item.bopBucket.honey.name=Ведро мёда
 
-tile.bop.liquidPoison.name=Жидкий яд
-tile.bop.springWater.name=Родниковая вода
-tile.bop.honey.name=Мёд
+tile.poison.name=Яд
+tile.springWater.name=Родниковая вода
+tile.honey.name=Мёд
 
-fluid.bop.liquidPoison=Жидкий яд
-fluid.bop.springWater=Родниковая вода
-fluid.bop.honey.name=Мёд
+fluid.poison=Яд
+fluid.springWater=Родниковая вода
+fluid.honey.name=Мёд
 
 phrase.bop.promisedPortalOverworld=Врата в "Землю Обетованную" открылись выше.
 phrase.bop.promisedPortalOther=Врата в обычный мир открылись выше.
@@ -460,7 +468,7 @@ achievement.bop.achAmbrosia=Напиток богов
 achievement.bop.achAmbrosia.desc=Утолите жажду, друзья мои.
 
 achievement.bop.achAllBOP=Достижения O' Plenty
-achievement.bop.achAllBOP.desc=Вы получили все достижения биомов O' Plenty!
+achievement.bop.achAllBOP.desc=Вы получили все достижения модификации Biomes O' Plenty!
 
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
