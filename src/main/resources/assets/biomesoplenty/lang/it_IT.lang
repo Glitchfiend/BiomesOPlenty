@@ -110,7 +110,7 @@ tile.colorizedSaplings.palmSapling.name=Arboscello di Palma
 tile.colorizedSaplings.redwoodSapling.name=Arboscello di Redwood
 tile.colorizedSaplings.willowSapling.name=Arboscello di Salice
 tile.colorizedSaplings.pineSapling.name=Arboscello di Pino
-tile.colorizedSaplings.mahoganySapling.name=Mahogany Sapling
+tile.colorizedSaplings.mahoganySapling.name=Arboscello di Mogano
 
 tile.willow.name=Salice
 tile.ivy.name=Edera
@@ -201,7 +201,7 @@ tile.planks.bambooThatching.name=Fascio di Bambù
 tile.planks.pinePlank.name=Assi in Legno di Pino
 tile.planks.hellBarkPlank.name=Assi in Legno di Corteccia Infernale
 tile.planks.jacarandaPlank.name=Assi in Legno di Jacaranda
-tile.planks.mahoganyPlank.name=Mahogany Wood Planks
+tile.planks.mahoganyPlank.name=Assi in Legno di Mogano
 
 tile.logs1.sacredoakWood.name=Legno di Quercia Consacrata
 tile.logs1.cherryWood.name=Legno di Ciliegio
@@ -221,7 +221,7 @@ tile.logs3.bigflowerstemWood.name=Stelo di Fiore Gigante
 tile.logs4.pineWood.name=Legno di Pino
 tile.logs4.hellbarkWood.name=Legno di Corteccia Infernale
 tile.logs4.jacarandaWood.name=Legno di Jacaranda
-tile.logs4.mahoganyWood.name=Mahogany Wood
+tile.logs4.mahoganyWood.name=Legno di Mogano
 
 tile.leaves1.yellowautumn.name=Foglie Autunnali Gialle
 tile.leaves1.bamboo.name=Foglie di Bambù
@@ -248,7 +248,7 @@ tile.colorizedLeaves1.redwood.name=Foglie di Redwood
 
 tile.colorizedLeaves2.willow.name=Foglie di Salice
 tile.colorizedLeaves2.pine.name=Foglie di Pino
-tile.colorizedLeaves2.mahogany.name=Mahogany Leaves
+tile.colorizedLeaves2.mahogany.name=Foglie di Mogano
 
 tile.appleLeaves.name=Foglie di Melo
 tile.persimmonLeaves.name=Foglie di Cachi
@@ -266,7 +266,7 @@ tile.woodenDoubleSlab2.willowSlab.name=Lastra in Legno di Salice
 tile.woodenDoubleSlab2.pineSlab.name=Lastra in Legno di Pino
 tile.woodenDoubleSlab2.hell_barkSlab.name=Lastra in Legno di Corteccia Infernale
 tile.woodenDoubleSlab2.jacarandaSlab.name=Lastra in Legno di Jacaranda
-tile.woodenDoubleSlab2.mahoganySlab.name=Mahogany Wood Slab
+tile.woodenDoubleSlab2.mahoganySlab.name=Lastra in Legno di Mogano
 
 tile.woodenSingleSlab1.sacredoakSlab.name=Lastra in Legno di Quercia Consacrata
 tile.woodenSingleSlab1.cherrySlab.name=Lastra in Legno di Ciliegio
@@ -281,7 +281,7 @@ tile.woodenSingleSlab2.willowSlab.name=Lastra in Legno di Salice
 tile.woodenSingleSlab2.pineSlab.name=Lastra in Legno di Pino
 tile.woodenSingleSlab2.hell_barkSlab.name=Lastra in Legno di Corteccia Infernale
 tile.woodenSingleSlab2.jacarandaSlab.name=Lastra in Legno di Jacaranda
-tile.woodenSingleSlab2.mahoganySlab.name=Mahogany Wood Slab
+tile.woodenSingleSlab2.mahoganySlab.name=Lastra in Legno di Mogano
 
 tile.sacredoakStairs.name=Scalini in Legno di Quercia Consacrata
 tile.cherryStairs.name=Scalini in Legno di Ciliegio
@@ -296,7 +296,7 @@ tile.willowStairs.name=Scalini in Legno di Salice
 tile.pineStairs.name=Scalini in Legno di Pino
 tile.hellBarkStairs.name=Scalini in Legno di Corteccia Infernale
 tile.jacarandaStairs.name=Scalini in Legno di Jacaranda
-tile.mahoganyStairs.name=Mahogany Wood Stairs
+tile.mahoganyStairs.name=Scalini in Legno di Mogano
 
 item.food.berries.name=Bacca
 item.food.shroompowder.name=Polvere di Fungo
@@ -330,7 +330,7 @@ item.misc.whitedye.name=Tintura Bianca
 item.misc.blackdye.name=Tintura Nera
 item.misc.ghastlysoul.name=Anima Dannata
 item.misc.pixiedust.name=Polvere di Pixie
-item.misc.ichor.name=Ichor
+item.misc.ichor.name=Icore
 
 item.jarEmpty.name=Barattolo Vuoto
 item.jarFilled.jarhoney.name=Barattolo di Miele
