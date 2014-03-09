@@ -40,7 +40,7 @@ public class TickHandlerClient implements ITickHandler
 		    player.sendChatToPlayer(updateMessage);
 		}
 
-		if (Version.needsUpdateNoticeAndMarkAsSeen()) 
+		if (Version.needsUpdateNoticeAndMarkAsSeen() && Version.getRecommendedVersion() != null) 
 		{
 		    ChatMessageComponent updateMessage = new ChatMessageComponent();
 		    updateMessage.setColor(EnumChatFormatting.RED);    

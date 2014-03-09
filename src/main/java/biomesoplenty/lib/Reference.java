@@ -26,6 +26,6 @@ public class Reference
     }
     
     public static final String VERSION;
-    public static final String REMOTE_VERSION_FILE = "https://raw.github.com/BiomesOPlenty/BiomesOPlenty/master/version.txt";
-    public static final String REMOTE_CHANGELOG_ROOT = "https://raw.github.com/BiomesOPlenty/BiomesOPlenty/master/changelog/";
+    public static final String REMOTE_VERSION_FILE = "https://raw.github.com/Glitchfiend/BiomesOPlenty/master/version.txt";
+    public static final String REMOTE_CHANGELOG_ROOT = "https://raw.github.com/Glitchfiend/BiomesOPlenty/master/changelog/";
 }
