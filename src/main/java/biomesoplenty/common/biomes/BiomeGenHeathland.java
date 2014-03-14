@@ -41,6 +41,7 @@ public class BiomeGenHeathland extends BOPBiome
 		this.bopWorldFeatures.bopFlowersPerChunk = 20;
 		this.bopWorldFeatures.berryBushesPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 5;
+		this.bopWorldFeatures.leafPilesPerChunk = 10;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	

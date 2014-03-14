@@ -6,6 +6,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -38,7 +39,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch"};
+	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
 
 	private IIcon[] textures;
 	public IIcon shrubBranch;
@@ -158,6 +159,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		//TODO:					  getBlock()
 		Block block = world.getBlock(x, y - 1, z);
+		boolean solid = block.isOpaqueCube();
 		
     	if (block == Blocks.air) return false;
 		
@@ -312,16 +314,18 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-    //TODO:	   colorMultiplier()
     public int colorMultiplier(IBlockAccess world, int x, int y, int z)
 	{
-		if (world.getBlockMetadata(x, y, z) == 9)
+		if (world.getBlockMetadata(x, y, z) == 9 || world.getBlockMetadata(x, y, z) == 14)
 		{
-			//TODO:									getBiomeFoliageColor()
 			return world.getBiomeGenForCoords(x, z).getBiomeFoliageColor(x, y, z);
 		}
-
-		//TODO:									getBiomeGrassColor()
+		
+		if (world.getBlockMetadata(x, y, z) == 15)
+		{
+			return 16777215;
+		}
+		
 		return world.getBiomeGenForCoords(x, z).getBiomeGrassColor(x, y, z);
 	}
 
@@ -361,6 +365,12 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, x + 0.9D, y + 0.6D, z + 0.9D);
 		
 		case 13: //Clover Patch
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
+			
+		case 14: //Leaf Pile
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
+			
+		case 15: //Dead Leaf Pile
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
 
 		default:

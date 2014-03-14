@@ -49,6 +49,7 @@ public class BiomeGenTropicalRainforest extends BOPBiome
         this.bopWorldFeatures.generateQuicksand = true;
         this.bopWorldFeatures.poisonIvyPerChunk = 4;
         this.bopWorldFeatures.shrubsPerChunk = 15;
+        this.bopWorldFeatures.leafPilesPerChunk = 10;
     }
     
     @Override

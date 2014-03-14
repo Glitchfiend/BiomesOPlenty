@@ -38,6 +38,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.bopWorldFeatures.berryBushesPerChunk = 1;
         this.bopWorldFeatures.shrubsPerChunk = 10;
         this.bopWorldFeatures.waterReedsPerChunk = 2;
+        this.bopWorldFeatures.leafPilesPerChunk = 15;
         this.bopWorldFeatures.generatePumpkins = false;
     }
 

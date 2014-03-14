@@ -77,6 +77,8 @@ tile.foliage.wheatgrass.name=Wheat Grass
 tile.foliage.dampgrass.name=Damp Grass
 tile.foliage.koru.name=Koru
 tile.foliage.cloverpatch.name=Clover Patch
+tile.foliage.leafpile.name=Leaf Pile
+tile.foliage.deadleafpile.name=Dead Leaf Pile
 
 tile.petals.bigflowerred.name=Giant Red Flower
 tile.petals.bigfloweryellow.name=Giant Yellow Flower

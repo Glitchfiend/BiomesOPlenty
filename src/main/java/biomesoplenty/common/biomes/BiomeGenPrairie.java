@@ -38,6 +38,7 @@ public class BiomeGenPrairie extends BOPBiome
 		this.bopWorldFeatures.berryBushesPerChunk = 2;
 		this.bopWorldFeatures.shrubsPerChunk = 3;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
+		this.bopWorldFeatures.leafPilesPerChunk = 15;
 	}
 	
     @Override

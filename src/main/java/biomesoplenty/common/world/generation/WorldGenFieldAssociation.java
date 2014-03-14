@@ -58,6 +58,8 @@ public class WorldGenFieldAssociation
 		associateField("shrubsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 9));
 		associateField("bushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 4));
 		associateField("cloverPatchesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 13, 128));
+		associateField("leafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 14, 256));
+		associateField("deadLeafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 15, 256));
 		associateField("lavenderPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 3));
 		associateField("thornsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 5));
 		associateField("stalagmitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 0));

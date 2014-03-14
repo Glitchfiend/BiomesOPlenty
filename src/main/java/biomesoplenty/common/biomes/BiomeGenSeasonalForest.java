@@ -37,6 +37,8 @@ public class BiomeGenSeasonalForest extends BOPBiome
         this.bopWorldFeatures.toadstoolsPerChunk = 4;
         this.bopWorldFeatures.shrubsPerChunk = 15;
         this.bopWorldFeatures.waterReedsPerChunk = 4;
+        this.bopWorldFeatures.leafPilesPerChunk = 8;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 15;
     }
 
     @Override

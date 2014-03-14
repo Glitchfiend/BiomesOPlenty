@@ -31,6 +31,8 @@ public class BiomeGenMountain extends BOPBiome
 		this.bopWorldFeatures.berryBushesPerChunk = 3;
 		this.bopWorldFeatures.shrubsPerChunk = 10;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
+		this.bopWorldFeatures.leafPilesPerChunk = 10;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 10;
 	}
 
 	@Override

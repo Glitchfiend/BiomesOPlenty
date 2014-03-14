@@ -49,6 +49,8 @@ public class BiomeGenSludgepit extends BOPBiome
         //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 5;
         this.bopWorldFeatures.waterReedsPerChunk = 6;
         this.bopWorldFeatures.koruPerChunk = 1;
+        this.bopWorldFeatures.leafPilesPerChunk = 5;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 5;
     }
     
     @Override

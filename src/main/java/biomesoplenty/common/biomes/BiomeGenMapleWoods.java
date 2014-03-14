@@ -34,6 +34,7 @@ public class BiomeGenMapleWoods extends BOPBiome
 		this.bopWorldFeatures.bopFlowersPerChunk = 2;
 		this.bopWorldFeatures.poisonIvyPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 2;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 8;
 	}
 
 	@Override

@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFoliage extends ItemColored
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch"};
+	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 	private static final int GRASSTOP = 6;
@@ -43,13 +43,14 @@ public class ItemBlockFoliage extends ItemColored
 		textures[3] = iconRegister.registerIcon("biomesoplenty:item_highgrass");
 		textures[8] = iconRegister.registerIcon("biomesoplenty:item_berrybush");
 		textures[9] = iconRegister.registerIcon("biomesoplenty:item_shrub");
+		textures[15] = iconRegister.registerIcon("biomesoplenty:deadleafpile");
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
-		if (itemStack.getItemDamage() == 3 || itemStack.getItemDamage() == 8 || itemStack.getItemDamage() == 9)
+		if (itemStack.getItemDamage() == 3 || itemStack.getItemDamage() == 8 || itemStack.getItemDamage() == 9 || itemStack.getItemDamage() == 15)
 			return 16777215;
 		else
 			//TODO:							 getRenderColor()
