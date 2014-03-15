@@ -44,6 +44,8 @@ public class BiomeGenTemperateRainforest extends BOPBiome
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 10;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
+		this.bopWorldFeatures.leafPilesPerChunk = 15;
+		this.bopWorldFeatures.seaweedPerChunk = 15;
 	}
 
 	@Override

@@ -43,6 +43,7 @@ public class BiomeGenMarsh extends BOPBiome
 		this.bopWorldFeatures.mudPerChunk = 1;
 		this.bopWorldFeatures.waterLakesPerChunk = 100;
 		this.bopWorldFeatures.waterReedsPerChunk = 10;
+		this.bopWorldFeatures.seaweedPerChunk = 15;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	

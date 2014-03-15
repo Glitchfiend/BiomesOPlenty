@@ -36,6 +36,8 @@ public class BiomeGenWoodland extends BOPBiome
 		this.bopWorldFeatures.shrubsPerChunk = 20;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
+		this.bopWorldFeatures.leafPilesPerChunk = 10;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 10;
 		this.bopWorldFeatures.logsPerChunk = 10;
 	}
 	

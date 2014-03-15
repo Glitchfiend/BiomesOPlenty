@@ -24,6 +24,9 @@ public class BOPWorldFeatures
 	public int shrubsPerChunk = 0;
 	public int bushesPerChunk = 0;
 	public int cloverPatchesPerChunk = 0;
+	public int seaweedPerChunk = 0;
+	public int leafPilesPerChunk = 0;
+	public int deadLeafPilesPerChunk = 0;
 	public int lavenderPerChunk = 0;
 	public int thornsPerChunk = 0;
 	public int stalagmitesPerChunk = 3;

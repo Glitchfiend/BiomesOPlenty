@@ -36,6 +36,7 @@ public class BiomeGenDeadForest extends BOPBiome
 		this.bopWorldFeatures.shrubsPerChunk = 2;
 		this.bopWorldFeatures.thornsPerChunk = 2;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 20;
 	}
 	
     @Override

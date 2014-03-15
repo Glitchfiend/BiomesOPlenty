@@ -46,6 +46,7 @@ public class BiomeGenChaparral extends BOPBiome
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 10;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
+		this.bopWorldFeatures.leafPilesPerChunk = 10;
 	    this.bopWorldFeatures.generatePumpkins = false;
     }
     

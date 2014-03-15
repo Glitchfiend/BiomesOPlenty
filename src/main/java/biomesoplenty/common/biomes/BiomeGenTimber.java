@@ -36,6 +36,8 @@ public class BiomeGenTimber extends BOPBiome
 		this.bopWorldFeatures.toadstoolsPerChunk = 2;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
 		this.bopWorldFeatures.shrubsPerChunk = 10;
+		this.bopWorldFeatures.leafPilesPerChunk = 5;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 12;
 	}
 
 

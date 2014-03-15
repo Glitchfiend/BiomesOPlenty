@@ -39,6 +39,7 @@ public class BiomeGenBorealForest extends BOPBiome
 		this.bopWorldFeatures.bopFlowersPerChunk = 5;
 		this.bopWorldFeatures.shrubsPerChunk = 10;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 10;
 	}
 
 	@Override

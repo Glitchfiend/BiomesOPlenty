@@ -14,13 +14,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPCoral extends BOPBlockWorldDecor
 {
-	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral"};
+	private static final String[] coral = new String[] {"kelpbottom", "kelpmiddle", "kelptop", "kelpsingle", "pinkcoral", "orangecoral", "bluecoral", "glowcoral", "seaweed"};
 	private IIcon[] textures;
 
 	public BlockBOPCoral()
@@ -103,9 +104,15 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 			return block == this;
 
 		default:
-			return block == Blocks.dirt || block == Blocks.sand|| block == Blocks.sponge || block == Blocks.stone || block == Blocks.clay;
+			return block == Blocks.dirt || block == Blocks.sand|| block == Blocks.sponge || block == Blocks.stone || block == Blocks.clay || block == Blocks.gravel || block == Blocks.grass || block == BOPBlockHelper.get("mud");
 		}
 	}
+	
+	@Override
+    public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int silkTouch)
+	{
+		world.setBlock(x, y, z, Blocks.water);
+    }
 	
 	@Override
 	//TODO:		onNeighborBlockChange()

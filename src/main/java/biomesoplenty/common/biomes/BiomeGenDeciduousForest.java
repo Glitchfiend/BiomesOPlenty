@@ -38,6 +38,8 @@ public class BiomeGenDeciduousForest extends BOPBiome
 		this.bopWorldFeatures.poisonIvyPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 10;
 		this.bopWorldFeatures.waterReedsPerChunk = 2;
+		this.bopWorldFeatures.leafPilesPerChunk = 10;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 10;
 	}
 
 	@Override

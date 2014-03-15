@@ -39,6 +39,7 @@ public class BiomeGenMeadow extends BOPBiome
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 5;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 15;
+		this.bopWorldFeatures.seaweedPerChunk = 5;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 	

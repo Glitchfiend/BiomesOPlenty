@@ -45,6 +45,7 @@ public class BiomeGenDeadSwamp extends BOPBiome
 	    this.bopWorldFeatures.riverCanePerChunk = 2;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
 		this.bopWorldFeatures.koruPerChunk = 1;
+		this.bopWorldFeatures.seaweedPerChunk = 5;
 	}
 
     @Override

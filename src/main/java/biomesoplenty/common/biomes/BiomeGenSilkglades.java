@@ -51,6 +51,7 @@ public class BiomeGenSilkglades extends BOPBiome
         this.bopWorldFeatures.koruPerChunk = 1;
         this.bopWorldFeatures.generatePumpkins = true;
         this.bopWorldFeatures.cobwebNestsPerChunk = 2;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 15;
     }
 
     @Override

@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
+import biomesoplenty.common.world.features.WorldGenBOPCoral;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -58,6 +58,8 @@ public class WorldGenFieldAssociation
 		associateField("shrubsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 9));
 		associateField("bushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 4));
 		associateField("cloverPatchesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 13, 128));
+		associateField("leafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 14, 256));
+		associateField("deadLeafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 15, 256));
 		associateField("lavenderPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 3));
 		associateField("thornsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 5));
 		associateField("stalagmitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 0));
@@ -65,6 +67,7 @@ public class WorldGenFieldAssociation
 		associateField("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
 		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
 		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
+		associateField("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral"), 8));
 		associateField("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
 		associateField("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
 		associateField("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));

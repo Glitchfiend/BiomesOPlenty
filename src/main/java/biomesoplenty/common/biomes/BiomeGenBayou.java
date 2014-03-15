@@ -20,7 +20,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBayou3;
 
 public class BiomeGenBayou extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
+    private static final Height biomeHeight = new Height(-0.1F, 0.1F);
 
 	public BiomeGenBayou(int id)
 	{
@@ -54,6 +54,7 @@ public class BiomeGenBayou extends BOPBiome
 		this.bopWorldFeatures.shrubsPerChunk = 2;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
 		this.bopWorldFeatures.koruPerChunk = 1;
+		this.bopWorldFeatures.seaweedPerChunk = 15;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 

@@ -25,7 +25,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower2 extends BOPBlockWorldDecor
 {
-	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight", "icyiris"};
+	private static final String[] plants2 = new String[] {"hibiscus", "lilyofthevalley", "burningblossom", "lavender", "goldenrod", "bluebells", "minersdelight", "icyiris", "rose"};
 	private IIcon[] textures;
 
 	public BlockBOPFlower2()
@@ -192,6 +192,9 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 
 		case 6: // Miner's Delight
 			return block == Blocks.stone;
+			
+		case 8: // Rose
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("originGrass");
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
