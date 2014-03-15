@@ -63,6 +63,7 @@ public class BiomeGenWetland extends BOPBiome
         this.bopWorldFeatures.cloverPatchesPerChunk = 15;
         this.bopWorldFeatures.seaweedPerChunk = 15;
         this.bopWorldFeatures.leafPilesPerChunk = 10;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 5;
     }
 
     @Override

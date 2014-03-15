@@ -38,6 +38,8 @@ public class BiomeGenSpruceWoods extends BOPBiome
         this.bopWorldFeatures.wildCarrotsPerChunk = 1;
         this.bopWorldFeatures.shrubsPerChunk = 5;
         this.bopWorldFeatures.waterReedsPerChunk = 2;
+        this.bopWorldFeatures.leafPilesPerChunk = 6;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 3;
     }
 
     @Override

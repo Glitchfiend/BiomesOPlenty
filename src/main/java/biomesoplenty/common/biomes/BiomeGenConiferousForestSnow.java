@@ -42,6 +42,7 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
 
         this.bopWorldFeatures.bopFlowersPerChunk = 3;
         this.bopWorldFeatures.shrubsPerChunk = 4;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 8;
     }
 
     @Override

@@ -35,6 +35,8 @@ public class BiomeGenFrostForest extends BOPBiome
 		
 		this.bopWorldFeatures.shrubsPerChunk = 1;
 		this.bopWorldFeatures.bopFlowersPerChunk = 3;
+		this.bopWorldFeatures.leafPilesPerChunk = 2;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 4;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 

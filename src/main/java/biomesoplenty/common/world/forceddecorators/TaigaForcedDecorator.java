@@ -11,8 +11,9 @@ public class TaigaForcedDecorator extends ForcedDecorator
 {
 	public TaigaForcedDecorator()
 	{
-		this.bopWorldFeatures.deadLeafPilesPerChunk = 2;
 		this.bopWorldFeatures.bopFlowersPerChunk = 2;
+		this.bopWorldFeatures.leafPilesPerChunk = 2;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 4;
 	}
 	
     @Override

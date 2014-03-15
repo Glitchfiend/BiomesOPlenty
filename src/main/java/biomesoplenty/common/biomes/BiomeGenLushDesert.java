@@ -48,6 +48,8 @@ public class BiomeGenLushDesert extends BOPBiome
         this.bopWorldFeatures.waterLakesPerChunk = 5;
         this.bopWorldFeatures.waterReedsPerChunk = 4;
         this.bopWorldFeatures.bromeliadsPerChunk = 3;
+        this.bopWorldFeatures.leafPilesPerChunk = 2;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 4;
         this.bopWorldFeatures.generateSand = true;
         this.bopWorldFeatures.generatePumpkins = false;
     }

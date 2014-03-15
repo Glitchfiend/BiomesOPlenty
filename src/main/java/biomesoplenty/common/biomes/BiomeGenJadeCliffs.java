@@ -35,6 +35,8 @@ public class BiomeGenJadeCliffs extends BOPBiome
 
 		this.bopWorldFeatures.bopFlowersPerChunk = 3;
 		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
+		this.bopWorldFeatures.leafPilesPerChunk = 4;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 2;
 	}
 	
 	@Override

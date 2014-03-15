@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class SwampForcedDecorator extends ForcedDecorator
 {
@@ -20,8 +22,8 @@ public class SwampForcedDecorator extends ForcedDecorator
 		this.bopWorldFeatures.waterReedsPerChunk = 5;
 		this.bopWorldFeatures.toadstoolsPerChunk = 1;
 		this.bopWorldFeatures.blueMilksPerChunk = 1;
-		this.bopWorldFeatures.leafPilesPerChunk = 5;
-		this.bopWorldFeatures.deadLeafPilesPerChunk = 2;
+		this.bopWorldFeatures.leafPilesPerChunk = 2;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 4;
 	}
 	
     @Override
@@ -32,5 +34,19 @@ public class SwampForcedDecorator extends ForcedDecorator
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 15);
         
         return flowerMap;
+    }
+    
+    @Override
+    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
+    {
+        HashMap<WorldGenerator, Double> grassMap = new HashMap();
+
+        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+
+        return grassMap;
     }
 }

@@ -39,6 +39,8 @@ public class BiomeGenTundra extends BOPBiome
         this.bopWorldFeatures.shrubsPerChunk = 2;
         this.bopWorldFeatures.waterReedsPerChunk = 2;
         this.bopWorldFeatures.rockpilesPerChunk = 25;
+        this.bopWorldFeatures.leafPilesPerChunk = 5;
+        this.bopWorldFeatures.deadLeafPilesPerChunk = 5;
     }
 
     @Override
