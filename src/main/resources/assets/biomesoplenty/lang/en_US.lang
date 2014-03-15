@@ -146,7 +146,7 @@ tile.holyBricksStairs.name=Skystone Bricks Stairs
 
 tile.promisedPortal.name=Promised Land Portal
 
-tile.gemOre.amethystore.name=Amethyst Ore
+tile.gemOre.amethystore.name=Ender Amethyst Ore
 tile.gemOre.amethystblock.name=Block of Amethyst
 tile.gemOre.rubyore.name=Ruby Ore
 tile.gemOre.rubyblock.name=Block of Ruby
@@ -340,7 +340,7 @@ item.jarFilled.jarhoney.name=Honey Jar
 item.jarFilled.jarpoison.name=Poison Extract Jar
 item.jarFilled.jarpixie.name=Pixie Jar
 
-item.gems.amethyst.name=Amethyst
+item.gems.amethyst.name=Ender Amethyst
 item.gems.ruby.name=Ruby
 item.gems.peridot.name=Peridot
 item.gems.topaz.name=Topaz
