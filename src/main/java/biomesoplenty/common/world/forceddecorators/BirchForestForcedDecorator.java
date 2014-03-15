@@ -3,23 +3,16 @@ package biomesoplenty.common.world.forceddecorators;
 import java.util.HashMap;
 import java.util.Random;
 
-import net.minecraft.init.Blocks;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.decoration.IBOPDecoration;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
-public class SwampForcedDecorator extends ForcedDecorator
+public class BirchForestForcedDecorator extends ForcedDecorator
 {
-	public SwampForcedDecorator()
+	public BirchForestForcedDecorator()
 	{
-		this.bopWorldFeatures.mudPerChunk = 3;
-		this.bopWorldFeatures.seaweedPerChunk = 10;
-		this.bopWorldFeatures.cattailsPerChunk = 10;
-		this.bopWorldFeatures.highCattailsPerChunk = 5;
-		this.bopWorldFeatures.koruPerChunk = 25;
-		this.bopWorldFeatures.waterReedsPerChunk = 5;
-		this.bopWorldFeatures.toadstoolsPerChunk = 1;
-		this.bopWorldFeatures.blueMilksPerChunk = 1;
+		this.bopWorldFeatures.poisonIvyPerChunk = 3;
+		this.bopWorldFeatures.cloverPatchesPerChunk = 15;
 	}
 	
     @Override
@@ -27,6 +20,7 @@ public class SwampForcedDecorator extends ForcedDecorator
     {
         HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
         
+        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 10);
         flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 15);
         
         return flowerMap;
