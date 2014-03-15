@@ -1,28 +1,20 @@
 package biomesoplenty.common.biomes.promisedland;
 
-import java.awt.Color;
-import java.util.Random;
-
-
-
-
-
-//import worldcore.interfaces.IWCFog;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.decoration.BOPBiomeDecorator;
 import biomesoplenty.common.world.features.WorldGenWaterSpring;
 import biomesoplenty.common.world.features.trees.WorldGenPromisedTree;
 import biomesoplenty.common.world.features.trees.WorldGenPromisedTree2;
-import biomesoplenty.common.world.features.trees.WorldGenRainforestTree1;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
+
+//import worldcore.interfaces.IWCFog;
 
 public class BiomeGenPromisedLandForest extends BOPBiome //implements IWCFog
 {
@@ -58,19 +50,7 @@ public class BiomeGenPromisedLandForest extends BOPBiome //implements IWCFog
 		//this.bopWorldFeatures.generateMossySkystone = true;
 		//this.bopWorldFeatures.generateUndergroundLakes = false;
 		theWorldGenerator = new WorldGenWaterSpring(Blocks.water, 8);
-		/*this.spawnableMonsterList.add(new SpawnListEntry(EntityCow.class, 6, 1, 4));
-
-		if (Loader.isModLoaded("TwilightForest"))
-		{
-			try {
-				this.spawnableMonsterList.add(new SpawnListEntry(Class.forName("twilightforest.entity.passive.EntityTFBighorn"), 2, 1, 3));
-				this.spawnableMonsterList.add(new SpawnListEntry(Class.forName("twilightforest.entity.passive.EntityTFDeer"), 4, 1, 3));
-				this.spawnableMonsterList.add(new SpawnListEntry(Class.forName("twilightforest.entity.passive.EntityTFBird"), 2, 1, 3));
-			} catch (ClassNotFoundException e) {
-				System.out.println("[BiomesOPlenty] There was an error while integrating Twilight Forest with Biomes O' Plenty!");
-				e.printStackTrace();
-			}
-		}*/
+		/*this.spawnableMonsterList.add(new SpawnListEntry(EntityCow.class, 6, 1, 4));*/
 	}
 
 	/**
@@ -84,7 +64,6 @@ public class BiomeGenPromisedLandForest extends BOPBiome //implements IWCFog
     }
 	
 	@Override
-	//TODO:		getBiomeGrassColor()
     public int getBiomeGrassColor(int x, int y, int z)
     {
 		return 7925125;
@@ -108,7 +87,6 @@ public class BiomeGenPromisedLandForest extends BOPBiome //implements IWCFog
     //@Override
     public float getFogCloseness()
     {
-        // TODO Auto-generated method stub
         return 1.0F;
     }
 
@@ -130,29 +108,10 @@ public class BiomeGenPromisedLandForest extends BOPBiome //implements IWCFog
 		}
 	}
 
-	/**
-	 * takes temperature, returns color
-	 */
 	 @Override
-	 public int getSkyColorByTemp(float par1)
+	 public int getSkyColorByTemp(float temperature)
 	 {
-		 if (BOPConfigurationMisc.skyColors)
-			 return BOPConfigurationMisc.promisedLandSkyColor;
-		 else
-		 {
-			 par1 /= 3.0F;
-
-			 if (par1 < -1.0F)
-			 {
-				 par1 = -1.0F;
-			 }
-
-			 if (par1 > 1.0F)
-			 {
-				 par1 = 1.0F;
-			 }
-
-			 return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
-		 }
+		 if (BOPConfigurationMisc.skyColors) return BOPConfigurationMisc.promisedLandSkyColor;
+		 else return super.getSkyColorByTemp(temperature);
 	 }
 }
