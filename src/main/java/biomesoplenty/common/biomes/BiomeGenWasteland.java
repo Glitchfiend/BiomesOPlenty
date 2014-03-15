@@ -42,6 +42,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.bopWorldFeatures.wasteland2PerChunk = 1;
         this.bopWorldFeatures.wasteland3PerChunk = 1;
         this.bopWorldFeatures.wasteland4PerChunk = 1;
+        this.bopWorldFeatures.wastelandRockPilesPerChunk = 1;
     }
 
     @Override

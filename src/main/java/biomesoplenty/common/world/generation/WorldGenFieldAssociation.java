@@ -3,6 +3,7 @@ package biomesoplenty.common.world.generation;
 import java.util.HashMap;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
@@ -17,7 +18,6 @@ import biomesoplenty.common.world.features.WorldGenGrassSplatter;
 import biomesoplenty.common.world.features.WorldGenLavaSpout;
 import biomesoplenty.common.world.features.WorldGenLog;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
-import biomesoplenty.common.world.features.WorldGenRockpile;
 import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenWasteland;
 import biomesoplenty.common.world.features.WorldGenWasteland2;
@@ -84,7 +84,8 @@ public class WorldGenFieldAssociation
 	    associateField("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
 	    associateField("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
 	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());
-	    associateField("rockpilesPerChunk", new WorldGenRockpile());
+	    associateField("rockpilesPerChunk", new WorldGenBlockBlob(Blocks.stone, 0));
+	    associateField("wastelandRockPilesPerChunk", new WorldGenBlockBlob(BOPBlockHelper.get("driedDirt"), 0));
 	    associateField("logsPerChunk", new WorldGenLog());
 	    associateField("lavaSpoutsPerChunk", new WorldGenLavaSpout());
 	    associateField("cobwebsPerChunk", new WorldGenBOPFlora(Blocks.web, 0));

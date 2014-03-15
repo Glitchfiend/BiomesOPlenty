@@ -59,6 +59,6 @@ public class BOPWorldFeatures
 	public int wasteland2PerChunk = 0;
 	public int wasteland3PerChunk = 0;
 	public int wasteland4PerChunk = 0;
-
+	public int wastelandRockPilesPerChunk = 0;
 	public int bopFlowersPerChunk = 0;
 }
