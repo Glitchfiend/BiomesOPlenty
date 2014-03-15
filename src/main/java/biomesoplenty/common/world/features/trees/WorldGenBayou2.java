@@ -222,7 +222,7 @@ public class WorldGenBayou2 extends WorldGenAbstractTree
             --y;
 
             //TODO:     getBlock()
-            if (world.getBlock(x, y, z).isAir(world, x, y, z) || i1 <= 0)
+            if (!(world.getBlock(x, y, z).isAir(world, x, y, z)) || i1 <= 0)
             {
                 return;
             }
