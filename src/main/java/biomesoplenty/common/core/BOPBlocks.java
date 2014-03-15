@@ -1,95 +1,19 @@
 package biomesoplenty.common.core;
 
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.blocks.*;
+import biomesoplenty.common.blocks.BlockBOPColorizedLeaves.ColourizedLeafCategory;
+import biomesoplenty.common.blocks.BlockBOPGeneric.BlockType;
+import biomesoplenty.common.blocks.BlockBOPLeaves.LeafCategory;
+import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
+import biomesoplenty.common.blocks.BlockBOPSlab.SlabCategory;
+import biomesoplenty.common.blocks.BlockBOPStairs.Category;
+import biomesoplenty.common.itemblocks.*;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
-
-import org.apache.logging.log4j.Level;
-
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.blocks.BlockAsh;
-import biomesoplenty.common.blocks.BlockBOPAppleLeaves;
-import biomesoplenty.common.blocks.BlockBOPColorizedLeaves;
-import biomesoplenty.common.blocks.BlockBOPColorizedLeaves.ColourizedLeafCategory;
-import biomesoplenty.common.blocks.BlockBOPColorizedSapling;
-import biomesoplenty.common.blocks.BlockBOPCoral;
-import biomesoplenty.common.blocks.BlockBOPFlower;
-import biomesoplenty.common.blocks.BlockBOPFlower2;
-import biomesoplenty.common.blocks.BlockBOPFoliage;
-import biomesoplenty.common.blocks.BlockBOPGems;
-import biomesoplenty.common.blocks.BlockBOPGeneric;
-import biomesoplenty.common.blocks.BlockBOPGeneric.BlockType;
-import biomesoplenty.common.blocks.BlockBOPGrass;
-import biomesoplenty.common.blocks.BlockBOPLeaves;
-import biomesoplenty.common.blocks.BlockBOPLeaves.LeafCategory;
-import biomesoplenty.common.blocks.BlockBOPLog;
-import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
-import biomesoplenty.common.blocks.BlockBOPMushroom;
-import biomesoplenty.common.blocks.BlockBOPPersimmonLeaves;
-import biomesoplenty.common.blocks.BlockBOPPetals;
-import biomesoplenty.common.blocks.BlockBOPPlank;
-import biomesoplenty.common.blocks.BlockBOPPlant;
-import biomesoplenty.common.blocks.BlockBOPRedRock;
-import biomesoplenty.common.blocks.BlockBOPSapling;
-import biomesoplenty.common.blocks.BlockBOPSkystone;
-import biomesoplenty.common.blocks.BlockBOPSlab;
-import biomesoplenty.common.blocks.BlockBOPSlab.SlabCategory;
-import biomesoplenty.common.blocks.BlockBOPStairs;
-import biomesoplenty.common.blocks.BlockBOPStairs.Category;
-import biomesoplenty.common.blocks.BlockBamboo;
-import biomesoplenty.common.blocks.BlockBones;
-import biomesoplenty.common.blocks.BlockCloud;
-import biomesoplenty.common.blocks.BlockFlesh;
-import biomesoplenty.common.blocks.BlockGrave;
-import biomesoplenty.common.blocks.BlockHive;
-import biomesoplenty.common.blocks.BlockHoney;
-import biomesoplenty.common.blocks.BlockIvy;
-import biomesoplenty.common.blocks.BlockLongGrass;
-import biomesoplenty.common.blocks.BlockMoss;
-import biomesoplenty.common.blocks.BlockMud;
-import biomesoplenty.common.blocks.BlockOriginGrass;
-import biomesoplenty.common.blocks.BlockOvergrownNetherrack;
-import biomesoplenty.common.blocks.BlockPromisedPortal;
-import biomesoplenty.common.blocks.BlockStoneFormations;
-import biomesoplenty.common.blocks.BlockTreeMoss;
-import biomesoplenty.common.blocks.BlockTurnip;
-import biomesoplenty.common.blocks.BlockWillow;
-import biomesoplenty.common.itemblocks.ItemBlockAppleLeaves;
-import biomesoplenty.common.itemblocks.ItemBlockBamboo;
-import biomesoplenty.common.itemblocks.ItemBlockBones;
-import biomesoplenty.common.itemblocks.ItemBlockColorizedLeaves;
-import biomesoplenty.common.itemblocks.ItemBlockColorizedSapling;
-import biomesoplenty.common.itemblocks.ItemBlockCoral;
-import biomesoplenty.common.itemblocks.ItemBlockFlower;
-import biomesoplenty.common.itemblocks.ItemBlockFlower2;
-import biomesoplenty.common.itemblocks.ItemBlockFoliage;
-import biomesoplenty.common.itemblocks.ItemBlockGems;
-import biomesoplenty.common.itemblocks.ItemBlockGrave;
-import biomesoplenty.common.itemblocks.ItemBlockHive;
-import biomesoplenty.common.itemblocks.ItemBlockIvy;
-import biomesoplenty.common.itemblocks.ItemBlockLeaves;
-import biomesoplenty.common.itemblocks.ItemBlockLog;
-import biomesoplenty.common.itemblocks.ItemBlockMoss;
-import biomesoplenty.common.itemblocks.ItemBlockMud;
-import biomesoplenty.common.itemblocks.ItemBlockMushroom;
-import biomesoplenty.common.itemblocks.ItemBlockPersimmonLeaves;
-import biomesoplenty.common.itemblocks.ItemBlockPetals;
-import biomesoplenty.common.itemblocks.ItemBlockPlank;
-import biomesoplenty.common.itemblocks.ItemBlockPlant;
-import biomesoplenty.common.itemblocks.ItemBlockRedRock;
-import biomesoplenty.common.itemblocks.ItemBlockSapling;
-import biomesoplenty.common.itemblocks.ItemBlockSkystone;
-import biomesoplenty.common.itemblocks.ItemBlockSlab;
-import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
-import biomesoplenty.common.itemblocks.ItemBlockWillow;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.LoaderException;
-import cpw.mods.fml.common.LoaderState;
-import cpw.mods.fml.common.registry.GameData;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPBlocks 
 {
@@ -101,9 +25,6 @@ public class BOPBlocks
 
 	private static void registerBlocks()
 	{
-		// Block declaration
-
-		//TODO:						setBlockName
 		registerBlock(new BlockMud().setBlockName("mud"), ItemBlockMud.class);
 		//TODO:									   rock
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.DRIED_DIRT).setBlockName("driedDirt"));
@@ -272,19 +193,16 @@ public class BOPBlocks
 	
 	public static void registerBlock(Block block)
 	{
-		//TODO: 								getUnlocalizedName()
 	    GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
 	}
 	
     public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)
     {
-		//TODO: 												getUnlocalizedName()
         GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""));
     }
     
     public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass, Object... constructorArgs)
     {
-		//TODO: 												getUnlocalizedName()
         GameRegistry.registerBlock(block, itemBlockClass, block.getUnlocalizedName().replace("tile.", ""), null, constructorArgs);
     }
 }

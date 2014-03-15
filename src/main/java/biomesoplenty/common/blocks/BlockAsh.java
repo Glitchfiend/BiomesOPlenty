@@ -1,7 +1,7 @@
 package biomesoplenty.common.blocks;
 
-import java.util.Random;
-
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -12,8 +12,8 @@ import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
+
+import java.util.Random;
 
 public class BlockAsh extends Block
 {
@@ -21,14 +21,14 @@ public class BlockAsh extends Block
 	{
 		//TODO:	Material.sand
 		super(Material.sand);
-		
+
 		//TODO: this.setHardness
 		this.setHardness(0.4F);	
 		this.setHarvestLevel("shovel", 0);
-		
+
 		//TODO setStepSound(Block.soundSandFootstep)
 		this.setStepSound(Block.soundTypeSand);
-		
+
 		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
