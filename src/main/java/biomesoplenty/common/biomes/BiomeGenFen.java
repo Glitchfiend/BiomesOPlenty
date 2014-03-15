@@ -53,6 +53,7 @@ public class BiomeGenFen extends BOPBiome
 		this.bopWorldFeatures.koruPerChunk = 1;
 		this.bopWorldFeatures.shrubsPerChunk = 7;
 		this.bopWorldFeatures.deadLeafPilesPerChunk = 10;
+		this.bopWorldFeatures.seaweedPerChunk = 15;
 	}
 
 	@Override

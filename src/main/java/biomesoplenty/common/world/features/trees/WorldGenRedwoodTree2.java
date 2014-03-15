@@ -212,9 +212,9 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
                     
                     for (int i = 0; i < 90; ++i)
                     {
-                        int randX = x + random.nextInt(8);
-                        int randY = random.nextInt(50) + 70;
-                        int randZ = z + random.nextInt(8);
+                    	int randX = x - random.nextInt(8) + random.nextInt(8);
+                        int randY = y + random.nextInt(64);
+                        int randZ = z - random.nextInt(8) + random.nextInt(8);
                         new WorldGenBOPShrub(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, BOPBlockHelper.get("logs3")).generate(world, random, randX, randY, randZ);
                     }
 

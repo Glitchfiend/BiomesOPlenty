@@ -45,6 +45,7 @@ public class BiomeGenTropics extends BOPBiome
         this.bopWorldFeatures.bopFlowersPerChunk = 30;
         this.bopWorldFeatures.shrubsPerChunk = 4;
         this.bopWorldFeatures.leafPilesPerChunk = 10;
+        this.bopWorldFeatures.seaweedPerChunk = 10;
         this.bopWorldFeatures.generatePumpkins = false;
     }
     

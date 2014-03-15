@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.common.world.forceddecorators.ForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.RiverForcedDecorator;
 import biomesoplenty.common.world.forceddecorators.SwampForcedDecorator;
 
 public class ForcedDecorators 
@@ -18,6 +19,7 @@ public class ForcedDecorators
 	private static void addForcedDecorators()
 	{
 		addForcedDecorator(BiomeGenBase.swampland.biomeID, new SwampForcedDecorator());
+		addForcedDecorator(BiomeGenBase.river.biomeID, new RiverForcedDecorator());
 	}
 	
 	public static void addForcedDecorator(int biomeID, ForcedDecorator decorator)

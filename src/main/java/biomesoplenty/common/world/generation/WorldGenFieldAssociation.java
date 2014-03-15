@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
+import biomesoplenty.common.world.features.WorldGenBOPCoral;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -67,6 +67,7 @@ public class WorldGenFieldAssociation
 		associateField("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
 		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
 		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
+		associateField("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral"), 8));
 		associateField("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
 		associateField("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
 		associateField("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));

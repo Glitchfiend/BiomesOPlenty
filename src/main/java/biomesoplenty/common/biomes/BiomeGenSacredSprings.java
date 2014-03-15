@@ -34,6 +34,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.theBiomeDecorator.treesPerChunk = 30;
         this.theBiomeDecorator.grassPerChunk = 4;
         this.theBiomeDecorator.waterlilyPerChunk = 5;
+        this.bopWorldFeatures.seaweedPerChunk = 15;
         
         this.bopWorldFeatures.bopFlowersPerChunk = 2;
     }

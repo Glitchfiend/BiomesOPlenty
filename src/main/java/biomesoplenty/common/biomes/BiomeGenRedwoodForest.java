@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree2;
 
 public class BiomeGenRedwoodForest extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
+    private static final Height biomeHeight = new Height(0.1F, 0.1F);
     
     public BiomeGenRedwoodForest(int id)
     {
@@ -30,8 +30,8 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.setColor(7187004);
         this.setTemperatureRainfall(0.8F, 0.4F);
 
-        this.theBiomeDecorator.treesPerChunk = 75;
-        this.theBiomeDecorator.grassPerChunk = 16;
+        this.theBiomeDecorator.treesPerChunk = 99;
+        this.theBiomeDecorator.grassPerChunk = 15;
 
         this.bopWorldFeatures.bopFlowersPerChunk = 5;
         this.bopWorldFeatures.bushesPerChunk = 4;
@@ -46,7 +46,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(4) == 0 ? new WorldGenRedwoodTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 40, 10) : (random.nextInt(8) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree2(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 20, 15));
+        return random.nextInt(2) == 0 ? new WorldGenRedwoodTree2(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 20, 15) : (random.nextInt(10) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 40, 10));
     }
     
     @Override

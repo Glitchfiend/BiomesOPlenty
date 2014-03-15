@@ -51,6 +51,7 @@ public class BiomeGenBog extends BOPBiome
         this.bopWorldFeatures.shrubsPerChunk = 10;
         this.bopWorldFeatures.leafPilesPerChunk = 15;
         this.bopWorldFeatures.deadLeafPilesPerChunk = 8;
+        this.bopWorldFeatures.seaweedPerChunk = 15;
         this.bopWorldFeatures.generatePumpkins = false;
     }
 

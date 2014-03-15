@@ -10,5 +10,6 @@ public class SwampForcedDecorator extends ForcedDecorator
 	public SwampForcedDecorator()
 	{
 		this.bopWorldFeatures.mudPerChunk = 3;
+		this.bopWorldFeatures.seaweedPerChunk = 10;
 	}
 }

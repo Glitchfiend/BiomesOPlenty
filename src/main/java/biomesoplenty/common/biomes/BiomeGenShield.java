@@ -37,6 +37,7 @@ public class BiomeGenShield extends BOPBiome
 		this.bopWorldFeatures.shrubsPerChunk = 4;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
 		this.bopWorldFeatures.leafPilesPerChunk = 10;
+		this.bopWorldFeatures.seaweedPerChunk = 5;
 		this.bopWorldFeatures.generateStoneInGrass2 = true;
 	}
 

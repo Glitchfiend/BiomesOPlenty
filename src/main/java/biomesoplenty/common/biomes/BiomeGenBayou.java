@@ -54,6 +54,7 @@ public class BiomeGenBayou extends BOPBiome
 		this.bopWorldFeatures.shrubsPerChunk = 2;
 		this.bopWorldFeatures.waterReedsPerChunk = 4;
 		this.bopWorldFeatures.koruPerChunk = 1;
+		this.bopWorldFeatures.seaweedPerChunk = 15;
 		this.bopWorldFeatures.generatePumpkins = false;
 	}
 

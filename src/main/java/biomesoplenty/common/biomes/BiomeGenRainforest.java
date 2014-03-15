@@ -42,6 +42,7 @@ public class BiomeGenRainforest extends BOPBiome
 		this.bopWorldFeatures.shrubsPerChunk = 5;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 20;
 		this.bopWorldFeatures.leafPilesPerChunk = 10;
+		this.bopWorldFeatures.seaweedPerChunk = 15;
 		this.bopWorldFeatures.generatePumpkins = false;
 		
 		/*TODO: FEATURE customBiomeDecorator.pinkFlowersPerChunk = 2;

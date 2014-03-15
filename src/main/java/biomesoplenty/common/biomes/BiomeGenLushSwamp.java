@@ -45,6 +45,7 @@ public class BiomeGenLushSwamp extends BOPBiome
 		this.bopWorldFeatures.koruPerChunk = 1;
 		this.bopWorldFeatures.waterReedsPerChunk = 6;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
+		this.bopWorldFeatures.seaweedPerChunk = 10;
     }
 
     @Override
