@@ -9,6 +9,10 @@ public class RoofedForestForcedDecorator extends ForcedDecorator
 {
 	public RoofedForestForcedDecorator()
 	{
-
+		this.bopWorldFeatures.toadstoolsPerChunk = 1;
+		this.bopWorldFeatures.blueMilksPerChunk = 1;
+		this.bopWorldFeatures.leafPilesPerChunk = 8;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 4;
+		this.bopWorldFeatures.waterReedsPerChunk = 2;
 	}
 }

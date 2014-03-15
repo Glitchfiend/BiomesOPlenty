@@ -13,6 +13,7 @@ public class BirchForestForcedDecorator extends ForcedDecorator
 	{
 		this.bopWorldFeatures.poisonIvyPerChunk = 3;
 		this.bopWorldFeatures.cloverPatchesPerChunk = 15;
+		this.bopWorldFeatures.leafPilesPerChunk = 5;
 	}
 	
     @Override

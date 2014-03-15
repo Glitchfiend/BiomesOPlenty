@@ -20,6 +20,8 @@ public class SwampForcedDecorator extends ForcedDecorator
 		this.bopWorldFeatures.waterReedsPerChunk = 5;
 		this.bopWorldFeatures.toadstoolsPerChunk = 1;
 		this.bopWorldFeatures.blueMilksPerChunk = 1;
+		this.bopWorldFeatures.leafPilesPerChunk = 5;
+		this.bopWorldFeatures.deadLeafPilesPerChunk = 2;
 	}
 	
     @Override
