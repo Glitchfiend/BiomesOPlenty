@@ -49,6 +49,8 @@ public class BiomeGenMysticGrove extends BOPBiome
 		
 		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
 		this.bopWorldFeatures.shrubsPerChunk = 4;
+		this.bopWorldFeatures.leafPilesPerChunk = 10;
+		this.bopWorldFeatures.seaweedPerChunk = 5;
 
 	}
 
@@ -59,7 +61,7 @@ public class BiomeGenMysticGrove extends BOPBiome
 		return random.nextInt(4) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs2"), BOPBlockHelper.get("leaves1"), 1, 2, false, 5, 3, false) : 
 		(random.nextInt(3) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1) : 
 		((random.nextInt(3) == 0 ? this.worldGeneratorBigTree : 
-		((random.nextInt(8) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("ivy"), -1) : this.worldGeneratorTrees)))));
+		((random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("flowerVine"), -1) : this.worldGeneratorTrees)))));
 	}
 	
     @Override

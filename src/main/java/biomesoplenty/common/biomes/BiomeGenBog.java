@@ -74,7 +74,7 @@ public class BiomeGenBog extends BOPBiome
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
                 //TODO: setBlock()
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
+                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
             }
         }
 
