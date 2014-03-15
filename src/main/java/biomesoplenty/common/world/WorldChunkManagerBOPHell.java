@@ -1,10 +1,9 @@
 package biomesoplenty.common.world;
 
-import java.util.List;
-import java.util.Random;
-
 import biomesoplenty.common.helpers.BiomeCacheHell;
 import biomesoplenty.common.world.layer.hell.BiomeLayerHell;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -12,8 +11,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
+import java.util.Random;
 
 public class WorldChunkManagerBOPHell extends WorldChunkManager
 {
@@ -21,10 +21,8 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	private GenLayer biomeIndexLayer;
 	private BiomeCacheHell biomeCache;
 
-	@SuppressWarnings("rawtypes")
 	private List biomesToSpawnIn;
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected WorldChunkManagerBOPHell()
 	{
 		biomeCache = new BiomeCacheHell(this);
@@ -34,7 +32,6 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	{
 		this();
 		GenLayer[] var4 = BiomeLayerHell.initializeAllBiomeGenerators(par1, par3WorldType, 1);
-		//var4 = getModdedBiomeGenerators(par3WorldType, par1, var4);
 		genBiomes = var4[0];
 		biomeIndexLayer = var4[1];
 	}
