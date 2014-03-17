@@ -1,25 +1,32 @@
 package biomesoplenty.common.world.generation;
 
-import java.lang.reflect.Field;
-import java.util.Random;
-
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.common.world.decoration.IBOPDecoration;
 
-public abstract class WorldGeneratorBOP extends WorldGenerator implements IWorldGeneratorBOP
+import java.util.Random;
+
+public abstract class WorldGeneratorBOP extends WorldGenerator implements IBOPWorldGenerator
 {
-	public WorldGeneratorBOP(boolean doBlockNotify)
+    public WorldGeneratorBOP(boolean doBlockNotify)
     {
-	    super(doBlockNotify);
+        super(doBlockNotify);
     }
-	
-	public WorldGeneratorBOP()
-	{
-	    this(false);
-	}
+
+    public WorldGeneratorBOP()
+    {
+        this(false);
+    }
 
     @Override
-	public abstract void doGeneration(World world, Random random, Field worldGeneratorField, WorldGenerator worldGenerator, BiomeGenBase biome, IBOPDecoration bopDecoration, int x, int z) throws Exception;
+    public void setupGeneration(World world, Random random, BiomeGenBase biome, String featureName, int x, int z)
+    {
+
+    }
+
+    @Override
+    public boolean generate(World world, Random random, int x, int y, int z)
+    {
+        return false;
+    }
 }

@@ -1,13 +1,5 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
@@ -15,6 +7,12 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar2;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenGrove extends BOPBiome
 {
@@ -33,13 +31,22 @@ public class BiomeGenGrove extends BOPBiome
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.flowersPerChunk = 5;
 		this.theBiomeDecorator.grassPerChunk = 8;
-		
-		this.bopWorldFeatures.bopFlowersPerChunk = 50;
-		this.bopWorldFeatures.sproutsPerChunk = 1;
-		this.bopWorldFeatures.berryBushesPerChunk = 2;
-		this.bopWorldFeatures.shrubsPerChunk = 3;
-		this.bopWorldFeatures.cloverPatchesPerChunk = 20;
-		this.bopWorldFeatures.generatePumpkins = false;
+
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 50);
+        this.bopWorldFeatures.setFeature("sproutsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("berryBushesPerChunk", 2);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 3);
+        this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 20);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 16);
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(5, 3), 4);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 
 	@Override
@@ -47,31 +54,6 @@ public class BiomeGenGrove extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
-	}
-	
-    @Override
-    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
-        
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 16);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 6);
-        flowerMap.put(new WorldGenBOPDoubleFlora(5, 3), 4);
-        
-        return flowerMap;
-    }
-
-	@Override
-	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-	{
-	    HashMap<WorldGenerator, Double> grassMap = new HashMap();
-
-	    grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-	    grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
-	    grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-	    grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-
-	    return grassMap;
 	}
 
     @Override
@@ -98,14 +80,12 @@ public class BiomeGenGrove extends BOPBiome
     }
 
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 5341009;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 6396257;

@@ -1,20 +1,18 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import net.minecraft.block.Block;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenMeadow extends BOPBiome
 {
@@ -34,13 +32,23 @@ public class BiomeGenMeadow extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		this.theBiomeDecorator.mushroomsPerChunk = 2;
 		this.theBiomeDecorator.flowersPerChunk = 10;
-		
-		this.bopWorldFeatures.bopFlowersPerChunk = 14;
-		this.bopWorldFeatures.wildCarrotsPerChunk = 1;
-		this.bopWorldFeatures.shrubsPerChunk = 5;
-		this.bopWorldFeatures.cloverPatchesPerChunk = 15;
-		this.bopWorldFeatures.seaweedPerChunk = 5;
-		this.bopWorldFeatures.generatePumpkins = false;
+
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 14);
+        this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
+        this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 15);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 10);
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(5, 3), 5);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 4);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(0, 3), 2);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 	
     @Override
@@ -48,32 +56,6 @@ public class BiomeGenMeadow extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(5) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 6, 4, 0) : new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 1, Blocks.dirt, Blocks.grass);
-    }
-    
-    @Override
-    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
-        
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 10);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
-        flowerMap.put(new WorldGenBOPDoubleFlora(5, 3), 5);
-        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 4);
-        flowerMap.put(new WorldGenBOPDoubleFlora(0, 3), 2);
-        
-        return flowerMap;
-    }
-    
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-        
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        
-        return grassMap;
     }
 	
     @Override
@@ -87,13 +69,11 @@ public class BiomeGenMeadow extends BOPBiome
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
-            
-            //TODO:             getBlock()
+
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
             }
         }

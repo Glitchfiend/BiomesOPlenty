@@ -1,18 +1,16 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.entity.monster.EntityWitch;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import net.minecraft.entity.monster.EntityWitch;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenMysticGrove extends BOPBiome
 {
@@ -41,15 +39,27 @@ public class BiomeGenMysticGrove extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		this.theBiomeDecorator.flowersPerChunk = 8;
-		
-		this.bopWorldFeatures.bopFlowersPerChunk = 10;
-		this.bopWorldFeatures.sproutsPerChunk = 1;
-		this.bopWorldFeatures.blueMilksPerChunk = 1;
-		//TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 1;
-		
-		this.bopWorldFeatures.cloverPatchesPerChunk = 10;
-		this.bopWorldFeatures.shrubsPerChunk = 4;
 
+        this.bopWorldFeatures.setFeature("generatePumpkins", 10);
+        this.bopWorldFeatures.setFeature("generatePumpkins", 1);
+        this.bopWorldFeatures.setFeature("generatePumpkins", 1);
+        //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 1;
+
+        this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);
+
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 3), 10);
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
+        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 3), 6);
+        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 4);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 
 	@Override
@@ -61,45 +71,14 @@ public class BiomeGenMysticGrove extends BOPBiome
 		((random.nextInt(3) == 0 ? this.worldGeneratorBigTree : 
 		((random.nextInt(8) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("ivy"), -1) : this.worldGeneratorTrees)))));
 	}
-	
-    @Override
-    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
-        
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 3), 10);
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 3), 6);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 6);
-        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 4);
-        
-        return flowerMap;
-    }
-
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-        
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        
-        return grassMap;
-    }
 
 	@Override
-	//TODO:		getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 6934491;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 7397529;

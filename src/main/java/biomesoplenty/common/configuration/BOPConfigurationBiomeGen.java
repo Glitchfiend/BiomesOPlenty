@@ -1,22 +1,18 @@
 package biomesoplenty.common.configuration;
 
-import java.io.File;
-import java.util.ArrayList;
-
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.config.Configuration;
-
-import org.apache.commons.lang3.text.WordUtils;
-import org.apache.logging.log4j.Level;
-
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
-import biomesoplenty.common.core.BOPBiomes;
-import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
+import biomesoplenty.common.core.BOPWorld;
 import biomesoplenty.common.world.layer.hell.BiomeLayerHellBiomes;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.config.Configuration;
+import org.apache.commons.lang3.text.WordUtils;
+import org.apache.logging.log4j.Level;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class BOPConfigurationBiomeGen
 {
@@ -69,18 +65,18 @@ public class BOPConfigurationBiomeGen
 
 				if (config.get("Overworld Biomes To Generate (There must be at least one from each category)", name + " (" + WordUtils.capitalize(entry.temperatureType.toString().toLowerCase()) + ")", !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
 				{
-					if (BOPBiomes.onlyBiome != null ? entry == BOPBiomes.onlyBiome : true)
+					if (BOPWorld.onlyBiome != null ? entry == BOPWorld.onlyBiome : true)
 					{
 						entry.addToCorrespondingTemperatureTypeList();
 					}
 				}
 			}
 			
-			if (BOPBiomes.onlyBiome != null)
+			if (BOPWorld.onlyBiome != null)
 			{
 		        for (TemperatureType temperatureType : BOPBiomeHelper.TemperatureType.values())
 		        {
-		        	BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(BOPBiomes.onlyBiome);
+		        	BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(BOPWorld.onlyBiome);
 		        }
 			}
 			else

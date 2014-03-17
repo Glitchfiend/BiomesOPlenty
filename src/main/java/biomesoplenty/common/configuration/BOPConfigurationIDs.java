@@ -1,19 +1,14 @@
 package biomesoplenty.common.configuration;
 
-import java.io.File;
-
+import cpw.mods.fml.common.FMLLog;
 import net.minecraftforge.common.config.Configuration;
-
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
+import java.io.File;
 
 public class BOPConfigurationIDs
 {
 	public static Configuration config;
-	
-	public static int promisedLandDimID;
 
 	//Biome IDs
 	public static int alpsID;
@@ -97,11 +92,6 @@ public class BOPConfigurationIDs
 	public static int polarID;
 	public static int prairieID;
 
-	public static int wonderousWoodsID;
-	public static int majesticMeadowID;
-	public static int promisedLandShrubID;
-	public static int blessedBogID;
-
 	public static int quagmireID;
 	public static int rainforestID;
 	public static int redwoodForestID;
@@ -153,8 +143,6 @@ public class BOPConfigurationIDs
 		{
 			config.load();
 			
-			promisedLandDimID = config.get("Dimension Settings", "Promised Land Dimension ID", 20, null).getInt();
-			
 			//Mob IDs
 			jungleSpiderID = config.get("Mob IDs", "Jungle Spider ID", 101, null).getInt();
 			rosesterID = config.get("Mob IDs", "Rosester ID", 102, null).getInt();
@@ -171,7 +159,6 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
-			promisedLandShrubID = config.get("Biome IDs", "Sublime Shrubland (Promised Land) ID", 53).getInt();
 			mysticGroveThinID = config.get("Biome IDs", "Thinned Mystic Grove (Sub-Biome) ID", 54).getInt();
 			netherBloodID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 55).getInt();
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 56).getInt();
@@ -197,10 +184,6 @@ public class BOPConfigurationIDs
 
 			beachGravelID = config.get("Biome IDs", "Gravel Beach ID", 75).getInt();
 			beachOvergrownID = config.get("Biome IDs", "Overgrown Beach ID", 76).getInt();
-
-			wonderousWoodsID = config.get("Biome IDs", "Wonderous Woods (Promised Land) ID", 77).getInt();
-			majesticMeadowID = config.get("Biome IDs", "Majestic Meadow (Promised Land) ID", 78).getInt();
-			blessedBogID = config.get("Biome IDs", "Blessed Bog (Promised Land) ID", 79).getInt();
 
 			netherBaseID = config.get("Biome IDs", "Nether Base (Nether) ID", 80).getInt();
 			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 81).getInt();

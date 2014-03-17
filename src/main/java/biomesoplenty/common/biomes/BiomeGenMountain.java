@@ -1,15 +1,15 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+
+import java.util.Random;
 
 public class BiomeGenMountain extends BOPBiome
 {
@@ -18,21 +18,19 @@ public class BiomeGenMountain extends BOPBiome
 	public BiomeGenMountain(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(8430421);
         this.setTemperatureRainfall(0.5F, 0.1F);
 
 		this.theBiomeDecorator.treesPerChunk = 2;
 		this.theBiomeDecorator.grassPerChunk = 3;
 
-		this.bopWorldFeatures.berryBushesPerChunk = 3;
-		this.bopWorldFeatures.shrubsPerChunk = 10;
-		this.bopWorldFeatures.waterReedsPerChunk = 4;
-		this.bopWorldFeatures.leafPilesPerChunk = 10;
-		this.bopWorldFeatures.deadLeafPilesPerChunk = 10;
+        this.bopWorldFeatures.setFeature("berryBushesPerChunk", 3);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 10);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 10);
 	}
 
 	@Override
@@ -59,13 +57,11 @@ public class BiomeGenMountain extends BOPBiome
 			int x = chunkX + random.nextInt(16);
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
-			
-			//TODO:				getBlock()
+
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
 			}
 		}

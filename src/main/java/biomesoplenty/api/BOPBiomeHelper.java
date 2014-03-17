@@ -1,17 +1,13 @@
 package biomesoplenty.api;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map.Entry;
-
+import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 
-import biomesoplenty.common.configuration.BOPConfigurationIDs;
-import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
+import java.util.HashMap;
+import java.util.List;
 
 public class BOPBiomeHelper 
 {
@@ -21,7 +17,6 @@ public class BOPBiomeHelper
 	{
 		biomeLists[-1 + 1] = new HashMap();
 		biomeLists[0 + 1] = new HashMap();
-		biomeLists[BOPConfigurationIDs.promisedLandDimID + 1] = new HashMap();
 	}
 	
 	public static void registerBiome(BOPBiomeEntry biome, int dimID, String name)

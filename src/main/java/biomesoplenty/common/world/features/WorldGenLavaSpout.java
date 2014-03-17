@@ -1,16 +1,14 @@
 package biomesoplenty.common.world.features;
 
-import java.lang.reflect.Field;
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+
+import java.util.Random;
 
 public class WorldGenLavaSpout extends WorldGeneratorBOP
 {
@@ -57,15 +55,15 @@ public class WorldGenLavaSpout extends WorldGeneratorBOP
     }
     
     @Override
-    public void doGeneration(World world, Random random, Field worldGeneratorField, WorldGenerator worldGenerator, BiomeGenBase biome, IBOPDecoration bopDecoration, int x, int z) throws Exception
+    public void setupGeneration(World world, Random random, BiomeGenBase biome, String featureName, int x, int z)
     {
-        for (int i = 0; i < worldGeneratorField.getInt(bopDecoration.getWorldFeatures()); i++)
+        for (int i = 0; i < (Integer)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature(featureName); i++)
         {
             int randX = x + random.nextInt(16) + 8;
             int randZ = z + random.nextInt(16) + 8;
             int randY = random.nextInt(world.getHeightValue(randX, randZ) * 2);
 
-            worldGenerator.generate(world, random, randX, randY, randZ);
+            this.generate(world, random, randX, randY, randZ);
         }
     }
 }

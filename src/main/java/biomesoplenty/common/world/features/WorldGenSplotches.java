@@ -1,18 +1,16 @@
 package biomesoplenty.common.world.features;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class WorldGenSplotches extends WorldGeneratorBOP
 {
@@ -93,11 +91,9 @@ public class WorldGenSplotches extends WorldGeneratorBOP
     }
 
     @Override
-    public void doGeneration(World world, Random random, Field worldGeneratorField, WorldGenerator worldGenerator, BiomeGenBase biome, IBOPDecoration bopDecoration, int x, int z) throws Exception 
+    public void setupGeneration(World world, Random random, BiomeGenBase biome, String featureName, int x, int z)
     {
-        String fieldName = worldGeneratorField.getName();
-
-        if (fieldName.equals("generateQuicksand") && bopDecoration.getWorldFeatures().generateQuicksand)
+        if (featureName.equals("generateQuicksand") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateQuicksand"))
         {
             for (int i = 0; i < 5; ++i)
             {
@@ -105,10 +101,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(64) + 64;
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateCanyon") && bopDecoration.getWorldFeatures().generateCanyon)
+        else if (featureName.equals("generateCanyon") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateCanyon"))
         {
             for (int i = 0; i < 15; ++i)
             {
@@ -116,10 +112,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(64) + 64;
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateStoneInGrass") && bopDecoration.getWorldFeatures().generateStoneInGrass)
+        else if (featureName.equals("generateStoneInGrass") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateStoneInGrass"))
         {
             for (int i = 0; i < 15; ++i)
             {
@@ -127,10 +123,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(64) + 64;
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateStoneInGrass2") && bopDecoration.getWorldFeatures().generateStoneInGrass2)
+        else if (featureName.equals("generateStoneInGrass2") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateStoneInGrass2"))
         {
             for (int i = 0; i < 20; ++i)
             {
@@ -138,10 +134,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(64) + 64;
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateGrass") && bopDecoration.getWorldFeatures().generateGrass)
+        else if (featureName.equals("generateGrass") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateGrass"))
         {
             for (int i = 0; i < 15; ++i)
             {
@@ -149,10 +145,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(128);
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateSand") && bopDecoration.getWorldFeatures().generateSand)
+        else if (featureName.equals("generateSand") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateSand"))
         {
             for (int i = 0; i < 15; ++i)
             {
@@ -160,10 +156,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(128);
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateQuagmire") && bopDecoration.getWorldFeatures().generateQuagmire)
+        else if (featureName.equals("generateQuagmire") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateQuagmire"))
         {
             for (int i = 0; i < 15; ++i)
             {
@@ -171,10 +167,10 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(64) + 64;
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
-        else if (fieldName.equals("generateAsh") && bopDecoration.getWorldFeatures().generateAsh)
+        else if (featureName.equals("generateAsh") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateAsh"))
         {
             for (int i = 0; i < 10; ++i)
             {
@@ -182,7 +178,7 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 int randY = random.nextInt(128);
                 int randZ = z + random.nextInt(16);
 
-                worldGenerator.generate(world, random, randX, randY, randZ);
+                this.generate(world, random, randX, randY, randZ);
             }
         }
     }

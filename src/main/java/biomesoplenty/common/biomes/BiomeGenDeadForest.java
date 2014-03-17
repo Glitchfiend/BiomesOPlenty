@@ -1,18 +1,15 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenDeadForest extends BOPBiome
 {
@@ -21,10 +18,8 @@ public class BiomeGenDeadForest extends BOPBiome
 	public BiomeGenDeadForest(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(12362085);
         this.setTemperatureRainfall(0.2F, 0.8F);
 
@@ -33,24 +28,16 @@ public class BiomeGenDeadForest extends BOPBiome
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.reedsPerChunk = -999;
 
-		this.bopWorldFeatures.shrubsPerChunk = 2;
-		this.bopWorldFeatures.thornsPerChunk = 2;
-		this.bopWorldFeatures.waterReedsPerChunk = 2;
-		this.bopWorldFeatures.deadLeafPilesPerChunk = 20;
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("thornsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 20);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
-	
-    @Override
-	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-    	HashMap<WorldGenerator, Double> grassMap = new HashMap();
-    	
-    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.5D);
-    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-    	
-    	return grassMap;
-    }
 
 	@Override
 	//TODO:						getRandomWorldGenForTrees()
@@ -62,14 +49,12 @@ public class BiomeGenDeadForest extends BOPBiome
 	}
 
 	@Override
-	//TODO:		getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 12362085;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 12362085;

@@ -1,17 +1,17 @@
 package biomesoplenty.common.biomes;
 
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.decoration.BOPWorldFeatures;
+import biomesoplenty.common.world.decoration.IBOPBiome;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Random;
 
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.common.world.decoration.BOPWorldFeatures;
-import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-
-public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
+public abstract class BOPBiome extends BiomeGenBase implements IBOPBiome
 {
 	protected BOPWorldFeatures bopWorldFeatures;
 	
@@ -19,10 +19,10 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
 	{
 		super(biomeID);
 		
-		bopWorldFeatures = new BOPWorldFeatures();
+		bopWorldFeatures = BOPDecorationManager.getBiomeFeatures(biomeID);
 	}
 	
-    @Override
+    /*@Override
 	public void decorate(World world, Random random, int x, int z)
     {
         try
@@ -41,14 +41,14 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
                 e.printStackTrace();
             }
         }
-    }
+    }*/
     
     @Override
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
     {
-		if (getWeightedWorldGenForBOPFlowers() != null && !getWeightedWorldGenForBOPFlowers().isEmpty())
+		if (weightedFlowerGen != null && !weightedFlowerGen.isEmpty())
 		{
-			return getRandomWeightedWorldGenerator(getWeightedWorldGenForBOPFlowers());
+			return getRandomWeightedWorldGenerator(weightedFlowerGen);
 		}
 		else
 		{
@@ -59,27 +59,15 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     @Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		if (getWeightedWorldGenForGrass() != null && !getWeightedWorldGenForGrass().isEmpty())
+		if (weightedGrassGen != null && !weightedGrassGen.isEmpty())
 		{
-			return getRandomWeightedWorldGenerator(getWeightedWorldGenForGrass());
+			return getRandomWeightedWorldGenerator(weightedGrassGen);
 		}
 		else
 		{
 			return super.getRandomWorldGenForGrass(random);
 		}
 	}
-    
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-    	return null;
-    }
-    
-    @Override
-    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-    	return null;
-    }
     
     public static <T extends WorldGenerator> T getRandomWeightedWorldGenerator(HashMap<T, ? extends Number> worldGeneratorMap)
     {
@@ -104,7 +92,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPDecoration
     }
     
 	@Override
-	public BOPWorldFeatures getWorldFeatures() 
+	public BOPWorldFeatures getBiomeFeatures()
 	{
 		return bopWorldFeatures;
 	}

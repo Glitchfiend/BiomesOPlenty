@@ -1,17 +1,12 @@
 package biomesoplenty.common.configuration;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Map.Entry;
-
-import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
+import cpw.mods.fml.common.FMLLog;
 import net.minecraftforge.common.config.Configuration;
-
 import org.apache.logging.log4j.Level;
 
-import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
+import java.io.File;
+import java.util.Map.Entry;
 
 public class BOPConfigurationWorldFeatures
 {
@@ -25,7 +20,7 @@ public class BOPConfigurationWorldFeatures
 		{
 			config.load();
 			
-			for (Entry<String, WorldGenerator> entry : WorldGenFieldAssociation.worldGeneratorMap.entrySet())
+			for (Entry<String, WorldGenFieldAssociation.WorldFeature> entry : WorldGenFieldAssociation.featureMap.entrySet())
 			{
 				String key = entry.getKey();
 				
@@ -35,7 +30,7 @@ public class BOPConfigurationWorldFeatures
 				
 				if (!featureEnabled)
 				{
-					WorldGenFieldAssociation.worldGeneratorMap.remove(key);
+					WorldGenFieldAssociation.featureMap.remove(key);
 				}
 			}
 		}

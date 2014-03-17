@@ -1,12 +1,12 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
+
+import java.util.Random;
 
 public class BiomeGenCrag extends BOPBiome
 {
@@ -15,10 +15,8 @@ public class BiomeGenCrag extends BOPBiome
 	public BiomeGenCrag(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(5209457);
         this.setTemperatureRainfall(2.0F, 0.0F);
 		
@@ -28,7 +26,6 @@ public class BiomeGenCrag extends BOPBiome
 		this.topBlock = BOPBlockHelper.get("cragRock");
 		this.fillerBlock = BOPBlockHelper.get("cragRock");
 		this.theBiomeDecorator.treesPerChunk = -999;
-
 
 		this.waterColorMultiplier = 944693;
 	}

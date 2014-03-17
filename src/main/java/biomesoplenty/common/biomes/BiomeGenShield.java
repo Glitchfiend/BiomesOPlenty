@@ -1,18 +1,16 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenShrub;
+
+import java.util.Random;
 
 public class BiomeGenShield extends BOPBiome
 {
@@ -33,12 +31,16 @@ public class BiomeGenShield extends BOPBiome
 		this.theBiomeDecorator.mushroomsPerChunk = 4;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
-		
-		this.bopWorldFeatures.shrubsPerChunk = 4;
-		this.bopWorldFeatures.waterReedsPerChunk = 4;
-		this.bopWorldFeatures.leafPilesPerChunk = 10;
-		this.bopWorldFeatures.seaweedPerChunk = 5;
-		this.bopWorldFeatures.generateStoneInGrass2 = true;
+
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
+        this.bopWorldFeatures.setFeature("generateStoneInGrass2", true);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 
 	@Override
@@ -50,18 +52,6 @@ public class BiomeGenShield extends BOPBiome
 		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 10, 10, 5) : 
 		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6)));
 	}
-	
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-        
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        
-        return grassMap;
-    }
 
     @Override
     public void decorate(World world, Random random, int chunkX, int chunkZ)

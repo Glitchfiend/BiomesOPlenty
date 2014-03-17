@@ -1,64 +1,94 @@
 package biomesoplenty.common.world.decoration;
 
-public class BOPWorldFeatures 
-{
-	public boolean generatePumpkins = true;
-	public boolean generateQuicksand = false;
-	public boolean generateCanyon = false;
-	public boolean generateStoneInGrass = false;
-	public boolean generateStoneInGrass2 = false;
-	public boolean generateGrass = false;
-	public boolean generateSand = false;
-	public boolean generateQuagmire = false;
-	public boolean generateAsh = false;
-	public boolean generateMelons = false;
-	
-	public int waterPoolsPerChunk = 50;
-	public int lavaPoolsPerChunk = 20;
-	
-	public int waterLakesPerChunk = 0;
-	public int lavaLakesPerChunk = 0;
-	
-	public int mudPerChunk = 0;
-	public int riverCanePerChunk = 0;
-	public int shrubsPerChunk = 0;
-	public int bushesPerChunk = 0;
-	public int cloverPatchesPerChunk = 0;
-	public int seaweedPerChunk = 0;
-	public int leafPilesPerChunk = 0;
-	public int deadLeafPilesPerChunk = 0;
-	public int lavenderPerChunk = 0;
-	public int thornsPerChunk = 0;
-	public int stalagmitesPerChunk = 3;
-	public int stalactitesPerChunk = 6;
-	public int desertSproutsPerChunk = 0;
-	public int bromeliadsPerChunk = 0;
-	public int waterReedsPerChunk = 0;
-	public int wildCarrotsPerChunk = 0;
-	public int poisonIvyPerChunk = 0;
-	public int berryBushesPerChunk = 0;
-	public int portobellosPerChunk = 0;
-	public int koruPerChunk = 0;
-	public int toadstoolsPerChunk = 0;
-	public int blueMilksPerChunk = 0;
-	public int cattailsPerChunk = 0;
-	public int highCattailsPerChunk = 0;
-	public int algaePerChunk = 0;
-	public int sproutsPerChunk = 0;
-	public int tinyCactiPerChunk = 0;
-	public int oasesPerChunk = 0;
-	public int minersDelightPerChunk = 2;
-	public int rootsPerChunk = 9;
-	public int grassSplatterPerChunk = 0;
-	public int rockpilesPerChunk = 0;
-	public int logsPerChunk = 0;
-	public int lavaSpoutsPerChunk = 0;
-	public int cobwebsPerChunk = 0;
-	public int cobwebNestsPerChunk = 0;
-	public int wasteland1PerChunk = 0;
-	public int wasteland2PerChunk = 0;
-	public int wasteland3PerChunk = 0;
-	public int wasteland4PerChunk = 0;
+import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 
-	public int bopFlowersPerChunk = 0;
+import java.util.HashMap;
+import java.util.Set;
+
+public class BOPWorldFeatures
+{
+    private HashMap<String, Object> featureValueMap = new HashMap<String, Object>();
+
+    static
+    {
+        WorldGenFieldAssociation.init();
+    }
+
+    protected BOPWorldFeatures()
+    {
+        setFeature("generatePumpkins", true);
+        setFeature("generateQuicksand", false);
+        setFeature("generateCanyon", false);
+        setFeature("generateStoneInGrass", false);
+        setFeature("generateStoneInGrass2", false);
+        setFeature("generateGrass", false);
+        setFeature("generateSand", false);
+        setFeature("generateQuagmire", false);
+        setFeature("generateAsh", false);
+        setFeature("generateMelons", false);
+
+        setFeature("waterPoolsPerChunk", 50);
+        setFeature("lavaPoolsPerChunk", 20);
+
+        setFeature("waterLakesPerChunk", 0);
+        setFeature("lavaLakesPerChunk", 0);
+
+        setFeature("mudPerChunk", 0);
+        setFeature("riverCanePerChunk", 0);
+        setFeature("shrubsPerChunk", 0);
+        setFeature("bushesPerChunk", 0);
+        setFeature("cloverPatchesPerChunk", 0);
+        setFeature("seaweedPerChunk", 0);
+        setFeature("leafPilesPerChunk", 0);
+        setFeature("deadLeafPilesPerChunk", 0);
+        setFeature("lavenderPerChunk", 0);
+        setFeature("thornsPerChunk", 0);
+        setFeature("stalagmitesPerChunk", 3);
+        setFeature("stalactitesPerChunk", 6);
+        setFeature("desertSproutsPerChunk", 0);
+        setFeature("bromeliadsPerChunk", 0);
+        setFeature("waterReedsPerChunk", 0);
+        setFeature("wildCarrotsPerChunk", 0);
+        setFeature("poisonIvyPerChunk", 0);
+        setFeature("berryBushesPerChunk", 0);
+        setFeature("portobellosPerChunk", 0);
+        setFeature("koruPerChunk", 0);
+        setFeature("toadstoolsPerChunk", 0);
+        setFeature("blueMilksPerChunk", 0);
+        setFeature("cattailsPerChunk", 0);
+        setFeature("highCattailsPerChunk", 0);
+        setFeature("algaePerChunk", 0);
+        setFeature("sproutsPerChunk", 0);
+        setFeature("tinyCactiPerChunk", 0);
+        setFeature("oasesPerChunk", 0);
+        setFeature("minersDelightPerChunk", 2);
+        setFeature("rootsPerChunk", 9);
+        setFeature("grassSplatterPerChunk", 0);
+        setFeature("rockpilesPerChunk", 0);
+        setFeature("logsPerChunk", 0);
+        setFeature("lavaSpoutsPerChunk", 0);
+        setFeature("cobwebsPerChunk", 0);
+        setFeature("cobwebNestsPerChunk", 0);
+        setFeature("wasteland1PerChunk", 0);
+        setFeature("wasteland2PerChunk", 0);
+        setFeature("wasteland3PerChunk", 0);
+        setFeature("wasteland4PerChunk", 0);
+
+        setFeature("bopFlowersPerChunk", 0);
+    }
+
+    public <T extends Object> void setFeature(String name, T value)
+    {
+        featureValueMap.put(name, value);
+    }
+
+    public Object getFeature(String name)
+    {
+        return featureValueMap.get(name);
+    }
+
+    public Set<String> getFeatureNames()
+    {
+        return featureValueMap.keySet();
+    }
 }

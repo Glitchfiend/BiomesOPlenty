@@ -26,9 +26,9 @@ public class BiomeGenVolcano extends BOPBiome
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.grassPerChunk = -999;
 
-        this.bopWorldFeatures.lavaLakesPerChunk = 50;
-        this.bopWorldFeatures.lavaSpoutsPerChunk = 10;
-        this.bopWorldFeatures.generateAsh = true;
+        this.bopWorldFeatures.setFeature("lavaLakesPerChunk", 50);
+        this.bopWorldFeatures.setFeature("lavaSpoutsPerChunk", 10);
+        this.bopWorldFeatures.setFeature("generateAsh", true);
     }
 
     @Override

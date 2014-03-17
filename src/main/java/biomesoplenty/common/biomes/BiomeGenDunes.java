@@ -1,14 +1,13 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+
+import java.util.Random;
 
 public class BiomeGenDunes extends BOPBiome
 {
@@ -34,10 +33,10 @@ public class BiomeGenDunes extends BOPBiome
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 75;
 		this.theBiomeDecorator.generateLakes = false;
-		
-		this.bopWorldFeatures.desertSproutsPerChunk = 25;
-		this.bopWorldFeatures.bromeliadsPerChunk = 5;
-		this.bopWorldFeatures.waterReedsPerChunk = 4;
+
+        this.bopWorldFeatures.setFeature("desertSproutsPerChunk", 25);
+        this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 5);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
 	}
 	
 	@Override
@@ -57,13 +56,11 @@ public class BiomeGenDunes extends BOPBiome
 			int x = chunkX + random.nextInt(16);
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
-			
-			//TODO:				getBlock()
+
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
 			}
 		}

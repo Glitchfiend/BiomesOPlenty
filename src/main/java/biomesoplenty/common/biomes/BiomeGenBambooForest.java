@@ -1,7 +1,8 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -9,9 +10,8 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
+
+import java.util.Random;
 
 public class BiomeGenBambooForest extends BOPBiome
 {
@@ -21,22 +21,20 @@ public class BiomeGenBambooForest extends BOPBiome
 	{
 		super(id);
 
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(10739795);
         this.setTemperatureRainfall(1.2F, 0.9F);
         
-		this.theBiomeDecorator.treesPerChunk = 30;
-		this.theBiomeDecorator.grassPerChunk = 5;
-		this.theBiomeDecorator.flowersPerChunk = -999;
-		
-		this.bopWorldFeatures.riverCanePerChunk = 6;
-		this.bopWorldFeatures.shrubsPerChunk = 6;
-		this.bopWorldFeatures.bushesPerChunk = 5;
-		this.bopWorldFeatures.leafPilesPerChunk = 15;
-		
-		this.bopWorldFeatures.generatePumpkins = false;
+		this.bopWorldFeatures.setFeature("treesPerChunk", 30);
+		this.bopWorldFeatures.setFeature("grassPerChunk", 5);
+		this.bopWorldFeatures.setFeature("flowersPerChunk", -999);
+
+		this.bopWorldFeatures.setFeature("riverCanePerChunk", 6);
+		this.bopWorldFeatures.setFeature("shrubsPerChunk", 6);
+		this.bopWorldFeatures.setFeature("bushesPerChunk", 5);
+		this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
+
+		this.bopWorldFeatures.setFeature("generatePumpkins", false);
 	}
 
 	@Override
@@ -50,24 +48,23 @@ public class BiomeGenBambooForest extends BOPBiome
 			int x = chunkX + random.nextInt(16);
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
-			
-			//TODO:				getBlock()
+
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
 			}
 		}
 	}
-	
-    public void genTerrainBlocks(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+
+    @Override
+    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
     {
         this.topBlock = Blocks.dirt;
         this.field_150604_aj = 2;
 
-        this.genBiomeTerrain(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+        this.genBiomeTerrain(world, random, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 
 	@Override
@@ -84,15 +81,13 @@ public class BiomeGenBambooForest extends BOPBiome
 	}
 
 	@Override
-	//TODO:		getBiomeGrassColor()
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
-        double d0 = plantNoise.func_151601_a((double)p_150558_1_ * 0.0225D, (double)p_150558_3_ * 0.0225D);
+        double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
         return d0 < -0.7D ? 13949781 : (d0 < -0.3 ? 12311892 : 10739795);
     }
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);

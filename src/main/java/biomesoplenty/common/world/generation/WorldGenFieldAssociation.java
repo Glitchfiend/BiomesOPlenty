@@ -1,107 +1,146 @@
 package biomesoplenty.common.world.generation;
 
-import java.util.HashMap;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.*;
+import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
+import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
+import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPCoral;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.WorldGenCobwebNest;
-import biomesoplenty.common.world.features.WorldGenGrassSplatter;
-import biomesoplenty.common.world.features.WorldGenLavaSpout;
-import biomesoplenty.common.world.features.WorldGenLog;
-import biomesoplenty.common.world.features.WorldGenRiverCane;
-import biomesoplenty.common.world.features.WorldGenRockpile;
-import biomesoplenty.common.world.features.WorldGenSplotches;
-import biomesoplenty.common.world.features.WorldGenWasteland;
-import biomesoplenty.common.world.features.WorldGenWasteland2;
-import biomesoplenty.common.world.features.WorldGenWasteland3;
-import biomesoplenty.common.world.features.WorldGenWasteland4;
-import biomesoplenty.common.world.features.WorldGenWaterReeds;
-import biomesoplenty.common.world.features.WorldGenWaterside;
 
-public class WorldGenFieldAssociation 
+import java.util.HashMap;
+
+public class WorldGenFieldAssociation
 {
-	public static HashMap<String, WorldGenerator> worldGeneratorMap = new HashMap();
-	
-	public static void init()
-	{
-		associateFieldsWithGenerators();
-	}
-	
-	private static void associateFieldsWithGenerators()
-	{
-	    associateField("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24, Blocks.grass, Blocks.dirt, Blocks.sand));
-	    associateField("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48, Blocks.stone));
-	    associateField("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("grass")));
-	    associateField("generateStoneInGrass2", new WorldGenSplotches(Blocks.stone, 0, 48, Blocks.grass, Blocks.dirt));
-	    associateField("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
-	    associateField("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
-	    associateField("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
-	    associateField("generateAsh", new WorldGenSplotches(BOPBlockHelper.get("ash"), 0, 32, BOPBlockHelper.get("ashStone"), Blocks.netherrack));
-	    associateField("generateMelons", new WorldGenMelon());
+    public static HashMap<String, WorldFeature> featureMap = new HashMap<String, WorldFeature>();
 
-	    associateField("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water));
-	    associateField("lavaPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_lava));
-	    
-	    associateField("waterLakesPerChunk", new WorldGenLakes(Blocks.water));
-	    associateField("lavaLakesPerChunk", new WorldGenLakes(Blocks.lava));
-	    
-	    associateField("mudPerChunk", new WorldGenWaterside(BOPBlockHelper.get("mud"), 7, Blocks.dirt, Blocks.grass));
-		associateField("riverCanePerChunk", new WorldGenRiverCane());
-		associateField("shrubsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 9));
-		associateField("bushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 4));
-		associateField("cloverPatchesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 13, 128));
-		associateField("leafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 14, 256));
-		associateField("deadLeafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 15, 256));
-		associateField("lavenderPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 3));
-		associateField("thornsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 5));
-		associateField("stalagmitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 0));
-		associateField("stalactitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 1));
-		associateField("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
-		associateField("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
-		associateField("waterReedsPerChunk", new WorldGenWaterReeds());
-		associateField("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral"), 8));
-		associateField("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
-		associateField("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
-		associateField("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));
-		associateField("portobellosPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 1));
-		associateField("koruPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 12));
-		associateField("toadstoolsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 0));
-		associateField("blueMilksPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 2));
-	    associateField("cattailsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 7));
-	    associateField("highCattailsPerChunk", new WorldGenBOPDoubleFlora(BOPBlockHelper.get("plants"), BOPBlockHelper.get("plants"), 10, 9));
-	    associateField("algaePerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 0));
-	    associateField("sproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 5));
-	    associateField("tinyCactiPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 12));
-	    associateField("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, Blocks.hardened_clay));
-	    associateField("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
-	    associateField("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
-	    associateField("grassSplatterPerChunk", new WorldGenGrassSplatter());
-	    associateField("rockpilesPerChunk", new WorldGenRockpile());
-	    associateField("logsPerChunk", new WorldGenLog());
-	    associateField("lavaSpoutsPerChunk", new WorldGenLavaSpout());
-	    associateField("cobwebsPerChunk", new WorldGenBOPFlora(Blocks.web, 0));
-	    associateField("cobwebNestsPerChunk", new WorldGenCobwebNest());
-	    associateField("wasteland1PerChunk", new WorldGenWasteland());
-	    associateField("wasteland2PerChunk", new WorldGenWasteland2());
-	    associateField("wasteland3PerChunk", new WorldGenWasteland3());
-	    associateField("wasteland4PerChunk", new WorldGenWasteland4());
-	}
-	
-	public static void associateField(String fieldName, WorldGenerator generator)
-	{
-		worldGeneratorMap.put(fieldName, generator);
-	}
-	
-	public static WorldGenerator getAssociatedWorldGenerator(String fieldName)
-	{
-		return worldGeneratorMap.get(fieldName);
-	}
+    public static void init()
+    {
+        associateFeatures();
+        associateFeaturesForced();
+    }
+
+    private static void associateFeatures()
+    {
+        associateFeature("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24, Blocks.grass, Blocks.dirt, Blocks.sand));
+        associateFeature("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48, Blocks.stone));
+        associateFeature("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("grass")));
+        associateFeature("generateStoneInGrass2", new WorldGenSplotches(Blocks.stone, 0, 48, Blocks.grass, Blocks.dirt));
+        associateFeature("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
+        associateFeature("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
+        associateFeature("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
+        associateFeature("generateAsh", new WorldGenSplotches(BOPBlockHelper.get("ash"), 0, 32, BOPBlockHelper.get("ashStone"), Blocks.netherrack));
+
+        associateFeature("mudPerChunk", new WorldGenWaterside(BOPBlockHelper.get("mud"), 7, Blocks.dirt, Blocks.grass));
+        associateFeature("riverCanePerChunk", new WorldGenRiverCane());
+        associateFeature("shrubsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 9));
+        associateFeature("bushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 4));
+        associateFeature("cloverPatchesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 13, 128));
+        associateFeature("leafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 14, 256));
+        associateFeature("deadLeafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 15, 256));
+        associateFeature("lavenderPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 3));
+        associateFeature("thornsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 5));
+        associateFeature("stalagmitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 0));
+        associateFeature("stalactitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 1));
+        associateFeature("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
+        associateFeature("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
+        associateFeature("waterReedsPerChunk", new WorldGenWaterReeds());
+        associateFeature("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral"), 8));
+        associateFeature("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
+        associateFeature("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
+        associateFeature("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));
+        associateFeature("portobellosPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 1));
+        associateFeature("koruPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 12));
+        associateFeature("toadstoolsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 0));
+        associateFeature("blueMilksPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 2));
+        associateFeature("cattailsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 7));
+        associateFeature("highCattailsPerChunk", new WorldGenBOPDoubleFlora(BOPBlockHelper.get("plants"), BOPBlockHelper.get("plants"), 10, 9));
+        associateFeature("algaePerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 0));
+        associateFeature("sproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 5));
+        associateFeature("tinyCactiPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 12));
+        associateFeature("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, Blocks.hardened_clay));
+        associateFeature("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
+        associateFeature("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
+        associateFeature("grassSplatterPerChunk", new WorldGenGrassSplatter());
+        associateFeature("rockpilesPerChunk", new WorldGenRockpile());
+        associateFeature("logsPerChunk", new WorldGenLog());
+        associateFeature("lavaSpoutsPerChunk", new WorldGenLavaSpout());
+        associateFeature("cobwebsPerChunk", new WorldGenBOPFlora(Blocks.web, 0));
+        associateFeature("cobwebNestsPerChunk", new WorldGenCobwebNest());
+        associateFeature("wasteland1PerChunk", new WorldGenWasteland());
+        associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
+        associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
+        associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
+    }
+    private static void associateFeaturesForced()
+    {
+        associateFeatureForced("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water), PondForcedGenerator.class);
+        associateFeatureForced("lavaPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_lava), PondForcedGenerator.class);
+
+        associateFeatureForced("waterLakesPerChunk", new WorldGenLakes(Blocks.water), LakesForcedGenerator.class);
+        associateFeatureForced("lavaLakesPerChunk", new WorldGenLakes(Blocks.lava), LakesForcedGenerator.class);
+
+        associateFeatureForced("generateMelons", new WorldGenMelon(), MelonForcedGenerator.class);
+    }
+
+    public static void associateFeature(String name, WorldFeature feature)
+    {
+        featureMap.put(name, feature);
+    }
+
+    public static void associateFeature(String name, WorldGenerator generator)
+    {
+        featureMap.put(name, new WorldFeature(generator));
+    }
+
+    public static void associateFeatureForced(String name, WorldGenerator generator, Class<? extends ForcedWorldFeatureBOP> forcedFeature)
+    {
+        associateFeature(name, new WorldFeature(generator, forcedFeature));
+    }
+
+    public static WorldFeature getAssociatedFeature(String name)
+    {
+        return featureMap.get(name);
+    }
+
+    public static class WorldFeature
+    {
+        private WorldGenerator worldGenerator;
+        private Class<? extends ForcedWorldFeatureBOP> forcedFeature;
+
+        protected WorldFeature(WorldGenerator worldGenerator, Class<? extends ForcedWorldFeatureBOP> forcedFeature)
+        {
+            this.worldGenerator = worldGenerator;
+            this.forcedFeature = forcedFeature;
+        }
+
+        protected WorldFeature(WorldGenerator worldGenerator)
+        {
+            this(worldGenerator, null);
+        }
+
+        public IBOPWorldGenerator getBOPWorldGenerator()
+        {
+            if (this.worldGenerator instanceof IBOPWorldGenerator)
+            {
+                return (IBOPWorldGenerator)this.worldGenerator;
+            }
+            else if (forcedFeature != null)
+            {
+                try
+                {
+                   return (IBOPWorldGenerator)forcedFeature.getConstructor(WorldGenerator.class).newInstance(worldGenerator);
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
+            return null;
+        }
+    }
 }

@@ -1,7 +1,11 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 import net.minecraft.entity.monster.EntityCaveSpider;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityBat;
@@ -9,12 +13,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
-import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+
+import java.util.Random;
 
 public class BiomeGenOminousWoods extends BOPBiome
 {
@@ -47,11 +47,11 @@ public class BiomeGenOminousWoods extends BOPBiome
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
-		
-		this.bopWorldFeatures.bopFlowersPerChunk = 1;
-		this.bopWorldFeatures.thornsPerChunk = 9;
-		this.bopWorldFeatures.poisonIvyPerChunk = 3;
-		//TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 15;
+
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
+        this.bopWorldFeatures.setFeature("thornsPerChunk", 9);
+        this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 3);
+        //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 15;
 	}
 
 	@Override
@@ -74,14 +74,12 @@ public class BiomeGenOminousWoods extends BOPBiome
 	}
 
 	@Override
-	//TODO:		getBiomeGrassColor()
 	public int getBiomeGrassColor(int x, int y, int z)
 	{
 		return 4145489;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 4145489;

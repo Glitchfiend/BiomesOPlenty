@@ -1,16 +1,14 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+
+import java.util.Random;
 
 public class BiomeGenMarsh extends BOPBiome
 {
@@ -19,10 +17,8 @@ public class BiomeGenMarsh extends BOPBiome
 	public BiomeGenMarsh(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(6725742);
         this.setTemperatureRainfall(0.5F, 0.9F);
 
@@ -38,27 +34,19 @@ public class BiomeGenMarsh extends BOPBiome
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
-		
-		this.bopWorldFeatures.koruPerChunk = 1;
-		this.bopWorldFeatures.mudPerChunk = 1;
-		this.bopWorldFeatures.waterLakesPerChunk = 100;
-		this.bopWorldFeatures.waterReedsPerChunk = 10;
-		this.bopWorldFeatures.seaweedPerChunk = 15;
-		this.bopWorldFeatures.generatePumpkins = false;
+
+        this.bopWorldFeatures.setFeature("koruPerChunk", 1);
+        this.bopWorldFeatures.setFeature("mudPerChunk", 1);
+        this.bopWorldFeatures.setFeature("waterLakesPerChunk", 100);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 10);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.25D);
 	}
-	
-    @Override
-	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-    	HashMap<WorldGenerator, Double> grassMap = new HashMap();
-    	
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-    	grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        grassMap.put(new WorldGenBOPDoubleFlora(2), 0.25D);
-    	
-    	return grassMap;
-    }
 
 	@Override
 	public void decorate(World world, Random random, int chunkX, int chunkZ)
@@ -71,13 +59,11 @@ public class BiomeGenMarsh extends BOPBiome
 			int x = chunkX + random.nextInt(16);
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
-			
-			//TODO:				getBlock()
+
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 12, 2);
 			}
 		}

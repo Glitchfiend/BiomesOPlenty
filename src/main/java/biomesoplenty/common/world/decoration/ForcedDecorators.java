@@ -1,24 +1,9 @@
 package biomesoplenty.common.world.decoration;
 
-import java.util.HashMap;
-
+import biomesoplenty.common.world.forceddecorators.*;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.common.world.forceddecorators.BirchForestForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.DesertForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.ExtremeHillsForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.ForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.ForestForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.IcePlainsForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.JungleForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.MesaForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.MushroomIslandForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.OceanForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.PlainsForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.RiverForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.RoofedForestForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.SavannaForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.SwampForcedDecorator;
-import biomesoplenty.common.world.forceddecorators.TaigaForcedDecorator;
+
+import java.util.HashMap;
 
 public class ForcedDecorators 
 {
@@ -77,7 +62,7 @@ public class ForcedDecorators
 		forcedDecoratorMap.put(biomeID, decorator);
 	}
 	
-	public static IBOPDecoration getForcedDecorator(int biomeID)
+	public static IBOPBiome getForcedDecorator(int biomeID)
 	{
 		return forcedDecoratorMap.get(biomeID);
 	}

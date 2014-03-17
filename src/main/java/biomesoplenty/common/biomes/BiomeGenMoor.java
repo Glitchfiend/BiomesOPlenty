@@ -1,16 +1,14 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class BiomeGenMoor extends BOPBiome
 {
@@ -37,38 +35,22 @@ public class BiomeGenMoor extends BOPBiome
 		this.theBiomeDecorator.mushroomsPerChunk = 2;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
-		
-		this.bopWorldFeatures.mudPerChunk = 1;
-		this.bopWorldFeatures.waterLakesPerChunk = 10;
-		this.bopWorldFeatures.bopFlowersPerChunk = 6;
-		this.bopWorldFeatures.koruPerChunk = 6;
-		this.bopWorldFeatures.seaweedPerChunk = 5;
-		this.bopWorldFeatures.generatePumpkins = false;
+
+        this.bopWorldFeatures.setFeature("mudPerChunk", 1);
+        this.bopWorldFeatures.setFeature("waterLakesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 6);
+        this.bopWorldFeatures.setFeature("koruPerChunk", 6);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 14);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
-	
-    @Override
-    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
-        
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 14);
-        
-        return flowerMap;
-    }
-	
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-        
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        
-        return grassMap;
-    }
 	
     @Override
     public void decorate(World world, Random random, int chunkX, int chunkZ)

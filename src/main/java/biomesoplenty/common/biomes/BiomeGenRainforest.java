@@ -1,8 +1,10 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
@@ -10,11 +12,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.entities.EntityJungleSpider;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+
+import java.util.Random;
 
 public class BiomeGenRainforest extends BOPBiome
 {
@@ -37,31 +36,23 @@ public class BiomeGenRainforest extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 25;
 
 		this.theBiomeDecorator.mushroomsPerChunk = 25;
-
-		this.bopWorldFeatures.bopFlowersPerChunk = 25;
-		this.bopWorldFeatures.shrubsPerChunk = 5;
-		this.bopWorldFeatures.cloverPatchesPerChunk = 20;
-		this.bopWorldFeatures.leafPilesPerChunk = 10;
-		this.bopWorldFeatures.seaweedPerChunk = 15;
-		this.bopWorldFeatures.generatePumpkins = false;
 		
 		/*TODO: FEATURE customBiomeDecorator.pinkFlowersPerChunk = 2;
 		customBiomeDecorator.rosesPerChunk = 10;
 		customBiomeDecorator.orangeFlowersPerChunk = 6;*/
+
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 25);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
+        this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 20);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
+        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 4);
+        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 6);
 	}
-	
-    @Override
-    public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-        HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
-        
-        flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
-        flowerMap.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
-        flowerMap.put(new WorldGenBOPDoubleFlora(4, 5), 4);
-        flowerMap.put(new WorldGenBOPDoubleFlora(1, 5), 6);
-        
-        return flowerMap;
-    }
 	
 	@Override
 	//TODO:						getRandomWorldGenForTrees()

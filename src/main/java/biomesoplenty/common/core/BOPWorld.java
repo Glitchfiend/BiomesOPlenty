@@ -1,82 +1,22 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.common.configuration.BOPConfigurationIDs.promisedLandDimID;
+import biomesoplenty.api.BOPBiomeHelper;
+import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
+import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
+import biomesoplenty.common.biomes.*;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
-import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
-import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
-import biomesoplenty.common.biomes.BiomeGenAlps;
-import biomesoplenty.common.biomes.BiomeGenArctic;
-import biomesoplenty.common.biomes.BiomeGenBambooForest;
-import biomesoplenty.common.biomes.BiomeGenBayou;
-import biomesoplenty.common.biomes.BiomeGenBog;
-import biomesoplenty.common.biomes.BiomeGenBorealForest;
-import biomesoplenty.common.biomes.BiomeGenBrushland;
-import biomesoplenty.common.biomes.BiomeGenCanyon;
-import biomesoplenty.common.biomes.BiomeGenChaparral;
-import biomesoplenty.common.biomes.BiomeGenCherryBlossomGrove;
-import biomesoplenty.common.biomes.BiomeGenConiferousForest;
-import biomesoplenty.common.biomes.BiomeGenConiferousForestSnow;
-import biomesoplenty.common.biomes.BiomeGenCrag;
-import biomesoplenty.common.biomes.BiomeGenDeadForest;
-import biomesoplenty.common.biomes.BiomeGenDeadSwamp;
-import biomesoplenty.common.biomes.BiomeGenDeciduousForest;
-import biomesoplenty.common.biomes.BiomeGenDunes;
-import biomesoplenty.common.biomes.BiomeGenFen;
-import biomesoplenty.common.biomes.BiomeGenFlowerField;
-import biomesoplenty.common.biomes.BiomeGenFrostForest;
-import biomesoplenty.common.biomes.BiomeGenGrassland;
-import biomesoplenty.common.biomes.BiomeGenGrove;
-import biomesoplenty.common.biomes.BiomeGenHeathland;
-import biomesoplenty.common.biomes.BiomeGenHighland;
-import biomesoplenty.common.biomes.BiomeGenJadeCliffs;
-import biomesoplenty.common.biomes.BiomeGenLavenderFields;
-import biomesoplenty.common.biomes.BiomeGenLushDesert;
-import biomesoplenty.common.biomes.BiomeGenLushSwamp;
-import biomesoplenty.common.biomes.BiomeGenMapleWoods;
-import biomesoplenty.common.biomes.BiomeGenMarsh;
-import biomesoplenty.common.biomes.BiomeGenMeadow;
-import biomesoplenty.common.biomes.BiomeGenMoor;
-import biomesoplenty.common.biomes.BiomeGenMountain;
-import biomesoplenty.common.biomes.BiomeGenMysticGrove;
-import biomesoplenty.common.biomes.BiomeGenOminousWoods;
-import biomesoplenty.common.biomes.BiomeGenOriginValley;
-import biomesoplenty.common.biomes.BiomeGenOutback;
-import biomesoplenty.common.biomes.BiomeGenPasture;
-import biomesoplenty.common.biomes.BiomeGenPrairie;
-import biomesoplenty.common.biomes.BiomeGenQuagmire;
-import biomesoplenty.common.biomes.BiomeGenRainforest;
-import biomesoplenty.common.biomes.BiomeGenRedwoodForest;
-import biomesoplenty.common.biomes.BiomeGenSacredSprings;
-import biomesoplenty.common.biomes.BiomeGenSeasonalForest;
-import biomesoplenty.common.biomes.BiomeGenShield;
-import biomesoplenty.common.biomes.BiomeGenShrubland;
-import biomesoplenty.common.biomes.BiomeGenSilkglades;
-import biomesoplenty.common.biomes.BiomeGenSludgepit;
-import biomesoplenty.common.biomes.BiomeGenSpruceWoods;
-import biomesoplenty.common.biomes.BiomeGenTemperateRainforest;
-import biomesoplenty.common.biomes.BiomeGenThicket;
-import biomesoplenty.common.biomes.BiomeGenTimber;
-import biomesoplenty.common.biomes.BiomeGenTropicalRainforest;
-import biomesoplenty.common.biomes.BiomeGenTropics;
-import biomesoplenty.common.biomes.BiomeGenTundra;
-import biomesoplenty.common.biomes.BiomeGenVolcano;
-import biomesoplenty.common.biomes.BiomeGenWasteland;
-import biomesoplenty.common.biomes.BiomeGenWetland;
-import biomesoplenty.common.biomes.BiomeGenWoodland;
-import biomesoplenty.common.biomes.promisedland.BiomeGenPromisedLandForest;
-import biomesoplenty.common.biomes.promisedland.BiomeGenPromisedLandPlains;
-import biomesoplenty.common.biomes.promisedland.BiomeGenPromisedLandSwamp;
-import biomesoplenty.common.configuration.BOPConfigurationIDs;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.WorldTypeBOP;
 
-public class BOPBiomes 
+public class BOPWorld
 {
 	public static WorldTypeBOP worldTypeBOP;
 	
@@ -84,6 +24,8 @@ public class BOPBiomes
 	
 	public static void init()
 	{
+        GameRegistry.registerWorldGenerator(new BOPDecorationManager(), 0);
+
 		BOPBiomeHelper.init();
 		registerBiomes();
 		addBiomesToDictionary();
@@ -176,10 +118,6 @@ public class BOPBiomes
         registerBiome(new BOPBiomeEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), TemperatureType.HOT, 25));
         registerBiome(new BOPBiomeEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), TemperatureType.WARM, 50));
-
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandForest(BOPConfigurationIDs.wonderousWoodsID).setBiomeName("Wonderous Woods"), TemperatureType.WARM, 50), promisedLandDimID);
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandPlains(BOPConfigurationIDs.majesticMeadowID).setBiomeName("Majestic Meadow"), TemperatureType.WARM, 50), promisedLandDimID);
-        registerBiome(new BOPBiomeEntry(new BiomeGenPromisedLandSwamp(BOPConfigurationIDs.blessedBogID).setBiomeName("Blessed Bog"), TemperatureType.WARM, 50), promisedLandDimID);
 	}
 
 	private static void addSpawnBiomes()
@@ -189,9 +127,7 @@ public class BOPBiomes
 			clearAllSpawnBiomes();
 
 			addSpawnBiome(BiomeGenBase.beach);
-			//TODO:					   stoneBeach
 			addSpawnBiome(BiomeGenBase.stoneBeach);
-			//TODO:						coldBeach
 			addSpawnBiome(BiomeGenBase.coldBeach);
 		}
 		else
@@ -294,11 +230,6 @@ public class BOPBiomes
         
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("polar"), Type.FROZEN, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("prairie"), Type.PLAINS);
-
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.get(promisedLandDimID, "wonderousWoods"), Type.FOREST, Type.MAGICAL);
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.get(promisedLandDimID, "majesticMeadow"), Type.PLAINS, Type.MAGICAL);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.get(promisedLandDimID, "promisedLandShrub"), Type.PLAINS, Type.FOREST, Type.MAGICAL);
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.get(promisedLandDimID, "blessedBog"), Type.SWAMP, Type.MAGICAL);
 
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("quagmire"), Type.WASTELAND, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("rainforest"), Type.JUNGLE, Type.HILLS, Type.FOREST);

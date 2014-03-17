@@ -1,18 +1,16 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenChaparral3;
 import biomesoplenty.common.world.features.trees.WorldGenCypress;
 import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenTimber extends BOPBiome
 {
@@ -21,23 +19,26 @@ public class BiomeGenTimber extends BOPBiome
 	public BiomeGenTimber(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(10923366);
         this.setTemperatureRainfall(0.7F, 0.8F);
 
 		this.theBiomeDecorator.treesPerChunk = 20;
 		this.theBiomeDecorator.grassPerChunk = 8;
 	    this.theBiomeDecorator.flowersPerChunk = -999;
-		
-		this.bopWorldFeatures.thornsPerChunk = 2;
-		this.bopWorldFeatures.toadstoolsPerChunk = 2;
-		this.bopWorldFeatures.waterReedsPerChunk = 4;
-		this.bopWorldFeatures.shrubsPerChunk = 10;
-		this.bopWorldFeatures.leafPilesPerChunk = 5;
-		this.bopWorldFeatures.deadLeafPilesPerChunk = 12;
+
+        this.bopWorldFeatures.setFeature("thornsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 10);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 12);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 
 
@@ -51,19 +52,6 @@ public class BiomeGenTimber extends BOPBiome
 	}
 	
     @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-        
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        
-        return grassMap;
-    }
-	
-    @Override
     public void decorate(World world, Random random, int chunkX, int chunkZ)
     {
         super.decorate(world, random, chunkX, chunkZ);
@@ -74,27 +62,23 @@ public class BiomeGenTimber extends BOPBiome
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
-            
-            //TODO:             getBlock()
+
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
             }
         }
     }
 
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 10923366;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 11049817;

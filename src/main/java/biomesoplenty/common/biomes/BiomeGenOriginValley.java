@@ -1,15 +1,13 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenOriginValley extends BOPBiome
 {
@@ -33,13 +31,16 @@ public class BiomeGenOriginValley extends BOPBiome
 		this.theBiomeDecorator.clayPerChunk = 0;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 
-		this.bopWorldFeatures.bopFlowersPerChunk = 4;
-		this.bopWorldFeatures.rootsPerChunk = -999;
-		this.bopWorldFeatures.stalagmitesPerChunk = -999;
-		this.bopWorldFeatures.stalactitesPerChunk = -999;
-		this.bopWorldFeatures.minersDelightPerChunk = -999;
-		//TODO: FEATURE this.theBiomeDecorator.generateUndergroundLakes = false;
-	    this.bopWorldFeatures.generatePumpkins = false;
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 4);
+        this.bopWorldFeatures.setFeature("rootsPerChunk", -999);
+        this.bopWorldFeatures.setFeature("stalagmitesPerChunk", -999);
+        this.bopWorldFeatures.setFeature("stalactitesPerChunk", -999);
+        this.bopWorldFeatures.setFeature("minersDelightPerChunk", -999);
+        //TODO: FEATURE this.theBiomeDecorator.generateUndergroundLakes = false;
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 8), 8);
+        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.yellow_flower, 0), 10);
 	}
 
 	@Override
@@ -48,27 +49,14 @@ public class BiomeGenOriginValley extends BOPBiome
     {
 		return new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 0, false, 5, 3, false);
 	}
-	
-    @Override
-	public HashMap<WorldGenBOPFlora, Integer> getWeightedWorldGenForBOPFlowers()
-    {
-    	HashMap<WorldGenBOPFlora, Integer> flowerMap = new HashMap();
-    	
-    	flowerMap.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 8), 8);
-    	flowerMap.put(new WorldGenBOPFlora(Blocks.yellow_flower, 0), 10);
-    	
-    	return flowerMap;
-    }
 
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 10682207;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 3866368;

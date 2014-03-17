@@ -1,16 +1,16 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
+
+import java.util.Random;
 
 public class BiomeGenFrostForest extends BOPBiome
 {
@@ -32,10 +32,10 @@ public class BiomeGenFrostForest extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 1;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.mushroomsPerChunk = -999;
-		
-		this.bopWorldFeatures.shrubsPerChunk = 1;
-		this.bopWorldFeatures.bopFlowersPerChunk = 3;
-		this.bopWorldFeatures.generatePumpkins = false;
+
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
 	}
 
 	@Override

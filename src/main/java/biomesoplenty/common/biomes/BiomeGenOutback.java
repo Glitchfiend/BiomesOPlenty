@@ -1,14 +1,14 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
-import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
+
+import java.util.Random;
 
 public class BiomeGenOutback extends BOPBiome
 {
@@ -32,11 +32,11 @@ public class BiomeGenOutback extends BOPBiome
 		this.theBiomeDecorator.flowersPerChunk = -999;
 	    this.theBiomeDecorator.deadBushPerChunk = 7;
 	    this.theBiomeDecorator.cactiPerChunk = 4;
-		
-		this.bopWorldFeatures.grassSplatterPerChunk = 10;
-		this.bopWorldFeatures.tinyCactiPerChunk = 2;
-		this.bopWorldFeatures.bushesPerChunk = 5;
-		this.bopWorldFeatures.generatePumpkins = false;
+
+        this.bopWorldFeatures.setFeature("grassSplatterPerChunk", 10);
+        this.bopWorldFeatures.setFeature("tinyCactiPerChunk", 2);
+        this.bopWorldFeatures.setFeature("bushesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
 	}
 	
     @Override
@@ -58,13 +58,11 @@ public class BiomeGenOutback extends BOPBiome
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
-            
-            //TODO:             getBlock()
+
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
             }
         }

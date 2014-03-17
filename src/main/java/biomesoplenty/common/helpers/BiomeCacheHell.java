@@ -1,12 +1,11 @@
 package biomesoplenty.common.helpers;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import biomesoplenty.common.world.WorldChunkManagerBOPHell;
 import net.minecraft.util.LongHashMap;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.common.world.WorldChunkManagerBOPHell;
-import biomesoplenty.common.world.WorldChunkManagerPromised;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BiomeCacheHell
 {

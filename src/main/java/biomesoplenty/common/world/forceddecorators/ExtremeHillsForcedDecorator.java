@@ -1,9 +1,6 @@
 package biomesoplenty.common.world.forceddecorators;
 
-import java.util.Random;
-
-import biomesoplenty.common.world.decoration.IBOPDecoration;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.decoration.ForcedDecorator;
 
 public class ExtremeHillsForcedDecorator extends ForcedDecorator
 {

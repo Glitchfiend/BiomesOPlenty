@@ -1,15 +1,15 @@
 package biomesoplenty.common.biomes;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+
+import java.util.Random;
 
 public class BiomeGenLavenderFields extends BOPBiome
 {
@@ -18,18 +18,16 @@ public class BiomeGenLavenderFields extends BOPBiome
 	public BiomeGenLavenderFields(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(11035852);
         this.setTemperatureRainfall(0.6F, 0.7F);
 
 		this.theBiomeDecorator.treesPerChunk = 1;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 20;
-		
-		this.bopWorldFeatures.lavenderPerChunk = 999;
+
+        this.bopWorldFeatures.setFeature("lavenderPerChunk", 999);
 	}
 	
 	@Override
@@ -46,14 +44,12 @@ public class BiomeGenLavenderFields extends BOPBiome
 	}
 	
 	@Override
-	//TODO:		getBiomeGrassColor()
 	public int getBiomeGrassColor(int x, int y, int z)
 	{
 		return 10601325;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 10601325;
@@ -70,13 +66,11 @@ public class BiomeGenLavenderFields extends BOPBiome
 			int x = chunkX + random.nextInt(16);
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
-			
-			//TODO:				getBlock()
+
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
 			}
 		}

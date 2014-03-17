@@ -1,8 +1,5 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
@@ -10,10 +7,9 @@ import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class BiomeGenCanyon extends BOPBiome
 {
@@ -36,11 +32,13 @@ public class BiomeGenCanyon extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.treesPerChunk = 7;
 		this.theBiomeDecorator.flowersPerChunk = -999;
-		
-		this.bopWorldFeatures.bromeliadsPerChunk = 2;
-		this.bopWorldFeatures.waterReedsPerChunk = 2;
-		this.bopWorldFeatures.generatePumpkins = false;
-		this.bopWorldFeatures.generateCanyon = true;
+
+        this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("generatePumpkins", false);
+        this.bopWorldFeatures.setFeature("generateCanyon", true);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
 	}
 
 	@Override
@@ -49,16 +47,6 @@ public class BiomeGenCanyon extends BOPBiome
 	{
 		return random.nextInt(9) == 0 ? new WorldGenPineTree() : new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, 86, 96, BOPBlockHelper.get("hardDirt"));
 	}
-	
-    @Override
-	public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-    	HashMap<WorldGenerator, Double> grassMap = new HashMap();
-    	
-    	grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
-    	
-    	return grassMap;
-    }
 	
 	@Override
 	public void decorate(World world, Random random, int chunkX, int chunkZ)
@@ -71,13 +59,11 @@ public class BiomeGenCanyon extends BOPBiome
 			int x = chunkX + random.nextInt(16);
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
-			
-			//TODO:				getBlock()
+
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
 			}
 		}

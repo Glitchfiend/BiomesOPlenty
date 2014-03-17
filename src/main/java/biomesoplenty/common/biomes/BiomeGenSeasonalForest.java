@@ -1,18 +1,16 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
-import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+
+import java.util.Random;
 
 public class BiomeGenSeasonalForest extends BOPBiome
 {
@@ -21,10 +19,8 @@ public class BiomeGenSeasonalForest extends BOPBiome
     public BiomeGenSeasonalForest(int id)
     {
         super(id);
-        
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(12502092);
         this.setTemperatureRainfall(0.7F, 0.8F);
 
@@ -34,24 +30,16 @@ public class BiomeGenSeasonalForest extends BOPBiome
         this.theBiomeDecorator.grassPerChunk = 8;
         this.theBiomeDecorator.flowersPerChunk = -999;
 
-        this.bopWorldFeatures.toadstoolsPerChunk = 4;
-        this.bopWorldFeatures.shrubsPerChunk = 15;
-        this.bopWorldFeatures.waterReedsPerChunk = 4;
-        this.bopWorldFeatures.leafPilesPerChunk = 8;
-        this.bopWorldFeatures.deadLeafPilesPerChunk = 15;
-    }
+        this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("shrubsPerChunk", 15);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 8);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 15);
 
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-
-        return grassMap;
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
 
     @Override
@@ -92,14 +80,12 @@ public class BiomeGenSeasonalForest extends BOPBiome
     }
 
     @Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
         return 11781186;
     }
 
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
         return 12502092;

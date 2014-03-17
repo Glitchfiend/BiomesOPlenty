@@ -1,18 +1,15 @@
 package biomesoplenty.common.eventhandler.world;
 
-import java.util.Random;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
-import biomesoplenty.common.world.decoration.IBOPDecoration;
+import biomesoplenty.common.world.decoration.IBOPBiome;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate;
+
+import java.util.Random;
 
 public class DecorationModificationEventHandler 
 {
@@ -33,11 +30,11 @@ public class DecorationModificationEventHandler
 		Random random = event.rand;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
-		IBOPDecoration bopDecoration = null;
+		IBOPBiome bopDecoration = null;
 
-		if (biome instanceof IBOPDecoration)
+		if (biome instanceof IBOPBiome)
 		{
-			bopDecoration = (IBOPDecoration)biome;
+			bopDecoration = (IBOPBiome)biome;
 		}
 		else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
 		{
@@ -48,7 +45,7 @@ public class DecorationModificationEventHandler
 		{
 			if (event.type == Decorate.EventType.PUMPKIN)
 			{
-				if (!bopDecoration.getWorldFeatures().generatePumpkins) 
+				if (!(Boolean)bopDecoration.getBiomeFeatures().getFeature("generatePumpkins"))
 				{
 					event.setResult(Result.DENY);
 				}
@@ -67,11 +64,11 @@ public class DecorationModificationEventHandler
 		Random random = event.rand;
 		
 		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
-		IBOPDecoration bopDecoration = null;
+		IBOPBiome bopDecoration = null;
 
-		if (biome instanceof IBOPDecoration)
+		if (biome instanceof IBOPBiome)
 		{
-			bopDecoration = (IBOPDecoration)biome;
+			bopDecoration = (IBOPBiome)biome;
 		}
 		else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
 		{

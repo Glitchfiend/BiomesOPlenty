@@ -1,19 +1,17 @@
 package biomesoplenty.common.biomes;
 
-import java.util.HashMap;
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySpider;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySpider;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class BiomeGenSilkglades extends BOPBiome
 {
@@ -44,14 +42,17 @@ public class BiomeGenSilkglades extends BOPBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
 
-        this.bopWorldFeatures.sproutsPerChunk = 2;
-        this.bopWorldFeatures.poisonIvyPerChunk = 2;
-        this.bopWorldFeatures.cobwebsPerChunk = 9;
-        this.bopWorldFeatures.waterReedsPerChunk = 4;
-        this.bopWorldFeatures.koruPerChunk = 1;
-        this.bopWorldFeatures.generatePumpkins = true;
-        this.bopWorldFeatures.cobwebNestsPerChunk = 2;
-        this.bopWorldFeatures.deadLeafPilesPerChunk = 15;
+        this.bopWorldFeatures.setFeature("sproutsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 2);
+        this.bopWorldFeatures.setFeature("cobwebsPerChunk", 9);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("koruPerChunk", 1);
+        this.bopWorldFeatures.setFeature("cobwebNestsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 15);
+
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 1D);
     }
 
     @Override
@@ -61,18 +62,6 @@ public class BiomeGenSilkglades extends BOPBiome
         return random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, 6, 9, BOPBlockHelper.get("leaves2"), 0) : 
             (random.nextInt(7) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
                 new WorldGenBOPSwampTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0, 6, 9, BOPBlockHelper.get("colorizedLeaves2"), 0));
-    }
-
-    @Override
-    public HashMap<WorldGenerator, Double> getWeightedWorldGenForGrass()
-    {
-        HashMap<WorldGenerator, Double> grassMap = new HashMap();
-
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        grassMap.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 1D);
-
-        return grassMap;
     }
 
     @Override
@@ -87,26 +76,22 @@ public class BiomeGenSilkglades extends BOPBiome
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
             }
         }
     }
 
     @Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int x, int y, int z)
     {
         return 13420973;
     }
 
     @Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
         return 14146486;

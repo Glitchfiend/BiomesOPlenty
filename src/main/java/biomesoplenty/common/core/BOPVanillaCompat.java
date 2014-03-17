@@ -1,24 +1,24 @@
 package biomesoplenty.common.core;
 
-import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Random;
-
-import net.minecraft.block.BlockDispenser;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.ChestGenHooks;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourMudball;
 import biomesoplenty.common.world.decoration.ForcedDecorators;
-import biomesoplenty.common.world.decoration.IBOPDecoration;
+import biomesoplenty.common.world.decoration.IBOPBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Random;
 
 public class BOPVanillaCompat
 {
@@ -33,9 +33,7 @@ public class BOPVanillaCompat
 	
 	private static void registerDispenserBehaviours()
 	{
-		//TODO:			dispenseBehaviourRegistry
 		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItemHelper.get("mudball"), new DispenserBehaviourMudball());
-		//TODO:			dispenseBehaviourRegistry
 		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItemHelper.get("dart"), new DispenserBehaviourDart());
 	}
 	
@@ -95,16 +93,15 @@ public class BOPVanillaCompat
 	
 	private static void addBonemealFlowers()
 	{
-	    //TODO:                                getBiomeGenArray()
 	    for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
 	    {
 	        if (biome != null)
 	        {
-	            IBOPDecoration bopDecoration = null;
+	            IBOPBiome bopDecoration = null;
 
-	            if (biome instanceof IBOPDecoration)
+	            if (biome instanceof IBOPBiome)
 	            {
-	                bopDecoration = (IBOPDecoration)biome;
+	                bopDecoration = (IBOPBiome)biome;
 	            }
 	            else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
 	            {
@@ -113,9 +110,9 @@ public class BOPVanillaCompat
 
 	            if (bopDecoration != null)
 	            {
-	                if (bopDecoration.getWeightedWorldGenForBOPFlowers() != null && !bopDecoration.getWeightedWorldGenForBOPFlowers().isEmpty())
+	                if (bopDecoration.weightedFlowerGen != null && !bopDecoration.weightedFlowerGen.isEmpty())
 	                {
-	                    HashMap<WorldGenBOPFlora, Integer> flowerMap = bopDecoration.getWeightedWorldGenForBOPFlowers();
+	                    HashMap<WorldGenBOPFlora, Integer> flowerMap = bopDecoration.weightedFlowerGen;
 
 	                    for (Entry<WorldGenBOPFlora, Integer> entry : flowerMap.entrySet())
 	                    {
