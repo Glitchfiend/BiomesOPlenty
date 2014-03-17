@@ -26,20 +26,35 @@ public class BOPDecorationManager implements IWorldGenerator
 
         for (String featureName : biomeFeatures.getFeatureNames())
         {
+            try
+            {
             if (featureName.equals("bopFlowersPerChunk"))
             {
                 if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.FLOWERS)) continue;
             }
 
-            WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
+                WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
 
-            if (worldFeature != null)
-            {
-                IBOPWorldGenerator worldGenerator = worldFeature.getBOPWorldGenerator();
-
-                if (worldGenerator != null)
+                if (worldFeature != null)
                 {
-                    worldGenerator.setupGeneration(world, random, biome, featureName, chunkX, chunkZ);
+                    IBOPWorldGenerator worldGenerator = worldFeature.getBOPWorldGenerator();
+
+                    if (worldGenerator != null)
+                    {
+                        worldGenerator.setupGeneration(world, random, biome, featureName, chunkX, chunkZ);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Throwable cause = e.getCause();
+
+                if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
+                {
+                }
+                else
+                {
+                    e.printStackTrace();
                 }
             }
         }

@@ -4,6 +4,7 @@ import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.decoration.IBOPBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -22,7 +23,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPBiome
 		bopWorldFeatures = BOPDecorationManager.getBiomeFeatures(biomeID);
 	}
 	
-    /*@Override
+    @Override
 	public void decorate(World world, Random random, int x, int z)
     {
         try
@@ -41,7 +42,7 @@ public abstract class BOPBiome extends BiomeGenBase implements IBOPBiome
                 e.printStackTrace();
             }
         }
-    }*/
+    }
     
     @Override
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
