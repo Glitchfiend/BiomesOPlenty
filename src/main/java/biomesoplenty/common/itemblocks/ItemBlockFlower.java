@@ -19,10 +19,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFlower extends ItemBlock
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "sunflowerbottom", "sunflowertop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "eyebulbbottom", "eyebulbtop", "dandelion"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
-	private static final int SUNFLOWERTOP = 14;
+	private static final int EYEBULBTOP = 14;
 
 	public ItemBlockFlower(Block block)
 	{
@@ -44,7 +44,7 @@ public class ItemBlockFlower extends ItemBlock
 	{
 		textures = new IIcon[2];
 
-		textures[0] = iconRegister.registerIcon("biomesoplenty:item_sunflower");
+		textures[0] = iconRegister.registerIcon("biomesoplenty:eyebulbtop");
 		textures[1] = iconRegister.registerIcon("biomesoplenty:item_rainbowflower");
 	}
 
@@ -136,7 +136,7 @@ public class ItemBlockFlower extends ItemBlock
     {
     	if (metadata == 13) 
     	{
-    		if (!placeBlockAt(stack, player, world, x, y + 1, z, side, hitX, hitY + 1, hitZ, SUNFLOWERTOP)) return false;
+    		if (!placeBlockAt(stack, player, world, x, y + 1, z, side, hitX, hitY + 1, hitZ, EYEBULBTOP)) return false;
     	}
 
     	return super.placeBlockAt(stack, player, world, x, y, z, side, hitX, hitY, hitZ, metadata);

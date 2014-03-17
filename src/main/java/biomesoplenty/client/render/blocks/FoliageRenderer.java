@@ -13,7 +13,7 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
-	private final int GRASSTOP = 6;
+	private final int HEDGETOP = 6;
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
@@ -344,7 +344,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		if (par1Block == BOPBlockHelper.get("foliage"))
 		{
 			long i1;
-			if (world.getBlockMetadata(par2, par3, par4) == GRASSTOP) {
+			if (world.getBlockMetadata(par2, par3, par4) == HEDGETOP) {
 				i1 = par2 * 3129871 ^ par4 * 116129781L ^ par3 - 1;
 			} else {
 				i1 = par2 * 3129871 ^ par4 * 116129781L ^ par3;
@@ -362,6 +362,10 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			//TODO:	 drawCrossedSquares()	 getIcon()
 			renderer.drawCrossedSquares(par1Block.getIcon(0, world.getBlockMetadata(par2, par3, par4)), d0, d1 - 1, d2, 1.0F);
 		} 
+		else if (world.getBlockMetadata(par2, par3, par4) == 3 && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
+		{
+			renderHedge(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
+		}
 		//TODO:															getBlock()
 		else if (world.getBlockMetadata(par2, par3, par4) == 8 && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
 		{
@@ -409,5 +413,20 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		tessellator.setColorOpaque_F(par4, par4, par4);
 		//TODO:	 drawCrossedSquares()
         renderer.drawCrossedSquares(shrubBranch, par1, par2, par3, par4);
+	}
+	
+	private static void renderHedge(double par1, double par2, double par3, float par4, float par5, float par6, float par7, RenderBlocks renderer)
+	{
+        Tessellator tessellator = Tessellator.instance;
+        //TODO:					   getBlockIconFromSideAndMetadata()
+        IIcon hedgeLeaf = renderer.getBlockIconFromSideAndMetadata(BOPBlockHelper.get("foliage"), 0, 3);
+        IIcon hedgeTrunk = ((BlockBOPFoliage)BOPBlockHelper.get("foliage")).hedgeTrunk;
+
+		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
+		//TODO:	 drawCrossedSquares()
+		renderer.drawCrossedSquares(hedgeLeaf, par1, par2, par3, par4);
+		tessellator.setColorOpaque_F(par4, par4, par4);
+		//TODO:	 drawCrossedSquares()
+        renderer.drawCrossedSquares(hedgeTrunk, par1, par2, par3, par4);
 	}
 }
