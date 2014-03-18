@@ -19,10 +19,8 @@ public class BiomeGenShield extends BOPBiome
 	public BiomeGenShield(int id)
 	{
 		super(id);
-		
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(6586168);
         this.setTemperatureRainfall(0.5F, 0.8F);
 
@@ -35,6 +33,7 @@ public class BiomeGenShield extends BOPBiome
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
         this.bopWorldFeatures.setFeature("generateStoneInGrass2", true);
 
@@ -69,14 +68,12 @@ public class BiomeGenShield extends BOPBiome
     }
 
 	@Override
-    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int x, int y, int z)
     {
 		return 6586168;
 	}
 	
 	@Override
-    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 7902787;

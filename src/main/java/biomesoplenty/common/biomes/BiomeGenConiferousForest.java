@@ -43,6 +43,8 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 8);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 4);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 8);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
 
         weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);

@@ -1,9 +1,11 @@
 package biomesoplenty.common.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.handlers.FurnaceFuelHandler;
+import biomesoplenty.common.recipes.BiomeEssenceRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -13,12 +15,10 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.handlers.FurnaceFuelHandler;
-import biomesoplenty.common.recipes.BiomeEssenceRecipe;
-import cpw.mods.fml.common.registry.GameRegistry;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class BOPCrafting
 {
@@ -92,11 +92,11 @@ public class BOPCrafting
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("willowStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 9)});
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("willowStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 9)});
 
-		//Acacia
+		//Sacred Oak
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPBlockHelper.get("planks"), 4, 0), new Object[] {new ItemStack(BOPBlockHelper.get("logs1"),1,0)});
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("woodenSingleSlab1"),6,0), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 0)});
-		addRecipeToFront(new ItemStack(BOPBlockHelper.get("acaciaStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 0)});
-		addRecipeToFront(new ItemStack(BOPBlockHelper.get("acaciaStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 0)});
+		addRecipeToFront(new ItemStack(BOPBlockHelper.get("sacredoakStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 0)});
+		addRecipeToFront(new ItemStack(BOPBlockHelper.get("sacredoakStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"), 1, 0)});
 
 		//Fir
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPBlockHelper.get("planks"), 4, 3), new Object[] {new ItemStack(BOPBlockHelper.get("logs1"),1,3)});
@@ -376,7 +376,7 @@ public class BOPCrafting
 
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("redwoodStairs")));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("willowStairs")));
-		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("acaciaStairs")));
+		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("sacredoakStairs")));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("firStairs")));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("cherryStairs")));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPBlockHelper.get("darkStairs")));

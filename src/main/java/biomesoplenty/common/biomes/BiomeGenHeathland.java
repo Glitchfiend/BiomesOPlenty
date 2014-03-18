@@ -38,6 +38,7 @@ public class BiomeGenHeathland extends BOPBiome
         this.bopWorldFeatures.setFeature("berryBushesPerChunk", 1);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8);

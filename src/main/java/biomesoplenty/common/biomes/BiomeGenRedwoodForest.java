@@ -35,6 +35,7 @@ public class BiomeGenRedwoodForest extends BOPBiome
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 10);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
         weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 10);

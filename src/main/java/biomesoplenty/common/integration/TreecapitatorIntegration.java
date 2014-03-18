@@ -1,10 +1,10 @@
 package biomesoplenty.common.integration;
 
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import cpw.mods.fml.common.event.FMLInterModComms;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 
 public class TreecapitatorIntegration
 {
@@ -62,9 +62,9 @@ public class TreecapitatorIntegration
         /*
         * logs1 trees
         */
-        // BoP acacia
+        // BoP sacred oak
         tree = new NBTTagCompound();
-        tree.setString("treeName", "acacia");
+        tree.setString("treeName", "sacredoak");
         tree.setString("logs", String.format("%s,0; %s,4; %s,8", logs1, logs1, logs1));
         tree.setString("leaves", String.format("%s,0; %s,8", leavesColorized1, leavesColorized1));
         tree.setBoolean("requireLeafDecayCheck", false);

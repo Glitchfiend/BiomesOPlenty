@@ -6,10 +6,7 @@ import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.WorldGenLakes;
-import net.minecraft.world.gen.feature.WorldGenLiquids;
-import net.minecraft.world.gen.feature.WorldGenMelon;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.*;
 
 import java.util.HashMap;
 
@@ -65,7 +62,8 @@ public class WorldGenFieldAssociation
         associateFeature("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
         associateFeature("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
         associateFeature("grassSplatterPerChunk", new WorldGenGrassSplatter());
-        associateFeature("rockpilesPerChunk", new WorldGenRockpile());
+        associateFeature("rockpilesPerChunk", new WorldGenBlockBlob(Blocks.stone, 0));
+        associateFeature("wastelandRockPilesPerChunk", new WorldGenBlockBlob(BOPBlockHelper.get("driedDirt"), 0));
         associateFeature("logsPerChunk", new WorldGenLog());
         associateFeature("lavaSpoutsPerChunk", new WorldGenLavaSpout());
         associateFeature("cobwebsPerChunk", new WorldGenBOPFlora(Blocks.web, 0));

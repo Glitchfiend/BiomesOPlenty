@@ -18,8 +18,7 @@ public class BiomeGenSpruceWoods extends BOPBiome
     public BiomeGenSpruceWoods(int id)
     {
         super(id);
-        
-        //TODO: setColor()
+
         this.setColor(6396257);
         this.setTemperatureRainfall(0.6F, 0.7F);
 
@@ -36,6 +35,8 @@ public class BiomeGenSpruceWoods extends BOPBiome
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 6);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 3);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 5), 15);
 

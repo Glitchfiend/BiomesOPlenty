@@ -1,7 +1,6 @@
 package biomesoplenty.common.world.features.trees;
 
-import java.util.Random;
-
+import biomesoplenty.api.BOPBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
@@ -9,7 +8,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
-import biomesoplenty.api.BOPBlockHelper;
+
+import java.util.Random;
 
 public class WorldGenBayou1 extends WorldGenAbstractTree
 {

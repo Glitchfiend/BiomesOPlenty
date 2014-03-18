@@ -1,14 +1,12 @@
 package biomesoplenty.common.blocks;
 
+import biomesoplenty.BiomesOPlenty;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.BiomesOPlenty;
 
 public class BlockFlowerVine extends BlockVine
 {

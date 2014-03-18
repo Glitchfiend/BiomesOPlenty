@@ -31,6 +31,8 @@ public class BiomeGenJadeCliffs extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 4);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 2);
 
         weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 6);
 	}

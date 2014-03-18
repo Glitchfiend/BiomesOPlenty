@@ -59,6 +59,7 @@ public class BiomeGenWetland extends BOPBiome
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 15);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 1), 10);
         weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);

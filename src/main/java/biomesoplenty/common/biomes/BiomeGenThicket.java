@@ -17,8 +17,10 @@ public class BiomeGenThicket extends BOPBiome
 	public BiomeGenThicket(int id)
 	{
 		super(id);
-
+		
+        //TODO: setHeight()
         this.setHeight(biomeHeight);
+        //TODO:	setColor()
         this.setColor(7248193);
         this.setTemperatureRainfall(0.6F, 0.2F);
 
@@ -28,8 +30,8 @@ public class BiomeGenThicket extends BOPBiome
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 5);
         this.bopWorldFeatures.setFeature("thornsPerChunk", 55);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
-        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
-        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 10);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
 	}
@@ -48,12 +50,14 @@ public class BiomeGenThicket extends BOPBiome
 	}
 	
 	@Override
+    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 11049591;
 	}
 
 	@Override
+    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 10854765;

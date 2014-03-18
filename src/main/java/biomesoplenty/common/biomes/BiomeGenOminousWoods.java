@@ -51,6 +51,8 @@ public class BiomeGenOminousWoods extends BOPBiome
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
         this.bopWorldFeatures.setFeature("thornsPerChunk", 9);
         this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 3);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 2);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 4);
         //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 15;
 	}
 

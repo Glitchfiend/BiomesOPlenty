@@ -37,6 +37,7 @@ public class BiomeGenGrove extends BOPBiome
         this.bopWorldFeatures.setFeature("berryBushesPerChunk", 2);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 3);
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 20);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 16);
@@ -80,12 +81,14 @@ public class BiomeGenGrove extends BOPBiome
     }
 
 	@Override
+    //TODO:     getBiomeGrassColor()
     public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
     {
 		return 5341009;
 	}
 
 	@Override
+    //TODO:     getBiomeFoliageColor()
     public int getBiomeFoliageColor(int x, int y, int z)
     {
 		return 6396257;

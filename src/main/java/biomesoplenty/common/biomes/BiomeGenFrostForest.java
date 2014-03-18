@@ -19,11 +19,8 @@ public class BiomeGenFrostForest extends BOPBiome
 	public BiomeGenFrostForest(int id)
 	{
 		super(id);
-		
-		//TODO: setHeight()
+
         this.setHeight(biomeHeight);
-        
-        //TODO:	setColor()
         this.setColor(11261628);
         this.setTemperatureRainfall(0.0F, 0.5F);
         this.setEnableSnow();
@@ -35,6 +32,8 @@ public class BiomeGenFrostForest extends BOPBiome
 
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 1);
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 2);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 4);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 	}
 
@@ -81,14 +80,12 @@ public class BiomeGenFrostForest extends BOPBiome
 	}
 
 	@Override
-	//TODO:		getBiomeGrassColor()
 	public int getBiomeGrassColor(int x, int y, int z)
 	{
 		return 11261628;
 	}
 
 	@Override
-	//TODO:		getBiomeFoliageColor()
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		return 11261628;

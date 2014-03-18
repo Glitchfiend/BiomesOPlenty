@@ -38,6 +38,7 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 8);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8);
 

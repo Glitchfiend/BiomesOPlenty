@@ -73,6 +73,7 @@ public class BOPWorldFeatures
         setFeature("wasteland2PerChunk", 0);
         setFeature("wasteland3PerChunk", 0);
         setFeature("wasteland4PerChunk", 0);
+        setFeature("wastelandRockPilesPerChunk", 0);
 
         setFeature("bopFlowersPerChunk", 0);
     }

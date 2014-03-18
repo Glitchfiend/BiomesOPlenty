@@ -23,8 +23,7 @@ public class BiomeGenSacredSprings extends BOPBiome
     public BiomeGenSacredSprings(int id)
     {
         super(id);
-        
-        //TODO: setHeight()
+
         this.setHeight(biomeHeight);
         this.setColor(39259);
         
@@ -35,6 +34,7 @@ public class BiomeGenSacredSprings extends BOPBiome
         this.theBiomeDecorator.waterlilyPerChunk = 5;
 
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 2);
 

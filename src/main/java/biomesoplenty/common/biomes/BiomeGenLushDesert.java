@@ -46,6 +46,8 @@ public class BiomeGenLushDesert extends BOPBiome
         this.bopWorldFeatures.setFeature("waterLakesPerChunk", 5);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
         this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 3);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 2);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 4);
         this.bopWorldFeatures.setFeature("generateSand", true);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
@@ -79,12 +81,10 @@ public class BiomeGenLushDesert extends BOPBiome
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
-            //TODO:             getBlock()
             Block block = world.getBlock(x, y, z);
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                //TODO: setBlock()
                 world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
             }
         }

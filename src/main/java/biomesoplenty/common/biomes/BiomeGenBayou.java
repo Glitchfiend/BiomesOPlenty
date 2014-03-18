@@ -50,6 +50,8 @@ public class BiomeGenBayou extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
         this.bopWorldFeatures.setFeature("koruPerChunk", 1);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
         weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);

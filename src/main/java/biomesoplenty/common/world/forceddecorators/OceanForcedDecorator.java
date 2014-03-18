@@ -6,6 +6,6 @@ public class OceanForcedDecorator extends ForcedDecorator
 {
 	public OceanForcedDecorator()
 	{
-		this.bopWorldFeatures.seaweedPerChunk = 20;
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 20);
 	}
 }

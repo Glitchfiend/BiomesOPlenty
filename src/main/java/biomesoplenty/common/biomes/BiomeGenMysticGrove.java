@@ -40,13 +40,15 @@ public class BiomeGenMysticGrove extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		this.theBiomeDecorator.flowersPerChunk = 8;
 
-        this.bopWorldFeatures.setFeature("generatePumpkins", 10);
-        this.bopWorldFeatures.setFeature("generatePumpkins", 1);
-        this.bopWorldFeatures.setFeature("generatePumpkins", 1);
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 10);
+        this.bopWorldFeatures.setFeature("sproutsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("blueMilksPerChunk", 1);
         //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 1;
 
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 10);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 3), 10);
@@ -69,7 +71,7 @@ public class BiomeGenMysticGrove extends BOPBiome
 		return random.nextInt(4) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs2"), BOPBlockHelper.get("leaves1"), 1, 2, false, 5, 3, false) : 
 		(random.nextInt(3) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1) : 
 		((random.nextInt(3) == 0 ? this.worldGeneratorBigTree : 
-		((random.nextInt(8) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("ivy"), -1) : this.worldGeneratorTrees)))));
+		((random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("flowerVine"), -1) : this.worldGeneratorTrees)))));
 	}
 
 	@Override

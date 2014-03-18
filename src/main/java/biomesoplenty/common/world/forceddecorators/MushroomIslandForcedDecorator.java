@@ -6,8 +6,8 @@ public class MushroomIslandForcedDecorator extends ForcedDecorator
 {
 	public MushroomIslandForcedDecorator()
 	{
-		this.bopWorldFeatures.blueMilksPerChunk = 2;
-		this.bopWorldFeatures.toadstoolsPerChunk = 8;
-		this.bopWorldFeatures.portobellosPerChunk = 6;
+        this.bopWorldFeatures.setFeature("blueMilksPerChunk", 2);
+        this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 8);
+        this.bopWorldFeatures.setFeature("portobellosPerChunk", 6);
 	}
 }

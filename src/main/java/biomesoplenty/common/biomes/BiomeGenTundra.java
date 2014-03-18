@@ -37,6 +37,8 @@ public class BiomeGenTundra extends BOPBiome
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 2);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("rockpilesPerChunk", 25);
+        this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
 
         weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 4);
 

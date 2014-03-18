@@ -1,15 +1,15 @@
 package biomesoplenty.client.render.blocks;
 
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.client.render.RenderUtils;
+import biomesoplenty.common.blocks.BlockBOPFoliage;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.client.render.RenderUtils;
-import biomesoplenty.common.blocks.BlockBOPFoliage;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
