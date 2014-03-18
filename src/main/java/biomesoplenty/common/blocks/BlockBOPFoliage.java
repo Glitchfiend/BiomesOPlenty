@@ -39,15 +39,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "highgrassbottom", "bush", "sprout", "highgrasstop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
+	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "hedgebottom", "bush", "sprout", "hedgetop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
 
 	private IIcon[] textures;
+	public IIcon hedgeTrunk;
 	public IIcon shrubBranch;
 	public IIcon berryBushBerry;
 
-    private static final int GRASSTOP = 6;
+    private static final int HEDGETOP = 6;
     private static final int ALGAE = 0;
-    private static final int GRASSBOTTOM = 3;
+    private static final int HEDGEBOTTOM = 3;
 
 	public BlockBOPFoliage()
 	{
@@ -76,6 +77,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 			textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
 		}
 		
+		hedgeTrunk = iconRegister.registerIcon("biomesoplenty:" + "hedge_trunk");
 		shrubBranch = iconRegister.registerIcon("biomesoplenty:" + "shrub_branch");
 		berryBushBerry = iconRegister.registerIcon("biomesoplenty:" + "berrybush_berry");
 	}
@@ -97,7 +99,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		for (int i = 0; i < foliageTypes.length; ++i)
 		{
-			if (i != GRASSTOP) 
+			if (i != HEDGETOP) 
 			{
 				list.add(new ItemStack(block, 1, i));
 			}
@@ -159,17 +161,22 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		//TODO:					  getBlock()
 		Block block = world.getBlock(x, y - 1, z);
-		boolean solid = block.isOpaqueCube();
 		
     	if (block == Blocks.air) return false;
 		
 		switch (metadata)
 		{
-		case GRASSTOP:
+		case HEDGETOP:
 			return block == this;
 
 		case ALGAE: // Algae
 			return block == Blocks.water;
+			
+		case 14: // Leaf Pile
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			
+		case 15: // Dead Leaf Pile
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
@@ -240,7 +247,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
-	    if (world.getBlockMetadata(x, y, z) == GRASSBOTTOM) 
+	    if (world.getBlockMetadata(x, y, z) == HEDGEBOTTOM) 
 	    {
 	    	//TODO:	 getBlock()
 	        if (world.getBlock(x, y + 1, z) != this)
@@ -316,7 +323,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	@Override
     public int colorMultiplier(IBlockAccess world, int x, int y, int z)
 	{
-		if (world.getBlockMetadata(x, y, z) == 9 || world.getBlockMetadata(x, y, z) == 14)
+		if (world.getBlockMetadata(x, y, z) == 3 || world.getBlockMetadata(x, y, z) == 6 || world.getBlockMetadata(x, y, z) == 9 || world.getBlockMetadata(x, y, z) == 14)
 		{
 			return world.getBiomeGenForCoords(x, z).getBiomeFoliageColor(x, y, z);
 		}
@@ -334,8 +341,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == GRASSTOP) {
-			meta = GRASSBOTTOM;
+		if (meta == HEDGETOP) {
+			meta = HEDGEBOTTOM;
 		}
 		return meta;
 	}
@@ -467,7 +474,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 
-		if (world.getBlockMetadata(x, y, z) == GRASSTOP) 
+		if (world.getBlockMetadata(x, y, z) == HEDGETOP) 
 		{
 			ret.add(new ItemStack(Blocks.tallgrass, 1, 1));
 		} 

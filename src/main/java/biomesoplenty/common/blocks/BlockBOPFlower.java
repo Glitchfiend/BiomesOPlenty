@@ -29,11 +29,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFlower extends BOPBlockWorldDecor
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "sunflowerbottom", "sunflowertop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "eyebulbbottom", "eyebulbtop", "dandelion"};
 	private IIcon[] textures;
 
-	private static final int SUNFLOWERTOP = 14;
-	private static final int SUNFLOWERBOTTOM = 13;
+	private static final int EYEBULBTOP = 14;
+	private static final int EYEBULBBOTTOM = 13;
 
 	public BlockBOPFlower()
 	{
@@ -227,8 +227,11 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 
 		case 12: // Bromeliad
 			return block == BOPBlockHelper.get("hardDirt") || block == Blocks.hardened_clay || block == Blocks.sand;
+			
+		case 13: // Eyebulb Bottom
+			 return block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("flesh");
 
-		case 14: // Sunflower Top
+		case 14: // Eyebulb Top
 			return block == this;
 
 		default:
@@ -243,13 +246,13 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 
 		//TODO:														getBlock()
-		if (world.getBlockMetadata(x, y, z) == SUNFLOWERTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != SUNFLOWERBOTTOM) 
+		if (world.getBlockMetadata(x, y, z) == EYEBULBTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != EYEBULBBOTTOM) 
 		{
 			//TODO: setBlockToAir()
 			world.setBlockToAir(x, y, z);
 		}
 		//TODO:														getBlock()
-		if (world.getBlockMetadata(x, y, z) == SUNFLOWERBOTTOM && world.getBlock(x, y + 1, z) != this) 
+		if (world.getBlockMetadata(x, y, z) == EYEBULBBOTTOM && world.getBlock(x, y + 1, z) != this) 
 		{
 			//TODO: setBlockToAir()
 			world.setBlockToAir(x, y, z);
@@ -261,7 +264,7 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == SUNFLOWERTOP) {
+		if (meta == EYEBULBTOP) {
 			meta = 13;
 		}
 		return meta;

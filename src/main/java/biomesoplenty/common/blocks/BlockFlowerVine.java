@@ -6,12 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import biomesoplenty.BiomesOPlenty;
 
-public class BlockTreeMoss extends BlockVine
+public class BlockFlowerVine extends BlockVine
 {
-	public BlockTreeMoss()
+	public BlockFlowerVine()
 	{
 		//TODO: this.setHardness
 		this.setHardness(0.2F);
@@ -31,7 +32,7 @@ public class BlockTreeMoss extends BlockVine
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 				//TODO: blockIcon
-		this.blockIcon = iconRegister.registerIcon("biomesoplenty:treemoss");
+		this.blockIcon = iconRegister.registerIcon("biomesoplenty:flowervine");
 	}
 	
 	@Override
