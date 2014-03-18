@@ -25,6 +25,7 @@ public class BiomeGenHighland extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = 99;
 
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("rockpilesPerChunk", 3);
 
         weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.25D);
         weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.25D);

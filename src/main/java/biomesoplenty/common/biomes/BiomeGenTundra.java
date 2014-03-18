@@ -27,7 +27,7 @@ public class BiomeGenTundra extends BOPBiome
 
         this.spawnableCreatureList.clear();
 
-        this.theBiomeDecorator.treesPerChunk = 5;
+        this.theBiomeDecorator.treesPerChunk = 3;
         this.theBiomeDecorator.grassPerChunk = 8;
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.reedsPerChunk = -999;
@@ -36,7 +36,7 @@ public class BiomeGenTundra extends BOPBiome
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 2);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
-        this.bopWorldFeatures.setFeature("rockpilesPerChunk", 25);
+        this.bopWorldFeatures.setFeature("rockpilesPerChunk", 2);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
 
