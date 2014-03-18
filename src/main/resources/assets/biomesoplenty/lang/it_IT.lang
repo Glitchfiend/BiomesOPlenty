@@ -32,7 +32,7 @@ tile.plants.rivercane.name=Canne
 tile.plants.cactus.name=Piantina Grassa
 tile.plants.witherwart.name=Verruca Wither
 tile.plants.reed.name=Canne
-tile.plants.root.name=Radice
+tile.plants.root.name=Radici
 
 tile.flowers.clover.name=Trifoglio
 tile.flowers.swampflower.name=Fiore di Palude
@@ -47,8 +47,8 @@ tile.flowers.anemone.name=Anemone Bianca
 tile.flowers.lilyflower.name=Ninfea
 tile.flowers.rainbowflower.name=Chromaflora
 tile.flowers.bromeliad.name=Aloe
-tile.flowers.sunflowerbottom.name=Girasole
-tile.flowers.sunflowertop.name=Girasole
+tile.flowers.eyebulbbottom.name=Oleracea
+tile.flowers.eyebulbtop.name=Oleracea
 tile.flowers.dandelion.name=Dente di Leone Bianco
 
 tile.flowers2.hibiscus.name=Ibisco Rosa
@@ -59,6 +59,7 @@ tile.flowers2.goldenrod.name=Asteracea
 tile.flowers2.bluebells.name=Campanule
 tile.flowers2.minersdelight.name=Felicità del Minatore
 tile.flowers2.icyiris.name=Iris Gelato
+tile.flowers2.rose.name=Rosa
 
 tile.stoneFormations.stalagmite.name=Stalagmite
 tile.stoneFormations.stalactite.name=Stalattite
@@ -66,10 +67,10 @@ tile.stoneFormations.stalactite.name=Stalattite
 tile.foliage.algae.name=Alghe
 tile.foliage.shortgrass.name=Erba Bassa
 tile.foliage.mediumgrass.name=Erba Media
-tile.foliage.highgrassbottom.name=Erba Alta
+tile.foliage.hedgebottom.name=Siepe
 tile.foliage.bush.name=Cespuglio
 tile.foliage.sprout.name=Germoglio
-tile.foliage.highgrasstop.name=Erba Alta
+tile.foliage.hedgetop.name=Siepe
 tile.foliage.poisonivy.name=Edera Velenosa
 tile.foliage.berrybush.name=Cespuglio di Bacche
 tile.foliage.shrub.name=Cespuglio
@@ -77,6 +78,8 @@ tile.foliage.wheatgrass.name=Erba di Grano
 tile.foliage.dampgrass.name=Erba Umida
 tile.foliage.koru.name=Koru
 tile.foliage.cloverpatch.name=Tappeto di Trifogli
+tile.foliage.leafpile.name=Cumulo di Foglie
+tile.foliage.deadleafpile.name=Cumulo di Foglie Morte
 
 tile.petals.bigflowerred.name=Fiore Rosso Gigante
 tile.petals.bigfloweryellow.name=Fiore Giallo Gigante
@@ -120,12 +123,14 @@ tile.originGrass.name=Blocco di Erba della Valle dell'Origine
 tile.longGrass.name=Blocco di Erba Copiosa
 tile.overgrownNetherrack.name=Netherrack Ricoperto di Vegetazione
 tile.treeMoss.name=Muschio Parassita
+tile.flowerVine.name=Rampicante Fiorente
 
 tile.coral.kelpsingle.name=Alga Kelp
 tile.coral.pinkcoral.name=Corallo Rosa
 tile.coral.orangecoral.name=Corallo Arancione
 tile.coral.bluecoral.name=Corallo Blu
 tile.coral.glowcoral.name=Corallo Luminescente
+tile.coral.seaweed.name=Alghe
 
 tile.redCobbleStairs.name=Scalini in Pietrisco di Roccia Rossa
 tile.redBricksStairs.name=Scalini in Mattoni di Roccia Rossa
@@ -143,7 +148,7 @@ tile.holyBricksStairs.name=Scalini in Mattoni del Cielo
 
 tile.promisedPortal.name=Portale della Terra Promessa
 
-tile.gemOre.amethystore.name=Ametista Grezza
+tile.gemOre.amethystore.name=Ametista dell'End Grezza
 tile.gemOre.amethystblock.name=Blocco di Ametista
 tile.gemOre.rubyore.name=Rubino Grezzo
 tile.gemOre.rubyblock.name=Blocco di Rubino
@@ -337,7 +342,7 @@ item.jarFilled.jarhoney.name=Barattolo di Miele
 item.jarFilled.jarpoison.name=Barattolo di Estratto di Veleno
 item.jarFilled.jarpixie.name=Barattolo con Pixie
 
-item.gems.amethyst.name=Ametista
+item.gems.amethyst.name=Ametista dell'End
 item.gems.ruby.name=Rubino
 item.gems.peridot.name=Peridoto
 item.gems.topaz.name=Topazio
