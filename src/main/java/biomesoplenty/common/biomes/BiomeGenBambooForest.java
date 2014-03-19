@@ -24,10 +24,10 @@ public class BiomeGenBambooForest extends BOPBiome
         this.setHeight(biomeHeight);
         this.setColor(10739795);
         this.setTemperatureRainfall(1.2F, 0.9F);
-        
-		this.bopWorldFeatures.setFeature("treesPerChunk", 30);
-		this.bopWorldFeatures.setFeature("grassPerChunk", 5);
-		this.bopWorldFeatures.setFeature("flowersPerChunk", -999);
+
+		this.theBiomeDecorator.treesPerChunk = 30;
+        this.theBiomeDecorator.grassPerChunk = 5;
+        this.theBiomeDecorator.flowersPerChunk = -999;
 
 		this.bopWorldFeatures.setFeature("riverCanePerChunk", 6);
 		this.bopWorldFeatures.setFeature("shrubsPerChunk", 6);
