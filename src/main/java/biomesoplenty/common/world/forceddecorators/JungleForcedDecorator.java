@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class JungleForcedDecorator extends ForcedDecorator
 {
-	public JungleForcedDecorator()
+	public JungleForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("generatePumpkins", 10);
         this.bopWorldFeatures.setFeature("generatePumpkins", 15);

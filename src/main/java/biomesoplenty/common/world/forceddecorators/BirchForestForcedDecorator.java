@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class BirchForestForcedDecorator extends ForcedDecorator
 {
-	public BirchForestForcedDecorator()
+	public BirchForestForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 3);
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 15);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 4);

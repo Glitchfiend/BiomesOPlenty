@@ -16,50 +16,59 @@ public class ForcedDecorators
 	
 	private static void addForcedDecorators()
 	{
-		addForcedDecorator(BiomeGenBase.birchForest.biomeID, new BirchForestForcedDecorator());
-		addForcedDecorator(BiomeGenBase.birchForestHills.biomeID, new BirchForestForcedDecorator());
+		addForcedDecorator(BiomeGenBase.birchForest.biomeID, BirchForestForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.birchForestHills.biomeID, BirchForestForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.desert.biomeID, new DesertForcedDecorator());
-		addForcedDecorator(BiomeGenBase.desertHills.biomeID, new DesertForcedDecorator());
+		addForcedDecorator(BiomeGenBase.desert.biomeID, DesertForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.desertHills.biomeID, DesertForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.extremeHills.biomeID, new ExtremeHillsForcedDecorator());
-		addForcedDecorator(BiomeGenBase.extremeHillsEdge.biomeID, new ExtremeHillsForcedDecorator());
+		addForcedDecorator(BiomeGenBase.extremeHills.biomeID, ExtremeHillsForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.extremeHillsEdge.biomeID, ExtremeHillsForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.forest.biomeID, new ForestForcedDecorator());
-		addForcedDecorator(BiomeGenBase.forestHills.biomeID, new ForestForcedDecorator());
+		addForcedDecorator(BiomeGenBase.forest.biomeID, ForestForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.forestHills.biomeID, ForestForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.icePlains.biomeID, new IcePlainsForcedDecorator());
+		addForcedDecorator(BiomeGenBase.icePlains.biomeID, IcePlainsForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.jungle.biomeID, new JungleForcedDecorator());
-		addForcedDecorator(BiomeGenBase.jungleEdge.biomeID, new JungleForcedDecorator());
-		addForcedDecorator(BiomeGenBase.jungleHills.biomeID, new JungleForcedDecorator());
+		addForcedDecorator(BiomeGenBase.jungle.biomeID, JungleForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.jungleEdge.biomeID, JungleForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.jungleHills.biomeID, JungleForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.mesa.biomeID, new MesaForcedDecorator());
-		addForcedDecorator(BiomeGenBase.mesaPlateau.biomeID, new MesaForcedDecorator());
-		addForcedDecorator(BiomeGenBase.mesaPlateau_F.biomeID, new MesaForcedDecorator());
+		addForcedDecorator(BiomeGenBase.mesa.biomeID, MesaForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.mesaPlateau.biomeID, MesaForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.mesaPlateau_F.biomeID, MesaForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.mushroomIsland.biomeID, new MushroomIslandForcedDecorator());
-		addForcedDecorator(BiomeGenBase.mushroomIslandShore.biomeID, new MushroomIslandForcedDecorator());
+		addForcedDecorator(BiomeGenBase.mushroomIsland.biomeID, MushroomIslandForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.mushroomIslandShore.biomeID, MushroomIslandForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.ocean.biomeID, new OceanForcedDecorator());
-		addForcedDecorator(BiomeGenBase.plains.biomeID, new PlainsForcedDecorator());
-		addForcedDecorator(BiomeGenBase.river.biomeID, new RiverForcedDecorator());
-		addForcedDecorator(BiomeGenBase.roofedForest.biomeID, new RoofedForestForcedDecorator());
+		addForcedDecorator(BiomeGenBase.ocean.biomeID, OceanForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.plains.biomeID, PlainsForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.river.biomeID, RiverForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.roofedForest.biomeID, RoofedForestForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.savanna.biomeID, new SavannaForcedDecorator());
-		addForcedDecorator(BiomeGenBase.savannaPlateau.biomeID, new SavannaForcedDecorator());
+		addForcedDecorator(BiomeGenBase.savanna.biomeID, SavannaForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.savannaPlateau.biomeID, SavannaForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.swampland.biomeID, new SwampForcedDecorator());
+		addForcedDecorator(BiomeGenBase.swampland.biomeID, SwampForcedDecorator.class);
 		
-		addForcedDecorator(BiomeGenBase.taiga.biomeID, new TaigaForcedDecorator());
-		addForcedDecorator(BiomeGenBase.taigaHills.biomeID, new TaigaForcedDecorator());
-		addForcedDecorator(BiomeGenBase.coldTaiga.biomeID, new TaigaForcedDecorator());
-		addForcedDecorator(BiomeGenBase.coldTaigaHills.biomeID, new TaigaForcedDecorator());
+		addForcedDecorator(BiomeGenBase.taiga.biomeID, TaigaForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.taigaHills.biomeID, TaigaForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.coldTaiga.biomeID, TaigaForcedDecorator.class);
+		addForcedDecorator(BiomeGenBase.coldTaigaHills.biomeID, TaigaForcedDecorator.class);
 	}
 	
-	public static void addForcedDecorator(int biomeID, ForcedDecorator decorator)
+	public static void addForcedDecorator(int biomeID, Class<? extends ForcedDecorator> decoratorClass)
 	{
-		forcedDecoratorMap.put(biomeID, decorator);
+        try
+        {
+            ForcedDecorator decorator = decoratorClass.getConstructor(int.class).newInstance(biomeID);
+
+            forcedDecoratorMap.put(biomeID, decorator);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 	}
 	
 	public static IBOPBiome getForcedDecorator(int biomeID)

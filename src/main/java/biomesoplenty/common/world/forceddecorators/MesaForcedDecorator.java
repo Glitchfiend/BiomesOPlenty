@@ -7,8 +7,10 @@ import net.minecraft.init.Blocks;
 
 public class MesaForcedDecorator extends ForcedDecorator
 {
-	public MesaForcedDecorator()
+	public MesaForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("tinyCactiPerChunk", 10);
         this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 10);
 

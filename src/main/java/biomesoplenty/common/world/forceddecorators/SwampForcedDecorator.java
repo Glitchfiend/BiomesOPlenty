@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class SwampForcedDecorator extends ForcedDecorator
 {
-	public SwampForcedDecorator()
+	public SwampForcedDecorator(int id)
 	{
+        super(id);
+
 		this.bopWorldFeatures.setFeature("mudPerChunk", 3);
 		this.bopWorldFeatures.setFeature("seaweedPerChunk", 10);
 		this.bopWorldFeatures.setFeature("cattailsPerChunk", 10);

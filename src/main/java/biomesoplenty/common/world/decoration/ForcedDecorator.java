@@ -6,8 +6,13 @@ import java.util.Random;
 
 public class ForcedDecorator implements IBOPBiome
 {
-	protected BOPWorldFeatures bopWorldFeatures = new BOPWorldFeatures();
-	
+	protected BOPWorldFeatures bopWorldFeatures;
+
+    public ForcedDecorator(int id)
+    {
+        bopWorldFeatures = BOPDecorationManager.getBiomeFeatures(id);
+    }
+
 	@Override
 	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random) 
 	{

@@ -6,8 +6,10 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class IcePlainsForcedDecorator extends ForcedDecorator
 {
-	public IcePlainsForcedDecorator()
+	public IcePlainsForcedDecorator(int id)
     {
+        super(id);
+
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
 
         this.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8);

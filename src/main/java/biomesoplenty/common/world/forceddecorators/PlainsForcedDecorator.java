@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class PlainsForcedDecorator extends ForcedDecorator
 {
-	public PlainsForcedDecorator()
+	public PlainsForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 8);
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
 

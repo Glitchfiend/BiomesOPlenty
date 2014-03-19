@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class SavannaForcedDecorator extends ForcedDecorator
 {
-	public SavannaForcedDecorator()
+	public SavannaForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 10);

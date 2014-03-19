@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class ExtremeHillsForcedDecorator extends ForcedDecorator
 {
-	public ExtremeHillsForcedDecorator()
+	public ExtremeHillsForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 1);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 3);

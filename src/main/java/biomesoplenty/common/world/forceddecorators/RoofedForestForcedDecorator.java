@@ -7,8 +7,10 @@ import net.minecraft.init.Blocks;
 
 public class RoofedForestForcedDecorator extends ForcedDecorator
 {
-	public RoofedForestForcedDecorator()
+	public RoofedForestForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 1);
         this.bopWorldFeatures.setFeature("blueMilksPerChunk", 1);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 8);

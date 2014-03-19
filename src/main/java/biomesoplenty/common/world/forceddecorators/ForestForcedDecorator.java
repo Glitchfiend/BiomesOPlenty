@@ -8,8 +8,10 @@ import net.minecraft.init.Blocks;
 
 public class ForestForcedDecorator extends ForcedDecorator
 {
-	public ForestForcedDecorator()
+	public ForestForcedDecorator(int id)
 	{
+        super(id);
+
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 5);
