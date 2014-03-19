@@ -13,7 +13,6 @@ public class PlainsForcedDecorator extends ForcedDecorator
         super(id);
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 8);
-        this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
 
         this.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 10);
         this.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 5);

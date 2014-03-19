@@ -62,8 +62,8 @@ public class WorldGenFieldAssociation
         associateFeature("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
         associateFeature("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
         associateFeature("grassSplatterPerChunk", new WorldGenGrassSplatter());
-        associateFeature("rockpilesPerChunk", new WorldGenBlockBlob(Blocks.stone, 0));
-        associateFeature("wastelandRockPilesPerChunk", new WorldGenBlockBlob(BOPBlockHelper.get("driedDirt"), 0));
+        associateFeature("rockpilesPerChunk", new WorldGenBOPBlob(Blocks.cobblestone, 0));
+        associateFeature("wastelandRockPilesPerChunk", new WorldGenBOPBlob(BOPBlockHelper.get("driedDirt"), 0));
         associateFeature("logsPerChunk", new WorldGenLog());
         associateFeature("lavaSpoutsPerChunk", new WorldGenLavaSpout());
         associateFeature("cobwebsPerChunk", new WorldGenBOPFlora(Blocks.web, 0));
