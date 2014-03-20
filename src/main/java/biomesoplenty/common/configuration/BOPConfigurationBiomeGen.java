@@ -3,7 +3,7 @@ package biomesoplenty.common.configuration;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
-import biomesoplenty.common.core.BOPWorld;
+import biomesoplenty.common.core.BOPBiomes;
 import biomesoplenty.common.world.layer.hell.BiomeLayerHellBiomes;
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -65,18 +65,18 @@ public class BOPConfigurationBiomeGen
 
 				if (config.get("Overworld Biomes To Generate (There must be at least one from each category)", name + " (" + WordUtils.capitalize(entry.temperatureType.toString().toLowerCase()) + ")", !disabledBiomes.contains(convertedName)).getBoolean(!disabledBiomes.contains(convertedName)))
 				{
-					if (BOPWorld.onlyBiome != null ? entry == BOPWorld.onlyBiome : true)
+					if (BOPBiomes.onlyBiome != null ? entry == BOPBiomes.onlyBiome : true)
 					{
 						entry.addToCorrespondingTemperatureTypeList();
 					}
 				}
 			}
 			
-			if (BOPWorld.onlyBiome != null)
+			if (BOPBiomes.onlyBiome != null)
 			{
 		        for (TemperatureType temperatureType : BOPBiomeHelper.TemperatureType.values())
 		        {
-		        	BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(BOPWorld.onlyBiome);
+		        	BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(BOPBiomes.onlyBiome);
 		        }
 			}
 			else

@@ -51,13 +51,15 @@ public class BiomeGenLushDesert extends BOPBiome
         this.bopWorldFeatures.setFeature("generateSand", true);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 4);
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 8);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 1), 1D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 4);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 7), 8);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
 
     @Override

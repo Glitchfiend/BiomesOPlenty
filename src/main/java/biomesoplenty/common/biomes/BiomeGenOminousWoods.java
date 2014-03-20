@@ -12,7 +12,6 @@ import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
@@ -48,12 +47,21 @@ public class BiomeGenOminousWoods extends BOPBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
-        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
         this.bopWorldFeatures.setFeature("thornsPerChunk", 9);
         this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 3);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 2);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 4);
         //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 15;
+
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 1);
+
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 2), 20);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 0), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 
 	@Override
@@ -61,18 +69,6 @@ public class BiomeGenOminousWoods extends BOPBiome
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, false, 14, 6, 0) : (random.nextInt(6) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock")) : new WorldGenBOPSwampTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves1"), 2, 3, 5, 4, BOPBlockHelper.get("treeMoss"), -1));
-	}
-	
-    @Override
-	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
-    {
-    	return new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 2);
-    }
-	
-	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random random)
-	{
-		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : (random.nextInt(6) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 0) : new WorldGenTallGrass(Blocks.tallgrass, 1));
 	}
 
 	@Override

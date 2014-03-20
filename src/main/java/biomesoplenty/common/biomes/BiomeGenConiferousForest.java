@@ -47,12 +47,14 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 8);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPDoubleFlora(3, 64), 0.5D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(3, 64), 0.5D);
 	}
 
 	@Override

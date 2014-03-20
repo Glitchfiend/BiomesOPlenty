@@ -48,10 +48,10 @@ public class BiomeGenRainforest extends BOPBiome
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
-        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 4);
-        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 6);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 4);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 6);
 	}
 	
 	@Override
@@ -60,12 +60,6 @@ public class BiomeGenRainforest extends BOPBiome
 	{
 		return random.nextInt(15) == 0 ? this.worldGeneratorTrees : (random.nextInt(5) == 0 ? worldGeneratorBigTree : new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, false, 8, 2, false));
 	}
-	
-    @Override
-	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
-    {
-    	return null;
-    }
 
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)

@@ -1,12 +1,17 @@
 package biomesoplenty.common.world.decoration;
 
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.HashMap;
 import java.util.Set;
 
 public class BOPWorldFeatures
 {
+    public HashMap<WorldGenerator, Double> weightedGrassGen = new HashMap<WorldGenerator, Double>();
+    public HashMap<WorldGenBOPFlora, Integer> weightedFlowerGen = new HashMap<WorldGenBOPFlora, Integer>();
+
     private HashMap<String, Object> featureValueMap = new HashMap<String, Object>();
 
     static
@@ -16,71 +21,87 @@ public class BOPWorldFeatures
 
     protected BOPWorldFeatures()
     {
-        setFeature("generatePumpkins", true);
-        setFeature("generateQuicksand", false);
-        setFeature("generateCanyon", false);
-        setFeature("generateStoneInGrass", false);
-        setFeature("generateStoneInGrass2", false);
-        setFeature("generateGrass", false);
-        setFeature("generateSand", false);
-        setFeature("generateQuagmire", false);
-        setFeature("generateAsh", false);
-        setFeature("generateMelons", false);
+        addFeature("generatePumpkins", true);
+        addFeature("generateQuicksand", false);
+        addFeature("generateCanyon", false);
+        addFeature("generateStoneInGrass", false);
+        addFeature("generateStoneInGrass2", false);
+        addFeature("generateGrass", false);
+        addFeature("generateSand", false);
+        addFeature("generateQuagmire", false);
+        addFeature("generateAsh", false);
+        addFeature("generateMelons", false);
 
-        setFeature("waterPoolsPerChunk", 50);
-        setFeature("lavaPoolsPerChunk", 20);
+        addFeature("waterPoolsPerChunk", 50);
+        addFeature("lavaPoolsPerChunk", 20);
 
-        setFeature("waterLakesPerChunk", 0);
-        setFeature("lavaLakesPerChunk", 0);
+        addFeature("waterLakesPerChunk", 0);
+        addFeature("lavaLakesPerChunk", 0);
 
-        setFeature("mudPerChunk", 0);
-        setFeature("riverCanePerChunk", 0);
-        setFeature("shrubsPerChunk", 0);
-        setFeature("bushesPerChunk", 0);
-        setFeature("cloverPatchesPerChunk", 0);
-        setFeature("seaweedPerChunk", 0);
-        setFeature("leafPilesPerChunk", 0);
-        setFeature("deadLeafPilesPerChunk", 0);
-        setFeature("lavenderPerChunk", 0);
-        setFeature("thornsPerChunk", 0);
-        setFeature("stalagmitesPerChunk", 3);
-        setFeature("stalactitesPerChunk", 6);
-        setFeature("desertSproutsPerChunk", 0);
-        setFeature("bromeliadsPerChunk", 0);
-        setFeature("waterReedsPerChunk", 0);
-        setFeature("wildCarrotsPerChunk", 0);
-        setFeature("poisonIvyPerChunk", 0);
-        setFeature("berryBushesPerChunk", 0);
-        setFeature("portobellosPerChunk", 0);
-        setFeature("koruPerChunk", 0);
-        setFeature("toadstoolsPerChunk", 0);
-        setFeature("blueMilksPerChunk", 0);
-        setFeature("cattailsPerChunk", 0);
-        setFeature("highCattailsPerChunk", 0);
-        setFeature("algaePerChunk", 0);
-        setFeature("sproutsPerChunk", 0);
-        setFeature("tinyCactiPerChunk", 0);
-        setFeature("oasesPerChunk", 0);
-        setFeature("minersDelightPerChunk", 2);
-        setFeature("rootsPerChunk", 9);
-        setFeature("grassSplatterPerChunk", 0);
-        setFeature("rockpilesPerChunk", 0);
-        setFeature("logsPerChunk", 0);
-        setFeature("lavaSpoutsPerChunk", 0);
-        setFeature("cobwebsPerChunk", 0);
-        setFeature("cobwebNestsPerChunk", 0);
-        setFeature("wasteland1PerChunk", 0);
-        setFeature("wasteland2PerChunk", 0);
-        setFeature("wasteland3PerChunk", 0);
-        setFeature("wasteland4PerChunk", 0);
-        setFeature("wastelandRockPilesPerChunk", 0);
+        addFeature("mudPerChunk", 0);
+        addFeature("riverCanePerChunk", 0);
+        addFeature("shrubsPerChunk", 0);
+        addFeature("bushesPerChunk", 0);
+        addFeature("cloverPatchesPerChunk", 0);
+        addFeature("seaweedPerChunk", 0);
+        addFeature("leafPilesPerChunk", 0);
+        addFeature("deadLeafPilesPerChunk", 0);
+        addFeature("lavenderPerChunk", 0);
+        addFeature("thornsPerChunk", 0);
+        addFeature("stalagmitesPerChunk", 3);
+        addFeature("stalactitesPerChunk", 6);
+        addFeature("desertSproutsPerChunk", 0);
+        addFeature("bromeliadsPerChunk", 0);
+        addFeature("waterReedsPerChunk", 0);
+        addFeature("wildCarrotsPerChunk", 0);
+        addFeature("poisonIvyPerChunk", 0);
+        addFeature("berryBushesPerChunk", 0);
+        addFeature("portobellosPerChunk", 0);
+        addFeature("koruPerChunk", 0);
+        addFeature("toadstoolsPerChunk", 0);
+        addFeature("blueMilksPerChunk", 0);
+        addFeature("cattailsPerChunk", 0);
+        addFeature("highCattailsPerChunk", 0);
+        addFeature("algaePerChunk", 0);
+        addFeature("sproutsPerChunk", 0);
+        addFeature("tinyCactiPerChunk", 0);
+        addFeature("oasesPerChunk", 0);
+        addFeature("minersDelightPerChunk", 2);
+        addFeature("rootsPerChunk", 9);
+        addFeature("grassSplatterPerChunk", 0);
+        addFeature("rockpilesPerChunk", 0);
+        addFeature("logsPerChunk", 0);
+        addFeature("lavaSpoutsPerChunk", 0);
+        addFeature("cobwebsPerChunk", 0);
+        addFeature("cobwebNestsPerChunk", 0);
+        addFeature("wasteland1PerChunk", 0);
+        addFeature("wasteland2PerChunk", 0);
+        addFeature("wasteland3PerChunk", 0);
+        addFeature("wasteland4PerChunk", 0);
+        addFeature("wastelandRockPilesPerChunk", 0);
 
-        setFeature("bopFlowersPerChunk", 0);
+        addFeature("bopFlowersPerChunk", 0);
+        addFeature("bopGrassPerChunk", 0);
+    }
+
+    private <T extends Object> void setFeature(String name, T value, boolean initialize)
+    {
+        if (!initialize)
+        {
+            if (!featureValueMap.containsKey(name)) throw new NoSuchFeatureException(name);
+        }
+
+        featureValueMap.put(name, value);
     }
 
     public <T extends Object> void setFeature(String name, T value)
     {
-        featureValueMap.put(name, value);
+        this.setFeature(name, value, false);
+    }
+
+    protected <T extends Object> void addFeature(String name, T value)
+    {
+        this.setFeature(name, value, true);
     }
 
     public Object getFeature(String name)
@@ -91,5 +112,13 @@ public class BOPWorldFeatures
     public Set<String> getFeatureNames()
     {
         return featureValueMap.keySet();
+    }
+
+    public class NoSuchFeatureException extends RuntimeException
+    {
+        public NoSuchFeatureException(String name)
+        {
+            super("Feature " + name + " does not exist!");
+        }
     }
 }

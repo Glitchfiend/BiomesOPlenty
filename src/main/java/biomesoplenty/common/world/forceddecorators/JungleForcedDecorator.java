@@ -13,17 +13,19 @@ public class JungleForcedDecorator extends ForcedDecorator
         super(id);
 
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
-        this.bopWorldFeatures.setFeature("generatePumpkins", 10);
-        this.bopWorldFeatures.setFeature("generatePumpkins", 15);
-        this.bopWorldFeatures.setFeature("generatePumpkins", 1);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 1);
 
-        this.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 12);
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 10);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
 
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 1D);
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 12);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 }

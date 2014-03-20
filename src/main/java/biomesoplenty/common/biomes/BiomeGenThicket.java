@@ -33,7 +33,7 @@ public class BiomeGenThicket extends BOPBiome
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 10);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
 	}
 
 	@Override

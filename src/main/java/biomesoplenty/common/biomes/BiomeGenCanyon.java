@@ -38,7 +38,9 @@ public class BiomeGenCanyon extends BOPBiome
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
         this.bopWorldFeatures.setFeature("generateCanyon", true);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
 	}
 
 	@Override

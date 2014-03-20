@@ -1,6 +1,6 @@
 package biomesoplenty.common.eventhandler.world;
 
-import biomesoplenty.common.world.decoration.ForcedDecorators;
+import biomesoplenty.common.world.decoration.BiomeTweaker;
 import biomesoplenty.common.world.decoration.IBOPBiome;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -36,9 +36,9 @@ public class DecorationModificationEventHandler
 		{
 			bopDecoration = (IBOPBiome)biome;
 		}
-		else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
+		else if (BiomeTweaker.biomeHasForcedDecorator(biome.biomeID))
 		{
-			bopDecoration = ForcedDecorators.getForcedDecorator(biome.biomeID);
+			bopDecoration = BiomeTweaker.getForcedDecorator(biome.biomeID);
 		}
 		
 		if (bopDecoration != null)
@@ -70,9 +70,9 @@ public class DecorationModificationEventHandler
 		{
 			bopDecoration = (IBOPBiome)biome;
 		}
-		else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
+		else if (BiomeTweaker.biomeHasForcedDecorator(biome.biomeID))
 		{
-			bopDecoration = ForcedDecorators.getForcedDecorator(biome.biomeID);
+			bopDecoration = BiomeTweaker.getForcedDecorator(biome.biomeID);
 		}
 		
 		if (bopDecoration != null)

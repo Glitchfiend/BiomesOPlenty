@@ -43,13 +43,15 @@ public class BiomeGenLushSwamp extends BOPBiome
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 10);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 10);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 4);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
 
     @Override

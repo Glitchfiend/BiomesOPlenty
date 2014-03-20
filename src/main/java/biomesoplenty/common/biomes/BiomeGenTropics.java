@@ -46,17 +46,19 @@ public class BiomeGenTropics extends BOPBiome
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 10);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 8);
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 10);
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 0), 15);
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 7);
-        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 6);
-        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(0, 3), 2);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 7);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        weightedGrassGen.put(new WorldGenBOPDoubleFlora(3), 0.25D);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 5), 10);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 0), 15);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 7);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 6);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(0, 3), 2);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(3), 0.25D);
     }
     
     @Override

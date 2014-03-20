@@ -42,10 +42,12 @@ public class BiomeGenMarsh extends BOPBiome
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.25D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 50);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.25D);
 	}
 
 	@Override

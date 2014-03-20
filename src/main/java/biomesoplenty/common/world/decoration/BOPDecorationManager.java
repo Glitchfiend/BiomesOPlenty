@@ -6,9 +6,12 @@ import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class BOPDecorationManager implements IWorldGenerator
@@ -21,48 +24,82 @@ public class BOPDecorationManager implements IWorldGenerator
         chunkX <<= 4;
         chunkZ <<= 4;
 
-        BiomeGenBase biome = world.getBiomeGenForCoords(chunkX, chunkZ);
+        BiomeGenBase biome = world.getBiomeGenForCoords(chunkX + 16, chunkZ + 16);
         BOPWorldFeatures biomeFeatures = getBiomeFeatures(biome.biomeID);
 
-        for (String featureName : biomeFeatures.getFeatureNames())
+        if (biomeFeatures != null)
         {
-            try
+            for (String featureName : biomeFeatures.getFeatureNames())
             {
-            if (featureName.equals("bopFlowersPerChunk"))
-            {
-                if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.FLOWERS)) continue;
-            }
-
-                WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
-
-                if (worldFeature != null)
+                try
                 {
-                    IBOPWorldGenerator worldGenerator = worldFeature.getBOPWorldGenerator();
-
-                    if (worldGenerator != null)
+                    if (featureName.equals("bopFlowersPerChunk"))
                     {
-                        worldGenerator.setupGeneration(world, random, biome, featureName, chunkX, chunkZ);
+                        if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.FLOWERS)) continue;
+                    }
+                    else if (featureName.equals("bopGrassPerChunk"))
+                    {
+                        if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.GRASS)) continue;
+                    }
+
+                    WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
+
+                    if (worldFeature != null)
+                    {
+                        IBOPWorldGenerator worldGenerator = worldFeature.getBOPWorldGenerator();
+
+                        if (worldGenerator != null)
+                        {
+                            worldGenerator.setupGeneration(world, random, biome, featureName, chunkX, chunkZ);
+                        }
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                Throwable cause = e.getCause();
+                catch (Exception e)
+                {
+                    Throwable cause = e.getCause();
 
-                if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
-                {
-                }
-                else
-                {
-                    e.printStackTrace();
+                    if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
+                    {
+                    }
+                    else
+                    {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
 
-    public static BOPWorldFeatures getBiomeFeatures(int biomeID)
+    public static <T extends WorldGenerator> T getRandomWeightedWorldGenerator(HashMap<T, ? extends Number> worldGeneratorMap)
+    {
+        double completeWeight = 0D;
+
+        for (Number weight : worldGeneratorMap.values())
+        {
+            completeWeight += Double.parseDouble(weight.toString());
+        }
+
+        double random = Math.random() * completeWeight;
+        double countWeight = 0D;
+
+        for (Map.Entry<T, ? extends Number> entry : worldGeneratorMap.entrySet())
+        {
+            countWeight += Double.parseDouble(entry.getValue().toString());
+
+            if (countWeight >= random) return entry.getKey();
+        }
+
+        return null;
+    }
+
+    public static BOPWorldFeatures getOrCreateBiomeFeatures(int biomeID)
     {
         if (biomeFeaturesMap[biomeID] == null) return biomeFeaturesMap[biomeID] = new BOPWorldFeatures();
         else return biomeFeaturesMap[biomeID];
+    }
+
+    public static BOPWorldFeatures getBiomeFeatures(int biomeID)
+    {
+        return biomeFeaturesMap[biomeID];
     }
 }

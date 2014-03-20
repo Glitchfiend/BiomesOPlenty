@@ -12,7 +12,7 @@ import biomesoplenty.common.integration.TreecapitatorIntegration;
 import biomesoplenty.common.network.PacketPipeline;
 import biomesoplenty.common.utils.BOPModInfo;
 import biomesoplenty.common.world.WorldTypeBOP;
-import biomesoplenty.common.world.decoration.ForcedDecorators;
+import biomesoplenty.common.world.decoration.BiomeTweaker;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -53,12 +53,12 @@ public class BiomesOPlenty
         BOPFluids.init();
         BOPArmor.init();
         BOPCrafting.init();
-        BOPWorld.init();
+        BOPBiomes.init();
         BOPConfigurationBiomeGen.init(BOPConfiguration.biomeGenConfigFile);
         BOPConfigurationVillages.init(BOPConfiguration.villagesConfigFile);
         BOPConfigurationStrongholds.init(BOPConfiguration.strongholdsConfigFile);
         BOPConfigurationWorldFeatures.init(BOPConfiguration.worldFeaturesConfigFile);
-        ForcedDecorators.init();
+        BiomeTweaker.init();
         BOPEntities.init();
         BOPVanillaCompat.init();
         
@@ -82,6 +82,6 @@ public class BiomesOPlenty
     {
         packetPipeline.postInitialize();
         
-        BOPWorld.worldTypeBOP = new WorldTypeBOP();
+        BOPBiomes.worldTypeBOP = new WorldTypeBOP();
     }
 }

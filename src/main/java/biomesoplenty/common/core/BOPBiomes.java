@@ -9,14 +9,13 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 
-public class BOPWorld
+public class BOPBiomes
 {
 	public static WorldTypeBOP worldTypeBOP;
 	
@@ -30,7 +29,6 @@ public class BOPWorld
 		registerBiomes();
 		addBiomesToDictionary();
 		addSpawnBiomes();
-		overrideBiomeProperties();
 	}
 	
 	private static void registerBiomes()
@@ -268,13 +266,6 @@ public class BOPWorld
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("wetland"), Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("woodland"), Type.FOREST);
 	}
-	
-	private static void overrideBiomeProperties()
-	{
-		BiomeGenBase.hell.topBlock = Blocks.netherrack;
-		BiomeGenBase.hell.fillerBlock = Blocks.netherrack;
-	}
-	
 	public static void registerOnlyBiome(BOPBiomeEntry biome)
 	{
 		onlyBiome = biome;

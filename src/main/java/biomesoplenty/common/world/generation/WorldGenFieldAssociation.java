@@ -2,11 +2,16 @@ package biomesoplenty.common.world.generation;
 
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.*;
+import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
+import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
 import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
 import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
+import net.minecraft.world.gen.feature.WorldGenMelon;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.HashMap;
 
@@ -72,6 +77,9 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
         associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
+
+        associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
+        associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());
     }
     private static void associateFeaturesForced()
     {

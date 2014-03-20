@@ -39,7 +39,7 @@ public class BiomeGenShrubland extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 3);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
 	}
 
 	@Override

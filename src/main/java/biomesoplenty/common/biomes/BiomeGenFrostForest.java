@@ -8,7 +8,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
@@ -31,10 +30,19 @@ public class BiomeGenFrostForest extends BOPBiome
 		this.theBiomeDecorator.mushroomsPerChunk = -999;
 
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 1);
-        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 2);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 4);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
+
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 1);
+
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 7), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 
 	@Override
@@ -43,18 +51,6 @@ public class BiomeGenFrostForest extends BOPBiome
 	{
 		return worldGeneratorTrees;
 	}
-	
-    @Override
-	public WorldGenerator getRandomWorldGenForGrass(Random random)
-    {
-        return random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
-    }
-	
-    @Override
-	public WorldGenBOPFlora getRandomWorldGenForBOPFlowers(Random random)
-    {
-    	return random.nextInt(5) == 0 ? new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 7) : new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8);
-    }
 	
 	@Override
 	public void decorate(World world, Random random, int chunkX, int chunkZ)

@@ -5,8 +5,8 @@ import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourMudball;
-import biomesoplenty.common.world.decoration.ForcedDecorators;
-import biomesoplenty.common.world.decoration.IBOPBiome;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import net.minecraft.block.BlockDispenser;
@@ -97,22 +97,13 @@ public class BOPVanillaCompat
 	    {
 	        if (biome != null)
 	        {
-	            IBOPBiome bopDecoration = null;
+                BOPWorldFeatures biomeFeatures = BOPDecorationManager.getBiomeFeatures(biome.biomeID);
 
-	            if (biome instanceof IBOPBiome)
+	            if (biomeFeatures != null)
 	            {
-	                bopDecoration = (IBOPBiome)biome;
-	            }
-	            else if (ForcedDecorators.biomeHasForcedDecorator(biome.biomeID))
-	            {
-	                bopDecoration = ForcedDecorators.getForcedDecorator(biome.biomeID);
-	            }
-
-	            if (bopDecoration != null)
-	            {
-	                if (bopDecoration.weightedFlowerGen != null && !bopDecoration.weightedFlowerGen.isEmpty())
+	                if (biomeFeatures.weightedFlowerGen != null && !biomeFeatures.weightedFlowerGen.isEmpty())
 	                {
-	                    HashMap<WorldGenBOPFlora, Integer> flowerMap = bopDecoration.weightedFlowerGen;
+	                    HashMap<WorldGenBOPFlora, Integer> flowerMap = biomeFeatures.weightedFlowerGen;
 
 	                    for (Entry<WorldGenBOPFlora, Integer> entry : flowerMap.entrySet())
 	                    {

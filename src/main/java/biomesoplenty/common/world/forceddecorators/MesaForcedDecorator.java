@@ -14,7 +14,9 @@ public class MesaForcedDecorator extends ForcedDecorator
         this.bopWorldFeatures.setFeature("tinyCactiPerChunk", 10);
         this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 10);
 
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 1), 1D);
-        this.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 }

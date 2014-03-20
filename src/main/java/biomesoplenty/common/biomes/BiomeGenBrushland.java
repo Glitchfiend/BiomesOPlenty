@@ -33,11 +33,13 @@ public class BiomeGenBrushland extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("generateQuicksand", true);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 5);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 6);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 5);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 
 	@Override

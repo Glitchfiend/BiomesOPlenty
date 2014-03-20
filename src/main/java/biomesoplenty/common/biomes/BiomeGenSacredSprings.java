@@ -38,9 +38,9 @@ public class BiomeGenSacredSprings extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 2);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 10);
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
-        weightedFlowerGen.put(new WorldGenBOPDoubleFlora(5, 5), 5);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 10);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(5, 5), 5);
     }
 
     @Override

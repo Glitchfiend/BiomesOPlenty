@@ -27,10 +27,12 @@ public class BiomeGenHighland extends BOPBiome
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
         this.bopWorldFeatures.setFeature("rockpilesPerChunk", 3);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.25D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.25D);
-        weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-        weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 1D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 99);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 1D);
 	}
 	
 	@Override

@@ -40,7 +40,9 @@ public class BiomeGenWasteland extends BOPBiome
         this.bopWorldFeatures.setFeature("wasteland4PerChunk", 1);
         this.bopWorldFeatures.setFeature("wastelandRockPilesPerChunk", 2);
 
-        weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 0), 1D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 20);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 0), 1D);
     }
 
     @Override

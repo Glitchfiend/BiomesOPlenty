@@ -39,8 +39,8 @@ public class BiomeGenOriginValley extends BOPBiome
         //TODO: FEATURE this.theBiomeDecorator.generateUndergroundLakes = false;
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 8), 8);
-        weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.yellow_flower, 0), 10);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 8), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.yellow_flower, 0), 10);
 	}
 
 	@Override

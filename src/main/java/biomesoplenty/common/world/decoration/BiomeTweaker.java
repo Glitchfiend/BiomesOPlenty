@@ -1,17 +1,21 @@
 package biomesoplenty.common.world.decoration;
 
 import biomesoplenty.common.world.forceddecorators.*;
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.HashMap;
+import java.util.List;
 
-public class ForcedDecorators 
+public class BiomeTweaker
 {
 	public static HashMap<Integer, ForcedDecorator> forcedDecoratorMap = new HashMap();
 	
 	public static void init()
 	{
 		addForcedDecorators();
+        tweakDecorationProperties();
 	}
 	
 	private static void addForcedDecorators()
@@ -56,6 +60,34 @@ public class ForcedDecorators
 		addForcedDecorator(BiomeGenBase.coldTaiga.biomeID, TaigaForcedDecorator.class);
 		addForcedDecorator(BiomeGenBase.coldTaigaHills.biomeID, TaigaForcedDecorator.class);
 	}
+
+    private static void tweakDecorationProperties()
+    {
+        BiomeGenBase.hell.topBlock = Blocks.netherrack;
+        BiomeGenBase.hell.fillerBlock = Blocks.netherrack;
+
+        for (int i = 0; i < BiomeGenBase.getBiomeGenArray().length; i++)
+        {
+            BiomeGenBase biome = BiomeGenBase.getBiome(i);
+
+            if (biome != null)
+            {
+                BOPWorldFeatures biomeFeatures = BOPDecorationManager.getBiomeFeatures(i);
+
+                if (biomeFeatures != null)
+                {
+                    List<BiomeGenBase.FlowerEntry> flowers = ReflectionHelper.getPrivateValue(BiomeGenBase.class, biome, "flowers");
+
+                    flowers.clear();
+
+                    biome.addDefaultFlowers();
+
+                    biome.theBiomeDecorator.flowersPerChunk = 0;
+                    biome.theBiomeDecorator.grassPerChunk = 0;
+                }
+            }
+        }
+    }
 	
 	public static void addForcedDecorator(int biomeID, Class<? extends ForcedDecorator> decoratorClass)
 	{

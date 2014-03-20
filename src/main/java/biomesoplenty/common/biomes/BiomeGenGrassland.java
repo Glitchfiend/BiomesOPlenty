@@ -41,11 +41,13 @@ public class BiomeGenGrassland extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1), 0.25D);
-        weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 2), 0.25D);
-        weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
-        weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 2);
+
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 2), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 	
 	@Override

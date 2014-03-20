@@ -11,7 +11,8 @@ public class IcePlainsForcedDecorator extends ForcedDecorator
         super(id);
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 1);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
 
-        this.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 8), 8);
 	}
 }
