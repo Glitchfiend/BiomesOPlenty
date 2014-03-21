@@ -1,5 +1,6 @@
 package biomesoplenty.common.world.decoration;
 
+import biomesoplenty.common.utils.BOPLogger;
 import biomesoplenty.common.world.generation.IBOPWorldGenerator;
 import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 import cpw.mods.fml.common.IWorldGenerator;
@@ -21,49 +22,52 @@ public class BOPDecorationManager implements IWorldGenerator
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
     {
-        chunkX <<= 4;
-        chunkZ <<= 4;
-
-        BiomeGenBase biome = world.getBiomeGenForCoords(chunkX + 16, chunkZ + 16);
-        BOPWorldFeatures biomeFeatures = getBiomeFeatures(biome.biomeID);
-
-        if (biomeFeatures != null)
+        if (world.provider.terrainType.getWorldTypeName().equals("BIOMESOP"))
         {
-            for (String featureName : biomeFeatures.getFeatureNames())
+            chunkX <<= 4;
+            chunkZ <<= 4;
+
+            BiomeGenBase biome = world.getBiomeGenForCoords(chunkX + 16, chunkZ + 16);
+            BOPWorldFeatures biomeFeatures = getBiomeFeatures(biome.biomeID);
+
+            if (biomeFeatures != null)
             {
-                try
+                for (String featureName : biomeFeatures.getFeatureNames())
                 {
-                    if (featureName.equals("bopFlowersPerChunk"))
+                    try
                     {
-                        if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.FLOWERS)) continue;
-                    }
-                    else if (featureName.equals("bopGrassPerChunk"))
-                    {
-                        if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.GRASS)) continue;
-                    }
-
-                    WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
-
-                    if (worldFeature != null)
-                    {
-                        IBOPWorldGenerator worldGenerator = worldFeature.getBOPWorldGenerator();
-
-                        if (worldGenerator != null)
+                        if (featureName.equals("bopFlowersPerChunk"))
                         {
-                            worldGenerator.setupGeneration(world, random, biome, featureName, chunkX, chunkZ);
+                            if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.FLOWERS)) continue;
+                        }
+                        else if (featureName.equals("bopGrassPerChunk"))
+                        {
+                            if (!TerrainGen.decorate(world, random, chunkX, chunkZ, DecorateBiomeEvent.Decorate.EventType.GRASS)) continue;
+                        }
+
+                        WorldGenFieldAssociation.WorldFeature worldFeature = WorldGenFieldAssociation.getAssociatedFeature(featureName);
+
+                        if (worldFeature != null)
+                        {
+                            IBOPWorldGenerator worldGenerator = worldFeature.getBOPWorldGenerator();
+
+                            if (worldGenerator != null)
+                            {
+                                worldGenerator.setupGeneration(world, random, biome, featureName, chunkX, chunkZ);
+                            }
                         }
                     }
-                }
-                catch (Exception e)
-                {
-                    Throwable cause = e.getCause();
+                    catch (Exception e)
+                    {
+                        Throwable cause = e.getCause();
 
-                    if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
-                    {
-                    }
-                    else
-                    {
-                        e.printStackTrace();
+                        if (e.getMessage() != null && e.getMessage().equals("Already decorating!!") || (cause != null && cause.getMessage() != null && cause.getMessage().equals("Already decorating!!")))
+                        {
+                        }
+                        else
+                        {
+                            BOPLogger.severe("Exception on generating " + featureName, e);
+                        }
                     }
                 }
             }

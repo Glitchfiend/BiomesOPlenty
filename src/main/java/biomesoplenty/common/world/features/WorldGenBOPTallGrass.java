@@ -41,7 +41,6 @@ public class WorldGenBOPTallGrass extends WorldGeneratorBOP
             int j1 = y + random.nextInt(4) - random.nextInt(4);
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
-            //TODO:	  isAirBlock()									canReplace()
             if (world.isAirBlock(i1, j1, k1) && this.tallGrass.canReplace(world, i1, j1, k1, 0, new ItemStack(this.tallGrass, 1, this.tallGrassMetadata)))
             {
                 world.setBlock(i1, j1, k1, this.tallGrass, this.tallGrassMetadata, 2);

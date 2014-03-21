@@ -3,7 +3,8 @@ package biomesoplenty.common.core;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
-import biomesoplenty.common.biomes.*;
+import biomesoplenty.common.biomes.nether.BiomeGenBloodyHeap;
+import biomesoplenty.common.biomes.overworld.*;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -57,7 +58,7 @@ public class BOPBiomes
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.icePlains, TemperatureType.ICY, 50));  
         registerVanillaBiome(new BOPBiomeEntry(BiomeGenBase.coldTaiga, TemperatureType.ICY, 50));
         
-        registerBiome(new BOPBiomeEntry(new BiomeGenAlps(BOPConfigurationIDs.alpsID).setBiomeName("Alps"), TemperatureType.ICY, 25)); 
+        registerBiome(new BOPBiomeEntry(new BiomeGenAlps(BOPConfigurationIDs.alpsID).setBiomeName("Alps"), TemperatureType.ICY, 25));
         registerBiome(new BOPBiomeEntry(new BiomeGenArctic(BOPConfigurationIDs.arcticID).setBiomeName("Arctic"), TemperatureType.ICY, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenBambooForest(BOPConfigurationIDs.bambooForestID).setBiomeName("Bamboo Forest"), TemperatureType.HOT, 25));
         registerBiome(new BOPBiomeEntry(new BiomeGenBayou(BOPConfigurationIDs.bayouID).setBiomeName("Bayou"), TemperatureType.WARM, 50));
@@ -116,6 +117,8 @@ public class BOPBiomes
         registerBiome(new BOPBiomeEntry(new BiomeGenWasteland(BOPConfigurationIDs.wastelandID).setBiomeName("Wasteland"), TemperatureType.HOT, 25));
         registerBiome(new BOPBiomeEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), TemperatureType.WARM, 50));
+
+        registerBiome(new BOPBiomeEntry(new BiomeGenBloodyHeap(BOPConfigurationIDs.netherBloodyHeapID).setBiomeName("Bloody Heap"), 50), -1);
 	}
 
 	private static void addSpawnBiomes()

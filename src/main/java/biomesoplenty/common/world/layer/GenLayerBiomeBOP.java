@@ -1,19 +1,18 @@
 package biomesoplenty.common.world.layer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
+import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
+import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
-import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
@@ -40,7 +39,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
             {
                 this.initChunkSeed((long)(j1 + par1), (long)(i1 + par2));
                 int biomeID = aint[j1 + i1 * par3];
-                //TODO:				111100000000
+                //   				111100000000
                 int l1 = (biomeID & 3840) >> 8;
                 biomeID &= -3841;
 
@@ -58,12 +57,10 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     {
                         if (this.nextInt(3) == 0 && BOPConfigurationBiomeGen.mesaPlateauGen)
                         {
-                        	//TODO:								 mesaPlateau
                             aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau.biomeID;
                         }
                         else if (BOPConfigurationBiomeGen.mesaPlateauFGen)
                         {
-                        	//TODO:								 mesaPlateau F
                             aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau_F.biomeID;
                         }
                     }
@@ -87,7 +84,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 {
                     if (l1 > 0 && BOPConfigurationBiomeGen.megaTaigaGen)
                     {
-                    	//TODO:								 megaTaiga
                         aint1[j1 + i1 * par3] = BiomeGenBase.megaTaiga.biomeID;
                     }
                     else

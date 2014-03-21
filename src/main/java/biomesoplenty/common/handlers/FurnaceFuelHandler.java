@@ -1,15 +1,18 @@
 package biomesoplenty.common.handlers;
 
-import java.util.ArrayList;
-
-import net.minecraft.item.ItemStack;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import cpw.mods.fml.common.IFuelHandler;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.HashMap;
 
 public class FurnaceFuelHandler implements IFuelHandler 
 {
-	private static ArrayList<FuelValue> fuelList = new ArrayList<FuelValue>();
+	private static HashMap<Pair<Item, Integer>, Integer> fuelList = new HashMap<Pair<Item, Integer>, Integer>();
 	
 	@Override
 	public int getBurnTime(ItemStack fuel) 
@@ -17,81 +20,61 @@ public class FurnaceFuelHandler implements IFuelHandler
 		return getFuelValue(fuel);
 	}
 
-	// Add Fuel rates
 	public static void setFuelValues()
 	{
-		addFuel(new ItemStack(BOPBlockHelper.get("saplings")), 100);
-		addFuel(new ItemStack(BOPBlockHelper.get("colorizedSaplings")), 100);
+		addFuel(BOPBlockHelper.get("saplings"), 100);
+		addFuel(BOPBlockHelper.get("colorizedSaplings"), 100);
 		
-		addFuel(new ItemStack(BOPBlockHelper.get("woodenSingleSlab1")), 150);
-		addFuel(new ItemStack(BOPBlockHelper.get("woodenSingleSlab2")), 150);
+		addFuel(BOPBlockHelper.get("woodenSingleSlab1"), 150);
+		addFuel(BOPBlockHelper.get("woodenSingleSlab2"), 150);
 		
-		addFuel(new ItemStack(BOPBlockHelper.get("redwoodStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("willowStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("firStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("sacredoakStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("cherryStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("darkStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("magicStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("palmStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("mangroveStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("holyStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("pineStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("jacarandaStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("hellBarkStairs")), 300);
-		addFuel(new ItemStack(BOPBlockHelper.get("mahoganyStairs")), 300);
+		addFuel(BOPBlockHelper.get("redwoodStairs"), 300);
+		addFuel(BOPBlockHelper.get("willowStairs"), 300);
+		addFuel(BOPBlockHelper.get("firStairs"), 300);
+		addFuel(BOPBlockHelper.get("sacredoakStairs"), 300);
+		addFuel(BOPBlockHelper.get("cherryStairs"), 300);
+		addFuel(BOPBlockHelper.get("darkStairs"), 300);
+		addFuel(BOPBlockHelper.get("magicStairs"), 300);
+		addFuel(BOPBlockHelper.get("palmStairs"), 300);
+		addFuel(BOPBlockHelper.get("mangroveStairs"), 300);
+		addFuel(BOPBlockHelper.get("holyStairs"), 300);
+		addFuel(BOPBlockHelper.get("pineStairs"), 300);
+		addFuel(BOPBlockHelper.get("jacarandaStairs"), 300);
+		addFuel(BOPBlockHelper.get("hellBarkStairs"), 300);
+		addFuel(BOPBlockHelper.get("mahoganyStairs"), 300);
 		
-		addFuel(new ItemStack(BOPItemHelper.get("misc"), 1, 1), 400);
+		addFuel(BOPItemHelper.get("misc"), 1, 400);
 	}
 	
-	private static void addFuel(ItemStack stack, int value)
+	private static void addFuel(Item item, int metadata, int value)
 	{
-		fuelList.add(new FuelValue(stack, value));
+        fuelList.put(Pair.of(item, metadata), value);
 	}
+
+    private static void addFuel(Item item, int value)
+    {
+        addFuel(item, 0, value);
+    }
+
+    private static void addFuel(Block block, int metadata, int value)
+    {
+        addFuel(Item.getItemFromBlock(block), metadata, value);
+    }
+
+    private static void addFuel(Block block, int value)
+    {
+        addFuel(Item.getItemFromBlock(block), 0, value);
+    }
 	
 	private static int getFuelValue(ItemStack stack)
 	{
-		for (FuelValue fuelValue : fuelList)
-		{
-			ItemStack stackToCompareTo = fuelValue.getStack();
+        Pair<Item, Integer> pair = Pair.of(stack.getItem(), stack.getItemDamage());
 
-			if (stackToCompareTo.getItem() == stack.getItem() && (stack.getItemDamage() == 32767 || stackToCompareTo.getItemDamage() == stack.getItemDamage())) return fuelValue.getValue();
+        if (fuelList.containsKey(pair))
+        {
+            return fuelList.get(pair);
+        }
 
-			return fuelValue.getValue();
-		}
-
-		return 0;
-	}
-
-	public static class FuelValue
-	{
-		private ItemStack stack;
-		private int value;
-		
-		public FuelValue(ItemStack stack, int value)
-		{
-			this.setStack(stack);
-			this.setValue(value);
-		}
-
-		public ItemStack getStack()
-		{
-			return stack;
-		}
-
-		public void setStack(ItemStack stack) 
-		{
-			this.stack = stack;
-		}
-
-		public int getValue()
-		{
-			return value;
-		}
-
-		public void setValue(int value) 
-		{
-			this.value = value;
-		}
+        return 0;
 	}
 }

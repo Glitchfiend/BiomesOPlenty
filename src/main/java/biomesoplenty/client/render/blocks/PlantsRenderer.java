@@ -1,15 +1,14 @@
 package biomesoplenty.client.render.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.IBlockAccess;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.BlockBOPPlant;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.world.IBlockAccess;
 
 public class PlantsRenderer implements ISimpleBlockRenderingHandler
 {
@@ -149,7 +148,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 		{
 			i1 = i1 * i1 * 42317861L + i1 * 11L;
 			d0 += ((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.5D;
-			d1 += ((i1 >> 20 & 15L) / 15.0F - 1.0D) * 0.2D;
+			if (meta != 12) d1 += ((i1 >> 20 & 15L) / 15.0F - 1.0D) * 0.2D;
 			d2 += ((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D;
 		}
 		

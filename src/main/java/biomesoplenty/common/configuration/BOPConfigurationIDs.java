@@ -67,12 +67,11 @@ public class BOPConfigurationIDs
 	public static int mysticGroveID;
 	public static int mysticGroveThinID;
 
-	public static int netherBaseID;
 	public static int netherGardenID;
 	public static int netherDesertID;
 	public static int netherLavaID;
 	public static int netherBoneID;
-	public static int netherBloodID;
+	public static int netherBloodyHeapID;
 
 	public static int oasisID;
 
@@ -159,8 +158,7 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
-			mysticGroveThinID = config.get("Biome IDs", "Thinned Mystic Grove (Sub-Biome) ID", 54).getInt();
-			netherBloodID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 55).getInt();
+			mysticGroveThinID = config.get("Biome IDs", "Thinned Mystic Grove (Sub-Biome) ID", 55).getInt();
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 56).getInt();
 			tropicsMountainID = config.get("Biome IDs", "Tropics Mountain (Sub-Biome) ID", 57).getInt();
 			autumnHillsID = config.get("Biome IDs", "Autumn Hills ID", 58).getInt();
@@ -185,11 +183,11 @@ public class BOPConfigurationIDs
 			beachGravelID = config.get("Biome IDs", "Gravel Beach ID", 75).getInt();
 			beachOvergrownID = config.get("Biome IDs", "Overgrown Beach ID", 76).getInt();
 
-			netherBaseID = config.get("Biome IDs", "Nether Base (Nether) ID", 80).getInt();
-			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 81).getInt();
-			netherDesertID = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 82).getInt();
-			netherLavaID = config.get("Biome IDs", "Phantasmagoric Inferno (Nether) ID", 83).getInt();
-			netherBoneID = config.get("Biome IDs", "Boneyard (Nether) ID", 84).getInt();
+			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 80).getInt();
+			netherDesertID = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 81).getInt();
+			netherLavaID = config.get("Biome IDs", "Phantasmagoric Inferno (Nether) ID", 82).getInt();
+			netherBoneID = config.get("Biome IDs", "Boneyard (Nether) ID", 83).getInt();
+            netherBloodyHeapID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 84).getInt();
 
 			//70-87 Twilight Forest < Changed on their end?
 

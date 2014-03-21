@@ -50,17 +50,13 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public BlockBOPFoliage()
 	{
 		float f = 0.4F;
-		
-		//TODO: this.setHardness
+
 		this.setHardness(0.0F);
-		
-		//TODO setStepSound(Block.soundGrassFootstep)
+
 		this.setStepSound(Block.soundTypeGrass);
-		
-		//TODO: setBlockBounds
+
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
