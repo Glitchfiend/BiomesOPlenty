@@ -13,6 +13,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
 
 public class BlockMoss extends BlockVine
 {
@@ -38,4 +39,25 @@ public class BlockMoss extends BlockVine
 		//TODO: blockIcon
 		this.blockIcon = iconRegister.registerIcon("biomesoplenty:moss");
 	}
+	
+    // JAVADOC METHOD $$ func_149707_d
+	@Override
+    public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
+    {
+        switch (side)
+        {
+            case 1:
+                return (world.getBlock(x, y + 1, z) == Blocks.stone);
+            case 2:
+            	return (world.getBlock(x, y, z + 1) == Blocks.stone);
+            case 3:
+            	return (world.getBlock(x, y, z - 1) == Blocks.stone);
+            case 4:
+            	return (world.getBlock(x + 1, y, z) == Blocks.stone);
+            case 5:
+            	return (world.getBlock(x - 1, y, z) == Blocks.stone);
+            default:
+                return false;
+        }
+    }
 }

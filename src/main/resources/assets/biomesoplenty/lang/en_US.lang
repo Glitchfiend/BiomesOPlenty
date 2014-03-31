@@ -64,7 +64,7 @@ tile.flowers2.rose.name=Rose
 tile.stoneFormations.stalagmite.name=Stalagmite
 tile.stoneFormations.stalactite.name=Stalactite
 
-tile.foliage.algae.name=Algae
+tile.foliage.duckweed.name=Duckweed
 tile.foliage.shortgrass.name=Short Grass
 tile.foliage.mediumgrass.name=Medium Grass
 tile.foliage.hedgebottom.name=Hedge
@@ -130,7 +130,7 @@ tile.coral.pinkcoral.name=Pink Coral
 tile.coral.orangecoral.name=Orange Coral
 tile.coral.bluecoral.name=Blue Coral
 tile.coral.glowcoral.name=Glowing Coral
-tile.coral.seaweed.name=Seaweed
+tile.coral.algae.name=Algae
 
 tile.redCobbleStairs.name=Red Rock Cobblestone Stairs      
 tile.redBricksStairs.name=Red Rock Bricks Stairs

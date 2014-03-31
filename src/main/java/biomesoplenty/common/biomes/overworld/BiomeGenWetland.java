@@ -61,6 +61,7 @@ public class BiomeGenWetland extends BOPBiome
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 5);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
 

@@ -44,7 +44,7 @@ public class BiomeGenFen extends BOPBiome
         this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 2);
         this.bopWorldFeatures.setFeature("mudPerChunk", 1);
         this.bopWorldFeatures.setFeature("riverCanePerChunk", 5);
-        this.bopWorldFeatures.setFeature("algaePerChunk", 1);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 3);
         this.bopWorldFeatures.setFeature("portobellosPerChunk", 1);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 10);
         this.bopWorldFeatures.setFeature("koruPerChunk", 1);

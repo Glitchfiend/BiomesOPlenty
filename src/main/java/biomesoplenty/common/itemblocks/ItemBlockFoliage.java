@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemBlockFoliage extends ItemColored
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "hedgebottom", "bush", "sprout", "hedgetop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
+	private static final String[] foliageTypes = new String[] {"duckweed", "shortgrass", "mediumgrass", "hedgebottom", "bush", "sprout", "hedgetop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 	private static final int HEDGETOP = 6;

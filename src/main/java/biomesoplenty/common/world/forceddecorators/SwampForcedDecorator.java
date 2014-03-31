@@ -16,6 +16,7 @@ public class SwampForcedDecorator extends ForcedDecorator
 		this.bopWorldFeatures.setFeature("seaweedPerChunk", 10);
 		this.bopWorldFeatures.setFeature("cattailsPerChunk", 10);
 		this.bopWorldFeatures.setFeature("highCattailsPerChunk", 5);
+		this.bopWorldFeatures.setFeature("algaePerChunk", 3);
 		this.bopWorldFeatures.setFeature("koruPerChunk", 25);
 		this.bopWorldFeatures.setFeature("waterReedsPerChunk", 5);
 		this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 1);

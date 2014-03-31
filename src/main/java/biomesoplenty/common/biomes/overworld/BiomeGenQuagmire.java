@@ -39,6 +39,7 @@ public class BiomeGenQuagmire extends BOPBiome
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
+        this.bopWorldFeatures.setFeature("algaePerChunk", 1);
 
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("koruPerChunk", 1);

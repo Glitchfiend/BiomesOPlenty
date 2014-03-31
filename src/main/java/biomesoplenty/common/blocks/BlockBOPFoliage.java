@@ -36,7 +36,7 @@ import java.util.Random;
 
 public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 {
-	private static final String[] foliageTypes = new String[] {"algae", "shortgrass", "mediumgrass", "hedgebottom", "bush", "sprout", "hedgetop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
+	private static final String[] foliageTypes = new String[] {"duckweed", "shortgrass", "mediumgrass", "hedgebottom", "bush", "sprout", "hedgetop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
 
 	private IIcon[] textures;
 	public IIcon hedgeTrunk;
@@ -44,7 +44,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public IIcon berryBushBerry;
 
     private static final int HEDGETOP = 6;
-    private static final int ALGAE = 0;
+    private static final int DUCKWEED = 0;
     private static final int HEDGEBOTTOM = 3;
 
 	public BlockBOPFoliage()
@@ -162,7 +162,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		case HEDGETOP:
 			return block == this;
 
-		case ALGAE: // Algae
+		case DUCKWEED: // Algae
 			return block == Blocks.water;
 			
 		case 14: // Leaf Pile
@@ -355,7 +355,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 		switch (meta)
 		{
-		case ALGAE:
+		case DUCKWEED:
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
 
 		case 1: // Short Grass
@@ -393,7 +393,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 		switch (meta)
 		{
-		case ALGAE:
+		case DUCKWEED:
 			minX = minY = minZ = 0F;
 			maxX = maxZ = 1.0F;
 			maxY = 0.015625F;
