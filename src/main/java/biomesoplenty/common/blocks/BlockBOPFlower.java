@@ -235,7 +235,7 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 			return block == this;
 
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("grass");
 		}
 	}
 	@Override
