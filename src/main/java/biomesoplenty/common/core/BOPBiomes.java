@@ -65,6 +65,7 @@ public class BOPBiomes
         registerBiome(new BOPBiomeEntry(new BiomeGenBog(BOPConfigurationIDs.bogID).setBiomeName("Bog"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenBorealForest(BOPConfigurationIDs.borealForestID).setBiomeName("Boreal Forest"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenBrushland(BOPConfigurationIDs.brushlandID).setBiomeName("Brushland"), TemperatureType.HOT, 50));
+        //registerBiome(new BOPBiomeEntry(new BiomeGenCandyland(BOPConfigurationIDs.candylandID).setBiomeName("Candyland"), TemperatureType.ICY, 100));
         registerBiome(new BOPBiomeEntry(new BiomeGenCanyon(BOPConfigurationIDs.canyonID).setBiomeName("Canyon"), TemperatureType.HOT, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenChaparral(BOPConfigurationIDs.chaparralID).setBiomeName("Chaparral"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenCherryBlossomGrove(BOPConfigurationIDs.cherryBlossomGroveID).setBiomeName("Cherry Blossom Grove"), TemperatureType.COOL, 25));
@@ -160,6 +161,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("borealForest"), Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("brushland"), Type.DESERT, Type.FOREST, Type.PLAINS);
         
+        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("candyland"), Type.MAGICAL);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("canyon"), Type.DESERT, Type.MOUNTAIN, Type.HILLS);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("canyonRavine"), Type.DESERT, Type.HILLS);
         

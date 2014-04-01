@@ -39,6 +39,8 @@ public class BOPBlocks
         registerBlock(new BlockBOPCoral().setBlockName("coral"), ItemBlockCoral.class);
         registerBlock(new BlockWillow().setBlockName("willow"), ItemBlockWillow.class);
         registerBlock(new BlockIvy().setBlockName("ivy"), ItemBlockIvy.class);
+        registerBlock(new BlockTreeMoss().setBlockName("treeMoss"));
+        registerBlock(new BlockFlowerVine().setBlockName("flowerVine"));
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT1).setBlockName("leaves1"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT2).setBlockName("leaves2"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).setBlockName("leaves3"), ItemBlockLeaves.class);
@@ -52,6 +54,7 @@ public class BOPBlocks
         registerBlock(new BlockBOPAppleLeaves().setBlockName("appleLeaves"), ItemBlockAppleLeaves.class);
         registerBlock(new BlockBOPPersimmonLeaves().setBlockName("persimmonLeaves"), ItemBlockPersimmonLeaves.class);
         
+        registerBlock(new BlockMoss().setBlockName("moss"), ItemBlockMoss.class);
         registerBlock(new BlockBamboo().setBlockName("bamboo"), ItemBlockBamboo.class);
 
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.MUD_BRICK).setBlockName("mudBricks"));
@@ -60,9 +63,6 @@ public class BOPBlocks
         registerBlock(new BlockLongGrass().setBlockName("longGrass"));
         registerBlock(new BlockOvergrownNetherrack().setBlockName("overgrownNetherrack"));
         registerBlock(new BlockBOPGrass().setBlockName("grass"));
-        
-        registerBlock(new BlockTreeMoss().setBlockName("treeMoss"));
-        registerBlock(new BlockFlowerVine().setBlockName("flowerVine"));
         
 		registerBlock(new BlockBOPLog(LogCategory.CAT1).setBlockName("logs1"), ItemBlockLog.class);
 		registerBlock(new BlockBOPLog(LogCategory.CAT2).setBlockName("logs2"), ItemBlockLog.class);
@@ -83,8 +83,6 @@ public class BOPBlocks
         registerBlock(new BlockBOPGeneric(Material.glass, BlockType.CRYSTAL).setBlockName("crystal"));
 
 		registerBlock(new BlockBOPGems().setBlockName("gemOre"), ItemBlockGems.class);
-       
-		registerBlock(new BlockMoss().setBlockName("moss"), ItemBlockMoss.class);
 
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.CRAG_ROCK).setBlockName("cragRock"));
 
@@ -92,6 +90,9 @@ public class BOPBlocks
 
 		registerBlock(new BlockHive().setBlockName("hive"), ItemBlockHive.class);
 		registerBlock(new BlockHoney().setBlockName("honeyBlock"));
+		
+		registerBlock(new BlockBOPGeneric(Material.cake, BlockType.CAKE).setBlockName("cakeBlock"));
+		registerBlock(new BlockFrostedCake().setBlockName("frostedCake"));
 
 		registerBlock(new BlockBones().setBlockName("bones"), ItemBlockBones.class);
 		registerBlock(new BlockGrave().setBlockName("grave"), ItemBlockGrave.class);

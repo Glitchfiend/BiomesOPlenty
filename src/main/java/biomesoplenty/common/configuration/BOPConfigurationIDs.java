@@ -27,6 +27,7 @@ public class BOPConfigurationIDs
 	public static int bogID;
 	public static int borealForestID;
 	public static int brushlandID;
+	public static int candylandID;
 	public static int canyonID;
 	public static int canyonRavineID;
 	public static int chaparralID;
@@ -158,6 +159,7 @@ public class BOPConfigurationIDs
 
 			//23-79 ExtraBiomesXL
 
+			candylandID = config.get("Biome IDs", "Candyland ID", 54).getInt();
 			mysticGroveThinID = config.get("Biome IDs", "Thinned Mystic Grove (Sub-Biome) ID", 55).getInt();
 			lavenderFieldsID = config.get("Biome IDs", "Lavender Fields ID", 56).getInt();
 			tropicsMountainID = config.get("Biome IDs", "Tropics Mountain (Sub-Biome) ID", 57).getInt();

@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class BiomeGenWetland extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.2F);
+    private static final Height biomeHeight = new Height(-0.1F, 0.2F);
 
     public BiomeGenWetland(int id)
     {
@@ -35,7 +35,7 @@ public class BiomeGenWetland extends BOPBiome
 
         this.waterColorMultiplier = 6512772;
 
-        this.theBiomeDecorator.treesPerChunk = 10;
+        this.theBiomeDecorator.treesPerChunk = 6;
         this.theBiomeDecorator.grassPerChunk = 10;
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.mushroomsPerChunk = 8;
