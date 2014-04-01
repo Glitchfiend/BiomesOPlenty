@@ -4,6 +4,7 @@ import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.client.render.RenderUtils;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -31,6 +32,7 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -59,6 +61,13 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
+	
+    public static boolean isTime()
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
+    }
 
 	@Override
 	//TODO:		registerIcons()
@@ -66,8 +75,30 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		textures = new IIcon[foliageTypes.length];
 
-		for (int i = 0; i < textures.length; ++i) {
-			textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
+		for (int i = 0; i < textures.length; ++i)
+		{
+			if (!BOPConfigurationMisc.behaveNormally)
+			{
+				if (isTime())
+				{
+					if (i != 1 && i != 2 && i != 10 && i != 11)
+					{
+						textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
+					}
+					else
+					{
+						textures[i] = iconRegister.registerIcon("biomesoplenty:foolgrass");
+					}
+				}
+				else
+				{
+					textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
+				}
+			}
+			else
+			{
+				textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
+			}
 		}
 		
 		hedgeTrunk = iconRegister.registerIcon("biomesoplenty:" + "hedge_trunk");

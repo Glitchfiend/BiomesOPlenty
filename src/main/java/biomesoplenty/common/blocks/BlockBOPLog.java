@@ -1,5 +1,6 @@
 package biomesoplenty.common.blocks;
 
+import java.util.Calendar;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -14,6 +15,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.WorldTypeBOPA;
 
 public class BlockBOPLog extends Block
 {
@@ -71,6 +74,13 @@ public class BlockBOPLog extends Block
 		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
+	
+    public static boolean isTime()
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
+    }
 
 	@Override
 	//TODO:		registerIcons()
@@ -78,13 +88,36 @@ public class BlockBOPLog extends Block
 	{
 		textures = new IIcon[types.length];
 		logHearts = new IIcon[types.length];
-
+		
+		if (!BOPConfigurationMisc.behaveNormally)
+		{
+			if (isTime())
+			{
+				
+			}
+		}
 		for (int i = 0; i < types.length; ++i)
 		{
 			if (i != 11)
 			{
-				textures[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_side");
-				logHearts[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_heart");
+				if (!BOPConfigurationMisc.behaveNormally)
+				{
+					if (isTime())
+					{
+						textures[i] = iconRegister.registerIcon("biomesoplenty:foollog_side");
+						logHearts[i] = iconRegister.registerIcon("biomesoplenty:foollog_heart");
+					}
+					else
+					{
+						textures[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_side");
+						logHearts[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_heart");
+					}
+				}
+				else
+				{
+					textures[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_side");
+					logHearts[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_heart");
+				}
 			}
 		}
 

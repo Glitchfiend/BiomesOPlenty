@@ -41,12 +41,4 @@ public class WorldTypeBOP extends WorldType
     {
     	return new WorldChunkManagerBOP(world);
     }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean getCanBeCreated()
-    {
-        if (!BOPConfigurationMisc.behaveNormally) return !WorldTypeBOPA.isTime();
-        else return true;
-    }
 }

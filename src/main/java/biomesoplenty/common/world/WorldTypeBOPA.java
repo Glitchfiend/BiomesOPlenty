@@ -54,6 +54,6 @@ public class WorldTypeBOPA extends WorldType
     {
         Calendar calendar = Calendar.getInstance();
 
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
+        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 20);
     }
 }

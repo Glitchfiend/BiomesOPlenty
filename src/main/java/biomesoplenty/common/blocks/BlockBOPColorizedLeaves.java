@@ -1,6 +1,7 @@
 package biomesoplenty.common.blocks;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -19,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
@@ -63,6 +65,13 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
+    
+    public static boolean isTime()
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
+    }
 
     @Override
 	//TODO:		registerIcons()
@@ -74,17 +83,51 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         {
             for (int i = 0; i < leaves.length; ++i)
             {
-                textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
-                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-                textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
+            	if (!BOPConfigurationMisc.behaveNormally)
+				{
+					if (isTime())
+					{
+		                textures[0][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_round");
+		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_fast");
+		                textures[2][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_better");
+					}
+					else
+					{
+						textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
+		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+		                textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
+					}
+				}
+            	else
+            	{
+            		textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
+	                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+	                textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
+            	}
             }
         }
         else
         {
             for (int i = 0; i < leaves.length; ++i)
             {
-                textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
-                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+            	if (!BOPConfigurationMisc.behaveNormally)
+				{
+					if (isTime())
+					{
+		                textures[0][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_fancy");
+		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_fast");
+					}
+					else
+					{
+						textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
+		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+					}
+				}
+            	else
+            	{
+            		textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
+	                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+            	}
             }
         }
     }
