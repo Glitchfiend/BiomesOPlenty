@@ -77,6 +77,7 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
         associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
+        associateFeature("cookiesPerChunk", new WorldGenCookie());
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());

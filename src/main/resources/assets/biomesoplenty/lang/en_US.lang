@@ -11,6 +11,10 @@ tile.mudBricks.name=Mud Bricks
 tile.holyDirt.name=Purified Dirt
 tile.crystal.name=Celestial Crystal
 
+tile.cakeBlock.name=Cake Block
+tile.frostedCake.name=Frosted Cake Block
+tile.cookieBlock.name=Cookie Block
+
 tile.redRock.redrock.name=Red Rock
 tile.redRock.redcobble.name=Red Rock Cobblestone
 tile.redRock.redbrick.name=Red Rock Bricks

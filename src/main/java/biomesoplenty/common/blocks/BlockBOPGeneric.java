@@ -14,7 +14,7 @@ public class BlockBOPGeneric extends Block
 {
 	public enum BlockType
 	{
-		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL, CAKE;
+		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, HOLY_DIRT, CRYSTAL;
 	}
 
 	private IIcon texture;
@@ -102,13 +102,6 @@ public class BlockBOPGeneric extends Block
 			//TODO setStepSound(Block.soundGravelFootstep)
 			this.setStepSound(Block.soundTypeGlass);
 			break;
-			
-		case CAKE:
-			//TODO: this.setHardness
-			this.setHardness(0.3F);
-			//TODO setStepSound(Block.soundGravelFootstep)
-			this.setStepSound(soundTypeSnow);
-			break;
 
 		default:
 			break;
@@ -155,10 +148,6 @@ public class BlockBOPGeneric extends Block
 
 		case CRYSTAL:
 			texture = iconRegister.registerIcon("biomesoplenty:crystal");
-			break;
-			
-		case CAKE:
-			texture = iconRegister.registerIcon("biomesoplenty:cakeblock_bottom");
 			break;
 
 		default:

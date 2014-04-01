@@ -14,6 +14,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.WorldTypeBOPA;
 
 public class BlockFrostedCake extends Block
 {
@@ -34,7 +36,13 @@ public class BlockFrostedCake extends Block
 		this.setTickRandomly(true);
 		
 		//TODO: this.setCreativeTab()
-		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+		if (!BOPConfigurationMisc.behaveNormally) 
+		{
+			if(WorldTypeBOPA.isTime())
+			{
+				this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+			}
+		}
 	}
 
 	@Override
@@ -56,12 +64,6 @@ public class BlockFrostedCake extends Block
 	    if (side < 0 || side >= this.icons.length) side = 1;
         
 		return this.icons[side];
-	}
-
-	@Override
-	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plant)
-	{
-		return true;
 	}
 
 	@Override
