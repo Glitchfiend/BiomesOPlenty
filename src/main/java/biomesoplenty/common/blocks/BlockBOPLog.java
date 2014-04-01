@@ -74,13 +74,6 @@ public class BlockBOPLog extends Block
 		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-	
-    public static boolean isTime()
-    {
-        Calendar calendar = Calendar.getInstance();
-
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
-    }
 
 	@Override
 	//TODO:		registerIcons()
@@ -89,35 +82,12 @@ public class BlockBOPLog extends Block
 		textures = new IIcon[types.length];
 		logHearts = new IIcon[types.length];
 		
-		if (!BOPConfigurationMisc.behaveNormally)
-		{
-			if (isTime())
-			{
-				
-			}
-		}
 		for (int i = 0; i < types.length; ++i)
 		{
 			if (i != 11)
 			{
-				if (!BOPConfigurationMisc.behaveNormally)
-				{
-					if (isTime())
-					{
-						textures[i] = iconRegister.registerIcon("biomesoplenty:foollog_side");
-						logHearts[i] = iconRegister.registerIcon("biomesoplenty:foollog_heart");
-					}
-					else
-					{
-						textures[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_side");
-						logHearts[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_heart");
-					}
-				}
-				else
-				{
-					textures[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_side");
-					logHearts[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_heart");
-				}
+				textures[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_side");
+				logHearts[i] = iconRegister.registerIcon("biomesoplenty:log_"+types[i]+"_heart");
 			}
 		}
 

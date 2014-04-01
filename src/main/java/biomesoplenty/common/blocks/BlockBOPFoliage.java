@@ -61,13 +61,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-	
-    public static boolean isTime()
-    {
-        Calendar calendar = Calendar.getInstance();
-
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
-    }
 
 	@Override
 	//TODO:		registerIcons()
@@ -77,28 +70,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 		for (int i = 0; i < textures.length; ++i)
 		{
-			if (!BOPConfigurationMisc.behaveNormally)
-			{
-				if (isTime())
-				{
-					if (i != 1 && i != 2 && i != 10 && i != 11)
-					{
-						textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
-					}
-					else
-					{
-						textures[i] = iconRegister.registerIcon("biomesoplenty:foolgrass");
-					}
-				}
-				else
-				{
-					textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
-				}
-			}
-			else
-			{
-				textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
-			}
+			textures[i] = iconRegister.registerIcon("biomesoplenty:"+foliageTypes[i]);
 		}
 		
 		hedgeTrunk = iconRegister.registerIcon("biomesoplenty:" + "hedge_trunk");

@@ -65,13 +65,6 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
     }
-    
-    public static boolean isTime()
-    {
-        Calendar calendar = Calendar.getInstance();
-
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
-    }
 
     @Override
 	//TODO:		registerIcons()
@@ -83,51 +76,17 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
         {
             for (int i = 0; i < leaves.length; ++i)
             {
-            	if (!BOPConfigurationMisc.behaveNormally)
-				{
-					if (isTime())
-					{
-		                textures[0][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_round");
-		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_fast");
-		                textures[2][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_better");
-					}
-					else
-					{
-						textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
-		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-		                textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
-					}
-				}
-            	else
-            	{
-            		textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
-	                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-	                textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
-            	}
+            	textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_round");
+		        textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
+		        textures[2][i] = iconRegister.registerIcon("biomesoplenty:better_leaves_" + leaves[i]);
             }
         }
         else
         {
             for (int i = 0; i < leaves.length; ++i)
             {
-            	if (!BOPConfigurationMisc.behaveNormally)
-				{
-					if (isTime())
-					{
-		                textures[0][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_fancy");
-		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:foolleaves_fast");
-					}
-					else
-					{
-						textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
-		                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-					}
-				}
-            	else
-            	{
-            		textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
-	                textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
-            	}
+				textures[0][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fancy");
+		        textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
             }
         }
     }

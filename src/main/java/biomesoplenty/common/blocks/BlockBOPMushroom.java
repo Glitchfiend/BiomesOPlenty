@@ -1,5 +1,6 @@
 package biomesoplenty.common.blocks;
 
+import java.util.Calendar;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -15,6 +16,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
 public class BlockBOPMushroom extends BlockBush
 {
@@ -43,6 +45,13 @@ public class BlockBOPMushroom extends BlockBush
 		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
+	
+    public static boolean isTime()
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
+    }
 
 	@Override
 	//TODO:		registerIcons()
@@ -50,8 +59,32 @@ public class BlockBOPMushroom extends BlockBush
 	{
 		textures = new IIcon[plants.length];
 
-		for (int i = 0; i < plants.length; ++i) {
-			textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
+		for (int i = 0; i < plants.length; ++i)
+		{
+			if (!BOPConfigurationMisc.behaveNormally)
+			{
+				if (isTime())
+				{
+					if (i != 0 && i != 1 && i != 4)
+					{
+						textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
+					}
+					else
+					{
+						textures[0] = iconRegister.registerIcon("biomesoplenty:toadhard");
+						textures[1] = iconRegister.registerIcon("biomesoplenty:kappabello");
+						textures[4] = iconRegister.registerIcon("biomesoplenty:frankershroom");
+					}
+				}
+				else
+				{
+					textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
+				}
+			}
+			else
+			{
+				textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
+			}
 		}
 	}
 
