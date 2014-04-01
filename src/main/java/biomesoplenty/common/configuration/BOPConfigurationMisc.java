@@ -1,13 +1,10 @@
 package biomesoplenty.common.configuration;
 
-import java.io.File;
-
+import cpw.mods.fml.common.FMLLog;
 import net.minecraftforge.common.config.Configuration;
-
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
+import java.io.File;
 
 public class BOPConfigurationMisc
 {
@@ -16,6 +13,9 @@ public class BOPConfigurationMisc
 	public static boolean skyColors;
 	//public static boolean achievements;
 	public static boolean dungeonLoot;
+
+    public static boolean hotSpringsRegeneration;
+    public static boolean behaveNormally;
 	
 	public static boolean amethystTools;
 	public static boolean mudTools;
@@ -23,8 +23,7 @@ public class BOPConfigurationMisc
 	public static boolean staffCrafting;
 	public static boolean enderporterCrafting;
 	public static boolean dartCrafting;
-	public static boolean flowerbandCrafting;
-	public static boolean hotSpringsRegeneration;
+    public static boolean flowerbandCrafting;
 
 	public static int promisedLandSkyColor;
 	
@@ -42,6 +41,7 @@ public class BOPConfigurationMisc
 			//achievements = config.get("Miscellanious Settings", "Add Biomes O\' Plenty Achievements", true).getBoolean(false);
 			dungeonLoot = config.get("Miscellanious Settings", "Add Custom Dungeon Loot", true).getBoolean(false);
 			hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
+            hotSpringsRegeneration = config.get("Miscellanious Settings", "Behave Normally During Special Events", false).getBoolean(false);
 
 			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
 			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);

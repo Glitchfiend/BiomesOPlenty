@@ -21,7 +21,7 @@ public class BOPBiomes
 	public static WorldTypeBOP worldTypeBOP;
 	
 	public static BOPBiomeEntry onlyBiome;
-	
+
 	public static void init()
 	{
         GameRegistry.registerWorldGenerator(new BOPDecorationManager(), 0);
