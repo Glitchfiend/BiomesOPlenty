@@ -23,7 +23,6 @@ public class BiomeGenMysticGrove extends BOPBiome
 		
         //TODO: setHeight()
         this.setHeight(biomeHeight);
-        this.setEnableSnow();
         //TODO: setColor()
         this.setColor(6934491);
         this.setTemperatureRainfall(0.9F, 1.0F);

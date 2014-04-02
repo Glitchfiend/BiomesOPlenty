@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class BiomeGenConiferousForestSnow extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.4F);
+    private static final Height biomeHeight = new Height(0.1F, 0.3F);
     
     public BiomeGenConiferousForestSnow(int id)
     {
@@ -24,6 +24,7 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
         
         //TODO: setHeight()
         this.setHeight(biomeHeight);
+        this.setEnableSnow();
         //TODO: setColor()
         this.setColor(16777215);
         this.setTemperatureRainfall(0.0F, 0.5F);
@@ -53,14 +54,14 @@ public class BiomeGenConiferousForestSnow extends BOPBiome
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(3, 64), 0.25D);
     }
 
-    @Override
+	@Override
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(5) == 0 ? new WorldGenBOPTaiga3(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 35, 10, 0) : 
-        (random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 20, 15, 4) : 
-        new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 10, 10, 5));
-    }
+		return random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 10, 10, 5) :
+		(random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 20, 15, 4) : 
+		new WorldGenBOPTaiga3(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves2"), 3, 1, false, 35, 10, 0));
+	}
 
     @Override
     public void decorate(World world, Random random, int chunkX, int chunkZ)
