@@ -1,21 +1,11 @@
 package biomesoplenty.common.items;
 
-import java.util.HashMap;
-
-import net.minecraft.block.Block;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
+import biomesoplenty.BiomesOPlenty;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.BlockFluidBase;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ItemFluidContainer;
-import biomesoplenty.BiomesOPlenty;
 
 public class ItemBOPBucket extends ItemFluidContainer
 {
@@ -87,8 +77,6 @@ public class ItemBOPBucket extends ItemFluidContainer
     {
     	FluidStack fluidStack = FluidContainerRegistry.getFluidForFilledItem(itemStack);
     	String fluidName = fluidStack != null ? fluidStack.getFluid().getName() : "";
-    	
-    	System.out.println(fluidName);
     	
         return ("" + StatCollector.translateToLocal(this.getUnlocalizedNameInefficiently(itemStack) + fluidName + ".name")).trim();
     }
