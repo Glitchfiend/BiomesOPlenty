@@ -11,6 +11,10 @@ tile.mudBricks.name=Кирпичи из грязи
 tile.holyDirt.name=Очищенный грунт
 tile.crystal.name=Небесный кристалл
 
+tile.cakeBlock.name=Cake Block
+tile.frostedCake.name=Frosted Cake Block
+tile.cookieBlock.name=Cookie Block
+
 tile.redRock.redrock.name=Красный камень
 tile.redRock.redcobble.name=Красный булыжник
 tile.redRock.redbrick.name=Кирпичи из красного камня
@@ -59,6 +63,7 @@ tile.flowers2.goldenrod.name=Золотарник
 tile.flowers2.bluebells.name=Колокольчики
 tile.flowers2.minersdelight.name=Шахтёрское наслаждение
 tile.flowers2.icyiris.name=Ледяной ирис
+tile.flowers2.rose.name=Роза
 
 tile.stoneFormations.stalagmite.name=Сталагмит
 tile.stoneFormations.stalactite.name=Сталактит
@@ -77,6 +82,8 @@ tile.foliage.wheatgrass.name=Ростки пшеницы
 tile.foliage.dampgrass.name=Влажная трава
 tile.foliage.koru.name=Кору
 tile.foliage.cloverpatch.name=Донник лекарственный
+tile.foliage.leafpile.name=Куча листьев
+tile.foliage.deadleafpile.name=Куча сухих листьев
 
 tile.petals.bigflowerred.name=Гигантский красный цветок
 tile.petals.bigfloweryellow.name=Гигантский жёлтый цветок
@@ -102,7 +109,7 @@ tile.saplings.mapleSapling.name=Саженец клёна
 tile.saplings.whitecherrySapling.name=Саженец белой вишни
 tile.saplings.hellbarkSapling.name=Саженец адского дерева
 tile.saplings.jacarandaSapling.name=Саженец жакаранды
-tile.saplings.persimmonSapling.name=Саженец дерева хурмы
+tile.saplings.persimmonSapling.name=Саженец хурмы
 
 tile.colorizedSaplings.sacredoakSapling.name=Саженец священного дуба
 tile.colorizedSaplings.mangroveSapling.name=Мангровый саженец
@@ -120,12 +127,14 @@ tile.originGrass.name=Оригинальная трава
 tile.longGrass.name=Блок высокой травы
 tile.overgrownNetherrack.name=Заросший камень Нижнего мира
 tile.treeMoss.name=Древесный мох
+tile.flowerVine.name=Цветущая лиана
 
 tile.coral.kelpsingle.name=Ламинария
 tile.coral.pinkcoral.name=Розовый коралл
 tile.coral.orangecoral.name=Оранжевый коралл
 tile.coral.bluecoral.name=Синий коралл
 tile.coral.glowcoral.name=Светящийся коралл
+tile.coral.algae.name=Водоросли
 
 tile.redCobbleStairs.name=Ступеньки из красного булыжника      
 tile.redBricksStairs.name=Кирпичные ступеньки из красного камня
@@ -140,8 +149,6 @@ tile.holyStone.holystonemossy.name=Замшелый небесный камен�
 
 tile.holyCobbleStairs.name=Ступеньки из небесного булыжника
 tile.holyBricksStairs.name=Ступеньки из небесных кирпичей
-
-tile.promisedPortal.name=Портал в "Землю Обетованную"
 
 tile.gemOre.amethystore.name=Аметистовая руда
 tile.gemOre.amethystblock.name=Аметистовый блок
@@ -395,7 +402,7 @@ item.flowerBand.exoticflowerband.name=Экзотический венок
 item.wadingBoots.name=Болотные сапоги
 item.flippers.name=Ласты
 
-item.biomeBook.name=Book O' Biomes
+item.biomeBook.name=Книга Биомов
 item.biomeFinder.name=Радар биомов
 item.biomeEssence.name=Эссенция биомов
 
@@ -412,12 +419,9 @@ fluid.poison=Яд
 fluid.springWater=Родниковая вода
 fluid.honey.name=Мёд
 
-phrase.bop.promisedPortalOverworld=Врата в "Землю Обетованную" открылись выше.
-phrase.bop.promisedPortalOther=Врата в обычный мир открылись выше.
-
-phrase.bop.useBOPATGWorldtype=Тип мира Biomes O' Plenty или ATG должен быть использован для того, чтобы новые биомы генерировались. Это сообщение отобразится только один раз.
-phrase.bop.useBOPWorldtype=Тип мира Biomes O' Plenty должен быть использован для того, чтобы новые биомы генерировались. Это сообщение отобразится только один раз.
-phrase.bop.updateAvaliable=Вы используете не последнюю рекомендованную версию Biomes O' Plenty. Последняя рекомендуемая версия: v%s для Minecraft %s
+phrase.bop.useBOPATGWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty" или "ATG". Это сообщение отобразится один раз.
+phrase.bop.useBOPWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty". Это сообщение отобразится один раз.
+phrase.bop.updateAvaliable=Вы не используете последнюю рекомендованную версию Biomes O' Plenty (v%s) для Minecraft %s.
 
 potion.paralysis=Паралич
 potion.possession=Одержимость
@@ -435,7 +439,7 @@ achievement.bop.achFlower.desc=Станьте единым с природой!
 
 achievement.bop.achBerry=Сбор ягод
 achievement.bop.achBerry.desc=Простые вещи в жизни...
-achievement.bop.achMoss=A Rolling Stone
+achievement.bop.achMoss=Катящийся камень
 achievement.bop.achMoss.desc=It gathers none of this.
 achievement.bop.achThorn=Довольно колючий
 achievement.bop.achThorn.desc=Смертоноснее, чем кактусы!
@@ -473,3 +477,4 @@ achievement.bop.achAllBOP.desc=Вы получили все достижения
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
+generator.CANDYOP=Candyland
