@@ -79,10 +79,8 @@ public class ItemBlockFlower extends ItemBlock
 	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack)
 	{
-		if (par1ItemStack.getItemDamage() == 15)
-			return EnumAction.block;
-		else
-			return null;
+		if (par1ItemStack.getItemDamage() == 15) return EnumAction.block;
+		else return super.getItemUseAction(par1ItemStack);
 	}
 
 	@Override
