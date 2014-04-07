@@ -11,6 +11,10 @@ tile.mudBricks.name=Mattoni di Fango
 tile.holyDirt.name=Terra Sacra
 tile.crystal.name=Cristallo Celestiale
 
+tile.cakeBlock.name=Blocco di Torta
+tile.frostedCake.name=Blocco di Torta Gelata
+tile.cookieBlock.name=Blocco di Biscotto
+
 tile.redRock.redrock.name=Roccia Rossa
 tile.redRock.redcobble.name=Pietrisco di Roccia Rossa
 tile.redRock.redbrick.name=Mattoni di Roccia Rossa
@@ -64,7 +68,7 @@ tile.flowers2.rose.name=Rosa
 tile.stoneFormations.stalagmite.name=Stalagmite
 tile.stoneFormations.stalactite.name=Stalattite
 
-tile.foliage.algae.name=Alghe
+tile.foliage.duckweed.name=Lemna
 tile.foliage.shortgrass.name=Erba Bassa
 tile.foliage.mediumgrass.name=Erba Media
 tile.foliage.hedgebottom.name=Siepe
@@ -130,7 +134,7 @@ tile.coral.pinkcoral.name=Corallo Rosa
 tile.coral.orangecoral.name=Corallo Arancione
 tile.coral.bluecoral.name=Corallo Blu
 tile.coral.glowcoral.name=Corallo Luminescente
-tile.coral.seaweed.name=Alghe
+tile.coral.algae.name=Alghe
 
 tile.redCobbleStairs.name=Scalini in Pietrisco di Roccia Rossa
 tile.redBricksStairs.name=Scalini in Mattoni di Roccia Rossa
@@ -145,8 +149,6 @@ tile.holyStone.holystonemossy.name=Pietra del Cielo Muschiosa
 
 tile.holyCobbleStairs.name=Scalini in Pietrisco del Cielo
 tile.holyBricksStairs.name=Scalini in Mattoni del Cielo
-
-tile.promisedPortal.name=Portale della Terra Promessa
 
 tile.gemOre.amethystore.name=Ametista dell'End Grezza
 tile.gemOre.amethystblock.name=Blocco di Ametista
@@ -417,9 +419,6 @@ fluid.poison=Liquido Velenoso
 fluid.springWater=Acqua Primaverile
 fluid.honey.name=Miele
 
-phrase.bop.promisedPortalOverworld=Un portale per la Terra Promessa è apparso nel cielo, sopra di te.
-phrase.bop.promisedPortalOther=Un portale per l'Overworld è apparso nel cielo, sopra di te.
-
 phrase.bop.useBOPATGWorldtype=Per generare i nuovi biomi si devono usare i tipi di mondo Biomes O' Plenty oppure ATG. Questo messaggio sarà mostrato una sola volta.
 phrase.bop.useBOPWorldtype=Per generare i nuovi biomi si deve usare il tipo di mondo Biomes O' Plenty. Questo messaggio sarà mostrato una sola volta.
 phrase.bop.updateAvaliable=Non stai usando l'ultima versione raccomandata di Biomes O' Plenty. L'ultima versione raccomandata è: v%s per Minecraft %s
@@ -478,3 +477,4 @@ achievement.bop.achAllBOP.desc=Hai ottenuto tutte le conquiste di Biomes O' Plen
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
+generator.CANDYOP=Candyland
