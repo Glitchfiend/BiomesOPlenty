@@ -1,19 +1,20 @@
 package biomesoplenty.common.world;
 
+import java.util.Calendar;
+
+import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
+import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.layer.GenLayer;
+import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
+import net.minecraft.world.gen.layer.GenLayerZoom;
 import biomesoplenty.common.biomes.overworld.BiomeGenCandyland;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.layer.GenLayerBiomeBOPA;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
-import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.layer.GenLayer;
-import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
-import net.minecraft.world.gen.layer.GenLayerZoom;
-
-import java.util.Calendar;
 
 public class WorldTypeBOPA extends WorldType
 {
@@ -41,6 +42,12 @@ public class WorldTypeBOPA extends WorldType
     {
         return new WorldChunkManagerBOP(world);
     }
+    
+    @Override
+    public IChunkProvider getChunkGenerator(World world, String generatorOptions)
+    {
+        return new ChunkProviderCandyland(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -54,6 +61,7 @@ public class WorldTypeBOPA extends WorldType
     {
         Calendar calendar = Calendar.getInstance();
 
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 20);
+        
+        return (calendar.get(2) + 1 == 4 && calendar.get(5) < 23 && calendar.get(5) > 14);
     }
 }
