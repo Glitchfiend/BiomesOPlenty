@@ -2,13 +2,15 @@ package biomesoplenty.common.biomes.overworld;
 
 import java.util.Random;
 
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.biomes.BOPCandyBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenCookie;
 
-public class BiomeGenCandyland extends BOPBiome
+public class BiomeGenCandyland extends BOPCandyBiome
 {
     private static final Height biomeHeight = new Height(0.2F, 0.2F);
 
@@ -65,4 +67,21 @@ public class BiomeGenCandyland extends BOPBiome
 		if (BOPConfigurationMisc.skyColors) return 16760265;
 		else return super.getSkyColorByTemp(par1);
 	}
+	
+    public void genTerrainBlocks(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    {
+
+        if (p_150573_7_ > 1.75D)
+        {
+            this.topBlock = BOPBlockHelper.get("frostedCake");
+            this.field_150604_aj = 1;
+        }
+        else if (p_150573_7_ > -0.5D)
+        {
+            this.topBlock = BOPBlockHelper.get("frostedCake");
+            this.field_150604_aj = 2;
+        }
+
+        this.genCandyTerrain(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+    }
 }

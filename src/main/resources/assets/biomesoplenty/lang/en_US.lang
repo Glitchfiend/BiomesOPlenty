@@ -12,7 +12,8 @@ tile.holyDirt.name=Purified Dirt
 tile.crystal.name=Celestial Crystal
 
 tile.cakeBlock.name=Cake Block
-tile.frostedCake.name=Frosted Cake Block
+tile.frostedCake.white.name=White Frosted Cake Block
+tile.frostedCake.pink.name=Pink Frosted Cake Block
 tile.cookieBlock.name=Cookie Block
 
 tile.redRock.redrock.name=Red Rock

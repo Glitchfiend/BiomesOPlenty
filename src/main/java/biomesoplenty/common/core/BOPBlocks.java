@@ -65,6 +65,7 @@ import biomesoplenty.common.itemblocks.ItemBlockCoral;
 import biomesoplenty.common.itemblocks.ItemBlockFlower;
 import biomesoplenty.common.itemblocks.ItemBlockFlower2;
 import biomesoplenty.common.itemblocks.ItemBlockFoliage;
+import biomesoplenty.common.itemblocks.ItemBlockFrostedCake;
 import biomesoplenty.common.itemblocks.ItemBlockGems;
 import biomesoplenty.common.itemblocks.ItemBlockGrave;
 import biomesoplenty.common.itemblocks.ItemBlockHive;
@@ -165,7 +166,7 @@ public class BOPBlocks
 		
 		registerBlock(new BlockJelly().setBlockName("jellyBlock"), ItemBlockJelly.class);
 		
-		registerBlock(new BlockFrostedCake().setBlockName("frostedCake"));
+		registerBlock(new BlockFrostedCake().setBlockName("frostedCake"), ItemBlockFrostedCake.class);
 		registerBlock(new BlockCandy(Material.cake, BlockTypeCandy.CAKE).setBlockName("cakeBlock"));
 		registerBlock(new BlockCandy(Material.cake, BlockTypeCandy.COOKIE).setBlockName("cookieBlock"));
 
