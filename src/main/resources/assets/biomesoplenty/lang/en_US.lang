@@ -176,6 +176,10 @@ tile.hive.honeycombfilled.name=Filled Honeycomb Block
 
 tile.honeyBlock.name=Honey Block
 
+tile.jellyBlock.strawberry.name=Strawberry Jelly Block
+tile.jellyBlock.raspberry.name=Raspberry Jelly Block
+tile.jellyBlock.grape.name=Grape Jelly Block
+
 tile.bones.bones_small.name=Small Bone Segment
 tile.bones.bones_medium.name=Medium Bone Segment
 tile.bones.bones_large.name=Large Bone Segment
