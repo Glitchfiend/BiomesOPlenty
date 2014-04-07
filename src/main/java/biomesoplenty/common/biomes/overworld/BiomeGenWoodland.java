@@ -35,6 +35,7 @@ public class BiomeGenWoodland extends BOPBiome
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("logsPerChunk", 10);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 3);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 7);
 

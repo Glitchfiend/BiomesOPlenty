@@ -36,6 +36,7 @@ public class BiomeGenShield extends BOPBiome
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 5);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 4);
         this.bopWorldFeatures.setFeature("generateStoneInGrass2", true);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 12);

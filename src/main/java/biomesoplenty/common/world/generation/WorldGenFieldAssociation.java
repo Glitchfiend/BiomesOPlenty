@@ -45,8 +45,8 @@ public class WorldGenFieldAssociation
         associateFeature("deadLeafPilesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 15, 256));
         associateFeature("lavenderPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 3));
         associateFeature("thornsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 5));
-        associateFeature("stalagmitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 0));
-        associateFeature("stalactitesPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("stoneFormations"), 1));
+        associateFeature("stalagmitesPerChunk", new WorldGenBOPUndergroundDecoration(BOPBlockHelper.get("stoneFormations"), 0));
+        associateFeature("stalactitesPerChunk", new WorldGenBOPUndergroundDecoration(BOPBlockHelper.get("stoneFormations"), 1));
         associateFeature("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
         associateFeature("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
         associateFeature("waterReedsPerChunk", new WorldGenWaterReeds());
@@ -64,7 +64,7 @@ public class WorldGenFieldAssociation
         associateFeature("sproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 5));
         associateFeature("tinyCactiPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 12));
         associateFeature("oasesPerChunk", new WorldGenWaterside(Blocks.grass, 7, Blocks.sand, Blocks.hardened_clay));
-        associateFeature("minersDelightPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 6));
+        associateFeature("minersDelightPerChunk", new WorldGenBOPUndergroundDecoration(BOPBlockHelper.get("flowers2"), 6));
         associateFeature("rootsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 15));
         associateFeature("grassSplatterPerChunk", new WorldGenGrassSplatter());
         associateFeature("rockpilesPerChunk", new WorldGenBOPBlob(Blocks.cobblestone, 0));

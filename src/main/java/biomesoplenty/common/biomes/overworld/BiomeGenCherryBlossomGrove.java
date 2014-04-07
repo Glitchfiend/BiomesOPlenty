@@ -36,6 +36,7 @@ public class BiomeGenCherryBlossomGrove extends BOPBiome
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 15);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 15);
 

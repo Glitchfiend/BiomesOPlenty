@@ -47,6 +47,7 @@ public class BiomeGenRainforest extends BOPBiome
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 20);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 2);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);

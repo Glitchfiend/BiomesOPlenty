@@ -38,6 +38,7 @@ public class BiomeGenDeciduousForest extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 3);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
 

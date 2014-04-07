@@ -36,6 +36,7 @@ public class BiomeGenSeasonalForest extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 8);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 15);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 3);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 8);
 

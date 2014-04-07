@@ -43,6 +43,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 5);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 25);
 

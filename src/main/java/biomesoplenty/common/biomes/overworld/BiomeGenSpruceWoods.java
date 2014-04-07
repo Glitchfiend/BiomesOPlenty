@@ -38,6 +38,7 @@ public class BiomeGenSpruceWoods extends BOPBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 6);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 3);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 100);
 
