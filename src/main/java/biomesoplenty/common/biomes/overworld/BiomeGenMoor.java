@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class BiomeGenMoor extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.7F, 0.8F);
+    private static final Height biomeHeight = new Height(0.4F, 0.6F);
     
 	public BiomeGenMoor(int id)
 	{
