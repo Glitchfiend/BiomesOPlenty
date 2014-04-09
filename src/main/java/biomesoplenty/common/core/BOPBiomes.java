@@ -99,7 +99,6 @@ public class BOPBiomes
         registerBiome(new BOPBiomeEntry(new BiomeGenOminousWoods(BOPConfigurationIDs.ominousWoodsID).setBiomeName("Ominous Woods"), TemperatureType.COOL, 15));
         registerBiome(new BOPBiomeEntry(new BiomeGenOriginValley(BOPConfigurationIDs.originValleyID).setBiomeName("Origin Valley"), TemperatureType.WARM, 5));
         registerBiome(new BOPBiomeEntry(new BiomeGenOutback(BOPConfigurationIDs.outbackID).setBiomeName("Outback"), TemperatureType.HOT, 50));
-        registerBiome(new BOPBiomeEntry(new BiomeGenPasture(BOPConfigurationIDs.pastureID).setBiomeName("Pasture"), TemperatureType.WARM, 25));
         registerBiome(new BOPBiomeEntry(new BiomeGenPrairie(BOPConfigurationIDs.prairieID).setBiomeName("Prairie"), TemperatureType.WARM, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenQuagmire(BOPConfigurationIDs.quagmireID).setBiomeName("Quagmire"), TemperatureType.MILD, 50));
         registerBiome(new BOPBiomeEntry(new BiomeGenRainforest(BOPConfigurationIDs.rainforestID).setBiomeName("Rainforest"), TemperatureType.WARM, 50));
@@ -227,10 +226,6 @@ public class BOPBiomes
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("orchard"), Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("outback"), Type.DESERT, Type.PLAINS);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("overgrownGreens"), Type.JUNGLE, Type.PLAINS);
-        
-        BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("pasture"), Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("pastureThin"), Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("pastureMeadow"), Type.PLAINS, Type.FOREST);
         
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("polar"), Type.FROZEN, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPBiomeHelper.get("prairie"), Type.PLAINS);

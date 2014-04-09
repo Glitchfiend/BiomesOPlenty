@@ -73,7 +73,6 @@ public class BOPConfigurationStrongholds
         //addStrongholdBiome("orchard");
         addStrongholdBiome("outback");
         //addStrongholdBiome("overgrownGreens");
-        addStrongholdBiome("pasture");
         //addStrongholdBiome("polar");
         addStrongholdBiome("prairie");
         addStrongholdBiome("quagmire");
