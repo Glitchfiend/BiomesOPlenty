@@ -11,6 +11,11 @@ tile.generic.mud_brick.name=Lehmziegel
 tile.generic.holy_dirt.name=Heilige Erde
 tile.generic.crystal.name=Himmlischer Kristall
 
+tile.cakeBlock.name=Kuchenblock
+tile.frostedCake.white.name=Weiß glasierter Kuchenblock
+tile.frostedCake.pink.name=Pink glasierter Kuchenblock
+tile.cookieBlock.name=Keksblock
+
 tile.redRocks.redrock.name=Rotfels
 tile.redRocks.redcobble.name=Rotfelssteinpflaster
 tile.redRocks.redbrick.name=Rotfelsziegel
@@ -47,8 +52,8 @@ tile.flowers.anemone.name=Weißes Windröschen
 tile.flowers.lilyflower.name=Wasserlilie
 tile.flowers.rainbowflower.name=Chromablume
 tile.flowers.bromeliad.name=Bromelie
-tile.flowers.sunflowerbottom.name=Sonnenblume
-tile.flowers.sunflowertop.name=Sonnenblume
+tile.flowers.eyebulbbottom.name=Öhrknolle
+tile.flowers.eyebulbtop.name=Öhrknolle
 tile.flowers.dandelion.name=Pusteblume
 
 tile.flowers2.hibiscus.name=Pinker Hibiskus
@@ -59,17 +64,18 @@ tile.flowers2.goldenrod.name=Goldgute
 tile.flowers2.bluebells.name=Hasenglöckchen
 tile.flowers2.minersdelight.name=Des Bergarbeiters Freude
 tile.flowers2.icyiris.name=Eisige Iris
+tile.flowers2.rose.name=Rose
 
 tile.stoneFormations.stalagmite.name=Stalagmit
 tile.stoneFormations.stalactite.name=Stalaktit
 
-tile.foliage.algae.name=Algen
+tile.foliage.duckweed.name=Entengrütze
 tile.foliage.shortgrass.name=Kurzes Gras
 tile.foliage.mediumgrass.name=Gras
-tile.foliage.highgrassbottom.name=Hohes Gras
+tile.foliage.hedgebottom.name=Hecke
 tile.foliage.bush.name=Busch
 tile.foliage.sprout.name=Sprössling
-tile.foliage.highgrasstop.name=Hohes Gras
+tile.foliage.hedgetop.name=Hecke
 tile.foliage.poisonivy.name=Giftefeu
 tile.foliage.berrybush.name=Beerenbusch
 tile.foliage.shrub.name=Strauch
@@ -77,6 +83,8 @@ tile.foliage.wheatgrass.name=Weizengras
 tile.foliage.dampgrass.name=Feuchtes Gras
 tile.foliage.koru.name=Koru
 tile.foliage.cloverpatch.name=Kleefeld
+tile.foliage.leafpile.name=Blätterhaufen
+tile.foliage.deadleafpile.name=Laubhaufen
 
 tile.petals.bigflowerred.name=Riesige Rote Blume
 tile.petals.bigfloweryellow.name=Riesige Gelbe Blume
@@ -120,12 +128,14 @@ tile.originGrass.name=Ursprungsgras
 tile.longGrass.name=Langes Gras
 tile.overgrownNetherrack.name=Überwucherter Netherstein
 tile.treeMoss.name=Baummoos
+tile.flowerVine.name=Blütenranken
 
 tile.coral.kelpsingle.name=Seetang
 tile.coral.pinkcoral.name=Pinke Koralle
 tile.coral.orangecoral.name=Orange Koralle
 tile.coral.bluecoral.name=Blaue Koralle
 tile.coral.glowcoral.name=Leuchtende Koralle
+tile.coral.algae.name=Algen
 
 tile.redCobbleStairs.name=Rotfelssteinpflastertreppe       
 tile.redBricksStairs.name=Rotfelsziegeltreppe
@@ -141,9 +151,7 @@ tile.holyStone.holystonemossy.name=Mosiger Himmelsstein
 tile.holyCobbleStairs.name=Heilige Kopfsteinpflastertreppe
 tile.holyBricksStairs.name=Heilige Ziegeltreppe
 
-tile.promisedPortal.name=Portal zum Gelobten Land
-
-tile.gemOre.amethystore.name=Amethysterz
+tile.gemOre.amethystore.name=Enderamethysterz
 tile.gemOre.amethystblock.name=Amethystblock
 tile.gemOre.rubyore.name=Rubinerz 
 tile.gemOre.rubyblock.name=Rubinblock
@@ -168,6 +176,10 @@ tile.hive.honeycombempty.name=Leerer Honigwabenblock
 tile.hive.honeycombfilled.name=Gefüllter Honigwabenblock
 
 tile.honeyBlock.name=Honigblock
+
+tile.jellyBlock.strawberry.name=Erdbeergeleeblock
+tile.jellyBlock.raspberry.name=Himbeergeleeblock
+tile.jellyBlock.grape.name=Traubengeleeblock
 
 tile.bones.bones_small.name=Kleines Knochensegment
 tile.bones.bones_medium.name=Knochensegment
@@ -337,7 +349,7 @@ item.jarFilled.jarhoney.name=Honigglas
 item.jarFilled.jarpoison.name=Glas mit Giftextrakt
 item.jarFilled.jarpixie.name=Feenglas
 
-item.gems.amethyst.name=Amethyst
+item.gems.amethyst.name=Enderamethyst
 item.gems.ruby.name=Rubin
 item.gems.peridot.name=Olivin
 item.gems.topaz.name=Topas
@@ -412,9 +424,6 @@ fluid.poison=Gift
 fluid.springWater=Quellwasser
 fluid.honey.name=Honig
 
-phrase.bop.promisedPortalOverworld=Ein Portal zum gelobten Land ist im Himmel entstanden.
-phrase.bop.promisedPortalOther=Ein Portal ist im Himmel entstanden.
-
 phrase.bop.useBOPATGWorldtype=Der Biomes-O'-Plenty-Welttyp oder ATG-Welttyp muss genutzt werden, damit die neuen Biome generiert werden. Diese Nachricht wird nur einmal angezeigt.
 phrase.bop.useBOPWorldtype=Der Biomes-O'-Plenty-Welttyp muss genutzt werden, damit die neuen Biome generiert werde. Diese Nachricht wird nur einmal angezeigt.
 phrase.bop.updateAvaliable=Du verwendest nicht die neueste Biomes-O-Plenty-Version. Die neueste empfohlene Version ist: v%s für Minecraft %s
@@ -473,3 +482,4 @@ achievement.bop.achAllBOP.desc=Du hast alle Biomes-O'-Plenty-Errungenschaften be
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
+generator.CANDYOP=Candyland
