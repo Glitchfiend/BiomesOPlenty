@@ -3,6 +3,7 @@ package biomesoplenty.common.biomes.overworld;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
@@ -39,8 +40,16 @@ public class BiomeGenShrubland extends BOPBiome
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 3);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
+        
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 1);
 
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
+        
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 
 	@Override
@@ -48,12 +57,6 @@ public class BiomeGenShrubland extends BOPBiome
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return new WorldGenShrub(0, 0);
-	}
-
-	@Override
-	public WorldGenerator getRandomWorldGenForGrass(Random random)
-	{
-		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : new WorldGenTallGrass(Blocks.tallgrass, 1);
 	}
 
 	@Override

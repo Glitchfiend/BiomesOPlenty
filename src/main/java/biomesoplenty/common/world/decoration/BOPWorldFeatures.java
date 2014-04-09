@@ -32,8 +32,8 @@ public class BOPWorldFeatures
         addFeature("generateAsh", false);
         addFeature("generateMelons", false);
 
-        addFeature("waterPoolsPerChunk", 0);
-        addFeature("lavaPoolsPerChunk", 0);
+        addFeature("waterPoolsPerChunk", 50);
+        addFeature("lavaPoolsPerChunk", 20);
 
         addFeature("waterLakesPerChunk", 0);
         addFeature("lavaLakesPerChunk", 0);

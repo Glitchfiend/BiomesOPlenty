@@ -41,7 +41,7 @@ public class BiomeGenMarsh extends BOPBiome
         this.bopWorldFeatures.setFeature("waterLakesPerChunk", 100);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 10);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
-        this.bopWorldFeatures.setFeature("algaePerChunk", 1);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 3);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 50);

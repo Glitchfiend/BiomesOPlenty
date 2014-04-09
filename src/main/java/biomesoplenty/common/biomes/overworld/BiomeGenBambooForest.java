@@ -34,6 +34,7 @@ public class BiomeGenBambooForest extends BOPBiome
 		this.bopWorldFeatures.setFeature("shrubsPerChunk", 6);
 		this.bopWorldFeatures.setFeature("bushesPerChunk", 5);
 		this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
+		this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
 		this.bopWorldFeatures.setFeature("generatePumpkins", false);
 	}

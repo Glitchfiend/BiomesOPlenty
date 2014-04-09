@@ -49,6 +49,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 10);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 15);
 

@@ -47,6 +47,7 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 4);
         this.bopWorldFeatures.setFeature("deadLeafPilesPerChunk", 8);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
 

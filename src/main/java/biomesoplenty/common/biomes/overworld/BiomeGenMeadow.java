@@ -40,6 +40,7 @@ public class BiomeGenMeadow extends BOPBiome
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 15);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 5);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
+        this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
 

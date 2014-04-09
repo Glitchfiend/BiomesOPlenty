@@ -27,6 +27,7 @@ public class BOPConfigurationBiomeGen
 	public static boolean mesaPlateauFGen = false;
 	public static boolean mesaPlateauGen = false;
 	public static boolean jungleGen = false;
+	public static boolean shrublandGen = false;
 	public static boolean megaTaigaGen = false;
 	
 	public static void addDefaultDisabledBiomes()
@@ -88,6 +89,7 @@ public class BOPConfigurationBiomeGen
 				mesaPlateauFGen = config.get("Special Biomes To Generate", "Mesa Plateau F", true).getBoolean(true);
 				mesaPlateauGen = config.get("Special Biomes To Generate", "Mesa Plateau", true).getBoolean(true);
 				jungleGen = config.get("Special Biomes To Generate", "Jungle", true).getBoolean(true);
+				shrublandGen = config.get("Special Biomes To Generate", "Shrubland", true).getBoolean(true);
 				megaTaigaGen = config.get("Special Biomes To Generate", "Mega Taiga", true).getBoolean(true);
 			}
 		}
