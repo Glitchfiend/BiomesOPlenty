@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class BiomeGenTemperateRainforest extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.4F);
+    private static final Height biomeHeight = new Height(0.0F, 0.3F);
 
 	public BiomeGenTemperateRainforest(int id)
 	{
@@ -40,7 +40,7 @@ public class BiomeGenTemperateRainforest extends BOPBiome
         this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 1);
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 10);
-        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 6);
         this.bopWorldFeatures.setFeature("leafPilesPerChunk", 15);
         this.bopWorldFeatures.setFeature("seaweedPerChunk", 15);
         this.bopWorldFeatures.setFeature("algaePerChunk", 5);

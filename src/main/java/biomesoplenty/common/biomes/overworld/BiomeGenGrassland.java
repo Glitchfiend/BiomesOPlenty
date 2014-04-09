@@ -36,13 +36,13 @@ public class BiomeGenGrassland extends BOPBiome
 		this.theBiomeDecorator.reedsPerChunk = 35;
 		this.theBiomeDecorator.mushroomsPerChunk = 20;
 
-        this.bopWorldFeatures.setFeature("waterLakesPerChunk", 15);
+        this.bopWorldFeatures.setFeature("waterLakesPerChunk", 5);
         this.bopWorldFeatures.setFeature("portobellosPerChunk", 3);
         this.bopWorldFeatures.setFeature("riverCanePerChunk", 5);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 2);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 3);
 
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1), 0.25D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 2), 0.25D);
