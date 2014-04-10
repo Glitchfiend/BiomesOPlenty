@@ -1,6 +1,5 @@
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import net.minecraft.util.WeightedRandom;
@@ -19,7 +18,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 {
     public static List<BOPBiomeEntry> desertBiomes = new ArrayList<BOPBiomeEntry>();
     public static List<BOPBiomeEntry> warmBiomes = new ArrayList<BOPBiomeEntry>();
-    public static List<BOPBiomeEntry> mildBiomes = new ArrayList<BOPBiomeEntry>();
     public static List<BOPBiomeEntry> coldBiomes = new ArrayList<BOPBiomeEntry>();
     public static List<BOPBiomeEntry> icyBiomes = new ArrayList<BOPBiomeEntry>();
 	
@@ -84,17 +82,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 }
                 else if (biomeID == 3)
                 {
-                    if (l1 > 0 && BOPConfigurationBiomeGen.shrublandGen)
-                    {
-                        aint1[j1 + i1 * par3] = BOPBiomeHelper.get("shrubland").biomeID;
-                    }
-                    else
-                    {
-                        aint1[j1 + i1 * par3] = getRandomBiome(mildBiomes).biome.biomeID;
-                    }
-                }
-                else if (biomeID == 4)
-                {
                     if (l1 > 0 && BOPConfigurationBiomeGen.megaTaigaGen)
                     {
                         aint1[j1 + i1 * par3] = BiomeGenBase.megaTaiga.biomeID;
@@ -104,7 +91,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                         aint1[j1 + i1 * par3] = getRandomBiome(coldBiomes).biome.biomeID;
                     }
                 }
-                else if (biomeID == 5)
+                else if (biomeID == 4)
                 {
                     aint1[j1 + i1 * par3] = getRandomBiome(icyBiomes).biome.biomeID;
                 }

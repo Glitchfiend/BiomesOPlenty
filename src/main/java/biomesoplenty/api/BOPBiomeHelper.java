@@ -54,9 +54,6 @@ public class BOPBiomeHelper
 		case WARM:
 			return GenLayerBiomeBOP.warmBiomes;
 			
-		case MILD:
-			return GenLayerBiomeBOP.mildBiomes;
-			
 		case COOL:
 			return GenLayerBiomeBOP.coldBiomes;
 			
@@ -70,7 +67,7 @@ public class BOPBiomeHelper
 	
 	public enum TemperatureType
 	{
-		HOT, WARM, MILD, COOL, ICY;
+		HOT, WARM, COOL, ICY;
 	}
 	
 	public static class BOPBiomeEntry extends WeightedRandom.Item
