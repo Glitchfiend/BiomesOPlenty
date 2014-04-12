@@ -12,7 +12,8 @@ tile.holyDirt.name=Terra Sacra
 tile.crystal.name=Cristallo Celestiale
 
 tile.cakeBlock.name=Blocco di Torta
-tile.frostedCake.name=Blocco di Torta Gelata
+tile.frostedCake.white.name=Blocco di Torta Gelata Bianca
+tile.frostedCake.pink.name=Blocco di Torta Gelata Rosa
 tile.cookieBlock.name=Blocco di Biscotto
 
 tile.redRock.redrock.name=Roccia Rossa
@@ -175,6 +176,10 @@ tile.hive.honeycombempty.name=Blocco di Favi Vuoto
 tile.hive.honeycombfilled.name=Blocco di Favi Pieno
 
 tile.honeyBlock.name=Blocco di Miele
+
+tile.jellyBlock.strawberry.name=Blocco di Gelatina di Fragola
+tile.jellyBlock.raspberry.name=Blocco di Gelatina di Lampone
+tile.jellyBlock.grape.name=Blocco di Gelatina d'Uva
 
 tile.bones.bones_small.name=Segmento Piccolo d'Ossa
 tile.bones.bones_medium.name=Segmento Medio d'Ossa
