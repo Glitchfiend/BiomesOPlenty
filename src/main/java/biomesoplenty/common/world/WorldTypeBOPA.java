@@ -59,9 +59,11 @@ public class WorldTypeBOPA extends WorldType
 
     public static boolean isTime()
     {
-        Calendar calendar = Calendar.getInstance();
+        //Calendar calendar = Calendar.getInstance();
 
         
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) < 23 && calendar.get(5) > 14);
+        //return (calendar.get(2) + 1 == 4 && calendar.get(5) < 23 && calendar.get(5) > 14);
+    	
+    	return false;
     }
 }
