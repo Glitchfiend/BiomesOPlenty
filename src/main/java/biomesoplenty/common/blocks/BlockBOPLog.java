@@ -1,6 +1,5 @@
 package biomesoplenty.common.blocks;
 
-import java.util.Calendar;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -15,8 +14,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.WorldTypeBOPA;
 
 public class BlockBOPLog extends Block
 {
@@ -108,7 +105,6 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < 4; ++i) {
@@ -117,7 +113,6 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	//TODO:		breakBlock()
 	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
 	{
 		byte radius = 4;
@@ -211,21 +206,18 @@ public class BlockBOPLog extends Block
 	}
 
 	@Override
-	//TODO:	   damageDropped()
 	public int damageDropped(int meta)
 	{
 		return getTypeFromMeta(meta);
 	}
 
 	@Override
-	//TODO:				createStackedBlock()
 	protected ItemStack createStackedBlock(int meta)
 	{
 		return new ItemStack(this, 1, getTypeFromMeta(meta));
 	}
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return 31;

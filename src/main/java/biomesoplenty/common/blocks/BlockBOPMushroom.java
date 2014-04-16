@@ -25,71 +25,33 @@ public class BlockBOPMushroom extends BlockBush
 
 	public BlockBOPMushroom()
 	{
-		//TODO:	Material.plants
 		super(Material.plants);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.0F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
 		
 		float var4 = 0.2F;
 		
-		//TODO: setBlockBounds
 		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
-		
-		//TODO: this.setCreativeTab()
+	
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-	
-    public static boolean isTime()
-    {
-        Calendar calendar = Calendar.getInstance();
-
-        return (calendar.get(2) + 1 == 4 && calendar.get(5) == 1);
-    }
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[plants.length];
 
 		for (int i = 0; i < plants.length; ++i)
 		{
-			if (!BOPConfigurationMisc.behaveNormally)
-			{
-				if (isTime())
-				{
-					if (i != 0 && i != 1 && i != 4)
-					{
-						textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
-					}
-					else
-					{
-						textures[0] = iconRegister.registerIcon("biomesoplenty:toadhard");
-						textures[1] = iconRegister.registerIcon("biomesoplenty:kappabello");
-						textures[4] = iconRegister.registerIcon("biomesoplenty:frankershroom");
-					}
-				}
-				else
-				{
-					textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
-				}
-			}
-			else
-			{
-				textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
-			}
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + plants[i]);
 		}
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) 
@@ -101,7 +63,6 @@ public class BlockBOPMushroom extends BlockBush
 	}
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return 1;
@@ -111,6 +72,7 @@ public class BlockBOPMushroom extends BlockBush
 	public int getLightValue(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
+		
 		if (meta == 3)
 			return 6;
 		else
@@ -118,7 +80,6 @@ public class BlockBOPMushroom extends BlockBush
 	}
 
 	@Override
-	//TODO:     setBlockBoundsBasedOnState()
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -126,19 +87,16 @@ public class BlockBOPMushroom extends BlockBush
 		switch (meta)
 		{
 		case 0:
-					//TODO: setBlockBounds
-		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 
 		default:
-					//TODO: setBlockBounds
-		this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
 			break;
 		}
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < plants.length; ++i) 
@@ -172,21 +130,18 @@ public class BlockBOPMushroom extends BlockBush
 	}
 
 	@Override
-	//TODO:		   canPlaceBlockOnSide
 	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
 	{
 		return isValidPosition(world, x, y, z, -1);
 	} 
 
 	@Override
-	//TODO:		   canBlockStay()
 	public boolean canBlockStay(World world, int x, int y, int z)
 	{
 		return isValidPosition(world, x, y, z, -1);
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		return meta & 15;

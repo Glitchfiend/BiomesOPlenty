@@ -15,7 +15,6 @@ public class BOPConfigurationMisc
 	public static boolean dungeonLoot;
 
     public static boolean hotSpringsRegeneration;
-    public static boolean behaveNormally;
 	
 	public static boolean amethystTools;
 	public static boolean mudTools;
