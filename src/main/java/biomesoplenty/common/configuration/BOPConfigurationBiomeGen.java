@@ -1,18 +1,20 @@
 package biomesoplenty.common.configuration;
 
-import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
-import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
-import biomesoplenty.common.core.BOPBiomes;
-import biomesoplenty.common.world.layer.hell.BiomeLayerHellBiomes;
-import cpw.mods.fml.common.FMLLog;
+import java.io.File;
+import java.util.ArrayList;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
+
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.logging.log4j.Level;
 
-import java.io.File;
-import java.util.ArrayList;
+import biomesoplenty.api.BOPBiomeHelper;
+import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
+import biomesoplenty.common.core.BOPBiomes;
+import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
+import biomesoplenty.common.world.layer.hell.BiomeLayerHellBiomes;
+import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationBiomeGen
 {
@@ -44,7 +46,7 @@ public class BOPConfigurationBiomeGen
 		{
 			config.load();
 			
-			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[-1 + 1].values())
+			for (BiomeEntry entry : BOPBiomeHelper.biomeLists[-1 + 1].values())
 			{
 				BiomeGenBase biome = entry.biome;
 				
@@ -57,7 +59,7 @@ public class BOPConfigurationBiomeGen
 				}
 			}
 
-			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
+			for (BiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
 			{
 				BiomeGenBase biome = entry.biome;
 				

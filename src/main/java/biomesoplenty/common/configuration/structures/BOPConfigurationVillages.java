@@ -3,15 +3,15 @@ package biomesoplenty.common.configuration.structures;
 import java.io.File;
 import java.util.ArrayList;
 
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.FMLLog;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.config.Configuration;
+
+import org.apache.logging.log4j.Level;
+
 import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
+import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
+import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationVillages
 {
@@ -106,7 +106,7 @@ public class BOPConfigurationVillages
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8) villageDistance = 8;
 			
-			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
+			for (BiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
 			{
 				BiomeGenBase biome = entry.biome;
 				

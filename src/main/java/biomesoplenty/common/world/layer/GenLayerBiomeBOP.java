@@ -1,29 +1,80 @@
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
-import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
+import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import biomesoplenty.common.world.BOPBiomeManager;
+import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
-    public static List<BOPBiomeEntry> desertBiomes = new ArrayList<BOPBiomeEntry>();
-    public static List<BOPBiomeEntry> warmBiomes = new ArrayList<BOPBiomeEntry>();
-    public static List<BOPBiomeEntry> coldBiomes = new ArrayList<BOPBiomeEntry>();
-    public static List<BOPBiomeEntry> icyBiomes = new ArrayList<BOPBiomeEntry>();
+	private List<BiomeEntry> desertBiomes = new ArrayList<BiomeEntry>();
+	private List<BiomeEntry> warmBiomes = new ArrayList<BiomeEntry>();
+	private List<BiomeEntry> coolBiomes = new ArrayList<BiomeEntry>();
+	private List<BiomeEntry> icyBiomes = new ArrayList<BiomeEntry>();
 	
 	public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldType worldType) 
 	{
 		super(seed, parentLayer, worldType);
+		
+		BiomeGenBase[] vanillaDesertBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151623_c");
+		BiomeGenBase[] vanillaWarmBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151621_d");
+		BiomeGenBase[] vanillaCoolBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151622_e");
+		BiomeGenBase[] vanillaIcyBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151620_f");
+		
+		for (BiomeGenBase biome : vanillaDesertBiomes)
+		{
+			if (biome != null)
+			{
+				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.HOT, 10);
+
+				desertBiomes.add(entry);
+			}
+		}
+
+		for (BiomeGenBase biome : vanillaWarmBiomes)
+		{
+			if (biome != null)
+			{
+				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.WARM, 10);
+
+				warmBiomes.add(entry);
+			}
+		}
+
+		for (BiomeGenBase biome : vanillaCoolBiomes)
+		{
+			if (biome != null)
+			{
+				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.COOL, 10);
+
+				coolBiomes.add(entry);
+			}
+		}
+
+		for (BiomeGenBase biome : vanillaIcyBiomes)
+		{
+			if (biome != null)
+			{
+				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.ICY, 10);
+
+				icyBiomes.add(entry);
+			}
+		}
+		
+		this.desertBiomes.addAll(BOPBiomeManager.desertBiomes);
+		this.warmBiomes.addAll(BOPBiomeManager.warmBiomes);
+		this.coolBiomes.addAll(BOPBiomeManager.coolBiomes);
+		this.icyBiomes.addAll(BOPBiomeManager.icyBiomes);
 	}
 
 	
@@ -43,7 +94,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 int l1 = (biomeID & 3840) >> 8;
                 biomeID &= -3841;
 
-                if (isOceanBiome(biomeID))
+                if (isBiomeOceanic(biomeID))
                 {
                     aint1[j1 + i1 * par3] = biomeID;
                 }
@@ -66,7 +117,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = getRandomBiome(desertBiomes).biome.biomeID;
+                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.desertBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.desertBiomes))).biome.biomeID;
                     }
                 }
                 else if (biomeID == 2)
@@ -77,7 +128,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = getRandomBiome(warmBiomes).biome.biomeID;
+                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.warmBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.warmBiomes))).biome.biomeID;
                     }
                 }
                 else if (biomeID == 3)
@@ -88,12 +139,12 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = getRandomBiome(coldBiomes).biome.biomeID;
+                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.coolBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.coolBiomes))).biome.biomeID;
                     }
                 }
                 else if (biomeID == 4)
                 {
-                    aint1[j1 + i1 * par3] = getRandomBiome(icyBiomes).biome.biomeID;
+                    aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.icyBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.icyBiomes))).biome.biomeID;
                 }
                 else if (BOPConfigurationBiomeGen.mushroomIslandGen)
                 {
@@ -103,43 +154,5 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         }
 
         return aint1;
-    }
-    
-    public BOPBiomeEntry getRandomBiome(Collection weightedItems)
-    {
-    	return getRandomBiome(weightedItems, WeightedRandom.getTotalWeight(weightedItems));
-    }
-    
-    public BOPBiomeEntry getRandomBiome(Collection weightedItems, int totalWeight)
-    {
-        if (totalWeight <= 0)
-        {
-            throw new IllegalArgumentException();
-        }
-        else
-        {
-            int j = this.nextInt(totalWeight);
-            Iterator iterator = weightedItems.iterator();
-            BOPBiomeEntry item;
-
-            do
-            {
-                if (!iterator.hasNext())
-                {
-                    return null;
-                }
-
-                item = (BOPBiomeEntry)iterator.next();
-                j -= item.itemWeight;
-            }
-            while (j >= 0);
-
-            return item;
-        }
-    }
-    
-    protected static boolean isOceanBiome(int biomeID)
-    {
-        return biomeID == BiomeGenBase.ocean.biomeID && BOPConfigurationBiomeGen.oceanGen || biomeID == BiomeGenBase.deepOcean.biomeID && BOPConfigurationBiomeGen.deepOceanGen || biomeID == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen;
     }
 }

@@ -1,17 +1,19 @@
 package biomesoplenty.api;
 
-import biomesoplenty.common.world.layer.GenLayerBiomeBOP;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.biome.BiomeGenBase;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
-
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.world.biome.BiomeGenBase;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
+import biomesoplenty.common.world.BOPBiomeManager;
+import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
+
 public class BOPBiomeHelper 
 {
-	public static HashMap<String, BOPBiomeEntry>[] biomeLists = new HashMap[256];
+	public static HashMap<String, BiomeEntry>[] biomeLists = new HashMap[256];
 	
 	public static void init()
 	{
@@ -19,12 +21,12 @@ public class BOPBiomeHelper
 		biomeLists[0 + 1] = new HashMap();
 	}
 	
-	public static void registerBiome(BOPBiomeEntry biome, int dimID, String name)
+	public static void registerBiome(BiomeEntry biome, int dimID, String name)
 	{
 		biomeLists[dimID + 1].put(name, biome);
 	}
 	
-	public static void registerBiome(BOPBiomeEntry biome, String name)
+	public static void registerBiome(BiomeEntry biome, String name)
 	{
 		registerBiome(biome, 0, name);
 	}
@@ -44,52 +46,29 @@ public class BOPBiomeHelper
 		return StringUtils.remove(StringUtils.uncapitalize(WordUtils.capitalize(originalName)), " ");
 	}
 	
-	public static List<BOPBiomeEntry> getCorrespondingTemperatureTypeList(TemperatureType type)
+	public static List<BiomeEntry> getCorrespondingTemperatureTypeList(TemperatureType type)
 	{
 		switch (type)
 		{
 		case HOT:
-			return GenLayerBiomeBOP.desertBiomes;
+			return BOPBiomeManager.desertBiomes;
 			
 		case WARM:
-			return GenLayerBiomeBOP.warmBiomes;
+			return BOPBiomeManager.warmBiomes;
 			
 		case COOL:
-			return GenLayerBiomeBOP.coldBiomes;
+			return BOPBiomeManager.coolBiomes;
 			
 		case ICY:
-			return GenLayerBiomeBOP.icyBiomes;
+			return BOPBiomeManager.icyBiomes;
 
 		default:
-			return GenLayerBiomeBOP.warmBiomes;
+			return BOPBiomeManager.warmBiomes;
 		}
 	}
 	
 	public enum TemperatureType
 	{
 		HOT, WARM, COOL, ICY;
-	}
-	
-	public static class BOPBiomeEntry extends WeightedRandom.Item
-	{
-		public BiomeGenBase biome;
-		public TemperatureType temperatureType;
-		
-		public BOPBiomeEntry(BiomeGenBase biome, TemperatureType temperatureType, int weight)
-		{
-			super(weight);
-			this.biome = biome;
-			this.temperatureType = temperatureType;
-		}
-		
-		public BOPBiomeEntry(BiomeGenBase biome, int weight)
-		{
-			this(biome, TemperatureType.WARM, weight);
-		}
-		
-		public void addToCorrespondingTemperatureTypeList()
-		{
-			BOPBiomeHelper.getCorrespondingTemperatureTypeList(temperatureType).add(this);
-		}
 	}
 }

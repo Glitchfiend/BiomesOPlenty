@@ -10,8 +10,7 @@ import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Level;
 
 import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.api.BOPBiomeHelper.BOPBiomeEntry;
-import cpw.mods.fml.common.FMLCommonHandler;
+import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationStrongholds
@@ -110,7 +109,7 @@ public class BOPConfigurationStrongholds
 		{
 			config.load();
 			
-			for (BOPBiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
+			for (BiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
 			{
 				BiomeGenBase biome = entry.biome;
 				
