@@ -19,12 +19,6 @@ public abstract class WorldGeneratorBOP extends WorldGenerator implements IBOPWo
     }
 
     @Override
-    public void setupGeneration(World world, Random random, BiomeGenBase biome, String featureName, int x, int z)
-    {
-
-    }
-
-    @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         return false;

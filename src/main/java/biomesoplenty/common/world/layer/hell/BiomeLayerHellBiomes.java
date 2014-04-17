@@ -16,11 +16,8 @@ public class BiomeLayerHellBiomes extends BiomeLayerHell
         super(par1);
 		parent = par3GenLayer;
 
-		if (netherBiomes.size() == 0)
-		{
-			netherBiomes.add(BiomeGenBase.hell);
-		}
-	} 
+		netherBiomes.add(BiomeGenBase.hell);
+    } 
 
     @Override
 	public int[] getInts(int par1, int par2, int par3, int par4)

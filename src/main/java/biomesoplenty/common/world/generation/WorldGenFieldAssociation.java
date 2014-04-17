@@ -4,6 +4,7 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.world.features.*;
 import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
 import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
+import biomesoplenty.common.world.features.nether.WorldGenWaspHive;
 import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
@@ -77,7 +78,9 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
         associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
-        associateFeature("cookiesPerChunk", new WorldGenCookie());
+        
+        //Nether Features
+        associateFeature("waspHivesPerChunk", new WorldGenWaspHive());
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());

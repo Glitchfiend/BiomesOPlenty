@@ -14,8 +14,8 @@ public class BiomeGenBloodyHeap extends BOPNetherBiome
         this.topBlock = BOPBlockHelper.get("flesh");
         this.fillerBlock = BOPBlockHelper.get("flesh");
 
-        /*customBiomeDecorator.gravesPerChunk = 1;
-        customBiomeDecorator.waspHivesPerChunk = 1;
-        customBiomeDecorator.generateUndergroundLakes = false;*/
+        //customBiomeDecorator.gravesPerChunk = 1;
+        this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
+        //customBiomeDecorator.generateUndergroundLakes = false;
     }
 }
