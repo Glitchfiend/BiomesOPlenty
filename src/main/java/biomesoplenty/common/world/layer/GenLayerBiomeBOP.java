@@ -117,7 +117,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.desertBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.desertBiomes))).biome.biomeID;
+                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(desertBiomes, this.nextInt(WeightedRandom.getTotalWeight(desertBiomes))).biome.biomeID;
                     }
                 }
                 else if (biomeID == 2)
@@ -128,7 +128,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.warmBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.warmBiomes))).biome.biomeID;
+                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(warmBiomes, this.nextInt(WeightedRandom.getTotalWeight(warmBiomes))).biome.biomeID;
                     }
                 }
                 else if (biomeID == 3)
@@ -139,12 +139,12 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.coolBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.coolBiomes))).biome.biomeID;
+                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(coolBiomes, this.nextInt(WeightedRandom.getTotalWeight(coolBiomes))).biome.biomeID;
                     }
                 }
                 else if (biomeID == 4)
                 {
-                    aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(BOPBiomeManager.icyBiomes, this.nextInt(WeightedRandom.getTotalWeight(BOPBiomeManager.icyBiomes))).biome.biomeID;
+                    aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(icyBiomes, this.nextInt(WeightedRandom.getTotalWeight(icyBiomes))).biome.biomeID;
                 }
                 else if (BOPConfigurationBiomeGen.mushroomIslandGen)
                 {
