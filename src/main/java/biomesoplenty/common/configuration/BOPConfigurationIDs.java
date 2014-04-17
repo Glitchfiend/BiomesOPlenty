@@ -27,7 +27,6 @@ public class BOPConfigurationIDs
 	public static int bogID;
 	public static int borealForestID;
 	public static int brushlandID;
-	public static int candylandID;
 	public static int canyonID;
 	public static int canyonRavineID;
 	public static int chaparralID;
@@ -180,8 +179,6 @@ public class BOPConfigurationIDs
 			//160-161 BuildCraft Oil Fields
 			
 			//162-169 Thaumcraft
-			
-			candylandID = config.get("Biome IDs", "Candyland (Special) ID", 179).getInt();
 			
 			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 185).getInt();
 			netherDesertID = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 186).getInt();
