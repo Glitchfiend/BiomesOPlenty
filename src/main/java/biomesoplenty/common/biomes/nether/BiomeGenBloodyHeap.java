@@ -16,6 +16,5 @@ public class BiomeGenBloodyHeap extends BOPNetherBiome
 
         //customBiomeDecorator.gravesPerChunk = 1;
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
-        //customBiomeDecorator.generateUndergroundLakes = false;
     }
 }

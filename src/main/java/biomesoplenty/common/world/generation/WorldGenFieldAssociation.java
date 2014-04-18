@@ -1,20 +1,38 @@
 package biomesoplenty.common.world.generation;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.features.*;
-import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
-import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
-import biomesoplenty.common.world.features.nether.WorldGenWaspHive;
-import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
-import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
-import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
+import java.util.HashMap;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.HashMap;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPBlob;
+import biomesoplenty.common.world.features.WorldGenBOPCoral;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.WorldGenBOPUndergroundDecoration;
+import biomesoplenty.common.world.features.WorldGenCobwebNest;
+import biomesoplenty.common.world.features.WorldGenGrassSplatter;
+import biomesoplenty.common.world.features.WorldGenLavaSpout;
+import biomesoplenty.common.world.features.WorldGenLog;
+import biomesoplenty.common.world.features.WorldGenRiverCane;
+import biomesoplenty.common.world.features.WorldGenSplotches;
+import biomesoplenty.common.world.features.WorldGenWasteland;
+import biomesoplenty.common.world.features.WorldGenWasteland2;
+import biomesoplenty.common.world.features.WorldGenWasteland3;
+import biomesoplenty.common.world.features.WorldGenWasteland4;
+import biomesoplenty.common.world.features.WorldGenWaterReeds;
+import biomesoplenty.common.world.features.WorldGenWaterside;
+import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
+import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
+import biomesoplenty.common.world.features.nether.WorldGenLakesNether;
+import biomesoplenty.common.world.features.nether.WorldGenWaspHive;
+import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
+import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
+import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
 
 public class WorldGenFieldAssociation
 {
@@ -78,6 +96,8 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
         associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
+        associateFeature("smolderingGrassPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("grass"), 1));
+        associateFeature("netherLavaLakesPerChunk", new WorldGenLakesNether());
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());
@@ -85,6 +105,7 @@ public class WorldGenFieldAssociation
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());
     }
+    
     private static void associateFeaturesForced()
     {
         associateFeatureForced("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water), PondForcedGenerator.class);

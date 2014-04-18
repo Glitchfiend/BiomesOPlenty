@@ -8,6 +8,7 @@ import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
 import biomesoplenty.common.biomes.nether.BiomeGenBloodyHeap;
+import biomesoplenty.common.biomes.nether.BiomeGenPhantasmagoricInferno;
 import biomesoplenty.common.biomes.overworld.BiomeGenAlps;
 import biomesoplenty.common.biomes.overworld.BiomeGenArctic;
 import biomesoplenty.common.biomes.overworld.BiomeGenBambooForest;
@@ -151,6 +152,7 @@ public class BOPBiomes
         registerBiome(new BiomeEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), TemperatureType.WARM, 10));
 
         registerBiome(new BiomeEntry(new BiomeGenBloodyHeap(BOPConfigurationIDs.netherBloodyHeapID).setBiomeName("Bloody Heap"), 10), -1);
+        registerBiome(new BiomeEntry(new BiomeGenPhantasmagoricInferno(BOPConfigurationIDs.netherPhantasmagoricInfernoID).setBiomeName("Phantasmagoric Inferno"), 10), -1);
 	}
 
 	private static void addSpawnBiomes()

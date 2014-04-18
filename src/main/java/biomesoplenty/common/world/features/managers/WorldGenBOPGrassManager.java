@@ -38,7 +38,7 @@ public class WorldGenBOPGrassManager extends WorldGeneratorBOP
         {
             int randX = x + random.nextInt(16) + 8;
             int randZ = z + random.nextInt(16) + 8;
-            int randY = random.nextInt(world.getHeightValue(randX, randZ) * 2);
+            int randY = random.nextInt(256);
 
             this.generate(world, random, randX, randY, randZ);
         }
