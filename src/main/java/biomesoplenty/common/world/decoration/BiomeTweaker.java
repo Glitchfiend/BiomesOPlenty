@@ -1,12 +1,27 @@
 package biomesoplenty.common.world.decoration;
 
-import biomesoplenty.common.world.forceddecorators.*;
-import cpw.mods.fml.relauncher.ReflectionHelper;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
-
 import java.util.HashMap;
 import java.util.List;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.common.world.forceddecorators.nether.ForcedDecoratorHell;
+import biomesoplenty.common.world.forceddecorators.overworld.BirchForestForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.DesertForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.ExtremeHillsForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.ForestForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.IcePlainsForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.JungleForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.MesaForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.MushroomIslandForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.OceanForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.PlainsForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.RiverForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.RoofedForestForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.SavannaForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.SwampForcedDecorator;
+import biomesoplenty.common.world.forceddecorators.overworld.TaigaForcedDecorator;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BiomeTweaker
 {
@@ -59,6 +74,8 @@ public class BiomeTweaker
 		addForcedDecorator(BiomeGenBase.taigaHills.biomeID, TaigaForcedDecorator.class);
 		addForcedDecorator(BiomeGenBase.coldTaiga.biomeID, TaigaForcedDecorator.class);
 		addForcedDecorator(BiomeGenBase.coldTaigaHills.biomeID, TaigaForcedDecorator.class);
+		
+		addForcedDecorator(BiomeGenBase.hell.biomeID, ForcedDecoratorHell.class);
 	}
 
     private static void tweakDecorationProperties()

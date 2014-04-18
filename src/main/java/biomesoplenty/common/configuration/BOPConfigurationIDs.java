@@ -68,7 +68,7 @@ public class BOPConfigurationIDs
 	public static int mysticGroveThinID;
 
 	public static int netherGardenID;
-	public static int netherDesertID;
+	public static int netherCorruptedSands;
 	public static int netherPhantasmagoricInfernoID;
 	public static int netherBoneID;
 	public static int netherBloodyHeapID;
@@ -181,7 +181,7 @@ public class BOPConfigurationIDs
 			//162-169 Thaumcraft
 			
 			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 185).getInt();
-			netherDesertID = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 186).getInt();
+			netherCorruptedSands = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 186).getInt();
 			netherPhantasmagoricInfernoID = config.get("Biome IDs", "Phantasmagoric Inferno (Nether) ID", 187).getInt();
 			netherBoneID = config.get("Biome IDs", "Boneyard (Nether) ID", 188).getInt();
             netherBloodyHeapID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 189).getInt();

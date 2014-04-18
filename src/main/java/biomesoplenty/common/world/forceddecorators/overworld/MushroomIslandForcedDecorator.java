@@ -1,4 +1,4 @@
-package biomesoplenty.common.world.forceddecorators;
+package biomesoplenty.common.world.forceddecorators.overworld;
 
 import biomesoplenty.common.world.decoration.ForcedDecorator;
 
