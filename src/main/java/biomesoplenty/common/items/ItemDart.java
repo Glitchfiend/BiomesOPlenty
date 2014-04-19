@@ -22,9 +22,8 @@ public class ItemDart extends Item
 		this.setHasSubtypes(true);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
-
+	
 	@Override
-    //TODO: public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
     public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
 	{
 		for (int i = 0; i < dartTypes.length; ++i)

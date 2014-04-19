@@ -36,80 +36,80 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 
 	
     @Override
-	public int[] getInts(int par1, int par2, int par3, int par4)
+	public int[] getInts(int x, int z, int width, int length)
     {
-        int[] aint = this.parent.getInts(par1, par2, par3, par4);
-        int[] aint1 = IntCache.getIntCache(par3 * par4);
+        int[] inputBiomeIDs = this.parent.getInts(x, z, width, length);
+        int[] outputBiomeIDs = IntCache.getIntCache(width * length);
 
-        for (int i1 = 0; i1 < par4; ++i1)
+        for (int i1 = 0; i1 < length; ++i1)
         {
-            for (int j1 = 0; j1 < par3; ++j1)
+            for (int j1 = 0; j1 < width; ++j1)
             {
-                this.initChunkSeed((long)(j1 + par1), (long)(i1 + par2));
-                int biomeID = aint[j1 + i1 * par3];
+                this.initChunkSeed((long)(j1 + x), (long)(i1 + z));
+                int currentBiomeID = inputBiomeIDs[j1 + i1 * width];
                 //   				111100000000
-                int l1 = (biomeID & 3840) >> 8;
-                biomeID &= -3841;
+                int l1 = (currentBiomeID & 3840) >> 8;
+                currentBiomeID &= -3841;
 
-                if (isBiomeOceanic(biomeID))
+                if (isBiomeOceanic(currentBiomeID))
                 {
-                    aint1[j1 + i1 * par3] = biomeID;
+                    outputBiomeIDs[j1 + i1 * width] = currentBiomeID;
                 }
-                else if (biomeID == BiomeGenBase.mushroomIsland.biomeID && BOPConfigurationBiomeGen.mushroomIslandGen)
+                else if (currentBiomeID == BiomeGenBase.mushroomIsland.biomeID && BOPConfigurationBiomeGen.mushroomIslandGen)
                 {
-                    aint1[j1 + i1 * par3] = biomeID;
+                    outputBiomeIDs[j1 + i1 * width] = currentBiomeID;
                 }
-                else if (biomeID == 1)
+                else if (currentBiomeID == 1)
                 {
                     if (l1 > 0)
                     {
                         if (this.nextInt(3) == 0 && BOPConfigurationBiomeGen.mesaPlateauGen)
                         {
-                            aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau.biomeID;
+                            outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mesaPlateau.biomeID;
                         }
                         else if (BOPConfigurationBiomeGen.mesaPlateauFGen)
                         {
-                            aint1[j1 + i1 * par3] = BiomeGenBase.mesaPlateau_F.biomeID;
+                            outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mesaPlateau_F.biomeID;
                         }
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(desertBiomes, this.nextInt(WeightedRandom.getTotalWeight(desertBiomes))).biome.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(desertBiomes, this.nextInt(WeightedRandom.getTotalWeight(desertBiomes))).biome.biomeID;
                     }
                 }
-                else if (biomeID == 2)
+                else if (currentBiomeID == 2)
                 {
                     if (l1 > 0 && BOPConfigurationBiomeGen.jungleGen)
                     {
-                        aint1[j1 + i1 * par3] = BiomeGenBase.jungle.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.jungle.biomeID;
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(warmBiomes, this.nextInt(WeightedRandom.getTotalWeight(warmBiomes))).biome.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(warmBiomes, this.nextInt(WeightedRandom.getTotalWeight(warmBiomes))).biome.biomeID;
                     }
                 }
-                else if (biomeID == 3)
+                else if (currentBiomeID == 3)
                 {
                     if (l1 > 0 && BOPConfigurationBiomeGen.megaTaigaGen)
                     {
-                        aint1[j1 + i1 * par3] = BiomeGenBase.megaTaiga.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.megaTaiga.biomeID;
                     }
                     else
                     {
-                        aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(coolBiomes, this.nextInt(WeightedRandom.getTotalWeight(coolBiomes))).biome.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(coolBiomes, this.nextInt(WeightedRandom.getTotalWeight(coolBiomes))).biome.biomeID;
                     }
                 }
-                else if (biomeID == 4)
+                else if (currentBiomeID == 4)
                 {
-                    aint1[j1 + i1 * par3] = BOPBiomeManager.getWeightedRandomBiome(icyBiomes, this.nextInt(WeightedRandom.getTotalWeight(icyBiomes))).biome.biomeID;
+                    outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(icyBiomes, this.nextInt(WeightedRandom.getTotalWeight(icyBiomes))).biome.biomeID;
                 }
                 else if (BOPConfigurationBiomeGen.mushroomIslandGen)
                 {
-                    aint1[j1 + i1 * par3] = BiomeGenBase.mushroomIsland.biomeID;
+                    outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mushroomIsland.biomeID;
                 }
             }
         }
 
-        return aint1;
+        return outputBiomeIDs;
     }
 }

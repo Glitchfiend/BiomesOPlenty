@@ -84,6 +84,8 @@ public class BOPWorldFeatures
 
         //Nether Features
         addFeature("waspHivesPerChunk", 0);
+        addFeature("boneSpinesUpPerChunk", 0);
+        addFeature("boneSpinesDownPerChunk", 0);
         
         addFeature("bopFlowersPerChunk", 0);
         addFeature("bopGrassPerChunk", 0);

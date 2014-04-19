@@ -17,10 +17,6 @@ public abstract class WorldGeneratorBOP extends WorldGenerator implements IBOPWo
     {
         this(false);
     }
-
-    @Override
-    public boolean generate(World world, Random random, int x, int y, int z)
-    {
-        return false;
-    }
+    
+	public abstract boolean generate(World world, Random rand, int x, int y, int z);
 }

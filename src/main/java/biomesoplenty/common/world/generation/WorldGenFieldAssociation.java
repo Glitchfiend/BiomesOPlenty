@@ -28,6 +28,7 @@ import biomesoplenty.common.world.features.WorldGenWaterReeds;
 import biomesoplenty.common.world.features.WorldGenWaterside;
 import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
 import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
+import biomesoplenty.common.world.features.nether.WorldGenBoneSpine;
 import biomesoplenty.common.world.features.nether.WorldGenLakesNether;
 import biomesoplenty.common.world.features.nether.WorldGenWaspHive;
 import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
@@ -101,6 +102,8 @@ public class WorldGenFieldAssociation
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());
+        associateFeature("boneSpinesUpPerChunk", new WorldGenBoneSpine(false));
+        associateFeature("boneSpinesDownPerChunk", new WorldGenBoneSpine(true));
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());

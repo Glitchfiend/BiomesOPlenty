@@ -70,7 +70,7 @@ public class BOPConfigurationIDs
 	public static int netherGardenID;
 	public static int netherCorruptedSands;
 	public static int netherPhantasmagoricInfernoID;
-	public static int netherBoneID;
+	public static int netherBoneyardID;
 	public static int netherBloodyHeapID;
 
 	public static int oasisID;
@@ -183,7 +183,7 @@ public class BOPConfigurationIDs
 			netherGardenID = config.get("Biome IDs", "Undergarden (Nether) ID", 185).getInt();
 			netherCorruptedSands = config.get("Biome IDs", "Corrupted Sands (Nether) ID", 186).getInt();
 			netherPhantasmagoricInfernoID = config.get("Biome IDs", "Phantasmagoric Inferno (Nether) ID", 187).getInt();
-			netherBoneID = config.get("Biome IDs", "Boneyard (Nether) ID", 188).getInt();
+			netherBoneyardID = config.get("Biome IDs", "Boneyard (Nether) ID", 188).getInt();
             netherBloodyHeapID = config.get("Biome IDs", "Bloody Heap (Nether) ID", 189).getInt();
 
 			alpsID = config.get("Biome IDs", "Alps ID", 194).getInt();

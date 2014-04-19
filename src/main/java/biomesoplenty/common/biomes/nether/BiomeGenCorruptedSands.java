@@ -10,6 +10,8 @@ public class BiomeGenCorruptedSands extends BOPNetherBiome
     {
         super(id);
         
+        this.setColor(7691854);
+        
         this.topBlock = Blocks.soul_sand;
         this.fillerBlock = Blocks.soul_sand;
         
