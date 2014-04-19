@@ -19,67 +19,14 @@ import cpw.mods.fml.common.ObfuscationReflectionHelper;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
-	private List<BiomeEntry> desertBiomes = new ArrayList<BiomeEntry>();
-	private List<BiomeEntry> warmBiomes = new ArrayList<BiomeEntry>();
-	private List<BiomeEntry> coolBiomes = new ArrayList<BiomeEntry>();
-	private List<BiomeEntry> icyBiomes = new ArrayList<BiomeEntry>();
+	public List<BiomeEntry> desertBiomes = new ArrayList<BiomeEntry>();
+	public List<BiomeEntry> warmBiomes = new ArrayList<BiomeEntry>();
+	public List<BiomeEntry> coolBiomes = new ArrayList<BiomeEntry>();
+	public List<BiomeEntry> icyBiomes = new ArrayList<BiomeEntry>();
 	
 	public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldType worldType) 
 	{
 		super(seed, parentLayer, worldType);
-		
-		BiomeGenBase[] vanillaDesertBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151623_c");
-		BiomeGenBase[] vanillaWarmBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151621_d");
-		BiomeGenBase[] vanillaCoolBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151622_e");
-		BiomeGenBase[] vanillaIcyBiomes = (BiomeGenBase[])ObfuscationReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "field_151620_f");
-		
-		for (BiomeGenBase biome : vanillaDesertBiomes)
-		{
-			if (biome != null)
-			{
-				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
-				
-				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.HOT, 10);
-				
-				desertBiomes.add(entry);
-			}
-		}
-
-		for (BiomeGenBase biome : vanillaWarmBiomes)
-		{
-			if (biome != null)
-			{
-				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
-				
-				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.WARM, 10);
-
-				warmBiomes.add(entry);
-			}
-		}
-
-		for (BiomeGenBase biome : vanillaCoolBiomes)
-		{
-			if (biome != null)
-			{
-				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
-				
-				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.COOL, 10);
-
-				coolBiomes.add(entry);
-			}
-		}
-
-		for (BiomeGenBase biome : vanillaIcyBiomes)
-		{
-			if (biome != null)
-			{
-				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
-				
-				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.ICY, 10);
-
-				icyBiomes.add(entry);
-			}
-		}
 		
 		this.desertBiomes.addAll(BOPBiomeManager.desertBiomes);
 		this.warmBiomes.addAll(BOPBiomeManager.warmBiomes);
