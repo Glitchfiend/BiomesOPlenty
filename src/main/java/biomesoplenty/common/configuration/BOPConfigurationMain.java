@@ -14,7 +14,7 @@ public class BOPConfigurationMain
 {
 	public static Configuration config;
 
-	public static Property seenVersion;
+	public static boolean debugMode;
 
 	public static void init(File configFile)
 	{
@@ -24,7 +24,7 @@ public class BOPConfigurationMain
 		{
 			config.load();
 
-			seenVersion = config.get("Vars", "Seen Version", "null");
+			debugMode = config.get("Debug Settings", "Debug Mode", false, "Turn debug mode on/off").getBoolean(false);
 		}
 		catch (Exception e)
 		{

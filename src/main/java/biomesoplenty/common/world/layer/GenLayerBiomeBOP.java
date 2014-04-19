@@ -11,6 +11,8 @@ import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import biomesoplenty.common.configuration.BOPConfigurationMain;
+import biomesoplenty.common.utils.BOPLogger;
 import biomesoplenty.common.world.BOPBiomeManager;
 import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
@@ -35,8 +37,10 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 		{
 			if (biome != null)
 			{
+				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
+				
 				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.HOT, 10);
-
+				
 				desertBiomes.add(entry);
 			}
 		}
@@ -45,6 +49,8 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 		{
 			if (biome != null)
 			{
+				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
+				
 				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.WARM, 10);
 
 				warmBiomes.add(entry);
@@ -55,6 +61,8 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 		{
 			if (biome != null)
 			{
+				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
+				
 				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.COOL, 10);
 
 				coolBiomes.add(entry);
@@ -65,6 +73,8 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 		{
 			if (biome != null)
 			{
+				if (BOPConfigurationMain.debugMode) BOPLogger.info("Adding biome " + biome.biomeName + " from the default world.");
+				
 				BiomeEntry entry = new BiomeEntry(biome, TemperatureType.ICY, 10);
 
 				icyBiomes.add(entry);
