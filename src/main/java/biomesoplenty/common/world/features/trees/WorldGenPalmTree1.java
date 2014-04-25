@@ -121,6 +121,9 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
 
     public void buildBlock(World world, int x, int y, int z, Block block, int meta)
     {
-        world.setBlock(x, y, z, block, meta, 2);
+    	if (world.isAirBlock(x, y, z))
+		{
+    		world.setBlock(x, y, z, block, meta, 2);
+		}
     }
 }

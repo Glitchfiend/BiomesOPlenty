@@ -11,6 +11,7 @@ import biomesoplenty.api.BOPBlockHelper;
 
 public class WorldGenPineTree extends WorldGenAbstractTree
 {
+	
 	public WorldGenPineTree() 
 	{
 		super(false);
@@ -215,7 +216,9 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 	
 	public void buildBlock(World world, int x, int y, int z, Block block, int meta)
 	{
-		//TODO:	setBlock()
-		world.setBlock(x, y, z, block, meta, 2);
+		if (world.isAirBlock(x, y, z))
+		{
+			world.setBlock(x, y, z, block, meta, 2);
+		}
 	}
 }
