@@ -216,7 +216,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 	
 	public void buildBlock(World world, int x, int y, int z, Block block, int meta)
 	{
-		if (world.isAirBlock(x, y, z))
+		if (world.isAirBlock(x, y, z) || world.getBlock(x, y, z).isLeaves(world, x, y, z))
 		{
 			world.setBlock(x, y, z, block, meta, 2);
 		}

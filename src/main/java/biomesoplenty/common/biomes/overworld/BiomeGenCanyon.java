@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class BiomeGenCanyon extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(1.5F, 2.0F);
+	private static final Height biomeHeight = new Height(5.0F, 0.025F);
 
 	public BiomeGenCanyon(int id)
 	{
@@ -31,13 +31,13 @@ public class BiomeGenCanyon extends BOPBiome
 		this.topBlock = BOPBlockHelper.get("hardDirt");
 		this.fillerBlock = BOPBlockHelper.get("hardDirt");
 		this.theBiomeDecorator.grassPerChunk = 5;
-		this.theBiomeDecorator.treesPerChunk = 7;
+		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 
-        this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 2);
-        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
+        this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 3);
+        this.bopWorldFeatures.setFeature("grassSplatterPerChunk", 4);
+        this.bopWorldFeatures.setFeature("waterReedsPerChunk", 4);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
-        this.bopWorldFeatures.setFeature("generateCanyon", true);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
 
@@ -48,7 +48,7 @@ public class BiomeGenCanyon extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(9) == 0 ? new WorldGenPineTree() : new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, 86, 96, BOPBlockHelper.get("hardDirt"));
+		return random.nextInt(5) == 0 ? new WorldGenPineTree() : new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, 64, 256, BOPBlockHelper.get("hardDirt"));
 	}
 	
 	@Override
