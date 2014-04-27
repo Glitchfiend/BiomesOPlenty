@@ -84,7 +84,7 @@ public class EntityBird extends EntityFlyingCreature
 
 		for (int var4 = 0; var4 < var3; ++var4)
 		{
-			this.entityDropItem(new ItemStack(Items.feather, 1, 1), 0.0F);
+			this.entityDropItem(new ItemStack(Items.feather, 1), 0.0F);
 		}
 	}
     
