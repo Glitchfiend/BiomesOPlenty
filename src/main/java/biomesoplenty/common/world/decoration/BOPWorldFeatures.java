@@ -80,12 +80,13 @@ public class BOPWorldFeatures
         addFeature("wasteland4PerChunk", 0);
         addFeature("wastelandRockPilesPerChunk", 0);
         addFeature("smolderingGrassPerChunk", 0);
-        addFeature("netherLavaLakesPerChunk", 0);
 
         //Nether Features
         addFeature("waspHivesPerChunk", 0);
         addFeature("boneSpinesUpPerChunk", 0);
         addFeature("boneSpinesDownPerChunk", 0);
+        addFeature("netherLavaLakesPerChunk", 0);
+        addFeature("netherVinesPerChunk", 0);
         
         addFeature("bopFlowersPerChunk", 0);
         addFeature("bopGrassPerChunk", 0);

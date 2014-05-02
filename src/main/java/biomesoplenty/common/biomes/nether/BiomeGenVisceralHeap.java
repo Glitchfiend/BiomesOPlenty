@@ -3,9 +3,9 @@ package biomesoplenty.common.biomes.nether;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPNetherBiome;
 
-public class BiomeGenBloodyHeap extends BOPNetherBiome
+public class BiomeGenVisceralHeap extends BOPNetherBiome
 {
-    public BiomeGenBloodyHeap(int id)
+    public BiomeGenVisceralHeap(int id)
     {
         super(id);
 

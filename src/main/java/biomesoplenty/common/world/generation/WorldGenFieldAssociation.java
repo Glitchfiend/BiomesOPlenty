@@ -12,13 +12,14 @@ import biomesoplenty.common.world.features.WorldGenBOPBlob;
 import biomesoplenty.common.world.features.WorldGenBOPCoral;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenBOPUndergroundDecoration;
 import biomesoplenty.common.world.features.WorldGenCobwebNest;
 import biomesoplenty.common.world.features.WorldGenGrassSplatter;
 import biomesoplenty.common.world.features.WorldGenLavaSpout;
 import biomesoplenty.common.world.features.WorldGenLog;
+import biomesoplenty.common.world.features.WorldGenLongVine;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
+import biomesoplenty.common.world.features.WorldGenSplatter;
 import biomesoplenty.common.world.features.WorldGenSplotches;
 import biomesoplenty.common.world.features.WorldGenWasteland;
 import biomesoplenty.common.world.features.WorldGenWasteland2;
@@ -97,13 +98,14 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
         associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
-        associateFeature("smolderingGrassPerChunk", new WorldGenBOPTallGrass(BOPBlockHelper.get("grass"), 1));
-        associateFeature("netherLavaLakesPerChunk", new WorldGenLakesNether());
+        associateFeature("smolderingGrassPerChunk", new WorldGenSplatter(BOPBlockHelper.get("grass"), 1, BOPBlockHelper.get("ash"), Blocks.netherrack));
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());
         associateFeature("boneSpinesUpPerChunk", new WorldGenBoneSpine(false));
         associateFeature("boneSpinesDownPerChunk", new WorldGenBoneSpine(true));
+        associateFeature("netherLavaLakesPerChunk", new WorldGenLakesNether());
+        associateFeature("netherVinesPerChunk", new WorldGenLongVine(BOPBlockHelper.get("ivy"), 8, 10));
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());

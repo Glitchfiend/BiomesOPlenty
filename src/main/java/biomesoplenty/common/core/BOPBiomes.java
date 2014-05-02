@@ -7,10 +7,10 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 import biomesoplenty.api.BOPBiomeHelper;
 import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
-import biomesoplenty.common.biomes.nether.BiomeGenBloodyHeap;
 import biomesoplenty.common.biomes.nether.BiomeGenBoneyard;
 import biomesoplenty.common.biomes.nether.BiomeGenCorruptedSands;
 import biomesoplenty.common.biomes.nether.BiomeGenPhantasmagoricInferno;
+import biomesoplenty.common.biomes.nether.BiomeGenVisceralHeap;
 import biomesoplenty.common.biomes.overworld.BiomeGenAlps;
 import biomesoplenty.common.biomes.overworld.BiomeGenArctic;
 import biomesoplenty.common.biomes.overworld.BiomeGenBambooForest;
@@ -153,10 +153,11 @@ public class BOPBiomes
         registerBiome(new BiomeEntry(new BiomeGenWetland(BOPConfigurationIDs.wetlandID).setBiomeName("Wetland"), TemperatureType.WARM, 10));
         registerBiome(new BiomeEntry(new BiomeGenWoodland(BOPConfigurationIDs.woodlandID).setBiomeName("Woodland"), TemperatureType.WARM, 10));
 
-        registerBiome(new BiomeEntry(new BiomeGenCorruptedSands(BOPConfigurationIDs.netherCorruptedSands).setBiomeName("Corrupted Sands"), 10), -1);
+        registerBiome(new BiomeEntry(new BiomeGenCorruptedSands(BOPConfigurationIDs.netherCorruptedSandsID).setBiomeName("Corrupted Sands"), 10), -1);
+        //registerBiome(new BiomeEntry(new BiomeGenUndergarden(BOPConfigurationIDs.netherUndergardenID).setBiomeName("Undergarden"), 10), -1);
         registerBiome(new BiomeEntry(new BiomeGenPhantasmagoricInferno(BOPConfigurationIDs.netherPhantasmagoricInfernoID).setBiomeName("Phantasmagoric Inferno"), 10), -1);
         registerBiome(new BiomeEntry(new BiomeGenBoneyard(BOPConfigurationIDs.netherBoneyardID).setBiomeName("Boneyard"), 10), -1);
-        registerBiome(new BiomeEntry(new BiomeGenBloodyHeap(BOPConfigurationIDs.netherBloodyHeapID).setBiomeName("Bloody Heap"), 10), -1);
+        registerBiome(new BiomeEntry(new BiomeGenVisceralHeap(BOPConfigurationIDs.netherVisceralHeapID).setBiomeName("Visceral Heap"), 10), -1);
 	}
 
 	private static void addSpawnBiomes()

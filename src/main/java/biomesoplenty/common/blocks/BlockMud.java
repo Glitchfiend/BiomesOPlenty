@@ -1,22 +1,30 @@
 package biomesoplenty.common.blocks;
 
-import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.common.blocks.utils.BOPBlock;
-import biomesoplenty.common.blocks.utils.SubBlock;
+import java.util.List;
+import java.util.Random;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
-import java.util.Random;
+import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.common.blocks.utils.BOPBlock;
 
 public class BlockMud extends BOPBlock
 {
+	private static final String[] mud = new String[] { "mud", "quicksand" };
+	private IIcon[] textures;
+	
 	public BlockMud()
 	{
 		super(Material.sand);
@@ -27,23 +35,36 @@ public class BlockMud extends BOPBlock
 		this.setStepSound(Block.soundTypeSand);
 	}
 
-    @Override
-    protected void initializeSubBlocks()
-    {
-        this.registerSubBlock(0, "mud");
-        this.registerSubBlock(1, "quicksand");
-    }
-
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-        SubBlock mud = getSubBlock(0);
+		textures = new IIcon[mud.length];
 
-        mud.setMainIcon(iconRegister.registerIcon("biomesoplenty:mud"));
+		for (int i = 0; i < mud.length; ++i) 
+		{
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + mud[i]);
+		}
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int meta)
+	{
+		if (meta < 0 || meta >= textures.length) 
+		{
+			meta = 0;
+		}
 
-        SubBlock quicksand = getSubBlock(1);
-
-        quicksand.setMainIcon(iconRegister.registerIcon("biomesoplenty:quicksand"));
+		return textures[meta];
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
+	{
+		for (int i = 0; i < mud.length; ++i)
+		{
+			list.add(new ItemStack(block, 1, i));
+		}
 	}
 
 	@Override

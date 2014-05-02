@@ -19,24 +19,18 @@ public class BlockOvergrownNetherrack extends Block
 
 	public BlockOvergrownNetherrack()
 	{
-		//TODO: Material.rock
 		super(Material.rock);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.4F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.icons[0] = iconRegister.registerIcon("biomesoplenty:overgrownnetherrack3");
@@ -48,7 +42,6 @@ public class BlockOvergrownNetherrack extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 	    if (side < 0 || side >= this.icons.length) side = 1;
@@ -63,7 +56,6 @@ public class BlockOvergrownNetherrack extends Block
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return Blocks.netherrack.getItemDropped(0, random, fortune);

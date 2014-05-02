@@ -26,28 +26,20 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 
 	public BlockBOPCoral()
 	{
-		//TODO: Material.water
 		super(Material.water);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.0F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
-		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
 		
 		float f = 0.4F;
-		//TODO: setBlockBounds
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[coral.length];
@@ -58,7 +50,6 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) 
@@ -70,7 +61,6 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 	}
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return 1;
@@ -78,7 +68,6 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < coral.length; ++i)
@@ -92,7 +81,6 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		//TODO:					  getBlock()
 		Block block = world.getBlock(x, y - 1, z);
 
 		switch (metadata)
@@ -115,22 +103,17 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
     }
 	
 	@Override
-	//TODO:		onNeighborBlockChange()
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
-		//TODO: onNeighborBlockChange()
 		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 		
-		//TODO:					  							getBlock()
 		if (world.getBlockMetadata(x, y, z) == 0 && world.getBlock(x, y + 1, z) != this)
 		{
 			world.setBlockMetadataWithNotify(x, y, z, 3, 2);
 		}
 		
-		//TODO:					  							getBlock()
 		if (world.getBlockMetadata(x, y, z) == 1 && world.getBlock(x, y + 1, z) != this)
 		{
-			//TODO:		getBlock()
 			if (world.getBlock(x, y - 1, z) == this)
 			{
 				world.setBlockMetadataWithNotify(x, y, z, 2, 2);
@@ -139,30 +122,23 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 		
 		if (world.getBlockMetadata(x, y, z) == 0 || world.getBlockMetadata(x, y, z) == 1 || world.getBlockMetadata(x, y, z) == 2)
 		{
-			//TODO:				  getBlock()
 			for (int i = 1; world.getBlock(x, y + i, z) == this; i++)
 			{
-				//TODO:	  canBlockStay()
 				if (!this.canBlockStay(world, x, y + i, z))
 				{
-					//TODO: dropBlockAsItem()
 					this.dropBlockAsItem(world, x, y + i, z, world.getBlockMetadata(x, y + i, z), 0);
-					//TODO: setBlock()
 					world.setBlock(x, y + i, z, Blocks.water, 0, 2);
 				}
 			}
 		}
 		
-		//TODO:		getBlock()
 		if (world.getBlock(x, y, z) != this)
 		{
-			//TODO: setBlock()
 			world.setBlock(x, y, z, Blocks.water, 0, 2);
 		}
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		if (meta < 3)
@@ -190,7 +166,6 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 	}
 	
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -204,7 +179,6 @@ public class BlockBOPCoral extends BOPBlockWorldDecor
 	}
 
 	@Override
-	//TODO: 	   isBlockReplaceable
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		if (world.getBlockMetadata(x, y, z) == 10) return true;
