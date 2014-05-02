@@ -36,7 +36,7 @@ public class WorldGenGrassSplatter extends WorldGeneratorBOP
             int var999 = random.nextInt(5);
 
             //TODO:    isAirBlock()
-            if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("hardSand") || world.getBlock(randX, randY - 1, randZ) == Blocks.sand || world.getBlock(randX, randY - 1, randZ) == Blocks.stone))
+            if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("hardSand") || world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("hardDirt") || world.getBlock(randX, randY - 1, randZ) == Blocks.sand || world.getBlock(randX, randY - 1, randZ) == Blocks.stone))
             {
                 world.setBlock(randX, randY - 1, randZ, Blocks.grass, 0, 2);
 

@@ -66,7 +66,7 @@ public class BiomeGenMapleWoods extends BOPBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
+                world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
             }
         }
     }

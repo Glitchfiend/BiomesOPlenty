@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class BiomeGenHighland extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(0.5F, 1.0F);
+	private static final Height biomeHeight = new Height(2.5F, 0.5F);
 
 	public BiomeGenHighland(int id)
 	{
@@ -54,7 +54,7 @@ public class BiomeGenHighland extends BOPBiome
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
 				//TODO:	setBlock()
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 0, 2);
+				world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
 			}
 		}
 	}
