@@ -1,7 +1,5 @@
 package biomesoplenty.common.eventhandler.misc;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
@@ -9,8 +7,8 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.IFluidBlock;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.common.core.BOPFluids;
 import biomesoplenty.common.items.ItemBOPBucket;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -29,18 +27,13 @@ public class BucketEventHandler
 		int y = event.target.blockY;
 		int z = event.target.blockZ;
 
-		//TODO:				getBlock()
-		Block block = world.getBlock(x, y, z);
+		Fluid fluid = FluidRegistry.lookupFluidForBlock(world.getBlock(x, y, z));
 
-		Fluid fluidBlockFluid = FluidRegistry.lookupFluidForBlock(block);
-
-		if (fluidBlockFluid != null)
+		if (fluid != null)
 		{
-			String fluidName = fluidBlockFluid.getName();
-
-			if ((fluidName.equals("poison") || fluidName.equals("honey")))
+			if ((fluid == BOPFluids.poison && world.getBlockMetadata(x, y, z) == 0) || (fluid == BOPFluids.honey && world.getBlockMetadata(x, y, z) == 7))
 			{
-				bopBucket.fill(bopBucketStack, new FluidStack(fluidBlockFluid, FluidContainerRegistry.BUCKET_VOLUME), true);
+				bopBucket.fill(bopBucketStack, new FluidStack(fluid, FluidContainerRegistry.BUCKET_VOLUME), true);
 
 				world.setBlockToAir(x, y, z);
 

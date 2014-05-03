@@ -1,83 +1,166 @@
 package biomesoplenty.common.items;
 
-import biomesoplenty.BiomesOPlenty;
+import java.util.HashMap;
+
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ItemFluidContainer;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.core.BOPFluids;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPBucket extends ItemFluidContainer
 {
+	private static HashMap<String, IIcon> bucketIcons = new HashMap();
+	
 	public ItemBOPBucket()
 	{
-		super(0);
+		super(0, FluidContainerRegistry.BUCKET_VOLUME);
 
 		this.maxStackSize = 1;
-		this.capacity = FluidContainerRegistry.BUCKET_VOLUME;
 
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
-	/*@Override
+	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
-		MovingObjectPosition pos = this.getMovingObjectPositionFromPlayer(world, player, true);
-
-		String bucketType = itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("type") ? itemStack.getTagCompound().getString("type") : "";
-
-		FluidStack fluid = getFluid(itemStack);
-
-		if (pos != null)
+		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
+		
+		if (movingobjectposition != null)
 		{
-			int x = pos.blockX;
-			int y = pos.blockY;
-			int z = pos.blockZ;
+            int i = movingobjectposition.blockX;
+            int j = movingobjectposition.blockY;
+            int k = movingobjectposition.blockZ;
 
-			if (fluid == null || fluid.amount != capacity)
-			{
-				//TODO:				getBlock()
-				Block block = world.getBlock(x, y, z);
+            if (movingobjectposition.sideHit == 0)
+            {
+                --j;
+            }
 
-				if (block instanceof BlockFluidBase)
-				{
-					BlockFluidBase fluidBlock = (BlockFluidBase)block;
-					Fluid fluidBlockFluid = FluidRegistry.lookupFluidForBlock(fluidBlock);
-					
-					String fluidName = fluidBlockFluid != null ? allowedFluids.get(fluidBlockFluid.getName()) : null;
-					
-					if (fluidName != null && fluidName.equals(bucketType))
-					{
-						FluidStack blockFluid = fluidBlock.drain(world, x, y, z, true);
+            if (movingobjectposition.sideHit == 1)
+            {
+                ++j;
+            }
 
-						this.fill(itemStack, new FluidStack(blockFluid, capacity), true);
+            if (movingobjectposition.sideHit == 2)
+            {
+                --k;
+            }
 
-						return itemStack;
-					}
-				}
-			}
-			else if (fluid != null)
-			{
-				Block block = fluid.getFluid().getBlock();
+            if (movingobjectposition.sideHit == 3)
+            {
+                ++k;
+            }
 
-				if (block != null) 
-				{
-					world.setBlock(x, y, z, block);
-					
-					return new ItemStack(Items.bucket);
-				}
-			}
+            if (movingobjectposition.sideHit == 4)
+            {
+                --i;
+            }
+
+            if (movingobjectposition.sideHit == 5)
+            {
+                ++i;
+            }
+
+            if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, itemStack))
+            {
+                return itemStack;
+            }
+
+            if (this.tryPlaceContainedLiquid(itemStack, world, i, j, k) && !player.capabilities.isCreativeMode)
+            {
+                return new ItemStack(Items.bucket);
+            }
 		}
 		
 		return itemStack;
-	}*/
+	}
+	
+    public boolean tryPlaceContainedLiquid(ItemStack itemStack, World world, int x, int y, int z)
+    {
+    	FluidStack fluid = this.getFluid(itemStack);
+    	
+        if (fluid == null || fluid.amount == 0)
+        {
+            return false;
+        }
+        else
+        {
+            Material material = world.getBlock(x, y, z).getMaterial();
+            boolean isSolid = material.isSolid();
+            
+            if (!world.isAirBlock(x, y, z) && isSolid)
+            {
+                return false;
+            }
+            else
+            {
+            	if (!world.isRemote && !isSolid && !material.isLiquid())
+            	{
+            		world.func_147480_a(x, y, z, true);
+            	}
+
+            	int meta = fluid.getFluid() == BOPFluids.honey ? 7 : 0;
+            	
+            	world.setBlock(x, y, z, fluid.getFluid().getBlock(), meta, 3);
+            }
+
+            return true;
+        }
+    }
+	
+	@Override
+	public void registerIcons(IIconRegister iconRegister)
+	{
+		bucketIcons.put("poison", iconRegister.registerIcon("biomesoplenty:bucket_poison"));
+		bucketIcons.put("honey", iconRegister.registerIcon("biomesoplenty:bucket_honey"));
+	}
+    
+    @Override
+    public IIcon getIcon(ItemStack itemStack, int renderPass)
+    {
+        FluidStack fluid = this.getFluid(itemStack);
+        
+        if (fluid != null && fluid.amount != 0) 
+        {
+        	IIcon icon = bucketIcons.get(fluid.getFluid().getName());
+        	
+        	if (icon != null) return icon;
+        }
+        
+        return Items.bucket.getIconFromDamage(0);
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean requiresMultipleRenderPasses()
+    {
+        return true;
+    }
 	
     @Override
 	public String getItemStackDisplayName(ItemStack itemStack)
     {
-    	FluidStack fluidStack = FluidContainerRegistry.getFluidForFilledItem(itemStack);
-    	String fluidName = fluidStack != null ? fluidStack.getFluid().getName() : "";
+    	FluidStack fluid = this.getFluid(itemStack);
+    	String bucketLocalized = StatCollector.translateToLocal(Items.bucket.getUnlocalizedName() + ".name");
     	
-        return ("" + StatCollector.translateToLocal(this.getUnlocalizedNameInefficiently(itemStack) + fluidName + ".name")).trim();
+    	if (fluid != null && fluid.amount != 0)
+    	{
+    		return fluid.getFluid().getLocalizedName() + " " + bucketLocalized;
+    	}
+        
+        return bucketLocalized;
     }
 }

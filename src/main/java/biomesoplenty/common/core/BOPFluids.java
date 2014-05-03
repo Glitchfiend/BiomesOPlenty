@@ -15,24 +15,26 @@ import biomesoplenty.common.items.ItemBOPBucket;
 
 public class BOPFluids 
 {
+	public static Fluid poison;
+	public static Fluid spring_water;
+	public static Fluid honey;
+	
 	public static void init()
 	{
 		registerFluids();
 		registerFluidBlocks();
 		registerFluidItems();
-		//registerItems();
 	}
 
 	private static void registerFluids()
 	{
-		registerFluid(new PoisonFluid("poison").setBlock(BOPBlockHelper.get("poison")));
-		registerFluid(new SpringWaterFluid("spring_water").setBlock(BOPBlockHelper.get("springWater")));
-		registerFluid(new HoneyFluid("honey").setBlock(BOPBlockHelper.get("honey")));
+		registerFluid(poison = new PoisonFluid("poison").setBlock(BOPBlockHelper.get("poison")));
+		registerFluid(spring_water = new SpringWaterFluid("spring_water").setBlock(BOPBlockHelper.get("springWater")));
+		registerFluid(honey = new HoneyFluid("honey").setBlock(BOPBlockHelper.get("honey")));
 	}
 
 	private static void registerFluidBlocks()
 	{
-		//TODO:						setBlockName
 		registerBlock(new BlockPoisonFluid().setBlockName("poison"));
 		registerBlock(new BlockSpringWaterFluid().setBlockName("springWater"));
 		registerBlock(new BlockHoneyFluid().setBlockName("honey"));
