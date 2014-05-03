@@ -43,27 +43,20 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 
 	public BlockBOPPlant()
 	{
-		//TODO:	Material.plants
 		super(Material.plants);
 		
-		//TODO: this.setHardness
 		this.setHardness(0.0F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
 		float var3 = 0.4F;
-		//TODO: setBlockBounds
 		this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[plants.length];
@@ -76,7 +69,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
@@ -87,35 +79,38 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return RenderUtils.plantsModel;
 	}
 
 	@Override
-	//TODO:     setBlockBoundsBasedOnState()
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
+		
+		long i1 = x * 3129871 ^ z * 116129781L ^ y;
+		i1 = i1 * i1 * 42317861L + i1 * 11L;
+		float d0 = (float)(((i1 >> 16 & 15L) / 15.0F - 0.5D) * 0.5D);
+		float d2 = (float)(((i1 >> 24 & 15L) / 15.0F - 0.5D) * 0.5D);
 
 		switch (meta)
 		{
-		case 6:
 		case 7:
-			//TODO: setBlockBounds
 			this.setBlockBounds(0.125F, 0.0F, 0.125F, 0.875F, 1.00F, 0.875F);
+			break;
+			
+		case 12:
+			this.setBlockBounds(0.3F + d0, 0.0F, 0.3F + d2, 0.7F + d0, 0.4F, 0.7F + d2);
 			break;
 
 		default:
-			//TODO: setBlockBounds
 			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < plants.length; ++i) 
@@ -130,11 +125,8 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	@Override
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		//TODO:					  getBlock()
 		Block block = world.getBlock(x, y - 1, z);
-		//TODO:					  getBlock()
 		Block root = world.getBlock(x, y + 1, z);
-		//TODO:					  getBlock()
 		Block reedwater = world.getBlock(x, y - 2, z);
 		
 		switch (metadata)
@@ -159,7 +151,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.grass || block == Blocks.dirt;
 
 		case 7: // Cattail
-			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
 			return block != Blocks.grass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
 
 		case 8: // River Cane
@@ -169,7 +160,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == this;
 
 		case 10: // High Cattail Bottom
-			//TODO:										 getBlock()						getMaterial()				water							getBlock()						getMaterial()				water						getBlock()						getMaterial()				water							getBlock()						getMaterial()				water
 			return block != Blocks.grass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
 
 		case 12: // Tiny Cactus
@@ -190,7 +180,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO:			canReplace()
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
 		int metadata = itemStack.getItemDamage();
@@ -202,39 +191,29 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO:		onNeighborBlockChange()
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
 		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 
-		//TODO:													   getBlock()
 		if (world.getBlockMetadata(x, y, z) == CATTAILTOP && world.getBlock(x, y - 1, z) == this && world.getBlockMetadata(x, y - 1, z) != CATTAILBOTTOM) 
 		{
-			//TODO: setBlockToAir()
 			world.setBlockToAir(x, y, z);
 		}
-		//TODO:																getBlock()
 		else if (world.getBlockMetadata(x, y, z) == CATTAILBOTTOM && world.getBlock(x, y + 1, z) != this) 
 		{
-			//TODO: setBlockToAir()
 			world.setBlockToAir(x, y, z);
 		}
-		//TODO:			getBlock()
 		else if (world.getBlockMetadata(x, y, z) == 8) 
 		{
-			//TODO:	  canReplace()
 			if (!this.canReplace(world, x, y, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 8)))
 			{
-				//TODO: dropBlockAsItem
 				this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-				//TODO: setBlockToAir()
 				world.setBlockToAir(x, y, z);
 			}
 		}
 	}
 
 	@Override
-	//TODO:		onEntityCollidedWithBlock()
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -293,7 +272,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
     }
 
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -310,12 +288,10 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		if (metadata > 5 && metadata != 11)
 		{
-			//TODO:		getItemFromBlock()
 			return Item.getItemFromBlock(this);
 		}
 		else if (metadata == 11)
@@ -329,7 +305,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		if (meta == 9)
@@ -362,7 +337,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 	}
 
 	@Override
-	//TODO:		harvestBlock()
 	public void harvestBlock(World world, EntityPlayer player, int x, int y, int z, int meta)
 	{
 		super.harvestBlock(world, player, x, y, z, meta);
@@ -420,7 +394,6 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
     }
 
 	@Override
-	//TODO: 	   isBlockReplaceable
 	public boolean canPlaceBlockAt(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
