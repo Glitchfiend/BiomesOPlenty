@@ -46,24 +46,17 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	public IIcon berryBushBerry;
 
     private static final int HEDGETOP = 6;
-    private static final int DUCKWEED = 0;
     private static final int HEDGEBOTTOM = 3;
 
 	public BlockBOPFoliage()
 	{
-		float f = 0.4F;
-
 		this.setHardness(0.0F);
-
 		this.setStepSound(Block.soundTypeGrass);
-
-		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.8F, 0.5F + f);
 
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[foliageTypes.length];
@@ -79,7 +72,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta >= textures.length) {
@@ -90,7 +82,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < foliageTypes.length; ++i)
@@ -155,7 +146,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	
 	public boolean isValidPosition(World world, int x, int y, int z, int metadata)
 	{
-		//TODO:					  getBlock()
 		Block block = world.getBlock(x, y - 1, z);
 		
     	if (block == Blocks.air) return false;
@@ -165,7 +155,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		case HEDGETOP:
 			return block == this;
 
-		case DUCKWEED: // Algae
+		case 0: //Duckweed
 			return block == Blocks.water;
 			
 		case 14: // Leaf Pile
@@ -180,20 +170,16 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	//TODO:			canReplace()
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
 	{
-    	//TODO:	  getBlock()
     	if (world.getBlock(x, y - 1, z) == Blocks.air) return false;
 		
 		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
 	@Override
-	//TODO: 	randomDisplayTick()
 	public void randomDisplayTick(World world, int x, int y, int z, Random random)
 	{
-		//TODO: randomDisplayTick()
 		super.randomDisplayTick(world, x, y, z, random);
 
 		int meta = world.getBlockMetadata(x, y, z);
@@ -213,10 +199,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
     @Override
-	//TODO:		updateTick()
 	public void updateTick(World world, int x, int y, int z, Random random)
     {
-    	//TODO:				getBlock()
     	Block block = world.getBlock(x, y, z);
         
         this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
@@ -224,39 +208,29 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	
     public void dropIfCantStay(World world, int x, int y, int z, ItemStack stack)
     {
-    	//TODO:	  canReplace
         if (!this.canReplace(world, x, y, z, 0, stack))
         {
-        	//TODO:	dropBlockAsItem()
             this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-            //TODO:	setBlockToAir()
             world.setBlockToAir(x, y, z);
         }
     }
 
 	@Override
-	//TODO:		onNeighborBlockChange()
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
-		//TODO:												getBlock()
 		dropIfCantStay(world, x, y, z, new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)));
 		
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
 	    if (world.getBlockMetadata(x, y, z) == HEDGEBOTTOM) 
 	    {
-	    	//TODO:	 getBlock()
 	        if (world.getBlock(x, y + 1, z) != this)
 	        {
-	        	//TODO: setBlock()
 	            world.setBlock(x, y, z, Blocks.tallgrass, 1, 2);
 	        }
-	        //TODO:											getBlock()
 	        else if (!this.isValidPosition(world, x, y, z, metadata))
 	        {
-	        	//TODO: dropBlockAsItem()
 	            this.dropBlockAsItem(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);
-	            //TODO:	setBlockToAir()
 	            world.setBlockToAir(x, y + 1, z);
 	        }
 	    }
@@ -265,7 +239,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	//TODO:		onEntityCollidedWithBlock()
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -292,7 +265,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-    //TODO:	   getBlockColor()
     public int getBlockColor()
     {
 		double var1 = 0.5D;
@@ -303,14 +275,12 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	@Override
 	@SideOnly(Side.CLIENT)
-    //TODO:	   getRenderColor()
     public int getRenderColor(int par1)
     {
 		return ColorizerGrass.getGrassColor(0.5D, 1.0D);
 	}
 
 	@Override
-	//TODO		getRenderType()
 	public int getRenderType()
 	{
 		return RenderUtils.foliageModel;
@@ -333,116 +303,63 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	}
 
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		if (meta == HEDGETOP) {
+		if (meta == HEDGETOP) 
+		{
 			meta = HEDGEBOTTOM;
 		}
 		return meta;
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		return null;
 	}
 
 	@Override
-	//TODO:				 getSelectedBoundingBoxFromPool()
-    public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z)
-    {
-		int meta = world.getBlockMetadata(x, y, z);
-
-		switch (meta)
-		{
-		case DUCKWEED:
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
-
-		case 1: // Short Grass
-		return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, x + 0.9D, y + 0.25D, z + 0.9D);
-
-		case 2: // Medium Grass
-		return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, x + 0.9D, y + 0.6D, z + 0.9D);
-		
-		case 13: //Clover Patch
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
-			
-		case 14: //Leaf Pile
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
-			
-		case 15: //Dead Leaf Pile
-			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 0.015625D, z + 1.0D);
-
-		default:
-			return AxisAlignedBB.getBoundingBox(x + 0.1D, y, z + 0.1D, x + 0.9D, y + 0.8D, z + 0.9D);
-		}
-	}
-
-	@Override
-	//TODO:     setBlockBoundsBasedOnState()
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 
-		float minX;
-		float minY;
-		float minZ;
-		float maxX;
-		float maxY;
-		float maxZ;
-
 		switch (meta)
 		{
-		case DUCKWEED:
-			minX = minY = minZ = 0F;
-			maxX = maxZ = 1.0F;
-			maxY = 0.015625F;
-			break;
-
-		case 1: // Short grass
-			minX = minZ = 0.1F;
-			minY = 0.0F;
-			maxX = maxZ = 0.9F;
-			maxY = 0.25F;
-			break;
-
-		case 2: // Medium grass
-			minX = minZ = 0.1F;
-			minY = 0.0F;
-			maxX = maxZ = 0.9F;
-			maxY = 0.6F;
+		case 0: //Duckweed
+			this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
 			break;
 			
-		case 13:
-			minX = minY = minZ = 0F;
-			maxX = maxZ = 1.0F;
-			maxY = 0.015625F;
+		case 1: //Short Grass
+			this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.25F, 0.9F);
 			break;
-
+			
+		case 2: //Medium Grass
+			this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.6F, 0.9F);
+			break;
+			
+		case 13: //Clover Patch
+			this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
+			break;
+			
+		case 14: //Leaf Pile
+		case 15: //Dead Leaf Pile
+			this.setBlockBounds(0F, 0F, 0F, 1F, 0.015625F, 1F);
+			break;
+			
 		default:
-			minX = minZ = 0.1F;
-			minY = 0.0F;
-			maxX = maxZ = 0.9F;
-			maxY = 0.8F;
+			this.setBlockBounds(0.1F, 0F, 0.1F, 0.9F, 0.8F, 0.9F);
 			break;
 		}
-
-		//TODO: setBlockBounds()
-		this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 	}
 
 	@Override
-	//TODO:			onBlockActivated
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
 		if (meta == 8)
 		{
-			//TODO:	setBlock()
 			world.setBlock(x, y, z, this, 4, 3);
 			
 			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 0));
