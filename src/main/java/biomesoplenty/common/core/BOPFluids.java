@@ -3,6 +3,8 @@ package biomesoplenty.common.core;
 import static biomesoplenty.common.core.BOPBlocks.registerBlock;
 import static biomesoplenty.common.core.BOPItems.registerItem;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
 import net.minecraftforge.fluids.FluidRegistry;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.fluids.HoneyFluid;

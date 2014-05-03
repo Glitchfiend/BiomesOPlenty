@@ -1,12 +1,14 @@
 package biomesoplenty.common.items;
 
 import java.util.HashMap;
+import java.util.List;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
@@ -36,7 +38,7 @@ public class ItemBOPBucket extends ItemFluidContainer
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
-		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, true);
+		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, false);
 		
 		if (movingobjectposition != null)
 		{
@@ -120,6 +122,16 @@ public class ItemBOPBucket extends ItemFluidContainer
             return true;
         }
     }
+    
+	@Override
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list)
+	{
+		ItemStack fluid = new ItemStack(item);
+		
+		this.fill(fluid, new FluidStack(BOPFluids.poison, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
+		fluid = new ItemStack(item);
+		this.fill(fluid, new FluidStack(BOPFluids.honey, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
+	}
 	
 	@Override
 	public void registerIcons(IIconRegister iconRegister)
