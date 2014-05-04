@@ -11,10 +11,6 @@ tile.mudBricks.name=Кирпичи из грязи
 tile.holyDirt.name=Очищенный грунт
 tile.crystal.name=Небесный кристалл
 
-tile.cakeBlock.name=Cake Block
-tile.frostedCake.name=Frosted Cake Block
-tile.cookieBlock.name=Cookie Block
-
 tile.redRock.redrock.name=Красный камень
 tile.redRock.redcobble.name=Красный булыжник
 tile.redRock.redbrick.name=Кирпичи из красного камня
@@ -51,8 +47,8 @@ tile.flowers.anemone.name=Белый анемон
 tile.flowers.lilyflower.name=Кувшинка
 tile.flowers.rainbowflower.name=Цветофлора
 tile.flowers.bromeliad.name=Бромелия
-tile.flowers.sunflowerbottom.name=Подсолнечник
-tile.flowers.sunflowertop.name=Подсолнечник
+tile.flowers.eyebulbbottom.name=Глазное яблоко
+tile.flowers.eyebulbtop.name=Глазное яблоко
 tile.flowers.dandelion.name=Белый одуванчик
 
 tile.flowers2.hibiscus.name=Розовый гибискус
@@ -68,13 +64,13 @@ tile.flowers2.rose.name=Роза
 tile.stoneFormations.stalagmite.name=Сталагмит
 tile.stoneFormations.stalactite.name=Сталактит
 
-tile.foliage.algae.name=Водоросли
+tile.foliage.duckweed.name=Ряска
 tile.foliage.shortgrass.name=Низкая трава
 tile.foliage.mediumgrass.name=Средняя трава
-tile.foliage.highgrassbottom.name=Высокая трава
+tile.foliage.hedgebottom.name=Живая изгородь
 tile.foliage.bush.name=Куст
 tile.foliage.sprout.name=Росток
-tile.foliage.highgrasstop.name=Высокая трава
+tile.foliage.hedgetop.name=Живая изгородь
 tile.foliage.poisonivy.name=Ядовитый плющ
 tile.foliage.berrybush.name=Ягодный куст
 tile.foliage.shrub.name=Кустарник
@@ -150,7 +146,7 @@ tile.holyStone.holystonemossy.name=Замшелый небесный камен�
 tile.holyCobbleStairs.name=Ступеньки из небесного булыжника
 tile.holyBricksStairs.name=Ступеньки из небесных кирпичей
 
-tile.gemOre.amethystore.name=Аметистовая руда
+tile.gemOre.amethystore.name=Аметистовая руда Края
 tile.gemOre.amethystblock.name=Аметистовый блок
 tile.gemOre.rubyore.name=Рубиновая руда
 tile.gemOre.rubyblock.name=Рубиновый блок
@@ -175,6 +171,10 @@ tile.hive.honeycombempty.name=Пустой блок медовых сот
 tile.hive.honeycombfilled.name=Заполненный блок медовых сот
 
 tile.honeyBlock.name=Блок мёда
+
+tile.jellyBlock.strawberry.name=Блок клубничного желе
+tile.jellyBlock.raspberry.name=Блок малинового желе
+tile.jellyBlock.grape.name=Блок виноградного желе
 
 tile.bones.bones_small.name=Малый сегмент кости
 tile.bones.bones_medium.name=Средний сегмент кости
@@ -344,7 +344,7 @@ item.jarFilled.jarhoney.name=Банка мёда
 item.jarFilled.jarpoison.name=Банка ядовитого экстракта
 item.jarFilled.jarpixie.name=Банка для фей
 
-item.gems.amethyst.name=Аметист
+item.gems.amethyst.name=Аметист Края
 item.gems.ruby.name=Рубин
 item.gems.peridot.name=Оливин
 item.gems.topaz.name=Топаз
@@ -402,14 +402,9 @@ item.flowerBand.exoticflowerband.name=Экзотический венок
 item.wadingBoots.name=Болотные сапоги
 item.flippers.name=Ласты
 
-item.biomeBook.name=Книга Биомов
+item.biomeBook.name=Книга биомов
 item.biomeFinder.name=Радар биомов
 item.biomeEssence.name=Эссенция биомов
-
-item.bopBucket.amethyst_empty.name=Аметистовое ведро
-item.bopBucket.spring_water.name=Аметистовое ведро родниковой воды
-item.bopBucket.liquid_poison.name=Ведро жидкого яда
-item.bopBucket.honey.name=Ведро мёда
 
 tile.poison.name=Яд
 tile.springWater.name=Родниковая вода
@@ -417,7 +412,7 @@ tile.honey.name=Мёд
 
 fluid.poison=Яд
 fluid.springWater=Родниковая вода
-fluid.honey.name=Мёд
+fluid.honey=Мёд
 
 phrase.bop.useBOPATGWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty" или "ATG". Это сообщение отобразится один раз.
 phrase.bop.useBOPWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty". Это сообщение отобразится один раз.
@@ -477,4 +472,3 @@ achievement.bop.achAllBOP.desc=Вы получили все достижения
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
-generator.CANDYOP=Candyland
