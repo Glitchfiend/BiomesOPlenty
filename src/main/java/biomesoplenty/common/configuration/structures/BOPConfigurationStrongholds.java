@@ -2,6 +2,7 @@ package biomesoplenty.common.configuration.structures;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
@@ -9,94 +10,94 @@ import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.Level;
 
-import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
+import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
+import biomesoplenty.api.content.BOPCBiomes;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationStrongholds
 {
 	public static Configuration config;
 	
-	public static ArrayList<String> enabledBiomes = new ArrayList();
+	public static ArrayList<Integer> enabledBiomes = new ArrayList();
 	
 	public static void addDefaultStrongholdBiomes()
 	{
-        addStrongholdBiome("alps");
-        addStrongholdBiome("arctic");
-        //addStrongholdBiome("autumnHills");
-        //addStrongholdBiome("badlands");
-        addStrongholdBiome("bambooForest");
-        addStrongholdBiome("bayou");
-        //addStrongholdBiome("birchForest");
-        addStrongholdBiome("bog");
-        addStrongholdBiome("borealForest");
-        addStrongholdBiome("brushland");
-        addStrongholdBiome("canyon");
-        addStrongholdBiome("chaparral");
-        addStrongholdBiome("cherryBlossomGrove");
-        addStrongholdBiome("coniferousForest");
-        addStrongholdBiome("snowyConiferousForest");
-        addStrongholdBiome("crag");
-        addStrongholdBiome("deadForest");
-        //addStrongholdBiome("deadForestSnow");
-        addStrongholdBiome("deadSwamp");
-        //addStrongholdBiome("deadlands");
-        addStrongholdBiome("deciduousForest");
-        addStrongholdBiome("dunes");
-        addStrongholdBiome("fen");
-        addStrongholdBiome("flowerField");
-        addStrongholdBiome("frostForest");
-        //addStrongholdBiome("fungiForest");
-        //addStrongholdBiome("garden");
-        //addStrongholdBiome("glacier");
-        addStrongholdBiome("grassland");
-        addStrongholdBiome("grove");
-        addStrongholdBiome("heathland");
-        addStrongholdBiome("highland");
-        //addStrongholdBiome("hotSprings");
-        //addStrongholdBiome("icyHills");
-        addStrongholdBiome("jadeCliffs");
-        addStrongholdBiome("lavenderFields");
-        addStrongholdBiome("lushDesert");
-        addStrongholdBiome("lushSwamp");
-        //addStrongholdBiome("mangrove");
-        addStrongholdBiome("mapleWoods");
-        addStrongholdBiome("marsh");
-        addStrongholdBiome("meadow");
-        //addStrongholdBiome("mesa");
-        addStrongholdBiome("moor");
-        addStrongholdBiome("mountain");
-        addStrongholdBiome("mysticGrove");
-        //addStrongholdBiome("oasis");
-        addStrongholdBiome("ominousWoods");
-        //addStrongholdBiome("orchard");
-        addStrongholdBiome("outback");
-        //addStrongholdBiome("overgrownGreens");
-        //addStrongholdBiome("polar");
-        addStrongholdBiome("prairie");
-        addStrongholdBiome("quagmire");
-        addStrongholdBiome("rainforest");
-        addStrongholdBiome("redwoodForest");
-        addStrongholdBiome("sacredSprings");
-        //addStrongholdBiome("savanna");
-        //addStrongholdBiome("scrubland");
-        addStrongholdBiome("seasonalForest");
-        addStrongholdBiome("shield");
-        addStrongholdBiome("shrubland");
-        addStrongholdBiome("silkglades");
-        addStrongholdBiome("sludgepit");
-        addStrongholdBiome("spruceWoods");
-        //addStrongholdBiome("steppe");
-        addStrongholdBiome("temperateRainforest");
-        addStrongholdBiome("thicket");
-        addStrongholdBiome("timber");
-        addStrongholdBiome("tropicalRainforest");
-        addStrongholdBiome("tropics");
-        addStrongholdBiome("tundra");
-        addStrongholdBiome("volcano");
-        addStrongholdBiome("wasteland");
-        addStrongholdBiome("wetland");
-        addStrongholdBiome("woodland");
+        addStrongholdBiome(BOPCBiomes.alps);
+        addStrongholdBiome(BOPCBiomes.arctic);
+        //addStrongholdBiomBOPCBiomes.("autumnHills);
+        //addStrongholdBiomBOPCBiomes.("badlands);
+        addStrongholdBiome(BOPCBiomes.bambooForest);
+        addStrongholdBiome(BOPCBiomes.bayou);
+        //addStrongholdBiomBOPCBiomes.("birchForest);
+        addStrongholdBiome(BOPCBiomes.bog);
+        addStrongholdBiome(BOPCBiomes.borealForest);
+        addStrongholdBiome(BOPCBiomes.brushland);
+        addStrongholdBiome(BOPCBiomes.canyon);
+        addStrongholdBiome(BOPCBiomes.chaparral);
+        addStrongholdBiome(BOPCBiomes.cherryBlossomGrove);
+        addStrongholdBiome(BOPCBiomes.coniferousForest);
+        addStrongholdBiome(BOPCBiomes.snowyConiferousForest);
+        addStrongholdBiome(BOPCBiomes.crag);
+        addStrongholdBiome(BOPCBiomes.deadForest);
+        //addStrongholdBiomBOPCBiomes.("deadForestSnow);
+        addStrongholdBiome(BOPCBiomes.deadSwamp);
+        //addStrongholdBiomBOPCBiomes.("deadlands);
+        addStrongholdBiome(BOPCBiomes.deciduousForest);
+        addStrongholdBiome(BOPCBiomes.dunes);
+        addStrongholdBiome(BOPCBiomes.fen);
+        addStrongholdBiome(BOPCBiomes.flowerField);
+        addStrongholdBiome(BOPCBiomes.frostForest);
+        //addStrongholdBiomBOPCBiomes.("fungiForest);
+        //addStrongholdBiomBOPCBiomes.("garden);
+        //addStrongholdBiomBOPCBiomes.("glacier);
+        addStrongholdBiome(BOPCBiomes.grassland);
+        addStrongholdBiome(BOPCBiomes.grove);
+        addStrongholdBiome(BOPCBiomes.heathland);
+        addStrongholdBiome(BOPCBiomes.highland);
+        //addStrongholdBiomBOPCBiomes.("hotSprings);
+        //addStrongholdBiomBOPCBiomes.("icyHills);
+        addStrongholdBiome(BOPCBiomes.jadeCliffs);
+        addStrongholdBiome(BOPCBiomes.lavenderFields);
+        addStrongholdBiome(BOPCBiomes.lushDesert);
+        addStrongholdBiome(BOPCBiomes.lushSwamp);
+        //addStrongholdBiomBOPCBiomes.("mangrove);
+        addStrongholdBiome(BOPCBiomes.mapleWoods);
+        addStrongholdBiome(BOPCBiomes.marsh);
+        addStrongholdBiome(BOPCBiomes.meadow);
+        //addStrongholdBiomBOPCBiomes.("mesa);
+        addStrongholdBiome(BOPCBiomes.moor);
+        addStrongholdBiome(BOPCBiomes.mountain);
+        addStrongholdBiome(BOPCBiomes.mysticGrove);
+        //addStrongholdBiomBOPCBiomes.("oasis);
+        addStrongholdBiome(BOPCBiomes.ominousWoods);
+        //addStrongholdBiomBOPCBiomes.("orchard);
+        addStrongholdBiome(BOPCBiomes.outback);
+        //addStrongholdBiomBOPCBiomes.("overgrownGreens);
+        //addStrongholdBiomBOPCBiomes.("polar);
+        addStrongholdBiome(BOPCBiomes.prairie);
+        addStrongholdBiome(BOPCBiomes.quagmire);
+        addStrongholdBiome(BOPCBiomes.rainforest);
+        addStrongholdBiome(BOPCBiomes.redwoodForest);
+        addStrongholdBiome(BOPCBiomes.sacredSprings);
+        //addStrongholdBiomBOPCBiomes.("scrubland);
+        addStrongholdBiome(BOPCBiomes.seasonalForest);
+        addStrongholdBiome(BOPCBiomes.shield);
+        addStrongholdBiome(BOPCBiomes.shrubland);
+        addStrongholdBiome(BOPCBiomes.silkglades);
+        addStrongholdBiome(BOPCBiomes.sludgepit);
+        addStrongholdBiome(BOPCBiomes.spruceWoods);
+        //addStrongholdBiomBOPCBiomes.("steppe);
+        addStrongholdBiome(BOPCBiomes.temperateRainforest);
+        addStrongholdBiome(BOPCBiomes.thicket);
+        addStrongholdBiome(BOPCBiomes.timber);
+        addStrongholdBiome(BOPCBiomes.tropicalRainforest);
+        addStrongholdBiome(BOPCBiomes.tropics);
+        addStrongholdBiome(BOPCBiomes.tundra);
+        addStrongholdBiome(BOPCBiomes.volcano);
+        addStrongholdBiome(BOPCBiomes.wasteland);
+        addStrongholdBiome(BOPCBiomes.wetland);
+        addStrongholdBiome(BOPCBiomes.woodland);
 	}
 	
 	public static void init(File configFile)
@@ -108,17 +109,17 @@ public class BOPConfigurationStrongholds
 		try
 		{
 			config.load();
-			
-			for (BiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
-			{
-				BiomeGenBase biome = entry.biome;
-				
-				String name = biome.biomeName;
-				String convertedName = BOPBiomeHelper.convertBiomeName(name);
 
-				if (config.get("Allow Strongholds", name, enabledBiomes.contains(convertedName)).getBoolean(enabledBiomes.contains(convertedName)))
+			for (List<BiomeEntry> biomeList : BOPBiomeManager.overworldBiomes)
+			{
+				for (BiomeEntry entry : biomeList)
 				{
-					BiomeManager.addStrongholdBiome(biome);
+					BiomeGenBase biome = entry.biome;
+
+					if (config.get("Allow Strongholds", biome.biomeName, enabledBiomes.contains(biome.biomeID)).getBoolean(enabledBiomes.contains(biome.biomeID)))
+					{
+						BiomeManager.addStrongholdBiome(biome);
+					}
 				}
 			}
 		}
@@ -134,8 +135,8 @@ public class BOPConfigurationStrongholds
 		}
 	}
 	
-	public static void addStrongholdBiome(String biomeName)
+	public static void addStrongholdBiome(BiomeGenBase biome)
 	{
-		enabledBiomes.add(biomeName);
+		enabledBiomes.add(biome.biomeID);
 	}
 }

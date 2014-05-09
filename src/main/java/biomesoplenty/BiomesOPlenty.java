@@ -54,7 +54,6 @@ public class BiomesOPlenty
         BOPArmor.init();
         BOPCrafting.init();
         BOPBiomes.init();
-        BOPConfigurationBiomeGen.init(BOPConfiguration.biomeGenConfigFile);
         BOPConfigurationVillages.init(BOPConfiguration.villagesConfigFile);
         BOPConfigurationStrongholds.init(BOPConfiguration.strongholdsConfigFile);
         BOPConfigurationWorldFeatures.init(BOPConfiguration.worldFeaturesConfigFile);

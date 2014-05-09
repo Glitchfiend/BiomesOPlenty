@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.api.BOPBiomeHelper;
+import biomesoplenty.api.BOPBiomeManager;
 
 public class BiomeLayerHellBiomes extends BiomeLayerHell
 {

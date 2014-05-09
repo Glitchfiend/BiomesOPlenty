@@ -9,29 +9,23 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.api.BOPBiomeHelper.TemperatureType;
+import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
-import biomesoplenty.common.configuration.BOPConfigurationMain;
-import biomesoplenty.common.utils.BOPLogger;
-import biomesoplenty.common.world.BOPBiomeManager;
-import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
-	public List<BiomeEntry> desertBiomes = new ArrayList<BiomeEntry>();
-	public List<BiomeEntry> warmBiomes = new ArrayList<BiomeEntry>();
-	public List<BiomeEntry> coolBiomes = new ArrayList<BiomeEntry>();
-	public List<BiomeEntry> icyBiomes = new ArrayList<BiomeEntry>();
+	//Desert, Warm, Cool, Icy
+	public List<BiomeEntry>[] biomeLists = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
 	
 	public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldType worldType) 
 	{
 		super(seed, parentLayer, worldType);
 		
-		this.desertBiomes.addAll(BOPBiomeManager.desertBiomes);
-		this.warmBiomes.addAll(BOPBiomeManager.warmBiomes);
-		this.coolBiomes.addAll(BOPBiomeManager.coolBiomes);
-		this.icyBiomes.addAll(BOPBiomeManager.icyBiomes);
+		this.biomeLists[0].addAll(BOPBiomeManager.overworldBiomes[0]);
+		this.biomeLists[1].addAll(BOPBiomeManager.overworldBiomes[1]);
+		this.biomeLists[2].addAll(BOPBiomeManager.overworldBiomes[2]);
+		this.biomeLists[3].addAll(BOPBiomeManager.overworldBiomes[3]);
 	}
 
 	
@@ -50,7 +44,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 //   				111100000000
                 int l1 = (currentBiomeID & 3840) >> 8;
                 currentBiomeID &= -3841;
-
+                
                 if (isBiomeOceanic(currentBiomeID))
                 {
                     outputBiomeIDs[j1 + i1 * width] = currentBiomeID;
@@ -71,10 +65,14 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                         {
                             outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mesaPlateau_F.biomeID;
                         }
+                        else
+                        {
+                            outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(0);
+                        }
                     }
                     else
                     {
-                        outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(desertBiomes, this.nextInt(WeightedRandom.getTotalWeight(desertBiomes))).biome.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(0);
                     }
                 }
                 else if (currentBiomeID == 2)
@@ -85,7 +83,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(warmBiomes, this.nextInt(WeightedRandom.getTotalWeight(warmBiomes))).biome.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(1);
                     }
                 }
                 else if (currentBiomeID == 3)
@@ -96,14 +94,14 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                     }
                     else
                     {
-                        outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(coolBiomes, this.nextInt(WeightedRandom.getTotalWeight(coolBiomes))).biome.biomeID;
+                        outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(2);
                     }
                 }
                 else if (currentBiomeID == 4)
                 {
-                    outputBiomeIDs[j1 + i1 * width] = BOPBiomeManager.getWeightedRandomBiome(icyBiomes, this.nextInt(WeightedRandom.getTotalWeight(icyBiomes))).biome.biomeID;
+                    outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(3);
                 }
-                else if (BOPConfigurationBiomeGen.mushroomIslandGen)
+                else
                 {
                     outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mushroomIsland.biomeID;
                 }
@@ -111,5 +109,36 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         }
 
         return outputBiomeIDs;
+    }
+    
+    private int getBiomeIdFromList(int listId)
+    {
+    	if (!this.biomeLists[listId].isEmpty())
+    	{
+    		return getWeightedBiomeFromList(this.biomeLists[listId]);
+    	}
+    	else
+    	{
+    		List<BiomeEntry> mixedBiomeList = new ArrayList();
+    		
+    		for (int i = 0; i < 4; i++)
+    		{
+    			if (i != listId && !this.biomeLists[i].isEmpty()) mixedBiomeList.addAll(this.biomeLists[i]);
+    		}
+    		
+    		if (!mixedBiomeList.isEmpty())
+    		{
+    			return getWeightedBiomeFromList(mixedBiomeList);
+    		}
+    		else
+    		{
+        		throw new RuntimeException("No biomes are enabled!");
+    		}
+    	}
+    }
+    
+    private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
+    {
+    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, this.nextInt(WeightedRandom.getTotalWeight(biomeList)))).biome.biomeID;
     }
 }

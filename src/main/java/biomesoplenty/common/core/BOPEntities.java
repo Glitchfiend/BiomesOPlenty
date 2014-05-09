@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBiomeHelper;
+import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.entities.EntityBird;
 import biomesoplenty.common.entities.EntityGlob;
@@ -39,7 +39,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 
-				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPBiomeHelper.get("bambooForest"), BiomeGenBase.jungle, BOPBiomeHelper.get("tropicalRainforest")/*, Biomes.oasis.get()*/, BOPBiomeHelper.get("tropics"));
+				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPCBiomes.bambooForest, BiomeGenBase.jungle, BOPCBiomes.tropicalRainforest/*, Biomes.oasis.get()*/, BOPCBiomes.tropics);
 		}
 
 		if (BOPConfigurationIDs.rosesterID > 0)
@@ -60,7 +60,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityGlob.class, 6836276, 8414787);
 
-			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPBiomeHelper.get("bog"), BOPBiomeHelper.get("deadSwamp"), BOPBiomeHelper.get("fen"), BOPBiomeHelper.get("moor"), BOPBiomeHelper.get("quagmire"), BOPBiomeHelper.get("sludgepit"), BiomeGenBase.swampland);
+			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPCBiomes.bog, BOPCBiomes.deadSwamp, BOPCBiomes.fen, BOPCBiomes.moor, BOPCBiomes.quagmire, BOPCBiomes.sludgepit, BiomeGenBase.swampland);
 		}
 
 		if (BOPConfigurationIDs.phantomID > 0)
@@ -100,7 +100,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityPixie.class, 16742365, 16645116);
 
-			EntityRegistry.addSpawn(EntityPixie.class, 8, 1, 3, EnumCreatureType.ambient, BOPBiomeHelper.get("mysticGrove"));
+			EntityRegistry.addSpawn(EntityPixie.class, 8, 1, 3, EnumCreatureType.ambient, BOPCBiomes.mysticGrove);
 		}
 	}
 

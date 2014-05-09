@@ -2,6 +2,7 @@ package biomesoplenty.common.configuration.structures;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager;
@@ -9,8 +10,9 @@ import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.Level;
 
-import biomesoplenty.api.BOPBiomeHelper;
-import biomesoplenty.common.world.BOPBiomeManager.BiomeEntry;
+import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
+import biomesoplenty.api.content.BOPCBiomes;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationVillages
@@ -19,78 +21,77 @@ public class BOPConfigurationVillages
 	
 	public static int villageDistance;
 	
-	public static ArrayList<String> enabledBiomes = new ArrayList();
+	public static ArrayList<Integer> enabledBiomes = new ArrayList();
 	
 	public static void addDefaultVillageBiomes()
 	{
-        addVillageBiome("alps");
-        addVillageBiome("arctic");
-        //addVillageBiome("autumnHills"); 
-        //addVillageBiome("badlands"); 
-        addVillageBiome("bambooForest"); 
-        addVillageBiome("bayou");
-        addVillageBiome("bog"); 
-        addVillageBiome("borealForest");
-        addVillageBiome("brushland");
-        addVillageBiome("canyon");
-        addVillageBiome("chaparral");
-        addVillageBiome("cherryBlossomGrove"); 
-        addVillageBiome("coniferousForest");
-        addVillageBiome("snowyConiferousForest");
-        addVillageBiome("deadForest"); 
-        //addVillageBiome("deadForestSnow"); 
-        addVillageBiome("deadSwamp");
-        addVillageBiome("deciduousForest");
-        addVillageBiome("dunes"); 
-        addVillageBiome("fen");
-        addVillageBiome("flowerField");
-        addVillageBiome("frostForest"); 
-        //addVillageBiome("glacier");
-        addVillageBiome("grassland");
-        addVillageBiome("grove");
-        addVillageBiome("heathland");
-        addVillageBiome("highland");
-        //addVillageBiome("hotSprings");
-        addVillageBiome("jadeCliffs");
-        addVillageBiome("lushDesert");
-        addVillageBiome("lushSwamp");
-        //addVillageBiome("mangrove");
-        addVillageBiome("mapleWoods");
-        addVillageBiome("marsh");
-        addVillageBiome("meadow");
-        //addVillageBiome("meadowForest");
-        //addVillageBiome("mesa"); 
-        addVillageBiome("moor"); 
-        addVillageBiome("mountain"); 
-        //addVillageBiome("oasis"); 
+        addVillageBiome(BOPCBiomes.alps);
+        addVillageBiome(BOPCBiomes.arctic);
+        //addVillageBiome(BOPCBiomes.autumnHills); 
+        //addVillageBiome(BOPCBiomes.badlands); 
+        addVillageBiome(BOPCBiomes.bambooForest); 
+        addVillageBiome(BOPCBiomes.bayou);
+        addVillageBiome(BOPCBiomes.bog); 
+        addVillageBiome(BOPCBiomes.borealForest);
+        addVillageBiome(BOPCBiomes.brushland);
+        addVillageBiome(BOPCBiomes.canyon);
+        addVillageBiome(BOPCBiomes.chaparral);
+        addVillageBiome(BOPCBiomes.cherryBlossomGrove); 
+        addVillageBiome(BOPCBiomes.coniferousForest);
+        addVillageBiome(BOPCBiomes.snowyConiferousForest);
+        addVillageBiome(BOPCBiomes.deadForest); 
+        //addVillageBiome(BOPCBiomes.deadForestSnow); 
+        addVillageBiome(BOPCBiomes.deadSwamp);
+        addVillageBiome(BOPCBiomes.deciduousForest);
+        addVillageBiome(BOPCBiomes.dunes); 
+        addVillageBiome(BOPCBiomes.fen);
+        addVillageBiome(BOPCBiomes.flowerField);
+        addVillageBiome(BOPCBiomes.frostForest); 
+        //addVillageBiome(BOPCBiomes.glacier);
+        addVillageBiome(BOPCBiomes.grassland);
+        addVillageBiome(BOPCBiomes.grove);
+        addVillageBiome(BOPCBiomes.heathland);
+        addVillageBiome(BOPCBiomes.highland);
+        //addVillageBiome(BOPCBiomes.hotSprings);
+        addVillageBiome(BOPCBiomes.jadeCliffs);
+        addVillageBiome(BOPCBiomes.lushDesert);
+        addVillageBiome(BOPCBiomes.lushSwamp);
+        //addVillageBiome(BOPCBiomes.mangrove);
+        addVillageBiome(BOPCBiomes.mapleWoods);
+        addVillageBiome(BOPCBiomes.marsh);
+        addVillageBiome(BOPCBiomes.meadow);
+        //addVillageBiome(BOPCBiomes.meadowForest);
+        //addVillageBiome(BOPCBiomes.mesa); 
+        addVillageBiome(BOPCBiomes.moor); 
+        addVillageBiome(BOPCBiomes.mountain); 
+        //addVillageBiome(BOPCBiomes.oasis); 
 
-        //addVillageBiome("orchard");
-        addVillageBiome("outback");
-        //addVillageBiome("overgrownGreens");
-        addVillageBiome("pasture");
-        //addVillageBiome("polar");
-        addVillageBiome("prairie");
-        addVillageBiome("quagmire"); 
-        addVillageBiome("rainforest"); 
-        addVillageBiome("redwoodForest");
+        //addVillageBiome(BOPCBiomes.orchard);
+        addVillageBiome(BOPCBiomes.outback);
+        //addVillageBiome(BOPCBiomes.overgrownGreens);
+        //addVillageBiome(BOPCBiomes.polar);
+        addVillageBiome(BOPCBiomes.prairie);
+        addVillageBiome(BOPCBiomes.quagmire); 
+        addVillageBiome(BOPCBiomes.rainforest); 
+        addVillageBiome(BOPCBiomes.redwoodForest);
 
-        addVillageBiome("seasonalForest"); 
-        addVillageBiome("shield");
-        //addVillageBiome("scrubland");
-        addVillageBiome("shrubland");
-        addVillageBiome("sludgepit");
-        addVillageBiome("spruceWoods");
-        //addVillageBiome("steppe");
-        addVillageBiome("temperateRainforest"); 
-        addVillageBiome("thicket");
-        addVillageBiome("timber");
-        addVillageBiome("tropicalRainforest");
-        addVillageBiome("tropics");
-        addVillageBiome("tundra");
-        addVillageBiome("volcano"); 
+        addVillageBiome(BOPCBiomes.seasonalForest); 
+        addVillageBiome(BOPCBiomes.shield);
+        //addVillageBiome(BOPCBiomes.scrubland);
+        addVillageBiome(BOPCBiomes.shrubland);
+        addVillageBiome(BOPCBiomes.sludgepit);
+        addVillageBiome(BOPCBiomes.spruceWoods);
+        //addVillageBiome(BOPCBiomes.steppe);
+        addVillageBiome(BOPCBiomes.temperateRainforest); 
+        addVillageBiome(BOPCBiomes.thicket);
+        addVillageBiome(BOPCBiomes.timber);
+        addVillageBiome(BOPCBiomes.tropicalRainforest);
+        addVillageBiome(BOPCBiomes.tropics);
+        addVillageBiome(BOPCBiomes.tundra);
+        addVillageBiome(BOPCBiomes.volcano); 
 
-        addVillageBiome("wetland");
-        addVillageBiome("woodland");
+        addVillageBiome(BOPCBiomes.wetland);
+        addVillageBiome(BOPCBiomes.woodland);
 	}
 	
 	public static void init(File configFile)
@@ -106,16 +107,16 @@ public class BOPConfigurationVillages
 			villageDistance = config.get("Biomes O\' Plenty World Type Settings", "Distance between villages", 32, "In Vanilla it is set to 32").getInt();
 			if (villageDistance < 8) villageDistance = 8;
 			
-			for (BiomeEntry entry : BOPBiomeHelper.biomeLists[0 + 1].values())
+			for (List<BiomeEntry> biomeList : BOPBiomeManager.overworldBiomes)
 			{
-				BiomeGenBase biome = entry.biome;
-				
-				String name = biome.biomeName;
-				String convertedName = BOPBiomeHelper.convertBiomeName(name);
-
-				if (config.get("Allow Villages", name, enabledBiomes.contains(convertedName)).getBoolean(enabledBiomes.contains(convertedName)))
+				for (BiomeEntry entry : biomeList)
 				{
-					BiomeManager.addVillageBiome(biome, true);
+					BiomeGenBase biome = entry.biome;
+					
+					if (config.get("Allow Villages", biome.biomeName, enabledBiomes.contains(biome.biomeID)).getBoolean(enabledBiomes.contains(biome.biomeID)))
+					{
+						BiomeManager.addVillageBiome(biome, true);
+					}
 				}
 			}
 		}
@@ -131,8 +132,8 @@ public class BOPConfigurationVillages
 		}
 	}
 	
-	public static void addVillageBiome(String biomeName)
+	public static void addVillageBiome(BiomeGenBase biome)
 	{
-		enabledBiomes.add(biomeName);
+		enabledBiomes.add(biome.biomeID);
 	}
 }

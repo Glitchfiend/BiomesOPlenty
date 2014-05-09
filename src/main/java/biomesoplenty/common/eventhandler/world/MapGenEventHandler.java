@@ -7,7 +7,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class MapGenEventHandler 
 {
 	@SubscribeEvent
-	public void onMapGenInit(InitMapGenEvent event)
+	public void onInitBiomeGens(InitMapGenEvent event)
 	{
 		if (event.type == EventType.VILLAGE)
 		{
