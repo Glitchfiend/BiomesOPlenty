@@ -11,11 +11,6 @@ tile.mudBricks.name=Mattoni di Fango
 tile.holyDirt.name=Terra Sacra
 tile.crystal.name=Cristallo Celestiale
 
-tile.cakeBlock.name=Blocco di Torta
-tile.frostedCake.white.name=Blocco di Torta Gelata Bianca
-tile.frostedCake.pink.name=Blocco di Torta Gelata Rosa
-tile.cookieBlock.name=Blocco di Biscotto
-
 tile.redRock.redrock.name=Roccia Rossa
 tile.redRock.redcobble.name=Pietrisco di Roccia Rossa
 tile.redRock.redbrick.name=Mattoni di Roccia Rossa
@@ -411,18 +406,13 @@ item.biomeBook.name=Libro dei Biomi
 item.biomeFinder.name=Radar di Biomi
 item.biomeEssence.name=Essenza di Bioma
 
-item.bopBucket.amethyst_empty.name=Secchio di Ametista
-item.bopBucket.spring_water.name=Secchio di Ametista con Acqua Primaverile
-item.bopBucket.liquid_poison.name=Secchio di Liquido Velenoso
-item.bopBucket.honey.name=Secchio di Miele
-
 tile.poison.name=Liquido Velenoso
 tile.springWater.name=Acqua Primaverile
 tile.honey.name=Miele
 
 fluid.poison=Liquido Velenoso
 fluid.springWater=Acqua Primaverile
-fluid.honey.name=Miele
+fluid.honey=Miele
 
 phrase.bop.useBOPATGWorldtype=Per generare i nuovi biomi si devono usare i tipi di mondo Biomes O' Plenty oppure ATG. Questo messaggio sarà mostrato una sola volta.
 phrase.bop.useBOPWorldtype=Per generare i nuovi biomi si deve usare il tipo di mondo Biomes O' Plenty. Questo messaggio sarà mostrato una sola volta.
@@ -482,4 +472,3 @@ achievement.bop.achAllBOP.desc=Hai ottenuto tutte le conquiste di Biomes O' Plen
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
-generator.CANDYOP=Candyland
