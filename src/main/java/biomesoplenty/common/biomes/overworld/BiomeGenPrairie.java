@@ -78,7 +78,7 @@ public class BiomeGenPrairie extends BOPBiome
     }
 	
 	@Override
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
 		return 13165952;
 	}

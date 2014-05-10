@@ -23,9 +23,7 @@ public class BiomeGenShrubland extends BOPBiome
 	{
 		super(id);
 
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO:	setColor()
         this.setColor(8168286);
         this.setTemperatureRainfall(0.6F, 0.05F);
 		
@@ -71,12 +69,10 @@ public class BiomeGenShrubland extends BOPBiome
 			int y = random.nextInt(28) + 4;
 			int z = chunkZ + random.nextInt(16);
 
-			//TODO:				getBlock()
 			Block block = world.getBlock(x, y, z);
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				//TODO:	setBlock()
 				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
 			}
 		}

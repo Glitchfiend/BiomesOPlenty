@@ -53,6 +53,7 @@ public class BOPCBiomes
 	public static BiomeGenBase silkglades;
 	public static BiomeGenBase sludgepit;
 	public static BiomeGenBase spruceWoods;
+	public static BiomeGenBase steppe;
 	public static BiomeGenBase temperateRainforest;
 	public static BiomeGenBase thicket;
 	public static BiomeGenBase timber;

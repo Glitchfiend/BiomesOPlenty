@@ -69,6 +69,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biomes.overworld.BiomeGenSilkglades;
 import biomesoplenty.common.biomes.overworld.BiomeGenSludgepit;
 import biomesoplenty.common.biomes.overworld.BiomeGenSpruceWoods;
+import biomesoplenty.common.biomes.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biomes.overworld.BiomeGenTemperateRainforest;
 import biomesoplenty.common.biomes.overworld.BiomeGenThicket;
 import biomesoplenty.common.biomes.overworld.BiomeGenTimber;
@@ -166,6 +167,7 @@ public class BOPBiomes
         silkglades = registerOverworldBiome(BiomeGenSilkglades.class, "Silkglades", TemperatureType.COOL, 5);
         sludgepit = registerOverworldBiome(BiomeGenSludgepit.class, "Sludgepit", TemperatureType.WARM, 10);
         spruceWoods = registerOverworldBiome(BiomeGenSpruceWoods.class, "Spruce Woods", TemperatureType.WARM, 10);
+        steppe = registerOverworldBiome(BiomeGenSteppe.class, "Steppe", TemperatureType.HOT, 10);
         temperateRainforest = registerOverworldBiome(BiomeGenTemperateRainforest.class, "Temperate Rainforest", TemperatureType.WARM, 10);
         thicket = registerOverworldBiome(BiomeGenThicket.class, "Thicket", TemperatureType.COOL, 5);
         timber = registerOverworldBiome(BiomeGenTimber.class, "Timber", TemperatureType.COOL, 5);
