@@ -65,6 +65,9 @@ public class BOPCBiomes
 	public static BiomeGenBase woodland;
 	
 	//Sub Biomes
+	public static BiomeGenBase glacier;
+	
+	//Ocean Biomes
 	public static BiomeGenBase kelpForest;
 	
 	//Nether Biomes

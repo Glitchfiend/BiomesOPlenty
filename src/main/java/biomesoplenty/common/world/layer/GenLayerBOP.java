@@ -64,14 +64,14 @@ public abstract class GenLayerBOP extends GenLayer
         GenLayer genlayer1 = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
         GenLayerHills genlayerhills = new GenLayerHills(1000L, (GenLayer)object, genlayer1);
         //
-        //GenLayerSubBiome genlayersubbiome = new GenLayerSubBiome(1500L, genlayerhills);
+        GenLayerSubBiome genlayersubbiome = new GenLayerSubBiome(1500L, genlayerhills);
         //
         genlayer = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
         genlayer = GenLayerZoom.magnify(1000L, genlayer, b0);
         GenLayerRiver genlayerriver = new GenLayerRiver(1L, genlayer);
         GenLayerSmooth genlayersmooth = new GenLayerSmooth(1000L, genlayerriver);
         //object = new GenLayerRareBiome(1001L, genlayerhills);
-        object = new GenLayerRareBiome(1001L, genlayerhills);
+        object = new GenLayerRareBiome(1001L, genlayersubbiome);
         
         for (int j = 0; j < b0; ++j)
         {

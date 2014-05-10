@@ -79,7 +79,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenVolcano;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
-import biomesoplenty.common.biomes.overworld.subbiomes.ocean.BiomeGenKelpForest;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenGlacier;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
@@ -176,6 +176,9 @@ public class BOPBiomes
         wasteland = registerOverworldBiome(BiomeGenWasteland.class, "Wasteland", TemperatureType.HOT, 3);
         wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.WARM, 10);
         woodland = registerOverworldBiome(BiomeGenWoodland.class, "Woodland", TemperatureType.WARM, 10);
+        
+        //Sub Biomes
+		glacier = registerOverworldSubBiome(BiomeGenGlacier.class, "Glacier", 10, arctic.biomeID);
         
         //Nether Biomes
         corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
