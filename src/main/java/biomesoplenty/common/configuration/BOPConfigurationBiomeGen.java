@@ -20,7 +20,6 @@ public class BOPConfigurationBiomeGen
 	public static boolean mesaPlateauFGen = false;
 	public static boolean mesaPlateauGen = false;
 	public static boolean jungleGen = false;
-	public static boolean shrublandGen = false;
 	public static boolean megaTaigaGen = false;
 
 	public static void init(File configFile)
@@ -32,13 +31,12 @@ public class BOPConfigurationBiomeGen
 			config.load();
 
 			oceanGen = config.get("Special Biomes To Generate", "Ocean", true).getBoolean(true);
-			frozenOceanGen = config.get("Special Biomes To Generate", "FrozenOcean", true).getBoolean(true);
+			frozenOceanGen = config.get("Special Biomes To Generate", "Frozen Ocean", true).getBoolean(true);
 			deepOceanGen = config.get("Special Biomes To Generate", "Deep Ocean", true).getBoolean(true);
-			mushroomIslandGen = config.get("Special Biomes To Generate", "MushroomIsland", true).getBoolean(true);
+			mushroomIslandGen = config.get("Special Biomes To Generate", "Mushroom Island", true).getBoolean(true);
 			mesaPlateauFGen = config.get("Special Biomes To Generate", "Mesa Plateau F", true).getBoolean(true);
 			mesaPlateauGen = config.get("Special Biomes To Generate", "Mesa Plateau", true).getBoolean(true);
 			jungleGen = config.get("Special Biomes To Generate", "Jungle", true).getBoolean(true);
-			shrublandGen = config.get("Special Biomes To Generate", "Shrubland", true).getBoolean(true);
 			megaTaigaGen = config.get("Special Biomes To Generate", "Mega Taiga", true).getBoolean(true);
 		}
 		catch (Exception e)

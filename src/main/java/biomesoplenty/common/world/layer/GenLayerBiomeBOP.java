@@ -1,6 +1,7 @@
 package biomesoplenty.common.world.layer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.util.WeightedRandom;
@@ -45,7 +46,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 int l1 = (currentBiomeID & 3840) >> 8;
                 currentBiomeID &= -3841;
                 
-                if (isBiomeOceanic(currentBiomeID))
+                if (isBiomeOceanicAndEnabled(currentBiomeID))
                 {
                     outputBiomeIDs[j1 + i1 * width] = currentBiomeID;
                 }
@@ -103,7 +104,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 }
                 else
                 {
-                    outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mushroomIsland.biomeID;
+                	outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromMixedList();
                 }
             }
         }
@@ -119,26 +120,37 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     	}
     	else
     	{
-    		List<BiomeEntry> mixedBiomeList = new ArrayList();
-    		
-    		for (int i = 0; i < 4; i++)
-    		{
-    			if (i != listId && !this.biomeLists[i].isEmpty()) mixedBiomeList.addAll(this.biomeLists[i]);
-    		}
-    		
-    		if (!mixedBiomeList.isEmpty())
-    		{
-    			return getWeightedBiomeFromList(mixedBiomeList);
-    		}
-    		else
-    		{
-        		throw new RuntimeException("No biomes are enabled!");
-    		}
+    		return getBiomeIdFromMixedList(listId);
     	}
+    }
+    
+    private int getBiomeIdFromMixedList(int... listIdExclusions)
+    {
+    	List listIdExclusionList = Arrays.asList(listIdExclusions);
+		List<BiomeEntry> mixedBiomeList = new ArrayList();
+		
+		for (int i = 0; i < 4; i++)
+		{
+			if (!listIdExclusionList.contains(i) && !this.biomeLists[i].isEmpty()) mixedBiomeList.addAll(this.biomeLists[i]);
+		}
+		
+		if (!mixedBiomeList.isEmpty())
+		{
+			return getWeightedBiomeFromList(mixedBiomeList);
+		}
+		else
+		{
+    		throw new RuntimeException("No biomes are enabled!");
+		}
     }
     
     private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
     {
     	return ((BiomeEntry)WeightedRandom.getItem(biomeList, this.nextInt(WeightedRandom.getTotalWeight(biomeList)))).biome.biomeID;
+    }
+    
+    private boolean isBiomeOceanicAndEnabled(int biomeId)
+    {
+        return (biomeId == BiomeGenBase.ocean.biomeID  && BOPConfigurationBiomeGen.oceanGen)|| (biomeId == BiomeGenBase.deepOcean.biomeID && BOPConfigurationBiomeGen.deepOceanGen) || (biomeId == BiomeGenBase.frozenOcean.biomeID && BOPConfigurationBiomeGen.frozenOceanGen);
     }
 }
