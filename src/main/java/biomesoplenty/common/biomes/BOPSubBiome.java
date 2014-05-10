@@ -10,14 +10,11 @@ public abstract class BOPSubBiome extends BOPBiome
 	public int minRadius;
 	public int maxRadius;
 	
-	public List parents;
-	
 	public BOPSubBiome(int biomeID) 
 	{
 		super(biomeID);
 		
 		this.minRadius = 2;
 		this.maxRadius = 5;
-		this.parents = new ArrayList();
 	}
 }

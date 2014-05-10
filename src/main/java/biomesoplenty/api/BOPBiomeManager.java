@@ -12,7 +12,8 @@ public class BOPBiomeManager
 {
 	private static int nextBiomeId = 40;
 	
-	public static List<BiomeEntry>[] overworldBiomes = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList()};
+	public static List<BiomeEntry>[] overworldBiomes = new ArrayList[4];
+	public static List<BiomeEntry>[] overworldSubBiomes = new ArrayList[BiomeGenBase.getBiomeGenArray().length];
 	public static List<BiomeEntry> netherBiomes = new ArrayList();
 	
 	public static BiomeGenBase createAndRegisterBiome(Class<? extends BiomeGenBase> biomeClass, String biomeType, String biomeName, List<BiomeEntry> biomeList, int weight)
@@ -25,7 +26,7 @@ public class BOPBiomeManager
 
 			if (BOPConfigurationBiomeGen.config.get(biomeType + " Biomes To Generate", biome.biomeName, true).getBoolean(false))
 			{
-				biomeList.add(entry);
+				if (biomeList != null) biomeList.add(entry);
 			}
 
 			return biome;
