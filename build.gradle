@@ -12,7 +12,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.1-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
 
@@ -148,7 +148,7 @@ uploadArchives {
     }
     repositories.mavenDeployer {
             configuration = configurations.deployJars
-        
+
         if (project.hasProperty("filesmaven")) {
             logger.info('Publishing to files server')
             repository(url: project.filesmaven.url) {
@@ -205,7 +205,7 @@ uploadArchives {
                     name 'Amnet'
                     roles { role 'developer' }
                 }
-                                
+
                                 developer {
                     id 'ted80'
                     name 'ted80'
