@@ -65,6 +65,11 @@ public class BOPCBiomes
 	public static BiomeGenBase woodland;
 	
 	//Sub Biomes
+	public static BiomeGenBase kelpForest;
 	
 	//Nether Biomes
+	public static BiomeGenBase corruptedSands;
+	public static BiomeGenBase phantasmagoricInferno;
+	public static BiomeGenBase boneyard;
+	public static BiomeGenBase visceralHeap;
 }

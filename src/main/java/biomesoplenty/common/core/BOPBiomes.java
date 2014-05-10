@@ -1,63 +1,6 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.api.content.BOPCBiomes.alps;
-import static biomesoplenty.api.content.BOPCBiomes.arctic;
-import static biomesoplenty.api.content.BOPCBiomes.bambooForest;
-import static biomesoplenty.api.content.BOPCBiomes.bayou;
-import static biomesoplenty.api.content.BOPCBiomes.bog;
-import static biomesoplenty.api.content.BOPCBiomes.borealForest;
-import static biomesoplenty.api.content.BOPCBiomes.brushland;
-import static biomesoplenty.api.content.BOPCBiomes.canyon;
-import static biomesoplenty.api.content.BOPCBiomes.chaparral;
-import static biomesoplenty.api.content.BOPCBiomes.cherryBlossomGrove;
-import static biomesoplenty.api.content.BOPCBiomes.coniferousForest;
-import static biomesoplenty.api.content.BOPCBiomes.crag;
-import static biomesoplenty.api.content.BOPCBiomes.deadForest;
-import static biomesoplenty.api.content.BOPCBiomes.deadSwamp;
-import static biomesoplenty.api.content.BOPCBiomes.deciduousForest;
-import static biomesoplenty.api.content.BOPCBiomes.dunes;
-import static biomesoplenty.api.content.BOPCBiomes.fen;
-import static biomesoplenty.api.content.BOPCBiomes.flowerField;
-import static biomesoplenty.api.content.BOPCBiomes.frostForest;
-import static biomesoplenty.api.content.BOPCBiomes.grassland;
-import static biomesoplenty.api.content.BOPCBiomes.grove;
-import static biomesoplenty.api.content.BOPCBiomes.heathland;
-import static biomesoplenty.api.content.BOPCBiomes.highland;
-import static biomesoplenty.api.content.BOPCBiomes.jadeCliffs;
-import static biomesoplenty.api.content.BOPCBiomes.lavenderFields;
-import static biomesoplenty.api.content.BOPCBiomes.lushDesert;
-import static biomesoplenty.api.content.BOPCBiomes.lushSwamp;
-import static biomesoplenty.api.content.BOPCBiomes.mapleWoods;
-import static biomesoplenty.api.content.BOPCBiomes.marsh;
-import static biomesoplenty.api.content.BOPCBiomes.meadow;
-import static biomesoplenty.api.content.BOPCBiomes.moor;
-import static biomesoplenty.api.content.BOPCBiomes.mountain;
-import static biomesoplenty.api.content.BOPCBiomes.mysticGrove;
-import static biomesoplenty.api.content.BOPCBiomes.ominousWoods;
-import static biomesoplenty.api.content.BOPCBiomes.originValley;
-import static biomesoplenty.api.content.BOPCBiomes.outback;
-import static biomesoplenty.api.content.BOPCBiomes.prairie;
-import static biomesoplenty.api.content.BOPCBiomes.quagmire;
-import static biomesoplenty.api.content.BOPCBiomes.rainforest;
-import static biomesoplenty.api.content.BOPCBiomes.redwoodForest;
-import static biomesoplenty.api.content.BOPCBiomes.sacredSprings;
-import static biomesoplenty.api.content.BOPCBiomes.seasonalForest;
-import static biomesoplenty.api.content.BOPCBiomes.shield;
-import static biomesoplenty.api.content.BOPCBiomes.shrubland;
-import static biomesoplenty.api.content.BOPCBiomes.silkglades;
-import static biomesoplenty.api.content.BOPCBiomes.sludgepit;
-import static biomesoplenty.api.content.BOPCBiomes.snowyConiferousForest;
-import static biomesoplenty.api.content.BOPCBiomes.spruceWoods;
-import static biomesoplenty.api.content.BOPCBiomes.temperateRainforest;
-import static biomesoplenty.api.content.BOPCBiomes.thicket;
-import static biomesoplenty.api.content.BOPCBiomes.timber;
-import static biomesoplenty.api.content.BOPCBiomes.tropicalRainforest;
-import static biomesoplenty.api.content.BOPCBiomes.tropics;
-import static biomesoplenty.api.content.BOPCBiomes.tundra;
-import static biomesoplenty.api.content.BOPCBiomes.volcano;
-import static biomesoplenty.api.content.BOPCBiomes.wasteland;
-import static biomesoplenty.api.content.BOPCBiomes.wetland;
-import static biomesoplenty.api.content.BOPCBiomes.woodland;
+import static biomesoplenty.api.content.BOPCBiomes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -136,6 +79,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenVolcano;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biomes.overworld.subbiomes.ocean.BiomeGenKelpForest;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
@@ -233,16 +177,12 @@ public class BOPBiomes
         wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.WARM, 10);
         woodland = registerOverworldBiome(BiomeGenWoodland.class, "Woodland", TemperatureType.WARM, 10);
         
-        //Sub Biomes
-        
-        //new BiomeGenKelpForest(BOPConfigurationIDs.oceanKelpID).setBiomeName("Kelp Forest");
-        
         //Nether Biomes
-        registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
+        corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
         //registerBiome(new BiomeEntry(new BiomeGenUndergarden(BOPConfigurationIDs.netherUndergardenID).setBiomeName("Undergarden"), 10), -1);
-        registerNetherBiome(BiomeGenPhantasmagoricInferno.class, "Phantasmagoric Inferno", 10);
-        registerNetherBiome(BiomeGenBoneyard.class, "Boneyard", 10);
-        registerNetherBiome(BiomeGenVisceralHeap.class, "Visceral Heap", 10);
+        phantasmagoricInferno = registerNetherBiome(BiomeGenPhantasmagoricInferno.class, "Phantasmagoric Inferno", 10);
+        boneyard = registerNetherBiome(BiomeGenBoneyard.class, "Boneyard", 10);
+        visceralHeap = registerNetherBiome(BiomeGenVisceralHeap.class, "Visceral Heap", 10);
 	}
 
 	private static void addSpawnBiomes()
@@ -413,7 +353,7 @@ public class BOPBiomes
 				{
 					if (BOPBiomeManager.overworldSubBiomes[parent] == null) BOPBiomeManager.overworldSubBiomes[parent] = new ArrayList();
 					
-					BOPBiomeManager.overworldBiomes[parent].add(entry);
+					BOPBiomeManager.overworldSubBiomes[parent].add(entry);
 				}
 			}
 

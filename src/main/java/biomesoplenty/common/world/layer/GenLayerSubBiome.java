@@ -7,6 +7,7 @@ import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.world.noise.SimplexNoise;
 
 public class GenLayerSubBiome extends GenLayer
 {
@@ -32,16 +33,14 @@ public class GenLayerSubBiome extends GenLayer
         		
         		List<BiomeEntry> currentSubBiomes = BOPBiomeManager.overworldSubBiomes[currentBiomeId];
         		BOPSubBiome selectedSubBiome = currentSubBiomes != null ? (BOPSubBiome)currentSubBiomes.get(this.nextInt(currentSubBiomes.size())).biome : null;
-
+        		
         		if (selectedSubBiome != null)
         		{
-        			/*if (SimplexNoise.noise((xi + x) * selectedSubBiome.getZoom(), (zi + z) * selectedSubBiome.getZoom()) > selectedSubBiome.getThreshold())  
+        			if (SimplexNoise.noise((xi + x) * selectedSubBiome.zoom, (zi + z) * selectedSubBiome.zoom) > selectedSubBiome.threshold)  
         			{
-            			System.out.println(SimplexNoise.noise((xi + x) * selectedSubBiome.getZoom(), (zi + z) * selectedSubBiome.getZoom()));
-        				System.out.printf("Replaced Biome at %d, %d\n", xi + x, zi + z);
         				outputBiomeIDs[xi + zi * width] = selectedSubBiome.biomeID;
         			}
-        			else outputBiomeIDs[xi + zi * width] = currentBiomeId;*/
+        			else outputBiomeIDs[xi + zi * width] = currentBiomeId;
         		}
         		else
         		{
