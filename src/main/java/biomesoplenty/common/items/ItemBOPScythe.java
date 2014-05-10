@@ -195,7 +195,6 @@ public class ItemBOPScythe extends Item
     		{
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				//TODO:		  	getBlock()
     				Block block = world.getBlock(x + aX, y + aY, z + aZ);
     				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
@@ -228,10 +227,12 @@ public class ItemBOPScythe extends Item
     						{
     							stack.damageItem(1, entity);
     						}
+        			        else
+        			        {
+        			        	return;
+        			        }
 
-							//TODO: dropBlockAsItem()
     						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-							//TODO: setBlockToAir()
     						world.setBlockToAir(x + aX, y + aY, z + aZ);
     					}
     				}
