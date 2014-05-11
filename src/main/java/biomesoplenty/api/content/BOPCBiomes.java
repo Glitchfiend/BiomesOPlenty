@@ -68,6 +68,7 @@ public class BOPCBiomes
 	//Sub Biomes
 	public static BiomeGenBase glacier;
 	public static BiomeGenBase scrubland;
+	public static BiomeGenBase oasis;
 	
 	//Ocean Biomes
 	public static BiomeGenBase kelpForest;

@@ -81,6 +81,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenGlacier;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenOasis;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenScrubland;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -183,6 +184,7 @@ public class BOPBiomes
         //Sub Biomes
 		glacier = registerOverworldSubBiome(BiomeGenGlacier.class, "Glacier", 10, arctic.biomeID);
 		scrubland = registerOverworldSubBiome(BiomeGenScrubland.class, "Scrubland", 10, BiomeGenBase.savanna.biomeID);
+		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert.biomeID);
         
         //Nether Biomes
         corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
