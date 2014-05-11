@@ -181,5 +181,16 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 this.generate(world, random, randX, randY, randZ);
             }
         }
+        else if (featureName.equals("generateMycelium") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateMycelium"))
+        {
+            for (int i = 0; i < 10; ++i)
+            {
+                int randX = x + random.nextInt(16);
+                int randY = random.nextInt(128);
+                int randZ = z + random.nextInt(16);
+
+                this.generate(world, random, randX, randY, randZ);
+            }
+        }
     }
 }

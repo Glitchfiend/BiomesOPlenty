@@ -41,6 +41,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenDunes;
 import biomesoplenty.common.biomes.overworld.BiomeGenFen;
 import biomesoplenty.common.biomes.overworld.BiomeGenFlowerField;
 import biomesoplenty.common.biomes.overworld.BiomeGenFrostForest;
+import biomesoplenty.common.biomes.overworld.BiomeGenFungiForest;
 import biomesoplenty.common.biomes.overworld.BiomeGenGrassland;
 import biomesoplenty.common.biomes.overworld.BiomeGenGrove;
 import biomesoplenty.common.biomes.overworld.BiomeGenHeathland;
@@ -141,6 +142,7 @@ public class BOPBiomes
         fen = registerOverworldBiome(BiomeGenFen.class, "Fen", TemperatureType.WARM, 10);
         flowerField = registerOverworldBiome(BiomeGenFlowerField.class, "Flower Field", TemperatureType.WARM, 3);
         frostForest = registerOverworldBiome(BiomeGenFrostForest.class, "Frost Forest", TemperatureType.ICY, 10);
+        fungiForest = registerOverworldBiome(BiomeGenFungiForest.class, "Fungi Forest", TemperatureType.COOL, 3);
         grassland = registerOverworldBiome(BiomeGenGrassland.class, "Grassland", TemperatureType.COOL, 10);
         grove = registerOverworldBiome(BiomeGenGrove.class, "Grove", TemperatureType.COOL, 5);
         heathland = registerOverworldBiome(BiomeGenHeathland.class, "Heathland", TemperatureType.WARM, 10);

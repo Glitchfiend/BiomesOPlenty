@@ -47,8 +47,20 @@ public class WorldGenBOPTaiga3 extends WorldGenAbstractTree
 
         switch (altNo)
         {
+        	case 1:
+                i1 = random.nextInt(4) + 8;
+                j1 = l - i1;
+                k1 = 4;
+        		break;
+        		
+        	case 2:
+                i1 = random.nextInt(5) + 5;
+                j1 = l - i1;
+                k1 = 3;
+        		break;
+        
             default:
-                i1 = 10 + random.nextInt(5);
+                i1 = random.nextInt(5) + 10;
                 j1 = l - i1;
                 k1 = 4;
                 break;

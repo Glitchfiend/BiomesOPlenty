@@ -56,6 +56,7 @@ public class WorldGenFieldAssociation
         associateFeature("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
         associateFeature("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
         associateFeature("generateAsh", new WorldGenSplotches(BOPBlockHelper.get("ash"), 0, 32, BOPBlockHelper.get("ashStone"), Blocks.netherrack));
+        associateFeature("generateMycelium", new WorldGenSplotches(Blocks.mycelium, 0, 32, Blocks.grass));
 
         associateFeature("mudPerChunk", new WorldGenWaterside(BOPBlockHelper.get("mud"), 7, Blocks.dirt, Blocks.grass));
         associateFeature("riverCanePerChunk", new WorldGenRiverCane());
@@ -100,6 +101,7 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
         associateFeature("smolderingGrassPerChunk", new WorldGenSplatter(BOPBlockHelper.get("grass"), 1, BOPBlockHelper.get("ash"), Blocks.netherrack));
         associateFeature("sandSplatterPerChunk", new WorldGenSplatter(Blocks.sand, Blocks.grass));
+        associateFeature("glowshroomsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 3));
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());

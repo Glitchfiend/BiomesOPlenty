@@ -31,6 +31,7 @@ public class BOPWorldFeatures
         addFeature("generateQuagmire", false);
         addFeature("generateAsh", false);
         addFeature("generateMelons", false);
+        addFeature("generateMycelium", false);
 
         addFeature("waterPoolsPerChunk", 50);
         addFeature("lavaPoolsPerChunk", 20);
@@ -81,6 +82,7 @@ public class BOPWorldFeatures
         addFeature("wastelandRockPilesPerChunk", 0);
         addFeature("smolderingGrassPerChunk", 0);
         addFeature("sandSplatterPerChunk", 0);
+        addFeature("glowshroomsPerChunk", 0);
 
         //Nether Features
         addFeature("waspHivesPerChunk", 0);
