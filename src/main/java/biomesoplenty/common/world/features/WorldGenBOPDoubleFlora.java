@@ -60,7 +60,6 @@ public class WorldGenBOPDoubleFlora extends WorldGenBOPFlora
             int j1 = y + random.nextInt(4) - random.nextInt(4);
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
-            //TODO:	  isAirBlock()
             if (world.isAirBlock(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255))
             {
                 if (isVanilla)
@@ -74,9 +73,7 @@ public class WorldGenBOPDoubleFlora extends WorldGenBOPFlora
                 {
                     if (bottomFlora != null && this.bottomFlora.canReplace(world, i1, j1, k1, 0, new ItemStack(bottomFlora, 1, bottomFloraMeta)))
                     {
-                        //TODO: setBlock()
                         world.setBlock(i1, j1, k1, this.bottomFlora, this.bottomFloraMeta, 2);
-                        //TODO: setBlock()
                         world.setBlock(i1, j1 + 1, k1, this.topFlora, this.topFloraMeta, 2);
                     }
                 }
