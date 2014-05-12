@@ -95,6 +95,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BOPBiomes
 {
 	public static WorldTypeBOP worldTypeBOP;
+	
+	public static BiomeGenBase onlyBiome = null;
 
 	public static void init()
 	{

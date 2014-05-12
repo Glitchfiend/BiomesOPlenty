@@ -12,7 +12,9 @@ import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
+import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import biomesoplenty.common.core.BOPBiomes;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
@@ -45,6 +47,12 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 //   				111100000000
                 int l1 = (currentBiomeID & 3840) >> 8;
                 currentBiomeID &= -3841;
+                
+                if (BOPBiomes.onlyBiome != null)
+                {
+                	outputBiomeIDs[j1 + i1 * width] = BOPBiomes.onlyBiome.biomeID;
+                	continue;
+                }
                 
                 if (isBiomeOceanicAndEnabled(currentBiomeID))
                 {
