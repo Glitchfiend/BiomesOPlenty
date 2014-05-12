@@ -76,6 +76,7 @@ public class BOPCBiomes
 	
 	//Nether Biomes
 	public static BiomeGenBase corruptedSands;
+	public static BiomeGenBase undergarden;
 	public static BiomeGenBase phantasmagoricInferno;
 	public static BiomeGenBase boneyard;
 	public static BiomeGenBase visceralHeap;

@@ -18,6 +18,7 @@ import biomesoplenty.common.world.features.WorldGenGrassSplatter;
 import biomesoplenty.common.world.features.WorldGenLavaSpout;
 import biomesoplenty.common.world.features.WorldGenLog;
 import biomesoplenty.common.world.features.WorldGenLongVine;
+import biomesoplenty.common.world.features.WorldGenOvergrownNetherrack;
 import biomesoplenty.common.world.features.WorldGenRiverCane;
 import biomesoplenty.common.world.features.WorldGenSplatter;
 import biomesoplenty.common.world.features.WorldGenSplotches;
@@ -109,6 +110,7 @@ public class WorldGenFieldAssociation
         associateFeature("boneSpinesDownPerChunk", new WorldGenBoneSpine(true));
         associateFeature("netherLavaLakesPerChunk", new WorldGenLakesNether());
         associateFeature("netherVinesPerChunk", new WorldGenLongVine(BOPBlockHelper.get("ivy"), 8, 10));
+        associateFeature("overgrownNetherrackPerChunk", new WorldGenOvergrownNetherrack());
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());
