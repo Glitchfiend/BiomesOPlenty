@@ -16,36 +16,35 @@ import biomesoplenty.common.world.features.trees.WorldGenTropicsShrub;
 
 public class BiomeGenOasis extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(0.3F, 0.4F);
+	private static final Height biomeHeight = new Height(-0.2F, 0.0F);
 	
 	public BiomeGenOasis(int biomeID)
 	{
 		super(biomeID);
 
 		this.zoom = 0.5D;
-		this.threshold = 0D;
+		this.threshold = 0.5D;
 		
         this.setHeight(biomeHeight);
 		this.setColor(7712283);
         this.setTemperatureRainfall(0.9F, 0.7F);
         
-        this.topBlock = Blocks.sand;
-        this.fillerBlock = Blocks.sand;
+        this.topBlock = Blocks.grass;
+        this.fillerBlock = Blocks.dirt;
         
-        this.theBiomeDecorator.treesPerChunk = 5;
+        this.theBiomeDecorator.treesPerChunk = 3;
         this.theBiomeDecorator.cactiPerChunk = 7;
         this.theBiomeDecorator.reedsPerChunk = 100;
         
         this.bopWorldFeatures.setFeature("tinyCactiPerChunk", 2);
         this.bopWorldFeatures.setFeature("desertSproutsPerChunk", 3);
         this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 4);
-        this.bopWorldFeatures.setFeature("oasesPerChunk", 30);
-        this.bopWorldFeatures.setFeature("waterLakesPerChunk", 10);
+        this.bopWorldFeatures.setFeature("waterLakesPerChunk", 4);
         this.bopWorldFeatures.setFeature("generateQuicksand", true);
         this.bopWorldFeatures.setFeature("generateMelons", true);
 		this.bopWorldFeatures.setFeature("generatePumpkins", false);
 		
-        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 8);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 11);
 		
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);

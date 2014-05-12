@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenScrubland extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(0.3F, 0.5F);
+	private static final Height biomeHeight = new Height(0.125F, 0.05F);
 	
 	public BiomeGenScrubland(int biomeID)
 	{

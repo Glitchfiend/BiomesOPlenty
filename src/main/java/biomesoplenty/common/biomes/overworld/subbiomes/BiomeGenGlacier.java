@@ -10,7 +10,7 @@ import biomesoplenty.common.biomes.BOPSubBiome;
 
 public class BiomeGenGlacier extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(0.4F, 0.8F);
+	private static final Height biomeHeight = new Height(1.5F, 0.025F);
 	
 	public BiomeGenGlacier(int biomeID) 
 	{
