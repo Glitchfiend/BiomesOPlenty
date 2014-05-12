@@ -1,22 +1,25 @@
 package biomesoplenty.common.world.layer.hell;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import net.minecraft.world.WorldType;
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 
 public class BiomeLayerHellBiomes extends BiomeLayerHell
 {
-	public static ArrayList<BiomeGenBase> netherBiomes = new ArrayList<BiomeGenBase>();
+	public List<BiomeEntry> netherBiomes = new ArrayList();
 	
     public BiomeLayerHellBiomes(long par1, BiomeLayerHell par3GenLayer)
     {
         super(par1);
 		parent = par3GenLayer;
 
-		netherBiomes.add(BiomeGenBase.hell);
+		this.netherBiomes.add(new BiomeEntry(BiomeGenBase.hell, 10));
+		this.netherBiomes.addAll(BOPBiomeManager.netherBiomes);
     } 
 
     @Override
@@ -32,9 +35,14 @@ public class BiomeLayerHellBiomes extends BiomeLayerHell
                 this.initChunkSeed((long)(var8 + par1), (long)(var7 + par2));
                 int var9 = var5[var8 + var7 * par3];
 				
-				var6[var8 + var7 * par3] = netherBiomes.get(this.nextInt(netherBiomes.size())).biomeID;
+				var6[var8 + var7 * par3] = getWeightedBiomeFromList(netherBiomes);
             }
         }
         return var6;
+    }
+    
+    private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
+    {
+    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, this.nextInt(WeightedRandom.getTotalWeight(biomeList)))).biome.biomeID;
     }
 }
