@@ -128,7 +128,6 @@ import biomesoplenty.common.biomes.overworld.BiomeGenOminousWoods;
 import biomesoplenty.common.biomes.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biomes.overworld.BiomeGenOutback;
 import biomesoplenty.common.biomes.overworld.BiomeGenPrairie;
-import biomesoplenty.common.biomes.overworld.BiomeGenQuagmire;
 import biomesoplenty.common.biomes.overworld.BiomeGenRainforest;
 import biomesoplenty.common.biomes.overworld.BiomeGenRedwoodForest;
 import biomesoplenty.common.biomes.overworld.BiomeGenSacredSprings;
@@ -143,15 +142,16 @@ import biomesoplenty.common.biomes.overworld.BiomeGenTemperateRainforest;
 import biomesoplenty.common.biomes.overworld.BiomeGenThicket;
 import biomesoplenty.common.biomes.overworld.BiomeGenTimber;
 import biomesoplenty.common.biomes.overworld.BiomeGenTropicalRainforest;
-import biomesoplenty.common.biomes.overworld.BiomeGenTropics;
 import biomesoplenty.common.biomes.overworld.BiomeGenTundra;
-import biomesoplenty.common.biomes.overworld.BiomeGenVolcano;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenGlacier;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenOasis;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenQuagmire;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenScrubland;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenTropics;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenVolcano;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
@@ -231,7 +231,6 @@ public class BOPBiomes
         originValley = registerOverworldBiome(BiomeGenOriginValley.class, "Origin Valley", TemperatureType.WARM, 1);
         outback = registerOverworldBiome(BiomeGenOutback.class, "Outback", TemperatureType.HOT, 10);
         prairie = registerOverworldBiome(BiomeGenPrairie.class, "Prairie", TemperatureType.WARM, 10);
-        quagmire = registerOverworldBiome(BiomeGenQuagmire.class, "Quagmire", TemperatureType.WARM, 10);
         rainforest = registerOverworldBiome(BiomeGenRainforest.class, "Rainforest", TemperatureType.WARM, 5);
         redwoodForest = registerOverworldBiome(BiomeGenRedwoodForest.class, "Redwood Forest", TemperatureType.WARM, 10);
         sacredSprings = registerOverworldBiome(BiomeGenSacredSprings.class, "Sacred Springs", TemperatureType.WARM, 3);
@@ -246,9 +245,7 @@ public class BOPBiomes
         thicket = registerOverworldBiome(BiomeGenThicket.class, "Thicket", TemperatureType.COOL, 5);
         timber = registerOverworldBiome(BiomeGenTimber.class, "Timber", TemperatureType.COOL, 5);
         tropicalRainforest = registerOverworldBiome(BiomeGenTropicalRainforest.class, "Tropical Rainforest", TemperatureType.HOT, 5);
-        tropics = registerOverworldBiome(BiomeGenTropics.class, "Tropics", TemperatureType.HOT, 3);
         tundra = registerOverworldBiome(BiomeGenTundra.class, "Tundra", TemperatureType.ICY, 10);
-        volcano = registerOverworldBiome(BiomeGenVolcano.class, "Volcano", TemperatureType.HOT, 5);
         wasteland = registerOverworldBiome(BiomeGenWasteland.class, "Wasteland", TemperatureType.HOT, 3);
         wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.WARM, 10);
         woodland = registerOverworldBiome(BiomeGenWoodland.class, "Woodland", TemperatureType.WARM, 10);
@@ -257,6 +254,11 @@ public class BOPBiomes
 		glacier = registerOverworldSubBiome(BiomeGenGlacier.class, "Glacier", 10, arctic.biomeID);
 		scrubland = registerOverworldSubBiome(BiomeGenScrubland.class, "Scrubland", 10, BiomeGenBase.savanna.biomeID);
 		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert.biomeID);
+		quagmire = registerOverworldSubBiome(BiomeGenQuagmire.class, "Quagmire", 10, sludgepit.biomeID);
+		
+		//Ocean Biomes
+		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.ocean.biomeID, BiomeGenBase.deepOcean.biomeID);
+		tropics = registerOverworldSubBiome(BiomeGenTropics.class, "Tropics", 10, BiomeGenBase.ocean.biomeID, BiomeGenBase.deepOcean.biomeID);
         
         //Nether Biomes
         corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
@@ -375,7 +377,6 @@ public class BOPBiomes
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("polar, Type.FROZEN, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPCBiomes.prairie, Type.PLAINS);
 
-        BiomeDictionary.registerBiomeType(BOPCBiomes.quagmire, Type.WASTELAND, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPCBiomes.rainforest, Type.JUNGLE, Type.HILLS, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.redwoodForest, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.sacredSprings, Type.MOUNTAIN, Type.FOREST, Type.MAGICAL);
@@ -403,11 +404,9 @@ public class BOPBiomes
         
         BiomeDictionary.registerBiomeType(BOPCBiomes.tropicalRainforest, Type.JUNGLE);
         
-        BiomeDictionary.registerBiomeType(BOPCBiomes.tropics, Type.JUNGLE, Type.WATER);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("tropicsMountain, Type.JUNGLE, Type.WATER);
         
         BiomeDictionary.registerBiomeType(BOPCBiomes.tundra, Type.FROZEN, Type.WASTELAND);
-        BiomeDictionary.registerBiomeType(BOPCBiomes.volcano, Type.WASTELAND, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(BOPCBiomes.wasteland, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.wetland, Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.woodland, Type.FOREST);

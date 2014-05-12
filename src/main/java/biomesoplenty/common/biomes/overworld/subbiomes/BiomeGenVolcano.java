@@ -1,16 +1,20 @@
-package biomesoplenty.common.biomes.overworld;
+package biomesoplenty.common.biomes.overworld.subbiomes;
 
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
-public class BiomeGenVolcano extends BOPBiome
+public class BiomeGenVolcano extends BOPSubBiome
 {
     private static final Height biomeHeight = new Height(5.0F, 0.025F);
 
     public BiomeGenVolcano(int id)
     {
         super(id);
+        
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
         
         //TODO: setHeight()
         this.setHeight(biomeHeight);

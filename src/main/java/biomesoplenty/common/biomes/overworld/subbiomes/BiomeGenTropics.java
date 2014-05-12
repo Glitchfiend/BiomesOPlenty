@@ -1,7 +1,16 @@
-package biomesoplenty.common.biomes.overworld;
+package biomesoplenty.common.biomes.overworld.subbiomes;
 
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenShrub;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.EntityJungleSpider;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -9,21 +18,17 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 import biomesoplenty.common.world.features.trees.WorldGenTropicsShrub;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenShrub;
 
-import java.util.Random;
-
-public class BiomeGenTropics extends BOPBiome
+public class BiomeGenTropics extends BOPSubBiome
 {
     private static final Height biomeHeight = new Height(0.0F, 0.4F);
 
     public BiomeGenTropics(int id)
     {
         super(id);
+        
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
         
         //TODO: setHeight()
         this.setHeight(biomeHeight);

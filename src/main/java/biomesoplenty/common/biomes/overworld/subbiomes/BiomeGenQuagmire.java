@@ -1,24 +1,28 @@
-package biomesoplenty.common.biomes.overworld;
-
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+package biomesoplenty.common.biomes.overworld.subbiomes;
 
 import java.util.Random;
 
-public class BiomeGenQuagmire extends BOPBiome
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+
+public class BiomeGenQuagmire extends BOPSubBiome
 {
     private static final Height biomeHeight = new Height(0.0F, 0.1F);
     
     public BiomeGenQuagmire(int id)
     {
         super(id);
+        
+        this.zoom = 0.5D;
+		this.threshold = 0D;
         
         //TODO: setHeight()
         this.setHeight(biomeHeight);

@@ -44,7 +44,6 @@ public class BOPCBiomes
 	public static BiomeGenBase originValley;
 	public static BiomeGenBase outback;
 	public static BiomeGenBase prairie;
-	public static BiomeGenBase quagmire;
 	public static BiomeGenBase rainforest;
 	public static BiomeGenBase redwoodForest;
 	public static BiomeGenBase sacredSprings;
@@ -59,9 +58,7 @@ public class BOPCBiomes
 	public static BiomeGenBase thicket;
 	public static BiomeGenBase timber;
 	public static BiomeGenBase tropicalRainforest;
-	public static BiomeGenBase tropics;
 	public static BiomeGenBase tundra;
-	public static BiomeGenBase volcano;
 	public static BiomeGenBase wasteland;
 	public static BiomeGenBase wetland;
 	public static BiomeGenBase woodland;
@@ -70,6 +67,9 @@ public class BOPCBiomes
 	public static BiomeGenBase glacier;
 	public static BiomeGenBase scrubland;
 	public static BiomeGenBase oasis;
+	public static BiomeGenBase quagmire;
+	public static BiomeGenBase tropics;
+	public static BiomeGenBase volcano;
 	
 	//Ocean Biomes
 	public static BiomeGenBase kelpForest;
