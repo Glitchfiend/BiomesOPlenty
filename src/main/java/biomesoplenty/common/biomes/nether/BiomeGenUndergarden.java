@@ -15,13 +15,13 @@ public class BiomeGenUndergarden extends BOPNetherBiome
         this.topBlock = Blocks.netherrack;
         this.fillerBlock = Blocks.netherrack;
         
-        this.bopWorldFeatures.setFeature("netherVinesPerChunk", 9);
-        this.bopWorldFeatures.setFeature("overgrownNetherrackPerChunk", 10);
+        this.bopWorldFeatures.setFeature("netherVinesPerChunk", 12);
+        this.bopWorldFeatures.setFeature("overgrownNetherrackPerChunk", 60);
         //customBiomeDecorator.gravesPerChunk = 1;
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
         this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 3);
         this.bopWorldFeatures.setFeature("glowshroomsPerChunk", 1);
-        this.theBiomeDecorator.mushroomsPerChunk = 8;
-		this.theBiomeDecorator.bigMushroomsPerChunk = 8;
+        this.theBiomeDecorator.mushroomsPerChunk = 30;
+		this.theBiomeDecorator.bigMushroomsPerChunk = 30;
     }
 }

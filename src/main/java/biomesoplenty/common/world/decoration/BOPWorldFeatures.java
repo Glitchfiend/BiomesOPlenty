@@ -90,6 +90,7 @@ public class BOPWorldFeatures
         addFeature("boneSpinesDownPerChunk", 0);
         addFeature("netherLavaLakesPerChunk", 0);
         addFeature("netherVinesPerChunk", 0);
+        addFeature("overgrownNetherrackPerChunk", 0);
         
         addFeature("bopFlowersPerChunk", 0);
         addFeature("bopGrassPerChunk", 0);

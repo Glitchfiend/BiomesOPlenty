@@ -109,7 +109,7 @@ public class WorldGenFieldAssociation
         associateFeature("boneSpinesUpPerChunk", new WorldGenBoneSpine(false));
         associateFeature("boneSpinesDownPerChunk", new WorldGenBoneSpine(true));
         associateFeature("netherLavaLakesPerChunk", new WorldGenLakesNether());
-        associateFeature("netherVinesPerChunk", new WorldGenLongVine(BOPBlockHelper.get("ivy"), 8, 10));
+        associateFeature("netherVinesPerChunk", new WorldGenLongVine(BOPBlockHelper.get("ivy"), 15, 30));
         associateFeature("overgrownNetherrackPerChunk", new WorldGenOvergrownNetherrack());
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());

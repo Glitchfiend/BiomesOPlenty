@@ -260,10 +260,10 @@ public class BOPBiomes
         
         //Nether Biomes
         corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
-        //undergarden = registerNetherBiome(BiomeGenUndergarden.class, "Undergarden", 10);
         phantasmagoricInferno = registerNetherBiome(BiomeGenPhantasmagoricInferno.class, "Phantasmagoric Inferno", 10);
         boneyard = registerNetherBiome(BiomeGenBoneyard.class, "Boneyard", 10);
         visceralHeap = registerNetherBiome(BiomeGenVisceralHeap.class, "Visceral Heap", 10);
+        undergarden = registerNetherBiome(BiomeGenUndergarden.class, "Undergarden", 10);
 	}
 
 	private static void addSpawnBiomes()
