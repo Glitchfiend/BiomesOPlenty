@@ -48,6 +48,7 @@ public class BiomeGenQuagmire extends BOPSubBiome
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 2);
         this.bopWorldFeatures.setFeature("koruPerChunk", 1);
         this.bopWorldFeatures.setFeature("generateQuagmire", true);
+        this.bopWorldFeatures.setFeature("grassSplatterPerChunk", 5);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
 

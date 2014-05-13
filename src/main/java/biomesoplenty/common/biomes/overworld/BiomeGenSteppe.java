@@ -12,7 +12,7 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenSteppe extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(0.3F, 0.4F);
+	private static final Height biomeHeight = new Height(0.1F, 0.3F);
 	
 	public BiomeGenSteppe(int biomeID) 
 	{
@@ -29,7 +29,9 @@ public class BiomeGenSteppe extends BOPBiome
 		
         this.bopWorldFeatures.setFeature("tinyCactiPerChunk", 1);
         this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 2);
-        this.bopWorldFeatures.setFeature("sandSplatterPerChunk", 6);
+        this.bopWorldFeatures.setFeature("sandSplatterPerChunk", 2);
+        this.bopWorldFeatures.setFeature("gravelSplatterPerChunk", 6);
+        this.bopWorldFeatures.setFeature("dirtSplatterPerChunk", 4);
         this.bopWorldFeatures.setFeature("generateQuicksand", true);
 		
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 15);
@@ -57,16 +59,18 @@ public class BiomeGenSteppe extends BOPBiome
 			}
 		}
 	}
-
+	
 	@Override
     public int getBiomeGrassColor(int x, int y, int z)
-	{
-		return 13413215;
-	}
+    {
+        double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+        return d0 < -0.7D ? 12365199 : (d0 < -0.3 ? 12033916 : 11702123);
+    }
 
 	@Override
-    public int getBiomeFoliageColor(int x, int y, int z)
+	public int getBiomeFoliageColor(int x, int y, int z)
 	{
-		return 13413215;
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.7D ? 12365199 : (d0 < -0.3 ? 12033916 : 11702123);
 	}
 }

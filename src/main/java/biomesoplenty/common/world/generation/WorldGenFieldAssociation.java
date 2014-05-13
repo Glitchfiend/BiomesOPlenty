@@ -102,6 +102,9 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
         associateFeature("smolderingGrassPerChunk", new WorldGenSplatter(BOPBlockHelper.get("grass"), 1, BOPBlockHelper.get("ash"), Blocks.netherrack));
         associateFeature("sandSplatterPerChunk", new WorldGenSplatter(Blocks.sand, Blocks.grass));
+        associateFeature("gravelSplatterPerChunk", new WorldGenSplatter(Blocks.gravel, Blocks.grass));
+        associateFeature("redSandSplatterPerChunk", new WorldGenSplatter(Blocks.sand, 1, BOPBlockHelper.get("hardSand")));
+        associateFeature("dirtSplatterPerChunk", new WorldGenSplatter(Blocks.dirt, 1, Blocks.grass));
         associateFeature("glowshroomsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 3));
         
         //Nether Features

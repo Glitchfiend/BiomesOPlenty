@@ -238,7 +238,7 @@ public class BOPBiomes
         shield = registerOverworldBiome(BiomeGenShield.class, "Shield", TemperatureType.COOL, 10);
         shrubland = registerOverworldBiome(BiomeGenShrubland.class, "Shrubland", TemperatureType.COOL, 10);
         silkglades = registerOverworldBiome(BiomeGenSilkglades.class, "Silkglades", TemperatureType.COOL, 5);
-        sludgepit = registerOverworldBiome(BiomeGenSludgepit.class, "Sludgepit", TemperatureType.WARM, 10);
+        onlyBiome = sludgepit = registerOverworldBiome(BiomeGenSludgepit.class, "Sludgepit", TemperatureType.WARM, 10);
         spruceWoods = registerOverworldBiome(BiomeGenSpruceWoods.class, "Spruce Woods", TemperatureType.WARM, 10);
         steppe = registerOverworldBiome(BiomeGenSteppe.class, "Steppe", TemperatureType.HOT, 10);
         temperateRainforest = registerOverworldBiome(BiomeGenTemperateRainforest.class, "Temperate Rainforest", TemperatureType.WARM, 10);
