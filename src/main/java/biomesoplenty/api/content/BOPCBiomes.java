@@ -83,5 +83,6 @@ public class BOPCBiomes
 	
 	//River Biomes
 	public static BiomeGenBase lushRiver;
+	public static BiomeGenBase dryRiver;
 	
 }

@@ -17,6 +17,7 @@ import static biomesoplenty.api.content.BOPCBiomes.crag;
 import static biomesoplenty.api.content.BOPCBiomes.deadForest;
 import static biomesoplenty.api.content.BOPCBiomes.deadSwamp;
 import static biomesoplenty.api.content.BOPCBiomes.deciduousForest;
+import static biomesoplenty.api.content.BOPCBiomes.dryRiver;
 import static biomesoplenty.api.content.BOPCBiomes.dunes;
 import static biomesoplenty.api.content.BOPCBiomes.fen;
 import static biomesoplenty.api.content.BOPCBiomes.flowerField;
@@ -153,6 +154,7 @@ import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenScrubland;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenSilkglades;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenTropics;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenVolcano;
+import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenDryRiver;
 import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenLushRiver;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -272,6 +274,7 @@ public class BOPBiomes
         
         //River Biomes
         lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp.biomeID, lavenderFields.biomeID, flowerField.biomeID, bambooForest.biomeID, cherryBlossomGrove.biomeID, lushDesert.biomeID, meadow.biomeID, spruceWoods.biomeID, rainforest.biomeID, BiomeGenBase.forest.biomeID, BiomeGenBase.forestHills.biomeID, BiomeGenBase.jungle.biomeID, BiomeGenBase.jungleEdge.biomeID, BiomeGenBase.jungleHills.biomeID);
+        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback.biomeID, dunes.biomeID, steppe.biomeID, BiomeGenBase.desert.biomeID, BiomeGenBase.desertHills.biomeID);
 	}
 	
 	private static void addBiomesToDictionary()

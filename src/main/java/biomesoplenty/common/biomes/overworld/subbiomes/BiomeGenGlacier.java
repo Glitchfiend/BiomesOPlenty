@@ -16,8 +16,8 @@ public class BiomeGenGlacier extends BOPSubBiome
 	{
 		super(biomeID);
 
-		this.zoom = 0.5D;
-		this.threshold = 0D;
+		this.zoom = 0.25D;
+		this.threshold = 0.25D;
 		
         this.setHeight(biomeHeight);
 		this.setColor(11582425);

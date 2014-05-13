@@ -105,6 +105,7 @@ public class WorldGenFieldAssociation
         associateFeature("gravelSplatterPerChunk", new WorldGenSplatter(Blocks.gravel, Blocks.grass));
         associateFeature("redSandSplatterPerChunk", new WorldGenSplatter(Blocks.sand, 1, BOPBlockHelper.get("hardSand")));
         associateFeature("dirtSplatterPerChunk", new WorldGenSplatter(Blocks.dirt, 1, Blocks.grass));
+        associateFeature("dryRiverPerChunk", new WorldGenWaterside(BOPBlockHelper.get("driedDirt"), 7, Blocks.water));
         associateFeature("glowshroomsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 3));
         
         //Nether Features
