@@ -1,6 +1,7 @@
 package biomesoplenty.common.core;
 
 import static biomesoplenty.api.content.BOPCBiomes.alps;
+import static biomesoplenty.api.content.BOPCBiomes.alpsForest;
 import static biomesoplenty.api.content.BOPCBiomes.arctic;
 import static biomesoplenty.api.content.BOPCBiomes.bambooForest;
 import static biomesoplenty.api.content.BOPCBiomes.bayou;
@@ -36,6 +37,7 @@ import static biomesoplenty.api.content.BOPCBiomes.lushSwamp;
 import static biomesoplenty.api.content.BOPCBiomes.mapleWoods;
 import static biomesoplenty.api.content.BOPCBiomes.marsh;
 import static biomesoplenty.api.content.BOPCBiomes.meadow;
+import static biomesoplenty.api.content.BOPCBiomes.meadowForest;
 import static biomesoplenty.api.content.BOPCBiomes.moor;
 import static biomesoplenty.api.content.BOPCBiomes.mountain;
 import static biomesoplenty.api.content.BOPCBiomes.mysticGrove;
@@ -147,7 +149,9 @@ import biomesoplenty.common.biomes.overworld.BiomeGenTundra;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenAlpsForest;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenGlacier;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenMeadowForest;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenOasis;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenQuagmire;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenScrubland;
@@ -197,7 +201,7 @@ public class BOPBiomes
 	
 	private static void registerBiomes()
 	{
-		alps = registerOverworldBiome(BiomeGenAlps.class, "Alps", TemperatureType.ICY, 5);
+		onlyBiome = alps = registerOverworldBiome(BiomeGenAlps.class, "Alps", TemperatureType.ICY, 5);
 		arctic = registerOverworldBiome(BiomeGenArctic.class, "Arctic", TemperatureType.ICY, 10);
         bambooForest = registerOverworldBiome(BiomeGenBambooForest.class, "Bamboo Forest", TemperatureType.HOT, 5);
         bayou = registerOverworldBiome(BiomeGenBayou.class, "Bayou", TemperatureType.WARM, 10);
@@ -260,6 +264,8 @@ public class BOPBiomes
 		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert.biomeID);
 		quagmire = registerOverworldSubBiome(BiomeGenQuagmire.class, "Quagmire", 10, sludgepit.biomeID);
 		silkglades = registerOverworldSubBiome(BiomeGenSilkglades.class, "Silkglades", 10, sludgepit.biomeID);
+		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow.biomeID);
+		alpsForest = registerOverworldSubBiome(BiomeGenAlpsForest.class, "Alps Forest", 10, alps.biomeID);
 		
 		//Ocean Biomes
 		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.ocean.biomeID, BiomeGenBase.deepOcean.biomeID);

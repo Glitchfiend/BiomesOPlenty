@@ -41,7 +41,7 @@ public class GenLayerRiverMixBOP extends GenLayerRiverMix
             {
                 if (riverBiomeIds[i1] == BiomeGenBase.river.biomeID)
                 {
-                    if (inputBiomeIds[i1] == BiomeGenBase.icePlains.biomeID || inputBiomeIds[i1] == BOPCBiomes.alps.biomeID || inputBiomeIds[i1] == BOPCBiomes.arctic.biomeID || inputBiomeIds[i1] == BOPCBiomes.glacier.biomeID || inputBiomeIds[i1] == BOPCBiomes.frostForest.biomeID || inputBiomeIds[i1] == BOPCBiomes.snowyConiferousForest.biomeID)
+                    if (inputBiomeIds[i1] == BiomeGenBase.icePlains.biomeID || inputBiomeIds[i1] == BOPCBiomes.alps.biomeID || inputBiomeIds[i1] == BOPCBiomes.alpsForest.biomeID || inputBiomeIds[i1] == BOPCBiomes.arctic.biomeID || inputBiomeIds[i1] == BOPCBiomes.glacier.biomeID || inputBiomeIds[i1] == BOPCBiomes.frostForest.biomeID || inputBiomeIds[i1] == BOPCBiomes.snowyConiferousForest.biomeID)
                     {
                         outputBiomeIds[i1] = BiomeGenBase.frozenRiver.biomeID;
                     }
