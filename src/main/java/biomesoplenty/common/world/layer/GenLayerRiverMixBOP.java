@@ -1,74 +1,73 @@
 package biomesoplenty.common.world.layer;
 
-import biomesoplenty.api.content.BOPCBiomes;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
+import net.minecraft.world.gen.layer.GenLayerRiverMix;
 import net.minecraft.world.gen.layer.IntCache;
+import biomesoplenty.api.BOPBiomeManager;
 
-public class GenLayerRiverMixBOP extends GenLayer
+public class GenLayerRiverMixBOP extends GenLayerRiverMix
 {
     private GenLayer biomePatternGeneratorChain;
     private GenLayer riverPatternGeneratorChain;
-    private static final String __OBFID = "CL_00000567";
 
-    public GenLayerRiverMixBOP(long par1, GenLayer par3GenLayer, GenLayer par4GenLayer)
+    public GenLayerRiverMixBOP(long seed, GenLayer biomePatternGeneratorChain, GenLayer riverPatternGeneratorChain)
     {
-        super(par1);
-        this.biomePatternGeneratorChain = par3GenLayer;
-        this.riverPatternGeneratorChain = par4GenLayer;
+        super(seed, biomePatternGeneratorChain, riverPatternGeneratorChain);
+        
+        this.biomePatternGeneratorChain = biomePatternGeneratorChain;
+        this.riverPatternGeneratorChain = riverPatternGeneratorChain;
     }
 
-    public void initWorldGenSeed(long par1)
+    @Override
+	public void initWorldGenSeed(long seed)
     {
-        this.biomePatternGeneratorChain.initWorldGenSeed(par1);
-        this.riverPatternGeneratorChain.initWorldGenSeed(par1);
-        super.initWorldGenSeed(par1);
+        this.biomePatternGeneratorChain.initWorldGenSeed(seed);
+        this.riverPatternGeneratorChain.initWorldGenSeed(seed);
+        super.initWorldGenSeed(seed);
     }
 
-    public int[] getInts(int par1, int par2, int par3, int par4)
+    @Override
+	public int[] getInts(int x, int z, int width, int length)
     {
-        int[] aint = this.biomePatternGeneratorChain.getInts(par1, par2, par3, par4);
-        int[] aint1 = this.riverPatternGeneratorChain.getInts(par1, par2, par3, par4);
-        int[] aint2 = IntCache.getIntCache(par3 * par4);
+        int[] inputBiomeIds = this.biomePatternGeneratorChain.getInts(x, z, width, length);
+        int[] riverBiomeIds = this.riverPatternGeneratorChain.getInts(x, z, width, length);
+        int[] outputBiomeIds = IntCache.getIntCache(width * length);
 
-        for (int i1 = 0; i1 < par3 * par4; ++i1)
+        for (int i1 = 0; i1 < width * length; ++i1)
         {
-            if (aint[i1] != BiomeGenBase.ocean.biomeID && aint[i1] != BiomeGenBase.deepOcean.biomeID)
+            if (inputBiomeIds[i1] != BiomeGenBase.ocean.biomeID && inputBiomeIds[i1] != BiomeGenBase.deepOcean.biomeID)
             {
-                if (aint1[i1] == BiomeGenBase.river.biomeID)
+                if (riverBiomeIds[i1] == BiomeGenBase.river.biomeID)
                 {
-                    if (aint[i1] == BiomeGenBase.icePlains.biomeID)
+                    if (inputBiomeIds[i1] == BiomeGenBase.icePlains.biomeID)
                     {
-                        aint2[i1] = BiomeGenBase.frozenRiver.biomeID;
+                        outputBiomeIds[i1] = BiomeGenBase.frozenRiver.biomeID;
                     }
-                    else if (aint[i1] == BOPCBiomes.quagmire.biomeID)
+                    else if (BOPBiomeManager.overworldRiverBiomes[inputBiomeIds[i1]] != null)
                     {
-                        aint2[i1] = BOPCBiomes.quagmire.biomeID;
+                        outputBiomeIds[i1] = BOPBiomeManager.overworldRiverBiomes[inputBiomeIds[i1]].biomeID;
                     }
-                    else if (aint[i1] == BOPCBiomes.sludgepit.biomeID)
+                    else if (inputBiomeIds[i1] != BiomeGenBase.mushroomIsland.biomeID && inputBiomeIds[i1] != BiomeGenBase.mushroomIslandShore.biomeID)
                     {
-                        aint2[i1] = BOPCBiomes.sludgepit.biomeID;
-                    }
-                    else if (aint[i1] != BiomeGenBase.mushroomIsland.biomeID && aint[i1] != BiomeGenBase.mushroomIslandShore.biomeID)
-                    {
-                        aint2[i1] = aint1[i1] & 255;
+                        outputBiomeIds[i1] = riverBiomeIds[i1] & 255;
                     }
                     else
                     {
-                        aint2[i1] = BiomeGenBase.mushroomIslandShore.biomeID;
+                        outputBiomeIds[i1] = BiomeGenBase.mushroomIslandShore.biomeID;
                     }
                 }
                 else
                 {
-                    aint2[i1] = aint[i1];
+                    outputBiomeIds[i1] = inputBiomeIds[i1];
                 }
             }
             else
             {
-                aint2[i1] = aint[i1];
+                outputBiomeIds[i1] = inputBiomeIds[i1];
             }
         }
 
-        return aint2;
+        return outputBiomeIds;
     }
 }
