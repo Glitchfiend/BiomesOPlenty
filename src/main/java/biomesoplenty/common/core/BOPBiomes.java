@@ -464,7 +464,7 @@ public class BOPBiomes
 		return null;
 	}
 	
-	private static BiomeGenBase registerOverworldRiverBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int parent)
+	private static BiomeGenBase registerOverworldRiverBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int...parents)
 	{
 		BiomeGenBase biome = BOPBiomeManager.createBiome(biomeClass, biomeName);
 		
@@ -472,7 +472,10 @@ public class BOPBiomes
 		{
 			if (BOPConfigurationBiomeGen.config.get("Overworld (River) Biomes To Generate", biome.biomeName, true).getBoolean(false))
 			{
-				BOPBiomeManager.overworldRiverBiomes[parent] = biome;
+				for (int parent : parents)
+				{
+					BOPBiomeManager.overworldRiverBiomes[parent] = biome;
+				}
 			}
 		}
 		
