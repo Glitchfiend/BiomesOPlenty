@@ -26,6 +26,7 @@ public class BiomeGenMountain extends BOPBiome
 
 		this.theBiomeDecorator.treesPerChunk = 2;
 		this.theBiomeDecorator.grassPerChunk = 3;
+		this.theBiomeDecorator.generateLakes = false;
 
         this.bopWorldFeatures.setFeature("berryBushesPerChunk", 3);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 10);

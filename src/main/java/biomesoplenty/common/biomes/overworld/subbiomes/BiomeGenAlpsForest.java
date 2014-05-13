@@ -33,6 +33,7 @@ public class BiomeGenAlpsForest extends BOPSubBiome
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
+		this.theBiomeDecorator.generateLakes = false;
 		
 		this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
 		

@@ -28,6 +28,7 @@ public class BiomeGenAlps extends BOPBiome
 		this.theBiomeDecorator.grassPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
+		this.theBiomeDecorator.generateLakes = false;
 	}
 	
 	@Override

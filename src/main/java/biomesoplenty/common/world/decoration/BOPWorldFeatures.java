@@ -33,8 +33,8 @@ public class BOPWorldFeatures
         addFeature("generateMelons", false);
         addFeature("generateMycelium", false);
 
-        addFeature("waterPoolsPerChunk", 50);
-        addFeature("lavaPoolsPerChunk", 20);
+        addFeature("waterPoolsPerChunk", 0);
+        addFeature("lavaPoolsPerChunk", 0);
 
         addFeature("waterLakesPerChunk", 0);
         addFeature("lavaLakesPerChunk", 0);

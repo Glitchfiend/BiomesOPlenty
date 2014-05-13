@@ -10,6 +10,7 @@ import static biomesoplenty.api.content.BOPCBiomes.boneyard;
 import static biomesoplenty.api.content.BOPCBiomes.borealForest;
 import static biomesoplenty.api.content.BOPCBiomes.brushland;
 import static biomesoplenty.api.content.BOPCBiomes.canyon;
+import static biomesoplenty.api.content.BOPCBiomes.canyonRavine;
 import static biomesoplenty.api.content.BOPCBiomes.chaparral;
 import static biomesoplenty.api.content.BOPCBiomes.cherryBlossomGrove;
 import static biomesoplenty.api.content.BOPCBiomes.coniferousForest;
@@ -150,6 +151,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenAlpsForest;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenCanyonRavine;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenGlacier;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenMeadowForest;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenOasis;
@@ -266,6 +268,7 @@ public class BOPBiomes
 		silkglades = registerOverworldSubBiome(BiomeGenSilkglades.class, "Silkglades", 10, sludgepit.biomeID);
 		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow.biomeID);
 		alpsForest = registerOverworldSubBiome(BiomeGenAlpsForest.class, "Alps Forest", 10, alps.biomeID);
+		canyonRavine = registerOverworldSubBiome(BiomeGenCanyonRavine.class, "Canyon Ravine", 10, canyon.biomeID);
 		
 		//Ocean Biomes
 		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.ocean.biomeID, BiomeGenBase.deepOcean.biomeID);

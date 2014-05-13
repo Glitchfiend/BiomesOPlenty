@@ -1,29 +1,33 @@
-package biomesoplenty.common.biomes.overworld;
-
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
-import biomesoplenty.common.world.features.trees.WorldGenPineTree;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+package biomesoplenty.common.biomes.overworld.subbiomes;
 
 import java.util.Random;
 
-public class BiomeGenCanyon extends BOPBiome
-{
-	private static final Height biomeHeight = new Height(5.0F, 0.025F);
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
+import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
-	public BiomeGenCanyon(int id)
+public class BiomeGenCanyonRavine extends BOPSubBiome
+{
+	private static final Height biomeHeight = new Height(-0.1F, 0.4F);
+
+	public BiomeGenCanyonRavine(int id)
 	{
 		super(id);
+		
+		this.zoom = 0.25D;
+		this.threshold = 0.25D;
 		
         //TODO: setHeight()
         this.setHeight(biomeHeight);
         //TODO:	setColor()
-        this.setColor(11836528);
+        this.setColor(9337689);
         this.setTemperatureRainfall(0.8F, 0.4F);
 
 		this.spawnableCreatureList.clear();
@@ -31,7 +35,7 @@ public class BiomeGenCanyon extends BOPBiome
 		this.topBlock = BOPBlockHelper.get("hardDirt");
 		this.fillerBlock = BOPBlockHelper.get("hardDirt");
 		this.theBiomeDecorator.grassPerChunk = 5;
-		this.theBiomeDecorator.treesPerChunk = 3;
+		this.theBiomeDecorator.treesPerChunk = 1;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.generateLakes = false;
 

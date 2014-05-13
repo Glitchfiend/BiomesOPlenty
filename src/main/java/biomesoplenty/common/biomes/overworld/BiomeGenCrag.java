@@ -27,6 +27,7 @@ public class BiomeGenCrag extends BOPBiome
 		this.topBlock = BOPBlockHelper.get("cragRock");
 		this.fillerBlock = BOPBlockHelper.get("cragRock");
 		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.generateLakes = false;
 
 		this.waterColorMultiplier = 944693;
 	}

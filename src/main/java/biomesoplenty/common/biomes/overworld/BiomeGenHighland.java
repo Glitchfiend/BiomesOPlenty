@@ -24,6 +24,7 @@ public class BiomeGenHighland extends BOPBiome
 		
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 99;
+		this.theBiomeDecorator.generateLakes = false;
 
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
         this.bopWorldFeatures.setFeature("rockpilesPerChunk", 1);

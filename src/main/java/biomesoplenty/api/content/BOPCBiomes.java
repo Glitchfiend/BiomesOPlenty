@@ -72,6 +72,7 @@ public class BOPCBiomes
 	public static BiomeGenBase volcano;
 	public static BiomeGenBase meadowForest;
 	public static BiomeGenBase alpsForest;
+	public static BiomeGenBase canyonRavine;
 	
 	//Ocean Biomes
 	public static BiomeGenBase kelpForest;
