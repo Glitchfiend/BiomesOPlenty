@@ -1,14 +1,11 @@
 package biomesoplenty.common.blocks;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.client.render.RenderUtils;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -22,7 +19,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
@@ -30,13 +26,15 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.client.render.RenderUtils;
+import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
-
-public class BlockBOPFoliage extends BlockTallGrass implements IShearable
+public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 {
 	private static final String[] foliageTypes = new String[] {"duckweed", "shortgrass", "mediumgrass", "hedgebottom", "bush", "sprout", "hedgetop", "poisonivy", "berrybush", "shrub", "wheatgrass", "dampgrass", "koru", "cloverpatch", "leafpile", "deadleafpile"};
 
@@ -50,6 +48,8 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 
 	public BlockBOPFoliage()
 	{
+		super(Material.plants);
+		
 		this.setHardness(0.0F);
 		this.setStepSound(Block.soundTypeGrass);
 
@@ -148,7 +148,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	{
 		Block block = world.getBlock(x, y - 1, z);
 		
-    	if (block == Blocks.air) return false;
+    	if (block == Blocks.air && world.provider.dimensionId != -1 ? (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) : false) return false;
 		
 		switch (metadata)
 		{
@@ -167,14 +167,6 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
 		}
-	}
-
-	@Override
-    public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
-	{
-    	if (world.getBlock(x, y - 1, z) == Blocks.air) return false;
-		
-		return (world.getFullBlockLightValue(x, y, z) >= 8 || world.canBlockSeeTheSky(x, y, z)) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
 	}
 	
 	@Override
@@ -198,27 +190,10 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 		}
 	}
 
-    @Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-    {
-    	Block block = world.getBlock(x, y, z);
-        
-        this.dropIfCantStay(world, x, y, z, new ItemStack(block, 1, world.getBlockMetadata(x, y, z)));
-    }
-	
-    public void dropIfCantStay(World world, int x, int y, int z, ItemStack stack)
-    {
-        if (!this.canReplace(world, x, y, z, 0, stack))
-        {
-            this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
-            world.setBlockToAir(x, y, z);
-        }
-    }
-
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock)
 	{
-		dropIfCantStay(world, x, y, z, new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)));
+		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
 		
 	    int metadata = world.getBlockMetadata(x, y, z);
 	    
@@ -233,9 +208,7 @@ public class BlockBOPFoliage extends BlockTallGrass implements IShearable
 	            this.dropBlockAsItem(world, x, y + 1, z, world.getBlockMetadata(x, y + 1, z), 0);
 	            world.setBlockToAir(x, y + 1, z);
 	        }
-	    }
-
-		super.onNeighborBlockChange(world, x, y, z, neighborBlock);
+	    } 
 	}
 
 	@Override
