@@ -82,6 +82,9 @@ public class BOPWorldFeatures
         addFeature("wastelandRockPilesPerChunk", 0);
         addFeature("smolderingGrassPerChunk", 0);
         addFeature("sandSplatterPerChunk", 0);
+        addFeature("gravelSplatterPerChunk", 0);
+        addFeature("redSandSplatterPerChunk", 0);
+        addFeature("dirtSplatterPerChunk", 0);
         addFeature("glowshroomsPerChunk", 0);
 
         //Nether Features

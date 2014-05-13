@@ -14,7 +14,6 @@ import net.minecraft.world.gen.layer.GenLayerRareBiome;
 import net.minecraft.world.gen.layer.GenLayerRemoveTooMuchOcean;
 import net.minecraft.world.gen.layer.GenLayerRiver;
 import net.minecraft.world.gen.layer.GenLayerRiverInit;
-import net.minecraft.world.gen.layer.GenLayerRiverMix;
 import net.minecraft.world.gen.layer.GenLayerShore;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
@@ -89,7 +88,7 @@ public abstract class GenLayerBOP extends GenLayer
         }
 
         GenLayerSmooth genlayersmooth1 = new GenLayerSmooth(1000L, (GenLayer)object);
-        GenLayerRiverMix genlayerrivermix = new GenLayerRiverMix(100L, genlayersmooth1, genlayersmooth);
+        GenLayerRiverMixBOP genlayerrivermix = new GenLayerRiverMixBOP(100L, genlayersmooth1, genlayersmooth);
         GenLayerVoronoiZoom genlayervoronoizoom = new GenLayerVoronoiZoom(10L, genlayerrivermix);
         genlayerrivermix.initWorldGenSeed(seed);
         genlayervoronoizoom.initWorldGenSeed(seed);

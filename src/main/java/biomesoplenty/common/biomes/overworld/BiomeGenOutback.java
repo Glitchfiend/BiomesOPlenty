@@ -23,7 +23,7 @@ public class BiomeGenOutback extends BOPBiome
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(10843716);
-        this.setTemperatureRainfall(0.8F, 0.05F);
+        this.setTemperatureRainfall(1.5F, 0.05F);
 
 		this.spawnableCreatureList.clear();
 		
@@ -37,6 +37,7 @@ public class BiomeGenOutback extends BOPBiome
         this.bopWorldFeatures.setFeature("grassSplatterPerChunk", 10);
         this.bopWorldFeatures.setFeature("tinyCactiPerChunk", 2);
         this.bopWorldFeatures.setFeature("bushesPerChunk", 5);
+        this.bopWorldFeatures.setFeature("redSandSplatterPerChunk", 4);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 	}
 	
