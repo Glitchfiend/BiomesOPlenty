@@ -1,26 +1,31 @@
-package biomesoplenty.common.biomes.overworld;
+package biomesoplenty.common.biomes.overworld.subbiomes;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
 
-import java.util.Random;
-
-public class BiomeGenSilkglades extends BOPBiome
+public class BiomeGenSilkglades extends BOPSubBiome
 {
     private static final Height biomeHeight = new Height(0.1F, 0.2F);
 
     public BiomeGenSilkglades(int id)
     {
         super(id);
+        
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
         
         //TODO: setHeight()
         this.setHeight(biomeHeight);

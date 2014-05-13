@@ -80,4 +80,8 @@ public class BOPCBiomes
 	public static BiomeGenBase phantasmagoricInferno;
 	public static BiomeGenBase boneyard;
 	public static BiomeGenBase visceralHeap;
+	
+	//River Biomes
+	public static BiomeGenBase dryRiver;
+	
 }
