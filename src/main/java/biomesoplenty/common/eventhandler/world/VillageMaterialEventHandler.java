@@ -13,121 +13,6 @@ public class VillageMaterialEventHandler
 	@SubscribeEvent
 	public void getVillageBlockID(BiomeEvent.GetVillageBlockID event)
 	{
-		//Arctic
-		if (event.biome == BOPCBiomes.arctic)
-		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Logs
-			if (event.original == Blocks.log)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Wooden Planks
-			if (event.original == Blocks.planks)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Wooden Stairs
-			if (event.original == Blocks.oak_stairs)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.ice;
-				event.setResult(Result.DENY);
-			}
-			
-			//Iron Bars
-			if (event.original == Blocks.iron_bars)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Double Stone Slabs
-			if (event.original == Blocks.double_stone_slab)
-			{
-				event.replacement = Blocks.snow;
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.ice;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.ice;
-				event.setResult(Result.DENY);
-			}
-			
-			//Water
-			if (event.original == Blocks.water)
-			{
-				event.replacement = Blocks.ice;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_water)
-			{
-				event.replacement = Blocks.ice;
-				event.setResult(Result.DENY);
-			}
-			
-			//Crops
-			if (event.original == Blocks.wheat)
-			{
-				event.replacement = Blocks.air;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.potatoes)
-			{
-				event.replacement = Blocks.air;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.carrots)
-			{
-				event.replacement = Blocks.air;
-				event.setResult(Result.DENY);
-			}
-			
-			//Farmland
-			if (event.original == Blocks.farmland)
-			{
-				event.replacement = Blocks.dirt;
-				event.setResult(Result.DENY);
-			}
-		}
-		
 		//Birch Forest
 		/*if (event.biome == Biomes.birchForest.get())
 		{	
@@ -153,13 +38,6 @@ public class VillageMaterialEventHandler
 		//Coniferous Forest
 		if (event.biome == BOPCBiomes.coniferousForest)
 		{	
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = BOPBlockHelper.get("logs1");
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -178,39 +56,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Blocks.oak_stairs)
 			{
 				event.replacement = BOPBlockHelper.get("firStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = BOPBlockHelper.get("firStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = BOPBlockHelper.get("woodenSingleSlab1");
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -263,51 +108,11 @@ public class VillageMaterialEventHandler
 		
 		//Grove
 		if (event.biome == BOPCBiomes.grove)
-		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = Blocks.log;
-				event.setResult(Result.DENY);
-			}
-			
+		{	
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
 			{
-				event.replacement = Blocks.leaves;
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
 				event.replacement = Blocks.spruce_stairs;
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = Blocks.wooden_slab;
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -346,14 +151,7 @@ public class VillageMaterialEventHandler
 		
 		//Lush Desert
 		if (event.biome == BOPCBiomes.lushDesert)
-		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = BOPBlockHelper.get("redRock");
-				event.setResult(Result.DENY);
-			}
-			
+		{		
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -368,42 +166,10 @@ public class VillageMaterialEventHandler
 				event.setResult(Result.DENY);
 			}
 			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = BOPBlockHelper.get("redCobbleStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = BOPBlockHelper.get("stoneSingleSlab");
-				event.setResult(Result.DENY);
-			}
-			
 			//Gravel
 			if (event.original == Blocks.gravel)
 			{
 				event.replacement = Blocks.sand;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
-				event.setResult(Result.DENY);
-			}
-		}
-		
-		//Lush Swamp
-		if (event.biome == BOPCBiomes.lushSwamp)
-		{
-			//Gravel
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = Blocks.mossy_cobblestone;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -422,50 +188,10 @@ public class VillageMaterialEventHandler
 		//Meadow
 		if (event.biome == BOPCBiomes.meadow)
 		{	
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = Blocks.log;
-				event.setResult(Result.DENY);
-			}
-			
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
 			{
 				event.replacement = Blocks.spruce_stairs;
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = Blocks.spruce_stairs;
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = Blocks.wooden_slab;
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -524,13 +250,6 @@ public class VillageMaterialEventHandler
 		//Outback
 		if (event.biome == BOPCBiomes.outback)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = Blocks.log2;
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -548,33 +267,7 @@ public class VillageMaterialEventHandler
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
 			{
-				event.replacement = Blocks.leaves;
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
 				event.replacement = Blocks.acacia_stairs;
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = BOPBlockHelper.get("woodenSingleSlab1");
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
 				event.setResult(Result.DENY);
 			}
 			
@@ -582,13 +275,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Blocks.gravel)
 			{
 				event.replacement = Blocks.sand;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -715,13 +401,6 @@ public class VillageMaterialEventHandler
 		//Snowy Coniferous Forest
 		if (event.biome == BOPCBiomes.snowyConiferousForest)
 		{	
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = BOPBlockHelper.get("logs1");
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -740,39 +419,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Blocks.oak_stairs)
 			{
 				event.replacement = BOPBlockHelper.get("firStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = BOPBlockHelper.get("firStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = BOPBlockHelper.get("woodenSingleSlab1");
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -863,43 +509,24 @@ public class VillageMaterialEventHandler
 		//Tropical Rainforest
 		if (event.biome == BOPCBiomes.tropicalRainforest)
 		{	
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
+			//Logs
+			if (event.original == Blocks.log)
 			{
-				event.replacement = Blocks.log;
+				event.replacement = BOPBlockHelper.get("logs4");
+				event.setResult(Result.DENY);
+			}
+			
+			//Wooden Planks
+			if (event.original == Blocks.planks)
+			{
+				event.replacement = BOPBlockHelper.get("planks");
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
 			{
-				event.replacement = Blocks.jungle_stairs;
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = Blocks.jungle_stairs;
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = Blocks.wooden_slab;
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
+				event.replacement = BOPBlockHelper.get("mahoganyStairs");
 				event.setResult(Result.DENY);
 			}
 			
@@ -909,25 +536,11 @@ public class VillageMaterialEventHandler
 				event.replacement = Blocks.sand;
 				event.setResult(Result.DENY);
 			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
-				event.setResult(Result.DENY);
-			}
 		}
 		
 		//Wetland
 		if (event.biome == BOPCBiomes.wetland)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = BOPBlockHelper.get("logs3");
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -946,39 +559,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Blocks.oak_stairs)
 			{
 				event.replacement = BOPBlockHelper.get("willowStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Cobblestone Stairs
-			if (event.original == Blocks.stone_brick_stairs)
-			{
-				event.replacement = BOPBlockHelper.get("willowStairs");
-				event.setResult(Result.DENY);
-			}
-			
-			//Stone Slabs
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = BOPBlockHelper.get("woodenSingleSlab2");
-				event.setResult(Result.DENY);
-			}
-			
-			//Lava
-			if (event.original == Blocks.lava)
-			{
-				event.replacement = Blocks.water;
-				event.setResult(Result.DENY);
-			}
-			if (event.original == Blocks.flowing_lava)
-			{
-				event.replacement = Blocks.flowing_water;
-				event.setResult(Result.DENY);
-			}
-			
-			//Glass Panes
-			if (event.original == Blocks.glass_pane)
-			{
-				event.replacement = Blocks.iron_bars;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -1000,14 +580,7 @@ public class VillageMaterialEventHandler
 		
 		//Coniferous Forest
 		if (event.biome == BOPCBiomes.coniferousForest)
-		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 3;
-				event.setResult(Result.DENY);
-			}
-			
+		{	
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -1017,13 +590,6 @@ public class VillageMaterialEventHandler
 			
 			//Wooden Planks
 			if (event.original == Blocks.planks)
-			{
-				event.replacement = 3;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
 			{
 				event.replacement = 3;
 				event.setResult(Result.DENY);
@@ -1051,13 +617,6 @@ public class VillageMaterialEventHandler
 		//Grove
 		if (event.biome == BOPCBiomes.grove)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 1;
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -1076,13 +635,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Blocks.oak_stairs)
 			{
 				event.replacement = 5;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -1108,25 +660,10 @@ public class VillageMaterialEventHandler
 		//Lush Desert
 		if (event.biome == BOPCBiomes.lushDesert)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 1;
-				event.setResult(Result.DENY);
-			}
-			
-			
 			//Wooden Planks
 			if (event.original == Blocks.planks)
 			{
 				event.replacement = 4;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = 0;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -1152,13 +689,6 @@ public class VillageMaterialEventHandler
 		//Meadow
 		if (event.biome == BOPCBiomes.meadow)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 1;
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -1168,13 +698,6 @@ public class VillageMaterialEventHandler
 			
 			//Wooden Planks
 			if (event.original == Blocks.planks)
-			{
-				event.replacement = 1;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
 			{
 				event.replacement = 1;
 				event.setResult(Result.DENY);
@@ -1222,13 +745,6 @@ public class VillageMaterialEventHandler
 				event.replacement = 4;
 				event.setResult(Result.DENY);
 			}
-			
-			//Wooden Stairs
-			if (event.original == Blocks.oak_stairs)
-			{
-				event.replacement = 4;
-				event.setResult(Result.DENY);
-			}
 		}
 		
 		//Overgrown Greens
@@ -1244,14 +760,7 @@ public class VillageMaterialEventHandler
 		
 		//Snowy Coniferous Forest
 		if (event.biome == BOPCBiomes.snowyConiferousForest)
-		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 3;
-				event.setResult(Result.DENY);
-			}
-			
+		{		
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -1261,13 +770,6 @@ public class VillageMaterialEventHandler
 			
 			//Wooden Planks
 			if (event.original == Blocks.planks)
-			{
-				event.replacement = 3;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
 			{
 				event.replacement = 3;
 				event.setResult(Result.DENY);
@@ -1295,13 +797,6 @@ public class VillageMaterialEventHandler
 		//Tropical Rainforest
 		if (event.biome == BOPCBiomes.tropicalRainforest)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 3;
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -1312,14 +807,7 @@ public class VillageMaterialEventHandler
 			//Wooden Planks
 			if (event.original == Blocks.planks)
 			{
-				event.replacement = 3;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = 3;
+				event.replacement = 14;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -1327,13 +815,6 @@ public class VillageMaterialEventHandler
 		//Wetland
 		if (event.biome == BOPCBiomes.wetland)
 		{
-			//Cobblestone
-			if (event.original == Blocks.cobblestone)
-			{
-				event.replacement = 1;
-				event.setResult(Result.DENY);
-			}
-			
 			//Logs
 			if (event.original == Blocks.log)
 			{
@@ -1345,13 +826,6 @@ public class VillageMaterialEventHandler
 			if (event.original == Blocks.planks)
 			{
 				event.replacement = 9;
-				event.setResult(Result.DENY);
-			}
-			
-			//Single Stone Slab
-			if (event.original == Blocks.stone_slab)
-			{
-				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
 		}
