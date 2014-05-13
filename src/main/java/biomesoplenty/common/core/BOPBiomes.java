@@ -18,7 +18,6 @@ import static biomesoplenty.api.content.BOPCBiomes.deadForest;
 import static biomesoplenty.api.content.BOPCBiomes.deadSwamp;
 import static biomesoplenty.api.content.BOPCBiomes.deciduousForest;
 import static biomesoplenty.api.content.BOPCBiomes.dunes;
-import static biomesoplenty.api.content.BOPCBiomes.dryRiver;
 import static biomesoplenty.api.content.BOPCBiomes.fen;
 import static biomesoplenty.api.content.BOPCBiomes.flowerField;
 import static biomesoplenty.api.content.BOPCBiomes.frostForest;
@@ -31,6 +30,7 @@ import static biomesoplenty.api.content.BOPCBiomes.highland;
 import static biomesoplenty.api.content.BOPCBiomes.jadeCliffs;
 import static biomesoplenty.api.content.BOPCBiomes.lavenderFields;
 import static biomesoplenty.api.content.BOPCBiomes.lushDesert;
+import static biomesoplenty.api.content.BOPCBiomes.lushRiver;
 import static biomesoplenty.api.content.BOPCBiomes.lushSwamp;
 import static biomesoplenty.api.content.BOPCBiomes.mapleWoods;
 import static biomesoplenty.api.content.BOPCBiomes.marsh;
@@ -153,7 +153,7 @@ import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenScrubland;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenSilkglades;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenTropics;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenVolcano;
-import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenDryRiver;
+import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenLushRiver;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
@@ -271,7 +271,7 @@ public class BOPBiomes
         undergarden = registerNetherBiome(BiomeGenUndergarden.class, "Undergarden", 10);
         
         //River Biomes
-        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", BiomeGenBase.desert.biomeID);
+        lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp.biomeID, lavenderFields.biomeID, flowerField.biomeID, bambooForest.biomeID, cherryBlossomGrove.biomeID, lushDesert.biomeID, meadow.biomeID, spruceWoods.biomeID, rainforest.biomeID, BiomeGenBase.forest.biomeID, BiomeGenBase.forestHills.biomeID, BiomeGenBase.jungle.biomeID, BiomeGenBase.jungleEdge.biomeID, BiomeGenBase.jungleHills.biomeID);
 	}
 	
 	private static void addBiomesToDictionary()

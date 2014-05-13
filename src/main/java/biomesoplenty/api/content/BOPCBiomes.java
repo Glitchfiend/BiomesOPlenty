@@ -82,6 +82,6 @@ public class BOPCBiomes
 	public static BiomeGenBase visceralHeap;
 	
 	//River Biomes
-	public static BiomeGenBase dryRiver;
+	public static BiomeGenBase lushRiver;
 	
 }
