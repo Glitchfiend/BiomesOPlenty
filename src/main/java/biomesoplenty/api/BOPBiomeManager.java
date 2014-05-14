@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 
 public class BOPBiomeManager 
@@ -23,7 +24,7 @@ public class BOPBiomeManager
 		
 		if (biome != null)
 		{
-			BiomeEntry entry = new BiomeEntry(biome, weight);
+			BiomeEntry entry = new BiomeEntry(biome, getConfiguredWeight(biome, biomeType, weight));
 
 			if (BOPConfigurationBiomeGen.config.get(biomeType + " Biomes To Generate", biome.biomeName, true).getBoolean(false))
 			{
@@ -74,6 +75,11 @@ public class BOPBiomeManager
 		}
 		
 		return -1;
+	}
+	
+	private static int getConfiguredWeight(BiomeGenBase biome, String biomeType, int weight)
+	{
+		return BOPConfigurationBiomeWeights.config.get(biomeType + " Biome Weights", biome.biomeName, weight).getInt(weight);
 	}
 	
 	public class TemperatureType
