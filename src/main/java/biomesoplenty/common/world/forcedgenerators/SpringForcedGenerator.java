@@ -9,9 +9,9 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class PondForcedGenerator extends ForcedWorldFeatureBOP
+public class SpringForcedGenerator extends ForcedWorldFeatureBOP
 {
-    public PondForcedGenerator(WorldGenerator worldGenerator)
+    public SpringForcedGenerator(WorldGenerator worldGenerator)
     {
         super(worldGenerator);
     }
@@ -23,19 +23,19 @@ public class PondForcedGenerator extends ForcedWorldFeatureBOP
         {
             BOPWorldFeatures worldFeatures = BOPDecorationManager.getBiomeFeatures(biome.biomeID);
 
-            for (int i = 0; i < 50 + (Integer)worldFeatures.getFeature("waterPoolsPerChunk"); ++i)
+            for (int i = 0; i < (Integer)worldFeatures.getFeature("waterSpringsPerChunk"); ++i)
             {
                 int randX = x + random.nextInt(16) + 8;
-                int randY = random.nextInt(random.nextInt(248) + 8);
+                int randY = random.nextInt(random.nextInt(120) + 8);
                 int randZ = z + random.nextInt(16) + 8;
 
                 this.generate(world, random, randX, randY, randZ);
             }
 
-            for (int i = 0; i < 20 + (Integer)worldFeatures.getFeature("lavaPoolsPerChunk"); ++i)
+            for (int i = 0; i < (Integer)worldFeatures.getFeature("lavaSpringsPerChunk"); ++i)
             {
                 int randX = x + random.nextInt(16) + 8;
-                int randY = random.nextInt(random.nextInt(random.nextInt(240) + 8) + 8);
+                int randY = random.nextInt(random.nextInt(random.nextInt(112) + 8) + 8);
                 int randZ = z + random.nextInt(16) + 8;
 
                 this.generate(world, random, randX, randY, randZ);

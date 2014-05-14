@@ -35,7 +35,7 @@ import biomesoplenty.common.world.features.nether.WorldGenLakesNether;
 import biomesoplenty.common.world.features.nether.WorldGenWaspHive;
 import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
 import biomesoplenty.common.world.forcedgenerators.MelonForcedGenerator;
-import biomesoplenty.common.world.forcedgenerators.PondForcedGenerator;
+import biomesoplenty.common.world.forcedgenerators.SpringForcedGenerator;
 
 public class WorldGenFieldAssociation
 {
@@ -121,8 +121,8 @@ public class WorldGenFieldAssociation
     
     private static void associateFeaturesForced()
     {
-        associateFeatureForced("waterPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_water), PondForcedGenerator.class);
-        associateFeatureForced("lavaPoolsPerChunk", new WorldGenLiquids(Blocks.flowing_lava), PondForcedGenerator.class);
+        associateFeatureForced("waterSpringsPerChunk", new WorldGenLiquids(Blocks.flowing_water), SpringForcedGenerator.class);
+        associateFeatureForced("lavaSpringsPerChunk", new WorldGenLiquids(Blocks.flowing_lava), SpringForcedGenerator.class);
 
         associateFeatureForced("waterLakesPerChunk", new WorldGenLakes(Blocks.water), LakesForcedGenerator.class);
         associateFeatureForced("lavaLakesPerChunk", new WorldGenLakes(Blocks.lava), LakesForcedGenerator.class);

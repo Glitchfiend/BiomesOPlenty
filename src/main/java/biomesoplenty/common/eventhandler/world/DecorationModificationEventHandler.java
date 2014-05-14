@@ -52,31 +52,4 @@ public class DecorationModificationEventHandler
 			}
 		}
 	}
-	
-	@SubscribeEvent
-	public void modifyPopulation(Populate event)
-	{
-		World world = event.world;
-
-		int chunkX = event.chunkX;
-		int chunkZ = event.chunkZ;
-
-		Random random = event.rand;
-		
-		BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX + 16, chunkZ + 16);
-		IBOPBiome bopDecoration = null;
-
-		if (biome instanceof IBOPBiome)
-		{
-			bopDecoration = (IBOPBiome)biome;
-		}
-		else if (BiomeTweaker.biomeHasForcedDecorator(biome.biomeID))
-		{
-			bopDecoration = BiomeTweaker.getForcedDecorator(biome.biomeID);
-		}
-		
-		if (bopDecoration != null)
-		{			
-		}
-	}
 }
