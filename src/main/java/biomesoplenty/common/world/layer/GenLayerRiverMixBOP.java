@@ -5,6 +5,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerRiverMix;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.api.content.BOPCBiomes;
 
 public class GenLayerRiverMixBOP extends GenLayerRiverMix
 {
@@ -40,7 +41,7 @@ public class GenLayerRiverMixBOP extends GenLayerRiverMix
             {
                 if (riverBiomeIds[i1] == BiomeGenBase.river.biomeID)
                 {
-                    if (inputBiomeIds[i1] == BiomeGenBase.icePlains.biomeID)
+                    if (inputBiomeIds[i1] == BiomeGenBase.icePlains.biomeID || inputBiomeIds[i1] == BOPCBiomes.alps.biomeID || inputBiomeIds[i1] == BOPCBiomes.alpsForest.biomeID || inputBiomeIds[i1] == BOPCBiomes.arctic.biomeID || inputBiomeIds[i1] == BOPCBiomes.glacier.biomeID || inputBiomeIds[i1] == BOPCBiomes.frostForest.biomeID || inputBiomeIds[i1] == BOPCBiomes.snowyConiferousForest.biomeID)
                     {
                         outputBiomeIds[i1] = BiomeGenBase.frozenRiver.biomeID;
                     }

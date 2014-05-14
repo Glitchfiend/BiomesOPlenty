@@ -78,7 +78,10 @@ import biomesoplenty.common.biomes.overworld.BiomeGenTundra;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenAlpsForest;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenCanyonRavine;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenGlacier;
+import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenMeadowForest;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenOasis;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenQuagmire;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenScrubland;
@@ -86,6 +89,7 @@ import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenSilkglades;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenTropics;
 import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenVolcano;
 import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenDryRiver;
+import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenLushRiver;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
@@ -190,6 +194,9 @@ public class BOPBiomes
 		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert.biomeID);
 		quagmire = registerOverworldSubBiome(BiomeGenQuagmire.class, "Quagmire", 10, sludgepit.biomeID);
 		silkglades = registerOverworldSubBiome(BiomeGenSilkglades.class, "Silkglades", 10, sludgepit.biomeID);
+		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow.biomeID);
+		alpsForest = registerOverworldSubBiome(BiomeGenAlpsForest.class, "Alps Forest", 10, alps.biomeID);
+		canyonRavine = registerOverworldSubBiome(BiomeGenCanyonRavine.class, "Canyon Ravine", 10, canyon.biomeID);
 		
 		//Ocean Biomes
 		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.ocean.biomeID, BiomeGenBase.deepOcean.biomeID);
@@ -203,7 +210,8 @@ public class BOPBiomes
         undergarden = registerNetherBiome(BiomeGenUndergarden.class, "Undergarden", 10);
         
         //River Biomes
-        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", BiomeGenBase.desert.biomeID);
+        lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp.biomeID, lavenderFields.biomeID, flowerField.biomeID, bambooForest.biomeID, cherryBlossomGrove.biomeID, lushDesert.biomeID, meadow.biomeID, spruceWoods.biomeID, rainforest.biomeID, BiomeGenBase.forest.biomeID, BiomeGenBase.forestHills.biomeID, BiomeGenBase.jungle.biomeID, BiomeGenBase.jungleEdge.biomeID, BiomeGenBase.jungleHills.biomeID);
+        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback.biomeID, dunes.biomeID, steppe.biomeID, BiomeGenBase.desert.biomeID, BiomeGenBase.desertHills.biomeID);
 	}
 	
 	private static void addBiomesToDictionary()

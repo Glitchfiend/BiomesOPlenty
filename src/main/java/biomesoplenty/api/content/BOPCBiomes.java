@@ -70,6 +70,9 @@ public class BOPCBiomes
 	public static BiomeGenBase quagmire;
 	public static BiomeGenBase tropics;
 	public static BiomeGenBase volcano;
+	public static BiomeGenBase meadowForest;
+	public static BiomeGenBase alpsForest;
+	public static BiomeGenBase canyonRavine;
 	
 	//Ocean Biomes
 	public static BiomeGenBase kelpForest;
@@ -82,6 +85,7 @@ public class BOPCBiomes
 	public static BiomeGenBase visceralHeap;
 	
 	//River Biomes
+	public static BiomeGenBase lushRiver;
 	public static BiomeGenBase dryRiver;
 	
 }

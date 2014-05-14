@@ -33,7 +33,6 @@ public class BiomeGenDunes extends BOPBiome
 		this.theBiomeDecorator.deadBushPerChunk = 5;
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 75;
-		this.theBiomeDecorator.generateLakes = false;
 
         this.bopWorldFeatures.setFeature("desertSproutsPerChunk", 25);
         this.bopWorldFeatures.setFeature("bromeliadsPerChunk", 5);
