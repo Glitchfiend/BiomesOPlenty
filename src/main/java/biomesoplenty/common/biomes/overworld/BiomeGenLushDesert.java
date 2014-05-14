@@ -1,20 +1,20 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenCypress;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
-
-import java.util.Random;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenCypress;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenLushDesert extends BOPBiome
 {
@@ -68,7 +68,7 @@ public class BiomeGenLushDesert extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(4) == 0 ? new WorldGenCypress(Blocks.log2, Blocks.leaves2, 0, 0, false, 7, 10, 2) : 
-        (random.nextInt(18) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), Blocks.hardened_clay) : 
+        (random.nextInt(18) == 0 ? new WorldGenDeadTree() : 
         (random.nextInt(2) == 0 ? worldGeneratorTrees : new WorldGenShrub(0,0)));
     }
 

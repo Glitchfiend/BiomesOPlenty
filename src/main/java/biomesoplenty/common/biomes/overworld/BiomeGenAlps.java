@@ -21,8 +21,8 @@ public class BiomeGenAlps extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
 		
-		this.topBlock = Blocks.stone;
-		this.fillerBlock = Blocks.stone;
+		this.topBlock = Blocks.snow;
+		this.fillerBlock = Blocks.snow;
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = -999;
