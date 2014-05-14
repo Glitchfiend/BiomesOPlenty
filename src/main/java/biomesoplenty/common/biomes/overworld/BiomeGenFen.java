@@ -1,5 +1,12 @@
 package biomesoplenty.common.biomes.overworld;
 
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -8,14 +15,7 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga1;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenFen extends BOPBiome
 {
@@ -69,7 +69,7 @@ public class BiomeGenFen extends BOPBiome
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
 		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 0, false, 10, 12, 3) : 
-		(random.nextInt(20) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
+		(random.nextInt(20) == 0 ? new WorldGenDeadTree() : 
 		new WorldGenBOPTaiga1(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 5, 1));
 	}
 

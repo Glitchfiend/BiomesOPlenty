@@ -1,14 +1,13 @@
 package biomesoplenty.common.biomes.overworld;
 
+import java.util.Random;
+
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenWasteland extends BOPBiome
 {
@@ -50,7 +49,7 @@ public class BiomeGenWasteland extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("grass"), BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("redRock"));
+        return new WorldGenDeadTree();
     }
 
     @Override

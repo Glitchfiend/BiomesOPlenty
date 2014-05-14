@@ -1,16 +1,16 @@
 package biomesoplenty.common.biomes.overworld;
 
+import java.util.Random;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
 
 public class BiomeGenDeadForest extends BOPBiome
 {
@@ -47,7 +47,7 @@ public class BiomeGenDeadForest extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(3) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
+		return random.nextInt(3) == 0 ? new WorldGenDeadTree() : 
 		(random.nextInt(4) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 1) : 
 		new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 5, 3, false));
 	}

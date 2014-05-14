@@ -6,15 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree1;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenSilkglades extends BOPSubBiome
 {
@@ -69,7 +67,7 @@ public class BiomeGenSilkglades extends BOPSubBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, 6, 9, BOPBlockHelper.get("leaves2"), 0) : 
-            (random.nextInt(7) == 0 ? new WorldGenDeadTree1(false, Blocks.dirt, Blocks.grass, BOPBlockHelper.get("driedDirt"), BOPBlockHelper.get("mud")) : 
+            (random.nextInt(7) == 0 ? new WorldGenDeadTree() : 
                 new WorldGenBOPSwampTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0, 6, 9, BOPBlockHelper.get("colorizedLeaves2"), 0));
     }
 

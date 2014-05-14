@@ -23,9 +23,9 @@ public class BiomeGenDryRiver extends BOPBiome
         
         this.setHeight(biomeHeight);
         
-        this.topBlock = BOPBlockHelper.get("driedDirt");
-		this.fillerBlock = BOPBlockHelper.get("driedDirt");
+        this.topBlock = Blocks.sand;
+		this.fillerBlock = Blocks.sand;
 		
-		this.bopWorldFeatures.setFeature("dryRiverPerChunk", 999);
+		this.bopWorldFeatures.setFeature("sandstoneSpikesPerChunk", 5);
     }
 }
