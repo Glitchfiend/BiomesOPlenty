@@ -14,7 +14,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
 public class BiomeGenAlpsForest extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(0.6F, 1.2F);
+	private static final Height biomeHeight = new Height(0.6F, 0.8F);
 	
 	public BiomeGenAlpsForest(int id)
 	{
@@ -28,7 +28,7 @@ public class BiomeGenAlpsForest extends BOPSubBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
 		
-		this.theBiomeDecorator.treesPerChunk = 12;
+		this.theBiomeDecorator.treesPerChunk = 16;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.sandPerChunk = -999;
@@ -47,7 +47,7 @@ public class BiomeGenAlpsForest extends BOPSubBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 6, 4, 0);
+        return new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6);
     }
 	
 	@Override
