@@ -78,15 +78,6 @@ public class BiomeGenBog extends BOPBiome
                 world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
             }
         }
-
-		for (int var6 = 0; var6 < 10; ++var6)
-		{
-			int var7 = chunkX + random.nextInt(16) + 8;
-			short var8 = 62;
-			int var9 = chunkZ + random.nextInt(16) + 8;
-			
-			new WorldGenMarsh().generate(world, random, var7, var8, var9);
-		}
 	}
 
     @Override

@@ -27,9 +27,8 @@ import biomesoplenty.common.blocks.BlockBOPPersimmonLeaves;
 import biomesoplenty.common.blocks.BlockBOPPetals;
 import biomesoplenty.common.blocks.BlockBOPPlank;
 import biomesoplenty.common.blocks.BlockBOPPlant;
-import biomesoplenty.common.blocks.BlockBOPRedRock;
+import biomesoplenty.common.blocks.BlockBOPRocks;
 import biomesoplenty.common.blocks.BlockBOPSapling;
-import biomesoplenty.common.blocks.BlockBOPSkystone;
 import biomesoplenty.common.blocks.BlockBOPSlab;
 import biomesoplenty.common.blocks.BlockBOPSlab.SlabCategory;
 import biomesoplenty.common.blocks.BlockBOPStairs;
@@ -74,9 +73,8 @@ import biomesoplenty.common.itemblocks.ItemBlockPersimmonLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockPetals;
 import biomesoplenty.common.itemblocks.ItemBlockPlank;
 import biomesoplenty.common.itemblocks.ItemBlockPlant;
-import biomesoplenty.common.itemblocks.ItemBlockRedRock;
+import biomesoplenty.common.itemblocks.ItemBlockRocks;
 import biomesoplenty.common.itemblocks.ItemBlockSapling;
-import biomesoplenty.common.itemblocks.ItemBlockSkystone;
 import biomesoplenty.common.itemblocks.ItemBlockSlab;
 import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
 import biomesoplenty.common.itemblocks.ItemBlockWillow;
@@ -95,7 +93,7 @@ public class BOPBlocks
 		registerBlock(new BlockMud().setBlockName("mud"), ItemBlockMud.class);
 		//TODO:									   rock
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.DRIED_DIRT).setBlockName("driedDirt"));
-        registerBlock(new BlockBOPRedRock().setBlockName("redRock"), ItemBlockRedRock.class);
+        registerBlock(new BlockBOPRocks().setBlockName("rocks"), ItemBlockRocks.class);
 		registerBlock(new BlockAsh().setBlockName("ash"));
         registerBlock(new BlockFlesh().setBlockName("flesh"));
         registerBlock(new BlockBOPPlant().setBlockName("plants"), ItemBlockPlant.class);
@@ -145,7 +143,6 @@ public class BOPBlocks
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.HARD_DIRT).setBlockName("hardDirt"));
 
         registerBlock(new BlockBOPGeneric(Material.sand, BlockType.HOLY_DIRT).setBlockName("holyDirt"));
-        registerBlock(new BlockBOPSkystone().setBlockName("holyStone"), ItemBlockSkystone.class);
 
         registerBlock(new BlockBOPGeneric(Material.glass, BlockType.CRYSTAL).setBlockName("crystal"));
 
@@ -197,13 +194,8 @@ public class BOPBlocks
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.HELL_BARK).setBlockName("hellBarkStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.JACARANDA).setBlockName("jacarandaStairs"));
 		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("planks"), Category.MAHOGANY).setBlockName("mahoganyStairs"));
-		
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_COBBLE).setBlockName("redCobbleStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.RED_BRICKS).setBlockName("redBricksStairs"));
 
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("holyStone"), Category.HOLY_COBBLE).setBlockName("holyCobbleStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("holyStone"), Category.HOLY_BRICKS).setBlockName("holyBricksStairs"));
-		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("redRock"), Category.MUD_BRICKS).setBlockName("mudBricksStairs"));
+		registerBlock(new BlockBOPStairs(BOPBlockHelper.get("mudBricks"), Category.MUD_BRICKS).setBlockName("mudBricksStairs"));
 
         registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT1).setBlockName("colorizedLeaves1"), ItemBlockColorizedLeaves.class);
         registerBlock(new BlockBOPColorizedLeaves(ColourizedLeafCategory.CAT2).setBlockName("colorizedLeaves2"), ItemBlockColorizedLeaves.class);

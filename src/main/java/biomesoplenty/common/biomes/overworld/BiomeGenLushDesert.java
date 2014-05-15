@@ -100,7 +100,7 @@ public class BiomeGenLushDesert extends BOPBiome
 
             Block block= world.getBlock(x, y, z);
 
-            if (block != null && (block.isReplaceableOreGen(world, x, y, z, Blocks.stone) || block == BOPBlockHelper.get("redRock")))
+            if (block != null && (block.isReplaceableOreGen(world, x, y, z, Blocks.stone)))
             {
                 //TODO: setBlock()
                 world.setBlock(x, y, z, Blocks.flowing_water, 0, 2);

@@ -50,11 +50,11 @@ public class WorldGenFieldAssociation
     private static void associateFeatures()
     {
         associateFeature("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24, Blocks.grass, Blocks.dirt, Blocks.sand));
-        associateFeature("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("redRock"), 0, 48, Blocks.stone));
+        associateFeature("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("rocks"), 0, 48, Blocks.stone));
         associateFeature("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("grass")));
         associateFeature("generateStoneInGrass2", new WorldGenSplotches(Blocks.stone, 0, 48, Blocks.grass, Blocks.dirt));
-        associateFeature("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("redRock")));
-        associateFeature("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("redRock")));
+        associateFeature("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("rocks")));
+        associateFeature("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("rocks")));
         associateFeature("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
         associateFeature("generateAsh", new WorldGenSplotches(BOPBlockHelper.get("ash"), 0, 32, BOPBlockHelper.get("ashStone"), Blocks.netherrack));
         associateFeature("generateMycelium", new WorldGenSplotches(Blocks.mycelium, 0, 32, Blocks.grass));

@@ -11,9 +11,12 @@ tile.mudBricks.name=Mud Bricks
 tile.holyDirt.name=Purified Dirt
 tile.crystal.name=Celestial Crystal
 
-tile.redRock.redrock.name=Red Rock
-tile.redRock.redcobble.name=Red Rock Cobblestone
-tile.redRock.redbrick.name=Red Rock Bricks
+tile.rocks.limestone.name=Limestone
+tile.rocks.limestonesmooth.name=Polished Limestone
+tile.rocks.siltstone.name=Siltstone
+tile.rocks.siltstonesmooth.name=Polished Siltstone
+tile.rocks.shale.name=Shale
+tile.rocks.shalesmooth.name=Polished Shale
 
 tile.ash.name=Ash Block
 tile.flesh.name=Flesh
@@ -132,19 +135,8 @@ tile.coral.bluecoral.name=Blue Coral
 tile.coral.glowcoral.name=Glowing Coral
 tile.coral.algae.name=Algae
 
-tile.redCobbleStairs.name=Red Rock Cobblestone Stairs      
-tile.redBricksStairs.name=Red Rock Bricks Stairs
-
 tile.holyGrass.holygrass.name=Purified Grass Block
 tile.holyGrass.smolderinggrass.name=Smoldering Grass Block
-
-tile.holyStone.holystone.name=Skystone
-tile.holyStone.holycobble.name=Skystone Cobblestone
-tile.holyStone.holybrick.name=Skystone Bricks
-tile.holyStone.holystonemossy.name=Mossy Skystone
-
-tile.holyCobbleStairs.name=Skystone Cobblestone Stairs
-tile.holyBricksStairs.name=Skystone Bricks Stairs
 
 tile.gemOre.amethystore.name=Ender Amethyst Ore
 tile.gemOre.amethystblock.name=Block of Amethyst
@@ -182,17 +174,8 @@ tile.bones.bones_large.name=Large Bone Segment
 
 tile.grave.name=Gravestone
 
-tile.stoneDoubleSlab.redcobbleSlab.name=Red Rock Cobblestone Slab
-tile.stoneDoubleSlab.redbrickSlab.name=Red Rock Bricks Slab
 tile.stoneDoubleSlab.mudbrickSlab.name=Mud Bricks Slab
-tile.stoneDoubleSlab.holycobbleSlab.name=Skystone Cobblestone Slab
-tile.stoneDoubleSlab.holybrickSlab.name=Skystone Bricks Slab
-
-tile.stoneSingleSlab.redcobbleSlab.name=Red Rock Cobblestone Slab
-tile.stoneSingleSlab.redbrickSlab.name=Red Rock Bricks Slab
 tile.stoneSingleSlab.mudbrickSlab.name=Mud Bricks Slab
-tile.stoneSingleSlab.holycobbleSlab.name=Skystone Cobblestone Slab
-tile.stoneSingleSlab.holybrickSlab.name=Skystone Bricks Slab
 
 tile.planks.sacredoakPlank.name=Sacred Oak Wood Planks
 tile.planks.cherryPlank.name=Cherry Wood Planks
