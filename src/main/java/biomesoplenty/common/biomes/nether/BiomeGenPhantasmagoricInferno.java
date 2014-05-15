@@ -17,7 +17,7 @@ public class BiomeGenPhantasmagoricInferno extends BOPNetherBiome
         this.fillerBlock = BOPBlockHelper.get("ash");
 
         this.bopWorldFeatures.setFeature("netherLavaLakesPerChunk", 20);
-        this.bopWorldFeatures.setFeature("smolderingGrassPerChunk", 8);
+        this.bopWorldFeatures.setFeature("smolderingGrassPerChunk", 30);
         this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
         this.bopWorldFeatures.setFeature("generateAsh", true);

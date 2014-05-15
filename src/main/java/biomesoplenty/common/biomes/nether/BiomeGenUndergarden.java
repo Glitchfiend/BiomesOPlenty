@@ -22,17 +22,17 @@ public class BiomeGenUndergarden extends BOPNetherBiome
         this.topBlock = BOPBlockHelper.get("overgrownNetherrack");
         this.fillerBlock = Blocks.netherrack;
         
-        this.theBiomeDecorator.treesPerChunk = 10;
+        this.theBiomeDecorator.treesPerChunk = 50;
         
         this.bopWorldFeatures.setFeature("netherVinesPerChunk", 20);
         this.bopWorldFeatures.setFeature("netherrackSplatterPerChunk", 45);
         this.bopWorldFeatures.setFeature("bopBigMushroomsPerChunk", 30);
         this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
-        this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 3);
-        this.bopWorldFeatures.setFeature("glowshroomsPerChunk", 1);
+        this.bopWorldFeatures.setFeature("toadstoolsPerChunk", 10);
+        this.bopWorldFeatures.setFeature("glowshroomsPerChunk", 5);
         
-        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 30);
+        this.bopWorldFeatures.setFeature("bopGrassPerChunk", 50);
 		
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.25D);
 		this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
