@@ -37,7 +37,7 @@ public class BiomeGenLushSwamp extends BOPBiome
         this.bopWorldFeatures.setFeature("highCattailsPerChunk", 5);
         this.bopWorldFeatures.setFeature("riverCanePerChunk", 5);
         this.bopWorldFeatures.setFeature("algaePerChunk", 3);
-        //TODO: FEATURE this.bopWorldFeatures.poisonWaterPerChunk = 2;
+        this.bopWorldFeatures.setFeature("poisonLakesPerChunk", 2);
         this.bopWorldFeatures.setFeature("wildCarrotsPerChunk", 1);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 5);
         this.bopWorldFeatures.setFeature("koruPerChunk", 1);

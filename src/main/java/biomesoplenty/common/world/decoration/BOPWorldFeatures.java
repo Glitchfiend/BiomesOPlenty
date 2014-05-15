@@ -38,6 +38,7 @@ public class BOPWorldFeatures
 
         addFeature("waterLakesPerChunk", 0);
         addFeature("lavaLakesPerChunk", 0);
+        addFeature("poisonLakesPerChunk", 0);
 
         addFeature("mudPerChunk", 0);
         addFeature("riverCanePerChunk", 0);

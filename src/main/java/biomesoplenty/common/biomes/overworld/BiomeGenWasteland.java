@@ -32,7 +32,7 @@ public class BiomeGenWasteland extends BOPBiome
         this.theBiomeDecorator.treesPerChunk = 0;
         this.theBiomeDecorator.grassPerChunk = 20;
         
-       //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 10;
+        this.bopWorldFeatures.setFeature("poisonLakesPerChunk", 10);
         this.bopWorldFeatures.setFeature("waterLakesPerChunk", 2);
         this.bopWorldFeatures.setFeature("wasteland1PerChunk", 1);
         this.bopWorldFeatures.setFeature("wasteland2PerChunk", 1);
