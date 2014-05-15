@@ -88,19 +88,20 @@ public class BiomeGenTropicalRainforest extends BOPBiome
             }
         }
     }
-
+    
     @Override
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
-        return 11002176;
-    }
-
-
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 11002176 : 11653451;
+	}
+    
     @Override
-    public int getBiomeFoliageColor(int x, int y, int z)
-    {
-        return 8970560;
-    }
+	public int getBiomeFoliageColor(int x, int y, int z)
+	{
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 8970560 : 10080587;
+	}
     
     @Override
     public int getSkyColorByTemp(float par1)

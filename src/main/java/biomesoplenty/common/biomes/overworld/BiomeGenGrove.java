@@ -82,18 +82,18 @@ public class BiomeGenGrove extends BOPBiome
             }
         }
     }
-
+	
 	@Override
-    //TODO:     getBiomeGrassColor()
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
-		return 5341009;
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 5341009 : 6331992;
 	}
 
 	@Override
-    //TODO:     getBiomeFoliageColor()
-    public int getBiomeFoliageColor(int x, int y, int z)
-    {
-		return 6396257;
+	public int getBiomeFoliageColor(int x, int y, int z)
+	{
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 6396257 : 7714153;
 	}
 }
