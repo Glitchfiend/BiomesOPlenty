@@ -25,7 +25,7 @@ public class BiomeGenDeciduousForest extends BOPBiome
         this.setColor(12695369);
         this.setTemperatureRainfall(0.7F, 0.8F);
 		
-		this.theBiomeDecorator.treesPerChunk = 15;
+		this.theBiomeDecorator.treesPerChunk = 18;
 		this.theBiomeDecorator.grassPerChunk = 10;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 
@@ -52,7 +52,7 @@ public class BiomeGenDeciduousForest extends BOPBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(4) == 0 ? new WorldGenShrub(2,2) : new WorldGenBulbTree(Blocks.log, Blocks.leaves, 0, 0, false, 10, 15, false);
+		return random.nextInt(6) == 0 ? new WorldGenShrub(2,2) : (random.nextInt(3) == 0 ? new WorldGenShrub(0,0) : new WorldGenBulbTree(Blocks.log, Blocks.leaves, 0, 0, false, 10, 15, false));
 	}
 	
 	
@@ -78,14 +78,16 @@ public class BiomeGenDeciduousForest extends BOPBiome
 	}
 
 	@Override
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
+    public int getBiomeGrassColor(int x, int y, int z)
     {
-		return 12695369;
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 12695369 : 11374145;
 	}
 
 	@Override
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
-		return 12896570;
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 12896570 : 11510344;
 	}
 }

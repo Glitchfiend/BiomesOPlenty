@@ -29,7 +29,7 @@ public class BiomeGenShrubland extends BOPBiome
 		
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 
-		this.theBiomeDecorator.treesPerChunk = 0;
+		this.theBiomeDecorator.treesPerChunk = 1;
 		this.theBiomeDecorator.flowersPerChunk = 0;
 		this.theBiomeDecorator.grassPerChunk = 5;
 
