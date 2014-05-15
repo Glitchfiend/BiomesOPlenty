@@ -64,21 +64,9 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("food"), 4, 3), new Object[] {new ItemStack(BOPBlockHelper.get("flowers"),1,13)});
 
 		//Brick stairs and slabs
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("stoneSingleSlab"), 6, 0), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,1)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("redCobbleStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,1)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("redCobbleStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,1)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("redBricksStairs"), 6, 1), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,2)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("redBricksStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,2)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("redBricksStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,2)});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("stoneSingleSlab"), 6, 2), new Object[] {"RRR", 'R', BOPBlockHelper.get("mudBricks")});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("mudBricksStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', BOPBlockHelper.get("mudBricks")});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("mudBricksStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', BOPBlockHelper.get("mudBricks")});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("holyCobbleStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,1)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("holyCobbleStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,1)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("holyBricksStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,2)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("holyBricksStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,2)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("stoneSingleSlab"), 6, 3), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,1)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("stoneSingleSlab"), 6, 4), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,2)});
 
 		//Redwood
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPBlockHelper.get("planks"), 4, 8), new Object[] {new ItemStack(BOPBlockHelper.get("logs3"),1,0)});
@@ -139,9 +127,6 @@ public class BOPCrafting
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("woodenSingleSlab1"),6,4), new Object[] {"RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"),1,4)});
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("holyStairs"), 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"),1,4)});
 		addRecipeToFront(new ItemStack(BOPBlockHelper.get("holyStairs"), 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPBlockHelper.get("planks"),1,4)});
-
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("redRock"), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(BOPBlockHelper.get("redRock"),1,0)});
-		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("holyStone"), 4, 2), new Object[] {"RR", "RR", 'R', new ItemStack(BOPBlockHelper.get("holyStone"),1,0)});
 
 		//Pine
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPBlockHelper.get("planks"), 4, 11), new Object[] {new ItemStack(BOPBlockHelper.get("logs4"), 1, 0)});
@@ -310,8 +295,6 @@ public class BOPCrafting
 	{
 		GameRegistry.addSmelting(Blocks.dirt, new ItemStack(BOPBlockHelper.get("driedDirt"), 1), 0F);
 		
-		GameRegistry.addSmelting(new ItemStack(BOPBlockHelper.get("redRock"), 1, 1), new ItemStack(BOPBlockHelper.get("redRock"), 1, 0), 0.1F);
-		GameRegistry.addSmelting(new ItemStack(BOPBlockHelper.get("holyStone"), 1, 1), new ItemStack(BOPBlockHelper.get("holyStone"), 1, 0), 0.1F);
 		GameRegistry.addSmelting(new ItemStack(BOPBlockHelper.get("plants"), 1, 12), new ItemStack(Items.dye, 1, 2), 0.2F);
 		GameRegistry.addSmelting(BOPItemHelper.get("mudball"), new ItemStack(BOPItemHelper.get("misc"), 1, 0), 0F);
 

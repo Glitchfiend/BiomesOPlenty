@@ -4,11 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockRedRock extends ItemBlock
+public class ItemBlockRocks extends ItemBlock
 {
-	private static final String[] types = new String[] {"redrock", "redcobble", "redbrick"};
+	private static final String[] types = new String[] {"limestone", "limestonesmooth", "siltstone", "siltstonesmooth", "shale", "shalesmooth"};
 
-	public ItemBlockRedRock(Block block)
+	public ItemBlockRocks(Block block)
 	{
 		super(block);
 		

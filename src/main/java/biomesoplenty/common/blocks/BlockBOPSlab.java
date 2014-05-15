@@ -26,7 +26,7 @@ public class BlockBOPSlab extends BlockSlab
 	}
 	
 	private static final String[] woodTypes = new String[] {"sacredoak", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda", "mahogany"};
-	private static final String[] rockTypes = new String[] {"redcobble", "redbrick", "mudbrick", "holycobble", "holybrick"};
+	private static final String[] rockTypes = new String[] {"mudbrick"};
 	private IIcon[] textures;
 
 	private final SlabCategory category;
@@ -110,7 +110,7 @@ public class BlockBOPSlab extends BlockSlab
 		} else if (category == SlabCategory.WOOD2) {
 			max = 5;
 		} else if (category == SlabCategory.STONE) {
-			max = 5;
+			max = 1;
 		}
 
 		for (int i = 0; i < max; ++i) {

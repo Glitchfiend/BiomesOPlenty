@@ -13,15 +13,19 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
-public class BlockBOPRedRock extends Block
+public class BlockBOPRocks extends Block
 {
-	private static final String[] types = new String[] {"redrock", "redcobble", "redbrick"};
+	private static final String[] types = new String[] {"limestone", "limestonesmooth", "siltstone", "siltstonesmooth", "shale", "shalesmooth"};
 	private IIcon[] textures = {null, null, null};
 
-	public BlockBOPRedRock()
+	public BlockBOPRocks()
 	{
 		//TODO: Material.rock
 		super(Material.rock);
+		
+		this.setHarvestLevel("pickaxe", 1, 0);
+		this.setHarvestLevel("pickaxe", 2, 2);
+		this.setHarvestLevel("pickaxe", 3, 4);
 		
 		//TODO setStepSound(Block.soundStoneFootstep)
 		this.setStepSound(Block.soundTypePiston);
@@ -88,15 +92,27 @@ public class BlockBOPRedRock extends Block
 		switch (meta)
 		{
 		case 0:
-			hardness = 1.0F;
+			hardness = 3.0F;
 			break;
 
 		case 1:
-			hardness = 1.6F;
+			hardness = 1.5F;
 			break;
 
 		case 2:
-			hardness = 1.1F;
+			hardness = 3.0F;
+			break;
+			
+		case 3:
+			hardness = 1.5F;
+			break;
+
+		case 4:
+			hardness = 3.0F;
+			break;
+			
+		case 5:
+			hardness = 1.5F;
 			break;
 		}
 
@@ -112,11 +128,27 @@ public class BlockBOPRedRock extends Block
 
 		switch (meta)
 		{
+		case 0:
+			resistance = 5.0F;
+			break;
+		
 		case 1:
-			resistance = 7.5F;
+			resistance = 7.0F;
 			break;
 
 		case 2:
+			resistance = 5.0F;
+			break;
+			
+		case 3:
+			resistance = 7.0F;
+			break;
+			
+		case 4:
+			resistance = 5.0F;
+			break;
+			
+		case 5:
 			resistance = 7.0F;
 			break;
 		}
