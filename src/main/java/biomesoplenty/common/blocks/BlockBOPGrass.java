@@ -47,13 +47,13 @@ public class BlockBOPGrass extends Block
 	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:holydirt");
+		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:spectralsoil");
 		
-		this.icon[0][1] = iconRegister.registerIcon("biomesoplenty:holygrass_top");
-		this.icon[0][2] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-		this.icon[0][3] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-		this.icon[0][4] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
-		this.icon[0][5] = iconRegister.registerIcon("biomesoplenty:holygrass_side");
+		this.icon[0][1] = iconRegister.registerIcon("biomesoplenty:spectralmoss_top");
+		this.icon[0][2] = iconRegister.registerIcon("biomesoplenty:spectralmoss_side");
+		this.icon[0][3] = iconRegister.registerIcon("biomesoplenty:spectralmoss_side");
+		this.icon[0][4] = iconRegister.registerIcon("biomesoplenty:spectralmoss_side");
+		this.icon[0][5] = iconRegister.registerIcon("biomesoplenty:spectralmoss_side");
 		
 		this.icon[1][0] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_bottom");
 		this.icon[1][1] = iconRegister.registerIcon("biomesoplenty:smolderinggrass_top");
@@ -165,7 +165,7 @@ public class BlockBOPGrass extends Block
 				if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 				{
 					//TODO: setBlock()
-					world.setBlock(x, y, z, BOPBlockHelper.get("holyDirt"), 0, 2);
+					world.setBlock(x, y, z, BOPBlockHelper.get("spectralSoil"), 0, 2);
 				}
 				else if (world.getBlockLightValue(x, y + 1, z) >= 9)
 				{
@@ -178,7 +178,7 @@ public class BlockBOPGrass extends Block
 	                    Block block = world.getBlock(rX, rY + 1, rZ);
 
 	                    //TODO:	  getBlock()
-						if (world.getBlock(rX, rY, rZ) == BOPBlockHelper.get("holyDirt") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
+						if (world.getBlock(rX, rY, rZ) == BOPBlockHelper.get("spectralSoil") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
 							//TODO: setBlock()
 							world.setBlock(rX, rY, rZ, BOPBlockHelper.get("grass"), 0, 2);
@@ -217,7 +217,7 @@ public class BlockBOPGrass extends Block
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		//TODO:						getItemFromBlock()									getItemFromBlock()
-		return metadata == 0 ? Item.getItemFromBlock(BOPBlockHelper.get("holyDirt")) : Item.getItemFromBlock(Blocks.dirt);
+		return metadata == 0 ? Item.getItemFromBlock(BOPBlockHelper.get("spectralSoil")) : Item.getItemFromBlock(Blocks.dirt);
 	}
 
 }

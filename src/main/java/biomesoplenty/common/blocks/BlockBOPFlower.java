@@ -223,7 +223,7 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 			return block == Blocks.waterlily;
 
 		case 11: // Rainbow Flower
-			return block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("holyDirt") || block == Blocks.grass || block == Blocks.dirt;
+			return block == BOPBlockHelper.get("grass") || block == Blocks.grass || block == Blocks.dirt;
 
 		case 12: // Bromeliad
 			return block == BOPBlockHelper.get("hardDirt") || block == Blocks.hardened_clay || block == Blocks.sand;

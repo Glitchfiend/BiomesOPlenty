@@ -34,7 +34,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "holytallgrass", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "spectralfern", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
 	private IIcon[] textures;
 	public IIcon reedbottom;
 
@@ -141,7 +141,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		case 3: // Dune Grass
 			return block == Blocks.sand;
 
-		case 4: // Holy Tall Grass
+		case 4: // Spectral Fern
 			return block == BOPBlockHelper.get("grass");
 
 		case 5: // Thorns
@@ -172,7 +172,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water && reedwater != Blocks.water;
 			
 		case 15: // Root
-			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("grass") || root == BOPBlockHelper.get("holyDirt"));
+			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("grass") || root == BOPBlockHelper.get("spectralSoil"));
 			
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("overgrownNetherrack");

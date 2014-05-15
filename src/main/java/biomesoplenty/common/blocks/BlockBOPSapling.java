@@ -80,7 +80,7 @@ public class BlockBOPSapling extends BlockSapling
 		switch (metadata)
 		{
 		case 7: // Loftwood
-			return block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("holyDirt");
+			return block == BOPBlockHelper.get("grass");
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);

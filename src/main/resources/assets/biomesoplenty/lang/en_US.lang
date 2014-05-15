@@ -8,7 +8,7 @@ tile.hardIce.name=Hardened Ice
 tile.driedDirt.name=Dried Dirt
 tile.cragRock.name=Crag Rock
 tile.mudBricks.name=Mud Bricks
-tile.holyDirt.name=Purified Dirt
+tile.spectralSoil.name=Spectral Soil
 tile.crystal.name=Celestial Crystal
 
 tile.rocks.limestone.name=Limestone
@@ -25,7 +25,7 @@ tile.plants.deadgrass.name=Dead Grass
 tile.plants.desertgrass.name=Desert Grass
 tile.plants.desertsprouts.name=Desert Sprouts
 tile.plants.dunegrass.name=Dune Grass
-tile.plants.holytallgrass.name=Purified Tall Grass
+tile.plants.spectralfern.name=Spectral Fern
 tile.plants.thorn.name=Thorns
 tile.plants.barley.name=Barley
 tile.plants.cattail.name=Cattail
@@ -135,7 +135,7 @@ tile.coral.bluecoral.name=Blue Coral
 tile.coral.glowcoral.name=Glowing Coral
 tile.coral.algae.name=Algae
 
-tile.holyGrass.holygrass.name=Purified Grass Block
+tile.holyGrass.spectralmoss.name=Spectral Moss Block
 tile.holyGrass.smolderinggrass.name=Smoldering Grass Block
 
 tile.gemOre.amethystore.name=Ender Amethyst Ore

@@ -142,7 +142,7 @@ public class BOPBlocks
         registerBlock(new BlockBOPGeneric(Material.sand, BlockType.HARD_SAND).setBlockName("hardSand"));
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.HARD_DIRT).setBlockName("hardDirt"));
 
-        registerBlock(new BlockBOPGeneric(Material.sand, BlockType.HOLY_DIRT).setBlockName("holyDirt"));
+        registerBlock(new BlockBOPGeneric(Material.sand, BlockType.SPECTRAL_SOIL).setBlockName("spectralSoil"));
 
         registerBlock(new BlockBOPGeneric(Material.glass, BlockType.CRYSTAL).setBlockName("crystal"));
 
