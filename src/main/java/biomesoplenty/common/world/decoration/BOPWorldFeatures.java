@@ -88,6 +88,7 @@ public class BOPWorldFeatures
         addFeature("dirtSplatterPerChunk", 0);
         addFeature("sandstoneSpikesPerChunk", 0);
         addFeature("glowshroomsPerChunk", 0);
+        addFeature("bopBigMushroomsPerChunk", 0);
 
         //Nether Features
         addFeature("waspHivesPerChunk", 0);
@@ -96,6 +97,7 @@ public class BOPWorldFeatures
         addFeature("netherLavaLakesPerChunk", 0);
         addFeature("netherVinesPerChunk", 0);
         addFeature("netherrackSplatterPerChunk", 0);
+        addFeature("gravesPerChunk", 0);
         
         addFeature("bopFlowersPerChunk", 0);
         addFeature("bopGrassPerChunk", 0);

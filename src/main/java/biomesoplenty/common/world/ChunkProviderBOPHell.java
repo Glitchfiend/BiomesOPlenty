@@ -1,6 +1,7 @@
 package biomesoplenty.common.world;
 
 import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.SHROOM;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.TREE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETHER_BRIDGE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.NETHER_CAVE;
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.FIRE;
@@ -23,6 +24,8 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.MapGenCavesHell;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenBigMushroom;
 import net.minecraft.world.gen.feature.WorldGenFire;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenGlowStone1;
@@ -561,6 +564,27 @@ public class ChunkProviderBOPHell implements IChunkProvider
 			 i2 = hellRNG.nextInt(108) + 10;
 			 j2 = l + hellRNG.nextInt(16);
 			 (new WorldGenHellLava(Blocks.flowing_lava, true)).generate(worldObj, hellRNG, l1, i2, j2);
+		 }
+
+		 i1 = var6.theBiomeDecorator.treesPerChunk;
+
+		 if (this.hellRNG.nextInt(10) == 0)
+		 {
+			 ++i1;
+		 }
+
+		 for (j1 = 0; j1 < i1; ++j1)
+		 {
+			 k1 = k + this.hellRNG.nextInt(16) + 8;
+			 l1 = l + this.hellRNG.nextInt(16) + 8;
+			 i2 = this.hellRNG.nextInt(128);
+			 WorldGenAbstractTree worldgenabstracttree = var6.func_150567_a(this.hellRNG);
+			 worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
+
+			 if (worldgenabstracttree.generate(this.worldObj, this.hellRNG, k1, i2, l1))
+			 {
+				 worldgenabstracttree.func_150524_b(this.worldObj, this.hellRNG, k1, i2, l1);
+			 }
 		 }
 
 		 MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, k, l));

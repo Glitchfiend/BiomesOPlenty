@@ -8,6 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.feature.WorldGenMelon;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.world.features.WorldGenBOPBigMushroom;
 import biomesoplenty.common.world.features.WorldGenBOPBlob;
 import biomesoplenty.common.world.features.WorldGenBOPCoral;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -31,6 +32,7 @@ import biomesoplenty.common.world.features.WorldGenWaterside;
 import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
 import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
 import biomesoplenty.common.world.features.nether.WorldGenBoneSpine;
+import biomesoplenty.common.world.features.nether.WorldGenGrave;
 import biomesoplenty.common.world.features.nether.WorldGenLakesNether;
 import biomesoplenty.common.world.features.nether.WorldGenWaspHive;
 import biomesoplenty.common.world.forcedgenerators.LakesForcedGenerator;
@@ -107,6 +109,7 @@ public class WorldGenFieldAssociation
         associateFeature("dirtSplatterPerChunk", new WorldGenSplatter(Blocks.dirt, 1, Blocks.grass));
         associateFeature("sandstoneSpikesPerChunk", new WorldGenSandstoneSpike());
         associateFeature("glowshroomsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 3));
+        associateFeature("bopBigMushroomsPerChunk", new WorldGenBOPBigMushroom(Blocks.dirt, Blocks.grass, Blocks.mycelium, BOPBlockHelper.get("overgrownNetherrack")));
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());
@@ -115,6 +118,7 @@ public class WorldGenFieldAssociation
         associateFeature("netherLavaLakesPerChunk", new WorldGenLakesNether());
         associateFeature("netherVinesPerChunk", new WorldGenLongVine(BOPBlockHelper.get("ivy"), 15, 45));
         associateFeature("netherrackSplatterPerChunk", new WorldGenSplatter(Blocks.netherrack, BOPBlockHelper.get("overgrownNetherrack")));
+        associateFeature("gravesPerChunk", new WorldGenGrave());
 
         associateFeature("bopFlowersPerChunk", new WorldGenBOPFlowerManager());
         associateFeature("bopGrassPerChunk", new WorldGenBOPGrassManager());

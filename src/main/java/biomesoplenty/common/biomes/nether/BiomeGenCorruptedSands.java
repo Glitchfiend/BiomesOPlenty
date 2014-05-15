@@ -16,7 +16,7 @@ public class BiomeGenCorruptedSands extends BOPNetherBiome
         this.fillerBlock = Blocks.soul_sand;
         
         this.bopWorldFeatures.setFeature("thornsPerChunk", 10);
-        //customBiomeDecorator.gravesPerChunk = 1;
+        this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
     }
 }

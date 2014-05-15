@@ -18,7 +18,7 @@ public class BiomeGenPhantasmagoricInferno extends BOPNetherBiome
 
         this.bopWorldFeatures.setFeature("netherLavaLakesPerChunk", 20);
         this.bopWorldFeatures.setFeature("smolderingGrassPerChunk", 8);
-        //customBiomeDecorator.gravesPerChunk = 1;
+        this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
         this.bopWorldFeatures.setFeature("generateAsh", true);
         

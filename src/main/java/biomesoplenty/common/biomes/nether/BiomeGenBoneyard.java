@@ -17,7 +17,7 @@ public class BiomeGenBoneyard extends BOPNetherBiome
         
         this.bopWorldFeatures.setFeature("boneSpinesUpPerChunk", 9);
         this.bopWorldFeatures.setFeature("boneSpinesDownPerChunk", 12);
-        //customBiomeDecorator.gravesPerChunk = 1;
+        this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
     }
 }

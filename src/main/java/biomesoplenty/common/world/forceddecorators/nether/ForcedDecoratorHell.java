@@ -10,7 +10,7 @@ public class ForcedDecoratorHell extends ForcedDecorator
 	{
 		super(id);
 		
-        //customBiomeDecorator.gravesPerChunk = 1;
+        this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);
         
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 4);
