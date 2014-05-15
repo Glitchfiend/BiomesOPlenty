@@ -53,7 +53,7 @@ public class WorldGenFieldAssociation
     {
         associateFeature("generateQuicksand", new WorldGenSplotches(BOPBlockHelper.get("mud"), 1, 24, Blocks.grass, Blocks.dirt, Blocks.sand));
         associateFeature("generateCanyon", new WorldGenSplotches(BOPBlockHelper.get("rocks"), 0, 48, Blocks.stone));
-        associateFeature("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass, BOPBlockHelper.get("grass")));
+        associateFeature("generateStoneInGrass", new WorldGenSplotches(Blocks.stone, 0, 32, Blocks.grass));
         associateFeature("generateStoneInGrass2", new WorldGenSplotches(Blocks.stone, 0, 48, Blocks.grass, Blocks.dirt));
         associateFeature("generateGrass", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("rocks")));
         associateFeature("generateSand", new WorldGenSplotches(Blocks.sand, 0, 32, BOPBlockHelper.get("rocks")));
@@ -102,7 +102,7 @@ public class WorldGenFieldAssociation
         associateFeature("wasteland2PerChunk", new WorldGenWasteland2());
         associateFeature("wasteland3PerChunk", new WorldGenWasteland3());
         associateFeature("wasteland4PerChunk", new WorldGenWasteland4());
-        associateFeature("smolderingGrassPerChunk", new WorldGenSplatter(BOPBlockHelper.get("grass"), 1, BOPBlockHelper.get("ash"), Blocks.netherrack));
+        associateFeature("smolderingGrassPerChunk", new WorldGenSplatter(BOPBlockHelper.get("bopGrass"), 1, BOPBlockHelper.get("ash"), Blocks.netherrack));
         associateFeature("sandSplatterPerChunk", new WorldGenSplatter(Blocks.sand, Blocks.grass));
         associateFeature("gravelSplatterPerChunk", new WorldGenSplatter(Blocks.gravel, Blocks.grass));
         associateFeature("redSandSplatterPerChunk", new WorldGenSplatter(Blocks.sand, 1, BOPBlockHelper.get("hardSand")));

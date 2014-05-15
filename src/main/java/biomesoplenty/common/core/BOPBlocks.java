@@ -35,7 +35,6 @@ import biomesoplenty.common.blocks.BlockBOPStairs;
 import biomesoplenty.common.blocks.BlockBOPStairs.Category;
 import biomesoplenty.common.blocks.BlockBamboo;
 import biomesoplenty.common.blocks.BlockBones;
-import biomesoplenty.common.blocks.BlockCloud;
 import biomesoplenty.common.blocks.BlockFlesh;
 import biomesoplenty.common.blocks.BlockFlowerVine;
 import biomesoplenty.common.blocks.BlockGrave;
@@ -61,6 +60,7 @@ import biomesoplenty.common.itemblocks.ItemBlockFlower;
 import biomesoplenty.common.itemblocks.ItemBlockFlower2;
 import biomesoplenty.common.itemblocks.ItemBlockFoliage;
 import biomesoplenty.common.itemblocks.ItemBlockGems;
+import biomesoplenty.common.itemblocks.ItemBlockGrass;
 import biomesoplenty.common.itemblocks.ItemBlockGrave;
 import biomesoplenty.common.itemblocks.ItemBlockHive;
 import biomesoplenty.common.itemblocks.ItemBlockIvy;
@@ -127,7 +127,7 @@ public class BOPBlocks
         registerBlock(new BlockOriginGrass().setBlockName("originGrass"));
         registerBlock(new BlockLongGrass().setBlockName("longGrass"));
         registerBlock(new BlockOvergrownNetherrack().setBlockName("overgrownNetherrack"));
-        registerBlock(new BlockBOPGrass().setBlockName("grass"));
+        registerBlock(new BlockBOPGrass().setBlockName("bopGrass"), ItemBlockGrass.class);
         
 		registerBlock(new BlockBOPLog(LogCategory.CAT1).setBlockName("logs1"), ItemBlockLog.class);
 		registerBlock(new BlockBOPLog(LogCategory.CAT2).setBlockName("logs2"), ItemBlockLog.class);
@@ -149,8 +149,6 @@ public class BOPBlocks
 		registerBlock(new BlockBOPGems().setBlockName("gemOre"), ItemBlockGems.class);
 
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.CRAG_ROCK).setBlockName("cragRock"));
-
-		registerBlock(new BlockCloud().setBlockName("cloud"));
 
 		registerBlock(new BlockHive().setBlockName("hive"), ItemBlockHive.class);
 		registerBlock(new BlockHoney().setBlockName("honeyBlock"));

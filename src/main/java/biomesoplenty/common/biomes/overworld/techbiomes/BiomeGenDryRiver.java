@@ -13,7 +13,7 @@ import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenDryRiver extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(-0.5F, 0.0F);
+	private static final Height biomeHeight = new Height(-0.2F, 0.0F);
 
     public BiomeGenDryRiver(int par1)
     {
@@ -26,6 +26,6 @@ public class BiomeGenDryRiver extends BOPBiome
         this.topBlock = Blocks.sand;
 		this.fillerBlock = Blocks.sand;
 		
-		this.bopWorldFeatures.setFeature("sandstoneSpikesPerChunk", 5);
+		//this.bopWorldFeatures.setFeature("sandstoneSpikesPerChunk", 5);
     }
 }

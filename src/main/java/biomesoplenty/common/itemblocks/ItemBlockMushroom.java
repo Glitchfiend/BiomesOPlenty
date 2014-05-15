@@ -7,7 +7,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemBlockMushroom extends ItemBlock
 {
-	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
+	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom", "shadowshroom"};
 
 	public ItemBlockMushroom(Block block)
 	{

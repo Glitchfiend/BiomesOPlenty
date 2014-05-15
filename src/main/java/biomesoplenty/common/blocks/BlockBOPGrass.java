@@ -21,6 +21,7 @@ import biomesoplenty.api.BOPBlockHelper;
 
 public class BlockBOPGrass extends Block
 {
+	public static final String[] types = new String[] {"spectralmoss", "smolderinggrass"};
 	private IIcon[][] icon = new IIcon[2][6];
 
 	public BlockBOPGrass()
@@ -47,8 +48,7 @@ public class BlockBOPGrass extends Block
 	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:spectralsoil");
-		
+		this.icon[0][0] = iconRegister.registerIcon("biomesoplenty:spectralmoss_bottom");
 		this.icon[0][1] = iconRegister.registerIcon("biomesoplenty:spectralmoss_top");
 		this.icon[0][2] = iconRegister.registerIcon("biomesoplenty:spectralmoss_side");
 		this.icon[0][3] = iconRegister.registerIcon("biomesoplenty:spectralmoss_side");
@@ -77,7 +77,7 @@ public class BlockBOPGrass extends Block
 	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		for (int i = 0; i < 2; ++i) {
+		for (int i = 0; i < types.length; ++i) {
 			list.add(new ItemStack(block, 1, i));
 		}
 	}
@@ -181,7 +181,7 @@ public class BlockBOPGrass extends Block
 						if (world.getBlock(rX, rY, rZ) == BOPBlockHelper.get("spectralSoil") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
 							//TODO: setBlock()
-							world.setBlock(rX, rY, rZ, BOPBlockHelper.get("grass"), 0, 2);
+							world.setBlock(rX, rY, rZ, BOPBlockHelper.get("bopGrass"), 0, 2);
 						}
 					}
 				}

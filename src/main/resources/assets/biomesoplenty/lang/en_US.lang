@@ -92,6 +92,7 @@ tile.mushrooms.portobello.name=Portobello
 tile.mushrooms.bluemilk.name=Blue Milk Cap
 tile.mushrooms.glowshroom.name=Glowshroom
 tile.mushrooms.flatmushroom.name=Flat Mushroom
+tile.mushrooms.shadowshroom.name=Shadow Shroom
 
 tile.saplings.appleSapling.name=Apple Sapling
 tile.saplings.yellowautumnSapling.name=Yellow Autumn Sapling
@@ -135,8 +136,8 @@ tile.coral.bluecoral.name=Blue Coral
 tile.coral.glowcoral.name=Glowing Coral
 tile.coral.algae.name=Algae
 
-tile.holyGrass.spectralmoss.name=Spectral Moss Block
-tile.holyGrass.smolderinggrass.name=Smoldering Grass Block
+tile.bopGrass.spectralmoss.name=Spectral Moss
+tile.bopGrass.smolderinggrass.name=Smoldering Grass Block
 
 tile.gemOre.amethystore.name=Ender Amethyst Ore
 tile.gemOre.amethystblock.name=Block of Amethyst
@@ -154,8 +155,6 @@ tile.gemOre.sapphireore.name=Sapphire Ore
 tile.gemOre.sapphireblock.name=Block of Sapphire
 
 tile.moss.name=Moss
-
-tile.cloud.name=Cloud Block
 
 tile.hive.honeycomb.name=Honeycomb Block
 tile.hive.hive.name=Hive Block

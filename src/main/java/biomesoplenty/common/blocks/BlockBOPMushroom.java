@@ -20,7 +20,7 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
 public class BlockBOPMushroom extends BlockBush
 {
-	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom"};
+	private static final String[] plants = new String[] {"toadstool", "portobello", "bluemilk", "glowshroom", "flatmushroom", "shadowshroom"};
 	private IIcon[] textures;
 
 	public BlockBOPMushroom()
@@ -113,19 +113,22 @@ public class BlockBOPMushroom extends BlockBush
 		switch (metadata)
 		{
 		case 0: // Toadstool
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPBlockHelper.get("grass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
 
 		case 1: // Portobello
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("grass");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
 
 		case 2: // Blue Milk Cap
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("grass");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
 
 		case 3: // Glowshroom
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.stone || block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
 
+		case 5: // Shadow Shroom
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.end_stone || block == BOPBlockHelper.get("bopGrass");
+			
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("bopGrass");
 		}
 	}
 

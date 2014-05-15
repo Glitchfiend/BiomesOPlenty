@@ -149,7 +149,7 @@ public class BonemealEventHandler
 				}
 			}
 		}
-		else if (block == BOPBlockHelper.get("grass") && event.world.getBlockMetadata(x, y, z) == 0)
+		else if (block == BOPBlockHelper.get("bopGrass") && event.world.getBlockMetadata(x, y, z) == 0)
 		{
 			int var14 = y + 1;
 
