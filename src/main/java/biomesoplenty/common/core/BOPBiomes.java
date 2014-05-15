@@ -91,6 +91,7 @@ import biomesoplenty.common.biomes.overworld.subbiomes.BiomeGenVolcano;
 import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenDryRiver;
 import biomesoplenty.common.biomes.overworld.techbiomes.BiomeGenLushRiver;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
+import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.utils.BOPLogger;
@@ -112,6 +113,7 @@ public class BOPBiomes
         {
         	BOPConfigurationIDs.config.load();
         	BOPConfigurationBiomeGen.config.load();
+        	BOPConfigurationBiomeWeights.config.load();
         	registerBiomes();
         }
         catch (Exception e)
@@ -122,6 +124,7 @@ public class BOPBiomes
         {
         	if (BOPConfigurationIDs.config.hasChanged()) BOPConfigurationIDs.config.save();
         	if (BOPConfigurationBiomeGen.config.hasChanged()) BOPConfigurationBiomeGen.config.save();
+        	if (BOPConfigurationBiomeWeights.config.hasChanged()) BOPConfigurationBiomeWeights.config.save();
         }
 
 		addBiomesToDictionary();

@@ -21,9 +21,7 @@ public class BiomeGenMysticGrove extends BOPBiome
 	{
 		super(id);
 		
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
-        //TODO: setColor()
         this.setColor(6934491);
         this.setTemperatureRainfall(0.9F, 1.0F);
 		
@@ -43,7 +41,7 @@ public class BiomeGenMysticGrove extends BOPBiome
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 10);
         this.bopWorldFeatures.setFeature("sproutsPerChunk", 1);
         this.bopWorldFeatures.setFeature("blueMilksPerChunk", 1);
-        //TODO: FEATURE customBiomeDecorator.poisonWaterPerChunk = 1;
+        this.bopWorldFeatures.setFeature("poisonLakesPerChunk", 1);
 
         this.bopWorldFeatures.setFeature("cloverPatchesPerChunk", 10);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 4);

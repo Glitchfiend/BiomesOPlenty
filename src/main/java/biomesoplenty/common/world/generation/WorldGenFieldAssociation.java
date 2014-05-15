@@ -127,6 +127,7 @@ public class WorldGenFieldAssociation
 
         associateFeatureForced("waterLakesPerChunk", new WorldGenLakes(Blocks.water), LakesForcedGenerator.class);
         associateFeatureForced("lavaLakesPerChunk", new WorldGenLakes(Blocks.lava), LakesForcedGenerator.class);
+        associateFeatureForced("poisonLakesPerChunk", new WorldGenLakes(BOPBlockHelper.get("poison")), LakesForcedGenerator.class);
 
         associateFeatureForced("generateMelons", new WorldGenMelon(), MelonForcedGenerator.class);
     }

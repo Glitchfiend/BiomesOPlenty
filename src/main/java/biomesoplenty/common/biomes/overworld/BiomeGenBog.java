@@ -41,7 +41,7 @@ public class BiomeGenBog extends BOPBiome
         this.bopWorldFeatures.setFeature("riverCanePerChunk", 8);
         this.bopWorldFeatures.setFeature("blueMilksPerChunk", 1);
         this.bopWorldFeatures.setFeature("waterLakesPerChunk", 6);
-        //TODO: FEATURE this.bopWorldFeatures.poisonWaterPerChunk = 2;
+        this.bopWorldFeatures.setFeature("poisonLakesPerChunk", 2);
         this.bopWorldFeatures.setFeature("waterReedsPerChunk", 8);
         this.bopWorldFeatures.setFeature("koruPerChunk", 1);
         this.bopWorldFeatures.setFeature("shrubsPerChunk", 10);
