@@ -56,7 +56,6 @@ public class BOPCBiomes
 	public static BiomeGenBase steppe;
 	public static BiomeGenBase temperateRainforest;
 	public static BiomeGenBase thicket;
-	public static BiomeGenBase timber;
 	public static BiomeGenBase tropicalRainforest;
 	public static BiomeGenBase tundra;
 	public static BiomeGenBase wasteland;

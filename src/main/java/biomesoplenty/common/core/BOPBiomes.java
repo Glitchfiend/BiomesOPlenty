@@ -1,6 +1,77 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.api.content.BOPCBiomes.*;
+import static biomesoplenty.api.content.BOPCBiomes.alps;
+import static biomesoplenty.api.content.BOPCBiomes.alpsForest;
+import static biomesoplenty.api.content.BOPCBiomes.arctic;
+import static biomesoplenty.api.content.BOPCBiomes.bambooForest;
+import static biomesoplenty.api.content.BOPCBiomes.bayou;
+import static biomesoplenty.api.content.BOPCBiomes.bog;
+import static biomesoplenty.api.content.BOPCBiomes.boneyard;
+import static biomesoplenty.api.content.BOPCBiomes.borealForest;
+import static biomesoplenty.api.content.BOPCBiomes.brushland;
+import static biomesoplenty.api.content.BOPCBiomes.canyon;
+import static biomesoplenty.api.content.BOPCBiomes.canyonRavine;
+import static biomesoplenty.api.content.BOPCBiomes.chaparral;
+import static biomesoplenty.api.content.BOPCBiomes.cherryBlossomGrove;
+import static biomesoplenty.api.content.BOPCBiomes.coniferousForest;
+import static biomesoplenty.api.content.BOPCBiomes.corruptedSands;
+import static biomesoplenty.api.content.BOPCBiomes.crag;
+import static biomesoplenty.api.content.BOPCBiomes.deadForest;
+import static biomesoplenty.api.content.BOPCBiomes.deadSwamp;
+import static biomesoplenty.api.content.BOPCBiomes.deciduousForest;
+import static biomesoplenty.api.content.BOPCBiomes.dryRiver;
+import static biomesoplenty.api.content.BOPCBiomes.dunes;
+import static biomesoplenty.api.content.BOPCBiomes.fen;
+import static biomesoplenty.api.content.BOPCBiomes.flowerField;
+import static biomesoplenty.api.content.BOPCBiomes.frostForest;
+import static biomesoplenty.api.content.BOPCBiomes.fungiForest;
+import static biomesoplenty.api.content.BOPCBiomes.glacier;
+import static biomesoplenty.api.content.BOPCBiomes.grassland;
+import static biomesoplenty.api.content.BOPCBiomes.grove;
+import static biomesoplenty.api.content.BOPCBiomes.heathland;
+import static biomesoplenty.api.content.BOPCBiomes.highland;
+import static biomesoplenty.api.content.BOPCBiomes.jadeCliffs;
+import static biomesoplenty.api.content.BOPCBiomes.lavenderFields;
+import static biomesoplenty.api.content.BOPCBiomes.lushDesert;
+import static biomesoplenty.api.content.BOPCBiomes.lushRiver;
+import static biomesoplenty.api.content.BOPCBiomes.lushSwamp;
+import static biomesoplenty.api.content.BOPCBiomes.mapleWoods;
+import static biomesoplenty.api.content.BOPCBiomes.marsh;
+import static biomesoplenty.api.content.BOPCBiomes.meadow;
+import static biomesoplenty.api.content.BOPCBiomes.meadowForest;
+import static biomesoplenty.api.content.BOPCBiomes.moor;
+import static biomesoplenty.api.content.BOPCBiomes.mountain;
+import static biomesoplenty.api.content.BOPCBiomes.mysticGrove;
+import static biomesoplenty.api.content.BOPCBiomes.oasis;
+import static biomesoplenty.api.content.BOPCBiomes.ominousWoods;
+import static biomesoplenty.api.content.BOPCBiomes.originValley;
+import static biomesoplenty.api.content.BOPCBiomes.outback;
+import static biomesoplenty.api.content.BOPCBiomes.phantasmagoricInferno;
+import static biomesoplenty.api.content.BOPCBiomes.prairie;
+import static biomesoplenty.api.content.BOPCBiomes.quagmire;
+import static biomesoplenty.api.content.BOPCBiomes.rainforest;
+import static biomesoplenty.api.content.BOPCBiomes.redwoodForest;
+import static biomesoplenty.api.content.BOPCBiomes.sacredSprings;
+import static biomesoplenty.api.content.BOPCBiomes.scrubland;
+import static biomesoplenty.api.content.BOPCBiomes.seasonalForest;
+import static biomesoplenty.api.content.BOPCBiomes.shield;
+import static biomesoplenty.api.content.BOPCBiomes.shrubland;
+import static biomesoplenty.api.content.BOPCBiomes.silkglades;
+import static biomesoplenty.api.content.BOPCBiomes.sludgepit;
+import static biomesoplenty.api.content.BOPCBiomes.snowyConiferousForest;
+import static biomesoplenty.api.content.BOPCBiomes.spruceWoods;
+import static biomesoplenty.api.content.BOPCBiomes.steppe;
+import static biomesoplenty.api.content.BOPCBiomes.temperateRainforest;
+import static biomesoplenty.api.content.BOPCBiomes.thicket;
+import static biomesoplenty.api.content.BOPCBiomes.tropicalRainforest;
+import static biomesoplenty.api.content.BOPCBiomes.tropics;
+import static biomesoplenty.api.content.BOPCBiomes.tundra;
+import static biomesoplenty.api.content.BOPCBiomes.undergarden;
+import static biomesoplenty.api.content.BOPCBiomes.visceralHeap;
+import static biomesoplenty.api.content.BOPCBiomes.volcano;
+import static biomesoplenty.api.content.BOPCBiomes.wasteland;
+import static biomesoplenty.api.content.BOPCBiomes.wetland;
+import static biomesoplenty.api.content.BOPCBiomes.woodland;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +143,6 @@ import biomesoplenty.common.biomes.overworld.BiomeGenSpruceWoods;
 import biomesoplenty.common.biomes.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biomes.overworld.BiomeGenTemperateRainforest;
 import biomesoplenty.common.biomes.overworld.BiomeGenThicket;
-import biomesoplenty.common.biomes.overworld.BiomeGenTimber;
 import biomesoplenty.common.biomes.overworld.BiomeGenTropicalRainforest;
 import biomesoplenty.common.biomes.overworld.BiomeGenTundra;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
@@ -184,7 +254,6 @@ public class BOPBiomes
         steppe = registerOverworldBiome(BiomeGenSteppe.class, "Steppe", TemperatureType.HOT, 7);
         temperateRainforest = registerOverworldBiome(BiomeGenTemperateRainforest.class, "Temperate Rainforest", TemperatureType.WARM, 10);
         thicket = registerOverworldBiome(BiomeGenThicket.class, "Thicket", TemperatureType.COOL, 5);
-        timber = registerOverworldBiome(BiomeGenTimber.class, "Timber", TemperatureType.COOL, 5);
         tropicalRainforest = registerOverworldBiome(BiomeGenTropicalRainforest.class, "Tropical Rainforest", TemperatureType.HOT, 5);
         tundra = registerOverworldBiome(BiomeGenTundra.class, "Tundra", TemperatureType.ICY, 7);
         wasteland = registerOverworldBiome(BiomeGenWasteland.class, "Wasteland", TemperatureType.HOT, 3);
@@ -220,49 +289,37 @@ public class BOPBiomes
 	private static void addBiomesToDictionary()
 	{
         BiomeDictionary.registerBiomeType(BOPCBiomes.alps, Type.FROZEN, Type.MOUNTAIN);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("alpsBase, Type.FROZEN, Type.MOUNTAIN, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("alpsForest, Type.FROZEN, Type.MOUNTAIN);
-        
+        BiomeDictionary.registerBiomeType(BOPCBiomes.alpsForest, Type.FROZEN, Type.MOUNTAIN, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.arctic, Type.FROZEN, Type.WASTELAND);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("autumnHills, Type.FOREST, Type.HILLS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("badlands, Type.DESERT, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.bambooForest, Type.JUNGLE, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.bayou, Type.SWAMP, Type.WATER);
-
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("beachGravel, Type.BEACH);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("beachOvergrown, Type.BEACH, Type.FOREST);
-
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("birchForest, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.bog, Type.SWAMP, Type.FOREST);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.boneyard, Type.NETHER, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.borealForest, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.brushland, Type.DESERT, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.canyon, Type.DESERT, Type.MOUNTAIN, Type.HILLS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("canyonRavine, Type.DESERT, Type.HILLS);
-        
+        BiomeDictionary.registerBiomeType(BOPCBiomes.canyonRavine, Type.DESERT, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.chaparral, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.cherryBlossomGrove, Type.MAGICAL, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.coniferousForest, Type.FOREST, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.snowyConiferousForest, Type.FROZEN, Type.FOREST, Type.HILLS);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.corruptedSands, Type.NETHER, Type.DESERT);
         BiomeDictionary.registerBiomeType(BOPCBiomes.crag, Type.WASTELAND, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deadForest, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("deadForestSnow, Type.FOREST, Type.FROZEN);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("deadlands, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deadSwamp, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deciduousForest, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.dunes, Type.BEACH, Type.DESERT, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.fen, Type.FOREST, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPCBiomes.flowerField, Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("fieldForest, Type.PLAINS, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.frostForest, Type.FROZEN, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("fungiForest, Type.MAGICAL, Type.MUSHROOM, Type.FOREST, Type.SWAMP);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.fungiForest, Type.MAGICAL, Type.MUSHROOM, Type.FOREST, Type.SWAMP);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("garden, Type.MAGICAL, Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("glacier, Type.FROZEN, Type.HILLS);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.glacier, Type.FROZEN, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.grassland, Type.PLAINS, Type.SWAMP, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.grove, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.heathland, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.highland, Type.HILLS, Type.MOUNTAIN);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("hotSprings, Type.HILLS, Type.FOREST, Type.WATER);
-       // BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("icyHills, Type.FROZEN, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.jadeCliffs, Type.FOREST, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(BOPCBiomes.lavenderFields, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.lushDesert, Type.DESERT, Type.FOREST);
@@ -270,69 +327,40 @@ public class BOPBiomes
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("mangrove, Type.WATER, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.mapleWoods, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.marsh, Type.SWAMP, Type.WATER);
-        
         BiomeDictionary.registerBiomeType(BOPCBiomes.meadow, Type.FOREST, Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("meadowForest, Type.FOREST, Type.PLAINS);
-        
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("mesa, Type.DESERT, Type.WASTELAND, Type.MOUNTAIN);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.meadowForest, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.moor, Type.HILLS, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPCBiomes.mountain, Type.MOUNTAIN);
-        
         BiomeDictionary.registerBiomeType(BOPCBiomes.mysticGrove, Type.MAGICAL, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("mysticGroveThin, Type.MAGICAL, Type.FOREST);
-
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("netherBase, Type.NETHER);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("netherGarden, Type.NETHER, Type.JUNGLE);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("netherDesert, Type.NETHER, Type.DESERT);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("netherLava, Type.NETHER);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("netherBone, Type.NETHER, Type.WASTELAND);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("netherBlood, Type.NETHER);
-
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oasis, Type.DESERT, Type.JUNGLE);
-
+        BiomeDictionary.registerBiomeType(BOPCBiomes.oasis, Type.DESERT, Type.JUNGLE);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oceanAbyss, Type.WATER);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oceanCoral, Type.WATER);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oceanKelp, Type.WATER, Type.FOREST);
-
         BiomeDictionary.registerBiomeType(BOPCBiomes.ominousWoods, Type.MAGICAL);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("ominousWoodsThick, Type.MAGICAL);
-
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("orchard, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.outback, Type.DESERT, Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("overgrownGreens, Type.JUNGLE, Type.PLAINS);
-        
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("polar, Type.FROZEN, Type.WATER);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.phantasmagoricInferno, Type.NETHER);
         BiomeDictionary.registerBiomeType(BOPCBiomes.prairie, Type.PLAINS);
-
+        BiomeDictionary.registerBiomeType(BOPCBiomes.quagmire, Type.SWAMP, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.rainforest, Type.JUNGLE, Type.HILLS, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.redwoodForest, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.sacredSprings, Type.MOUNTAIN, Type.FOREST, Type.MAGICAL);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("savanna, Type.DESERT, Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("savannaPlateau, Type.DESERT, Type.PLAINS, Type.HILLS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("scrubland, Type.DESERT, Type.PLAINS);
-        
+        BiomeDictionary.registerBiomeType(BOPCBiomes.scrubland, Type.DESERT, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.seasonalForest, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("seasonalSpruceForest, Type.FOREST);
-        
         BiomeDictionary.registerBiomeType(BOPCBiomes.shield, Type.FOREST, Type.WATER);
-        
         BiomeDictionary.registerBiomeType(BOPCBiomes.shrubland, Type.PLAINS);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("shrublandForest, Type.PLAINS);
-        
+        BiomeDictionary.registerBiomeType(BOPCBiomes.silkglades, Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.sludgepit, Type.SWAMP, Type.FOREST, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.spruceWoods, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("steppe, Type.PLAINS, Type.DESERT);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.steppe, Type.PLAINS, Type.DESERT);
         BiomeDictionary.registerBiomeType(BOPCBiomes.temperateRainforest, Type.FOREST, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.thicket, Type.PLAINS, Type.FOREST);
-        
-        BiomeDictionary.registerBiomeType(BOPCBiomes.timber, Type.FOREST);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("timberThin, Type.FOREST);
-        
         BiomeDictionary.registerBiomeType(BOPCBiomes.tropicalRainforest, Type.JUNGLE);
-        
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("tropicsMountain, Type.JUNGLE, Type.WATER);
-        
+        BiomeDictionary.registerBiomeType(BOPCBiomes.tropics, Type.JUNGLE, Type.BEACH, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPCBiomes.tundra, Type.FROZEN, Type.WASTELAND);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.undergarden, Type.NETHER, Type.JUNGLE);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.visceralHeap, Type.NETHER);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.volcano, Type.MOUNTAIN, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.wasteland, Type.WASTELAND);
         BiomeDictionary.registerBiomeType(BOPCBiomes.wetland, Type.SWAMP, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.woodland, Type.FOREST);
