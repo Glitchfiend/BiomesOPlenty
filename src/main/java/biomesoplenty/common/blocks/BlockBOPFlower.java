@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class BlockBOPFlower extends BOPBlockWorldDecor
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "eyebulbbottom", "eyebulbtop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "enderlotus", "bromeliad", "eyebulbbottom", "eyebulbtop", "dandelion"};
 	private IIcon[] textures;
 
 	private static final int EYEBULBTOP = 14;
@@ -222,8 +222,8 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		case 10: // Lily Flower
 			return block == Blocks.waterlily;
 
-		case 11: // Rainbow Flower
-			return block == Blocks.grass || block == Blocks.dirt;
+		case 11: // Enderlotus
+			return block == BOPBlockHelper.get("bopGrass");
 
 		case 12: // Bromeliad
 			return block == BOPBlockHelper.get("hardDirt") || block == Blocks.hardened_clay || block == Blocks.sand;

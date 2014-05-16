@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class ItemBlockFlower extends ItemBlock
 {
-	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "rainbowflower", "bromeliad", "eyebulbbottom", "eyebulbtop", "dandelion"};
+	private static final String[] plants = new String[] {"clover", "swampflower", "deadbloom", "glowflower", "hydrangea", "cosmos", "daffodil", "wildflower", "violet", "anemone", "lilyflower", "enderlotus", "bromeliad", "eyebulbbottom", "eyebulbtop", "dandelion"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 	private static final int EYEBULBTOP = 14;
@@ -40,10 +40,9 @@ public class ItemBlockFlower extends ItemBlock
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconRegister)
 	{
-		textures = new IIcon[2];
+		textures = new IIcon[1];
 
 		textures[0] = iconRegister.registerIcon("biomesoplenty:eyebulbtop");
-		textures[1] = iconRegister.registerIcon("biomesoplenty:item_rainbowflower");
 	}
 
 	@Override
@@ -60,9 +59,7 @@ public class ItemBlockFlower extends ItemBlock
 	@Override
 	public IIcon getIconFromDamage(int meta)
 	{
-		if (meta == 11)
-			return textures[1];
-		else if (meta == 13)
+		if (meta == 13)
 			return textures[0];
 		else
 			//TODO: block		  getIcon()
