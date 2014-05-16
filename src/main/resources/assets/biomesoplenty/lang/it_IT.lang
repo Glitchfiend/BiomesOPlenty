@@ -8,12 +8,15 @@ tile.hardIce.name=Ghiaccio Cristallino
 tile.driedDirt.name=Terra Arida
 tile.cragRock.name=Roccia Falesia
 tile.mudBricks.name=Mattoni di Fango
-tile.holyDirt.name=Terra Sacra
+tile.spectralSoil.name=Terra Spettrale
 tile.crystal.name=Cristallo Celestiale
 
-tile.redRock.redrock.name=Roccia Rossa
-tile.redRock.redcobble.name=Pietrisco di Roccia Rossa
-tile.redRock.redbrick.name=Mattoni di Roccia Rossa
+tile.rocks.limestone.name=Calcare
+tile.rocks.limestonesmooth.name=Calcare Lucido
+tile.rocks.siltstone.name=Siltite
+tile.rocks.siltstonesmooth.name=Siltite Lucido
+tile.rocks.shale.name=Shale
+tile.rocks.shalesmooth.name=Shale Lucido
 
 tile.ash.name=Blocco di Cenere
 tile.flesh.name=Blocco di Carne
@@ -22,7 +25,7 @@ tile.plants.deadgrass.name=Erba Secca
 tile.plants.desertgrass.name=Erba Desertica
 tile.plants.desertsprouts.name=Germogli Desertici
 tile.plants.dunegrass.name=Erba delle Dune
-tile.plants.holytallgrass.name=Erba Alta Sacra
+tile.plants.spectralfern.name=Felce Spettrale
 tile.plants.thorn.name=Rovi
 tile.plants.barley.name=Orzo
 tile.plants.cattail.name=Tifa
@@ -45,7 +48,7 @@ tile.flowers.wildflower.name=Fiore Selvatico
 tile.flowers.violet.name=Violetta
 tile.flowers.anemone.name=Anemone Bianca
 tile.flowers.lilyflower.name=Ninfea
-tile.flowers.rainbowflower.name=Chromaflora
+tile.flowers.enderlotus.name=Loto del Ender
 tile.flowers.bromeliad.name=Aloe
 tile.flowers.eyebulbbottom.name=Oleracea
 tile.flowers.eyebulbtop.name=Oleracea
@@ -89,6 +92,7 @@ tile.mushrooms.portobello.name=Champignon
 tile.mushrooms.bluemilk.name=Lactarius Indigo
 tile.mushrooms.glowshroom.name=Fungo Luminoso
 tile.mushrooms.flatmushroom.name=Fungo Piatto
+tile.mushrooms.shadowshroom.name=Fungo Ombroso
 
 tile.saplings.appleSapling.name=Arboscello di Melo
 tile.saplings.yellowautumnSapling.name=Arboscello d'Albero Autunnale Giallo
@@ -132,19 +136,8 @@ tile.coral.bluecoral.name=Corallo Blu
 tile.coral.glowcoral.name=Corallo Luminescente
 tile.coral.algae.name=Alghe
 
-tile.redCobbleStairs.name=Scalini in Pietrisco di Roccia Rossa
-tile.redBricksStairs.name=Scalini in Mattoni di Roccia Rossa
-
-tile.holyGrass.holygrass.name=Blocco di Erba Sacra
-tile.holyGrass.smolderinggrass.name=Blocco di Erba Ardente
-
-tile.holyStone.holystone.name=Pietra del Cielo
-tile.holyStone.holycobble.name=Pietrisco del Cielo
-tile.holyStone.holybrick.name=Mattoni del Cielo
-tile.holyStone.holystonemossy.name=Pietra del Cielo Muschiosa
-
-tile.holyCobbleStairs.name=Scalini in Pietrisco del Cielo
-tile.holyBricksStairs.name=Scalini in Mattoni del Cielo
+tile.bopGrass.spectralmoss.name=Spectral Moss Block
+tile.bopGrass.smolderinggrass.name=Blocco d'Erba Ardente
 
 tile.gemOre.amethystore.name=Ametista dell'End Grezza
 tile.gemOre.amethystblock.name=Blocco di Ametista
@@ -163,8 +156,6 @@ tile.gemOre.sapphireblock.name=Blocco di Zaffiro
 
 tile.moss.name=Muschio
 
-tile.cloud.name=Blocco di Nuvola
-
 tile.hive.honeycomb.name=Blocco di Favi
 tile.hive.hive.name=Nido
 tile.hive.honeycombempty.name=Blocco di Favi Vuoto
@@ -182,17 +173,9 @@ tile.bones.bones_large.name=Segmento Grande d'Ossa
 
 tile.grave.name=Lapide
 
-tile.stoneDoubleSlab.redcobbleSlab.name=Lastra di Pietrisco di Roccia Rossa
-tile.stoneDoubleSlab.redbrickSlab.name=Lastra di Mattoni di Roccia Rossa
 tile.stoneDoubleSlab.mudbrickSlab.name=Lastra di Mattoni di Fango
-tile.stoneDoubleSlab.holycobbleSlab.name=Lastra di Pietrisco del Cielo
-tile.stoneDoubleSlab.holybrickSlab.name=Lastra di Mattoni del Cielo
 
-tile.stoneSingleSlab.redcobbleSlab.name=Lastra di Pietrisco di Roccia Rossa
-tile.stoneSingleSlab.redbrickSlab.name=Lastra di Mattoni di Roccia Rossa
 tile.stoneSingleSlab.mudbrickSlab.name=Lastra di Mattoni di Fango
-tile.stoneSingleSlab.holycobbleSlab.name=Lastra di Pietrisco del Cielo
-tile.stoneSingleSlab.holybrickSlab.name=Lastra di Mattoni del Cielo
 
 tile.planks.sacredoakPlank.name=Assi in Legno di Quercia Consacrata
 tile.planks.cherryPlank.name=Assi in Legno di Ciliegio
