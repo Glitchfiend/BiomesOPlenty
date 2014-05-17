@@ -19,7 +19,7 @@ public class BlockBOPGeneric extends Block
 {
 	public enum BlockType
 	{
-		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, BIOME_POD, CRYSTAL;
+		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, BIOME_BLOCK, CRYSTAL;
 	}
 
 	private IIcon texture;
@@ -28,6 +28,7 @@ public class BlockBOPGeneric extends Block
 	public BlockBOPGeneric(Material material, BlockType type)
 	{
 		super(material);
+		this.setHarvestLevel("pickaxe", 3, 7);
 		this.type = type;
 		
 		//TODO: this.setCreativeTab()
@@ -90,7 +91,7 @@ public class BlockBOPGeneric extends Block
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
-		case BIOME_POD:
+		case BIOME_BLOCK:
 			//TODO: this.setHardness
 			this.setHardness(0.6F);
 			//TODO setStepSound(Block.soundGravelFootstep)
@@ -147,8 +148,8 @@ public class BlockBOPGeneric extends Block
 			texture = iconRegister.registerIcon("biomesoplenty:mudbrick");
 			break;
 
-		case BIOME_POD:
-			texture = iconRegister.registerIcon("biomesoplenty:biomepod");
+		case BIOME_BLOCK:
+			texture = iconRegister.registerIcon("biomesoplenty:biomeblock");
 			break;
 
 		case CRYSTAL:
@@ -184,12 +185,12 @@ public class BlockBOPGeneric extends Block
 
 		switch (type)
 		{
-		case BIOME_POD:
+		case BIOME_BLOCK:
 			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
 			{
 			    if (biome != null)
 			    {
-			    	if (biome != BOPCBiomes.boneyard && biome != BOPCBiomes.visceralHeap && biome != BOPCBiomes.undergarden && biome != BOPCBiomes.corruptedSands && biome != BOPCBiomes.phantasmagoricInferno)
+			    	if (biome != BOPCBiomes.boneyard && biome != BOPCBiomes.visceralHeap && biome != BOPCBiomes.undergarden && biome != BOPCBiomes.corruptedSands && biome != BOPCBiomes.phantasmagoricInferno && biome != BOPCBiomes.lushRiver && biome != BOPCBiomes.dryRiver && biome != BiomeGenBase.beach && biome != BiomeGenBase.coldBeach && biome != BiomeGenBase.stoneBeach && biome != BiomeGenBase.frozenOcean && biome != BiomeGenBase.frozenRiver && biome != BiomeGenBase.hell && biome != BiomeGenBase.river && biome != BiomeGenBase.sky && biome != BiomeGenBase.ocean && biome != BiomeGenBase.deepOcean)
 			    	{
 				        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
 	

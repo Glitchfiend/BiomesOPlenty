@@ -8,7 +8,7 @@ tile.hardIce.name=Hardened Ice
 tile.driedDirt.name=Dried Dirt
 tile.cragRock.name=Crag Rock
 tile.mudBricks.name=Mud Bricks
-tile.biomePod.name=Biome Essence Pod
+tile.biomeBlock.name=Biome Essence Ore
 tile.crystal.name=Celestial Crystal
 
 tile.rocks.limestone.name=Limestone
