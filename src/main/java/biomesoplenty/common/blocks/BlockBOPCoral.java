@@ -89,7 +89,7 @@ public class BlockBOPCoral extends BOPBlock
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
-		if (category == CoralCategory.CAT1)
+		if (category == CoralCategory.CAT1 && (meta >= 8 && meta <= 11))
 		{
 			if (world.getBlock(x, y - 1, z) != this)
 			{
