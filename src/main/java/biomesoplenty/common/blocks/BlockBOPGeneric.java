@@ -6,15 +6,20 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBiomes;
 
 public class BlockBOPGeneric extends Block
 {
 	public enum BlockType
 	{
-		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, SPECTRAL_SOIL, CRYSTAL;
+		ASH_STONE, HARD_SAND, HARD_DIRT, HARD_ICE, DRIED_DIRT, CRAG_ROCK, MUD_BRICK, BIOME_BLOCK, CRYSTAL;
 	}
 
 	private IIcon texture;
@@ -23,6 +28,7 @@ public class BlockBOPGeneric extends Block
 	public BlockBOPGeneric(Material material, BlockType type)
 	{
 		super(material);
+		this.setHarvestLevel("pickaxe", 3, 7);
 		this.type = type;
 		
 		//TODO: this.setCreativeTab()
@@ -85,11 +91,11 @@ public class BlockBOPGeneric extends Block
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
-		case SPECTRAL_SOIL:
+		case BIOME_BLOCK:
 			//TODO: this.setHardness
 			this.setHardness(0.6F);
 			//TODO setStepSound(Block.soundGravelFootstep)
-			this.setStepSound(soundTypeGravel);
+			this.setStepSound(soundTypeGlass);
 			break;
 
 		case CRYSTAL:
@@ -142,8 +148,8 @@ public class BlockBOPGeneric extends Block
 			texture = iconRegister.registerIcon("biomesoplenty:mudbrick");
 			break;
 
-		case SPECTRAL_SOIL:
-			texture = iconRegister.registerIcon("biomesoplenty:spectralsoil");
+		case BIOME_BLOCK:
+			texture = iconRegister.registerIcon("biomesoplenty:biomeblock");
 			break;
 
 		case CRYSTAL:
@@ -167,6 +173,41 @@ public class BlockBOPGeneric extends Block
 		default:
 			//TODO:		getItemForBlock()
 			return Item.getItemFromBlock(this);
+		}
+	}
+	
+	@Override
+	//TODO: 	dropBlockAsItemWithChance()
+	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
+	{
+		if (world.isRemote)
+			return;
+
+		switch (type)
+		{
+		case BIOME_BLOCK:
+			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+			{
+			    if (biome != null)
+			    {
+			    	if (biome != BOPCBiomes.boneyard && biome != BOPCBiomes.visceralHeap && biome != BOPCBiomes.undergarden && biome != BOPCBiomes.corruptedSands && biome != BOPCBiomes.phantasmagoricInferno && biome != BOPCBiomes.lushRiver && biome != BOPCBiomes.dryRiver && biome != BiomeGenBase.beach && biome != BiomeGenBase.coldBeach && biome != BiomeGenBase.stoneBeach && biome != BiomeGenBase.frozenOcean && biome != BiomeGenBase.frozenRiver && biome != BiomeGenBase.hell && biome != BiomeGenBase.river && biome != BiomeGenBase.sky && biome != BiomeGenBase.ocean && biome != BiomeGenBase.deepOcean)
+			    	{
+				        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
+	
+				        biomeEssence.setTagCompound(new NBTTagCompound());
+	
+				        biomeEssence.getTagCompound().setInteger("biomeID", biome.biomeID);
+				        
+				        if (world.rand.nextInt(75) == 0)
+				        {
+				        	this.dropBlockAsItem(world, x, y, z, biomeEssence);
+				        }
+			    	}
+			    }
+			}
+			
+		default:
+			break;
 		}
 	}
 

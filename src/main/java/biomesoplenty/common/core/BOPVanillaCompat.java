@@ -2,6 +2,7 @@ package biomesoplenty.common.core;
 
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourMudball;
@@ -67,27 +68,6 @@ public class BOPVanillaCompat
 			
 			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
 			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
-			
-			for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
-			{
-			    if (biome != null)
-			    {
-			        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
-
-			        biomeEssence.setTagCompound(new NBTTagCompound());
-
-			        biomeEssence.getTagCompound().setInteger("biomeID", biome.biomeID);
-
-			        desertTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
-			        dungeon.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
-			        jungleTemple.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 2));
-			        mineshaft.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
-			        strongholdCorridor.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
-			        strongholdCrossing.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
-			        strongholdLibrary.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 3));
-			        bonusChest.addItem(new WeightedRandomChestContent(biomeEssence, 1, 1, 1));
-			    }
-			}
 		}
 	}
 	

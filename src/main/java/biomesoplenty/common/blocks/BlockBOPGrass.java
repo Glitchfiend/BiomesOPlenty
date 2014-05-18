@@ -165,7 +165,7 @@ public class BlockBOPGrass extends Block
 				if (world.getBlockLightValue(x, y + 1, z) < 4 && world.getBlockLightOpacity(x, y + 1, z) > 2)
 				{
 					//TODO: setBlock()
-					world.setBlock(x, y, z, BOPBlockHelper.get("spectralSoil"), 0, 2);
+					world.setBlock(x, y, z, Blocks.end_stone, 0, 2);
 				}
 				else if (world.getBlockLightValue(x, y + 1, z) >= 9)
 				{
@@ -178,7 +178,7 @@ public class BlockBOPGrass extends Block
 	                    Block block = world.getBlock(rX, rY + 1, rZ);
 
 	                    //TODO:	  getBlock()
-						if (world.getBlock(rX, rY, rZ) == BOPBlockHelper.get("spectralSoil") && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
+						if (world.getBlock(rX, rY, rZ) == Blocks.end_stone && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
 							//TODO: setBlock()
 							world.setBlock(rX, rY, rZ, BOPBlockHelper.get("bopGrass"), 0, 2);
@@ -217,7 +217,7 @@ public class BlockBOPGrass extends Block
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		//TODO:						getItemFromBlock()									getItemFromBlock()
-		return metadata == 0 ? Item.getItemFromBlock(BOPBlockHelper.get("spectralSoil")) : Item.getItemFromBlock(Blocks.dirt);
+		return metadata == 0 ? Item.getItemFromBlock(Blocks.end_stone) : Item.getItemFromBlock(Blocks.dirt);
 	}
 
 }

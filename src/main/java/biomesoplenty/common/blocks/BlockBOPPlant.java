@@ -172,7 +172,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water && reedwater != Blocks.water;
 			
 		case 15: // Root
-			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass") || root == BOPBlockHelper.get("spectralSoil"));
+			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass"));
 			
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("overgrownNetherrack");
