@@ -2,7 +2,9 @@ package biomesoplenty.common.biomes.overworld;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
@@ -50,6 +52,29 @@ public class BiomeGenDeadForest extends BOPBiome
 		return random.nextInt(3) == 0 ? new WorldGenDeadTree() : 
 		(random.nextInt(4) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 1) : 
 		new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 5, 3, false));
+	}
+	
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
+
+		for (int var6 = 0; var6 < var5; ++var6)
+		{
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
+			
+			//TODO:				getBlock()
+			Block block = world.getBlock(x, y, z);
+
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			{
+				//TODO:	setBlock()
+				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 8, 2);
+			}
+		}
 	}
 
 	@Override

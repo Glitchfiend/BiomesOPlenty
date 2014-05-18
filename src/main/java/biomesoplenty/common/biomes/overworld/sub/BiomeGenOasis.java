@@ -73,7 +73,7 @@ public class BiomeGenOasis extends BOPSubBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
+				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
 			}
 		}
 	}

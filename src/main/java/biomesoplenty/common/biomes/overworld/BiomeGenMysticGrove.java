@@ -7,8 +7,10 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 import java.util.Random;
@@ -73,6 +75,27 @@ public class BiomeGenMysticGrove extends BOPBiome
 		(random.nextInt(3) == 0 ? new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1) : 
 		((random.nextInt(3) == 0 ? this.worldGeneratorBigTree : 
 		((random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPBlockHelper.get("flowerVine"), -1) : this.worldGeneratorTrees)))));
+	}
+	
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
+
+		for (int var6 = 0; var6 < var5; ++var6)
+		{
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
+
+			Block block = world.getBlock(x, y, z);
+
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			{
+				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
+			}
+		}
 	}
 
 	@Override

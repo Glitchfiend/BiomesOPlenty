@@ -2,6 +2,7 @@ package biomesoplenty.common.biomes.overworld;
 
 import java.util.Random;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -63,20 +64,35 @@ public class BiomeGenFungiForest extends BOPBiome
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.25D);
 	}
 
-    @Override
-    public void decorate(World world, Random random, int chunkX, int chunkZ)
-    {
-        super.decorate(world, random, chunkX, chunkZ);
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
 
-        for (int i = 0; i < 20; i++)
-        {
-            int x = chunkX + random.nextInt(16) + 8;
+		for (int i = 0; i < var5; ++i)
+		{
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
+
+			Block block = world.getBlock(x, y, z);
+
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			{
+				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 14, 2);
+			}
+		}
+
+		for (int i = 0; i < 20; i++)
+		{
+			int x = chunkX + random.nextInt(16) + 8;
             short y = 58;
-            int z = chunkZ + random.nextInt(16) + 8;
+			int z = chunkZ + random.nextInt(16) + 8;
 
-            new WorldGenMoss().generate(world, random, x, y, z);
-        }
-    }
+			new WorldGenMoss().generate(world, random, x, y, z);
+		}
+	}
 
 	 @Override
 	 //TODO:                     getRandomWorldGenForTrees()

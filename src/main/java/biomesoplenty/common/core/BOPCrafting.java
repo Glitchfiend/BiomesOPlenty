@@ -163,6 +163,7 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("gemOre"), 1, 9), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItemHelper.get("gems"), 1, 4)});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("gemOre"), 1, 11), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItemHelper.get("gems"), 1, 5)});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("gemOre"), 1, 13), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItemHelper.get("gems"), 1, 6)});
+		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("gemOre"), 1, 15), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItemHelper.get("gems"), 1, 7)});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("ash"), 1), new Object[] {"AA", "AA", 'A', new ItemStack(BOPItemHelper.get("misc"), 1, 1)});
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("mudBricks"), 1), new Object[] {"MM", "MM", 'M', new ItemStack(BOPItemHelper.get("misc"), 1, 0)});
 		GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("crystal"), 1), new Object[] {"CC", "CC", 'C', new ItemStack(BOPItemHelper.get("misc"), 1, 4)});
@@ -273,6 +274,7 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("gems"), 9, 4), new Object[] {new ItemStack(BOPBlockHelper.get("gemOre"), 1, 9)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("gems"), 9, 5), new Object[] {new ItemStack(BOPBlockHelper.get("gemOre"), 1, 11)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("gems"), 9, 6), new Object[] {new ItemStack(BOPBlockHelper.get("gemOre"), 1, 13)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("gems"), 9, 7), new Object[] {new ItemStack(BOPBlockHelper.get("gemOre"), 1, 15)});
 
 		//Bone Segments > Bonemeal
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 3, 15), new Object[] {new ItemStack(BOPBlockHelper.get("bones"), 1, 0)});
@@ -332,6 +334,7 @@ public class BOPCrafting
 		OreDictionary.registerOre("gemTanzanite", new ItemStack(BOPItemHelper.get("gems"), 1, 4));
 		OreDictionary.registerOre("gemMalachite", new ItemStack(BOPItemHelper.get("gems"), 1, 5));
 		OreDictionary.registerOre("gemSapphire", new ItemStack(BOPItemHelper.get("gems"), 1, 6));
+		OreDictionary.registerOre("gemAmber", new ItemStack(BOPItemHelper.get("gems"), 1, 7));
 		
 		OreDictionary.registerOre("oreRuby", new ItemStack(BOPBlockHelper.get("gemOre"), 1, 2));
 		OreDictionary.registerOre("oreTopaz", new ItemStack(BOPBlockHelper.get("gemOre"), 1, 6));
@@ -339,6 +342,7 @@ public class BOPCrafting
 		OreDictionary.registerOre("oreTanzanite", new ItemStack(BOPBlockHelper.get("gemOre"), 1, 8));
 		OreDictionary.registerOre("oreMalachite", new ItemStack(BOPBlockHelper.get("gemOre"), 1, 10));
 		OreDictionary.registerOre("oreSapphire", new ItemStack(BOPBlockHelper.get("gemOre"), 1, 12));
+		OreDictionary.registerOre("oreAmber", new ItemStack(BOPBlockHelper.get("gemOre"), 1, 14));
 
 		OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlockHelper.get("saplings"), 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlockHelper.get("colorizedSaplings"), 1, OreDictionary.WILDCARD_VALUE));

@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemGems extends Item
 {
-	private static String[] gems = {"amethyst", "ruby", "peridot", "topaz", "tanzanite", "malachite", "sapphire"};
+	private static String[] gems = {"amethyst", "ruby", "peridot", "topaz", "tanzanite", "malachite", "sapphire", "amber"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 

@@ -6,6 +6,7 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -56,20 +57,35 @@ public class BiomeGenShield extends BOPBiome
 		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6)));
 	}
 
-    @Override
-    public void decorate(World world, Random random, int chunkX, int chunkZ)
-    {
-        super.decorate(world, random, chunkX, chunkZ);
+	@Override
+	public void decorate(World world, Random random, int chunkX, int chunkZ)
+	{
+		super.decorate(world, random, chunkX, chunkZ);
+		int var5 = 12 + random.nextInt(6);
 
-        for (int i = 0; i < 20; i++)
-        {
-            int x = chunkX + random.nextInt(16) + 8;
+		for (int i = 0; i < var5; ++i)
+		{
+			int x = chunkX + random.nextInt(16);
+			int y = random.nextInt(28) + 4;
+			int z = chunkZ + random.nextInt(16);
+
+			Block block = world.getBlock(x, y, z);
+
+			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
+			{
+				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 14, 2);
+			}
+		}
+
+		for (int i = 0; i < 20; i++)
+		{
+			int x = chunkX + random.nextInt(16) + 8;
             short y = 58;
-            int z = chunkZ + random.nextInt(16) + 8;
+			int z = chunkZ + random.nextInt(16) + 8;
 
-            new WorldGenMoss().generate(world, random, x, y, z);
-        }
-    }
+			new WorldGenMoss().generate(world, random, x, y, z);
+		}
+	}
 
 	@Override
     public int getBiomeGrassColor(int x, int y, int z)
