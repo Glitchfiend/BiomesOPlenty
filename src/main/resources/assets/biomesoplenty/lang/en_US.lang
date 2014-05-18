@@ -388,6 +388,9 @@ item.biomeBook.name=Book O' Biomes
 item.biomeFinder.name=Biome Radar
 item.biomeEssence.name=Biome Essence
 
+item.poisonBucket.name=Poison Bucket
+item.honeyBucket.name=Honey Bucket
+
 tile.poison.name=Poison
 tile.springWater.name=Spring Water
 tile.honey.name=Honey
@@ -395,6 +398,12 @@ tile.honey.name=Honey
 fluid.poison=Poison
 fluid.springWater=Spring Water
 fluid.honey=Honey
+
+biomeRadar.target=Target:
+biomeRadar.foundBiome=Found Biome!
+biomeRadar.scanBiome=Right click to scan for biome
+
+enderporter.prevent=A mystical energy is preventing you from using this in the current world.
 
 phrase.bop.useBOPATGWorldtype=The Biomes O' Plenty world type or ATG world type must be used in order for the new biomes to generate. This message will only display once.
 phrase.bop.useBOPWorldtype=The Biomes O' Plenty world type must be used in order for the new biomes to generate. This message will only display once.

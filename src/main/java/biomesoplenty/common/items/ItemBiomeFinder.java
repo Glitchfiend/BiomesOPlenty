@@ -13,12 +13,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.common.network.packet.PacketBiomePosition;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -185,14 +187,14 @@ public class ItemBiomeFinder extends Item
 
                 if (biome != null)
                 {
-                    infoList.add("" + EnumChatFormatting.BOLD + "Target: " + EnumChatFormatting.RESET + biome.biomeName);
+                    infoList.add("" + EnumChatFormatting.BOLD + StatCollector.translateToLocal("biomeRadar.target") + " " + EnumChatFormatting.RESET + biome.biomeName);
                     
                     if (itemStack.getTagCompound().hasKey("foundBiome"))
                     {
                         boolean foundBiome = itemStack.getTagCompound().getBoolean("foundBiome");
                         
-                        if (foundBiome) infoList.add("" + EnumChatFormatting.DARK_GREEN + EnumChatFormatting.ITALIC + "Found biome!");
-                        else infoList.add("" + EnumChatFormatting.DARK_GRAY + EnumChatFormatting.ITALIC + "Right click to scan for biome");
+                        if (foundBiome) infoList.add("" + EnumChatFormatting.DARK_GREEN + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.foundBiome"));
+                        else infoList.add("" + EnumChatFormatting.DARK_GRAY + EnumChatFormatting.ITALIC + StatCollector.translateToLocal("biomeRadar.scanBiome"));
                     }
                 }
             }

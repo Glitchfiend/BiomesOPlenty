@@ -7,6 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 
@@ -48,9 +50,10 @@ public class ItemEnderporter extends Item
 			{
 				if (!player.worldObj.isRemote)
 				{
-					//TODO: addChatMessage()?
-					//TODO: BUG Whole text isn't purple
-					player.addChatComponentMessage(new ChatComponentText("\u00a75A mystical energy is preventing you from using this in the current world."));
+					ChatComponentText chatComponent = new ChatComponentText("\u00a75" + StatCollector.translateToLocal("enderporter.prevent"));
+					
+					chatComponent.getChatStyle().setColor(EnumChatFormatting.DARK_PURPLE);
+					player.addChatMessage(chatComponent);
 				}
 			}
 

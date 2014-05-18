@@ -166,13 +166,12 @@ public class ItemBOPBucket extends ItemFluidContainer
 	public String getItemStackDisplayName(ItemStack itemStack)
     {
     	FluidStack fluid = this.getFluid(itemStack);
-    	String bucketLocalized = StatCollector.translateToLocal(Items.bucket.getUnlocalizedName() + ".name");
     	
     	if (fluid != null && fluid.amount != 0)
     	{
-    		return fluid.getFluid().getLocalizedName() + " " + bucketLocalized;
+    		return StatCollector.translateToLocal(fluid.getFluid().getUnlocalizedName().replace("fluid.", "item.") + "Bucket" + ".name");
     	}
         
-        return bucketLocalized;
+        return Items.bucket.getUnlocalizedName() + ".name";
     }
 }
