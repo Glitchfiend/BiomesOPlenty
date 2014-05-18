@@ -8,7 +8,7 @@ tile.hardIce.name=Ghiaccio Cristallino
 tile.driedDirt.name=Terra Arida
 tile.cragRock.name=Roccia Falesia
 tile.mudBricks.name=Mattoni di Fango
-tile.spectralSoil.name=Terra Spettrale
+tile.biomeBlock.name=Essenza di Bioma Grezzo
 tile.crystal.name=Cristallo Celestiale
 
 tile.rocks.limestone.name=Calcare
@@ -129,12 +129,12 @@ tile.overgrownNetherrack.name=Netherrack Ricoperto di Vegetazione
 tile.treeMoss.name=Muschio Parassita
 tile.flowerVine.name=Rampicante Fiorente
 
-tile.coral.kelpsingle.name=Alga Kelp
-tile.coral.pinkcoral.name=Corallo Rosa
-tile.coral.orangecoral.name=Corallo Arancione
-tile.coral.bluecoral.name=Corallo Blu
-tile.coral.glowcoral.name=Corallo Luminescente
-tile.coral.algae.name=Alghe
+tile.coral1.kelpsingle.name=Alga Kelp
+tile.coral1.pinkcoral.name=Corallo Rosa
+tile.coral1.orangecoral.name=Corallo Arancione
+tile.coral1.bluecoral.name=Corallo Blu
+tile.coral1.glowcoral.name=Corallo Luminescente
+tile.coral2.algae.name=Alghe
 
 tile.bopGrass.spectralmoss.name=Muschio Spettrale
 tile.bopGrass.smolderinggrass.name=Blocco d'Erba Ardente
@@ -153,6 +153,8 @@ tile.gemOre.malachiteore.name=Malachite Grezza
 tile.gemOre.malachiteblock.name=Blocco di Malachite
 tile.gemOre.sapphireore.name=Zaffiro Grezzo
 tile.gemOre.sapphireblock.name=Blocco di Zaffiro
+tile.gemOre.amberore.name=Ambra Grezza
+tile.gemOre.amberblock.name=Blocco d'Ambra
 
 tile.moss.name=Muschio
 
@@ -174,7 +176,6 @@ tile.bones.bones_large.name=Segmento Grande d'Ossa
 tile.grave.name=Lapide
 
 tile.stoneDoubleSlab.mudbrickSlab.name=Lastra di Mattoni di Fango
-
 tile.stoneSingleSlab.mudbrickSlab.name=Lastra di Mattoni di Fango
 
 tile.planks.sacredoakPlank.name=Assi in Legno di Quercia Consacrata
@@ -334,6 +335,7 @@ item.gems.topaz.name=Topazio
 item.gems.tanzanite.name=Tanzanite
 item.gems.malachite.name=Malachite
 item.gems.sapphire.name=Zaffiro
+item.gems.amber.name=Ambra
 
 item.pickaxeMud.name=Piccone di Fango
 item.axeMud.name=Ascia di Fango
@@ -389,6 +391,9 @@ item.biomeBook.name=Libro dei Biomi
 item.biomeFinder.name=Radar di Biomi
 item.biomeEssence.name=Essenza di Bioma
 
+item.poisonBucket.name=Secchio di Veleno
+item.honeyBucket.name=Secchio di Miele
+ 
 tile.poison.name=Liquido Velenoso
 tile.springWater.name=Acqua Primaverile
 tile.honey.name=Miele
@@ -396,6 +401,12 @@ tile.honey.name=Miele
 fluid.poison=Liquido Velenoso
 fluid.springWater=Acqua Primaverile
 fluid.honey=Miele
+
+biomeRadar.target=Obiettivo:
+biomeRadar.foundBiome=Bioma trovato!
+biomeRadar.scanBiome=Click destro per cercare bioma
+
+enderporter.prevent=Una misteriosa energia non ti permette di usarlo in questo mondo.
 
 phrase.bop.useBOPATGWorldtype=Per generare i nuovi biomi si devono usare i tipi di mondo Biomes O' Plenty oppure ATG. Questo messaggio sarà mostrato una sola volta.
 phrase.bop.useBOPWorldtype=Per generare i nuovi biomi si deve usare il tipo di mondo Biomes O' Plenty. Questo messaggio sarà mostrato una sola volta.
