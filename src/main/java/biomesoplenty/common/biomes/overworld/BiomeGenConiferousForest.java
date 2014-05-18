@@ -3,6 +3,7 @@ package biomesoplenty.common.biomes.overworld;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga3;
@@ -50,6 +51,9 @@ public class BiomeGenConiferousForest extends BOPBiome
         this.bopWorldFeatures.setFeature("algaePerChunk", 2);
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
+        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 25);
+        
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 5), 15);
 
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);

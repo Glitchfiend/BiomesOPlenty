@@ -1,35 +1,36 @@
-package biomesoplenty.common.biomes.overworld;
+package biomesoplenty.common.biomes.overworld.sub;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
-import java.util.Random;
-
-public class BiomeGenSpruceWoods extends BOPBiome
+public class BiomeGenSpruceWoods extends BOPSubBiome
 {
     public BiomeGenSpruceWoods(int id)
     {
         super(id);
+        
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
 
         this.setColor(6396257);
-        this.setTemperatureRainfall(0.6F, 0.7F);
+        this.setTemperatureRainfall(0.7F, 0.8F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
 
-        this.theBiomeDecorator.treesPerChunk = 10;
+        this.theBiomeDecorator.treesPerChunk = 20;
         this.theBiomeDecorator.grassPerChunk = 6;
         this.theBiomeDecorator.mushroomsPerChunk = 4;
 
-        this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 100);
         this.bopWorldFeatures.setFeature("poisonIvyPerChunk", 1);
         this.bopWorldFeatures.setFeature("sproutsPerChunk", 3);
         this.bopWorldFeatures.setFeature("berryBushesPerChunk", 3);
@@ -42,8 +43,6 @@ public class BiomeGenSpruceWoods extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 100);
 
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 5), 15);
-
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
@@ -54,7 +53,7 @@ public class BiomeGenSpruceWoods extends BOPBiome
     public WorldGenAbstractTree func_150567_a(Random random)
     {
         return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6) : 
-        new WorldGenTaiga2(false);
+        (random.nextInt(2) == 0 ? worldGeneratorTrees : new WorldGenTaiga2(false));
     }
 
     @Override
