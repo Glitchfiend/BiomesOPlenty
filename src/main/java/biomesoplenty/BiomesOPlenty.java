@@ -2,7 +2,6 @@ package biomesoplenty;
 
 import biomesoplenty.common.configuration.BOPConfiguration;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
-import biomesoplenty.common.configuration.BOPConfigurationWorldFeatures;
 import biomesoplenty.common.configuration.structures.BOPConfigurationStrongholds;
 import biomesoplenty.common.configuration.structures.BOPConfigurationVillages;
 import biomesoplenty.common.core.*;
@@ -56,7 +55,6 @@ public class BiomesOPlenty
         BOPBiomes.init();
         BOPConfigurationVillages.init(BOPConfiguration.villagesConfigFile);
         BOPConfigurationStrongholds.init(BOPConfiguration.strongholdsConfigFile);
-        BOPConfigurationWorldFeatures.init(BOPConfiguration.worldFeaturesConfigFile);
         BiomeTweaker.init();
         BOPEntities.init();
         BOPVanillaCompat.init();
