@@ -13,13 +13,11 @@ public class BiomeGenVolcano extends BOPSubBiome
     {
         super(id);
         
-        this.zoom = 0.25D;
-		this.threshold = 0.25D;
+        this.zoom = 0.01D;
+		this.threshold = 0.5D;
         
-        //TODO: setHeight()
         this.setHeight(biomeHeight);
         this.setDisableRain();
-        //TODO: setColor()
         this.setColor(6645093);
         this.setTemperatureRainfall(2.0F, 0.05F);
 

@@ -21,14 +21,14 @@ import biomesoplenty.common.world.features.trees.WorldGenTropicsShrub;
 
 public class BiomeGenTropics extends BOPSubBiome
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.4F);
+    private static final Height biomeHeight = new Height(0.2F, 0.3F);
 
     public BiomeGenTropics(int id)
     {
         super(id);
         
-        this.zoom = 0.25D;
-		this.threshold = 0.25D;
+        this.zoom = 0.01D;
+		this.threshold = 0.5D;
         
         //TODO: setHeight()
         this.setHeight(biomeHeight);
