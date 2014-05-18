@@ -11,6 +11,7 @@ import biomesoplenty.common.blocks.BlockBOPColorizedLeaves;
 import biomesoplenty.common.blocks.BlockBOPColorizedLeaves.ColourizedLeafCategory;
 import biomesoplenty.common.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.common.blocks.BlockBOPCoral;
+import biomesoplenty.common.blocks.BlockBOPCoral.CoralCategory;
 import biomesoplenty.common.blocks.BlockBOPFlower;
 import biomesoplenty.common.blocks.BlockBOPFlower2;
 import biomesoplenty.common.blocks.BlockBOPFoliage;
@@ -101,17 +102,15 @@ public class BOPBlocks
         registerBlock(new BlockBOPFlower2().setBlockName("flowers2"), ItemBlockFlower2.class);
         registerBlock(new BlockStoneFormations().setBlockName("stoneFormations"), ItemBlockStoneFormations.class);
         registerBlock(new BlockBOPMushroom().setBlockName("mushrooms"), ItemBlockMushroom.class);
-        registerBlock(new BlockBOPCoral().setBlockName("coral"), ItemBlockCoral.class);
         registerBlock(new BlockWillow().setBlockName("willow"), ItemBlockWillow.class);
         registerBlock(new BlockIvy().setBlockName("ivy"), ItemBlockIvy.class);
         registerBlock(new BlockTreeMoss().setBlockName("treeMoss"));
         registerBlock(new BlockFlowerVine().setBlockName("flowerVine"));
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT1).setBlockName("leaves1"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT2).setBlockName("leaves2"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).setBlockName("leaves3"), ItemBlockLeaves.class);
-        registerBlock(new BlockBOPLeaves(LeafCategory.CAT4).setBlockName("leaves4"), ItemBlockLeaves.class);
         registerBlock(new BlockBOPFoliage().setBlockName("foliage"), ItemBlockFoliage.class);
         registerBlock(new BlockTurnip().setBlockName("turnip"));
+        
+        registerBlock(new BlockBOPCoral(CoralCategory.CAT1).setBlockName("coral1"), ItemBlockCoral.class);
+        registerBlock(new BlockBOPCoral(CoralCategory.CAT2).setBlockName("coral2"), ItemBlockCoral.class);
 
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.ASH_STONE).setBlockName("ashStone"));
         registerBlock(new BlockBOPGeneric(Material.rock, BlockType.HARD_ICE).setBlockName("hardIce"));
@@ -134,6 +133,11 @@ public class BOPBlocks
 		registerBlock(new BlockBOPLog(LogCategory.CAT3).setBlockName("logs3"), ItemBlockLog.class);
 		registerBlock(new BlockBOPLog(LogCategory.CAT4).setBlockName("logs4"), ItemBlockLog.class);
 
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT1).setBlockName("leaves1"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT2).setBlockName("leaves2"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT3).setBlockName("leaves3"), ItemBlockLeaves.class);
+        registerBlock(new BlockBOPLeaves(LeafCategory.CAT4).setBlockName("leaves4"), ItemBlockLeaves.class);
+		
 		registerBlock(new BlockBOPPetals().setBlockName("petals"), ItemBlockPetals.class);
 		
 		registerBlock(new BlockBOPSapling().setBlockName("saplings"), ItemBlockSapling.class);

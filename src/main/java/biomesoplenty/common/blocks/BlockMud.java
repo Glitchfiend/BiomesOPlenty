@@ -18,7 +18,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.common.blocks.utils.BOPBlock;
 
 public class BlockMud extends BOPBlock
 {

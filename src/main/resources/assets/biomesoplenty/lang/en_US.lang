@@ -129,12 +129,12 @@ tile.overgrownNetherrack.name=Overgrown Netherrack
 tile.treeMoss.name=Tree Moss
 tile.flowerVine.name=Flowering Vines
 
-tile.coral.kelpsingle.name=Kelp
-tile.coral.pinkcoral.name=Pink Coral
-tile.coral.orangecoral.name=Orange Coral
-tile.coral.bluecoral.name=Blue Coral
-tile.coral.glowcoral.name=Glowing Coral
-tile.coral.algae.name=Algae
+tile.coral1.kelpsingle.name=Kelp
+tile.coral1.pinkcoral.name=Pink Coral
+tile.coral1.orangecoral.name=Orange Coral
+tile.coral1.bluecoral.name=Blue Coral
+tile.coral1.glowcoral.name=Glowing Coral
+tile.coral2.algae.name=Algae
 
 tile.bopGrass.spectralmoss.name=Spectral Moss
 tile.bopGrass.smolderinggrass.name=Smoldering Grass Block

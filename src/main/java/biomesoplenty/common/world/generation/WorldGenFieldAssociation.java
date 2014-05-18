@@ -75,7 +75,7 @@ public class WorldGenFieldAssociation
         associateFeature("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
         associateFeature("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
         associateFeature("waterReedsPerChunk", new WorldGenWaterReeds());
-        associateFeature("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral"), 8, 256));
+        associateFeature("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral2"), 8, 256));
         associateFeature("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
         associateFeature("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
         associateFeature("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));

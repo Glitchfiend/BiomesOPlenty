@@ -1,4 +1,4 @@
-package biomesoplenty.common.biomes.overworld.subbiomes;
+package biomesoplenty.common.biomes.overworld.sub;
 
 import java.util.Random;
 

@@ -291,6 +291,12 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 	{
 		return null;
 	}
+	
+    @Override
+	public boolean isReplaceable(IBlockAccess world, int x, int y, int z)
+    {
+        return true;
+    }
 
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)
