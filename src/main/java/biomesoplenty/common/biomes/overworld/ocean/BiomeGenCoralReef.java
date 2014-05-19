@@ -11,7 +11,7 @@ import biomesoplenty.common.biomes.BOPOceanBiome;
 
 public class BiomeGenCoralReef extends BOPOceanBiome
 {
-    private static final Height biomeHeight = new Height(-1.0F, 0.1F);
+    private static final Height biomeHeight = new Height(-0.7F, 0.1F);
 	
 	public BiomeGenCoralReef(int biomeID) 
 	{
