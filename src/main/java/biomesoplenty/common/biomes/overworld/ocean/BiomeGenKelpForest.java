@@ -5,28 +5,27 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPOceanBiome;
 
-public class BiomeGenCoralReef extends BOPOceanBiome
+public class BiomeGenKelpForest extends BOPOceanBiome
 {
     private static final Height biomeHeight = new Height(-1.0F, 0.1F);
 	
-	public BiomeGenCoralReef(int biomeID) 
+	public BiomeGenKelpForest(int biomeID)
 	{
 		super(biomeID);
-
+		
         this.zoom = 0.5D;
 		this.threshold = 0D;
 		
         this.setHeight(biomeHeight);
-        this.setColor(18285);
+        this.setColor(27468);
         this.setTemperatureRainfall(0.5F, 0.9F);
-        
-        this.bopWorldFeatures.setFeature("coralPerChunk", 300);
-        this.bopWorldFeatures.setFeature("shortKelpPerChunk", 99);
-        this.bopWorldFeatures.setFeature("generateSponge", true);
+
+        this.bopWorldFeatures.setFeature("kelpPerChunk", 999);
+        this.bopWorldFeatures.setFeature("kelpThickPerChunk", 999);
+        this.bopWorldFeatures.setFeature("shortKelpPerChunk", 200);
 	}
 
 	@Override

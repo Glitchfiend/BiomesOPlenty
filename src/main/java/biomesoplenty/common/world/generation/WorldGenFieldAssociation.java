@@ -16,6 +16,7 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPUndergroundDecoration;
 import biomesoplenty.common.world.features.WorldGenCobwebNest;
 import biomesoplenty.common.world.features.WorldGenGrassSplatter;
+import biomesoplenty.common.world.features.WorldGenKelp;
 import biomesoplenty.common.world.features.WorldGenLavaSpout;
 import biomesoplenty.common.world.features.WorldGenLog;
 import biomesoplenty.common.world.features.WorldGenLongVine;
@@ -60,7 +61,8 @@ public class WorldGenFieldAssociation
         associateFeature("generateQuagmire", new WorldGenSplotches(Blocks.grass, 0, 48, BOPBlockHelper.get("mud")));
         associateFeature("generateAsh", new WorldGenSplotches(BOPBlockHelper.get("ash"), 0, 32, BOPBlockHelper.get("ashStone"), Blocks.netherrack));
         associateFeature("generateMycelium", new WorldGenSplotches(Blocks.mycelium, 0, 32, Blocks.grass));
-
+        associateFeature("generateSponge", new WorldGenSplotches(Blocks.sponge, 0, 24, Blocks.dirt, Blocks.sand, Blocks.gravel));
+        
         associateFeature("mudPerChunk", new WorldGenWaterside(BOPBlockHelper.get("mud"), 7, Blocks.dirt, Blocks.grass));
         associateFeature("riverCanePerChunk", new WorldGenRiverCane());
         associateFeature("shrubsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 9));
@@ -113,6 +115,9 @@ public class WorldGenFieldAssociation
         //Ocean Features
         associateFeature("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral2"), 8, 256));
         associateFeature("coralPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral1"), -1));
+        associateFeature("kelpPerChunk", new WorldGenKelp(4, 8));
+        associateFeature("kelpThickPerChunk", new WorldGenKelp(4, 8));
+        associateFeature("shortKelpPerChunk", new WorldGenKelp(2, 3));
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());

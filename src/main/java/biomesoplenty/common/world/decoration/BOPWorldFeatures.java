@@ -32,6 +32,7 @@ public class BOPWorldFeatures
         addFeature("generateAsh", false);
         addFeature("generateMelons", false);
         addFeature("generateMycelium", false);
+        addFeature("generateSponge", false);
 
         addFeature("waterSpringsPerChunk", 50);
         addFeature("lavaSpringsPerChunk", 20);
@@ -92,6 +93,9 @@ public class BOPWorldFeatures
         //Ocean Features
         addFeature("seaweedPerChunk", 0);
         addFeature("coralPerChunk", 0);
+        addFeature("kelpPerChunk", 0);
+        addFeature("kelpThickPerChunk", 0);
+        addFeature("shortKelpPerChunk", 0);
         
         //Nether Features
         addFeature("waspHivesPerChunk", 0);

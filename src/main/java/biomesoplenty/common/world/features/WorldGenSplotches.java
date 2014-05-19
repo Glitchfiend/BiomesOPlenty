@@ -192,5 +192,16 @@ public class WorldGenSplotches extends WorldGeneratorBOP
                 this.generate(world, random, randX, randY, randZ);
             }
         }
+        else if (featureName.equals("generateSponge") && (Boolean)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature("generateSponge"))
+        {
+            for (int i = 0; i < 5; ++i)
+            {
+                int randX = x + random.nextInt(16);
+                int randY = random.nextInt(64);
+                int randZ = z + random.nextInt(16);
+
+                this.generate(world, random, randX, randY, randZ);
+            }
+        }
     }
 }

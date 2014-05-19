@@ -124,9 +124,6 @@ public class BlockBOPCoral extends BOPBlock
 		{
 			switch (metadata)
 			{
-			case 8:
-				return block == Blocks.dirt || block == Blocks.sand || block == Blocks.sponge || block == Blocks.stone || block == Blocks.clay || block == Blocks.gravel || block == Blocks.grass || block == BOPBlockHelper.get("mud");
-			
 			case 9: // Kelp Middle
 				return block == this;
 

@@ -77,6 +77,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
 import biomesoplenty.common.biomes.overworld.ocean.BiomeGenCoralReef;
+import biomesoplenty.common.biomes.overworld.ocean.BiomeGenKelpForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenAlpsForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenCanyonRavine;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenGlacier;
@@ -202,8 +203,9 @@ public class BOPBiomes
 		
 		//Ocean Biomes
 		coralReef = registerOverworldSubBiome(BiomeGenCoralReef.class, "Coral Reef", 10, BiomeGenBase.ocean.biomeID);
-		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.deepOcean.biomeID);
+		kelpForest = registerOverworldSubBiome(BiomeGenKelpForest.class, "Kelp Forest", 10, BiomeGenBase.ocean.biomeID);
 		tropics = registerOverworldSubBiome(BiomeGenTropics.class, "Tropics", 10, BiomeGenBase.deepOcean.biomeID);
+		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.deepOcean.biomeID);
         
         //Nether Biomes
         corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
