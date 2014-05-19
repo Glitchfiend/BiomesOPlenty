@@ -45,7 +45,6 @@ public class BOPWorldFeatures
         addFeature("shrubsPerChunk", 0);
         addFeature("bushesPerChunk", 0);
         addFeature("cloverPatchesPerChunk", 0);
-        addFeature("seaweedPerChunk", 0);
         addFeature("leafPilesPerChunk", 0);
         addFeature("deadLeafPilesPerChunk", 0);
         addFeature("lavenderPerChunk", 0);
@@ -90,6 +89,10 @@ public class BOPWorldFeatures
         addFeature("glowshroomsPerChunk", 0);
         addFeature("bopBigMushroomsPerChunk", 0);
 
+        //Ocean Features
+        addFeature("seaweedPerChunk", 0);
+        addFeature("coralPerChunk", 0);
+        
         //Nether Features
         addFeature("waspHivesPerChunk", 0);
         addFeature("boneSpinesUpPerChunk", 0);

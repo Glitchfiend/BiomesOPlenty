@@ -77,6 +77,7 @@ import biomesoplenty.common.biomes.overworld.BiomeGenTundra;
 import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
 import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biomes.overworld.ocean.BiomeGenCoralReef;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenAlpsForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenCanyonRavine;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenGlacier;
@@ -200,6 +201,7 @@ public class BOPBiomes
 		canyonRavine = registerOverworldSubBiome(BiomeGenCanyonRavine.class, "Canyon Ravine", 10, canyon.biomeID);
 		
 		//Ocean Biomes
+		coralReef = registerOverworldSubBiome(BiomeGenCoralReef.class, "Coral Reef", 10, BiomeGenBase.ocean.biomeID);
 		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.deepOcean.biomeID);
 		tropics = registerOverworldSubBiome(BiomeGenTropics.class, "Tropics", 10, BiomeGenBase.deepOcean.biomeID);
         

@@ -14,6 +14,7 @@ public class WorldGenBOPCoral extends WorldGeneratorBOP
 {
     public Block flora;
     public int floraMeta;
+    private boolean randomMeta;
     private int groupCount = 64;
 
     public WorldGenBOPCoral() {}
@@ -22,6 +23,7 @@ public class WorldGenBOPCoral extends WorldGeneratorBOP
     {
         this.flora = flora;
         this.floraMeta = floraMeta;
+		this.randomMeta = this.floraMeta == -1;
     }
     
     public WorldGenBOPCoral(Block flora, int floraMeta, int groupCount)
@@ -29,6 +31,7 @@ public class WorldGenBOPCoral extends WorldGeneratorBOP
         this.flora = flora;
         this.floraMeta = floraMeta;
         this.groupCount = groupCount;
+		this.randomMeta = this.floraMeta == -1;
     }
 
     @Override
@@ -40,6 +43,8 @@ public class WorldGenBOPCoral extends WorldGeneratorBOP
             int j1 = y + random.nextInt(4) - random.nextInt(4);
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
+            if (randomMeta) floraMeta = 12 + random.nextInt(4);
+            
             if (world.getBlock(i1, j1, k1) == Blocks.water && world.getBlock(i1, j1 + 1, k1) == Blocks.water && (!world.provider.hasNoSky || j1 < 255) && 
             this.flora.canReplace(world, i1, j1, k1, 0, new ItemStack(flora, 1, floraMeta)))
             {

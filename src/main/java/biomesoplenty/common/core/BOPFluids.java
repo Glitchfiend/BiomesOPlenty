@@ -30,9 +30,9 @@ public class BOPFluids
 
 	private static void registerFluids()
 	{
-		registerFluid(poison = new PoisonFluid("poison").setBlock(BOPBlockHelper.get("poison")));
-		registerFluid(spring_water = new SpringWaterFluid("spring_water").setBlock(BOPBlockHelper.get("springWater")));
-		registerFluid(honey = new HoneyFluid("honey").setBlock(BOPBlockHelper.get("honey")));
+		registerFluid(poison = new PoisonFluid("poison"));
+		registerFluid(spring_water = new SpringWaterFluid("spring_water"));
+		registerFluid(honey = new HoneyFluid("honey"));
 	}
 
 	private static void registerFluidBlocks()
@@ -40,6 +40,10 @@ public class BOPFluids
 		registerBlock(new BlockPoisonFluid().setBlockName("poison"));
 		registerBlock(new BlockSpringWaterFluid().setBlockName("springWater"));
 		registerBlock(new BlockHoneyFluid().setBlockName("honey"));
+		
+		poison.setBlock(BOPBlockHelper.get("poison"));
+		spring_water.setBlock(BOPBlockHelper.get("springWater"));
+		honey.setBlock(BOPBlockHelper.get("honey"));
 	}
 
 	private static void registerFluidItems()

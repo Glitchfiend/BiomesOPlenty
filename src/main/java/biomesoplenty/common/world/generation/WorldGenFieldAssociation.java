@@ -75,7 +75,6 @@ public class WorldGenFieldAssociation
         associateFeature("desertSproutsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 2));
         associateFeature("bromeliadsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 12));
         associateFeature("waterReedsPerChunk", new WorldGenWaterReeds());
-        associateFeature("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral2"), 8, 256));
         associateFeature("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("plants"), 11));
         associateFeature("poisonIvyPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 7));
         associateFeature("berryBushesPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("foliage"), 8));
@@ -110,6 +109,10 @@ public class WorldGenFieldAssociation
         associateFeature("sandstoneSpikesPerChunk", new WorldGenSandstoneSpike());
         associateFeature("glowshroomsPerChunk", new WorldGenBOPFlora(BOPBlockHelper.get("mushrooms"), 3));
         associateFeature("bopBigMushroomsPerChunk", new WorldGenBOPBigMushroom(Blocks.dirt, Blocks.grass, Blocks.mycelium, BOPBlockHelper.get("overgrownNetherrack")));
+        
+        //Ocean Features
+        associateFeature("seaweedPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral2"), 8, 256));
+        associateFeature("coralPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral1"), -1));
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());

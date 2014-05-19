@@ -15,6 +15,7 @@ public class BOPBiomeManager
 	
 	public static List<BiomeEntry>[] overworldBiomes = new ArrayList[4];
 	public static List<BiomeEntry>[] overworldSubBiomes = new ArrayList[BiomeGenBase.getBiomeGenArray().length];
+	public static List<Integer> overworldOceanBiomes = new ArrayList();
 	public static BiomeGenBase[] overworldRiverBiomes = new BiomeGenBase[BiomeGenBase.getBiomeGenArray().length];
 	public static List<BiomeEntry> netherBiomes = new ArrayList();
 	
@@ -75,6 +76,11 @@ public class BOPBiomeManager
 		}
 		
 		return -1;
+	}
+	
+	public static boolean isBiomeOceanic(int biomeId)
+	{
+		return overworldOceanBiomes.contains(biomeId);
 	}
 	
 	private static int getConfiguredWeight(BiomeGenBase biome, String biomeType, int weight)

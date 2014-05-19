@@ -83,7 +83,7 @@ public abstract class GenLayerBOP extends GenLayer
 
             if (j == 1)
             {
-                object = new GenLayerShore(1000L, (GenLayer)object);
+                object = new GenLayerShoreBOP(1000L, (GenLayer)object);
             }
         }
 

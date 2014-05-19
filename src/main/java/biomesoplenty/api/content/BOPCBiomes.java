@@ -74,6 +74,7 @@ public class BOPCBiomes
 	public static BiomeGenBase canyonRavine;
 	
 	//Ocean Biomes
+	public static BiomeGenBase coralReef;
 	public static BiomeGenBase kelpForest;
 	
 	//Nether Biomes
