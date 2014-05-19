@@ -74,19 +74,6 @@ public class BonemealEventHandler
 				}
 			}
 		}
-		else if (block == BOPBlockHelper.get("coral") && event.world.getBlockMetadata(x, y, z) == 3)
-		{
-			event.setResult(Result.ALLOW);
-
-			/*TODO: FEATURE if (!event.world.isRemote)
-			{
-				if (event.world.rand.nextFloat() < 0.45D)
-				{
-					WorldGenKelp worldgenkelp = new WorldGenKelp(false);
-					worldgenkelp.generate(event.world, event.world.rand, event.X, event.Y, event.Z);
-				}
-			}*/
-		}
 		else if (block == BOPBlockHelper.get("plants"))
 		{
 			event.setResult(Result.ALLOW);
