@@ -153,6 +153,8 @@ tile.gemOre.malachiteore.name=Malachite Ore
 tile.gemOre.malachiteblock.name=Block of Malachite
 tile.gemOre.sapphireore.name=Sapphire Ore
 tile.gemOre.sapphireblock.name=Block of Sapphire
+tile.gemOre.amberore.name=Amber Ore
+tile.gemOre.amberblock.name=Block of Amber
 
 tile.moss.name=Moss
 
@@ -333,6 +335,7 @@ item.gems.topaz.name=Topaz
 item.gems.tanzanite.name=Tanzanite
 item.gems.malachite.name=Malachite
 item.gems.sapphire.name=Sapphire
+item.gems.amber.name=Amber
 
 item.pickaxeMud.name=Muddy Pickaxe
 item.axeMud.name=Muddy Axe

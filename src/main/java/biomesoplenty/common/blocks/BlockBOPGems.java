@@ -18,7 +18,7 @@ import biomesoplenty.api.BOPItemHelper;
 
 public class BlockBOPGems extends Block
 {
-	public static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "malachiteore", "malachiteblock", "sapphireore", "sapphireblock"};
+	public static final String[] types = new String[] {"amethystore", "amethystblock", "rubyore", "rubyblock", "peridotore", "peridotblock", "topazore", "topazblock", "tanzaniteore", "tanzaniteblock", "malachiteore", "malachiteblock", "sapphireore", "sapphireblock", "amberore", "amberblock"};
 	private IIcon[] textures;
 
 	public BlockBOPGems()
@@ -161,6 +161,14 @@ public class BlockBOPGems extends Block
 			return 6;
 		}
 		if (meta == 13)
+		{
+			return meta;
+		}
+		if (meta == 14)
+		{
+			return 6;
+		}
+		if (meta == 15)
 		{
 			return meta;
 		}

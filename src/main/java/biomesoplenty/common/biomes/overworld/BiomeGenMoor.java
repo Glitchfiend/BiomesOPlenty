@@ -55,7 +55,7 @@ public class BiomeGenMoor extends BOPBiome
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
 	}
 	
-    @Override
+	@Override
     public void decorate(World world, Random random, int chunkX, int chunkZ)
     {
         super.decorate(world, random, chunkX, chunkZ);
@@ -73,7 +73,7 @@ public class BiomeGenMoor extends BOPBiome
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
                 //TODO: setBlock()
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+                world.setBlock(x, y, z, Blocks.emerald_ore, 0, 2);
             }
         }
     }

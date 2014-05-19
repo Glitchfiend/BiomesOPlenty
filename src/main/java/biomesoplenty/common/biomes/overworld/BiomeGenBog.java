@@ -62,7 +62,6 @@ public class BiomeGenBog extends BOPBiome
 	public void decorate(World world, Random random, int chunkX, int chunkZ)
 	{
 		super.decorate(world, random, chunkX, chunkZ);
-
         int var5 = 12 + random.nextInt(6);
 
         for (int var6 = 0; var6 < var5; ++var6)
