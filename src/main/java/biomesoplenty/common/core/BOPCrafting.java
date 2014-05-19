@@ -259,7 +259,7 @@ public class BOPCrafting
 		
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("planks"), 1, 10), new Object[] {"##", "##", '#', BOPBlockHelper.get("bamboo")});
 		GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("jarEmpty"), 3, 0), new Object[] {"# #", "# #", "###", '#', Blocks.glass});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("food"), 1, 10), new Object[] {new ItemStack(BOPItemHelper.get("misc"), 1, 11), new ItemStack(Items.potionitem, 1, 0), new ItemStack(BOPBlockHelper.get("flowers2"), 1, 6), new ItemStack(BOPBlockHelper.get("coral"), 1, 3), new ItemStack(BOPBlockHelper.get("plants"), 1, 15), new ItemStack(BOPItemHelper.get("misc"), 1, 4), new ItemStack(BOPItemHelper.get("jarFilled"), 1, 0), new ItemStack(BOPItemHelper.get("food"), 1, 0), Items.sugar});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPItemHelper.get("food"), 1, 10), new Object[] {new ItemStack(BOPItemHelper.get("misc"), 1, 11), new ItemStack(Items.potionitem, 1, 0), new ItemStack(BOPBlockHelper.get("flowers2"), 1, 6), new ItemStack(BOPBlockHelper.get("coral1"), 1, 11), new ItemStack(BOPBlockHelper.get("plants"), 1, 15), new ItemStack(BOPItemHelper.get("misc"), 1, 4), new ItemStack(BOPItemHelper.get("jarFilled"), 1, 0), new ItemStack(BOPItemHelper.get("food"), 1, 0), Items.sugar});
 		
 		GameRegistry.addRecipe(new ItemStack(BOPBlockHelper.get("flesh"), 1, 0), new Object[] {"##", "##", '#', new ItemStack(BOPItemHelper.get("misc"), 1, 3)});
 		GameRegistry.addRecipe(new ItemStack(Items.rotten_flesh, 1, 0), new Object[] {"FFF", "FPF", "FFF", 'F', new ItemStack(BOPItemHelper.get("misc"), 1, 3), 'P', new ItemStack(BOPItemHelper.get("jarFilled"), 1, 1)});
