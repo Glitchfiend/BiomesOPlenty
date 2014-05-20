@@ -39,7 +39,6 @@ public class BOPConfigurationStrongholds
         addStrongholdBiome(BOPCBiomes.deadForest);
         addStrongholdBiome(BOPCBiomes.deadSwamp);
         addStrongholdBiome(BOPCBiomes.deciduousForest);
-        addStrongholdBiome(BOPCBiomes.dunes);
         addStrongholdBiome(BOPCBiomes.fen);
         addStrongholdBiome(BOPCBiomes.flowerField);
         addStrongholdBiome(BOPCBiomes.frostForest);

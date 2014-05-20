@@ -1,6 +1,78 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.api.content.BOPCBiomes.*;
+import static biomesoplenty.api.content.BOPCBiomes.alps;
+import static biomesoplenty.api.content.BOPCBiomes.alpsForest;
+import static biomesoplenty.api.content.BOPCBiomes.arctic;
+import static biomesoplenty.api.content.BOPCBiomes.bambooForest;
+import static biomesoplenty.api.content.BOPCBiomes.bayou;
+import static biomesoplenty.api.content.BOPCBiomes.bog;
+import static biomesoplenty.api.content.BOPCBiomes.boneyard;
+import static biomesoplenty.api.content.BOPCBiomes.borealForest;
+import static biomesoplenty.api.content.BOPCBiomes.brushland;
+import static biomesoplenty.api.content.BOPCBiomes.canyon;
+import static biomesoplenty.api.content.BOPCBiomes.canyonRavine;
+import static biomesoplenty.api.content.BOPCBiomes.chaparral;
+import static biomesoplenty.api.content.BOPCBiomes.cherryBlossomGrove;
+import static biomesoplenty.api.content.BOPCBiomes.coniferousForest;
+import static biomesoplenty.api.content.BOPCBiomes.coralReef;
+import static biomesoplenty.api.content.BOPCBiomes.corruptedSands;
+import static biomesoplenty.api.content.BOPCBiomes.crag;
+import static biomesoplenty.api.content.BOPCBiomes.deadForest;
+import static biomesoplenty.api.content.BOPCBiomes.deadSwamp;
+import static biomesoplenty.api.content.BOPCBiomes.deciduousForest;
+import static biomesoplenty.api.content.BOPCBiomes.dryRiver;
+import static biomesoplenty.api.content.BOPCBiomes.fen;
+import static biomesoplenty.api.content.BOPCBiomes.flowerField;
+import static biomesoplenty.api.content.BOPCBiomes.frostForest;
+import static biomesoplenty.api.content.BOPCBiomes.fungiForest;
+import static biomesoplenty.api.content.BOPCBiomes.glacier;
+import static biomesoplenty.api.content.BOPCBiomes.grassland;
+import static biomesoplenty.api.content.BOPCBiomes.grove;
+import static biomesoplenty.api.content.BOPCBiomes.heathland;
+import static biomesoplenty.api.content.BOPCBiomes.highland;
+import static biomesoplenty.api.content.BOPCBiomes.jadeCliffs;
+import static biomesoplenty.api.content.BOPCBiomes.kelpForest;
+import static biomesoplenty.api.content.BOPCBiomes.lavenderFields;
+import static biomesoplenty.api.content.BOPCBiomes.lushDesert;
+import static biomesoplenty.api.content.BOPCBiomes.lushRiver;
+import static biomesoplenty.api.content.BOPCBiomes.lushSwamp;
+import static biomesoplenty.api.content.BOPCBiomes.mapleWoods;
+import static biomesoplenty.api.content.BOPCBiomes.marsh;
+import static biomesoplenty.api.content.BOPCBiomes.meadow;
+import static biomesoplenty.api.content.BOPCBiomes.meadowForest;
+import static biomesoplenty.api.content.BOPCBiomes.moor;
+import static biomesoplenty.api.content.BOPCBiomes.mountain;
+import static biomesoplenty.api.content.BOPCBiomes.mysticGrove;
+import static biomesoplenty.api.content.BOPCBiomes.oasis;
+import static biomesoplenty.api.content.BOPCBiomes.ominousWoods;
+import static biomesoplenty.api.content.BOPCBiomes.originValley;
+import static biomesoplenty.api.content.BOPCBiomes.outback;
+import static biomesoplenty.api.content.BOPCBiomes.phantasmagoricInferno;
+import static biomesoplenty.api.content.BOPCBiomes.prairie;
+import static biomesoplenty.api.content.BOPCBiomes.quagmire;
+import static biomesoplenty.api.content.BOPCBiomes.rainforest;
+import static biomesoplenty.api.content.BOPCBiomes.redwoodForest;
+import static biomesoplenty.api.content.BOPCBiomes.sacredSprings;
+import static biomesoplenty.api.content.BOPCBiomes.scrubland;
+import static biomesoplenty.api.content.BOPCBiomes.seasonalForest;
+import static biomesoplenty.api.content.BOPCBiomes.shield;
+import static biomesoplenty.api.content.BOPCBiomes.shrubland;
+import static biomesoplenty.api.content.BOPCBiomes.silkglades;
+import static biomesoplenty.api.content.BOPCBiomes.sludgepit;
+import static biomesoplenty.api.content.BOPCBiomes.snowyConiferousForest;
+import static biomesoplenty.api.content.BOPCBiomes.spruceWoods;
+import static biomesoplenty.api.content.BOPCBiomes.steppe;
+import static biomesoplenty.api.content.BOPCBiomes.temperateRainforest;
+import static biomesoplenty.api.content.BOPCBiomes.thicket;
+import static biomesoplenty.api.content.BOPCBiomes.tropicalRainforest;
+import static biomesoplenty.api.content.BOPCBiomes.tropics;
+import static biomesoplenty.api.content.BOPCBiomes.tundra;
+import static biomesoplenty.api.content.BOPCBiomes.undergarden;
+import static biomesoplenty.api.content.BOPCBiomes.visceralHeap;
+import static biomesoplenty.api.content.BOPCBiomes.volcano;
+import static biomesoplenty.api.content.BOPCBiomes.wasteland;
+import static biomesoplenty.api.content.BOPCBiomes.wetland;
+import static biomesoplenty.api.content.BOPCBiomes.woodland;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +110,6 @@ import biomesoplenty.common.biomes.overworld.BiomeGenCrag;
 import biomesoplenty.common.biomes.overworld.BiomeGenDeadForest;
 import biomesoplenty.common.biomes.overworld.BiomeGenDeadSwamp;
 import biomesoplenty.common.biomes.overworld.BiomeGenDeciduousForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenDunes;
 import biomesoplenty.common.biomes.overworld.BiomeGenFen;
 import biomesoplenty.common.biomes.overworld.BiomeGenFlowerField;
 import biomesoplenty.common.biomes.overworld.BiomeGenFrostForest;
@@ -151,7 +222,6 @@ public class BOPBiomes
         deadForest = registerOverworldBiome(BiomeGenDeadForest.class, "Dead Forest", TemperatureType.COOL, 7);
         deadSwamp = registerOverworldBiome(BiomeGenDeadSwamp.class, "Dead Swamp", TemperatureType.WARM, 7);
         deciduousForest = registerOverworldBiome(BiomeGenDeciduousForest.class, "Deciduous Forest", TemperatureType.WARM, 10);
-        dunes = registerOverworldBiome(BiomeGenDunes.class, "Dunes", TemperatureType.HOT, 10);
         fen = registerOverworldBiome(BiomeGenFen.class, "Fen", TemperatureType.WARM, 10);
         flowerField = registerOverworldBiome(BiomeGenFlowerField.class, "Flower Field", TemperatureType.WARM, 3);
         frostForest = registerOverworldBiome(BiomeGenFrostForest.class, "Frost Forest", TemperatureType.ICY, 7);
@@ -216,7 +286,7 @@ public class BOPBiomes
         
         //River Biomes
         lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp.biomeID, lavenderFields.biomeID, flowerField.biomeID, bambooForest.biomeID, cherryBlossomGrove.biomeID, lushDesert.biomeID, meadow.biomeID, spruceWoods.biomeID, rainforest.biomeID, BiomeGenBase.forest.biomeID, BiomeGenBase.forestHills.biomeID, BiomeGenBase.jungle.biomeID, BiomeGenBase.jungleEdge.biomeID, BiomeGenBase.jungleHills.biomeID);
-        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback.biomeID, dunes.biomeID, steppe.biomeID, BiomeGenBase.desert.biomeID, BiomeGenBase.desertHills.biomeID);
+        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback.biomeID, steppe.biomeID, BiomeGenBase.desert.biomeID, BiomeGenBase.desertHills.biomeID);
 	}
 	
 	private static void addBiomesToDictionary()
@@ -242,7 +312,6 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.deadForest, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deadSwamp, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deciduousForest, Type.FOREST);
-        BiomeDictionary.registerBiomeType(BOPCBiomes.dunes, Type.BEACH, Type.DESERT, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.fen, Type.FOREST, Type.SWAMP);
         BiomeDictionary.registerBiomeType(BOPCBiomes.flowerField, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.frostForest, Type.FROZEN, Type.FOREST);

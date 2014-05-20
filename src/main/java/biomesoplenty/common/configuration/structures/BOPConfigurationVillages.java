@@ -43,7 +43,6 @@ public class BOPConfigurationVillages
         //addVillageBiome(BOPCBiomes.deadForestSnow); 
         //addVillageBiome(BOPCBiomes.deadSwamp);
         addVillageBiome(BOPCBiomes.deciduousForest);
-        //addVillageBiome(BOPCBiomes.dunes); 
         //addVillageBiome(BOPCBiomes.fen);
         //addVillageBiome(BOPCBiomes.flowerField);
         addVillageBiome(BOPCBiomes.frostForest); 
