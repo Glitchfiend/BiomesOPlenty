@@ -88,5 +88,16 @@ public class WorldGenKelp extends WorldGeneratorBOP
 				this.generate(world, random, randX, randY, randZ);
 			}
 		}
+		else if (featureName == "shortKelpPerChunk")
+		{
+			for (int i = 0; i < (Integer)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature(featureName); i++)
+			{
+				int randX = x + random.nextInt(16);
+				int randZ = z + random.nextInt(16);
+				int randY = random.nextInt(64);
+
+				this.generate(world, random, randX, randY, randZ);
+			}
+		}
 	}
 }

@@ -10,14 +10,14 @@ import biomesoplenty.common.biomes.BOPOceanBiome;
 
 public class BiomeGenKelpForest extends BOPOceanBiome
 {
-    private static final Height biomeHeight = new Height(-0.9F, 0.1F);
+    private static final Height biomeHeight = new Height(-1.2F, 0.1F);
 	
 	public BiomeGenKelpForest(int biomeID)
 	{
 		super(biomeID);
 		
-        this.zoom = 0.5D;
-		this.threshold = 0D;
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
 		
         this.setHeight(biomeHeight);
         this.setColor(27468);
@@ -26,6 +26,7 @@ public class BiomeGenKelpForest extends BOPOceanBiome
         this.bopWorldFeatures.setFeature("kelpPerChunk", 999);
         this.bopWorldFeatures.setFeature("kelpThickPerChunk", 999);
         this.bopWorldFeatures.setFeature("shortKelpPerChunk", 200);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 20);
 	}
 
 	@Override

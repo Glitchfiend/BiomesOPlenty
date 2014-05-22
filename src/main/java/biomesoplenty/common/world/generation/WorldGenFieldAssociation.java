@@ -117,7 +117,7 @@ public class WorldGenFieldAssociation
         associateFeature("coralPerChunk", new WorldGenBOPCoral(BOPBlockHelper.get("coral1"), -1));
         associateFeature("kelpPerChunk", new WorldGenKelp(4, 8));
         associateFeature("kelpThickPerChunk", new WorldGenKelp(4, 8));
-        associateFeature("shortKelpPerChunk", new WorldGenKelp(2, 3));
+        associateFeature("shortKelpPerChunk", new WorldGenKelp(2, 4));
         
         //Nether Features
         associateFeature("waspHivesPerChunk", new WorldGenWaspHive());

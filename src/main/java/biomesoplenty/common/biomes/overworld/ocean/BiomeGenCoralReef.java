@@ -11,22 +11,23 @@ import biomesoplenty.common.biomes.BOPOceanBiome;
 
 public class BiomeGenCoralReef extends BOPOceanBiome
 {
-    private static final Height biomeHeight = new Height(-0.7F, 0.1F);
+    private static final Height biomeHeight = new Height(-0.6F, 0.1F);
 	
 	public BiomeGenCoralReef(int biomeID) 
 	{
 		super(biomeID);
 
-        this.zoom = 0.5D;
-		this.threshold = 0D;
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
 		
         this.setHeight(biomeHeight);
         this.setColor(18285);
         this.setTemperatureRainfall(0.5F, 0.9F);
         
         this.bopWorldFeatures.setFeature("coralPerChunk", 300);
-        this.bopWorldFeatures.setFeature("shortKelpPerChunk", 99);
+        this.bopWorldFeatures.setFeature("shortKelpPerChunk", 100);
         this.bopWorldFeatures.setFeature("generateSponge", true);
+        this.bopWorldFeatures.setFeature("seaweedPerChunk", 20);
 	}
 
 	@Override
