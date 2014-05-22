@@ -1,28 +1,31 @@
 tile.mud.mud.name=Грязь
 tile.mud.quicksand.name=Зыбучий песок
 
-tile.ashStone.name=Окаменевший пепел
+tile.ashStone.name=Пепельный камень
 tile.hardSand.name=Затвердевший песок
 tile.hardDirt.name=Затвердевшая земля
-tile.hardIce.name=Крепкий лёд
-tile.driedDirt.name=Осушенная земля
+tile.hardIce.name=Затвердевший лёд
+tile.driedDirt.name=Осушённая земля
 tile.cragRock.name=Горная порода
 tile.mudBricks.name=Кирпичи из грязи
-tile.holyDirt.name=Очищенный грунт
+tile.biomeBlock.name=Руда эссенции биомов
 tile.crystal.name=Небесный кристалл
 
-tile.redRock.redrock.name=Красный камень
-tile.redRock.redcobble.name=Красный булыжник
-tile.redRock.redbrick.name=Кирпичи из красного камня
+tile.rocks.limestone.name=Известняк
+tile.rocks.limestonesmooth.name=Гладкий известняк
+tile.rocks.siltstone.name=Алевролит
+tile.rocks.siltstonesmooth.name=Гладкий алевролит
+tile.rocks.shale.name=Глинистый сланец
+tile.rocks.shalesmooth.name=Гладкий глинистый сланец
 
-tile.ash.name=Блок пепла
+tile.ash.name=Пепельный блок
 tile.flesh.name=Плоть
 
 tile.plants.deadgrass.name=Мёртвая трава
 tile.plants.desertgrass.name=Пустынная трава
 tile.plants.desertsprouts.name=Пустынные ростки
 tile.plants.dunegrass.name=Дюнная трава
-tile.plants.holytallgrass.name=Очищенная высокая трава
+tile.plants.spectralfern.name=Спектральный папоротник
 tile.plants.thorn.name=Колючки
 tile.plants.barley.name=Ячмень
 tile.plants.cattail.name=Рогоз
@@ -45,7 +48,7 @@ tile.flowers.wildflower.name=Дикий цветок
 tile.flowers.violet.name=Фиалка
 tile.flowers.anemone.name=Белый анемон
 tile.flowers.lilyflower.name=Кувшинка
-tile.flowers.rainbowflower.name=Цветофлора
+tile.flowers.enderlotus.name=Лотос Края
 tile.flowers.bromeliad.name=Бромелия
 tile.flowers.eyebulbbottom.name=Глазное яблоко
 tile.flowers.eyebulbtop.name=Глазное яблоко
@@ -78,17 +81,18 @@ tile.foliage.wheatgrass.name=Ростки пшеницы
 tile.foliage.dampgrass.name=Влажная трава
 tile.foliage.koru.name=Кору
 tile.foliage.cloverpatch.name=Донник лекарственный
-tile.foliage.leafpile.name=Куча листьев
-tile.foliage.deadleafpile.name=Куча сухих листьев
+tile.foliage.leafpile.name=Кучка листьев
+tile.foliage.deadleafpile.name=Кучка сухих листьев
 
 tile.petals.bigflowerred.name=Гигантский красный цветок
 tile.petals.bigfloweryellow.name=Гигантский жёлтый цветок
 
-tile.mushrooms.toadstool.name=Гриб
+tile.mushrooms.toadstool.name=Поганка
 tile.mushrooms.portobello.name=Портобелло
 tile.mushrooms.bluemilk.name=Млечник голубой
 tile.mushrooms.glowshroom.name=Светогриб
 tile.mushrooms.flatmushroom.name=Плоский гриб
+tile.mushrooms.shadowshroom.name=Теневой гриб
 
 tile.saplings.appleSapling.name=Саженец яблони
 tile.saplings.yellowautumnSapling.name=Жёлтый осенний саженец
@@ -125,26 +129,15 @@ tile.overgrownNetherrack.name=Заросший камень Нижнего ми�
 tile.treeMoss.name=Древесный мох
 tile.flowerVine.name=Цветущая лиана
 
-tile.coral.kelpsingle.name=Ламинария
-tile.coral.pinkcoral.name=Розовый коралл
-tile.coral.orangecoral.name=Оранжевый коралл
-tile.coral.bluecoral.name=Синий коралл
-tile.coral.glowcoral.name=Светящийся коралл
-tile.coral.algae.name=Водоросли
+tile.coral1.kelpsingle.name=Ламинария
+tile.coral1.pinkcoral.name=Розовый коралл
+tile.coral1.orangecoral.name=Оранжевый коралл
+tile.coral1.bluecoral.name=Синий коралл
+tile.coral1.glowcoral.name=Светящийся коралл
+tile.coral1.algae.name=Водоросли
 
-tile.redCobbleStairs.name=Ступеньки из красного булыжника      
-tile.redBricksStairs.name=Кирпичные ступеньки из красного камня
-
-tile.holyGrass.holygrass.name=Блок очищенной травы
-tile.holyGrass.smolderinggrass.name=Блок тлеющей травы
-
-tile.holyStone.holystone.name=Небесный камень
-tile.holyStone.holycobble.name=Небесный булыжник
-tile.holyStone.holybrick.name=Небесные кирпичи
-tile.holyStone.holystonemossy.name=Замшелый небесный камень
-
-tile.holyCobbleStairs.name=Ступеньки из небесного булыжника
-tile.holyBricksStairs.name=Ступеньки из небесных кирпичей
+tile.bopGrass.spectralmoss.name=Спектральный мох
+tile.bopGrass.smolderinggrass.name=Блок тлеющей травы
 
 tile.gemOre.amethystore.name=Аметистовая руда Края
 tile.gemOre.amethystblock.name=Аметистовый блок
@@ -153,17 +146,17 @@ tile.gemOre.rubyblock.name=Рубиновый блок
 tile.gemOre.peridotore.name=Оливиновая руда
 tile.gemOre.peridotblock.name=Оливиновый блок
 tile.gemOre.topazore.name=Топазовая руда
-tile.gemOre.topazblock.name=Блок топаза
+tile.gemOre.topazblock.name=Топазовый блок
 tile.gemOre.tanzaniteore.name=Танзанитовая руда
 tile.gemOre.tanzaniteblock.name=Танзанитовый блок
 tile.gemOre.malachiteore.name=Малахитовая руда
-tile.gemOre.malachiteblock.name=Блок малахита
+tile.gemOre.malachiteblock.name=Малахитовый блок
 tile.gemOre.sapphireore.name=Сапфировая руда
 tile.gemOre.sapphireblock.name=Сапфировый блок
+tile.gemOre.amberore.name=Янтарная руда
+tile.gemOre.amberblock.name=Янтарный блок
 
 tile.moss.name=Мох
-
-tile.cloud.name=Блок облака
 
 tile.hive.honeycomb.name=Блок медовых соты
 tile.hive.hive.name=Блок улья
@@ -182,29 +175,20 @@ tile.bones.bones_large.name=Большой сегмент кости
 
 tile.grave.name=Могильная плита
 
-tile.stoneDoubleSlab.redcobbleSlab.name=Плита из красного булыжника
-tile.stoneDoubleSlab.redbrickSlab.name=Кирпичная плита из красного камня
-tile.stoneDoubleSlab.mudbrickSlab.name=Кирпичная плита из грязи
-tile.stoneDoubleSlab.holycobbleSlab.name=Плита из небесного булыжника
-tile.stoneDoubleSlab.holybrickSlab.name=Плита из небесных кирпичей
-
-tile.stoneSingleSlab.redcobbleSlab.name=Плита из красного булыжника
-tile.stoneSingleSlab.redbrickSlab.name=Кирпичная плита из красного камня
-tile.stoneSingleSlab.mudbrickSlab.name=Кирпичная плита из грязи
-tile.stoneSingleSlab.holycobbleSlab.name=Плита из небесного булыжника
-tile.stoneSingleSlab.holybrickSlab.name=Плита из небесных кирпичей
+tile.stoneDoubleSlab.mudbrickSlab.name=Плита из кирпичей грязи
+tile.stoneSingleSlab.mudbrickSlab.name=Плита из кирпичей грязи
 
 tile.planks.sacredoakPlank.name=Доски из древесины священного дуба
 tile.planks.cherryPlank.name=Доски из древесины вишнёвого дерева
-tile.planks.darkPlank.name=Доски из древесины тёмного дерева
+tile.planks.darkPlank.name=Доски из тёмной древесины
 tile.planks.firPlank.name=Доски из древесины пихты
 tile.planks.holyPlank.name=Доски из древесины лофтвуда
-tile.planks.magicPlank.name=Доски из древесины магического дерева
+tile.planks.magicPlank.name=Доски из магической древесины
 tile.planks.mangrovePlank.name=Доски из древесины мангрового дерева
 tile.planks.palmPlank.name=Доски из древесины пальмы
 tile.planks.redwoodPlank.name=Доски из древесины красного дерева
 tile.planks.willowPlank.name=Доски из древесины ивы
-tile.planks.bambooThatching.name=Бамбук
+tile.planks.bambooThatching.name=Бамбуковое покрытие
 tile.planks.pinePlank.name=Доски из древесины сосны
 tile.planks.hellBarkPlank.name=Доски из древесины адского дерева
 tile.planks.jacarandaPlank.name=Доски из древесины жакаранды
@@ -216,13 +200,13 @@ tile.logs1.darkWood.name=Древесина тёмного дерева
 tile.logs1.firWood.name=Древесина пихты
 
 tile.logs2.holyWood.name=Древесина лофтвуда
-tile.logs2.magicWood.name=Древесина магического дерева
+tile.logs2.magicWood.name=Магическая древесина
 tile.logs2.mangroveWood.name=Древесина мангрового дерева
 tile.logs2.palmWood.name=Древесина пальмы
 
 tile.logs3.redwoodWood.name=Древесина красного дерева
 tile.logs3.willowWood.name=Древесина ивы
-tile.logs3.deadWood.name=Древесина погибшего дерева
+tile.logs3.deadWood.name=Мёртвая древесина
 tile.logs3.bigflowerstemWood.name=Ствол гигантского цветка
 
 tile.logs4.pineWood.name=Древесина сосны
@@ -262,10 +246,10 @@ tile.persimmonLeaves.name=Листва хурмы
 
 tile.woodenDoubleSlab1.sacredoakSlab.name=Плита из древесины священного дуба
 tile.woodenDoubleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
-tile.woodenDoubleSlab1.darkSlab.name=Плита из древесины тёмного дерева
+tile.woodenDoubleSlab1.darkSlab.name=Плита из тёмной древесины
 tile.woodenDoubleSlab1.firSlab.name=Плита из древесины пихты
 tile.woodenDoubleSlab1.holySlab.name=Плита из древесины лофтвуда
-tile.woodenDoubleSlab1.magicSlab.name=Плита из древесины магического дерева
+tile.woodenDoubleSlab1.magicSlab.name=Плита из магической древесины
 tile.woodenDoubleSlab1.mangroveSlab.name=Плита из древесины мангрового дерева
 tile.woodenDoubleSlab1.palmSlab.name=Плита из древесины пальмы
 tile.woodenDoubleSlab2.redwoodSlab.name=Плита из древесины красного дерева
@@ -277,10 +261,10 @@ tile.woodenDoubleSlab2.mahoganySlab.name=Плита из махагониево�
 
 tile.woodenSingleSlab1.sacredoakSlab.name=Плита из древесины священного дуба
 tile.woodenSingleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
-tile.woodenSingleSlab1.darkSlab.name=Плита из древесины тёмного дерева
+tile.woodenSingleSlab1.darkSlab.name=Плита из тёмной древесины
 tile.woodenSingleSlab1.firSlab.name=Плита из древесины пихты
 tile.woodenSingleSlab1.holySlab.name=Плита из древесины лофтвуда
-tile.woodenSingleSlab1.magicSlab.name=Плита из древесины магического дерева
+tile.woodenSingleSlab1.magicSlab.name=Плита из магической древесины
 tile.woodenSingleSlab1.mangroveSlab.name=Плита из древесины мангрового дерева
 tile.woodenSingleSlab1.palmSlab.name=Плита из древесины пальмы
 tile.woodenSingleSlab2.redwoodSlab.name=Плита из древесины красного дерева
@@ -292,10 +276,10 @@ tile.woodenSingleSlab2.mahoganySlab.name=Плита из махагониево�
 
 tile.sacredoakStairs.name=Ступеньки из древесины священного дуба
 tile.cherryStairs.name=Ступеньки из древесины вишнёвого дерева
-tile.darkStairs.name=Ступеньки из древесины тёмного дерева
+tile.darkStairs.name=Ступеньки из тёмной древесины
 tile.firStairs.name=Ступеньки из древесины пихты
 tile.holyStairs.name=Ступеньки из древесины лофтвуда
-tile.magicStairs.name=Ступеньки из древесины магического дерева
+tile.magicStairs.name=Ступеньки из магической древесины
 tile.mangroveStairs.name=Ступеньки из древесины мангрового дерева
 tile.palmStairs.name=Ступеньки из древесины пальмы
 tile.redwoodStairs.name=Ступеньки из древесины красного дерева
@@ -351,6 +335,7 @@ item.gems.topaz.name=Топаз
 item.gems.tanzanite.name=Танзанит
 item.gems.malachite.name=Малахит
 item.gems.sapphire.name=Сапфир
+item.gems.amber.name=Янтарь
 
 item.pickaxeMud.name=Кирка из грязи
 item.axeMud.name=Топор из грязи
@@ -391,7 +376,7 @@ item.enderporter.name=Телепортер Края
 item.record_wanderer.name=Музыкальная пластинка
 item.record_corruption.name=Музыкальная пластинка
 
-item.record_wanderer.des=Tim Rurkowski - Wanderer
+item.record_wanderer.desc=Tim Rurkowski - Wanderer
 item.record_corruption.desc=???
 
 item.flowerBand.dullflowerband.name=Скучный венок
@@ -406,6 +391,9 @@ item.biomeBook.name=Книга биомов
 item.biomeFinder.name=Радар биомов
 item.biomeEssence.name=Эссенция биомов
 
+item.poisonBucket.name=Ведро яда
+item.honeyBucket.name=Ведро мёда
+
 tile.poison.name=Яд
 tile.springWater.name=Родниковая вода
 tile.honey.name=Мёд
@@ -414,9 +402,15 @@ fluid.poison=Яд
 fluid.springWater=Родниковая вода
 fluid.honey=Мёд
 
+biomeRadar.target=Цель:
+biomeRadar.foundBiome=Биом найден!
+biomeRadar.scanBiome=ПКМ для поиска биома
+
+enderporter.prevent=Мистическая сила мешает Вам воспользоваться этим в данном мире.
+
 phrase.bop.useBOPATGWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty" или "ATG". Это сообщение отобразится один раз.
 phrase.bop.useBOPWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty". Это сообщение отобразится один раз.
-phrase.bop.updateAvaliable=Вы не используете последнюю рекомендованную версию Biomes O' Plenty (v%s) для Minecraft %s.
+phrase.bop.updateAvaliable=Вы не используете последнюю рекомендованную версию Biomes O' Plenty. Последняя рекомендованная версия: v%s для Minecraft %s.
 
 potion.paralysis=Паралич
 potion.possession=Одержимость
@@ -439,7 +433,7 @@ achievement.bop.achMoss.desc=It gathers none of this.
 achievement.bop.achThorn=Довольно колючий
 achievement.bop.achThorn.desc=Смертоноснее, чем кактусы!
 achievement.bop.achCoral=Питательно
-achievement.bop.achCoral.desc=Как на счет большой порции тушеных кораллов?
+achievement.bop.achCoral.desc=Как на счет большой порции тушёных кораллов?
 
 achievement.bop.achFlowerBand=Энергия цветов
 achievement.bop.achFlowerBand.desc=Привлекательный человек.
@@ -455,7 +449,7 @@ achievement.bop.achHoney.desc=Земли крови и мёда.
 achievement.bop.achWitherWart=Тление
 achievement.bop.achWitherWart.desc=Мастер маскировки.
 achievement.bop.achGrave=Могильщик
-achievement.bop.achGrave.desc=Придется попотеть.
+achievement.bop.achGrave.desc=Придётся попотеть.
 achievement.bop.achPhantom=Скрытая угроза
 achievement.bop.achPhantom.desc=Похититель душ...
 
