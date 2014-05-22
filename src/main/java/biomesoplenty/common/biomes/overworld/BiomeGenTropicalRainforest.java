@@ -93,14 +93,14 @@ public class BiomeGenTropicalRainforest extends BOPBiome
     public int getBiomeGrassColor(int x, int y, int z)
     {
 		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
-		return d0 < -0.1D ? 11002176 : 11653451;
+		return d0 < -0.1D ? 11002176 : 12836929;
 	}
     
     @Override
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
-		return d0 < -0.1D ? 8970560 : 10080587;
+		return d0 < -0.1D ? 8970560 : 10870849;
 	}
     
     @Override

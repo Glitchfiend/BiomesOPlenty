@@ -25,71 +25,20 @@ public class BOPConfigurationVillages
 	
 	public static void addDefaultVillageBiomes()
 	{
-        //addVillageBiome(BOPCBiomes.alps);
         addVillageBiome(BOPCBiomes.arctic);
-        //addVillageBiome(BOPCBiomes.autumnHills); 
-        //addVillageBiome(BOPCBiomes.badlands); 
-        //addVillageBiome(BOPCBiomes.bambooForest); 
-        addVillageBiome(BOPCBiomes.bayou);
-        addVillageBiome(BOPCBiomes.bog); 
-        //addVillageBiome(BOPCBiomes.borealForest);
         addVillageBiome(BOPCBiomes.brushland);
-        addVillageBiome(BOPCBiomes.canyon);
         addVillageBiome(BOPCBiomes.chaparral);
-        //addVillageBiome(BOPCBiomes.cherryBlossomGrove); 
-        addVillageBiome(BOPCBiomes.coniferousForest);
-        addVillageBiome(BOPCBiomes.snowyConiferousForest);
         addVillageBiome(BOPCBiomes.deadForest); 
-        //addVillageBiome(BOPCBiomes.deadForestSnow); 
-        //addVillageBiome(BOPCBiomes.deadSwamp);
-        addVillageBiome(BOPCBiomes.deciduousForest);
-        //addVillageBiome(BOPCBiomes.fen);
-        //addVillageBiome(BOPCBiomes.flowerField);
         addVillageBiome(BOPCBiomes.frostForest); 
-        //addVillageBiome(BOPCBiomes.glacier);
         addVillageBiome(BOPCBiomes.grassland);
         addVillageBiome(BOPCBiomes.grove);
         addVillageBiome(BOPCBiomes.heathland);
-        //addVillageBiome(BOPCBiomes.highland);
-        //addVillageBiome(BOPCBiomes.hotSprings);
-        //addVillageBiome(BOPCBiomes.jadeCliffs);
-        //addVillageBiome(BOPCBiomes.lushDesert);
-        addVillageBiome(BOPCBiomes.lushSwamp);
-        //addVillageBiome(BOPCBiomes.mangrove);
-        addVillageBiome(BOPCBiomes.mapleWoods);
-        //addVillageBiome(BOPCBiomes.marsh);
         addVillageBiome(BOPCBiomes.meadow);
-        //addVillageBiome(BOPCBiomes.meadowForest);
-        //addVillageBiome(BOPCBiomes.mesa); 
-        //addVillageBiome(BOPCBiomes.moor); 
-        //addVillageBiome(BOPCBiomes.mountain); 
-        //addVillageBiome(BOPCBiomes.oasis); 
-
-        //addVillageBiome(BOPCBiomes.orchard);
         addVillageBiome(BOPCBiomes.outback);
-        //addVillageBiome(BOPCBiomes.overgrownGreens);
-        //addVillageBiome(BOPCBiomes.polar);
         addVillageBiome(BOPCBiomes.prairie);
-        //addVillageBiome(BOPCBiomes.quagmire); 
-        //addVillageBiome(BOPCBiomes.rainforest); 
-        //addVillageBiome(BOPCBiomes.redwoodForest);
-
-        addVillageBiome(BOPCBiomes.seasonalForest); 
-        //addVillageBiome(BOPCBiomes.shield);
-        //addVillageBiome(BOPCBiomes.scrubland);
         addVillageBiome(BOPCBiomes.shrubland);
-        //addVillageBiome(BOPCBiomes.sludgepit);
-        addVillageBiome(BOPCBiomes.spruceWoods);
-        //addVillageBiome(BOPCBiomes.steppe);
-        //addVillageBiome(BOPCBiomes.temperateRainforest); 
-        //addVillageBiome(BOPCBiomes.thicket);
-        //addVillageBiome(BOPCBiomes.tropicalRainforest);
-        //addVillageBiome(BOPCBiomes.tropics);
+        addVillageBiome(BOPCBiomes.steppe);
         addVillageBiome(BOPCBiomes.tundra);
-        //addVillageBiome(BOPCBiomes.volcano); 
-
-        //addVillageBiome(BOPCBiomes.wetland);
-        addVillageBiome(BOPCBiomes.woodland);
 	}
 	
 	public static void init(File configFile)
