@@ -189,6 +189,8 @@ public class TreecapitatorIntegration
         
         tpModCfg.setTag("trees", treeList);
         
+        // bspkrs: I changed the mod ID, so just send messages to both for now.
         FMLInterModComms.sendMessage("TreeCapitator", "ThirdPartyModConfig", tpModCfg);
+        FMLInterModComms.sendMessage("Treecapitator", "ThirdPartyModConfig", tpModCfg);
     }
 }
