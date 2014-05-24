@@ -2,8 +2,12 @@ package biomesoplenty.common.world.layer;
 
 import java.util.List;
 
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+
+import org.apache.commons.lang3.tuple.Pair;
+
 import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 import biomesoplenty.common.biomes.BOPSubBiome;
@@ -11,6 +15,10 @@ import biomesoplenty.common.world.noise.SimplexNoise;
 
 public class GenLayerSubBiome extends GenLayer
 {
+	private final int OFFSET_RANGE = 500000;
+	
+	private Pair<Integer, Integer>[] offsets = new Pair[BiomeGenBase.getBiomeGenArray().length];
+	
 	public GenLayerSubBiome(long seed, GenLayer parent) 
 	{
 		super(seed);
@@ -36,7 +44,9 @@ public class GenLayerSubBiome extends GenLayer
         		
         		if (selectedSubBiome != null)
         		{
-        			if (SimplexNoise.noise((xi + x) * selectedSubBiome.zoom, (zi + z) * selectedSubBiome.zoom) > selectedSubBiome.threshold)  
+        			Pair<Integer, Integer> offset = getOffset(selectedSubBiome);
+        			
+        			if (SimplexNoise.noise((xi + x + offset.getLeft()) * selectedSubBiome.zoom, (zi + z + offset.getRight()) * selectedSubBiome.zoom) > selectedSubBiome.threshold)  
         			{
         				outputBiomeIDs[xi + zi * width] = selectedSubBiome.biomeID;
         			}
@@ -50,5 +60,16 @@ public class GenLayerSubBiome extends GenLayer
         }
 
         return outputBiomeIDs;
+    }
+    
+    private Pair<Integer, Integer> getOffset(BiomeGenBase biome)
+    {
+    	Pair<Integer, Integer> offset = offsets[biome.biomeID];
+    	
+    	if (offset != null) return offset;
+    	else
+    	{
+    		return offsets[biome.biomeID] = Pair.of(this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2), this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2));
+    	}
     }
 }
