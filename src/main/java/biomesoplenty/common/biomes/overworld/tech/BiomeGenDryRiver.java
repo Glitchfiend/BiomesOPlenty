@@ -15,14 +15,16 @@ public class BiomeGenDryRiver extends BOPBiome
 {
 	private static final Height biomeHeight = new Height(-0.2F, 0.0F);
 
-    public BiomeGenDryRiver(int par1)
+    public BiomeGenDryRiver(int biomeId)
     {
-        super(par1);
-        this.spawnableCreatureList.clear();
+        super(biomeId);
+
+        this.setHeight(biomeHeight);
+        this.setDisableRain();
         this.setTemperatureRainfall(1.2F, 0.5F);
         
-        this.setHeight(biomeHeight);
-        
+        this.spawnableCreatureList.clear();
+
         this.topBlock = Blocks.sand;
 		this.fillerBlock = Blocks.sand;
 		
