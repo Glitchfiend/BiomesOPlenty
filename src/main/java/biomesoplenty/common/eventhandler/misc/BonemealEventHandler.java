@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.common.blocks.BlockBOPSapling;
+import biomesoplenty.common.world.features.trees.WorldGenGiantFlower;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -99,7 +100,7 @@ public class BonemealEventHandler
 				}
 			}
 		}
-		/*TODO: FEATURE else if (event.ID == Block.plantRed.blockID)
+		else if (block == Blocks.red_flower)
 		{
 			event.setResult(Result.ALLOW);
 
@@ -107,12 +108,12 @@ public class BonemealEventHandler
 			{
 				if (event.world.rand.nextFloat() < 0.45D)
 				{
-					WorldGenGiantFlowerRed worldgengiantflowerred = new WorldGenGiantFlowerRed();
-					worldgengiantflowerred.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
+					WorldGenGiantFlower worldgengiantflower = new WorldGenGiantFlower(0);
+					worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
 				}
 			}
 		}
-		else if (event.ID == Block.plantYellow.blockID)
+		else if (block == Blocks.yellow_flower)
 		{
 			event.setResult(Result.ALLOW);
 
@@ -120,11 +121,11 @@ public class BonemealEventHandler
 			{
 				if (event.world.rand.nextFloat() < 0.45D)
 				{
-					WorldGenGiantFlowerYellow worldgengiantfloweryellow = new WorldGenGiantFlowerYellow();
-					worldgengiantfloweryellow.generate(event.world, event.world.rand, event.X, event.Y - 1, event.Z);
+					WorldGenGiantFlower worldgengiantflower = new WorldGenGiantFlower(1);
+					worldgengiantflower.generate(event.world, event.world.rand, event.x, event.y - 1, event.z);
 				}
 			}
-		}*/
+		}
 		else if (block == BOPBlockHelper.get("turnip"))
 		{
 			if (event.world.getBlockMetadata(x, y, z) != 7)

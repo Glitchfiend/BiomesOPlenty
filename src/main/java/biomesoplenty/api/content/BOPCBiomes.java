@@ -25,6 +25,7 @@ public class BOPCBiomes
 	public static BiomeGenBase flowerField;
 	public static BiomeGenBase frostForest;
 	public static BiomeGenBase fungiForest;
+	public static BiomeGenBase garden;
 	public static BiomeGenBase grassland;
 	public static BiomeGenBase grove;
 	public static BiomeGenBase heathland;

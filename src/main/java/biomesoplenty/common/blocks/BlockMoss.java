@@ -13,16 +13,12 @@ public class BlockMoss extends BlockVine
 {
 	public BlockMoss()
 	{
-		//TODO: this.setHardness
 		this.setHardness(0.2F);
 		
-		//TODO setStepSound(Block.soundGrassFootstep)
 		this.setStepSound(Block.soundTypeGrass);
 		
-		//TODO: setTickRandomly()
 		this.setTickRandomly(true);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
@@ -41,15 +37,15 @@ public class BlockMoss extends BlockVine
         switch (side)
         {
             case 1:
-                return ((OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y + 1, z)))) || (world.getBlock(x, y + 1, z) == Blocks.stone));
+                return world.getBlock(x, y + 1, z) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y + 1, z))) || world.getBlock(x, y + 1, z) == Blocks.stone);
             case 2:
-            	return ((OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y, z + 1)))) || (world.getBlock(x, y, z + 1) == Blocks.stone));
+            	return world.getBlock(x, y, z + 1) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y, z + 1))) || world.getBlock(x, y, z + 1) == Blocks.stone);
             case 3:
-            	return ((OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y, z - 1)))) || (world.getBlock(x, y, z - 1) == Blocks.stone));
+            	return world.getBlock(x, y, z - 1) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y, z - 1))) || world.getBlock(x, y, z - 1) == Blocks.stone);
             case 4:
-            	return ((OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x + 1, y, z)))) || (world.getBlock(x + 1, y, z) == Blocks.stone));
+            	return world.getBlock(x + 1, y, z) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x + 1, y, z))) || world.getBlock(x + 1, y, z) == Blocks.stone);
             case 5:
-            	return ((OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x - 1, y, z)))) || (world.getBlock(x - 1, y, z) == Blocks.stone));
+            	return world.getBlock(x - 1, y, z) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x - 1, y, z))) || world.getBlock(x - 1, y, z) == Blocks.stone);
             default:
                 return false;
         }
