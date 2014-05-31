@@ -105,10 +105,8 @@ public class BlockMud extends BOPBlock
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		if (metadata == 0)
-			return BOPItemHelper.get("mudball");
-		else
-			return Item.getItemFromBlock(this);
+		if (metadata == 0) return BOPItemHelper.get("mudball");
+		else return super.getItemDropped(metadata, random, fortune);
 	}
 
 	@Override

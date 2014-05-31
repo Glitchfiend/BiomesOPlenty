@@ -31,81 +31,59 @@ public class BlockBOPGeneric extends Block
 		this.setHarvestLevel("pickaxe", 3, 7);
 		this.type = type;
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 
 		switch (type)
 		{
 		case ASH_STONE:
-			//TODO: this.setHardness
 			this.setHardness(1.0F);		
-			//TODO setStepSound(Block.soundStoneFootstep)
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case CRAG_ROCK:
-			//TODO: this.setHardness
 			this.setHardness(1.0F);
-			//TODO setStepSound(Block.soundGravelFootstep)
 			this.setStepSound(soundTypeGravel);
 			break;
 
 		case DRIED_DIRT:
-			//TODO: this.setHardness
 			this.setHardness(0.1F);		
 			this.setHarvestLevel("pickaxe", 0);
 			
-			//TODO setStepSound(Block.soundStoneFootstep)
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HARD_DIRT:
-			//TODO: this.setHardness
 			this.setHardness(0.9F);
-			//TODO setStepSound(Block.soundStoneFootstep)
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HARD_ICE:
-			//TODO: this.setHardness
 			this.setHardness(0.75F);		
-			//TODO setStepSound(Block.soundStoneFootstep)
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case HARD_SAND:
-			//TODO: this.setHardness
 			this.setHardness(0.7F);
 			this.setHarvestLevel("shovel", 0);
 			
-			//TODO setStepSound(Block.soundSandFootstep)
 			this.setStepSound(Block.soundTypeSand);
 			break;
 
 		case MUD_BRICK:
-			//TODO: this.setHardness
 			this.setHardness(1.0F);
-			//TODO: this.setResistance
 			this.setResistance(2.0F);	
-			//TODO setStepSound(Block.soundStoneFootstep)
 			this.setStepSound(Block.soundTypePiston);
 			break;
 
 		case BIOME_BLOCK:
-			//TODO: this.setHardness
 			this.setHardness(0.6F);
-			//TODO setStepSound(Block.soundGravelFootstep)
 			this.setStepSound(soundTypeGlass);
 			break;
 
 		case CRYSTAL:
-			//TODO: this.setHardness
 			this.setHardness(0.15F);
-			//TODO: this.setResistance
 			this.setResistance(5.0F);
-			//TODO: this.setLightValue
 			this.setLightLevel(1.0F);
-			//TODO setStepSound(Block.soundGravelFootstep)
 			this.setStepSound(Block.soundTypeGlass);
 			break;
 
@@ -115,7 +93,6 @@ public class BlockBOPGeneric extends Block
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		switch (type)
@@ -162,7 +139,6 @@ public class BlockBOPGeneric extends Block
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
 		switch (type)
@@ -171,18 +147,13 @@ public class BlockBOPGeneric extends Block
 			return BOPItemHelper.get("misc");
 
 		default:
-			//TODO:		getItemForBlock()
-			return Item.getItemFromBlock(this);
+			return super.getItemDropped(metadata, random, fortune);
 		}
 	}
 	
 	@Override
-	//TODO: 	dropBlockAsItemWithChance()
 	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
-		if (world.isRemote)
-			return;
-
 		switch (type)
 		{
 		case BIOME_BLOCK:
@@ -205,14 +176,15 @@ public class BlockBOPGeneric extends Block
 			    	}
 			    }
 			}
+			break;
 			
 		default:
+			super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
 			break;
 		}
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		switch (type)
@@ -239,7 +211,6 @@ public class BlockBOPGeneric extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		return texture;

@@ -63,4 +63,10 @@ public abstract class BOPBlock extends Block
 	{
 		return this.isOpaqueCube();
 	}
+	
+	@Override
+    public int damageDropped(int meta)
+    {
+        return meta;
+    }
 }
