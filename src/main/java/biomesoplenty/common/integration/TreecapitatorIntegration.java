@@ -87,7 +87,7 @@ public class TreecapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "fir");
         tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs1, logs1, logs1));
-        tree.setString("leaves", String.format("%s,2; %s,10", leaves2, leaves2));
+        tree.setString("leaves", String.format("%s,1; %s,9", leaves2, leaves2));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         
