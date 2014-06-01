@@ -272,7 +272,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.coralReef, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPCBiomes.kelpForest, Type.WATER, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.ominousWoods, Type.MAGICAL);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("orchard, Type.FOREST, Type.PLAINS);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.orchard, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.outback, Type.DESERT, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.phantasmagoricInferno, Type.NETHER);
         BiomeDictionary.registerBiomeType(BOPCBiomes.prairie, Type.PLAINS);
