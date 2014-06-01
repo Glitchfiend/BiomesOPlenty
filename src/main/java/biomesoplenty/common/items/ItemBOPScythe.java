@@ -31,33 +31,12 @@ public class ItemBOPScythe extends Item
 	}
 	
     @Override
-    //TODO:			onBlockDestroyed()?
 	public boolean onBlockDestroyed(ItemStack itemstack, World world, Block block, int x, int y, int z, EntityLivingBase entity)
     {
-        int radius = 1;
-        int height = 3;
+        int radius = 3;
+        int height = 4;
         
         if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
-        {
-        	if (block != null)
-        	{
-        		if (block.isLeaves(world, x, y, z))
-        			height = 2;
-        	}
-        	
-        	radius = 2;
-        }
-        else if (toolMaterial == ToolMaterial.EMERALD)
-        {
-        	if (block != null)
-        	{
-        		if (block.isLeaves(world, x, y, z))
-        			height = 3;
-        	}
-        	
-        	radius = 3;
-        }
-        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         {
         	if (block != null)
         	{
@@ -66,6 +45,26 @@ public class ItemBOPScythe extends Item
         	}
         	
         	radius = 4;
+        }
+        else if (toolMaterial == ToolMaterial.EMERALD)
+        {
+        	if (block != null)
+        	{
+        		if (block.isLeaves(world, x, y, z))
+        			height = 5;
+        	}
+        	
+        	radius = 5;
+        }
+        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
+        {
+        	if (block != null)
+        	{
+        		if (block.isLeaves(world, x, y, z))
+        			height = 6;
+        	}
+        	
+        	radius = 6;
         }
         else
         {
@@ -85,6 +84,10 @@ public class ItemBOPScythe extends Item
         			trimLeaves(itemstack, entity, world, x, y, z, height, radius);
 
         			return true;
+        		}
+        		else
+        		{
+					itemstack.damageItem(1, entity);
         		}
     		}
     		else
@@ -111,74 +114,37 @@ public class ItemBOPScythe extends Item
     		{
     			for (int aZ = -radius; aZ <= radius; aZ++)
     			{
-    				//TODO:		  	getBlock()
     				Block block = world.getBlock(x + aX, y + aY, z + aZ);
     				int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
-    				if (block != null)
+    				if (block != null && block != Blocks.air)
     				{
-    					if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
-    					{
-    						if (world.rand.nextInt(7) == 0)
-    						{
-    							stack.damageItem(1, entity);
-    						}
-    					}
-    			        else if (toolMaterial == ToolMaterial.EMERALD)
-    			        {
-    						if (world.rand.nextInt(8) == 0)
-    						{
-    							stack.damageItem(1, entity);
-    						}
-    			        }
-    			        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
-    			        {
-    						if (world.rand.nextInt(9) == 0)
-    						{
-    							stack.damageItem(1, entity);
-    						}
-    			        }
-    			        else if (world.rand.nextInt(5) == 0)
-						{
-							stack.damageItem(1, entity);
-						}
-    					
     					if (block == BOPBlockHelper.get("foliage") && (meta == 1 || meta == 2 || meta == 6))
     					{
     						if (meta == 1)
     						{
-    							//TODO: dropBlockAsItem()
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							//TODO: setBlockToAir()
     							world.setBlockToAir(x + aX, y + aY, z + aZ);
     						}
     						else if (meta == 2)
     						{
-    							//TODO: dropBlockAsItem()
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-        						//TODO: setBlock()
     							world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 1, 2);
     						}
     						else if (meta == 6)
     						{
-    							//TODO: dropBlockAsItem()
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							//TODO: setBlockToAir()
     							world.setBlockToAir(x + aX, y + aY, z + aZ);
     						}
     					}
     					else if (block == Blocks.tallgrass)
     					{
-							//TODO: dropBlockAsItem()
     						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						//TODO: setBlock()
     						world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 2, 2);
     					}
     					else if (block != Blocks.waterlily && block instanceof BlockFlower)
     					{
-							//TODO: dropBlockAsItem()
     						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-							//TODO: setBlockToAir()
     						world.setBlockToAir(x + aX, y + aY, z + aZ);
     					}
     				}
@@ -204,26 +170,26 @@ public class ItemBOPScythe extends Item
     					{
         					if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
         					{
-        						if (world.rand.nextInt(6) == 0)
+        						if (world.rand.nextInt(26) == 0)
         						{
         							stack.damageItem(1, entity);
         						}
         					}
         			        else if (toolMaterial == ToolMaterial.EMERALD)
         			        {
-        						if (world.rand.nextInt(7) == 0)
+        						if (world.rand.nextInt(27) == 0)
         						{
         							stack.damageItem(1, entity);
         						}
         			        }
         			        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         			        {
-        						if (world.rand.nextInt(8) == 0)
+        						if (world.rand.nextInt(28) == 0)
         						{
         							stack.damageItem(1, entity);
         						}
         			        }
-        			        else if (world.rand.nextInt(4) == 0)
+        			        else if (world.rand.nextInt(24) == 0)
     						{
     							stack.damageItem(1, entity);
     						}
@@ -251,34 +217,33 @@ public class ItemBOPScythe extends Item
     			{
     				if ((aX + aZ < radius * 2) && (-aX + aZ < radius * 2) && (aX + -aZ < radius * 2) && (-aX + -aZ < radius * 2))
     				{
-        				//TODO:		  	getBlock()
         				Block block = world.getBlock(x + aX, y + aY, z + aZ);
     					int meta = world.getBlockMetadata(x + aX, y + aY, z + aZ);
 
-    					if (block != null)
+    					if (block != null && block != Blocks.air)
     					{
         					if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
         					{
-        						if (world.rand.nextInt(8) == 0)
+        						if (world.rand.nextInt(36) == 0)
         						{
         							stack.damageItem(1, entity);
         						}
         					}
         			        else if (toolMaterial == ToolMaterial.EMERALD)
         			        {
-        						if (world.rand.nextInt(9) == 0)
+        						if (world.rand.nextInt(37) == 0)
         						{
         							stack.damageItem(1, entity);
         						}
         			        }
         			        else if (toolMaterial == BOPItemHelper.toolMaterialAmethyst)
         			        {
-        						if (world.rand.nextInt(10) == 0)
+        						if (world.rand.nextInt(38) == 0)
         						{
         							stack.damageItem(1, entity);
         						}
         			        }
-        			        else if (world.rand.nextInt(5) == 0)
+        			        else if (world.rand.nextInt(34) == 0)
     						{
     							stack.damageItem(1, entity);
     						}
@@ -287,38 +252,28 @@ public class ItemBOPScythe extends Item
     						{
     							if (meta == 1)
     							{
-        							//TODO: dropBlockAsItem()
     								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-        							//TODO: setBlockToAir()
     								world.setBlockToAir(x + aX, y + aY, z + aZ);
     							}
     							else if (meta == 2)
     							{
-        							//TODO: dropBlockAsItem()
     								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    	    						//TODO: setBlock()
     								world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 1, 2);
     							}
     							else if (meta == 6)
     							{
-        							//TODO: dropBlockAsItem()
     								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-        							//TODO: setBlockToAir()
     								world.setBlockToAir(x + aX, y + aY, z + aZ);
     							}
     						}
     						else if (block == Blocks.tallgrass)
     						{
-    							//TODO: dropBlockAsItem()
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-        						//TODO: setBlock()
     							world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 2, 2);
     						}
     						else if (block != Blocks.waterlily && block instanceof BlockFlower)
     						{
-    							//TODO: dropBlockAsItem()
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							//TODO: setBlockToAir()
     							world.setBlockToAir(x + aX, y + aY, z + aZ);
     						}
     					}
@@ -344,12 +299,10 @@ public class ItemBOPScythe extends Item
 	@Override
 	public boolean getIsRepairable(ItemStack itemToRepair, ItemStack itemToRepairWith)
 	{
-		//TODO:													 getItemFromBlock
 		if (textureID == 0 && itemToRepairWith.getItem() == Item.getItemFromBlock(Blocks.planks))
 		{
 			return true;
 		}
-		//TODO:													 getItemFromBlock
 		if (textureID == 1 && itemToRepairWith.getItem() == Item.getItemFromBlock(Blocks.cobblestone))
 		{
 			return true;
