@@ -21,11 +21,20 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 	private final Block leaves;
 	
 	private final int metaWood;
-	private final int metaLeaves;
+	private int metaLeaves;
+	
+	private boolean isFruitTree = false;
 	
 	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves)
 	{
 		this(wood, leaves, metaWood, metaLeaves, false, 4, 3, false);
+	}
+	
+	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, boolean isFruitTree)
+	{
+		this(wood, leaves, metaWood, -1, false, 5, 4, false);
+		
+		this.isFruitTree = isFruitTree;
 	}
 
 	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, boolean vinesGrow)
@@ -46,6 +55,7 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
     {
         int l = par2Random.nextInt(this.randomTreeHeight) + this.minTreeHeight;
         boolean flag = true;
+        if (this.isFruitTree) this.metaLeaves = par2Random.nextInt(4);
 
         if (par4 >= 1 && par4 + l + 1 <= 256)
         {
@@ -127,7 +137,9 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 
                                     if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2))
                                     {
-                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, this.metaLeaves);
+                                    	int metadata = this.isFruitTree ? (this.metaLeaves > 0 ? (par2Random.nextInt(4) == 0 ? (this.metaLeaves - 1) : this.metaLeaves) : this.metaLeaves) : this.metaLeaves;
+                                    	
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, metadata);
                                     }
                                 }
                             }

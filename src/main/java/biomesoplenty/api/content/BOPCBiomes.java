@@ -68,6 +68,7 @@ public class BOPCBiomes
 	public static BiomeGenBase mangrove;
 	public static BiomeGenBase meadowForest;
 	public static BiomeGenBase oasis;
+	public static BiomeGenBase orchard;
 	public static BiomeGenBase quagmire;
 	public static BiomeGenBase scrubland;
 	public static BiomeGenBase spruceWoods;

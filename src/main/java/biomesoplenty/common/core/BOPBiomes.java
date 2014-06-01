@@ -84,6 +84,7 @@ import biomesoplenty.common.biomes.overworld.sub.BiomeGenGlacier;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenMangrove;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenMeadowForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenOasis;
+import biomesoplenty.common.biomes.overworld.sub.BiomeGenOrchard;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenQuagmire;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenScrubland;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenSilkglades;
@@ -204,6 +205,7 @@ public class BOPBiomes
 		mangrove = registerOverworldSubBiome(BiomeGenMangrove.class, "Mangrove", 10, tropics);
 		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow);
 		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert);
+		orchard = registerOverworldSubBiome(BiomeGenOrchard.class, "Orchard", 10, BiomeGenBase.plains);
 		quagmire = registerOverworldSubBiome(BiomeGenQuagmire.class, "Quagmire", 10, sludgepit);
 		scrubland = registerOverworldSubBiome(BiomeGenScrubland.class, "Scrubland", 10, BiomeGenBase.savanna);
 		silkglades = registerOverworldSubBiome(BiomeGenSilkglades.class, "Silkglades", 10, sludgepit);

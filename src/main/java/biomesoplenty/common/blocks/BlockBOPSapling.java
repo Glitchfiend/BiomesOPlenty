@@ -136,9 +136,9 @@ public class BlockBOPSapling extends BlockSapling
 		{
 			switch (meta)
 			{
-			/*case 0: // Apple Tree
-			obj = new WorldGenApple(false);
-			break;*/
+			case 0: // Apple Tree
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("appleLeaves"), 0, true);
+				break;
 
 			case 1: // Autumn Tree
 				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves1"), 2, 0, false, 5, 3, false);
@@ -206,9 +206,9 @@ public class BlockBOPSapling extends BlockSapling
 				obj = new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1);
 				break;
 
-				/*case 15: // Persimmon
-				obj = new WorldGenPersimmon(false);
-				break;*/
+			case 15: // Persimmon
+				obj = new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("persimmonLeaves"), 0, true);
+				break;
 			}
 		}
 
