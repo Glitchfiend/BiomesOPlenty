@@ -52,7 +52,6 @@ public class BOPCBiomes
 	public static BiomeGenBase shrubland;
 	public static BiomeGenBase silkglades;
 	public static BiomeGenBase sludgepit;
-	public static BiomeGenBase spruceWoods;
 	public static BiomeGenBase steppe;
 	public static BiomeGenBase temperateRainforest;
 	public static BiomeGenBase thicket;
@@ -63,15 +62,17 @@ public class BOPCBiomes
 	public static BiomeGenBase woodland;
 	
 	//Sub Biomes
-	public static BiomeGenBase glacier;
-	public static BiomeGenBase scrubland;
-	public static BiomeGenBase oasis;
-	public static BiomeGenBase quagmire;
-	public static BiomeGenBase tropics;
-	public static BiomeGenBase volcano;
-	public static BiomeGenBase meadowForest;
 	public static BiomeGenBase alpsForest;
 	public static BiomeGenBase canyonRavine;
+	public static BiomeGenBase glacier;
+	public static BiomeGenBase mangrove;
+	public static BiomeGenBase meadowForest;
+	public static BiomeGenBase oasis;
+	public static BiomeGenBase quagmire;
+	public static BiomeGenBase scrubland;
+	public static BiomeGenBase spruceWoods;
+	public static BiomeGenBase tropics;
+	public static BiomeGenBase volcano;
 	
 	//Ocean Biomes
 	public static BiomeGenBase coralReef;

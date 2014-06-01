@@ -81,6 +81,7 @@ import biomesoplenty.common.biomes.overworld.ocean.BiomeGenKelpForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenAlpsForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenCanyonRavine;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenGlacier;
+import biomesoplenty.common.biomes.overworld.sub.BiomeGenMangrove;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenMeadowForest;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenOasis;
 import biomesoplenty.common.biomes.overworld.sub.BiomeGenQuagmire;
@@ -189,23 +190,24 @@ public class BOPBiomes
         wasteland = registerOverworldBiome(BiomeGenWasteland.class, "Wasteland", TemperatureType.HOT, 3);
         wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.WARM, 7);
         woodland = registerOverworldBiome(BiomeGenWoodland.class, "Woodland", TemperatureType.WARM, 10);
-        
-        //Sub Biomes
-		glacier = registerOverworldSubBiome(BiomeGenGlacier.class, "Glacier", 10, arctic.biomeID);
-		scrubland = registerOverworldSubBiome(BiomeGenScrubland.class, "Scrubland", 10, BiomeGenBase.savanna.biomeID);
-		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert.biomeID);
-		quagmire = registerOverworldSubBiome(BiomeGenQuagmire.class, "Quagmire", 10, sludgepit.biomeID);
-		silkglades = registerOverworldSubBiome(BiomeGenSilkglades.class, "Silkglades", 10, sludgepit.biomeID);
-		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow.biomeID);
-		alpsForest = registerOverworldSubBiome(BiomeGenAlpsForest.class, "Alps Forest", 10, alps.biomeID);
-		canyonRavine = registerOverworldSubBiome(BiomeGenCanyonRavine.class, "Canyon Ravine", 10, canyon.biomeID);
-		spruceWoods = registerOverworldSubBiome(BiomeGenSpruceWoods.class, "Spruce Woods", 10, BiomeGenBase.forest.biomeID);
 		
 		//Ocean Biomes
-		coralReef = registerOverworldSubBiome(BiomeGenCoralReef.class, "Coral Reef", 10, BiomeGenBase.ocean.biomeID);
-		kelpForest = registerOverworldSubBiome(BiomeGenKelpForest.class, "Kelp Forest", 10, BiomeGenBase.ocean.biomeID);
-		tropics = registerOverworldSubBiome(BiomeGenTropics.class, "Tropics", 10, BiomeGenBase.deepOcean.biomeID);
-		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.deepOcean.biomeID);
+		coralReef = registerOverworldSubBiome(BiomeGenCoralReef.class, "Coral Reef", 10, BiomeGenBase.ocean);
+		kelpForest = registerOverworldSubBiome(BiomeGenKelpForest.class, "Kelp Forest", 10, BiomeGenBase.ocean);
+		tropics = registerOverworldSubBiome(BiomeGenTropics.class, "Tropics", 10, BiomeGenBase.deepOcean);
+		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.deepOcean);
+		
+        //Sub Biomes
+		alpsForest = registerOverworldSubBiome(BiomeGenAlpsForest.class, "Alps Forest", 10, alps);
+		canyonRavine = registerOverworldSubBiome(BiomeGenCanyonRavine.class, "Canyon Ravine", 10, canyon);
+		glacier = registerOverworldSubBiome(BiomeGenGlacier.class, "Glacier", 10, arctic);
+		mangrove = registerOverworldSubBiome(BiomeGenMangrove.class, "Mangrove", 10, tropics);
+		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow);
+		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert);
+		quagmire = registerOverworldSubBiome(BiomeGenQuagmire.class, "Quagmire", 10, sludgepit);
+		scrubland = registerOverworldSubBiome(BiomeGenScrubland.class, "Scrubland", 10, BiomeGenBase.savanna);
+		silkglades = registerOverworldSubBiome(BiomeGenSilkglades.class, "Silkglades", 10, sludgepit);
+		spruceWoods = registerOverworldSubBiome(BiomeGenSpruceWoods.class, "Spruce Woods", 10, BiomeGenBase.forest);
         
         //Nether Biomes
         corruptedSands = registerNetherBiome(BiomeGenCorruptedSands.class, "Corrupted Sands", 10);
@@ -215,8 +217,8 @@ public class BOPBiomes
         undergarden = registerNetherBiome(BiomeGenUndergarden.class, "Undergarden", 10);
         
         //River Biomes
-        lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp.biomeID, lavenderFields.biomeID, flowerField.biomeID, bambooForest.biomeID, cherryBlossomGrove.biomeID, lushDesert.biomeID, meadow.biomeID, spruceWoods.biomeID, rainforest.biomeID, BiomeGenBase.forest.biomeID, BiomeGenBase.forestHills.biomeID, BiomeGenBase.jungle.biomeID, BiomeGenBase.jungleEdge.biomeID, BiomeGenBase.jungleHills.biomeID);
-        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback.biomeID, steppe.biomeID, BiomeGenBase.desert.biomeID, BiomeGenBase.desertHills.biomeID);
+        lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp, lavenderFields, flowerField, bambooForest, cherryBlossomGrove, lushDesert, meadow, spruceWoods, rainforest, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills);
+        dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback, steppe, BiomeGenBase.desert, BiomeGenBase.desertHills);
 	}
 	
 	private static void addBiomesToDictionary()
@@ -246,7 +248,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.flowerField, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.frostForest, Type.FROZEN, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.fungiForest, Type.MAGICAL, Type.MUSHROOM, Type.FOREST, Type.SWAMP);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("garden, Type.MAGICAL, Type.PLAINS);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.garden, Type.MAGICAL, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.glacier, Type.FROZEN, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.grassland, Type.PLAINS, Type.SWAMP, Type.HILLS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.grove, Type.FOREST, Type.PLAINS);
@@ -256,7 +258,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.lavenderFields, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.lushDesert, Type.DESERT, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.lushSwamp, Type.SWAMP, Type.WATER);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("mangrove, Type.WATER, Type.FOREST);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.mangrove, Type.WATER, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.mapleWoods, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.marsh, Type.SWAMP, Type.WATER);
         BiomeDictionary.registerBiomeType(BOPCBiomes.meadow, Type.FOREST, Type.PLAINS);
@@ -265,9 +267,8 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.mountain, Type.MOUNTAIN);
         BiomeDictionary.registerBiomeType(BOPCBiomes.mysticGrove, Type.MAGICAL, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.oasis, Type.DESERT, Type.JUNGLE);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oceanAbyss, Type.WATER);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oceanCoral, Type.WATER);
-        //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("oceanKelp, Type.WATER, Type.FOREST);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.coralReef, Type.WATER);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.kelpForest, Type.WATER, Type.FOREST);
         BiomeDictionary.registerBiomeType(BOPCBiomes.ominousWoods, Type.MAGICAL);
         //BiomeDictionary.registerBiomeType(BOPBiomeHelper.getBOPBiome("orchard, Type.FOREST, Type.PLAINS);
         BiomeDictionary.registerBiomeType(BOPCBiomes.outback, Type.DESERT, Type.PLAINS);
@@ -343,7 +344,7 @@ public class BOPBiomes
 		return BOPBiomeManager.createAndRegisterBiome(biomeClass, "Overworld", biomeName, BOPBiomeManager.overworldBiomes[temperatureType], weight);
 	}
 	
-	private static BiomeGenBase registerOverworldSubBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int weight, int...parents)
+	private static BiomeGenBase registerOverworldSubBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int weight, BiomeGenBase...parents)
 	{
 		BiomeGenBase biome = BOPBiomeManager.createBiome(biomeClass, biomeName);
 		
@@ -353,11 +354,14 @@ public class BOPBiomes
 
 			if (BOPConfigurationBiomeGen.config.get("Overworld (Sub) Biomes To Generate", biome.biomeName, true).getBoolean(false))
 			{
-				for (int parent : parents)
+				for (BiomeGenBase parent : parents)
 				{
-					if (BOPBiomeManager.overworldSubBiomes[parent] == null) BOPBiomeManager.overworldSubBiomes[parent] = new ArrayList();
-					
-					BOPBiomeManager.overworldSubBiomes[parent].add(entry);
+					if (parent != null)
+					{
+						if (BOPBiomeManager.overworldSubBiomes[parent.biomeID] == null) BOPBiomeManager.overworldSubBiomes[parent.biomeID] = new ArrayList();
+
+						BOPBiomeManager.overworldSubBiomes[parent.biomeID].add(entry);
+					}
 				}
 			}
 
@@ -367,7 +371,7 @@ public class BOPBiomes
 		return null;
 	}
 	
-	private static BiomeGenBase registerOverworldRiverBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int...parents)
+	private static BiomeGenBase registerOverworldRiverBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, BiomeGenBase...parents)
 	{
 		BiomeGenBase biome = BOPBiomeManager.createBiome(biomeClass, biomeName);
 		
@@ -375,9 +379,12 @@ public class BOPBiomes
 		{
 			if (BOPConfigurationBiomeGen.config.get("Overworld (River) Biomes To Generate", biome.biomeName, true).getBoolean(false))
 			{
-				for (int parent : parents)
+				for (BiomeGenBase parent : parents)
 				{
-					BOPBiomeManager.overworldRiverBiomes[parent] = biome;
+					if (parent != null)
+					{
+						BOPBiomeManager.overworldRiverBiomes[parent.biomeID] = biome;
+					}
 				}
 			}
 		}

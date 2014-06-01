@@ -123,6 +123,6 @@ public class BOPConfigurationStrongholds
 	
 	public static void addStrongholdBiome(BiomeGenBase biome)
 	{
-		enabledBiomes.add(biome.biomeID);
+		if (biome != null) enabledBiomes.add(biome.biomeID);
 	}
 }

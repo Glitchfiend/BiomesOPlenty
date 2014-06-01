@@ -12,7 +12,6 @@ import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
-import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.core.BOPBiomes;
 

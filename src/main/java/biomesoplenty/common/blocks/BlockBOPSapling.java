@@ -20,6 +20,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BlockBOPSapling extends BlockSapling
@@ -197,9 +198,9 @@ public class BlockBOPSapling extends BlockSapling
 				obj = new WorldGenBOPBigTree(BOPBlockHelper.get("logs1"), BOPBlockHelper.get("leaves3"), 1, 3);
 				break;
 
-				/*case 13: // Hellbark
-				obj = new WorldGenNetherBush();
-				break;*/
+			case 13: // Hellbark
+				obj = new WorldGenMiniShrub(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 1, 0, BOPBlockHelper.get("overgrownNetherrack"));
+				break;
 
 			case 14: // Jacaranda
 				obj = new WorldGenOriginalTree(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 2, 1);

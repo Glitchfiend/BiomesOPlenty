@@ -81,6 +81,6 @@ public class BOPConfigurationVillages
 	
 	public static void addVillageBiome(BiomeGenBase biome)
 	{
-		enabledBiomes.add(biome.biomeID);
+		if (biome != null) enabledBiomes.add(biome.biomeID);
 	}
 }

@@ -1,5 +1,7 @@
 package biomesoplenty.common.blocks;
 
+import static biomesoplenty.api.utils.BiomeUtils.areBiomesEqual;
+
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -14,6 +16,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCBiomes;
+import biomesoplenty.api.utils.BiomeUtils;
 
 public class BlockBOPGeneric extends Block
 {
@@ -161,7 +164,11 @@ public class BlockBOPGeneric extends Block
 			{
 			    if (biome != null)
 			    {
-			    	if (biome != BOPCBiomes.boneyard && biome != BOPCBiomes.visceralHeap && biome != BOPCBiomes.undergarden && biome != BOPCBiomes.corruptedSands && biome != BOPCBiomes.phantasmagoricInferno && biome != BOPCBiomes.lushRiver && biome != BOPCBiomes.dryRiver && biome != BiomeGenBase.beach && biome != BiomeGenBase.coldBeach && biome != BiomeGenBase.stoneBeach && biome != BiomeGenBase.frozenOcean && biome != BiomeGenBase.frozenRiver && biome != BiomeGenBase.hell && biome != BiomeGenBase.river && biome != BiomeGenBase.sky && biome != BiomeGenBase.ocean && biome != BiomeGenBase.deepOcean)
+			    	if (!areBiomesEqual(biome, BOPCBiomes.boneyard) && !areBiomesEqual(biome, BOPCBiomes.visceralHeap) && !areBiomesEqual(biome, BOPCBiomes.undergarden) && 
+			    			!areBiomesEqual(biome, BOPCBiomes.corruptedSands) && !areBiomesEqual(biome, BOPCBiomes.phantasmagoricInferno) && !areBiomesEqual(biome, BOPCBiomes.lushRiver) && !areBiomesEqual(biome, BOPCBiomes.dryRiver) &&
+			    			!areBiomesEqual(biome, BiomeGenBase.beach) && !areBiomesEqual(biome, BiomeGenBase.coldBeach) && !areBiomesEqual(biome, BiomeGenBase.stoneBeach) && !areBiomesEqual(biome, BiomeGenBase.frozenOcean) && 
+			    			!areBiomesEqual(biome, BiomeGenBase.frozenRiver) && !areBiomesEqual(biome, BiomeGenBase.hell) && !areBiomesEqual(biome, BiomeGenBase.river) && !areBiomesEqual(biome, BiomeGenBase.sky) && 
+			    			!areBiomesEqual(biome, BiomeGenBase.ocean) && !areBiomesEqual(biome, BiomeGenBase.deepOcean))
 			    	{
 				        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
 	
