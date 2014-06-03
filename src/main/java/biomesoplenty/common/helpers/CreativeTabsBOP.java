@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class CreativeTabsBOP extends CreativeTabs
 {
@@ -15,7 +16,7 @@ public class CreativeTabsBOP extends CreativeTabs
 	@Override
 	public ItemStack getIconItemStack() 
 	{
-		return new ItemStack(BOPItemHelper.get("food"), 1, 7);
+		return new ItemStack(BOPCItems.food, 1, 7);
 	}
 
 	@Override

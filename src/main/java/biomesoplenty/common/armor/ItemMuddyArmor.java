@@ -6,6 +6,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class ItemMuddyArmor extends ItemArmor
 {
@@ -23,10 +24,10 @@ public class ItemMuddyArmor extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == BOPItemHelper.get("helmetMud") || stack.getItem() == BOPItemHelper.get("chestplateMud") || stack.getItem() == BOPItemHelper.get("bootsMud"))
+		if (stack.getItem() == BOPCItems.helmetMud || stack.getItem() == BOPCItems.chestplateMud || stack.getItem() == BOPCItems.bootsMud)
 			return "biomesoplenty:textures/armor/mud_1.png";
 		
-		if (stack.getItem() == BOPItemHelper.get("leggingsMud"))
+		if (stack.getItem() == BOPCItems.leggingsMud)
 			return "biomesoplenty:textures/armor/mud_2.png";
 		
 		return null;

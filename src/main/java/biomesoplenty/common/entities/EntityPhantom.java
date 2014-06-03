@@ -4,14 +4,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.BOPPotionHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class EntityPhantom extends EntityMob
 {
@@ -95,7 +94,7 @@ public class EntityPhantom extends EntityMob
 
         if (par1 && (this.rand.nextInt(3) == 0 || this.rand.nextInt(1 + par2) > 0))
         {
-            this.entityDropItem(new ItemStack(BOPItemHelper.get("misc"), 1, 10), 1);
+            this.entityDropItem(new ItemStack(BOPCItems.misc, 1, 10), 1);
         }
     }
 	

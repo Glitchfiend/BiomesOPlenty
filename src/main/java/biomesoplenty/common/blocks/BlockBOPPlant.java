@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
@@ -265,7 +265,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return new ItemStack(this, 1, 7);
 
 		case 11:
-			return new ItemStack(BOPItemHelper.get("food"), 1, 2);
+			return new ItemStack(BOPCItems.food, 1, 2);
 		}
 
 		return new ItemStack(this, 1, meta);
@@ -296,7 +296,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		}
 		else if (metadata == 11)
 		{
-			return BOPItemHelper.get("food");
+			return BOPCItems.food;
 		}
 		else
 		{

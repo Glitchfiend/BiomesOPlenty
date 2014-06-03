@@ -1,14 +1,13 @@
 package biomesoplenty.common.eventhandler.entity;
 
-import biomesoplenty.api.BOPItemHelper;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
+import biomesoplenty.api.content.BOPCItems;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -25,7 +24,7 @@ public class DyeEventHandler
 		{
 			int itemDamage = itemstack.getItemDamage();
 
-			if (itemstack.getItem() == BOPItemHelper.get("misc") && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
+			if (itemstack.getItem() == BOPCItems.misc && (itemDamage == 5 || itemDamage == 6 || itemDamage == 7 || itemDamage == 8 || itemDamage == 9))    
 			{
 				int dyeMeta = convertToDyeMeta(itemDamage);    
 				//TODO:				 getBlockFromDye()

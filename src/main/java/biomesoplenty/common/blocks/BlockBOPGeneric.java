@@ -16,7 +16,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCBiomes;
-import biomesoplenty.api.utils.BiomeUtils;
+import biomesoplenty.api.content.BOPCItems;
 
 public class BlockBOPGeneric extends Block
 {
@@ -147,7 +147,7 @@ public class BlockBOPGeneric extends Block
 		switch (type)
 		{
 		case CRYSTAL:
-			return BOPItemHelper.get("misc");
+			return BOPCItems.misc;
 
 		default:
 			return super.getItemDropped(metadata, random, fortune);
@@ -170,7 +170,7 @@ public class BlockBOPGeneric extends Block
 			    			!areBiomesEqual(biome, BiomeGenBase.frozenRiver) && !areBiomesEqual(biome, BiomeGenBase.hell) && !areBiomesEqual(biome, BiomeGenBase.river) && !areBiomesEqual(biome, BiomeGenBase.sky) && 
 			    			!areBiomesEqual(biome, BiomeGenBase.ocean) && !areBiomesEqual(biome, BiomeGenBase.deepOcean))
 			    	{
-				        ItemStack biomeEssence = new ItemStack(BOPItemHelper.get("biomeEssence"));
+				        ItemStack biomeEssence = new ItemStack(BOPCItems.biomeEssence);
 	
 				        biomeEssence.setTagCompound(new NBTTagCompound());
 	

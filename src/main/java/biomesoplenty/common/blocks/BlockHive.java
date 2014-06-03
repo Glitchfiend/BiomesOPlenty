@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.entities.EntityWasp;
 
 public class BlockHive extends Block
@@ -87,12 +87,12 @@ public class BlockHive extends Block
 	{
 		if (metadata == 0)
 		{
-			return BOPItemHelper.get("misc");
+			return BOPCItems.misc;
 		}
 		
 		if (metadata == 3)
 		{
-			return BOPItemHelper.get("food");
+			return BOPCItems.food;
 		}
 		
 		//TODO:     getItemFromBlock()

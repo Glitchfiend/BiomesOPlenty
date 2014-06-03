@@ -7,6 +7,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class ItemAmethystArmor extends ItemArmor
 {
@@ -24,7 +25,7 @@ public class ItemAmethystArmor extends ItemArmor
 	@Override
 	public boolean getIsRepairable(ItemStack itemToRepair, ItemStack itemToRepairWith)
 	{
-		if (itemToRepairWith.getItem() == BOPItemHelper.get("misc") && itemToRepairWith.getItemDamage() == 2)
+		if (itemToRepairWith.getItem() == BOPCItems.misc && itemToRepairWith.getItemDamage() == 2)
 			return true;
 		
 		return false;
@@ -33,10 +34,10 @@ public class ItemAmethystArmor extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == BOPItemHelper.get("helmetAmethyst") || stack.getItem() == BOPItemHelper.get("chestplateAmethyst") || stack.getItem() == BOPItemHelper.get("bootsAmethyst"))
+		if (stack.getItem() == BOPCItems.helmetAmethyst || stack.getItem() == BOPCItems.chestplateAmethyst || stack.getItem() == BOPCItems.bootsAmethyst)
 			return "biomesoplenty:textures/armor/amethyst_1.png";
 		
-		if (stack.getItem() == BOPItemHelper.get("leggingsAmethyst"))
+		if (stack.getItem() == BOPCItems.leggingsAmethyst)
 			return "biomesoplenty:textures/armor/amethyst_2.png";
 		
 		return null;

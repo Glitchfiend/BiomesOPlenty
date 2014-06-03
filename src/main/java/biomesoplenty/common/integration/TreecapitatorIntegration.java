@@ -1,10 +1,11 @@
 package biomesoplenty.common.integration;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
-import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
+import cpw.mods.fml.common.event.FMLInterModComms;
 
 public class TreecapitatorIntegration
 {
@@ -23,8 +24,8 @@ public class TreecapitatorIntegration
         
         NBTTagCompound tpModCfg = new NBTTagCompound();
         tpModCfg.setString("modID", "BiomesOPlenty");
-        tpModCfg.setString("axeIDList", BOPItemHelper.getUniqueName(BOPItemHelper.get("axeAmethyst")) + "; " +
-                BOPItemHelper.getUniqueName(BOPItemHelper.get("axeMud")));
+        tpModCfg.setString("axeIDList", BOPItemHelper.getUniqueName(BOPCItems.axeAmethyst) + "; " +
+                BOPItemHelper.getUniqueName(BOPCItems.axeMud));
         
         NBTTagList treeList = new NBTTagList();
         

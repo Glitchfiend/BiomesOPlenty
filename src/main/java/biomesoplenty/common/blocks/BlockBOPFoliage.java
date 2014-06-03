@@ -29,6 +29,7 @@ import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
@@ -132,12 +133,12 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 
 			if (world.rand.nextInt(2) == 0) 
 			{
-				ret.add(new ItemStack(BOPItemHelper.get("turnipSeeds"), 1));
+				ret.add(new ItemStack(BOPCItems.turnipSeeds, 1));
 			}
 			break;
 			
 		case 8:
-		    ret.add(new ItemStack(BOPItemHelper.get("food"), 1, 0));
+		    ret.add(new ItemStack(BOPCItems.food, 1, 0));
 		    break;
 		}
 
@@ -341,7 +342,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 		{
 			world.setBlock(x, y, z, this, 4, 3);
 			
-			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 0));
+			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 0));
 			
 			if (!world.isRemote)
 			{

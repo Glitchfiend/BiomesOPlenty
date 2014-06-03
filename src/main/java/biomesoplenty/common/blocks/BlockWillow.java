@@ -3,7 +3,6 @@ package biomesoplenty.common.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import biomesoplenty.BiomesOPlenty;
 
 public class BlockWillow extends BlockVine

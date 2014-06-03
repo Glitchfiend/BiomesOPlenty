@@ -1,7 +1,6 @@
 package biomesoplenty.common.blocks;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -20,7 +19,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable

@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.network.AbstractPacket;
 
 public class PacketBiomePosition extends AbstractPacket
@@ -49,7 +49,7 @@ public class PacketBiomePosition extends AbstractPacket
 
         ItemStack currentItem = player.getCurrentEquippedItem();
 
-        if (currentItem.getItem() == BOPItemHelper.get("biomeFinder"))
+        if (currentItem.getItem() == BOPCItems.biomeFinder)
         {
             if (!currentItem.hasTagCompound()) currentItem.setTagCompound(new NBTTagCompound());
 

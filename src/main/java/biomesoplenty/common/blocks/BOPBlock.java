@@ -2,12 +2,11 @@ package biomesoplenty.common.blocks;
 
 import java.util.Random;
 
-import biomesoplenty.BiomesOPlenty;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import biomesoplenty.BiomesOPlenty;
 
 public abstract class BOPBlock extends Block
 {

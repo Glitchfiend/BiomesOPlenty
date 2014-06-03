@@ -8,6 +8,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.core.BOPFluids;
 import biomesoplenty.common.items.ItemBOPBucket;
 import cpw.mods.fml.common.eventhandler.Event.Result;
@@ -18,7 +19,7 @@ public class BucketEventHandler
 	@SubscribeEvent
 	public void onBucketFill(FillBucketEvent event)
 	{
-		ItemBOPBucket bopBucket = (ItemBOPBucket)BOPItemHelper.get("bopBucket");
+		ItemBOPBucket bopBucket = (ItemBOPBucket)BOPCItems.bopBucket;
 		ItemStack bopBucketStack = new ItemStack(bopBucket);
 
 		World world = event.world;

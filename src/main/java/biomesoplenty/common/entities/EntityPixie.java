@@ -1,13 +1,12 @@
 package biomesoplenty.common.entities;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class EntityPixie extends EntityFlyingCreature
 {
@@ -86,7 +85,7 @@ public class EntityPixie extends EntityFlyingCreature
 
 		for (int var4 = 0; var4 < var3; ++var4)
 		{
-			this.entityDropItem(new ItemStack(BOPItemHelper.get("misc"), 1, 11), 0.0F);
+			this.entityDropItem(new ItemStack(BOPCItems.misc, 1, 11), 0.0F);
 		}
 	}
 	

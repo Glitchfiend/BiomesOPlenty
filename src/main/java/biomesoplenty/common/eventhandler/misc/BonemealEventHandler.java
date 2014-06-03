@@ -5,7 +5,6 @@ import net.minecraft.block.BlockCrops;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenCactus;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.blocks.BlockBOPColorizedSapling;

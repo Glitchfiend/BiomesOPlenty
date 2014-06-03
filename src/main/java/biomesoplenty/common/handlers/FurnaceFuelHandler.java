@@ -1,14 +1,16 @@
 package biomesoplenty.common.handlers;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
-import cpw.mods.fml.common.IFuelHandler;
+import java.util.HashMap;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.util.HashMap;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCItems;
+import cpw.mods.fml.common.IFuelHandler;
 
 public class FurnaceFuelHandler implements IFuelHandler 
 {
@@ -43,7 +45,7 @@ public class FurnaceFuelHandler implements IFuelHandler
 		addFuel(BOPBlockHelper.get("hellBarkStairs"), 300);
 		addFuel(BOPBlockHelper.get("mahoganyStairs"), 300);
 		
-		addFuel(BOPItemHelper.get("misc"), 1, 400);
+		addFuel(BOPCItems.misc, 1, 400);
 	}
 	
 	private static void addFuel(Item item, int metadata, int value)

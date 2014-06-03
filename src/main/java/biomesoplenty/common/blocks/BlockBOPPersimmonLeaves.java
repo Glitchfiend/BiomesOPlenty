@@ -12,7 +12,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -22,10 +21,8 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearable
 {
@@ -288,7 +285,7 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		{
 			//TODO: setBlock
 			world.setBlock(x, y, z, this, meta - 3, 3);
-			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+			EntityItem entityitem = new EntityItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 
 			if (!world.isRemote) 
 			{
@@ -339,13 +336,13 @@ public class BlockBOPPersimmonLeaves extends BlockLeavesBase implements IShearab
 		}
 
 		//TODO:															dropBlockAsItem_do	
-		if ((metadata & 3) == 3) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		if ((metadata & 3) == 3) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 		//TODO:															dropBlockAsItem_do	
-		else if ((metadata & 3) == 2 && world.rand.nextInt(8) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		else if ((metadata & 3) == 2 && world.rand.nextInt(8) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 		//TODO:															dropBlockAsItem_do	
-		else if ((metadata & 3) == 1 && world.rand.nextInt(16) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		else if ((metadata & 3) == 1 && world.rand.nextInt(16) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 		//TODO:															dropBlockAsItem_do	
-		else if ((metadata & 3) == 0 && world.rand.nextInt(32) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+		else if ((metadata & 3) == 0 && world.rand.nextInt(32) == 0) this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 	}
 
 	@Override

@@ -3,8 +3,6 @@ package biomesoplenty.common.blocks;
 import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -18,6 +16,9 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockMud extends BOPBlock
 {
@@ -87,7 +88,7 @@ public class BlockMud extends BOPBlock
 			{
 				InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItemHelper.get("wadingBoots"))
+				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPCItems.wadingBoots)
 				{
 					return;
 				}
@@ -105,7 +106,7 @@ public class BlockMud extends BOPBlock
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		if (metadata == 0) return BOPItemHelper.get("mudball");
+		if (metadata == 0) return BOPCItems.mudball;
 		else return super.getItemDropped(metadata, random, fortune);
 	}
 

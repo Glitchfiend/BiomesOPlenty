@@ -4,7 +4,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
@@ -13,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.entities.EntityPixie;
 
 public class ItemJarEmpty extends Item
@@ -90,7 +90,7 @@ public class ItemJarEmpty extends Item
             
     		if (par2EntityPlayer.inventory.getFirstEmptyStack() >= 0)
 			{
-        		EntityItem entityitem = new EntityItem(par2EntityPlayer.worldObj, par2EntityPlayer.posX, par2EntityPlayer.posY, par2EntityPlayer.posZ, new ItemStack(BOPItemHelper.get("jarFilled"), 1, 2));
+        		EntityItem entityitem = new EntityItem(par2EntityPlayer.worldObj, par2EntityPlayer.posX, par2EntityPlayer.posY, par2EntityPlayer.posZ, new ItemStack(BOPCItems.jarFilled, 1, 2));
     			if (!par2EntityPlayer.worldObj.isRemote)
     			{
     				par2EntityPlayer.worldObj.spawnEntityInWorld(entityitem);
@@ -104,7 +104,7 @@ public class ItemJarEmpty extends Item
     		else
     		{
     			//TODO: player.dropPlayerItem(ItemStack itemStack)?
-                par2EntityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(BOPItemHelper.get("jarFilled"), 1, 2), false);
+                par2EntityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(BOPCItems.jarFilled, 1, 2), false);
             }
 
             return true;

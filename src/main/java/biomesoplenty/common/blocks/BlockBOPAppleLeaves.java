@@ -23,8 +23,6 @@ import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 {

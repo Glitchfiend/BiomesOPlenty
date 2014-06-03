@@ -6,6 +6,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class BiomeEssenceRecipe implements IRecipe
 {
@@ -25,8 +26,8 @@ public class BiomeEssenceRecipe implements IRecipe
 
                 if (itemstack != null)
                 {
-                    if (itemstack.getItem() == BOPItemHelper.get("biomeFinder")) biomeRadar = itemstack.copy();
-                    else if (itemstack.getItem() == BOPItemHelper.get("biomeEssence")) biomeEssence = itemstack.copy();
+                    if (itemstack.getItem() == BOPCItems.biomeFinder) biomeRadar = itemstack.copy();
+                    else if (itemstack.getItem() == BOPCItems.biomeEssence) biomeEssence = itemstack.copy();
                 }
             }
         }

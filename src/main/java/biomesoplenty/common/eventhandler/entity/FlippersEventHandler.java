@@ -6,6 +6,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FlippersEventHandler 
@@ -21,7 +22,7 @@ public class FlippersEventHandler
 
 			if (entity.isInWater())
 			{
-				if (itemstack != null && itemstack.getItem() == BOPItemHelper.get("flippers"))
+				if (itemstack != null && itemstack.getItem() == BOPCItems.flippers)
 				{
 					entity.motionX *= 1.125D;
 					entity.motionY *= 1.1D;
@@ -38,7 +39,7 @@ public class FlippersEventHandler
 
 			if (player.isInWater() && !player.capabilities.isFlying)
 			{
-				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItemHelper.get("flippers"))
+				if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPCItems.flippers)
 				{
 					player.motionX *= 1.125D;
 					player.motionY *= 1.1D;

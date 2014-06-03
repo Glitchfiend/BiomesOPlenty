@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class ItemBOPAxe extends ItemAxe
 {
@@ -18,6 +18,7 @@ public class ItemBOPAxe extends ItemAxe
 		this.textureID = texture;
 		
 		this.setHarvestLevel("axe", 4);
+		this.setHasSubtypes(true);
 		
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
@@ -25,7 +26,7 @@ public class ItemBOPAxe extends ItemAxe
 	@Override
 	public boolean getIsRepairable(ItemStack itemToRepair, ItemStack itemToRepairWith)
 	{
-		if (textureID == 1 && itemToRepairWith.getItem() == BOPItemHelper.get("misc") && itemToRepairWith.getItemDamage() == 2)
+		if (textureID == 1 && itemToRepairWith.getItem() == BOPCItems.misc && itemToRepairWith.getItemDamage() == 2)
 			return true;
 		else
 			return false;

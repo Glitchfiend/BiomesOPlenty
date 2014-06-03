@@ -15,6 +15,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class BlockBOPGems extends Block
 {
@@ -23,7 +24,6 @@ public class BlockBOPGems extends Block
 
 	public BlockBOPGems()
 	{
-		//TODO: Material.rock
 		super(Material.rock);
 		
 		this.setHarvestLevel("pickaxe", 3, 0);
@@ -33,15 +33,12 @@ public class BlockBOPGems extends Block
 			this.setHarvestLevel("pickaxe", 2, i);
 		}
 		
-		//TODO setStepSound(Block.soundStoneFootstep)
 		this.setStepSound(Block.soundTypePiston);
 		
-		//TODO: this.setCreativeTab()
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		textures = new IIcon[types.length];
@@ -52,7 +49,6 @@ public class BlockBOPGems extends Block
 	}
 
 	@Override
-	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
 		if (meta < 0 || meta >= textures.length) {
@@ -63,14 +59,12 @@ public class BlockBOPGems extends Block
 	}
 
 	@Override
-	//TODO:	   getDamageValue()
 	public int getDamageValue(World world, int x, int y, int z) 
 	{
 		return world.getBlockMetadata(x, y, z);
 	}
 
 	@Override
-	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
 		for (int i = 0; i < types.length; ++i) 
@@ -80,7 +74,6 @@ public class BlockBOPGems extends Block
 	}
 
 	@Override
-	//TODO:		 getBlockHardness()
 	public float getBlockHardness(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
@@ -97,15 +90,12 @@ public class BlockBOPGems extends Block
 	}
 
 	@Override
-	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		//TODO:														  getItemFromBlock()
-		return (metadata % 2 == 0) ? BOPItemHelper.get("gems") : Item.getItemFromBlock(this);
+		return (metadata % 2 == 0) ? BOPCItems.gems : Item.getItemFromBlock(this);
 	}
 
 	@Override
-	//TODO     damageDropped()
 	public int damageDropped(int meta)
 	{
 		if (meta == 0)
@@ -179,15 +169,12 @@ public class BlockBOPGems extends Block
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
-		//TODO:					quantityDroppedWithBonus()
 		return (meta % 2 == 0) ? quantityDroppedWithBonus(fortune, random) : 1;
 	}
 
 	@Override
-	//TODO:		quantityDroppedWithBonus()
 	public int quantityDroppedWithBonus(int bonus, Random random)
 	{
-		//TODO:				   getItemForBlock()		getItem()
 		if (bonus > 0 && Item.getItemFromBlock(this) != this.getItemDropped(0, random, bonus))
 		{
 			int rnd = random.nextInt(bonus + 2) - 1;
@@ -196,7 +183,6 @@ public class BlockBOPGems extends Block
 				rnd = 0;
 			}
 
-			//TODO:		quantityDropped()
 			return this.quantityDropped(random) * (rnd + 1);
 		}
 		else
@@ -204,17 +190,14 @@ public class BlockBOPGems extends Block
 	}
 
 	@Override
-	//TODO: 	dropBlockAsItemWithChance()
 	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
 	{
-		//TODO: dropBlockAsItemWithChance()
 		super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
 
-		//TODO:	 getItemDropped()									  getItemFromBlock()
 		if (this.getItemDropped(metadata, world.rand, fortune) != Item.getItemFromBlock(this))
 		{
 			int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 3, 7);
-			//TODO: dropXpOnBlockBreak()
+
 			this.dropXpOnBlockBreak(world, x, y, z, var8);
 		}
 	}

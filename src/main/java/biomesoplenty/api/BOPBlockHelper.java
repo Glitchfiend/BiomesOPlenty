@@ -18,6 +18,6 @@ public class BOPBlockHelper
     
     public static String getUniqueName(Block block)
     {
-        return GameData.blockRegistry.getNameForObject(block);
+        return GameData.getBlockRegistry().getNameForObject(block);
     }
 }

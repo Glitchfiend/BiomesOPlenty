@@ -25,7 +25,6 @@ public class BOPFluids
 	{
 		registerFluids();
 		registerFluidBlocks();
-		registerFluidItems();
 	}
 
 	private static void registerFluids()
@@ -44,11 +43,6 @@ public class BOPFluids
 		poison.setBlock(BOPBlockHelper.get("poison"));
 		spring_water.setBlock(BOPBlockHelper.get("springWater"));
 		honey.setBlock(BOPBlockHelper.get("honey"));
-	}
-
-	private static void registerFluidItems()
-	{
-		registerItem(new ItemBOPBucket().setUnlocalizedName("bopBucket"));
 	}
 	
 	public static void registerFluid(Fluid fluid)

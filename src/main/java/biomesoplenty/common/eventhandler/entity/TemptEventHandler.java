@@ -10,8 +10,8 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.entities.ai.EntityAITemptArmor;
-import biomesoplenty.common.helpers.BOPReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class TemptEventHandler 
@@ -29,22 +29,22 @@ public class TemptEventHandler
 		if (entity instanceof EntityChicken) 
 		{
 			
-			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPItemHelper.get("flowerBand"), 0, false));
+			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 0, false));
 		}
 
 		if (entity instanceof EntitySheep) 
 		{
-			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPItemHelper.get("flowerBand"), 1, false));
+			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 1, false));
 		}
 
 		if (entity instanceof EntityPig) 
 		{
-			tasks.addTask(4, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPItemHelper.get("flowerBand"), 2, false));
+			tasks.addTask(4, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 2, false));
 		}
 
 		if (entity instanceof EntityCow) 
 		{
-			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPItemHelper.get("flowerBand"), 3, false));
+			tasks.addTask(3, new EntityAITemptArmor((EntityCreature)entity, 1F, BOPCItems.flowerBand, 3, false));
 		}
 	}
 }

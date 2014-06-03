@@ -6,6 +6,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class ItemFlippers extends ItemArmor
 {
@@ -25,7 +26,7 @@ public class ItemFlippers extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == BOPItemHelper.get("flippers")) return "biomesoplenty:textures/armor/flippers.png";
+		if (stack.getItem() == BOPCItems.flippers) return "biomesoplenty:textures/armor/flippers.png";
 		
 		return null;
 	}

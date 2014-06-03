@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class ItemBOPSword extends ItemSword
 {
@@ -22,7 +22,7 @@ public class ItemBOPSword extends ItemSword
 	@Override
 	public boolean getIsRepairable(ItemStack itemToRepair, ItemStack itemToRepairWith)
 	{
-		if (textureID == 1 && itemToRepairWith.getItem() == BOPItemHelper.get("misc") && itemToRepairWith.getItemDamage() == 2)
+		if (textureID == 1 && itemToRepairWith.getItem() == BOPCItems.misc && itemToRepairWith.getItemDamage() == 2)
 			return true;
 		else
 			return false;

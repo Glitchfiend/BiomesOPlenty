@@ -1,6 +1,5 @@
 package biomesoplenty.common.blocks;
 
-import java.util.Calendar;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -16,7 +15,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
 public class BlockBOPMushroom extends BlockBush
 {

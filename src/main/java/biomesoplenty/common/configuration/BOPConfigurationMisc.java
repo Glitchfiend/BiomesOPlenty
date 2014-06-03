@@ -16,16 +16,6 @@ public class BOPConfigurationMisc
 
     public static boolean hotSpringsRegeneration;
 	
-	public static boolean amethystTools;
-	public static boolean mudTools;
-	public static boolean scytheCrafting;
-	public static boolean staffCrafting;
-	public static boolean enderporterCrafting;
-	public static boolean dartCrafting;
-    public static boolean flowerbandCrafting;
-
-	public static int promisedLandSkyColor;
-	
 	public static int spawnSearchRadius;
 	public static boolean onlySpawnOnBeaches;
 	
@@ -42,22 +32,12 @@ public class BOPConfigurationMisc
 			hotSpringsRegeneration = config.get("Miscellanious Settings", "Enable Spring Water Regeneration Effect", true).getBoolean(true);
             hotSpringsRegeneration = config.get("Miscellanious Settings", "Behave Normally During Special Events", false).getBoolean(false);
 
-			amethystTools = config.get("Crafting Settings", "Enable Amethyst Tool/Armor Crafting", true).getBoolean(true);
-			mudTools = config.get("Crafting Settings", "Enable Mud Tool/Armor Crafting", true).getBoolean(true);
-			scytheCrafting = config.get("Crafting Settings", "Enable Scythe Crafting", true).getBoolean(true);
-			staffCrafting = config.get("Crafting Settings", "Enable Ancient Staff Crafting", true).getBoolean(true);
-			enderporterCrafting = config.get("Crafting Settings", "Enable Enderporter Crafting", true).getBoolean(true);
-			dartCrafting = config.get("Crafting Settings", "Enable Dartblower/Dart Crafting", true).getBoolean(true);
-			flowerbandCrafting = config.get("Crafting Settings", "Enable Flower Band Crafting", true).getBoolean(true);
-
 			//Hard-Coded Colors
 			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
 			
 			spawnSearchRadius = config.get("Spawn Settings", "Spawn Location Search Radius", 1024, "Must be 256 or higher").getInt();
 			if (spawnSearchRadius < 256) spawnSearchRadius = 256;
 			onlySpawnOnBeaches = config.get("Spawn Settings", "Only Spawn On Beaches", true).getBoolean(true);
-
-			promisedLandSkyColor = config.get("Hard-Coded Colors", "Promised Land Sky Color", 5883101, null).getInt();
 		}
 		catch (Exception e)
 		{

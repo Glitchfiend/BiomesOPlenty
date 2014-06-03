@@ -2,6 +2,7 @@ package biomesoplenty.common.core;
 
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourMudball;
@@ -33,8 +34,8 @@ public class BOPVanillaCompat
 	
 	private static void registerDispenserBehaviours()
 	{
-		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItemHelper.get("mudball"), new DispenserBehaviourMudball());
-		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPItemHelper.get("dart"), new DispenserBehaviourDart());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPCItems.mudball, new DispenserBehaviourMudball());
+		BlockDispenser.dispenseBehaviorRegistry.putObject(BOPCItems.dart, new DispenserBehaviourDart());
 	}
 	
 	private static void addDungeonLoot()
@@ -51,7 +52,7 @@ public class BOPVanillaCompat
 
 		if (BOPConfigurationMisc.dungeonLoot == true)
 		{
-			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("misc"), 1, 1), 2, 8, 25));
+			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPCItems.misc, 1, 1), 2, 8, 25));
 			mineshaft.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlockHelper.get("plants"), 1, 5), 4, 6, 15));
 
 			strongholdCorridor.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlockHelper.get("flowers"), 1, 3), 1, 4, 25));
@@ -61,12 +62,12 @@ public class BOPVanillaCompat
 			strongholdCrossing.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlockHelper.get("flowers"), 1, 2), 1, 4, 25));
 
 			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPBlockHelper.get("plants"), 1, 5), 2, 6, 25));
-			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("misc"), 1, 1), 2, 8, 25));
-			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
-			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPCItems.misc, 1, 1), 2, 8, 25));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPCItems.wadingBoots, 1, 0), 1, 1, 5));
+			village.addItem(new WeightedRandomChestContent(new ItemStack(BOPCItems.flippers, 1, 0), 1, 1, 5));
 			
-			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("wadingBoots"), 1, 0), 1, 1, 5));
-			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPItemHelper.get("flippers"), 1, 0), 1, 1, 5));
+			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPCItems.wadingBoots, 1, 0), 1, 1, 5));
+			bonusChest.addItem(new WeightedRandomChestContent(new ItemStack(BOPCItems.flippers, 1, 0), 1, 1, 5));
 		}
 	}
 	

@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.common.core.BOPItems;
+import biomesoplenty.api.content.BOPCItems;
 
 public class ItemBOPScythe extends Item
 {
@@ -319,7 +319,7 @@ public class ItemBOPScythe extends Item
 		{
 			return true;
 		}
-		if (textureID == 6 && itemToRepairWith.getItem() == BOPItemHelper.get("misc") && itemToRepairWith.getItemDamage() == 2)
+		if (textureID == 6 && itemToRepairWith.getItem() == BOPCItems.misc && itemToRepairWith.getItemDamage() == 2)
 		{
 			return true;
 		}

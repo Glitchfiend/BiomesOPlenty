@@ -10,6 +10,7 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.util.MathHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.particles.EntityDandelionFX;
 import biomesoplenty.client.particles.EntityMagicTreeFX;
 import biomesoplenty.client.particles.EntityPixieTrailFX;
@@ -55,7 +56,7 @@ public class ClientProxy extends CommonProxy
         RenderUtils.bambooModel = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
-		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPItemHelper.get("mudball"), 0));
+		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPCItems.mudball, 0));
 		
         if (BOPConfigurationIDs.globID > 0)
         {
@@ -108,15 +109,15 @@ public class ClientProxy extends CommonProxy
 
 		if (string == "mud") 
 		{
-			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("mudball"));
+			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.mudball);
 		} 
 		else if (string == "dart") 
 		{
-			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("dart"), 0);
+			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.dart, 0);
 		} 
 		else if (string == "poisondart") 
 		{
-			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPItemHelper.get("dart"), 1);
+			entityfx = new EntityBreakingFX(minecraft.theWorld, x, y, z, BOPCItems.dart, 1);
 		} 
 		else if (string == "dandelion") 
 		{

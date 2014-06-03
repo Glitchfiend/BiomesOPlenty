@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class BlockFlesh extends Block
 {
@@ -88,7 +88,7 @@ public class BlockFlesh extends Block
 	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return BOPItemHelper.get("misc");
+		return BOPCItems.misc;
 	}
 	
 	@Override

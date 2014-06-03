@@ -1,7 +1,5 @@
 package biomesoplenty.common.entities;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.IMob;
@@ -15,6 +13,9 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCItems;
 
 public class EntityGlob extends EntityLiving implements IMob
 {
@@ -272,16 +273,14 @@ public class EntityGlob extends EntityLiving implements IMob
 		
 		if (rand.nextInt(1000) == 0)
 		{
-			this.entityDropItem(new ItemStack(BOPItemHelper.get("bopDiscMud")), 0.0F);
+			this.entityDropItem(new ItemStack(BOPCItems.record_corruption), 0.0F);
 		}
 
 		for (int var4 = 0; var4 < var3; ++var4)
 		{
-			this.entityDropItem(new ItemStack(BOPItemHelper.get("mudball"), 1, 1), 0.0F);
+			this.entityDropItem(new ItemStack(BOPCItems.mudball, 1, 1), 0.0F);
 		}
 		
-
-		//TODO: dropItem()
 		this.dropItem(Items.slime_ball, 1);
 	}
 

@@ -1,10 +1,9 @@
 package biomesoplenty.common.blocks;
 
-import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import cpw.mods.fml.common.Loader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.block.material.Material;
@@ -18,11 +17,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Random;
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCItems;
+import cpw.mods.fml.common.Loader;
 
 public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 {
@@ -400,7 +398,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 		if (((metadata & 3) == 0 || (metadata & 3) == 4 || (metadata & 3) == 7) && (world.rand.nextInt(50) == 0)) 
 		{
 			//TODO:dropBlockAsItem_do
-			this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPItemHelper.get("food"), 1, 8));
+			this.dropBlockAsItem(world, x, y, z, new ItemStack(BOPCItems.food, 1, 8));
 		}
 	}
 
