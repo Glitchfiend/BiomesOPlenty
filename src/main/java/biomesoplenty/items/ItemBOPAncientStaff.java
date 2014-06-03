@@ -26,6 +26,7 @@ public class ItemBOPAncientStaff extends Item
 	public ItemBOPAncientStaff(int par1)
 	{
 		super(par1);
+		this.setHasSubtypes(true);
 		maxStackSize = 1;
 		setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
