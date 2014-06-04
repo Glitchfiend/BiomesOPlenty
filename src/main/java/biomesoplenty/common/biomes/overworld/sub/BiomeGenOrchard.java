@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import biomesoplenty.api.content.BOPCBlocks;
@@ -16,13 +17,16 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenOrchard extends BOPSubBiome
 {
+	private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	
 	public BiomeGenOrchard(int biomeID) 
 	{
 		super(biomeID);
 		
-        this.zoom = 0.01D;
-		this.threshold = 0.3D;
+        this.zoom = 0.25D;
+		this.threshold = 0.25D;
 		
+		this.setHeight(biomeHeight);
         this.setColor(14024557);
         this.setTemperatureRainfall(0.8F, 0.4F);
         

@@ -43,7 +43,7 @@ public class BOPConfigurationStrongholds
         addStrongholdBiome(BOPCBiomes.flowerField);
         addStrongholdBiome(BOPCBiomes.frostForest);
         addStrongholdBiome(BOPCBiomes.fungiForest);
-        //addStrongholdBiome(BOPCBiomes.garden);
+        addStrongholdBiome(BOPCBiomes.garden);
         addStrongholdBiome(BOPCBiomes.grassland);
         addStrongholdBiome(BOPCBiomes.grove);
         addStrongholdBiome(BOPCBiomes.heathland);
@@ -52,15 +52,16 @@ public class BOPConfigurationStrongholds
         addStrongholdBiome(BOPCBiomes.lavenderFields);
         addStrongholdBiome(BOPCBiomes.lushDesert);
         addStrongholdBiome(BOPCBiomes.lushSwamp);
+        addStrongholdBiome(BOPCBiomes.mangrove);
         addStrongholdBiome(BOPCBiomes.mapleWoods);
         addStrongholdBiome(BOPCBiomes.marsh);
         addStrongholdBiome(BOPCBiomes.meadow);
         addStrongholdBiome(BOPCBiomes.moor);
         addStrongholdBiome(BOPCBiomes.mountain);
         addStrongholdBiome(BOPCBiomes.mysticGrove);
-        //addStrongholdBiomBOPCBiomes.("oasis);
+        addStrongholdBiome(BOPCBiomes.oasis);
         addStrongholdBiome(BOPCBiomes.ominousWoods);
-        //addStrongholdBiomBOPCBiomes.("orchard);
+        addStrongholdBiome(BOPCBiomes.orchard);
         addStrongholdBiome(BOPCBiomes.outback);
         addStrongholdBiome(BOPCBiomes.prairie);
         addStrongholdBiome(BOPCBiomes.quagmire);

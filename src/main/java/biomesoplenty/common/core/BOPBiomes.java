@@ -197,12 +197,12 @@ public class BOPBiomes
 		kelpForest = registerOverworldSubBiome(BiomeGenKelpForest.class, "Kelp Forest", 10, BiomeGenBase.ocean);
 		tropics = registerOverworldSubBiome(BiomeGenTropics.class, "Tropics", 10, BiomeGenBase.deepOcean);
 		volcano = registerOverworldSubBiome(BiomeGenVolcano.class, "Volcano", 10, BiomeGenBase.deepOcean);
+		mangrove = registerOverworldSubBiome(BiomeGenMangrove.class, "Mangrove", 10, BiomeGenBase.deepOcean);
 		
         //Sub Biomes
 		alpsForest = registerOverworldSubBiome(BiomeGenAlpsForest.class, "Alps Forest", 10, alps);
 		canyonRavine = registerOverworldSubBiome(BiomeGenCanyonRavine.class, "Canyon Ravine", 10, canyon);
 		glacier = registerOverworldSubBiome(BiomeGenGlacier.class, "Glacier", 10, arctic);
-		mangrove = registerOverworldSubBiome(BiomeGenMangrove.class, "Mangrove", 10, tropics);
 		meadowForest = registerOverworldSubBiome(BiomeGenMeadowForest.class, "Meadow Forest", 10, meadow);
 		oasis = registerOverworldSubBiome(BiomeGenOasis.class, "Oasis", 10, BiomeGenBase.desert);
 		orchard = registerOverworldSubBiome(BiomeGenOrchard.class, "Orchard", 10, BiomeGenBase.plains);

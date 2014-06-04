@@ -39,7 +39,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityJungleSpider.class, 5147192, 11013646);
 
-				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPCBiomes.bambooForest, BiomeGenBase.jungle, BOPCBiomes.tropicalRainforest/*, Biomes.oasis.get()*/, BOPCBiomes.tropics);
+				EntityRegistry.addSpawn(EntityJungleSpider.class, 8, 1, 3, EnumCreatureType.monster, BOPCBiomes.bambooForest, BiomeGenBase.jungle, BOPCBiomes.tropicalRainforest, BOPCBiomes.oasis, BOPCBiomes.tropics, BOPCBiomes.mangrove, BOPCBiomes.sacredSprings, BOPCBiomes.rainforest);
 		}
 
 		if (BOPConfigurationIDs.rosesterID > 0)
@@ -48,10 +48,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityRosester.class, 14831439, 16756224);
 
-			/*TODO: FEATURE if (Biomes.garden.isPresent())
-			{
-				EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, Biomes.garden.get());
-			}*/
+				EntityRegistry.addSpawn(EntityRosester.class, 10, 2, 4, EnumCreatureType.creature, BOPCBiomes.garden);
 		}
 
 		if (BOPConfigurationIDs.globID > 0)

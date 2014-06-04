@@ -14,14 +14,14 @@ import biomesoplenty.common.world.features.trees.WorldGenMangrove;
 
 public class BiomeGenMangrove extends BOPSubBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.3F);
+    private static final Height biomeHeight = new Height(0.0F, 0.2F);
 	
 	public BiomeGenMangrove(int biomeID) 
 	{
 		super(biomeID);
 		
         this.zoom = 0.01D;
-		this.threshold = 0.8D;
+		this.threshold = 0.5D;
         this.setHeight(biomeHeight);
         this.setColor(7251289);
         this.setTemperatureRainfall(0.8F, 0.9F);
