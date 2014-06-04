@@ -66,10 +66,10 @@ public class BOPEntities
 
 			registerEntityEgg(EntityPhantom.class, 4472140, 2499368);
 
-			/*TODO: FEATURE if (Biomes.netherBone.isPresent() && Biomes.netherDesert.isPresent())
+			if (BOPCBiomes.boneyard != null && BOPCBiomes.corruptedSands != null)
 			{
-				EntityRegistry.addSpawn(EntityPhantom.class, 8, 1, 1, EnumCreatureType.monster, Biomes.netherBone.get(), Biomes.netherDesert.get());
-			}*/
+				EntityRegistry.addSpawn(EntityPhantom.class, 8, 1, 1, EnumCreatureType.monster, BOPCBiomes.boneyard, BOPCBiomes.corruptedSands);
+			}
 		}
 
 		if (BOPConfigurationIDs.waspID > 0)
