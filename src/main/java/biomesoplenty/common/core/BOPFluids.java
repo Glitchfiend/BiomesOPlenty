@@ -1,5 +1,7 @@
 package biomesoplenty.common.core;
 
+import static biomesoplenty.api.content.BOPCFluids.*;
+
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import biomesoplenty.api.content.BOPCBlocks;
@@ -9,10 +11,6 @@ import biomesoplenty.common.fluids.SpringWaterFluid;
 
 public class BOPFluids 
 {
-	public static Fluid poison;
-	public static Fluid spring_water;
-	public static Fluid honey;
-	
 	public static void preInit()
 	{
 		registerFluids();
@@ -25,9 +23,9 @@ public class BOPFluids
 
 	private static void registerFluids()
 	{
-		registerFluid(poison = new PoisonFluid("poison"));
-		registerFluid(spring_water = new SpringWaterFluid("spring_water"));
-		registerFluid(honey = new HoneyFluid("honey"));
+		poison = registerFluid(new PoisonFluid("poison"));
+		spring_water = registerFluid(new SpringWaterFluid("spring_water"));
+		honey = registerFluid(new HoneyFluid("honey"));
 	}
 
 	private static void registerFluidBlocks()
@@ -37,8 +35,10 @@ public class BOPFluids
 		honey.setBlock(BOPCBlocks.honey);
 	}
 	
-	public static void registerFluid(Fluid fluid)
+	public static Fluid registerFluid(Fluid fluid)
 	{
 		FluidRegistry.registerFluid(fluid);
+		
+		return fluid;
 	}
 }

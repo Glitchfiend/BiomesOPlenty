@@ -18,7 +18,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ItemFluidContainer;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.common.core.BOPFluids;
+import biomesoplenty.api.content.BOPCFluids;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -114,7 +114,7 @@ public class ItemBOPBucket extends ItemFluidContainer
             		world.func_147480_a(x, y, z, true);
             	}
 
-            	int meta = fluid.getFluid() == BOPFluids.honey ? 7 : 0;
+            	int meta = fluid.getFluid() == BOPCFluids.honey ? 7 : 0;
             	
             	world.setBlock(x, y, z, fluid.getFluid().getBlock(), meta, 3);
             }
@@ -128,9 +128,9 @@ public class ItemBOPBucket extends ItemFluidContainer
 	{
 		ItemStack fluid = new ItemStack(item);
 		
-		this.fill(fluid, new FluidStack(BOPFluids.poison, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
+		this.fill(fluid, new FluidStack(BOPCFluids.poison, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
 		fluid = new ItemStack(item);
-		this.fill(fluid, new FluidStack(BOPFluids.honey, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
+		this.fill(fluid, new FluidStack(BOPCFluids.honey, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
 	}
 	
 	@Override
