@@ -4,8 +4,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerRiverMix;
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.api.content.BOPCBiomes;
+import biomesoplenty.common.world.BOPBiomeManager;
 
 public class GenLayerRiverMixBOP extends GenLayerRiverMix
 {

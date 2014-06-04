@@ -9,8 +9,8 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.world.BOPBiomeManager;
 import biomesoplenty.common.world.noise.SimplexNoise;
 
 public class GenLayerSubBiome extends GenLayer

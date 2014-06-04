@@ -5,7 +5,7 @@ import net.minecraft.world.biome.BiomeGenJungle;
 import net.minecraft.world.biome.BiomeGenMesa;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.common.world.BOPBiomeManager;
 
 public class GenLayerShoreBOP extends GenLayer
 {

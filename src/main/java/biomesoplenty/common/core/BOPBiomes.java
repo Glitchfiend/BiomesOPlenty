@@ -14,8 +14,6 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 import org.apache.logging.log4j.Level;
 
-import biomesoplenty.api.BOPBiomeManager;
-import biomesoplenty.api.BOPBiomeManager.TemperatureType;
 import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.common.biomes.nether.BiomeGenBoneyard;
 import biomesoplenty.common.biomes.nether.BiomeGenCorruptedSands;
@@ -98,7 +96,9 @@ import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.utils.BOPLogger;
+import biomesoplenty.common.world.BOPBiomeManager;
 import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.common.world.BOPBiomeManager.TemperatureType;
 import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import cpw.mods.fml.common.registry.GameRegistry;
 

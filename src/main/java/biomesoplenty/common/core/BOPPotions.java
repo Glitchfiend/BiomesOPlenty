@@ -1,5 +1,7 @@
 package biomesoplenty.common.core;
 
+import static biomesoplenty.api.content.BOPCPotions.*;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -37,17 +39,12 @@ public class BOPPotions
 
 	private static void intializePotions()
 	{
-		registerPotion(new PotionParalysis(getNextID(), true, 16767262).setPotionName("potion.paralysis"));
-		registerPotion(new PotionPossession(getNextID(), true, 1280).setPotionName("potion.possession"));
+		paralysis = new PotionParalysis(getNextID(), true, 16767262).setPotionName("potion.paralysis");
+		possession = new PotionPossession(getNextID(), true, 1280).setPotionName("potion.possession");
 	}
 	
 	public static int getNextID()
 	{
 		return potionOffset++ - 1;
-	}
-	
-	public static void registerPotion(Potion potion)
-	{
-		BOPPotionHelper.registerPotion(potion, potion.getName().replace("potion.", ""));
 	}
 }

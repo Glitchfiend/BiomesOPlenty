@@ -11,8 +11,8 @@ import net.minecraftforge.common.config.Configuration;
 
 import org.apache.logging.log4j.Level;
 
-import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.api.content.BOPCBiomes;
+import biomesoplenty.common.world.BOPBiomeManager;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationVillages

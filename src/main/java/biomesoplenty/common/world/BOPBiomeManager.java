@@ -1,9 +1,8 @@
-package biomesoplenty.api;
+package biomesoplenty.common.world;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;

@@ -1,7 +1,7 @@
 package biomesoplenty.common.biomes;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.BOPBiomeManager;
+import biomesoplenty.common.world.BOPBiomeManager;
 
 public abstract class BOPOceanBiome extends BOPSubBiome
 {

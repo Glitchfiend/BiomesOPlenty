@@ -12,9 +12,9 @@ import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import biomesoplenty.api.BOPBiomeManager;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.core.BOPBiomes;
+import biomesoplenty.common.world.BOPBiomeManager;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
