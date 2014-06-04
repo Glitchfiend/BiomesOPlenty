@@ -1,7 +1,6 @@
 package biomesoplenty.api.utils;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.common.biomes.BOPBiome;
 
 public class BiomeUtils 
 {
