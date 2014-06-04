@@ -1,7 +1,6 @@
 package biomesoplenty.common.biomes.nether;
 
 import net.minecraft.init.Blocks;
-import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.common.biomes.BOPNetherBiome;
 
 public class BiomeGenBoneyard extends BOPNetherBiome

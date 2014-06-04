@@ -9,6 +9,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.armor.ItemAmethystArmor;
 import biomesoplenty.common.armor.ItemFlippers;
 import biomesoplenty.common.armor.ItemFlowerBand;
@@ -59,7 +60,7 @@ public class BOPItems
 	private static void registerItems()
 	{
 		food = registerItem(new ItemBOPFood(0).setUnlocalizedName("food"));
-		turnipSeeds = registerItem(new ItemBOPSeeds(BOPBlockHelper.get("turnip"), Blocks.farmland).setUnlocalizedName("turnipSeeds"));
+		turnipSeeds = registerItem(new ItemBOPSeeds(BOPCBlocks.turnip, Blocks.farmland).setUnlocalizedName("turnipSeeds"));
 		misc = registerItem(new ItemBOPMisc().setUnlocalizedName("misc"));
 		gems = registerItem(new ItemGems().setUnlocalizedName("gems"));
 		mudball = registerItem(new ItemBOPMudball().setUnlocalizedName("mudball"));

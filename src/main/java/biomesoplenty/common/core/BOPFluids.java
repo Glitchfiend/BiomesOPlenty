@@ -1,19 +1,11 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.common.core.BOPBlocks.registerBlock;
-import static biomesoplenty.common.core.BOPItems.registerItem;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidContainerRegistry;
-import net.minecraftforge.fluids.FluidContainerRegistry.FluidContainerData;
 import net.minecraftforge.fluids.FluidRegistry;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.fluids.HoneyFluid;
 import biomesoplenty.common.fluids.PoisonFluid;
 import biomesoplenty.common.fluids.SpringWaterFluid;
-import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
-import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
-import biomesoplenty.common.fluids.blocks.BlockSpringWaterFluid;
-import biomesoplenty.common.items.ItemBOPBucket;
 
 public class BOPFluids 
 {
@@ -21,9 +13,13 @@ public class BOPFluids
 	public static Fluid spring_water;
 	public static Fluid honey;
 	
-	public static void init()
+	public static void preInit()
 	{
 		registerFluids();
+	}
+	
+	public static void init()
+	{
 		registerFluidBlocks();
 	}
 
@@ -36,13 +32,9 @@ public class BOPFluids
 
 	private static void registerFluidBlocks()
 	{
-		registerBlock(new BlockPoisonFluid().setBlockName("poison"));
-		registerBlock(new BlockSpringWaterFluid().setBlockName("springWater"));
-		registerBlock(new BlockHoneyFluid().setBlockName("honey"));
-		
-		poison.setBlock(BOPBlockHelper.get("poison"));
-		spring_water.setBlock(BOPBlockHelper.get("springWater"));
-		honey.setBlock(BOPBlockHelper.get("honey"));
+		poison.setBlock(BOPCBlocks.poison);
+		spring_water.setBlock(BOPCBlocks.springWater);
+		honey.setBlock(BOPCBlocks.honey);
 	}
 	
 	public static void registerFluid(Fluid fluid)

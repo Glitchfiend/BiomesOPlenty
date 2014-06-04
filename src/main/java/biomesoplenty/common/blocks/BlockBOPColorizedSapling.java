@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenMangrove;
 import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
@@ -166,11 +166,11 @@ public class BlockBOPColorizedSapling extends BlockSapling
 			        break;
 
 			    case 3: // Redwood Tree
-			        obj = new WorldGenRedwoodTree2(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, false, 20, 15);
+			        obj = new WorldGenRedwoodTree2(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 20, 15);
 			        break;
 
 			    case 4: // Willow Tree
-			        obj = new WorldGenBOPSwampTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0, 6, 9, BOPBlockHelper.get("colorizedLeaves2"), 0);
+			        obj = new WorldGenBOPSwampTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0, 6, 9, BOPCBlocks.colorizedLeaves2, 0);
 			        break;
 
 			    case 5: // Pine Tree
@@ -178,7 +178,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
 			        break;
 			        
 			    case 6: //Mahogany Tree
-			    	obj = new WorldGenRainforestTree1(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("colorizedLeaves2"), 3, 2, false, 8, 8);
+			    	obj = new WorldGenRainforestTree1(BOPCBlocks.logs4, BOPCBlocks.colorizedLeaves2, 3, 2, false, 8, 8);
 			    	break;
 			}
 		}

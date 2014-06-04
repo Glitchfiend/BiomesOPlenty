@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 
 public class BiomeGenGlacier extends BOPSubBiome
@@ -26,8 +27,8 @@ public class BiomeGenGlacier extends BOPSubBiome
 		
 		this.spawnableCreatureList.clear();
 		
-		this.topBlock = BOPBlockHelper.get("hardIce");
-		this.fillerBlock = BOPBlockHelper.get("hardIce");
+		this.topBlock = BOPCBlocks.hardIce;
+		this.fillerBlock = BOPCBlocks.hardIce;
 	}
 
 	@Override
@@ -46,7 +47,7 @@ public class BiomeGenGlacier extends BOPSubBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 8, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 8, 2);
 			}
 		}
 	}

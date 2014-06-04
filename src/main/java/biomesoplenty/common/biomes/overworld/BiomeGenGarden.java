@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.entities.EntityRosester;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -30,7 +30,7 @@ public class BiomeGenGarden extends BOPBiome
         this.spawnableCreatureList.clear();
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityRosester.class, 10, 4, 4));
 		
-		this.topBlock = BOPBlockHelper.get("longGrass");
+		this.topBlock = BOPCBlocks.longGrass;
 		this.theBiomeDecorator.treesPerChunk = 2;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
@@ -44,14 +44,14 @@ public class BiomeGenGarden extends BOPBiome
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 25);
         
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 0), 15);
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 20);
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 9), 20);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 4), 8);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(0, 3), 2);
         
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 1), 0.25D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 2), 0.25D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPCBlocks.foliage, 1), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPCBlocks.foliage, 2), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.75D);
 	}
 
@@ -78,7 +78,7 @@ public class BiomeGenGarden extends BOPBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 4, 2);
 			}
 		}
 	}

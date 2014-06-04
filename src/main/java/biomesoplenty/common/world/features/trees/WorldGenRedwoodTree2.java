@@ -2,15 +2,13 @@ package biomesoplenty.common.world.features.trees;
 
 import java.util.Random;
 
-import biomesoplenty.api.BOPBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
 {
@@ -215,7 +213,7 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
                     	int randX = x - random.nextInt(8) + random.nextInt(8);
                         int randY = y + random.nextInt(64);
                         int randZ = z - random.nextInt(8) + random.nextInt(8);
-                        new WorldGenBOPShrub(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves1"), 0, 3, BOPBlockHelper.get("logs3")).generate(world, random, randX, randY, randZ);
+                        new WorldGenBOPShrub(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, BOPCBlocks.logs3).generate(world, random, randX, randY, randZ);
                     }
 
                     return true;

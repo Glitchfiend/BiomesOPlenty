@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenDeadTree extends WorldGenAbstractTree
 {
@@ -40,7 +40,7 @@ public class WorldGenDeadTree extends WorldGenAbstractTree
         //TODO:           getBlock()
         Block block = world.getBlock(x, y, z);
 
-        if (block != Blocks.grass && block != Blocks.dirt && block != BOPBlockHelper.get("driedDirt") && block != Blocks.hardened_clay)
+        if (block != Blocks.grass && block != Blocks.dirt && block != BOPCBlocks.driedDirt && block != Blocks.hardened_clay)
         {
             return false;
         }
@@ -62,315 +62,315 @@ public class WorldGenDeadTree extends WorldGenAbstractTree
             
             if (var999 == 0)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 3, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 7, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 2, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 1, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 2, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 2, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 8, z + 1, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 8, z + 1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z - 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
             }
             else if (var999 == 1)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 3, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 7, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 2, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 1, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 2, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 2, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 8, z + 1, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 8, z + 1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z - 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
             }
             else if (var999 == 2)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 3, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 7, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 2, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 1, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 2, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 2, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 8, z - 1, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 8, z - 1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z + 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
             }
             else if (var999 == 3)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z - 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z - 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z + 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 2, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z + 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 3, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
             }
             else if (var999 == 4)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z + 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z + 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z - 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 2, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z - 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 3, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
             }
             else if (var999 == 5)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z + 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z + 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z + 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z - 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z - 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 2, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z - 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 3, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 2, y + 7, z, BOPCBlocks.logs3, 6);
             }
             else if (var999 == 6)
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z - 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 7, z - 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 7, z - 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 2, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 4, z + 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z + 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 2, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 4, z + 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z + 2, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x + 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 3, y + 6, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 3, y + 6, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x - 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
             }
             else
             {
-            	buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 2, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 3, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 5, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 8, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 9, z, BOPBlockHelper.get("logs3"), 2);
+            	buildBlock(world, x, y + 1, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 2, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 3, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 5, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 8, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 9, z, BOPCBlocks.logs3, 2);
 	            
-	            buildBlock(world, x - 1, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 3, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 3, y + 5, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 1, y + 7, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x - 2, y + 7, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x - 1, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 3, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 3, y + 5, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 1, y + 7, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x - 2, y + 7, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x + 1, y + 2, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 2, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 4, z, BOPBlockHelper.get("logs3"), 6);
-	            buildBlock(world, x + 1, y + 6, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 1, y + 7, z, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x + 2, y + 8, z, BOPBlockHelper.get("logs3"), 6);
+	            buildBlock(world, x + 1, y + 2, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 2, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 4, z, BOPCBlocks.logs3, 6);
+	            buildBlock(world, x + 1, y + 6, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 1, y + 7, z, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x + 2, y + 8, z, BOPCBlocks.logs3, 6);
 	            
-	            buildBlock(world, x, y + 3, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 3, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 5, z - 1, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z - 3, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 8, z - 1, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 3, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 5, z - 1, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z - 3, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 8, z - 1, BOPCBlocks.logs3, 10);
 	            
-	            buildBlock(world, x, y + 3, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 4, z + 2, BOPBlockHelper.get("logs3"), 10);
-	            buildBlock(world, x, y + 6, z + 1, BOPBlockHelper.get("logs3"), 2);
-	            buildBlock(world, x, y + 7, z + 2, BOPBlockHelper.get("logs3"), 10);
+	            buildBlock(world, x, y + 3, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 4, z + 2, BOPCBlocks.logs3, 10);
+	            buildBlock(world, x, y + 6, z + 1, BOPCBlocks.logs3, 2);
+	            buildBlock(world, x, y + 7, z + 2, BOPCBlocks.logs3, 10);
             }
             
             return true;

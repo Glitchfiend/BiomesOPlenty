@@ -6,10 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityMooshroom;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
@@ -54,13 +53,13 @@ public class BiomeGenFungiForest extends BOPBiome
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 12);
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 3);
         
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 4), 8);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 4), 8);
         
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 2D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.25D);
 	}
 
@@ -80,7 +79,7 @@ public class BiomeGenFungiForest extends BOPBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 14, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 14, 2);
 			}
 		}
 
@@ -98,8 +97,8 @@ public class BiomeGenFungiForest extends BOPBiome
 	 //TODO:                     getRandomWorldGenForTrees()
 	 public WorldGenAbstractTree func_150567_a(Random random)
 	 {
-		 return random.nextInt(3) == 0 ? new WorldGenBOPTaiga3(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 3, false, 25, 10, 1) : 
-			 ((random.nextInt(5) == 0 ? new WorldGenBOPTaiga3(Blocks.log, BOPBlockHelper.get("leaves1"), 0, 0, false, 15, 15, 2) : 
+		 return random.nextInt(3) == 0 ? new WorldGenBOPTaiga3(Blocks.log, BOPCBlocks.leaves2, 0, 3, false, 25, 10, 1) : 
+			 ((random.nextInt(5) == 0 ? new WorldGenBOPTaiga3(Blocks.log, BOPCBlocks.leaves1, 0, 0, false, 15, 15, 2) : 
 				 (random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : 
 			 new WorldGenBOPTaiga3(Blocks.log, Blocks.leaves, 0, 0, false, 35, 10, 0))));
 	 }

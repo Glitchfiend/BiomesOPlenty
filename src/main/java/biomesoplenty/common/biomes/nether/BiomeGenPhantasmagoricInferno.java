@@ -1,9 +1,8 @@
 package biomesoplenty.common.biomes.nether;
 
 import net.minecraft.world.gen.feature.WorldGenFire;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPNetherBiome;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class BiomeGenPhantasmagoricInferno extends BOPNetherBiome
 {
@@ -13,8 +12,8 @@ public class BiomeGenPhantasmagoricInferno extends BOPNetherBiome
 
         this.setColor(14247446);
 
-        this.topBlock = BOPBlockHelper.get("ash");
-        this.fillerBlock = BOPBlockHelper.get("ash");
+        this.topBlock = BOPCBlocks.ash;
+        this.fillerBlock = BOPCBlocks.ash;
 
         this.bopWorldFeatures.setFeature("netherLavaLakesPerChunk", 20);
         this.bopWorldFeatures.setFeature("smolderingGrassPerChunk", 30);

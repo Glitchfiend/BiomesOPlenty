@@ -27,8 +27,7 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
@@ -160,13 +159,13 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water;
 			
 		case 14: // Leaf Pile
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 			
 		case 15: // Dead Leaf Pile
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 		}
 	}
 	
@@ -373,7 +372,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 		} 
 		else if (world.getBlockMetadata(x, y, z) == 8) 
 		{
-			ret.add(new ItemStack(BOPBlockHelper.get("foliage"), 1, 4));
+			ret.add(new ItemStack(BOPCBlocks.foliage, 1, 4));
 		} 
 		else 
 		{

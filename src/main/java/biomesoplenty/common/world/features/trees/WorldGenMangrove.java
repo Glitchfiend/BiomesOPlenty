@@ -2,13 +2,11 @@ package biomesoplenty.common.world.features.trees;
 
 import java.util.Random;
 
-import biomesoplenty.api.BOPBlockHelper;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenMangrove extends WorldGenAbstractTree
 {
@@ -106,13 +104,13 @@ public class WorldGenMangrove extends WorldGenAbstractTree
 
 											if (block.isAir(world, xi, yi, zi) || block.isLeaves(world, xi, yi, zi))
 											{
-												this.setBlockAndNotifyAdequately(world, xi, yi, zi, BOPBlockHelper.get("colorizedLeaves1"), 1);
-												this.setBlockAndNotifyAdequately(world, xi, yi - 1, zi, BOPBlockHelper.get("colorizedLeaves1"), 1);
+												this.setBlockAndNotifyAdequately(world, xi, yi, zi, BOPCBlocks.colorizedLeaves1, 1);
+												this.setBlockAndNotifyAdequately(world, xi, yi - 1, zi, BOPCBlocks.colorizedLeaves1, 1);
 
-												this.setBlockAndNotifyAdequately(world, x + 1, (y + height) - 3, z, BOPBlockHelper.get("colorizedLeaves1"), 1);
-												this.setBlockAndNotifyAdequately(world, x - 1, (y + height) - 3, z, BOPBlockHelper.get("colorizedLeaves1"), 1);
-												this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z + 1, BOPBlockHelper.get("colorizedLeaves1"), 1);
-												this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z - 1, BOPBlockHelper.get("colorizedLeaves1"), 1);
+												this.setBlockAndNotifyAdequately(world, x + 1, (y + height) - 3, z, BOPCBlocks.colorizedLeaves1, 1);
+												this.setBlockAndNotifyAdequately(world, x - 1, (y + height) - 3, z, BOPCBlocks.colorizedLeaves1, 1);
+												this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z + 1, BOPCBlocks.colorizedLeaves1, 1);
+												this.setBlockAndNotifyAdequately(world, x, (y + height) - 3, z - 1, BOPCBlocks.colorizedLeaves1, 1);
 											}
 										}
 							}
@@ -125,39 +123,39 @@ public class WorldGenMangrove extends WorldGenAbstractTree
 
 						if (block.isAir(world, x, y + yi, z) || block.isLeaves(world, x, y + yi, z))
 						{
-							this.setBlockAndNotifyAdequately(world, x, y + yi, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 1, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 2, z, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x, y + yi, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 1, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 2, z, BOPCBlocks.logs2, 2);
 
-							this.setBlockAndNotifyAdequately(world, x - 1, y, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x + 1, y, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y, z - 1, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y, z + 1, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x - 1, y, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x + 1, y, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y, z - 1, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y, z + 1, BOPCBlocks.logs2, 2);
 
-							this.setBlockAndNotifyAdequately(world, x - 1, y - 1, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x + 1, y - 1, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 1, z - 1, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 1, z + 1, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x - 1, y - 1, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x + 1, y - 1, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 1, z - 1, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 1, z + 1, BOPCBlocks.logs2, 2);
 
-							this.setBlockAndNotifyAdequately(world, x - 1, y - 2, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x + 1, y - 2, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 2, z - 1, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 2, z + 1, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x - 1, y - 2, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x + 1, y - 2, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 2, z - 1, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 2, z + 1, BOPCBlocks.logs2, 2);
 
-							this.setBlockAndNotifyAdequately(world, x - 2, y - 3, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x + 2, y - 3, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 3, z - 2, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 3, z + 2, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x - 2, y - 3, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x + 2, y - 3, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 3, z - 2, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 3, z + 2, BOPCBlocks.logs2, 2);
 
-							this.setBlockAndNotifyAdequately(world, x - 2, y - 4, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x + 2, y - 4, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 4, z - 2, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 4, z + 2, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x - 2, y - 4, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x + 2, y - 4, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 4, z - 2, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 4, z + 2, BOPCBlocks.logs2, 2);
 
-							this.setBlockAndNotifyAdequately(world, x - 3, y - 5, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x + 3, y - 5, z, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 5, z - 3, BOPBlockHelper.get("logs2"), 2);
-							this.setBlockAndNotifyAdequately(world, x, y - 5, z + 3, BOPBlockHelper.get("logs2"), 2);
+							this.setBlockAndNotifyAdequately(world, x - 3, y - 5, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x + 3, y - 5, z, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 5, z - 3, BOPCBlocks.logs2, 2);
+							this.setBlockAndNotifyAdequately(world, x, y - 5, z + 3, BOPCBlocks.logs2, 2);
 						}
 					}
 

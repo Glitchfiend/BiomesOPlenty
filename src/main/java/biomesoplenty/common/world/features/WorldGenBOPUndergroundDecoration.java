@@ -1,13 +1,13 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenBOPUndergroundDecoration extends WorldGeneratorBOP
 {

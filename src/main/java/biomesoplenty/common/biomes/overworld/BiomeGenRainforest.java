@@ -1,11 +1,7 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.entities.EntityJungleSpider;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
@@ -13,8 +9,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenRainforest extends BOPBiome
 {
@@ -50,7 +50,7 @@ public class BiomeGenRainforest extends BOPBiome
         this.bopWorldFeatures.setFeature("algaePerChunk", 2);
         this.bopWorldFeatures.setFeature("generatePumpkins", false);
 
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 12);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 6), 12);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 4);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 6);
@@ -66,7 +66,7 @@ public class BiomeGenRainforest extends BOPBiome
 	@Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
 	{
-		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11)) : (random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : new WorldGenTallGrass(Blocks.tallgrass, 1));
+		return random.nextInt(4) == 0 ? (random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPCBlocks.foliage, 10) : new WorldGenTallGrass(BOPCBlocks.foliage, 11)) : (random.nextInt(3) == 0 ? new WorldGenTallGrass(Blocks.tallgrass, 2) : new WorldGenTallGrass(Blocks.tallgrass, 1));
 	}
 	
 	@Override
@@ -87,7 +87,7 @@ public class BiomeGenRainforest extends BOPBiome
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
 				//TODO:	setBlock()
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 6, 2);
 			}
 		}
 	}

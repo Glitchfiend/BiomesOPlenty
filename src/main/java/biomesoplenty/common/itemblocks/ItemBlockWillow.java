@@ -1,12 +1,11 @@
 package biomesoplenty.common.itemblocks;
 
-import biomesoplenty.api.BOPBlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemColored;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import biomesoplenty.api.content.BOPCBlocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -30,8 +29,7 @@ public class ItemBlockWillow extends ItemColored
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemStack, int par2)
 	{
-		//TODO:							 getRenderColor()
-		return BOPBlockHelper.get("willow").getRenderColor(itemStack.getItemDamage());
+		return BOPCBlocks.willow.getRenderColor(itemStack.getItemDamage());
 	}
 
 	@Override

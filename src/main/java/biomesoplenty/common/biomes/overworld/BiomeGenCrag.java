@@ -1,13 +1,14 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
 public class BiomeGenCrag extends BOPBiome
 {
@@ -24,8 +25,8 @@ public class BiomeGenCrag extends BOPBiome
 		this.spawnableCreatureList.clear();
 		this.spawnableWaterCreatureList.clear();
 		
-		this.topBlock = BOPBlockHelper.get("cragRock");
-		this.fillerBlock = BOPBlockHelper.get("cragRock");
+		this.topBlock = BOPCBlocks.cragRock;
+		this.fillerBlock = BOPCBlocks.cragRock;
 		this.theBiomeDecorator.treesPerChunk = -999;
 
 		this.waterColorMultiplier = 944693;

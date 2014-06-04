@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.blocks.BlockBOPColorizedSapling;
 import biomesoplenty.common.blocks.BlockBOPSapling;
 import biomesoplenty.common.world.features.trees.WorldGenGiantFlower;
@@ -27,7 +28,7 @@ public class BonemealEventHandler
 		Block block = event.block;
 		int meta = event.world.getBlockMetadata(x, y, z);
 		
-		if (block == BOPBlockHelper.get("saplings"))
+		if (block == BOPCBlocks.saplings)
 		{
 			event.setResult(Result.ALLOW);
 
@@ -57,11 +58,11 @@ public class BonemealEventHandler
 				if (world.rand.nextFloat() < chance)
 				{
 					//TODO:											  growTree()
-					((BlockBOPSapling)BOPBlockHelper.get("saplings")).func_149878_d(event.world, x, y, z, event.world.rand);
+					((BlockBOPSapling)BOPCBlocks.saplings).func_149878_d(event.world, x, y, z, event.world.rand);
 				}
 			}
 		}
-		else if (block == BOPBlockHelper.get("colorizedSaplings"))
+		else if (block == BOPCBlocks.colorizedSaplings)
 		{
 			event.setResult(Result.ALLOW);
 
@@ -70,11 +71,11 @@ public class BonemealEventHandler
 				if (world.rand.nextFloat() < 0.45D)
 				{
 					//TODO:											  					growTree()
-					((BlockBOPColorizedSapling)BOPBlockHelper.get("colorizedSaplings")).func_149878_d(event.world, x, y, z, event.world.rand);
+					((BlockBOPColorizedSapling)BOPCBlocks.colorizedSaplings).func_149878_d(event.world, x, y, z, event.world.rand);
 				}
 			}
 		}
-		else if (block == BOPBlockHelper.get("plants"))
+		else if (block == BOPCBlocks.plants)
 		{
 			event.setResult(Result.ALLOW);
 			
@@ -85,8 +86,8 @@ public class BonemealEventHandler
 				case 7:
 					if (event.world.rand.nextFloat() < 0.45D)
 					{
-						world.setBlock(x, y, z, BOPBlockHelper.get("plants"), 10, 2);
-						world.setBlock(x, y + 1, z, BOPBlockHelper.get("plants"), 9, 2);
+						world.setBlock(x, y, z, BOPCBlocks.plants, 10, 2);
+						world.setBlock(x, y + 1, z, BOPCBlocks.plants, 9, 2);
 					}
 					break;
 				
@@ -125,18 +126,18 @@ public class BonemealEventHandler
 				}
 			}
 		}
-		else if (block == BOPBlockHelper.get("turnip"))
+		else if (block == BOPCBlocks.turnip)
 		{
 			if (event.world.getBlockMetadata(x, y, z) != 7)
 			{
 				if (!event.world.isRemote)
 				{
 					//TODO:									   fertilize
-					((BlockCrops)BOPBlockHelper.get("turnip")).func_149863_m(event.world, x, y, z);
+					((BlockCrops)BOPCBlocks.turnip).func_149863_m(event.world, x, y, z);
 				}
 			}
 		}
-		else if (block == BOPBlockHelper.get("bopGrass") && event.world.getBlockMetadata(x, y, z) == 0)
+		else if (block == BOPCBlocks.bopGrass && event.world.getBlockMetadata(x, y, z) == 0)
 		{
 			int var14 = y + 1;
 
@@ -152,14 +153,14 @@ public class BonemealEventHandler
 
 				if (event.world.getBlock(x, var14, z).isAir(world, x, var14, z))
 				{
-					if (BOPBlockHelper.get("plants").canReplace(world, x, var14, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 4)))
+					if (BOPCBlocks.plants.canReplace(world, x, var14, z, 0, new ItemStack(BOPCBlocks.plants, 1, 4)))
 					{
 						event.setResult(Result.ALLOW);
 
 						if (!event.world.isRemote)
 						{
 							//TODO:     setBlock()
-							event.world.setBlock(x, var14, z, BOPBlockHelper.get("plants"), 4, 2);
+							event.world.setBlock(x, var14, z, BOPCBlocks.plants, 4, 2);
 						}
 					}
 				}

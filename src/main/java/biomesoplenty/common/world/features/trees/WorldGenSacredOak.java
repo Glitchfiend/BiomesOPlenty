@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenSacredOak extends WorldGenAbstractTree
 {
@@ -257,7 +257,7 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 		 for (int var5 = par2 + leafDistanceLimit; var4 < var5; ++var4)
 		 {
 			 float var6 = this.leafSize(var4 - par2);
-			 this.genTreeLayer(par1, var4, par3, var6, (byte)1, BOPBlockHelper.get("colorizedLeaves1"));
+			 this.genTreeLayer(par1, var4, par3, var6, (byte)1, BOPCBlocks.colorizedLeaves1);
 		 }
 	 }
 
@@ -381,7 +381,7 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 	                                    {
 	                                            var5[2] = var4 + j;
 	                                            var6[2] = var4 + j;
-	                                            this.placeBlockLine(var5, var6, BOPBlockHelper.get("logs1"));
+	                                            this.placeBlockLine(var5, var6, BOPCBlocks.logs1);
 	                                    }
 	                            }
 	                    }
@@ -407,7 +407,7 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 
 			 if (this.leafNodeNeedsBase(var6))
 			 {
-				 this.placeBlockLine(var3, var5, BOPBlockHelper.get("logs1"));
+				 this.placeBlockLine(var3, var5, BOPCBlocks.logs1);
 			 }
 		 }
 	 }
@@ -464,7 +464,7 @@ public class WorldGenSacredOak extends WorldGenAbstractTree
 				 //TODO:				getBlock()
 				 Block block = worldObj.getBlock(var13[0], var13[1], var13[2]);
 
-				 if (block != Blocks.air && block != BOPBlockHelper.get("colorizedLeaves1"))
+				 if (block != Blocks.air && block != BOPCBlocks.colorizedLeaves1)
 				 {
 					 break;
 				 }

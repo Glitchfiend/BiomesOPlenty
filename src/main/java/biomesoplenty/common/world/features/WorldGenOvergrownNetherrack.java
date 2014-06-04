@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
@@ -38,23 +38,23 @@ public class WorldGenOvergrownNetherrack extends WorldGeneratorBOP
             //TODO:    isAirBlock()
             if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == Blocks.netherrack))
             {
-                world.setBlock(randX, randY - 1, randZ, BOPBlockHelper.get("overgrownNetherrack"), 0, 2);
+                world.setBlock(randX, randY - 1, randZ, BOPCBlocks.overgrownNetherrack, 0, 2);
 
                 if (var999 == 0)
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 2, 2);
                 }
                 else if (var999 == 1)
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 10, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 10, 2);
                 }
                 else if (var999 == 2)
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 11, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 11, 2);
                 }
                 else
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 2, 2);
                 }
             }
         }

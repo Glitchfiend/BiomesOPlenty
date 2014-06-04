@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import cpw.mods.fml.common.IFuelHandler;
 
@@ -24,26 +25,26 @@ public class FurnaceFuelHandler implements IFuelHandler
 
 	public static void setFuelValues()
 	{
-		addFuel(BOPBlockHelper.get("saplings"), 100);
-		addFuel(BOPBlockHelper.get("colorizedSaplings"), 100);
+		addFuel(BOPCBlocks.saplings, 100);
+		addFuel(BOPCBlocks.colorizedSaplings, 100);
 		
-		addFuel(BOPBlockHelper.get("woodenSingleSlab1"), 150);
-		addFuel(BOPBlockHelper.get("woodenSingleSlab2"), 150);
+		addFuel(BOPCBlocks.woodenSingleSlab1, 150);
+		addFuel(BOPCBlocks.woodenSingleSlab2, 150);
 		
-		addFuel(BOPBlockHelper.get("redwoodStairs"), 300);
-		addFuel(BOPBlockHelper.get("willowStairs"), 300);
-		addFuel(BOPBlockHelper.get("firStairs"), 300);
-		addFuel(BOPBlockHelper.get("sacredoakStairs"), 300);
-		addFuel(BOPBlockHelper.get("cherryStairs"), 300);
-		addFuel(BOPBlockHelper.get("darkStairs"), 300);
-		addFuel(BOPBlockHelper.get("magicStairs"), 300);
-		addFuel(BOPBlockHelper.get("palmStairs"), 300);
-		addFuel(BOPBlockHelper.get("mangroveStairs"), 300);
-		addFuel(BOPBlockHelper.get("holyStairs"), 300);
-		addFuel(BOPBlockHelper.get("pineStairs"), 300);
-		addFuel(BOPBlockHelper.get("jacarandaStairs"), 300);
-		addFuel(BOPBlockHelper.get("hellBarkStairs"), 300);
-		addFuel(BOPBlockHelper.get("mahoganyStairs"), 300);
+		addFuel(BOPCBlocks.redwoodStairs, 300);
+		addFuel(BOPCBlocks.willowStairs, 300);
+		addFuel(BOPCBlocks.firStairs, 300);
+		addFuel(BOPCBlocks.sacredoakStairs, 300);
+		addFuel(BOPCBlocks.cherryStairs, 300);
+		addFuel(BOPCBlocks.darkStairs, 300);
+		addFuel(BOPCBlocks.magicStairs, 300);
+		addFuel(BOPCBlocks.palmStairs, 300);
+		addFuel(BOPCBlocks.mangroveStairs, 300);
+		addFuel(BOPCBlocks.holyStairs, 300);
+		addFuel(BOPCBlocks.pineStairs, 300);
+		addFuel(BOPCBlocks.jacarandaStairs, 300);
+		addFuel(BOPCBlocks.hellBarkStairs, 300);
+		addFuel(BOPCBlocks.mahoganyStairs, 300);
 		
 		addFuel(BOPCItems.misc, 1, 400);
 	}

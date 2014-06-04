@@ -1,15 +1,15 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
-import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
+import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenOutback extends BOPBiome
 {
@@ -27,8 +27,8 @@ public class BiomeGenOutback extends BOPBiome
 
 		this.spawnableCreatureList.clear();
 		
-		this.topBlock = BOPBlockHelper.get("hardSand");
-		this.fillerBlock = BOPBlockHelper.get("hardSand");
+		this.topBlock = BOPCBlocks.hardSand;
+		this.fillerBlock = BOPCBlocks.hardSand;
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 	    this.theBiomeDecorator.deadBushPerChunk = 7;
@@ -45,8 +45,8 @@ public class BiomeGenOutback extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(3) == 0 ? new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPBlockHelper.get("hardSand")) : 
-        new WorldGenMiniShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPBlockHelper.get("hardSand"));
+        return random.nextInt(3) == 0 ? new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPCBlocks.hardSand) : 
+        new WorldGenMiniShrub(Blocks.log2, Blocks.leaves2, 0, 0, BOPCBlocks.hardSand);
     }
 	
     @Override
@@ -65,7 +65,7 @@ public class BiomeGenOutback extends BOPBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 2, 2);
             }
         }
     }

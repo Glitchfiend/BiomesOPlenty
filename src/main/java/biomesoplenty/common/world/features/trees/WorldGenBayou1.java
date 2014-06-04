@@ -1,6 +1,7 @@
 package biomesoplenty.common.world.features.trees;
 
-import biomesoplenty.api.BOPBlockHelper;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
@@ -8,8 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenBayou1 extends WorldGenAbstractTree
 {
@@ -222,7 +222,7 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
     private void generateVines(World world, int x, int y, int z, int flag)
     {
         //TODO: setBlockAndMetadata()
-        this.setBlockAndNotifyAdequately(world, x, y, z, BOPBlockHelper.get("willow"), flag);
+        this.setBlockAndNotifyAdequately(world, x, y, z, BOPCBlocks.willow, flag);
         int i1 = 4;
 
         while (true)
@@ -236,7 +236,7 @@ public class WorldGenBayou1 extends WorldGenAbstractTree
             }
 
             //TODO: setBlockAndMetadata()
-            this.setBlockAndNotifyAdequately(world, x, y, z, BOPBlockHelper.get("willow"), flag);
+            this.setBlockAndNotifyAdequately(world, x, y, z, BOPCBlocks.willow, flag);
             --i1;
         }
     }

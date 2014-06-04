@@ -1,12 +1,11 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
+import biomesoplenty.common.biomes.BOPBiome;
 
 public class BiomeGenAlps extends BOPBiome
 {

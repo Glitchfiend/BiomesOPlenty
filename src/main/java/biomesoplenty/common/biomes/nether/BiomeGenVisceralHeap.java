@@ -1,6 +1,6 @@
 package biomesoplenty.common.biomes.nether;
 
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPNetherBiome;
 
 public class BiomeGenVisceralHeap extends BOPNetherBiome
@@ -11,8 +11,8 @@ public class BiomeGenVisceralHeap extends BOPNetherBiome
 
         this.setColor(11091006);
 
-        this.topBlock = BOPBlockHelper.get("flesh");
-        this.fillerBlock = BOPBlockHelper.get("flesh");
+        this.topBlock = BOPCBlocks.flesh;
+        this.fillerBlock = BOPCBlocks.flesh;
 
         this.bopWorldFeatures.setFeature("gravesPerChunk", 1);
         this.bopWorldFeatures.setFeature("waspHivesPerChunk", 1);

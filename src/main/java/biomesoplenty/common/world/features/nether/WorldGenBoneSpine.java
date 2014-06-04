@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
@@ -65,11 +65,11 @@ public class WorldGenBoneSpine extends WorldGeneratorBOP
 						if (layer < height - 2)
 						{
 							if (layer % 2 == 0) createJunction(world, x, layerY, z);
-							else world.setBlock(x, layerY, z, BOPBlockHelper.get("bones"), 1, 2);
+							else world.setBlock(x, layerY, z, BOPCBlocks.bones, 1, 2);
 						}
 						else
 						{
-							world.setBlock(x, layerY, z, BOPBlockHelper.get("bones"), layer % 2, 2);
+							world.setBlock(x, layerY, z, BOPCBlocks.bones, layer % 2, 2);
 						}
 					}
 				}
@@ -94,16 +94,16 @@ public class WorldGenBoneSpine extends WorldGeneratorBOP
 	
 	private void createJunction(World world, int x, int y, int z)
 	{
-		world.setBlock(x, y, z, BOPBlockHelper.get("bones"), 2, 2);
+		world.setBlock(x, y, z, BOPCBlocks.bones, 2, 2);
 		
-		world.setBlock(x - 1, y, z, BOPBlockHelper.get("bones"), 6, 2);
-		world.setBlock(x + 1, y, z, BOPBlockHelper.get("bones"), 6, 2);
-		world.setBlock(x, y, z - 1, BOPBlockHelper.get("bones"), 5, 2);
-		world.setBlock(x, y, z + 1, BOPBlockHelper.get("bones"), 5, 2);
+		world.setBlock(x - 1, y, z, BOPCBlocks.bones, 6, 2);
+		world.setBlock(x + 1, y, z, BOPCBlocks.bones, 6, 2);
+		world.setBlock(x, y, z - 1, BOPCBlocks.bones, 5, 2);
+		world.setBlock(x, y, z + 1, BOPCBlocks.bones, 5, 2);
 		
-		world.setBlock(x - 2, y, z, BOPBlockHelper.get("bones"), 4, 2);
-		world.setBlock(x + 2, y, z, BOPBlockHelper.get("bones"), 4, 2);
-		world.setBlock(x, y, z - 2, BOPBlockHelper.get("bones"), 3, 2);
-		world.setBlock(x, y, z + 2, BOPBlockHelper.get("bones"), 3, 2);
+		world.setBlock(x - 2, y, z, BOPCBlocks.bones, 4, 2);
+		world.setBlock(x + 2, y, z, BOPCBlocks.bones, 4, 2);
+		world.setBlock(x, y, z - 2, BOPCBlocks.bones, 3, 2);
+		world.setBlock(x, y, z + 2, BOPCBlocks.bones, 3, 2);
 	}
 }

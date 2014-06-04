@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraftforge.event.terraingen.BiomeEvent;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.content.BOPCBiomes;
+import biomesoplenty.api.content.BOPCBlocks;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -41,21 +42,21 @@ public class VillageMaterialEventHandler
 			//Logs
 			if (event.original == Blocks.log)
 			{
-				event.replacement = BOPBlockHelper.get("logs4");
+				event.replacement = BOPCBlocks.logs4;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Planks
 			if (event.original == Blocks.planks)
 			{
-				event.replacement = BOPBlockHelper.get("planks");
+				event.replacement = BOPCBlocks.planks;
 				event.setResult(Result.DENY);
 			}
 			
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
 			{
-				event.replacement = BOPBlockHelper.get("jacarandaStairs");
+				event.replacement = BOPCBlocks.jacarandaStairs;
 				event.setResult(Result.DENY);
 			}
 			

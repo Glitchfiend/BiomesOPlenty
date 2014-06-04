@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class BlockBOPMushroom extends BlockBush
 {
@@ -111,7 +111,7 @@ public class BlockBOPMushroom extends BlockBush
 		switch (metadata)
 		{
 		case 0: // Toadstool
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
 
 		case 1: // Portobello
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
@@ -120,13 +120,13 @@ public class BlockBOPMushroom extends BlockBush
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium;
 
 		case 3: // Glowshroom
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.stone || block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.stone || block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
 
 		case 5: // Shadow Shroom
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.end_stone || block == BOPBlockHelper.get("bopGrass");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == Blocks.end_stone || block == BOPCBlocks.bopGrass;
 			
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("bopGrass");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.mycelium || block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.bopGrass;
 		}
 	}
 

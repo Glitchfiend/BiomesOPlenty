@@ -1,14 +1,14 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenWaterReeds extends WorldGeneratorBOP
 {
@@ -22,7 +22,7 @@ public class WorldGenWaterReeds extends WorldGeneratorBOP
 			int k1 = z + random.nextInt(8) - random.nextInt(8);
 			
             //TODO:	  isAirBlock()												canReplace()
-			if (world.isAirBlock(i1, j1, k1) && BOPBlockHelper.get("plants").canReplace(world, i1, j1, k1, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 14)))
+			if (world.isAirBlock(i1, j1, k1) && BOPCBlocks.plants.canReplace(world, i1, j1, k1, 0, new ItemStack(BOPCBlocks.plants, 1, 14)))
 			{
 				for (int i = 4; i > -4; --i)
 				{
@@ -30,7 +30,7 @@ public class WorldGenWaterReeds extends WorldGeneratorBOP
 					if (world.getBlock(i1 - i, j1 - 1, k1 - i) != Blocks.water)
 					{
 		            	//TODO:	setBlock()
-						world.setBlock(i1, j1, k1, BOPBlockHelper.get("plants"), 14, 2);
+						world.setBlock(i1, j1, k1, BOPCBlocks.plants, 14, 2);
 					}
 				}
 			}

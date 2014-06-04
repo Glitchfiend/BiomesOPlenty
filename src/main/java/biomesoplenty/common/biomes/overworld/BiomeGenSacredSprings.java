@@ -1,13 +1,7 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.entities.EntityJungleSpider;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -16,8 +10,14 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.entities.EntityJungleSpider;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BiomeGenSacredSprings extends BOPBiome
 {
@@ -41,7 +41,7 @@ public class BiomeGenSacredSprings extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 2);
 
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 6), 10);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 6), 10);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 6);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(5, 5), 5);
     }
@@ -56,7 +56,7 @@ public class BiomeGenSacredSprings extends BOPBiome
     @Override
 	public WorldGenerator getRandomWorldGenForGrass(Random random)
     {
-        return random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10) : (random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
+        return random.nextInt(2) == 0 ? new WorldGenTallGrass(BOPCBlocks.foliage, 10) : (random.nextInt(4) == 0 ? new WorldGenTallGrass(BOPCBlocks.foliage, 11) : new WorldGenTallGrass(Blocks.tallgrass, 1));
     }
     
     @Override
@@ -75,7 +75,7 @@ public class BiomeGenSacredSprings extends BOPBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 6, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 6, 2);
 			}
 		}
 	}

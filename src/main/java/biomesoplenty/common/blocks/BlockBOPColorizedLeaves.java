@@ -18,7 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
@@ -346,7 +346,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
     	//TODO:		getItemFromBlock()
-        return Item.getItemFromBlock(BOPBlockHelper.get("colorizedSaplings"));
+        return Item.getItemFromBlock(BOPCBlocks.colorizedSaplings);
     }
 
     @Override

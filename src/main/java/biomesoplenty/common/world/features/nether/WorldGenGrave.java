@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
@@ -41,13 +41,13 @@ public class WorldGenGrave extends WorldGeneratorBOP
 
 			if (orientation == 0 || orientation == 1)
 			{
-				world.setBlock(x, y + 1, z, BOPBlockHelper.get("grave"), 0, 2);
-				world.setBlock(x, y + 2, z, BOPBlockHelper.get("grave"), 1, 2);
+				world.setBlock(x, y + 1, z, BOPCBlocks.grave, 0, 2);
+				world.setBlock(x, y + 2, z, BOPCBlocks.grave, 1, 2);
 			}
 			else
 			{
-				world.setBlock(x, y + 1, z, BOPBlockHelper.get("grave"), 2, 2);
-				world.setBlock(x, y + 2, z, BOPBlockHelper.get("grave"), 3, 2);
+				world.setBlock(x, y + 1, z, BOPCBlocks.grave, 2, 2);
+				world.setBlock(x, y + 2, z, BOPCBlocks.grave, 3, 2);
 			}
 
 			return true;

@@ -6,15 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
-import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 
 public class BiomeGenOrchard extends BOPSubBiome
 {
@@ -42,19 +40,19 @@ public class BiomeGenOrchard extends BOPSubBiome
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 20);
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 15);
         
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 0), 20);
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers"), 9), 20);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 0), 20);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 9), 20);
         this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(0, 3), 2);
         
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(Blocks.tallgrass, 1), 1D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPCBlocks.foliage, 10), 0.5D);
 	}
 	
     @Override
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-    	return random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("appleLeaves"), 0, true) : this.worldGeneratorTrees;
+    	return random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.appleLeaves, 0, true) : this.worldGeneratorTrees;
     }
 
 	@Override
@@ -73,7 +71,7 @@ public class BiomeGenOrchard extends BOPSubBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 4, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 4, 2);
 			}
 		}
 	}

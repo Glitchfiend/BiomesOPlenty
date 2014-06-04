@@ -1,8 +1,5 @@
 package biomesoplenty.common.itemblocks;
 
-import biomesoplenty.api.BOPBlockHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -13,6 +10,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.world.World;
+import biomesoplenty.api.content.BOPCBlocks;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFoliage extends ItemColored
 {
@@ -53,7 +53,7 @@ public class ItemBlockFoliage extends ItemColored
 			return 16777215;
 		else
 			//TODO:							 getRenderColor()
-			return BOPBlockHelper.get("foliage").getRenderColor(itemStack.getItemDamage());
+			return BOPCBlocks.foliage.getRenderColor(itemStack.getItemDamage());
 	}
 
 	@Override

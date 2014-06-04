@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -30,8 +30,8 @@ public class BiomeGenWasteland extends BOPBiome
         
         this.waterColorMultiplier = 15073024;
         
-        this.topBlock = BOPBlockHelper.get("driedDirt");
-        this.fillerBlock = BOPBlockHelper.get("driedDirt");
+        this.topBlock = BOPCBlocks.driedDirt;
+        this.fillerBlock = BOPCBlocks.driedDirt;
         this.theBiomeDecorator.treesPerChunk = 0;
         this.theBiomeDecorator.grassPerChunk = 20;
         
@@ -45,7 +45,7 @@ public class BiomeGenWasteland extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 20);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 0), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.plants, 0), 1D);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class BiomeGenWasteland extends BOPBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
 	}

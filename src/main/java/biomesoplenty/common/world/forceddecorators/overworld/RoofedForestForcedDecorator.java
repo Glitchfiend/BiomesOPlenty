@@ -1,9 +1,9 @@
 package biomesoplenty.common.world.forceddecorators.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
+import net.minecraft.init.Blocks;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.decoration.ForcedDecorator;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import net.minecraft.init.Blocks;
 
 public class RoofedForestForcedDecorator extends ForcedDecorator
 {
@@ -21,9 +21,9 @@ public class RoofedForestForcedDecorator extends ForcedDecorator
 
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.25D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.25D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.25D);
 	}
 }

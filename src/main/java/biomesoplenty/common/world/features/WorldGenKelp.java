@@ -2,12 +2,10 @@ package biomesoplenty.common.world.features;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.blocks.BlockBOPCoral;
 import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
@@ -28,7 +26,7 @@ public class WorldGenKelp extends WorldGeneratorBOP
 	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z)
 	{
-		BlockBOPCoral coral = (BlockBOPCoral)BOPBlockHelper.get("coral1");
+		BlockBOPCoral coral = (BlockBOPCoral)BOPCBlocks.coral1;
 
 		int x2 = x + rand.nextInt(4) - rand.nextInt(4);
 		int y2 = y;
@@ -46,11 +44,11 @@ public class WorldGenKelp extends WorldGeneratorBOP
 
 				if (world.getBlock(x2, y2 + i, z2) == Blocks.water && world.getBlock(x2, y2 + i + 1, z2) == Blocks.water)
 				{
-					world.setBlock(x2, y2 + i, z2, BOPBlockHelper.get("coral1"), currentMeta, 2);
+					world.setBlock(x2, y2 + i, z2, BOPCBlocks.coral1, currentMeta, 2);
 				}
 				else if (i > 0)
 				{
-					world.setBlock(x2, y2 + i - 1, z2, BOPBlockHelper.get("coral1"), 10, 2);
+					world.setBlock(x2, y2 + i - 1, z2, BOPCBlocks.coral1, 10, 2);
 					break;
 				}
 				else

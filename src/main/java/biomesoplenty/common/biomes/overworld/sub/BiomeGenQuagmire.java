@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -34,8 +34,8 @@ public class BiomeGenQuagmire extends BOPSubBiome
 
         this.waterColorMultiplier = 13390080;
 
-        this.topBlock = BOPBlockHelper.get("mud");
-        this.fillerBlock = BOPBlockHelper.get("mud");
+        this.topBlock = BOPCBlocks.mud;
+        this.fillerBlock = BOPCBlocks.mud;
         this.theBiomeDecorator.treesPerChunk = 0;
         this.theBiomeDecorator.grassPerChunk = 10;
         this.theBiomeDecorator.mushroomsPerChunk = 3;
@@ -51,8 +51,8 @@ public class BiomeGenQuagmire extends BOPSubBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 10);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
 
@@ -79,7 +79,7 @@ public class BiomeGenQuagmire extends BOPSubBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
     }

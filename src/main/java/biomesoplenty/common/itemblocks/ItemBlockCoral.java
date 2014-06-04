@@ -7,7 +7,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.blocks.BlockBOPCoral;
 
 public class ItemBlockCoral extends ItemBlock
@@ -31,7 +31,7 @@ public class ItemBlockCoral extends ItemBlock
 	@Override
 	public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
 	{
-		if (field_150939_a == BOPBlockHelper.get("coral1") && metadata > 8 && metadata < 12)
+		if (field_150939_a == BOPCBlocks.coral1 && metadata > 8 && metadata < 12)
 		{
 			metadata = world.getBlock(x, y - 1, z) == field_150939_a ? 10 : 11;
 		}

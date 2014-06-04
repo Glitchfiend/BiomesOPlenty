@@ -10,8 +10,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 
 public class ItemBOPScythe extends Item
@@ -119,7 +119,7 @@ public class ItemBOPScythe extends Item
 
     				if (block != null && block != Blocks.air)
     				{
-    					if (block == BOPBlockHelper.get("foliage") && (meta == 1 || meta == 2 || meta == 6))
+    					if (block == BOPCBlocks.foliage && (meta == 1 || meta == 2 || meta == 6))
     					{
     						if (meta == 1)
     						{
@@ -129,7 +129,7 @@ public class ItemBOPScythe extends Item
     						else if (meta == 2)
     						{
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 1, 2);
+    							world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 1, 2);
     						}
     						else if (meta == 6)
     						{
@@ -140,7 +140,7 @@ public class ItemBOPScythe extends Item
     					else if (block == Blocks.tallgrass)
     					{
     						block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    						world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 2, 2);
+    						world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 2, 2);
     					}
     					else if (block != Blocks.waterlily && block instanceof BlockFlower)
     					{
@@ -248,7 +248,7 @@ public class ItemBOPScythe extends Item
     							stack.damageItem(1, entity);
     						}
     						
-    						if (block == BOPBlockHelper.get("foliage") && (meta == 1 || meta == 2 || meta == 6))
+    						if (block == BOPCBlocks.foliage && (meta == 1 || meta == 2 || meta == 6))
     						{
     							if (meta == 1)
     							{
@@ -258,7 +258,7 @@ public class ItemBOPScythe extends Item
     							else if (meta == 2)
     							{
     								block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    								world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 1, 2);
+    								world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 1, 2);
     							}
     							else if (meta == 6)
     							{
@@ -269,7 +269,7 @@ public class ItemBOPScythe extends Item
     						else if (block == Blocks.tallgrass)
     						{
     							block.dropBlockAsItem(world, x + aX, y + aY, z + aZ, meta, 0);
-    							world.setBlock(x + aX, y + aY, z + aZ, BOPBlockHelper.get("foliage"), 2, 2);
+    							world.setBlock(x + aX, y + aY, z + aZ, BOPCBlocks.foliage, 2, 2);
     						}
     						else if (block != Blocks.waterlily && block instanceof BlockFlower)
     						{

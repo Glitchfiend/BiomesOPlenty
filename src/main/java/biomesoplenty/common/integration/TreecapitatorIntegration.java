@@ -4,6 +4,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import cpw.mods.fml.common.event.FMLInterModComms;
 
@@ -11,16 +12,16 @@ public class TreecapitatorIntegration
 {
     public static void init()
     {
-        String logs1 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("logs1"));
-        String logs2 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("logs2"));
-        String logs3 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("logs3"));
-        String logs4 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("logs4"));
-        String leavesColorized1 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("colorizedLeaves1"));
-        String leavesColorized2 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("colorizedLeaves2"));
-        String leaves1 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("leaves1"));
-        String leaves2 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("leaves2"));
-        String leaves3 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("leaves3"));
-        String leaves4 = BOPBlockHelper.getUniqueName(BOPBlockHelper.get("leaves4"));
+        String logs1 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs1);
+        String logs2 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs2);
+        String logs3 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs3);
+        String logs4 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs4);
+        String leavesColorized1 = BOPBlockHelper.getUniqueName(BOPCBlocks.colorizedLeaves1);
+        String leavesColorized2 = BOPBlockHelper.getUniqueName(BOPCBlocks.colorizedLeaves2);
+        String leaves1 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves1);
+        String leaves2 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves2);
+        String leaves3 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves3);
+        String leaves4 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves4);
         
         NBTTagCompound tpModCfg = new NBTTagCompound();
         tpModCfg.setString("modID", "BiomesOPlenty");
@@ -38,8 +39,8 @@ public class TreecapitatorIntegration
         tree.setString("treeName", "vanilla_oak");
         tree.setString("logs", "");
         tree.setString("leaves", String.format("%s,0; %s,3; %s; %s,0; %s,0; %s,2; 18,2; 18,10",
-                leaves2, leaves2, BOPBlockHelper.getUniqueName(BOPBlockHelper.get("appleLeaves")),
-                BOPBlockHelper.getUniqueName(BOPBlockHelper.get("persimmonLeaves")), leaves2, leaves3));
+                leaves2, leaves2, BOPBlockHelper.getUniqueName(BOPCBlocks.appleLeaves),
+                BOPBlockHelper.getUniqueName(BOPCBlocks.persimmonLeaves), leaves2, leaves3));
         
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
@@ -152,7 +153,7 @@ public class TreecapitatorIntegration
         tree = new NBTTagCompound();
         tree.setString("treeName", "big_flower");
         tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs3, logs3, logs3));
-        tree.setString("leaves", "" + BOPBlockHelper.getUniqueName(BOPBlockHelper.get("petals")));
+        tree.setString("leaves", "" + BOPBlockHelper.getUniqueName(BOPCBlocks.petals));
         tree.setBoolean("requireLeafDecayCheck", false);
         treeList.appendTag(tree);
         

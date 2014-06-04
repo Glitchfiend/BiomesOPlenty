@@ -18,7 +18,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -188,16 +188,16 @@ public class BlockBOPFlower2 extends BOPBlockWorldDecor
 		switch (metadata)
 		{
 		case 2: // Burning Blossom
-			return block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack;
 
 		case 6: // Miner's Delight
 			return block == Blocks.stone;
 			
 		case 8: // Rose
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("originGrass");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.originGrass;
 
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 		}
 	}
 

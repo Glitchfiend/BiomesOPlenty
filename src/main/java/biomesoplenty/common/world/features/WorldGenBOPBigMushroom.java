@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenBOPBigMushroom extends WorldGeneratorBOP
 {

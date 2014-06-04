@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
@@ -41,14 +41,14 @@ public class BiomeGenMangrove extends BOPSubBiome
         
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 9);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("plants"), 0), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.plants, 0), 1D);
 	}
 
 	@Override
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(3) == 0 ? new WorldGenBOPShrub(BOPBlockHelper.get("logs2"), BOPBlockHelper.get("colorizedLeaves1"), 2, 1, Blocks.sand) : new WorldGenMangrove();
+		return random.nextInt(3) == 0 ? new WorldGenBOPShrub(BOPCBlocks.logs2, BOPCBlocks.colorizedLeaves1, 2, 1, Blocks.sand) : new WorldGenMangrove();
 	}
 
     @Override
@@ -67,7 +67,7 @@ public class BiomeGenMangrove extends BOPSubBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 12, 2);
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 12, 2);
             }
         }
     }

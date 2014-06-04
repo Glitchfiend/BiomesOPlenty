@@ -1,15 +1,15 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenBOPFlora extends WorldGeneratorBOP
 {
@@ -42,7 +42,7 @@ public class WorldGenBOPFlora extends WorldGeneratorBOP
             int k1 = z + random.nextInt(8) - random.nextInt(8);
 
             if (world.isAirBlock(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && 
-            (flora == Blocks.web ? world.getBlock(i1, j1 + 1, k1) == BOPBlockHelper.get("leaves2") || world.getBlock(i1, j1 + 1, k1) == BOPBlockHelper.get("colorizedLeaves2") || world.getBlock(i1, j1 - 1, k1) == Blocks.grass : 
+            (flora == Blocks.web ? world.getBlock(i1, j1 + 1, k1) == BOPCBlocks.leaves2 || world.getBlock(i1, j1 + 1, k1) == BOPCBlocks.colorizedLeaves2 || world.getBlock(i1, j1 - 1, k1) == Blocks.grass : 
             this.flora.canReplace(world, i1, j1, k1, 0, new ItemStack(flora, 1, floraMeta))))
             {
                 world.setBlock(i1, j1, k1, this.flora, this.floraMeta, 2);

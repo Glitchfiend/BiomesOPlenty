@@ -14,7 +14,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCItems;
 
 public class BlockBOPGems extends Block

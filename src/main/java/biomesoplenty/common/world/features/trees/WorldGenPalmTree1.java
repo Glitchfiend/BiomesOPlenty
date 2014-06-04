@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenPalmTree1 extends WorldGenAbstractTree
 {
@@ -74,7 +74,7 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
             buildBlock(world, x, y, z, Blocks.dirt, 0);
             for(int b = 0; b < bMax; b++)
             {
-                buildBlock(world, x + ((int) Math.floor(xoff)), y + h, z + ((int) Math.floor(yoff)), BOPBlockHelper.get("logs2"), 3);
+                buildBlock(world, x + ((int) Math.floor(xoff)), y + h, z + ((int) Math.floor(yoff)), BOPCBlocks.logs2, 3);
                 if(b == bMax - 1)
                 {
                     generateTop(world, x + ((int) Math.floor(xoff)), y + h, z + ((int) Math.floor(yoff)));
@@ -93,30 +93,30 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
 
     public void generateTop(World world, int x, int y, int z)
     {
-        buildBlock(world, x + 2, y - 1, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 2, y - 1, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y - 1, z + 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y - 1, z - 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
+        buildBlock(world, x + 2, y - 1, z, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 2, y - 1, z, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y - 1, z + 2, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y - 1, z - 2, BOPCBlocks.colorizedLeaves1, 2);
 
-        buildBlock(world, x + 1, y, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 1, y, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y, z + 1, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y, z - 1, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x + 2, y, z + 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 2, y, z - 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x + 2, y, z - 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 2, y, z + 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
+        buildBlock(world, x + 1, y, z, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 1, y, z, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y, z + 1, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y, z - 1, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x + 2, y, z + 2, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 2, y, z - 2, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x + 2, y, z - 2, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 2, y, z + 2, BOPCBlocks.colorizedLeaves1, 2);
 
-        buildBlock(world, x + 1, y + 1, z - 1, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 1, y + 1, z + 1, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x + 1, y + 1, z + 1, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 1, y + 1, z - 1, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y + 1, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
+        buildBlock(world, x + 1, y + 1, z - 1, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 1, y + 1, z + 1, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x + 1, y + 1, z + 1, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 1, y + 1, z - 1, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y + 1, z, BOPCBlocks.colorizedLeaves1, 2);
 
-        buildBlock(world, x + 2, y + 2, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x - 2, y + 2, z, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y + 2, z + 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
-        buildBlock(world, x, y + 2, z - 2, BOPBlockHelper.get("colorizedLeaves1"), 2);
+        buildBlock(world, x + 2, y + 2, z, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x - 2, y + 2, z, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y + 2, z + 2, BOPCBlocks.colorizedLeaves1, 2);
+        buildBlock(world, x, y + 2, z - 2, BOPCBlocks.colorizedLeaves1, 2);
     }
 
     public void buildBlock(World world, int x, int y, int z, Block block, int meta)

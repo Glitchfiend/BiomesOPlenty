@@ -16,7 +16,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class BlockBOPGrass extends Block
 {
@@ -180,7 +180,7 @@ public class BlockBOPGrass extends Block
 						if (world.getBlock(rX, rY, rZ) == Blocks.end_stone && world.getBlockLightValue(rX, rY + 1, rZ) >= 4 && world.getBlockLightOpacity(rX, rY + 1, rZ) <= 2)
 						{
 							//TODO: setBlock()
-							world.setBlock(rX, rY, rZ, BOPBlockHelper.get("bopGrass"), 0, 2);
+							world.setBlock(rX, rY, rZ, BOPCBlocks.bopGrass, 0, 2);
 						}
 					}
 				}

@@ -1,6 +1,13 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -8,13 +15,6 @@ import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBayou1;
 import biomesoplenty.common.world.features.trees.WorldGenBayou2;
 import biomesoplenty.common.world.features.trees.WorldGenBayou3;
-import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
 
 public class BiomeGenBayou extends BOPBiome
 {
@@ -57,8 +57,8 @@ public class BiomeGenBayou extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 15);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 
@@ -66,9 +66,9 @@ public class BiomeGenBayou extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-		return random.nextInt(8) == 0 ? new WorldGenBayou3(BOPBlockHelper.get("logs3"), 1) : 
-		(random.nextInt(2) == 0 ? new WorldGenBayou1(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0) : 
-		new WorldGenBayou2(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0));
+		return random.nextInt(8) == 0 ? new WorldGenBayou3(BOPCBlocks.logs3, 1) : 
+		(random.nextInt(2) == 0 ? new WorldGenBayou1(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0) : 
+		new WorldGenBayou2(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0));
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class BiomeGenBayou extends BOPBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
 			}
 		}
 

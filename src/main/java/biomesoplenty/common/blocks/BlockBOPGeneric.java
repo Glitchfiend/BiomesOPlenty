@@ -14,7 +14,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.api.content.BOPCItems;
 

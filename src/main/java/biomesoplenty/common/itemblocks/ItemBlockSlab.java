@@ -1,12 +1,9 @@
 package biomesoplenty.common.itemblocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSlab;
 import net.minecraft.item.ItemSlab;
 import net.minecraft.item.ItemStack;
 import biomesoplenty.common.blocks.BlockBOPSlab;
-
-import com.google.common.base.Optional;
 
 public class ItemBlockSlab extends ItemSlab
 {

@@ -1,14 +1,14 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenWasteland4 extends WorldGeneratorBOP
 {
@@ -27,7 +27,7 @@ public class WorldGenWasteland4 extends WorldGeneratorBOP
         Block var97 = world.getBlock(x, y, z - 1);
         Block var98 = world.getBlock(x, y, z + 1);
 
-        if (var6 != BOPBlockHelper.get("driedDirt") || var95 != BOPBlockHelper.get("driedDirt") || var96 != BOPBlockHelper.get("driedDirt") || var97 != BOPBlockHelper.get("driedDirt") || var98 != BOPBlockHelper.get("driedDirt") )
+        if (var6 != BOPCBlocks.driedDirt || var95 != BOPCBlocks.driedDirt || var96 != BOPCBlocks.driedDirt || var97 != BOPCBlocks.driedDirt || var98 != BOPCBlocks.driedDirt )
             return false;
         else
         {

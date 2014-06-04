@@ -16,6 +16,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class BlockBOPSlab extends BlockSlab
 {
@@ -141,15 +142,15 @@ public class BlockBOPSlab extends BlockSlab
 		//TODO: isDoubleSlab
 		if (field_150004_a)
 		{
-			if (this == BOPBlockHelper.get("woodenDoubleSlab1"))
+			if (this == BOPCBlocks.woodenDoubleSlab1)
 				//TODO:		getItemFromBlock()
-				return Item.getItemFromBlock(BOPBlockHelper.get("woodenSingleSlab1"));
-			if (this == BOPBlockHelper.get("woodenDoubleSlab2"))
+				return Item.getItemFromBlock(BOPCBlocks.woodenSingleSlab1);
+			if (this == BOPCBlocks.woodenDoubleSlab2)
 				//TODO:		getItemFromBlock()
-				return Item.getItemFromBlock(BOPBlockHelper.get("woodenSingleSlab2"));
+				return Item.getItemFromBlock(BOPCBlocks.woodenSingleSlab2);
 			else
 				//TODO:		getItemFromBlock()
-				return Item.getItemFromBlock(BOPBlockHelper.get("stoneSingleSlab"));
+				return Item.getItemFromBlock(BOPCBlocks.stoneSingleSlab);
 		}
 		else
 			//TODO:		getItemForBlock()
@@ -221,7 +222,7 @@ public class BlockBOPSlab extends BlockSlab
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z)
     {
 		//TODO:  	isDoubleSlab		   getItemFromBlock()
-		Block block = !field_150004_a ? this : (this == BOPBlockHelper.get("woodenDoubleSlab1") ? BOPBlockHelper.get("woodenSingleSlab1") : (this == BOPBlockHelper.get("woodenDoubleSlab2") ? BOPBlockHelper.get("woodenSingleSlab2") : BOPBlockHelper.get("stoneSingleSlab")));
+		Block block = !field_150004_a ? this : (this == BOPCBlocks.woodenDoubleSlab1 ? BOPCBlocks.woodenSingleSlab1 : (this == BOPCBlocks.woodenDoubleSlab2 ? BOPCBlocks.woodenSingleSlab2 : BOPCBlocks.stoneSingleSlab));
 		
 		return new ItemStack(block, 1, world.getBlockMetadata(x, y, z));
 	}

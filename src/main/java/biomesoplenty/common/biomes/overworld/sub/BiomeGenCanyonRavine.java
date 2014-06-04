@@ -5,9 +5,8 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
@@ -32,8 +31,8 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
 
 		this.spawnableCreatureList.clear();
 
-		this.topBlock = BOPBlockHelper.get("hardDirt");
-		this.fillerBlock = BOPBlockHelper.get("hardDirt");
+		this.topBlock = BOPCBlocks.hardDirt;
+		this.fillerBlock = BOPCBlocks.hardDirt;
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.treesPerChunk = 1;
 		this.theBiomeDecorator.flowersPerChunk = -999;
@@ -45,14 +44,14 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 5);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 1D);
 	}
 
 	@Override
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(5) == 0 ? new WorldGenPineTree() : new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, 64, 256, BOPBlockHelper.get("hardDirt"));
+		return random.nextInt(5) == 0 ? new WorldGenPineTree() : new WorldGenBOPShrub(Blocks.log2, Blocks.leaves2, 0, 0, 64, 256, BOPCBlocks.hardDirt);
 	}
 	
 	@Override
@@ -71,7 +70,7 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 2, 2);
 			}
 		}
 	}

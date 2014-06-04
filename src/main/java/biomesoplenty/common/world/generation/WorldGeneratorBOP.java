@@ -1,10 +1,9 @@
 package biomesoplenty.common.world.generation;
 
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
-
 import java.util.Random;
+
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
 
 public abstract class WorldGeneratorBOP extends WorldGenerator implements IBOPWorldGenerator
 {

@@ -1,9 +1,9 @@
 package biomesoplenty.common.world.generation;
 
+import java.util.Random;
+
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public abstract class ForcedWorldFeatureBOP implements IBOPWorldGenerator
 {

@@ -1,13 +1,13 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
 
 public class WorldGenBOPDoubleFlora extends WorldGenBOPFlora
 {

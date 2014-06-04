@@ -3,11 +3,10 @@ package biomesoplenty.common.world.features.trees;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenPineTree extends WorldGenAbstractTree
 {
@@ -29,7 +28,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 		//TODO:			  getBlock()
 		Block var6 = world.getBlock(x, y, z);
 
-		if (var6 != Blocks.grass && var6 != BOPBlockHelper.get("hardDirt") && var6 != Blocks.stone && var6 != Blocks.dirt)
+		if (var6 != Blocks.grass && var6 != BOPCBlocks.hardDirt && var6 != Blocks.stone && var6 != Blocks.dirt)
 		{
 			return false;
 		}
@@ -58,7 +57,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
             
 			for(int b = 0; b < baselength; b++)
 			{
-				buildBlock(world, x, y + h, z, BOPBlockHelper.get("logs4"), 0);
+				buildBlock(world, x, y + h, z, BOPCBlocks.logs4, 0);
 				h++;
 			}
 			
@@ -81,15 +80,15 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 		{
 			for(int j = -1; j < 2; j++)
 			{
-				buildBlock(world, x + i, y, z + j, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x + i, y, z + j, BOPCBlocks.colorizedLeaves2, 1);
 			}
 		}
-		buildBlock(world, x, y, z, BOPBlockHelper.get("logs4"), 0);
-		buildBlock(world, x + 1, y + 1, z, BOPBlockHelper.get("colorizedLeaves2"), 1);
-		buildBlock(world, x, y + 1, z - 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
-		buildBlock(world, x, y + 1, z + 1,BOPBlockHelper.get("colorizedLeaves2"), 1);
-		buildBlock(world, x - 1, y + 1, z, BOPBlockHelper.get("colorizedLeaves2"), 1);
-		buildBlock(world, x, y + 2, z, BOPBlockHelper.get("colorizedLeaves2"), 1);
+		buildBlock(world, x, y, z, BOPCBlocks.logs4, 0);
+		buildBlock(world, x + 1, y + 1, z, BOPCBlocks.colorizedLeaves2, 1);
+		buildBlock(world, x, y + 1, z - 1, BOPCBlocks.colorizedLeaves2, 1);
+		buildBlock(world, x, y + 1, z + 1,BOPCBlocks.colorizedLeaves2, 1);
+		buildBlock(world, x - 1, y + 1, z, BOPCBlocks.colorizedLeaves2, 1);
+		buildBlock(world, x, y + 2, z, BOPCBlocks.colorizedLeaves2, 1);
 	}
 	
 	public void generateBranch(World world, Random rand, int x, int y, int z, int n)
@@ -98,7 +97,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 		{
 			for(int j = -1; j < 2; j++)
 			{
-				buildBlock(world, x + i, y, z + j, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x + i, y, z + j, BOPCBlocks.colorizedLeaves2, 1);
 			}
 		}
 		
@@ -112,43 +111,43 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 			//1
 			if (var99998 == 0)
 			{
-				buildBlock(world, x + 1, y - 1, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x + 2, y - 1, z - 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x + 1, y - 1, z - 2, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x + 2, y - 1, z - 1, BOPCBlocks.colorizedLeaves2, 1);
 				if (var99999 == 0)
 				{
-					buildBlock(world, x + 2, y - 2, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x + 2, y - 2, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 				else
 				{
-					buildBlock(world, x + 2, y - 1, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x + 2, y - 1, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 			}
 			else
 			{
-				buildBlock(world, x + 1, y, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x + 2, y, z - 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x + 2, y, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x + 1, y, z - 2, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x + 2, y, z - 1, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x + 2, y, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 			}
 			
 			//2
 			if (var99997 == 0)
 			{
-				buildBlock(world, x - 2, y - 1, z + 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x - 1, y - 1, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x - 2, y - 1, z + 1, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x - 1, y - 1, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				if (var99996 == 0)
 				{
-					buildBlock(world, x - 2, y - 2, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x - 2, y - 2, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 				else
 				{
-					buildBlock(world, x - 2, y - 1, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x - 2, y - 1, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 			}
 			else
 			{
-				buildBlock(world, x - 2, y, z + 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x - 1, y, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x - 2, y, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x - 2, y, z + 1, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x - 1, y, z + 2, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x - 2, y, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 			}
 		}
 		else
@@ -156,62 +155,62 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 			//1
 			if (var99998 == 0)
 			{
-				buildBlock(world, x + 2, y - 1, z + 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x + 1, y - 1, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x + 2, y - 1, z + 1, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x + 1, y - 1, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				if (var99999 == 0)
 				{
-					buildBlock(world, x + 2, y - 2, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x + 2, y - 2, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 				else
 				{
-					buildBlock(world, x + 2, y - 1, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x + 2, y - 1, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 			}
 			else
 			{
-				buildBlock(world, x + 2, y, z + 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x + 1, y, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x + 2, y, z + 1, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x + 1, y, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				if (var99999 == 0)
 				{
-					buildBlock(world, x + 2, y - 1, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x + 2, y - 1, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 				else
 				{
-					buildBlock(world, x + 2, y, z + 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x + 2, y, z + 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 			}
 			
 			//2
 			if (var99997 == 0)
 			{
-				buildBlock(world, x - 1, y - 1, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x - 2, y - 1, z - 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x - 1, y - 1, z - 2, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x - 2, y - 1, z - 1, BOPCBlocks.colorizedLeaves2, 1);
 				if (var99996 == 0)
 				{
-					buildBlock(world, x - 2, y - 2, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x - 2, y - 2, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 				else
 				{
-					buildBlock(world, x - 2, y - 1, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x - 2, y - 1, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 			}
 			else
 			{
-				buildBlock(world, x - 1, y, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
-				buildBlock(world, x - 2, y, z - 1, BOPBlockHelper.get("colorizedLeaves2"), 1);
+				buildBlock(world, x - 1, y, z - 2, BOPCBlocks.colorizedLeaves2, 1);
+				buildBlock(world, x - 2, y, z - 1, BOPCBlocks.colorizedLeaves2, 1);
 				if (var99996 == 0)
 				{
-					buildBlock(world, x - 2, y - 1, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x - 2, y - 1, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 				else
 				{
-					buildBlock(world, x - 2, y, z - 2, BOPBlockHelper.get("colorizedLeaves2"), 1);
+					buildBlock(world, x - 2, y, z - 2, BOPCBlocks.colorizedLeaves2, 1);
 				}
 			}
 		}
 		
-		buildBlock(world, x, y, z, BOPBlockHelper.get("logs4"), 0);
-		buildBlock(world, x, y + 1, z, BOPBlockHelper.get("logs4"), 0);
+		buildBlock(world, x, y, z, BOPCBlocks.logs4, 0);
+		buildBlock(world, x, y + 1, z, BOPCBlocks.logs4, 0);
 	}
 	
 	public void buildBlock(World world, int x, int y, int z, Block block, int meta)

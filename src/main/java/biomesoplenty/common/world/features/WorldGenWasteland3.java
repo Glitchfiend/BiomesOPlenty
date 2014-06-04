@@ -1,13 +1,13 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenWasteland3 extends WorldGeneratorBOP
 {
@@ -26,7 +26,7 @@ public class WorldGenWasteland3 extends WorldGeneratorBOP
         Block var97 = world.getBlock(x, y, z - 1);
         Block var98 = world.getBlock(x, y, z + 1);
 
-        if (var6 != BOPBlockHelper.get("driedDirt") || var95 != BOPBlockHelper.get("driedDirt") || var96 != BOPBlockHelper.get("driedDirt") || var97 != BOPBlockHelper.get("driedDirt") || var98 != BOPBlockHelper.get("driedDirt") )
+        if (var6 != BOPCBlocks.driedDirt || var95 != BOPCBlocks.driedDirt || var96 != BOPCBlocks.driedDirt || var97 != BOPCBlocks.driedDirt || var98 != BOPCBlocks.driedDirt )
             return false;
         else
         {
@@ -46,23 +46,23 @@ public class WorldGenWasteland3 extends WorldGeneratorBOP
 
             if (var999 == 0)
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("driedDirt"));
-                world.setBlock(x - 1, y, z, BOPBlockHelper.get("driedDirt"));
-                world.setBlock(x + 1, y, z, BOPBlockHelper.get("driedDirt"));
-                world.setBlock(x, y, z - 1, BOPBlockHelper.get("driedDirt"));
-                world.setBlock(x, y, z + 1, BOPBlockHelper.get("driedDirt"));
-                this.setBlockAndNotifyAdequately(world, x, y + 1, z, BOPBlockHelper.get("driedDirt"), 0);
-                this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z, BOPBlockHelper.get("driedDirt"), 0);
-                this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z, BOPBlockHelper.get("driedDirt"), 0);
-                this.setBlockAndNotifyAdequately(world, x, y + 1, z + 1, BOPBlockHelper.get("driedDirt"), 0);
-                this.setBlockAndNotifyAdequately(world, x, y + 1, z - 1, BOPBlockHelper.get("driedDirt"), 0);
-                this.setBlockAndNotifyAdequately(world, x, y + 2, z, BOPBlockHelper.get("driedDirt"), 0);
+                world.setBlock(x, y, z, BOPCBlocks.driedDirt);
+                world.setBlock(x - 1, y, z, BOPCBlocks.driedDirt);
+                world.setBlock(x + 1, y, z, BOPCBlocks.driedDirt);
+                world.setBlock(x, y, z - 1, BOPCBlocks.driedDirt);
+                world.setBlock(x, y, z + 1, BOPCBlocks.driedDirt);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z, BOPCBlocks.driedDirt, 0);
+                this.setBlockAndNotifyAdequately(world, x + 1, y + 1, z, BOPCBlocks.driedDirt, 0);
+                this.setBlockAndNotifyAdequately(world, x - 1, y + 1, z, BOPCBlocks.driedDirt, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z + 1, BOPCBlocks.driedDirt, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z - 1, BOPCBlocks.driedDirt, 0);
+                this.setBlockAndNotifyAdequately(world, x, y + 2, z, BOPCBlocks.driedDirt, 0);
                 return true;
             }
             if (var999 == 1)
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("driedDirt"));
-                this.setBlockAndNotifyAdequately(world, x, y + 1, z, BOPBlockHelper.get("driedDirt"), 0);
+                world.setBlock(x, y, z, BOPCBlocks.driedDirt);
+                this.setBlockAndNotifyAdequately(world, x, y + 1, z, BOPCBlocks.driedDirt, 0);
                 return true;
             }
 

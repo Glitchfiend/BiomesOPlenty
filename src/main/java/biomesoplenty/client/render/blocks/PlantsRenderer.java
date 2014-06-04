@@ -1,14 +1,14 @@
 package biomesoplenty.client.render.blocks;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.client.render.RenderUtils;
-import biomesoplenty.common.blocks.BlockBOPPlant;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.render.RenderUtils;
+import biomesoplenty.common.blocks.BlockBOPPlant;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class PlantsRenderer implements ISimpleBlockRenderingHandler
 {
@@ -157,7 +157,7 @@ public class PlantsRenderer implements ISimpleBlockRenderingHandler
 			//TODO:	 drawCrossedSquares()
 			renderer.drawCrossedSquares(block.getIcon(0, world.getBlockMetadata(x, y, z)), d0, d1, d2, 1.0F);
 			//TODO:	 drawCrossedSquares()
-			renderer.drawCrossedSquares(((BlockBOPPlant)BOPBlockHelper.get("plants")).reedbottom, d0, d1 - 1, d2, 1.0F);
+			renderer.drawCrossedSquares(((BlockBOPPlant)BOPCBlocks.plants).reedbottom, d0, d1 - 1, d2, 1.0F);
 		}
 		else
 		{

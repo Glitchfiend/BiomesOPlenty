@@ -6,13 +6,10 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
-import biomesoplenty.common.world.features.trees.WorldGenTropicsShrub;
 
 public class BiomeGenOasis extends BOPSubBiome
 {
@@ -47,7 +44,7 @@ public class BiomeGenOasis extends BOPSubBiome
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 11);
 		
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
 	}
 	
     @Override
@@ -73,7 +70,7 @@ public class BiomeGenOasis extends BOPSubBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 2, 2);
 			}
 		}
 	}

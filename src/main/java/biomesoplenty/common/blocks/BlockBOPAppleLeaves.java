@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
@@ -304,7 +304,7 @@ public class BlockBOPAppleLeaves extends BlockLeavesBase implements IShearable
 	//TODO:	   getItemDropped()
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return Item.getItemFromBlock(BOPBlockHelper.get("saplings"));
+		return Item.getItemFromBlock(BOPCBlocks.saplings);
 	}
 
 	@Override

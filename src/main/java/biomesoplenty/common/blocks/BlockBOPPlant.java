@@ -25,7 +25,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
@@ -132,7 +132,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		switch (metadata)
 		{
 		case 0: // Dead Grass
-		return block == BOPBlockHelper.get("driedDirt") || block == Blocks.sand;
+		return block == BOPCBlocks.driedDirt || block == Blocks.sand;
 
 		case 1: // Desert Grass
 			return block == Blocks.hardened_clay;
@@ -142,7 +142,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.sand;
 
 		case 4: // Spectral Fern
-			return block == BOPBlockHelper.get("bopGrass");
+			return block == BOPCBlocks.bopGrass;
 
 		case 5: // Thorns
 			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand;
@@ -172,10 +172,10 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water && reedwater != Blocks.water;
 			
 		case 15: // Root
-			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPBlockHelper.get("longGrass"));
+			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPCBlocks.longGrass);
 			
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.overgrownNetherrack;
 		}
 	}
 
@@ -205,7 +205,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		}
 		else if (world.getBlockMetadata(x, y, z) == 8) 
 		{
-			if (!this.canReplace(world, x, y, z, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 8)))
+			if (!this.canReplace(world, x, y, z, 0, new ItemStack(BOPCBlocks.plants, 1, 8)))
 			{
 				this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
 				world.setBlockToAir(x, y, z);

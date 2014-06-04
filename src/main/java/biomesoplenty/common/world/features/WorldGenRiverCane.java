@@ -1,13 +1,13 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenRiverCane extends WorldGeneratorBOP
 {
@@ -28,10 +28,10 @@ public class WorldGenRiverCane extends WorldGeneratorBOP
 				for (int i2 = 0; i2 < l1; ++i2)
 				{
 					//TODO:							canReplace()
-					if (BOPBlockHelper.get("plants").canReplace(world, i1, j1, k1, 0, new ItemStack(BOPBlockHelper.get("plants"), 1, 8)))
+					if (BOPCBlocks.plants.canReplace(world, i1, j1, k1, 0, new ItemStack(BOPCBlocks.plants, 1, 8)))
 					{
 						//TODO:	setBlock()
-						world.setBlock(i1, j1 + i2, k1, BOPBlockHelper.get("plants"), 8, 2);
+						world.setBlock(i1, j1 + i2, k1, BOPCBlocks.plants, 8, 2);
 					}
 				}
 			}

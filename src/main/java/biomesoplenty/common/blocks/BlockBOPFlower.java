@@ -21,7 +21,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
 import cpw.mods.fml.relauncher.Side;
@@ -217,25 +217,25 @@ public class BlockBOPFlower extends BOPBlockWorldDecor
 		switch (metadata)
 		{
 		case 6: // Tulip
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 
 		case 10: // Lily Flower
 			return block == Blocks.waterlily;
 
 		case 11: // Enderlotus
-			return block == BOPBlockHelper.get("bopGrass");
+			return block == BOPCBlocks.bopGrass;
 
 		case 12: // Bromeliad
-			return block == BOPBlockHelper.get("hardDirt") || block == Blocks.hardened_clay || block == Blocks.sand;
+			return block == BOPCBlocks.hardDirt || block == Blocks.hardened_clay || block == Blocks.sand;
 			
 		case 13: // Eyebulb Bottom
-			 return block == Blocks.netherrack || block == BOPBlockHelper.get("overgrownNetherrack") || block == BOPBlockHelper.get("flesh");
+			 return block == Blocks.netherrack || block == BOPCBlocks.overgrownNetherrack || block == BOPCBlocks.flesh;
 
 		case 14: // Eyebulb Top
 			return block == this;
 
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPBlockHelper.get("longGrass") || block == BOPBlockHelper.get("overgrownNetherrack");
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 		}
 	}
 	@Override

@@ -7,7 +7,7 @@ import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -57,8 +57,8 @@ public class BiomeGenSilkglades extends BOPSubBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 2);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 1D);
     }
 
@@ -66,9 +66,9 @@ public class BiomeGenSilkglades extends BOPSubBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, 6, 9, BOPBlockHelper.get("leaves2"), 0) : 
+        return random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, 6, 9, BOPCBlocks.leaves2, 0) : 
             (random.nextInt(7) == 0 ? new WorldGenDeadTree() : 
-                new WorldGenBOPSwampTree(BOPBlockHelper.get("logs3"), BOPBlockHelper.get("colorizedLeaves2"), 1, 0, 6, 9, BOPBlockHelper.get("colorizedLeaves2"), 0));
+                new WorldGenBOPSwampTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0, 6, 9, BOPCBlocks.colorizedLeaves2, 0));
     }
 
     @Override
@@ -87,7 +87,7 @@ public class BiomeGenSilkglades extends BOPSubBiome
 
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 10, 2);
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
     }

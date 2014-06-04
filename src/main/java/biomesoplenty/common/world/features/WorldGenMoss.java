@@ -1,14 +1,14 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.util.Direction;
 import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenMoss extends WorldGeneratorBOP
 {
@@ -25,14 +25,14 @@ public class WorldGenMoss extends WorldGeneratorBOP
 				for (int var8 = 2; var8 <= 5; ++var8)
 				{
 					//TODO:							canPlaceBlockOnSide()
-					if (BOPBlockHelper.get("moss").canPlaceBlockOnSide(world, x, y, z, var8))
+					if (BOPCBlocks.moss.canPlaceBlockOnSide(world, x, y, z, var8))
 					{
 						int var999 = random.nextInt(4);
 
 						if (var999 == 0)
 						{
 							//TODO:	setBlock()
-							world.setBlock(x, y, z, BOPBlockHelper.get("moss"), 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
+							world.setBlock(x, y, z, BOPCBlocks.moss, 1 << Direction.facingToDirection[Facing.oppositeSide[var8]], 2);
 						}
 						break;
 					}

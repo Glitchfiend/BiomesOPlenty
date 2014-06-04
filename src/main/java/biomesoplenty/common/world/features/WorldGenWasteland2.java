@@ -1,13 +1,13 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenWasteland2 extends WorldGeneratorBOP
 {
@@ -23,7 +23,7 @@ public class WorldGenWasteland2 extends WorldGeneratorBOP
         //TODO:             getBlock()
         Block block = world.getBlock(x, y, z);
 
-        if (block != BOPBlockHelper.get("driedDirt"))
+        if (block != BOPCBlocks.driedDirt)
         {
             return false;
         }
@@ -41,137 +41,137 @@ public class WorldGenWasteland2 extends WorldGeneratorBOP
                 }
             }
 
-            world.setBlock(x, y, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y, z + 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y, z + 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y, z - 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y, z - 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 2, y, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 2, y, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 2, y, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y, z + 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y, z + 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y, z + 2, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 2, y, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 2, y, z, BOPCBlocks.driedDirt);
+            world.setBlock(x - 2, y, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x, y, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y, z + 2, BOPCBlocks.driedDirt);
+            world.setBlock(x, y, z + 2, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y, z + 2, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 1, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 1, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 1, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 1, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 1, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 1, z + 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 1, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 1, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 1, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 1, z + 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 1, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 1, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 1, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 1, z - 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 1, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 1, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 1, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 1, z - 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 2, y + 1, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 2, y + 1, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 2, y + 1, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y + 1, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y + 1, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y + 1, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 1, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 1, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 1, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 1, z + 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 1, z + 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 1, z + 2, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 2, y + 1, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 2, y + 1, z, BOPCBlocks.driedDirt);
+            world.setBlock(x - 2, y + 1, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y + 1, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y + 1, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y + 1, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 1, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 1, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 1, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 1, z + 2, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 1, z + 2, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 1, z + 2, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 2, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 2, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 2, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 2, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 2, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 2, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 2, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 2, z - 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 2, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 2, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 2, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 2, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 2, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 2, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 2, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 2, z - 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 2, y + 2, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 2, y + 2, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 2, y + 2, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y + 2, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y + 2, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 2, y + 2, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 2, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 2, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 2, z - 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 2, z + 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 2, z + 2, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 2, z + 2, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 2, y + 2, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 2, y + 2, z, BOPCBlocks.driedDirt);
+            world.setBlock(x - 2, y + 2, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y + 2, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y + 2, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 2, y + 2, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 2, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 2, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 2, z - 2, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 2, z + 2, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 2, z + 2, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 2, z + 2, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 2, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 2, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 3, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 3, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 3, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 3, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 3, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 3, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 3, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 3, z - 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 3, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 3, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 3, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 3, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 3, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 3, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 3, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 3, z - 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 3, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 3, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 4, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 4, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 4, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 4, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 4, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 4, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 4, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 4, z - 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 4, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 4, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 4, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 4, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 4, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 4, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 4, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 4, z - 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 4, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 4, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 5, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 5, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 5, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 5, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 5, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 5, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x - 1, y + 5, z + 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 5, z - 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 5, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 5, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 5, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 5, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 5, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 5, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x - 1, y + 5, z + 1, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 5, z - 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 5, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 5, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 6, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 6, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 6, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 6, z + 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 6, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 6, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 6, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 6, z + 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 6, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 6, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 7, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 7, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 7, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 7, z + 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 7, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 7, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 7, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 7, z + 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 7, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 7, z, BOPCBlocks.driedDirt);
 
-            world.setBlock(x - 1, y + 8, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x + 1, y + 8, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 8, z - 1, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 8, z + 1, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x - 1, y + 8, z, BOPCBlocks.driedDirt);
+            world.setBlock(x + 1, y + 8, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 8, z - 1, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 8, z + 1, BOPCBlocks.driedDirt);
 
-            world.setBlock(x, y + 8, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 9, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 10, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 11, z, BOPBlockHelper.get("driedDirt"));
-            world.setBlock(x, y + 12, z, BOPBlockHelper.get("driedDirt"));
+            world.setBlock(x, y + 8, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 9, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 10, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 11, z, BOPCBlocks.driedDirt);
+            world.setBlock(x, y + 12, z, BOPCBlocks.driedDirt);
 
             return true;
         }

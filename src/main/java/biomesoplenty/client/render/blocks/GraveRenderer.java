@@ -1,9 +1,9 @@
 package biomesoplenty.client.render.blocks;
 
-import biomesoplenty.client.render.RenderUtils;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
+import biomesoplenty.client.render.RenderUtils;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class GraveRenderer implements ISimpleBlockRenderingHandler

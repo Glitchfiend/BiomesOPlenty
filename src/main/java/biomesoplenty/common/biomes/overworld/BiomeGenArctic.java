@@ -1,12 +1,12 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biomes.BOPBiome;
 
 public class BiomeGenArctic extends BOPBiome
 {
@@ -50,7 +50,7 @@ public class BiomeGenArctic extends BOPBiome
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
 				//TODO:	setBlock()
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 8, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 8, 2);
 			}
 		}
 	}

@@ -4,11 +4,9 @@ import java.util.Random;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPNetherBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBrush1;
-import biomesoplenty.common.world.features.trees.WorldGenBrush2;
 import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenUndergarden extends BOPNetherBiome
@@ -19,7 +17,7 @@ public class BiomeGenUndergarden extends BOPNetherBiome
         
         this.setColor(15657658);
         
-        this.topBlock = BOPBlockHelper.get("overgrownNetherrack");
+        this.topBlock = BOPCBlocks.overgrownNetherrack;
         this.fillerBlock = Blocks.netherrack;
         
         this.theBiomeDecorator.treesPerChunk = 50;
@@ -36,16 +34,16 @@ public class BiomeGenUndergarden extends BOPNetherBiome
 		
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.25D);
 		this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 2), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 1), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
     }
     
 	@Override
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return new WorldGenMiniShrub(BOPBlockHelper.get("logs4"), BOPBlockHelper.get("leaves4"), 1, 0, BOPBlockHelper.get("overgrownNetherrack"));
+		return new WorldGenMiniShrub(BOPCBlocks.logs4, BOPCBlocks.leaves4, 1, 0, BOPCBlocks.overgrownNetherrack);
 	}
 }

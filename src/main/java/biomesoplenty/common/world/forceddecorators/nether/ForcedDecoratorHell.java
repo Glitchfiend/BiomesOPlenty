@@ -1,6 +1,6 @@
 package biomesoplenty.common.world.forceddecorators.nether;
 
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.world.decoration.ForcedDecorator;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
@@ -15,6 +15,6 @@ public class ForcedDecoratorHell extends ForcedDecorator
         
         this.bopWorldFeatures.setFeature("bopFlowersPerChunk", 4);
         
-        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPBlockHelper.get("flowers2"), 2), 10);
+        this.bopWorldFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers2, 2), 10);
 	}
 }

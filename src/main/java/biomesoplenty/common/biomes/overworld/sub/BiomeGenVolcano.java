@@ -5,8 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
@@ -28,8 +27,8 @@ public class BiomeGenVolcano extends BOPSubBiome
 
         this.spawnableCreatureList.clear();
 
-        this.topBlock = BOPBlockHelper.get("ashStone");
-        this.fillerBlock = BOPBlockHelper.get("ashStone");
+        this.topBlock = BOPCBlocks.ashStone;
+        this.fillerBlock = BOPCBlocks.ashStone;
         this.theBiomeDecorator.treesPerChunk = 0;
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.grassPerChunk = -999;
@@ -57,7 +56,7 @@ public class BiomeGenVolcano extends BOPSubBiome
             if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
             {
                 //TODO: setBlock()
-                world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 12, 2);
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 12, 2);
             }
         }
     }

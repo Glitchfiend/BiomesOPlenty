@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
@@ -36,7 +36,7 @@ public class BiomeGenSteppe extends BOPBiome
 		
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 15);
         
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 1), 1D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 1), 1D);
 	}
 	
 	@Override
@@ -55,7 +55,7 @@ public class BiomeGenSteppe extends BOPBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 2, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 2, 2);
 			}
 		}
 	}

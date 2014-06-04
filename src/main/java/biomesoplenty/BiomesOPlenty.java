@@ -47,10 +47,10 @@ public class BiomesOPlenty
         
         BOPPackets.init();
         BOPPotions.init();
+        BOPFluids.preInit();
         BOPBlocks.init();
         BOPItems.init();
         BOPFluids.init();
-        BOPArmor.init();
         BOPCrafting.init();
         BOPBiomes.init();
         BOPConfigurationVillages.init(BOPConfiguration.villagesConfigFile);

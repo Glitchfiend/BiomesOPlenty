@@ -1,17 +1,17 @@
 package biomesoplenty.common.biomes.overworld;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.biomes.BOPBiome;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
-import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biomes.BOPBiome;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenSeasonalForest extends BOPBiome
 {
@@ -40,8 +40,8 @@ public class BiomeGenSeasonalForest extends BOPBiome
 
         this.bopWorldFeatures.setFeature("bopGrassPerChunk", 8);
 
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 10), 0.5D);
-        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPBlockHelper.get("foliage"), 11), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
+        this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 0.5D);
         this.bopWorldFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
@@ -50,12 +50,12 @@ public class BiomeGenSeasonalForest extends BOPBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(2) == 0 ?  new WorldGenOriginalTree(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 3, false, 5, 3, false)
-        : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves1"), 2, 0, false, 5, 3, false) 
-        : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log2, BOPBlockHelper.get("leaves2"), 1, 3)
-        : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 2)
-        : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves3"), 0, 2, false, 5, 3, false)
-        : (random.nextInt(5) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPBlockHelper.get("leaves2"), 0, 0, false, 5, 3, false)
+        return random.nextInt(2) == 0 ?  new WorldGenOriginalTree(Blocks.log2, BOPCBlocks.leaves2, 1, 3, false, 5, 3, false)
+        : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves1, 2, 0, false, 5, 3, false) 
+        : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log2, BOPCBlocks.leaves2, 1, 3)
+        : (random.nextInt(6) == 0 ? new WorldGenBOPBigTree(Blocks.log, BOPCBlocks.leaves3, 0, 2)
+        : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves3, 0, 2, false, 5, 3, false)
+        : (random.nextInt(5) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, false, 5, 3, false)
         : (random.nextInt(6) == 0 ? worldGeneratorBigTree
                 : worldGeneratorTrees))))));
     }
@@ -76,7 +76,7 @@ public class BiomeGenSeasonalForest extends BOPBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 14, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 14, 2);
 			}
 		}
 	}

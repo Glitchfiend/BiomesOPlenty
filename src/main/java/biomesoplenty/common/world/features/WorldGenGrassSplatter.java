@@ -1,14 +1,14 @@
 package biomesoplenty.common.world.features;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenGrassSplatter extends WorldGeneratorBOP
 {
@@ -36,25 +36,25 @@ public class WorldGenGrassSplatter extends WorldGeneratorBOP
             int var999 = random.nextInt(5);
 
             //TODO:    isAirBlock()
-            if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("hardSand") || world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("mud") || world.getBlock(randX, randY - 1, randZ) == BOPBlockHelper.get("hardDirt") || world.getBlock(randX, randY - 1, randZ) == Blocks.sand || world.getBlock(randX, randY - 1, randZ) == Blocks.stone))
+            if (world.isAirBlock(randX, randY, randZ) && (world.getBlock(randX, randY - 1, randZ) == BOPCBlocks.hardSand || world.getBlock(randX, randY - 1, randZ) == BOPCBlocks.mud || world.getBlock(randX, randY - 1, randZ) == BOPCBlocks.hardDirt || world.getBlock(randX, randY - 1, randZ) == Blocks.sand || world.getBlock(randX, randY - 1, randZ) == Blocks.stone))
             {
                 world.setBlock(randX, randY - 1, randZ, Blocks.grass, 0, 2);
 
                 if (var999 == 0)
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 2, 2);
                 }
                 else if (var999 == 1)
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 10, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 10, 2);
                 }
                 else if (var999 == 2)
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 11, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 11, 2);
                 }
                 else
                 {
-                    world.setBlock(randX, randY, randZ, BOPBlockHelper.get("foliage"), 2, 2);
+                    world.setBlock(randX, randY, randZ, BOPCBlocks.foliage, 2, 2);
                 }
             }
         }

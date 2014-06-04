@@ -1,15 +1,15 @@
 package biomesoplenty.client.render.blocks;
 
-import biomesoplenty.api.BOPBlockHelper;
-import biomesoplenty.client.render.RenderUtils;
-import biomesoplenty.common.blocks.BlockBOPFoliage;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.render.RenderUtils;
+import biomesoplenty.common.blocks.BlockBOPFoliage;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class FoliageRenderer implements ISimpleBlockRenderingHandler
 {
@@ -26,7 +26,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	{
 		int meta = world.getBlockMetadata(x, y, z);
 		
-		if (block == BOPBlockHelper.get("foliage"))
+		if (block == BOPCBlocks.foliage)
 		{
 			if (meta == 0)
 				return renderBlockAlgae(renderer, block, x, y, z);
@@ -319,7 +319,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			f3 = f6;
 		}
 
-		if ((world.getBlockMetadata(par2, par3, par4) == 8 || world.getBlockMetadata(par2, par3, par4) == 9) && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("foliage"))
+		if ((world.getBlockMetadata(par2, par3, par4) == 8 || world.getBlockMetadata(par2, par3, par4) == 9) && world.getBlock(par2, par3, par4) == BOPCBlocks.foliage)
 		{
 			tessellator.setColorOpaque_F(f, f, f);
 		}
@@ -332,7 +332,7 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		double d1 = par3;
 		double d2 = par4;
 
-		if (par1Block == BOPBlockHelper.get("foliage"))
+		if (par1Block == BOPCBlocks.foliage)
 		{
 			long i1;
 			if (world.getBlockMetadata(par2, par3, par4) == HEDGETOP) {
@@ -348,22 +348,22 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		}
 
 
-		if (world.getBlockMetadata(par2, par3, par4) == 10 && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("flowers")) 
+		if (world.getBlockMetadata(par2, par3, par4) == 10 && world.getBlock(par2, par3, par4) == BOPCBlocks.flowers) 
 		{
 
 			renderer.drawCrossedSquares(par1Block.getIcon(0, world.getBlockMetadata(par2, par3, par4)), d0, d1 - 1, d2, 1.0F);
 		} 
-		else if (world.getBlockMetadata(par2, par3, par4) == 3 && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
+		else if (world.getBlockMetadata(par2, par3, par4) == 3 && world.getBlock(par2, par3, par4) == BOPCBlocks.foliage) 
 		{
 			renderHedge(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
 
-		else if (world.getBlockMetadata(par2, par3, par4) == 8 && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
+		else if (world.getBlockMetadata(par2, par3, par4) == 8 && world.getBlock(par2, par3, par4) == BOPCBlocks.foliage) 
 		{
 			renderBerryBush(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
 
-		else if (world.getBlockMetadata(par2, par3, par4) == 9 && world.getBlock(par2, par3, par4) == BOPBlockHelper.get("foliage")) 
+		else if (world.getBlockMetadata(par2, par3, par4) == 9 && world.getBlock(par2, par3, par4) == BOPCBlocks.foliage) 
 		{
 			renderShrub(d0, d1, d2, 1.0F, f1, f2, f3, renderer);
 		}
@@ -380,8 +380,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	{
         Tessellator tessellator = Tessellator.instance;
 
-        IIcon berryBush = renderer.getBlockIconFromSideAndMetadata(BOPBlockHelper.get("foliage"), 0, 8);
-        IIcon berryBushBerry = ((BlockBOPFoliage)BOPBlockHelper.get("foliage")).berryBushBerry;
+        IIcon berryBush = renderer.getBlockIconFromSideAndMetadata(BOPCBlocks.foliage, 0, 8);
+        IIcon berryBushBerry = ((BlockBOPFoliage)BOPCBlocks.foliage).berryBushBerry;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
 
@@ -395,8 +395,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	{
         Tessellator tessellator = Tessellator.instance;
 
-        IIcon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(BOPBlockHelper.get("foliage"), 0, 9);
-        IIcon shrubBranch = ((BlockBOPFoliage)BOPBlockHelper.get("foliage")).shrubBranch;
+        IIcon shrubLeaf = renderer.getBlockIconFromSideAndMetadata(BOPCBlocks.foliage, 0, 9);
+        IIcon shrubBranch = ((BlockBOPFoliage)BOPCBlocks.foliage).shrubBranch;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
 
@@ -410,8 +410,8 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 	{
         Tessellator tessellator = Tessellator.instance;
 
-        IIcon hedgeLeaf = renderer.getBlockIconFromSideAndMetadata(BOPBlockHelper.get("foliage"), 0, 3);
-        IIcon hedgeTrunk = ((BlockBOPFoliage)BOPBlockHelper.get("foliage")).hedgeTrunk;
+        IIcon hedgeLeaf = renderer.getBlockIconFromSideAndMetadata(BOPCBlocks.foliage, 0, 3);
+        IIcon hedgeTrunk = ((BlockBOPFoliage)BOPCBlocks.foliage).hedgeTrunk;
 
 		tessellator.setColorOpaque_F(par4 * par5, par4 * par6, par4 * par7);
 

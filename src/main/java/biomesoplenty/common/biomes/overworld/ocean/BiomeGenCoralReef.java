@@ -5,8 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biomes.BOPOceanBiome;
 
 public class BiomeGenCoralReef extends BOPOceanBiome
@@ -46,7 +45,7 @@ public class BiomeGenCoralReef extends BOPOceanBiome
 
 			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
 			{
-				world.setBlock(x, y, z, BOPBlockHelper.get("gemOre"), 12, 2);
+				world.setBlock(x, y, z, BOPCBlocks.gemOre, 12, 2);
 			}
 		}
 	}
