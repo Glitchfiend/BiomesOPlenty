@@ -4,7 +4,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import biomesoplenty.api.BOPPotionHelper;
+import biomesoplenty.api.content.BOPCPotions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class PotionParalysisEventHandler 
@@ -12,7 +12,7 @@ public class PotionParalysisEventHandler
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event)
 	{
-		if (event.entityLiving.isPotionActive(BOPPotionHelper.get("paralysis")))
+		if (event.entityLiving.isPotionActive(BOPCPotions.paralysis))
 		{
 			EntityLivingBase entity = event.entityLiving;
 			
@@ -30,9 +30,9 @@ public class PotionParalysisEventHandler
 				((EntityCreeper)entity).setCreeperState(-1);
 			}
 
-			if (entity.getActivePotionEffect(BOPPotionHelper.get("paralysis")).getDuration() == 0)
+			if (entity.getActivePotionEffect(BOPCPotions.paralysis).getDuration() == 0)
 			{
-				entity.removePotionEffect(BOPPotionHelper.get("paralysis").id);
+				entity.removePotionEffect(BOPCPotions.paralysis.id);
 				return;
 			}
 		}
@@ -41,7 +41,7 @@ public class PotionParalysisEventHandler
 	@SubscribeEvent
 	public void onEndermanTP(EnderTeleportEvent event)
 	{
-		if (event.entityLiving.isPotionActive(BOPPotionHelper.get("paralysis"))) 
+		if (event.entityLiving.isPotionActive(BOPCPotions.paralysis)) 
 		{
 			event.setCanceled(true);
 		}

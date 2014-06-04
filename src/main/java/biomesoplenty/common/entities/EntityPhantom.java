@@ -9,8 +9,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-import biomesoplenty.api.BOPPotionHelper;
 import biomesoplenty.api.content.BOPCItems;
+import biomesoplenty.api.content.BOPCPotions;
 
 public class EntityPhantom extends EntityMob
 {
@@ -64,7 +64,7 @@ public class EntityPhantom extends EntityMob
 			{
 				if (worldObj.difficultySetting != EnumDifficulty.PEACEFUL && worldObj.difficultySetting != EnumDifficulty.EASY)
 				{
-					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(BOPPotionHelper.get("possession").id, 30, 0));
+					((EntityLivingBase)par1Entity).addPotionEffect(new PotionEffect(BOPCPotions.possession.id, 30, 0));
 				}
 			}
 

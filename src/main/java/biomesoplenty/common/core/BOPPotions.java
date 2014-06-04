@@ -9,7 +9,6 @@ import net.minecraft.potion.Potion;
 
 import org.apache.logging.log4j.Level;
 
-import biomesoplenty.api.BOPPotionHelper;
 import biomesoplenty.common.helpers.BOPReflectionHelper;
 import biomesoplenty.common.potions.PotionParalysis;
 import biomesoplenty.common.potions.PotionPossession;

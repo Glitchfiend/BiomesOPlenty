@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import biomesoplenty.api.BOPPotionHelper;
+import biomesoplenty.api.content.BOPCPotions;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class PotionPossessionEventHandler 
@@ -12,7 +12,7 @@ public class PotionPossessionEventHandler
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event)
 	{
-		if (event.entityLiving.isPotionActive(BOPPotionHelper.get("possession")))
+		if (event.entityLiving.isPotionActive(BOPCPotions.possession))
 		{
 			EntityLivingBase entity = event.entityLiving;
 			
@@ -36,9 +36,9 @@ public class PotionPossessionEventHandler
 					entity.setPosition(posX + randX, posY + randY, posZ + randZ);
 			}
 
-			if (entity.getActivePotionEffect(BOPPotionHelper.get("possession")).getDuration() == 0)
+			if (entity.getActivePotionEffect(BOPCPotions.possession).getDuration() == 0)
 			{
-				entity.removePotionEffect(BOPPotionHelper.get("possession").id);
+				entity.removePotionEffect(BOPCPotions.possession.id);
 				return;
 			}
 		}
