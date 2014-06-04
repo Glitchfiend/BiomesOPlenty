@@ -45,7 +45,7 @@ public class BlockBOPGeneric extends Block
 
 		case CRAG_ROCK:
 			this.setHardness(1.0F);
-			this.setStepSound(soundTypeGravel);
+			this.setStepSound(Block.soundTypeStone);
 			break;
 
 		case DRIED_DIRT:
