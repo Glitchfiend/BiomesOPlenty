@@ -14,7 +14,6 @@ import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
 import biomesoplenty.common.eventhandler.world.BiomeSizeEventHandler;
 import biomesoplenty.common.eventhandler.world.DecorationModificationEventHandler;
-import biomesoplenty.common.eventhandler.world.DefaultWorldEventHandler;
 import biomesoplenty.common.eventhandler.world.MapGenEventHandler;
 import biomesoplenty.common.eventhandler.world.VillageMaterialEventHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -38,7 +37,6 @@ public class BOPEventHandlers
 	
 	private static void registerWorldEventHandlers()
 	{
-		MinecraftForge.TERRAIN_GEN_BUS.register(new DefaultWorldEventHandler());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new DecorationModificationEventHandler());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new BiomeSizeEventHandler());
 		MinecraftForge.TERRAIN_GEN_BUS.register(new VillageMaterialEventHandler());

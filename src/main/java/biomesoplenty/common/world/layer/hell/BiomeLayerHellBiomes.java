@@ -6,8 +6,8 @@ import java.util.List;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import biomesoplenty.api.BOPBiomeManager;
-import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 
 public class BiomeLayerHellBiomes extends BiomeLayerHell
 {
@@ -43,6 +43,6 @@ public class BiomeLayerHellBiomes extends BiomeLayerHell
     
     private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
     {
-    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, this.nextInt(WeightedRandom.getTotalWeight(biomeList)))).biome.biomeID;
+    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, (int)this.nextLong(WeightedRandom.getTotalWeight(biomeList) / 10) * 10)).biome.biomeID;
     }
 }

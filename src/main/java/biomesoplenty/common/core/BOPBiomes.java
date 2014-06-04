@@ -10,11 +10,11 @@ import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 import org.apache.logging.log4j.Level;
 
 import biomesoplenty.api.BOPBiomeManager;
-import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 import biomesoplenty.api.BOPBiomeManager.TemperatureType;
 import biomesoplenty.api.content.BOPCBiomes;
 import biomesoplenty.common.biomes.nether.BiomeGenBoneyard;

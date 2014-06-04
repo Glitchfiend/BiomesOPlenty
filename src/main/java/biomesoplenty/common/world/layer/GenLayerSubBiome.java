@@ -5,11 +5,11 @@ import java.util.List;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 import org.apache.commons.lang3.tuple.Pair;
 
 import biomesoplenty.api.BOPBiomeManager;
-import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 import biomesoplenty.common.biomes.BOPSubBiome;
 import biomesoplenty.common.world.noise.SimplexNoise;
 

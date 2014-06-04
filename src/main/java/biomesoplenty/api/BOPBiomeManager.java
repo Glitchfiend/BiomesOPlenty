@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -94,16 +95,5 @@ public class BOPBiomeManager
 		public static final int WARM = 1;
 		public static final int COOL = 2;
 		public static final int ICY = 3;
-	}
-	
-	public static class BiomeEntry extends WeightedRandom.Item
-	{
-		public BiomeGenBase biome;
-		
-		public BiomeEntry(BiomeGenBase biome, int weight)
-		{
-			super(weight);
-			this.biome = biome;
-		}
 	}
 }

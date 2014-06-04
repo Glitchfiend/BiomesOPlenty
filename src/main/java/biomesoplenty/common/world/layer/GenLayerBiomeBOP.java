@@ -10,8 +10,9 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import biomesoplenty.api.BOPBiomeManager;
-import biomesoplenty.api.BOPBiomeManager.BiomeEntry;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.core.BOPBiomes;
 
@@ -28,6 +29,15 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 		this.biomeLists[1].addAll(BOPBiomeManager.overworldBiomes[1]);
 		this.biomeLists[2].addAll(BOPBiomeManager.overworldBiomes[2]);
 		this.biomeLists[3].addAll(BOPBiomeManager.overworldBiomes[3]);
+		
+		this.biomeLists[0].addAll(BiomeManager.desertBiomes);
+		this.biomeLists[1].addAll(BiomeManager.warmBiomes);
+		this.biomeLists[2].addAll(BiomeManager.coolBiomes);
+		this.biomeLists[3].addAll(BiomeManager.icyBiomes);
+		
+        this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.desert, 30));
+        this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.savanna, 20));
+        this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.plains, 10));
 	}
 
 	
@@ -157,7 +167,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     
     private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
     {
-    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, this.nextInt(WeightedRandom.getTotalWeight(biomeList)))).biome.biomeID;
+    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, (int)this.nextLong(WeightedRandom.getTotalWeight(biomeList) / 10) * 10)).biome.biomeID;
     }
     
     private boolean isBiomeOceanicAndEnabled(int biomeId)
