@@ -15,6 +15,7 @@ inceee:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cap
 iarspider:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 Rodger:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 Freyskol:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
+Othlon:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/donator_cape.png
 
 Vexatos:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
 Heptaforce:https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes/helper_cape.png
