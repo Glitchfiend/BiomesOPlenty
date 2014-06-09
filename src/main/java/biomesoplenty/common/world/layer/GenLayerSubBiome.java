@@ -9,7 +9,7 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.common.biomes.BOPSubBiome;
+import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.world.BOPBiomeManager;
 import biomesoplenty.common.world.noise.SimplexNoise;
 

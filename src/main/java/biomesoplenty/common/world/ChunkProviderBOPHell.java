@@ -481,6 +481,10 @@ public class ChunkProviderBOPHell implements IChunkProvider
 		 int k = par2 * 16;
 		 int l = par3 * 16;
 		 BiomeGenBase var6 = worldObj.getBiomeGenForCoords(k + 16, l + 16);
+		 this.hellRNG.setSeed(this.worldObj.getSeed());
+		 long rand1 = this.hellRNG.nextLong() / 2L * 2L + 1L;
+		 long rand2 = this.hellRNG.nextLong() / 2L * 2L + 1L;
+		 this.hellRNG.setSeed((long)par2 * rand1 + (long)par3 * rand2 ^ this.worldObj.getSeed());
 
 		 genNetherBridge.generateStructuresInChunk(worldObj, hellRNG, par2, par3);
 		 int i1;
@@ -566,31 +570,9 @@ public class ChunkProviderBOPHell implements IChunkProvider
 			 (new WorldGenHellLava(Blocks.flowing_lava, true)).generate(worldObj, hellRNG, l1, i2, j2);
 		 }
 
-		 i1 = var6.theBiomeDecorator.treesPerChunk;
-
-		 if (this.hellRNG.nextInt(10) == 0)
-		 {
-			 ++i1;
-		 }
-
-		 for (j1 = 0; j1 < i1; ++j1)
-		 {
-			 k1 = k + this.hellRNG.nextInt(16) + 8;
-			 l1 = l + this.hellRNG.nextInt(16) + 8;
-			 i2 = this.hellRNG.nextInt(128);
-			 WorldGenAbstractTree worldgenabstracttree = var6.func_150567_a(this.hellRNG);
-			 worldgenabstracttree.setScale(1.0D, 1.0D, 1.0D);
-
-			 if (worldgenabstracttree.generate(this.worldObj, this.hellRNG, k1, i2, l1))
-			 {
-				 worldgenabstracttree.func_150524_b(this.worldObj, this.hellRNG, k1, i2, l1);
-			 }
-		 }
-
+		 var6.decorate(worldObj, hellRNG, k, l);
+		 
 		 MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldObj, hellRNG, k, l));
-
-		 //var6.decorate(worldObj, hellRNG, k, l);
-
 		 MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(par1IChunkProvider, worldObj, hellRNG, par2, par3, false));
 
 		 BlockFalling.fallInstantly = false;

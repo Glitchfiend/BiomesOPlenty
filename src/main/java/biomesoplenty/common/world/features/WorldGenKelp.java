@@ -4,10 +4,9 @@ import java.util.Random;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.blocks.BlockBOPCoral;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
 import biomesoplenty.common.world.generation.WorldGeneratorBOP;
 
 public class WorldGenKelp extends WorldGeneratorBOP
@@ -62,11 +61,11 @@ public class WorldGenKelp extends WorldGeneratorBOP
 	}
 	
 	@Override
-	public void setupGeneration(World world, Random random, BiomeGenBase biome, String featureName, int x, int z)
+	public void setupGeneration(World world, Random random, BOPBiome biome, String featureName, int x, int z)
 	{
 		if (featureName == "kelpPerChunk")
 		{
-			for (int i = 0; i < (Integer)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature(featureName); i++)
+			for (int i = 0; i < (Integer)biome.theBiomeDecorator.bopFeatures.getFeature(featureName); i++)
 			{
 				int randX = x + random.nextInt(16);
 				int randZ = z + random.nextInt(16);
@@ -77,7 +76,7 @@ public class WorldGenKelp extends WorldGeneratorBOP
 		}
 		else if (featureName == "kelpThickPerChunk")
 		{
-			for (int i = 0; i < (Integer)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature(featureName); i++)
+			for (int i = 0; i < (Integer)biome.theBiomeDecorator.bopFeatures.getFeature(featureName); i++)
 			{
 				int randX = x + random.nextInt(8);
 				int randZ = z + random.nextInt(8);
@@ -88,7 +87,7 @@ public class WorldGenKelp extends WorldGeneratorBOP
 		}
 		else if (featureName == "shortKelpPerChunk")
 		{
-			for (int i = 0; i < (Integer)BOPDecorationManager.getBiomeFeatures(biome.biomeID).getFeature(featureName); i++)
+			for (int i = 0; i < (Integer)biome.theBiomeDecorator.bopFeatures.getFeature(featureName); i++)
 			{
 				int randX = x + random.nextInt(16);
 				int randZ = z + random.nextInt(16);

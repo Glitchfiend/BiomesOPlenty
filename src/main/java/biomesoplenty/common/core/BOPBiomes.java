@@ -2,10 +2,13 @@ package biomesoplenty.common.core;
 
 import static biomesoplenty.api.content.BOPCBiomes.*;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenPlains;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -14,93 +17,114 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 import org.apache.logging.log4j.Level;
 
+import biomesoplenty.api.BOPObfuscationHelper;
+import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BOPOverriddenBiome;
 import biomesoplenty.api.content.BOPCBiomes;
-import biomesoplenty.common.biomes.nether.BiomeGenBoneyard;
-import biomesoplenty.common.biomes.nether.BiomeGenCorruptedSands;
-import biomesoplenty.common.biomes.nether.BiomeGenPhantasmagoricInferno;
-import biomesoplenty.common.biomes.nether.BiomeGenUndergarden;
-import biomesoplenty.common.biomes.nether.BiomeGenVisceralHeap;
-import biomesoplenty.common.biomes.overworld.BiomeGenAlps;
-import biomesoplenty.common.biomes.overworld.BiomeGenArctic;
-import biomesoplenty.common.biomes.overworld.BiomeGenBambooForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenBayou;
-import biomesoplenty.common.biomes.overworld.BiomeGenBog;
-import biomesoplenty.common.biomes.overworld.BiomeGenBorealForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenBrushland;
-import biomesoplenty.common.biomes.overworld.BiomeGenCanyon;
-import biomesoplenty.common.biomes.overworld.BiomeGenChaparral;
-import biomesoplenty.common.biomes.overworld.BiomeGenCherryBlossomGrove;
-import biomesoplenty.common.biomes.overworld.BiomeGenConiferousForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenConiferousForestSnow;
-import biomesoplenty.common.biomes.overworld.BiomeGenCrag;
-import biomesoplenty.common.biomes.overworld.BiomeGenDeadForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenDeadSwamp;
-import biomesoplenty.common.biomes.overworld.BiomeGenDeciduousForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenFen;
-import biomesoplenty.common.biomes.overworld.BiomeGenFlowerField;
-import biomesoplenty.common.biomes.overworld.BiomeGenFrostForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenFungiForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenGarden;
-import biomesoplenty.common.biomes.overworld.BiomeGenGrassland;
-import biomesoplenty.common.biomes.overworld.BiomeGenGrove;
-import biomesoplenty.common.biomes.overworld.BiomeGenHeathland;
-import biomesoplenty.common.biomes.overworld.BiomeGenHighland;
-import biomesoplenty.common.biomes.overworld.BiomeGenJadeCliffs;
-import biomesoplenty.common.biomes.overworld.BiomeGenLavenderFields;
-import biomesoplenty.common.biomes.overworld.BiomeGenLushDesert;
-import biomesoplenty.common.biomes.overworld.BiomeGenLushSwamp;
-import biomesoplenty.common.biomes.overworld.BiomeGenMapleWoods;
-import biomesoplenty.common.biomes.overworld.BiomeGenMarsh;
-import biomesoplenty.common.biomes.overworld.BiomeGenMeadow;
-import biomesoplenty.common.biomes.overworld.BiomeGenMoor;
-import biomesoplenty.common.biomes.overworld.BiomeGenMountain;
-import biomesoplenty.common.biomes.overworld.BiomeGenMysticGrove;
-import biomesoplenty.common.biomes.overworld.BiomeGenOminousWoods;
-import biomesoplenty.common.biomes.overworld.BiomeGenOriginValley;
-import biomesoplenty.common.biomes.overworld.BiomeGenOutback;
-import biomesoplenty.common.biomes.overworld.BiomeGenPrairie;
-import biomesoplenty.common.biomes.overworld.BiomeGenRainforest;
-import biomesoplenty.common.biomes.overworld.BiomeGenRedwoodForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenSacredSprings;
-import biomesoplenty.common.biomes.overworld.BiomeGenSeasonalForest;
-import biomesoplenty.common.biomes.overworld.BiomeGenShield;
-import biomesoplenty.common.biomes.overworld.BiomeGenShrubland;
-import biomesoplenty.common.biomes.overworld.BiomeGenSludgepit;
-import biomesoplenty.common.biomes.overworld.BiomeGenSteppe;
-import biomesoplenty.common.biomes.overworld.BiomeGenTemperateRainforest;
-import biomesoplenty.common.biomes.overworld.BiomeGenThicket;
-import biomesoplenty.common.biomes.overworld.BiomeGenTropicalRainforest;
-import biomesoplenty.common.biomes.overworld.BiomeGenTundra;
-import biomesoplenty.common.biomes.overworld.BiomeGenWasteland;
-import biomesoplenty.common.biomes.overworld.BiomeGenWetland;
-import biomesoplenty.common.biomes.overworld.BiomeGenWoodland;
-import biomesoplenty.common.biomes.overworld.ocean.BiomeGenCoralReef;
-import biomesoplenty.common.biomes.overworld.ocean.BiomeGenKelpForest;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenAlpsForest;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenCanyonRavine;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenGlacier;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenMangrove;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenMeadowForest;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenOasis;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenOrchard;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenQuagmire;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenScrubland;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenSilkglades;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenSpruceWoods;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenTropics;
-import biomesoplenty.common.biomes.overworld.sub.BiomeGenVolcano;
-import biomesoplenty.common.biomes.overworld.tech.BiomeGenDryRiver;
-import biomesoplenty.common.biomes.overworld.tech.BiomeGenLushRiver;
+import biomesoplenty.common.biome.nether.BiomeGenBoneyard;
+import biomesoplenty.common.biome.nether.BiomeGenCorruptedSands;
+import biomesoplenty.common.biome.nether.BiomeGenPhantasmagoricInferno;
+import biomesoplenty.common.biome.nether.BiomeGenUndergarden;
+import biomesoplenty.common.biome.nether.BiomeGenVisceralHeap;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPBirchForest;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPDesert;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPExtremeHills;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPForest;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPHell;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPIcePlains;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPJungle;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPMesa;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPMushroomIsland;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPOcean;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPPlains;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPRiver;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPRoofedForest;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPSavanna;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPSwamp;
+import biomesoplenty.common.biome.overridden.BiomeGenBOPTaiga;
+import biomesoplenty.common.biome.overworld.BiomeGenAlps;
+import biomesoplenty.common.biome.overworld.BiomeGenArctic;
+import biomesoplenty.common.biome.overworld.BiomeGenBambooForest;
+import biomesoplenty.common.biome.overworld.BiomeGenBayou;
+import biomesoplenty.common.biome.overworld.BiomeGenBog;
+import biomesoplenty.common.biome.overworld.BiomeGenBorealForest;
+import biomesoplenty.common.biome.overworld.BiomeGenBrushland;
+import biomesoplenty.common.biome.overworld.BiomeGenCanyon;
+import biomesoplenty.common.biome.overworld.BiomeGenChaparral;
+import biomesoplenty.common.biome.overworld.BiomeGenCherryBlossomGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenConiferousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenConiferousForestSnow;
+import biomesoplenty.common.biome.overworld.BiomeGenCrag;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadForest;
+import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenDeciduousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenFen;
+import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
+import biomesoplenty.common.biome.overworld.BiomeGenFrostForest;
+import biomesoplenty.common.biome.overworld.BiomeGenFungiForest;
+import biomesoplenty.common.biome.overworld.BiomeGenGarden;
+import biomesoplenty.common.biome.overworld.BiomeGenGrassland;
+import biomesoplenty.common.biome.overworld.BiomeGenGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenHeathland;
+import biomesoplenty.common.biome.overworld.BiomeGenHighland;
+import biomesoplenty.common.biome.overworld.BiomeGenJadeCliffs;
+import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
+import biomesoplenty.common.biome.overworld.BiomeGenLushDesert;
+import biomesoplenty.common.biome.overworld.BiomeGenLushSwamp;
+import biomesoplenty.common.biome.overworld.BiomeGenMapleWoods;
+import biomesoplenty.common.biome.overworld.BiomeGenMarsh;
+import biomesoplenty.common.biome.overworld.BiomeGenMeadow;
+import biomesoplenty.common.biome.overworld.BiomeGenMoor;
+import biomesoplenty.common.biome.overworld.BiomeGenMountain;
+import biomesoplenty.common.biome.overworld.BiomeGenMysticGrove;
+import biomesoplenty.common.biome.overworld.BiomeGenOminousWoods;
+import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
+import biomesoplenty.common.biome.overworld.BiomeGenOutback;
+import biomesoplenty.common.biome.overworld.BiomeGenPrairie;
+import biomesoplenty.common.biome.overworld.BiomeGenRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenRedwoodForest;
+import biomesoplenty.common.biome.overworld.BiomeGenSacredSprings;
+import biomesoplenty.common.biome.overworld.BiomeGenSeasonalForest;
+import biomesoplenty.common.biome.overworld.BiomeGenShield;
+import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
+import biomesoplenty.common.biome.overworld.BiomeGenSludgepit;
+import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
+import biomesoplenty.common.biome.overworld.BiomeGenTemperateRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenThicket;
+import biomesoplenty.common.biome.overworld.BiomeGenTropicalRainforest;
+import biomesoplenty.common.biome.overworld.BiomeGenTundra;
+import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
+import biomesoplenty.common.biome.overworld.BiomeGenWetland;
+import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biome.overworld.ocean.BiomeGenCoralReef;
+import biomesoplenty.common.biome.overworld.ocean.BiomeGenKelpForest;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenAlpsForest;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenCanyonRavine;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenGlacier;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenMangrove;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenMeadowForest;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenOasis;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenOrchard;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenQuagmire;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenScrubland;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenSilkglades;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenSpruceWoods;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenTropics;
+import biomesoplenty.common.biome.overworld.sub.BiomeGenVolcano;
+import biomesoplenty.common.biome.overworld.tech.BiomeGenDryRiver;
+import biomesoplenty.common.biome.overworld.tech.BiomeGenLushRiver;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.helpers.BOPReflectionHelper;
 import biomesoplenty.common.utils.BOPLogger;
 import biomesoplenty.common.world.BOPBiomeManager;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.common.world.BOPBiomeManager.TemperatureType;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class BOPBiomes
 {
@@ -110,14 +134,13 @@ public class BOPBiomes
 
 	public static void init()
 	{
-        GameRegistry.registerWorldGenerator(new BOPDecorationManager(), 0);
-
         try
         {
         	BOPConfigurationIDs.config.load();
         	BOPConfigurationBiomeGen.config.load();
         	BOPConfigurationBiomeWeights.config.load();
         	registerBiomes();
+        	registerOverriddenBiomes();
         }
         catch (Exception e)
         {
@@ -221,6 +244,38 @@ public class BOPBiomes
         //River Biomes
         lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp, lavenderFields, flowerField, bambooForest, cherryBlossomGrove, lushDesert, meadow, spruceWoods, rainforest, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills);
         dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback, steppe, BiomeGenBase.desert, BiomeGenBase.desertHills);
+	}
+	
+	private static void registerOverriddenBiomes()
+	{
+		registerOverriddenBiome(BiomeGenBOPBirchForest.class, BOPObfuscationHelper.birchForest, BOPObfuscationHelper.birchForestHills);
+
+		registerOverriddenBiome(BiomeGenBOPDesert.class, BOPObfuscationHelper.desert, BOPObfuscationHelper.desertHills);
+
+		registerOverriddenBiome(BiomeGenBOPExtremeHills.class, BOPObfuscationHelper.extremeHills, BOPObfuscationHelper.extremeHillsEdge);
+
+		registerOverriddenBiome(BiomeGenBOPForest.class, BOPObfuscationHelper.forest, BOPObfuscationHelper.forestHills);
+
+		registerOverriddenBiome(BiomeGenBOPIcePlains.class, BOPObfuscationHelper.icePlains);
+
+		registerOverriddenBiome(BiomeGenBOPJungle.class, BOPObfuscationHelper.jungle, BOPObfuscationHelper.jungleEdge, BOPObfuscationHelper.jungleHills);
+
+		registerOverriddenBiome(BiomeGenBOPMesa.class, BOPObfuscationHelper.mesa, BOPObfuscationHelper.mesaPlateau, BOPObfuscationHelper.mesaPlateau_F);
+
+		registerOverriddenBiome(BiomeGenBOPMushroomIsland.class, BOPObfuscationHelper.mushroomIsland, BOPObfuscationHelper.mushroomIslandShore);
+		
+		registerOverriddenBiome(BiomeGenBOPOcean.class, BOPObfuscationHelper.ocean);
+		registerOverriddenBiome(BiomeGenBOPPlains.class, BOPObfuscationHelper.plains);
+		registerOverriddenBiome(BiomeGenBOPRiver.class, BOPObfuscationHelper.river);
+		registerOverriddenBiome(BiomeGenBOPRoofedForest.class, BOPObfuscationHelper.roofedForest);
+
+		registerOverriddenBiome(BiomeGenBOPSavanna.class, BOPObfuscationHelper.savanna, BOPObfuscationHelper.savannaPlateau);
+
+		registerOverriddenBiome(BiomeGenBOPSwamp.class, BOPObfuscationHelper.swampland);
+
+		registerOverriddenBiome(BiomeGenBOPTaiga.class, BOPObfuscationHelper.taiga, BOPObfuscationHelper.taigaHills, BOPObfuscationHelper.coldTaiga, BOPObfuscationHelper.coldTaigaHills);
+
+		registerOverriddenBiome(BiomeGenBOPHell.class, BOPObfuscationHelper.hell);
 	}
 	
 	private static void addBiomesToDictionary()
@@ -402,6 +457,34 @@ public class BOPBiomes
 	private static BiomeGenBase registerNetherBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int weight)
 	{
 		return BOPBiomeManager.createAndRegisterBiome(biomeClass, "Nether", biomeName, BOPBiomeManager.netherBiomes, weight);
+	}
+	
+	private static void registerOverriddenBiome(Class<? extends BOPOverriddenBiome> biomeClass, String[]...overriddenBiomeNames)
+	{
+		for (String[] overriddenBiomeName : overriddenBiomeNames)
+		{
+			Field field = BOPReflectionHelper.removeFinal(BiomeGenBase.class, null, overriddenBiomeName);
+			
+			try
+			{
+				BiomeGenBase biomeToOverride = (BiomeGenBase)field.get(null);
+
+				if (biomeToOverride != null)
+				{
+					BiomeGenBase newBiome = BOPBiomeManager.createBiome(biomeClass, biomeToOverride.biomeName, biomeToOverride.biomeID);
+
+					if (BOPConfigurationBiomeGen.config.get("Vanilla Biomes To Override", biomeToOverride.biomeName, true).getBoolean(false))
+					{
+						field.set(null, newBiome);
+						BiomeGenBase.getBiomeGenArray()[biomeToOverride.biomeID] = newBiome;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public static void addSpawnBiome(BiomeGenBase biome)

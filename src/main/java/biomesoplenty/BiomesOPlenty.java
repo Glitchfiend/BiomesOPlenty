@@ -11,7 +11,7 @@ import biomesoplenty.common.integration.TreecapitatorIntegration;
 import biomesoplenty.common.network.PacketPipeline;
 import biomesoplenty.common.utils.BOPModInfo;
 import biomesoplenty.common.world.WorldTypeBOP;
-import biomesoplenty.common.world.decoration.BiomeTweaker;
+import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -52,10 +52,10 @@ public class BiomesOPlenty
         BOPItems.init();
         BOPFluids.init();
         BOPCrafting.init();
+        WorldGenFieldAssociation.init();
         BOPBiomes.init();
         BOPConfigurationVillages.init(BOPConfiguration.villagesConfigFile);
         BOPConfigurationStrongholds.init(BOPConfiguration.strongholdsConfigFile);
-        BiomeTweaker.init();
         BOPEntities.init();
         BOPVanillaCompat.init();
         

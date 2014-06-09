@@ -2,13 +2,13 @@ package biomesoplenty.common.core;
 
 import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.BiomeFeatures;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourDart;
 import biomesoplenty.common.entities.projectiles.dispenser.DispenserBehaviourMudball;
-import biomesoplenty.common.world.decoration.BOPDecorationManager;
-import biomesoplenty.common.world.decoration.BOPWorldFeatures;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import net.minecraft.block.BlockDispenser;
@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.ChestGenHooks;
 
 import java.util.HashMap;
@@ -74,31 +75,29 @@ public class BOPVanillaCompat
 	
 	private static void addBonemealFlowers()
 	{
-	    for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
-	    {
-	        if (biome != null)
-	        {
-                BOPWorldFeatures biomeFeatures = BOPDecorationManager.getBiomeFeatures(biome.biomeID);
+		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray())
+		{
+			if (biome != null && biome instanceof BOPBiome)
+			{
+				BOPBiome bopBiome = (BOPBiome)biome;
+				BiomeFeatures biomeFeatures = bopBiome.theBiomeDecorator.bopFeatures;
 
-	            if (biomeFeatures != null)
-	            {
-	                if (biomeFeatures.weightedFlowerGen != null && !biomeFeatures.weightedFlowerGen.isEmpty())
-	                {
-	                    HashMap<WorldGenBOPFlora, Integer> flowerMap = biomeFeatures.weightedFlowerGen;
+				if (biomeFeatures.weightedFlowerGen != null && !biomeFeatures.weightedFlowerGen.isEmpty())
+				{
+					HashMap<WorldGenerator, Integer> flowerMap = biomeFeatures.weightedFlowerGen;
 
-	                    for (Entry<WorldGenBOPFlora, Integer> entry : flowerMap.entrySet())
-	                    {
-	                        if (!(entry.getKey() instanceof WorldGenBOPDoubleFlora))
-	                        {
-	                            WorldGenBOPFlora flowerGenerator = entry.getKey();
-	                            int weight = entry.getValue();
+					for (Entry<WorldGenerator, Integer> entry : flowerMap.entrySet())
+					{
+						if (entry.getKey() instanceof WorldGenBOPFlora && !(entry.getKey() instanceof WorldGenBOPDoubleFlora))
+						{
+							WorldGenBOPFlora flowerGenerator = (WorldGenBOPFlora)entry.getKey();
+							int weight = entry.getValue();
 
-	                            biome.addFlower(flowerGenerator.flora, flowerGenerator.floraMeta, weight);
-	                        }
-	                    }
-	                }
-	            }
-	        }
-	    }
+							biome.addFlower(flowerGenerator.flora, flowerGenerator.floraMeta, weight);
+						}
+					}
+				}
+			}
+		}
 	}
 }

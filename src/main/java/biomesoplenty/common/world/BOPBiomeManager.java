@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import biomesoplenty.api.biome.BOPInheritedBiome;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
@@ -38,15 +39,24 @@ public class BOPBiomeManager
 		return null;
 	}
 	
-	public static BiomeGenBase createBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName)
+	public static BiomeGenBase createBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int biomeId)
 	{
-		int biomeId = BOPConfigurationIDs.config.get("Biome IDs", biomeName + " ID", getNextFreeBiomeId()).getInt();
+		if (biomeId == -1) biomeId = BOPConfigurationIDs.config.get("Biome IDs", biomeName + " ID", getNextFreeBiomeId()).getInt();
 
 		if (biomeId != -1)
 		{ 
 			try
 			{
-				BiomeGenBase biome = biomeClass.getConstructor(int.class).newInstance(biomeId).setBiomeName(biomeName);
+				BiomeGenBase biome;
+				
+				if (BOPInheritedBiome.class.isAssignableFrom(biomeClass))
+				{
+					biome = biomeClass.getConstructor(int.class, BiomeGenBase.class).newInstance(biomeId, BiomeGenBase.getBiome(biomeId)).setBiomeName(biomeName);
+				}
+				else
+				{
+					 biome = biomeClass.getConstructor(int.class).newInstance(biomeId).setBiomeName(biomeName);
+				}
 				
 				return biome;
 			}
@@ -57,6 +67,11 @@ public class BOPBiomeManager
 		}
 
 		return null;
+	}
+	
+	public static BiomeGenBase createBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName)
+	{
+		return createBiome(biomeClass, biomeName, -1);
 	}
 	
 	public static int getNextFreeBiomeId()
