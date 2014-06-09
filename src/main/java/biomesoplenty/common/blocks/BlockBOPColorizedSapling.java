@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -28,7 +29,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
 {
 	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany"};
 	private IIcon[] textures;
-	private static final int TYPES = 15;
 
 	public BlockBOPColorizedSapling()
 	{
@@ -81,7 +81,8 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		}
     }
 	
-    protected void checkAndDropBlock(World world, int x, int y, int z)
+    @Override
+	protected void checkAndDropBlock(World world, int x, int y, int z)
     {
         if (!this.canBlockStay(world, x, y, z, world.getBlockMetadata(x, y, z)))
         {
@@ -129,7 +130,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		switch (meta)
 		{
 		case 1: // Mangrove
-			System.out.println("H");
 			return block == Blocks.sand;
 
 		default:
@@ -141,7 +141,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
 	//TODO:		growTree()
 	public void func_149878_d(World world, int x, int y, int z, Random random)
 	{
-		int meta = world.getBlockMetadata(x, y, z) & TYPES;
+		int meta = world.getBlockMetadata(x, y, z) & 7;
 		Object obj = null;
 		int rnd = random.nextInt(8);
 
@@ -194,9 +194,9 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		}
 	}
 
-	@Override
+    @Override
 	public int damageDropped(int meta)
-	{
-		return meta;
-	}
+    {
+        return MathHelper.clamp_int(meta & 7, 0, saplings.length - 1);
+    }
 }
