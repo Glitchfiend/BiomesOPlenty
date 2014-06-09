@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.common.biome.decoration.BOPOverworldBiomeDecorator;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -33,13 +34,16 @@ public class DecorationModificationEventHandler
 	            return;
 	        }
 			
-			if (event.type == Decorate.EventType.PUMPKIN)
-			{
-				if (!(Boolean)bopBiome.theBiomeDecorator.bopFeatures.getFeature("generatePumpkins"))
-				{
-					event.setResult(Result.DENY);
-				}
-			}
+	        if (bopBiome.theBiomeDecorator instanceof BOPOverworldBiomeDecorator)
+	        {
+	        	if (event.type == Decorate.EventType.PUMPKIN)
+	        	{
+	        		if (!(Boolean)bopBiome.theBiomeDecorator.bopFeatures.getFeature("generatePumpkins"))
+	        		{
+	        			event.setResult(Result.DENY);
+	        		}
+	        	}
+	        }
 		}
 	}
 }
