@@ -19,7 +19,7 @@ public class BOPBiome<T extends BOPBiomeDecorator> extends BiomeGenBase
 		{
 			this.theBiomeDecorator = clazz.newInstance();
 		} 
-		catch (InstantiationException | IllegalAccessException e) 
+		catch (Exception e) 
 		{
 			throw new RuntimeException();
 		} 

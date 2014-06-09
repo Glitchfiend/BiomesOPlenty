@@ -43,7 +43,7 @@ public class BiomeFeatures
     	{
 			return this.getClass().getField(featureName).get(this);
 		} 
-    	catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) 
+    	catch (Exception e) 
 		{
 			throw new NoSuchFeatureException(featureName);
 		}

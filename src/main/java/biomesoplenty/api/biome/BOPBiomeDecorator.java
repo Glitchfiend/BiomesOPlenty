@@ -26,7 +26,7 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
 		{
 			this.bopFeatures = biomeFeaturesClass.newInstance();
 		} 
-		catch (InstantiationException | IllegalAccessException e) 
+		catch (Exception e) 
 		{
 			throw new RuntimeException();
 		} 
