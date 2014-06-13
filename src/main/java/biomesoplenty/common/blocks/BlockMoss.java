@@ -23,29 +23,26 @@ public class BlockMoss extends BlockVine
 	}
 
 	@Override
-	//TODO:		registerIcons()
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		//TODO: blockIcon
 		this.blockIcon = iconRegister.registerIcon("biomesoplenty:moss");
 	}
 	
-    // JAVADOC METHOD $$ func_149707_d
 	@Override
     public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
     {
         switch (side)
         {
             case 1:
-                return world.getBlock(x, y + 1, z) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y + 1, z), 1, OreDictionary.WILDCARD_VALUE)) || world.getBlock(x, y + 1, z) == Blocks.stone);
+                return (world.getBlock(x, y + 1, z).isWood(world, x, y + 1, z) || world.getBlock(x, y + 1, z) == Blocks.stone);
             case 2:
-            	return world.getBlock(x, y, z + 1) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y, z + 1), 1, OreDictionary.WILDCARD_VALUE)) || world.getBlock(x, y, z + 1) == Blocks.stone);
+            	return (world.getBlock(x, y, z + 1).isWood(world, x, y, z + 1) || world.getBlock(x, y, z + 1) == Blocks.stone);
             case 3:
-            	return world.getBlock(x, y, z - 1) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x, y, z - 1), 1, OreDictionary.WILDCARD_VALUE)) || world.getBlock(x, y, z - 1) == Blocks.stone);
+            	return (world.getBlock(x, y, z - 1).isWood(world, x, y, z - 1) || world.getBlock(x, y, z - 1) == Blocks.stone);
             case 4:
-            	return world.getBlock(x + 1, y, z) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x + 1, y, z), 1, OreDictionary.WILDCARD_VALUE)) || world.getBlock(x + 1, y, z) == Blocks.stone);
+            	return (world.getBlock(x + 1, y, z).isWood(world, x + 1, y, z) || world.getBlock(x + 1, y, z) == Blocks.stone);
             case 5:
-            	return world.getBlock(x - 1, y, z) != Blocks.air && (OreDictionary.getOreID("logWood") == OreDictionary.getOreID(new ItemStack(world.getBlock(x - 1, y, z), 1, OreDictionary.WILDCARD_VALUE)) || world.getBlock(x - 1, y, z) == Blocks.stone);
+            	return (world.getBlock(x - 1, y, z).isWood(world, x - 1, y, z) || world.getBlock(x - 1, y, z) == Blocks.stone);
             default:
                 return false;
         }
