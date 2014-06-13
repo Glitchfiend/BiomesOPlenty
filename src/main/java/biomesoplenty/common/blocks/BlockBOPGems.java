@@ -91,78 +91,13 @@ public class BlockBOPGems extends Block
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
-		return (metadata % 2 == 0) ? BOPCItems.gems : Item.getItemFromBlock(this);
+		return (metadata % 2 == 0) ? BOPCItems.gems : super.getItemDropped(metadata, random, fortune);
 	}
 
 	@Override
 	public int damageDropped(int meta)
 	{
-		if (meta == 0)
-		{
-			return 0;
-		}
-		if (meta == 1)
-		{
-			return meta;
-		}
-		if (meta == 2)
-		{
-			return 1;
-		}
-		if (meta == 3)
-		{
-			return meta;
-		}
-		if (meta == 4)
-		{
-			return 2;
-		}
-		if (meta == 5)
-		{
-			return meta;
-		}
-		if (meta == 6)
-		{
-			return 3;
-		}
-		if (meta == 7)
-		{
-			return meta;
-		}
-		if (meta == 8)
-		{
-			return 4;
-		}
-		if (meta == 9)
-		{
-			return meta;
-		}
-		if (meta == 10)
-		{
-			return 5;
-		}
-		if (meta == 11)
-		{
-			return meta;
-		}
-		if (meta == 12)
-		{
-			return 6;
-		}
-		if (meta == 13)
-		{
-			return meta;
-		}
-		if (meta == 14)
-		{
-			return 6;
-		}
-		if (meta == 15)
-		{
-			return meta;
-		}
-		
-		return meta;
+		return (meta % 2 == 0) ? meta / 2 : meta;
 	}
 
 	@Override
@@ -178,7 +113,8 @@ public class BlockBOPGems extends Block
 		{
 			int rnd = random.nextInt(bonus + 2) - 1;
 
-			if (rnd < 0) {
+			if (rnd < 0) 
+			{
 				rnd = 0;
 			}
 
@@ -186,18 +122,5 @@ public class BlockBOPGems extends Block
 		}
 		else
 			return this.quantityDropped(random);
-	}
-
-	@Override
-	public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance, int fortune)
-	{
-		super.dropBlockAsItemWithChance(world, x, y, z, metadata, chance, fortune);
-
-		if (this.getItemDropped(metadata, world.rand, fortune) != Item.getItemFromBlock(this))
-		{
-			int var8 =  MathHelper.getRandomIntegerInRange(world.rand, 3, 7);
-
-			this.dropXpOnBlockBreak(world, x, y, z, var8);
-		}
 	}
 }
