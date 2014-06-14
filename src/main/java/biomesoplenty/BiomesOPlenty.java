@@ -7,6 +7,7 @@ import biomesoplenty.common.configuration.structures.BOPConfigurationVillages;
 import biomesoplenty.common.core.*;
 import biomesoplenty.common.eventhandler.BOPEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
+import biomesoplenty.common.integration.BOPIntegration;
 import biomesoplenty.common.integration.TreecapitatorIntegration;
 import biomesoplenty.common.network.PacketPipeline;
 import biomesoplenty.common.utils.BOPModInfo;
@@ -77,6 +78,8 @@ public class BiomesOPlenty
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+    	BOPIntegration.postInit();
+    	
         packetPipeline.postInitialize();
         
         BOPBiomes.worldTypeBOP = new WorldTypeBOP();

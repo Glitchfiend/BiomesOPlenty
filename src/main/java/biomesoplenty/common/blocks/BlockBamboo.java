@@ -95,7 +95,7 @@ public class BlockBamboo extends Block
     {
 		float pixel = 0.0625F;
 		
-        return AxisAlignedBB.getAABBPool().getAABB((double)x + (1.0F - (pixel * 4)), (double)y, (double)z + (1.0F - (pixel * 4)), (double)x + (pixel * 4), (double)y + 1.0F, (double)z + (pixel * 4));
+        return AxisAlignedBB.getBoundingBox((double)x + (1.0F - (pixel * 4)), (double)y, (double)z + (1.0F - (pixel * 4)), (double)x + (pixel * 4), (double)y + 1.0F, (double)z + (pixel * 4));
     }
 	
     @Override

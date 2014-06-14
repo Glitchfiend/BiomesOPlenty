@@ -39,7 +39,7 @@ public class BlockAsh extends Block
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		float yOffset = 0.125F;
-		return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - yOffset, z + 1);
+		return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - yOffset, z + 1);
 	}
 
 	@Override

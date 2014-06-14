@@ -195,7 +195,7 @@ public class BlockBOPGrass extends Block
 		if (world.getBlockMetadata(x, y, z) == 1)
 		{
 			float f = 0.02F;
-			return AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1, y + 1 - f, z + 1);
+			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - f, z + 1);
 		}
 
 		//TODO:		getCollisionBoundingBoxFromPool()
