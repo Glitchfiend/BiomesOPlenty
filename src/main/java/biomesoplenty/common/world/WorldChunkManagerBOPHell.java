@@ -26,6 +26,7 @@ public class WorldChunkManagerBOPHell extends WorldChunkManager
 	protected WorldChunkManagerBOPHell()
 	{
 		biomeCache = new BiomeCacheHell(this);
+		biomesToSpawnIn = new ArrayList<BiomeGenBase>();
 	}
 
 	public WorldChunkManagerBOPHell(long par1, WorldType par3WorldType)
