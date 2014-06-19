@@ -119,10 +119,6 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 {
                     outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(3);
                 }
-                else if (BOPConfigurationBiomeGen.mushroomIslandGen)
-                {
-                	outputBiomeIDs[j1 + i1 * width] = BiomeGenBase.mushroomIsland.biomeID;
-                }
                 else
                 {
                 	outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromMixedList();
