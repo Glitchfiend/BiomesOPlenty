@@ -13,6 +13,7 @@ import net.minecraft.client.gui.GuiConfirmOpenLink;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 import org.apache.commons.io.FileUtils;
 import org.lwjgl.input.Keyboard;
@@ -41,26 +42,19 @@ public class StartupWarningGUI extends GuiScreen
     public void initGui()
     {
         Keyboard.enableRepeatEvents(true);
-        //TODO: buttonList
         this.buttonList.clear();
-        //TODO: buttonList
-        this.buttonList.add(new GuiButton(0, this.width / 2 - 175, this.height - 48, 350, 20, I18n.format("OK")));
-        //TODO: buttonList
-        this.buttonList.add(new GuiButton(1, this.width / 2 - 175, this.height - 24, 350, 20, I18n.format("Cancel")));
+        this.buttonList.add(new GuiButton(0, this.width / 2 - 175, this.height - 24, 350, 20, I18n.format("OK")));
     }
 
     @Override
-    //TODO:     onGuiClosed()
     public void onGuiClosed()
     {
         Keyboard.enableRepeatEvents(false);
     }
 
     @Override
-    //TODO:        actionPerformed()
     protected void actionPerformed(GuiButton button)
     {
-        //TODO:     enabled
         if (button.enabled)
         {
             //TODO:    id
@@ -76,13 +70,7 @@ public class StartupWarningGUI extends GuiScreen
                     e.printStackTrace();
                 }
                 
-                //TODO:             displayGuiScreen()
                 this.mc.displayGuiScreen(this.parentGuiScreen);
-            }
-            //TODO:    id
-            if (button.id == 1)
-            {
-                System.exit(0);
             }
         }
     }
@@ -90,26 +78,25 @@ public class StartupWarningGUI extends GuiScreen
     @Override
     public void drawScreen(int x, int y, float renderPartialTicks)
     {
-        //TODO: drawDefaultBackground()
         this.drawDefaultBackground();
         
-        //TODO:                      fontRendererObj                                    width
-        this.drawCenteredString(this.fontRendererObj, "" + RED + "Biomes O' Plenty uses a custom worldtype for its biomes. When creating a world, it", this.width / 2, 82, 0xFFFFFF);
-        this.drawCenteredString(this.fontRendererObj, "" + RED + "may be enabled by clicking the 'World Type' button under 'More World Options'", this.width / 2, 94, 0xFFFFFF);
-        this.drawCenteredString(this.fontRendererObj, "" + RED + "until it displays 'Biomes O' Plenty'.", this.width / 2, 106, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup1"), this.width / 2, 82, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup2"), this.width / 2, 94, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup3"), this.width / 2, 106, 0xFFFFFF);
         
-        this.drawCenteredString(this.fontRendererObj, "" + RED + "The worldtype can be used on servers by changing the 'level-type' in", this.width / 2, 132, 0xFFFFFF);
-        this.drawCenteredString(this.fontRendererObj, "" + RED + "sever.properties to 'BIOMESOP' (without quotes)", this.width / 2, 144, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup4"), this.width / 2, 132, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + RED + StatCollector.translateToLocal("warning.bopStartup5"), this.width / 2, 144, 0xFFFFFF);
         
-        this.drawCenteredString(this.fontRendererObj, "" + DARK_RED + "This message will only display once.", this.width / 2, 168, 0xFFFFFF);
+        this.drawCenteredString(this.fontRendererObj, "" + DARK_RED + StatCollector.translateToLocal("warning.bopStartup6"), this.width / 2, 168, 0xFFFFFF);
         
+        GL11.glEnable(GL11.GL_BLEND);
         this.mc.getTextureManager().bindTexture(bopLogoTexture);
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         
-        //                              width                      x, y, u, v, width, height
         this.drawTexturedModalRect(this.width / 2 - 168 / 2, 0, 0, 0, 168, 80);
         
-        
+        GL11.glDisable(GL11.GL_BLEND);
+       
         super.drawScreen(x, y, renderPartialTicks);
     }
     

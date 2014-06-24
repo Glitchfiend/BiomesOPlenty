@@ -25,7 +25,7 @@ public class ForestryIntegration
 	
 	private static final Item mulch = GameRegistry.findItem("Forestry", "mulch");
 	
-	public static void init()
+	protected static void init()
 	{
 		addFermenterRecipes();
 		addSqueezerRecipes();

@@ -63,6 +63,8 @@ public class BiomesOPlenty
         BOPEventHandlers.init();
         
         proxy.registerRenderers();
+        
+        BOPIntegration.preInit();
     }
     
     @EventHandler

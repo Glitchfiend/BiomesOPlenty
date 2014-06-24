@@ -50,7 +50,6 @@ public class BOPCBiomes
 	public static BiomeGenBase seasonalForest;
 	public static BiomeGenBase shield;
 	public static BiomeGenBase shrubland;
-	public static BiomeGenBase silkglades;
 	public static BiomeGenBase sludgepit;
 	public static BiomeGenBase steppe;
 	public static BiomeGenBase temperateRainforest;
@@ -71,6 +70,7 @@ public class BOPCBiomes
 	public static BiomeGenBase orchard;
 	public static BiomeGenBase quagmire;
 	public static BiomeGenBase scrubland;
+	public static BiomeGenBase silkglades;
 	public static BiomeGenBase spruceWoods;
 	public static BiomeGenBase tropics;
 	public static BiomeGenBase volcano;
