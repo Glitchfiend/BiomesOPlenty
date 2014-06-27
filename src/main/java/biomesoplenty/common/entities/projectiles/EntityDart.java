@@ -75,23 +75,23 @@ public class EntityDart extends EntityArrow
 			//TODO:						        getCollisionBoundingBoxFromPool()
 			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
 
-			if (axisalignedbb != null && axisalignedbb.isVecInside(worldObj.getWorldVec3Pool().getVecFromPool(posX, posY, posZ)))
+			if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(posX, posY, posZ)))
 			{
 				this.setDead();
 			}
 		}
 
 		++ticksInAir;
-		Vec3 vec3 = worldObj.getWorldVec3Pool().getVecFromPool(posX, posY, posZ);
-		Vec3 vec31 = worldObj.getWorldVec3Pool().getVecFromPool(posX + motionX, posY + motionY, posZ + motionZ);
+		Vec3 vec3 = Vec3.createVectorHelper(posX, posY, posZ);
+		Vec3 vec31 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
 		//TODO: 											 rayTraceBlocks_do_do()?
 		MovingObjectPosition movingobjectposition = worldObj.func_147447_a(vec3, vec31, false, true, false);
-		vec3 = worldObj.getWorldVec3Pool().getVecFromPool(posX, posY, posZ);
-		vec31 = worldObj.getWorldVec3Pool().getVecFromPool(posX + motionX, posY + motionY, posZ + motionZ);
+		vec3 = Vec3.createVectorHelper(posX, posY, posZ);
+		vec31 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
 
 		if (movingobjectposition != null)
 		{
-			vec31 = worldObj.getWorldVec3Pool().getVecFromPool(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
+			vec31 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
 		}
 
 		Entity entity = null;
