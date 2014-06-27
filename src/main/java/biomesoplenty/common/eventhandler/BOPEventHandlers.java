@@ -9,6 +9,7 @@ import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
 import biomesoplenty.common.eventhandler.misc.CapeEventHandler;
+import biomesoplenty.common.eventhandler.misc.CapeEventHandlerOld;
 import biomesoplenty.common.eventhandler.network.ConnectionEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
@@ -66,6 +67,7 @@ public class BOPEventHandlers
 	{
 		MinecraftForge.EVENT_BUS.register(new BonemealEventHandler());
 		MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
-		MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
+		if (MinecraftForge.MC_VERSION == "1.7.10") MinecraftForge.EVENT_BUS.register(new CapeEventHandler());
+		else MinecraftForge.EVENT_BUS.register(new CapeEventHandlerOld());
 	}
 }

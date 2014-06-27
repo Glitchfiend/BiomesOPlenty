@@ -29,7 +29,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 /**This class is not to be altered in any way, shape or form unless it contains a severe bug. The only reason it remains is for 1.7.2 compatibility.**/
 public class CapeEventHandlerOld
 {
-    private final String serverLocation = "https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes.txt";
+    private final String serverLocation = "https://raw.githubusercontent.com/Glitchfiend/BiomesOPlenty/master/capes.txt";
     private final int timeout = 1000;
 
     private static final Graphics TEST_GRAPHICS = new BufferedImage(128, 128,
@@ -68,15 +68,7 @@ public class CapeEventHandlerOld
 
                 capePlayers.add(abstractClientPlayer);
 
-                try
-                {
-                	ThreadDownloadImageData threadDownloadImageData = (ThreadDownloadImageData)ReflectionHelper.findMethod(AbstractClientPlayer.class, abstractClientPlayer, BOPObfuscationHelper.getTextureCape).invoke(abstractClientPlayer);
-                	ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, threadDownloadImageData, false, new String[]{"textureUploaded", "field_110559_g"});
-                }
-                catch (Exception e)
-                {
-                	e.printStackTrace();
-                }
+                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), false, new String[]{"textureUploaded", "field_110559_g"});
 
                 new Thread(new CloakThread(abstractClientPlayer, cloakURL)).start();
                 event.renderCape = true;
@@ -107,7 +99,7 @@ public class CapeEventHandlerOld
                         String nick = str.substring(0, str.indexOf(":"));
                         String link = str.substring(str.indexOf(":") + 1);
                         new Thread(new CloakPreload(link)).start();
-                        cloaks.put(nick, link);
+                        cloaks.put(nick, link);  
                     }
                     else
                     {
@@ -150,19 +142,11 @@ public class CapeEventHandlerOld
                         cape.getHeight(null), BufferedImage.TYPE_INT_ARGB);
                 bo.getGraphics().drawImage(cape, 0, 0, null);
 
-                try
-                {
-                	ThreadDownloadImageData threadDownloadImageData = (ThreadDownloadImageData)ReflectionHelper.findMethod(AbstractClientPlayer.class, abstractClientPlayer, BOPObfuscationHelper.getTextureCape).invoke(abstractClientPlayer);
-                	ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, threadDownloadImageData, bo, new String[]{"bufferedImage", "field_110560_d"});
-                }
-                catch (Exception e)
-                {
-                	e.printStackTrace();
-                }
+                ReflectionHelper.setPrivateValue(ThreadDownloadImageData.class, abstractClientPlayer.getTextureCape(), bo, new String[]{"bufferedImage", "field_110560_d"});
             }
             catch (MalformedURLException e)
             {
-                e.printStackTrace();
+            	e.printStackTrace();
             }
         }
     }

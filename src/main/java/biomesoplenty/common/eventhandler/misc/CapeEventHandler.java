@@ -9,27 +9,24 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.UUID;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.resources.SkinManager;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import org.apache.logging.log4j.Level;
 
 import biomesoplenty.common.utils.BOPLogger;
-
-import com.mojang.authlib.minecraft.MinecraftProfileTexture;
-import com.mojang.util.UUIDTypeAdapter;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class CapeEventHandler
 {
-    private final String serverLocation = "https://raw.github.com/Glitchfiend/BiomesOPlenty/master/capes.txt";
+    private final String serverLocation = "https://raw.githubusercontent.com/Glitchfiend/BiomesOPlenty/master/capes.txt";
     private final int timeout = 1000;
 
     private HashMap<String, String> cloaks = new HashMap<String, String>();
@@ -59,18 +56,31 @@ public class CapeEventHandler
             {
             	checkedPlayers.add(abstractClientPlayer);
             	
-            	//						 						   getSkinManager()?
-            	SkinManager skinManager = Minecraft.getMinecraft().func_152342_ad();
-
-            	String uuid = UUIDTypeAdapter.fromUUID(abstractClientPlayer.getUniqueID());
-
-            	if (cloaks.containsKey(uuid))
+            	try
             	{
-            		MinecraftProfileTexture profileTexture = new MinecraftProfileTexture(cloaks.get(uuid));
+            		Class SkinManager = Class.forName("net.minecraft.client.resources.SkinManager");
+            		Class SkinAvailableCallback = Class.forName("net.minecraft.client.resources.SkinManager$SkinAvailableCallback");
+            		Class UUIDTypeAdapter = Class.forName("com.mojang.util.UUIDTypeAdapter");
 
-            		skinManager.func_152789_a(profileTexture, MinecraftProfileTexture.Type.CAPE, abstractClientPlayer);
-            		
-            		event.renderCape = true;
+            		//						 						   															getSkinManager()?
+            		Object skinManager = ReflectionHelper.findMethod(Minecraft.class, Minecraft.getMinecraft(), new String[] { "func_152342_ad" }).invoke(Minecraft.getMinecraft());
+            		String uuid = (String)ReflectionHelper.findMethod(UUIDTypeAdapter, null, new String[] { "fromUUID" }, UUID.class).invoke(null, abstractClientPlayer.getUniqueID());
+
+            		if (cloaks.containsKey(uuid))
+            		{
+            			Class MinecraftProfileTexture = Class.forName("com.mojang.authlib.minecraft.MinecraftProfileTexture");
+            			Class Type = Class.forName("com.mojang.authlib.minecraft.MinecraftProfileTexture$Type");
+
+            			Object profileTexture = MinecraftProfileTexture.getConstructor(String.class).newInstance(cloaks.get(uuid));
+
+            			ReflectionHelper.findMethod(SkinManager, skinManager, new String[] { "func_152789_a" }, MinecraftProfileTexture, Type, SkinAvailableCallback).invoke(skinManager, profileTexture, Type.getField("CAPE").get(null), abstractClientPlayer);
+
+            			event.renderCape = true;
+            		}
+            	}
+            	catch (Exception e)
+            	{
+            		e.printStackTrace();
             	}
             }
         }
@@ -92,22 +102,19 @@ public class CapeEventHandler
             int linetracker = 1;
             while ((str = br.readLine()) != null)
             {
-                if (!str.startsWith("--") && !str.isEmpty())
+                if ((!str.startsWith("--") || str.contains("--*--")) && !str.isEmpty())
                 {
-                	if (str.startsWith("*%"))
+                	str = str.replace("--*--", "");
+
+                	if (str.contains(":"))
                 	{
-                		str = str.replace("*%", "");
-                		
-                		if (str.contains(":"))
-                		{
-                			String uuid = str.substring(0, str.indexOf(":"));
-                			String link = str.substring(str.indexOf(":") + 1);
-                			cloaks.put(uuid, link);
-                		}
-                		else
-                		{
-                			BOPLogger.log(Level.WARN, "[capes.txt] Syntax error on line " + linetracker + ": " + str);
-                		}
+                		String uuid = str.substring(0, str.indexOf(":"));
+                		String link = str.substring(str.indexOf(":") + 1);
+                		cloaks.put(uuid, link);
+                	}
+                	else
+                	{
+                		BOPLogger.log(Level.WARN, "[capes.txt] Syntax error on line " + linetracker + ": " + str);
                 	}
                 }
                 linetracker++;

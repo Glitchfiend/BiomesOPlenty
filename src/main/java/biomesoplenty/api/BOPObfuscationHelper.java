@@ -32,8 +32,4 @@ public class BOPObfuscationHelper
 	public static final String[] river = new String[] { "river", "field_76781_i" };
 	public static final String[] roofedForest = new String[] { "roofedForest", "field_150585_R" };
 	public static final String[] hell = new String[] { "hell", "field_76778_j" };
-	
-	//AbstractClientPlayer
-	@Deprecated
-	public static final String[] getTextureCape = new String[] { "getTextureCape", "func_110310_o" };
 }
