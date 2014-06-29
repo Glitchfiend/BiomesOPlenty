@@ -18,6 +18,7 @@ import biomesoplenty.common.eventhandler.world.DecorationModificationEventHandle
 import biomesoplenty.common.eventhandler.world.MapGenEventHandler;
 import biomesoplenty.common.eventhandler.world.VillageMaterialEventHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
 
 public class BOPEventHandlers 
 {
@@ -27,9 +28,13 @@ public class BOPEventHandlers
 		registerWorldEventHandlers();
 		registerEntityEventHandlers();
 		registerPotionEventHandlers();
-		registerGUIEventHandlers();
 		registerMiscEventHandlers();
-		registerClientEventHandlers();
+
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+		{
+			registerGUIEventHandlers();
+			registerClientEventHandlers();
+		}
 	}
 	
 	private static void registerNetworkEventHandlers()

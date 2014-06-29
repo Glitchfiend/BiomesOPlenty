@@ -2,7 +2,7 @@ package biomesoplenty.common.utils.remote;
 
 import java.util.UUID;
 
-import com.mojang.util.UUIDTypeAdapter;
+import biomesoplenty.common.utils.UUIDUtils;
 
 public class FlowerTrailManager extends RemoteIdentifierManager
 {
@@ -15,12 +15,12 @@ public class FlowerTrailManager extends RemoteIdentifierManager
 	
 	public boolean hasTrail(UUID uuid)
 	{
-		return this.identifierMap.containsKey(UUIDTypeAdapter.fromUUID(uuid));
+		return this.identifierMap.containsKey(UUIDUtils.fromUUID(uuid));
 	}
 	
 	public String getTrailType(UUID uuid)
 	{
-		return this.identifierMap.get(UUIDTypeAdapter.fromUUID(uuid));
+		return this.identifierMap.get(UUIDUtils.fromUUID(uuid));
 	}
 
 	public static FlowerTrailManager getInstance()
