@@ -33,6 +33,9 @@ public class BOPObfuscationHelper
 	public static final String[] roofedForest = new String[] { "roofedForest", "field_150585_R" };
 	public static final String[] hell = new String[] { "hell", "field_76778_j" };
 	
+	//GuiMainMenu
+	public static final String[] titlePanoramaPaths = new String[] { "titlePanoramaPaths", "field_73978_o" };
+	
 	//Minecraft
 	public static final String[] fileAssets = new String[] { "fileAssets", "field_110446_Y" };
 }

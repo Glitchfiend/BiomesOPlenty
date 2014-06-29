@@ -14,6 +14,7 @@ import biomesoplenty.common.core.BOPItems;
 import biomesoplenty.common.core.BOPPackets;
 import biomesoplenty.common.core.BOPPotions;
 import biomesoplenty.common.core.BOPVanillaCompat;
+import biomesoplenty.common.eventhandler.BOPEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.integration.BOPIntegration;
 import biomesoplenty.common.integration.TreecapitatorIntegration;
@@ -67,7 +68,8 @@ public class BiomesOPlenty
         BOPEntities.init();
         BOPVanillaCompat.init();
         
-        proxy.registerEventHandlers();
+        BOPEventHandlers.init();
+        
         proxy.registerRenderers();
         
         BOPIntegration.preInit();

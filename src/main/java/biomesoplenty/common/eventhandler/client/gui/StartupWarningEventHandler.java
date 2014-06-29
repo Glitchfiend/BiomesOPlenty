@@ -1,4 +1,4 @@
-package biomesoplenty.common.eventhandler.gui;
+package biomesoplenty.common.eventhandler.client.gui;
 
 import java.io.File;
 import java.io.IOException;
