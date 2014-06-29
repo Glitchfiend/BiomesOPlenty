@@ -8,10 +8,11 @@ import net.minecraft.client.model.ModelSlime;
 import net.minecraft.client.particle.EntityBreakingFX;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
-import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.particles.EntityDandelionFX;
+import biomesoplenty.client.particles.EntityFlowerScatterFX;
 import biomesoplenty.client.particles.EntityMagicTreeFX;
 import biomesoplenty.client.particles.EntityPixieTrailFX;
 import biomesoplenty.client.particles.EntitySteamFX;
@@ -39,9 +40,7 @@ import biomesoplenty.common.entities.EntityRosester;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
-import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
 
 public class ClientProxy extends CommonProxy 
 {
@@ -103,7 +102,7 @@ public class ClientProxy extends CommonProxy
 	}
 	
 	@Override
-	public void spawnParticle(String string, double x, double y, double z)
+	public void spawnParticle(String string, double x, double y, double z, Object... args)
 	{
 		EntityFX entityfx = null;
 		
@@ -136,6 +135,10 @@ public class ClientProxy extends CommonProxy
 		else if (string == "pixietrail") 
 		{
 			entityfx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(rand, -0.03, 0.03));
+		}
+		else if (string == "flowerscatter")
+		{
+			entityfx = new EntityFlowerScatterFX(minecraft.theWorld, x, y, z, (IIcon)args[0]);
 		}
 
 		minecraft.effectRenderer.addEffect(entityfx);

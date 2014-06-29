@@ -1,6 +1,8 @@
 package biomesoplenty.common.eventhandler;
 
 import net.minecraftforge.common.MinecraftForge;
+import biomesoplenty.client.utils.ParticleRegistry;
+import biomesoplenty.common.eventhandler.client.FlowerScatterEventHandler;
 import biomesoplenty.common.eventhandler.client.gui.MainMenuEventHandler;
 import biomesoplenty.common.eventhandler.client.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
@@ -27,7 +29,7 @@ public class BOPEventHandlers
 		registerPotionEventHandlers();
 		registerGUIEventHandlers();
 		registerMiscEventHandlers();
-		//registerClientEventHandlers();
+		registerClientEventHandlers();
 	}
 	
 	private static void registerNetworkEventHandlers()
@@ -68,9 +70,9 @@ public class BOPEventHandlers
 		MinecraftForge.EVENT_BUS.register(new BucketEventHandler());
 	}
 	
-	/*private static void registerClientEventHandlers()
+	private static void registerClientEventHandlers()
 	{
 		MinecraftForge.EVENT_BUS.register(new ParticleRegistry());
 		FMLCommonHandler.instance().bus().register(new FlowerScatterEventHandler());
-	}*/
+	}
 }

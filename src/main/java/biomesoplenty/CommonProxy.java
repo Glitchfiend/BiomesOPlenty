@@ -25,7 +25,7 @@ public class CommonProxy
 	{
 	}
 	
-	public void spawnParticle(String string, double x, double y, double z)
+	public void spawnParticle(String string, double x, double y, double z, Object... args)
 	{
 	}
 	

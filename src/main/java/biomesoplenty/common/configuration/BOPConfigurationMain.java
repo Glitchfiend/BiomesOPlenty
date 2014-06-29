@@ -7,7 +7,6 @@ import net.minecraftforge.common.config.Property;
 
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 
 public class BOPConfigurationMain
@@ -15,6 +14,7 @@ public class BOPConfigurationMain
 	public static Configuration config;
 
 	public static boolean debugMode;
+	public static Property trailsVersion;
 
 	public static void init(File configFile)
 	{
@@ -25,6 +25,7 @@ public class BOPConfigurationMain
 			config.load();
 
 			debugMode = config.get("Debug Settings", "Debug Mode", false, "Turn debug mode on/off").getBoolean(false);
+			trailsVersion = config.get("Versions", "Trail Version", "");
 		}
 		catch (Exception e)
 		{
