@@ -18,7 +18,8 @@ public class BOPConfigurationTerrainGen
 	//public static boolean vanillaEnhanced;
 	//public static boolean netherOverride;
 	
-	//public static int landmassPercentage;
+	public static boolean oceanFiller;
+	public static int landmassPercentage;
 
 	public static void init(File configFile)
 	{
@@ -33,7 +34,8 @@ public class BOPConfigurationTerrainGen
 			//vanillaEnhanced = config.get("Biome Settings", "Enhanced Vanilla Biomes", true).getBoolean(false);
 			//netherOverride = config.get("Dimension Settings", "Enable Nether Override", true).getBoolean(true);
 			
-			//landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
+			oceanFiller = config.get("Biomes O\' Plenty World Type Settings", "OceanFiller", true, "Fills the ocean with land biomes if there is an excessive amount. This must be disabled to use the landmass percentage").getBoolean();
+			landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "Requires ocean filler to be disabled. In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
 		}
 		catch (Exception e)
 		{

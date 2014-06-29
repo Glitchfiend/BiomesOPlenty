@@ -1,11 +1,19 @@
 package biomesoplenty;
 
+import net.minecraft.creativetab.CreativeTabs;
 import biomesoplenty.common.configuration.BOPConfiguration;
-import biomesoplenty.common.configuration.BOPConfigurationBiomeGen;
 import biomesoplenty.common.configuration.structures.BOPConfigurationStrongholds;
 import biomesoplenty.common.configuration.structures.BOPConfigurationVillages;
-import biomesoplenty.common.core.*;
-import biomesoplenty.common.eventhandler.BOPEventHandlers;
+import biomesoplenty.common.core.BOPBiomes;
+import biomesoplenty.common.core.BOPBlocks;
+import biomesoplenty.common.core.BOPCrafting;
+import biomesoplenty.common.core.BOPDimensions;
+import biomesoplenty.common.core.BOPEntities;
+import biomesoplenty.common.core.BOPFluids;
+import biomesoplenty.common.core.BOPItems;
+import biomesoplenty.common.core.BOPPackets;
+import biomesoplenty.common.core.BOPPotions;
+import biomesoplenty.common.core.BOPVanillaCompat;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.integration.BOPIntegration;
 import biomesoplenty.common.integration.TreecapitatorIntegration;
@@ -20,7 +28,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraft.creativetab.CreativeTabs;
 
 @Mod(modid = BOPModInfo.modID, name = BOPModInfo.modName, dependencies = "after:Natura; required-after:Forge@[1.7.10-10.13.0.1152,)")
 public class BiomesOPlenty
@@ -60,8 +67,7 @@ public class BiomesOPlenty
         BOPEntities.init();
         BOPVanillaCompat.init();
         
-        BOPEventHandlers.init();
-        
+        proxy.registerEventHandlers();
         proxy.registerRenderers();
         
         BOPIntegration.preInit();

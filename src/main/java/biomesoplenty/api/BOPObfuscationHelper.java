@@ -32,4 +32,7 @@ public class BOPObfuscationHelper
 	public static final String[] river = new String[] { "river", "field_76781_i" };
 	public static final String[] roofedForest = new String[] { "roofedForest", "field_150585_R" };
 	public static final String[] hell = new String[] { "hell", "field_76778_j" };
+	
+	//Minecraft
+	public static final String[] fileAssets = new String[] { "fileAssets", "field_110446_Y" };
 }

@@ -7,7 +7,10 @@ public class BOPIntegration
 {
 	public static void preInit()
 	{
-		
+		/*if (Loader.isModLoaded("ATG"))
+		{
+			ATGIntegration.init();
+		}*/
 	}
 	
 	public static void init()

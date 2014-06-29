@@ -118,6 +118,7 @@ import biomesoplenty.common.configuration.BOPConfigurationBiomeWeights;
 import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.helpers.BOPReflectionHelper;
+import biomesoplenty.common.integration.ATGIntegration;
 import biomesoplenty.common.utils.BOPLogger;
 import biomesoplenty.common.world.BOPBiomeManager;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -418,6 +419,8 @@ public class BOPBiomes
 						if (BOPBiomeManager.overworldSubBiomes[parent.biomeID] == null) BOPBiomeManager.overworldSubBiomes[parent.biomeID] = new ArrayList();
 
 						BOPBiomeManager.overworldSubBiomes[parent.biomeID].add(entry);
+						
+						ATGIntegration.registerATGSubBiome(parent, biome);
 					}
 				}
 			}

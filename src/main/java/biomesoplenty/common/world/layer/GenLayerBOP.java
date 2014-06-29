@@ -1,5 +1,6 @@
 package biomesoplenty.common.world.layer;
 
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerAddIsland;
@@ -29,15 +30,15 @@ public abstract class GenLayerBOP extends GenLayer
     public static GenLayer[] initializeAllBiomeGenerators(long seed, WorldType par2WorldType)
     {
         boolean flag = false;
-        GenLayerIsland genlayerisland = new GenLayerIsland(1L);
-        GenLayerFuzzyZoom genlayerfuzzyzoom = new GenLayerFuzzyZoom(2000L, genlayerisland);
+        GenLayer genLayerCreateLand = BOPConfigurationTerrainGen.oceanFiller ? new GenLayerIsland(1L) : new GenLayerCreateLand(1L);
+        GenLayerFuzzyZoom genlayerfuzzyzoom = new GenLayerFuzzyZoom(2000L, genLayerCreateLand);
         GenLayerAddIsland genlayeraddisland = new GenLayerAddIsland(1L, genlayerfuzzyzoom);
         GenLayerZoom genlayerzoom = new GenLayerZoom(2001L, genlayeraddisland);
         genlayeraddisland = new GenLayerAddIsland(2L, genlayerzoom);
         genlayeraddisland = new GenLayerAddIsland(50L, genlayeraddisland);
         genlayeraddisland = new GenLayerAddIsland(70L, genlayeraddisland);
         GenLayerRemoveTooMuchOcean genlayerremovetoomuchocean = new GenLayerRemoveTooMuchOcean(2L, genlayeraddisland);
-        GenLayerAddSnow genlayeraddsnow = new GenLayerAddSnow(2L, genlayerremovetoomuchocean);
+        GenLayerAddSnow genlayeraddsnow = new GenLayerAddSnow(2L, BOPConfigurationTerrainGen.oceanFiller ? genlayerremovetoomuchocean : genlayeraddisland);
         genlayeraddisland = new GenLayerAddIsland(3L, genlayeraddsnow);
         GenLayerEdge genlayeredge = new GenLayerEdge(2L, genlayeraddisland, GenLayerEdge.Mode.COOL_WARM);
         genlayeredge = new GenLayerEdge(2L, genlayeredge, GenLayerEdge.Mode.HEAT_ICE);

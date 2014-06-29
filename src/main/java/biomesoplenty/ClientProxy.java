@@ -39,7 +39,10 @@ import biomesoplenty.common.entities.EntityRosester;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.EntityMudball;
+import biomesoplenty.common.eventhandler.gui.StartupWarningEventHandler;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class ClientProxy extends CommonProxy 
 {
@@ -98,6 +101,14 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
         RenderingRegistry.registerBlockHandler(new GraveRenderer());
         RenderingRegistry.registerBlockHandler(new BambooRenderer());
+	}
+	
+	@Override
+	public void registerEventHandlers()
+	{
+	    MinecraftForge.EVENT_BUS.register(StartupWarningEventHandler.instance);
+		MinecraftForge.EVENT_BUS.register(new ParticleRegistry());
+		FMLCommonHandler.instance().bus().register(new FlowerScatterEventHandler());
 	}
 	
 	@Override
