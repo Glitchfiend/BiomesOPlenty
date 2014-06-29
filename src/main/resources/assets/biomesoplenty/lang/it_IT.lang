@@ -1,4 +1,4 @@
-tile.mud.mud.name=fango
+tile.mud.mud.name=Fango
 tile.mud.quicksand.name=Sabbie mobili
 
 tile.ashStone.name=Roccia cenere
@@ -452,20 +452,20 @@ achievement.bop.achEnderporter=Casa dolce casa
 achievement.bop.achEnderporter.desc=Usa i magici poteri del Traslatore Ender.
 
 achievement.bop.achHoney=Dolceamaro
-achievement.bop.achHoney.desc=Il paese di sangue e miele.
+achievement.bop.achHoney.desc=Un paese di sangue e miele.
 achievement.bop.achWitherWart=Decomporre
 achievement.bop.achWitherWart.desc=Un maestro nei travestimenti.
 achievement.bop.achGrave=Becchino
 achievement.bop.achGrave.desc=Il prossimo Dampe.
-achievement.bop.achPhantom=La Minaccia Fantasma
+achievement.bop.achPhantom=La minaccia fantasma
 achievement.bop.achPhantom.desc=Ladro di anime...
 
 achievement.bop.achPromised=Cambio di mondo!
 achievement.bop.achPromised.desc=Benvenuto alla terra promessa!
 achievement.bop.achCelestial=Cielo blu
 achievement.bop.achCelestial.desc=Io sono colui che...blocca...
-achievement.bop.achAmbrosia=Bevanda degli dei
-achievement.bop.achAmbrosia.desc=Stai assetato, mio amico.
+achievement.bop.achAmbrosia=Bevanda degli Dei
+achievement.bop.achAmbrosia.desc=Dissetati, amico mio.
 
 achievement.bop.achAllBOP=Conquiste O' Plenty
 achievement.bop.achAllBOP.desc=Hai ottenuto tutte le conquiste di Biomes O' Plenty!
