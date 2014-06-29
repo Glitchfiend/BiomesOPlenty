@@ -24,6 +24,8 @@ public class GenLayerSubBiome extends GenLayer
 		super(seed);
 		
 		this.parent = parent;
+		
+		this.setOffsets();
 	}
 	
     @Override
@@ -64,12 +66,14 @@ public class GenLayerSubBiome extends GenLayer
     
     private Pair<Integer, Integer> getOffset(BiomeGenBase biome)
     {
-    	Pair<Integer, Integer> offset = offsets[biome.biomeID];
-    	
-    	if (offset != null) return offset;
-    	else
+    	return offsets[biome.biomeID];
+    }
+
+    private void setOffsets()
+    {
+    	for (int i = 0; i< offsets.length; i++)
     	{
-    		return offsets[biome.biomeID] = Pair.of(this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2), this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2));
+    		offsets[i] = Pair.of(this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2), this.nextInt(OFFSET_RANGE) - (OFFSET_RANGE / 2));
     	}
     }
 }
