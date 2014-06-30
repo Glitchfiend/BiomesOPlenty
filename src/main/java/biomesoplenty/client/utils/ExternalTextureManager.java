@@ -9,6 +9,7 @@ import org.apache.commons.io.FilenameUtils;
 
 import biomesoplenty.api.BOPObfuscationHelper;
 import biomesoplenty.common.utils.remote.IVersionChecker;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -24,7 +25,7 @@ public class ExternalTextureManager
 	private ExternalTextureManager()
 	{
 		this.textureManager = Minecraft.getMinecraft().renderEngine;
-		this.bopExternalFiles = new File((File)ReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), BOPObfuscationHelper.fileAssets), "bopexternal");
+		this.bopExternalFiles = new File((File)ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), BOPObfuscationHelper.fileAssets), "bopexternal");
 	}
 	
 	public ExternalTexture retrieveExternalTexture(String url, String type, IVersionChecker versionChecker)

@@ -1,9 +1,7 @@
 package biomesoplenty.api.biome;
 
-import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 

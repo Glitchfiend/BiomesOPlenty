@@ -33,6 +33,9 @@ public class BOPObfuscationHelper
 	public static final String[] roofedForest = new String[] { "roofedForest", "field_150585_R" };
 	public static final String[] hell = new String[] { "hell", "field_76778_j" };
 	
+	//BiomeGenForest
+	public static final String[] forestType = new String[] { "field_150632_aF" };
+	
 	//GuiMainMenu
 	public static final String[] titlePanoramaPaths = new String[] { "titlePanoramaPaths", "field_73978_o" };
 	
