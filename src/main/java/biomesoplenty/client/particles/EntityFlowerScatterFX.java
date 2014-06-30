@@ -1,5 +1,6 @@
 package biomesoplenty.client.particles;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
@@ -46,16 +47,16 @@ public class EntityFlowerScatterFX extends EntityFX
             maxU = particleIcon.getMaxU();
             minV = particleIcon.getMinV();
             maxV = particleIcon.getMaxV();
-        }
-        
-        float uMod = (particleIcon.getMaxU() - particleIcon.getMinU()) / 2F;
-        float vMod = (particleIcon.getMaxV() - particleIcon.getMinV()) / 2F;
-        
-        if (index % 2 == 0) maxU -= uMod;
-        else minU += uMod;
+            
+            float uMod = (particleIcon.getMaxU() - particleIcon.getMinU()) / 2F;
+            float vMod = (particleIcon.getMaxV() - particleIcon.getMinV()) / 2F;
+            
+            if (index % 2 == 0) maxU -= uMod;
+            else minU += uMod;
 
-        if (index < 2) maxV -= vMod;
-        else minV += vMod;
+            if (index < 2) maxV -= vMod;
+            else minV += vMod;
+        }
 
         float alpha = 1.0F - Math.min(1.0F, 2.0F * this.particleAge / this.particleMaxAge);
         float width = 0.15F;

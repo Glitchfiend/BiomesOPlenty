@@ -10,7 +10,6 @@ import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
-import biomesoplenty.common.eventhandler.network.ConnectionEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionParalysisEventHandler;
 import biomesoplenty.common.eventhandler.potions.PotionPossessionEventHandler;
 import biomesoplenty.common.eventhandler.world.BiomeSizeEventHandler;
@@ -24,7 +23,6 @@ public class BOPEventHandlers
 {
 	public static void init()
 	{
-	    registerNetworkEventHandlers();
 		registerWorldEventHandlers();
 		registerEntityEventHandlers();
 		registerPotionEventHandlers();
@@ -35,11 +33,6 @@ public class BOPEventHandlers
 			registerGUIEventHandlers();
 			registerClientEventHandlers();
 		}
-	}
-	
-	private static void registerNetworkEventHandlers()
-	{
-	    FMLCommonHandler.instance().bus().register(new ConnectionEventHandler());
 	}
 	
 	private static void registerWorldEventHandlers()

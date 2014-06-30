@@ -11,14 +11,13 @@ import biomesoplenty.common.core.BOPDimensions;
 import biomesoplenty.common.core.BOPEntities;
 import biomesoplenty.common.core.BOPFluids;
 import biomesoplenty.common.core.BOPItems;
-import biomesoplenty.common.core.BOPPackets;
 import biomesoplenty.common.core.BOPPotions;
 import biomesoplenty.common.core.BOPVanillaCompat;
 import biomesoplenty.common.eventhandler.BOPEventHandlers;
 import biomesoplenty.common.helpers.CreativeTabsBOP;
 import biomesoplenty.common.integration.BOPIntegration;
 import biomesoplenty.common.integration.TreecapitatorIntegration;
-import biomesoplenty.common.network.PacketPipeline;
+import biomesoplenty.common.network.BOPPacketHandler;
 import biomesoplenty.common.utils.BOPModInfo;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
@@ -39,8 +38,6 @@ public class BiomesOPlenty
     @SidedProxy(clientSide = "biomesoplenty.ClientProxy", serverSide = "biomesoplenty.CommonProxy")
     public static CommonProxy proxy;
     
-    public static final PacketPipeline packetPipeline = new PacketPipeline();
-    
     public static CreativeTabs tabBiomesOPlenty;
     public static String configPath;
     
@@ -54,7 +51,7 @@ public class BiomesOPlenty
         
         tabBiomesOPlenty = new CreativeTabsBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
         
-        BOPPackets.init();
+        BOPPacketHandler.init();
         BOPPotions.init();
         BOPFluids.preInit();
         BOPBlocks.init();
@@ -78,8 +75,6 @@ public class BiomesOPlenty
     @EventHandler
     public void load(FMLInitializationEvent event)
     {
-        packetPipeline.initialize();
-        
         TreecapitatorIntegration.init();
 
         BOPDimensions.init();
@@ -89,8 +84,6 @@ public class BiomesOPlenty
     public void postInit(FMLPostInitializationEvent event)
     {
     	BOPIntegration.postInit();
-    	
-        packetPipeline.postInitialize();
         
         BOPBiomes.worldTypeBOP = new WorldTypeBOP();
     }

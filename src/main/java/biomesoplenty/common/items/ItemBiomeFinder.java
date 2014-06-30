@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import biomesoplenty.BiomesOPlenty;
-import biomesoplenty.common.network.packet.PacketBiomePosition;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import biomesoplenty.common.network.BOPPacketHandler;
+import biomesoplenty.common.network.message.MessageBiomePosition;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -47,7 +47,6 @@ public class ItemBiomeFinder extends Item
         
         if (!world.isRemote && !itemStack.getTagCompound().getBoolean("foundBiome"))
         {
-            //TODO:                                 getBiomeGenArray()
             BiomeGenBase biomeToFind = BiomeGenBase.getBiomeGenArray()[biomeIDToFind];
 
             if (biomeToFind != null)
@@ -127,7 +126,7 @@ public class ItemBiomeFinder extends Item
                     itemStack.getTagCompound().setTag("biomePosition", biomeCompound);
                     itemStack.getTagCompound().setBoolean("foundBiome", true);
 
-                    BiomesOPlenty.packetPipeline.sendTo(new PacketBiomePosition(biomePosition.chunkPosX, biomePosition.chunkPosZ, true), (EntityPlayerMP)player);
+                    BOPPacketHandler.instance.sendTo(new MessageBiomePosition(biomePosition.chunkPosX, biomePosition.chunkPosZ, true), (EntityPlayerMP)player);
                 }
 
                 //System.out.println("Done looking");

@@ -1,9 +1,9 @@
 package biomesoplenty.common.eventhandler.client;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.client.utils.ParticleRegistry;
 import biomesoplenty.common.utils.remote.FlowerTrailManager;
@@ -29,8 +29,8 @@ public class FlowerScatterEventHandler
 		if (event.side == Side.CLIENT && event.phase == Phase.START)
 		{
 			EntityPlayer player = event.player;
-			WorldClient world = Minecraft.getMinecraft().theWorld;
-
+			World world = Minecraft.getMinecraft().theWorld;
+			
 			if (flowerTrailManager.hasTrail(player.getUniqueID()))
 			{
 				if (player.posX != player.prevPosX || player.posZ != player.prevPosZ)
@@ -39,6 +39,8 @@ public class FlowerScatterEventHandler
 					double dy = player.posY - 2;
 					double dz = player.posZ + 0.3F - (0.6F * world.rand.nextFloat());
 
+					if (player != Minecraft.getMinecraft().thePlayer) dy += 1;
+					
 					int x = MathHelper.floor_double(dx);
 					int y = MathHelper.floor_double(dy);
 					int z = MathHelper.floor_double(dz);
