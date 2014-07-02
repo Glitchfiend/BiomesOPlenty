@@ -1,18 +1,20 @@
 package biomesoplenty.api.biome;
 
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.FLOWERS;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import biomesoplenty.common.world.generation.IBOPWorldGenerator;
-import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.*;
+import biomesoplenty.common.utils.RandomForcedPositiveOwned;
+import biomesoplenty.common.world.generation.IBOPWorldGenerator;
+import biomesoplenty.common.world.generation.WorldGenFieldAssociation;
 
 public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
 {
@@ -42,7 +44,7 @@ public class BOPBiomeDecorator<T extends BiomeFeatures> extends BiomeDecorator
         else
         {
             this.currentWorld = world;
-            this.randomGenerator = random;
+            this.randomGenerator = new RandomForcedPositiveOwned(random);
             this.chunk_X = chunkX;
             this.chunk_Z = chunkZ;
             this.genDecorations(biome);
