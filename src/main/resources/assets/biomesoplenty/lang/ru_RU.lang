@@ -412,6 +412,13 @@ phrase.bop.useBOPATGWorldtype=Для того, чтобы генерировал
 phrase.bop.useBOPWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty". Это сообщение отобразится один раз.
 phrase.bop.updateAvaliable=Вы не используете последнюю рекомендованную версию Biomes O' Plenty. Последняя рекомендованная версия: v%s для Minecraft %s.
 
+warning.bopStartup1=Biomes O' Plenty использует другой тип мира для своих Биомов. Когда вы будете создавать мир, вы
+warning.bopStartup2=должны в 'Дополнительных настройках мира', изменить Тип мира на
+warning.bopStartup3='Biomes O' Plenty'.
+warning.bopStartup4=Чтобы изменить Тип мира на сервере, вы должны изменить 'level-type' (В файле sever.properties)
+warning.bopStartup5=на 'BIOMESOP' (Без кавычек)
+warning.bopStartup6=Это сообщение больше не будет показываться при загрузке игры.
+
 potion.paralysis=Паралич
 potion.possession=Одержимость
 
