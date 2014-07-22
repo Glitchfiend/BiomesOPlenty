@@ -142,13 +142,6 @@ public class VillageMaterialEventHandler
 				event.replacement = 1;
 				event.setResult(Result.DENY);
 			}
-			
-			//Wooden Stairs
-			if (event.original == Blocks.oak_stairs)
-			{
-				event.replacement = 5;
-				event.setResult(Result.DENY);
-			}
 		}
 		
 		//Heathland
