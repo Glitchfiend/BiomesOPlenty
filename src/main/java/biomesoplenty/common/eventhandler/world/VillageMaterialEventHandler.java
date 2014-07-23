@@ -28,10 +28,17 @@ public class VillageMaterialEventHandler
 		//Grove
 		if (event.biome == BOPCBiomes.grove)
 		{	
+			//Logs
+			if (event.original == Blocks.log)
+			{
+				event.replacement = Blocks.log2;
+				event.setResult(Result.DENY);
+			}
+			
 			//Wooden Stairs
 			if (event.original == Blocks.oak_stairs)
 			{
-				event.replacement = Blocks.spruce_stairs;
+				event.replacement = Blocks.dark_oak_stairs;
 				event.setResult(Result.DENY);
 			}
 		}
@@ -139,7 +146,7 @@ public class VillageMaterialEventHandler
 			//Wooden Planks
 			if (event.original == Blocks.planks)
 			{
-				event.replacement = 1;
+				event.replacement = 5;
 				event.setResult(Result.DENY);
 			}
 		}
