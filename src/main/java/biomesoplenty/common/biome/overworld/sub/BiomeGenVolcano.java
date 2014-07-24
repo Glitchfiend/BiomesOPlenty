@@ -11,7 +11,7 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
 public class BiomeGenVolcano extends BOPSubBiome
 {
-    private static final Height biomeHeight = new Height(5.0F, 0.025F);
+    private static final Height biomeHeight = new Height(2.5F, 0.5F);
 
     public BiomeGenVolcano(int id)
     {
