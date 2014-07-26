@@ -15,7 +15,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenLavenderFields extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	private static final Height biomeHeight = new Height(0.125F, 0.05F);
 	
 	public BiomeGenLavenderFields(int id)
 	{

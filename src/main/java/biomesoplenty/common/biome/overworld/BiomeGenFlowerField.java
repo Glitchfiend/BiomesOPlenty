@@ -9,12 +9,13 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BiomeGenFlowerField extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	private static final Height biomeHeight = new Height(0.125F, 0.05F);
 
 	public BiomeGenFlowerField(int par1)
 	{
@@ -25,13 +26,20 @@ public class BiomeGenFlowerField extends BOPOverworldBiome
         this.setTemperatureRainfall(0.6F, 0.7F);
 		
 		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 999;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 7;
 
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 7), 10);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 6), 10);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 5), 10);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 4), 10);
+        
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
 	}
 	
 	@Override

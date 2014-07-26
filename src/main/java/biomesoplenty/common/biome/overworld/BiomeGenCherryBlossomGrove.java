@@ -30,9 +30,9 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
 		
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.grassPerChunk = 15;
-		this.theBiomeDecorator.flowersPerChunk = -999;
+		this.theBiomeDecorator.flowersPerChunk = 4;
 
-        this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 10;
+        this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 30;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.cloverPatchesPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 15;
@@ -44,7 +44,7 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 6), 12);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 9), 8);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 0), 6);
-        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 4);
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(1, 5), 6);
 
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);

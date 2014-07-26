@@ -52,7 +52,7 @@ public class BiomeGenDeadForest extends BOPOverworldBiome
 	{
 		return random.nextInt(3) == 0 ? new WorldGenDeadTree() : 
 		(random.nextInt(4) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 1) : 
-		new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, false, 5, 3, false));
+		(random.nextInt(10) == 0? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.persimmonLeaves, 0, true) : new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, false, 5, 3, false)));
 	}
 	
 	@Override

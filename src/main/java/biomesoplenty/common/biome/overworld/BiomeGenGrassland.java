@@ -38,17 +38,17 @@ public class BiomeGenGrassland extends BOPOverworldBiome
 		
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.flowersPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 2;
+		this.theBiomeDecorator.grassPerChunk = 1;
 		this.theBiomeDecorator.reedsPerChunk = 35;
 		this.theBiomeDecorator.mushroomsPerChunk = 20;
 
-        this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 5;
+        this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.portobellosPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.riverCanePerChunk = 5;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
 
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 3;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 2;
 
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPCBlocks.foliage, 1), 0.25D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenTallGrass(BOPCBlocks.foliage, 2), 0.25D);

@@ -1,24 +1,22 @@
 tile.mud.mud.name=Matsch
 tile.mud.quicksand.name=Treibsand
 
-tile.generic.ash_stone.name=Aschestein
-tile.generic.hard_sand.name=Gehärteter Sand
-tile.generic.hard_dirt.name=Gehärtete Erde
-tile.generic.hard_ice.name=Packeis
-tile.generic.dried_dirt.name=Getrocknete Erde
-tile.generic.crag_rock.name=Gpitzer Fels
-tile.generic.mud_brick.name=Lehmziegel
-tile.generic.holy_dirt.name=Heilige Erde
-tile.generic.crystal.name=Himmlischer Kristall
+tile.ashStone.name=Aschestein
+tile.hardSand.name=Gehärteter Sand
+tile.hardDirt.name=Gehärtete Erde
+tile.hardIce.name=Packeis
+tile.driedDirt.name=Getrocknete Erde
+tile.cragRock.name=Gpitzer Fels
+tile.mudBricks.name=Lehmziegel
+tile.biomeBlock.name=Biomessenzerz
+tile.crystal.name=Himmlischer Kristall
 
-tile.cakeBlock.name=Kuchenblock
-tile.frostedCake.white.name=Weiß glasierter Kuchenblock
-tile.frostedCake.pink.name=Pink glasierter Kuchenblock
-tile.cookieBlock.name=Keksblock
-
-tile.redRocks.redrock.name=Rotfels
-tile.redRocks.redcobble.name=Rotfelssteinpflaster
-tile.redRocks.redbrick.name=Rotfelsziegel
+tile.rocks.limestone.name=Kalkstein
+tile.rocks.limestonesmooth.name=Geschliffener Kalkstein
+tile.rocks.siltstone.name=Schluffstein
+tile.rocks.siltstonesmooth.name=Geschliffener Schluffstein
+tile.rocks.shale.name=Schiefer
+tile.rocks.shalesmooth.name=Geschliffener Schiefer
 
 tile.ash.name=Ascheblock
 tile.flesh.name=Fleisch
@@ -27,7 +25,7 @@ tile.plants.deadgrass.name=Totes Gras
 tile.plants.desertgrass.name=Wüstengras
 tile.plants.desertsprouts.name=Wüstensprossen
 tile.plants.dunegrass.name=Dünengras
-tile.plants.holytallgrass.name=Heiliges Hohes Gras
+tile.plants.spectralfern.name=Spektralfarn
 tile.plants.thorn.name=Dornen
 tile.plants.barley.name=Gerste
 tile.plants.cattail.name=Rohrkolben
@@ -50,7 +48,7 @@ tile.flowers.wildflower.name=Wildblume
 tile.flowers.violet.name=Veilchen
 tile.flowers.anemone.name=Weißes Windröschen
 tile.flowers.lilyflower.name=Wasserlilie
-tile.flowers.rainbowflower.name=Chromablume
+tile.flowers.enderlotus.name=Enderlotus
 tile.flowers.bromeliad.name=Bromelie
 tile.flowers.eyebulbbottom.name=Öhrknolle
 tile.flowers.eyebulbtop.name=Öhrknolle
@@ -94,6 +92,7 @@ tile.mushrooms.portobello.name=Champignon
 tile.mushrooms.bluemilk.name=Indigo-Reizker
 tile.mushrooms.glowshroom.name=Glimmerling
 tile.mushrooms.flatmushroom.name=Austern-Seitling
+tile.mushrooms.shadowshroom.name=Schattenpilz
 
 tile.saplings.appleSapling.name=Apfelsetzling
 tile.saplings.yellowautumnSapling.name=Gelber Herbstsetzling
@@ -130,26 +129,15 @@ tile.overgrownNetherrack.name=Überwucherter Netherstein
 tile.treeMoss.name=Baummoos
 tile.flowerVine.name=Blütenranken
 
-tile.coral.kelpsingle.name=Seetang
-tile.coral.pinkcoral.name=Pinke Koralle
-tile.coral.orangecoral.name=Orange Koralle
-tile.coral.bluecoral.name=Blaue Koralle
-tile.coral.glowcoral.name=Leuchtende Koralle
-tile.coral.algae.name=Algen
+tile.coral1.kelpsingle.name=Seetang
+tile.coral1.pinkcoral.name=Pinke Koralle
+tile.coral1.orangecoral.name=Orange Koralle
+tile.coral1.bluecoral.name=Blaue Koralle
+tile.coral1.glowcoral.name=Leuchtende Koralle
+tile.coral2.algae.name=Algen
 
-tile.redCobbleStairs.name=Rotfelssteinpflastertreppe       
-tile.redBricksStairs.name=Rotfelsziegeltreppe
-
-tile.holyGrass.holygrass.name=Heiliges Gras
-tile.holyGrass.smolderinggrass.name=Verkohltes Gras
-
-tile.holyStone.holystone.name=Himmelsstein
-tile.holyStone.holycobble.name=Himmelspflasterstein
-tile.holyStone.holybrick.name=Himmelssteinziegel
-tile.holyStone.holystonemossy.name=Mosiger Himmelsstein
-
-tile.holyCobbleStairs.name=Heilige Kopfsteinpflastertreppe
-tile.holyBricksStairs.name=Heilige Ziegeltreppe
+tile.bopGrass.spectralmoss.name=Spektralmoos
+tile.bopGrass.smolderinggrass.name=Schwelender Grasblock
 
 tile.gemOre.amethystore.name=Enderamethysterz
 tile.gemOre.amethystblock.name=Amethystblock
@@ -165,10 +153,10 @@ tile.gemOre.malachiteore.name=Malachiterz
 tile.gemOre.malachiteblock.name=Malachitblock
 tile.gemOre.sapphireore.name=Saphirerz
 tile.gemOre.sapphireblock.name=Saphirblock
+tile.gemOre.amberore.name=Bernsteinerz
+tile.gemOre.amberblock.name=Bernsteinblock
 
 tile.moss.name=Moos
-
-tile.cloud.name=Wolkenblock
 
 tile.hive.honeycomb.name=Honigwabenblock
 tile.hive.hive.name=Bienenstockblock
@@ -187,17 +175,8 @@ tile.bones.bones_large.name=Großes Knochensegment
 
 tile.grave.name=Grabstein
 
-tile.stoneDoubleSlab.redcobbleSlab.name=Rotfelssteinpflasterstufe
-tile.stoneDoubleSlab.redbrickSlab.name=Rotfelsziegelstufe
 tile.stoneDoubleSlab.mudbrickSlab.name=Lehmziegelstufe
-tile.stoneDoubleSlab.holycobbleSlab.name=Heilige Kopfsteinpflasterstufe
-tile.stoneDoubleSlab.holybrickSlab.name=Heilige Ziegelstufe
-
-tile.stoneSingleSlab.redcobbleSlab.name=Rotfelssteinpflasterstufe
-tile.stoneSingleSlab.redbrickSlab.name=Rotfelsziegelstufe
 tile.stoneSingleSlab.mudbrickSlab.name=Lehmziegelstufe
-tile.stoneSingleSlab.holycobbleSlab.name=Heilige Kopfsteinpflasterstufe
-tile.stoneSingleSlab.holybrickSlab.name=Heilige Ziegelstufe
 
 tile.planks.sacredoakPlank.name=Himmeleichenholzbretter
 tile.planks.cherryPlank.name=Kirschholzbretter
@@ -356,6 +335,7 @@ item.gems.topaz.name=Topas
 item.gems.tanzanite.name=Tanzanit
 item.gems.malachite.name=Malachit
 item.gems.sapphire.name=Saphir
+item.gems.amber.name=Bernstein
 
 item.pickaxeMud.name=Matschige Spitzhacke
 item.axeMud.name=Matschige Axt
@@ -411,10 +391,8 @@ item.biomeBook.name=Biomlexikon
 item.biomeFinder.name=Biomradar
 item.biomeEssence.name=Biomessenz
 
-item.bopBucket.amethyst_empty.name=Amethyst-Eimer
-item.bopBucket.spring_water.name=Amethyst-Eimer mit Quellwasser
-item.bopBucket.liquid_poison.name=Eimer mit Flüssigem Gift
-item.bopBucket.honey.name=Eimer mit Honig
+item.poisonBucket.name=Eimer mit Flüssigem Gift
+item.honeyBucket.name=Eimer mit Honig
 
 tile.poison.name=Gift
 tile.springWater.name=Quellwasser
@@ -424,9 +402,22 @@ fluid.poison=Gift
 fluid.springWater=Quellwasser
 fluid.honey.name=Honig
 
+biomeRadar.target=Ziel:
+biomeRadar.foundBiome=Biom gefunden!
+biomeRadar.scanBiome=Rechtsklicke, um nach Biom zu suchen
+
+enderporter.prevent=Eine mystische Energie hindert dich daran, dies in der hiesigen Welt zu vernden.
+
 phrase.bop.useBOPATGWorldtype=Der Biomes-O'-Plenty-Welttyp oder ATG-Welttyp muss genutzt werden, damit die neuen Biome generiert werden. Diese Nachricht wird nur einmal angezeigt.
 phrase.bop.useBOPWorldtype=Der Biomes-O'-Plenty-Welttyp muss genutzt werden, damit die neuen Biome generiert werde. Diese Nachricht wird nur einmal angezeigt.
 phrase.bop.updateAvaliable=Du verwendest nicht die neueste Biomes-O-Plenty-Version. Die neueste empfohlene Version ist: v%s für Minecraft %s
+
+warning.bopStartup1=Biomes O' Plenty verwendet einen eigenen Welttyp für seine Biome. Wenn du eine Welt kreierst,
+warning.bopStartup2=kann er unter 'Weitere Weltoptionen' aktiviert werden, indem du den 'Welttyp'-Button klickst,
+warning.bopStartup3=bis er 'Biomes O' Plenty' anzeigt.
+warning.bopStartup4=Der Welttyp kann auf Servern verwendet werden, indem 'level-type' in der Datei
+warning.bopStartup5=sever.properties auf 'BIOMESOP' (ohne Anführungszeichen) gesetzt wird
+warning.bopStartup6=Diese Nachricht wird nur einmal angezeigt.
 
 potion.paralysis=Paralyse
 potion.possession=Besessenheit
@@ -482,4 +473,3 @@ achievement.bop.achAllBOP.desc=Du hast alle Biomes-O'-Plenty-Errungenschaften be
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 generator.BIOMESOP=Biomes O' Plenty
-generator.CANDYOP=Candyland
