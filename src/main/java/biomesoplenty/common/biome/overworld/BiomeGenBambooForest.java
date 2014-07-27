@@ -10,11 +10,12 @@ import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 
-public class BiomeGenBambooForest extends BOPOverworldBiome
+public class BiomeGenBambooForest extends BOPOverworldBiome implements IBiomeFog
 {
 	private static final Height biomeHeight = new Height(0.1F, 0.3F);
 	
@@ -96,17 +97,14 @@ public class BiomeGenBambooForest extends BOPOverworldBiome
         return d0 < -0.7D ? 13949781 : (d0 < -0.3 ? 12311892 : 10739795);
 	}
 
-	/*@Override
-	public int getFogColour()
+	public int getFogColour(int x, int y, int z)
 	{
 		return 13428852;
 	}
 
-    @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
-        return 0.8F;
+        return 0.01F;
     }
-	 */
 }

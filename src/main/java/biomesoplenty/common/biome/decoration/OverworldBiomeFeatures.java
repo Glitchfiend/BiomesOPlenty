@@ -18,10 +18,12 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
 
     @BiomeFeature public int waterSpringsPerChunk = 50;
     @BiomeFeature public int lavaSpringsPerChunk = 20;
+    @BiomeFeature public int bloodSpringsPerChunk = 0;
 
     @BiomeFeature public int waterLakesPerChunk = 0;
     @BiomeFeature public int lavaLakesPerChunk = 0;
     @BiomeFeature public int poisonLakesPerChunk = 0;
+    @BiomeFeature public int bloodLakesPerChunk = 0;
 
     @BiomeFeature public int mudPerChunk = 0;
     @BiomeFeature public int riverCanePerChunk = 0;

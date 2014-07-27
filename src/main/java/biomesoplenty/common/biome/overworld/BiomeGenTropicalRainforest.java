@@ -6,11 +6,10 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.entities.EntityJungleSpider;
@@ -19,7 +18,7 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenRainforestTree1;
 
-public class BiomeGenTropicalRainforest extends BOPOverworldBiome
+public class BiomeGenTropicalRainforest extends BOPOverworldBiome implements IBiomeFog
 {
     private static final Height biomeHeight = new Height(0.2F, 0.3F);
 
@@ -112,22 +111,14 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome
         else return super.getSkyColorByTemp(par1);
     }
 
-    /**
-     * Fog Color
-     */
-    /*
     @Override
-    public int getFogColour()
+    public int getFogColour(int x, int y, int z)
     {
         return 16228194;
     }
-    */
 
-    /*@Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
-        // TODO Auto-generated method stub
-        return 0.8F;
+        return 0.01F;
     }
-    */
 }

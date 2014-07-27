@@ -137,10 +137,12 @@ public class WorldGenFieldAssociation
     {
         associateFeatureForced("waterSpringsPerChunk", new WorldGenLiquids(Blocks.flowing_water), SpringForcedGenerator.class);
         associateFeatureForced("lavaSpringsPerChunk", new WorldGenLiquids(Blocks.flowing_lava), SpringForcedGenerator.class);
+        //associateFeatureForced("bloodSpringsPerChunk", new WorldGenLiquids(BOPCBlocks.blood), SpringForcedGenerator.class);
 
         associateFeatureForced("waterLakesPerChunk", new WorldGenLakes(Blocks.water), LakesForcedGenerator.class);
         associateFeatureForced("lavaLakesPerChunk", new WorldGenLakes(Blocks.lava), LakesForcedGenerator.class);
         associateFeatureForced("poisonLakesPerChunk", new WorldGenLakes(BOPCBlocks.poison), LakesForcedGenerator.class);
+        associateFeatureForced("bloodLakesPerChunk", new WorldGenLakes(BOPCBlocks.blood), LakesForcedGenerator.class);
 
         associateFeatureForced("generateMelons", new WorldGenMelon(), MelonForcedGenerator.class);
     }

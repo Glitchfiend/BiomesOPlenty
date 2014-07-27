@@ -1,8 +1,7 @@
 package biomesoplenty.common.fluids;
 
-import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
-import biomesoplenty.common.fluids.blocks.BlockSpringWaterFluid;
 import net.minecraftforge.fluids.Fluid;
+import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
 
 public class HoneyFluid extends Fluid
 {

@@ -31,7 +31,7 @@ public class BucketEventHandler
 
 		if (fluid != null)
 		{
-			if ((fluid == BOPCFluids.poison && world.getBlockMetadata(x, y, z) == 0) || (fluid == BOPCFluids.honey && world.getBlockMetadata(x, y, z) == 7))
+			if ((fluid == BOPCFluids.poison && world.getBlockMetadata(x, y, z) == 0) || (fluid == BOPCFluids.blood && world.getBlockMetadata(x, y, z) == 0) || (fluid == BOPCFluids.honey && world.getBlockMetadata(x, y, z) == 7))
 			{
 				bopBucket.fill(bopBucketStack, new FluidStack(fluid, FluidContainerRegistry.BUCKET_VOLUME), true);
 

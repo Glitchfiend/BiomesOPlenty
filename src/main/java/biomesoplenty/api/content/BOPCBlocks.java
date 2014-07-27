@@ -105,6 +105,6 @@ public class BOPCBlocks
 	
 	//Fluid blocks
 	public static Block poison;
-	public static Block springWater;
+	public static Block blood;
 	public static Block honey;
 }

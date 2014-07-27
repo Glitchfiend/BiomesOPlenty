@@ -6,6 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPNetherBiome;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
@@ -31,6 +32,7 @@ public class BiomeGenUndergarden extends BOPNetherBiome
         this.theBiomeDecorator.bopFeatures.glowshroomsPerChunk = 5;
                                
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 50;
+        this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 3;
 		
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.25D);
 		this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
@@ -38,6 +40,8 @@ public class BiomeGenUndergarden extends BOPNetherBiome
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
+        
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(BOPCBlocks.flowers, BOPCBlocks.flowers, 13, 14), 6);
     }
     
 	@Override
