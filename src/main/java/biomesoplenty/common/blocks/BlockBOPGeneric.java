@@ -163,7 +163,7 @@ public class BlockBOPGeneric extends Block
 			{
 			    if (biome != null)
 			    {
-			    	if (!areBiomesEqual(biome, BOPCBiomes.boneyard) && !areBiomesEqual(biome, BOPCBiomes.visceralHeap) && !areBiomesEqual(biome, BOPCBiomes.undergarden) && 
+			    	if (!areBiomesEqual(biome, BOPCBiomes.boneyard) && !areBiomesEqual(biome, BOPCBiomes.visceralHeap) && !areBiomesEqual(biome, BOPCBiomes.polarChasm) && !areBiomesEqual(biome, BOPCBiomes.undergarden) && 
 			    			!areBiomesEqual(biome, BOPCBiomes.corruptedSands) && !areBiomesEqual(biome, BOPCBiomes.phantasmagoricInferno) && !areBiomesEqual(biome, BOPCBiomes.lushRiver) && !areBiomesEqual(biome, BOPCBiomes.dryRiver) &&
 			    			!areBiomesEqual(biome, BiomeGenBase.beach) && !areBiomesEqual(biome, BiomeGenBase.coldBeach) && !areBiomesEqual(biome, BiomeGenBase.stoneBeach) && !areBiomesEqual(biome, BiomeGenBase.frozenOcean) && 
 			    			!areBiomesEqual(biome, BiomeGenBase.frozenRiver) && !areBiomesEqual(biome, BiomeGenBase.hell) && !areBiomesEqual(biome, BiomeGenBase.river) && !areBiomesEqual(biome, BiomeGenBase.sky) && 
