@@ -18,10 +18,12 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
 
     @BiomeFeature public int waterSpringsPerChunk = 50;
     @BiomeFeature public int lavaSpringsPerChunk = 20;
+    @BiomeFeature public int bloodSpringsPerChunk = 0;
 
     @BiomeFeature public int waterLakesPerChunk = 0;
     @BiomeFeature public int lavaLakesPerChunk = 0;
     @BiomeFeature public int poisonLakesPerChunk = 0;
+    @BiomeFeature public int bloodLakesPerChunk = 0;
 
     @BiomeFeature public int mudPerChunk = 0;
     @BiomeFeature public int riverCanePerChunk = 0;
@@ -31,8 +33,10 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int leafPilesPerChunk = 0;
     @BiomeFeature public int deadLeafPilesPerChunk = 0;
     @BiomeFeature public int lavenderPerChunk = 0;
-    @BiomeFeature public int stalagmitesPerChunk = 3;
-    @BiomeFeature public int stalactitesPerChunk = 6;
+    //@BiomeFeature public int stalagmitesPerChunk = 3;
+    //@BiomeFeature public int stalactitesPerChunk = 6;
+    @BiomeFeature public int stalagmitesPerChunk = 0;
+    @BiomeFeature public int stalactitesPerChunk = 0;
     @BiomeFeature public int desertSproutsPerChunk = 0;
     @BiomeFeature public int bromeliadsPerChunk = 0;
     @BiomeFeature public int waterReedsPerChunk = 0;
@@ -48,7 +52,7 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int sproutsPerChunk = 0;
     @BiomeFeature public int tinyCactiPerChunk = 0;
     @BiomeFeature public int oasesPerChunk = 0;
-    @BiomeFeature public int minersDelightPerChunk = 2;
+    @BiomeFeature public int minersDelightPerChunk = 1;
     @BiomeFeature public int rootsPerChunk = 9;
     @BiomeFeature public int grassSplatterPerChunk = 0;
     @BiomeFeature public int rockpilesPerChunk = 0;

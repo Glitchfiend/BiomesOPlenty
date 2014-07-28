@@ -11,4 +11,6 @@ public class NetherBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int netherVinesPerChunk = 0;
     @BiomeFeature public int netherrackSplatterPerChunk = 0;
     @BiomeFeature public int gravesPerChunk = 0;
+    //@BiomeFeature public int bloodSpringsPerChunk = 0;
+    @BiomeFeature public int bloodLakesPerChunk = 0;
 }

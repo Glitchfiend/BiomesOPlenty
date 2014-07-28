@@ -36,6 +36,15 @@ public class SpringForcedGenerator extends ForcedWorldFeatureBOP
 
                 this.generate(world, random, randX, randY, randZ);
             }
+            
+            for (int i = 0; i < (Integer)biome.theBiomeDecorator.bopFeatures.getFeature("bloodSpringsPerChunk"); ++i)
+            {
+                int randX = x + random.nextInt(16) + 8;
+                int randY = random.nextInt(random.nextInt(random.nextInt(112) + 8) + 8);
+                int randZ = z + random.nextInt(16) + 8;
+
+                this.generate(world, random, randX, randY, randZ);
+            }
         }
     }
 }

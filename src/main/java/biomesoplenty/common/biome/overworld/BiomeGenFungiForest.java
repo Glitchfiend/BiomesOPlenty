@@ -55,7 +55,7 @@ public class BiomeGenFungiForest extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 12;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 3;
         
-        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 4), 8);
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 1), 8);
         
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 2), 2D);

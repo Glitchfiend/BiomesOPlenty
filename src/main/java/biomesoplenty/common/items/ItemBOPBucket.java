@@ -130,6 +130,8 @@ public class ItemBOPBucket extends ItemFluidContainer
 		
 		this.fill(fluid, new FluidStack(BOPCFluids.poison, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
 		fluid = new ItemStack(item);
+		this.fill(fluid, new FluidStack(BOPCFluids.blood, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
+		fluid = new ItemStack(item);
 		this.fill(fluid, new FluidStack(BOPCFluids.honey, FluidContainerRegistry.BUCKET_VOLUME), true); list.add(fluid);
 	}
 	
@@ -138,6 +140,7 @@ public class ItemBOPBucket extends ItemFluidContainer
 	{
 		bucketIcons.put("poison", iconRegister.registerIcon("biomesoplenty:bucket_poison"));
 		bucketIcons.put("honey", iconRegister.registerIcon("biomesoplenty:bucket_honey"));
+		bucketIcons.put("blood", iconRegister.registerIcon("biomesoplenty:bucket_blood"));
 	}
     
     @Override

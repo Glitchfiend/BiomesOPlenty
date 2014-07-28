@@ -159,10 +159,10 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water;
 			
 		case 14: // Leaf Pile
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 			
 		case 15: // Dead Leaf Pile
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == Blocks.stone || block == Blocks.sand || block == Blocks.gravel || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;
 
 		default:
 			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.longGrass || block == BOPCBlocks.overgrownNetherrack;

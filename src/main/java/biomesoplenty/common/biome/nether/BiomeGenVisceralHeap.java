@@ -2,6 +2,7 @@ package biomesoplenty.common.biome.nether;
 
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPNetherBiome;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 
 public class BiomeGenVisceralHeap extends BOPNetherBiome
 {
@@ -16,5 +17,12 @@ public class BiomeGenVisceralHeap extends BOPNetherBiome
 
         this.theBiomeDecorator.bopFeatures.gravesPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.waspHivesPerChunk = 1;
+        
+        this.theBiomeDecorator.bopFeatures.bloodLakesPerChunk = 15;
+        //this.theBiomeDecorator.bopFeatures.bloodSpringsPerChunk = 10;
+        
+        this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 3;
+        
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(BOPCBlocks.flowers, BOPCBlocks.flowers, 13, 14), 6);
     }
 }
