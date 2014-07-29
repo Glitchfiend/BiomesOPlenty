@@ -38,7 +38,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	//leaves2
 	//Dead			(0)
 	//Fir			(1)
-	//Loftwood		(2)
+	//Ethereal		(2)
 	//Orange Autumn (3)
 
 	//leaves3
@@ -51,7 +51,7 @@ public class BlockBOPLeaves extends BlockLeavesBase implements IShearable
 	//Hellbark		(0)
 	//Jacaranda		(1)
 
-	private static final String[] leaves = new String[] {"yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
+	private static final String[] leaves = new String[] {"yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "ethereal", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda"};
 
 	private static final float[] fallingLeavesChance = new float[] {0.1F, 0.008F, 0.016F, 0.008F, 0.0F, 0.008F, 0.016F, 0.1F, 0.008F, 0.1F, 0.008F, 0.1F, 0.008F, 0.008F};
 

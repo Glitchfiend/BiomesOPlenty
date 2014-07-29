@@ -42,7 +42,7 @@ public class BonemealEventHandler
 					chance = 0.1D;
 					break;
 
-				case 7: // Holy Sapling
+				case 7: // Ethereal Sapling
 					chance = 0.15D;
 					break;
 

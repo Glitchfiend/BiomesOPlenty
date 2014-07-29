@@ -124,11 +124,11 @@ public class BOPCrafting
 		addRecipeToFront(new ItemStack(BOPCBlocks.mangroveStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPCBlocks.planks, 1, 6)});
 		addRecipeToFront(new ItemStack(BOPCBlocks.mangroveStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPCBlocks.planks, 1, 6)});
 
-		//Holy
+		//Ethereal
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCBlocks.planks, 4, 4), new Object[] {new ItemStack(BOPCBlocks.logs2,1,0)});
 		addRecipeToFront(new ItemStack(BOPCBlocks.woodenSingleSlab1,6,4), new Object[] {"RRR", 'R', new ItemStack(BOPCBlocks.planks,1,4)});
-		addRecipeToFront(new ItemStack(BOPCBlocks.holyStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPCBlocks.planks,1,4)});
-		addRecipeToFront(new ItemStack(BOPCBlocks.holyStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPCBlocks.planks,1,4)});
+		addRecipeToFront(new ItemStack(BOPCBlocks.etherealStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPCBlocks.planks,1,4)});
+		addRecipeToFront(new ItemStack(BOPCBlocks.etherealStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPCBlocks.planks,1,4)});
 
 		//Pine
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCBlocks.planks, 4, 11), new Object[] {new ItemStack(BOPCBlocks.logs4, 1, 0)});
@@ -352,7 +352,7 @@ public class BOPCrafting
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.magicStairs));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.palmStairs));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.mangroveStairs));
-		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.holyStairs));
+		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.etherealStairs));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.pineStairs));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.hellBarkStairs));
 		OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.jacarandaStairs));

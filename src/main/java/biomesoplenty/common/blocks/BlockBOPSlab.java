@@ -25,7 +25,7 @@ public class BlockBOPSlab extends BlockSlab
 		WOOD1, WOOD2, STONE;
 	}
 	
-	private static final String[] woodTypes = new String[] {"sacredoak", "cherry", "dark", "fir", "holy", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda", "mahogany"};
+	private static final String[] woodTypes = new String[] {"sacredoak", "cherry", "dark", "fir", "ethereal", "magic", "mangrove", "palm", "redwood", "willow", "pine", "hell_bark", "jacaranda", "mahogany"};
 	private static final String[] rockTypes = new String[] {"mudbrick"};
 	private IIcon[] textures;
 

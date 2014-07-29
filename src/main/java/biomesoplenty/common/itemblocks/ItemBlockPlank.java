@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class ItemBlockPlank extends ItemBlock
 {
-	private static final String[] woodTypes = new String[] {"sacredoakPlank", "cherryPlank", "darkPlank", "firPlank", "holyPlank", "magicPlank", "mangrovePlank", "palmPlank", "redwoodPlank", "willowPlank", "bambooThatching", "pinePlank", "hellBarkPlank", "jacarandaPlank", "mahoganyPlank"};
+	private static final String[] woodTypes = new String[] {"sacredoakPlank", "cherryPlank", "darkPlank", "firPlank", "etherealPlank", "magicPlank", "mangrovePlank", "palmPlank", "redwoodPlank", "willowPlank", "bambooThatching", "pinePlank", "hellBarkPlank", "jacarandaPlank", "mahoganyPlank"};
 
 	public ItemBlockPlank(Block block)
 	{

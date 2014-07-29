@@ -21,11 +21,12 @@ public class BiomeGenBOPForest extends BOPInheritedOverworldBiome
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 6;
         this.theBiomeDecorator.bopFeatures.poisonIvyPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.bushesPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 2;
              
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 5;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 2;
              
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 4), 8);
              

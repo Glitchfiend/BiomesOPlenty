@@ -40,7 +40,7 @@ public class FurnaceFuelHandler implements IFuelHandler
 		addFuel(BOPCBlocks.magicStairs, 300);
 		addFuel(BOPCBlocks.palmStairs, 300);
 		addFuel(BOPCBlocks.mangroveStairs, 300);
-		addFuel(BOPCBlocks.holyStairs, 300);
+		addFuel(BOPCBlocks.etherealStairs, 300);
 		addFuel(BOPCBlocks.pineStairs, 300);
 		addFuel(BOPCBlocks.jacarandaStairs, 300);
 		addFuel(BOPCBlocks.hellBarkStairs, 300);

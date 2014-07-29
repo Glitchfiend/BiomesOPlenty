@@ -96,9 +96,9 @@ public class TreecapitatorIntegration
         /*
         * logs2 trees
         */
-        // BoP holy
+        // BoP ethereal
         tree = new NBTTagCompound();
-        tree.setString("treeName", "holy");
+        tree.setString("treeName", "ethereal");
         tree.setString("logs", String.format("%s,0; %s,4; %s,8", logs2, logs2, logs2));
         tree.setString("leaves", String.format("%s,2; %s,10", leaves2, leaves2));
         tree.setBoolean("requireLeafDecayCheck", false);

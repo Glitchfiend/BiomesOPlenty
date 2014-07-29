@@ -87,7 +87,7 @@ public class BOPCBlocks
 	public static Block cherryStairs;
 	public static Block darkStairs;
 	public static Block firStairs;
-	public static Block holyStairs;
+	public static Block etherealStairs;
 	public static Block magicStairs;
 	public static Block mangroveStairs;
 	public static Block palmStairs;

@@ -7,7 +7,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemBlockSapling extends ItemBlock
 {
-	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
+	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "ethereal", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
 	private static final int MAX = 15;
 
 	public ItemBlockSapling(Block block)

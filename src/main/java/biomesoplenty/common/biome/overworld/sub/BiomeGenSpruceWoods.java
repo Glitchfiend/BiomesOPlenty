@@ -10,6 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPSubBiome;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
@@ -27,33 +28,40 @@ public class BiomeGenSpruceWoods extends BOPSubBiome
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
 
-        this.theBiomeDecorator.treesPerChunk = 20;
+        this.theBiomeDecorator.treesPerChunk = 10;
         this.theBiomeDecorator.grassPerChunk = 6;
         this.theBiomeDecorator.mushroomsPerChunk = 4;
 
         this.theBiomeDecorator.bopFeatures.poisonIvyPerChunk = 1;
-        this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 3;
-        this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 3;
-        this.theBiomeDecorator.bopFeatures.wildCarrotsPerChunk = 1;
-        this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 5;
-        this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;
-        this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 6;
-        this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 3;
+        this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 1;
+        this.theBiomeDecorator.bopFeatures.bushesPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.riverCanePerChunk = 5;
+        this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 1;
+        this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 6;
+        this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 15;
+        this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 5;
+        this.theBiomeDecorator.bopFeatures.cloverPatchesPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 2;
 
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 100;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
+        
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 4), 8);
 
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 1), 0.5D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
 
     @Override
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6) : 
-        (random.nextInt(2) == 0 ? worldGeneratorTrees : new WorldGenTaiga2(false));
+        return random.nextInt(3) == 0 ? worldGeneratorTrees : new WorldGenTaiga2(false);
     }
 
     @Override

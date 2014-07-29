@@ -31,7 +31,7 @@ import static biomesoplenty.api.content.BOPCBlocks.hardIce;
 import static biomesoplenty.api.content.BOPCBlocks.hardSand;
 import static biomesoplenty.api.content.BOPCBlocks.hellBarkStairs;
 import static biomesoplenty.api.content.BOPCBlocks.hive;
-import static biomesoplenty.api.content.BOPCBlocks.holyStairs;
+import static biomesoplenty.api.content.BOPCBlocks.etherealStairs;
 import static biomesoplenty.api.content.BOPCBlocks.honey;
 import static biomesoplenty.api.content.BOPCBlocks.honeyBlock;
 import static biomesoplenty.api.content.BOPCBlocks.ivy;
@@ -263,7 +263,7 @@ public class BOPBlocks
 		cherryStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.CHERRY).setBlockName("cherryStairs"));
 		darkStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.DARK).setBlockName("darkStairs"));
 		firStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.FIR).setBlockName("firStairs"));
-		holyStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.HOLY).setBlockName("holyStairs"));
+		etherealStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.ETHEREAL).setBlockName("etherealStairs"));
 		magicStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.MAGIC).setBlockName("magicStairs"));
 		mangroveStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.MANGROVE).setBlockName("mangroveStairs"));
 		palmStairs = registerBlock(new BlockBOPStairs(BOPCBlocks.planks, Category.PALM).setBlockName("palmStairs"));
@@ -306,7 +306,7 @@ public class BOPBlocks
 		Blocks.fire.setFireInfo(BOPCBlocks.cherryStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.darkStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.firStairs, 5, 20);
-		Blocks.fire.setFireInfo(BOPCBlocks.holyStairs, 5, 20);
+		Blocks.fire.setFireInfo(BOPCBlocks.etherealStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.magicStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.mangroveStairs, 5, 20);
 		Blocks.fire.setFireInfo(BOPCBlocks.palmStairs, 5, 20);

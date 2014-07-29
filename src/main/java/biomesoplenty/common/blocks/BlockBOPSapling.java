@@ -26,7 +26,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BlockBOPSapling extends BlockSapling
 {
-	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "holy", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
+	private static final String[] saplings = new String[] {"apple", "yellowautumn", "bamboo", "magic", "dark", "dead", "fir", "ethereal", "orangeautumn", "origin", "pinkcherry", "maple", "whitecherry", "hellbark", "jacaranda", "persimmon"};
 	private IIcon[] textures;
 	private static final int TYPES = 15;
 
@@ -175,7 +175,7 @@ public class BlockBOPSapling extends BlockSapling
 				obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5);
 				break;
 
-				/*case 7: // Holy Tree
+				/*case 7: // Ethereal Tree
 				obj = new WorldGenPromisedTree(false);
 				break;*/
 
