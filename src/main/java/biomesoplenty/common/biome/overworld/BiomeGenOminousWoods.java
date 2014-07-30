@@ -8,11 +8,10 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
@@ -20,7 +19,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
-public class BiomeGenOminousWoods extends BOPOverworldBiome
+public class BiomeGenOminousWoods extends BOPOverworldBiome implements IBiomeFog
 {
 	private static final Height biomeHeight = new Height(0.1F, 0.2F);
 	
@@ -112,25 +111,20 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfigurationMisc.skyColors) return 5522002;
+		if (BOPConfigurationMisc.skyColors) return 3420989;
 		else return super.getSkyColorByTemp(par1);
 	}
 	
-	/**
-	 * Fog Color
-	 */
-	/*
+
 	@Override
-	public int getFogColour()
+	public int getFogColour(int x, int y, int z)
 	{
 		return 3420989;
 	}
-	*/
 
-    /*@Override
-    public float getFogCloseness()
+    @Override
+    public float getFogDensity(int x, int y, int z)
     {
         return 0.1F;
     }
-    */
 }
