@@ -30,11 +30,11 @@ public class BiomeGenFlowerField extends BOPOverworldBiome
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 999;
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 7;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 35;
 
-        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 7), 10);
-        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 6), 10);
-        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 5), 10);
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 7), 2);
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 6), 5);
+        this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 5), 7);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 4), 10);
         
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
