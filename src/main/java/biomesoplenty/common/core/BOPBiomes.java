@@ -64,6 +64,7 @@ import static biomesoplenty.api.content.BOPCBiomes.shrubland;
 import static biomesoplenty.api.content.BOPCBiomes.silkglades;
 import static biomesoplenty.api.content.BOPCBiomes.sludgepit;
 import static biomesoplenty.api.content.BOPCBiomes.snowyConiferousForest;
+import static biomesoplenty.api.content.BOPCBiomes.spectralGarden;
 import static biomesoplenty.api.content.BOPCBiomes.spruceWoods;
 import static biomesoplenty.api.content.BOPCBiomes.steppe;
 import static biomesoplenty.api.content.BOPCBiomes.temperateRainforest;
@@ -94,6 +95,7 @@ import org.apache.logging.log4j.Level;
 import biomesoplenty.api.BOPObfuscationHelper;
 import biomesoplenty.api.biome.BOPOverriddenBiome;
 import biomesoplenty.api.content.BOPCBiomes;
+import biomesoplenty.common.biome.end.BiomeGenSpectralGarden;
 import biomesoplenty.common.biome.nether.BiomeGenBoneyard;
 import biomesoplenty.common.biome.nether.BiomeGenCorruptedSands;
 import biomesoplenty.common.biome.nether.BiomeGenPhantasmagoricInferno;
@@ -314,6 +316,9 @@ public class BOPBiomes
         undergarden = registerNetherBiome(BiomeGenUndergarden.class, "Undergarden", 10);
         polarChasm = registerNetherBiome(BiomeGenPolarChasm.class, "Polar Chasm", 1);
         
+        //End Biomes
+        spectralGarden = registerEndBiome(BiomeGenSpectralGarden.class, "Spectral Garden", 10);
+        
         //River Biomes
         lushRiver = registerOverworldRiverBiome(BiomeGenLushRiver.class, "Lush River", lushSwamp, lavenderFields, flowerField, bambooForest, cherryBlossomGrove, lushDesert, meadow, spruceWoods, rainforest, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleEdge, BiomeGenBase.jungleHills);
         dryRiver = registerOverworldRiverBiome(BiomeGenDryRiver.class, "Dry River", outback, steppe, BiomeGenBase.desert, BiomeGenBase.desertHills);
@@ -415,6 +420,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.shrubland, Type.PLAINS, Type.SPARSE, Type.DRY);
         BiomeDictionary.registerBiomeType(BOPCBiomes.silkglades, Type.SWAMP, Type.FOREST, Type.SPOOKY, Type.DEAD);
         BiomeDictionary.registerBiomeType(BOPCBiomes.sludgepit, Type.SWAMP, Type.FOREST, Type.WASTELAND, Type.WET, Type.DEAD, Type.SPOOKY);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.spectralGarden, Type.END, Type.FOREST, Type.LUSH, Type.SPOOKY);
         BiomeDictionary.registerBiomeType(BOPCBiomes.spruceWoods, Type.FOREST, Type.CONIFEROUS, Type.LUSH, Type.DENSE);
         BiomeDictionary.registerBiomeType(BOPCBiomes.steppe, Type.PLAINS, Type.SANDY, Type.DRY, Type.HOT, Type.SAVANNA, Type.SPARSE, Type.DEAD);
         BiomeDictionary.registerBiomeType(BOPCBiomes.temperateRainforest, Type.FOREST, Type.HILLS, Type.WET, Type.CONIFEROUS, Type.LUSH);
@@ -533,6 +539,11 @@ public class BOPBiomes
 	private static BiomeGenBase registerNetherBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int weight)
 	{
 		return BOPBiomeManager.createAndRegisterBiome(biomeClass, "Nether", biomeName, BOPBiomeManager.netherBiomes, weight);
+	}
+	
+	private static BiomeGenBase registerEndBiome(Class<? extends BiomeGenBase> biomeClass, String biomeName, int weight)
+	{
+		return BOPBiomeManager.createAndRegisterBiome(biomeClass, "End", biomeName, BOPBiomeManager.endBiomes, weight);
 	}
 	
 	private static void registerOverriddenBiome(Class<? extends BOPOverriddenBiome> biomeClass, String[]...overriddenBiomeNames)

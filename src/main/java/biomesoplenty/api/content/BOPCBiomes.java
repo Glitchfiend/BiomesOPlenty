@@ -87,6 +87,9 @@ public class BOPCBiomes
 	public static BiomeGenBase visceralHeap;
 	public static BiomeGenBase polarChasm;
 	
+	//End Biomes
+	public static BiomeGenBase spectralGarden;
+	
 	//River Biomes
 	public static BiomeGenBase lushRiver;
 	public static BiomeGenBase dryRiver;

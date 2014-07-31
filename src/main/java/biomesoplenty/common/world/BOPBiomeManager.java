@@ -19,6 +19,7 @@ public class BOPBiomeManager
 	public static List<Integer> overworldOceanBiomes = new ArrayList();
 	public static BiomeGenBase[] overworldRiverBiomes = new BiomeGenBase[BiomeGenBase.getBiomeGenArray().length];
 	public static List<BiomeEntry> netherBiomes = new ArrayList();
+	public static List<BiomeEntry> endBiomes = new ArrayList();
 	
 	public static BiomeGenBase createAndRegisterBiome(Class<? extends BiomeGenBase> biomeClass, String biomeType, String biomeName, List<BiomeEntry> biomeList, int weight)
 	{
