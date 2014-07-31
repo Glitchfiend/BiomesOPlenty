@@ -7,8 +7,8 @@ tile.hardDirt.name=Terra indurita
 tile.hardIce.name=Ghiaccio cristallino
 tile.driedDirt.name=Terra arida
 tile.cragRock.name=Roccia falesia
-tile.mudBricks.name=fango concio
-tile.biomeBlock.name=Essenza di bioma grezzo
+tile.mudBricks.name=Fango concio
+tile.biomeBlock.name=Essenza di bioma grezza
 tile.crystal.name=Cristallo celestiale
 
 tile.rocks.limestone.name=Calcare
@@ -101,7 +101,7 @@ tile.saplings.magicSapling.name=Arboscello magico
 tile.saplings.darkSapling.name=Arboscello oscuro
 tile.saplings.deadSapling.name=Arboscello morente
 tile.saplings.firSapling.name=Arboscello di abete
-tile.saplings.holySapling.name=Arboscello della terra promessa
+tile.saplings.etherealSapling.name=Arboscello celeste
 tile.saplings.orangeautumnSapling.name=Arboscello d'albero autunnale arancione
 tile.saplings.originSapling.name=Arboscello della valle dell'origine
 tile.saplings.pinkcherrySapling.name=Arboscello di ciliegio rosa
@@ -139,7 +139,7 @@ tile.coral2.algae.name=Alghe
 tile.bopGrass.spectralmoss.name=Muschio spettrale
 tile.bopGrass.smolderinggrass.name=Erba ardente
 
-tile.gemOre.amethystore.name=ametista dell'End grezza
+tile.gemOre.amethystore.name=Ametista dell'End grezza
 tile.gemOre.amethystblock.name=Blocco di ametista
 tile.gemOre.rubyore.name=Rubino grezzo
 tile.gemOre.rubyblock.name=Blocco di rubino
@@ -182,7 +182,7 @@ tile.planks.sacredoakPlank.name=Assi di quercia consacrata
 tile.planks.cherryPlank.name=Assi di ciliegio
 tile.planks.darkPlank.name=Assi oscuri
 tile.planks.firPlank.name=Assi di abete
-tile.planks.holyPlank.name=Assi sacri
+tile.planks.etherealPlank.name=Assi celesti
 tile.planks.magicPlank.name=Assi magici
 tile.planks.mangrovePlank.name=Assi di mangrovia
 tile.planks.palmPlank.name=Assi di palma
@@ -199,7 +199,7 @@ tile.logs1.cherryWood.name=Legno di ciliegio
 tile.logs1.darkWood.name=Legno oscuro
 tile.logs1.firWood.name=Legno di abete
 
-tile.logs2.holyWood.name=Legno sacro
+tile.logs2.etherealWood.name=Legno celeste
 tile.logs2.magicWood.name=Legno magico
 tile.logs2.mangroveWood.name=Legno di mangrovia
 tile.logs2.palmWood.name=Legno di palma
@@ -221,7 +221,7 @@ tile.leaves1.dark.name=Foglie oscure
 
 tile.leaves2.dead.name=Foglie morenti
 tile.leaves2.fir.name=Foglie di abete
-tile.leaves2.holy.name=Foglie sacre
+tile.leaves2.ethereal.name=Foglie celesti
 tile.leaves2.orangeautumn.name=Foglie Autunnali arancioni
 
 tile.leaves3.origin.name=Foglie della valle dell'origine
@@ -248,7 +248,7 @@ tile.woodenDoubleSlab1.sacredoakSlab.name=Lastra di quercia consacrata
 tile.woodenDoubleSlab1.cherrySlab.name=Lastra di ciliegio
 tile.woodenDoubleSlab1.darkSlab.name=Lastra oscuro
 tile.woodenDoubleSlab1.firSlab.name=Lastra di abete
-tile.woodenDoubleSlab1.holySlab.name=Lastra sacro
+tile.woodenDoubleSlab1.etherealSlab.name=Lastra celeste
 tile.woodenDoubleSlab1.magicSlab.name=Lastra magico
 tile.woodenDoubleSlab1.mangroveSlab.name=Lastra di mangrovia
 tile.woodenDoubleSlab1.palmSlab.name=Lastra di palma
@@ -263,7 +263,7 @@ tile.woodenSingleSlab1.sacredoakSlab.name=Lastra di quercia consacrata
 tile.woodenSingleSlab1.cherrySlab.name=Lastra di ciliegio
 tile.woodenSingleSlab1.darkSlab.name=Lastra oscuro
 tile.woodenSingleSlab1.firSlab.name=Lastra di abete
-tile.woodenSingleSlab1.holySlab.name=Lastra sacro
+tile.woodenSingleSlab1.etherealSlab.name=Lastra celeste
 tile.woodenSingleSlab1.magicSlab.name=Lastra magico
 tile.woodenSingleSlab1.mangroveSlab.name=Lastra di mangrovia
 tile.woodenSingleSlab1.palmSlab.name=Lastra di palma
@@ -276,10 +276,10 @@ tile.woodenSingleSlab2.mahoganySlab.name=Lastra di mogano
 
 tile.sacredoakStairs.name=Scalini di quercia consacrata
 tile.cherryStairs.name=Scalini di ciliegio
-tile.darkStairs.name=Scalini oscuro
+tile.darkStairs.name=Scalini oscuri
 tile.firStairs.name=Scalini di abete
-tile.holyStairs.name=Scalini sacro
-tile.magicStairs.name=Scalini magico
+tile.etherealStairs.name=Scalini celesti
+tile.magicStairs.name=Scalini magici
 tile.mangroveStairs.name=Scalini di mangrovia
 tile.palmStairs.name=Scalini di palma
 tile.redwoodStairs.name=Scalini di redwood
@@ -328,7 +328,7 @@ item.jarFilled.jarhoney.name=Barattolo di miele
 item.jarFilled.jarpoison.name=Barattolo di estratto di veleno
 item.jarFilled.jarpixie.name=Barattolo con pixie
 
-item.gems.amethyst.name=ametista dell'End
+item.gems.amethyst.name=Ametista dell'End
 item.gems.ruby.name=Rubino
 item.gems.peridot.name=Peridoto
 item.gems.topaz.name=Topazio
@@ -344,7 +344,7 @@ item.swordMud.name=Spada di fango
 item.hoeMud.name=Zappa di fango
 item.helmetMud.name=Elmo di fango
 item.chestplateMud.name=Corazza di fango
-item.leggingsMud.name=Gambali di fango
+item.leggingsMud.name=Gambiera di fango
 item.bootsMud.name=Stivali di fango
 
 item.pickaxeAmethyst.name=Piccone di ametista
@@ -354,7 +354,7 @@ item.swordAmethyst.name=Spada di ametista
 item.hoeAmethyst.name=Zappa di ametista
 item.helmetAmethyst.name=Elmo di ametista
 item.chestplateAmethyst.name=Corazza di ametista
-item.leggingsAmethyst.name=Gambali di ametista
+item.leggingsAmethyst.name=Gambiera di ametista
 item.bootsAmethyst.name=Stivali di ametista
 
 item.scytheWood.name=Falce di legno
@@ -392,15 +392,16 @@ item.biomeFinder.name=Radar di biomi
 item.biomeEssence.name=Essenza di bioma
 
 item.poisonBucket.name=Secchio di veleno
+item.bloodBucket.name=Secchio di sangue
 item.honeyBucket.name=Secchio di miele
  
 tile.poison.name=Liquido velenoso
-tile.springWater.name=Acqua primaverile
+tile.blood.name=Sangue
 tile.honey.name=Miele
 
 fluid.poison=Liquido velenoso
 fluid.springWater=Acqua primaverile
-fluid.honey=Miele
+fluid.blood=Sangue
 
 biomeRadar.target=Obiettivo:
 biomeRadar.foundBiome=Bioma trovato!
