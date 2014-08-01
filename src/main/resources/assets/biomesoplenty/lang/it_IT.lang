@@ -9,7 +9,7 @@ tile.driedDirt.name=Terra arida
 tile.cragRock.name=Roccia falesia
 tile.mudBricks.name=Fango concio
 tile.biomeBlock.name=Essenza di bioma grezza
-tile.crystal.name=Cristallo di legno celesteale
+tile.crystal.name=Cristallo celestiale
 
 tile.rocks.limestone.name=Calcare
 tile.rocks.limestonesmooth.name=Calcare lucido
@@ -313,7 +313,7 @@ item.misc.mudbrick.name=Mattone di fango
 item.misc.ash.name=Cumulo di cenere
 item.misc.fleshchunk.name=Pezzo di carne
 item.misc.emptyhoneycomb.name=Favo vuoto
-item.misc.crystalshard.name=Scheggia di cristallo di legno celesteale
+item.misc.crystalshard.name=Scheggia di cristallo celestiale
 item.misc.bluedye.name=Tintura blu
 item.misc.browndye.name=Tintura marrone
 item.misc.greendye.name=Tintura verde
@@ -371,7 +371,7 @@ item.ancientStaff.staffpole.name=Corpo della verga venerabile
 item.ancientStaff.stafftopper.name=Punta della verga venerabile
 item.ancientStaff.ancientstaffbroken.name=Verga venerabile esaurita
 
-item.enderporter.name=Traslatore ender
+item.enderporter.name=Traslatore dell'End
 
 item.record_wanderer.name=Disco musicale
 item.record_corruption.name=Disco musicale
@@ -450,7 +450,7 @@ achievement.bop.achDartBlower.desc=Ti sparerai l'occhio, ragazzo!
 achievement.bop.achScythe=Killer di piante
 achievement.bop.achScythe.desc=Il lavoro abituale della Morte.
 achievement.bop.achEnderporter=Casa dolce casa
-achievement.bop.achEnderporter.desc=Usa i di legno magico poteri del Traslatore Ender.
+achievement.bop.achEnderporter.desc=Usa i magici poteri del Traslatore dell'End.
 
 achievement.bop.achHoney=Dolceamaro
 achievement.bop.achHoney.desc=Un paese di sangue e miele.
