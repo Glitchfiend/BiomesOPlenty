@@ -154,6 +154,7 @@ public class BOPCrafting
 		addRecipeToFront(new ItemStack(BOPCBlocks.mahoganyStairs, 4), new Object[] {"  R", " RR", "RRR", 'R', new ItemStack(BOPCBlocks.planks, 1, 14)});
 		addRecipeToFront(new ItemStack(BOPCBlocks.mahoganyStairs, 4), new Object[] {"R  ", "RR ", "RRR", 'R', new ItemStack(BOPCBlocks.planks, 1, 14)});
 
+		GameRegistry.addRecipe(new ItemStack(Items.string, 1, 0), new Object[] {"F", "F", "F", 'F', new ItemStack(BOPCBlocks.foliage, 1, 3)});
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.overgrownNetherrack, 1, 0), new Object[] {"SSS", "SNS", "SSS", 'S', Items.wheat_seeds, 'N', Blocks.netherrack});
 		GameRegistry.addRecipe(new ItemStack(Blocks.wool, 1, 0), new Object[] {"CCC", "CCC", "CCC", 'C', new ItemStack(BOPCBlocks.plants, 1, 7)});
 		GameRegistry.addRecipe(new ItemStack(Items.coal, 1), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.misc, 1, 1)});

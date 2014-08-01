@@ -38,6 +38,7 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 15;
 

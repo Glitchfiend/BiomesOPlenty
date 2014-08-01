@@ -40,6 +40,7 @@ public class BiomeGenShrubland extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
         
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 1;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 2), 4);
         

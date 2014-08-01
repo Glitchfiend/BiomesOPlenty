@@ -70,6 +70,7 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int redSandSplatterPerChunk = 0;
     @BiomeFeature public int dirtSplatterPerChunk = 0;
     @BiomeFeature public int sandstoneSpikesPerChunk = 0;
+    @BiomeFeature public int flaxPerChunk = 0;
     
     //Ocean Features
     @BiomeFeature public int seaweedPerChunk = 0;

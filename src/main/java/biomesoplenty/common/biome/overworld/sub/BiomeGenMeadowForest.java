@@ -42,6 +42,7 @@ public class BiomeGenMeadowForest extends BOPSubBiome
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 5;
 

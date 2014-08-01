@@ -45,6 +45,7 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 5;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 25;
 

@@ -39,6 +39,7 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 8;
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 3;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 8;
 

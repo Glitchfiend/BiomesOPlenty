@@ -40,6 +40,7 @@ public class BiomeGenOrchard extends BOPSubBiome
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.cloverPatchesPerChunk = 15;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 		
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 20;
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 15;

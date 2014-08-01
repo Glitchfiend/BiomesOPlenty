@@ -24,6 +24,7 @@ public class BiomeGenBOPForest extends BOPInheritedOverworldBiome
         this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
              
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 2;

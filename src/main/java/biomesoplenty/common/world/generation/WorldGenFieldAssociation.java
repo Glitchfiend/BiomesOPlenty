@@ -87,6 +87,7 @@ public class WorldGenFieldAssociation
         associateFeature("blueMilksPerChunk", new WorldGenBOPFlora(BOPCBlocks.mushrooms, 2));
         associateFeature("cattailsPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 7));
         associateFeature("highCattailsPerChunk", new WorldGenBOPDoubleFlora(BOPCBlocks.plants, BOPCBlocks.plants, 10, 9));
+        associateFeature("flaxPerChunk", new WorldGenBOPDoubleFlora(BOPCBlocks.foliage, BOPCBlocks.foliage, 3, 6, 24));
         associateFeature("algaePerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 0, 256));
         associateFeature("sproutsPerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 5));
         associateFeature("tinyCactiPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 12));

@@ -44,6 +44,7 @@ public class BiomeGenSpruceWoods extends BOPSubBiome
         this.theBiomeDecorator.bopFeatures.cloverPatchesPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 2;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;

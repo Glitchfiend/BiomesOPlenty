@@ -38,6 +38,7 @@ public class BiomeGenPrairie extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 15;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 999;
 

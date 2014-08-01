@@ -15,6 +15,7 @@ public class BiomeGenBOPPlains extends BOPInheritedOverworldBiome
 		
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 8;
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 5;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 0), 10);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(BOPCBlocks.flowers, 9), 5);

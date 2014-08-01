@@ -37,6 +37,7 @@ public class BiomeGenWoodland extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.logsPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 3;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 7;
 

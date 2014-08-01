@@ -26,6 +26,7 @@ public class BiomeGenBOPBirchForest extends BOPInheritedOverworldBiome
         this.theBiomeDecorator.bopFeatures.cloverPatchesPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
              
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 5;
              

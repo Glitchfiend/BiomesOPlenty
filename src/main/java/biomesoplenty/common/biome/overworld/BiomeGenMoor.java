@@ -44,6 +44,7 @@ public class BiomeGenMoor extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.koruPerChunk = 6;
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 15;
 

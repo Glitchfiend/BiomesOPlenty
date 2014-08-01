@@ -47,6 +47,7 @@ public class BiomeGenGrassland extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.riverCanePerChunk = 5;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 2;
 

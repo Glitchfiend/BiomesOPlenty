@@ -40,6 +40,7 @@ public class BiomeGenShield extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 4;
         this.theBiomeDecorator.bopFeatures.generateStoneInGrass2 = true;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 12;
 
