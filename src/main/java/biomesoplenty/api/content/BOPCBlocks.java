@@ -35,6 +35,7 @@ public class BOPCBlocks
 
 	public static Block mudBricks;
 	
+	public static Block soil;
 	public static Block originGrass;
 	public static Block longGrass;
 	public static Block overgrownNetherrack;
