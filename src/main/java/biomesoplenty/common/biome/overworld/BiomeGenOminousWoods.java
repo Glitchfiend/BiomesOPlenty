@@ -125,6 +125,6 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome implements IBiomeFog
     @Override
     public float getFogDensity(int x, int y, int z)
     {
-        return 0.1F;
+        return 10F;
     }
 }

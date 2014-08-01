@@ -1,7 +1,7 @@
 package biomesoplenty.common.eventhandler;
 
 import net.minecraftforge.common.MinecraftForge;
-import biomesoplenty.client.fog.FogEventHandler;
+import biomesoplenty.client.fog.FogHandler;
 import biomesoplenty.client.utils.ParticleRegistry;
 import biomesoplenty.common.eventhandler.client.FlowerScatterEventHandler;
 import biomesoplenty.common.eventhandler.client.gui.MainMenuEventHandler;
@@ -71,7 +71,7 @@ public class BOPEventHandlers
 	
 	private static void registerClientEventHandlers()
 	{
-		MinecraftForge.EVENT_BUS.register(new FogEventHandler());
+		MinecraftForge.EVENT_BUS.register(new FogHandler());
 		MinecraftForge.EVENT_BUS.register(new ParticleRegistry());
 		FMLCommonHandler.instance().bus().register(new FlowerScatterEventHandler());
 	}
