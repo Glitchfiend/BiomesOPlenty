@@ -34,7 +34,7 @@ public class BiomeGenChaparral extends BOPOverworldBiome
 	    this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 		
 		this.theBiomeDecorator.treesPerChunk = 8;
-		this.theBiomeDecorator.grassPerChunk = 20;
+		this.theBiomeDecorator.grassPerChunk = 10;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.bushesPerChunk = 10;

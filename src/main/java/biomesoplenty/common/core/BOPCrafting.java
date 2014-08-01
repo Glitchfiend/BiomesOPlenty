@@ -39,6 +39,7 @@ public class BOPCrafting
 	private static void addCraftingRecipes()
 	{
 		//Plants
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 1), new Object[] {new ItemStack(BOPCBlocks.flowers2,1,8)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 6), new Object[] {new ItemStack(BOPCBlocks.flowers,1,1)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 13), new Object[] {new ItemStack(BOPCBlocks.flowers,1,7)});
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 1, 14), new Object[] {new ItemStack(BOPCBlocks.flowers,1,5)});

@@ -35,7 +35,7 @@ public class BiomeGenFen extends BOPOverworldBiome
 
 		this.theBiomeDecorator.treesPerChunk = 10;
 		this.theBiomeDecorator.mushroomsPerChunk = 8;
-		this.theBiomeDecorator.grassPerChunk = 15;
+		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 

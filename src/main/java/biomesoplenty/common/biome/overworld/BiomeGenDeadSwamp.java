@@ -34,7 +34,7 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome
 		this.waterColorMultiplier = 10661201;
 
 		this.theBiomeDecorator.treesPerChunk = 1;
-		this.theBiomeDecorator.grassPerChunk = 25;
+		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk = -999;

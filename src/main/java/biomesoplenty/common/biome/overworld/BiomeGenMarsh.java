@@ -32,7 +32,7 @@ public class BiomeGenMarsh extends BOPOverworldBiome
 
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.flowersPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 50;
+		this.theBiomeDecorator.grassPerChunk = 25;
 		
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk = -999;

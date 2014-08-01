@@ -30,7 +30,6 @@ public class BiomeGenPrairie extends BOPOverworldBiome
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 
 		this.theBiomeDecorator.treesPerChunk = 1;
-		this.theBiomeDecorator.grassPerChunk = 999;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 30;
         this.theBiomeDecorator.bopFeatures.portobellosPerChunk = 2;
