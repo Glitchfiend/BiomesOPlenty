@@ -68,7 +68,7 @@ public class FogHandler
         
         fogInit = true;
         
-        int distance = 30;
+        int distance = 20;
         int divider = 0;
         
         float farPlaneDistance = 0F;
@@ -85,7 +85,7 @@ public class FogHandler
                 }
                 else
                 {
-                	farPlaneDistance += 256F;
+                	farPlaneDistance += event.farPlaneDistance;
                 }
 				
                 divider++;
@@ -108,7 +108,7 @@ public class FogHandler
         }
         else
         {
-            GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * 0.8F);
+            GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * 0.75F);
             GL11.glFogf(GL11.GL_FOG_END, farPlaneDistance);
         }
 	}
