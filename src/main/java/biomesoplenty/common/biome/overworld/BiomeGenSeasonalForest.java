@@ -10,12 +10,13 @@ import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
-public class BiomeGenSeasonalForest extends BOPOverworldBiome
+public class BiomeGenSeasonalForest extends BOPOverworldBiome implements IBiomeFog
 {
     private static final Height biomeHeight = new Height(0.2F, 0.4F);
 
@@ -97,17 +98,17 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome
         // return 12502595;
     }
 
-    /*@Override
-    public int getFogColour()
+    @Override
+    public int getFogColour(int x, int y, int z)
     {
         return 16764548;
     }
 
     @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
         return 1.0F;
     }
-    */
+    
 }

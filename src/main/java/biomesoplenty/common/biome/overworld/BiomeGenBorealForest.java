@@ -32,7 +32,7 @@ public class BiomeGenBorealForest extends BOPOverworldBiome
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		
 		this.theBiomeDecorator.treesPerChunk = 20;
-		this.theBiomeDecorator.grassPerChunk = 50;
+		this.theBiomeDecorator.grassPerChunk = 10;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 10;

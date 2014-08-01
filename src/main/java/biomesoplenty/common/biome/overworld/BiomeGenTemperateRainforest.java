@@ -31,7 +31,7 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
 		
 		this.theBiomeDecorator.treesPerChunk = 22;
-		this.theBiomeDecorator.grassPerChunk = 25;
+		this.theBiomeDecorator.grassPerChunk = 6;
 		this.theBiomeDecorator.mushroomsPerChunk = 4;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;

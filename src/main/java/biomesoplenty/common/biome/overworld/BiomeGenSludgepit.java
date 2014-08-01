@@ -38,7 +38,7 @@ public class BiomeGenSludgepit extends BOPOverworldBiome
         this.waterColorMultiplier = 11506176;
 
         this.theBiomeDecorator.treesPerChunk = 30;
-        this.theBiomeDecorator.grassPerChunk = 30;
+        this.theBiomeDecorator.grassPerChunk = 15;
         this.theBiomeDecorator.mushroomsPerChunk = 8;
         this.theBiomeDecorator.flowersPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk = -999;

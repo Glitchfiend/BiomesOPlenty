@@ -29,7 +29,7 @@ public class BiomeGenCherryBlossomGrove extends BOPOverworldBiome
         this.setTemperatureRainfall(0.7F, 0.8F);
 		
 		this.theBiomeDecorator.treesPerChunk = 3;
-		this.theBiomeDecorator.grassPerChunk = 15;
+		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.flowersPerChunk = 4;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 30;

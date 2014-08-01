@@ -24,7 +24,7 @@ public class BiomeGenHighland extends BOPOverworldBiome
         this.setTemperatureRainfall(0.5F, 0.5F);
 		
 		this.theBiomeDecorator.treesPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 99;
+		this.theBiomeDecorator.grassPerChunk = 10;
 
         this.theBiomeDecorator.bopFeatures.wildCarrotsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.rockpilesPerChunk = 1;

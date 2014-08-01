@@ -36,7 +36,7 @@ public class BiomeGenBayou extends BOPOverworldBiome
 		this.waterColorMultiplier = 16767282;
 
 		this.theBiomeDecorator.treesPerChunk = 15;
-		this.theBiomeDecorator.grassPerChunk = 15;
+		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.reedsPerChunk = 25;
 		this.theBiomeDecorator.mushroomsPerChunk = 4;
