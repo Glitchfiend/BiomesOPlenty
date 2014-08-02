@@ -49,7 +49,7 @@ public class FogHandler
     private static boolean fogInit;
     private static float fogFarPlaneDistance;
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void onRenderFog(RenderFogEvent event)
 	{
 		Entity entity = event.entity;
@@ -111,7 +111,7 @@ public class FogHandler
             GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * 0.75F);
             GL11.glFogf(GL11.GL_FOG_END, farPlaneDistance);
         }
-	}
+	}*/
 
 	/*public static int getFogBlendColour(World world, int playerX, int playerY, int playerZ, int defaultColour)
 	{
