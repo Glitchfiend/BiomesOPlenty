@@ -95,19 +95,19 @@ tile.mushrooms.flatmushroom.name=Fungo piatto
 tile.mushrooms.shadowshroom.name=Fungo ombroso
 
 tile.saplings.appleSapling.name=Arboscello di melo
-tile.saplings.yellowautumnSapling.name=Arboscello d'albero autunnale giallo
+tile.saplings.yellowautumnSapling.name=Arboscello di albero autunnale giallo
 tile.saplings.bambooSapling.name=Arboscello di bambù
-tile.saplings.magicSapling.name=Arboscello magico
-tile.saplings.darkSapling.name=Arboscello oscuro
-tile.saplings.deadSapling.name=Arboscello morente
-tile.saplings.firSapling.name=Arboscello di abete
-tile.saplings.etherealSapling.name=Arboscello celeste
-tile.saplings.orangeautumnSapling.name=Arboscello d'albero autunnale arancione
-tile.saplings.originSapling.name=Arboscello della valle dell'origine
+tile.saplings.magicSapling.name=Arboscello di albero magico
+tile.saplings.darkSapling.name=Arboscello di albero oscuro
+tile.saplings.deadSapling.name=Arboscello di albero morente
+tile.saplings.firSapling.name=Arboscello di abete chiaro
+tile.saplings.etherealSapling.name=Arboscello di albero celeste
+tile.saplings.orangeautumnSapling.name=Arboscello di albero autunnale arancione
+tile.saplings.originSapling.name=Arboscello della valle dell'Origine
 tile.saplings.pinkcherrySapling.name=Arboscello di ciliegio rosa
-tile.saplings.mapleSapling.name=Arboscello di acero
+tile.saplings.mapleSapling.name=Arboscello d'acero
 tile.saplings.whitecherrySapling.name=Arboscello di ciliegio bianco
-tile.saplings.hellbarkSapling.name=Arboscello della corteccia infernale
+tile.saplings.hellbarkSapling.name=Arboscello di corteccia infernale
 tile.saplings.jacarandaSapling.name=Arboscello di jacaranda
 tile.saplings.persimmonSapling.name=Arboscello di cachi
 
@@ -117,13 +117,13 @@ tile.colorizedSaplings.palmSapling.name=Arboscello di palma
 tile.colorizedSaplings.redwoodSapling.name=Arboscello di redwood
 tile.colorizedSaplings.willowSapling.name=Arboscello di salice
 tile.colorizedSaplings.pineSapling.name=Arboscello di pino
-tile.colorizedSaplings.mahoganySapling.name=Arboscello di mogano
+tile.colorizedSaplings.mahoganySapling.name=Arboscello di mogano rosso
 
 tile.willow.name=Salice
 tile.ivy.name=Edera
 tile.bamboo.name=Bambù
 tile.mudBricksStairs.name=Scalini di fango concio
-tile.originGrass.name=Erba della valle dell'origine
+tile.originGrass.name=Erba della valle dell'Origine
 tile.longGrass.name=Erba copiosa
 tile.overgrownNetherrack.name=Pietra degli Inferi ricoperto di vegetazione
 tile.treeMoss.name=Muschio parassita
@@ -180,10 +180,10 @@ tile.stoneSingleSlab.mudbrickSlab.name=Lastra di fango concio
 
 tile.planks.sacredoakPlank.name=Assi di quercia consacrata
 tile.planks.cherryPlank.name=Assi di ciliegio
-tile.planks.darkPlank.name=Assi oscuri
-tile.planks.firPlank.name=Assi di abete
-tile.planks.etherealPlank.name=Assi celesti
-tile.planks.magicPlank.name=Assi magici
+tile.planks.darkPlank.name=Assi di legno oscuro
+tile.planks.firPlank.name=Assi di abete chiaro
+tile.planks.etherealPlank.name=Assi di legno celeste
+tile.planks.magicPlank.name=Assi di legno magico
 tile.planks.mangrovePlank.name=Assi di mangrovia
 tile.planks.palmPlank.name=Assi di palma
 tile.planks.redwoodPlank.name=Assi di redwood
@@ -192,12 +192,12 @@ tile.planks.bambooThatching.name=Fascio di bambù
 tile.planks.pinePlank.name=Assi di pino
 tile.planks.hellBarkPlank.name=Assi di corteccia infernale
 tile.planks.jacarandaPlank.name=Assi di jacaranda
-tile.planks.mahoganyPlank.name=Assi di mogano
+tile.planks.mahoganyPlank.name=Assi di mogano rosso
 
 tile.logs1.sacredoakWood.name=Legno di quercia consacrata
 tile.logs1.cherryWood.name=Legno di ciliegio
 tile.logs1.darkWood.name=Legno oscuro
-tile.logs1.firWood.name=Legno di abete
+tile.logs1.firWood.name=Legno di abete chiaro
 
 tile.logs2.etherealWood.name=Legno celeste
 tile.logs2.magicWood.name=Legno magico
@@ -212,7 +212,7 @@ tile.logs3.bigflowerstemWood.name=Stelo di fiore gigante
 tile.logs4.pineWood.name=Legno di pino
 tile.logs4.hellbarkWood.name=Legno di corteccia infernale
 tile.logs4.jacarandaWood.name=Legno di jacaranda
-tile.logs4.mahoganyWood.name=Legno di mogano
+tile.logs4.mahoganyWood.name=Legno di mogano rosso
 
 tile.leaves1.yellowautumn.name=Foglie autunnali gialle
 tile.leaves1.bamboo.name=Foglie di bambù
@@ -220,13 +220,13 @@ tile.leaves1.magic.name=Foglie magiche
 tile.leaves1.dark.name=Foglie oscure
 
 tile.leaves2.dead.name=Foglie morenti
-tile.leaves2.fir.name=Foglie di abete
+tile.leaves2.fir.name=Foglie di abete chiaro
 tile.leaves2.ethereal.name=Foglie celesti
-tile.leaves2.orangeautumn.name=Foglie Autunnali arancioni
+tile.leaves2.orangeautumn.name=Foglie autunnali arancioni
 
-tile.leaves3.origin.name=Foglie della valle dell'origine
+tile.leaves3.origin.name=Foglie della valle dell'Origine
 tile.leaves3.pinkcherry.name=Foglie di ciliegio rosa
-tile.leaves3.maple.name=Foglie di acero
+tile.leaves3.maple.name=Foglie d'acero
 tile.leaves3.whitecherry.name=Foglie di ciliegio bianco
 
 tile.leaves4.hellbark.name=Foglie di corteccia infernale
@@ -239,17 +239,17 @@ tile.colorizedLeaves1.redwood.name=Foglie di redwood
 
 tile.colorizedLeaves2.willow.name=Foglie di salice
 tile.colorizedLeaves2.pine.name=Foglie di pino
-tile.colorizedLeaves2.mahogany.name=Foglie di mogano
+tile.colorizedLeaves2.mahogany.name=Foglie di mogano rosso
 
 tile.appleLeaves.name=Foglie di melo
 tile.persimmonLeaves.name=Foglie di cachi
 
 tile.woodenDoubleSlab1.sacredoakSlab.name=Lastra di quercia consacrata
 tile.woodenDoubleSlab1.cherrySlab.name=Lastra di ciliegio
-tile.woodenDoubleSlab1.darkSlab.name=Lastra oscuro
-tile.woodenDoubleSlab1.firSlab.name=Lastra di abete
-tile.woodenDoubleSlab1.etherealSlab.name=Lastra celeste
-tile.woodenDoubleSlab1.magicSlab.name=Lastra magico
+tile.woodenDoubleSlab1.darkSlab.name=Lastra di legno oscuro
+tile.woodenDoubleSlab1.firSlab.name=Lastra di abete chiaro
+tile.woodenDoubleSlab1.etherealSlab.name=Lastra di legno celeste
+tile.woodenDoubleSlab1.magicSlab.name=Lastra di legno magico
 tile.woodenDoubleSlab1.mangroveSlab.name=Lastra di mangrovia
 tile.woodenDoubleSlab1.palmSlab.name=Lastra di palma
 tile.woodenDoubleSlab2.redwoodSlab.name=Lastra di redwood
@@ -257,14 +257,14 @@ tile.woodenDoubleSlab2.willowSlab.name=Lastra di salice
 tile.woodenDoubleSlab2.pineSlab.name=Lastra di pino
 tile.woodenDoubleSlab2.hell_barkSlab.name=Lastra di corteccia infernale
 tile.woodenDoubleSlab2.jacarandaSlab.name=Lastra di jacaranda
-tile.woodenDoubleSlab2.mahoganySlab.name=Lastra di mogano
+tile.woodenDoubleSlab2.mahoganySlab.name=Lastra di mogano rosso
 
 tile.woodenSingleSlab1.sacredoakSlab.name=Lastra di quercia consacrata
 tile.woodenSingleSlab1.cherrySlab.name=Lastra di ciliegio
-tile.woodenSingleSlab1.darkSlab.name=Lastra oscuro
-tile.woodenSingleSlab1.firSlab.name=Lastra di abete
-tile.woodenSingleSlab1.etherealSlab.name=Lastra celeste
-tile.woodenSingleSlab1.magicSlab.name=Lastra magico
+tile.woodenSingleSlab1.darkSlab.name=Lastra di legno oscuro
+tile.woodenSingleSlab1.firSlab.name=Lastra di abete chiaro
+tile.woodenSingleSlab1.etherealSlab.name=Lastra di legno celeste
+tile.woodenSingleSlab1.magicSlab.name=Lastra di legno magico
 tile.woodenSingleSlab1.mangroveSlab.name=Lastra di mangrovia
 tile.woodenSingleSlab1.palmSlab.name=Lastra di palma
 tile.woodenSingleSlab2.redwoodSlab.name=Lastra di redwood
@@ -272,14 +272,14 @@ tile.woodenSingleSlab2.willowSlab.name=Lastra di salice
 tile.woodenSingleSlab2.pineSlab.name=Lastra di pino
 tile.woodenSingleSlab2.hell_barkSlab.name=Lastra di corteccia infernale
 tile.woodenSingleSlab2.jacarandaSlab.name=Lastra di jacaranda
-tile.woodenSingleSlab2.mahoganySlab.name=Lastra di mogano
+tile.woodenSingleSlab2.mahoganySlab.name=Lastra di mogano rosso
 
 tile.sacredoakStairs.name=Scalini di quercia consacrata
 tile.cherryStairs.name=Scalini di ciliegio
-tile.darkStairs.name=Scalini oscuri
-tile.firStairs.name=Scalini di abete
-tile.etherealStairs.name=Scalini celesti
-tile.magicStairs.name=Scalini magici
+tile.darkStairs.name=Scalini di legno oscuro
+tile.firStairs.name=Scalini di abete chiaro
+tile.etherealStairs.name=Scalini di legno celeste
+tile.magicStairs.name=Scalini di legno magico
 tile.mangroveStairs.name=Scalini di mangrovia
 tile.palmStairs.name=Scalini di palma
 tile.redwoodStairs.name=Scalini di redwood
@@ -287,7 +287,7 @@ tile.willowStairs.name=Scalini di salice
 tile.pineStairs.name=Scalini di pino
 tile.hellBarkStairs.name=Scalini di corteccia infernale
 tile.jacarandaStairs.name=Scalini di jacaranda
-tile.mahoganyStairs.name=Scalini di mogano
+tile.mahoganyStairs.name=Scalini di mogano rosso
 
 item.food.berries.name=Bacca
 item.food.shroompowder.name=Polvere di fungo
@@ -371,7 +371,7 @@ item.ancientStaff.staffpole.name=Corpo della verga venerabile
 item.ancientStaff.stafftopper.name=Punta della verga venerabile
 item.ancientStaff.ancientstaffbroken.name=Verga venerabile esaurita
 
-item.enderporter.name=Traslatore ender
+item.enderporter.name=Traslatore dell'End
 
 item.record_wanderer.name=Disco musicale
 item.record_corruption.name=Disco musicale
@@ -450,7 +450,7 @@ achievement.bop.achDartBlower.desc=Ti sparerai l'occhio, ragazzo!
 achievement.bop.achScythe=Killer di piante
 achievement.bop.achScythe.desc=Il lavoro abituale della Morte.
 achievement.bop.achEnderporter=Casa dolce casa
-achievement.bop.achEnderporter.desc=Usa i magici poteri del Traslatore Ender.
+achievement.bop.achEnderporter.desc=Usa i magici poteri del Traslatore dell'End.
 
 achievement.bop.achHoney=Dolceamaro
 achievement.bop.achHoney.desc=Un paese di sangue e miele.
