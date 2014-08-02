@@ -8,6 +8,7 @@ import biomesoplenty.common.eventhandler.client.gui.MainMenuEventHandler;
 import biomesoplenty.common.eventhandler.client.gui.StartupWarningEventHandler;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
+import biomesoplenty.common.eventhandler.entity.SlimeSpawnEventHandler;
 import biomesoplenty.common.eventhandler.entity.TemptEventHandler;
 import biomesoplenty.common.eventhandler.misc.BonemealEventHandler;
 import biomesoplenty.common.eventhandler.misc.BucketEventHandler;
@@ -46,6 +47,7 @@ public class BOPEventHandlers
 	
 	private static void registerEntityEventHandlers()
 	{
+		MinecraftForge.EVENT_BUS.register(new SlimeSpawnEventHandler());
 		MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
 		MinecraftForge.EVENT_BUS.register(new FlippersEventHandler());
 		MinecraftForge.EVENT_BUS.register(new TemptEventHandler());

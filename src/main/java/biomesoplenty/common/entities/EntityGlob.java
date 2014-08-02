@@ -13,6 +13,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.common.BiomeDictionary;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
 import biomesoplenty.api.content.BOPCItems;
@@ -300,7 +301,7 @@ public class EntityGlob extends EntityLiving implements IMob
 			 {
 				 BiomeGenBase biomegenbase = worldObj.getBiomeGenForCoords(MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
 
-				 if (biomegenbase == BiomeGenBase.swampland && posY > 50.0D && posY < 70.0D && rand.nextFloat() < 0.5F && rand.nextFloat() < this.worldObj.getCurrentMoonPhaseFactor() && worldObj.getBlockLightValue(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ)) <= rand.nextInt(8))
+				 if (BiomeDictionary.isBiomeOfType(biomegenbase, BiomeDictionary.Type.SWAMP) && posY > 50.0D && posY < 70.0D && rand.nextFloat() < 0.5F && rand.nextFloat() < this.worldObj.getCurrentMoonPhaseFactor() && worldObj.getBlockLightValue(MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ)) <= rand.nextInt(8))
 					 return super.getCanSpawnHere();
 
 				 if (rand.nextInt(10) == 0 && chunk.getRandomWithSeed(987234911L).nextInt(10) == 0 && posY < 40.0D)
