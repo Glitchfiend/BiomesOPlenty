@@ -57,7 +57,7 @@ public class BOPEntities
 
 			registerEntityEgg(EntityGlob.class, 6836276, 8414787);
 
-			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPCBiomes.bog, BOPCBiomes.deadSwamp, BOPCBiomes.fen, BOPCBiomes.moor, BOPCBiomes.quagmire, BOPCBiomes.sludgepit, BiomeGenBase.swampland);
+			EntityRegistry.addSpawn(EntityGlob.class, 1, 1, 1, EnumCreatureType.creature, BOPCBiomes.deadSwamp, BOPCBiomes.fen, BOPCBiomes.moor, BOPCBiomes.quagmire, BOPCBiomes.sludgepit, BiomeGenBase.swampland);
 		}
 
 		if (BOPConfigurationIDs.phantomID > 0)
