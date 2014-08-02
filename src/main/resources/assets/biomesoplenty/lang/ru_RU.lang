@@ -70,10 +70,10 @@ tile.stoneFormations.stalactite.name=Сталактит
 tile.foliage.duckweed.name=Ряска
 tile.foliage.shortgrass.name=Низкая трава
 tile.foliage.mediumgrass.name=Средняя трава
-tile.foliage.hedgebottom.name=Живая изгородь
+tile.foliage.flaxbottom.name=Лён
 tile.foliage.bush.name=Куст
 tile.foliage.sprout.name=Росток
-tile.foliage.hedgetop.name=Живая изгородь
+tile.foliage.flaxtop.name=Лён
 tile.foliage.poisonivy.name=Ядовитый плющ
 tile.foliage.berrybush.name=Ягодный куст
 tile.foliage.shrub.name=Кустарник
@@ -101,7 +101,7 @@ tile.saplings.magicSapling.name=Магический саженец
 tile.saplings.darkSapling.name=Тёмный саженец
 tile.saplings.deadSapling.name=Погибающий саженец
 tile.saplings.firSapling.name=Саженец пихты
-tile.saplings.holySapling.name=Саженец лофтвуда
+tile.saplings.etherealSapling.name=Эфирный саженец
 tile.saplings.orangeautumnSapling.name=Оранжевый осенний саженец
 tile.saplings.originSapling.name=Оригинальный саженец
 tile.saplings.pinkcherrySapling.name=Саженец розовой вишни
@@ -134,7 +134,14 @@ tile.coral1.pinkcoral.name=Розовый коралл
 tile.coral1.orangecoral.name=Оранжевый коралл
 tile.coral1.bluecoral.name=Синий коралл
 tile.coral1.glowcoral.name=Светящийся коралл
-tile.coral1.algae.name=Водоросли
+tile.coral2.algae.name=Водоросли
+
+tile.soil.grass_silty.name=Блок илистой травы
+tile.soil.grass_sandy.name=Блок песчаной травы
+tile.soil.grass_loamy.name=Блок глиняной травы
+tile.soil.dirt_silty.name=Илистая земля
+tile.soil.dirt_sandy.name=Песчаная земля
+tile.soil.dirt_loamy.name=Глиняная земля
 
 tile.bopGrass.spectralmoss.name=Спектральный мох
 tile.bopGrass.smolderinggrass.name=Блок тлеющей травы
@@ -182,7 +189,7 @@ tile.planks.sacredoakPlank.name=Доски из древесины священ�
 tile.planks.cherryPlank.name=Доски из древесины вишнёвого дерева
 tile.planks.darkPlank.name=Доски из тёмной древесины
 tile.planks.firPlank.name=Доски из древесины пихты
-tile.planks.holyPlank.name=Доски из древесины лофтвуда
+tile.planks.etherealPlank.name=Доски из эфирной древесины
 tile.planks.magicPlank.name=Доски из магической древесины
 tile.planks.mangrovePlank.name=Доски из древесины мангрового дерева
 tile.planks.palmPlank.name=Доски из древесины пальмы
@@ -199,7 +206,7 @@ tile.logs1.cherryWood.name=Древесина вишнёвого дерева
 tile.logs1.darkWood.name=Древесина тёмного дерева
 tile.logs1.firWood.name=Древесина пихты
 
-tile.logs2.holyWood.name=Древесина лофтвуда
+tile.logs2.etherealWood.name=Эфирная древесина
 tile.logs2.magicWood.name=Магическая древесина
 tile.logs2.mangroveWood.name=Древесина мангрового дерева
 tile.logs2.palmWood.name=Древесина пальмы
@@ -221,7 +228,7 @@ tile.leaves1.dark.name=Тёмная листва
 
 tile.leaves2.dead.name=Погибающая листва
 tile.leaves2.fir.name=Пихтовая листва
-tile.leaves2.holy.name=Листва лофтвуда
+tile.leaves2.ethereal.name=Эфирная листва
 tile.leaves2.orangeautumn.name=Оранжевая осенняя листва
 
 tile.leaves3.origin.name=Оригинальная листва
@@ -248,7 +255,7 @@ tile.woodenDoubleSlab1.sacredoakSlab.name=Плита из древесины с�
 tile.woodenDoubleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
 tile.woodenDoubleSlab1.darkSlab.name=Плита из тёмной древесины
 tile.woodenDoubleSlab1.firSlab.name=Плита из древесины пихты
-tile.woodenDoubleSlab1.holySlab.name=Плита из древесины лофтвуда
+tile.woodenDoubleSlab1.etherealSlab.name=Плита из эфирной древесины
 tile.woodenDoubleSlab1.magicSlab.name=Плита из магической древесины
 tile.woodenDoubleSlab1.mangroveSlab.name=Плита из древесины мангрового дерева
 tile.woodenDoubleSlab1.palmSlab.name=Плита из древесины пальмы
@@ -263,7 +270,7 @@ tile.woodenSingleSlab1.sacredoakSlab.name=Плита из древесины с�
 tile.woodenSingleSlab1.cherrySlab.name=Плита из древесины вишнёвого дерева
 tile.woodenSingleSlab1.darkSlab.name=Плита из тёмной древесины
 tile.woodenSingleSlab1.firSlab.name=Плита из древесины пихты
-tile.woodenSingleSlab1.holySlab.name=Плита из древесины лофтвуда
+tile.woodenSingleSlab1.etherealSlab.name=Плита из эфирной древесины
 tile.woodenSingleSlab1.magicSlab.name=Плита из магической древесины
 tile.woodenSingleSlab1.mangroveSlab.name=Плита из древесины мангрового дерева
 tile.woodenSingleSlab1.palmSlab.name=Плита из древесины пальмы
@@ -278,7 +285,7 @@ tile.sacredoakStairs.name=Ступеньки из древесины свяще�
 tile.cherryStairs.name=Ступеньки из древесины вишнёвого дерева
 tile.darkStairs.name=Ступеньки из тёмной древесины
 tile.firStairs.name=Ступеньки из древесины пихты
-tile.holyStairs.name=Ступеньки из древесины лофтвуда
+tile.etherealStairs.name=Ступеньки из эфирной древесины
 tile.magicStairs.name=Ступеньки из магической древесины
 tile.mangroveStairs.name=Ступеньки из древесины мангрового дерева
 tile.palmStairs.name=Ступеньки из древесины пальмы
@@ -392,14 +399,15 @@ item.biomeFinder.name=Радар биомов
 item.biomeEssence.name=Эссенция биомов
 
 item.poisonBucket.name=Ведро яда
+item.hell_bloodBucket.name=Ведро крови
 item.honeyBucket.name=Ведро мёда
 
 tile.poison.name=Яд
-tile.springWater.name=Родниковая вода
+tile.hell_blood.name=Кровь
 tile.honey.name=Мёд
 
 fluid.poison=Яд
-fluid.springWater=Родниковая вода
+fluid.hell_blood=Кровь
 fluid.honey=Мёд
 
 biomeRadar.target=Цель:
@@ -408,16 +416,16 @@ biomeRadar.scanBiome=ПКМ для поиска биома
 
 enderporter.prevent=Мистическая сила мешает Вам воспользоваться этим в данном мире.
 
-phrase.bop.useBOPATGWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty" или "ATG". Это сообщение отобразится один раз.
-phrase.bop.useBOPWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать тип мира "Biomes O' Plenty". Это сообщение отобразится один раз.
+phrase.bop.useBOPATGWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать Тип мира "Biomes O' Plenty" или "ATG". Это сообщение отобразится один раз.
+phrase.bop.useBOPWorldtype=Для того, чтобы генерировались новые биомы, необходимо выбрать Тип мира "Biomes O' Plenty". Это сообщение отобразится один раз.
 phrase.bop.updateAvaliable=Вы не используете последнюю рекомендованную версию Biomes O' Plenty. Последняя рекомендованная версия: v%s для Minecraft %s.
 
-warning.bopStartup1=Biomes O' Plenty использует другой тип мира для своих Биомов. Когда вы будете создавать мир, вы
+warning.bopStartup1=Biomes O' Plenty использует другой тип мира для своих биомов. Когда Вы будете создавать мир, Вы
 warning.bopStartup2=должны в 'Дополнительных настройках мира', изменить Тип мира на
 warning.bopStartup3='Biomes O' Plenty'.
-warning.bopStartup4=Чтобы изменить Тип мира на сервере, вы должны изменить 'level-type' (В файле sever.properties)
-warning.bopStartup5=на 'BIOMESOP' (Без кавычек)
-warning.bopStartup6=Это сообщение больше не будет показываться при загрузке игры.
+warning.bopStartup4=Чтобы изменить Тип мира на сервере, вы должны изменить 'level-type' в
+warning.bopStartup5=файле sever.properties на 'BIOMESOP' (Без кавычек)
+warning.bopStartup6=Это сообщение отобразиться только один раз.
 
 potion.paralysis=Паралич
 potion.possession=Одержимость
