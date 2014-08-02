@@ -18,9 +18,6 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) 
 	{
-		//TODO: setBlockBounds
-		block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-		
 		//TODO:		  colorMultiplier
         int l = block.colorMultiplier(world, x, y, z);
         float f = (float)(l >> 16 & 255) / 255.0F;
@@ -56,22 +53,15 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
         float f17 = f5 * f2;
         float f18 = f6 * f2;
         float pixel = 0.0625F;
-        //TODO:		  getMixedBrightnessForBlock()
         int m = block.getMixedBrightnessForBlock(world, x, y, z);
-
-        //Need to make public: renderAllFaces, renderMinY, renderMaxY
         
-        //TODO:		renderAllFaces			 shouldSideBeRendered()
         if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y - 1, z, 0))
         {
-        	//TODO:								renderMinY				         getMixedBrightnessForBlock()
             tessellator.setBrightness(renderer.renderMinY > 0.0D ? m : block.getMixedBrightnessForBlock(world, x, y - 1, z));
             tessellator.setColorOpaque_F(r, g, b);
-            //TODO:  renderFaceYNeg													getBlockIcon()
             renderer.renderFaceYNeg(block, (double)x, (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 0));
         }
 
-        //TODO:		renderAllFaces			 shouldSideBeRendered()
         if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y + 1, z, 1))
         {
         	//TODO:								renderMaxY					     getMixedBrightnessForBlock()
@@ -100,8 +90,6 @@ public class BambooRenderer implements ISimpleBlockRenderingHandler
 		//TODO:		renderFaceXPos								   								getBlockIcon()
         renderer.renderFaceXPos(block, (double)x - (pixel * 4), (double)y, (double)z, renderer.getBlockIcon(block, world, x, y, z, 5));
         tessellator.addTranslation(pixel, 0.0F, 0.0F);
-        
-        
         
         return true;
 	}
