@@ -33,8 +33,6 @@ public class BiomeGenSludgepit extends BOPOverworldBiome
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
 
-        this.spawnableCreatureList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
-
         this.waterColorMultiplier = 11506176;
 
         this.theBiomeDecorator.treesPerChunk = 30;

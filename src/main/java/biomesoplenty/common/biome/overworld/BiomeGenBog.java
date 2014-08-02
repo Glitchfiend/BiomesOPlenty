@@ -3,9 +3,11 @@ package biomesoplenty.common.biome.overworld;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.Height;
+import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
@@ -27,6 +29,8 @@ public class BiomeGenBog extends BOPOverworldBiome
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
+        
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 
         this.theBiomeDecorator.treesPerChunk = 12;
         this.theBiomeDecorator.flowersPerChunk = -999;

@@ -30,8 +30,6 @@ public class BiomeGenFen extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         this.setColor(12240001);
         this.setTemperatureRainfall(0.4F, 0.4F);
-		
-		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 
 		this.theBiomeDecorator.treesPerChunk = 10;
 		this.theBiomeDecorator.mushroomsPerChunk = 8;
