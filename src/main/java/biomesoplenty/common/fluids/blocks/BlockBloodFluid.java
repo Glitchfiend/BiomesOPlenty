@@ -23,7 +23,7 @@ public class BlockBloodFluid extends BlockFluidClassic
 	public BlockBloodFluid() 
 	{
 		//TODO:											  water
-		super(FluidRegistry.getFluid("blood"), Material.water);
+		super(FluidRegistry.getFluid("hell_blood"), Material.water);
 	}
 
 	@Override

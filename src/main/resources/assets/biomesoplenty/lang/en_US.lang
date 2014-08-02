@@ -403,11 +403,11 @@ item.bloodBucket.name=Blood Bucket
 item.honeyBucket.name=Honey Bucket
 
 tile.poison.name=Poison
-tile.blood.name=Blood
+tile.hell_blood.name=Blood
 tile.honey.name=Honey
 
 fluid.poison=Poison
-fluid.blood=Blood
+fluid.hell_blood=Blood
 fluid.honey=Honey
 
 biomeRadar.target=Target:

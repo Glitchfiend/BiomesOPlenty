@@ -25,7 +25,7 @@ public class BOPFluids
 	private static void registerFluids()
 	{
 		poison = registerFluid(new PoisonFluid("poison"));
-		blood = registerFluid(new BloodFluid("blood"));
+		blood = registerFluid(new BloodFluid("hell_blood"));
 		honey = registerFluid(new HoneyFluid("honey"));
 	}
 

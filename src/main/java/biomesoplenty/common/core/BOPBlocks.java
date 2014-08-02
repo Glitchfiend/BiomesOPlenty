@@ -285,7 +285,7 @@ public class BOPBlocks
         
         //Fluid Blocks
 		poison = registerBlock(new BlockPoisonFluid().setBlockName("poison"));
-		blood = registerBlock(new BlockBloodFluid().setBlockName("blood"));
+		blood = registerBlock(new BlockBloodFluid().setBlockName("hell_blood"));
 		honey = registerBlock(new BlockHoneyFluid().setBlockName("honey"));
 	}
 	
