@@ -6,10 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
@@ -18,7 +17,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBayou1;
 import biomesoplenty.common.world.features.trees.WorldGenBayou2;
 import biomesoplenty.common.world.features.trees.WorldGenBayou3;
 
-public class BiomeGenBayou extends BOPOverworldBiome
+public class BiomeGenBayou extends BOPOverworldBiome implements IBiomeFog
 {
     private static final Height biomeHeight = new Height(-0.1F, 0.1F);
 
@@ -122,17 +121,16 @@ public class BiomeGenBayou extends BOPOverworldBiome
 		else return super.getSkyColorByTemp(par1);
 	}
 
-	/*@Override
-	public int getFogColour()
+	@Override
+	public int getFogColour(int x, int y, int z)
 	{
 		return 9482133;
 	}
 
     @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
         return 0.6F;
     }
-	 */
 }

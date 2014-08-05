@@ -6,18 +6,18 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
-public class BiomeGenMysticGrove extends BOPOverworldBiome
+public class BiomeGenMysticGrove extends BOPOverworldBiome implements IBiomeFog
 {
     private static final Height biomeHeight = new Height(0.1F, 0.2F);
 
@@ -112,49 +112,27 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome
 		return 7397529;
 	}
 	
-	/**
-	 * Fog Color
-	 */
-	/*
-	@Override
-	public int getFogColour()
-	{
-		return 16755401;
-	}
-	*/
-
-	/**
-	 * takes temperature, returns color
-	 */
-	/*
 	@Override
 	public int getSkyColorByTemp(float par1)
 	{
-		if (BOPConfigurationMisc.skyColors)
-			return 8972496;
-		else
-		{
-			par1 /= 3.0F;
-
-			if (par1 < -1.0F)
-			{
-				par1 = -1.0F;
-			}
-
-			if (par1 > 1.0F)
-			{
-				par1 = 1.0F;
-			}
-
-			return Color.getHSBColor(0.62222224F - par1 * 0.05F, 0.5F + par1 * 0.1F, 1.0F).getRGB();
-		}
+		if (BOPConfigurationMisc.skyColors) return 8972496;
+		else return super.getSkyColorByTemp(par1);
+	}
+	
+	/**
+	 * Fog Color
+	 */
+	@Override
+	public int getFogColour(int x, int y, int z)
+	{
+		return 16755401;
 	}
 
     @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
         return 1.0F;
     }
-    */
+    
 }

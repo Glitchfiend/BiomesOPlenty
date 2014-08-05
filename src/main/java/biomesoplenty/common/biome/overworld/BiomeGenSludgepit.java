@@ -3,20 +3,18 @@ package biomesoplenty.common.biome.overworld;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBogTree1;
 import biomesoplenty.common.world.features.trees.WorldGenBogTree2;
 
-public class BiomeGenSludgepit extends BOPOverworldBiome
+public class BiomeGenSludgepit extends BOPOverworldBiome implements IBiomeFog
 {
     private static final Height biomeHeight = new Height(0.0F, 0.1F);
 
@@ -108,17 +106,16 @@ public class BiomeGenSludgepit extends BOPOverworldBiome
 
     }
 
-	/*@Override
-	public int getFogColour()
+	@Override
+	public int getFogColour(int x, int y, int z)
 	{
 		return 10463856;
 	}
 
 	@Override
-	public float getFogCloseness()
+	public float getFogDensity(int x, int y, int z)
 	{
 	    // TODO Auto-generated method stub
 	    return 0.6F;
 	}
-     */
 }

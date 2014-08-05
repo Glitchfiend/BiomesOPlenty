@@ -74,6 +74,7 @@ import static biomesoplenty.api.content.BOPCBlocks.treeMoss;
 import static biomesoplenty.api.content.BOPCBlocks.turnip;
 import static biomesoplenty.api.content.BOPCBlocks.willow;
 import static biomesoplenty.api.content.BOPCBlocks.willowStairs;
+import static biomesoplenty.api.content.BOPCBlocks.wisteria;
 import static biomesoplenty.api.content.BOPCBlocks.woodenDoubleSlab1;
 import static biomesoplenty.api.content.BOPCBlocks.woodenDoubleSlab2;
 import static biomesoplenty.api.content.BOPCBlocks.woodenSingleSlab1;
@@ -130,6 +131,7 @@ import biomesoplenty.common.blocks.BlockStoneFormations;
 import biomesoplenty.common.blocks.BlockTreeMoss;
 import biomesoplenty.common.blocks.BlockTurnip;
 import biomesoplenty.common.blocks.BlockWillow;
+import biomesoplenty.common.blocks.BlockWisteria;
 import biomesoplenty.common.fluids.blocks.BlockBloodFluid;
 import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
@@ -188,6 +190,7 @@ public class BOPBlocks
         ivy = registerBlock(new BlockIvy().setBlockName("ivy"), ItemBlockIvy.class);
         treeMoss = registerBlock(new BlockTreeMoss().setBlockName("treeMoss"));
         flowerVine = registerBlock(new BlockFlowerVine().setBlockName("flowerVine"));
+        wisteria = registerBlock(new BlockWisteria().setBlockName("wisteria"));
         foliage = registerBlock(new BlockBOPFoliage().setBlockName("foliage"), ItemBlockFoliage.class);
         turnip = registerBlock(new BlockTurnip().setBlockName("turnip"));
         
@@ -324,6 +327,8 @@ public class BOPBlocks
 		Blocks.fire.setFireInfo(BOPCBlocks.moss, 15, 100);
 		Blocks.fire.setFireInfo(BOPCBlocks.treeMoss, 15, 100);
 		Blocks.fire.setFireInfo(BOPCBlocks.willow, 15, 100);
+		Blocks.fire.setFireInfo(BOPCBlocks.flowerVine, 15, 100);
+		Blocks.fire.setFireInfo(BOPCBlocks.wisteria, 15, 100);
 	}
 	
 	public static Block registerBlock(Block block)

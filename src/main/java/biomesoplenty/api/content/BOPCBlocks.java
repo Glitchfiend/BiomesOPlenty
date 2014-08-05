@@ -18,6 +18,7 @@ public class BOPCBlocks
 	public static Block ivy;
 	public static Block treeMoss;
 	public static Block flowerVine;
+	public static Block wisteria;
 	public static Block foliage;
 	public static Block turnip;
 	

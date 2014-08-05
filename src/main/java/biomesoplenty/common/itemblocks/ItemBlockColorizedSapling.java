@@ -42,4 +42,15 @@ public class ItemBlockColorizedSapling extends ItemBlock
 		//TODO: block		  getIcon()
 		return field_150939_a.getIcon(0, meta);
 	}
+	
+	@Override
+	public boolean hasEffect(ItemStack itemStack, int pass)
+	{	
+		if (itemStack.getItemDamage() == 0)
+		{
+			return true;
+		}
+		
+		return false;
+	}
 }
