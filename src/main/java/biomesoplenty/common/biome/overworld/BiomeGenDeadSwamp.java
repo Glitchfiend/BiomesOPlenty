@@ -5,16 +5,16 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
-public class BiomeGenDeadSwamp extends BOPOverworldBiome
+public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
 {
     private static final Height biomeHeight = new Height(0.0F, 0.1F);
     
@@ -106,17 +106,16 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome
         else return super.getSkyColorByTemp(par1);
     }
 	
-	/*@Override
-	public int getFogColour()
+    @Override
+	public int getFogColour(int x, int y, int z)
 	{
 		return 9219993;
 	}
 	
     @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
         return 0.6F;
     }
-    */
 }

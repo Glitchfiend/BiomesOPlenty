@@ -6,9 +6,10 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 
-public class BiomeGenArctic extends BOPOverworldBiome
+public class BiomeGenArctic extends BOPOverworldBiome implements IBiomeFog
 {
 	private static final Height biomeHeight = new Height(0F, 0F);
 	
@@ -63,20 +64,20 @@ public class BiomeGenArctic extends BOPOverworldBiome
 		return 11903827;
 	}
 	
-	/*
+	
 	@Override
-	public int getFogColour()
+	public int getFogColour(int x, int y, int z)
 	{
 		return 12638463;
 	}
-	*/
 	
-	/*
+	
+	
     @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
         return 0.4F;
     }
-    */
+    
 }

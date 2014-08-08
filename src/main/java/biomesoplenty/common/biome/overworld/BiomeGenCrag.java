@@ -5,12 +5,12 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
-public class BiomeGenCrag extends BOPOverworldBiome
+public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
 {
 	private static final Height biomeHeight = new Height(2.0F, 3.0F);
 	
@@ -65,20 +65,16 @@ public class BiomeGenCrag extends BOPOverworldBiome
 	/**
 	 * Fog Color
 	 */
-	/*
 	@Override
-	public int getFogColour()
+	public int getFogColour(int x, int y, int z)
 	{
 		return 10514245;
 	}
-	*/
 	 
-	/*
     @Override
-    public float getFogCloseness()
+    public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
         return 1.0F;
     }
-    */
 }
