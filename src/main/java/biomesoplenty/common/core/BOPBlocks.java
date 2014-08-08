@@ -1,83 +1,6 @@
 package biomesoplenty.common.core;
 
-import static biomesoplenty.api.content.BOPCBlocks.appleLeaves;
-import static biomesoplenty.api.content.BOPCBlocks.ash;
-import static biomesoplenty.api.content.BOPCBlocks.ashStone;
-import static biomesoplenty.api.content.BOPCBlocks.bamboo;
-import static biomesoplenty.api.content.BOPCBlocks.biomeBlock;
-import static biomesoplenty.api.content.BOPCBlocks.blood;
-import static biomesoplenty.api.content.BOPCBlocks.bones;
-import static biomesoplenty.api.content.BOPCBlocks.bopGrass;
-import static biomesoplenty.api.content.BOPCBlocks.cherryStairs;
-import static biomesoplenty.api.content.BOPCBlocks.colorizedLeaves1;
-import static biomesoplenty.api.content.BOPCBlocks.colorizedLeaves2;
-import static biomesoplenty.api.content.BOPCBlocks.colorizedSaplings;
-import static biomesoplenty.api.content.BOPCBlocks.coral1;
-import static biomesoplenty.api.content.BOPCBlocks.coral2;
-import static biomesoplenty.api.content.BOPCBlocks.cragRock;
-import static biomesoplenty.api.content.BOPCBlocks.crystal;
-import static biomesoplenty.api.content.BOPCBlocks.darkStairs;
-import static biomesoplenty.api.content.BOPCBlocks.driedDirt;
-import static biomesoplenty.api.content.BOPCBlocks.etherealStairs;
-import static biomesoplenty.api.content.BOPCBlocks.firStairs;
-import static biomesoplenty.api.content.BOPCBlocks.flesh;
-import static biomesoplenty.api.content.BOPCBlocks.flowerVine;
-import static biomesoplenty.api.content.BOPCBlocks.flowers;
-import static biomesoplenty.api.content.BOPCBlocks.flowers2;
-import static biomesoplenty.api.content.BOPCBlocks.foliage;
-import static biomesoplenty.api.content.BOPCBlocks.gemOre;
-import static biomesoplenty.api.content.BOPCBlocks.grave;
-import static biomesoplenty.api.content.BOPCBlocks.hardDirt;
-import static biomesoplenty.api.content.BOPCBlocks.hardIce;
-import static biomesoplenty.api.content.BOPCBlocks.hardSand;
-import static biomesoplenty.api.content.BOPCBlocks.hellBarkStairs;
-import static biomesoplenty.api.content.BOPCBlocks.hive;
-import static biomesoplenty.api.content.BOPCBlocks.honey;
-import static biomesoplenty.api.content.BOPCBlocks.honeyBlock;
-import static biomesoplenty.api.content.BOPCBlocks.ivy;
-import static biomesoplenty.api.content.BOPCBlocks.jacarandaStairs;
-import static biomesoplenty.api.content.BOPCBlocks.leaves1;
-import static biomesoplenty.api.content.BOPCBlocks.leaves2;
-import static biomesoplenty.api.content.BOPCBlocks.leaves3;
-import static biomesoplenty.api.content.BOPCBlocks.leaves4;
-import static biomesoplenty.api.content.BOPCBlocks.logs1;
-import static biomesoplenty.api.content.BOPCBlocks.logs2;
-import static biomesoplenty.api.content.BOPCBlocks.logs3;
-import static biomesoplenty.api.content.BOPCBlocks.logs4;
-import static biomesoplenty.api.content.BOPCBlocks.longGrass;
-import static biomesoplenty.api.content.BOPCBlocks.magicStairs;
-import static biomesoplenty.api.content.BOPCBlocks.mahoganyStairs;
-import static biomesoplenty.api.content.BOPCBlocks.mangroveStairs;
-import static biomesoplenty.api.content.BOPCBlocks.moss;
-import static biomesoplenty.api.content.BOPCBlocks.mud;
-import static biomesoplenty.api.content.BOPCBlocks.mudBricks;
-import static biomesoplenty.api.content.BOPCBlocks.mudBricksStairs;
-import static biomesoplenty.api.content.BOPCBlocks.mushrooms;
-import static biomesoplenty.api.content.BOPCBlocks.originGrass;
-import static biomesoplenty.api.content.BOPCBlocks.overgrownNetherrack;
-import static biomesoplenty.api.content.BOPCBlocks.palmStairs;
-import static biomesoplenty.api.content.BOPCBlocks.persimmonLeaves;
-import static biomesoplenty.api.content.BOPCBlocks.petals;
-import static biomesoplenty.api.content.BOPCBlocks.pineStairs;
-import static biomesoplenty.api.content.BOPCBlocks.planks;
-import static biomesoplenty.api.content.BOPCBlocks.plants;
-import static biomesoplenty.api.content.BOPCBlocks.poison;
-import static biomesoplenty.api.content.BOPCBlocks.redwoodStairs;
-import static biomesoplenty.api.content.BOPCBlocks.rocks;
-import static biomesoplenty.api.content.BOPCBlocks.sacredoakStairs;
-import static biomesoplenty.api.content.BOPCBlocks.saplings;
-import static biomesoplenty.api.content.BOPCBlocks.soil;
-import static biomesoplenty.api.content.BOPCBlocks.stoneDoubleSlab;
-import static biomesoplenty.api.content.BOPCBlocks.stoneFormations;
-import static biomesoplenty.api.content.BOPCBlocks.stoneSingleSlab;
-import static biomesoplenty.api.content.BOPCBlocks.treeMoss;
-import static biomesoplenty.api.content.BOPCBlocks.turnip;
-import static biomesoplenty.api.content.BOPCBlocks.willow;
-import static biomesoplenty.api.content.BOPCBlocks.willowStairs;
-import static biomesoplenty.api.content.BOPCBlocks.woodenDoubleSlab1;
-import static biomesoplenty.api.content.BOPCBlocks.woodenDoubleSlab2;
-import static biomesoplenty.api.content.BOPCBlocks.woodenSingleSlab1;
-import static biomesoplenty.api.content.BOPCBlocks.woodenSingleSlab2;
+import static biomesoplenty.api.content.BOPCBlocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -102,6 +25,7 @@ import biomesoplenty.common.blocks.BlockBOPLeaves.LeafCategory;
 import biomesoplenty.common.blocks.BlockBOPLog;
 import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.common.blocks.BlockBOPMushroom;
+import biomesoplenty.common.blocks.BlockBOPNewGrass;
 import biomesoplenty.common.blocks.BlockBOPPersimmonLeaves;
 import biomesoplenty.common.blocks.BlockBOPPetals;
 import biomesoplenty.common.blocks.BlockBOPPlank;
@@ -110,7 +34,6 @@ import biomesoplenty.common.blocks.BlockBOPRocks;
 import biomesoplenty.common.blocks.BlockBOPSapling;
 import biomesoplenty.common.blocks.BlockBOPSlab;
 import biomesoplenty.common.blocks.BlockBOPSlab.SlabCategory;
-import biomesoplenty.common.blocks.BlockBOPSoil;
 import biomesoplenty.common.blocks.BlockBOPStairs;
 import biomesoplenty.common.blocks.BlockBOPStairs.Category;
 import biomesoplenty.common.blocks.BlockBamboo;
@@ -134,6 +57,7 @@ import biomesoplenty.common.fluids.blocks.BlockBloodFluid;
 import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.fluids.blocks.BlockPoisonFluid;
 import biomesoplenty.common.itemblocks.ItemBlockAppleLeaves;
+import biomesoplenty.common.itemblocks.ItemBlockBOPMetadata;
 import biomesoplenty.common.itemblocks.ItemBlockBamboo;
 import biomesoplenty.common.itemblocks.ItemBlockBones;
 import biomesoplenty.common.itemblocks.ItemBlockColorizedLeaves;
@@ -159,7 +83,6 @@ import biomesoplenty.common.itemblocks.ItemBlockPlant;
 import biomesoplenty.common.itemblocks.ItemBlockRocks;
 import biomesoplenty.common.itemblocks.ItemBlockSapling;
 import biomesoplenty.common.itemblocks.ItemBlockSlab;
-import biomesoplenty.common.itemblocks.ItemBlockSoil;
 import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
 import biomesoplenty.common.itemblocks.ItemBlockWillow;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -205,11 +128,12 @@ public class BOPBlocks
 
         mudBricks = registerBlock(new BlockBOPGeneric(Material.rock, BlockType.MUD_BRICK).setBlockName("mudBricks"));
         
-        soil = registerBlock(new BlockBOPSoil().setBlockName("soil"), ItemBlockSoil.class);
         originGrass = registerBlock(new BlockOriginGrass().setBlockName("originGrass"));
         longGrass = registerBlock(new BlockLongGrass().setBlockName("longGrass"));
         overgrownNetherrack = registerBlock(new BlockOvergrownNetherrack().setBlockName("overgrownNetherrack"));
+        
         bopGrass = registerBlock(new BlockBOPGrass().setBlockName("bopGrass"), ItemBlockGrass.class);
+        newBopGrass = registerMetadataBlock(new BlockBOPNewGrass().setBlockName("newBopGrass"));
         
 		logs1 = registerBlock(new BlockBOPLog(LogCategory.CAT1).setBlockName("logs1"), ItemBlockLog.class);
 		logs2 = registerBlock(new BlockBOPLog(LogCategory.CAT2).setBlockName("logs2"), ItemBlockLog.class);
@@ -331,6 +255,13 @@ public class BOPBlocks
 	    GameRegistry.registerBlock(block, block.getUnlocalizedName().replace("tile.", ""));
 	    
 	    return block;
+	}
+	
+	public static Block registerMetadataBlock(Block block)
+	{
+		registerBlock(block, ItemBlockBOPMetadata.class);
+		
+		return block;
 	}
 	
     public static Block registerBlock(Block block, Class<? extends ItemBlock> itemBlockClass)

@@ -21,6 +21,7 @@ import biomesoplenty.client.render.blocks.BambooRenderer;
 import biomesoplenty.client.render.blocks.FoliageRenderer;
 import biomesoplenty.client.render.blocks.GraveRenderer;
 import biomesoplenty.client.render.blocks.PlantsRenderer;
+import biomesoplenty.client.render.blocks.RenderNewGrass;
 import biomesoplenty.client.render.blocks.SmallBlockRenderer;
 import biomesoplenty.client.render.entities.RenderBird;
 import biomesoplenty.client.render.entities.RenderGlob;
@@ -55,6 +56,7 @@ public class ClientProxy extends CommonProxy
         RenderUtils.bonesModel = RenderingRegistry.getNextAvailableRenderId();
         RenderUtils.graveModel = RenderingRegistry.getNextAvailableRenderId();
         RenderUtils.bambooModel = RenderingRegistry.getNextAvailableRenderId();
+        RenderUtils.newGrassModel = RenderingRegistry.getNextAvailableRenderId();
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart());
 		RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(BOPCItems.mudball, 0));
@@ -99,6 +101,7 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerBlockHandler(new SmallBlockRenderer());
         RenderingRegistry.registerBlockHandler(new GraveRenderer());
         RenderingRegistry.registerBlockHandler(new BambooRenderer());
+        RenderingRegistry.registerBlockHandler(new RenderNewGrass());
 	}
 	
 	@Override
