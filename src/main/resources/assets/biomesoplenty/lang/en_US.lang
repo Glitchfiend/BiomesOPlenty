@@ -137,12 +137,15 @@ tile.coral1.bluecoral.name=Blue Coral
 tile.coral1.glowcoral.name=Glowing Coral
 tile.coral2.algae.name=Algae
 
-tile.soil.grass_silty.name=Silty Grass Block
-tile.soil.grass_sandy.name=Sandy Grass Block
-tile.soil.grass_loamy.name=Loamy Grass Block
-tile.soil.dirt_silty.name=Silty Dirt
-tile.soil.dirt_sandy.name=Sandy Dirt
-tile.soil.dirt_loamy.name=Loamy Dirt
+tile.newBopGrass.silty.name=Silty Grass Block
+tile.newBopGrass.sandy.name=Sandy Grass Block
+tile.newBopGrass.loamy.name=Loamy Grass Block
+tile.newBopDirt.dirt_silty.name=Silty Dirt
+tile.newBopDirt.dirt_sandy.name=Sandy Dirt
+tile.newBopDirt.dirt_loamy.name=Loamy Dirt
+tile.newBopDirt.coarse_dirt_silty.name=Coarse Silty Dirt
+tile.newBopDirt.coarse_dirt_sandy.name=Coarse Sandy Dirt
+tile.newBopDirt.coarse_dirt_loamy.name=Coarse Loamy Dirt
 
 tile.bopGrass.spectralmoss.name=Spectral Moss
 tile.bopGrass.smolderinggrass.name=Smoldering Grass Block

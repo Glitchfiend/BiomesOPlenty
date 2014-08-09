@@ -25,6 +25,7 @@ import biomesoplenty.common.blocks.BlockBOPLeaves.LeafCategory;
 import biomesoplenty.common.blocks.BlockBOPLog;
 import biomesoplenty.common.blocks.BlockBOPLog.LogCategory;
 import biomesoplenty.common.blocks.BlockBOPMushroom;
+import biomesoplenty.common.blocks.BlockBOPNewDirt;
 import biomesoplenty.common.blocks.BlockBOPNewGrass;
 import biomesoplenty.common.blocks.BlockBOPPersimmonLeaves;
 import biomesoplenty.common.blocks.BlockBOPPetals;
@@ -135,7 +136,9 @@ public class BOPBlocks
         overgrownNetherrack = registerBlock(new BlockOvergrownNetherrack().setBlockName("overgrownNetherrack"));
         
         bopGrass = registerBlock(new BlockBOPGrass().setBlockName("bopGrass"), ItemBlockGrass.class);
+        
         newBopGrass = registerMetadataBlock(new BlockBOPNewGrass().setBlockName("newBopGrass"));
+        newBopDirt = registerMetadataBlock(new BlockBOPNewDirt().setBlockName("newBopDirt"));
         
 		logs1 = registerBlock(new BlockBOPLog(LogCategory.CAT1).setBlockName("logs1"), ItemBlockLog.class);
 		logs2 = registerBlock(new BlockBOPLog(LogCategory.CAT2).setBlockName("logs2"), ItemBlockLog.class);

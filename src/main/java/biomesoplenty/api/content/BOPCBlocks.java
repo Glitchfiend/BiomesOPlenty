@@ -41,7 +41,9 @@ public class BOPCBlocks
 	public static Block overgrownNetherrack;
 	
 	public static Block bopGrass;
+	
 	public static Block newBopGrass;
+	public static Block newBopDirt;
     
 	public static Block logs1;
 	public static Block logs2;

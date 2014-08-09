@@ -5,10 +5,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class RenderUtils 
 {
@@ -21,38 +24,57 @@ public class RenderUtils
 	
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
 	{
+		boolean flag = block == BOPCBlocks.newBopGrass;
+		
+		GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
+		
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, -1F, 0.0F);
-		//TODO:		renderFaceYNeg								   getIcon()
 		renderblocks.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, meta));
 		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		//TODO:		renderFaceYPos								   getIcon()
-		renderblocks.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, meta));
-		tessellator.draw();
+		
+        if (flag && renderblocks.useInventoryTint)
+        {
+            int colour = 16777215;
+
+            float f1 = (float)(colour >> 16 & 255) / 255.0F;
+            float f2 = (float)(colour >> 8 & 255) / 255.0F;
+            float f3 = (float)(colour & 255) / 255.0F;
+            GL11.glColor4f(f1, f2, f3, 1.0F);
+        }
+		
+        if (!flag)
+        {
+        	tessellator.startDrawingQuads();
+        	tessellator.setNormal(0.0F, 1.0F, 0.0F);
+        	renderblocks.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, meta));
+        	tessellator.draw();
+        }
+        
+		GL11.glColor4f(1F, 1F, 1F, 1.0F);
+		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 0.0F, -1F);
-		//TODO:		renderFaceZNeg								   getIcon()
 		renderblocks.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(2, meta));
 		tessellator.draw();
+		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 0.0F, 1.0F);
-		//TODO:		renderFaceZPos								   getIcon()
 		renderblocks.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(3, meta));
 		tessellator.draw();
+		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(-1F, 0.0F, 0.0F);
-		//TODO:		renderFaceXNeg								   getIcon()
 		renderblocks.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(4, meta));
 		tessellator.draw();
+		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(1.0F, 0.0F, 0.0F);
-		//TODO:		renderFaceXPos								   getIcon()
 		renderblocks.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(5, meta));
 		tessellator.draw();
+		
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 	}
 	
