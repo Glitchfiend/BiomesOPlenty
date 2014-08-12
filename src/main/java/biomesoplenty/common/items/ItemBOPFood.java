@@ -14,7 +14,10 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.blocks.BlockBOPPlant;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class ItemBOPFood extends ItemFood
 {
@@ -56,7 +59,33 @@ public class ItemBOPFood extends ItemFood
         return itemstack;
     }
 	
-	@Override
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitVecX, float hitVecY, float hitVecZ)
+    {
+        if (side != 1)
+        {
+            return false;
+        }
+        else if (player.canPlayerEdit(x, y, z, side, stack) && player.canPlayerEdit(x, y + 1, z, side, stack))
+        {
+            if (((BlockBOPPlant)BOPCBlocks.plants).isValidPosition(world, x, y+1, z, 11) && world.isAirBlock(x, y + 1, z))
+            {
+                world.setBlock(x, y + 1, z, BOPCBlocks.plants);
+                world.setBlockMetadataWithNotify(x, y+1, z, 11, 2);
+                --stack.stackSize;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    @Override
     public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer player)
     {
 		--itemstack.stackSize;
