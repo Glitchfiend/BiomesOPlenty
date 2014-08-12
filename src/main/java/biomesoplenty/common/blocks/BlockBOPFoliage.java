@@ -31,6 +31,7 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.client.render.RenderUtils;
 import biomesoplenty.common.blocks.templates.BOPBlockWorldDecor;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -132,7 +133,8 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 
 			if (world.rand.nextInt(2) == 0) 
 			{
-				ret.add(new ItemStack(BOPCItems.turnipSeeds, 1));
+				if(BOPConfigurationMisc.dropTurnipSeeds)
+					ret.add(new ItemStack(BOPCItems.turnipSeeds, 1));
 			}
 			break;
 			
