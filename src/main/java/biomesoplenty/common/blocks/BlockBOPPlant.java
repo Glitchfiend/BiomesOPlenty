@@ -329,7 +329,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		else if (meta == 7 || meta == 8 || meta == 9)
 			return 1;
 		else if (meta == 11)
-			return random.nextInt(7) == 0 ? 2 : 1;
+			return 1;
 		else if (meta == 13)
 			return 1;
 		else
