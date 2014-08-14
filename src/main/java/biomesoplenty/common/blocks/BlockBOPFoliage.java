@@ -45,6 +45,8 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 
     private static final int FLAXTOP = 6;
     private static final int FLAXBOTTOM = 3;
+    
+    public static ItemStack turnipSeedStack = new ItemStack(BOPCItems.turnipSeeds, 1);
 
 	public BlockBOPFoliage()
 	{
@@ -132,7 +134,7 @@ public class BlockBOPFoliage extends BOPBlockWorldDecor implements IShearable
 
 			if (world.rand.nextInt(2) == 0) 
 			{
-				ret.add(new ItemStack(BOPCItems.turnipSeeds, 1));
+				ret.add(turnipSeedStack.copy());
 			}
 			break;
 			
