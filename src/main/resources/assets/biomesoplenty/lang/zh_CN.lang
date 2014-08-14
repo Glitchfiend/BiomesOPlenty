@@ -404,17 +404,14 @@ item.biomeEssence.name=生态群系元素
 
 item.poisonBucket.name=毒液
 item.hell_bloodBucket.name=血
-item.springWater.name=泉水
 item.honeyBucket.name=蜂蜜
 
 tile.poison.name=毒液
 tile.hell_blood.name=血
-tile.springWater.name=泉水
 tile.honey.name=蜂蜜
 
 fluid.poison=毒液
 fluid.hell_blood=血
-fluid.springWater=泉水
 fluid.honey=蜂蜜
 
 biomeRadar.target=指向地形:
