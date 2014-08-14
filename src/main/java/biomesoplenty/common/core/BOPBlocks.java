@@ -76,7 +76,6 @@ import biomesoplenty.common.itemblocks.ItemBlockIvy;
 import biomesoplenty.common.itemblocks.ItemBlockLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockLog;
 import biomesoplenty.common.itemblocks.ItemBlockMoss;
-import biomesoplenty.common.itemblocks.ItemBlockMud;
 import biomesoplenty.common.itemblocks.ItemBlockMushroom;
 import biomesoplenty.common.itemblocks.ItemBlockPersimmonLeaves;
 import biomesoplenty.common.itemblocks.ItemBlockPetals;
@@ -85,7 +84,6 @@ import biomesoplenty.common.itemblocks.ItemBlockPlant;
 import biomesoplenty.common.itemblocks.ItemBlockRocks;
 import biomesoplenty.common.itemblocks.ItemBlockSapling;
 import biomesoplenty.common.itemblocks.ItemBlockSlab;
-import biomesoplenty.common.itemblocks.ItemBlockStoneFormations;
 import biomesoplenty.common.itemblocks.ItemBlockWillow;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -99,7 +97,7 @@ public class BOPBlocks
 
 	private static void registerBlocks()
 	{
-		mud = registerBlock(new BlockMud().setBlockName("mud"), ItemBlockMud.class);
+		mud = registerMetadataBlock(new BlockMud().setBlockName("mud"));
         driedDirt = registerBlock(new BlockBOPGeneric(Material.rock, BlockType.DRIED_DIRT).setBlockName("driedDirt"));
         rocks = registerBlock(new BlockBOPRocks().setBlockName("rocks"), ItemBlockRocks.class);
 		ash = registerBlock(new BlockAsh().setBlockName("ash"));
@@ -107,7 +105,7 @@ public class BOPBlocks
         plants = registerBlock(new BlockBOPPlant().setBlockName("plants"), ItemBlockPlant.class);
         flowers = registerBlock(new BlockBOPFlower().setBlockName("flowers"), ItemBlockFlower.class);
         flowers2 = registerBlock(new BlockBOPFlower2().setBlockName("flowers2"), ItemBlockFlower2.class);
-        stoneFormations = registerBlock(new BlockStoneFormations().setBlockName("stoneFormations"), ItemBlockStoneFormations.class);
+        stoneFormations = registerMetadataBlock(new BlockStoneFormations().setBlockName("stoneFormations"));
         mushrooms = registerBlock(new BlockBOPMushroom().setBlockName("mushrooms"), ItemBlockMushroom.class);
         willow = registerBlock(new BlockWillow().setBlockName("willow"), ItemBlockWillow.class);
         ivy = registerBlock(new BlockIvy().setBlockName("ivy"), ItemBlockIvy.class);

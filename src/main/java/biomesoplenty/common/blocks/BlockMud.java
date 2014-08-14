@@ -16,13 +16,14 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.api.content.BOPCItems;
+import biomesoplenty.common.utils.ISubLocalization;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockMud extends BOPBlock
+public class BlockMud extends BOPBlock implements ISubLocalization
 {
-	private static final String[] mud = new String[] { "mud", "quicksand" };
-	private IIcon[] textures;
+	private static final String[] mudTypes = new String[] { "mud", "quicksand" };
+	private static final IIcon[] textures = new IIcon[mudTypes.length];
 	
 	public BlockMud()
 	{
@@ -33,39 +34,7 @@ public class BlockMud extends BOPBlock
 
 		this.setStepSound(Block.soundTypeSand);
 	}
-
-	@Override
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		textures = new IIcon[mud.length];
-
-		for (int i = 0; i < mud.length; ++i) 
-		{
-			textures[i] = iconRegister.registerIcon("biomesoplenty:" + mud[i]);
-		}
-	}
 	
-	@Override
-	public IIcon getIcon(int side, int meta)
-	{
-		if (meta < 0 || meta >= textures.length) 
-		{
-			meta = 0;
-		}
-
-		return textures[meta];
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
-	{
-		for (int i = 0; i < mud.length; ++i)
-		{
-			list.add(new ItemStack(block, 1, i));
-		}
-	}
-
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
@@ -74,10 +43,9 @@ public class BlockMud extends BOPBlock
 			float var5 = 0.35F;
 			return AxisAlignedBB.getBoundingBox(x, y, z, x + 1, y + 1 - var5, z + 1);
 		}
-		else
-			return null;
+		else return null;
 	}
-
+	
 	@Override
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
 	{
@@ -101,7 +69,7 @@ public class BlockMud extends BOPBlock
 			entity.setInWeb();
 		}
 	}
-
+	
 	@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
 	{
@@ -112,9 +80,45 @@ public class BlockMud extends BOPBlock
 	@Override
 	public int quantityDropped(int meta, int fortune, Random random)
 	{
-		if (meta == 0)
-			return 4;
-		else
-			return 1;
+		if (meta == 0) return 4;
+		else return 1;
+	}
+
+	@Override
+	public String getUnlocalizedName(String baseName, ItemStack itemStack) 
+	{
+		return baseName + "." + mudTypes[itemStack.getItemDamage()];
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
+	{
+		for (int i = 0; i < mudTypes.length; ++i)
+		{
+			list.add(new ItemStack(block, 1, i));
+		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		for (int i = 0; i < mudTypes.length; ++i) 
+		{
+			textures[i] = iconRegister.registerIcon("biomesoplenty:" + mudTypes[i]);
+		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta)
+	{
+		if (meta < 0 || meta >= textures.length) 
+		{
+			meta = 0;
+		}
+
+		return textures[meta];
 	}
 }
