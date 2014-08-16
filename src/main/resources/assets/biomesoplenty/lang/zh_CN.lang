@@ -104,9 +104,9 @@ tile.saplings.firSapling.name=杉树树苗
 tile.saplings.etherealSapling.name=天域树苗
 tile.saplings.orangeautumnSapling.name=橙秋树苗
 tile.saplings.originSapling.name=原始树树苗
-tile.saplings.pinkcherrySapling.name=粉色樱桃树树苗
+tile.saplings.pinkcherrySapling.name=粉色樱花树树苗
 tile.saplings.mapleSapling.name=枫树树苗
-tile.saplings.whitecherrySapling.name=白色樱桃树树苗
+tile.saplings.whitecherrySapling.name=白色樱花树树苗
 tile.saplings.hellbarkSapling.name=地狱皮树苗
 tile.saplings.jacarandaSapling.name=蓝花楹木树苗
 tile.saplings.persimmonSapling.name=柿子树苗
@@ -190,7 +190,7 @@ tile.stoneDoubleSlab.mudbrickSlab.name=泥砖台阶
 tile.stoneSingleSlab.mudbrickSlab.name=泥砖台阶
 
 tile.planks.sacredoakPlank.name=神圣橡树木板
-tile.planks.cherryPlank.name=樱桃树木板
+tile.planks.cherryPlank.name=樱花树木板
 tile.planks.darkPlank.name=黑暗树木板
 tile.planks.firPlank.name=杉树木板
 tile.planks.etherealPlank.name=天域树木板
@@ -206,7 +206,7 @@ tile.planks.jacarandaPlank.name=蓝花楹树木板
 tile.planks.mahoganyPlank.name=桃花心树木板
 
 tile.logs1.sacredoakWood.name=神圣橡树原木
-tile.logs1.cherryWood.name=樱桃树原木
+tile.logs1.cherryWood.name=樱花树原木
 tile.logs1.darkWood.name=黑暗树原木
 tile.logs1.firWood.name=杉树原木
 
@@ -236,9 +236,9 @@ tile.leaves2.ethereal.name=天域树叶
 tile.leaves2.orangeautumn.name=橙秋树叶
 
 tile.leaves3.origin.name=原始树叶
-tile.leaves3.pinkcherry.name=粉樱桃树叶
+tile.leaves3.pinkcherry.name=粉樱花树叶
 tile.leaves3.maple.name=枫树叶
-tile.leaves3.whitecherry.name=白樱桃树叶
+tile.leaves3.whitecherry.name=白樱花树叶
 
 tile.leaves4.hellbark.name=地狱皮树叶
 tile.leaves4.jacaranda.name=蓝花楹树叶
@@ -256,7 +256,7 @@ tile.appleLeaves.name=苹果树树叶
 tile.persimmonLeaves.name=柿子树树叶
 
 tile.woodenDoubleSlab1.sacredoakSlab.name=神圣橡树木板
-tile.woodenDoubleSlab1.cherrySlab.name=樱桃树木板
+tile.woodenDoubleSlab1.cherrySlab.name=樱花树木板
 tile.woodenDoubleSlab1.darkSlab.name=黑暗树木板
 tile.woodenDoubleSlab1.firSlab.name=杉树木板
 tile.woodenDoubleSlab1.etherealSlab.name=天域树木板
@@ -271,7 +271,7 @@ tile.woodenDoubleSlab2.jacarandaSlab.name=蓝花楹树木板
 tile.woodenDoubleSlab2.mahoganySlab.name=桃花心树木板
 
 tile.woodenSingleSlab1.sacredoakSlab.name=神圣橡树台阶
-tile.woodenSingleSlab1.cherrySlab.name=樱桃树台阶
+tile.woodenSingleSlab1.cherrySlab.name=樱花树台阶
 tile.woodenSingleSlab1.darkSlab.name=黑暗树台阶
 tile.woodenSingleSlab1.firSlab.name=杉树台阶
 tile.woodenSingleSlab1.etherealSlab.name=天域树台阶
@@ -286,7 +286,7 @@ tile.woodenSingleSlab2.jacarandaSlab.name=蓝花楹树台阶
 tile.woodenSingleSlab2.mahoganySlab.name=桃花心树台阶
 
 tile.sacredoakStairs.name=神圣橡木楼梯
-tile.cherryStairs.name=樱桃树木楼梯
+tile.cherryStairs.name=樱花树木楼梯
 tile.darkStairs.name=黑暗木楼梯
 tile.firStairs.name=冷杉木楼梯
 tile.etherealStairs.name=阁楼木楼梯
