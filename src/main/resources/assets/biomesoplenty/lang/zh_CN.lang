@@ -104,9 +104,9 @@ tile.saplings.firSapling.name=杉树树苗
 tile.saplings.etherealSapling.name=天域树苗
 tile.saplings.orangeautumnSapling.name=橙秋树苗
 tile.saplings.originSapling.name=原始树树苗
-tile.saplings.pinkcherrySapling.name=粉色樱花树苗
+tile.saplings.pinkcherrySapling.name=粉色樱桃树树苗
 tile.saplings.mapleSapling.name=枫树树苗
-tile.saplings.whitecherrySapling.name=白色樱花树苗
+tile.saplings.whitecherrySapling.name=白色樱桃树树苗
 tile.saplings.hellbarkSapling.name=地狱皮树苗
 tile.saplings.jacarandaSapling.name=蓝花楹木树苗
 tile.saplings.persimmonSapling.name=柿子树苗
@@ -171,8 +171,8 @@ tile.moss.name=苔藓
 
 tile.hive.honeycomb.name=蜂巢方块
 tile.hive.hive.name=蜂房方块
-tile.hive.honeycombempty.name=空蜂巢方块
-tile.hive.honeycombfilled.name=蜂蜜蜂巢方块
+tile.hive.honeycombempty.name=空的蜂巢方块
+tile.hive.honeycombfilled.name=满的蜂巢方块
 
 tile.honeyBlock.name=蜂蜜块
 
@@ -190,7 +190,7 @@ tile.stoneDoubleSlab.mudbrickSlab.name=泥砖台阶
 tile.stoneSingleSlab.mudbrickSlab.name=泥砖台阶
 
 tile.planks.sacredoakPlank.name=神圣橡树木板
-tile.planks.cherryPlank.name=樱花树木板
+tile.planks.cherryPlank.name=樱桃树木板
 tile.planks.darkPlank.name=黑暗树木板
 tile.planks.firPlank.name=杉树木板
 tile.planks.etherealPlank.name=天域树木板
@@ -206,7 +206,7 @@ tile.planks.jacarandaPlank.name=蓝花楹树木板
 tile.planks.mahoganyPlank.name=桃花心树木板
 
 tile.logs1.sacredoakWood.name=神圣橡树原木
-tile.logs1.cherryWood.name=樱花树原木
+tile.logs1.cherryWood.name=樱桃树原木
 tile.logs1.darkWood.name=黑暗树原木
 tile.logs1.firWood.name=杉树原木
 
@@ -236,9 +236,9 @@ tile.leaves2.ethereal.name=天域树叶
 tile.leaves2.orangeautumn.name=橙秋树叶
 
 tile.leaves3.origin.name=原始树叶
-tile.leaves3.pinkcherry.name=粉樱花树叶
+tile.leaves3.pinkcherry.name=粉樱桃树叶
 tile.leaves3.maple.name=枫树叶
-tile.leaves3.whitecherry.name=白樱花树叶
+tile.leaves3.whitecherry.name=白樱桃树叶
 
 tile.leaves4.hellbark.name=地狱皮树叶
 tile.leaves4.jacaranda.name=蓝花楹树叶
@@ -249,14 +249,14 @@ tile.colorizedLeaves1.palm.name=棕榈树树叶
 tile.colorizedLeaves1.redwood.name=红木树叶
 
 tile.colorizedLeaves2.willow.name=柳树树叶
-tile.colorizedLeaves2.pine.name=松松树叶
+tile.colorizedLeaves2.pine.name=松树树叶
 tile.colorizedLeaves2.mahogany.name=桃花心树树叶
 
 tile.appleLeaves.name=苹果树树叶
 tile.persimmonLeaves.name=柿子树树叶
 
 tile.woodenDoubleSlab1.sacredoakSlab.name=神圣橡树木板
-tile.woodenDoubleSlab1.cherrySlab.name=樱花树木板
+tile.woodenDoubleSlab1.cherrySlab.name=樱桃树木板
 tile.woodenDoubleSlab1.darkSlab.name=黑暗树木板
 tile.woodenDoubleSlab1.firSlab.name=杉树木板
 tile.woodenDoubleSlab1.etherealSlab.name=天域树木板
@@ -271,7 +271,7 @@ tile.woodenDoubleSlab2.jacarandaSlab.name=蓝花楹树木板
 tile.woodenDoubleSlab2.mahoganySlab.name=桃花心树木板
 
 tile.woodenSingleSlab1.sacredoakSlab.name=神圣橡树台阶
-tile.woodenSingleSlab1.cherrySlab.name=樱花树台阶
+tile.woodenSingleSlab1.cherrySlab.name=樱桃树台阶
 tile.woodenSingleSlab1.darkSlab.name=黑暗树台阶
 tile.woodenSingleSlab1.firSlab.name=杉树台阶
 tile.woodenSingleSlab1.etherealSlab.name=天域树台阶
@@ -286,7 +286,7 @@ tile.woodenSingleSlab2.jacarandaSlab.name=蓝花楹树台阶
 tile.woodenSingleSlab2.mahoganySlab.name=桃花心树台阶
 
 tile.sacredoakStairs.name=神圣橡木楼梯
-tile.cherryStairs.name=樱花木楼梯
+tile.cherryStairs.name=樱桃树木楼梯
 tile.darkStairs.name=黑暗木楼梯
 tile.firStairs.name=冷杉木楼梯
 tile.etherealStairs.name=阁楼木楼梯
@@ -398,13 +398,13 @@ item.flowerBand.exoticflowerband.name=异域之花环
 item.wadingBoots.name=雨靴
 item.flippers.name=脚蹼
 
-item.biomeBook.name=生态群系之书
-item.biomeFinder.name=生态群系雷达
-item.biomeEssence.name=生态群系元素
+item.biomeBook.name=生物群系之书
+item.biomeFinder.name=生物群系雷达
+item.biomeEssence.name=生物群系元素
 
-item.poisonBucket.name=毒液
-item.hell_bloodBucket.name=血
-item.honeyBucket.name=蜂蜜
+item.poisonBucket.name=毒液桶
+item.hell_bloodBucket.name=血桶
+item.honeyBucket.name=蜂蜜桶
 
 tile.poison.name=毒液
 tile.hell_blood.name=血
@@ -480,8 +480,8 @@ achievement.bop.achAmbrosia=神之酿
 achievement.bop.achAmbrosia.desc=忍住口渴, 我的朋友啊.
 
 achievement.bop.achAllBOP=超多成就
-achievement.bop.achAllBOP.desc=你解锁了超多生态群系的全部成就!
+achievement.bop.achAllBOP.desc=你解锁了超多生物群系的全部成就!
 
-itemGroup.tabBiomesOPlenty=超多生态群系
+itemGroup.tabBiomesOPlenty=超多生物群系
 
-generator.BIOMESOP=超多生态群系
+generator.BIOMESOP=超多生物群系
