@@ -50,12 +50,11 @@ public class ItemBOPBucket extends ItemFluidContainer
             int j = movingobjectposition.blockY;
             int k = movingobjectposition.blockZ;
 
-        	TileEntity tile=world.getTileEntity(i, j, k);
+        	TileEntity tile = world.getTileEntity(i, j, k);
         	
         	if(tile != null && tile instanceof IFluidHandler)
         	{
-        		System.out.print("into tank");
-        		IFluidHandler tank=(IFluidHandler)tile;
+        		IFluidHandler tank = (IFluidHandler)tile;
         		if(tank.fill(null,this.getFluid(itemStack), false) == this.getCapacity(itemStack))
         		{
         			tank.fill(null,this.getFluid(itemStack), true);

@@ -50,16 +50,16 @@ public class BucketEventHandler
         	{
         		IFluidHandler tank = (IFluidHandler)tile;
         		FluidStack fluidStack = tank.drain(ForgeDirection.UNKNOWN, FluidContainerRegistry.BUCKET_VOLUME, false);
-        		if(fluidStack==null)
+        		if(fluidStack == null)
         			return;
         		if(fluidStack.amount < FluidContainerRegistry.BUCKET_VOLUME)
         			return;
-        		if(fluidStack.getFluid()==BOPCFluids.blood || fluidStack.getFluid()==BOPCFluids.honey || fluidStack.getFluid()==BOPCFluids.poison)
+        		if(fluidStack.getFluid() == BOPCFluids.blood || fluidStack.getFluid() == BOPCFluids.honey || fluidStack.getFluid() == BOPCFluids.poison)
         		{
     				tank.drain(ForgeDirection.UNKNOWN, FluidContainerRegistry.BUCKET_VOLUME , true);
-        			ItemStack filled=new ItemStack(BOPCItems.bopBucket);
-        			((ItemBOPBucket)BOPCItems.bopBucket).fill(filled, fluidStack, true);
-        			event.result=filled;
+        			ItemStack filled = new ItemStack(BOPCItems.bopBucket);
+        			bopBucket.fill(filled, fluidStack, true);
+        			event.result = filled;
     				event.setResult(Result.ALLOW);
     				return;
         		}
@@ -84,9 +84,11 @@ public class BucketEventHandler
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
 	public void textureHook(TextureStitchEvent.Post event) {
-		if (event.map.getTextureType() == 0) {
+		if (event.map.getTextureType() == 0)
+		{
 			BOPCFluids.blood.setIcons(BlockBloodFluid.bloodStillIcon, BlockBloodFluid.bloodFlowingIcon);
 			BOPCFluids.honey.setIcons(BlockHoneyFluid.honeyStillIcon, BlockHoneyFluid.honeyFlowingIcon);
 			BOPCFluids.poison.setIcons(BlockPoisonFluid.liquidPoisonStillIcon, BlockPoisonFluid.liquidPoisonFlowingIcon);
 		}
-	}}
+	}
+}
