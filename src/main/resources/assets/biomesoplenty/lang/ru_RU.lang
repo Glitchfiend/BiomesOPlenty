@@ -128,6 +128,7 @@ tile.longGrass.name=Блок высокой травы
 tile.overgrownNetherrack.name=Заросший камень Нижнего мира
 tile.treeMoss.name=Древесный мох
 tile.flowerVine.name=Цветущая лиана
+tile.wisteria.name=Глициния
 
 tile.coral1.kelpsingle.name=Ламинария
 tile.coral1.pinkcoral.name=Розовый коралл
@@ -136,12 +137,15 @@ tile.coral1.bluecoral.name=Синий коралл
 tile.coral1.glowcoral.name=Светящийся коралл
 tile.coral2.algae.name=Водоросли
 
-tile.soil.grass_silty.name=Блок илистой травы
-tile.soil.grass_sandy.name=Блок песчаной травы
-tile.soil.grass_loamy.name=Блок глиняной травы
-tile.soil.dirt_silty.name=Илистая земля
-tile.soil.dirt_sandy.name=Песчаная земля
-tile.soil.dirt_loamy.name=Глиняная земля
+tile.newBopGrass.silty.name=Блок илистой травы
+tile.newBopGrass.sandy.name=Блок песчаной травы
+tile.newBopGrass.loamy.name=Блок глиняной травы
+tile.newBopDirt.dirt_silty.name=Илистая земля
+tile.newBopDirt.dirt_sandy.name=Песчаная земля
+tile.newBopDirt.dirt_loamy.name=Глиняная земля
+tile.newBopDirt.coarse_dirt_silty.name=Шероховатая илистая земля
+tile.newBopDirt.coarse_dirt_sandy.name=Шероховатая песчаная земля
+tile.newBopDirt.coarse_dirt_loamy.name=Шероховатая глиняная земля
 
 tile.bopGrass.spectralmoss.name=Спектральный мох
 tile.bopGrass.smolderinggrass.name=Блок тлеющей травы
