@@ -104,9 +104,9 @@ tile.saplings.firSapling.name=杉树树苗
 tile.saplings.etherealSapling.name=天域树苗
 tile.saplings.orangeautumnSapling.name=橙秋树苗
 tile.saplings.originSapling.name=原始树树苗
-tile.saplings.pinkcherrySapling.name=粉色樱花树苗
+tile.saplings.pinkcherrySapling.name=粉色樱花树树苗
 tile.saplings.mapleSapling.name=枫树树苗
-tile.saplings.whitecherrySapling.name=白色樱花树苗
+tile.saplings.whitecherrySapling.name=白色樱花树树苗
 tile.saplings.hellbarkSapling.name=地狱皮树苗
 tile.saplings.jacarandaSapling.name=蓝花楹木树苗
 tile.saplings.persimmonSapling.name=柿子树苗
@@ -171,8 +171,8 @@ tile.moss.name=苔藓
 
 tile.hive.honeycomb.name=蜂巢方块
 tile.hive.hive.name=蜂房方块
-tile.hive.honeycombempty.name=空蜂巢方块
-tile.hive.honeycombfilled.name=蜂蜜蜂巢方块
+tile.hive.honeycombempty.name=空的蜂巢方块
+tile.hive.honeycombfilled.name=满的蜂巢方块
 
 tile.honeyBlock.name=蜂蜜块
 
@@ -249,7 +249,7 @@ tile.colorizedLeaves1.palm.name=棕榈树树叶
 tile.colorizedLeaves1.redwood.name=红木树叶
 
 tile.colorizedLeaves2.willow.name=柳树树叶
-tile.colorizedLeaves2.pine.name=松松树叶
+tile.colorizedLeaves2.pine.name=松树树叶
 tile.colorizedLeaves2.mahogany.name=桃花心树树叶
 
 tile.appleLeaves.name=苹果树树叶
@@ -286,7 +286,7 @@ tile.woodenSingleSlab2.jacarandaSlab.name=蓝花楹树台阶
 tile.woodenSingleSlab2.mahoganySlab.name=桃花心树台阶
 
 tile.sacredoakStairs.name=神圣橡木楼梯
-tile.cherryStairs.name=樱花木楼梯
+tile.cherryStairs.name=樱花树木楼梯
 tile.darkStairs.name=黑暗木楼梯
 tile.firStairs.name=冷杉木楼梯
 tile.etherealStairs.name=阁楼木楼梯
@@ -398,13 +398,13 @@ item.flowerBand.exoticflowerband.name=异域之花环
 item.wadingBoots.name=雨靴
 item.flippers.name=脚蹼
 
-item.biomeBook.name=生态群系之书
-item.biomeFinder.name=生态群系雷达
-item.biomeEssence.name=生态群系元素
+item.biomeBook.name=生物群系之书
+item.biomeFinder.name=生物群系雷达
+item.biomeEssence.name=生物群系元素
 
-item.poisonBucket.name=毒液
-item.hell_bloodBucket.name=血
-item.honeyBucket.name=蜂蜜
+item.poisonBucket.name=毒液桶
+item.hell_bloodBucket.name=血桶
+item.honeyBucket.name=蜂蜜桶
 
 tile.poison.name=毒液
 tile.hell_blood.name=血
@@ -480,8 +480,8 @@ achievement.bop.achAmbrosia=神之酿
 achievement.bop.achAmbrosia.desc=忍住口渴, 我的朋友啊.
 
 achievement.bop.achAllBOP=超多成就
-achievement.bop.achAllBOP.desc=你解锁了超多生态群系的全部成就!
+achievement.bop.achAllBOP.desc=你解锁了超多生物群系的全部成就!
 
-itemGroup.tabBiomesOPlenty=超多生态群系
+itemGroup.tabBiomesOPlenty=超多生物群系
 
-generator.BIOMESOP=超多生态群系
+generator.BIOMESOP=超多生物群系
