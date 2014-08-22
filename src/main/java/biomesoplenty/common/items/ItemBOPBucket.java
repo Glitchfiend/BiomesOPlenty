@@ -3,6 +3,7 @@ package biomesoplenty.common.items;
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -10,17 +11,21 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.IFluidHandler;
 import net.minecraftforge.fluids.ItemFluidContainer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCFluids;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fluids.IFluidTank;
 
 public class ItemBOPBucket extends ItemFluidContainer
 {
@@ -39,14 +44,27 @@ public class ItemBOPBucket extends ItemFluidContainer
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player)
 	{
 		MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, false);
-		
 		if (movingobjectposition != null)
 		{
             int i = movingobjectposition.blockX;
             int j = movingobjectposition.blockY;
             int k = movingobjectposition.blockZ;
 
-            if (movingobjectposition.sideHit == 0)
+        	TileEntity tile = world.getTileEntity(i, j, k);
+        	
+        	if(tile != null && tile instanceof IFluidHandler)
+        	{
+        		IFluidHandler tank = (IFluidHandler)tile;
+        		if(tank.fill(null,this.getFluid(itemStack), false) == this.getCapacity(itemStack))
+        		{
+        			tank.fill(null,this.getFluid(itemStack), true);
+        			if(!player.capabilities.isCreativeMode)
+        				return new ItemStack(Items.bucket);
+        		}
+        		return itemStack;
+        	}
+
+        	if (movingobjectposition.sideHit == 0)
             {
                 --j;
             }
@@ -100,6 +118,7 @@ public class ItemBOPBucket extends ItemFluidContainer
         }
         else
         {
+        	
             Material material = world.getBlock(x, y, z).getMaterial();
             boolean isSolid = material.isSolid();
             

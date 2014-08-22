@@ -9,6 +9,5 @@ public class PoisonFluid extends Fluid
 	{
 		super(fluidName);
 
-		this.setIcons(BlockPoisonFluid.liquidPoisonStillIcon, BlockPoisonFluid.liquidPoisonFlowingIcon);
 	}
 }

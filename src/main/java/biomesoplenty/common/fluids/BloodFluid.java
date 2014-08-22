@@ -8,7 +8,5 @@ public class BloodFluid extends Fluid
 	public BloodFluid(String fluidName) 
 	{
 		super(fluidName);
-
-		this.setIcons(BlockBloodFluid.bloodStillIcon, BlockBloodFluid.bloodFlowingIcon);
 	}
 }
