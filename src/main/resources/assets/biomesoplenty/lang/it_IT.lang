@@ -417,7 +417,7 @@ warning.bopStartup1=Biomes O' Plenty usa un tipo di mondo personalizato per i su
 warning.bopStartup2=nuovo mondo viene creato, si deve abilitare cliccando il pulsante "Tipo di
 warning.bopStartup3=Mondo" sotto "Altre Opzioni del Mondo..." finchè non mostra "Biomes O' Plenty".
 warning.bopStartup4=Il tipo di mondo può essere usato sui server cambiando il 'level-type' in
-warning.bopStartup5=sever.properties a "BIOMESOP" (senza virgolette)
+warning.bopStartup5=server.properties a "BIOMESOP" (senza virgolette)
 warning.bopStartup6=Questo messaggio verrà mostrato soltanto una volta.
 
 potion.paralysis=Paralisi
