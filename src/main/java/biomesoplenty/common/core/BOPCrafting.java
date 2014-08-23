@@ -64,7 +64,6 @@ public class BOPCrafting
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.misc, 1, 7), new Object[] {new ItemStack(BOPCBlocks.moss,1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.misc, 1, 8), new Object[] {new ItemStack(BOPCBlocks.flowers,1,9)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.misc, 1, 9), new Object[] {new ItemStack(BOPCBlocks.flowers,1,2)});
-		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 4, 3), new Object[] {new ItemStack(BOPCBlocks.flowers,1,13)});
 
 		//Brick stairs and slabs
 		GameRegistry.addRecipe(new ItemStack(BOPCBlocks.stoneSingleSlab, 6, 2), new Object[] {"RRR", 'R', BOPCBlocks.mudBricks});
