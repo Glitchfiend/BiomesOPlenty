@@ -70,10 +70,10 @@ tile.stoneFormations.stalactite.name=Stalattite
 tile.foliage.duckweed.name=Lemna
 tile.foliage.shortgrass.name=Erba bassa
 tile.foliage.mediumgrass.name=Erba media
-tile.foliage.hedgebottom.name=Siepe
+tile.foliage.flaxbottom.name=Lino
 tile.foliage.bush.name=Cespuglio
 tile.foliage.sprout.name=Germoglio
-tile.foliage.hedgetop.name=Siepe
+tile.foliage.flaxtop.name=Lino
 tile.foliage.poisonivy.name=Edera velenosa
 tile.foliage.berrybush.name=Cespuglio di bacche
 tile.foliage.shrub.name=Cespuglio
@@ -128,6 +128,7 @@ tile.longGrass.name=Erba copiosa
 tile.overgrownNetherrack.name=Inferreno ricoperto di vegetazione
 tile.treeMoss.name=Muschio parassita
 tile.flowerVine.name=Rampicante fiorente
+tile.wisteria.name=Glicine
 
 tile.coral1.kelpsingle.name=Alga kelp
 tile.coral1.pinkcoral.name=Corallo rosa
@@ -135,6 +136,16 @@ tile.coral1.orangecoral.name=Corallo arancione
 tile.coral1.bluecoral.name=Corallo blu
 tile.coral1.glowcoral.name=Corallo luminescente
 tile.coral2.algae.name=Alghe
+
+tile.newBopGrass.silty.name=Erba melmosa
+tile.newBopGrass.sandy.name=Erba sabbiosa
+tile.newBopGrass.loamy.name=Erba argillosa
+tile.newBopDirt.dirt_silty.name=Terra melmosa
+tile.newBopDirt.dirt_sandy.name=Terra sabbiosa
++tile.newBopDirt.dirt_loamy.name=Terra argillosa
+tile.newBopDirt.coarse_dirt_silty.name=Terra brulla melmosa
+tile.newBopDirt.coarse_dirt_sandy.name=Terra brulla sabbiosa
+tile.newBopDirt.coarse_dirt_loamy.name=Terra brulla argillosa
 
 tile.bopGrass.spectralmoss.name=Muschio spettrale
 tile.bopGrass.smolderinggrass.name=Erba ardente
@@ -392,16 +403,16 @@ item.biomeFinder.name=Radar di biomi
 item.biomeEssence.name=Essenza di bioma
 
 item.poisonBucket.name=Secchio di veleno
-item.bloodBucket.name=Secchio di sangue
+item.hell_bloodBucket.name=Secchio di sangue
 item.honeyBucket.name=Secchio di miele
  
 tile.poison.name=Liquido velenoso
-tile.blood.name=Sangue
+tile.hell_blood.name=Sangue
 tile.honey.name=Miele
 
 fluid.poison=Liquido velenoso
 fluid.springWater=Acqua primaverile
-fluid.blood=Sangue
+fluid.hell_blood=Sangue
 
 biomeRadar.target=Obiettivo:
 biomeRadar.foundBiome=Bioma trovato!
