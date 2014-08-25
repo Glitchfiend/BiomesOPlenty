@@ -7,7 +7,7 @@ tile.hardDirt.name=Terra indurita
 tile.hardIce.name=Ghiaccio cristallino
 tile.driedDirt.name=Terra arida
 tile.cragRock.name=Roccia falesia
-tile.mudBricks.name=Fango concio
+tile.mudBricks.name=Mattoni di fango
 tile.biomeBlock.name=Essenza di bioma grezza
 tile.crystal.name=Cristallo celestiale
 
@@ -122,10 +122,10 @@ tile.colorizedSaplings.mahoganySapling.name=Arboscello di mogano rosso
 tile.willow.name=Salice
 tile.ivy.name=Edera
 tile.bamboo.name=Bambù
-tile.mudBricksStairs.name=Scalini di fango concio
+tile.mudBricksStairs.name=Scalini di mattoni di fango
 tile.originGrass.name=Erba della valle dell'Origine
 tile.longGrass.name=Erba copiosa
-tile.overgrownNetherrack.name=Pietra degli Inferi ricoperto di vegetazione
+tile.overgrownNetherrack.name=Inferreno ricoperto di vegetazione
 tile.treeMoss.name=Muschio parassita
 tile.flowerVine.name=Rampicante fiorente
 
@@ -139,7 +139,7 @@ tile.coral2.algae.name=Alghe
 tile.bopGrass.spectralmoss.name=Muschio spettrale
 tile.bopGrass.smolderinggrass.name=Erba ardente
 
-tile.gemOre.amethystore.name=Ametista dell'End grezza
+tile.gemOre.amethystore.name=Ametista dell'Omega grezza
 tile.gemOre.amethystblock.name=Blocco di ametista
 tile.gemOre.rubyore.name=Rubino grezzo
 tile.gemOre.rubyblock.name=Blocco di rubino
@@ -175,8 +175,8 @@ tile.bones.bones_large.name=Segmento grande d'ossa
 
 tile.grave.name=Lapide
 
-tile.stoneDoubleSlab.mudbrickSlab.name=Lastra di fango concio
-tile.stoneSingleSlab.mudbrickSlab.name=Lastra di fango concio
+tile.stoneDoubleSlab.mudbrickSlab.name=Lastra di mattoni di fango
+tile.stoneSingleSlab.mudbrickSlab.name=Lastra di mattoni di fango
 
 tile.planks.sacredoakPlank.name=Assi di quercia consacrata
 tile.planks.cherryPlank.name=Assi di ciliegio
@@ -328,7 +328,7 @@ item.jarFilled.jarhoney.name=Barattolo di miele
 item.jarFilled.jarpoison.name=Barattolo di estratto di veleno
 item.jarFilled.jarpixie.name=Barattolo con pixie
 
-item.gems.amethyst.name=Ametista dell'End
+item.gems.amethyst.name=Ametista dell'Omega
 item.gems.ruby.name=Rubino
 item.gems.peridot.name=Peridoto
 item.gems.topaz.name=Topazio
@@ -371,7 +371,7 @@ item.ancientStaff.staffpole.name=Corpo della verga venerabile
 item.ancientStaff.stafftopper.name=Punta della verga venerabile
 item.ancientStaff.ancientstaffbroken.name=Verga venerabile esaurita
 
-item.enderporter.name=Traslatore dell'End
+item.enderporter.name=Traslatore d'omega
 
 item.record_wanderer.name=Disco musicale
 item.record_corruption.name=Disco musicale
