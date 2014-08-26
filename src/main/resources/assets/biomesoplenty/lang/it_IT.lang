@@ -7,7 +7,7 @@ tile.hardDirt.name=Terra indurita
 tile.hardIce.name=Ghiaccio cristallino
 tile.driedDirt.name=Terra arida
 tile.cragRock.name=Roccia falesia
-tile.mudBricks.name=Fango concio
+tile.mudBricks.name=Mattoni di fango
 tile.biomeBlock.name=Essenza di bioma grezza
 tile.crystal.name=Cristallo celestiale
 
@@ -70,10 +70,10 @@ tile.stoneFormations.stalactite.name=Stalattite
 tile.foliage.duckweed.name=Lemna
 tile.foliage.shortgrass.name=Erba bassa
 tile.foliage.mediumgrass.name=Erba media
-tile.foliage.hedgebottom.name=Siepe
+tile.foliage.flaxbottom.name=Lino
 tile.foliage.bush.name=Cespuglio
 tile.foliage.sprout.name=Germoglio
-tile.foliage.hedgetop.name=Siepe
+tile.foliage.flaxtop.name=Lino
 tile.foliage.poisonivy.name=Edera velenosa
 tile.foliage.berrybush.name=Cespuglio di bacche
 tile.foliage.shrub.name=Cespuglio
@@ -122,12 +122,13 @@ tile.colorizedSaplings.mahoganySapling.name=Arboscello di mogano rosso
 tile.willow.name=Salice
 tile.ivy.name=Edera
 tile.bamboo.name=Bambù
-tile.mudBricksStairs.name=Scalini di fango concio
+tile.mudBricksStairs.name=Scalini di mattoni di fango
 tile.originGrass.name=Erba della valle dell'Origine
 tile.longGrass.name=Erba copiosa
-tile.overgrownNetherrack.name=Pietra degli Inferi ricoperto di vegetazione
+tile.overgrownNetherrack.name=Inferreno ricoperto di vegetazione
 tile.treeMoss.name=Muschio parassita
 tile.flowerVine.name=Rampicante fiorente
+tile.wisteria.name=Glicine
 
 tile.coral1.kelpsingle.name=Alga kelp
 tile.coral1.pinkcoral.name=Corallo rosa
@@ -136,10 +137,20 @@ tile.coral1.bluecoral.name=Corallo blu
 tile.coral1.glowcoral.name=Corallo luminescente
 tile.coral2.algae.name=Alghe
 
+tile.newBopGrass.silty.name=Erba melmosa
+tile.newBopGrass.sandy.name=Erba sabbiosa
+tile.newBopGrass.loamy.name=Erba argillosa
+tile.newBopDirt.dirt_silty.name=Terra melmosa
+tile.newBopDirt.dirt_sandy.name=Terra sabbiosa
++tile.newBopDirt.dirt_loamy.name=Terra argillosa
+tile.newBopDirt.coarse_dirt_silty.name=Terra brulla melmosa
+tile.newBopDirt.coarse_dirt_sandy.name=Terra brulla sabbiosa
+tile.newBopDirt.coarse_dirt_loamy.name=Terra brulla argillosa
+
 tile.bopGrass.spectralmoss.name=Muschio spettrale
 tile.bopGrass.smolderinggrass.name=Erba ardente
 
-tile.gemOre.amethystore.name=Ametista dell'End grezza
+tile.gemOre.amethystore.name=Ametista dell'Omega grezza
 tile.gemOre.amethystblock.name=Blocco di ametista
 tile.gemOre.rubyore.name=Rubino grezzo
 tile.gemOre.rubyblock.name=Blocco di rubino
@@ -175,8 +186,8 @@ tile.bones.bones_large.name=Segmento grande d'ossa
 
 tile.grave.name=Lapide
 
-tile.stoneDoubleSlab.mudbrickSlab.name=Lastra di fango concio
-tile.stoneSingleSlab.mudbrickSlab.name=Lastra di fango concio
+tile.stoneDoubleSlab.mudbrickSlab.name=Lastra di mattoni di fango
+tile.stoneSingleSlab.mudbrickSlab.name=Lastra di mattoni di fango
 
 tile.planks.sacredoakPlank.name=Assi di quercia consacrata
 tile.planks.cherryPlank.name=Assi di ciliegio
@@ -328,7 +339,7 @@ item.jarFilled.jarhoney.name=Barattolo di miele
 item.jarFilled.jarpoison.name=Barattolo di estratto di veleno
 item.jarFilled.jarpixie.name=Barattolo con pixie
 
-item.gems.amethyst.name=Ametista dell'End
+item.gems.amethyst.name=Ametista dell'Omega
 item.gems.ruby.name=Rubino
 item.gems.peridot.name=Peridoto
 item.gems.topaz.name=Topazio
@@ -371,7 +382,7 @@ item.ancientStaff.staffpole.name=Corpo della verga venerabile
 item.ancientStaff.stafftopper.name=Punta della verga venerabile
 item.ancientStaff.ancientstaffbroken.name=Verga venerabile esaurita
 
-item.enderporter.name=Traslatore dell'End
+item.enderporter.name=Traslatore d'omega
 
 item.record_wanderer.name=Disco musicale
 item.record_corruption.name=Disco musicale
@@ -392,16 +403,16 @@ item.biomeFinder.name=Radar di biomi
 item.biomeEssence.name=Essenza di bioma
 
 item.poisonBucket.name=Secchio di veleno
-item.bloodBucket.name=Secchio di sangue
+item.hell_bloodBucket.name=Secchio di sangue
 item.honeyBucket.name=Secchio di miele
  
 tile.poison.name=Liquido velenoso
-tile.blood.name=Sangue
+tile.hell_blood.name=Sangue
 tile.honey.name=Miele
 
 fluid.poison=Liquido velenoso
 fluid.springWater=Acqua primaverile
-fluid.blood=Sangue
+fluid.hell_blood=Sangue
 
 biomeRadar.target=Obiettivo:
 biomeRadar.foundBiome=Bioma trovato!
