@@ -55,6 +55,8 @@ public class BOPItems
 		BOPItemHelper.armorMaterialAmethyst = EnumHelper.addArmorMaterial("AMETHYST", 40, new int[] {6, 12, 10, 6}, 20);
 		
 		BOPItemHelper.armorMaterialUnprotective = EnumHelper.addArmorMaterial("UNPROTECTIVE", -1, new int[] {0, 0, 0, 0}, 0);
+		
+		registerCraftingMaterials();
 	}
 
 	private static void registerItems()
@@ -116,6 +118,12 @@ public class BOPItems
 		flowerBand = registerItem(new ItemFlowerBand(BOPItemHelper.armorMaterialUnprotective, BiomesOPlenty.proxy.addArmor("flowerBand"), 0).setUnlocalizedName("flowerBand"));
 		flippers = registerItem(new ItemFlippers(BOPItemHelper.armorMaterialUnprotective, BiomesOPlenty.proxy.addArmor("flippers"), 3).setUnlocalizedName("flippers"));
 		wadingBoots = registerItem(new ItemWadingBoots(BOPItemHelper.armorMaterialUnprotective, BiomesOPlenty.proxy.addArmor("wadingBoots"), 3).setUnlocalizedName("wadingBoots"));
+	}
+	
+	private static void registerCraftingMaterials()
+	{
+		BOPItemHelper.toolMaterialMud.customCraftingMaterial = mudball;
+		BOPItemHelper.armorMaterialMud.customCraftingMaterial = mudball;
 	}
 
 	public static Item registerItem(Item item)

@@ -19,7 +19,7 @@ import org.apache.commons.io.FileUtils;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-public class StartupWarningGUI extends GuiScreen
+public class WorldTypeMessageGUI extends GuiScreen
 {
     private GuiScreen parentGuiScreen;
     
@@ -30,7 +30,7 @@ public class StartupWarningGUI extends GuiScreen
     
     private static final ResourceLocation bopLogoTexture = new ResourceLocation("biomesoplenty:textures/gui/logo256.png");
     
-    public StartupWarningGUI(GuiScreen parentGuiScreen, File nameHashFile, String nameHash)
+    public WorldTypeMessageGUI(GuiScreen parentGuiScreen, File nameHashFile, String nameHash)
     {
         this.parentGuiScreen = parentGuiScreen;
         
@@ -57,7 +57,6 @@ public class StartupWarningGUI extends GuiScreen
     {
         if (button.enabled)
         {
-            //TODO:    id
             if (button.id == 0)
             {
                 try

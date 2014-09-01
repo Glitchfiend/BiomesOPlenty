@@ -5,7 +5,7 @@ import biomesoplenty.client.fog.FogHandler;
 import biomesoplenty.client.utils.ParticleRegistry;
 import biomesoplenty.common.eventhandler.client.FlowerScatterEventHandler;
 import biomesoplenty.common.eventhandler.client.gui.MainMenuEventHandler;
-import biomesoplenty.common.eventhandler.client.gui.StartupWarningEventHandler;
+import biomesoplenty.common.eventhandler.client.gui.WorldTypeMessageEventHandler;
 import biomesoplenty.common.eventhandler.entity.DyeEventHandler;
 import biomesoplenty.common.eventhandler.entity.FlippersEventHandler;
 import biomesoplenty.common.eventhandler.entity.SlimeSpawnEventHandler;
@@ -62,7 +62,7 @@ public class BOPEventHandlers
 	
 	private static void registerGUIEventHandlers()
 	{
-	    MinecraftForge.EVENT_BUS.register(StartupWarningEventHandler.instance);
+	    MinecraftForge.EVENT_BUS.register(WorldTypeMessageEventHandler.instance);
 	    MinecraftForge.EVENT_BUS.register(new MainMenuEventHandler());
 	}
 	

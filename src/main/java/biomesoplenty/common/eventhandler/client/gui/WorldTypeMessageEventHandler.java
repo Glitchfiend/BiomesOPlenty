@@ -6,23 +6,24 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
-import biomesoplenty.client.gui.StartupWarningGUI;
+import biomesoplenty.client.gui.WorldTypeMessageGUI;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class StartupWarningEventHandler
+public class WorldTypeMessageEventHandler
 {
-    public static StartupWarningEventHandler instance = new StartupWarningEventHandler();
+    public static WorldTypeMessageEventHandler instance = new WorldTypeMessageEventHandler();
     
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
-    public void openMainMenu(GuiOpenEvent event)
+    public void openCreateWorld(GuiOpenEvent event)
     {
-        if (event.gui instanceof GuiMainMenu)
+        if (event.gui instanceof GuiCreateWorld)
         {
             File nameHashFile = new File(Minecraft.getMinecraft().mcDataDir.getPath() + File.separator + "BOPChecks".hashCode());
             String nameHash = "" + Minecraft.getMinecraft().getSession().func_148256_e().hashCode();
@@ -31,7 +32,7 @@ public class StartupWarningEventHandler
             {
                 if (!nameHashFile.exists() || !FileUtils.readFileToString(nameHashFile).contains(nameHash + "StartupWarning".hashCode()))
                 {
-                    event.gui = new StartupWarningGUI(event.gui, nameHashFile, nameHash);
+                    event.gui = new WorldTypeMessageGUI(event.gui, nameHashFile, nameHash);
                 }
             } catch (IOException e)
             {

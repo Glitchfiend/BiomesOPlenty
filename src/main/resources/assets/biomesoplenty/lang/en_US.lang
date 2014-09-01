@@ -424,9 +424,9 @@ phrase.bop.useBOPATGWorldtype=The Biomes O' Plenty world type or ATG world type 
 phrase.bop.useBOPWorldtype=The Biomes O' Plenty world type must be used in order for the new biomes to generate. This message will only display once.
 phrase.bop.updateAvaliable=You are not using the latest recommended version of Biomes O' Plenty. The latest recommended version is: v%s for Minecraft %s
 
-warning.bopStartup1=Biomes O' Plenty uses a custom worldtype for its biomes. When creating a world, it
-warning.bopStartup2=may be enabled by clicking the 'World Type' button under 'More World Options'
-warning.bopStartup3=until it displays 'Biomes O' Plenty'.
+warning.bopStartup1=Biomes O' Plenty uses a custom worldtype for its biomes. It may be enabled by
+warning.bopStartup2=clicking the 'World Type' button under 'More World Options' until it displays
+warning.bopStartup3='Biomes O' Plenty'.
 warning.bopStartup4=The worldtype can be used on servers by changing the 'level-type' in
 warning.bopStartup5=sever.properties to 'BIOMESOP' (without quotes)
 warning.bopStartup6=This message will only display once.
