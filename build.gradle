@@ -118,9 +118,9 @@ task createChangelog(type: ChangelogTask) {
 
 tasks.build.dependsOn('createChangelog')
 
-task sourceZip(type: Zip) {
-    from sourceSets.main.allSource
-    classifier = 'src'
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
 }
 
 task apiZip(type: Zip) {
@@ -137,7 +137,7 @@ task deobfJar(type: Jar) {
 }
 
 artifacts {
-    archives sourceZip
+    archives sourceJar
     archives deobfJar
     archives apiZip
 }
@@ -205,8 +205,7 @@ uploadArchives {
                     name 'Amnet'
                     roles { role 'developer' }
                 }
-
-                                developer {
+                developer {
                     id 'ted80'
                     name 'ted80'
                     roles { role 'developer' }

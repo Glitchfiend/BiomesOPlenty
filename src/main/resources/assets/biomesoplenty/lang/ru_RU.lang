@@ -428,7 +428,7 @@ warning.bopStartup1=Biomes O' Plenty использует другой тип м
 warning.bopStartup2=должны в 'Дополнительных настройках мира', изменить Тип мира на
 warning.bopStartup3='Biomes O' Plenty'.
 warning.bopStartup4=Чтобы изменить Тип мира на сервере, вы должны изменить 'level-type' в
-warning.bopStartup5=файле sever.properties на 'BIOMESOP' (Без кавычек)
+warning.bopStartup5=файле server.properties на 'BIOMESOP' (Без кавычек)
 warning.bopStartup6=Это сообщение отобразиться только один раз.
 
 potion.paralysis=Паралич

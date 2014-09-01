@@ -428,7 +428,7 @@ warning.bopStartup1=Biomes O' Plenty uses a custom worldtype for its biomes. It 
 warning.bopStartup2=clicking the 'World Type' button under 'More World Options' until it displays
 warning.bopStartup3='Biomes O' Plenty'.
 warning.bopStartup4=The worldtype can be used on servers by changing the 'level-type' in
-warning.bopStartup5=sever.properties to 'BIOMESOP' (without quotes)
+warning.bopStartup5=server.properties to 'BIOMESOP' (without quotes)
 warning.bopStartup6=This message will only display once.
 
 potion.paralysis=Paralysis

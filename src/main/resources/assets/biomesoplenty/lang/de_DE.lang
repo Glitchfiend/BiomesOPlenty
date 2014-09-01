@@ -416,7 +416,7 @@ warning.bopStartup1=Biomes O' Plenty verwendet einen eigenen Welttyp für seine 
 warning.bopStartup2=kann er unter 'Weitere Weltoptionen' aktiviert werden, indem du den 'Welttyp'-Button klickst,
 warning.bopStartup3=bis er 'Biomes O' Plenty' anzeigt.
 warning.bopStartup4=Der Welttyp kann auf Servern verwendet werden, indem 'level-type' in der Datei
-warning.bopStartup5=sever.properties auf 'BIOMESOP' (ohne Anführungszeichen) gesetzt wird
+warning.bopStartup5=server.properties auf 'BIOMESOP' (ohne Anführungszeichen) gesetzt wird
 warning.bopStartup6=Diese Nachricht wird nur einmal angezeigt.
 
 potion.paralysis=Paralyse
