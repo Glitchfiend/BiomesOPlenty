@@ -73,7 +73,7 @@ public class BlockBOPNewDirt extends BlockDirt implements ISubLocalization
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
-        return dirtIcons[meta];
+        return dirtIcons[meta > dirtIcons.length - 1 ? 0 : meta];
     }
     
     @Override
