@@ -19,7 +19,8 @@ import biomesoplenty.common.world.BOPBiomeManager;
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
 	//Desert, Warm, Cool, Icy
-	public List<BiomeEntry>[] biomeLists = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
+	public final List<BiomeEntry>[] biomeLists = new ArrayList[] { new ArrayList(), new ArrayList(), new ArrayList(), new ArrayList() };
+	private final int[] totalWeights = new int[biomeLists.length];
 	
 	public GenLayerBiomeBOP(long seed, GenLayer parentLayer, WorldType worldType) 
 	{
@@ -38,8 +39,16 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.desert, 30));
         this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.savanna, 20));
         this.biomeLists[0].add(new BiomeEntry(BiomeGenBase.plains, 10));
+        
+        for (int i = 0; i < biomeLists.length; i++)
+        {
+        	List<BiomeEntry> currentBiomeList = biomeLists[i];
+        	
+        	if (currentBiomeList.isEmpty()) currentBiomeList.addAll(createMixedList());
+        	
+        	totalWeights[i] = WeightedRandom.getTotalWeight(currentBiomeList);
+        }
 	}
-
 	
     @Override
 	public int[] getInts(int x, int z, int width, int length)
@@ -121,7 +130,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
                 }
                 else
                 {
-                	outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromMixedList();
+                	outputBiomeIDs[j1 + i1 * width] = getBiomeIdFromList(getRandomValidList());
                 }
             }
         }
@@ -129,41 +138,69 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         return outputBiomeIDs;
     }
     
+    private int getRandomValidList()
+    {
+    	List<Integer> validLists = new ArrayList();
+    	
+    	for (int i = 0; i < biomeLists.length; i++) validLists.add(i);
+    	
+    	int list = -1;
+    	
+    	while (list == -1)
+    	{
+    		int validListCount = validLists.size();
+    		
+    		if (validListCount > 0)
+    		{
+    			int randList = validLists.get(this.nextInt(validListCount));
+    			List<BiomeEntry> currentList = biomeLists[randList];
+
+    			if (currentList != null && !currentList.isEmpty()) list = randList;
+    			else validLists.remove((Object)randList);
+    		}
+    		else throw new RuntimeException("No biomes are enabled!");
+    	}
+
+    	return list;
+    }
+
     private int getBiomeIdFromList(int listId)
     {
-    	if (!this.biomeLists[listId].isEmpty())
+    	List<BiomeEntry> currentBiomeList = biomeLists[listId];
+
+    	if (!currentBiomeList.isEmpty())
     	{
-    		return getWeightedBiomeFromList(this.biomeLists[listId]);
+    		int weight = nextInt(totalWeights[listId]);
+
+    		return ((BiomeEntry)WeightedRandom.getItem(biomeLists[listId], weight)).biome.biomeID;
     	}
-    	else
-    	{
-    		return getBiomeIdFromMixedList(listId);
-    	}
+    	else return getBiomeIdFromList(getRandomValidList());
     }
     
-    private int getBiomeIdFromMixedList(int... listIdExclusions)
+    private List<BiomeEntry> createMixedList()
     {
-    	List listIdExclusionList = Arrays.asList(listIdExclusions);
-		List<BiomeEntry> mixedBiomeList = new ArrayList();
-		
-		for (int i = 0; i < 4; i++)
-		{
-			if (!listIdExclusionList.contains(i) && !this.biomeLists[i].isEmpty()) mixedBiomeList.addAll(this.biomeLists[i]);
-		}
-		
-		if (!mixedBiomeList.isEmpty())
-		{
-			return getWeightedBiomeFromList(mixedBiomeList);
-		}
-		else
-		{
-    		throw new RuntimeException("No biomes are enabled!");
-		}
-    }
-    
-    private int getWeightedBiomeFromList(List<BiomeEntry> biomeList)
-    {
-    	return ((BiomeEntry)WeightedRandom.getItem(biomeList, (int)this.nextLong(WeightedRandom.getTotalWeight(biomeList) / 10) * 10)).biome.biomeID;
+    	List<BiomeEntry> combinedList = new ArrayList();
+    	List<BiomeEntry> mixedList = new ArrayList();
+    	
+    	int average = 0;
+    	
+    	for (List<BiomeEntry> biomeList : biomeLists)
+    	{
+    		if (biomeList != null && !biomeList.isEmpty()) 
+    		{
+    			combinedList.addAll(biomeList);
+    			average += biomeList.size();
+    		}
+    	}
+    	
+    	average /= biomeLists.length;
+    	
+    	while (combinedList.size() < average)
+    	{
+    		mixedList.add((BiomeEntry)WeightedRandom.getItem(combinedList, this.nextInt(WeightedRandom.getTotalWeight(combinedList))));
+    	}
+    	
+    	return mixedList;
     }
     
     private boolean isBiomeOceanicAndEnabled(int biomeId)
