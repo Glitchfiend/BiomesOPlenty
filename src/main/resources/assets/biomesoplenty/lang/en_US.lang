@@ -127,6 +127,7 @@ tile.originGrass.name=Origin Grass Block
 tile.longGrass.name=Long Grass Block
 tile.overgrownNetherrack.name=Overgrown Netherrack
 tile.treeMoss.name=Tree Moss
+tile.turnip.name=Turnip
 tile.flowerVine.name=Flowering Vines
 tile.wisteria.name=Wisteria
 
