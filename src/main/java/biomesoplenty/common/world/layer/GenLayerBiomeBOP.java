@@ -174,7 +174,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
 
     		return ((BiomeEntry)WeightedRandom.getItem(biomeLists[listId], weight)).biome.biomeID;
     	}
-    	else return getBiomeIdFromList(getRandomValidList());
+    	else throw new RuntimeException("No biomes are enabled!");
     }
     
     private List<BiomeEntry> createMixedList()
@@ -182,20 +182,18 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     	List<BiomeEntry> combinedList = new ArrayList();
     	List<BiomeEntry> mixedList = new ArrayList();
     	
-    	int average = 0;
+    	int maxSize = 0;
     	
     	for (List<BiomeEntry> biomeList : biomeLists)
     	{
     		if (biomeList != null && !biomeList.isEmpty()) 
     		{
     			combinedList.addAll(biomeList);
-    			average += biomeList.size();
+    			if (biomeList.size() > maxSize) maxSize = biomeList.size();
     		}
     	}
     	
-    	average /= biomeLists.length;
-    	
-    	while (combinedList.size() < average)
+    	while (mixedList.size() < maxSize)
     	{
     		mixedList.add((BiomeEntry)WeightedRandom.getItem(combinedList, this.nextInt(WeightedRandom.getTotalWeight(combinedList))));
     	}
