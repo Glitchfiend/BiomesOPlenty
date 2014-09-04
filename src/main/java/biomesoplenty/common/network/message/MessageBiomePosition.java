@@ -8,6 +8,7 @@ import io.netty.buffer.ByteBuf;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import cpw.mods.fml.relauncher.Side;
 
 public class MessageBiomePosition implements IMessage, IMessageHandler<MessageBiomePosition, IMessage>
 {
@@ -43,23 +44,26 @@ public class MessageBiomePosition implements IMessage, IMessageHandler<MessageBi
 	@Override
 	public IMessage onMessage(MessageBiomePosition message, MessageContext ctx) 
 	{
-		EntityPlayer player = ctx.getServerHandler().playerEntity;
-		
-        NBTTagCompound biomeCompound = new NBTTagCompound();
-        
-        biomeCompound.setInteger("x", x);
-        biomeCompound.setInteger("z", z);
+		if (ctx.side == Side.SERVER)
+		{
+			EntityPlayer player = ctx.getServerHandler().playerEntity;
 
-        ItemStack currentItem = player.getCurrentEquippedItem();
+			NBTTagCompound biomeCompound = new NBTTagCompound();
 
-        if (currentItem.getItem() == BOPCItems.biomeFinder)
-        {
-            if (!currentItem.hasTagCompound()) currentItem.setTagCompound(new NBTTagCompound());
+			biomeCompound.setInteger("x", x);
+			biomeCompound.setInteger("z", z);
 
-            currentItem.getTagCompound().setBoolean("foundBiome", foundBiome);
-            currentItem.getTagCompound().setTag("biomePosition",  biomeCompound);
-        }
-        
-        return null;
+			ItemStack currentItem = player.getCurrentEquippedItem();
+
+			if (currentItem.getItem() == BOPCItems.biomeFinder)
+			{
+				if (!currentItem.hasTagCompound()) currentItem.setTagCompound(new NBTTagCompound());
+
+				currentItem.getTagCompound().setBoolean("foundBiome", foundBiome);
+				currentItem.getTagCompound().setTag("biomePosition",  biomeCompound);
+			}
+		}
+
+		return null;
 	}
 }
