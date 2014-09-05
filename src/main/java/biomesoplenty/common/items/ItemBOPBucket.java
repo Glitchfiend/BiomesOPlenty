@@ -174,4 +174,12 @@ public class ItemBOPBucket extends ItemFluidContainer
         
         return Items.bucket.getUnlocalizedName() + ".name";
     }
+    
+    @Override
+    public FluidStack drain(final ItemStack container, final int maxDrain, final boolean doDrain) {
+	if(maxDrain < FluidContainerRegistry.BUCKET_VOLUME)
+		return null;
+	return super.drain(container, maxDrain, doDrain);
+    }
+    
 }
