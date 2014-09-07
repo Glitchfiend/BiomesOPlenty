@@ -127,6 +127,7 @@ tile.originGrass.name=Оригинальная трава
 tile.longGrass.name=Блок высокой травы
 tile.overgrownNetherrack.name=Заросший камень Нижнего мира
 tile.treeMoss.name=Древесный мох
+tile.turnip.name=Репа
 tile.flowerVine.name=Цветущая лиана
 tile.wisteria.name=Глициния
 
@@ -183,6 +184,11 @@ tile.jellyBlock.grape.name=Блок виноградного желе
 tile.bones.bones_small.name=Малый сегмент кости
 tile.bones.bones_medium.name=Средний сегмент кости
 tile.bones.bones_large.name=Большой сегмент кости
+
+tile.bones.bones_small_side_1.name=Малый сегмент кости
+tile.bones.bones_small_side_2.name=Малый сегмент кости
+tile.bones.bones_medium_side_1.name=Средний сегмент кости
+tile.bones.bones_medium_side_2.name=Средний сегмент кости
 
 tile.grave.name=Могильная плита
 
