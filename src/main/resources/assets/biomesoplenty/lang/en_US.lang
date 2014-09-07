@@ -185,6 +185,11 @@ tile.bones.bones_small.name=Small Bone Segment
 tile.bones.bones_medium.name=Medium Bone Segment
 tile.bones.bones_large.name=Large Bone Segment
 
+tile.bones.bones_small_side_1.name=Small Bone Segment
+tile.bones.bones_small_side_2.name=Small Bone Segment
+tile.bones.bones_medium_side_1.name=Medium Bone Segment
+tile.bones.bones_medium_side_2.name=Medium Bone Segment
+
 tile.grave.name=Gravestone
 
 tile.stoneDoubleSlab.mudbrickSlab.name=Mud Bricks Slab
