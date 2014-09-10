@@ -127,6 +127,7 @@ tile.originGrass.name=原始草方块
 tile.longGrass.name=深草方块
 tile.overgrownNetherrack.name=杂草地狱岩
 tile.treeMoss.name=树藓
+tile.turnip.name=芜青
 tile.flowerVine.name=开花藤蔓
 tile.wisteria.name=紫藤
 
@@ -183,6 +184,11 @@ tile.jellyBlock.grape.name=葡萄果酱方块
 tile.bones.bones_small.name=小型骨头
 tile.bones.bones_medium.name=中型骨头
 tile.bones.bones_large.name=大型骨头
+
+tile.bones.bones_small_side_1.name=小型骨头
+tile.bones.bones_small_side_2.name=小型骨头
+tile.bones.bones_medium_side_1.name=中型骨头
+tile.bones.bones_medium_side_2.name=中型骨头
 
 tile.grave.name=墓碑
 
