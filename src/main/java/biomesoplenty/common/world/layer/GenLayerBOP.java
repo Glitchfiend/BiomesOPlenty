@@ -62,9 +62,10 @@ public abstract class GenLayerBOP extends GenLayer
         Object object = par2WorldType.getBiomeLayer(seed, genlayer2);
 
         GenLayer genlayer1 = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
-        GenLayerHills genlayerhills = new GenLayerHills(1000L, (GenLayer)object, genlayer1);
+        //GenLayerHills genlayerhills = new GenLayerHills(1000L, (GenLayer)object, genlayer1);
+        GenLayerMutationBOP genlayermutation = new GenLayerMutationBOP(1000L, (GenLayer)object, genlayer1);
         //
-        GenLayerSubBiome genlayersubbiome = new GenLayerSubBiome(1500L, genlayerhills);
+        GenLayerSubBiome genlayersubbiome = new GenLayerSubBiome(1500L, genlayermutation);
         //
         genlayer = GenLayerZoom.magnify(1000L, genlayerriverinit, 2);
         genlayer = GenLayerZoom.magnify(1000L, genlayer, b0);
