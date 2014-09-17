@@ -127,6 +127,7 @@ tile.originGrass.name=Erba della valle dell'Origine
 tile.longGrass.name=Erba copiosa
 tile.overgrownNetherrack.name=Inferreno ricoperto di vegetazione
 tile.treeMoss.name=Muschio parassita
+tile.turnip.name=Rapa
 tile.flowerVine.name=Rampicante fiorente
 tile.wisteria.name=Glicine
 
@@ -183,6 +184,11 @@ tile.jellyBlock.grape.name=Blocco di gelatina d'uva
 tile.bones.bones_small.name=Segmento piccolo d'ossa
 tile.bones.bones_medium.name=Segmento medio d'ossa
 tile.bones.bones_large.name=Segmento grande d'ossa
+
+tile.bones.bones_small_side_1.name=Segmento d'osso piccolo
+tile.bones.bones_small_side_2.name=Segmento d'osso piccolo
+tile.bones.bones_medium_side_1.name=Segmento d'osso medio
+tile.bones.bones_medium_side_2.name=Segmento d'osso medio
 
 tile.grave.name=Lapide
 
@@ -358,15 +364,15 @@ item.chestplateMud.name=Corazza di fango
 item.leggingsMud.name=Gambiera di fango
 item.bootsMud.name=Stivali di fango
 
-item.pickaxeAmethyst.name=Piccone di ametista
-item.axeAmethyst.name=Ascia di ametista
-item.shovelAmethyst.name=Pala di ametista
-item.swordAmethyst.name=Spada di ametista
-item.hoeAmethyst.name=Zappa di ametista
-item.helmetAmethyst.name=Elmo di ametista
-item.chestplateAmethyst.name=Corazza di ametista
-item.leggingsAmethyst.name=Gambiera di ametista
-item.bootsAmethyst.name=Stivali di ametista
+item.pickaxeAmethyst.name=Piccone di ametista dell'Omega
+item.axeAmethyst.name=Ascia di ametista dell'Omega
+item.shovelAmethyst.name=Pala di ametista dell'Omega
+item.swordAmethyst.name=Spada di ametista dell'Omega
+item.hoeAmethyst.name=Zappa di ametista dell'Omega
+item.helmetAmethyst.name=Elmo di ametista dell'Omega
+item.chestplateAmethyst.name=Corazza di ametista dell'Omega
+item.leggingsAmethyst.name=Gambiera di ametista dell'Omega
+item.bootsAmethyst.name=Stivali di ametista dell'Omega
 
 item.scytheWood.name=Falce di legno
 item.scytheStone.name=Falce di pietra
@@ -374,7 +380,7 @@ item.scytheIron.name=Falce di ferro
 item.scytheGold.name=Falce d'oro
 item.scytheDiamond.name=Falce di diamante
 item.scytheMud.name=Falce di fango
-item.scytheAmethyst.name=Falce di ametista
+item.scytheAmethyst.name=Falce di ametista dell'Omega
 
 item.ancientStaff.ancientstaff.name=Verga venerabile
 item.ancientStaff.staffhandle.name=Manico della verga venerabile
