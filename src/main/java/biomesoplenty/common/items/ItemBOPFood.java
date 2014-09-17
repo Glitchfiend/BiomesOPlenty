@@ -22,6 +22,8 @@ import biomesoplenty.api.content.BOPCBlocks;
 public class ItemBOPFood extends ItemFood
 {
 	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "sunflowerseeds", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip"};
+	private static final int[] foodHunger = new int[] {1, 1, 3, 2, 6, 6, 6, 0, 5, 3, 6, 3};
+	private static final float[] foodSaturation = new float[] {0.1F, 0.1F, 0.5F, 0.5F, 0.6F, 0.6F, 0.6F, 0.0F, 0.2F, 0.4F, 0.8F, 0.4F};
 	private IIcon[] textures;
 	
 	public ItemBOPFood(int healAmount)
@@ -29,6 +31,18 @@ public class ItemBOPFood extends ItemFood
 		super(healAmount, 0, false);
 		this.setHasSubtypes(true);
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+	}
+	
+	@Override
+	public int func_150905_g(ItemStack itemstack)
+	{
+		return foodHunger[itemstack.getItemDamage()];
+	}
+	
+	@Override
+	public float func_150906_h(ItemStack itemstack)
+	{
+		return foodSaturation[itemstack.getItemDamage()];
 	}
 	
 	@Override
@@ -93,57 +107,8 @@ public class ItemBOPFood extends ItemFood
     public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer player)
     {
 		--itemstack.stackSize;
-		switch (itemstack.getItemDamage())
-		{
-			case 0:
-				player.getFoodStats().addStats(1, 0.1F);
-				break;
-				
-			case 1:
-				player.getFoodStats().addStats(1, 0.1F);
-				break;
-				
-			case 2:
-				player.getFoodStats().addStats(3, 0.5F);
-				break;
-				
-			case 3:
-				player.getFoodStats().addStats(2, 0.5F);
-				break;
-				
-			case 4:
-				player.getFoodStats().addStats(6, 0.6F);
-				break;
-				
-			case 5:
-				player.getFoodStats().addStats(6, 0.6F);
-				break;
-				
-			case 6:
-				player.getFoodStats().addStats(6, 0.6F);
-				break;
-				
-			case 8:
-				player.getFoodStats().addStats(5, 0.2F);
-				break;
-				
-			case 9:
-				player.getFoodStats().addStats(3, 0.4F);
-				break;
-				
-			case 10:
-				player.getFoodStats().addStats(6, 0.8F);
-				break;
-				
-			case 11:
-				player.getFoodStats().addStats(3, 0.4F);
-				break;
-				
-			default:
-				player.getFoodStats().addStats(0, 0.0F);
-				break;
-		}
 		
+		player.getFoodStats().func_151686_a(this, itemstack);
         world.playSoundAtEntity(player, "random.burp", 0.5F, world.rand.nextFloat() * 0.1F + 0.9F);
         this.onFoodEaten(itemstack, world, player);
         
