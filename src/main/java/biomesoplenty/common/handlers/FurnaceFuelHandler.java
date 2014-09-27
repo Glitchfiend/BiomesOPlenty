@@ -69,15 +69,23 @@ public class FurnaceFuelHandler implements IFuelHandler
         addFuel(Item.getItemFromBlock(block), 0, value);
     }
 	
-	private static int getFuelValue(ItemStack stack)
-	{
-        Pair<Item, Integer> pair = Pair.of(stack.getItem(), stack.getItemDamage());
+private static int getFuelValue(ItemStack stack)
+{
+    Pair<Item, Integer> pair = Pair.of(stack.getItem(), stack.getItemDamage());
 
+    if (fuelList.containsKey(pair))
+    {
+        return fuelList.get(pair);
+    }
+    else
+    {
+        pair = Pair.of(stack.getItem(), 0);
         if (fuelList.containsKey(pair))
         {
             return fuelList.get(pair);
         }
+    }
 
-        return 0;
-	}
+    return 0;
+}
 }
