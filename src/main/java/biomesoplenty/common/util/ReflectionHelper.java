@@ -6,15 +6,9 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.core;
+package biomesoplenty.common.util;
 
-import biomesoplenty.api.block.BOPBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-
-public class CommonProxy
+public class ReflectionHelper
 {
-	public void registerRenderers() {}
-	
-	public void registerBlockForMeshing(BOPBlock block, int metadata, String name) {}
+	//Various fields used in Reflection. These should be checked with every update.
 }

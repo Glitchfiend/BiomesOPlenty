@@ -8,18 +8,59 @@
 
 package biomesoplenty.api.block;
 
+import java.util.Collection;
+import java.util.List;
+
 import biomesoplenty.api.IConfigurable;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class BOPBlock extends Block implements IConfigurable
 {
-    protected BOPBlock(Material material)
+	private final PropertyEnum variantProperty;
+	
+    protected BOPBlock(Material material, PropertyEnum variantProperty)
     {
 	    super(material);
+	    
+	    this.variantProperty = variantProperty;
     }
+	
+	protected BOPBlock(Material material)
+	{
+		this(material, null);
+	}
 
+	@Override
+    @SideOnly(Side.CLIENT)
+	public void getSubBlocks(Item item, CreativeTabs tab, List list)
+	{
+		if (hasVariants())
+		{
+			for (Enum value : getVariants())
+			{
+				list.add(new ItemStack(item, 1, value.ordinal()));
+			}
+		}
+		else
+		{
+	        list.add(new ItemStack(item, 1, 0));
+		}
+	}
+	
+	@Override
+	public int damageDropped(IBlockState state)
+	{
+		return this.getMetaFromState(state);
+	}
+	
     @Override
     //TODO: Account for configurations (which are provided by Forge and thus, cannot be done at this time)
     public boolean isEnabled(Object... args)
@@ -32,5 +73,25 @@ public abstract class BOPBlock extends Block implements IConfigurable
     	}
     	
     	return false;
+    }
+    
+    public final boolean hasVariants()
+    {
+    	return variantProperty != null;
+    }
+    
+    public final PropertyEnum getVariantProperty()
+    {
+    	return variantProperty;
+    }
+    
+    public final Collection<Enum> getVariants()
+    {
+    	return (Collection<Enum>)variantProperty.getAllowedValues();
+    }
+    
+    public final Enum getVariantFromMeta(int metadata)
+    {
+    	return (Enum)this.getStateFromMeta(metadata).getValue(variantProperty);
     }
 }

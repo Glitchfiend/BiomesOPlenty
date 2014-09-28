@@ -13,4 +13,5 @@ import net.minecraft.block.Block;
 public class BOPBlocks
 {
 	public static Block ash_block;
+	public static Block planks;
 }

@@ -9,9 +9,10 @@
 package biomesoplenty.core;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.client.util.ModelHelper;
 
 public class ClientProxy extends CommonProxy
@@ -23,25 +24,25 @@ public class ClientProxy extends CommonProxy
 	{		
 		for (ModelEntry modelEntry : blocksToRegister)
 		{
-			ModelHelper.registerItem(modelEntry.item, modelEntry.metadata, BiomesOPlenty.MOD_ID + ":" + modelEntry.name);
+			ModelHelper.registerBlock(modelEntry.block, modelEntry.metadata, BiomesOPlenty.MOD_ID + ":" + modelEntry.name);
 		}
 	}
 	
 	@Override
-	public void registerBlockForMeshing(Block block, int metadata, String name)
+	public void registerBlockForMeshing(BOPBlock block, int metadata, String name)
 	{
-		blocksToRegister.add(new ModelEntry(Item.getItemFromBlock(block), metadata, name));
+		blocksToRegister.add(new ModelEntry(block, metadata, name));
 	}
 	
 	private static class ModelEntry
 	{
-		public Item item;
+		public BOPBlock block;
 		public int metadata;
 		public String name;
 		
-		public ModelEntry(Item item, int metadata, String name)
+		public ModelEntry(BOPBlock block, int metadata, String name)
 		{
-			this.item = item;
+			this.block = block;
 			this.metadata = metadata;
 			this.name = name;
 		}
