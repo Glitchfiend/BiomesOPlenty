@@ -16,6 +16,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IStringSerializable;
 import biomesoplenty.api.block.BOPBlock;
+import biomesoplenty.api.block.IBOPVariant;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 
 //TODO: Commented methods and calls
@@ -29,8 +30,9 @@ public class BOPBlockPlanks extends BOPBlock
 	    
 	    this.setDefaultBlockState(this.blockState.getBaseState().withProperty(VARIANT_PROP, PlankType.SACRED_OAK));
 	    
-		this.setHardness(2.0F);
 		//this.setHarvestLevel("axe", 0);
+	    
+		this.setHardness(2.0F);
 		this.setStepSound(Block.soundTypeWood);
 	    this.setCreativeTab(CreativeTabBOP.instance);
     }
@@ -53,7 +55,7 @@ public class BOPBlockPlanks extends BOPBlock
         return new BlockState(this, new IProperty[] { VARIANT_PROP });
     }
 
-	public static enum PlankType implements IStringSerializable
+	public static enum PlankType implements IBOPVariant
 	{
 	    SACRED_OAK,
 	    CHERRY,
@@ -71,10 +73,28 @@ public class BOPBlockPlanks extends BOPBlock
 	    JACARANDA,
 	    MAHOGANY;
 		
+		@Override
+		public String getBaseName()
+		{
+			return this.equals(BAMBOO_THATCHING) ? null : "planks";
+		}
+	    
         @Override
         public String getName()
         {
 	        return this.name().toLowerCase();
+        }
+        
+        @Override
+        public String toString()
+        {
+        	return getName();
+        }
+
+        @Override
+        public int getDefaultMetadata()
+        {
+	        return this.ordinal();
         }
 	}
 }

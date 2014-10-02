@@ -1,5 +1,22 @@
 tile.ash_block.name=Ash Block
 
+tile.log.sacred_oak.name=Sacred Oak Wood
+tile.log.cherry.name=Cherry Wood
+tile.log.dark.name=Dark Wood
+tile.log.fir.name=Fir Wood
+tile.log.ethereal.name=Ethereal Wood
+tile.log2.magic.name=Magic Wood
+tile.log2.mangrove.name=Mangrove Wood
+tile.log2.palm.name=Palm Wood
+tile.log2.redwood.name=Redwood Wood
+tile.log2.willow.name=Willow Wood
+tile.log3.dead.name=Dead Wood
+tile.log3.giant_flower_stem.name=Giant Flower Stem
+tile.log3.pine.name=Pine Wood
+tile.log3.hell_bark.name=Hell Bark Wood
+tile.log3.jacaranda.name=Jacaranda Wood
+tile.log4.mahogany.name=Mahogany Wood
+
 tile.planks.sacred_oak.name=Sacred Oak Wood Planks
 tile.planks.cherry.name=Cherry Wood Planks
 tile.planks.dark.name=Dark Wood Planks

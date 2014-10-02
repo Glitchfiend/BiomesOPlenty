@@ -8,12 +8,10 @@
 
 package biomesoplenty.api.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.util.IStringSerializable;
 
-public class BOPBlocks
+public interface IBOPVariant extends IStringSerializable
 {
-	public static Block ash_block;
-	public static Block log;
-	public static Block log2;
-	public static Block planks;
+	public String getBaseName();
+	public int getDefaultMetadata();
 }

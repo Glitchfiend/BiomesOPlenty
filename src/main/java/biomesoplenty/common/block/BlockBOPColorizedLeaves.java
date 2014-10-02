@@ -6,14 +6,9 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.api.block;
+package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
-
-public class BOPBlocks
+public class BlockBOPColorizedLeaves extends BlockBOPLeavesBase
 {
-	public static Block ash_block;
-	public static Block log;
-	public static Block log2;
-	public static Block planks;
+
 }

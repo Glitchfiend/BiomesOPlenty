@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "biomesoplenty:blocks/dark_log_top",
+        "side": "biomesoplenty:blocks/dark_log"
+    }
+}

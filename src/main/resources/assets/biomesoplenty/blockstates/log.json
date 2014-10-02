@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "axis=x,variant=sacred_oak": { "model": "biomesoplenty:sacred_oak_log", "x": 90, "y": 90 },
+        "axis=y,variant=sacred_oak": { "model": "biomesoplenty:sacred_oak_log" },
+        "axis=z,variant=sacred_oak": { "model": "biomesoplenty:sacred_oak_log", "x": 90 },
+        "axis=x,variant=cherry": { "model": "biomesoplenty:cherry_log", "x": 90, "y": 90 },
+        "axis=y,variant=cherry": { "model": "biomesoplenty:cherry_log" },
+        "axis=z,variant=cherry": { "model": "biomesoplenty:cherry_log", "x": 90 },
+        "axis=x,variant=dark": { "model": "biomesoplenty:dark_log", "x": 90, "y": 90 },
+        "axis=y,variant=dark": { "model": "biomesoplenty:dark_log" },
+        "axis=z,variant=dark": { "model": "biomesoplenty:dark_log", "x": 90 },
+        "axis=x,variant=fir": { "model": "biomesoplenty:fir_log", "x": 90, "y": 90 },
+        "axis=y,variant=fir": { "model": "biomesoplenty:fir_log" },
+        "axis=z,variant=fir": { "model": "biomesoplenty:fir_log", "x": 90 },
+        "axis=x,variant=ethereal": { "model": "biomesoplenty:ethereal_log", "x": 90, "y": 90 },
+        "axis=y,variant=ethereal": { "model": "biomesoplenty:ethereal_log" },
+        "axis=z,variant=ethereal": { "model": "biomesoplenty:ethereal_log", "x": 90 }
+    }
+}

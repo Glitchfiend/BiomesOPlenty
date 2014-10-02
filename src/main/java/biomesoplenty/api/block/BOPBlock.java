@@ -44,9 +44,9 @@ public abstract class BOPBlock extends Block implements IConfigurable
 	{
 		if (hasVariants())
 		{
-			for (Enum value : getVariants())
+			for (IBOPVariant value : getVariants())
 			{
-				list.add(new ItemStack(item, 1, value.ordinal()));
+				list.add(new ItemStack(item, 1, value.getDefaultMetadata()));
 			}
 		}
 		else
@@ -80,18 +80,13 @@ public abstract class BOPBlock extends Block implements IConfigurable
     	return variantProperty != null;
     }
     
-    public final PropertyEnum getVariantProperty()
+    public final Collection<IBOPVariant> getVariants()
     {
-    	return variantProperty;
+    	return (Collection<IBOPVariant>)variantProperty.getAllowedValues();
     }
     
-    public final Collection<Enum> getVariants()
+    public final IBOPVariant getVariantFromMeta(int metadata)
     {
-    	return (Collection<Enum>)variantProperty.getAllowedValues();
-    }
-    
-    public final Enum getVariantFromMeta(int metadata)
-    {
-    	return (Enum)this.getStateFromMeta(metadata).getValue(variantProperty);
+    	return (IBOPVariant)this.getStateFromMeta(metadata).getValue(variantProperty);
     }
 }

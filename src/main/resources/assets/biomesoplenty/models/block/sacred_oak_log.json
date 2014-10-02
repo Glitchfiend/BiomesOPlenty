@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "biomesoplenty:blocks/sacred_oak_log_top",
+        "side": "biomesoplenty:blocks/sacred_oak_log"
+    }
+}

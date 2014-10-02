@@ -6,14 +6,20 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.api.block;
+package biomesoplenty.common.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import biomesoplenty.api.block.BOPBlock;
 
-public class BOPBlocks
+public abstract class BlockBOPLeavesBase extends BOPBlock
 {
-	public static Block ash_block;
-	public static Block log;
-	public static Block log2;
-	public static Block planks;
+	protected boolean fastGraphics;
+
+    protected BlockBOPLeavesBase()
+    {
+	    super(Material.leaves);
+	    
+	    this.fastGraphics = false;
+    }
+
 }

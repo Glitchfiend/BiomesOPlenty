@@ -37,9 +37,7 @@ public class ItemBlockWithVariants extends ItemBlock
     	
     	if (bopBlock.hasVariants())
     	{
-    		Enum variant = bopBlock.getVariantFromMeta(stack.getMetadata());
-    		
-    		return super.getUnlocalizedName() + "." + ((IStringSerializable)variant).getName();
+    		return super.getUnlocalizedName() + "." + bopBlock.getVariantFromMeta(stack.getMetadata()).getName();
     	}
     	else return super.getUnlocalizedName();
     }

@@ -62,11 +62,6 @@ public class ModelHelper
     	return Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
     }
     
-    public static void regsiterBlockVariants(BOPBlock block, String name)
-    {
-    	getBlockModelShapes().func_178121_a(block, (new StateMap.Builder()).func_178440_a(block.getVariantProperty()).func_178439_a("_" + name).build());
-    }
-    
     public static BlockModelShapes getBlockModelShapes()
     {
     	return getItemModelMesher().getModelManager().getBlockModelShapes();
