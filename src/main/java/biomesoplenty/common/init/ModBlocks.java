@@ -11,7 +11,6 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.util.IStringSerializable;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.IBOPVariant;
 import biomesoplenty.client.util.ModelHelper;
@@ -19,6 +18,8 @@ import biomesoplenty.common.block.BOPBlockPlanks;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPLog2;
+import biomesoplenty.common.block.BlockBOPLog3;
+import biomesoplenty.common.block.BlockBOPLog4;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.RegistryUtil;
 import biomesoplenty.core.BiomesOPlenty;
@@ -30,6 +31,8 @@ public class ModBlocks
 		ash_block = registerBlock(new BlockAsh(), "ash_block");
 		log = registerBlock(new BlockBOPLog(), "log");
 		log2 = registerBlock(new BlockBOPLog2(), "log2");
+		log3 = registerBlock(new BlockBOPLog3(), "log3");
+		log4 = registerBlock(new BlockBOPLog4(), "log4");
 		planks = registerBlock(new BOPBlockPlanks(), "planks");
 	}
 	

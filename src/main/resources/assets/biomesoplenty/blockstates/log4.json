@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=x,variant=mahogany": { "model": "biomesoplenty:mahogany_log", "x": 90, "y": 90 },
+        "axis=y,variant=mahogany": { "model": "biomesoplenty:mahogany_log" },
+        "axis=z,variant=mahogany": { "model": "biomesoplenty:mahogany_log", "x": 90 }
+    }
+}

@@ -15,5 +15,7 @@ public class BOPBlocks
 	public static Block ash_block;
 	public static Block log;
 	public static Block log2;
+	public static Block log3;
+	public static Block log4;
 	public static Block planks;
 }
