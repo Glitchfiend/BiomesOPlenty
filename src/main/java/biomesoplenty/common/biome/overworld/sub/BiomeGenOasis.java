@@ -37,7 +37,7 @@ public class BiomeGenOasis extends BOPSubBiome
         this.theBiomeDecorator.bopFeatures.desertSproutsPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.bromeliadsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
+        if (BOPConfigurationTerrainGen.generateQuicksand) this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
         this.theBiomeDecorator.bopFeatures.generateMelons = true;
 		this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
 		
