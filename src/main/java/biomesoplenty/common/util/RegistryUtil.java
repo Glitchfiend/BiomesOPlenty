@@ -34,10 +34,6 @@ public class RegistryUtil
 	public static Block registerBlock(Block block, Class<? extends ItemBlock> itemclass, String name, Object... itemCtorArgs)
 	{
 		block = GameRegistry.registerBlock(block, itemclass, name, itemCtorArgs);
-		Item associatedItem = GameRegistry.findItem(BiomesOPlenty.MOD_ID, name);
-
-		Map blockToItem = ObfuscationReflectionHelper.getPrivateValue(Item.class, null, ReflectionHelper.BLOCK_TO_ITEM);
-		blockToItem.put(block, associatedItem);
 
 		Iterator iterator = block.getBlockState().getValidStates().iterator();
 
