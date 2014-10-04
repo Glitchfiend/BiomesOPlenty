@@ -35,7 +35,7 @@ public class BiomeGenBrushland extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.thornsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 30;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;
-        this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
+        if (BOPConfigurationTerrainGen.generateQuicksand) this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 6;
 
