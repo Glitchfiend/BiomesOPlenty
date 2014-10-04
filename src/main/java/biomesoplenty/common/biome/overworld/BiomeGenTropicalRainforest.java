@@ -44,7 +44,7 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome implements IBi
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
         this.theBiomeDecorator.bopFeatures.generateMelons = true;
         this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 2;
-        this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
+        if (BOPConfigurationTerrainGen.generateQuicksand) this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
         this.theBiomeDecorator.bopFeatures.poisonIvyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 10;
