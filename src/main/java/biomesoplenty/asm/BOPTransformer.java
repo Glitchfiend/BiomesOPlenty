@@ -21,7 +21,7 @@ import org.objectweb.asm.tree.VarInsnNode;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 
-public class ModelBakeryTransformer implements IClassTransformer
+public class BOPTransformer implements IClassTransformer
 {
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass)

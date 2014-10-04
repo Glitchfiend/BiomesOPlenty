@@ -1,5 +1,16 @@
 tile.ash_block.name=Ash Block
 
+tile.flower.clover.name=Clover
+tile.flower.swampflower.name=Swampflower
+tile.flower.deathbloom.name=Deathbloom
+tile.flower.glowflower.name=Glowflower
+tile.flower.blue_hydrangea.name=Blue Hydrangea
+tile.flower.orange_cosmos.name=Orange Cosmos
+tile.flower.pink_daffodil.name=Pink Dafodil
+tile.flower.wildflower.name=Wildflower
+tile.flower.violet.name=Violet
+tile.flower.white_anemone.name=White Anemone
+
 tile.log.sacred_oak.name=Sacred Oak Wood
 tile.log.cherry.name=Cherry Wood
 tile.log.dark.name=Dark Wood

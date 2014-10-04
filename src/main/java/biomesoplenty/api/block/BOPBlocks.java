@@ -13,6 +13,7 @@ import net.minecraft.block.Block;
 public class BOPBlocks
 {
 	public static Block ash_block;
+	public static Block flower;
 	public static Block log;
 	public static Block log2;
 	public static Block log3;

@@ -11,4 +11,7 @@ package biomesoplenty.common.util;
 public class ReflectionHelper
 {
 	//Various fields used in Reflection. These should be checked with every update.
+	
+	//Item
+	public static String[] BLOCK_TO_ITEM = new String[] { "BLOCK_TO_ITEM", "field_179220_a" };
 }

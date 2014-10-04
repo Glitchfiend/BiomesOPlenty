@@ -28,25 +28,10 @@ public class BOPBlockPlanks extends BOPBlock
     {
 	    super(Material.wood, VARIANT_PROP);
 	    
-	    this.setDefaultBlockState(this.blockState.getBaseState().withProperty(VARIANT_PROP, PlankType.SACRED_OAK));
-	    
 		//this.setHarvestLevel("axe", 0);
 	    
 		this.setHardness(2.0F);
 		this.setStepSound(Block.soundTypeWood);
-	    this.setCreativeTab(CreativeTabBOP.instance);
-    }
-    
-    @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return this.getDefaultState().withProperty(VARIANT_PROP, PlankType.values()[meta]);
-    }
-    
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-    	return ((PlankType)state.getValue(VARIANT_PROP)).ordinal();
     }
     
     @Override

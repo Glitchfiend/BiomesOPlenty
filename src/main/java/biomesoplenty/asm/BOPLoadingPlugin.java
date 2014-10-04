@@ -12,13 +12,13 @@ import java.util.Map;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 
-//TODO: Remove this or the ModelBakeryTransformer. It shouldn't be needed.
+//TODO: Remove this or the BOPTransformer. It shouldn't be needed.
 public class BOPLoadingPlugin implements IFMLLoadingPlugin
 {
     @Override
     public String[] getASMTransformerClass()
     {
-	    return new String[] { ModelBakeryTransformer.class.getName() };
+	    return new String[] { BOPTransformer.class.getName() };
     }
 
     @Override

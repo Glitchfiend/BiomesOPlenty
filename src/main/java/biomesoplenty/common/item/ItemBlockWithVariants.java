@@ -11,7 +11,6 @@ package biomesoplenty.common.item;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IStringSerializable;
 import biomesoplenty.api.block.BOPBlock;
 
 public class ItemBlockWithVariants extends ItemBlock
@@ -20,7 +19,7 @@ public class ItemBlockWithVariants extends ItemBlock
     {
 	    super(block);
 	    
-        this.setMaxDurability(0);
+        this.setMaxDamage(0);
         this.setHasSubtypes(true);
     }
 
@@ -33,7 +32,7 @@ public class ItemBlockWithVariants extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-    	BOPBlock bopBlock = (BOPBlock)this.blockInstance;
+    	BOPBlock bopBlock = (BOPBlock)this.block;
     	
     	if (bopBlock.hasVariants())
     	{

@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 import biomesoplenty.api.IConfigurable;
+import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyEnum;
@@ -31,6 +32,10 @@ public abstract class BOPBlock extends Block implements IConfigurable
 	    super(material);
 	    
 	    this.variantProperty = variantProperty;
+	    
+	    if (variantProperty != null) this.setDefaultState(this.blockState.getBaseState().withProperty(variantProperty, (Comparable)variantProperty.getAllowedValues().toArray()[0]));
+	    
+	    this.setCreativeTab(CreativeTabBOP.instance);
     }
 	
 	protected BOPBlock(Material material)
@@ -38,6 +43,18 @@ public abstract class BOPBlock extends Block implements IConfigurable
 		this(material, null);
 	}
 
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return hasVariants() ? this.getDefaultState().withProperty(variantProperty, (Comparable)variantProperty.getAllowedValues().toArray()[meta]) : super.getStateFromMeta(meta);
+    }
+    
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+    	return hasVariants() ? ((Enum)state.getValue(variantProperty)).ordinal() : super.getMetaFromState(state);
+    }
+	
 	@Override
     @SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)

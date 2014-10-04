@@ -36,7 +36,8 @@ public class RegistryUtil
 		block = GameRegistry.registerBlock(block, itemclass, name, itemCtorArgs);
 		Item associatedItem = GameRegistry.findItem(BiomesOPlenty.MOD_ID, name);
 
-		Item.field_179220_a.put(block, associatedItem);
+		Map blockToItem = ObfuscationReflectionHelper.getPrivateValue(Item.class, null, ReflectionHelper.BLOCK_TO_ITEM);
+		blockToItem.put(block, associatedItem);
 
 		Iterator iterator = block.getBlockState().getValidStates().iterator();
 
@@ -44,7 +45,7 @@ public class RegistryUtil
 		{
 			IBlockState iblockstate = (IBlockState)iterator.next();
 			int id = Block.blockRegistry.getIDForObject(block) << 4 | block.getMetaFromState(iblockstate);
-			Block.field_176229_d.func_148746_a(iblockstate, id);
+			Block.BLOCK_STATE_IDS.put(iblockstate, id);
 		}
 
 		return block;

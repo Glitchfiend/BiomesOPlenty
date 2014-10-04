@@ -28,12 +28,13 @@ public abstract class BlockBOPLogBase extends BOPBlock
     {
     	super(Material.wood, variantProperty);
     	
+    	this.setDefaultState(this.getDefaultState().withProperty(AXIS_PROP, EnumFacing.Axis.Y));
+    	
 		//this.setHarvestLevel("axe", 0);
     	
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
 		this.setStepSound(Block.soundTypeWood);
-	    this.setCreativeTab(CreativeTabBOP.instance);
     }
     
     @Override

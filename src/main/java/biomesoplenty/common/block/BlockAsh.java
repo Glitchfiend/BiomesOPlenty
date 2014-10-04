@@ -33,7 +33,6 @@ public class BlockAsh extends BOPBlock
 	    this.setHardness(0.4F);
 		//this.setHarvestLevel("shovel", 0);
 	    this.setStepSound(Block.soundTypeSand);
-	    this.setCreativeTab(CreativeTabBOP.instance);
     }
     
     @Override
