@@ -10,6 +10,7 @@ public class BiomeGenBOPDesert extends BOPInheritedOverworldBiome
 		super(biomeID, inheritedBiome);
 		
         this.theBiomeDecorator.bopFeatures.tinyCactiPerChunk = 10;
-        this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
+        if (BOPConfigurationTerrainGen.generateQuicksand)
+        	this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
 	}
 }

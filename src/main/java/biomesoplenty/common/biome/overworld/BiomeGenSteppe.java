@@ -34,7 +34,7 @@ public class BiomeGenSteppe extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.sandSplatterPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.gravelSplatterPerChunk = 6;
         this.theBiomeDecorator.bopFeatures.dirtSplatterPerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
+        if (BOPConfigurationTerrainGen.generateQuicksand) this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
 		
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 15;
         
