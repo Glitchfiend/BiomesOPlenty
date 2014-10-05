@@ -58,7 +58,7 @@ public class BOPTransformer implements IClassTransformer
 	    	InsnList instructions = new InsnList();
 	    	
 	    	instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-	    	instructions.add(new FieldInsnNode(Opcodes.GETFIELD, "net/minecraft/client/resources/model/ModelBakery", "variantNames", "Ljava/util/Map;"));
+	    	instructions.add(new FieldInsnNode(Opcodes.GETFIELD, name.replace(".", "/"), "variantNames", "Ljava/util/Map;"));
 	    	instructions.add(new FieldInsnNode(Opcodes.GETSTATIC, "biomesoplenty/client/util/ModelHelper", "customVariantNames", "Ljava/util/HashMap;"));
 	    	instructions.add(new MethodInsnNode(Opcodes.INVOKEINTERFACE, "java/util/Map", "putAll", "(Ljava/util/Map;)V", true));
 	    	
