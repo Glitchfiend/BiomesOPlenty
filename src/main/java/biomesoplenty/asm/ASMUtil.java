@@ -26,7 +26,7 @@ public class ASMUtil
 	
 	public static byte[] getBytes(ClassNode classNode)
 	{
-		ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
+		ClassWriter writer = new ClassWriter(0);
 		classNode.accept(writer);
 		
 		return writer.toByteArray();

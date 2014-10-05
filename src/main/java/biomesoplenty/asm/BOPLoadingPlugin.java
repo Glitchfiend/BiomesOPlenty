@@ -11,8 +11,10 @@ package biomesoplenty.asm;
 import java.util.Map;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
 //TODO: Remove this or the BOPTransformer. It shouldn't be needed.
+@TransformerExclusions("biomesoplenty.asm")
 public class BOPLoadingPlugin implements IFMLLoadingPlugin
 {
     @Override
