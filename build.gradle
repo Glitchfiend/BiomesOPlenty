@@ -18,7 +18,6 @@ buildscript {
 apply plugin: "fml"
 
 repositories {
-    mavenLocal()
     flatDir {
         name "fileRepo"
         dirs "repo"
@@ -137,11 +136,9 @@ uploadArchives {
                     authentication(userName: project.filesmaven.username, privateKey: project.filesmaven.key)
                 }
 
-                // This is just the pom data for the maven repo
                 pom {
                     groupId = project.group
-                    // Force the maven upload to use the <mcversion>-<version> syntax preferred at files
-                    version = "${project.minecraft.version}-${project.version}"
+                    version = project.version
                     artifactId = project.archivesBaseName
                     project {
                         name project.archivesBaseName
