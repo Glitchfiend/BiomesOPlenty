@@ -26,7 +26,9 @@ import net.minecraft.launchwrapper.Launch;
 public class BOPTransformer implements IClassTransformer
 {
 	private static final boolean isObfuscated;
-	private static final String registerVariantNames;
+	private static final String modelBakeryName;
+	private static final String variantNamesName;
+	private static final String registerVariantNamesName;
 	
 	static
 	{
@@ -42,7 +44,9 @@ public class BOPTransformer implements IClassTransformer
 		}
 		
 		isObfuscated = obfuscated;
-		registerVariantNames = isObfuscated ? "func_177592_e" : "registerVariantNames";
+		modelBakeryName = isObfuscated ? "cxh" : "net/minecraft/client/resources/model/ModelBakery";
+		variantNamesName = isObfuscated ? "u" : "variantNames";
+		registerVariantNamesName = isObfuscated ? "e" : "registerVariantNames";
 	}
 	
     @Override
@@ -53,12 +57,12 @@ public class BOPTransformer implements IClassTransformer
 	    	System.out.println("Tweaking ModelBakery...");
 	    	
 	    	ClassNode classNode = ASMUtil.getClassNode(basicClass);
-	    	MethodNode variantsMethodNode = ASMUtil.getMethodNode(classNode, registerVariantNames, "()V");
+	    	MethodNode variantsMethodNode = ASMUtil.getMethodNode(classNode, registerVariantNamesName, "()V");
 	    	
 	    	InsnList instructions = new InsnList();
 	    	
 	    	instructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-	    	instructions.add(new FieldInsnNode(Opcodes.GETFIELD, name.replace(".", "/"), "variantNames", "Ljava/util/Map;"));
+	    	instructions.add(new FieldInsnNode(Opcodes.GETFIELD, modelBakeryName, variantNamesName, "Ljava/util/Map;"));
 	    	instructions.add(new FieldInsnNode(Opcodes.GETSTATIC, "biomesoplenty/client/util/ModelHelper", "customVariantNames", "Ljava/util/HashMap;"));
 	    	instructions.add(new MethodInsnNode(Opcodes.INVOKEINTERFACE, "java/util/Map", "putAll", "(Ljava/util/Map;)V", true));
 	    	
