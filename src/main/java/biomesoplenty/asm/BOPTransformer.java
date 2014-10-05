@@ -8,6 +8,7 @@
 
 package biomesoplenty.asm;
 
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.objectweb.asm.Opcodes;
@@ -20,16 +21,37 @@ import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
 import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.launchwrapper.Launch;
 
 public class BOPTransformer implements IClassTransformer
 {
+	private static final boolean isObfuscated;
+	private static final String registerVariantNames;
+	
+	static
+	{
+		boolean obfuscated = true;
+		
+		try
+		{
+			obfuscated = Launch.classLoader.getClassBytes("net.minecraft.world.World") == null;
+		} 
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		isObfuscated = obfuscated;
+		registerVariantNames = isObfuscated ? "func_177592_e" : "registerVariantNames";
+	}
+	
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass)
     {
 	    if (name.equals("net.minecraft.client.resources.model.ModelBakery"))
 	    {
 	    	ClassNode classNode = ASMUtil.getClassNode(basicClass);
-	    	MethodNode variantsMethodNode = ASMUtil.getMethodNode(classNode, "registerVariantNames", "()V");
+	    	MethodNode variantsMethodNode = ASMUtil.getMethodNode(classNode, registerVariantNames, "()V");
 	    	
 	    	InsnList instructions = new InsnList();
 	    	
