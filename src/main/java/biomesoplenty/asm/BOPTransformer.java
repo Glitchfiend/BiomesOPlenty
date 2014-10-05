@@ -48,8 +48,10 @@ public class BOPTransformer implements IClassTransformer
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass)
     {
-	    if (name.equals("net.minecraft.client.resources.model.ModelBakery"))
+	    if (name.equals("net.minecraft.client.resources.model.ModelBakery") || name.equals("cxh"))
 	    {
+	    	System.out.println("Tweaking ModelBakery...");
+	    	
 	    	ClassNode classNode = ASMUtil.getClassNode(basicClass);
 	    	MethodNode variantsMethodNode = ASMUtil.getMethodNode(classNode, registerVariantNames, "()V");
 	    	
