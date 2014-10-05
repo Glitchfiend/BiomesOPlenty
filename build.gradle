@@ -34,7 +34,7 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
-group = "biomesoplenty"
+group = "com.github.glitchfiend.biomesoplenty"
 version = config.mod_version
 archivesBaseName = "BiomesOPlenty"
 
