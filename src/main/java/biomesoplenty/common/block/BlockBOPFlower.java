@@ -16,6 +16,15 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemShears;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -39,7 +48,34 @@ public class BlockBOPFlower extends BOPPlant
 	    super(VARIANT_PROP);
     }
     
-    //TODO: Add light for glowflowers (Requires Forge)
+    //TODO: Add light for glowflowers and enderlotus (Requires Forge)
+    
+    //TODO: Make enderlotus require spectral moss
+    //TODO: Make bromeliads require hard dirt, hardened clay or sand
+    
+    @Override
+    public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity)
+    {
+    	super.harvestBlock(world, player, pos, state, tileentity);
+    	
+    	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
+
+    	if (type == FlowerType.DEATHBLOOM && (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears)))
+    	{
+    		player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
+    	}
+    }
+    
+	@Override
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+	{
+    	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
+    	
+		if (entity instanceof EntityLivingBase && type == FlowerType.DEATHBLOOM) 
+		{
+			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
+		}
+	}
 
     @Override
     protected BlockState createBlockState()
@@ -70,17 +106,18 @@ public class BlockBOPFlower extends BOPPlant
     			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
     			break;
     			
+    		case ENDERLOTUS:
+    			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
+    			break;
+    			
+    		case DANDELION:
+    			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
+    			break;
+    			
     		default:
     			this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
     			break;
     	}
-    }
-    
-    @Override
-    @SideOnly(Side.CLIENT)
-    public Block.EnumOffsetType getOffsetType()
-    {
-    	return Block.EnumOffsetType.XZ;
     }
     
     @Override
@@ -94,6 +131,8 @@ public class BlockBOPFlower extends BOPPlant
     	}
     }
 	
+    //TODO: Readd eyebulb in as a seperate block
+    //TODO: Readd dandelion blowing
 	public static enum FlowerType implements IBOPVariant
 	{
 		CLOVER,
@@ -105,7 +144,10 @@ public class BlockBOPFlower extends BOPPlant
 		PINK_DAFFODIL,
 		WILDFLOWER,
 		VIOLET,
-		WHITE_ANEMONE;
+		WHITE_ANEMONE,
+		ENDERLOTUS,
+		BROMELIAD,
+		DANDELION;
 
         @Override
         public String getBaseName()

@@ -11,6 +11,7 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.IBOPVariant;
 import biomesoplenty.client.util.ModelHelper;
@@ -22,7 +23,6 @@ import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
 import biomesoplenty.common.block.BlockBOPLog4;
 import biomesoplenty.common.item.ItemBlockWithVariants;
-import biomesoplenty.common.util.RegistryUtil;
 import biomesoplenty.core.BiomesOPlenty;
 
 public class ModBlocks
@@ -44,7 +44,7 @@ public class ModBlocks
 
 		if (block.hasVariants())
 		{
-			RegistryUtil.registerBlock(block, ItemBlockWithVariants.class, name);
+			GameRegistry.registerBlock(block, ItemBlockWithVariants.class, name);
 			
 			for (IBOPVariant variant : block.getVariants())
 			{
@@ -56,7 +56,7 @@ public class ModBlocks
 		}
 		else
 		{
-			RegistryUtil.registerBlock(block, name);
+			GameRegistry.registerBlock(block, name);
 
 			ModelHelper.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
 			BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);

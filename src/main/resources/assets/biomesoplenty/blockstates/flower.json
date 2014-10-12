@@ -9,6 +9,9 @@
         "variant=pink_daffodil": { "model": "biomesoplenty:pink_daffodil" },
         "variant=wildflower": { "model": "biomesoplenty:wildflower" },
         "variant=violet": { "model": "biomesoplenty:violet" },
-        "variant=white_anemone": { "model": "biomesoplenty:white_anemone" }
+        "variant=white_anemone": { "model": "biomesoplenty:white_anemone" },
+        "variant=enderlotus": { "model": "biomesoplenty:enderlotus" },
+        "variant=bromeliad": { "model": "biomesoplenty:bromeliad" },
+        "variant=dandelion": { "model": "biomesoplenty:dandelion" }
     }
 }
