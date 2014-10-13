@@ -12,6 +12,9 @@
         "variant=white_anemone": { "model": "biomesoplenty:white_anemone" },
         "variant=enderlotus": { "model": "biomesoplenty:enderlotus" },
         "variant=bromeliad": { "model": "biomesoplenty:bromeliad" },
-        "variant=dandelion": { "model": "biomesoplenty:dandelion" }
+        "variant=dandelion": { "model": "biomesoplenty:dandelion" },
+        "variant=pink_hibiscus": { "model": "biomesoplenty:pink_hibiscus" },
+        "variant=lily_of_the_valley": { "model": "biomesoplenty:lily_of_the_valley" },
+        "variant=burning_blossom": { "model": "biomesoplenty:burning_blossom" }
     }
 }

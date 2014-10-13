@@ -42,12 +42,6 @@ public class BOPPlant extends BOPBlock
         return super.canPlaceBlockOnSide(world, pos, side) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));
     }
     
-    @Override
-    public boolean canPlaceBlockAt(World world, BlockPos pos)
-    {
-        return super.canPlaceBlockAt(world, pos) && this.canBlockStay(world, pos, this.getDefaultState());
-    }
-    
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
     	Block ground = world.getBlockState(pos.offsetDown()).getBlock();

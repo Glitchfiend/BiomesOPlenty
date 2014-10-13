@@ -48,10 +48,11 @@ public class BlockBOPFlower extends BOPPlant
 	    super(VARIANT_PROP);
     }
     
-    //TODO: Add light for glowflowers and enderlotus (Requires Forge)
+    //TODO: Add light for glowflowers, enderlotus and the burning blossom (Requires Forge)
     
     //TODO: Make enderlotus require spectral moss
     //TODO: Make bromeliads require hard dirt, hardened clay or sand
+    //TODO: Make the burning blossom require netherrack or overgrown netherrack
     
     @Override
     public void harvestBlock(World world, EntityPlayer player, BlockPos pos, IBlockState state, TileEntity tileentity)
@@ -60,9 +61,18 @@ public class BlockBOPFlower extends BOPPlant
     	
     	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
 
-    	if (type == FlowerType.DEATHBLOOM && (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears)))
+    	if (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears))
     	{
-    		player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
+    		switch (type)
+    		{
+    			case DEATHBLOOM:
+    	    		player.addPotionEffect(new PotionEffect(Potion.wither.id, 300));
+    	    		break;
+    	    		
+    			case BURNING_BLOSSOM:
+    				player.setFire(5);
+    				break;
+    		}
     	}
     }
     
@@ -71,7 +81,11 @@ public class BlockBOPFlower extends BOPPlant
 	{
     	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
     	
-		if (entity instanceof EntityLivingBase && type == FlowerType.DEATHBLOOM) 
+    	if (type == FlowerType.BURNING_BLOSSOM)
+    	{
+    		entity.setFire(1);
+    	}
+    	else if (entity instanceof EntityLivingBase && type == FlowerType.DEATHBLOOM) 
 		{
 			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
 		}
@@ -106,10 +120,6 @@ public class BlockBOPFlower extends BOPPlant
     			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.5F, 0.7F);
     			break;
     			
-    		case ENDERLOTUS:
-    			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
-    			break;
-    			
     		case DANDELION:
     			this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.6F, 0.7F);
     			break;
@@ -124,10 +134,17 @@ public class BlockBOPFlower extends BOPPlant
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
-    	if ((FlowerType)state.getValue(VARIANT_PROP) == FlowerType.DEATHBLOOM)
+    	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
+    	
+    	if (type == FlowerType.DEATHBLOOM)
     	{
     		if (rand.nextInt(4) != 0) world.spawnParticle(EnumParticleTypes.TOWN_AURA, pos.getX() + rand.nextFloat(), pos.getY() + rand.nextFloat(), pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
     		if (rand.nextInt(4) == 0) world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + rand.nextFloat(), pos.getY() + rand.nextFloat(), pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
+    	}
+    	else if (type == FlowerType.BURNING_BLOSSOM)
+    	{
+    		if (rand.nextInt(2) == 0) world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + rand.nextFloat(), pos.getY() + rand.nextFloat(), pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
+    		if (rand.nextInt(4) == 0) world.spawnParticle(EnumParticleTypes.FLAME, pos.getX() + rand.nextFloat(), pos.getY() + rand.nextFloat(), pos.getZ() + rand.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
     	}
     }
 	
@@ -147,7 +164,10 @@ public class BlockBOPFlower extends BOPPlant
 		WHITE_ANEMONE,
 		ENDERLOTUS,
 		BROMELIAD,
-		DANDELION;
+		DANDELION,
+		PINK_HIBISCUS,
+		LILY_OF_THE_VALLEY,
+		BURNING_BLOSSOM;
 
         @Override
         public String getBaseName()

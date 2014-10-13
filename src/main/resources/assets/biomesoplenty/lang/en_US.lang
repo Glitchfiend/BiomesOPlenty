@@ -13,6 +13,16 @@ tile.flower.white_anemone.name=White Anemone
 tile.flower.enderlotus.name=Enderlotus
 tile.flower.bromeliad.name=Bromeliad
 tile.flower.dandelion.name=Dandelion Puff
+tile.flower.pink_hibiscus.name=Pink Hibiscus
+tile.flower.lily_of_the_valley.name=Lily of the Valley
+tile.flower.burning_blossom.name=Burning Blossom
+
+tile.flower2.lavender.name=Lavender
+tile.flower2.goldenrod.name=Goldenrod
+tile.flower2.bluebells.name=Bluebells
+tile.flower2.miners_delight.name=Miner's Delight
+tile.flower2.icy_iris.name=Icy Iris
+tile.flower2.rose.name=Rose
 
 tile.log.sacred_oak.name=Sacred Oak Wood
 tile.log.cherry.name=Cherry Wood

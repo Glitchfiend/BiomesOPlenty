@@ -18,6 +18,7 @@ import biomesoplenty.client.util.ModelHelper;
 import biomesoplenty.common.block.BOPBlockPlanks;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPFlower;
+import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
@@ -31,6 +32,7 @@ public class ModBlocks
 	{
 		ash_block = registerBlock(new BlockAsh(), "ash_block");
 		flower = registerBlock(new BlockBOPFlower(), "flower");
+		flower2 = registerBlock(new BlockBOPFlower2(), "flower2");
 		log = registerBlock(new BlockBOPLog(), "log");
 		log2 = registerBlock(new BlockBOPLog2(), "log2");
 		log3 = registerBlock(new BlockBOPLog3(), "log3");
