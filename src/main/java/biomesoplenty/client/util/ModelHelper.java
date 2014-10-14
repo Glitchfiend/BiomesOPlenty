@@ -29,14 +29,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelHelper 
 {
-	public static HashMap<Item, ArrayList<String>> customVariantNames = new HashMap();
-	
-	public static void addVariantName(Item item, String... names)
-	{
-		if (customVariantNames.containsKey(item)) customVariantNames.get(item).addAll(Arrays.asList(names));
-		else customVariantNames.put(item, Lists.newArrayList(names));
-	}
-	
     public static void registerItem(Item item, int metadata, String itemName)
     {
         getItemModelMesher().register(item, metadata, new ModelResourceLocation(itemName, "inventory"));

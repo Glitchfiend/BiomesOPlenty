@@ -10,6 +10,7 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
@@ -52,7 +53,7 @@ public class ModBlocks
 			{
 				String variantName = variant.getName() + (variant.getBaseName() != null ? "_" + variant.getBaseName() : "");
 				
-				ModelHelper.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + variantName);
+				ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + variantName);
 				BiomesOPlenty.proxy.registerBlockForMeshing(block, variant.getDefaultMetadata(), variantName);
 			}
 		}
@@ -60,7 +61,7 @@ public class ModBlocks
 		{
 			GameRegistry.registerBlock(block, name);
 
-			ModelHelper.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
+			ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
 			BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);
 		}
 		
