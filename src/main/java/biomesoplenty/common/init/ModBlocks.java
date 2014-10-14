@@ -24,6 +24,7 @@ import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
 import biomesoplenty.common.block.BlockBOPLog4;
+import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -38,6 +39,7 @@ public class ModBlocks
 		log2 = registerBlock(new BlockBOPLog2(), "log2");
 		log3 = registerBlock(new BlockBOPLog3(), "log3");
 		log4 = registerBlock(new BlockBOPLog4(), "log4");
+		mushroom = registerBlock(new BlockBOPMushroom(), "mushroom");
 		planks = registerBlock(new BOPBlockPlanks(), "planks");
 	}
 	

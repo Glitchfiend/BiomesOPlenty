@@ -19,5 +19,6 @@ public class BOPBlocks
 	public static Block log2;
 	public static Block log3;
 	public static Block log4;
+	public static Block mushroom;
 	public static Block planks;
 }

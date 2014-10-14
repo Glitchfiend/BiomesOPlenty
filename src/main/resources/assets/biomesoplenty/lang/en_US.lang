@@ -41,6 +41,13 @@ tile.log3.hell_bark.name=Hell Bark Wood
 tile.log3.jacaranda.name=Jacaranda Wood
 tile.log4.mahogany.name=Mahogany Wood
 
+tile.mushroom.toadstool.name=Toadstool
+tile.mushroom.portobello.name=Portobello
+tile.mushroom.blue_milk_cap.name=Blue Milk Cap
+tile.mushroom.glowshroom.name=Glowshroom
+tile.mushroom.flat_mushroom.name=Flat Mushroom
+tile.mushroom.shadow_shroom.name=Shadow Shroom
+
 tile.planks.sacred_oak.name=Sacred Oak Wood Planks
 tile.planks.cherry.name=Cherry Wood Planks
 tile.planks.dark.name=Dark Wood Planks
