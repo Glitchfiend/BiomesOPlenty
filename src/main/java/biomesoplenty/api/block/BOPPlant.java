@@ -72,7 +72,7 @@ public class BOPPlant extends BOPBlock
     }
 
     @Override
-    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state)
+    public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {
         return null;
     }

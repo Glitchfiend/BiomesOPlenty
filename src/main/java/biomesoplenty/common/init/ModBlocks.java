@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.IBOPVariant;
-import biomesoplenty.client.util.ModelHelper;
 import biomesoplenty.common.block.BOPBlockPlanks;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPFlower;
@@ -25,6 +24,7 @@ import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
 import biomesoplenty.common.block.BlockBOPLog4;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -33,6 +33,7 @@ public class ModBlocks
 	public static void init()
 	{
 		ash_block = registerBlock(new BlockAsh(), "ash_block");
+		bamboo = registerBlock(new BlockBamboo(), "bamboo");
 		flower = registerBlock(new BlockBOPFlower(), "flower");
 		flower2 = registerBlock(new BlockBOPFlower2(), "flower2");
 		log = registerBlock(new BlockBOPLog(), "log");
