@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=smoldering_grass_block": { "model": "biomesoplenty:smoldering_grass_block" },
+        "variant=spectral_moss": { "model": "biomesoplenty:spectral_moss" },
+    }
+}
