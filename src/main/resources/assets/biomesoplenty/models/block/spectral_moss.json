@@ -1,0 +1,9 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "particle": "biomesoplenty:blocks/spectral_moss_bottom",
+        "bottom": "biomesoplenty:blocks/spectral_moss_bottom",
+        "top": "biomesoplenty:blocks/spectral_moss_top",
+        "side": "biomesoplenty:blocks/spectral_moss_side"
+    }
+}
