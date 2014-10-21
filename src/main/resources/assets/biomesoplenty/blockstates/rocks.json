@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "variant=limestone": { "model": "biomesoplenty:limestone" },
+        "variant=polished_limestone": { "model": "biomesoplenty:pilished_limestone" },
+		"variant=siltstone": { "model": "biomesoplenty:siltstone" },
+		"variant=polished_siltstone": { "model": "biomesoplenty:polished_siltstone" },
+		"variant=shale": { "model": "biomesoplenty:shale" },
+		"variant=polished_shale": { "model": "biomesoplenty:polished_shale" }
+    }
+}
