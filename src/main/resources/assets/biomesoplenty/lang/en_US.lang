@@ -2,6 +2,19 @@ tile.ash_block.name=Ash Block
 
 tile.bamboo.name=Bamboo
 
+tile.bopGrass.spectral_moss.name=Spectral Moss
+tile.bopGrass.smoldering_grass_block.name=Smoldering Grass Block
+
+tile.coral.kelp_bottom.name=Kelp Bottom
+tile.coral.kelp_middle.name=Kelp Middle
+tile.coral.kelp_top.name=Kelp Top
+tile.coral.kelp.name=Kelp
+tile.coral.pink_coral.name=Pink Coral
+tile.coral.orange_coral.name=Orange Coral
+tile.coral.blue_coral.name=Blue Coral
+tile.coral.glowing_coral.name=Glowing Coral
+tile.coral.algae.name=Algae
+
 tile.flower.clover.name=Clover
 tile.flower.swampflower.name=Swampflower
 tile.flower.deathbloom.name=Deathbloom
@@ -65,3 +78,10 @@ tile.planks.pine.name=Pine Wood Planks
 tile.planks.hell_bark.name=Hell Bark Wood Planks
 tile.planks.jacaranda.name=Jacaranda Wood Planks
 tile.planks.mahogany.name=Mahogany Wood Planks
+
+tile.rocks.limestone.name=Limestone
+tile.rocks.polished_limestone.name=Polished Limestone
+tile.rocks.siltstone.name=Siltstone
+tile.rocks.polished_siltstone.name=Polished Siltstone
+tile.rocks.shale.name=Shale
+tile.rocks.polished_shale.name=Polished Shale
