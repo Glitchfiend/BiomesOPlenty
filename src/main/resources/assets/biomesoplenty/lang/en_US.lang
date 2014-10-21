@@ -80,8 +80,8 @@ tile.planks.jacaranda.name=Jacaranda Wood Planks
 tile.planks.mahogany.name=Mahogany Wood Planks
 
 tile.rocks.limestone.name=Limestone
-tile.rocks.limestonesmooth.name=Polished Limestone
+tile.rocks.polished_limestone.name=Polished Limestone
 tile.rocks.siltstone.name=Siltstone
-tile.rocks.siltstonesmooth.name=Polished Siltstone
+tile.rocks.polished_siltstone.name=Polished Siltstone
 tile.rocks.shale.name=Shale
-tile.rocks.shalesmooth.name=Polished Shale
+tile.rocks.polished_shale.name=Polished Shale
