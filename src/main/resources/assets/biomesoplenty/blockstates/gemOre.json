@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=amethyst_ore": { "model": "biomesoplenty:amethyst_ore" },
+        "variant=block_of_amethyst": { "model": "biomesoplenty:block_of_amethyst" },
+        "variant=ruby_ore": { "model": "biomesoplenty:ruby_ore" },
+        "variant=block_of_ruby": { "model": "biomesoplenty:block_of_ruby" },
+        "variant=peridot_ore": { "model": "biomesoplenty:peridot_ore" },
+        "variant=block_of_peridot": { "model": "biomesoplenty:block_of_peridot" },
+        "variant=topaz_ore": { "model": "biomesoplenty:topaz_ore" },
+        "variant=block_of_topaz": { "model": "biomesoplenty:block_of_topaz" },
+        "variant=tanzanite_ore": { "model": "biomesoplenty:tanzanite_ore" },
+        "variant=block_of_tanzanite": { "model": "biomesoplenty:block_of_tanzanite" },
+        "variant=malachite_ore": { "model": "biomesoplenty:malachite_ore" },
+        "variant=block_of_malachite": { "model": "biomesoplenty:block_of_malachite" },
+        "variant=sapphire_ore": { "model": "biomesoplenty:sapphire_ore" },
+        "variant=block_of_sapphire": { "model": "biomesoplenty:block_of_sapphire" },
+        "variant=amber_ore": { "model": "biomesoplenty:amber_ore" },
+        "variant=block_of_amber": { "model": "biomesoplenty:block_of_amber" }
+    }
+}

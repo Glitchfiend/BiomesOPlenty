@@ -39,6 +39,23 @@ tile.flower2.miners_delight.name=Miner's Delight
 tile.flower2.icy_iris.name=Icy Iris
 tile.flower2.rose.name=Rose
 
+tile.gemOre.amethyst_ore.name=Ender Amethyst Ore
+tile.gemOre.block_of_amethyst.name=Block of Amethyst
+tile.gemOre.ruby_ore.name=Ruby Ore
+tile.gemOre.block_of_ruby.name=Block of Ruby
+tile.gemOre.peridot_ore.name=Peridot Ore
+tile.gemOre.block_of_peridot.name=Block of Peridot
+tile.gemOre.topaz_ore.name=Topaz Ore
+tile.gemOre.block_of_topaz.name=Block of Topaz
+tile.gemOre.tanzanite_ore.name=Tanzanite Ore
+tile.gemOre.block_of_tanzanite.name=Block of Tanzanite
+tile.gemOre.malachite_ore.name=Malachite Ore
+tile.gemOre.block_of_malachite.name=Block of Malachite
+tile.gemOre.sapphire_ore.name=Sapphire Ore
+tile.gemOre.block_of_sapphire.name=Block of Sapphire
+tile.gemOre.amber_ore.name=Amber Ore
+tile.gemOre.block_of_amber.name=Block of Amber
+
 tile.log.sacred_oak.name=Sacred Oak Wood
 tile.log.cherry.name=Cherry Wood
 tile.log.dark.name=Dark Wood
