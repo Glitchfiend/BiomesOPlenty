@@ -15,6 +15,8 @@ tile.coral.blue_coral.name=Blue Coral
 tile.coral.glowing_coral.name=Glowing Coral
 tile.coral.algae.name=Algae
 
+tile.flesh.name=Flesh
+
 tile.flower.clover.name=Clover
 tile.flower.swampflower.name=Swampflower
 tile.flower.deathbloom.name=Deathbloom
@@ -38,6 +40,23 @@ tile.flower2.bluebells.name=Bluebells
 tile.flower2.miners_delight.name=Miner's Delight
 tile.flower2.icy_iris.name=Icy Iris
 tile.flower2.rose.name=Rose
+
+tile.gems.amethyst_ore.name=Ender Amethyst Ore
+tile.gems.block_of_amethyst.name=Block of Amethyst
+tile.gems.ruby_ore.name=Ruby Ore
+tile.gems.block_of_ruby.name=Block of Ruby
+tile.gems.peridot_ore.name=Peridot Ore
+tile.gems.block_of_peridot.name=Block of Peridot
+tile.gems.topaz_ore.name=Topaz Ore
+tile.gems.block_of_topaz.name=Block of Topaz
+tile.gems.tanzanite_ore.name=Tanzanite Ore
+tile.gems.block_of_tanzanite.name=Block of Tanzanite
+tile.gems.malachite_ore.name=Malachite Ore
+tile.gems.block_of_malachite.name=Block of Malachite
+tile.gems.sapphire_ore.name=Sapphire Ore
+tile.gems.block_of_sapphire.name=Block of Sapphire
+tile.gems.amber_ore.name=Amber Ore
+tile.gems.block_of_amber.name=Block of Amber
 
 tile.log.sacred_oak.name=Sacred Oak Wood
 tile.log.cherry.name=Cherry Wood
