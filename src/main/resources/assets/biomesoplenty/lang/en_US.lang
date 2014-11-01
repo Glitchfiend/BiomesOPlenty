@@ -58,6 +58,11 @@ tile.gems.block_of_sapphire.name=Block of Sapphire
 tile.gems.amber_ore.name=Amber Ore
 tile.gems.block_of_amber.name=Block of Amber
 
+tile.hive.hive_block.name=Hive Block
+tile.hive.honeycomb_block.name=Honeycomb Block
+tile.hive.empty_honeycomb_block.name=Empty Honeycomb Block
+tile.hive.filled_honeycomb_block.name=Filled Honeycomb Block
+
 tile.log.sacred_oak.name=Sacred Oak Wood
 tile.log.cherry.name=Cherry Wood
 tile.log.dark.name=Dark Wood
