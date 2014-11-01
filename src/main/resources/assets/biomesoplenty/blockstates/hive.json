@@ -1,0 +1,8 @@
+{
+    "variants": {
+    	"variant=hive_block": { "model": "biomesoplenty:hive_block" },
+        "variant=honeycomb_block": { "model": "biomesoplenty:honeycomb_block" },
+		"variant=empty_honeycomb_block": { "model": "biomesoplenty:empty_honeycomb_block" },
+		"variant=filled_honeycomb_block": { "model": "biomesoplenty:filled_honeycomb_block" }
+    }
+}
