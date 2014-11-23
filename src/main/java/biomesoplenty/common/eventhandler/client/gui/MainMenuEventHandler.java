@@ -4,6 +4,7 @@ import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import biomesoplenty.api.BOPObfuscationHelper;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.helpers.BOPReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -14,7 +15,7 @@ public class MainMenuEventHandler
     @SubscribeEvent
     public void openMainMenu(GuiOpenEvent event)
     {
-        if (event.gui instanceof GuiMainMenu)
+        if (event.gui instanceof GuiMainMenu && BOPConfigurationMisc.titlePanorama == true)
         {
         	GuiMainMenu mainMenu = (GuiMainMenu)event.gui;
     		
