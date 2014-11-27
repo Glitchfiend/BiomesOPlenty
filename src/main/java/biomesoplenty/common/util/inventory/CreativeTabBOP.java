@@ -9,10 +9,22 @@
 package biomesoplenty.common.util.inventory;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-//TODO: Do this properly once Forge is updated
-public class CreativeTabBOP
+//TODO: Fix icon
+public class CreativeTabBOP extends CreativeTabs
 {
-	public static final CreativeTabs instance = CreativeTabs.tabMisc;
+	public static final CreativeTabs instance = new CreativeTabBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
+	
+	private CreativeTabBOP(int index, String label) 
+	{
+		super(index, label);
+	}
+
+	@Override
+	public Item getTabIconItem() 
+	{
+		return Item.getItemFromBlock(Blocks.sapling);
+	}
 }
