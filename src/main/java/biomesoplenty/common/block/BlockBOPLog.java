@@ -14,7 +14,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import biomesoplenty.api.block.IBOPVariant;
-import biomesoplenty.common.block.BOPBlockPlanks.PlankType;
+import biomesoplenty.common.block.BlockBOPPlanks.PlankType;
 
 public class BlockBOPLog extends BlockBOPLogBase
 {

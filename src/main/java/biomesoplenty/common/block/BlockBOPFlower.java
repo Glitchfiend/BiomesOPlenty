@@ -34,7 +34,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.BOPPlant;
 import biomesoplenty.api.block.IBOPVariant;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;

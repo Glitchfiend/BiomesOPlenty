@@ -8,10 +8,10 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.api.block.BOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import biomesoplenty.api.block.BOPBlock;
 
 public class ItemBlockWithVariants extends ItemBlock
 {

@@ -20,11 +20,11 @@ import biomesoplenty.api.block.IBOPVariant;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 
 //TODO: Commented methods and calls
-public class BOPBlockPlanks extends BOPBlock
+public class BlockBOPPlanks extends BOPBlock
 {
 	public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", PlankType.class);
 	
-    public BOPBlockPlanks()
+    public BlockBOPPlanks()
     {
 	    super(Material.wood, VARIANT_PROP);
 	    

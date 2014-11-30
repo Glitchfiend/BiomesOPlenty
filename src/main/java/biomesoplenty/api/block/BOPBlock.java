@@ -11,7 +11,6 @@ package biomesoplenty.api.block;
 import java.util.Collection;
 import java.util.List;
 
-import biomesoplenty.api.IConfigurable;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -23,7 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BOPBlock extends Block implements IConfigurable
+public abstract class BOPBlock extends Block
 {
 	private final PropertyEnum variantProperty;
 	
@@ -77,20 +76,6 @@ public abstract class BOPBlock extends Block implements IConfigurable
 	{
 		return this.getMetaFromState(state);
 	}
-	
-    @Override
-    //TODO: Account for configurations (which are provided by Forge and thus, cannot be done at this time)
-    public boolean isEnabled(Object... args)
-    {
-    	if (args[0] instanceof IBlockState)
-    	{
-    		IBlockState blockState = (IBlockState)args[0];
-    		
-    		return true;
-    	}
-    	
-    	return false;
-    }
     
     public final boolean hasVariants()
     {

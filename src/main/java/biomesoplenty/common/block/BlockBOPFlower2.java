@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.block.BOPPlant;
+import biomesoplenty.api.block.IBOPVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -17,8 +19,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPPlant;
-import biomesoplenty.api.block.IBOPVariant;
 
 public class BlockBOPFlower2 extends BOPPlant
 {

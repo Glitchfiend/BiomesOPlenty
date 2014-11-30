@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import biomesoplenty.common.init.ModBlocks;
+import biomesoplenty.common.init.ModConfiguration;
 import biomesoplenty.common.init.ModItems;
 
 @Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME)
@@ -39,7 +40,7 @@ public class BiomesOPlenty
 	{
 		configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
 
-		//TODO: ModConfiguration.load();
+		ModConfiguration.init(configDirectory);
 		ModItems.init();
 		ModBlocks.init();
 	}

@@ -6,9 +6,16 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.api;
+package biomesoplenty.common.init;
 
-public interface IConfigurable
+import java.io.File;
+
+import biomesoplenty.common.config.BiomeConfigurationHandler;
+
+public class ModConfiguration 
 {
-	boolean isEnabled(Object... args);
+	public static void init(File configDirectory)
+	{
+		BiomeConfigurationHandler.init(new File(configDirectory, "biomes"));
+	}
 }

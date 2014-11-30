@@ -14,7 +14,6 @@ import java.util.HashMap;
 
 import com.google.common.collect.Lists;
 
-import biomesoplenty.api.block.BOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BlockModelShapes;

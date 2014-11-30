@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.block;
 
-import net.minecraft.block.material.Material;
 import biomesoplenty.api.block.BOPBlock;
+import net.minecraft.block.material.Material;
 
 public abstract class BlockBOPLeavesBase extends BOPBlock
 {

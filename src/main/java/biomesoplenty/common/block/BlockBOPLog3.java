@@ -8,12 +8,12 @@
 
 package biomesoplenty.common.block;
 
+import biomesoplenty.api.block.IBOPVariant;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
-import biomesoplenty.api.block.IBOPVariant;
 
 public class BlockBOPLog3 extends BlockBOPLogBase
 {

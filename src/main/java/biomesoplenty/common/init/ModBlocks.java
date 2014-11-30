@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.IBOPVariant;
-import biomesoplenty.common.block.BOPBlockPlanks;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
@@ -24,6 +23,7 @@ import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
 import biomesoplenty.common.block.BlockBOPLog4;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.core.BiomesOPlenty;
@@ -41,7 +41,7 @@ public class ModBlocks
 		log3 = registerBlock(new BlockBOPLog3(), "log3");
 		log4 = registerBlock(new BlockBOPLog4(), "log4");
 		mushroom = registerBlock(new BlockBOPMushroom(), "mushroom");
-		planks = registerBlock(new BOPBlockPlanks(), "planks");
+		planks = registerBlock(new BlockBOPPlanks(), "planks");
 	}
 	
 	private static Block registerBlock(BOPBlock block, String name)
