@@ -36,6 +36,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.BOPPlant;
 import biomesoplenty.api.block.IBOPVariant;
+import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 
 public class BlockBOPFlower extends BOPPlant
@@ -47,7 +48,27 @@ public class BlockBOPFlower extends BOPPlant
 	    super(VARIANT_PROP);
     }
     
-    //TODO: Add light for glowflowers, enderlotus and the burning blossom (Requires Forge)
+    @Override
+    public int getLightValue(IBlockAccess world, BlockPos pos)
+    {
+    	IBlockState state = world.getBlockState(pos);
+    	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
+    	
+    	switch (type)
+    	{
+    	case GLOWFLOWER:
+    		return 9;
+    		
+    	case ENDERLOTUS:
+    		return 5;
+    		
+    	case BURNING_BLOSSOM:
+    		return 9;
+    		
+    	default:
+    		return super.getLightValue();
+    	}
+    }
     
     //TODO: Make enderlotus require spectral moss
     //TODO: Make bromeliads require hard dirt, hardened clay or sand

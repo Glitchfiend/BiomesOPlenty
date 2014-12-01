@@ -24,6 +24,12 @@ public class BlockBOPLog2 extends BlockBOPLogBase
 		super(VARIANT_PROP);
 	}
 	
+	@Override
+	public int damageDropped(IBlockState state)
+	{
+		return this.getMetaFromState(this.getDefaultState().withProperty(VARIANT_PROP, state.getValue(VARIANT_PROP)));
+	}
+	
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
@@ -76,7 +82,7 @@ public class BlockBOPLog2 extends BlockBOPLogBase
         @Override
         public int getDefaultMetadata()
         {
-        	return this.ordinal() * 3;
+        	return this.ordinal() * 3 + 1;
         }
 	}
 }

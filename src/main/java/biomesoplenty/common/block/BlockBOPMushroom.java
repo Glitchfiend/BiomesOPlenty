@@ -29,7 +29,18 @@ public class BlockBOPMushroom extends BOPPlant
 	    super(VARIANT_PROP);
     }
     
-    //TODO: Add light for glowshrooms (Requires Forge)
+    @Override
+    public int getLightValue(IBlockAccess world, BlockPos pos)
+    {
+    	IBlockState blockState = world.getBlockState(pos);
+    	
+    	if ((MushroomType)blockState.getValue(VARIANT_PROP) == MushroomType.GLOWSHROOM)
+    	{
+    		return 6;
+    	}
+    	
+    	return super.getLightValue();
+    }
     
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)

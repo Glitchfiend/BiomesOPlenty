@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 
-//TODO: Commented methods and calls
 public abstract class BlockBOPLogBase extends BOPBlock
 {
     public static final PropertyEnum AXIS_PROP = PropertyEnum.create("axis", EnumFacing.Axis.class);
@@ -30,7 +29,7 @@ public abstract class BlockBOPLogBase extends BOPBlock
     	
     	this.setDefaultState(this.getDefaultState().withProperty(AXIS_PROP, EnumFacing.Axis.Y));
     	
-		//this.setHarvestLevel("axe", 0);
+		this.setHarvestLevel("axe", 0);
     	
 		this.setHardness(2.0F);
 		this.setResistance(5.0F);
