@@ -9,7 +9,6 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPPlant;
-import biomesoplenty.api.block.IBOPVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -17,6 +16,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -26,7 +26,7 @@ public class BlockBOPMushroom extends BOPPlant
 
     public BlockBOPMushroom()
     {
-	    super(VARIANT_PROP);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, MushroomType.TOADSTOOL));
     }
     
     @Override
@@ -69,6 +69,20 @@ public class BlockBOPMushroom extends BOPPlant
     	}
     }
     
+	@Override
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(VARIANT_PROP, MushroomType.values()[meta]);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state)
+	{
+		int meta = ((MushroomType)state.getValue(VARIANT_PROP)).ordinal();
+
+		return meta;
+	}
+    
     @Override
     protected BlockState createBlockState()
     {
@@ -76,12 +90,24 @@ public class BlockBOPMushroom extends BOPPlant
     }
     
     @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+		return ((MushroomType)state.getValue(VARIANT_PROP)).getName();
+	}
+    
+    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
     	this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
     }
 	
-	public static enum MushroomType implements IBOPVariant
+	public static enum MushroomType implements IStringSerializable
 	{
 		TOADSTOOL,
 		PORTOBELLO,
@@ -90,12 +116,6 @@ public class BlockBOPMushroom extends BOPPlant
 		FLAT_MUSHROOM,
 		SHADOW_SHROOM;
 
-        @Override
-        public String getBaseName()
-        {
-	        return null;
-        }
-		
         @Override
         public String getName()
         {
@@ -108,10 +128,5 @@ public class BlockBOPMushroom extends BOPPlant
 			return getName();
 		}
         
-        @Override
-        public int getDefaultMetadata()
-        {
-	        return this.ordinal();
-        }
 	}
 }

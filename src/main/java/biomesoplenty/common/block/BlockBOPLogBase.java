@@ -23,11 +23,9 @@ public abstract class BlockBOPLogBase extends BOPBlock
 {
     public static final PropertyEnum AXIS_PROP = PropertyEnum.create("axis", EnumFacing.Axis.class);
     
-    protected BlockBOPLogBase(PropertyEnum variantProperty)
+    protected BlockBOPLogBase()
     {
-    	super(Material.wood, variantProperty);
-    	
-    	this.setDefaultState(this.getDefaultState().withProperty(AXIS_PROP, EnumFacing.Axis.Y));
+    	super(Material.wood);
     	
 		this.setHarvestLevel("axe", 0);
     	

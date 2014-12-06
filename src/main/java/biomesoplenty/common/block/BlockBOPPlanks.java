@@ -16,31 +16,58 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.IStringSerializable;
 import biomesoplenty.api.block.BOPBlock;
-import biomesoplenty.api.block.IBOPVariant;
-import biomesoplenty.common.util.inventory.CreativeTabBOP;
 
-//TODO: Commented methods and calls
 public class BlockBOPPlanks extends BOPBlock
 {
 	public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", PlankType.class);
 	
     public BlockBOPPlanks()
     {
-	    super(Material.wood, VARIANT_PROP);
+	    super(Material.wood);
 	    
-		//this.setHarvestLevel("axe", 0);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, PlankType.SACRED_OAK));
+	    
+		this.setHarvestLevel("axe", 0);
 	    
 		this.setHardness(2.0F);
 		this.setStepSound(Block.soundTypeWood);
     }
+    
+	@Override
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(VARIANT_PROP, PlankType.values()[meta]);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state)
+	{
+		int meta = ((PlankType)state.getValue(VARIANT_PROP)).ordinal();
+
+		return meta;
+	}
     
     @Override
     protected BlockState createBlockState()
     {
         return new BlockState(this, new IProperty[] { VARIANT_PROP });
     }
+    
+    @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+    	PlankType type = (PlankType)state.getValue(VARIANT_PROP);
+    	
+		return type.getName() + (fullName && type != PlankType.BAMBOO_THATCHING ? "_planks" : "");
+	}
 
-	public static enum PlankType implements IBOPVariant
+	public static enum PlankType implements IStringSerializable
 	{
 	    SACRED_OAK,
 	    CHERRY,
@@ -57,12 +84,6 @@ public class BlockBOPPlanks extends BOPBlock
 	    HELL_BARK,
 	    JACARANDA,
 	    MAHOGANY;
-		
-		@Override
-		public String getBaseName()
-		{
-			return this.equals(BAMBOO_THATCHING) ? null : "planks";
-		}
 	    
         @Override
         public String getName()
@@ -74,12 +95,6 @@ public class BlockBOPPlanks extends BOPBlock
         public String toString()
         {
         	return getName();
-        }
-
-        @Override
-        public int getDefaultMetadata()
-        {
-	        return this.ordinal();
         }
 	}
 }

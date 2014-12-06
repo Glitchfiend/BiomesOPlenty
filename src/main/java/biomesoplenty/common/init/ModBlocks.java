@@ -9,12 +9,15 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
+
+import java.util.Set;
+
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
-import biomesoplenty.api.block.IBOPVariant;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
@@ -26,6 +29,7 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.item.ItemBlockWithVariants;
+import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.core.BiomesOPlenty;
 
 public class ModBlocks
@@ -48,16 +52,16 @@ public class ModBlocks
 	{
 		block.setUnlocalizedName(name);
 
-		if (block.hasVariants())
+		if (block.hasPresetProperties())
 		{
 			GameRegistry.registerBlock(block, ItemBlockWithVariants.class, name);
 			
-			for (IBOPVariant variant : block.getVariants())
+			for (IBlockState state : block.presetStates)
 			{
-				String variantName = variant.getName() + (variant.getBaseName() != null ? "_" + variant.getBaseName() : "");
+				String stateName = block.getStateName(state, true);
 				
-				ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + variantName);
-				BiomesOPlenty.proxy.registerBlockForMeshing(block, variant.getDefaultMetadata(), variantName);
+				ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
+				BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
 			}
 		}
 		else

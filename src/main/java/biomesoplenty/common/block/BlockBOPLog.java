@@ -13,8 +13,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
-import biomesoplenty.api.block.IBOPVariant;
-import biomesoplenty.common.block.BlockBOPPlanks.PlankType;
+import net.minecraft.util.IStringSerializable;
 
 public class BlockBOPLog extends BlockBOPLogBase
 {
@@ -22,7 +21,7 @@ public class BlockBOPLog extends BlockBOPLogBase
 
 	public BlockBOPLog()
 	{
-		super(VARIANT_PROP);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, LogType.SACRED_OAK).withProperty(AXIS_PROP, EnumFacing.Axis.Y));
 	}
     
 	@Override
@@ -53,20 +52,26 @@ public class BlockBOPLog extends BlockBOPLogBase
 	{
 		return new BlockState(this, new IProperty[] { AXIS_PROP, VARIANT_PROP });
 	}
+	
+    @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+		return ((LogType)state.getValue(VARIANT_PROP)).getName() + (fullName ? "_log" : "");
+	}
 
-	public static enum LogType implements IBOPVariant
+	public static enum LogType implements IStringSerializable
 	{
 		SACRED_OAK,
 		CHERRY,
 		DARK,
 		FIR,
 		ETHEREAL;
-
-		@Override
-		public String getBaseName()
-		{
-			return "log";
-		}
 		
 		@Override
 		public String getName()
@@ -78,12 +83,6 @@ public class BlockBOPLog extends BlockBOPLogBase
 		public String toString()
 		{
 			return getName();
-		}
-
-		@Override
-		public int getDefaultMetadata()
-		{
-			return this.ordinal() * 3 + 1;
 		}
 	}
 }

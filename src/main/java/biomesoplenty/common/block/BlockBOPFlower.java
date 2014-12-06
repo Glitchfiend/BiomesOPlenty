@@ -10,8 +10,6 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
@@ -19,25 +17,20 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemShears;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.EnumWorldBlockLayer;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.BOPPlant;
-import biomesoplenty.api.block.IBOPVariant;
-import biomesoplenty.common.block.BlockBOPMushroom.MushroomType;
-import biomesoplenty.common.util.inventory.CreativeTabBOP;
+import biomesoplenty.common.block.BlockBOPLog.LogType;
 
 public class BlockBOPFlower extends BOPPlant
 {
@@ -45,7 +38,7 @@ public class BlockBOPFlower extends BOPPlant
 
     public BlockBOPFlower()
     {
-	    super(VARIANT_PROP);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, FlowerType.CLOVER));
     }
     
     @Override
@@ -110,12 +103,38 @@ public class BlockBOPFlower extends BOPPlant
 			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
 		}
 	}
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(VARIANT_PROP, FlowerType.values()[meta]);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state)
+	{
+		int meta = ((FlowerType)state.getValue(VARIANT_PROP)).ordinal();
+
+		return meta;
+	}
 
     @Override
     protected BlockState createBlockState()
     {
         return new BlockState(this, new IProperty[] { VARIANT_PROP });
     }
+    
+    @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+		return ((FlowerType)state.getValue(VARIANT_PROP)).getName();
+	}
     
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
@@ -170,7 +189,7 @@ public class BlockBOPFlower extends BOPPlant
 	
     //TODO: Readd eyebulb in as a seperate block
     //TODO: Readd dandelion blowing
-	public static enum FlowerType implements IBOPVariant
+	public static enum FlowerType implements IStringSerializable
 	{
 		CLOVER,
 		SWAMPFLOWER,
@@ -188,12 +207,6 @@ public class BlockBOPFlower extends BOPPlant
 		PINK_HIBISCUS,
 		LILY_OF_THE_VALLEY,
 		BURNING_BLOSSOM;
-
-        @Override
-        public String getBaseName()
-        {
-	        return null;
-        }
 		
         @Override
         public String getName()
@@ -206,11 +219,5 @@ public class BlockBOPFlower extends BOPPlant
 		{
 			return getName();
 		}
-        
-        @Override
-        public int getDefaultMetadata()
-        {
-	        return this.ordinal();
-        }
 	}
 }

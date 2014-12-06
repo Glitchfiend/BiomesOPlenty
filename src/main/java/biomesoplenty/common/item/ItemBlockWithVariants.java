@@ -32,12 +32,13 @@ public class ItemBlockWithVariants extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-    	BOPBlock bopBlock = (BOPBlock)this.block;
+    	BOPBlock block = (BOPBlock)this.block;
     	
-    	if (bopBlock.hasVariants())
+    	if (block.hasPresetProperties())
     	{
-    		return super.getUnlocalizedName() + "." + bopBlock.getVariantFromMeta(stack.getMetadata()).getName();
+    		return super.getUnlocalizedName() + "." + block.getStateName(block.getStateFromMeta(stack.getMetadata()), false);
     	}
+    	
     	else return super.getUnlocalizedName();
     }
 }

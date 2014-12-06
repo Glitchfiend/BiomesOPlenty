@@ -8,12 +8,16 @@
 
 package biomesoplenty.api.block;
 
-import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
+import com.google.common.collect.ImmutableSet;
+
+import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,48 +25,28 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
 public abstract class BOPBlock extends Block
 {
-	private final PropertyEnum variantProperty;
+	public ImmutableSet<IBlockState> presetStates;
 	
-    protected BOPBlock(Material material, PropertyEnum variantProperty)
+    protected BOPBlock(Material material)
     {
 	    super(material);
 	    
-	    this.variantProperty = variantProperty;
-	    
-	    if (variantProperty != null) this.setDefaultState(this.blockState.getBaseState().withProperty(variantProperty, (Comparable)variantProperty.getAllowedValues().toArray()[0]));
+	    this.presetStates = BlockStateUtils.getValidStatesForProperties(this.getDefaultState(), this.getPresetProperties());
 	    
 	    this.setCreativeTab(CreativeTabBOP.instance);
-    }
-	
-	protected BOPBlock(Material material)
-	{
-		this(material, null);
-	}
-
-    @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return hasVariants() ? this.getDefaultState().withProperty(variantProperty, (Comparable)variantProperty.getAllowedValues().toArray()[meta]) : super.getStateFromMeta(meta);
-    }
-    
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-    	return hasVariants() ? ((Enum)state.getValue(variantProperty)).ordinal() : super.getMetaFromState(state);
     }
 	
 	@Override
     @SideOnly(Side.CLIENT)
 	public void getSubBlocks(Item item, CreativeTabs tab, List list)
 	{
-		if (hasVariants())
+		if (this.hasPresetProperties())
 		{
-			for (IBOPVariant value : getVariants())
+			for (IBlockState state : presetStates)
 			{
-				list.add(new ItemStack(item, 1, value.getDefaultMetadata()));
+				list.add(new ItemStack(item, 1, this.getMetaFromState(state)));
 			}
 		}
 		else
@@ -70,6 +54,7 @@ public abstract class BOPBlock extends Block
 	        list.add(new ItemStack(item, 1, 0));
 		}
 	}
+
 	
 	@Override
 	public int damageDropped(IBlockState state)
@@ -77,18 +62,20 @@ public abstract class BOPBlock extends Block
 		return this.getMetaFromState(state);
 	}
     
-    public final boolean hasVariants()
-    {
-    	return variantProperty != null;
-    }
-    
-    public final Collection<IBOPVariant> getVariants()
-    {
-    	return (Collection<IBOPVariant>)variantProperty.getAllowedValues();
-    }
-    
-    public final IBOPVariant getVariantFromMeta(int metadata)
-    {
-    	return (IBOPVariant)this.getStateFromMeta(metadata).getValue(variantProperty);
-    }
+	public IProperty[] getPresetProperties()
+	{
+		return null;
+	}
+	
+	public boolean hasPresetProperties()
+	{
+		return getPresetProperties() != null;
+	}
+	
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+		String unlocalizedName = state.getBlock().getUnlocalizedName();
+		
+		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+	}
 }

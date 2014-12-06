@@ -9,7 +9,6 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPPlant;
-import biomesoplenty.api.block.IBOPVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -17,6 +16,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -26,7 +26,7 @@ public class BlockBOPFlower2 extends BOPPlant
 
     public BlockBOPFlower2()
     {
-	    super(VARIANT_PROP);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, FlowerType.LAVENDER));
     }
 
     @Override
@@ -45,6 +45,20 @@ public class BlockBOPFlower2 extends BOPPlant
     	}
     }
     
+	@Override
+	public IBlockState getStateFromMeta(int meta)
+	{
+		return this.getDefaultState().withProperty(VARIANT_PROP, FlowerType.values()[meta]);
+	}
+
+	@Override
+	public int getMetaFromState(IBlockState state)
+	{
+		int meta = ((FlowerType)state.getValue(VARIANT_PROP)).ordinal();
+
+		return meta;
+	}
+    
     @Override
     protected BlockState createBlockState()
     {
@@ -52,12 +66,24 @@ public class BlockBOPFlower2 extends BOPPlant
     }
     
     @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+		return ((FlowerType)state.getValue(VARIANT_PROP)).getName();
+	}
+    
+    @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
     	this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
     }
 	
-	public static enum FlowerType implements IBOPVariant
+	public static enum FlowerType implements IStringSerializable
 	{
 		LAVENDER,
 		GOLDENROD,
@@ -66,13 +92,6 @@ public class BlockBOPFlower2 extends BOPPlant
 		ICY_IRIS,
 		ROSE;
 
-        @Override
-        public String getBaseName()
-        {
-	        return null;
-        }
-		
-        @Override
         public String getName()
         {
 	        return this.name().toLowerCase();
@@ -83,11 +102,5 @@ public class BlockBOPFlower2 extends BOPPlant
 		{
 			return getName();
 		}
-        
-        @Override
-        public int getDefaultMetadata()
-        {
-	        return this.ordinal();
-        }
 	}
 }

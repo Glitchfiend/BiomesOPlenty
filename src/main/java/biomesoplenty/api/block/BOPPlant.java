@@ -26,9 +26,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BOPPlant extends BOPBlock
 {
-    protected BOPPlant(PropertyEnum variantProperty)
+    protected BOPPlant()
     {
-	    super(Material.plants, variantProperty);
+	    super(Material.plants);
 	    
 	    this.setTickRandomly(true);
 	    

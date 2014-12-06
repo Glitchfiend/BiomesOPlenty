@@ -23,8 +23,6 @@ public class BlockBamboo extends BOPPlant
 {
     public BlockBamboo()
     {
-    	super(null);
-    	
 	    this.setHardness(0.2F);
 	    this.setStepSound(Block.soundTypeWood);
 	    

@@ -8,12 +8,13 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPVariant;
+import biomesoplenty.common.block.BlockBOPLog3.LogType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 
 public class BlockBOPLog4 extends BlockBOPLogBase
 {
@@ -21,7 +22,7 @@ public class BlockBOPLog4 extends BlockBOPLogBase
 	
     public BlockBOPLog4()
     {
-	    super(VARIANT_PROP);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, LogType.MAHOGANY).withProperty(AXIS_PROP, EnumFacing.Axis.Y));
     }
     
 	@Override
@@ -53,15 +54,21 @@ public class BlockBOPLog4 extends BlockBOPLogBase
         return new BlockState(this, new IProperty[] { AXIS_PROP, VARIANT_PROP });
     }
     
-	public static enum LogType implements IBOPVariant
+    @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+		return ((LogType)state.getValue(VARIANT_PROP)).getName() + (fullName ? "_log" : "");
+	}
+    
+	public static enum LogType implements IStringSerializable
 	{
 		MAHOGANY;
-		
-		@Override
-		public String getBaseName()
-		{
-			return "log";
-		}
 		
         @Override
         public String getName()
@@ -73,12 +80,6 @@ public class BlockBOPLog4 extends BlockBOPLogBase
         public String toString()
         {
         	return getName();
-        }
-        
-        @Override
-        public int getDefaultMetadata()
-        {
-        	return this.ordinal() * 3 + 1;
         }
 	}
 }

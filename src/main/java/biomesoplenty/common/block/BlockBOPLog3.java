@@ -8,12 +8,12 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.IBOPVariant;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IStringSerializable;
 
 public class BlockBOPLog3 extends BlockBOPLogBase
 {
@@ -21,7 +21,7 @@ public class BlockBOPLog3 extends BlockBOPLogBase
 	
     public BlockBOPLog3()
     {
-	    super(VARIANT_PROP);
+    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, LogType.DEAD).withProperty(AXIS_PROP, EnumFacing.Axis.Y));
     }
 
 	@Override
@@ -53,19 +53,27 @@ public class BlockBOPLog3 extends BlockBOPLogBase
         return new BlockState(this, new IProperty[] { AXIS_PROP, VARIANT_PROP });
     }
     
-	public static enum LogType implements IBOPVariant
+    @Override
+    public IProperty[] getPresetProperties()
+    {
+    	return new IProperty[] { VARIANT_PROP };
+    }
+    
+    @Override
+	public String getStateName(IBlockState state, boolean fullName)
+	{
+    	LogType type = (LogType)state.getValue(VARIANT_PROP);
+    	
+		return type.getName() + (fullName && type != LogType.GIANT_FLOWER_STEM ? "_log" : "");
+	}
+    
+	public static enum LogType implements IStringSerializable
 	{
 		DEAD,
 		GIANT_FLOWER_STEM,
 		PINE,
 		HELL_BARK,
 		JACARANDA;
-		
-		@Override
-		public String getBaseName()
-		{
-			return this.equals(GIANT_FLOWER_STEM) ? null : "log";
-		}
 		
         @Override
         public String getName()
@@ -77,12 +85,6 @@ public class BlockBOPLog3 extends BlockBOPLogBase
         public String toString()
         {
         	return getName();
-        }
-        
-        @Override
-        public int getDefaultMetadata()
-        {
-        	return this.ordinal() * 3 + 1;
         }
 	}
 }
