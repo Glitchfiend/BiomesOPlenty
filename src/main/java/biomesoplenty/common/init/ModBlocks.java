@@ -29,6 +29,8 @@ import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBamboo;
+import biomesoplenty.common.block.BlockGem;
+import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.core.BiomesOPlenty;
@@ -41,6 +43,8 @@ public class ModBlocks
 		bamboo = registerBlock(new BlockBamboo(), "bamboo");
 		flower = registerBlock(new BlockBOPFlower(), "flower");
 		flower2 = registerBlock(new BlockBOPFlower2(), "flower2");
+		gem = registerBlock(new BlockGem(), "gem");
+		gem_ore = registerBlock(new BlockGemOre(), "gem_ore");
 		log = registerBlock(new BlockBOPLog(), "log");
 		log2 = registerBlock(new BlockBOPLog2(), "log2");
 		log3 = registerBlock(new BlockBOPLog3(), "log3");

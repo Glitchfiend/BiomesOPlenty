@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "biomesoplenty:blocks/block_of_tanzanite"
+        "all": "biomesoplenty:blocks/amber_block"
     }
 }

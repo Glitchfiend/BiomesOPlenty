@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "biomesoplenty:blocks/block_of_malachite"
+        "all": "biomesoplenty:blocks/topaz_block"
     }
 }

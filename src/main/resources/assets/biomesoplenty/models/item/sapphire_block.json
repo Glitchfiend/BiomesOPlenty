@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/block_of_ruby",
+    "parent": "biomesoplenty:block/sapphire_block",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

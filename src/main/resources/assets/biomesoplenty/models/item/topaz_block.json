@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/block_of_amethyst",
+    "parent": "biomesoplenty:block/topaz_block",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

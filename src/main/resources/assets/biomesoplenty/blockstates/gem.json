@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "variant=amethyst": { "model": "biomesoplenty:amethyst_block" },
+        "variant=ruby": { "model": "biomesoplenty:ruby_block" },
+        "variant=peridot": { "model": "biomesoplenty:peridot_block" },
+        "variant=topaz": { "model": "biomesoplenty:topaz_block" },
+        "variant=tanzanite": { "model": "biomesoplenty:tanzanite_block" },
+        "variant=malachite": { "model": "biomesoplenty:malachite_block" },
+        "variant=sapphire": { "model": "biomesoplenty:sapphire_block" },
+        "variant=amber": { "model": "biomesoplenty:amber_block" }
+    }
+}

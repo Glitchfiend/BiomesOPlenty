@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "variant=amethyst": { "model": "biomesoplenty:amethyst_ore" },
+        "variant=ruby": { "model": "biomesoplenty:ruby_ore" },
+        "variant=peridot": { "model": "biomesoplenty:peridot_ore" },
+        "variant=topaz": { "model": "biomesoplenty:topaz_ore" },
+        "variant=tanzanite": { "model": "biomesoplenty:tanzanite_ore" },
+        "variant=malachite": { "model": "biomesoplenty:malachite_ore" },
+        "variant=sapphire": { "model": "biomesoplenty:sapphire_ore" },
+        "variant=amber": { "model": "biomesoplenty:amber_ore" }
+    }
+}

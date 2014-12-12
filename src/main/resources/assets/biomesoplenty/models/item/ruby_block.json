@@ -1,5 +1,5 @@
 {
-    "parent": "biomesoplenty:block/block_of_malachite",
+    "parent": "biomesoplenty:block/ruby_block",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],
