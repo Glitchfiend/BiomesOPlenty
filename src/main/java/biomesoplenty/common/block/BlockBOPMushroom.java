@@ -45,7 +45,7 @@ public class BlockBOPMushroom extends BOPPlant
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
+    	Block ground = world.getBlockState(pos.down()).getBlock();
     	MushroomType type = (MushroomType)state.getValue(VARIANT_PROP);
     	
     	switch (type)
