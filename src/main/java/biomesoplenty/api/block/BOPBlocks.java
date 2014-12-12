@@ -18,6 +18,7 @@ public class BOPBlocks
 	public static Block flower2;
 	public static Block gem;
 	public static Block gem_ore;
+	public static Block hive;
 	public static Block log;
 	public static Block log2;
 	public static Block log3;

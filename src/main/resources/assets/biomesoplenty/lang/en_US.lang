@@ -61,10 +61,10 @@ tile.gem_ore.malachite.name=Malachite Ore
 tile.gem_ore.sapphire.name=Sapphire Ore
 tile.gem_ore.amber.name=Amber Ore
 
-tile.hive.hive_block.name=Hive Block
-tile.hive.honeycomb_block.name=Honeycomb Block
-tile.hive.empty_honeycomb_block.name=Empty Honeycomb Block
-tile.hive.filled_honeycomb_block.name=Filled Honeycomb Block
+tile.hive.hive.name=Hive Block
+tile.hive.honeycomb.name=Honeycomb Block
+tile.hive.empty_honeycomb.name=Empty Honeycomb Block
+tile.hive.filled_honeycomb.name=Filled Honeycomb Block
 
 tile.log.sacred_oak.name=Sacred Oak Wood
 tile.log.cherry.name=Cherry Wood
