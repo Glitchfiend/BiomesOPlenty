@@ -1,0 +1,114 @@
+itemGroup.tabBiomesOPlenty=Biomes O' Plenty
+
+tile.ash_block.name=Пепельный блок
+
+tile.bamboo.name=Бамбук
+
+tile.bopGrass.spectral_moss.name=Спектральный мох
+tile.bopGrass.smoldering_grass_block.name=Блок тлеющей травы
+
+tile.coral.kelp_bottom.name=Ламинария
+tile.coral.kelp_middle.name=Ламинария
+tile.coral.kelp_top.name=Ламинария
+tile.coral.kelp.name=Ламинария
+tile.coral.pink_coral.name=Розовый коралл
+tile.coral.orange_coral.name=Оранжевый коралл
+tile.coral.blue_coral.name=Синий коралл
+tile.coral.glowing_coral.name=Светящийся коралл
+tile.coral.algae.name=Водоросли
+
+tile.flesh.name=Плоть
+
+tile.flower.clover.name=Клевер
+tile.flower.swampflower.name=Болотный цветок
+tile.flower.deathbloom.name=Смертельный блюм
+tile.flower.glowflower.name=Светоцвет
+tile.flower.blue_hydrangea.name=Синяя гортензия
+tile.flower.orange_cosmos.name=Оранжевая космея 
+tile.flower.pink_daffodil.name=Розовый нарцисс
+tile.flower.wildflower.name=Дикий цветок
+tile.flower.violet.name=Фиалка
+tile.flower.white_anemone.name=Белый анемон
+tile.flower.enderlotus.name=Лотос Края
+tile.flower.bromeliad.name=Бромелия
+tile.flower.dandelion.name=Белый одуванчик
+tile.flower.pink_hibiscus.name=Розовый гибискус
+tile.flower.lily_of_the_valley.name=Ландыш
+tile.flower.burning_blossom.name=Пылающий цвет
+
+tile.flower2.lavender.name=Лаванда
+tile.flower2.goldenrod.name=Золотарник
+tile.flower2.bluebells.name=Колокольчики
+tile.flower2.miners_delight.name=Шахтёрское наслаждение
+tile.flower2.icy_iris.name=Ледяной ирис
+tile.flower2.rose.name=Роза
+
+tile.gem.amethyst.name=Аметистовый блок
+tile.gem.ruby.name=Рубиновый блок
+tile.gem.peridot.name=Оливиновый блок
+tile.gem.topaz.name=Топазовый блок
+tile.gem.tanzanite.name=Танзанитовый блок
+tile.gem.malachite.name=Малахитовый блок
+tile.gem.sapphire.name=Сапфировый блок
+tile.gem.amber.name=Янтарный блок
+
+tile.gem_ore.amethyst.name=Аметистовая руда Края
+tile.gem_ore.ruby.name=Рубиновая руда
+tile.gem_ore.peridot.name=Оливиновая руда
+tile.gem_ore.topaz.name=Топазовая руда
+tile.gem_ore.tanzanite.name=Танзанитовая руда
+tile.gem_ore.malachite.name=Малахитовая руда
+tile.gem_ore.sapphire.name=Сапфировая руда
+tile.gem_ore.amber.name=Янтарная руда
+
+tile.hive.hive.name=Блок улья
+tile.hive.honeycomb.name=Блок медовых соты
+tile.hive.empty_honeycomb.name=Пустой блок медовых сот
+tile.hive.filled_honeycomb.name=Заполненный блок медовых сот
+
+tile.log.sacred_oak.name=Древесина священного дуба
+tile.log.cherry.name=Древесина вишнёвого дерева
+tile.log.dark.name=Древесина тёмного дерева
+tile.log.fir.name=Древесина пихты
+tile.log.ethereal.name=Эфирная древесина
+tile.log2.magic.name=Магическая древесина
+tile.log2.mangrove.name=Древесина мангрового дерева
+tile.log2.palm.name=Древесина пальмы
+tile.log2.redwood.name=Древесина красного дерева
+tile.log2.willow.name=Древесина ивы
+tile.log3.dead.name=Мёртвая древесина
+tile.log3.giant_flower_stem.name=Ствол гигантского цветка
+tile.log3.pine.name=Древесина сосны
+tile.log3.hell_bark.name=Древесина адского дерева
+tile.log3.jacaranda.name=Древесина жакаранды
+tile.log4.mahogany.name=Махагониевая древесина
+
+tile.mushroom.toadstool.name=Поганка
+tile.mushroom.portobello.name=Портобелло
+tile.mushroom.blue_milk_cap.name=Млечник голубой
+tile.mushroom.glowshroom.name=Светогриб
+tile.mushroom.flat_mushroom.name=Плоский гриб
+tile.mushroom.shadow_shroom.name=Теневой гриб
+
+tile.planks.sacred_oak.name=Доски из священного дуба
+tile.planks.cherry.name=Доски из вишнёвого дерева
+tile.planks.dark.name=Доски из тёмной древесины
+tile.planks.fir.name=Доски из пихты
+tile.planks.ethereal.name=Доски из эфирной древесины
+tile.planks.magic.name=Доски из магической древесины
+tile.planks.mangrove.name=Доски из мангрового дерева
+tile.planks.palm.name=Доски из пальмы
+tile.planks.redwood.name=Доски из красного дерева
+tile.planks.willow.name=Доски из ивы
+tile.planks.bamboo_thatching.name=Бамбуковое покрытие
+tile.planks.pine.name=Доски из сосны
+tile.planks.hell_bark.name=Доски из адского дерева
+tile.planks.jacaranda.name=Доски из жакаранды
+tile.planks.mahogany.name=Доски из махагониевой древесины
+
+tile.stone.limestone.name=Известняк
+tile.stone.polished_limestone.name=Гладкий известняк
+tile.stone.siltstone.name=Алевролит
+tile.stone.polished_siltstone.name=Гладкий алевролит
+tile.stone.shale.name=Глинистый сланец
+tile.stone.polished_shale.name=Гладкий глинистый сланец
