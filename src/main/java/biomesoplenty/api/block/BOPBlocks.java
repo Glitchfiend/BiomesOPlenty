@@ -14,6 +14,7 @@ public class BOPBlocks
 {
 	public static Block ash_block;
 	public static Block bamboo;
+	public static Block bone_segment;
 	public static Block flower;
 	public static Block flower2;
 	public static Block gem;

@@ -33,8 +33,6 @@ public abstract class BOPBlock extends Block
     {
 	    super(material);
 	    
-	    this.presetStates = BlockStateUtils.getValidStatesForProperties(this.getDefaultState(), this.getPresetProperties());
-	    
 	    this.setCreativeTab(CreativeTabBOP.instance);
     }
 	

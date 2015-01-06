@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import static biomesoplenty.common.block.BlockGem.VARIANT_PROP;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.common.block.BlockGem.GemType;
+import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -24,6 +25,8 @@ public class BlockGemOre extends BOPBlock
 		super(Material.rock);
 		
     	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, GemType.AMETHYST));
+    	
+	    this.presetStates = BlockStateUtils.getValidStatesForProperties(this.getDefaultState(), this.getPresetProperties());
     	
     	for (IBlockState state : presetStates)
     	{

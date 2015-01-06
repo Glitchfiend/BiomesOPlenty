@@ -4,6 +4,10 @@ tile.ash_block.name=Ash Block
 
 tile.bamboo.name=Bamboo
 
+tile.bone_segment.small.name=Small Bone Segment
+tile.bone_segment.medium.name=Medium Bone Segment
+tile.bone_segment.large.name=Large Bone Segment
+
 tile.bopGrass.spectral_moss.name=Spectral Moss
 tile.bopGrass.smoldering_grass_block.name=Smoldering Grass Block
 

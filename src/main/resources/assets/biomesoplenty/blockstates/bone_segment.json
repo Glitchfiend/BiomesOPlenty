@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "axis=x,variant=small": { "model": "biomesoplenty:small_bone_segment", "x": 90, "y": 90 },
+        "axis=y,variant=small": { "model": "biomesoplenty:small_bone_segment" },
+        "axis=z,variant=small": { "model": "biomesoplenty:small_bone_segment", "x": 90 },
+        "axis=x,variant=medium": { "model": "biomesoplenty:medium_bone_segment", "x": 90, "y": 90 },
+        "axis=y,variant=medium": { "model": "biomesoplenty:medium_bone_segment" },
+        "axis=z,variant=medium": { "model": "biomesoplenty:medium_bone_segment", "x": 90 },
+        "axis=x,variant=large": { "model": "biomesoplenty:large_bone_segment", "x": 90, "y": 90 },
+        "axis=y,variant=large": { "model": "biomesoplenty:large_bone_segment" },
+        "axis=z,variant=large": { "model": "biomesoplenty:large_bone_segment", "x": 90 }
+    }
+}
