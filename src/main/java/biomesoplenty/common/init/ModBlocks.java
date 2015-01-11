@@ -30,6 +30,7 @@ import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
+import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
@@ -44,6 +45,7 @@ public class ModBlocks
 		ash_block = registerBlock(new BlockAsh(), "ash_block");
 		bamboo = registerBlock(new BlockBamboo(), "bamboo");
 		bone_segment = registerBlock(new BlockBones(), "bone_segment");
+		coral = registerBlock(new BlockCoral(), "coral");
 		flower = registerBlock(new BlockBOPFlower(), "flower");
 		flower2 = registerBlock(new BlockBOPFlower2(), "flower2");
 		gem = registerBlock(new BlockGem(), "gem");

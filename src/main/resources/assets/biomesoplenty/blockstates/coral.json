@@ -4,10 +4,10 @@
         "variant=kelp_middle": { "model": "biomesoplenty:kelp_middle" },
         "variant=kelp_top": { "model": "biomesoplenty:kelp_top" },
         "variant=kelp": { "model": "biomesoplenty:kelp" },
-        "variant=pink_coral": { "model": "biomesoplenty:pink_coral" },
-        "variant=orange_coral": { "model": "biomesoplenty:orange_coral" },
-        "variant=blue_coral": { "model": "biomesoplenty:blue_coral" },
-        "variant=glowing_coral": { "model": "biomesoplenty:glowing_coral" },
+        "variant=pink": { "model": "biomesoplenty:pink_coral" },
+        "variant=orange": { "model": "biomesoplenty:orange_coral" },
+        "variant=blue": { "model": "biomesoplenty:blue_coral" },
+        "variant=glowing": { "model": "biomesoplenty:glowing_coral" },
         "variant=algae": { "model": "biomesoplenty:algae" }
     }
 }

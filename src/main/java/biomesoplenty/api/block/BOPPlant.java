@@ -26,14 +26,19 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BOPPlant extends BOPBlock
 {
-    protected BOPPlant()
+    protected BOPPlant(Material material)
     {
-	    super(Material.plants);
+	    super(material);
 	    
 	    this.setTickRandomly(true);
 	    
 	    this.setHardness(0.0F);
 	    this.setStepSound(Block.soundTypeGrass);
+    }
+    
+    protected BOPPlant()
+    {
+    	this(Material.plants);
     }
     
     @Override
