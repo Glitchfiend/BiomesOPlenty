@@ -1,5 +1,7 @@
 /build/
 /bin/
+/Mixin/
+/run/
 /.gradle/
 /.settings/
 /.classpath

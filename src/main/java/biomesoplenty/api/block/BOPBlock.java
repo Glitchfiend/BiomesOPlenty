@@ -65,9 +65,19 @@ public abstract class BOPBlock extends Block
 		return null;
 	}
 	
+	public IProperty[] getHiddenProperties()
+	{
+		return null;
+	}
+	
 	public boolean hasPresetProperties()
 	{
 		return getPresetProperties() != null;
+	}
+	
+	public boolean hasHiddenProperties()
+	{
+		return getHiddenProperties() != null;
 	}
 	
 	public String getStateName(IBlockState state, boolean fullName)

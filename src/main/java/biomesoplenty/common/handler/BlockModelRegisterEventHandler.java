@@ -8,6 +8,14 @@
 
 package biomesoplenty.common.handler;
 
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.renderer.BlockModelShapes;
@@ -18,11 +26,21 @@ import biomesoplenty.common.event.BlockModelRegisterEvent;
 
 public class BlockModelRegisterEventHandler 
 {
+	private static Map<Block, Set<IProperty>> hiddenProperties = Maps.newHashMap();
+	
 	@SubscribeEvent
 	public void onBlockModelRegister(BlockModelRegisterEvent event)
 	{
 		BlockModelShapes modelShapes = event.modelShapes;
 		
-		modelShapes.func_178121_a(BOPBlocks.coral, (new StateMap.Builder()).func_178442_a(new IProperty[] {BlockLiquid.LEVEL}).build());
+		for (Entry<Block, Set<IProperty>> entry : hiddenProperties.entrySet())
+		{
+			modelShapes.func_178121_a(entry.getKey(), (new StateMap.Builder()).func_178442_a(entry.getValue().toArray(new IProperty[] {})).build());
+		}
+	}
+	
+	public static void addHiddenProperties(Block block, IProperty... properties)
+	{
+		hiddenProperties.put(block, Sets.newHashSet(properties));
 	}
 }

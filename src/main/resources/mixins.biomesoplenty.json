@@ -1,0 +1,6 @@
+{
+  "package": "biomesoplenty.common.mixin",
+  "mixins": [
+    "renderer.MixinBlockModelShapes"
+  ]
+}

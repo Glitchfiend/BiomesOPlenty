@@ -2,18 +2,20 @@ buildscript {
     repositories {
         mavenCentral()
         maven {
-            name = "ForgeFS"
-            url = "http://files.minecraftforge.net/maven"
+            name = 'sonatype-nexus-public'
+            url = 'https://oss.sonatype.org/content/repositories/public/'
         }
         maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+            name = 'forge-repo'
+            url = 'http://files.minecraftforge.net/maven/'
         }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
+
+evaluationDependsOn('Mixin')
 
 apply plugin: "forge"
 
@@ -40,19 +42,50 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
-    assetDir = "run/assets"
-
 }
 
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 
+dependencies {
+    compile project('Mixin')
+}
+
 jenkins {
     job = 'BiomesOPlenty'
 }
 
+if (!minecraft.mappingsSet && minecraft.version.startsWith("1.8")) {
+    // Default mappings, normally if mappings are not specified then the plugin will set this
+    // default value internally, unfortunately this happens too late for the compile step below
+    // which needs the correct value to pass to the annotation processor.
+    minecraft.mappings = "snapshot_20141001"
+}
+
+def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + 'mixins.srg'
+reobf.addExtraSrgFile mixinSrg
+
+// Source compiler configuration
+tasks.withType(JavaCompile) {
+    options.compilerArgs += [ '-Xlint:all', '-Xlint:-path', '-Xlint:-processing', "-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}" ]
+    options.deprecation = true
+    options.encoding = 'utf8'
+}
+
+jar {
+    from { project("Mixin").sourceSets.main.output }
+
+    manifest {
+        attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+        attributes 'TweakClass': "org.spongepowered.asm.launch.MixinTweaker"
+        attributes 'TweakOrder': "10000"
+    }
+
+    classifier = 'universal'
+}
+
 processResources {
-    // replace stuff in the files we want.
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.info'
         include '**/*.properties'
@@ -66,19 +99,10 @@ processResources {
         ])
     }
 
-    // copy everything else, thats we didnt do before
     from(sourceSets.main.resources.srcDirs) {
         exclude '**/*.info'
         exclude '**/*.properties'
     }
-}
-
-jar {
-    manifest {
-        //attributes 'FMLCorePlugin': 'biomesoplenty.asm.BOPLoadingPlugin'
-        //attributes 'FMLCorePluginContainsFMLMod': 'true'
-    }
-    classifier = 'universal'
 }
 
 import net.minecraftforge.gradle.tasks.dev.ChangelogTask
