@@ -32,7 +32,7 @@ public class BlockBOPFlower2 extends BOPPlant
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-    	Block ground = world.getBlockState(pos.down()).getBlock();
+    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
     	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
     	
     	switch (type)

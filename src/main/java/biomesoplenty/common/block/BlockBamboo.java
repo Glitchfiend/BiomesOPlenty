@@ -32,7 +32,7 @@ public class BlockBamboo extends BOPPlant
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-    	Block ground = world.getBlockState(pos.down()).getBlock();
+    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
     	
         return ground == Blocks.grass || ground == Blocks.dirt || ground == this;
     }
