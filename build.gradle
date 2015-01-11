@@ -140,7 +140,7 @@ artifacts {
     archives deobfJar
 }
 
-uploadArchives {
+task uploadArchives2 {
     dependsOn 'reobf'
     repositories {
         if (project.hasProperty("filesmaven")) {
