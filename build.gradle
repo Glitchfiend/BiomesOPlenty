@@ -73,7 +73,9 @@ tasks.withType(JavaCompile) {
 }
 
 jar {
-    from { project("Mixin").sourceSets.main.output }
+    from(project("Mixin").sourceSets.main.output) {
+        exclude 'LICENSE.txt'
+    }
 
     manifest {
         attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
