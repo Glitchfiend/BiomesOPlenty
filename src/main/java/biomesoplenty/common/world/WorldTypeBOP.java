@@ -6,17 +6,16 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.init;
+package biomesoplenty.common.world;
 
-import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
-import biomesoplenty.common.handler.DrawScreenEventHandler;
-import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.world.WorldType;
 
-public class ModHandlers 
+public class WorldTypeBOP extends WorldType
 {
-	public static void init()
+	public WorldTypeBOP()
 	{
-		MinecraftForge.EVENT_BUS.register(new BlockModelRegisterEventHandler());
-		MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
+		super("BIOMESOP");
+		
+		this.setNotificationData();
 	}
 }

@@ -13,6 +13,7 @@ import java.util.Map;
 import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.mixin.MixinEnvironment;
 
+import biomesoplenty.common.asm.transformers.BOPAccessTransformer;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
@@ -49,6 +50,6 @@ public class BOPLoadingPlugin implements IFMLLoadingPlugin
     @Override
     public String getAccessTransformerClass()
     {
-	    return null;
+	    return BOPAccessTransformer.class.getName();
     }
 }

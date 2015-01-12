@@ -8,15 +8,14 @@
 
 package biomesoplenty.common.init;
 
-import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
-import biomesoplenty.common.handler.DrawScreenEventHandler;
-import net.minecraftforge.common.MinecraftForge;
+import biomesoplenty.common.world.WorldTypeBOP;
 
-public class ModHandlers 
+public class ModBiomes 
 {
+	public static WorldTypeBOP worldTypeBOP;
+	
 	public static void init()
 	{
-		MinecraftForge.EVENT_BUS.register(new BlockModelRegisterEventHandler());
-		MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
+		worldTypeBOP = new WorldTypeBOP();
 	}
 }

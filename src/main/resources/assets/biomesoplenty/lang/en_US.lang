@@ -1,3 +1,6 @@
+generator.BIOMESOP=Biomes O' Plenty
+generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
+
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 tile.ash_block.name=Ash Block

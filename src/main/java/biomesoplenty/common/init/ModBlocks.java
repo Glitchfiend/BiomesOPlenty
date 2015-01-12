@@ -35,6 +35,7 @@ import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
 import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
+import biomesoplenty.common.handler.DrawScreenEventHandler;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.core.BiomesOPlenty;
@@ -77,6 +78,8 @@ public class ModBlocks
 				
 				ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
 				BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
+				
+				DrawScreenEventHandler.blockCount++;
 			}
 		}
 		else
@@ -85,6 +88,8 @@ public class ModBlocks
 
 			ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
 			BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);
+			
+			DrawScreenEventHandler.blockCount++;
 		}
 		
 		if (block.hasHiddenProperties()) BlockModelRegisterEventHandler.addHiddenProperties(block, block.getHiddenProperties());

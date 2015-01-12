@@ -6,17 +6,16 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.init;
+package biomesoplenty.common.asm.transformers;
 
-import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
-import biomesoplenty.common.handler.DrawScreenEventHandler;
-import net.minecraftforge.common.MinecraftForge;
+import java.io.IOException;
 
-public class ModHandlers 
+import net.minecraftforge.fml.common.asm.transformers.AccessTransformer;
+
+public class BOPAccessTransformer extends AccessTransformer
 {
-	public static void init()
+	public BOPAccessTransformer() throws IOException
 	{
-		MinecraftForge.EVENT_BUS.register(new BlockModelRegisterEventHandler());
-		MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
+		super("biomesoplenty_at.cfg");
 	}
 }
