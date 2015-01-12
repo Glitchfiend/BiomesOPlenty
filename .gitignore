@@ -1,6 +1,7 @@
 /build/
 /bin/
 /Mixin/
+/repo/
 /run/
 /.gradle/
 /.settings/

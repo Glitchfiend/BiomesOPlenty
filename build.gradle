@@ -127,11 +127,17 @@ tasks.build.dependsOn('createChangelog')
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava
+    from project("Mixin").sourceSets.main.allJava
+    from (sourceSets.main.output) {
+        include 'LICENSE.txt'
+    }
+
     classifier = 'sources'
 }
 
 task deobfJar(type: Jar) {
     from sourceSets.main.output
+    from project("Mixin").sourceSets.main.output
     classifier = 'deobf'
 }
 
