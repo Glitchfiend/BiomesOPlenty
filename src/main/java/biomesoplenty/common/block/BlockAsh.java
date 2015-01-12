@@ -16,6 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -59,16 +60,15 @@ public class BlockAsh extends BOPBlock
 		entity.motionZ *= 0.4D;
 	}
 	
-	/*@Override
-    public boolean isFireSource(World world, int x, int y, int z, ForgeDirection side)
+	@Override
+    	public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
 	{
-		if (side == ForgeDirection.UP)
+		if (side == EnumFacing.UP)
 		{
 			return true;
 		}
-		
 		return false;
-	}*/
+	}
 	
 	/*@Override
 	public Item getItemDropped(int metadata, Random random, int fortune)
