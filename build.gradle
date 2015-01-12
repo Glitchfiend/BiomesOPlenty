@@ -140,13 +140,13 @@ artifacts {
     archives deobfJar
 }
 
-task uploadArchives2 {
+uploadArchives {
     dependsOn 'reobf'
     repositories {
         if (project.hasProperty("filesmaven")) {
-            logger.info('Publishing to files server')
+                logger.info('Publishing to files server')
 
-            mavenDeployer {
+                mavenDeployer {
                 configuration = configurations.deployJars
 
                 repository(url: project.filesmaven.url) {
