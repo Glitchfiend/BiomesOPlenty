@@ -10,26 +10,27 @@ package biomesoplenty.common.asm;
 
 import java.util.Map;
 
-//import org.spongepowered.asm.launch.MixinBootstrap;
-//import org.spongepowered.asm.mixin.MixinEnvironment;
-
-import biomesoplenty.common.asm.transformers.BOPAccessTransformer;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
+
+import org.spongepowered.asm.launch.MixinBootstrap;
+import org.spongepowered.asm.mixin.MixinEnvironment;
+
+import biomesoplenty.common.asm.transformers.BOPAccessTransformer;
 
 @TransformerExclusions("biomesoplenty.common.asm")
 public class BOPLoadingPlugin implements IFMLLoadingPlugin
 {
 	public BOPLoadingPlugin()
 	{
-		//MixinBootstrap.init();
-		//MixinEnvironment.getCurrentEnvironment().addConfiguration("mixins.biomesoplenty.json");
+		MixinBootstrap.init();
+		MixinEnvironment.getCurrentEnvironment().addConfiguration("mixins.biomesoplenty.json");
 	}
 	
     @Override
     public String[] getASMTransformerClass()
     {
-	    return new String[] { /*MixinBootstrap.TRANSFORMER_CLASS*/ };
+	    return new String[] { MixinBootstrap.TRANSFORMER_CLASS };
     }
 
     @Override
