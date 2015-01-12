@@ -80,8 +80,9 @@ jar {
     manifest {
         attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
         attributes 'FMLCorePluginContainsFMLMod': 'true'
-        attributes 'TweakClass': "org.spongepowered.asm.launch.MixinTweaker"
-        attributes 'TweakOrder': "10000"
+        attributes 'FMLAT': 'biomesoplenty_at.cfg'
+        //attributes 'TweakClass': "org.spongepowered.asm.launch.MixinTweaker"
+        //attributes 'TweakOrder': "10000"
     }
 
     classifier = 'universal'
