@@ -9,16 +9,22 @@
 package biomesoplenty.common.util.config;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.BiomeProperty;
+import biomesoplenty.api.biome.IExtendedBiome;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class JsonBiome 
 {
-	public static final Gson serializer = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(IBlockState.class, new JsonBlockState()).create();
+	public static final Gson serializer = new GsonBuilder()
+			.setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+			.registerTypeAdapter(IBlockState.class, new JsonBlockState()).create();
 	
 	public String biomeName;
 	public int biomeId;
@@ -31,6 +37,7 @@ public class JsonBiome
 	public int color;
 	public int waterColorMultiplier;
 	public ArrayList<JsonEntitySpawn> entities;
+	public Map<BiomeProperty, Object> decorationProperties;
 	
 	public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
 	{
@@ -47,6 +54,7 @@ public class JsonBiome
 		biome.color = baseBiome.color;
 		biome.waterColorMultiplier = baseBiome.waterColorMultiplier;
 		biome.entities = JsonEntitySpawn.getBiomeEntitySpawns(baseBiome);
+		biome.decorationProperties = ((IExtendedBiome)baseBiome).getPropertyMap();
 		
 		return biome;
 	}
