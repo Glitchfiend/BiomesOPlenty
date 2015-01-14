@@ -9,14 +9,18 @@
 package biomesoplenty.common.block;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import biomesoplenty.api.block.BOPPlant;
 
 public class BlockCoral extends BOPPlant
@@ -28,7 +32,34 @@ public class BlockCoral extends BOPPlant
 		super(Material.water);
 		
     	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, CoralType.PINK));
+    	
+		this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
 	}
+	
+    @Override
+    public int getLightValue(IBlockAccess world, BlockPos pos)
+    {
+    	IBlockState state = world.getBlockState(pos);
+    	
+    	if ((CoralType)state.getValue(VARIANT_PROP) == CoralType.GLOWING)
+    	{
+    		return 10;
+    	}
+    	
+    	return super.getLightValue();
+    }
+    
+    @Override
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
+    {
+    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
+    	Block cover = world.getBlockState(pos.offsetUp()).getBlock();
+    	boolean hasWater = cover == Blocks.water || cover == Blocks.flowing_water;
+    	
+    	//TODO: Make all types depend on mud
+    	return hasWater  && 
+    			(ground == Blocks.dirt || ground == Blocks.sand || ground == Blocks.sponge || ground == Blocks.stone || ground == Blocks.clay || ground == Blocks.gravel || ground == Blocks.grass);
+    }
 
 	@Override
 	public IBlockState getStateFromMeta(int meta)
@@ -70,6 +101,7 @@ public class BlockCoral extends BOPPlant
 		return type.getName() + (fullName && type != CoralType.ALGAE ? "_coral" : "");
 	}
 	
+    //TODO: Readd kelp
 	public static enum CoralType implements IStringSerializable
 	{
 		PINK,
