@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.entities.EntityPixie;
 
@@ -55,7 +56,7 @@ public class ItemJarEmpty extends Item
                     return par1ItemStack;
                 }
 
-                /*TODO: FEATURE <Once Fluids Are Updated>if (par2World.getBlockId(i, j, k) == Fluids.honey.get().blockID && par2World.getBlockMetadata(i, j, k) == 7)
+                if (par2World.getBlock(i, j, k) == BOPCBlocks.honey && par2World.getBlockMetadata(i, j, k) == 7)
                 {
                     --par1ItemStack.stackSize;
                     
@@ -63,14 +64,14 @@ public class ItemJarEmpty extends Item
 
                     if (par1ItemStack.stackSize <= 0)
                     {
-                        return new ItemStack(Items.jarFilled.get(), 1, 0);
+                        return new ItemStack(BOPCItems.jarFilled, 1, 0);
                     }
 
-                    if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.jarFilled.get(), 1, 0)))
+                    if (!par3EntityPlayer.inventory.addItemStackToInventory(new ItemStack(BOPCItems.jarFilled, 1, 0)))
                     {
-                        par3EntityPlayer.dropPlayerItem(new ItemStack(Items.jarFilled.get(), 1, 0));
+                        par3EntityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(BOPCItems.jarFilled, 1, 0), false);
                     }
-                }*/
+                }
             }
 
             return par1ItemStack;
