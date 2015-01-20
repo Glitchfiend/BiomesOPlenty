@@ -18,7 +18,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import org.apache.commons.io.FileUtils;
 
 import biomesoplenty.api.biome.BiomeOwner;
-import biomesoplenty.api.biome.BiomeProperty;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.util.config.JsonEntitySpawn;
@@ -130,11 +129,6 @@ public class BiomeConfigurationHandler
 		
 		if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
 		{
-			extendedBiome.setProperty(BiomeProperty.GRASS_PER_CHUNK, biome.theBiomeDecorator.grassPerChunk);
-			//TODO: Create our own implementations
-			//biome.theBiomeDecorator.grassPerChunk = 0;
-			extendedBiome.setProperty(BiomeProperty.FLOWERS_PER_CHUNK, biome.theBiomeDecorator.flowersPerChunk);
-			//biome.theBiomeDecorator.flowersPerChunk = 0;
 		}
 	}
 	
@@ -153,19 +147,5 @@ public class BiomeConfigurationHandler
 		JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
 		
 		IExtendedBiome extendedBiome = (IExtendedBiome)biome;
-
-		if (!jsonBiome.decorationProperties.isEmpty())
-		{
-			for (Entry<BiomeProperty, Object> entry : jsonBiome.decorationProperties.entrySet())
-			{
-				BiomeProperty property = entry.getKey();
-				Object value = entry.getValue();
-				
-				if (property != null)
-				{
-					extendedBiome.setProperty(property, value);
-				}
-			}
-		}
 	}
 }

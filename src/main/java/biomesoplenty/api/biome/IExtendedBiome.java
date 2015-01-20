@@ -13,7 +13,4 @@ import java.util.Map;
 public interface IExtendedBiome 
 {
 	public BiomeOwner getBiomeOwner();
-	public void setProperty(BiomeProperty property, Object value);
-	public Object getProperty(BiomeProperty property);
-	public Map<BiomeProperty, Object> getPropertyMap();
 }
