@@ -14,11 +14,15 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenCactus;
 
 import org.apache.commons.io.FileUtils;
 
 import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.biome.IExtendedDecorator;
+import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.common.decoration.extensions.IExtendedCactusGen;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.util.config.JsonEntitySpawn;
 
@@ -126,9 +130,18 @@ public class BiomeConfigurationHandler
 	private static void translateVanillaValues(BiomeGenBase biome)
 	{
 		IExtendedBiome extendedBiome = (IExtendedBiome)biome; 
+		IExtendedDecorator extendedDecorator = (IExtendedDecorator)biome.theBiomeDecorator;
 		
 		if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
 		{
+			if (biome.theBiomeDecorator.cactiPerChunk > 0) 
+			{
+				WorldGenCactus cactusGen = new WorldGenCactus();
+				IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen)cactusGen;
+				
+				extendedCactusGen.setCactiPerChunk(biome.theBiomeDecorator.cactiPerChunk);
+				extendedDecorator.addGenerator("cactus", extendedCactusGen);
+			}
 		}
 	}
 	
@@ -146,6 +159,8 @@ public class BiomeConfigurationHandler
 		biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
 		JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
 		
-		IExtendedBiome extendedBiome = (IExtendedBiome)biome;
+		IExtendedDecorator extendedDecorator = (IExtendedDecorator)biome.theBiomeDecorator;
+		
+		extendedDecorator.configureGenerators(jsonBiome.decoration);
 	}
 }

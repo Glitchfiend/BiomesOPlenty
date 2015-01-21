@@ -9,9 +9,12 @@
 package biomesoplenty.common.util.config;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.IExtendedDecorator;
+import biomesoplenty.api.biome.IGenerator;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -21,7 +24,9 @@ public class JsonBiome
 {
 	public static final Gson serializer = new GsonBuilder()
 			.setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-			.registerTypeAdapter(IBlockState.class, new JsonBlockState()).create();
+			.registerTypeAdapter(IBlockState.class, new JsonBlockState())
+			.registerTypeAdapter(IGenerator.class, new GeneratorTypeAdaptor())
+			.create();
 	
 	public String biomeName;
 	public int biomeId;
@@ -34,8 +39,9 @@ public class JsonBiome
 	public int color;
 	public int waterColorMultiplier;
 	public ArrayList<JsonEntitySpawn> entities;
+	public Map<String, IGenerator<?>> decoration;
 	
-	public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
+ 	public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
 	{
 		JsonBiome biome = new JsonBiome();
 		
@@ -50,6 +56,10 @@ public class JsonBiome
 		biome.color = baseBiome.color;
 		biome.waterColorMultiplier = baseBiome.waterColorMultiplier;
 		biome.entities = JsonEntitySpawn.getBiomeEntitySpawns(baseBiome);
+		
+		IExtendedDecorator extendedDecorator = (IExtendedDecorator)baseBiome.theBiomeDecorator;
+		
+		biome.decoration = extendedDecorator.getGeneratorMap();
 		
 		return biome;
 	}
