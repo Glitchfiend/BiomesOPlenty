@@ -22,85 +22,80 @@ import net.minecraft.world.World;
 
 public class BlockBOPFlower2 extends BOPPlant
 {
-	public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", FlowerType.class);
+    public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", FlowerType.class);
 
     public BlockBOPFlower2()
     {
-    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, FlowerType.LAVENDER));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, FlowerType.LAVENDER));
     }
 
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
-    	FlowerType type = (FlowerType)state.getValue(VARIANT_PROP);
-    	
-    	switch (type)
-    	{
-    		case MINERS_DELIGHT:
-    			return ground == Blocks.stone;
-    			
-    		default:
-    	        return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.farmland;
-    	}
+        Block ground = world.getBlockState(pos.offsetDown()).getBlock();
+        FlowerType type = (FlowerType) state.getValue(VARIANT_PROP);
+
+        switch (type)
+        {
+            case MINERS_DELIGHT:
+                return ground == Blocks.stone;
+
+            default:
+                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.farmland;
+        }
     }
-    
-	@Override
-	public IBlockState getStateFromMeta(int meta)
-	{
-		return this.getDefaultState().withProperty(VARIANT_PROP, FlowerType.values()[meta]);
-	}
 
-	@Override
-	public int getMetaFromState(IBlockState state)
-	{
-		int meta = ((FlowerType)state.getValue(VARIANT_PROP)).ordinal();
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT_PROP, FlowerType.values()[meta]);
+    }
 
-		return meta;
-	}
-    
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        int meta = ((FlowerType) state.getValue(VARIANT_PROP)).ordinal();
+
+        return meta;
+    }
+
     @Override
     protected BlockState createBlockState()
     {
         return new BlockState(this, new IProperty[] { VARIANT_PROP });
     }
-    
+
     @Override
     public IProperty[] getPresetProperties()
     {
-    	return new IProperty[] { VARIANT_PROP };
+        return new IProperty[] { VARIANT_PROP };
     }
-    
+
     @Override
-	public String getStateName(IBlockState state, boolean fullName)
-	{
-		return ((FlowerType)state.getValue(VARIANT_PROP)).getName();
-	}
-    
+    public String getStateName(IBlockState state, boolean fullName)
+    {
+        return ((FlowerType) state.getValue(VARIANT_PROP)).getName();
+    }
+
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
-    	this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+        this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
     }
-	
-	public static enum FlowerType implements IStringSerializable
-	{
-		LAVENDER,
-		GOLDENROD,
-		BLUEBELLS,
-		MINERS_DELIGHT,
-		ICY_IRIS,
-		ROSE;
+
+    public static enum FlowerType implements IStringSerializable
+    {
+        LAVENDER, GOLDENROD, BLUEBELLS, MINERS_DELIGHT, ICY_IRIS, ROSE;
 
         public String getName()
         {
-	        return this.name().toLowerCase();
+            return this.name().toLowerCase();
         }
 
-		@Override
-		public String toString()
-		{
-			return getName();
-		}
-	}
+        @Override
+        public String toString()
+        {
+            return getName();
+        }
+    }
 }

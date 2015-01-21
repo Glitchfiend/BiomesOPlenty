@@ -20,47 +20,43 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class JsonBiome 
+public class JsonBiome
 {
-	public static final Gson serializer = new GsonBuilder()
-			.setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-			.registerTypeAdapter(IBlockState.class, new JsonBlockState())
-			.registerTypeAdapter(IGenerator.class, new GeneratorTypeAdaptor())
-			.create();
-	
-	public String biomeName;
-	public int biomeId;
-	public IBlockState topBlock;
-	public IBlockState fillerBlock;
-	public float rootHeight;
-	public float rootVariation;
-	public float temperature;
-	public float rainfall;
-	public int color;
-	public int waterColorMultiplier;
-	public ArrayList<JsonEntitySpawn> entities;
-	public Map<String, IGenerator<?>> decoration;
-	
- 	public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
-	{
-		JsonBiome biome = new JsonBiome();
-		
-		biome.biomeId = baseBiome.biomeID;
-		biome.biomeName = baseBiome.biomeName;
-		biome.topBlock = baseBiome.topBlock;
-		biome.fillerBlock = baseBiome.fillerBlock;
-		biome.rootHeight = baseBiome.minHeight;
-		biome.rootVariation = baseBiome.maxHeight;
-		biome.temperature = baseBiome.temperature;
-		biome.rainfall = baseBiome.rainfall;
-		biome.color = baseBiome.color;
-		biome.waterColorMultiplier = baseBiome.waterColorMultiplier;
-		biome.entities = JsonEntitySpawn.getBiomeEntitySpawns(baseBiome);
-		
-		IExtendedDecorator extendedDecorator = (IExtendedDecorator)baseBiome.theBiomeDecorator;
-		
-		biome.decoration = extendedDecorator.getGeneratorMap();
-		
-		return biome;
-	}
+    public static final Gson serializer = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).registerTypeAdapter(IBlockState.class, new JsonBlockState()).registerTypeAdapter(IGenerator.class, new GeneratorTypeAdaptor()).create();
+
+    public String biomeName;
+    public int biomeId;
+    public IBlockState topBlock;
+    public IBlockState fillerBlock;
+    public float rootHeight;
+    public float rootVariation;
+    public float temperature;
+    public float rainfall;
+    public int color;
+    public int waterColorMultiplier;
+    public ArrayList<JsonEntitySpawn> entities;
+    public Map<String, IGenerator<?>> decoration;
+
+    public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
+    {
+        JsonBiome biome = new JsonBiome();
+
+        biome.biomeId = baseBiome.biomeID;
+        biome.biomeName = baseBiome.biomeName;
+        biome.topBlock = baseBiome.topBlock;
+        biome.fillerBlock = baseBiome.fillerBlock;
+        biome.rootHeight = baseBiome.minHeight;
+        biome.rootVariation = baseBiome.maxHeight;
+        biome.temperature = baseBiome.temperature;
+        biome.rainfall = baseBiome.rainfall;
+        biome.color = baseBiome.color;
+        biome.waterColorMultiplier = baseBiome.waterColorMultiplier;
+        biome.entities = JsonEntitySpawn.getBiomeEntitySpawns(baseBiome);
+
+        IExtendedDecorator extendedDecorator = (IExtendedDecorator) baseBiome.theBiomeDecorator;
+
+        biome.decoration = extendedDecorator.getGeneratorMap();
+
+        return biome;
+    }
 }

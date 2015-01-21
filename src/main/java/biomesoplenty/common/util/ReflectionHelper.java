@@ -10,5 +10,6 @@ package biomesoplenty.common.util;
 
 public class ReflectionHelper
 {
-	//Various fields used in Reflection. These should be checked with every update.
+    // Various fields used in Reflection. These should be checked with every
+    // update.
 }

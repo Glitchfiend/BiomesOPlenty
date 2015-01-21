@@ -17,8 +17,8 @@ public class ItemBlockWithVariants extends ItemBlock
 {
     public ItemBlockWithVariants(Block block)
     {
-	    super(block);
-	    
+        super(block);
+
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
     }
@@ -28,17 +28,18 @@ public class ItemBlockWithVariants extends ItemBlock
     {
         return metadata;
     }
-    
+
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-    	BOPBlock block = (BOPBlock)this.block;
-    	
-    	if (block.hasPresetProperties())
-    	{
-    		return super.getUnlocalizedName() + "." + block.getStateName(block.getStateFromMeta(stack.getMetadata()), false);
-    	}
-    	
-    	else return super.getUnlocalizedName();
+        BOPBlock block = (BOPBlock) this.block;
+
+        if (block.hasPresetProperties())
+        {
+            return super.getUnlocalizedName() + "." + block.getStateName(block.getStateFromMeta(stack.getMetadata()), false);
+        }
+
+        else
+            return super.getUnlocalizedName();
     }
 }

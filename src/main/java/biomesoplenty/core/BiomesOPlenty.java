@@ -26,43 +26,43 @@ import biomesoplenty.common.init.ModItems;
 @Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME)
 public class BiomesOPlenty
 {
-	public static final String MOD_NAME = "Biomes O' Plenty";
-	public static final String MOD_ID = "BiomesOPlenty";
+    public static final String MOD_NAME = "Biomes O' Plenty";
+    public static final String MOD_ID = "BiomesOPlenty";
 
-	@Instance(MOD_ID)
-	public static BiomesOPlenty instance;
+    @Instance(MOD_ID)
+    public static BiomesOPlenty instance;
 
-	@SidedProxy(clientSide = "biomesoplenty.core.ClientProxy", serverSide = "biomesoplenty.core.CommonProxy")
-	public static CommonProxy proxy;
+    @SidedProxy(clientSide = "biomesoplenty.core.ClientProxy", serverSide = "biomesoplenty.core.CommonProxy")
+    public static CommonProxy proxy;
 
-	private File configDirectory;
+    private File configDirectory;
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
-		configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+        configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
 
-		ModConfiguration.init(configDirectory);
-		ModItems.init();
-		ModBlocks.init();
-		ModBiomes.init();
-		ModHandlers.init();
-	}
+        ModConfiguration.init(configDirectory);
+        ModItems.init();
+        ModBlocks.init();
+        ModBiomes.init();
+        ModHandlers.init();
+    }
 
-	@EventHandler
-	public void init(FMLInitializationEvent event)
-	{
-		proxy.registerRenderers();
-	}
+    @EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+        proxy.registerRenderers();
+    }
 
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+    {
 
-	}
+    }
 
-	public File getConfigDirectory()
-	{
-		return configDirectory;
-	}
+    public File getConfigDirectory()
+    {
+        return configDirectory;
+    }
 }

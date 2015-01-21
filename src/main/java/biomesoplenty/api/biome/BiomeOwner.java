@@ -8,8 +8,7 @@
 
 package biomesoplenty.api.biome;
 
-public enum BiomeOwner 
+public enum BiomeOwner
 {
-	BIOMESOPLENTY,
-	OTHER;
+    BIOMESOPLENTY, OTHER;
 }

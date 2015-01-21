@@ -26,7 +26,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ModelHelper 
+public class ModelHelper
 {
     public static void registerItem(Item item, int metadata, String itemName)
     {
@@ -47,14 +47,14 @@ public class ModelHelper
     {
         registerItem(item, 0, itemName);
     }
-    
+
     public static ItemModelMesher getItemModelMesher()
     {
-    	return Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
+        return Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
     }
-    
+
     public static BlockModelShapes getBlockModelShapes()
     {
-    	return getItemModelMesher().getModelManager().getBlockModelShapes();
+        return getItemModelMesher().getModelManager().getBlockModelShapes();
     }
 }

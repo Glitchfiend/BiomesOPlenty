@@ -25,65 +25,65 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 public abstract class BOPBlock extends Block
 {
-	public ImmutableSet<IBlockState> presetStates;
-	
+    public ImmutableSet<IBlockState> presetStates;
+
     protected BOPBlock(Material material)
     {
-	    super(material);
-	    
-	    this.setCreativeTab(CreativeTabBOP.instance);
-    }
-	
-	@Override
-    @SideOnly(Side.CLIENT)
-	public void getSubBlocks(Item item, CreativeTabs tab, List list)
-	{
-		if (this.hasPresetProperties())
-		{
-			for (IBlockState state : presetStates)
-			{
-				list.add(new ItemStack(item, 1, this.getMetaFromState(state)));
-			}
-		}
-		else
-		{
-	        list.add(new ItemStack(item, 1, 0));
-		}
-	}
+        super(material);
 
-	
-	@Override
-	public int damageDropped(IBlockState state)
-	{
-		return this.getMetaFromState(state);
-	}
-    
-	public IProperty[] getPresetProperties()
-	{
-		return null;
-	}
-	
-	public IProperty[] getHiddenProperties()
-	{
-		return null;
-	}
-	
-	public boolean hasPresetProperties()
-	{
-		return getPresetProperties() != null;
-	}
-	
-	public boolean hasHiddenProperties()
-	{
-		return getHiddenProperties() != null;
-	}
-	
-	public String getStateName(IBlockState state, boolean fullName)
-	{
-		String unlocalizedName = state.getBlock().getUnlocalizedName();
-		
-		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-	}
+        this.setCreativeTab(CreativeTabBOP.instance);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item item, CreativeTabs tab, List list)
+    {
+        if (this.hasPresetProperties())
+        {
+            for (IBlockState state : presetStates)
+            {
+                list.add(new ItemStack(item, 1, this.getMetaFromState(state)));
+            }
+        }
+        else
+        {
+            list.add(new ItemStack(item, 1, 0));
+        }
+    }
+
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
+    }
+
+    public IProperty[] getPresetProperties()
+    {
+        return null;
+    }
+
+    public IProperty[] getHiddenProperties()
+    {
+        return null;
+    }
+
+    public boolean hasPresetProperties()
+    {
+        return getPresetProperties() != null;
+    }
+
+    public boolean hasHiddenProperties()
+    {
+        return getHiddenProperties() != null;
+    }
+
+    public String getStateName(IBlockState state, boolean fullName)
+    {
+        String unlocalizedName = state.getBlock().getUnlocalizedName();
+
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
 }

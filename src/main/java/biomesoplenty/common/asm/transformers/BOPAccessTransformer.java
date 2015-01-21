@@ -14,8 +14,8 @@ import net.minecraftforge.fml.common.asm.transformers.AccessTransformer;
 
 public class BOPAccessTransformer extends AccessTransformer
 {
-	public BOPAccessTransformer() throws IOException
-	{
-		super("biomesoplenty_at.cfg");
-	}
+    public BOPAccessTransformer() throws IOException
+    {
+        super("biomesoplenty_at.cfg");
+    }
 }

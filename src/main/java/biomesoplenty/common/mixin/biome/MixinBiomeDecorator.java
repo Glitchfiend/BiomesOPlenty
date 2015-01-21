@@ -25,31 +25,29 @@ import biomesoplenty.api.biome.IGenerator;
 @Mixin(BiomeDecorator.class)
 public class MixinBiomeDecorator implements IExtendedDecorator
 {
-	private Map<String, IGenerator<?>> generatorMap;
-	
-	@Inject(method = "<init>", at = @At("RETURN"))
-    private void onConstructed(CallbackInfo callbackInfo) 
+    private Map<String, IGenerator<?>> generatorMap;
+
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void onConstructed(CallbackInfo callbackInfo)
     {
-		this.generatorMap = new HashMap();
+        this.generatorMap = new HashMap();
     }
-	
-	@Override
-	public void addGenerator(String key, IGenerator<?> generator) 
-	{
-		this.generatorMap.put(key, generator);
-	}
-	
-	@Override
-	public void configureGenerators(Map<String, IGenerator<?>> generatorMap)
-	{
-		this.generatorMap.putAll(generatorMap);
-	}
-	
-	@Override
-	public Map<String, IGenerator<?>> getGeneratorMap()
-	{
-		return Collections.unmodifiableMap(this.generatorMap);
-	}
+
+    @Override
+    public void addGenerator(String key, IGenerator<?> generator)
+    {
+        this.generatorMap.put(key, generator);
+    }
+
+    @Override
+    public void configureGenerators(Map<String, IGenerator<?>> generatorMap)
+    {
+        this.generatorMap.putAll(generatorMap);
+    }
+
+    @Override
+    public Map<String, IGenerator<?>> getGeneratorMap()
+    {
+        return Collections.unmodifiableMap(this.generatorMap);
+    }
 }
-
-

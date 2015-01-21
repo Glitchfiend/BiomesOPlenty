@@ -21,17 +21,17 @@ import biomesoplenty.api.biome.IExtendedBiome;
 @Mixin(BiomeGenBase.class)
 public abstract class MixinBiomeGenBase implements IExtendedBiome
 {
-	private BiomeOwner biomeOwner;
-	
-	@Inject(method = "<init>(IZ)V", at = @At("RETURN"))
-    private void onConstructed(int biomeId, boolean register, CallbackInfo callbackInfo) 
+    private BiomeOwner biomeOwner;
+
+    @Inject(method = "<init>(IZ)V", at = @At("RETURN"))
+    private void onConstructed(int biomeId, boolean register, CallbackInfo callbackInfo)
     {
-		this.biomeOwner = BiomeOwner.OTHER;
+        this.biomeOwner = BiomeOwner.OTHER;
     }
-	
-	@Override
-	public BiomeOwner getBiomeOwner()
-	{
-		return biomeOwner;
-	}
+
+    @Override
+    public BiomeOwner getBiomeOwner()
+    {
+        return biomeOwner;
+    }
 }

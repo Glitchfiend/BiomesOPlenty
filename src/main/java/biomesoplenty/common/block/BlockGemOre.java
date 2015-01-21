@@ -20,53 +20,53 @@ import net.minecraft.block.state.IBlockState;
 
 public class BlockGemOre extends BOPBlock
 {
-	public BlockGemOre()
-	{
-		super(Material.rock);
-		
-    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, GemType.AMETHYST));
-    	
-	    this.presetStates = BlockStateUtils.getValidStatesForProperties(this.getDefaultState(), this.getPresetProperties());
-    	
-    	for (IBlockState state : presetStates)
-    	{
-        	this.setHarvestLevel("pickaxe", 2, state);	
-    	}
-    	
-    	this.setHardness(3.0F);
-    	this.setResistance(5.0F);
-	    this.setStepSound(Block.soundTypePiston);
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta)
-	{
-		return this.getDefaultState().withProperty(VARIANT_PROP, GemType.values()[meta]);
-	}
+    public BlockGemOre()
+    {
+        super(Material.rock);
 
-	@Override
-	public int getMetaFromState(IBlockState state)
-	{
-		int meta = ((GemType)state.getValue(VARIANT_PROP)).ordinal();
-		
-		return meta;
-	}
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, GemType.AMETHYST));
 
-	@Override
-	protected BlockState createBlockState()
-	{
-		return new BlockState(this, new IProperty[] { VARIANT_PROP });
-	}
-	
+        this.presetStates = BlockStateUtils.getValidStatesForProperties(this.getDefaultState(), this.getPresetProperties());
+
+        for (IBlockState state : presetStates)
+        {
+            this.setHarvestLevel("pickaxe", 2, state);
+        }
+
+        this.setHardness(3.0F);
+        this.setResistance(5.0F);
+        this.setStepSound(Block.soundTypePiston);
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT_PROP, GemType.values()[meta]);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        int meta = ((GemType) state.getValue(VARIANT_PROP)).ordinal();
+
+        return meta;
+    }
+
+    @Override
+    protected BlockState createBlockState()
+    {
+        return new BlockState(this, new IProperty[] { VARIANT_PROP });
+    }
+
     @Override
     public IProperty[] getPresetProperties()
     {
-    	return new IProperty[] { VARIANT_PROP };
+        return new IProperty[] { VARIANT_PROP };
     }
-    
+
     @Override
     public String getStateName(IBlockState state, boolean fullName)
     {
-    	return ((GemType)state.getValue(VARIANT_PROP)).getName() + (fullName ? "_ore" : "");
+        return ((GemType) state.getValue(VARIANT_PROP)).getName() + (fullName ? "_ore" : "");
     }
 }

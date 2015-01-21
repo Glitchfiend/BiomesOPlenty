@@ -28,32 +28,32 @@ public class BOPPlant extends BOPBlock
 {
     protected BOPPlant(Material material)
     {
-	    super(material);
-	    
-	    this.setTickRandomly(true);
-	    
-	    this.setHardness(0.0F);
-	    this.setStepSound(Block.soundTypeGrass);
+        super(material);
+
+        this.setTickRandomly(true);
+
+        this.setHardness(0.0F);
+        this.setStepSound(Block.soundTypeGrass);
     }
-    
+
     protected BOPPlant()
     {
-    	this(Material.plants);
+        this(Material.plants);
     }
-    
+
     @Override
     public boolean canReplace(World world, BlockPos pos, EnumFacing side, ItemStack stack)
     {
         return super.canPlaceBlockOnSide(world, pos, side) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));
     }
-    
+
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
-    	
+        Block ground = world.getBlockState(pos.offsetDown()).getBlock();
+
         return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.farmland;
     }
-    
+
     @Override
     public void onNeighborBlockChange(World world, BlockPos pos, IBlockState state, Block neighborBlock)
     {
@@ -100,11 +100,11 @@ public class BOPPlant extends BOPBlock
     {
         return EnumWorldBlockLayer.CUTOUT;
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType()
     {
-    	return Block.EnumOffsetType.XZ;
+        return Block.EnumOffsetType.XZ;
     }
 }

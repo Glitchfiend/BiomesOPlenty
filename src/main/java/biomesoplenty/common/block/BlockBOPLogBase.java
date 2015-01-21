@@ -22,18 +22,18 @@ import biomesoplenty.common.util.inventory.CreativeTabBOP;
 public abstract class BlockBOPLogBase extends BOPBlock
 {
     public static final PropertyEnum AXIS_PROP = PropertyEnum.create("axis", EnumFacing.Axis.class);
-    
+
     protected BlockBOPLogBase()
     {
-    	super(Material.wood);
-    	
-		this.setHarvestLevel("axe", 0);
-    	
-		this.setHardness(2.0F);
-		this.setResistance(5.0F);
-		this.setStepSound(Block.soundTypeWood);
+        super(Material.wood);
+
+        this.setHarvestLevel("axe", 0);
+
+        this.setHardness(2.0F);
+        this.setResistance(5.0F);
+        this.setStepSound(Block.soundTypeWood);
     }
-    
+
     @Override
     public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int metadata, EntityLivingBase entity)
     {

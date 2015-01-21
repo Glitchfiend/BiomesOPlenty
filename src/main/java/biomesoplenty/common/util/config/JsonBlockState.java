@@ -31,72 +31,72 @@ import com.google.gson.JsonSyntaxException;
 
 public class JsonBlockState implements JsonDeserializer<IBlockState>, JsonSerializer<IBlockState>
 {
-	@Override
-	public JsonElement serialize(IBlockState blockState, Type typeOfSrc, JsonSerializationContext context) 
-	{
-		JsonObject jsonBlockState = new JsonObject();
-		JsonObject jsonStateProperties = new JsonObject();
+    @Override
+    public JsonElement serialize(IBlockState blockState, Type typeOfSrc, JsonSerializationContext context)
+    {
+        JsonObject jsonBlockState = new JsonObject();
+        JsonObject jsonStateProperties = new JsonObject();
 
-		jsonBlockState.addProperty("block", GameRegistry.findUniqueIdentifierFor(blockState.getBlock()).toString());
-		
-		for (Entry<IProperty, Comparable> entry : (ImmutableSet<Entry<IProperty, Comparable>>)blockState.getProperties().entrySet())
-		{
-			IProperty property = entry.getKey();
-			Comparable value = entry.getValue();
-			
-			jsonStateProperties.addProperty(property.getName(), value.toString());
-		}
-		
-		jsonBlockState.add("properties", jsonStateProperties);
-		
-		return jsonBlockState;
-	}
+        jsonBlockState.addProperty("block", GameRegistry.findUniqueIdentifierFor(blockState.getBlock()).toString());
 
-	@Override
-	public IBlockState deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException 
-	{
-		JsonObject jsonBlockState = json.getAsJsonObject();
-		
-		if (jsonBlockState.has("block"))
-		{
-			Block block = Block.getBlockFromName(jsonBlockState.get("block").getAsString());
-			
-			if (block != null)
-			{
-				IBlockState blockState = block.getDefaultState();
-				
-				if (jsonBlockState.has("properties"))
-				{
-					JsonObject jsonProperties = jsonBlockState.getAsJsonObject("properties");
-					
-					for (Entry<String, JsonElement> entry : jsonProperties.entrySet())
-					{
-							IProperty property = BlockStateUtils.getPropertyByName(blockState, entry.getKey());
+        for (Entry<IProperty, Comparable> entry : (ImmutableSet<Entry<IProperty, Comparable>>) blockState.getProperties().entrySet())
+        {
+            IProperty property = entry.getKey();
+            Comparable value = entry.getValue();
 
-							if (property != null)
-							{
-								Comparable propertyValue = BlockStateUtils.getPropertyValueByName(blockState, property, entry.getValue().getAsString());
+            jsonStateProperties.addProperty(property.getName(), value.toString());
+        }
 
-								if (propertyValue != null)
-								{
-									blockState = blockState.withProperty(property, propertyValue);
-								}
-								else
-								{
-									throw new JsonParseException("Invalid value " + entry.getValue().getAsString() + " for property " + entry.getKey());
-								}
-							}
-							else
-							{
-								throw new JsonParseException("Invalid property name: " + entry.getKey());
-							}
-					}
-				}
-				
-				return blockState;
-			}
-		}
-		
-		throw new JsonParseException("Invalid block state: " + json.toString());
-	}
+        jsonBlockState.add("properties", jsonStateProperties);
+
+        return jsonBlockState;
+    }
+
+    @Override
+    public IBlockState deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
+    {
+        JsonObject jsonBlockState = json.getAsJsonObject();
+
+        if (jsonBlockState.has("block"))
+        {
+            Block block = Block.getBlockFromName(jsonBlockState.get("block").getAsString());
+
+            if (block != null)
+            {
+                IBlockState blockState = block.getDefaultState();
+
+                if (jsonBlockState.has("properties"))
+                {
+                    JsonObject jsonProperties = jsonBlockState.getAsJsonObject("properties");
+
+                    for (Entry<String, JsonElement> entry : jsonProperties.entrySet())
+                    {
+                        IProperty property = BlockStateUtils.getPropertyByName(blockState, entry.getKey());
+
+                        if (property != null)
+                        {
+                            Comparable propertyValue = BlockStateUtils.getPropertyValueByName(blockState, property, entry.getValue().getAsString());
+
+                            if (propertyValue != null)
+                            {
+                                blockState = blockState.withProperty(property, propertyValue);
+                            }
+                            else
+                            {
+                                throw new JsonParseException("Invalid value " + entry.getValue().getAsString() + " for property " + entry.getKey());
+                            }
+                        }
+                        else
+                        {
+                            throw new JsonParseException("Invalid property name: " + entry.getKey());
+                        }
+                    }
+                }
+
+                return blockState;
+            }
+        }
+
+        throw new JsonParseException("Invalid block state: " + json.toString());
+    }
 }

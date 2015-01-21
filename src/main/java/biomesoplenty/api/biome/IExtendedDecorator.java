@@ -10,9 +10,11 @@ package biomesoplenty.api.biome;
 
 import java.util.Map;
 
-public interface IExtendedDecorator 
+public interface IExtendedDecorator
 {
-	public void addGenerator(String key, IGenerator<?> generator);
-	public void configureGenerators(Map<String, IGenerator<?>> generatorMap);
-	public Map<String, IGenerator<?>> getGeneratorMap();
+    public void addGenerator(String key, IGenerator<?> generator);
+
+    public void configureGenerators(Map<String, IGenerator<?>> generatorMap);
+
+    public Map<String, IGenerator<?>> getGeneratorMap();
 }

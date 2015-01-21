@@ -24,23 +24,23 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.event.BlockModelRegisterEvent;
 
-public class BlockModelRegisterEventHandler 
+public class BlockModelRegisterEventHandler
 {
-	private static Map<Block, Set<IProperty>> hiddenProperties = Maps.newHashMap();
-	
-	@SubscribeEvent
-	public void onBlockModelRegister(BlockModelRegisterEvent event)
-	{
-		BlockModelShapes modelShapes = event.modelShapes;
-		
-		for (Entry<Block, Set<IProperty>> entry : hiddenProperties.entrySet())
-		{
-			modelShapes.func_178121_a(entry.getKey(), (new StateMap.Builder()).func_178442_a(entry.getValue().toArray(new IProperty[] {})).build());
-		}
-	}
-	
-	public static void addHiddenProperties(Block block, IProperty... properties)
-	{
-		hiddenProperties.put(block, Sets.newHashSet(properties));
-	}
+    private static Map<Block, Set<IProperty>> hiddenProperties = Maps.newHashMap();
+
+    @SubscribeEvent
+    public void onBlockModelRegister(BlockModelRegisterEvent event)
+    {
+        BlockModelShapes modelShapes = event.modelShapes;
+
+        for (Entry<Block, Set<IProperty>> entry : hiddenProperties.entrySet())
+        {
+            modelShapes.func_178121_a(entry.getKey(), (new StateMap.Builder()).func_178442_a(entry.getValue().toArray(new IProperty[] {})).build());
+        }
+    }
+
+    public static void addHiddenProperties(Block block, IProperty... properties)
+    {
+        hiddenProperties.put(block, Sets.newHashSet(properties));
+    }
 }

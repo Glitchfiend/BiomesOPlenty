@@ -23,30 +23,30 @@ public class BlockBamboo extends BOPPlant
 {
     public BlockBamboo()
     {
-	    this.setHardness(0.2F);
-	    this.setStepSound(Block.soundTypeWood);
-	    
+        this.setHardness(0.2F);
+        this.setStepSound(Block.soundTypeWood);
+
         this.setBlockBounds(0.3125F, 0.0F, 0.3125F, 0.6875F, 1.0F, 0.6875F);
     }
-    
+
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-    	Block ground = world.getBlockState(pos.offsetDown()).getBlock();
-    	
+        Block ground = world.getBlockState(pos.offsetDown()).getBlock();
+
         return ground == Blocks.grass || ground == Blocks.dirt || ground == this;
     }
-    
+
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {
-        return new AxisAlignedBB((double)pos.getX() + this.minX, (double)pos.getY() + this.minY, (double)pos.getZ() + this.minZ, (double)pos.getX() + this.maxX, (double)pos.getY() + this.maxY, (double)pos.getZ() + this.maxZ);
+        return new AxisAlignedBB((double) pos.getX() + this.minX, (double) pos.getY() + this.minY, (double) pos.getZ() + this.minZ, (double) pos.getX() + this.maxX, (double) pos.getY() + this.maxY, (double) pos.getZ() + this.maxZ);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Block.EnumOffsetType getOffsetType()
     {
-    	return Block.EnumOffsetType.NONE;
+        return Block.EnumOffsetType.NONE;
     }
 }

@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.block;
 
-public class BlockSegmentedCoral {
+public class BlockSegmentedCoral
+{
 
 }

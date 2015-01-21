@@ -12,11 +12,11 @@ import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
 import biomesoplenty.common.handler.DrawScreenEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 
-public class ModHandlers 
+public class ModHandlers
 {
-	public static void init()
-	{
-		MinecraftForge.EVENT_BUS.register(new BlockModelRegisterEventHandler());
-		MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
-	}
+    public static void init()
+    {
+        MinecraftForge.EVENT_BUS.register(new BlockModelRegisterEventHandler());
+        MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
+    }
 }

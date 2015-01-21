@@ -10,8 +10,8 @@ package biomesoplenty.common.init;
 
 public class ModItems
 {
-	public static void init()
-	{
-		
-	}
+    public static void init()
+    {
+
+    }
 }

@@ -19,82 +19,68 @@ import biomesoplenty.api.block.BOPBlock;
 
 public class BlockBOPPlanks extends BOPBlock
 {
-	public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", PlankType.class);
-	
+    public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", PlankType.class);
+
     public BlockBOPPlanks()
     {
-	    super(Material.wood);
-	    
-    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, PlankType.SACRED_OAK));
-	    
-		this.setHarvestLevel("axe", 0);
-	    
-		this.setHardness(2.0F);
-		this.setStepSound(Block.soundTypeWood);
+        super(Material.wood);
+
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, PlankType.SACRED_OAK));
+
+        this.setHarvestLevel("axe", 0);
+
+        this.setHardness(2.0F);
+        this.setStepSound(Block.soundTypeWood);
     }
-    
-	@Override
-	public IBlockState getStateFromMeta(int meta)
-	{
-		return this.getDefaultState().withProperty(VARIANT_PROP, PlankType.values()[meta]);
-	}
 
-	@Override
-	public int getMetaFromState(IBlockState state)
-	{
-		int meta = ((PlankType)state.getValue(VARIANT_PROP)).ordinal();
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT_PROP, PlankType.values()[meta]);
+    }
 
-		return meta;
-	}
-    
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        int meta = ((PlankType) state.getValue(VARIANT_PROP)).ordinal();
+
+        return meta;
+    }
+
     @Override
     protected BlockState createBlockState()
     {
         return new BlockState(this, new IProperty[] { VARIANT_PROP });
     }
-    
+
     @Override
     public IProperty[] getPresetProperties()
     {
-    	return new IProperty[] { VARIANT_PROP };
+        return new IProperty[] { VARIANT_PROP };
     }
-    
-    @Override
-	public String getStateName(IBlockState state, boolean fullName)
-	{
-    	PlankType type = (PlankType)state.getValue(VARIANT_PROP);
-    	
-		return type.getName() + (fullName && type != PlankType.BAMBOO_THATCHING ? "_planks" : "");
-	}
 
-	public static enum PlankType implements IStringSerializable
-	{
-	    SACRED_OAK,
-	    CHERRY,
-	    DARK,
-	    FIR,
-	    ETHEREAL,
-	    MAGIC,
-	    MANGROVE,
-	    PALM,
-	    REDWOOD,
-	    WILLOW,
-	    BAMBOO_THATCHING,
-	    PINE,
-	    HELL_BARK,
-	    JACARANDA,
-	    MAHOGANY;
-	    
+    @Override
+    public String getStateName(IBlockState state, boolean fullName)
+    {
+        PlankType type = (PlankType) state.getValue(VARIANT_PROP);
+
+        return type.getName() + (fullName && type != PlankType.BAMBOO_THATCHING ? "_planks" : "");
+    }
+
+    public static enum PlankType implements IStringSerializable
+    {
+        SACRED_OAK, CHERRY, DARK, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, BAMBOO_THATCHING, PINE, HELL_BARK, JACARANDA, MAHOGANY;
+
         @Override
         public String getName()
         {
-	        return this.name().toLowerCase();
+            return this.name().toLowerCase();
         }
-        
+
         @Override
         public String toString()
         {
-        	return getName();
+            return getName();
         }
-	}
+    }
 }

@@ -10,7 +10,7 @@ package biomesoplenty.api.biome;
 
 import java.util.Map;
 
-public interface IExtendedBiome 
+public interface IExtendedBiome
 {
-	public BiomeOwner getBiomeOwner();
+    public BiomeOwner getBiomeOwner();
 }

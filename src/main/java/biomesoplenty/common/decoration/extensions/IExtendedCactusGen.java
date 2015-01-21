@@ -13,6 +13,7 @@ import biomesoplenty.api.biome.IGenerator;
 
 public interface IExtendedCactusGen extends IGenerator<WorldGenCactus>
 {
-	public void setCactiPerChunk(int amount);
-	public int getCactiPerChunk();
+    public void setCactiPerChunk(int amount);
+
+    public int getCactiPerChunk();
 }

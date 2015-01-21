@@ -22,39 +22,39 @@ import com.google.gson.JsonObject;
 @Mixin(WorldGenCactus.class)
 public abstract class MixinWorldGenCactus extends WorldGenerator implements IExtendedCactusGen
 {
-	private int cactiPerChunk;
-	
-	@Override
-	public void setCactiPerChunk(int amount)
-	{
-		this.cactiPerChunk = amount;
-	}
-	
-	@Override
-	public int getCactiPerChunk()
-	{
-		return this.cactiPerChunk;
-	}
+    private int cactiPerChunk;
 
-	@Override
-	public JsonElement serialize(IGenerator<WorldGenCactus> src) 
-	{
-		JsonObject jsonCactusGen = new JsonObject();
+    @Override
+    public void setCactiPerChunk(int amount)
+    {
+        this.cactiPerChunk = amount;
+    }
 
-		jsonCactusGen.addProperty("cacti_per_chunk", ((IExtendedCactusGen)src).getCactiPerChunk());
+    @Override
+    public int getCactiPerChunk()
+    {
+        return this.cactiPerChunk;
+    }
 
-		return jsonCactusGen;
-	}
+    @Override
+    public JsonElement serialize(IGenerator<WorldGenCactus> src)
+    {
+        JsonObject jsonCactusGen = new JsonObject();
 
-	@Override
-	public IGenerator<WorldGenCactus> deserialize(JsonElement json) 
-	{
-		JsonObject jsonCactusGen = json.getAsJsonObject();
-		WorldGenCactus cactusGen = new WorldGenCactus();
-		IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen)cactusGen;
-		
-		extendedCactusGen.setCactiPerChunk(jsonCactusGen.get("cacti_per_chunk").getAsInt());
-		
-		return (IGenerator<WorldGenCactus>)new WorldGenCactus();
-	}
+        jsonCactusGen.addProperty("cacti_per_chunk", ((IExtendedCactusGen) src).getCactiPerChunk());
+
+        return jsonCactusGen;
+    }
+
+    @Override
+    public IGenerator<WorldGenCactus> deserialize(JsonElement json)
+    {
+        JsonObject jsonCactusGen = json.getAsJsonObject();
+        WorldGenCactus cactusGen = new WorldGenCactus();
+        IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
+
+        extendedCactusGen.setCactiPerChunk(jsonCactusGen.get("cacti_per_chunk").getAsInt());
+
+        return (IGenerator<WorldGenCactus>) new WorldGenCactus();
+    }
 }

@@ -14,7 +14,11 @@ import net.minecraft.item.Item;
 
 public class CommonProxy
 {
-	public void registerRenderers() {}
-	
-	public void registerBlockForMeshing(BOPBlock block, int metadata, String name) {}
+    public void registerRenderers()
+    {
+    }
+
+    public void registerBlockForMeshing(BOPBlock block, int metadata, String name)
+    {
+    }
 }

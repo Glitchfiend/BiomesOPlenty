@@ -42,58 +42,60 @@ import biomesoplenty.core.BiomesOPlenty;
 
 public class ModBlocks
 {
-	public static void init()
-	{
-		ash_block = registerBlock(new BlockAsh(), "ash_block");
-		bamboo = registerBlock(new BlockBamboo(), "bamboo");
-		bone_segment = registerBlock(new BlockBones(), "bone_segment");
-		coral = registerBlock(new BlockCoral(), "coral");
-		flower = registerBlock(new BlockBOPFlower(), "flower");
-		flower2 = registerBlock(new BlockBOPFlower2(), "flower2");
-		gem = registerBlock(new BlockGem(), "gem");
-		gem_ore = registerBlock(new BlockGemOre(), "gem_ore");
-		hive = registerBlock(new BlockHive(), "hive");
-		log = registerBlock(new BlockBOPLog(), "log");
-		log2 = registerBlock(new BlockBOPLog2(), "log2");
-		log3 = registerBlock(new BlockBOPLog3(), "log3");
-		log4 = registerBlock(new BlockBOPLog4(), "log4");
-		mushroom = registerBlock(new BlockBOPMushroom(), "mushroom");
-		planks = registerBlock(new BlockBOPPlanks(), "planks");
-		stone = registerBlock(new BlockBOPStone(), "stone");
-	}
-	
-	private static Block registerBlock(BOPBlock block, String name)
-	{
-		if (block.presetStates == null) block.presetStates = BlockStateUtils.getValidStatesForProperties(block.getDefaultState(), block.getPresetProperties());
-		
-		block.setUnlocalizedName(name);
+    public static void init()
+    {
+        ash_block = registerBlock(new BlockAsh(), "ash_block");
+        bamboo = registerBlock(new BlockBamboo(), "bamboo");
+        bone_segment = registerBlock(new BlockBones(), "bone_segment");
+        coral = registerBlock(new BlockCoral(), "coral");
+        flower = registerBlock(new BlockBOPFlower(), "flower");
+        flower2 = registerBlock(new BlockBOPFlower2(), "flower2");
+        gem = registerBlock(new BlockGem(), "gem");
+        gem_ore = registerBlock(new BlockGemOre(), "gem_ore");
+        hive = registerBlock(new BlockHive(), "hive");
+        log = registerBlock(new BlockBOPLog(), "log");
+        log2 = registerBlock(new BlockBOPLog2(), "log2");
+        log3 = registerBlock(new BlockBOPLog3(), "log3");
+        log4 = registerBlock(new BlockBOPLog4(), "log4");
+        mushroom = registerBlock(new BlockBOPMushroom(), "mushroom");
+        planks = registerBlock(new BlockBOPPlanks(), "planks");
+        stone = registerBlock(new BlockBOPStone(), "stone");
+    }
 
-		if (block.hasPresetProperties())
-		{
-			GameRegistry.registerBlock(block, ItemBlockWithVariants.class, name);
-			
-			for (IBlockState state : block.presetStates)
-			{
-				String stateName = block.getStateName(state, true);
-				
-				ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
-				BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
-				
-				DrawScreenEventHandler.blockCount++;
-			}
-		}
-		else
-		{
-			GameRegistry.registerBlock(block, name);
+    private static Block registerBlock(BOPBlock block, String name)
+    {
+        if (block.presetStates == null)
+            block.presetStates = BlockStateUtils.getValidStatesForProperties(block.getDefaultState(), block.getPresetProperties());
 
-			ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
-			BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);
-			
-			DrawScreenEventHandler.blockCount++;
-		}
-		
-		if (block.hasHiddenProperties()) BlockModelRegisterEventHandler.addHiddenProperties(block, block.getHiddenProperties());
-		
-		return block;
-	}
+        block.setUnlocalizedName(name);
+
+        if (block.hasPresetProperties())
+        {
+            GameRegistry.registerBlock(block, ItemBlockWithVariants.class, name);
+
+            for (IBlockState state : block.presetStates)
+            {
+                String stateName = block.getStateName(state, true);
+
+                ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
+                BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
+
+                DrawScreenEventHandler.blockCount++;
+            }
+        }
+        else
+        {
+            GameRegistry.registerBlock(block, name);
+
+            ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
+            BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);
+
+            DrawScreenEventHandler.blockCount++;
+        }
+
+        if (block.hasHiddenProperties())
+            BlockModelRegisterEventHandler.addHiddenProperties(block, block.getHiddenProperties());
+
+        return block;
+    }
 }

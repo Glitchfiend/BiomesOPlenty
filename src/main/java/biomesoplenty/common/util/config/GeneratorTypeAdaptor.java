@@ -22,40 +22,40 @@ import com.google.gson.JsonSerializer;
 
 public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator<?>>, JsonDeserializer<IGenerator<?>>
 {
-	@Override
-	public JsonElement serialize(IGenerator<?> src, Type typeOfSrc, JsonSerializationContext context) 
-	{
-		JsonObject jsonObject = src.serialize((IGenerator)src).getAsJsonObject();
-		
-		jsonObject.addProperty("class", src.getClass().getCanonicalName());
-		
-		return jsonObject;
-	}
-	
-	@Override
-	public IGenerator<?> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException 
-	{
-		JsonObject jsonObject = json.getAsJsonObject();
-		
-		if (jsonObject.has("class"))
-		{
-			try 
-			{
-				Class generatorClass = Class.forName(jsonObject.get("class").getAsString());
-				
-				if (IGenerator.class.isAssignableFrom(generatorClass))
-				{
-					IGenerator<?> generator = (IGenerator<?>)generatorClass.newInstance();
-					
-					return generator.deserialize(json);
-				}
-			} 
-			catch (Exception e) 
-			{
-				e.printStackTrace();
-			}
-		}
-		
-		return null;
-	}
+    @Override
+    public JsonElement serialize(IGenerator<?> src, Type typeOfSrc, JsonSerializationContext context)
+    {
+        JsonObject jsonObject = src.serialize((IGenerator) src).getAsJsonObject();
+
+        jsonObject.addProperty("class", src.getClass().getCanonicalName());
+
+        return jsonObject;
+    }
+
+    @Override
+    public IGenerator<?> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
+    {
+        JsonObject jsonObject = json.getAsJsonObject();
+
+        if (jsonObject.has("class"))
+        {
+            try
+            {
+                Class generatorClass = Class.forName(jsonObject.get("class").getAsString());
+
+                if (IGenerator.class.isAssignableFrom(generatorClass))
+                {
+                    IGenerator<?> generator = (IGenerator<?>) generatorClass.newInstance();
+
+                    return generator.deserialize(json);
+                }
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
 }

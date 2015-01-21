@@ -29,73 +29,67 @@ public class BlockAsh extends BOPBlock
 {
     public BlockAsh()
     {
-	    super(Material.sand);
-	    
-	    this.setHardness(0.4F);
-		//this.setHarvestLevel("shovel", 0);
-	    this.setStepSound(Block.soundTypeSand);
+        super(Material.sand);
+
+        this.setHardness(0.4F);
+        // this.setHarvestLevel("shovel", 0);
+        this.setStepSound(Block.soundTypeSand);
     }
-    
+
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {
         float heightOffset = 0.125F;
-        return new AxisAlignedBB((double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), (double)(pos.getX() + 1), (double)((float)(pos.getY() + 1) - heightOffset), (double)(pos.getZ() + 1));
+        return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
     }
 
-	@Override
-	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
-	{
-		/*if (entity instanceof EntityPlayer)
-		{
-			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+    @Override
+    public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
+    {
+        /*
+         * if (entity instanceof EntityPlayer) { InventoryPlayer inventory =
+         * ((EntityPlayer)entity).inventory;
+         * 
+         * if (inventory.armorInventory[0] != null &&
+         * inventory.armorInventory[0].getItem() == BOPCItems.wadingBoots) {
+         * return; } }
+         */
 
-			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPCItems.wadingBoots)
-			{
-				return;
-			}
-		}*/
+        entity.motionX *= 0.4D;
+        entity.motionZ *= 0.4D;
+    }
 
-		entity.motionX *= 0.4D;
-		entity.motionZ *= 0.4D;
-	}
-	
-	@Override
-    	public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
-	{
-		if (side == EnumFacing.UP)
-		{
-			return true;
-		}
-		return false;
-	}
-	
-	/*@Override
-	public Item getItemDropped(int metadata, Random random, int fortune)
-	{
-		return BOPCItems.misc;
-	}
+    @Override
+    public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
+    {
+        if (side == EnumFacing.UP)
+        {
+            return true;
+        }
+        return false;
+    }
 
-	@Override
-	public int damageDropped(int meta)
-	{
-		return 1;
-	}*/
+    /*
+     * @Override public Item getItemDropped(int metadata, Random random, int
+     * fortune) { return BOPCItems.misc; }
+     * 
+     * @Override public int damageDropped(int meta) { return 1; }
+     */
 
-	@Override
-	public int quantityDropped(Random random)
-	{
-		return 4;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random random) 
-	{
-		if (random.nextInt(2) == 0)
-		{
-			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + random.nextFloat(), pos.getY() + 1.1F, pos.getZ() + random.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
-		}
-	}
-    
+    @Override
+    public int quantityDropped(Random random)
+    {
+        return 4;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random random)
+    {
+        if (random.nextInt(2) == 0)
+        {
+            world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + random.nextFloat(), pos.getY() + 1.1F, pos.getZ() + random.nextFloat(), 0.0D, 0.0D, 0.0D, new int[0]);
+        }
+    }
+
 }

@@ -18,68 +18,65 @@ import net.minecraft.util.IStringSerializable;
 import biomesoplenty.api.block.BOPBlock;
 
 //TODO: Add wasp spawn on honeycomb breaking, add correct drops
-public class BlockHive extends BOPBlock 
+public class BlockHive extends BOPBlock
 {
-	public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", HiveType.class);
-	
-	public BlockHive()
-	{
-		super(Material.wood);
-		
-    	this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, HiveType.HIVE));
-    	
-    	this.setHardness(0.5F);
-	    this.setStepSound(Block.soundTypeGrass);
-	}
-	
-	@Override
-	public IBlockState getStateFromMeta(int meta)
-	{
-		return this.getDefaultState().withProperty(VARIANT_PROP, HiveType.values()[meta]);
-	}
+    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", HiveType.class);
 
-	@Override
-	public int getMetaFromState(IBlockState state)
-	{
-		int meta = ((HiveType)state.getValue(VARIANT_PROP)).ordinal();
-		
-		return meta;
-	}
+    public BlockHive()
+    {
+        super(Material.wood);
 
-	@Override
-	protected BlockState createBlockState()
-	{
-		return new BlockState(this, new IProperty[] { VARIANT_PROP });
-	}
-	
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, HiveType.HIVE));
+
+        this.setHardness(0.5F);
+        this.setStepSound(Block.soundTypeGrass);
+    }
+
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT_PROP, HiveType.values()[meta]);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        int meta = ((HiveType) state.getValue(VARIANT_PROP)).ordinal();
+
+        return meta;
+    }
+
+    @Override
+    protected BlockState createBlockState()
+    {
+        return new BlockState(this, new IProperty[] { VARIANT_PROP });
+    }
+
     @Override
     public IProperty[] getPresetProperties()
     {
-    	return new IProperty[] { VARIANT_PROP };
+        return new IProperty[] { VARIANT_PROP };
     }
-    
+
     @Override
     public String getStateName(IBlockState state, boolean fullName)
     {
-    	return ((HiveType)state.getValue(VARIANT_PROP)).getName() + (fullName ? "_block" : "");
+        return ((HiveType) state.getValue(VARIANT_PROP)).getName() + (fullName ? "_block" : "");
     }
-	
-	public static enum HiveType implements IStringSerializable
-	{
-		HIVE,
-		HONEYCOMB,
-		EMPTY_HONEYCOMB,
-		FILLED_HONEYCOMB;
-		
+
+    public static enum HiveType implements IStringSerializable
+    {
+        HIVE, HONEYCOMB, EMPTY_HONEYCOMB, FILLED_HONEYCOMB;
+
         public String getName()
         {
-	        return this.name().toLowerCase();
+            return this.name().toLowerCase();
         }
 
-		@Override
-		public String toString()
-		{
-			return getName();
-		}	
-	}
+        @Override
+        public String toString()
+        {
+            return getName();
+        }
+    }
 }

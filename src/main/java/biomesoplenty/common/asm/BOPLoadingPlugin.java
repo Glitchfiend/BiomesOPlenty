@@ -21,36 +21,38 @@ import biomesoplenty.common.asm.transformers.BOPAccessTransformer;
 @TransformerExclusions("biomesoplenty.common.asm")
 public class BOPLoadingPlugin implements IFMLLoadingPlugin
 {
-	public BOPLoadingPlugin()
-	{
-		MixinBootstrap.init();
-		MixinEnvironment.getCurrentEnvironment().addConfiguration("mixins.biomesoplenty.json");
-	}
-	
+    public BOPLoadingPlugin()
+    {
+        MixinBootstrap.init();
+        MixinEnvironment.getCurrentEnvironment().addConfiguration("mixins.biomesoplenty.json");
+    }
+
     @Override
     public String[] getASMTransformerClass()
     {
-	    return new String[] { MixinBootstrap.TRANSFORMER_CLASS };
+        return new String[] { MixinBootstrap.TRANSFORMER_CLASS };
     }
 
     @Override
     public String getModContainerClass()
     {
-	    return null;
+        return null;
     }
 
     @Override
     public String getSetupClass()
     {
-	    return null;
+        return null;
     }
 
     @Override
-    public void injectData(Map<String, Object> data) {}
+    public void injectData(Map<String, Object> data)
+    {
+    }
 
     @Override
     public String getAccessTransformerClass()
     {
-	    return BOPAccessTransformer.class.getName();
+        return BOPAccessTransformer.class.getName();
     }
 }

@@ -12,10 +12,10 @@ import net.minecraft.world.WorldType;
 
 public class WorldTypeBOP extends WorldType
 {
-	public WorldTypeBOP()
-	{
-		super("BIOMESOP");
-		
-		this.setNotificationData();
-	}
+    public WorldTypeBOP()
+    {
+        super("BIOMESOP");
+
+        this.setNotificationData();
+    }
 }

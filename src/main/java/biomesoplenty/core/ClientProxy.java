@@ -17,34 +17,34 @@ import biomesoplenty.client.util.ModelHelper;
 
 public class ClientProxy extends CommonProxy
 {
-	private static ArrayList<ModelEntry> blocksToRegister = new ArrayList();
-	
-	@Override
-	public void registerRenderers()
-	{		
-		for (ModelEntry modelEntry : blocksToRegister)
-		{
-			ModelHelper.registerBlock(modelEntry.block, modelEntry.metadata, BiomesOPlenty.MOD_ID + ":" + modelEntry.name);
-		}
-	}
-	
-	@Override
-	public void registerBlockForMeshing(BOPBlock block, int metadata, String name)
-	{
-		blocksToRegister.add(new ModelEntry(block, metadata, name));
-	}
-	
-	private static class ModelEntry
-	{
-		public BOPBlock block;
-		public int metadata;
-		public String name;
-		
-		public ModelEntry(BOPBlock block, int metadata, String name)
-		{
-			this.block = block;
-			this.metadata = metadata;
-			this.name = name;
-		}
-	}
+    private static ArrayList<ModelEntry> blocksToRegister = new ArrayList();
+
+    @Override
+    public void registerRenderers()
+    {
+        for (ModelEntry modelEntry : blocksToRegister)
+        {
+            ModelHelper.registerBlock(modelEntry.block, modelEntry.metadata, BiomesOPlenty.MOD_ID + ":" + modelEntry.name);
+        }
+    }
+
+    @Override
+    public void registerBlockForMeshing(BOPBlock block, int metadata, String name)
+    {
+        blocksToRegister.add(new ModelEntry(block, metadata, name));
+    }
+
+    private static class ModelEntry
+    {
+        public BOPBlock block;
+        public int metadata;
+        public String name;
+
+        public ModelEntry(BOPBlock block, int metadata, String name)
+        {
+            this.block = block;
+            this.metadata = metadata;
+            this.name = name;
+        }
+    }
 }

@@ -22,11 +22,11 @@ import biomesoplenty.common.event.BlockModelRegisterEvent;
 @Mixin(BlockModelShapes.class)
 public abstract class MixinBlockModelShapes
 {
-	@Inject(method = "<init>", at = @At("RETURN"))
-    private void onConstructed(ModelManager modelManager, CallbackInfo callbackInfo) 
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void onConstructed(ModelManager modelManager, CallbackInfo callbackInfo)
     {
-		Object obj = (Object)this;
-		
-    	MinecraftForge.EVENT_BUS.post(new BlockModelRegisterEvent((BlockModelShapes)obj));
+        Object obj = (Object) this;
+
+        MinecraftForge.EVENT_BUS.post(new BlockModelRegisterEvent((BlockModelShapes) obj));
     }
 }

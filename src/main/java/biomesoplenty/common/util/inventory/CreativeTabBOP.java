@@ -15,16 +15,16 @@ import net.minecraft.item.Item;
 //TODO: Fix icon
 public class CreativeTabBOP extends CreativeTabs
 {
-	public static final CreativeTabs instance = new CreativeTabBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
-	
-	private CreativeTabBOP(int index, String label) 
-	{
-		super(index, label);
-	}
+    public static final CreativeTabs instance = new CreativeTabBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
 
-	@Override
-	public Item getTabIconItem() 
-	{
-		return Item.getItemFromBlock(Blocks.sapling);
-	}
+    private CreativeTabBOP(int index, String label)
+    {
+        super(index, label);
+    }
+
+    @Override
+    public Item getTabIconItem()
+    {
+        return Item.getItemFromBlock(Blocks.sapling);
+    }
 }

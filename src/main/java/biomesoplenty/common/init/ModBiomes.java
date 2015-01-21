@@ -10,12 +10,12 @@ package biomesoplenty.common.init;
 
 import biomesoplenty.common.world.WorldTypeBOP;
 
-public class ModBiomes 
+public class ModBiomes
 {
-	public static WorldTypeBOP worldTypeBOP;
-	
-	public static void init()
-	{
-		worldTypeBOP = new WorldTypeBOP();
-	}
+    public static WorldTypeBOP worldTypeBOP;
+
+    public static void init()
+    {
+        worldTypeBOP = new WorldTypeBOP();
+    }
 }

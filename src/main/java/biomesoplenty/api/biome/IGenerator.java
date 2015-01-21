@@ -12,6 +12,7 @@ import com.google.gson.JsonElement;
 
 public interface IGenerator<T>
 {
-	public JsonElement serialize(IGenerator<T> src);
-	public IGenerator<T> deserialize(JsonElement json);
+    public JsonElement serialize(IGenerator<T> src);
+
+    public IGenerator<T> deserialize(JsonElement json);
 }

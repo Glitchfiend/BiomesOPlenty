@@ -12,10 +12,10 @@ import java.io.File;
 
 import biomesoplenty.common.config.BiomeConfigurationHandler;
 
-public class ModConfiguration 
+public class ModConfiguration
 {
-	public static void init(File configDirectory)
-	{
-		BiomeConfigurationHandler.init(new File(configDirectory, "biomes"));
-	}
+    public static void init(File configDirectory)
+    {
+        BiomeConfigurationHandler.init(new File(configDirectory, "biomes"));
+    }
 }
