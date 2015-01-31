@@ -8,9 +8,15 @@
 
 package biomesoplenty.common.mixin.decoration;
 
+import java.util.Random;
+
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenCactus;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+import org.spongepowered.asm.mixin.Implements;
+import org.spongepowered.asm.mixin.Interface;
 import org.spongepowered.asm.mixin.Mixin;
 
 import biomesoplenty.api.biome.IGenerator;
@@ -20,24 +26,34 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 @Mixin(WorldGenCactus.class)
-public abstract class MixinWorldGenCactus extends WorldGenerator implements IExtendedCactusGen
+@Implements(@Interface(iface = IExtendedCactusGen.class, prefix = "extendedCactus$"))
+public abstract class MixinWorldGenCactus extends WorldGenerator //implements IExtendedCactusGen
 {
     private int cactiPerChunk;
-
-    @Override
-    public void setCactiPerChunk(int amount)
+    
+    public void extendedCactus$generate(World world, Random random, BlockPos pos)
+    {
+        for (int i = 0; i < cactiPerChunk; i++)
+        {
+            int x = random.nextInt(16) + 8;
+            int z = random.nextInt(16) + 8;
+            int y = random.nextInt(world.getHorizon(pos.add(x, 0, z)).getY() * 2);
+            
+            this.generate(world, random, pos.add(x, y, z));
+        }
+    }
+    
+    public void extendedCactus$setCactiPerChunk(int amount)
     {
         this.cactiPerChunk = amount;
     }
 
-    @Override
-    public int getCactiPerChunk()
+    public int extendedCactus$getCactiPerChunk()
     {
         return this.cactiPerChunk;
     }
 
-    @Override
-    public JsonElement serialize(IGenerator<WorldGenCactus> src)
+    public JsonElement extendedCactus$serialize(IGenerator<WorldGenCactus> src)
     {
         JsonObject jsonCactusGen = new JsonObject();
 
@@ -46,15 +62,14 @@ public abstract class MixinWorldGenCactus extends WorldGenerator implements IExt
         return jsonCactusGen;
     }
 
-    @Override
-    public IGenerator<WorldGenCactus> deserialize(JsonElement json)
+    public IGenerator<WorldGenCactus> extendedCactus$deserialize(JsonElement json)
     {
         JsonObject jsonCactusGen = json.getAsJsonObject();
         WorldGenCactus cactusGen = new WorldGenCactus();
         IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
-
+        
         extendedCactusGen.setCactiPerChunk(jsonCactusGen.get("cacti_per_chunk").getAsInt());
 
-        return (IGenerator<WorldGenCactus>) new WorldGenCactus();
+        return extendedCactusGen;
     }
 }

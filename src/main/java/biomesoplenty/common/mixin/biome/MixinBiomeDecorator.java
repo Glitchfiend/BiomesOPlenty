@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.world.biome.BiomeDecorator;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,18 +26,21 @@ import biomesoplenty.api.biome.IGenerator;
 @Mixin(BiomeDecorator.class)
 public class MixinBiomeDecorator implements IExtendedDecorator
 {
-    private Map<String, IGenerator<?>> generatorMap;
-
-    @Inject(method = "<init>", at = @At("RETURN"))
-    private void onConstructed(CallbackInfo callbackInfo)
+    private Map<String, IGenerator<?>> generatorMap = new HashMap();
+    //TODO: Come up with a better sequencing system
+    private Map<String, Decorate.EventType> generatorSequenceMap = new HashMap();
+    
+    @Override
+    public void addGenerator(String key, IGenerator<?> generator, Decorate.EventType nextFeature)
     {
-        this.generatorMap = new HashMap();
+        this.generatorMap.put(key, generator);
+        this.generatorSequenceMap.put(key, nextFeature);
     }
-
+    
     @Override
     public void addGenerator(String key, IGenerator<?> generator)
     {
-        this.generatorMap.put(key, generator);
+        this.addGenerator(key, generator, Decorate.EventType.CUSTOM);
     }
 
     @Override
@@ -49,5 +53,11 @@ public class MixinBiomeDecorator implements IExtendedDecorator
     public Map<String, IGenerator<?>> getGeneratorMap()
     {
         return Collections.unmodifiableMap(this.generatorMap);
+    }
+    
+    @Override
+    public Decorate.EventType getGeneratorStage(String key)
+    {
+        return generatorSequenceMap.get(key);
     }
 }

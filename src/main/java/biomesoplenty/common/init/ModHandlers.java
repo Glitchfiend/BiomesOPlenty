@@ -8,14 +8,16 @@
 
 package biomesoplenty.common.init;
 
+import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
 import biomesoplenty.common.handler.DrawScreenEventHandler;
-import net.minecraftforge.common.MinecraftForge;
+import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
 
 public class ModHandlers
 {
     public static void init()
     {
+        MinecraftForge.TERRAIN_GEN_BUS.register(new DecorateBiomeEventHandler());
         MinecraftForge.EVENT_BUS.register(new BlockModelRegisterEventHandler());
         MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
     }

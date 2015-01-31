@@ -10,11 +10,15 @@ package biomesoplenty.api.biome;
 
 import java.util.Map;
 
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
+
 public interface IExtendedDecorator
 {
+    public void addGenerator(String key, IGenerator<?> generator, Decorate.EventType nextFeature);
     public void addGenerator(String key, IGenerator<?> generator);
 
     public void configureGenerators(Map<String, IGenerator<?>> generatorMap);
 
     public Map<String, IGenerator<?>> getGeneratorMap();
+    public Decorate.EventType getGeneratorStage(String key);
 }

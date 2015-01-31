@@ -8,10 +8,17 @@
 
 package biomesoplenty.api.biome;
 
+import java.util.Random;
+
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+
 import com.google.gson.JsonElement;
 
 public interface IGenerator<T>
 {
+    public void generate(World world, Random random, BlockPos pos);
+    
     public JsonElement serialize(IGenerator<T> src);
 
     public IGenerator<T> deserialize(JsonElement json);

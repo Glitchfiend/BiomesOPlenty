@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenCactus;
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 
 import org.apache.commons.io.FileUtils;
 
@@ -131,16 +132,17 @@ public class BiomeConfigurationHandler
     {
         IExtendedBiome extendedBiome = (IExtendedBiome) biome;
         IExtendedDecorator extendedDecorator = (IExtendedDecorator) biome.theBiomeDecorator;
-
+    
         if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
         {
             if (biome.theBiomeDecorator.cactiPerChunk > 0)
             {
                 WorldGenCactus cactusGen = new WorldGenCactus();
                 IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
-
+    
                 extendedCactusGen.setCactiPerChunk(biome.theBiomeDecorator.cactiPerChunk);
-                extendedDecorator.addGenerator("cactus", extendedCactusGen);
+                extendedDecorator.addGenerator("cactus", extendedCactusGen, Decorate.EventType.CACTUS);
+                biome.theBiomeDecorator.cactiPerChunk = 0;
             }
         }
     }
@@ -160,7 +162,7 @@ public class BiomeConfigurationHandler
         JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
 
         IExtendedDecorator extendedDecorator = (IExtendedDecorator) biome.theBiomeDecorator;
-
+        
         extendedDecorator.configureGenerators(jsonBiome.decoration);
     }
 }

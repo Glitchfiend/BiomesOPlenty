@@ -8,9 +8,11 @@
 
 package biomesoplenty.common.mixin.biome;
 
+import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -21,14 +23,18 @@ import biomesoplenty.api.biome.IExtendedBiome;
 @Mixin(BiomeGenBase.class)
 public abstract class MixinBiomeGenBase implements IExtendedBiome
 {
-    private BiomeOwner biomeOwner;
+    @Shadow
+    public BiomeDecorator theBiomeDecorator;
+    
+    private BiomeOwner biomeOwner = BiomeOwner.OTHER;
 
     @Inject(method = "<init>(IZ)V", at = @At("RETURN"))
     private void onConstructed(int biomeId, boolean register, CallbackInfo callbackInfo)
     {
-        this.biomeOwner = BiomeOwner.OTHER;
+        //Prevents Forge from wiping all of our added data
+        this.theBiomeDecorator = new BiomeDecorator();
     }
-
+    
     @Override
     public BiomeOwner getBiomeOwner()
     {
