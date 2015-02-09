@@ -335,10 +335,7 @@ public class BOPCrafting
 			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs1, 1, i));
 			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs2, 1, i));
 			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs3, 1, i));
-			if (i < 3)
-			{
-				OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs4, 1, i));
-			}
+			OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs4, 1, i));
 		}
 
 		OreDictionary.registerOre("slabWood", new ItemStack(BOPCBlocks.woodenSingleSlab1, 1, OreDictionary.WILDCARD_VALUE));
