@@ -72,20 +72,21 @@ tasks.withType(JavaCompile) {
     options.encoding = 'utf8'
 }
 
+def commonManifest = {
+    attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
+    attributes 'FMLCorePluginContainsFMLMod': 'true'
+    attributes 'ForceLoadAsMod': true
+    attributes 'FMLAT': 'biomesoplenty_at.cfg'
+    attributes 'TweakClass': "org.spongepowered.asm.launch.MixinTweaker"
+    attributes 'TweakOrder': "10000"
+}
+
 jar {
     from(project("Mixin").sourceSets.main.output) {
         exclude 'LICENSE.txt'
     }
 
-    manifest {
-        attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
-        attributes 'FMLCorePluginContainsFMLMod': 'true'
-        attributes 'ForceLoadAsMod': true
-        attributes 'FMLAT': 'biomesoplenty_at.cfg'
-        attributes 'TweakClass': "org.spongepowered.asm.launch.MixinTweaker"
-        attributes 'TweakOrder': "10000"
-    }
-
+    manifest commonManifest
     classifier = 'universal'
 }
 
@@ -140,6 +141,8 @@ task sourceJar(type: Jar) {
 task deobfJar(type: Jar) {
     from sourceSets.main.output
     from project("Mixin").sourceSets.main.output
+
+    manifest commonManifest
     classifier = 'deobf'
 }
 

@@ -26,11 +26,13 @@ public abstract class MixinBiomeGenBase implements IExtendedBiome
     @Shadow
     public BiomeDecorator theBiomeDecorator;
     
-    private BiomeOwner biomeOwner = BiomeOwner.OTHER;
+    private BiomeOwner biomeOwner;
 
     @Inject(method = "<init>(IZ)V", at = @At("RETURN"))
     private void onConstructed(int biomeId, boolean register, CallbackInfo callbackInfo)
     {
+        this.biomeOwner = BiomeOwner.OTHER;
+        
         //Prevents Forge from wiping all of our added data
         this.theBiomeDecorator = new BiomeDecorator();
     }

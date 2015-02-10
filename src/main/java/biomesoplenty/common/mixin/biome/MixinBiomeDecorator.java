@@ -26,9 +26,16 @@ import biomesoplenty.api.biome.IGenerator;
 @Mixin(BiomeDecorator.class)
 public class MixinBiomeDecorator implements IExtendedDecorator
 {
-    private Map<String, IGenerator<?>> generatorMap = new HashMap();
+    private Map<String, IGenerator<?>> generatorMap;
     //TODO: Come up with a better sequencing system
-    private Map<String, Decorate.EventType> generatorSequenceMap = new HashMap();
+    private Map<String, Decorate.EventType> generatorSequenceMap;
+    
+    @Inject(method = "<init>", at = @At("RETURN"))
+    private void onConstructed(CallbackInfo callbackInfo)
+    {
+        this.generatorMap = new HashMap();
+        this.generatorSequenceMap = new HashMap();
+    }
     
     @Override
     public void addGenerator(String key, IGenerator<?> generator, Decorate.EventType nextFeature)
