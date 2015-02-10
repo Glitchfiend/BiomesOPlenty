@@ -92,7 +92,6 @@ public class ItemBlockFlower extends ItemBlock
 		if (par1ItemStack.getItemDamage() == 15) 
 		{
 			par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-			--par1ItemStack.stackSize;
 		}
 		
 		return par1ItemStack;
@@ -110,20 +109,12 @@ public class ItemBlockFlower extends ItemBlock
 			BiomesOPlenty.proxy.spawnParticle("dandelion", player.posX + vec.xCoord + pos, player.posY + vec.yCoord + player.getEyeHeight() + pos, player.posZ + vec.zCoord + pos);
 		}
 
-		if (count < 10) {
+		if (count < 10 && !player.capabilities.isCreativeMode) {
 			player.stopUsingItem();
+			--stack.stackSize;
 		}
 	}
 
-	@Override
-	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4)
-	{
-		if (!par3EntityPlayer.capabilities.isCreativeMode && !par2World.isRemote) 
-		{
-			--par1ItemStack.stackSize;
-		}
-	}
-	
     @Override
 	public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
     {
