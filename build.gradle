@@ -62,8 +62,8 @@ reobf.addExtraSrgFile mixinSrg
 
 // Source compiler configuration
 tasks.withType(JavaCompile) {
-    options.compilerArgs += [ '-Xlint:all', '-Xlint:-path', '-Xlint:-processing', "-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}" ]
-    options.deprecation = true
+    options.compilerArgs += [ /*'-Xlint:all', '-Xlint:-path', '-Xlint:-processing',*/ "-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}" ]
+    //options.deprecation = true
     options.encoding = 'utf8'
 }
 
