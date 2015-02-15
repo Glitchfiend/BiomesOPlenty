@@ -37,7 +37,7 @@ public abstract class MixinWorldGenCactus extends WorldGenerator //implements IE
         {
             int x = random.nextInt(16) + 8;
             int z = random.nextInt(16) + 8;
-            int y = random.nextInt(world.getHorizon(pos.add(x, 0, z)).getY() * 2);
+            int y = random.nextInt(world.getHeight(pos.add(x, 0, z)).getY() * 2);
             
             this.generate(world, random, pos.add(x, y, z));
         }

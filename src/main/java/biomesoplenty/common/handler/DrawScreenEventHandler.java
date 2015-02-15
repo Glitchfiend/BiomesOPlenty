@@ -32,8 +32,8 @@ public class DrawScreenEventHandler
         if (screenGui instanceof GuiCreateWorld)
         {
             GuiCreateWorld createWorldGui = (GuiCreateWorld) screenGui;
-            GuiButton mapTypeButton = createWorldGui.field_146320_D;
-            int worldTypeIndex = createWorldGui.field_146331_K;
+            GuiButton mapTypeButton = createWorldGui.btnMapType;
+            int worldTypeIndex = createWorldGui.selectedIndex;
 
             if (mapTypeButton.isMouseOver() && WorldType.worldTypes[worldTypeIndex] == ModBiomes.worldTypeBOP)
             {

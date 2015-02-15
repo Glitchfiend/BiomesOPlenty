@@ -52,8 +52,8 @@ public class BlockCoral extends BOPPlant
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        Block ground = world.getBlockState(pos.offsetDown()).getBlock();
-        Block cover = world.getBlockState(pos.offsetUp()).getBlock();
+        Block ground = world.getBlockState(pos.down()).getBlock();
+        Block cover = world.getBlockState(pos.up()).getBlock();
         boolean hasWater = cover == Blocks.water || cover == Blocks.flowing_water;
 
         // TODO: Make all types depend on mud
