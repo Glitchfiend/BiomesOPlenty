@@ -18,6 +18,7 @@ buildscript {
 evaluationDependsOn('Mixin')
 
 apply plugin: "forge"
+apply plugin: "curseforge"
 
 repositories {
     flatDir {
