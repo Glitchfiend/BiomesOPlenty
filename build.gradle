@@ -42,6 +42,7 @@ archivesBaseName = "BiomesOPlenty"
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version // grab latest forge
+    mappings = "snapshot_nodoc_20150214"
 }
 
 // add some stuff to the version
@@ -53,13 +54,6 @@ dependencies {
 
 jenkins {
     job = 'BiomesOPlenty'
-}
-
-if (!minecraft.mappingsSet && minecraft.version.startsWith("1.8")) {
-    // Default mappings, normally if mappings are not specified then the plugin will set this
-    // default value internally, unfortunately this happens too late for the compile step below
-    // which needs the correct value to pass to the annotation processor.
-    minecraft.mappings = "snapshot_20141001"
 }
 
 def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + 'mixins.srg'
@@ -149,6 +143,12 @@ task deobfJar(type: Jar) {
 artifacts {
     archives sourceJar
     archives deobfJar
+}
+
+curse {
+    projectId = project.config.curse_project_id
+    apiKey = "$System.env.curse_api_key"
+    releaseType = project.config.curse_release_type
 }
 
 uploadArchives {
