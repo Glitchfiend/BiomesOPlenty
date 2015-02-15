@@ -148,7 +148,7 @@ artifacts {
 
 curse {
     projectId = project.config.curse_project_id
-    apiKey = "$System.env.curse_api_key"
+    apiKey = project.curse_api_key
     releaseType = project.config.curse_release_type
 }
 
