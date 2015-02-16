@@ -11,8 +11,5 @@
     "logoFile": "assets/biomesoplenty/textures/gui/logo.png",
     "screenshots": [],
     "parent": "",
-    "requiredMods": [],
-    "dependencies": [],
-    "dependants": [],
     "useDependencyInformation": "false"
 }]
