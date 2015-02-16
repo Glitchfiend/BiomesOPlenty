@@ -128,7 +128,9 @@ task createCurseChangelog {
     def buildNumber = env.BUILD_NUMBER
 
     if (jenkinsUrl != null && jenkinsJob != null && buildNumber != null) {
+        def auth = "console_script:dc6d48ca20a474beeac280a9a16a926e".getBytes().encodeBase64().toString()
         def url = new URL("$jenkinsUrl/job/$jenkinsJob/$buildNumber/api/xml?depth=20").openConnection()
+        url.setRequestProperty("Authorization", "Basic " + auth)
         String data = url.getInputStream().text
 
         def changelog = ""
