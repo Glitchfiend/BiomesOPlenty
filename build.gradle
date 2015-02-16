@@ -151,9 +151,8 @@ curse {
     apiKey = "$System.env.curse_api_key"
     releaseType = project.config.curse_release_type
 
-    println projectId
-    println apiKey
-    println releaseType
+    additionalArtifact deobfJar
+    additionalArtifact sourceJar
 }
 
 uploadArchives {
