@@ -118,7 +118,28 @@ task createChangelog(type: ChangelogTask) {
     setAuthName(new DelayedString(project, 'console_script'));
     setAuthPassword(new DelayedString(project, 'dc6d48ca20a474beeac280a9a16a926e'));
     setTargetBuild({buildNumber.toString()});
-    setOutput(new DelayedFile(project, 'build/distributions/' + project.getName() + '-' + project.version + '-changelog.txt'));
+    setOutput(new DelayedFile(project, 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'));
+}
+
+task createCurseChangelog {
+    def env = System.getenv()
+    def jenkinsUrl = env.JENKINS_URL
+    def jenkinsJob = env.JOB_NAME
+    def buildNumber = env.BUILD_NUMBER
+
+    if (jenkinsUrl != null && jenkinsJob != null && buildNumber != null) {
+        def url = new URL("$jenkinsUrl/job/$jenkinsJob/$buildNumber/api/xml?depth=20").openConnection()
+        String data = url.getInputStream().text
+
+        def changelog = ""
+        def xml = new XmlSlurper().parseText(data)
+
+        xml.changeSet.item.each { change ->
+            changelog += "$change.author.fullName: $change.msg" + '\n'
+        }
+
+        project.changelog = changelog
+    }
 }
 
 tasks.build.dependsOn('createChangelog')
@@ -147,8 +168,11 @@ artifacts {
 }
 
 curse {
+    dependsOn "createCurseChangelog"
+
     projectId = project.config.curse_project_id
     apiKey = "$System.env.curse_api_key"
+    changelog = project.changelog
     releaseType = project.config.curse_release_type
 
     additionalArtifact deobfJar
