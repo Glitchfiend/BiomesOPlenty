@@ -430,9 +430,9 @@ phrase.bop.useBOPATGWorldtype=Os mundos tipo ´Biomes O' Plenty´ ou ´ATG´ dev
 phrase.bop.useBOPWorldtype=O tipo de mundo ´Biomes O' Plenty´ deve ser usado para para gerar novos biomas. Esta mensagem será mostrada somente uma vez.
 phrase.bop.updateAvaliable=Você não está usando a versão mais recente recomendada do ´Biomes O' Plenty´. A mais recente é a versão: v%s para Minecraft %s.
 
-warning.bopStartup1=O ´Biomes O' Plenty´ usa um ´WorldType´ personalizado para seus biomas. Ele pode ser ativado
-warning.bopStartup2=clicando no botão 'Mais Opções do Mundo' e em 'Tipo de Mundo' até ser mostrado
-warning.bopStartup3=´Biomes O' Plenty´.
+warning.bopStartup1=O ´Biomes O' Plenty´ usa um ´WorldType´ personalizado para seus biomas.
+warning.bopStartup2=Ele pode ser ativado clicando no botão 'Mais Opções do Mundo' e em
+warning.bopStartup3='Tipo de Mundo' até ser mostrado ´Biomes O' Plenty´.
 warning.bopStartup4=O ´WorldType´ pode ser usado em servidores alterando o 'level-type' em
 warning.bopStartup5=server.properties to 'BIOMESOP' (sem aspas)
 warning.bopStartup6=Esta mensagem só será exibida uma vez.
