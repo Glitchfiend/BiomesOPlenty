@@ -74,10 +74,10 @@ public class BlockFlesh extends Block
 		{
 			InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
 
-			/*TODO FEATURE if (inventory.armorInventory[0] != null && inventory.armorInventory[0].itemID == Items.wadingBoots.get().itemID)
+			if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPCItems.wadingBoots)
 			{
 				return;
-			}*/
+			}
 		}
 
 		entity.motionX *= 0.9D;
