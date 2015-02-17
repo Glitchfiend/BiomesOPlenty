@@ -121,7 +121,9 @@ task createChangelog(type: ChangelogTask) {
     setOutput(new DelayedFile(project, 'build/libs/' + project.getName() + '-' + project.version + '-changelog.txt'));
 }
 
-/*task createCurseChangelog {
+def curseChangelog
+
+task createCurseChangelog {
     def env = System.getenv()
     def jenkinsUrl = env.JENKINS_URL
     def jenkinsJob = env.JOB_NAME
@@ -133,14 +135,13 @@ task createChangelog(type: ChangelogTask) {
         url.setRequestProperty("Authorization", "Basic " + auth)
         String data = url.getInputStream().text
 
-        def changelog = ""
         def xml = new XmlSlurper().parseText(data)
 
         xml.changeSet.item.each { change ->
-            changelog += "$change.author.fullName: $change.msg" + '\n'
+            curseChangelog += "$change.author.fullName: $change.msg" + '\n'
         }
     }
-}*/
+}
 
 tasks.build.dependsOn('createChangelog')
 
@@ -168,11 +169,11 @@ artifacts {
 }
 
 curse {
-    //dependsOn "createCurseChangelog"
+    dependsOn "createCurseChangelog"
 
     projectId = project.config.curse_project_id
     apiKey = "$System.env.curse_api_key"
-    //changelog = project.changelog
+    changelog = curseChangelog
     releaseType = project.config.curse_release_type
 
     additionalArtifact deobfJar
