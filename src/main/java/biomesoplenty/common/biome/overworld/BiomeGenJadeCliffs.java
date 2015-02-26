@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
 public class BiomeGenJadeCliffs extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.5F, 1.0F);
+	private static final Height biomeHeight = new Height(1.0F, 2.0F);
 	
 	public BiomeGenJadeCliffs(int id)
 	{

@@ -19,7 +19,7 @@ import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenChaparral extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.3F);
+    private static final Height biomeHeight = new Height(0.7F, 1.3F);
 
     public BiomeGenChaparral(int id)
     {

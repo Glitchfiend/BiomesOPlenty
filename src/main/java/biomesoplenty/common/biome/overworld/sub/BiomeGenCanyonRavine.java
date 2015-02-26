@@ -14,7 +14,7 @@ import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
 public class BiomeGenCanyonRavine extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(-0.1F, 0.4F);
+	private static final Height biomeHeight = new Height(-0.6F, 1.4F);
 
 	public BiomeGenCanyonRavine(int id)
 	{

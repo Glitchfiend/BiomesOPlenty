@@ -20,7 +20,7 @@ import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenLushDesert extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.5F);
+    private static final Height biomeHeight = new Height(0.7F, 1.5F);
     
     public BiomeGenLushDesert(int id)
     {

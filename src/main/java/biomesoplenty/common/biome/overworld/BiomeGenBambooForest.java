@@ -17,7 +17,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
 
 public class BiomeGenBambooForest extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.6F, 1.3F);
 	
 	public BiomeGenBambooForest(int id)
 	{

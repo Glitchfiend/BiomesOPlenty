@@ -12,7 +12,7 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 
 public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(2.0F, 3.0F);
+	private static final Height biomeHeight = new Height(2.5F, 4.0F);
 	
 	public BiomeGenCrag(int id)
 	{

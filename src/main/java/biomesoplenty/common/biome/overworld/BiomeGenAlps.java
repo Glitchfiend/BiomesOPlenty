@@ -9,7 +9,7 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 
 public class BiomeGenAlps extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(8.0F, 0.025F);
+	private static final Height biomeHeight = new Height(9.0F, 4.025F);
 	
 	public BiomeGenAlps(int id)
 	{

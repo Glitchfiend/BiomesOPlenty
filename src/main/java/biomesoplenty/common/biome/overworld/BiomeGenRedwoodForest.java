@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree2;
 
 public class BiomeGenRedwoodForest extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.1F);
+    private static final Height biomeHeight = new Height(0.6F, 1.1F);
     
     public BiomeGenRedwoodForest(int id)
     {

@@ -15,7 +15,7 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenMarsh extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.125F, 0.05F);
+	private static final Height biomeHeight = new Height(0.625F, 1.05F);
 	
 	public BiomeGenMarsh(int id)
 	{

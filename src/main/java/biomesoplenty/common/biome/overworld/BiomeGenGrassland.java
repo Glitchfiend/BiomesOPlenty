@@ -18,7 +18,7 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 
 public class BiomeGenGrassland extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.2F);
+	private static final Height biomeHeight = new Height(0.6F, 1.2F);
 	
 	public BiomeGenGrassland(int id)
 	{

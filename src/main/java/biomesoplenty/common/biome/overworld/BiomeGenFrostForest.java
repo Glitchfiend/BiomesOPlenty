@@ -15,7 +15,7 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 
 public class BiomeGenFrostForest extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.2F);
+	private static final Height biomeHeight = new Height(0.6F, 1.2F);
 	
 	public BiomeGenFrostForest(int id)
 	{

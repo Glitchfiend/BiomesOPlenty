@@ -15,7 +15,7 @@ import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenWasteland extends BOPOverworldBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.1F);
+    private static final Height biomeHeight = new Height(0.6F, 1.1F);
 
     public BiomeGenWasteland(int id)
     {

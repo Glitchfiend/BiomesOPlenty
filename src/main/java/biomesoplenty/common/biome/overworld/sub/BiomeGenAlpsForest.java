@@ -13,7 +13,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 
 public class BiomeGenAlpsForest extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(0.6F, 0.8F);
+	private static final Height biomeHeight = new Height(1.1F, 1.8F);
 	
 	public BiomeGenAlpsForest(int id)
 	{

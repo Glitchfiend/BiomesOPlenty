@@ -21,7 +21,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga3;
 
 public class BiomeGenFungiForest extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.5F);
+    private static final Height biomeHeight = new Height(0.6F, 1.5F);
 	
 	public BiomeGenFungiForest(int biomeID)
 	{

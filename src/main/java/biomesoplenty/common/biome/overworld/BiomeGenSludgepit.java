@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBogTree2;
 
 public class BiomeGenSludgepit extends BOPOverworldBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
+    private static final Height biomeHeight = new Height(0.0F, 1.1F);
 
     public BiomeGenSludgepit(int id)
     {

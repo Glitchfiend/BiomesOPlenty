@@ -19,7 +19,7 @@ import biomesoplenty.common.world.features.trees.WorldGenTropicsShrub;
 
 public class BiomeGenTropics extends BOPSubBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.3F);
+    private static final Height biomeHeight = new Height(0.7F, 1.3F);
 
     public BiomeGenTropics(int id)
     {

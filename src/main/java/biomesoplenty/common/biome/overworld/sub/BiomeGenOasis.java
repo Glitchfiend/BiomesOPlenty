@@ -13,7 +13,7 @@ import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 
 public class BiomeGenOasis extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(-0.2F, 0.0F);
+	private static final Height biomeHeight = new Height(-0.7F, 1.0F);
 	
 	public BiomeGenOasis(int biomeID)
 	{

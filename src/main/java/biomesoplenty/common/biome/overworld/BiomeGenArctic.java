@@ -11,7 +11,7 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 
 public class BiomeGenArctic extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(0F, 0F);
+	private static final Height biomeHeight = new Height(0F, 1.0F);
 	
 	public BiomeGenArctic(int id)
 	{

@@ -10,7 +10,7 @@ import biomesoplenty.common.biome.BOPOceanBiome;
 
 public class BiomeGenKelpForest extends BOPOceanBiome
 {
-    private static final Height biomeHeight = new Height(-1.2F, 0.1F);
+    private static final Height biomeHeight = new Height(-1.7F, 1.1F);
 	
 	public BiomeGenKelpForest(int biomeID)
 	{

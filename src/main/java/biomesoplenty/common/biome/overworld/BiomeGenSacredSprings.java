@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BiomeGenSacredSprings extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.0F, 0.6F);
+	private static final Height biomeHeight = new Height(0.0F, 1.6F);
 	
     public BiomeGenSacredSprings(int id)
     {

@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
 public class BiomeGenSilkglades extends BOPSubBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
+    private static final Height biomeHeight = new Height(0.6F, 1.2F);
 
     public BiomeGenSilkglades(int id)
     {

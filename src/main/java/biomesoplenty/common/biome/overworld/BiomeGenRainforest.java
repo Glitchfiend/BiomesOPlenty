@@ -20,7 +20,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenRainforest extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.2F, 0.9F);
+	private static final Height biomeHeight = new Height(0.7F, 1.9F);
 
 	public BiomeGenRainforest(int id)
 	{
