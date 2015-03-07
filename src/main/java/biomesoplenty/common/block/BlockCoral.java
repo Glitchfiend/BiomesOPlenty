@@ -87,12 +87,6 @@ public class BlockCoral extends BOPPlant
     }
 
     @Override
-    public IProperty[] getHiddenProperties()
-    {
-        return new IProperty[] { LEVEL };
-    }
-
-    @Override
     public String getStateName(IBlockState state, boolean fullName)
     {
         CoralType type = (CoralType) state.getValue(VARIANT_PROP);

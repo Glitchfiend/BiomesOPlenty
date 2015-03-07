@@ -34,7 +34,6 @@ import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
-import biomesoplenty.common.handler.BlockModelRegisterEventHandler;
 import biomesoplenty.common.handler.DrawScreenEventHandler;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
@@ -92,9 +91,6 @@ public class ModBlocks
 
             DrawScreenEventHandler.blockCount++;
         }
-
-        if (block.hasHiddenProperties())
-            BlockModelRegisterEventHandler.addHiddenProperties(block, block.getHiddenProperties());
 
         return block;
     }
