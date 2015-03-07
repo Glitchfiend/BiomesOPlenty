@@ -3,7 +3,6 @@
   "mixins": [
     "biome.MixinBiomeDecorator",
     "biome.MixinBiomeGenBase",
-    "decoration.MixinWorldGenCactus",
-    "renderer.MixinBlockModelShapes"
+    "decoration.MixinWorldGenCactus"
   ]
 }
