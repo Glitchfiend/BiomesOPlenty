@@ -24,7 +24,6 @@ import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
-import biomesoplenty.common.decoration.extensions.IExtendedCactusGen;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.util.config.JsonEntitySpawn;
 
@@ -85,7 +84,7 @@ public class BiomeConfigurationHandler
     
         if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
         {
-            if (biome.theBiomeDecorator.cactiPerChunk > 0)
+            /*if (biome.theBiomeDecorator.cactiPerChunk > 0)
             {
                 WorldGenCactus cactusGen = new WorldGenCactus();
                 IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
@@ -93,7 +92,7 @@ public class BiomeConfigurationHandler
                 extendedCactusGen.setCactiPerChunk(biome.theBiomeDecorator.cactiPerChunk);
                 generationManager.addGenerator("cactus", extendedCactusGen, Decorate.EventType.CACTUS);
                 biome.theBiomeDecorator.cactiPerChunk = 0;
-            }
+            }*/
         }
     }
 
