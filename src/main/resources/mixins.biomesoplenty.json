@@ -1,8 +1,6 @@
 {
   "package": "biomesoplenty.common.mixin",
   "mixins": [
-    "biome.MixinBiomeDecorator",
-    "biome.MixinBiomeGenBase",
     "decoration.MixinWorldGenCactus"
   ]
 }

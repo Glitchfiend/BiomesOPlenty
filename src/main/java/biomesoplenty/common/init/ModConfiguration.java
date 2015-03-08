@@ -16,6 +16,11 @@ public class ModConfiguration
 {
     public static void init(File configDirectory)
     {
+
+    }
+    
+    public static void initEnd(File configDirectory)
+    {
         BiomeConfigurationHandler.init(new File(configDirectory, "biomes"));
     }
 }

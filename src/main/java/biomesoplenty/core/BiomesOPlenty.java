@@ -47,6 +47,7 @@ public class BiomesOPlenty
         ModBlocks.init();
         ModBiomes.init();
         ModHandlers.init();
+        ModConfiguration.initEnd(configDirectory);
     }
 
     @EventHandler

@@ -11,6 +11,7 @@ package biomesoplenty.common.config;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
@@ -21,8 +22,8 @@ import org.apache.commons.io.FileUtils;
 
 import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.IExtendedDecorator;
-import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.common.biome.ExtendedBiomeRegistry;
+import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import biomesoplenty.common.decoration.extensions.IExtendedCactusGen;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.util.config.JsonEntitySpawn;
@@ -31,56 +32,11 @@ import com.google.gson.JsonSyntaxException;
 
 public class BiomeConfigurationHandler
 {
-    private static HashMap<BiomeGenBase, String> configFileMap = new HashMap();
+    private static Map<BiomeGenBase, String> configFileMap = new HashMap();
 
     public static void init(File configDirectory)
     {
-        registerConfigurableBiomes();
         load(configDirectory);
-    }
-
-    private static void registerConfigurableBiomes()
-    {
-        registerConfigurableBiome(BiomeGenBase.ocean, "ocean");
-        registerConfigurableBiome(BiomeGenBase.plains, "plains");
-        registerConfigurableBiome(BiomeGenBase.desert, "desert");
-        registerConfigurableBiome(BiomeGenBase.extremeHills, "extreme_hills");
-        registerConfigurableBiome(BiomeGenBase.forest, "forest");
-        registerConfigurableBiome(BiomeGenBase.taiga, "taiga");
-        registerConfigurableBiome(BiomeGenBase.swampland, "swampland");
-        registerConfigurableBiome(BiomeGenBase.river, "river");
-        registerConfigurableBiome(BiomeGenBase.hell, "hell");
-        registerConfigurableBiome(BiomeGenBase.sky, "sky");
-        registerConfigurableBiome(BiomeGenBase.frozenOcean, "frozen_ocean");
-        registerConfigurableBiome(BiomeGenBase.frozenRiver, "frozen_river");
-        registerConfigurableBiome(BiomeGenBase.icePlains, "ice_plains");
-        registerConfigurableBiome(BiomeGenBase.iceMountains, "ice_mountains");
-        registerConfigurableBiome(BiomeGenBase.mushroomIsland, "mushroom_island");
-        registerConfigurableBiome(BiomeGenBase.mushroomIslandShore, "mushroom_island_shore");
-        registerConfigurableBiome(BiomeGenBase.beach, "beach");
-        registerConfigurableBiome(BiomeGenBase.desertHills, "beach_hills");
-        registerConfigurableBiome(BiomeGenBase.forestHills, "forest_hills");
-        registerConfigurableBiome(BiomeGenBase.taigaHills, "taiga_hills");
-        registerConfigurableBiome(BiomeGenBase.extremeHillsEdge, "extreme_hills_edge");
-        registerConfigurableBiome(BiomeGenBase.jungle, "jungle");
-        registerConfigurableBiome(BiomeGenBase.jungleHills, "jungle_hills");
-        registerConfigurableBiome(BiomeGenBase.jungleEdge, "jungle_edge");
-        registerConfigurableBiome(BiomeGenBase.deepOcean, "deep_ocean");
-        registerConfigurableBiome(BiomeGenBase.stoneBeach, "stone_beach");
-        registerConfigurableBiome(BiomeGenBase.coldBeach, "cold_beach");
-        registerConfigurableBiome(BiomeGenBase.birchForest, "birch_forest");
-        registerConfigurableBiome(BiomeGenBase.birchForestHills, "birch_forest_hills");
-        registerConfigurableBiome(BiomeGenBase.roofedForest, "roofed_forest");
-        registerConfigurableBiome(BiomeGenBase.coldTaiga, "cold_taiga");
-        registerConfigurableBiome(BiomeGenBase.coldTaigaHills, "cold_taiga_hills");
-        registerConfigurableBiome(BiomeGenBase.megaTaiga, "mega_taiga");
-        registerConfigurableBiome(BiomeGenBase.megaTaigaHills, "mega_taiga_hills");
-        registerConfigurableBiome(BiomeGenBase.extremeHillsPlus, "extreme_hills_plus");
-        registerConfigurableBiome(BiomeGenBase.savanna, "savanna");
-        registerConfigurableBiome(BiomeGenBase.savannaPlateau, "savanna_plateau");
-        registerConfigurableBiome(BiomeGenBase.mesa, "mesa");
-        registerConfigurableBiome(BiomeGenBase.mesaPlateau_F, "mesa_plateau_f");
-        registerConfigurableBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");
     }
 
     private static void load(File configDirectory)
@@ -122,16 +78,10 @@ public class BiomeConfigurationHandler
         }
     }
 
-    public static void registerConfigurableBiome(BiomeGenBase biome, String configFileName)
+    public static void translateVanillaValues(BiomeGenBase biome)
     {
-        translateVanillaValues(biome);
-        configFileMap.put(biome, configFileName);
-    }
-
-    private static void translateVanillaValues(BiomeGenBase biome)
-    {
-        IExtendedBiome extendedBiome = (IExtendedBiome) biome;
-        IExtendedDecorator extendedDecorator = (IExtendedDecorator) biome.theBiomeDecorator;
+    	IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
+        GenerationManager generationManager = extendedBiome.getGenerationManager();
     
         if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
         {
@@ -141,7 +91,7 @@ public class BiomeConfigurationHandler
                 IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
     
                 extendedCactusGen.setCactiPerChunk(biome.theBiomeDecorator.cactiPerChunk);
-                extendedDecorator.addGenerator("cactus", extendedCactusGen, Decorate.EventType.CACTUS);
+                generationManager.addGenerator("cactus", extendedCactusGen, Decorate.EventType.CACTUS);
                 biome.theBiomeDecorator.cactiPerChunk = 0;
             }
         }
@@ -161,8 +111,13 @@ public class BiomeConfigurationHandler
         biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
         JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
 
-        IExtendedDecorator extendedDecorator = (IExtendedDecorator) biome.theBiomeDecorator;
+        GenerationManager generationManager = ExtendedBiomeRegistry.getExtension(biome).getGenerationManager();
         
-        extendedDecorator.configureGenerators(jsonBiome.decoration);
+        generationManager.configureGenerators(jsonBiome.decoration);
+    }
+    
+    public static Map<BiomeGenBase, String> getConfigFileMap()
+    {
+    	return BiomeConfigurationHandler.configFileMap;
     }
 }

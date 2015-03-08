@@ -8,9 +8,10 @@
 
 package biomesoplenty.api.biome;
 
-import java.util.Map;
+import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
 public interface IExtendedBiome
 {
     public BiomeOwner getBiomeOwner();
+    public GenerationManager getGenerationManager();
 }

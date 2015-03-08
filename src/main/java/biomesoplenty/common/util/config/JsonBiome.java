@@ -13,8 +13,9 @@ import java.util.Map;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.api.biome.IExtendedDecorator;
 import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.common.biome.ExtendedBiomeRegistry;
+import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -53,9 +54,9 @@ public class JsonBiome
         biome.waterColorMultiplier = baseBiome.waterColorMultiplier;
         biome.entities = JsonEntitySpawn.getBiomeEntitySpawns(baseBiome);
 
-        IExtendedDecorator extendedDecorator = (IExtendedDecorator) baseBiome.theBiomeDecorator;
+        GenerationManager generationManager = ExtendedBiomeRegistry.getExtension(baseBiome).getGenerationManager();
 
-        biome.decoration = extendedDecorator.getGeneratorMap();
+        biome.decoration = generationManager.getGeneratorMap();
 
         return biome;
     }
