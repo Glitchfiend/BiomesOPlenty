@@ -15,8 +15,6 @@ buildscript {
     }
 }
 
-evaluationDependsOn('Mixin')
-
 apply plugin: "forge"
 apply plugin: "curseforge"
 
@@ -49,20 +47,13 @@ minecraft {
 // add some stuff to the version
 version = "${config.minecraft_version}-${config.mod_version}.${System.getenv().BUILD_NUMBER}"
 
-dependencies {
-    compile project('Mixin')
-}
-
 jenkins {
     job = 'BiomesOPlenty'
 }
 
-def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + 'mixins.srg'
-reobf.addExtraSrgFile mixinSrg
-
 // Source compiler configuration
 tasks.withType(JavaCompile) {
-    options.compilerArgs += [ /*'-Xlint:all', '-Xlint:-path', '-Xlint:-processing',*/ "-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}" ]
+    //options.compilerArgs += [ '-Xlint:all', '-Xlint:-path', '-Xlint:-processing' ]
     //options.deprecation = true
     options.encoding = 'utf8'
 }
@@ -72,15 +63,9 @@ def commonManifest = {
     attributes 'FMLCorePluginContainsFMLMod': 'true'
     attributes 'ForceLoadAsMod': true
     attributes 'FMLAT': 'biomesoplenty_at.cfg'
-    attributes 'TweakClass': "org.spongepowered.asm.launch.MixinTweaker"
-    attributes 'TweakOrder': "10000"
 }
 
 jar {
-    from(project("Mixin").sourceSets.main.output) {
-        exclude 'LICENSE.txt'
-    }
-
     manifest commonManifest
     classifier = 'universal'
 }
@@ -147,7 +132,6 @@ tasks.build.dependsOn('createChangelog')
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allJava
-    from project("Mixin").sourceSets.main.allJava
     from (sourceSets.main.output) {
         include 'LICENSE.txt'
     }
@@ -157,7 +141,6 @@ task sourceJar(type: Jar) {
 
 task deobfJar(type: Jar) {
     from sourceSets.main.output
-    from project("Mixin").sourceSets.main.output
 
     manifest commonManifest
     classifier = 'deobf'
