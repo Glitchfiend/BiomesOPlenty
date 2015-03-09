@@ -11,19 +11,33 @@ package biomesoplenty.common.handler;
 import java.util.ArrayList;
 import java.util.List;
 
-import biomesoplenty.common.init.ModBiomes;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiCreateWorld;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
+import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.init.ModBiomes;
 
-public class DrawScreenEventHandler
+public class GuiEventHandler
 {
     public static int blockCount = 0;
 
+    @SubscribeEvent
+    public void onPreInitCreateWorld(InitGuiEvent.Pre event)
+    {
+        GuiScreen screenGui = event.gui;
+        
+        if (MiscConfigurationHandler.useBoPWorldTypeDefault && screenGui instanceof GuiCreateWorld)
+        {
+            GuiCreateWorld createWorldGui = (GuiCreateWorld)screenGui;
+            
+            createWorldGui.selectedIndex = ModBiomes.worldTypeBOP.getWorldTypeID();
+        }
+    }
+    
     @SubscribeEvent
     public void onDrawScreen(DrawScreenEvent.Post event)
     {
@@ -31,7 +45,7 @@ public class DrawScreenEventHandler
 
         if (screenGui instanceof GuiCreateWorld)
         {
-            GuiCreateWorld createWorldGui = (GuiCreateWorld) screenGui;
+            GuiCreateWorld createWorldGui = (GuiCreateWorld)screenGui;
             GuiButton mapTypeButton = createWorldGui.btnMapType;
             int worldTypeIndex = createWorldGui.selectedIndex;
 

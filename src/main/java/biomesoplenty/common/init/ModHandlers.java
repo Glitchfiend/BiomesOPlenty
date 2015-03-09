@@ -9,7 +9,7 @@
 package biomesoplenty.common.init;
 
 import net.minecraftforge.common.MinecraftForge;
-import biomesoplenty.common.handler.DrawScreenEventHandler;
+import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
 
 public class ModHandlers
@@ -17,6 +17,6 @@ public class ModHandlers
     public static void init()
     {
         MinecraftForge.TERRAIN_GEN_BUS.register(new DecorateBiomeEventHandler());
-        MinecraftForge.EVENT_BUS.register(new DrawScreenEventHandler());
+        MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
     }
 }

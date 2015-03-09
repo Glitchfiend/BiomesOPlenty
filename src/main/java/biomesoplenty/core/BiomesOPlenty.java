@@ -10,6 +10,9 @@ package biomesoplenty.core;
 
 import java.io.File;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -35,6 +38,8 @@ public class BiomesOPlenty
     @SidedProxy(clientSide = "biomesoplenty.core.ClientProxy", serverSide = "biomesoplenty.core.CommonProxy")
     public static CommonProxy proxy;
 
+    public static Logger logger = LogManager.getLogger(MOD_ID);
+    
     private File configDirectory;
 
     @EventHandler

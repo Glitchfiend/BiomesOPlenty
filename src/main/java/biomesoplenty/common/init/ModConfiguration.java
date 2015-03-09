@@ -11,12 +11,13 @@ package biomesoplenty.common.init;
 import java.io.File;
 
 import biomesoplenty.common.config.BiomeConfigurationHandler;
+import biomesoplenty.common.config.MiscConfigurationHandler;
 
 public class ModConfiguration
 {
     public static void init(File configDirectory)
     {
-
+    	MiscConfigurationHandler.init(new File(configDirectory, "misc.cfg"));
     }
     
     public static void initEnd(File configDirectory)
