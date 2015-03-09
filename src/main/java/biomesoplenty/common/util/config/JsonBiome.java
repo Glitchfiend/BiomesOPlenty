@@ -13,6 +13,7 @@ import java.util.Map;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
+import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.IGenerator;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
@@ -54,9 +55,14 @@ public class JsonBiome
         biome.waterColorMultiplier = baseBiome.waterColorMultiplier;
         biome.entities = JsonEntitySpawn.getBiomeEntitySpawns(baseBiome);
 
-        GenerationManager generationManager = ExtendedBiomeRegistry.getExtension(baseBiome).getGenerationManager();
+        IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(baseBiome);
+        
+        if (extendedBiome != null)
+        {
+        	GenerationManager generationManager = extendedBiome.getGenerationManager();
 
-        biome.decoration = generationManager.getGeneratorMap();
+        	biome.decoration = generationManager.getGeneratorMap();
+        }
 
         return biome;
     }

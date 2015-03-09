@@ -26,6 +26,7 @@ import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.util.config.JsonEntitySpawn;
+import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.gson.JsonSyntaxException;
 
@@ -79,12 +80,12 @@ public class BiomeConfigurationHandler
 
     public static void translateVanillaValues(BiomeGenBase biome)
     {
-    	IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
+    	/*IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
         GenerationManager generationManager = extendedBiome.getGenerationManager();
     
         if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
         {
-            /*if (biome.theBiomeDecorator.cactiPerChunk > 0)
+            if (biome.theBiomeDecorator.cactiPerChunk > 0)
             {
                 WorldGenCactus cactusGen = new WorldGenCactus();
                 IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
@@ -92,27 +93,44 @@ public class BiomeConfigurationHandler
                 extendedCactusGen.setCactiPerChunk(biome.theBiomeDecorator.cactiPerChunk);
                 generationManager.addGenerator("cactus", extendedCactusGen, Decorate.EventType.CACTUS);
                 biome.theBiomeDecorator.cactiPerChunk = 0;
-            }*/
-        }
+            }
+        }*/
     }
 
     private static void configureBiomeWithJson(BiomeGenBase biome, JsonBiome jsonBiome)
     {
-        // TODO: Reflect and modify biome id biome.biomeId = jsonBiome.biomeID;
-        biome.biomeName = jsonBiome.biomeName;
-        biome.topBlock = jsonBiome.topBlock;
-        biome.fillerBlock = jsonBiome.fillerBlock;
-        biome.setHeight(new BiomeGenBase.Height(jsonBiome.rootHeight, jsonBiome.rootVariation));
-        biome.temperature = jsonBiome.temperature;
-        biome.rainfall = jsonBiome.rainfall;
-        // TODO: Reflect and modify enableRain and enableSnow
-        biome.color = jsonBiome.color;
-        biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
-        JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
+    	IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
 
-        GenerationManager generationManager = ExtendedBiomeRegistry.getExtension(biome).getGenerationManager();
-        
-        generationManager.configureGenerators(jsonBiome.decoration);
+    	if (extendedBiome != null)
+    	{
+    		GenerationManager generationManager = extendedBiome.getGenerationManager();
+
+    		if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
+    		{
+    			if (jsonBiome.biomeId != -1)
+    			{
+    				biome.biomeID = jsonBiome.biomeId;
+    				BiomeGenBase.getBiomeGenArray()[jsonBiome.biomeId] = biome;
+    			}
+    			else
+    			{
+    				biome.biomeID = -1;
+    			}
+    		}
+
+    		biome.biomeName = jsonBiome.biomeName;
+    		biome.topBlock = jsonBiome.topBlock;
+    		biome.fillerBlock = jsonBiome.fillerBlock;
+    		biome.setHeight(new BiomeGenBase.Height(jsonBiome.rootHeight, jsonBiome.rootVariation));
+    		biome.temperature = jsonBiome.temperature;
+    		biome.rainfall = jsonBiome.rainfall;
+    		// TODO: Reflect and modify enableRain and enableSnow
+    		biome.color = jsonBiome.color;
+    		biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
+    		JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
+
+    		generationManager.configureGenerators(jsonBiome.decoration);
+    	}
     }
     
     public static Map<BiomeGenBase, String> getConfigFileMap()

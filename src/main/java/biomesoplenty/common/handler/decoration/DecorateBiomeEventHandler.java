@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.IGenerator;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
@@ -27,17 +28,22 @@ public class DecorateBiomeEventHandler
         World world = event.world;
         BlockPos pos = event.pos.add(16, 0, 16);
         BiomeGenBase biome = world.getBiomeGenForCoords(pos);
-        GenerationManager generationManager = ExtendedBiomeRegistry.getExtension(biome).getGenerationManager();
+        IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
         
-        for (Entry<String, IGenerator<?>> entry : generationManager.getGeneratorMap().entrySet())
+        if (extendedBiome != null)
         {
-            String key = entry.getKey();
-            IGenerator<?> generator = entry.getValue();
-            
-            if (generationManager.getGeneratorStage(key) == event.type)
-            {
-                generator.generate(world, event.rand, event.pos);
-            }
+        	GenerationManager generationManager = extendedBiome.getGenerationManager();
+
+        	for (Entry<String, IGenerator<?>> entry : generationManager.getGeneratorMap().entrySet())
+        	{
+        		String key = entry.getKey();
+        		IGenerator<?> generator = entry.getValue();
+
+        		if (generationManager.getGeneratorStage(key) == event.type)
+        		{
+        			generator.generate(world, event.rand, event.pos);
+        		}
+        	}
         }
     }
 }

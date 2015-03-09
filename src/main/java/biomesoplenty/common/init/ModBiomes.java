@@ -21,7 +21,12 @@ public class ModBiomes
     {
         worldTypeBOP = new WorldTypeBOP();
     
+        registerBiomes();
         registerExternalBiomes();
+    }
+    
+    private static void registerBiomes()
+    {
     }
     
     private static void registerExternalBiomes()
@@ -66,6 +71,13 @@ public class ModBiomes
         registerExternalBiome(BiomeGenBase.mesa, "mesa");
         registerExternalBiome(BiomeGenBase.mesaPlateau_F, "mesa_plateau_f");
         registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");
+    }
+    
+    private static BiomeGenBase registerBiome(BiomeGenBase biome, String id)
+    {
+        BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
+        
+        return biome;
     }
     
     private static void registerExternalBiome(BiomeGenBase biome, String id)

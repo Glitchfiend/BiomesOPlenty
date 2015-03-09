@@ -8,9 +8,27 @@
 
 package biomesoplenty.api.biome;
 
+import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BOPBiomes
+public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
-	public static BiomeGenBase alps;
+	private GenerationManager generationManager = new GenerationManager();
+	
+	public BOPBiome(int id)
+	{
+		super(id, false);
+	}
+
+	@Override
+	public BiomeOwner getBiomeOwner()
+	{
+		return BiomeOwner.BIOMESOPLENTY;
+	}
+
+	@Override
+	public GenerationManager getGenerationManager()
+	{
+		return this.generationManager;
+	}
 }

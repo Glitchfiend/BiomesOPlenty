@@ -22,6 +22,11 @@ public class ExtendedBiomeRegistry
 {
 	private static Map<BiomeGenBase, BiomeExtension> externalExtensions = new HashMap();
 	
+	public static boolean isRegistered(BiomeGenBase biome)
+	{
+		return biome.biomeID != -1;
+	}
+	
 	public static BiomeExtension createExtension(BiomeGenBase biome)
 	{
 		return externalExtensions.put(biome, new BiomeExtension(biome));
