@@ -66,7 +66,13 @@ def commonManifest = {
 }
 
 jar {
-    manifest commonManifest
+    manifest {
+        attributes 'FMLCorePlugin': 'biomesoplenty.common.asm.BOPLoadingPlugin'
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+        attributes 'ForceLoadAsMod': true
+        attributes 'FMLAT': 'biomesoplenty_at.cfg'
+    }
+    
     classifier = 'universal'
 }
 
