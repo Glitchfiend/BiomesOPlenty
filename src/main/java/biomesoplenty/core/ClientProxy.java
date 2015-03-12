@@ -11,6 +11,7 @@ package biomesoplenty.core;
 import java.util.ArrayList;
 import java.util.Map.Entry;
 
+import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.client.util.ModelHelper;
@@ -28,6 +29,12 @@ public class ClientProxy extends CommonProxy
         }
     }
 
+    @Override
+    public void addVariantName(Item item, String... names) 
+    {
+        ModelBakery.addVariantName(item, names);
+    }
+    
     @Override
     public void registerBlockForMeshing(BOPBlock block, int metadata, String name)
     {
