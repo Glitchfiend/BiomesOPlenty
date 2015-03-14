@@ -80,16 +80,16 @@ public class BiomeConfigurationHandler
 
     public static void translateVanillaValues(BiomeGenBase biome)
     {
-    	/*IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
+        /*IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
         GenerationManager generationManager = extendedBiome.getGenerationManager();
-    
+
         if (extendedBiome.getBiomeOwner() == BiomeOwner.OTHER)
         {
             if (biome.theBiomeDecorator.cactiPerChunk > 0)
             {
                 WorldGenCactus cactusGen = new WorldGenCactus();
                 IExtendedCactusGen extendedCactusGen = (IExtendedCactusGen) cactusGen;
-    
+
                 extendedCactusGen.setCactiPerChunk(biome.theBiomeDecorator.cactiPerChunk);
                 generationManager.addGenerator("cactus", extendedCactusGen, Decorate.EventType.CACTUS);
                 biome.theBiomeDecorator.cactiPerChunk = 0;
@@ -99,42 +99,42 @@ public class BiomeConfigurationHandler
 
     private static void configureBiomeWithJson(BiomeGenBase biome, JsonBiome jsonBiome)
     {
-    	IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
+        IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
 
-    	if (extendedBiome != null)
-    	{
-    		GenerationManager generationManager = extendedBiome.getGenerationManager();
+        if (extendedBiome != null)
+        {
+            GenerationManager generationManager = extendedBiome.getGenerationManager();
 
-    		if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
-    		{
-    			if (jsonBiome.biomeId != -1)
-    			{
-    				biome.biomeID = jsonBiome.biomeId;
-    				BiomeGenBase.getBiomeGenArray()[jsonBiome.biomeId] = biome;
-    			}
-    			else
-    			{
-    				biome.biomeID = -1;
-    			}
-    		}
+            if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
+            {
+                if (jsonBiome.biomeId != -1)
+                {
+                    biome.biomeID = jsonBiome.biomeId;
+                    BiomeGenBase.getBiomeGenArray()[jsonBiome.biomeId] = biome;
+                }
+                else
+                {
+                    biome.biomeID = -1;
+                }
+            }
 
-    		biome.biomeName = jsonBiome.biomeName;
-    		biome.topBlock = jsonBiome.topBlock;
-    		biome.fillerBlock = jsonBiome.fillerBlock;
-    		biome.setHeight(new BiomeGenBase.Height(jsonBiome.rootHeight, jsonBiome.rootVariation));
-    		biome.temperature = jsonBiome.temperature;
-    		biome.rainfall = jsonBiome.rainfall;
-    		// TODO: Reflect and modify enableRain and enableSnow
-    		biome.color = jsonBiome.color;
-    		biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
-    		JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
+            biome.biomeName = jsonBiome.biomeName;
+            biome.topBlock = jsonBiome.topBlock;
+            biome.fillerBlock = jsonBiome.fillerBlock;
+            biome.setHeight(new BiomeGenBase.Height(jsonBiome.rootHeight, jsonBiome.rootVariation));
+            biome.temperature = jsonBiome.temperature;
+            biome.rainfall = jsonBiome.rainfall;
+            // TODO: Reflect and modify enableRain and enableSnow
+            biome.color = jsonBiome.color;
+            biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
+            JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
 
-    		generationManager.configureGenerators(jsonBiome.decoration);
-    	}
+            generationManager.configureGenerators(jsonBiome.decoration);
+        }
     }
-    
+
     public static Map<BiomeGenBase, String> getConfigFileMap()
     {
-    	return BiomeConfigurationHandler.configFileMap;
+        return BiomeConfigurationHandler.configFileMap;
     }
 }

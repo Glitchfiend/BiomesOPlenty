@@ -13,16 +13,16 @@ import biomesoplenty.api.biome.BOPBiome;
 
 public class BiomeGenAlps extends BOPBiome
 {
-	private static final Height biomeHeight = new Height(8.0F, 0.025F);
-	
-	public BiomeGenAlps()
-	{
-		this.setHeight(biomeHeight);
+    private static final Height biomeHeight = new Height(8.0F, 0.025F);
+
+    public BiomeGenAlps()
+    {
+        this.setHeight(biomeHeight);
         this.setColor(13421772);
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
-        
-		this.topBlock = Blocks.snow.getDefaultState();
-		this.fillerBlock = Blocks.snow.getDefaultState();
-	}
+
+        this.topBlock = Blocks.snow.getDefaultState();
+        this.fillerBlock = Blocks.snow.getDefaultState();
+    }
 }

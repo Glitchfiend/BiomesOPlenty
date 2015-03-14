@@ -29,21 +29,21 @@ public class DecorateBiomeEventHandler
         BlockPos pos = event.pos.add(16, 0, 16);
         BiomeGenBase biome = world.getBiomeGenForCoords(pos);
         IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
-        
+
         if (extendedBiome != null)
         {
-        	GenerationManager generationManager = extendedBiome.getGenerationManager();
+            GenerationManager generationManager = extendedBiome.getGenerationManager();
 
-        	for (Entry<String, IGenerator<?>> entry : generationManager.getGeneratorMap().entrySet())
-        	{
-        		String key = entry.getKey();
-        		IGenerator<?> generator = entry.getValue();
+            for (Entry<String, IGenerator<?>> entry : generationManager.getGeneratorMap().entrySet())
+            {
+                String key = entry.getKey();
+                IGenerator<?> generator = entry.getValue();
 
-        		if (generationManager.getGeneratorStage(key) == event.type)
-        		{
-        			generator.generate(world, event.rand, event.pos);
-        		}
-        	}
+                if (generationManager.getGeneratorStage(key) == event.type)
+                {
+                    generator.generate(world, event.rand, event.pos);
+                }
+            }
         }
     }
 }

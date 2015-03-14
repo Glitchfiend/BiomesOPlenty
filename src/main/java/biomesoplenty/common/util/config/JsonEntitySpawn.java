@@ -57,20 +57,20 @@ public class JsonEntitySpawn
 
         for (JsonEntitySpawn entitySpawn : jsonBiome.entities)
         {
-        	if (entitySpawn != null)
-        	{
-        		try
-        		{
-        			EnumCreatureType creatureType = EnumCreatureType.valueOf(entitySpawn.entityType.toUpperCase());
-        			Class entityClass = Class.forName(entitySpawn.entityClass);
+            if (entitySpawn != null)
+            {
+                try
+                {
+                    EnumCreatureType creatureType = EnumCreatureType.valueOf(entitySpawn.entityType.toUpperCase());
+                    Class entityClass = Class.forName(entitySpawn.entityClass);
 
-        			biome.getSpawnableList(creatureType).add(new BiomeGenBase.SpawnListEntry(entityClass, entitySpawn.weight, entitySpawn.minGroupCount, entitySpawn.maxGroupCount));
-        		}
-        		catch (ClassNotFoundException e)
-        		{
-        			e.printStackTrace();
-        		}
-        	}
+                    biome.getSpawnableList(creatureType).add(new BiomeGenBase.SpawnListEntry(entityClass, entitySpawn.weight, entitySpawn.minGroupCount, entitySpawn.maxGroupCount));
+                }
+                catch (ClassNotFoundException e)
+                {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

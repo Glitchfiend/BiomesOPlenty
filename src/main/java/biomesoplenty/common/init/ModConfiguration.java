@@ -17,9 +17,9 @@ public class ModConfiguration
 {
     public static void init(File configDirectory)
     {
-    	MiscConfigurationHandler.init(new File(configDirectory, "misc.cfg"));
+        MiscConfigurationHandler.init(new File(configDirectory, "misc.cfg"));
     }
-    
+
     public static void initEnd(File configDirectory)
     {
         BiomeConfigurationHandler.init(new File(configDirectory, "biomes"));

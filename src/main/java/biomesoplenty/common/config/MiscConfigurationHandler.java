@@ -15,28 +15,28 @@ import net.minecraftforge.common.config.Configuration;
 
 public class MiscConfigurationHandler
 {
-	public static Configuration config;
-	
-	public static boolean useBoPWorldTypeDefault;
-	
+    public static Configuration config;
+
+    public static boolean useBoPWorldTypeDefault;
+
     public static void init(File configFile)
     {
-    	config = new Configuration(configFile);
+        config = new Configuration(configFile);
 
-    	try
-    	{
-    		config.load();
-    		
-    		//TODO: Make this default to true once all biomes have been implemented
-    		useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", "GUI Settings", false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
-    	}
-    	catch (Exception e)
-    	{
-    		BiomesOPlenty.logger.error("Biomes O' Plenty has encountered a problem loading misc.cfg", e);
-    	}
-    	finally
-    	{
-    		if (config.hasChanged()) config.save();
-    	}
+        try
+        {
+            config.load();
+
+            //TODO: Make this default to true once all biomes have been implemented
+            useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", "GUI Settings", false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
+        }
+        catch (Exception e)
+        {
+            BiomesOPlenty.logger.error("Biomes O' Plenty has encountered a problem loading misc.cfg", e);
+        }
+        finally
+        {
+            if (config.hasChanged()) config.save();
+        }
     }
 }

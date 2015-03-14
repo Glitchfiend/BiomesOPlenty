@@ -21,27 +21,27 @@ import biomesoplenty.common.world.WorldTypeBOP;
 public class ModBiomes
 {
     public static WorldTypeBOP worldTypeBOP;
-    
+
     private static int nextBiomeId = 40;
 
     public static void init()
     {
         worldTypeBOP = new WorldTypeBOP();
-    
+
         registerBiomes();
         registerExternalBiomes();
     }
-    
+
     private static void registerBiomes()
     {
-    	alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
-    	
-    	BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(alps, 100));
-    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(alps, 100));
-    	BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(alps, 100));
-    	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(alps, 100));
+        alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
+
+        BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(alps, 100));
+        BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(alps, 100));
+        BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(alps, 100));
+        BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(alps, 100));
     }
-    
+
     private static void registerExternalBiomes()
     {
         registerExternalBiome(BiomeGenBase.ocean, "ocean");
@@ -85,38 +85,38 @@ public class ModBiomes
         registerExternalBiome(BiomeGenBase.mesaPlateau_F, "mesa_plateau_f");
         registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");
     }
-    
+
     private static BiomeGenBase registerBiome(BiomeGenBase biome, String id)
     {
-    	biome.biomeID = getNextFreeBiomeId();
+        biome.biomeID = getNextFreeBiomeId();
         BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
-        
+
         return biome;
     }
-    
+
     private static void registerExternalBiome(BiomeGenBase biome, String id)
     {
-    	ExtendedBiomeRegistry.createExtension(biome);
+        ExtendedBiomeRegistry.createExtension(biome);
         BiomeConfigurationHandler.translateVanillaValues(biome);
         BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
     }
-    
+
     public static int getNextFreeBiomeId()
     {
-    	for (int i = nextBiomeId; i < 256; i++)
-    	{
-    		if (BiomeGenBase.getBiomeGenArray()[i] != null) 
-    		{
-    			if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
-    			continue;
-    		}
-    		else
-    		{
-    			nextBiomeId = i + 1;
-    			return i;
-    		}
-    	}
+        for (int i = nextBiomeId; i < 256; i++)
+        {
+            if (BiomeGenBase.getBiomeGenArray()[i] != null) 
+            {
+                if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
+                continue;
+            }
+            else
+            {
+                nextBiomeId = i + 1;
+                return i;
+            }
+        }
 
-    	return -1;
+        return -1;
     }
 }

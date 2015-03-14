@@ -13,29 +13,29 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
-	private GenerationManager generationManager = new GenerationManager();
-	
-	public BOPBiome()
-	{
-		super(-1, false);
-		
-	    this.theBiomeDecorator.treesPerChunk = -999;
-	    this.theBiomeDecorator.flowersPerChunk = -999;
-	    this.theBiomeDecorator.grassPerChunk = -999;
-	    this.theBiomeDecorator.sandPerChunk = -999;
-	    this.theBiomeDecorator.sandPerChunk2 = -999;
-	    this.theBiomeDecorator.clayPerChunk = -999;
-	}
+    private GenerationManager generationManager = new GenerationManager();
 
-	@Override
-	public BiomeOwner getBiomeOwner()
-	{
-		return BiomeOwner.BIOMESOPLENTY;
-	}
+    public BOPBiome()
+    {
+        super(-1, false);
 
-	@Override
-	public GenerationManager getGenerationManager()
-	{
-		return this.generationManager;
-	}
+        this.theBiomeDecorator.treesPerChunk = -999;
+        this.theBiomeDecorator.flowersPerChunk = -999;
+        this.theBiomeDecorator.grassPerChunk = -999;
+        this.theBiomeDecorator.sandPerChunk = -999;
+        this.theBiomeDecorator.sandPerChunk2 = -999;
+        this.theBiomeDecorator.clayPerChunk = -999;
+    }
+
+    @Override
+    public BiomeOwner getBiomeOwner()
+    {
+        return BiomeOwner.BIOMESOPLENTY;
+    }
+
+    @Override
+    public GenerationManager getGenerationManager()
+    {
+        return this.generationManager;
+    }
 }

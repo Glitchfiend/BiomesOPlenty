@@ -12,5 +12,5 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiomes
 {
-	public static BiomeGenBase alps;
+    public static BiomeGenBase alps;
 }
