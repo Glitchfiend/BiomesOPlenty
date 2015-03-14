@@ -15,9 +15,16 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
 	private GenerationManager generationManager = new GenerationManager();
 	
-	public BOPBiome(int id)
+	public BOPBiome()
 	{
-		super(id, false);
+		super(-1, false);
+		
+	    this.theBiomeDecorator.treesPerChunk = -999;
+	    this.theBiomeDecorator.flowersPerChunk = -999;
+	    this.theBiomeDecorator.grassPerChunk = -999;
+	    this.theBiomeDecorator.sandPerChunk = -999;
+	    this.theBiomeDecorator.sandPerChunk2 = -999;
+	    this.theBiomeDecorator.clayPerChunk = -999;
 	}
 
 	@Override

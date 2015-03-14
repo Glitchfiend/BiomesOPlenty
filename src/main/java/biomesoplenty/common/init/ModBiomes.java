@@ -8,14 +8,21 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.biome.BOPBiomes.alps;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
+import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.config.BiomeConfigurationHandler;
 import biomesoplenty.common.world.WorldTypeBOP;
 
 public class ModBiomes
 {
     public static WorldTypeBOP worldTypeBOP;
+    
+    private static int nextBiomeId = 40;
 
     public static void init()
     {
@@ -27,6 +34,12 @@ public class ModBiomes
     
     private static void registerBiomes()
     {
+    	alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
+    	
+    	BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(alps, 100));
+    	BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(alps, 100));
+    	BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(alps, 100));
+    	BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(alps, 100));
     }
     
     private static void registerExternalBiomes()
@@ -75,6 +88,7 @@ public class ModBiomes
     
     private static BiomeGenBase registerBiome(BiomeGenBase biome, String id)
     {
+    	biome.biomeID = getNextFreeBiomeId();
         BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
         
         return biome;
@@ -87,4 +101,22 @@ public class ModBiomes
         BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
     }
     
+    public static int getNextFreeBiomeId()
+    {
+    	for (int i = nextBiomeId; i < 256; i++)
+    	{
+    		if (BiomeGenBase.getBiomeGenArray()[i] != null) 
+    		{
+    			if (i == 255) throw new IllegalArgumentException("There are no more biome ids avaliable!");
+    			continue;
+    		}
+    		else
+    		{
+    			nextBiomeId = i + 1;
+    			return i;
+    		}
+    	}
+
+    	return -1;
+    }
 }
