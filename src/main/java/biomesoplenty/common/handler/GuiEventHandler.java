@@ -18,6 +18,8 @@ import net.minecraft.world.WorldType;
 import net.minecraftforge.client.event.GuiScreenEvent.DrawScreenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent.InitGuiEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.init.ModBiomes;
 
@@ -25,6 +27,7 @@ public class GuiEventHandler
 {
     public static int blockCount = 0;
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onPreInitCreateWorld(InitGuiEvent.Pre event)
     {
@@ -38,6 +41,7 @@ public class GuiEventHandler
         }
     }
     
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onDrawScreen(DrawScreenEvent.Post event)
     {

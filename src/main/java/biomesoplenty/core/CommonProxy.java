@@ -17,6 +17,8 @@ public class CommonProxy
     public void registerRenderers()
     {
     }
+    
+    public void addVariantName(Item item, String... names) {}
 
     public void registerBlockForMeshing(BOPBlock block, int metadata, String name)
     {

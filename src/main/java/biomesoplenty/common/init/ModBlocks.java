@@ -76,7 +76,7 @@ public class ModBlocks
             {
                 String stateName = block.getStateName(state, true);
 
-                ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
+                BiomesOPlenty.proxy.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
                 BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
 
                 GuiEventHandler.blockCount++;
@@ -86,7 +86,7 @@ public class ModBlocks
         {
             GameRegistry.registerBlock(block, name);
 
-            ModelBakery.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
+            BiomesOPlenty.proxy.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
             BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);
 
             GuiEventHandler.blockCount++;
