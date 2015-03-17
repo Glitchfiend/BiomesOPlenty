@@ -17,10 +17,13 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenCypress;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenLushDesert extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.5F);
+    //private static final Height biomeHeight = new Height(0.2F, 0.5F);
+	private static final Height biomeHeight = new Height(0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.5F*BOPConfigurationTerrainGen.heightvarmod);
     
     public BiomeGenLushDesert(int id)
     {

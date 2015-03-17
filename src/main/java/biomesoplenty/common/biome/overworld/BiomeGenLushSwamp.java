@@ -14,10 +14,13 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenLushSwamp extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
+    //private static final Height biomeHeight = new Height(0.0F, 0.1F);
+	private static final Height biomeHeight = new Height(0.0F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightvarmod);
 
     public BiomeGenLushSwamp(int id)
     {

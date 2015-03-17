@@ -14,11 +14,14 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBogBush;
 import biomesoplenty.common.world.features.trees.WorldGenCypress;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenBog extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
-    
+    //private static final Height biomeHeight = new Height(0.1F, 0.2F);
+ 	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightvarmod);
+   
     public BiomeGenBog(int id)
     {
         super(id);

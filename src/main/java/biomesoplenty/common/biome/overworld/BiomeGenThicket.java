@@ -13,10 +13,13 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenThicket extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	//private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightvarmod);
 	
 	public BiomeGenThicket(int id)
 	{

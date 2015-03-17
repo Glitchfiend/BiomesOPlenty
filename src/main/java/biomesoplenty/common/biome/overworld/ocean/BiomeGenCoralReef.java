@@ -7,11 +7,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOceanBiome;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenCoralReef extends BOPOceanBiome
 {
-    private static final Height biomeHeight = new Height(-0.6F, 0.1F);
-	
+    //private static final Height biomeHeight = new Height(-0.6F, 0.1F);
+	private static final Height biomeHeight = new Height(-0.6F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightvarmod);
+
 	public BiomeGenCoralReef(int biomeID) 
 	{
 		super(biomeID);

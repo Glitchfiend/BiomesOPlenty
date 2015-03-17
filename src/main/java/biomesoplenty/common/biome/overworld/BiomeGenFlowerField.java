@@ -12,10 +12,13 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenFlowerField extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.125F, 0.05F);
+	//private static final Height biomeHeight = new Height(0.125F, 0.05F);
+	private static final Height biomeHeight = new Height(0.125F*BOPConfigurationTerrainGen.heightrootmod, 0.05F*BOPConfigurationTerrainGen.heightvarmod);
 
 	public BiomeGenFlowerField(int par1)
 	{

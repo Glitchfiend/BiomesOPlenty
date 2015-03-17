@@ -14,6 +14,8 @@ eclipse/*
 docs/*
 conf/*
 bin/*
+build/*
+.gradle
 
 src/minecraft/cpw/*
 src/minecraft/net/minecraft/*

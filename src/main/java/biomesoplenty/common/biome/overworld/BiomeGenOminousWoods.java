@@ -18,10 +18,13 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenOminousWoods extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.2F);
+	//private static final Height biomeHeight = new Height(0.1F, 0.2F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightvarmod);
 	
 	public BiomeGenOminousWoods(int id)
 	{

@@ -8,10 +8,13 @@ import net.minecraft.world.World;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenArctic extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(0F, 0F);
+	//private static final Height biomeHeight = new Height(0F, 0F);
+	private static final Height biomeHeight = new Height(0F*BOPConfigurationTerrainGen.heightrootmod, 0F*BOPConfigurationTerrainGen.heightvarmod);
 	
 	public BiomeGenArctic(int id)
 	{

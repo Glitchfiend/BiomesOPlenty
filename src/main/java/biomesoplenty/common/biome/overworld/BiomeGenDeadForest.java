@@ -14,10 +14,13 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenDeadForest extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	//private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.3F*BOPConfigurationTerrainGen.heightvarmod);
 
 	public BiomeGenDeadForest(int id)
 	{

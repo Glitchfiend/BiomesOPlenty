@@ -14,10 +14,13 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenShield extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.2F);
+    //private static final Height biomeHeight = new Height(0.0F, 0.2F);
+	private static final Height biomeHeight = new Height(0.0F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightvarmod);
 
 	public BiomeGenShield(int id)
 	{

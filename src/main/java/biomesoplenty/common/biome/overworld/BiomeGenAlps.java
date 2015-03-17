@@ -6,10 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenAlps extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(8.0F, 0.025F);
+	//private static final Height biomeHeight = new Height(8.0F, 0.025F);
+	private static final Height biomeHeight = new Height(8.0F*BOPConfigurationTerrainGen.heightrootmod, 0.025F*BOPConfigurationTerrainGen.heightvarmod);
 	
 	public BiomeGenAlps(int id)
 	{

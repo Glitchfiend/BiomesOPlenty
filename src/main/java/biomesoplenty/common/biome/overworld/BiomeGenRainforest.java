@@ -17,10 +17,13 @@ import biomesoplenty.common.entities.EntityJungleSpider;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenRainforest extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.2F, 0.9F);
+	//private static final Height biomeHeight = new Height(0.2F, 0.9F);
+	private static final Height biomeHeight = new Height(0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.9F*BOPConfigurationTerrainGen.heightvarmod);
 
 	public BiomeGenRainforest(int id)
 	{

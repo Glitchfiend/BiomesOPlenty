@@ -15,10 +15,13 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
 
 public class BiomeGenSeasonalForest extends BOPOverworldBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.2F, 0.4F);
+    //private static final Height biomeHeight = new Height(0.2F, 0.4F);
+	private static final Height biomeHeight = new Height(0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.4F*BOPConfigurationTerrainGen.heightvarmod);
 
     public BiomeGenSeasonalForest(int id)
     {
