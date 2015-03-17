@@ -12,12 +12,12 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenWoodland extends BOPOverworldBiome
 {
     //private static final Height biomeHeight = new Height(0.1F, 0.2F);
- 	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightvarmod);
+ 	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightVarMod);
    
 	public BiomeGenWoodland(int id)
 	{

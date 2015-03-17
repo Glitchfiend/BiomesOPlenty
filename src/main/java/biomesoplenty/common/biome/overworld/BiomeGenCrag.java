@@ -10,12 +10,12 @@ import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
 {
 	//private static final Height biomeHeight = new Height(2.0F, 3.0F);
-	private static final Height biomeHeight = new Height(2.0F*BOPConfigurationTerrainGen.heightrootmod, 3.0F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(2.0F*BOPConfigurationTerrainGen.heightrootmod, 3.0F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenCrag(int id)
 	{

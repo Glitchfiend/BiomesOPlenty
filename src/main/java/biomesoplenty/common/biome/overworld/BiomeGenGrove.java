@@ -16,12 +16,12 @@ import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar2;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenGrove extends BOPOverworldBiome
 {
     //private static final Height biomeHeight = new Height(0.1F, 0.2F);
-	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightVarMod);
 
 	public BiomeGenGrove(int id)
 	{

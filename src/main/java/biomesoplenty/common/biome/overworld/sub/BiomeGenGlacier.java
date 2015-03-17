@@ -9,12 +9,12 @@ import biomesoplenty.api.BOPBlockHelper;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenGlacier extends BOPSubBiome
 {
 	//private static final Height biomeHeight = new Height(1.5F, 0.025F);
-	private static final Height biomeHeight = new Height(1.5F*BOPConfigurationTerrainGen.heightrootmod, 0.025F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(1.5F*BOPConfigurationTerrainGen.heightrootmod, 0.025F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenGlacier(int biomeID) 
 	{

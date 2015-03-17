@@ -9,12 +9,12 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenVolcano extends BOPSubBiome
 {
     //private static final Height biomeHeight = new Height(2.5F, 0.5F);
-	private static final Height biomeHeight = new Height(2.5F*BOPConfigurationTerrainGen.heightrootmod, 0.5F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(2.5F*BOPConfigurationTerrainGen.heightrootmod, 0.5F*BOPConfigurationTerrainGen.heightVarMod);
 
     public BiomeGenVolcano(int id)
     {

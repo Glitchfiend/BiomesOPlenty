@@ -4,12 +4,12 @@ import net.minecraft.init.Blocks;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenDryRiver extends BOPOverworldBiome
 {
 	//private static final Height biomeHeight = new Height(-0.2F, 0.0F);
-	private static final Height biomeHeight = new Height(-0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.0F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(-0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.0F*BOPConfigurationTerrainGen.heightVarMod);
 
     public BiomeGenDryRiver(int biomeId)
     {

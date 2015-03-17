@@ -16,12 +16,12 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenJadeCliffs extends BOPOverworldBiome
 {
 	//private static final Height biomeHeight = new Height(0.5F, 1.0F);
-	private static final Height biomeHeight = new Height(0.5F*BOPConfigurationTerrainGen.heightrootmod, 1.0F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(0.5F*BOPConfigurationTerrainGen.heightrootmod, 1.0F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenJadeCliffs(int id)
 	{

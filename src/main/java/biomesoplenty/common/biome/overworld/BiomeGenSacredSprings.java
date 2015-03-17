@@ -20,12 +20,12 @@ import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenSacredSprings extends BOPOverworldBiome
 {
 	//private static final Height biomeHeight = new Height(0.0F, 0.6F);
-	private static final Height biomeHeight = new Height(0.0F*BOPConfigurationTerrainGen.heightrootmod, 0.6F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(0.0F*BOPConfigurationTerrainGen.heightrootmod, 0.6F*BOPConfigurationTerrainGen.heightVarMod);
 	
     public BiomeGenSacredSprings(int id)
     {

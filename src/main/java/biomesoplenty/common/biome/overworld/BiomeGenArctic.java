@@ -9,12 +9,12 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenArctic extends BOPOverworldBiome implements IBiomeFog
 {
 	//private static final Height biomeHeight = new Height(0F, 0F);
-	private static final Height biomeHeight = new Height(0F*BOPConfigurationTerrainGen.heightrootmod, 0F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(0F*BOPConfigurationTerrainGen.heightrootmod, 0F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenArctic(int id)
 	{

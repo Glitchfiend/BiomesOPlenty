@@ -17,12 +17,12 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenPalmTree1;
 import biomesoplenty.common.world.features.trees.WorldGenTropicsShrub;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenTropics extends BOPSubBiome
 {
     //private static final Height biomeHeight = new Height(0.2F, 0.3F);
-	private static final Height biomeHeight = new Height(0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.3F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(0.2F*BOPConfigurationTerrainGen.heightrootmod, 0.3F*BOPConfigurationTerrainGen.heightVarMod);
 
     public BiomeGenTropics(int id)
     {

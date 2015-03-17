@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOceanBiome;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenKelpForest extends BOPOceanBiome
 {
     //private static final Height biomeHeight = new Height(-1.2F, 0.1F);
-	private static final Height biomeHeight = new Height(-1.2F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(-1.2F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenKelpForest(int biomeID)
 	{

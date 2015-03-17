@@ -12,12 +12,12 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
-// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightvarmod
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenCanyonRavine extends BOPSubBiome
 {
 	//private static final Height biomeHeight = new Height(-0.1F, 0.4F);
-	private static final Height biomeHeight = new Height(-0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.4F*BOPConfigurationTerrainGen.heightvarmod);
+	private static final Height biomeHeight = new Height(-0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.4F*BOPConfigurationTerrainGen.heightVarMod);
 
 	public BiomeGenCanyonRavine(int id)
 	{
