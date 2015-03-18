@@ -1,5 +1,6 @@
 package biomesoplenty.client.fog;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -13,9 +14,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogColors;
-import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
-import net.minecraftforge.client.event.EntityViewRenderEvent.RenderFogEvent;
 import net.minecraftforge.common.ForgeModContainer;
 
 import org.lwjgl.opengl.GL11;
@@ -25,7 +25,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FogHandler 
 {
-	/*@SubscribeEvent
+	@SubscribeEvent
 	public void onGetFogColour(FogColors event)
 	{
 		if (event.entity instanceof EntityPlayer)
@@ -38,19 +38,19 @@ public class FogHandler
 			int z = MathHelper.floor_double(player.posZ);
 
 			int oldColour = ((int)(event.red * 255) & 255) << 16 | ((int)(event.green * 255) & 255) << 8 | (int)(event.blue * 255) & 255;
-			int colour = getFogBlendColour(world, x, y, z, oldColour);
+			int colour = getFogBlendColour(world, player, x, y, z, oldColour);
 
 			event.red = (colour >> 16 & 255) / 255.0F; event.green = (colour >> 8 & 255) / 255.0F; event.blue = (colour & 255) / 255.0F;
 		}
-	}*/
-	
+	}
+
     private static double fogX, fogZ;
 
     private static boolean fogInit;
     private static float fogFarPlaneDistance;
 	
-	/*@SubscribeEvent
-	public void onRenderFog(RenderFogEvent event)
+	@SubscribeEvent
+	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event)
 	{
 		Entity entity = event.entity;
         World world = entity.worldObj;
@@ -78,19 +78,39 @@ public class FogHandler
 			for (int z = -distance; z <= distance; ++z)
 			{
 				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
+				float distancePart = event.farPlaneDistance;
 	            
 				if (biome instanceof IBiomeFog)
                 {
-					farPlaneDistance += ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
+					distancePart = ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
                 }
-                else
-                {
-                	farPlaneDistance += event.farPlaneDistance;
-                }
+
+				if (x == -distance)
+				{
+					distancePart *= 1 - (entity.posX - playerX);
+				}
+				else if (x == distance)
+				{
+					distancePart *= (entity.posX - playerX);
+				}
+
+				if (z == -distance)
+				{
+					distancePart *= 1 - (entity.posZ - playerZ);
+				}
+				else if (z == distance)
+				{
+					distancePart *= (entity.posZ - playerZ);
+				}
+
+				farPlaneDistance += distancePart;
 				
                 divider++;
 			}
 		}
+
+		// Total area calculated is actually (distance - 1)^2
+		divider -= distance * 2 - 1;
 		
 		fogX = entity.posX;
 		fogZ = entity.posZ;
@@ -111,9 +131,9 @@ public class FogHandler
             GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * 0.75F);
             GL11.glFogf(GL11.GL_FOG_END, farPlaneDistance);
         }
-	}*/
+	}
 
-	/*public static int getFogBlendColour(World world, int playerX, int playerY, int playerZ, int defaultColour)
+	public static int getFogBlendColour(World world, Entity playerEntity, int playerX, int playerY, int playerZ, int defaultColour)
 	{
 		GameSettings settings = Minecraft.getMinecraft().gameSettings;
 		int[] ranges = ForgeModContainer.blendRanges;
@@ -134,28 +154,69 @@ public class FogHandler
 			{
 				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
 
+				int rPart = 0;
+				int gPart = 0;
+				int bPart = 0;
+
 				if (biome instanceof IBiomeFog)
 				{
 					IBiomeFog biomeFog = (IBiomeFog)biome;
 					int fogColour = biomeFog.getFogColour(playerX + x, playerY, playerZ + z);
 
-					r += (fogColour & 0xFF0000) >> 16;
-			g += (fogColour & 0x00FF00) >> 8;
-		b += fogColour & 0x0000FF;
+					rPart = (fogColour & 0xFF0000) >> 16;
+					gPart = (fogColour & 0x00FF00) >> 8;
+					bPart = fogColour & 0x0000FF;
 				}
 				else
 				{
-					r += (defaultColour & 0xFF0000) >> 16;
-					g += (defaultColour & 0x00FF00) >> 8;
-					b += defaultColour & 0x0000FF;
+					rPart = (defaultColour & 0xFF0000) >> 16;
+					gPart = (defaultColour & 0x00FF00) >> 8;
+					bPart = defaultColour & 0x0000FF;
 				}
+
+				if (x == -distance)
+				{
+					double xDiff = 1 - (playerEntity.posX - playerX);
+					rPart *= xDiff;
+					gPart *= xDiff;
+					bPart *= xDiff;
+				}
+				else if (x == distance)
+				{
+					double xDiff = playerEntity.posX - playerX;
+					rPart *= xDiff;
+					gPart *= xDiff;
+					bPart *= xDiff;
+				}
+
+				if (z == -distance)
+				{
+					double zDiff = 1 - (playerEntity.posZ - playerZ);
+					rPart *= zDiff;
+					gPart *= zDiff;
+					bPart *= zDiff;
+				}
+				else if (z == distance)
+				{
+					double zDiff = playerEntity.posZ - playerZ;
+					rPart *= zDiff;
+					gPart *= zDiff;
+					bPart *= zDiff;
+				}
+
+				r += rPart;
+				g += gPart;
+				b += bPart;
 
 				divider++;
 			}
 		}
 
+		// Total area calculated is actually (distance - 1)^2
+		divider -= distance * 2 - 1;
+
 		int multiplier = (r / divider & 255) << 16 | (g / divider & 255) << 8 | b / divider & 255;
 
 		return multiplier;
-	}*/
+	}
 }
