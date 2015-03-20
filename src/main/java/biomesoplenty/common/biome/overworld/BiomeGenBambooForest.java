@@ -14,10 +14,13 @@ import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.trees.WorldGenBulbTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenBambooForest extends BOPOverworldBiome implements IBiomeFog
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	//private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.3F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenBambooForest(int id)
 	{

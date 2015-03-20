@@ -11,10 +11,13 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenSteppe extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	//private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.3F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenSteppe(int biomeID) 
 	{

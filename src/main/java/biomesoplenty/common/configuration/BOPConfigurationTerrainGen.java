@@ -20,6 +20,8 @@ public class BOPConfigurationTerrainGen
 	
 	public static boolean oceanFiller;
 	public static int landmassPercentage;
+        public static int heightrootmod;
+        public static int heightVarMod;
 
 	public static void init(File configFile)
 	{
@@ -36,6 +38,8 @@ public class BOPConfigurationTerrainGen
 			
 			oceanFiller = config.get("Biomes O\' Plenty World Type Settings", "OceanFiller", true, "Fills the ocean with land biomes if there is an excessive amount. This must be disabled to use the landmass percentage").getBoolean();
 			landmassPercentage = config.get("Biomes O\' Plenty World Type Settings", "Landmass Percentage", 10, "Requires ocean filler to be disabled. In Vanilla it is set to 10. Takes values from 0 to 100.").getInt();
+			heightrootmod = config.get("Biomes O\' Plenty World Type Settings", "Height Root Mod", 1, "Value to multiple all biome height root values by. Defaults to 1.").getInt();
+			heightVarMod = config.get("Biomes O\' Plenty World Type Settings", "Height Var Mod", 1, "Value to multiple all biome height variance values by. Defaults to 1.").getInt();
 		}
 		catch (Exception e)
 		{

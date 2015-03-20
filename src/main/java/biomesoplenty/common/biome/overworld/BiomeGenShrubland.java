@@ -14,10 +14,13 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenShrubland extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	//private static final Height biomeHeight = new Height(0.1F, 0.1F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenShrubland(int id)
 	{

@@ -10,10 +10,13 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPTaiga2;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenAlpsForest extends BOPSubBiome
 {
-	private static final Height biomeHeight = new Height(0.6F, 0.8F);
+	//private static final Height biomeHeight = new Height(0.6F, 0.8F);
+	private static final Height biomeHeight = new Height(0.6F*BOPConfigurationTerrainGen.heightrootmod, 0.8F*BOPConfigurationTerrainGen.heightVarMod);
 	
 	public BiomeGenAlpsForest(int id)
 	{

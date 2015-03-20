@@ -11,11 +11,14 @@ import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenQuagmire extends BOPSubBiome
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
-    
+    //private static final Height biomeHeight = new Height(0.0F, 0.1F);
+ 	private static final Height biomeHeight = new Height(0.0F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightVarMod);
+   
     public BiomeGenQuagmire(int id)
     {
         super(id);

@@ -16,10 +16,13 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenMysticGrove extends BOPOverworldBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
+    //private static final Height biomeHeight = new Height(0.1F, 0.2F);
+	private static final Height biomeHeight = new Height(0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.2F*BOPConfigurationTerrainGen.heightVarMod);
 
 	public BiomeGenMysticGrove(int id)
 	{

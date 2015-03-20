@@ -16,10 +16,13 @@ import biomesoplenty.common.world.features.WorldGenMoss;
 import biomesoplenty.common.world.features.trees.WorldGenBayou1;
 import biomesoplenty.common.world.features.trees.WorldGenBayou2;
 import biomesoplenty.common.world.features.trees.WorldGenBayou3;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenBayou extends BOPOverworldBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(-0.1F, 0.1F);
+    //private static final Height biomeHeight = new Height(-0.1F, 0.1F);
+	private static final Height biomeHeight = new Height(-0.1F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightVarMod);
 
 	public BiomeGenBayou(int id)
 	{

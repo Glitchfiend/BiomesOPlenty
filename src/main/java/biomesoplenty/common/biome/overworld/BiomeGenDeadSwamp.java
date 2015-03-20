@@ -13,11 +13,14 @@ import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+// BOPConfigurationTerrainGen.heightrootmod - BOPConfigurationTerrainGen.heightVarMod
 
 public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
-    
+    //private static final Height biomeHeight = new Height(0.0F, 0.1F);
+  	private static final Height biomeHeight = new Height(0.0F*BOPConfigurationTerrainGen.heightrootmod, 0.1F*BOPConfigurationTerrainGen.heightVarMod);
+  
 	public BiomeGenDeadSwamp(int id)
 	{
 		super(id);
