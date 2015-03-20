@@ -1,5 +1,6 @@
 package biomesoplenty.client.fog;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -13,9 +14,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.EntityViewRenderEvent.FogColors;
-import net.minecraftforge.client.event.EntityViewRenderEvent.FogDensity;
-import net.minecraftforge.client.event.EntityViewRenderEvent.RenderFogEvent;
 import net.minecraftforge.common.ForgeModContainer;
 
 import org.lwjgl.opengl.GL11;
@@ -25,7 +25,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FogHandler 
 {
-	/*@SubscribeEvent
+	@SubscribeEvent
 	public void onGetFogColour(FogColors event)
 	{
 		if (event.entity instanceof EntityPlayer)
@@ -38,19 +38,19 @@ public class FogHandler
 			int z = MathHelper.floor_double(player.posZ);
 
 			int oldColour = ((int)(event.red * 255) & 255) << 16 | ((int)(event.green * 255) & 255) << 8 | (int)(event.blue * 255) & 255;
-			int colour = getFogBlendColour(world, x, y, z, oldColour);
+			int colour = getFogBlendColour(world, player, x, y, z, oldColour, event.renderPartialTicks);
 
 			event.red = (colour >> 16 & 255) / 255.0F; event.green = (colour >> 8 & 255) / 255.0F; event.blue = (colour & 255) / 255.0F;
 		}
-	}*/
-	
+	}
+
     private static double fogX, fogZ;
 
     private static boolean fogInit;
     private static float fogFarPlaneDistance;
 	
-	/*@SubscribeEvent
-	public void onRenderFog(RenderFogEvent event)
+	@SubscribeEvent
+	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event)
 	{
 		Entity entity = event.entity;
         World world = entity.worldObj;
@@ -61,45 +61,73 @@ public class FogHandler
         
         if (playerX == fogX && playerZ == fogZ && fogInit)
         {
-    		renderFog(event.fogMode, fogFarPlaneDistance);
-        	
+    		renderFog(event.fogMode, fogFarPlaneDistance, 0.75f);
         	return;
         }
         
         fogInit = true;
         
         int distance = 20;
-        int divider = 0;
         
-        float farPlaneDistance = 0F;
+        float fpDistanceBiomeFog = 0F;
+		float weightBiomeFog = 0;
         
 		for (int x = -distance; x <= distance; ++x)
 		{
 			for (int z = -distance; z <= distance; ++z)
 			{
 				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
-	            
 				if (biome instanceof IBiomeFog)
                 {
-					farPlaneDistance += ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
+					float distancePart = ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
+					float weightPart = 1;
+
+					if (x == -distance)
+					{
+						double xDiff = 1 - (entity.posX - playerX);
+						distancePart *= xDiff;
+						weightPart *= xDiff;
+					}
+					else if (x == distance)
+					{
+						double xDiff = (entity.posX - playerX);
+						distancePart *= xDiff;
+						weightPart *= xDiff;
+					}
+
+					if (z == -distance)
+					{
+						double zDiff = 1 - (entity.posZ - playerZ);
+						distancePart *= zDiff;
+						weightPart *= zDiff;
+					}
+					else if (z == distance)
+					{
+						double zDiff = (entity.posZ - playerZ);
+						distancePart *= zDiff;
+						weightPart *= zDiff;
+					}
+
+					fpDistanceBiomeFog += distancePart;
+					weightBiomeFog += weightPart;
                 }
-                else
-                {
-                	farPlaneDistance += event.farPlaneDistance;
-                }
-				
-                divider++;
 			}
 		}
-		
+
+		float weightMixed = (distance * 2) * (distance * 2);
+		float weightDefault = weightMixed - weightBiomeFog;
+
+		float farPlaneDistance = (fpDistanceBiomeFog + event.farPlaneDistance * weightDefault) / weightMixed;
+		float farPlaneDistanceScale = (0.25f * weightBiomeFog + 0.75f * weightDefault) / weightMixed;
+
 		fogX = entity.posX;
 		fogZ = entity.posZ;
-        fogFarPlaneDistance = Math.min(farPlaneDistance / divider, event.farPlaneDistance);
-		
-		renderFog(event.fogMode, fogFarPlaneDistance);
+        fogFarPlaneDistance = Math.min(farPlaneDistance, event.farPlaneDistance);
+
+		renderFog(event.fogMode, fogFarPlaneDistance, farPlaneDistanceScale);
 	}
 	
-	private static void renderFog(int fogMode, float farPlaneDistance)
+	private static void renderFog(int fogMode, float farPlaneDistance, float farPlaneDistanceScale)
 	{
         if (fogMode < 0)
         {
@@ -108,12 +136,12 @@ public class FogHandler
         }
         else
         {
-            GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * 0.75F);
+            GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * farPlaneDistanceScale);
             GL11.glFogf(GL11.GL_FOG_END, farPlaneDistance);
         }
-	}*/
+	}
 
-	/*public static int getFogBlendColour(World world, int playerX, int playerY, int playerZ, int defaultColour)
+	public static int getFogBlendColour(World world, Entity playerEntity, int playerX, int playerY, int playerZ, int defaultColour, double renderPartialTicks)
 	{
 		GameSettings settings = Minecraft.getMinecraft().gameSettings;
 		int[] ranges = ForgeModContainer.blendRanges;
@@ -123,11 +151,11 @@ public class FogHandler
 			distance = ranges[settings.renderDistanceChunks];
 		}
 
-		int r = 0;
-		int g = 0;
-		int b = 0;
+		float rBiomeFog = 0;
+		float gBiomeFog = 0;
+		float bBiomeFog = 0;
+		float weightBiomeFog = 0;
 
-		int divider = 0;
 		for (int x = -distance; x <= distance; ++x)
 		{
 			for (int z = -distance; z <= distance; ++z)
@@ -139,23 +167,89 @@ public class FogHandler
 					IBiomeFog biomeFog = (IBiomeFog)biome;
 					int fogColour = biomeFog.getFogColour(playerX + x, playerY, playerZ + z);
 
-					r += (fogColour & 0xFF0000) >> 16;
-			g += (fogColour & 0x00FF00) >> 8;
-		b += fogColour & 0x0000FF;
-				}
-				else
-				{
-					r += (defaultColour & 0xFF0000) >> 16;
-					g += (defaultColour & 0x00FF00) >> 8;
-					b += defaultColour & 0x0000FF;
-				}
+					float rPart = (fogColour & 0xFF0000) >> 16;
+					float gPart = (fogColour & 0x00FF00) >> 8;
+					float bPart = fogColour & 0x0000FF;
+					float weightPart = 1;
 
-				divider++;
+					if (x == -distance)
+					{
+						double xDiff = 1 - (playerEntity.posX - playerX);
+						rPart *= xDiff;
+						gPart *= xDiff;
+						bPart *= xDiff;
+						weightPart *= xDiff;
+					}
+					else if (x == distance)
+					{
+						double xDiff = playerEntity.posX - playerX;
+						rPart *= xDiff;
+						gPart *= xDiff;
+						bPart *= xDiff;
+						weightPart *= xDiff;
+					}
+
+					if (z == -distance)
+					{
+						double zDiff = 1 - (playerEntity.posZ - playerZ);
+						rPart *= zDiff;
+						gPart *= zDiff;
+						bPart *= zDiff;
+						weightPart *= zDiff;
+					}
+					else if (z == distance)
+					{
+						double zDiff = playerEntity.posZ - playerZ;
+						rPart *= zDiff;
+						gPart *= zDiff;
+						bPart *= zDiff;
+						weightPart *= zDiff;
+					}
+
+					rBiomeFog += rPart;
+					gBiomeFog += gPart;
+					bBiomeFog += bPart;
+					weightBiomeFog += weightPart;
+				}
 			}
 		}
 
-		int multiplier = (r / divider & 255) << 16 | (g / divider & 255) << 8 | b / divider & 255;
+		// Calculate day / night / weather scale for BiomeFog component
+		float celestialAngle = world.getCelestialAngle((float)renderPartialTicks);
+		float baseScale = MathHelper.clamp_float(MathHelper.cos(celestialAngle * (float)Math.PI * 2.0F) * 2.0F + 0.5F, 0, 1);
+
+		float rScale = baseScale * 0.94F + 0.06F;
+		float gScale = baseScale * 0.94F + 0.06F;
+		float bScale = baseScale * 0.91F + 0.09F;
+
+		float rainStrength = world.getRainStrength((float)renderPartialTicks);
+		if (rainStrength > 0) {
+			rScale *= 1 - rainStrength * 0.5f;
+			gScale *= 1 - rainStrength * 0.5f;
+			bScale *= 1 - rainStrength * 0.4f;
+		}
+
+		float thunderStrength = world.getWeightedThunderStrength((float) renderPartialTicks);
+		if (thunderStrength > 0) {
+			rScale *= 1 - thunderStrength * 0.5f;
+			gScale *= 1 - thunderStrength * 0.5f;
+			bScale *= 1 - thunderStrength * 0.5f;
+		}
+
+		// Mix default fog component with BiomeFog component
+		float rDefault = (defaultColour & 0xFF0000) >> 16;
+		float gDefault = (defaultColour & 0x00FF00) >> 8;
+		float bDefault = defaultColour & 0x0000FF;
+
+		float weightMixed = (distance * 2) * (distance * 2);
+		float weightDefault = weightMixed - weightBiomeFog;
+
+		float rMixed = (rBiomeFog * rScale + rDefault * weightDefault) / weightMixed;
+		float gMixed = (gBiomeFog * gScale + gDefault * weightDefault) / weightMixed;
+		float bMixed = (bBiomeFog * bScale + bDefault * weightDefault) / weightMixed;
+
+		int multiplier = ((int)rMixed & 255) << 16 | ((int)gMixed & 255) << 8 | (int)bMixed & 255;
 
 		return multiplier;
-	}*/
+	}
 }
