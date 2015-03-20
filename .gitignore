@@ -1,4 +1,3 @@
-*.bat
 *.sh
 
 LICENSE.txt
@@ -14,6 +13,9 @@ eclipse/*
 docs/*
 conf/*
 bin/*
+.gradle/*
+.settings/*
+run/*
 
 src/minecraft/cpw/*
 src/minecraft/net/minecraft/*
@@ -37,3 +39,5 @@ src/minecraft/fmlversion.properties
 src/minecraft/fml_marker.cfg
 src/minecraft/fml_at.cfg
 build_number.properties
+.project
+.classpath
