@@ -12,7 +12,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -62,65 +61,73 @@ public class FogHandler
         
         if (playerX == fogX && playerZ == fogZ && fogInit)
         {
-    		renderFog(event.fogMode, fogFarPlaneDistance);
-        	
+    		renderFog(event.fogMode, fogFarPlaneDistance, 0.75f);
         	return;
         }
         
         fogInit = true;
         
         int distance = 20;
-        int divider = 0;
         
-        float farPlaneDistance = 0F;
+        float fpDistanceBiomeFog = 0F;
+		float weightBiomeFog = 0;
         
 		for (int x = -distance; x <= distance; ++x)
 		{
 			for (int z = -distance; z <= distance; ++z)
 			{
 				BiomeGenBase biome = world.getBiomeGenForCoords(playerX + x, playerZ + z);
-				float distancePart = event.farPlaneDistance;
-	            
 				if (biome instanceof IBiomeFog)
                 {
-					distancePart = ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
+					float distancePart = ((IBiomeFog)biome).getFogDensity(playerX + x, playerY, playerZ + z);
+					float weightPart = 1;
+
+					if (x == -distance)
+					{
+						double xDiff = 1 - (entity.posX - playerX);
+						distancePart *= xDiff;
+						weightPart *= xDiff;
+					}
+					else if (x == distance)
+					{
+						double xDiff = (entity.posX - playerX);
+						distancePart *= xDiff;
+						weightPart *= xDiff;
+					}
+
+					if (z == -distance)
+					{
+						double zDiff = 1 - (entity.posZ - playerZ);
+						distancePart *= zDiff;
+						weightPart *= zDiff;
+					}
+					else if (z == distance)
+					{
+						double zDiff = (entity.posZ - playerZ);
+						distancePart *= zDiff;
+						weightPart *= zDiff;
+					}
+
+					fpDistanceBiomeFog += distancePart;
+					weightBiomeFog += weightPart;
                 }
-
-				if (x == -distance)
-				{
-					distancePart *= 1 - (entity.posX - playerX);
-				}
-				else if (x == distance)
-				{
-					distancePart *= (entity.posX - playerX);
-				}
-
-				if (z == -distance)
-				{
-					distancePart *= 1 - (entity.posZ - playerZ);
-				}
-				else if (z == distance)
-				{
-					distancePart *= (entity.posZ - playerZ);
-				}
-
-				farPlaneDistance += distancePart;
-				
-                divider++;
 			}
 		}
 
-		// Total area calculated is actually (distance - 1)^2
-		divider -= distance * 2 - 1;
-		
+		float weightMixed = (distance * 2) * (distance * 2);
+		float weightDefault = weightMixed - weightBiomeFog;
+
+		float farPlaneDistance = (fpDistanceBiomeFog + event.farPlaneDistance * weightDefault) / weightMixed;
+		float farPlaneDistanceScale = (0.25f * weightBiomeFog + 0.75f * weightDefault) / weightMixed;
+
 		fogX = entity.posX;
 		fogZ = entity.posZ;
-        fogFarPlaneDistance = Math.min(farPlaneDistance / divider, event.farPlaneDistance);
-		
-		renderFog(event.fogMode, fogFarPlaneDistance);
+        fogFarPlaneDistance = Math.min(farPlaneDistance, event.farPlaneDistance);
+
+		renderFog(event.fogMode, fogFarPlaneDistance, farPlaneDistanceScale);
 	}
 	
-	private static void renderFog(int fogMode, float farPlaneDistance)
+	private static void renderFog(int fogMode, float farPlaneDistance, float farPlaneDistanceScale)
 	{
         if (fogMode < 0)
         {
@@ -129,7 +136,7 @@ public class FogHandler
         }
         else
         {
-            GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * 0.75F);
+            GL11.glFogf(GL11.GL_FOG_START, farPlaneDistance * farPlaneDistanceScale);
             GL11.glFogf(GL11.GL_FOG_END, farPlaneDistance);
         }
 	}
