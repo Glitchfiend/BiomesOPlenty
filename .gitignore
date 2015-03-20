@@ -41,3 +41,4 @@ src/minecraft/fml_at.cfg
 build_number.properties
 .project
 .classpath
+/bin/
