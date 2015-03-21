@@ -26,6 +26,6 @@ public class BiomeGenPolarChasm extends BOPNetherBiome implements IBiomeFog
 
     public float getFogDensity(int x, int y, int z)
     {
-        return 0.01F;
+        return 0.99F;
     }
 }
