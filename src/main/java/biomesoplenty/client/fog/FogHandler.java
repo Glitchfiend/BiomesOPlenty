@@ -117,8 +117,11 @@ public class FogHandler
 		float weightMixed = (distance * 2) * (distance * 2);
 		float weightDefault = weightMixed - weightBiomeFog;
 
+		float fpDistanceBiomeFogAvg = (weightBiomeFog == 0) ? 0 : fpDistanceBiomeFog / weightBiomeFog;
+
 		float farPlaneDistance = (fpDistanceBiomeFog * 240 + event.farPlaneDistance * weightDefault) / weightMixed;
-		float farPlaneDistanceScale = (0.25f * weightBiomeFog + 0.75f * weightDefault) / weightMixed;
+		float farPlaneDistanceScaleBiome = (0.1f * (1 - fpDistanceBiomeFogAvg) + 0.75f * fpDistanceBiomeFogAvg);
+		float farPlaneDistanceScale = (farPlaneDistanceScaleBiome * weightBiomeFog + 0.75f * weightDefault) / weightMixed;
 
 		fogX = entity.posX;
 		fogZ = entity.posZ;
