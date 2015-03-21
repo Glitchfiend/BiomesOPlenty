@@ -1,5 +1,6 @@
 package biomesoplenty.client.fog;
 
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
 import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -28,6 +29,11 @@ public class FogHandler
 	@SubscribeEvent
 	public void onGetFogColour(FogColors event)
 	{
+		if (!BOPConfigurationMisc.fogColors)
+		{
+			return;
+		}
+
 		if (event.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer)event.entity;
@@ -52,6 +58,11 @@ public class FogHandler
 	@SubscribeEvent
 	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event)
 	{
+		if (!BOPConfigurationMisc.fogDensity)
+		{
+			return;
+		}
+
 		Entity entity = event.entity;
         World world = entity.worldObj;
         
