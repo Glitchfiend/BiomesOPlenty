@@ -5,13 +5,12 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.api.content.BOPCBlocks;
 
-public class WorldGenRedwoodTree extends WorldGenAbstractTree
+public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
 {
     private final Block wood;
     private final Block leaves;
@@ -22,7 +21,7 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
     private final int minTreeHeight;
     private final int randomTreeHeight;
 
-    public WorldGenRedwoodTree(Block wood, Block leaves, int woodMeta, int leavesMeta, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight)
+    public WorldGenRedwoodTree3(Block wood, Block leaves, int woodMeta, int leavesMeta, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight)
     {
         super(doBlockNotify);
         
@@ -50,16 +49,16 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
 
             for (int i1 = y; i1 <= y + 1 + l; ++i1)
             {
-                b0 = 7;
+                b0 = 5;
 
                 if (i1 == y)
                 {
-                    b0 = 7;
+                    b0 = 5;
                 }
 
                 if (i1 >= y + 1 + l - 2)
                 {
-                    b0 = 8;
+                    b0 = 6;
                 }
 
                 for (int j1 = x - b0; j1 <= x + b0 && flag; ++j1)
@@ -92,9 +91,9 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                 boolean isSoil = true;
                 boolean hasSpace = true;
                 
-                for (int ix = -3; ix <= 3; ix++)
+                for (int ix = -1; ix <= 1; ix++)
                 {
-                    for (int iz = -3; iz <= 3; iz++)
+                    for (int iz = -1; iz <= 1; iz++)
                     {
                         Block block2 = world.getBlock(x + ix, y - 1, z + iz);
                         
@@ -106,11 +105,11 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                     }
                 }
                 
-                for (int ix = -3; ix <= 3; ix++)
+                for (int ix = -1; ix <= 1; ix++)
                 {
                     for (int iy = 0; iy <= l; iy++)
                     {
-                        for (int iz = -3; iz <= 3; iz++)
+                        for (int iz = -1; iz <= 1; iz++)
                         {
                             Block block2 = world.getBlock(x + ix, y + iy, z + iz);
 
@@ -125,11 +124,11 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                 
                 if (isSoil && hasSpace && y < 256 - l - 1)
                 {
-                    for (int ix = -3; ix <= 3; ix++)
+                    for (int ix = -1; ix <= 1; ix++)
                     {
-                        for (int iz = -3; iz <= 3; iz++)
+                        for (int iz = -1; iz <= 1; iz++)
                         {
-                            if (((ix != -3 && ix != 3) || (iz >= -1 && iz <= 1)) && ((iz != -3 && iz != 3) || (ix >= -1 && ix <= 1)))
+                            if (((ix != -1 && ix != 1) || (iz == 0)) && ((iz != -1 && iz != 1) || (ix == 0)))
                             {
                                 Block block2 = world.getBlock(x + ix, y - 1, z + iz);
 
@@ -148,7 +147,7 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                     for (k1 = y - b0 + l; k1 <= y + l; ++k1)
                     {
                         i3 = k1 - (y + l);
-                        l1 = b1 + 1 - i3 / 4;
+                        l1 = b1 + 1 - i3 / 6;
 
                         for (i2 = x - l1; i2 <= x + l1; ++i2)
                         {
@@ -167,7 +166,7 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                                         //TODO: setBlockAndMetadata()
                                         //this.setBlockAndNotifyAdequately(world, i2, k1, k2, this.leaves, this.leavesMeta);
                                         this.setBlockAndNotifyAdequately(world, i2, k1 + 6, k2, this.leaves, this.leavesMeta);
-                                        this.setBlockAndNotifyAdequately(world, i2, k1 + 10, k2, this.leaves, this.leavesMeta);
+                                        this.setBlockAndNotifyAdequately(world, i2, k1 + 12, k2, this.leaves, this.leavesMeta);
                                     }
                                 }
                             }
@@ -185,59 +184,21 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                             this.setBlockAndNotifyAdequately(world, x, y + (l + 1), z, this.wood, this.woodMeta);
                             this.setBlockAndNotifyAdequately(world, x, y + (l + 2), z, this.wood, this.woodMeta);
                             this.setBlockAndNotifyAdequately(world, x, y + (l + 3), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (l + 4), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (l + 5), z, this.wood, this.woodMeta);
                             this.setBlockAndNotifyAdequately(world, x, y + k1, z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + k1, z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + k1, z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + k1, z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + k1, z + 1, this.wood, this.woodMeta);
-
+                            
                             //2
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + MathHelper.floor_double(k1 * 0.75), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + MathHelper.floor_double(k1 * 0.75), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + MathHelper.floor_double(k1 * 0.75), z + 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + MathHelper.floor_double(k1 * 0.75), z + 1, this.wood, this.woodMeta);
-
-                            //3
-                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 2), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 2), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 2), z + 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 2), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 2), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 2), z + 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 2), z - 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 2), z - 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 2), z - 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 2), z + 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 2), z + 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 2), z + 2, this.wood, this.woodMeta);
-
-                            //4
-                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 4), z - 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 4), z + 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 4), z - 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 4), z + 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 3, y + (k1 / 4), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 3, y + (k1 / 4), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 4), z - 3, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 4), z + 3, this.wood, this.woodMeta);
-
-                            //5
-                            this.setBlockAndNotifyAdequately(world, x - 3, y + (k1 / 6), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 3, y + (k1 / 6), z + 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 3, y + (k1 / 6), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 3, y + (k1 / 6), z + 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 6), z - 3, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 6), z - 3, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 6), z + 3, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 6), z + 3, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 2), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 2), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 2), z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 2), z + 1, this.wood, this.woodMeta);
                         }
                     }
                     
                     for (int i = 0; i < 90; ++i)
                     {
-                        int randX = x - random.nextInt(8) + random.nextInt(8);
+                    	int randX = x - random.nextInt(8) + random.nextInt(8);
                         int randY = y + random.nextInt(64);
                         int randZ = z - random.nextInt(8) + random.nextInt(8);
                         new WorldGenBOPShrub(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, BOPCBlocks.logs3).generate(world, random, randX, randY, randZ);

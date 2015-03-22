@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import biomesoplenty.api.content.BOPCBlocks;
@@ -15,10 +14,11 @@ import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree;
 import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree2;
+import biomesoplenty.common.world.features.trees.WorldGenRedwoodTree3;
 
 public class BiomeGenRedwoodForest extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.1F);
+    private static final Height biomeHeight = new Height(0.1F, 0.05F);
     
     public BiomeGenRedwoodForest(int id)
     {
@@ -28,8 +28,8 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         this.setColor(7187004);
         this.setTemperatureRainfall(0.8F, 0.4F);
 
-        this.theBiomeDecorator.treesPerChunk = 99;
-        this.theBiomeDecorator.grassPerChunk = 15;
+        this.theBiomeDecorator.treesPerChunk = 100;
+        this.theBiomeDecorator.grassPerChunk = 5;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.bushesPerChunk = 4;
@@ -40,7 +40,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
 
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 15;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 10;
 
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPDoubleFlora(4, 5), 10);
         this.theBiomeDecorator.bopFeatures.weightedFlowerGen.put(new WorldGenBOPFlora(Blocks.red_flower, 1), 8);
@@ -55,7 +55,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(2) == 0 ? new WorldGenRedwoodTree2(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 20, 15) : (random.nextInt(10) == 0 ? new WorldGenShrub(0,0) : new WorldGenRedwoodTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 40, 10));
+        return random.nextInt(4) == 0 ? new WorldGenRedwoodTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 40, 10) : (random.nextInt(15) == 0 ? new WorldGenShrub(0,0) : (random.nextInt(2) == 0 ? new WorldGenRedwoodTree2(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 30, 15) : new WorldGenRedwoodTree3(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, false, 20, 10)));
     }
 
     @Override

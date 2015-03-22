@@ -31,6 +31,7 @@ public class BOPCBiomes
 	public static BiomeGenBase heathland;
 	public static BiomeGenBase highland;
 	public static BiomeGenBase jadeCliffs;
+	public static BiomeGenBase landOfLakes;
 	public static BiomeGenBase lavenderFields;
 	public static BiomeGenBase lushDesert;
 	public static BiomeGenBase lushSwamp;
@@ -70,6 +71,7 @@ public class BOPCBiomes
 	public static BiomeGenBase orchard;
 	public static BiomeGenBase quagmire;
 	public static BiomeGenBase scrubland;
+	public static BiomeGenBase seasonalForestClearing;
 	public static BiomeGenBase silkglades;
 	public static BiomeGenBase spruceWoods;
 	public static BiomeGenBase tropics;
