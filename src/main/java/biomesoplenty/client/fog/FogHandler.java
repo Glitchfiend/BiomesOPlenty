@@ -58,11 +58,6 @@ public class FogHandler
 	@SubscribeEvent
 	public void onRenderFog(EntityViewRenderEvent.RenderFogEvent event)
 	{
-		if (!BOPConfigurationMisc.fogDensity)
-		{
-			return;
-		}
-
 		Entity entity = event.entity;
         World world = entity.worldObj;
         
