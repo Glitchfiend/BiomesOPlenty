@@ -24,6 +24,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.api.content.BOPCItems;
@@ -145,22 +146,22 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == BOPCBlocks.bopGrass;
 
 		case 5: // Thorns
-			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand;
+			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			
 		case 6: // Barley
-			return block == Blocks.grass || block == Blocks.dirt;
+			return block == Blocks.grass || block == Blocks.dirt || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 
 		case 7: // Cattail
-			return block != Blocks.grass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
+			return block != Blocks.grass && block != BOPCBlocks.newBopGrass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
 
 		case 8: // River Cane
-			return block == this || block == Blocks.grass;
+			return block == this || block == Blocks.grass || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			
 		case 9:
 			return block == this;
 
 		case 10: // High Cattail Bottom
-			return block != Blocks.grass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
+			return block != Blocks.grass && block != BOPCBlocks.newBopGrass ? false : (world.getBlock(x - 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x + 1, y - 1, z).getMaterial() == Material.water ? true : (world.getBlock(x, y - 1, z - 1).getMaterial() == Material.water ? true : world.getBlock(x, y - 1, z + 1).getMaterial() == Material.water)));
 
 		case 12: // Tiny Cactus
 			return block == Blocks.sand || block == Blocks.hardened_clay || block == Blocks.soul_sand;
@@ -172,10 +173,10 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 			return block == Blocks.water && reedwater != Blocks.water;
 			
 		case 15: // Root
-			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPCBlocks.longGrass);
+			return root != Blocks.air && (root == Blocks.grass || root == Blocks.dirt || root == Blocks.farmland || root == BOPCBlocks.longGrass || root == BOPCBlocks.newBopGrass || root == BOPCBlocks.newBopDirt);
 			
 		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.overgrownNetherrack;
+			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block == BOPCBlocks.overgrownNetherrack || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}
 
