@@ -65,6 +65,7 @@ public class WorldGenFieldAssociation
         associateFeature("generateSponge", new WorldGenSplotches(Blocks.sponge, 0, 24, Blocks.dirt, Blocks.sand, Blocks.gravel));
         
         associateFeature("mudPerChunk", new WorldGenWaterside(BOPCBlocks.mud, 7, Blocks.dirt, Blocks.grass));
+        associateFeature("gravelPerChunk", new WorldGenWaterside(Blocks.gravel, 7, Blocks.dirt, Blocks.grass));
         associateFeature("riverCanePerChunk", new WorldGenRiverCane());
         associateFeature("shrubsPerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 9));
         associateFeature("bushesPerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 4));

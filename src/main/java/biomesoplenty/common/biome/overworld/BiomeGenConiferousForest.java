@@ -40,6 +40,7 @@ public class BiomeGenConiferousForest extends BOPOverworldBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.blueMilksPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.poisonIvyPerChunk = 1;

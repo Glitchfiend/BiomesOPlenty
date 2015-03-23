@@ -65,6 +65,7 @@ public class BOPCBiomes
 	public static BiomeGenBase alpsForest;
 	public static BiomeGenBase canyonRavine;
 	public static BiomeGenBase glacier;
+	public static BiomeGenBase landOfLakesMarsh;
 	public static BiomeGenBase mangrove;
 	public static BiomeGenBase meadowForest;
 	public static BiomeGenBase oasis;

@@ -33,6 +33,7 @@ public class BiomeGenShield extends BOPOverworldBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 10;

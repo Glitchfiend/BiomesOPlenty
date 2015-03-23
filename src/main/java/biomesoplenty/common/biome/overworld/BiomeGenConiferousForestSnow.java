@@ -39,6 +39,7 @@ public class BiomeGenConiferousForestSnow extends BOPOverworldBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
 
+        this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 8;

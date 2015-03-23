@@ -35,6 +35,7 @@ public class BiomeGenTundra extends BOPOverworldBiome
         this.theBiomeDecorator.reedsPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk = 8;
 
+        this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;

@@ -33,6 +33,7 @@ public class BiomeGenDeadForest extends BOPOverworldBiome
 		this.theBiomeDecorator.flowersPerChunk = -999;
 		this.theBiomeDecorator.reedsPerChunk = -999;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.thornsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 2;

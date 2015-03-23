@@ -35,6 +35,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
 		this.theBiomeDecorator.mushroomsPerChunk = 2;
 		this.theBiomeDecorator.flowersPerChunk = 10;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 14;
         this.theBiomeDecorator.bopFeatures.wildCarrotsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 5;

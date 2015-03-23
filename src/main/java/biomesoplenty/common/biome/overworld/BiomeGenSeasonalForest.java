@@ -34,6 +34,7 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome implements IBiomeF
         this.theBiomeDecorator.grassPerChunk = 8;
         this.theBiomeDecorator.flowersPerChunk = -999;
 
+        this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;

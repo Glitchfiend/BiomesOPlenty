@@ -33,6 +33,7 @@ public class BiomeGenShrubland extends BOPOverworldBiome
 		this.theBiomeDecorator.flowersPerChunk = 0;
 		this.theBiomeDecorator.grassPerChunk = 5;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.bushesPerChunk = 7;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 5;

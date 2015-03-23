@@ -28,6 +28,8 @@ public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
 		this.topBlock = BOPCBlocks.cragRock;
 		this.fillerBlock = BOPCBlocks.cragRock;
 		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk = -999;
+		this.theBiomeDecorator.sandPerChunk2 = -999;
 
 		this.waterColorMultiplier = 944693;
 	}
