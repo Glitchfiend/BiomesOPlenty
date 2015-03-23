@@ -103,6 +103,6 @@ public class BiomeGenEucalyptusForest extends BOPOverworldBiome implements IBiom
     public float getFogDensity(int x, int y, int z)
     {
         // TODO Auto-generated method stub
-        return 0.6F;
+        return 0.5F;
     }
 }

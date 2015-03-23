@@ -258,7 +258,7 @@ public class BOPBiomes
         deadForest = registerOverworldBiome(BiomeGenDeadForest.class, "Dead Forest", TemperatureType.COOL, 7);
         deadSwamp = registerOverworldBiome(BiomeGenDeadSwamp.class, "Dead Swamp", TemperatureType.COOL, 7);
         deciduousForest = registerOverworldBiome(BiomeGenDeciduousForest.class, "Deciduous Forest", TemperatureType.WARM, 10);
-        onlyBiome = eucalyptusForest = registerOverworldBiome(BiomeGenEucalyptusForest.class, "Eucalyptus Forest", TemperatureType.HOT, 5);
+        eucalyptusForest = registerOverworldBiome(BiomeGenEucalyptusForest.class, "Eucalyptus Forest", TemperatureType.HOT, 5);
         fen = registerOverworldBiome(BiomeGenFen.class, "Fen", TemperatureType.COOL, 10);
         flowerField = registerOverworldBiome(BiomeGenFlowerField.class, "Flower Field", TemperatureType.WARM, 3);
         frostForest = registerOverworldBiome(BiomeGenFrostForest.class, "Frost Forest", TemperatureType.ICY, 7);
