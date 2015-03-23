@@ -293,7 +293,7 @@ public class BOPBiomes
         tropicalRainforest = registerOverworldBiome(BiomeGenTropicalRainforest.class, "Tropical Rainforest", TemperatureType.HOT, 5);
         tundra = registerOverworldBiome(BiomeGenTundra.class, "Tundra", TemperatureType.ICY, 7);
         wasteland = registerOverworldBiome(BiomeGenWasteland.class, "Wasteland", TemperatureType.HOT, 3);
-        onlyBiome = wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.COOL, 7);
+        wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.COOL, 7);
         woodland = registerOverworldBiome(BiomeGenWoodland.class, "Woodland", TemperatureType.COOL, 10);
 		
 		//Ocean Biomes
