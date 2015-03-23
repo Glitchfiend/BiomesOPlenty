@@ -27,6 +27,7 @@ public class BiomeGenLushRiver extends BOPOverworldBiome
         this.theBiomeDecorator.reedsPerChunk = 10;
         this.theBiomeDecorator.waterlilyPerChunk = 8;
         
+        this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 8;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 8;
         this.theBiomeDecorator.bopFeatures.riverCanePerChunk = 10;
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 15;

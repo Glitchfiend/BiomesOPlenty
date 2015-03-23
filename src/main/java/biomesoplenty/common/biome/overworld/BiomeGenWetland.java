@@ -47,6 +47,7 @@ public class BiomeGenWetland extends BOPOverworldBiome
         this.theBiomeDecorator.waterlilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
+        this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.riverCanePerChunk = 15;
         this.theBiomeDecorator.bopFeatures.mudPerChunk = 5;

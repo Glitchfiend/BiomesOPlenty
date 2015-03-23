@@ -34,7 +34,9 @@ public class BiomeGenFen extends BOPOverworldBiome implements IBiomeFog
 		this.theBiomeDecorator.grassPerChunk = 5;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
+		this.theBiomeDecorator.waterlilyPerChunk = 2;
 
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 2;
 		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.cattailsPerChunk = 1;

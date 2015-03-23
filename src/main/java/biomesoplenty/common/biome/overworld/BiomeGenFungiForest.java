@@ -40,7 +40,9 @@ public class BiomeGenFungiForest extends BOPOverworldBiome
 		this.theBiomeDecorator.treesPerChunk = 8;
 		this.theBiomeDecorator.mushroomsPerChunk = 8;
 		this.theBiomeDecorator.bigMushroomsPerChunk = 8;
+		this.theBiomeDecorator.waterlilyPerChunk = 4;
 		
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 2;
 		this.theBiomeDecorator.bopFeatures.bushesPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 5;

@@ -21,6 +21,10 @@ tile.rocks.shalesmooth.name=Polished Shale
 tile.ash.name=Ash Block
 tile.flesh.name=Flesh
 
+tile.lilyBop.mediumlily.name=Medium Lily Pad
+tile.lilyBop.smalllily.name=Small Lily Pad
+tile.lilyBop.tinylily.name=Tiny Lily Pad
+
 tile.plants.deadgrass.name=Dead Grass
 tile.plants.desertgrass.name=Desert Grass
 tile.plants.desertsprouts.name=Desert Sprouts

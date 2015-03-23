@@ -33,7 +33,9 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
 		this.theBiomeDecorator.grassPerChunk = 4;
 		this.theBiomeDecorator.mushroomsPerChunk = 8;
 		this.theBiomeDecorator.reedsPerChunk = 16;
+		this.theBiomeDecorator.waterlilyPerChunk = 4;
 
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.cattailsPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.highCattailsPerChunk = 5;
