@@ -6,19 +6,30 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.core;
+package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlock;
 import net.minecraft.item.Item;
+import biomesoplenty.api.block.BOPCrops;
+import biomesoplenty.api.item.BOPItems;
 
-public class CommonProxy
+public class BlockTurnip extends BOPCrops
 {
-    public void registerRenderers() {}
     
-    public void addVariantName(Item item, String... names) {}
+    public BlockTurnip()
+    {
+        this.setCreativeTab(null);
+    }
 
-    public void registerBlockForMeshing(BOPBlock block, int metadata, String name) {}
+    @Override
+    protected Item getSeed()
+    {
+        return BOPItems.turnip_seeds;
+    }
     
-    public void registerItemForMeshing(Item item, String name) {}
-    
-}
+    @Override
+    protected Item getCrop()
+    {
+        return BOPItems.turnip;
+    }
+
+}    

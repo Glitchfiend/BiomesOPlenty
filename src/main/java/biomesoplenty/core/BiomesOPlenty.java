@@ -48,8 +48,11 @@ public class BiomesOPlenty
         configDirectory = new File(event.getModConfigurationDirectory(), "biomesoplenty");
 
         ModConfiguration.init(configDirectory);
-        ModItems.init();
+        
+        // setup blocks before items, because some items need to reference blocks in their constructors (eg seeds)
         ModBlocks.init();
+        ModItems.init();
+        
         ModBiomes.init();
         ModHandlers.init();
         ModConfiguration.initEnd(configDirectory);

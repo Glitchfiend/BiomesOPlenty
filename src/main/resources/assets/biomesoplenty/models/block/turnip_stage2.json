@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "biomesoplenty:blocks/turnip_stage_2"
+    }
+}

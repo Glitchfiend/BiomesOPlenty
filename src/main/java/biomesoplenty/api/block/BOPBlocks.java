@@ -28,4 +28,7 @@ public class BOPBlocks
     public static Block mushroom;
     public static Block planks;
     public static Block stone;
+    public static Block mud;
+    public static Block turnip_block;
+    public static Block flesh;
 }

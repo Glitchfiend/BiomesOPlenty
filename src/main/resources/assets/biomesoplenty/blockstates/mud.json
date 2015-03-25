@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=mud": { "model": "biomesoplenty:mud" },
+        "variant=quicksand": { "model": "biomesoplenty:quicksand" }
+    }
+}
