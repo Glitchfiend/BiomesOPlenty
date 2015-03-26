@@ -10,11 +10,8 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
@@ -39,7 +36,6 @@ import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockTurnip;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -78,7 +74,7 @@ public class ModBlocks
 
         if (block.hasPresetProperties())
         {
-            GameRegistry.registerBlock(block, ItemBlockWithVariants.class, name);
+            GameRegistry.registerBlock(block, block.getItemClass(), name);
 
             for (IBlockState state : block.presetStates)
             {
