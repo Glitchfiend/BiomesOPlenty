@@ -35,7 +35,10 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome implements IB
 		this.theBiomeDecorator.mushroomsPerChunk = 4;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
+		this.theBiomeDecorator.waterlilyPerChunk = 2;
 
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 2;
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
         this.theBiomeDecorator.bopFeatures.blueMilksPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.poisonIvyPerChunk = 1;

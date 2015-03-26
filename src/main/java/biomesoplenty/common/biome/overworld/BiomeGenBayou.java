@@ -41,7 +41,9 @@ public class BiomeGenBayou extends BOPOverworldBiome implements IBiomeFog
 		this.theBiomeDecorator.mushroomsPerChunk = 4;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
+		this.theBiomeDecorator.waterlilyPerChunk = 4;
 
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.mudPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 2;

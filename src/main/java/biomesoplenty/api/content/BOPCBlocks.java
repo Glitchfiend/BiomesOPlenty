@@ -10,6 +10,7 @@ public class BOPCBlocks
 	public static Block ash;
 	public static Block flesh;
 	public static Block plants;
+	public static Block lilyBop;
 	public static Block flowers;
 	public static Block flowers2;
 	public static Block stoneFormations;

@@ -29,12 +29,12 @@ public class BiomeGenHighland extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.wildCarrotsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.rockpilesPerChunk = 1;
 
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 99;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 100;
 
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.25D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.25D);
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.5D);
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 1D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.25D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 5.0D);
 	}
 	
 	@Override

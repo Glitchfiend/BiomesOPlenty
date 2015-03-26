@@ -29,6 +29,7 @@ public class BiomeGenMountain extends BOPOverworldBiome
 		this.theBiomeDecorator.treesPerChunk = 2;
 		this.theBiomeDecorator.grassPerChunk = 3;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;

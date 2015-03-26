@@ -1,4 +1,4 @@
-package biomesoplenty.common.biome.overworld;
+package biomesoplenty.common.biome.overworld.sub;
 
 import java.util.Random;
 
@@ -11,37 +11,39 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.client.fog.IBiomeFog;
-import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.biome.BOPSubBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPBigTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
-public class BiomeGenSeasonalForest extends BOPOverworldBiome implements IBiomeFog
+public class BiomeGenSeasonalForestClearing extends BOPSubBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.7F, 1.4F);
+    private static final Height biomeHeight = new Height(0.1F, 0.2F);
 
-    public BiomeGenSeasonalForest(int id)
+    public BiomeGenSeasonalForestClearing(int id)
     {
         super(id);
+        
+        this.zoom = 0.5D;
+		this.threshold = 0.5D;
 
         this.setHeight(biomeHeight);
-        this.setColor(12502092);
+        this.setColor(13620065);
         this.setTemperatureRainfall(0.7F, 0.8F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
 
-        this.theBiomeDecorator.treesPerChunk = 20;
-        this.theBiomeDecorator.grassPerChunk = 8;
+        this.theBiomeDecorator.treesPerChunk = 1;
+        this.theBiomeDecorator.grassPerChunk = 12;
         this.theBiomeDecorator.flowersPerChunk = -999;
 
-        this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 15;
-        this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 8;
-        this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 15;
-        this.theBiomeDecorator.bopFeatures.algaePerChunk = 3;
-        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
+        this.theBiomeDecorator.bopFeatures.toadstoolsPerChunk = 8;
+        this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 10;
+        this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 8;
+        this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 10;
+        this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 20;
+        this.theBiomeDecorator.bopFeatures.algaePerChunk = 6;
+        this.theBiomeDecorator.bopFeatures.flaxPerChunk = 2;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 8;
 

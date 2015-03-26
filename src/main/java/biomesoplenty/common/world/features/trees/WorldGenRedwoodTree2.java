@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -164,7 +165,7 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
                                     if (block1.isAir(world, i2, k1, k2) || block1.isLeaves(world, i2, k1, k2))
                                     {
                                         //TODO: setBlockAndMetadata()
-                                        this.setBlockAndNotifyAdequately(world, i2, k1, k2, this.leaves, this.leavesMeta);
+                                        //this.setBlockAndNotifyAdequately(world, i2, k1, k2, this.leaves, this.leavesMeta);
                                         this.setBlockAndNotifyAdequately(world, i2, k1 + 6, k2, this.leaves, this.leavesMeta);
                                         this.setBlockAndNotifyAdequately(world, i2, k1 + 12, k2, this.leaves, this.leavesMeta);
                                     }
@@ -189,22 +190,22 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
                             this.setBlockAndNotifyAdequately(world, x, y + k1, z, this.wood, this.woodMeta);
 
                             //2
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 2), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 2), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 2), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 2), z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + MathHelper.floor_double(k1 * 0.75), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + MathHelper.floor_double(k1 * 0.75), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + MathHelper.floor_double(k1 * 0.75), z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + MathHelper.floor_double(k1 * 0.75), z + 1, this.wood, this.woodMeta);
 
                             //3
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 4), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 4), z - 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 4), z + 1, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 4), z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 2), z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 2), z - 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 1, y + (k1 / 2), z + 1, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 1, y + (k1 / 2), z + 1, this.wood, this.woodMeta);
 
                             //4
-                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 8), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 8), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 8), z - 2, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 8), z + 2, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x - 2, y + (k1 / 4), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x + 2, y + (k1 / 4), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 4), z - 2, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (k1 / 4), z + 2, this.wood, this.woodMeta);
                         }
                     }
                     

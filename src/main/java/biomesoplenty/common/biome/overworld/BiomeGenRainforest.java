@@ -37,6 +37,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 		
 		this.theBiomeDecorator.treesPerChunk = 14;
 		this.theBiomeDecorator.grassPerChunk = 25;
+		this.theBiomeDecorator.waterlilyPerChunk = 2;
 
 		this.theBiomeDecorator.mushroomsPerChunk = 25;
 		
@@ -44,6 +45,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 		customBiomeDecorator.rosesPerChunk = 10;
 		customBiomeDecorator.orangeFlowersPerChunk = 6;*/
 
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 25;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.cloverPatchesPerChunk = 20;

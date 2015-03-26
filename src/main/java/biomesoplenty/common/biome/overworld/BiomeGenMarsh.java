@@ -32,26 +32,26 @@ public class BiomeGenMarsh extends BOPOverworldBiome
 
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.flowersPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 25;
+		this.theBiomeDecorator.grassPerChunk = 15;
 		
 		this.theBiomeDecorator.reedsPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
         this.theBiomeDecorator.bopFeatures.koruPerChunk = 1;
-        this.theBiomeDecorator.bopFeatures.mudPerChunk = 1;
+        this.theBiomeDecorator.bopFeatures.mudPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 100;
-        this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 10;
-        this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 15;
-        this.theBiomeDecorator.bopFeatures.algaePerChunk = 3;
+        this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 50;
+        this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 25;
+        this.theBiomeDecorator.bopFeatures.algaePerChunk = 5;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
 
-        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 50;
+        this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 200;
 
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
-        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 0.25D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.1D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.1D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.1D);
+        this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 10.0D);
 	}
 
 	@Override
@@ -74,6 +74,16 @@ public class BiomeGenMarsh extends BOPOverworldBiome
 			}
 		}
 	}
+	
+	@Override
+    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    {
+        this.topBlock = BOPCBlocks.newBopGrass;
+        this.field_150604_aj = 0;
+        this.fillerBlock = BOPCBlocks.newBopDirt;
+
+        this.genBiomeTerrain(world, random, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+    }
 	
 	/*@Override
 	public int getFogColour()

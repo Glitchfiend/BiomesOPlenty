@@ -39,6 +39,7 @@ public class BiomeGenConiferousForestSnow extends BOPOverworldBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
 
+        this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 8;
@@ -85,5 +86,15 @@ public class BiomeGenConiferousForestSnow extends BOPOverworldBiome
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 8, 2);
             }
         }
+    }
+    
+    @Override
+    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    {
+        this.topBlock = BOPCBlocks.newBopGrass;
+        this.field_150604_aj = 0;
+        this.fillerBlock = BOPCBlocks.newBopDirt;
+
+        this.genBiomeTerrain(world, random, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 }

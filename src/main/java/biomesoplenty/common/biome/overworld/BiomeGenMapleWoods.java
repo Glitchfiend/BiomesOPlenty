@@ -29,6 +29,7 @@ public class BiomeGenMapleWoods extends BOPOverworldBiome
 		this.theBiomeDecorator.treesPerChunk = 9;
 		this.theBiomeDecorator.grassPerChunk = 1;
 
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 6;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.poisonIvyPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 2;

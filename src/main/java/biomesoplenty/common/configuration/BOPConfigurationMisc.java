@@ -11,6 +11,7 @@ public class BOPConfigurationMisc
 	public static Configuration config;
 	
 	public static boolean skyColors;
+	public static boolean fogColors;
 	//public static boolean achievements;
 	public static boolean dungeonLoot;
 	public static boolean titlePanorama;
@@ -36,6 +37,7 @@ public class BOPConfigurationMisc
 
 			//Hard-Coded Colors
 			skyColors = config.get("Hard-Coded Colors", "Enable Sky Colors", true).getBoolean(false);
+			fogColors = config.get("Hard-Coded Colors", "Enable Fog Colors", true).getBoolean(false);
 			
 			spawnSearchRadius = config.get("Spawn Settings", "Spawn Location Search Radius", 1024, "Must be 256 or higher").getInt();
 			if (spawnSearchRadius < 256) spawnSearchRadius = 256;

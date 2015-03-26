@@ -37,6 +37,7 @@ public class BiomeGenHeathland extends BOPOverworldBiome
 		this.theBiomeDecorator.grassPerChunk = 10;
 	    this.theBiomeDecorator.deadBushPerChunk = 2;
 
+	    this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 20;
         this.theBiomeDecorator.bopFeatures.berryBushesPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 5;

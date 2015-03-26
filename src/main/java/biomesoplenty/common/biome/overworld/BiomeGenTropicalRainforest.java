@@ -38,8 +38,9 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome implements IBi
         this.theBiomeDecorator.treesPerChunk = 12;
         this.theBiomeDecorator.grassPerChunk = 9;
         this.theBiomeDecorator.reedsPerChunk = 10;
-        this.theBiomeDecorator.waterlilyPerChunk = 2;
+        this.theBiomeDecorator.waterlilyPerChunk = 4;
 
+        this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.generatePumpkins = false;
         this.theBiomeDecorator.bopFeatures.generateMelons = true;
@@ -119,6 +120,6 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome implements IBi
 
     public float getFogDensity(int x, int y, int z)
     {
-        return 0.01F;
+        return 0.99F;
     }
 }

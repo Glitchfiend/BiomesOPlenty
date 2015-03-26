@@ -41,7 +41,9 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome implements IBiomeFog
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 		this.theBiomeDecorator.flowersPerChunk = 8;
+		this.theBiomeDecorator.waterlilyPerChunk = 2;
 
+		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.blueMilksPerChunk = 1;

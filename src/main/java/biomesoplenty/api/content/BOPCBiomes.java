@@ -21,6 +21,7 @@ public class BOPCBiomes
 	public static BiomeGenBase deadForest;
 	public static BiomeGenBase deadSwamp;
 	public static BiomeGenBase deciduousForest;
+	public static BiomeGenBase eucalyptusForest;
 	public static BiomeGenBase fen;
 	public static BiomeGenBase flowerField;
 	public static BiomeGenBase frostForest;
@@ -31,6 +32,7 @@ public class BOPCBiomes
 	public static BiomeGenBase heathland;
 	public static BiomeGenBase highland;
 	public static BiomeGenBase jadeCliffs;
+	public static BiomeGenBase landOfLakes;
 	public static BiomeGenBase lavenderFields;
 	public static BiomeGenBase lushDesert;
 	public static BiomeGenBase lushSwamp;
@@ -64,12 +66,14 @@ public class BOPCBiomes
 	public static BiomeGenBase alpsForest;
 	public static BiomeGenBase canyonRavine;
 	public static BiomeGenBase glacier;
+	public static BiomeGenBase landOfLakesMarsh;
 	public static BiomeGenBase mangrove;
 	public static BiomeGenBase meadowForest;
 	public static BiomeGenBase oasis;
 	public static BiomeGenBase orchard;
 	public static BiomeGenBase quagmire;
 	public static BiomeGenBase scrubland;
+	public static BiomeGenBase seasonalForestClearing;
 	public static BiomeGenBase silkglades;
 	public static BiomeGenBase spruceWoods;
 	public static BiomeGenBase tropics;

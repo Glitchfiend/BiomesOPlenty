@@ -39,8 +39,9 @@ public class BiomeGenBog extends BOPOverworldBiome
         this.theBiomeDecorator.sandPerChunk = -999;
         this.theBiomeDecorator.sandPerChunk2 = -999;
 
+        this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bushesPerChunk = 6;
-        this.theBiomeDecorator.bopFeatures.mudPerChunk = 2;
+        this.theBiomeDecorator.bopFeatures.mudPerChunk = 3;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 3;
         this.theBiomeDecorator.bopFeatures.riverCanePerChunk = 8;
         this.theBiomeDecorator.bopFeatures.blueMilksPerChunk = 1;

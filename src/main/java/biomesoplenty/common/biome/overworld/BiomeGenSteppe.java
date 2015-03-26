@@ -29,6 +29,7 @@ public class BiomeGenSteppe extends BOPOverworldBiome
 		this.theBiomeDecorator.treesPerChunk = -999;
 		this.theBiomeDecorator.deadBushPerChunk = 7;
 		
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 6;
         this.theBiomeDecorator.bopFeatures.tinyCactiPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.bromeliadsPerChunk = 2;
         this.theBiomeDecorator.bopFeatures.sandSplatterPerChunk = 2;

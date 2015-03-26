@@ -39,6 +39,10 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 			else
 				return renderCrossedSquares(block, x, y, z, renderer);
 		}
+		else if (block == BOPCBlocks.lilyBop)
+		{
+			return renderBlockLily(renderer, block, meta, x, y, z);
+		}
 		else
 		{
 			if (meta == 0)
@@ -67,6 +71,67 @@ public class FoliageRenderer implements ISimpleBlockRenderingHandler
 		IBlockAccess world = renderer.blockAccess;
 
         IIcon icon = renderer.getBlockIconFromSide(block, 1);
+
+        //Need to make public: overrideBlockTexture
+        
+
+        if (renderer.hasOverrideBlockTexture())
+        {
+
+            icon = renderer.overrideBlockTexture;
+        }
+        
+		float cf = 1.0F;
+
+		int cl = block.colorMultiplier(world, x, y, z);
+		float c1 = (cl >> 16 & 255) / 255.0F;
+		float c2 = (cl >> 8 & 255) / 255.0F;
+		float c3 = (cl & 255) / 255.0F;
+
+		if (EntityRenderer.anaglyphEnable)
+		{
+			float f4 = (c1 * 30.0F + c2 * 59.0F + c3 * 11.0F) / 100.0F;
+			float f5 = (c1 * 30.0F + c2 * 70.0F) / 100.0F;
+			float f6 = (c1 * 30.0F + c3 * 70.0F) / 100.0F;
+			c1 = f4;
+			c2 = f5;
+			c3 = f6;
+		}
+
+		tessellator.setColorOpaque_F(cf * c1, cf * c2, cf * c3);
+
+        float f = 0.015625F;
+        double d0 = (double)icon.getMinU();
+        double d1 = (double)icon.getMinV();
+        double d2 = (double)icon.getMaxU();
+        double d3 = (double)icon.getMaxV();
+        long l = (long)(x * 3129871) ^ (long)z * 116129781L ^ (long)y;
+        l = l * l * 42317861L + l * 11L;
+        int i1 = (int)(l >> 16 & 3L);
+
+        tessellator.setBrightness(block.getMixedBrightnessForBlock(world, x, y, z));
+        float f1 = (float)x + 0.5F;
+        float f2 = (float)z + 0.5F;
+        float f3 = (float)(i1 & 1) * 0.5F * (float)(1 - i1 / 2 % 2 * 2);
+        float f4 = (float)(i1 + 1 & 1) * 0.5F * (float)(1 - (i1 + 1) / 2 % 2 * 2);
+        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f3 - f4), (double)((float)y + f), (double)(f2 + f3 - f4), d0, d3);
+        tessellator.addVertexWithUV((double)(f1 - f3 + f4), (double)((float)y + f), (double)(f2 - f3 - f4), d2, d3);
+        tessellator.addVertexWithUV((double)(f1 + f3 + f4), (double)((float)y + f), (double)(f2 - f3 + f4), d2, d1);
+        tessellator.addVertexWithUV((double)(f1 + f3 - f4), (double)((float)y + f), (double)(f2 + f3 + f4), d0, d1);
+        return true;
+    }
+    
+    public boolean renderBlockLily(RenderBlocks renderer, Block block, int meta, int x, int y, int z)
+    {
+        Tessellator tessellator = Tessellator.instance;
+
+		IBlockAccess world = renderer.blockAccess;
+
+        IIcon icon = renderer.getBlockIconFromSideAndMetadata(block, 1, meta);
 
         //Need to make public: overrideBlockTexture
         
