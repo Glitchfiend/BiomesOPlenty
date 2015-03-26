@@ -13,6 +13,9 @@ tile.bone_segment.large.name=Large Bone Segment
 
 tile.grass.spectral_moss.name=Spectral Moss
 tile.grass.smoldering_grass_block.name=Smoldering Grass Block
+tile.grass.loamy_grass_block.name=Loamy Grass Block
+tile.grass.sandy_grass_block.name=Sandy Grass Block
+tile.grass.silty_grass_block.name=Silty Grass Block
 
 tile.coral.pink.name=Pink Coral
 tile.coral.orange.name=Orange Coral
