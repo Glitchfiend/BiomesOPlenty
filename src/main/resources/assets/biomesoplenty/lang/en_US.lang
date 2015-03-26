@@ -11,8 +11,8 @@ tile.bone_segment.small.name=Small Bone Segment
 tile.bone_segment.medium.name=Medium Bone Segment
 tile.bone_segment.large.name=Large Bone Segment
 
-tile.bopGrass.spectral_moss.name=Spectral Moss
-tile.bopGrass.smoldering_grass_block.name=Smoldering Grass Block
+tile.grass.spectral_moss.name=Spectral Moss
+tile.grass.smoldering_grass_block.name=Smoldering Grass Block
 
 tile.coral.pink.name=Pink Coral
 tile.coral.orange.name=Orange Coral
