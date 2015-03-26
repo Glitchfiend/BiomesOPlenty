@@ -121,7 +121,15 @@ public class BlockMud extends BOPBlock
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return BOPItems.mudball;
+        switch ((MudType) state.getValue(VARIANT_PROP))
+        {
+            case MUD:
+                return BOPItems.mudball;
+            
+            case QUICKSAND:
+                break;
+        }
+        return super.getItemDropped(state,rand,fortune);
     }
 
     @Override
