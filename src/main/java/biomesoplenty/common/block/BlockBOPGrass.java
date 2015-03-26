@@ -13,9 +13,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDirt;
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
@@ -460,9 +458,12 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
             {
                 case SPECTRALMOSS:
                     return Blocks.end_stone.getDefaultState();             
-                case LOAMY: // TODO:
-                case SANDY: // TODO:
-                case SILTY: // TODO:
+                case LOAMY:
+                    return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.LOAMY);
+                case SANDY:
+                    return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SANDY);
+                case SILTY:
+                    return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SILTY);
                 case SMOLDERING: default:
                     return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
             }

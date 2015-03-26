@@ -133,6 +133,11 @@ tile.waterlily.lily_medium.name=Medium Lily Pad
 tile.waterlily.lily_small.name=Small Lily Pad
 tile.waterlily.lily_tiny.name=Tiny Lily Pad
 
+tile.dirt.loamy_dirt=Loamy Dirt
+tile.dirt.sandy_dirt=Sandy Dirt
+tile.dirt.silty_dirt=Silty Dirt
+
+
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball
 item.turnip.name=Turnip

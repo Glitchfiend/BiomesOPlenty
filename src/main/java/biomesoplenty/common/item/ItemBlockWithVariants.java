@@ -9,9 +9,12 @@
 package biomesoplenty.common.item;
 
 import biomesoplenty.api.block.BOPBlock;
+import biomesoplenty.common.block.BlockBOPGrass;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBlockWithVariants extends ItemBlock
 {
@@ -21,6 +24,19 @@ public class ItemBlockWithVariants extends ItemBlock
 
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
+    }
+    
+    
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack stack, int renderPass)
+    {
+        // TODO: might be neater to use an interface rather than checking for specific blocks?
+        if (this.block instanceof BlockBOPGrass)
+        {
+            // grass item will render with grey grass unless we set the color here
+            return ((BlockBOPGrass)this.block).getRenderColor(this.block.getStateFromMeta(stack.getMetadata()));
+        }
+        return super.getColorFromItemStack(stack,renderPass);
     }
 
     @Override

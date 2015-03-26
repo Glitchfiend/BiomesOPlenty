@@ -9,13 +9,13 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.common.block.BlockAsh;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPGrass;
@@ -65,8 +65,9 @@ public class ModBlocks
         flesh = registerBlock(new BlockFlesh(), "flesh");
         grass = registerBlock(new BlockBOPGrass(), "grass");
         waterlily = registerBlock(new BlockBOPLilypad(), "waterlily");
+        dirt = registerBlock(new BlockBOPDirt(), "dirt");
     }
-
+    
     private static Block registerBlock(BOPBlock block, String name)
     {
         if (block.presetStates == null)

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "variant=loamy_dirt": { "model": "biomesoplenty:loamy_dirt" },
+        "variant=sandy_dirt": { "model": "biomesoplenty:sandy_dirt" },
+        "variant=silty_dirt": { "model": "biomesoplenty:silty_dirt" }
+    }
+}
