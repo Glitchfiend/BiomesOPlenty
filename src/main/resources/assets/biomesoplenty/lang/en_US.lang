@@ -11,8 +11,8 @@ tile.bone_segment.small.name=Small Bone Segment
 tile.bone_segment.medium.name=Medium Bone Segment
 tile.bone_segment.large.name=Large Bone Segment
 
-tile.bopGrass.spectral_moss.name=Spectral Moss
-tile.bopGrass.smoldering_grass_block.name=Smoldering Grass Block
+tile.grass.spectral_moss.name=Spectral Moss
+tile.grass.smoldering_grass_block.name=Smoldering Grass Block
 
 tile.coral.pink.name=Pink Coral
 tile.coral.orange.name=Orange Coral
@@ -91,6 +91,9 @@ tile.log3.hell_bark.name=Hell Bark Wood
 tile.log3.jacaranda.name=Jacaranda Wood
 tile.log4.mahogany.name=Mahogany Wood
 
+tile.mud.mud.name=Mud
+tile.mud.quicksand.name=Quicksand
+
 tile.mushroom.toadstool.name=Toadstool
 tile.mushroom.portobello.name=Portobello
 tile.mushroom.blue_milk_cap.name=Blue Milk Cap
@@ -120,3 +123,10 @@ tile.stone.siltstone.name=Siltstone
 tile.stone.polished_siltstone.name=Polished Siltstone
 tile.stone.shale.name=Shale
 tile.stone.polished_shale.name=Polished Shale
+
+tile.turnip_block.name=Turnip
+
+item.fleshchunk.name=Chunk of Flesh
+item.mudball.name=Mud Ball
+item.turnip.name=Turnip
+item.turnip_seeds.name=Turnip Seeds

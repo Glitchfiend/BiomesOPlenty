@@ -21,6 +21,7 @@ import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
+import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
@@ -34,6 +35,9 @@ import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
+import biomesoplenty.common.block.BlockMud;
+import biomesoplenty.common.block.BlockTurnip;
+import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
@@ -59,6 +63,10 @@ public class ModBlocks
         mushroom = registerBlock(new BlockBOPMushroom(), "mushroom");
         planks = registerBlock(new BlockBOPPlanks(), "planks");
         stone = registerBlock(new BlockBOPStone(), "stone");
+        mud = registerBlock(new BlockMud(), "mud");
+        turnip_block = registerBlock(new BlockTurnip(), "turnip_block");
+        flesh = registerBlock(new BlockFlesh(), "flesh");
+        grass = registerBlock(new BlockBOPGrass(), "grass");
     }
 
     private static Block registerBlock(BOPBlock block, String name)
@@ -94,4 +102,5 @@ public class ModBlocks
 
         return block;
     }
+    
 }
