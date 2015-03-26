@@ -32,4 +32,5 @@ public class BOPBlocks
     public static Block turnip_block;
     public static Block flesh;
     public static Block grass;
+    public static Block waterlily;
 }

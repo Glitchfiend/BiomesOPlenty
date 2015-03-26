@@ -19,6 +19,7 @@ import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
@@ -63,6 +64,7 @@ public class ModBlocks
         turnip_block = registerBlock(new BlockTurnip(), "turnip_block");
         flesh = registerBlock(new BlockFlesh(), "flesh");
         grass = registerBlock(new BlockBOPGrass(), "grass");
+        waterlily = registerBlock(new BlockBOPLilypad(), "waterlily");
     }
 
     private static Block registerBlock(BOPBlock block, String name)
