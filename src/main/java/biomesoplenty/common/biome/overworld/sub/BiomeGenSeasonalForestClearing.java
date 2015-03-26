@@ -18,7 +18,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenSeasonalForestClearing extends BOPSubBiome implements IBiomeFog
 {
-    private static final Height biomeHeight = new Height(0.1F, 0.2F);
+    private static final Height biomeHeight = new Height(0.6F, 1.2F);
 
     public BiomeGenSeasonalForestClearing(int id)
     {

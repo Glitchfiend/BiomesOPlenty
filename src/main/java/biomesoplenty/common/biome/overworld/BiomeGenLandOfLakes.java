@@ -19,7 +19,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenLandOfLakes extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.6F, 1.3F);
 	
 	public BiomeGenLandOfLakes(int id)
 	{
