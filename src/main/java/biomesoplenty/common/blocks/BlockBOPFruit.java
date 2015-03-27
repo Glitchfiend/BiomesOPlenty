@@ -35,7 +35,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFruit extends BOPBlockWorldDecor
 {
-	private static final String[] fruit = new String[] {"apple_block", "persimmon_block"};
+	private static final String[] fruit = new String[] {"apple_block", "persimmon_block", "peach_block"};
 	private IIcon[] textures;
 
 	public BlockBOPFruit()
@@ -83,7 +83,10 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		
+		for (int i = 0; i < fruit.length; ++i)
+		{
+			list.add(new ItemStack(block, 1, i));
+		}
 	}
 
 	@Override
@@ -93,12 +96,6 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 		
 		switch (metadata)
 		{
-		case 0: // Apple
-			return block == BOPCBlocks.appleLeaves;
-
-		case 1: // Dune Grass
-			return block == BOPCBlocks.persimmonLeaves;
-			
 		default:
 			return block == Blocks.leaves || block == Blocks.leaves2 || block == BOPCBlocks.leaves1 || block == BOPCBlocks.leaves2 || block == BOPCBlocks.leaves3 || block == BOPCBlocks.leaves4;
 		}
@@ -124,6 +121,9 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 
 		case 1:
 			return new ItemStack(BOPCItems.food, 1, 8);
+			
+		case 2:
+			return new ItemStack(BOPCItems.food, 1, 3);
 		}
 
 		return new ItemStack(this, 1, meta);
@@ -148,6 +148,10 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 		{
 			return BOPCItems.food;
 		}
+		else if (metadata == 2)
+		{
+			return BOPCItems.food;
+		}
 		else
 		{
 			return null;
@@ -160,6 +164,10 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 		if (meta == 1)
 		{
 			return 8;
+		}
+		else if (meta == 2)
+		{
+			return 3;
 		}
 		else
 		{
