@@ -30,6 +30,7 @@ import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
+import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
@@ -68,6 +69,7 @@ public class ModBlocks
         waterlily = registerBlock(new BlockBOPLilypad(), "waterlily");
         dirt = registerBlock(new BlockBOPDirt(), "dirt");
         stone_formations = registerBlock(new BlockStoneFormations(),"stone_formations");
+        fruit_block = registerBlock(new BlockFruit(), "fruit_block");
         
     }
     

@@ -143,7 +143,15 @@ tile.dirt.coarse_silty_dirt.name=Coarse Silty Dirt
 tile.stone_formations.stalagmite.name=Stalagmite
 tile.stone_formations.stalactite.name=Stalactite
 
+tile.fruit_block.apple_block.name=Apple Block
+tile.fruit_block.persimmon_block.name=Persimmon Block
+tile.fruit_block.peach_block.name=Peach Block
+tile.fruit_block.pear_block.name=Pear Block
+
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball
 item.turnip.name=Turnip
 item.turnip_seeds.name=Turnip Seeds
+item.persimmon.name=Persimmon
+item.peach.name=Peach
+item.pear.name=Pear

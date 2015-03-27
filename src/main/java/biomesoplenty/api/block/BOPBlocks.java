@@ -35,4 +35,5 @@ public class BOPBlocks
     public static Block waterlily;
     public static Block dirt;
     public static Block stone_formations;
+    public static Block fruit_block;
 }

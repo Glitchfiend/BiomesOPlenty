@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "variant=apple": { "model": "biomesoplenty:apple_block" },
+        "variant=persimmon": { "model": "biomesoplenty:persimmon_block" },
+        "variant=peach": { "model": "biomesoplenty:peach_block" },
+        "variant=pear": { "model": "biomesoplenty:pear_block" }
+    }
+}

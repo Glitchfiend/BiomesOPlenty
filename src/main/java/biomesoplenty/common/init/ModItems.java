@@ -28,6 +28,9 @@ public class ModItems
         mudball = registerItem(new ItemMudball(),"mudball");
         turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland),"turnip_seeds");
         turnip = registerItem(new ItemFood(3, 0.4F, false),"turnip");
+        persimmon = registerItem(new ItemFood(5, 0.2F, false),"persimmon");
+        peach = registerItem(new ItemFood(5, 0.5F, false),"peach");
+        pear = registerItem(new ItemFood(5, 0.3F, false),"pear");
     }
     
     private static Item registerItem(Item item, String name)
