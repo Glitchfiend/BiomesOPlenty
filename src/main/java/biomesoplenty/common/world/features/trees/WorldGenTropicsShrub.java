@@ -2,6 +2,7 @@ package biomesoplenty.common.world.features.trees;
 
 import java.util.Random;
 
+import biomesoplenty.api.content.BOPCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -26,7 +27,7 @@ public class WorldGenTropicsShrub extends WorldGenAbstractTree
         //TODO:           getBlock()
         Block block = world.getBlock(x, y, z);
 
-        if (block != Blocks.grass && block != Blocks.sand)
+        if (block != Blocks.grass && block != Blocks.sand && block != BOPCBlocks.newBopGrass)
         {
             return false;
         }

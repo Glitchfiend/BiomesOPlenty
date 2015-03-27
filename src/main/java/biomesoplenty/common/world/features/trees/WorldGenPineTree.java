@@ -28,7 +28,7 @@ public class WorldGenPineTree extends WorldGenAbstractTree
 		//TODO:			  getBlock()
 		Block var6 = world.getBlock(x, y, z);
 
-		if (var6 != Blocks.grass && var6 != BOPCBlocks.hardDirt && var6 != Blocks.stone && var6 != Blocks.dirt)
+		if (var6 != Blocks.grass && var6 != BOPCBlocks.hardDirt && var6 != Blocks.stone && var6 != Blocks.dirt && var6 != BOPCBlocks.newBopDirt  && var6 != BOPCBlocks.newBopGrass)
 		{
 			return false;
 		}

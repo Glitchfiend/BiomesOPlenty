@@ -40,7 +40,7 @@ public class WorldGenPalmTree1 extends WorldGenAbstractTree
         //TODO:           getBlock()
         Block block = world.getBlock(x, y, z);
 
-        if (block != Blocks.grass)
+        if (block != Blocks.grass && block != BOPCBlocks.newBopGrass)
         {
             return false;
         }
