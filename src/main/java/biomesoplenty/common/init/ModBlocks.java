@@ -9,19 +9,17 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
-
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.common.block.BlockAsh;
+import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPLog2;
 import biomesoplenty.common.block.BlockBOPLog3;
@@ -39,7 +37,6 @@ import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockTurnip;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -67,8 +64,11 @@ public class ModBlocks
         turnip_block = registerBlock(new BlockTurnip(), "turnip_block");
         flesh = registerBlock(new BlockFlesh(), "flesh");
         grass = registerBlock(new BlockBOPGrass(), "grass");
+        waterlily = registerBlock(new BlockBOPLilypad(), "waterlily");
+        dirt = registerBlock(new BlockBOPDirt(), "dirt");
+        
     }
-
+    
     private static Block registerBlock(BOPBlock block, String name)
     {
         if (block.presetStates == null)
@@ -78,14 +78,15 @@ public class ModBlocks
 
         if (block.hasPresetProperties())
         {
-            GameRegistry.registerBlock(block, ItemBlockWithVariants.class, name);
+            GameRegistry.registerBlock(block, block.getItemClass(), name);
 
             for (IBlockState state : block.presetStates)
             {
                 String stateName = block.getStateName(state, true);
+                int stateMeta = block.getMetaFromState(state);
 
                 BiomesOPlenty.proxy.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
-                BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
+                BiomesOPlenty.proxy.registerBlockForMeshing(block, stateMeta, stateName);
 
                 GuiEventHandler.blockCount++;
             }

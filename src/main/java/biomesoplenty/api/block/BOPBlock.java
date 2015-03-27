@@ -13,6 +13,7 @@ import java.util.Set;
 
 import com.google.common.collect.ImmutableSet;
 
+import biomesoplenty.common.item.ItemBlockWithVariants;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
@@ -22,6 +23,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -35,6 +37,11 @@ public abstract class BOPBlock extends Block
         super(material);
 
         this.setCreativeTab(CreativeTabBOP.instance);
+    }
+    
+    // get the item class to use when registering this block
+    public Class<? extends ItemBlock> getItemClass() {
+        return ItemBlockWithVariants.class;
     }
 
     @Override

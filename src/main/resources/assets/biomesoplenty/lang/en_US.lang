@@ -13,6 +13,9 @@ tile.bone_segment.large.name=Large Bone Segment
 
 tile.grass.spectral_moss.name=Spectral Moss
 tile.grass.smoldering_grass_block.name=Smoldering Grass Block
+tile.grass.loamy_grass_block.name=Loamy Grass Block
+tile.grass.sandy_grass_block.name=Sandy Grass Block
+tile.grass.silty_grass_block.name=Silty Grass Block
 
 tile.coral.pink.name=Pink Coral
 tile.coral.orange.name=Orange Coral
@@ -125,6 +128,17 @@ tile.stone.shale.name=Shale
 tile.stone.polished_shale.name=Polished Shale
 
 tile.turnip_block.name=Turnip
+
+tile.waterlily.lily_medium.name=Medium Lily Pad
+tile.waterlily.lily_small.name=Small Lily Pad
+tile.waterlily.lily_tiny.name=Tiny Lily Pad
+
+tile.dirt.loamy_dirt.name=Loamy Dirt
+tile.dirt.sandy_dirt.name=Sandy Dirt
+tile.dirt.silty_dirt.name=Silty Dirt
+tile.dirt.coarse_loamy_dirt.name=Coarse Loamy Dirt
+tile.dirt.coarse_sandy_dirt.name=Coarse Sandy Dirt
+tile.dirt.coarse_silty_dirt.name=Coarse Silty Dirt
 
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball

@@ -11,10 +11,14 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlock;
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
+import net.minecraft.block.BlockTallGrass;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
@@ -26,43 +30,56 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPGrass extends BOPBlock
+// TODO: add snowiness?
+public class BlockBOPGrass extends BOPBlock implements IGrowable
 {
     public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BOPGrassType.class);
+    public static final PropertyBool SNOWY = PropertyBool.create("snowy");
     
     public BlockBOPGrass()
     {
         super(Material.grass);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, BOPGrassType.SPECTRALMOSS));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT_PROP, BOPGrassType.SPECTRALMOSS));
         this.setHardness(0.6F);
-        this.setHarvestLevel("shovel", 0); // TODO: this means that ONLY a shovel can harvest this block... correct?
+        this.setHarvestLevel("shovel", 0); // TODO: I think this just determines which tool speeds up digging - need to investigate more
         this.setStepSound(Block.soundTypeGrass);
         this.setTickRandomly(true);
     }
     
     @Override
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+        Block block = worldIn.getBlockState(pos.up()).getBlock();
+        return state.withProperty(SNOWY, Boolean.valueOf(block == Blocks.snow || block == Blocks.snow_layer));
+    }
+    
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        // only one property to worry about, the variant, so just map [0 => SPECTRALMOSS, 1 => SMOLDERINGGRASS]
+        // only one property in meta to worry about, the variant, so just map according to integer index in BOPGrassType
         return this.getDefaultState().withProperty(VARIANT_PROP, BOPGrassType.values()[meta]);
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        // only one property to worry about, the variant, so just map [0 => SPECTRALMOSS, 1 => SMOLDERINGGRASS]
+        // only one property in meta to worry about, the variant, so just map according to integer index in BOPGrassType
         return ((BOPGrassType) state.getValue(VARIANT_PROP)).ordinal();
     }
 
     @Override
     protected BlockState createBlockState()
     {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
+        return new BlockState(this, new IProperty[] { VARIANT_PROP, SNOWY });
     }
 
     @Override
@@ -78,20 +95,87 @@ public class BlockBOPGrass extends BOPBlock
     }
     
     @Override
+    @SideOnly(Side.CLIENT)
+    public int getBlockColor()
+    {
+        return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getRenderColor(IBlockState state)
+    {
+        return this.getBlockColor();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
+    {
+        return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumWorldBlockLayer getBlockLayer()
+    {
+        return EnumWorldBlockLayer.CUTOUT_MIPPED;
+    }
+    
+    @Override
+    public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
+    {
+        
+        IBlockState state = world.getBlockState(pos);
+        net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
+        
+        switch ((BOPGrassType) state.getValue(VARIANT_PROP))
+        {
+             // smoldering grass supports no plants
+            case SMOLDERING:
+                return false;
+            
+            default:
+                switch (plantType)
+                {
+                    // support desert and plains plants
+                    case Desert: case Plains: return true;
+                    // support cave plants
+                    case Cave:   return isSideSolid(world, pos, EnumFacing.UP);
+                    // support beach plants if there's water alongside
+                    case Beach:
+                        return (
+                            world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
+                            world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
+                            world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
+                            world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                        );
+                     // don't support nether plants, water plants, or crops (require farmland), or anything else by default
+                    default:
+                        return false;
+                }
+        }
+    }
+    
+    
+    @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
     {
         IBlockState state = world.getBlockState(pos);
         switch ((BOPGrassType) state.getValue(VARIANT_PROP))
         {
-            // spectralmoss burns from below in the end
+            // spectral moss burns from below in the end
             // TODO: 1.7 code had dimension=-1 here - check -1 corresponds to end
             case SPECTRALMOSS:
                 if ((world.provider instanceof net.minecraft.world.WorldProviderEnd) && side == EnumFacing.UP) {return true;}
                 break;
             
-            // smolderinggrass always burns
-            case SMOLDERINGGRASS:
+            // smoldering grass always burns
+            case SMOLDERING:
                 return false;
+            
+            default:
+                break;
         }
         return super.isFireSource(world, pos, side);
     }
@@ -102,7 +186,7 @@ public class BlockBOPGrass extends BOPBlock
         IBlockState state = this.getStateFromMeta(meta);
         switch ((BOPGrassType) state.getValue(VARIANT_PROP))
         {
-            // spectralmoss makes a hideous noise and throws a big fuss of particles around when placed in the nether
+            // spectral moss makes a hideous noise and throws a big fuss of particles around when placed in the nether
             case SPECTRALMOSS:
                 if (world.provider instanceof net.minecraft.world.WorldProviderHell)
                 {
@@ -115,7 +199,7 @@ public class BlockBOPGrass extends BOPBlock
                 }
                 break;
             
-            case SMOLDERINGGRASS:
+            default:
                 break;
         }
         return state;
@@ -126,11 +210,9 @@ public class BlockBOPGrass extends BOPBlock
     public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         switch ((BOPGrassType) state.getValue(VARIANT_PROP))
         {
-            case SPECTRALMOSS:
-                break;
-            
-            // smolderinggrass throws up random flame and smoke particles
-            case SMOLDERINGGRASS:
+             
+            // smoldering grass throws up random flame and smoke particles
+            case SMOLDERING:
                 if (rand.nextInt(4)==0)
                 {           
                     worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
@@ -140,6 +222,10 @@ public class BlockBOPGrass extends BOPBlock
                     worldIn.spawnParticle(EnumParticleTypes.FLAME, (double)((float)pos.getX() + rand.nextFloat()), (double)((float)pos.getY() + 1.1F), (double)((float)pos.getZ() + rand.nextFloat()), 0.0D, 0.0D, 0.0D);
                 }
                 break;
+                
+            default:
+                break;
+                    
         }
         super.randomDisplayTick(worldIn, pos, state, rand);
     }
@@ -151,44 +237,144 @@ public class BlockBOPGrass extends BOPBlock
         {
             case SPECTRALMOSS:
                 // spectral moss in the nether catches on fire and turns to smoldering grass
-                // elsewhere it should behave like grass spreading to nearby end_stone blocks
                 if (world.provider instanceof net.minecraft.world.WorldProviderHell)
                 {
                     world.setBlockState(pos.up(), Blocks.fire.getDefaultState()); // might need to set fire AGE value... not sure
-                    world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT_PROP, BOPGrassType.SMOLDERINGGRASS));
+                    world.setBlockState(pos, this.getDefaultState().withProperty(VARIANT_PROP, BOPGrassType.SMOLDERING));
+                }
+                break;
+                
+            default:
+                break;
+        }
+        switch ((BOPGrassType) state.getValue(VARIANT_PROP))
+        {
+            case SMOLDERING:
+                // smoldering grass doesn't spread to nearby dirt
+                break;
+                
+            default:
+                // the other BOP grass types all do
+                this.spreadGrass(world, pos, state, rand, 4, 1, 3, 1);
+                break;
+        }       
+ 
+    }
+    
+    // spread grass to suitable nearby blocks
+    // tries - number of times to try and spread to a random nearby block
+    // xzSpread - how far can the grass spread in the x and z directions
+    // downSpread - how far can the grass spread downwards
+    // upSpread - how far can the grass spread upwards
+    // TODO: find a way to get vanilla grass to spread to BOP dirt types
+    @SideOnly(Side.CLIENT)
+    public void spreadGrass(World world, BlockPos pos, IBlockState state, Random rand, int tries, int xzSpread, int downSpread, int upSpread)
+    {
+               
+        // the type of grass which is spreading
+        BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT_PROP);
+        // the type of dirt this grass grows on
+        IBlockState dirtBlockState = grassType.getDirtBlockState();
+        
+        // if this block is covered, then turn it back to dirt (IE kill the grass)
+       if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getBlock().getLightOpacity(world, pos.up()) > 2)
+       {
+           world.setBlockState(pos, dirtBlockState);
+       }
+       else
+       {
+           // if there's enough light from above, spread the grass randomly to nearby blocks of the correct dirt type
+           if (world.getLightFromNeighbors(pos.up()) >= 9)
+           {
+               for (int i = 0; i < tries; ++i)
+               {
+                   // pick a random nearby position, and get the block, block state, and block above
+                   BlockPos pos1 = pos.add(rand.nextInt(xzSpread * 2 + 1) - xzSpread, rand.nextInt(downSpread + upSpread + 1) - downSpread, rand.nextInt(xzSpread * 2 + 1) - xzSpread);
+                   IBlockState target = world.getBlockState(pos1);
+                   Block blockAboveTarget = world.getBlockState(pos1.up()).getBlock();                   
+                   
+                   // see if this type of grass can spread to the target block
+                   IBlockState targetGrass = grassType.spreadsToGrass(target);
+                   if (targetGrass == null) {break;}
+                   
+                   // if there's enough light, turn the block to the relevant grass block
+                   if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAboveTarget.getLightOpacity(world, pos1.up()) <= 2)
+                   {
+                       world.setBlockState(pos1, targetGrass);
+                   }                      
+               }
+           }
+       }
+    }
+    
+
+    @Override
+    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
+        switch ((BOPGrassType) state.getValue(VARIANT_PROP))
+        {            
+            case SPECTRALMOSS: case SMOLDERING:
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    @Override
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        switch ((BOPGrassType) state.getValue(VARIANT_PROP))
+        {            
+            case SPECTRALMOSS: case SMOLDERING:
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    // This is called when bonemeal is applied on the block
+    // The algorithm is functionally exactly the same as in the vanilla BlockGrass grow function, but has been rewritten to make its behavior clearer
+    @Override
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        
+        BlockPos startPos = pos.up();
+        BlockPos currPos;
+        
+        // 128 looks like a lot of tries, but many locations will be duplicated and many tries will be abandoned because the random walk hits a snag
+        for (int i = 0; i < 128; i++) {
+            
+            // go on a random walk away from the start position - abandon if we hit a block which can't spread the growth
+            // note walkLength increases gradually with i - so we attempt walks of different lengths
+            int walkLength = i / 16;
+            currPos = startPos;
+            boolean walkOk = true;
+            for (int j = 0; j < walkLength; j++)
+            {
+                // shift a random distance
+                currPos = currPos.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+                if (worldIn.getBlockState(currPos.down()).getBlock() != BOPBlocks.grass || worldIn.getBlockState(currPos).getBlock().isNormalCube())
+                {
+                    // this block can't spread the growth
+                    walkOk = false;
+                    break;
+                }
+            }
+
+            // try and grow something at currPos
+            if (walkOk && worldIn.isAirBlock(currPos)) {
+                if (rand.nextInt(8)==0) {
+                    // with 1/8 probability, plant a flower
+                    worldIn.getBiomeGenForCoords(currPos).plantFlower(worldIn, rand, currPos);
                 }
                 else
                 {
-                     // if this block is covered, then turn it back to end_stone (IE kill the moss)
-                    if (world.getLightFromNeighbors(pos.up()) < 4 && world.getBlockState(pos.up()).getBlock().getLightOpacity(world, pos.up()) > 2)
+                    // otherwise plant tall grass
+                    IBlockState tallgrassState = Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
+                    if (Blocks.tallgrass.canBlockStay(worldIn, currPos, tallgrassState))
                     {
-                        world.setBlockState(pos, Blocks.end_stone.getDefaultState());
-                    }
-                    else
-                    {
-                        // if there's enough light from above, spread the moss randomly to nearby end_stone blocks
-                        if (world.getLightFromNeighbors(pos.up()) >= 9)
-                        {
-                            for (int i = 0; i < 4; ++i) // try 4 times
-                            {
-                                // pick a random nearby position 
-                                BlockPos pos1 = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                                Block blockAbove = world.getBlockState(pos1.up()).getBlock();
-                                IBlockState iblockstate1 = world.getBlockState(pos1);
-                                // if there's enough light and it isn't covered, turn it to moss
-                                if (iblockstate1.getBlock() == Blocks.end_stone && world.getLightFromNeighbors(pos1.up()) >= 4 && blockAbove.getLightOpacity(world, pos1.up()) <= 2)
-                                {
-                                    world.setBlockState(pos1, this.getDefaultState().withProperty(VARIANT_PROP, BOPGrassType.SPECTRALMOSS) );
-                                }
-                            }
-                        }
+                        worldIn.setBlockState(currPos, tallgrassState);
                     }
                 }
-                break;
-            
-            case SMOLDERINGGRASS:
-                break;
-        }        
+            }
+        }
     }
     
     @Override
@@ -197,12 +383,12 @@ public class BlockBOPGrass extends BOPBlock
         float heightOffset = 0.0F;
         switch ((BOPGrassType) state.getValue(VARIANT_PROP))
         {
-            case SPECTRALMOSS:
+             // smoldering grass is a tiny bit lower than usual
+            case SMOLDERING:
+                heightOffset = 0.02F;
                 break;
             
-            // smoldering grass is a tiny bit lower than usual
-            case SMOLDERINGGRASS:
-                heightOffset = 0.02F;
+            default:
                 break;
         }
         return new AxisAlignedBB((double) pos.getX(), (double) pos.getY(), (double) pos.getZ(), (double) (pos.getX() + 1), (double) ((float) (pos.getY() + 1) - heightOffset), (double) (pos.getZ() + 1));
@@ -212,14 +398,15 @@ public class BlockBOPGrass extends BOPBlock
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         switch ((BOPGrassType) state.getValue(VARIANT_PROP))
-        {
-            case SPECTRALMOSS:
-                break;
-            
+        {            
             // smoldering grass sets you on fire for 2 seconds
-            case SMOLDERINGGRASS:
+            case SMOLDERING:
                 entity.setFire(2);
                 break;
+        
+            default:
+                break;
+
         }       
     }
     
@@ -227,39 +414,21 @@ public class BlockBOPGrass extends BOPBlock
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        switch ((BOPGrassType) state.getValue(VARIANT_PROP))
-        {
-            case SPECTRALMOSS:
-                return Item.getItemFromBlock(Blocks.end_stone);
-            
-            case SMOLDERINGGRASS:
-                return Item.getItemFromBlock(Blocks.dirt);
-        }
-        return super.getItemDropped(state, rand, fortune);
+        return Item.getItemFromBlock( ((BOPGrassType) state.getValue(VARIANT_PROP)).getDirtBlock() );
     }
     
     // goes hand in hand with getItemDropped() above to determine precisely what is dropped
     @Override
     public int damageDropped(IBlockState state)
     {
-        switch ((BOPGrassType) state.getValue(VARIANT_PROP))
-        {
-            // end stone doesn't have any variants
-            case SPECTRALMOSS:
-                return 0;
-            
-            // make sure dirt item dropped is plain dirt (not any other variant)
-            case SMOLDERINGGRASS:
-                return BlockDirt.DirtType.DIRT.getMetadata();                
-        }
-        return super.damageDropped(state);
+        return ((BOPGrassType) state.getValue(VARIANT_PROP)).getDirtBlockMeta();
     }
     
     
-    // enum representing the 2 variants of grass
+    // enum representing the variants of grass
     public static enum BOPGrassType implements IStringSerializable
     {
-        SPECTRALMOSS, SMOLDERINGGRASS;
+        SPECTRALMOSS, SMOLDERING, LOAMY, SANDY, SILTY;
 
         @Override
         public String getName()
@@ -267,11 +436,10 @@ public class BlockBOPGrass extends BOPBlock
             switch(this)
             {
                 case SPECTRALMOSS:
-                    return "spectral_moss";
-                case SMOLDERINGGRASS:
-                    return "smoldering_grass_block";
+                    return "spectral_moss";                
+                default:
+                    return this.name().toLowerCase() + "_grass_block";
             }
-            return this.name().toLowerCase();
         }
 
         @Override
@@ -279,6 +447,84 @@ public class BlockBOPGrass extends BOPBlock
         {
             return getName();
         }
+        
+        // get the blockstate which corresponds to the type of dirt which this grass variant grows on
+        // this is used to determine what drops when you break the grass block, and the type of dirt it reverts to when covered
+        public IBlockState getDirtBlockState()
+        {
+            switch(this)
+            {
+                case SPECTRALMOSS:
+                    return Blocks.end_stone.getDefaultState();             
+                case LOAMY:
+                    return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.LOAMY);
+                case SANDY:
+                    return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SANDY);
+                case SILTY:
+                    return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SILTY);
+                case SMOLDERING: default:
+                    return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
+            }
+        }
+        
+        public Block getDirtBlock()
+        {
+            return this.getDirtBlockState().getBlock();
+        }
+        
+        public int getDirtBlockMeta()
+        {
+            return this.getDirtBlock().getMetaFromState(this.getDirtBlockState());
+        }
+        
+        // if this type of grass can spread to the target block, return the grass which it will transform into
+        // otherwise return null
+        // this affects the grass spreading algorithm above, BlockBOPGrass.spreadGrass()
+        public IBlockState spreadsToGrass(IBlockState target) {
+ 
+            switch(this)
+            {
+                // spectral moss only spreads to end stone
+                case SPECTRALMOSS:
+                    if (target.getBlock()==Blocks.end_stone)
+                    {
+                        return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.SPECTRALMOSS);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    
+                // loamy/sandy/silty grasses spread to any kind of dirt
+                case LOAMY: case SANDY: case SILTY:
+                    // vanilla dirt gets vanilla grass spread to it
+                    if (target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT)
+                    {
+                        return Blocks.grass.getDefaultState();
+                    }
+                    // BOP dirt get's the corresponding BOP grass spread to it (unless it's coarse - grass doesn't grow on coarse dirt)
+                    else if (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE)) )
+                    {
+                        BlockBOPDirt.BOPDirtType targetDirtType = (BlockBOPDirt.BOPDirtType)target.getValue(BlockBOPDirt.VARIANT_PROP);
+                        switch (targetDirtType)
+                        {
+                            case LOAMY: case SANDY: case SILTY:
+                                return targetDirtType.getGrassBlockState();
+                            default:
+                                return null;
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    
+                // smoldering grass doesn't spread at all
+                case SMOLDERING: default:
+                    return null;
+            }
+        }
+        
     }
     
 }
