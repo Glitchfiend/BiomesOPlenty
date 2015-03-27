@@ -39,7 +39,6 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: add snowiness?
 public class BlockBOPGrass extends BOPBlock implements IGrowable
 {
     public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BOPGrassType.class);
@@ -324,7 +323,8 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
     }
 
     // This is called when bonemeal is applied on the block
-    // The algorithm is functionally exactly the same as in the vanilla BlockGrass grow function, but has been rewritten to make its behavior clearer
+    // The algorithm is functionally equivalent to the vanilla BlockGrass grow function, but has been rewritten to make its behavior clearer
+    // TODO: grows spreads from BOP grass to vanilla grass, need to find a way to make growth on vanilla grass also spread to BOP grass
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         
@@ -343,7 +343,8 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
             {
                 // shift a random distance
                 currPos = currPos.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-                if (worldIn.getBlockState(currPos.down()).getBlock() != BOPBlocks.grass || worldIn.getBlockState(currPos).getBlock().isNormalCube())
+                Block currBlockBelow =  worldIn.getBlockState(currPos.down()).getBlock();
+                if ( (currBlockBelow != Blocks.grass && currBlockBelow != BOPBlocks.grass) || worldIn.getBlockState(currPos).getBlock().isNormalCube())
                 {
                     // this block can't spread the growth
                     walkOk = false;
