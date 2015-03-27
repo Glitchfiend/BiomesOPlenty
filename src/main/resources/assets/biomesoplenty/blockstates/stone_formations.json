@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "variant=stalagmite": { "model": "biomesoplenty:stalagmite" },
+        "variant=stalactite": { "model": "biomesoplenty:stalactite" }
+    }
+}

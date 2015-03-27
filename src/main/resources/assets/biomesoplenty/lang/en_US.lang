@@ -16,6 +16,7 @@ tile.grass.smoldering_grass_block.name=Smoldering Grass Block
 tile.grass.loamy_grass_block.name=Loamy Grass Block
 tile.grass.sandy_grass_block.name=Sandy Grass Block
 tile.grass.silty_grass_block.name=Silty Grass Block
+tile.grass.origin_grass_block.name=Origin Grass Block
 
 tile.coral.pink.name=Pink Coral
 tile.coral.orange.name=Orange Coral
@@ -140,7 +141,28 @@ tile.dirt.coarse_loamy_dirt.name=Coarse Loamy Dirt
 tile.dirt.coarse_sandy_dirt.name=Coarse Sandy Dirt
 tile.dirt.coarse_silty_dirt.name=Coarse Silty Dirt
 
+tile.stone_formations.stalagmite.name=Stalagmite
+tile.stone_formations.stalactite.name=Stalactite
+
+tile.fruit_block.apple_block.name=Apple Block
+tile.fruit_block.persimmon_block.name=Persimmon Block
+tile.fruit_block.peach_block.name=Peach Block
+tile.fruit_block.pear_block.name=Pear Block
+
+tile.ash_stone.name=Ash Stone
+tile.hard_sand.name=Hardened Sand
+tile.hard_dirt.name=Hardened Dirt
+tile.hard_ice.name=Hardened Ice
+tile.dried_dirt.name=Dried Dirt
+tile.crag_rock.name=Crag Rock
+tile.mud_brick.name=Mud Bricks
+tile.crystal.name=Celestial Crystal
+
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball
 item.turnip.name=Turnip
 item.turnip_seeds.name=Turnip Seeds
+item.persimmon.name=Persimmon
+item.peach.name=Peach
+item.pear.name=Pear
+item.crystal_shard.name=Celestial Crystal Shard

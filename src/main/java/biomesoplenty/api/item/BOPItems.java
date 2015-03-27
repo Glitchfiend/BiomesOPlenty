@@ -16,4 +16,8 @@ public class BOPItems
     public static Item mudball;
     public static Item turnip;
     public static Item turnip_seeds;
+    public static Item persimmon;
+    public static Item peach;
+    public static Item pear;
+    public static Item crystal_shard;
 }

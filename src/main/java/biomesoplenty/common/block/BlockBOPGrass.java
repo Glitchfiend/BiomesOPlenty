@@ -39,7 +39,6 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: add snowiness?
 public class BlockBOPGrass extends BOPBlock implements IGrowable
 {
     public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BOPGrassType.class);
@@ -134,6 +133,10 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
              // smoldering grass supports no plants
             case SMOLDERING:
                 return false;
+                
+            // origin grass supports all plants (including crop type - no need for hoe)
+            case ORIGIN:
+                return true;
             
             default:
                 switch (plantType)
@@ -163,21 +166,14 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
     {
         IBlockState state = world.getBlockState(pos);
         switch ((BOPGrassType) state.getValue(VARIANT_PROP))
-        {
-            // spectral moss burns from below in the end
-            // TODO: 1.7 code had dimension=-1 here - check -1 corresponds to end
-            case SPECTRALMOSS:
-                if ((world.provider instanceof net.minecraft.world.WorldProviderEnd) && side == EnumFacing.UP) {return true;}
-                break;
-            
-            // smoldering grass always burns
+        {   
+            // smoldering grass is a fire source
             case SMOLDERING:
-                return false;
+                return true;
             
             default:
-                break;
+                return false;
         }
-        return super.isFireSource(world, pos, side);
     }
     
     @Override
@@ -331,7 +327,8 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
     }
 
     // This is called when bonemeal is applied on the block
-    // The algorithm is functionally exactly the same as in the vanilla BlockGrass grow function, but has been rewritten to make its behavior clearer
+    // The algorithm is functionally equivalent to the vanilla BlockGrass grow function, but has been rewritten to make its behavior clearer
+    // TODO: grows spreads from BOP grass to vanilla grass, need to find a way to make growth on vanilla grass also spread to BOP grass
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         
@@ -350,7 +347,8 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
             {
                 // shift a random distance
                 currPos = currPos.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
-                if (worldIn.getBlockState(currPos.down()).getBlock() != BOPBlocks.grass || worldIn.getBlockState(currPos).getBlock().isNormalCube())
+                Block currBlockBelow =  worldIn.getBlockState(currPos.down()).getBlock();
+                if ( (currBlockBelow != Blocks.grass && currBlockBelow != BOPBlocks.grass) || worldIn.getBlockState(currPos).getBlock().isNormalCube())
                 {
                     // this block can't spread the growth
                     walkOk = false;
@@ -428,7 +426,7 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
     // enum representing the variants of grass
     public static enum BOPGrassType implements IStringSerializable
     {
-        SPECTRALMOSS, SMOLDERING, LOAMY, SANDY, SILTY;
+        SPECTRALMOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN;
 
         @Override
         public String getName()
@@ -462,7 +460,7 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
                     return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SANDY);
                 case SILTY:
                     return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SILTY);
-                case SMOLDERING: default:
+                case SMOLDERING: case ORIGIN:  default:
                     return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
             }
         }
@@ -513,6 +511,17 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
                             default:
                                 return null;
                         }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                
+                // origin grass spreads to any kind of dirt
+                case ORIGIN:
+                    if ((target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
+                    {
+                        return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.ORIGIN);
                     }
                     else
                     {
