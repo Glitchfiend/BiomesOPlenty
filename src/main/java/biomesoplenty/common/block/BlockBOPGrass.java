@@ -18,6 +18,7 @@ import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
@@ -42,11 +43,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class BlockBOPGrass extends BOPBlock implements IGrowable
 {
     public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BOPGrassType.class);
+    public static final PropertyBool SNOWY = PropertyBool.create("snowy");
     
     public BlockBOPGrass()
     {
         super(Material.grass);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, BOPGrassType.SPECTRALMOSS));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT_PROP, BOPGrassType.SPECTRALMOSS));
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0); // TODO: I think this just determines which tool speeds up digging - need to investigate more
         this.setStepSound(Block.soundTypeGrass);
@@ -54,23 +56,30 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
     }
     
     @Override
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos)
+    {
+        Block block = worldIn.getBlockState(pos.up()).getBlock();
+        return state.withProperty(SNOWY, Boolean.valueOf(block == Blocks.snow || block == Blocks.snow_layer));
+    }
+    
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        // only one property to worry about, the variant, so just map according to integer index in BOPGrassType
+        // only one property in meta to worry about, the variant, so just map according to integer index in BOPGrassType
         return this.getDefaultState().withProperty(VARIANT_PROP, BOPGrassType.values()[meta]);
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        // only one property to worry about, the variant, so just map according to integer index in BOPGrassType
+        // only one property in meta to worry about, the variant, so just map according to integer index in BOPGrassType
         return ((BOPGrassType) state.getValue(VARIANT_PROP)).ordinal();
     }
 
     @Override
     protected BlockState createBlockState()
     {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
+        return new BlockState(this, new IProperty[] { VARIANT_PROP, SNOWY });
     }
 
     @Override
@@ -252,15 +261,16 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
  
     }
     
-    // spread grass to suitable nearby grass blocks
+    // spread grass to suitable nearby blocks
     // tries - number of times to try and spread to a random nearby block
     // xzSpread - how far can the grass spread in the x and z directions
     // downSpread - how far can the grass spread downwards
     // upSpread - how far can the grass spread upwards
-    // TODO: let grass spread across different dirt types? onto vanilla dirt too (and vice verca)?
+    // TODO: find a way to get vanilla grass to spread to BOP dirt types
     @SideOnly(Side.CLIENT)
     public void spreadGrass(World world, BlockPos pos, IBlockState state, Random rand, int tries, int xzSpread, int downSpread, int upSpread)
     {
+               
         // the type of grass which is spreading
         BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT_PROP);
         // the type of dirt this grass grows on
@@ -280,24 +290,21 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
                {
                    // pick a random nearby position, and get the block, block state, and block above
                    BlockPos pos1 = pos.add(rand.nextInt(xzSpread * 2 + 1) - xzSpread, rand.nextInt(downSpread + upSpread + 1) - downSpread, rand.nextInt(xzSpread * 2 + 1) - xzSpread);
-                   IBlockState iblockstate1 = world.getBlockState(pos1);
-                   Block block1 = iblockstate1.getBlock(); 
-                   Block blockAbove = world.getBlockState(pos1.up()).getBlock();                   
+                   IBlockState target = world.getBlockState(pos1);
+                   Block blockAboveTarget = world.getBlockState(pos1.up()).getBlock();                   
                    
-                   // see if the randomly chosen nearby block is the right type for this grass (same block and meta as dirtBlockState)
-                   // TODO: is it ok to just compare the equality of the states? IE  iblockstate1==dirtBlockState ?
-                   if (block1==grassType.getDirtBlock() && block1.getMetaFromState(iblockstate1)==grassType.getDirtBlockMeta())
+                   // see if this type of grass can spread to the target block
+                   IBlockState targetGrass = grassType.spreadsToGrass(target);
+                   if (targetGrass == null) {break;}
+                   
+                   // if there's enough light, turn the block to the relevant grass block
+                   if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAboveTarget.getLightOpacity(world, pos1.up()) <= 2)
                    {
-                       // if there's enough light and it isn't covered, turn the block to the relevant grass block
-                       if (world.getLightFromNeighbors(pos1.up()) >= 4 && blockAbove.getLightOpacity(world, pos1.up()) <= 2)
-                       {
-                           world.setBlockState(pos1, this.getDefaultState().withProperty(VARIANT_PROP, grassType));
-                       }                      
-                   }
+                       world.setBlockState(pos1, targetGrass);
+                   }                      
                }
            }
        }
-     
     }
     
 
@@ -369,15 +376,6 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
             }
         }
     }
-    
-    /* TODO: don't understand the intention here.. grass turns to dirt when a plant grows???
-    @Override
-    public void onPlantGrow(World world, int x, int y, int z, int sourceX, int sourceY, int sourceZ)
-    {
-        world.setBlock(x, y, z, BOPCBlocks.newBopDirt, world.getBlockMetadata(x, y, z) * 2, 2);
-    }
-    */
-    
     
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
@@ -451,7 +449,7 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
         }
         
         // get the blockstate which corresponds to the type of dirt which this grass variant grows on
-        // this is used to determine what drops when you break the grass block, and also which nearby blocks this grass can spread to
+        // this is used to determine what drops when you break the grass block, and the type of dirt it reverts to when covered
         public IBlockState getDirtBlockState()
         {
             switch(this)
@@ -478,6 +476,55 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
         {
             return this.getDirtBlock().getMetaFromState(this.getDirtBlockState());
         }
+        
+        // if this type of grass can spread to the target block, return the grass which it will transform into
+        // otherwise return null
+        // this affects the grass spreading algorithm above, BlockBOPGrass.spreadGrass()
+        public IBlockState spreadsToGrass(IBlockState target) {
+ 
+            switch(this)
+            {
+                // spectral moss only spreads to end stone
+                case SPECTRALMOSS:
+                    if (target.getBlock()==Blocks.end_stone)
+                    {
+                        return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.SPECTRALMOSS);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    
+                // loamy/sandy/silty grasses spread to any kind of dirt
+                case LOAMY: case SANDY: case SILTY:
+                    // vanilla dirt gets vanilla grass spread to it
+                    if (target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT)
+                    {
+                        return Blocks.grass.getDefaultState();
+                    }
+                    // BOP dirt get's the corresponding BOP grass spread to it (unless it's coarse - grass doesn't grow on coarse dirt)
+                    else if (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE)) )
+                    {
+                        BlockBOPDirt.BOPDirtType targetDirtType = (BlockBOPDirt.BOPDirtType)target.getValue(BlockBOPDirt.VARIANT_PROP);
+                        switch (targetDirtType)
+                        {
+                            case LOAMY: case SANDY: case SILTY:
+                                return targetDirtType.getGrassBlockState();
+                            default:
+                                return null;
+                        }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    
+                // smoldering grass doesn't spread at all
+                case SMOLDERING: default:
+                    return null;
+            }
+        }
+        
     }
     
 }

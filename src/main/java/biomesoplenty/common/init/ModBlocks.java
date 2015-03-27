@@ -66,6 +66,7 @@ public class ModBlocks
         grass = registerBlock(new BlockBOPGrass(), "grass");
         waterlily = registerBlock(new BlockBOPLilypad(), "waterlily");
         dirt = registerBlock(new BlockBOPDirt(), "dirt");
+        
     }
     
     private static Block registerBlock(BOPBlock block, String name)
@@ -82,9 +83,10 @@ public class ModBlocks
             for (IBlockState state : block.presetStates)
             {
                 String stateName = block.getStateName(state, true);
+                int stateMeta = block.getMetaFromState(state);
 
                 BiomesOPlenty.proxy.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
-                BiomesOPlenty.proxy.registerBlockForMeshing(block, block.getMetaFromState(state), stateName);
+                BiomesOPlenty.proxy.registerBlockForMeshing(block, stateMeta, stateName);
 
                 GuiEventHandler.blockCount++;
             }
