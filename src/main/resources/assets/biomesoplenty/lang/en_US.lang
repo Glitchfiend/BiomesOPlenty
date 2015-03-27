@@ -16,6 +16,7 @@ tile.grass.smoldering_grass_block.name=Smoldering Grass Block
 tile.grass.loamy_grass_block.name=Loamy Grass Block
 tile.grass.sandy_grass_block.name=Sandy Grass Block
 tile.grass.silty_grass_block.name=Silty Grass Block
+tile.grass.origin_grass_block.name=Origin Grass Block
 
 tile.coral.pink.name=Pink Coral
 tile.coral.orange.name=Orange Coral

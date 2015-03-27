@@ -10,10 +10,8 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
-import net.minecraft.block.Block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
@@ -34,6 +32,7 @@ import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
+import biomesoplenty.common.block.BlockCrystal;
 import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
@@ -74,17 +73,18 @@ public class ModBlocks
         dirt = registerBlock(new BlockBOPDirt(), "dirt");
         stone_formations = registerBlock(new BlockStoneFormations(),"stone_formations");
         fruit_block = registerBlock(new BlockFruit(), "fruit_block");
+        crystal = registerBlock(new BlockCrystal(), "crystal");
         
         // generics
-        ash_stone = registerBlock(new BlockBOPGeneric(),"ash_stone");
-        crag_rock = registerBlock((new BlockBOPGeneric()).setStepSound(Block.soundTypeStone),"crag_rock");
-        dried_dirt = registerBlock(new BlockBOPGeneric(),"dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
-        hard_dirt = registerBlock((new BlockBOPGeneric()).setHardness(0.7F),"hard_dirt");
-        hard_ice = registerBlock((new BlockBOPGeneric()).setHardness(0.75F),"hard_ice");
-        hard_sand = registerBlock((new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand),"hard_sand");
-        mud_brick = registerBlock((new BlockBOPGeneric()).setResistance(2.0F),"mud_brick");
+        ash_stone = registerBlock(new BlockBOPGeneric(), "ash_stone");
+        crag_rock = registerBlock((new BlockBOPGeneric()).setStepSound(Block.soundTypeStone), "crag_rock");
+        dried_dirt = registerBlock(new BlockBOPGeneric(), "dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
+        hard_dirt = registerBlock((new BlockBOPGeneric()).setHardness(0.7F), "hard_dirt");
+        hard_ice = registerBlock((new BlockBOPGeneric()).setHardness(0.75F), "hard_ice");
+        hard_sand = registerBlock((new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand");
+        mud_brick = registerBlock((new BlockBOPGeneric()).setResistance(2.0F), "mud_brick");
+                
         
-        //TODO biome_block & crystal are in 1.7 BlockBOPGeneric but actually have some special powers
     }
     
     private static Block registerBlock(Block block, String name) {

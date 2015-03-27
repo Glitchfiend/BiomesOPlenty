@@ -133,6 +133,10 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
              // smoldering grass supports no plants
             case SMOLDERING:
                 return false;
+                
+            // origin grass supports all plants (including crop type - no need for hoe)
+            case ORIGIN:
+                return true;
             
             default:
                 switch (plantType)
@@ -422,7 +426,7 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
     // enum representing the variants of grass
     public static enum BOPGrassType implements IStringSerializable
     {
-        SPECTRALMOSS, SMOLDERING, LOAMY, SANDY, SILTY;
+        SPECTRALMOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN;
 
         @Override
         public String getName()
@@ -456,7 +460,7 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
                     return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SANDY);
                 case SILTY:
                     return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT_PROP, BlockBOPDirt.BOPDirtType.SILTY);
-                case SMOLDERING: default:
+                case SMOLDERING: case ORIGIN:  default:
                     return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
             }
         }
@@ -507,6 +511,17 @@ public class BlockBOPGrass extends BOPBlock implements IGrowable
                             default:
                                 return null;
                         }
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                
+                // origin grass spreads to any kind of dirt
+                case ORIGIN:
+                    if ((target.getBlock() == Blocks.dirt && target.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT) || (target.getBlock() == BOPBlocks.dirt && Boolean.FALSE.equals(target.getValue(BlockBOPDirt.COARSE))))
+                    {
+                        return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.ORIGIN);
                     }
                     else
                     {
