@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 import biomesoplenty.common.world.features.trees.WorldGenPineTree;
 
 public class BiomeGenMountain extends BOPOverworldBiome
@@ -51,7 +52,7 @@ public class BiomeGenMountain extends BOPOverworldBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(4) == 0 ? new WorldGenPineTree() : worldGeneratorTrees;
+		return random.nextInt(15) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, 0) : (random.nextInt(4) == 0 ? new WorldGenPineTree() : worldGeneratorTrees);
 	}
 	
 	@Override

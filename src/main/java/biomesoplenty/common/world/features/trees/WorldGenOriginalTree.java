@@ -9,6 +9,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenOriginalTree extends WorldGenAbstractTree
 {
@@ -23,18 +24,18 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 	private final int metaWood;
 	private int metaLeaves;
 	
-	private boolean isFruitTree = false;
+	private int metaFruit = -1;
 	
 	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves)
 	{
 		this(wood, leaves, metaWood, metaLeaves, false, 4, 3, false);
 	}
 	
-	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, boolean isFruitTree)
+	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves, int metaFruit)
 	{
-		this(wood, leaves, metaWood, -1, false, 5, 4, false);
+		this(wood, leaves, metaWood, metaLeaves, false, 5, 4, false);
 		
-		this.isFruitTree = isFruitTree;
+		this.metaFruit = metaFruit;
 	}
 
 	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, boolean vinesGrow)
@@ -55,7 +56,6 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
     {
         int l = par2Random.nextInt(this.randomTreeHeight) + this.minTreeHeight;
         boolean flag = true;
-        if (this.isFruitTree) this.metaLeaves = par2Random.nextInt(4);
 
         if (par4 >= 1 && par4 + l + 1 <= 256)
         {
@@ -136,10 +136,8 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
                                     Block block1 = par1World.getBlock(i2, k1, k2);
 
                                     if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2))
-                                    {
-                                    	int metadata = this.isFruitTree ? (this.metaLeaves > 0 ? (par2Random.nextInt(4) == 0 ? (this.metaLeaves - 1) : this.metaLeaves) : this.metaLeaves) : this.metaLeaves;
-                                    	
-                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, metadata);
+                                    {                                    	
+                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, this.metaLeaves);
                                     }
                                 }
                             }
@@ -177,6 +175,26 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
                                 }
                             }
                         }
+                    }
+                    
+                    if (this.metaFruit > -1)
+                    {
+                    	int fr = par2Random.nextInt(4);
+                    	int fl;
+                    	
+                    	for (fl = 0; fl < fr; ++fl)
+                    	{
+                    		int f1 = par2Random.nextInt(4);
+                    		int f2 = l - 4;
+                    		int f3 = par2Random.nextInt(4);
+                    		
+                    		Block fruit = par1World.getBlock((par3 - 2) + f1, par4 + f2, (par5 - 2) + f3);
+
+                            if (fruit.isAir(par1World, (par3 - 2) + f1, par4 + f2, (par5 - 2) + f3) && par1World.getBlock((par3 - 2) + f1, par4 + (f2 + 1), (par5 - 2) + f3).isLeaves(par1World, (par3 - 2) + f1, par4 + (f2 + 1), (par5 - 2) + f3))
+                            {
+                            	this.setBlockAndNotifyAdequately(par1World, (par3 - 2) + f1, par4 + f2, (par5 - 2) + f3, BOPCBlocks.fruitBop, this.metaFruit);
+                            }
+                    	}
                     }
 
                     if (this.vinesGrow)

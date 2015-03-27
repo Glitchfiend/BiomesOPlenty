@@ -138,7 +138,7 @@ public class BlockBOPSapling extends BlockSapling
 			switch (meta)
 			{
 			case 0: // Apple Tree
-				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.appleLeaves, 0, true);
+				obj = new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, 1);
 				break;
 
 			case 1: // Autumn Tree
@@ -208,7 +208,7 @@ public class BlockBOPSapling extends BlockSapling
 				break;
 
 			case 15: // Persimmon
-				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.persimmonLeaves, 0, true);
+				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, 1);
 				break;
 			}
 		}
