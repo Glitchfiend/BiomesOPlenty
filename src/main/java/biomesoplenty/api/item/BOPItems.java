@@ -19,4 +19,5 @@ public class BOPItems
     public static Item persimmon;
     public static Item peach;
     public static Item pear;
+    public static Item crystal_shard;
 }

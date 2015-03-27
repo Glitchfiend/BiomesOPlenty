@@ -43,6 +43,5 @@ public class BOPBlocks
     public static Block dried_dirt;
     public static Block crag_rock;
     public static Block mud_brick;
-    public static Block biome_block;
     public static Block crystal;
 }

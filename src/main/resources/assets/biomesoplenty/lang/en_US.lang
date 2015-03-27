@@ -155,6 +155,7 @@ tile.hard_ice.name=Hardened Ice
 tile.dried_dirt.name=Dried Dirt
 tile.crag_rock.name=Crag Rock
 tile.mud_brick.name=Mud Bricks
+tile.crystal.name=Celestial Crystal
 
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball
@@ -163,3 +164,4 @@ item.turnip_seeds.name=Turnip Seeds
 item.persimmon.name=Persimmon
 item.peach.name=Peach
 item.pear.name=Pear
+item.crystal_shard.name=Celestial Crystal Shard
