@@ -68,6 +68,11 @@ tile.flowers2.minersdelight.name=Miner's Delight
 tile.flowers2.icyiris.name=Icy Iris
 tile.flowers2.rose.name=Rose
 
+tile.fruitBop.apple_block.name=Apple
+tile.fruitBop.persimmon_block.name=Persimmon
+tile.fruitBop.peach_block.name=Peach
+tile.fruitBop.pear_block.name=Pear
+
 tile.stoneFormations.stalagmite.name=Stalagmite
 tile.stoneFormations.stalactite.name=Stalactite
 
@@ -321,6 +326,7 @@ item.food.persimmon.name=Persimmon
 item.food.filledhoneycomb.name=Filled Honeycomb
 item.food.ambrosia.name=Ambrosia
 item.food.turnip.name=Turnip
+item.food.pear.name=Pear
 
 item.turnipSeeds.name=Turnip Seeds
 

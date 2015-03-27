@@ -35,7 +35,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPFruit extends BOPBlockWorldDecor
 {
-	private static final String[] fruit = new String[] {"apple_block", "persimmon_block", "peach_block"};
+	private static final String[] fruit = new String[] {"apple_block", "persimmon_block", "peach_block", "pear_block"};
 	private IIcon[] textures;
 
 	public BlockBOPFruit()
@@ -83,10 +83,10 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 	//TODO:		getSubBlocks()
 	public void getSubBlocks(Item block, CreativeTabs creativeTabs, List list) 
 	{
-		for (int i = 0; i < fruit.length; ++i)
-		{
-			list.add(new ItemStack(block, 1, i));
-		}
+		//for (int i = 0; i < fruit.length; ++i)
+		//{
+			//list.add(new ItemStack(block, 1, i));
+		//}
 	}
 
 	@Override
@@ -124,6 +124,9 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 			
 		case 2:
 			return new ItemStack(BOPCItems.food, 1, 3);
+		
+		case 3:
+			return new ItemStack(BOPCItems.food, 1, 12);
 		}
 
 		return new ItemStack(this, 1, meta);
@@ -152,6 +155,10 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 		{
 			return BOPCItems.food;
 		}
+		else if (metadata == 3)
+		{
+			return BOPCItems.food;
+		}
 		else
 		{
 			return null;
@@ -168,6 +175,10 @@ public class BlockBOPFruit extends BOPBlockWorldDecor
 		else if (meta == 2)
 		{
 			return 3;
+		}
+		else if (meta == 3)
+		{
+			return 12;
 		}
 		else
 		{
