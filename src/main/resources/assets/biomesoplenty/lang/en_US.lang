@@ -148,6 +148,14 @@ tile.fruit_block.persimmon_block.name=Persimmon Block
 tile.fruit_block.peach_block.name=Peach Block
 tile.fruit_block.pear_block.name=Pear Block
 
+tile.ash_stone.name=Ash Stone
+tile.hard_sand.name=Hardened Sand
+tile.hard_dirt.name=Hardened Dirt
+tile.hard_ice.name=Hardened Ice
+tile.dried_dirt.name=Dried Dirt
+tile.crag_rock.name=Crag Rock
+tile.mud_brick.name=Mud Bricks
+
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball
 item.turnip.name=Turnip
