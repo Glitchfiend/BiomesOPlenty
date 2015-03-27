@@ -10,7 +10,10 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.Block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPBlock;
@@ -18,6 +21,7 @@ import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPFlower2;
+import biomesoplenty.common.block.BlockBOPGeneric;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -71,6 +75,20 @@ public class ModBlocks
         stone_formations = registerBlock(new BlockStoneFormations(),"stone_formations");
         fruit_block = registerBlock(new BlockFruit(), "fruit_block");
         
+        // generics
+        ash_stone = registerBlock(new BlockBOPGeneric(),"ash_stone");
+        crag_rock = registerBlock((new BlockBOPGeneric()).setStepSound(Block.soundTypeStone),"crag_rock");
+        dried_dirt = registerBlock(new BlockBOPGeneric(),"dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
+        hard_dirt = registerBlock((new BlockBOPGeneric()).setHardness(0.7F),"hard_dirt");
+        hard_ice = registerBlock((new BlockBOPGeneric()).setHardness(0.75F),"hard_ice");
+        hard_sand = registerBlock((new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand),"hard_sand");
+        mud_brick = registerBlock((new BlockBOPGeneric()).setResistance(2.0F),"mud_brick");
+        
+        //TODO biome_block & crystal are in 1.7 BlockBOPGeneric but actually have some special powers
+    }
+    
+    private static Block registerBlock(Block block, String name) {
+        return registerBlock((BOPBlock)block,name);
     }
     
     private static Block registerBlock(BOPBlock block, String name)

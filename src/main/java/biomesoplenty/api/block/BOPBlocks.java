@@ -36,4 +36,13 @@ public class BOPBlocks
     public static Block dirt;
     public static Block stone_formations;
     public static Block fruit_block;
+    public static Block ash_stone;
+    public static Block hard_sand;
+    public static Block hard_dirt;
+    public static Block hard_ice;
+    public static Block dried_dirt;
+    public static Block crag_rock;
+    public static Block mud_brick;
+    public static Block biome_block;
+    public static Block crystal;
 }
