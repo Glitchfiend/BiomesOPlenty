@@ -36,7 +36,7 @@ public class BlockFruit extends BOPPlant
         super(Material.plants);
         this.setStepSound(soundTypeGrass);
         this.setBlockBounds(0.25F, 0.25F, 0.25F, 0.75F, 1.0F, 0.75F);
-        //this.setCreativeTab(null);
+        // TODO: once the mechanism for farming fruit is established: this.setCreativeTab(null);
     }
      
     @Override

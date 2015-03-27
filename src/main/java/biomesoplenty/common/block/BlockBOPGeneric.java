@@ -9,7 +9,6 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlock;
-import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
