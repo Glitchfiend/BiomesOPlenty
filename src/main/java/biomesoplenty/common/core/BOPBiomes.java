@@ -262,7 +262,7 @@ public class BOPBiomes
         fen = registerOverworldBiome(BiomeGenFen.class, "Fen", TemperatureType.COOL, 10);
         flowerField = registerOverworldBiome(BiomeGenFlowerField.class, "Flower Field", TemperatureType.WARM, 3);
         frostForest = registerOverworldBiome(BiomeGenFrostForest.class, "Frost Forest", TemperatureType.ICY, 7);
-        fungiForest = registerOverworldBiome(BiomeGenFungiForest.class, "Fungi Forest", TemperatureType.COOL, 3);
+        onlyBiome = fungiForest = registerOverworldBiome(BiomeGenFungiForest.class, "Fungi Forest", TemperatureType.COOL, 3);
         garden = registerOverworldBiome(BiomeGenGarden.class, "Garden", TemperatureType.COOL, 3);
         grassland = registerOverworldBiome(BiomeGenGrassland.class, "Grassland", TemperatureType.COOL, 10);
         grove = registerOverworldBiome(BiomeGenGrove.class, "Grove", TemperatureType.COOL, 7);
