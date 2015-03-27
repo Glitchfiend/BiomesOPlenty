@@ -34,4 +34,5 @@ public class BOPBlocks
     public static Block grass;
     public static Block waterlily;
     public static Block dirt;
+    public static Block stone_formations;
 }

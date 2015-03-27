@@ -140,6 +140,9 @@ tile.dirt.coarse_loamy_dirt.name=Coarse Loamy Dirt
 tile.dirt.coarse_sandy_dirt.name=Coarse Sandy Dirt
 tile.dirt.coarse_silty_dirt.name=Coarse Silty Dirt
 
+tile.stone_formations.stalagmite.name=Stalagmite
+tile.stone_formations.stalactite.name=Stalactite
+
 item.fleshchunk.name=Chunk of Flesh
 item.mudball.name=Mud Ball
 item.turnip.name=Turnip

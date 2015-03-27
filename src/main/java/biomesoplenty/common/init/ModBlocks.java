@@ -34,6 +34,7 @@ import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
 import biomesoplenty.common.block.BlockMud;
+import biomesoplenty.common.block.BlockStoneFormations;
 import biomesoplenty.common.block.BlockTurnip;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
@@ -66,6 +67,7 @@ public class ModBlocks
         grass = registerBlock(new BlockBOPGrass(), "grass");
         waterlily = registerBlock(new BlockBOPLilypad(), "waterlily");
         dirt = registerBlock(new BlockBOPDirt(), "dirt");
+        stone_formations = registerBlock(new BlockStoneFormations(),"stone_formations");
         
     }
     
