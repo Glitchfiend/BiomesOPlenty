@@ -27,7 +27,7 @@ import biomesoplenty.common.world.features.trees.WorldGenSacredOak;
 
 public class BlockBOPColorizedSapling extends BlockSapling
 {
-	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany"};
+	private static final String[] saplings = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany", "flowering"};
 	private IIcon[] textures;
 
 	public BlockBOPColorizedSapling()
