@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBOPMisc extends Item
 {
-	private static String[] items = {"mudbrick", "ash", "emptyhoneycomb", "fleshchunk", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ghastlysoul", "pixiedust", "ichor"};
+	private static String[] items = {"mudbrick", "ash", "emptyhoneycomb", "fleshchunk", "crystalshard", "bluedye", "browndye", "greendye", "whitedye", "blackdye", "ghastlysoul", "pixiedust", "ichor", "pinecone"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 

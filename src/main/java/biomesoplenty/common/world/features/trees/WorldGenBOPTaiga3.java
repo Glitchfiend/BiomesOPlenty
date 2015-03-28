@@ -2,6 +2,7 @@ package biomesoplenty.common.world.features.trees;
 
 import java.util.Random;
 
+import biomesoplenty.api.content.BOPCBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -21,8 +22,10 @@ public class WorldGenBOPTaiga3 extends WorldGenAbstractTree
     private final int metaLeaves;
     
     private final int altNo;
+    
+    private final int metaFruit;
 
-    public WorldGenBOPTaiga3(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int altNo)
+    public WorldGenBOPTaiga3(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, int altNo, int metaFruit)
     {
         super(doBlockNotify);
         
@@ -34,6 +37,8 @@ public class WorldGenBOPTaiga3 extends WorldGenAbstractTree
         this.randomTreeHeight = randomTreeHeight;
         
         this.altNo = altNo;
+        
+        this.metaFruit = metaFruit;
     }
 
     @Override
@@ -193,6 +198,26 @@ public class WorldGenBOPTaiga3 extends WorldGenAbstractTree
                             this.setBlockAndNotifyAdequately(world, x, y + i, z + 1, wood, metaWood);
                             this.setBlockAndNotifyAdequately(world, x, y + i, z - 1, wood, metaWood);
                         }
+                    }
+                    
+                    if (this.metaFruit > -1)
+                    {
+                    	int fr = random.nextInt(10);
+                    	int fl;
+                    	
+                    	for (fl = 0; fl < fr; ++fl)
+                    	{
+                    		int f1 = random.nextInt(4);
+                    		int f2 = l - 5 - random.nextInt((l / 2) + (l / 4));
+                    		int f3 = random.nextInt(4);
+                    		
+                    		Block fruit = world.getBlock((x - 2) + f1, y + f2, (z - 2) + f3);
+
+                            if (fruit.isAir(world, (x - 2) + f1, y + f2, (z - 2) + f3) && world.getBlock((x - 2) + f1, y + (f2 + 1), (z - 2) + f3).isLeaves(world, (x - 2) + f1, y + (f2 + 1), (z - 2) + f3))
+                            {
+                            	this.setBlockAndNotifyAdequately(world, (x - 2) + f1, y + f2, (z - 2) + f3, BOPCBlocks.fruitBop, this.metaFruit);
+                            }
+                    	}
                     }
 
                     return true;

@@ -72,7 +72,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome implements IBiomeFog
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, false, 14, 6, 0) : (random.nextInt(6) == 0 ? new WorldGenDeadTree() : new WorldGenBOPSwampTree(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, 5, 4, BOPCBlocks.treeMoss, -1));
+		return random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, false, 14, 6, 0, -1) : (random.nextInt(6) == 0 ? new WorldGenDeadTree() : new WorldGenBOPSwampTree(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, 5, 4, BOPCBlocks.treeMoss, -1));
 	}
 	
 	@Override

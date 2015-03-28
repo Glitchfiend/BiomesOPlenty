@@ -66,8 +66,8 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome implements IB
     public WorldGenAbstractTree func_150567_a(Random random)
     {
 		return random.nextInt(10) == 0 ? new WorldGenBOPSwampTree(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves2, 1, 0, 6, 9, BOPCBlocks.colorizedLeaves2, 0)  : 
-		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga3(Blocks.log, Blocks.leaves, 0, 0, false, 35, 10, 0) : 
-		(random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 0, 0, false, 10, 25, 8) : 
+		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga3(Blocks.log, Blocks.leaves, 0, 0, false, 35, 10, 0, -1) : 
+		(random.nextInt(2) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 0, 0, false, 10, 25, 8, -1) : 
 		new WorldGenShrub(0, 0)));
 	}
 

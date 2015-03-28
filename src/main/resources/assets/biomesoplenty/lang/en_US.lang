@@ -72,6 +72,7 @@ tile.fruitBop.apple_block.name=Apple
 tile.fruitBop.persimmon_block.name=Persimmon
 tile.fruitBop.peach_block.name=Peach
 tile.fruitBop.pear_block.name=Pear
+tile.fruitBop.pinecone_block.name=Pinecone
 
 tile.stoneFormations.stalagmite.name=Stalagmite
 tile.stoneFormations.stalactite.name=Stalactite
@@ -351,6 +352,7 @@ item.misc.blackdye.name=Black Dye
 item.misc.ghastlysoul.name=Ghastly Soul
 item.misc.pixiedust.name=Pixie Dust
 item.misc.ichor.name=Ichor
+item.misc.pinecone.name=Pinecone
 
 item.jarEmpty.name=Empty Jar
 item.jarFilled.jarhoney.name=Honey Jar

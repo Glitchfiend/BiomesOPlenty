@@ -62,7 +62,7 @@ public class BiomeGenMeadow extends BOPOverworldBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(5) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 6, 4, 0) : new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 1, Blocks.dirt, Blocks.grass);
+        return random.nextInt(5) == 0 ? new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 6, 4, 0, 4) : new WorldGenBOPShrub(Blocks.log, Blocks.leaves, 0, 1, Blocks.dirt, Blocks.grass);
     }
 	
     @Override
