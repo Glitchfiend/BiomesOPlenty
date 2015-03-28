@@ -15,6 +15,7 @@ import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
+import biomesoplenty.common.world.features.trees.WorldGenMixedTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenMysticGrove extends BOPOverworldBiome implements IBiomeFog
@@ -78,7 +79,7 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome implements IBiomeFog
 		return random.nextInt(4) == 0 ? new WorldGenOriginalTree(BOPCBlocks.logs2, BOPCBlocks.leaves1, 1, 2, false, 5, 3, false) : 
 		(random.nextInt(3) == 0 ? new WorldGenOriginalTree(BOPCBlocks.logs4, BOPCBlocks.leaves4, 2, 1) : 
 		((random.nextInt(3) == 0 ? this.worldGeneratorBigTree : 
-		((random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPCBlocks.flowerVine, -1) : this.worldGeneratorTrees)))));
+		((random.nextInt(5) == 0 ? new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPCBlocks.flowerVine, -1) : new WorldGenMixedTree(Blocks.log, Blocks.leaves, 0, 0, BOPCBlocks.colorizedLeaves2, 3, -1))))));
 	}
 	
 	@Override
