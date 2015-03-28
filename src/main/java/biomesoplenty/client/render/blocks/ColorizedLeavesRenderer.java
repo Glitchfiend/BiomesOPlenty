@@ -39,7 +39,7 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 		
 		int metadata = world.getBlockMetadata(x, y, z);
 		
-		if (metadata % 4 == 3 && renderer.hasOverrideBlockTexture()) 
+		if (block == BOPCBlocks.colorizedLeaves2 && metadata % 4 == 3 && renderer.hasOverrideBlockTexture()) 
 		{
 			renderer.setOverrideBlockTexture(renderer.overrideBlockTexture);
 			renderer.renderStandardBlock(block, x, y, z);
@@ -49,7 +49,7 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 		{
 			renderer.renderStandardBlock(block, x, y, z);
 			
-			if (metadata % 4 == 3)
+			if (block == BOPCBlocks.colorizedLeaves2 && metadata % 4 == 3)
 			{
 				renderer.setOverrideBlockTexture(leavesBlock.floweringIcon);
 				renderer.renderStandardBlock(Blocks.stone, x, y, z);
