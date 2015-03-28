@@ -22,12 +22,14 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 		BlockBOPColorizedLeaves leavesBlock = (BlockBOPColorizedLeaves)block;
 		
 		renderer.setRenderBounds(inset, inset, inset, 1F - inset, 1F - inset, 1F - inset);
-		renderer.useInventoryTint = true;
-		RenderUtils.renderStandardInvBlock(renderer, BOPCBlocks.colorizedLeaves2, 3);
+		RenderUtils.renderStandardInvBlock(renderer, block, metadata);
         
-		GL11.glColor3f(1.0F, 1.0F, 1.0F);
-        renderer.setRenderBounds(0F, 0F, 0F, 1F, 1F, 1F);
-        RenderUtils.renderStandardInvBlock(renderer, Blocks.stone, 0, leavesBlock.floweringIcon);
+		if (block == BOPCBlocks.colorizedLeaves2 && metadata % 4 == 3)
+		{
+			GL11.glColor3f(1.0F, 1.0F, 1.0F);
+			renderer.setRenderBounds(0F, 0F, 0F, 1F, 1F, 1F);
+			RenderUtils.renderStandardInvBlock(renderer, Blocks.stone, 0, leavesBlock.floweringIcon);
+		}
 	}
 
 	@Override
@@ -35,7 +37,9 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 	{
 		BlockBOPColorizedLeaves leavesBlock = (BlockBOPColorizedLeaves)block;
 		
-		if (renderer.hasOverrideBlockTexture()) 
+		int metadata = world.getBlockMetadata(x, y, z);
+		
+		if (metadata % 4 == 3 && renderer.hasOverrideBlockTexture()) 
 		{
 			renderer.setOverrideBlockTexture(renderer.overrideBlockTexture);
 			renderer.renderStandardBlock(block, x, y, z);
@@ -44,9 +48,13 @@ public class ColorizedLeavesRenderer implements ISimpleBlockRenderingHandler
 		else
 		{
 			renderer.renderStandardBlock(block, x, y, z);
-			renderer.setOverrideBlockTexture(leavesBlock.floweringIcon);
-			renderer.renderStandardBlock(Blocks.stone, x, y, z);
-			renderer.clearOverrideBlockTexture();
+			
+			if (metadata % 4 == 3)
+			{
+				renderer.setOverrideBlockTexture(leavesBlock.floweringIcon);
+				renderer.renderStandardBlock(Blocks.stone, x, y, z);
+				renderer.clearOverrideBlockTexture();
+			}
 		}
 		
 		return true;
