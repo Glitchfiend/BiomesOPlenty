@@ -55,7 +55,7 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int tinyCactiPerChunk = 0;
     @BiomeFeature public int oasesPerChunk = 0;
     @BiomeFeature public int minersDelightPerChunk = 1;
-    @BiomeFeature public int rootsPerChunk = 9;
+    @BiomeFeature public int rootsPerChunk = 30;
     @BiomeFeature public int grassSplatterPerChunk = 0;
     @BiomeFeature public int rockpilesPerChunk = 0;
     @BiomeFeature public int logsPerChunk = 0;
