@@ -21,8 +21,14 @@ public class RenderUtils
 	public static int graveModel = -1;
 	public static int bambooModel = -1;
 	public static int newGrassModel = -1;
+	public static int leavesModel = -1;
 	
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta)
+	{
+		renderStandardInvBlock(renderblocks, block, meta, null);
+	}
+	
+	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta, IIcon icon)
 	{
 		boolean flag = block == BOPCBlocks.newBopGrass;
 		
@@ -32,7 +38,7 @@ public class RenderUtils
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, -1F, 0.0F);
-		renderblocks.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(0, meta));
+		renderblocks.renderFaceYNeg(block, 0.0D, 0.0D, 0.0D, icon == null ? block.getIcon(0, meta) : icon);
 		tessellator.draw();
 		
         if (flag && renderblocks.useInventoryTint)
@@ -49,30 +55,30 @@ public class RenderUtils
         {
         	tessellator.startDrawingQuads();
         	tessellator.setNormal(0.0F, 1.0F, 0.0F);
-        	renderblocks.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(1, meta));
+        	renderblocks.renderFaceYPos(block, 0.0D, 0.0D, 0.0D, icon == null ? block.getIcon(1, meta) : icon);
         	tessellator.draw();
         }
         
-		GL11.glColor4f(1F, 1F, 1F, 1.0F);
+		if (flag || block == Blocks.grass) GL11.glColor4f(1F, 1F, 1F, 1.0F);
 		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 0.0F, -1F);
-		renderblocks.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(2, meta));
+		renderblocks.renderFaceZNeg(block, 0.0D, 0.0D, 0.0D, icon == null ? block.getIcon(2, meta) : icon);
 		tessellator.draw();
 		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 0.0F, 1.0F);
-		renderblocks.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(3, meta));
+		renderblocks.renderFaceZPos(block, 0.0D, 0.0D, 0.0D, icon == null ? block.getIcon(3, meta) : icon);
 		tessellator.draw();
 		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(-1F, 0.0F, 0.0F);
-		renderblocks.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, block.getIcon(4, meta));
+		renderblocks.renderFaceXNeg(block, 0.0D, 0.0D, 0.0D, icon == null ? block.getIcon(4, meta) : icon);
 		tessellator.draw();
 		
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(1.0F, 0.0F, 0.0F);
-		renderblocks.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, block.getIcon(5, meta));
+		renderblocks.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, icon == null ? block.getIcon(5, meta) : icon);
 		tessellator.draw();
 		
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);

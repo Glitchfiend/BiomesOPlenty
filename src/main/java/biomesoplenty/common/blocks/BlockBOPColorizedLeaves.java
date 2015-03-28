@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.render.RenderUtils;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
@@ -43,6 +44,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     private IIcon[][] textures;
     private final ColourizedLeafCategory category;
     int[] adjacentTreeBlocks;
+    public IIcon floweringIcon;
     
     public BlockBOPColorizedLeaves(ColourizedLeafCategory cat)
     {
@@ -87,6 +89,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 		        textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
             }
         }
+        
+        floweringIcon = iconRegister.registerIcon("biomesoplenty:leaves_flowering_overlay");
     }
 
     public IIcon getIconBetterLeaves(int metadata, float randomIndex)
@@ -402,6 +406,12 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
         return true;
     }
+    
+	@Override
+	public int getRenderType()
+	{
+		return RenderUtils.leavesModel;
+	}
 
     @Override
     public void beginLeavesDecay(World world, int x, int y, int z)
