@@ -1,3 +1,10 @@
+commands.biomesoplenty.usage=/biomesoplenty <tpbiome> [args]
+commands.biomesoplenty.biomename.usage=/biomesoplenty biomename [biomeId]
+commands.biomesoplenty.biomename.success=Biome ID %s is associated with %s
+commands.biomesoplenty.tpbiome.usage=/biomesoplenty tpbiome [biomeId]
+commands.biomesoplenty.tpbiome.success=Teleported %s to biome %s at (%s, %s, %s)
+commands.biomesoplenty.tpbiome.error=Couldn't find biome %s!
+
 generator.BIOMESOP=Biomes O' Plenty
 generator.BIOMESOP.info=Notice: Biomes O' Plenty 1.8 is in a very early state
 
