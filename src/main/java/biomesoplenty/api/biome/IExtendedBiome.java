@@ -8,10 +8,16 @@
 
 package biomesoplenty.api.biome;
 
+import java.util.Map;
+
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
 public interface IExtendedBiome
 {
     public BiomeOwner getBiomeOwner();
     public GenerationManager getGenerationManager();
+    public Map<BiomeType, Integer> getWeightMap();
+    public void clearWeights();
+    public void addWeight(BiomeType type, int weight);
 }

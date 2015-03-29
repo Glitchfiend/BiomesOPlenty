@@ -8,13 +8,18 @@
 
 package biomesoplenty.api.biome;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
     private GenerationManager generationManager = new GenerationManager();
-
+    private Map<BiomeType, Integer> weightMap = new HashMap<BiomeType, Integer>();
+    
     public BOPBiome()
     {
         super(-1, false);
@@ -37,5 +42,23 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     public GenerationManager getGenerationManager()
     {
         return this.generationManager;
+    }
+
+    @Override
+    public Map<BiomeType, Integer> getWeightMap()
+    {
+        return this.weightMap;
+    }
+
+    @Override
+    public void addWeight(BiomeType type, int weight)
+    {
+        this.weightMap.put(type, weight);
+    }
+    
+    @Override
+    public void clearWeights()
+    {
+        this.weightMap.clear();
     }
 }

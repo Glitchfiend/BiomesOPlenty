@@ -35,11 +35,6 @@ public class ModBiomes
     private static void registerBiomes()
     {
         alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
-
-        BiomeManager.addBiome(BiomeType.DESERT, new BiomeEntry(alps, 100));
-        BiomeManager.addBiome(BiomeType.WARM, new BiomeEntry(alps, 100));
-        BiomeManager.addBiome(BiomeType.COOL, new BiomeEntry(alps, 100));
-        BiomeManager.addBiome(BiomeType.ICY, new BiomeEntry(alps, 100));
     }
 
     private static void registerExternalBiomes()

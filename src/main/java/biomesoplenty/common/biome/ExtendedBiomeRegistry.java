@@ -16,6 +16,7 @@ import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.IGenerator;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 
 public class ExtendedBiomeRegistry
@@ -48,8 +49,9 @@ public class ExtendedBiomeRegistry
 
     public static class BiomeExtension implements IExtendedBiome
     {
-        public BiomeGenBase biome;
+        public final BiomeGenBase biome;
         private GenerationManager generationManager = new GenerationManager();
+        private Map<BiomeType, Integer> weightMap = new HashMap<BiomeType, Integer>();
 
         private BiomeExtension(BiomeGenBase biome)
         {
@@ -66,6 +68,24 @@ public class ExtendedBiomeRegistry
         public GenerationManager getGenerationManager()
         {
             return this.generationManager;
+        }
+        
+        @Override
+        public Map<BiomeType, Integer> getWeightMap()
+        {
+            return this.weightMap;
+        }
+        
+        @Override
+        public void addWeight(BiomeType type, int weight)
+        {
+            this.weightMap.put(type, weight);
+        }
+        
+        @Override
+        public void clearWeights()
+        {
+            this.weightMap.clear();
         }
     }
 

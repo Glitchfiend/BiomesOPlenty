@@ -16,6 +16,9 @@ import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenCactus;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 
 import org.apache.commons.io.FileUtils;
@@ -118,6 +121,26 @@ public class BiomeConfigurationHandler
                 }
             }
 
+            Map<BiomeType, Integer> weightMap = jsonBiome.weights;
+            
+            //Removes the default weights set by us as they are about to be set from the config file
+            extendedBiome.clearWeights();
+            
+            //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
+            for (Entry<BiomeType, Integer> entry : weightMap.entrySet())
+            {
+                if (entry != null)
+                {
+                    BiomeType biomeType = entry.getKey();
+                    int weight = entry.getValue();
+                    
+                    //Updates the biome's weights to be in line with the config file
+                    extendedBiome.addWeight(biomeType, weight);
+                    //TODO: Change to use our biome manager rather than Vanilla's
+                    BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                }
+            }
+            
             biome.biomeName = jsonBiome.biomeName;
             biome.topBlock = jsonBiome.topBlock;
             biome.fillerBlock = jsonBiome.fillerBlock;

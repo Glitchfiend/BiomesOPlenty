@@ -13,6 +13,7 @@ import java.util.Map;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.IGenerator;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
@@ -28,6 +29,7 @@ public class JsonBiome
 
     public String biomeName;
     public int biomeId;
+    public Map<BiomeType, Integer> weights;
     public IBlockState topBlock;
     public IBlockState fillerBlock;
     public float rootHeight;
@@ -61,6 +63,7 @@ public class JsonBiome
         {
         	GenerationManager generationManager = extendedBiome.getGenerationManager();
 
+        	biome.weights = extendedBiome.getWeightMap();
         	biome.decoration = generationManager.getGeneratorMap();
         }
 

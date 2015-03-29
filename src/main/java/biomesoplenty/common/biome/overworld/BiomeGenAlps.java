@@ -9,6 +9,7 @@
 package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.init.Blocks;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 
 public class BiomeGenAlps extends BOPBiome
@@ -24,5 +25,7 @@ public class BiomeGenAlps extends BOPBiome
 
         this.topBlock = Blocks.snow.getDefaultState();
         this.fillerBlock = Blocks.snow.getDefaultState();
+        
+        this.addWeight(BiomeType.ICY, 5);
     }
 }
