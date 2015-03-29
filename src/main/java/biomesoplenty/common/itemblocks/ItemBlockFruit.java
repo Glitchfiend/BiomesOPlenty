@@ -41,7 +41,7 @@ public class ItemBlockFruit extends ItemBlock
 			meta = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + plants[itemStack.getItemDamage()];
+		return super.getUnlocalizedName() + "." + plants[meta];
 	}
 
 	@Override
