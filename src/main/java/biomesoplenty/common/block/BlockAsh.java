@@ -55,8 +55,8 @@ public class BlockAsh extends BOPBlock
          * return; } }
          */
 
-        entity.motionX *= 0.4D;
         entity.motionZ *= 0.4D;
+        entity.motionX *= 0.4D;
     }
 
     @Override
