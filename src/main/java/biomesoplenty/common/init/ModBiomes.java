@@ -39,7 +39,7 @@ public class ModBiomes
 
     private static void registerExternalBiomes()
     {
-        registerExternalBiome(BiomeGenBase.ocean, "ocean");
+        /*registerExternalBiome(BiomeGenBase.ocean, "ocean");
         registerExternalBiome(BiomeGenBase.plains, "plains");
         registerExternalBiome(BiomeGenBase.desert, "desert");
         registerExternalBiome(BiomeGenBase.extremeHills, "extreme_hills");
@@ -78,7 +78,7 @@ public class ModBiomes
         registerExternalBiome(BiomeGenBase.savannaPlateau, "savanna_plateau");
         registerExternalBiome(BiomeGenBase.mesa, "mesa");
         registerExternalBiome(BiomeGenBase.mesaPlateau_F, "mesa_plateau_f");
-        registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");
+        registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");*/
     }
 
     private static BiomeGenBase registerBiome(BiomeGenBase biome, String id)
