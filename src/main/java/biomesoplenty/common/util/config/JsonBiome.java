@@ -10,12 +10,15 @@ package biomesoplenty.common.util.config;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
@@ -65,6 +68,18 @@ public class JsonBiome
 
         	biome.weights = extendedBiome.getWeightMap();
         	biome.decoration = generationManager.getGeneratorMap();
+        	
+            //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
+            for (Entry<BiomeType, Integer> entry : extendedBiome.getWeightMap().entrySet())
+            {
+                if (entry != null)
+                {
+                    BiomeType biomeType = entry.getKey();
+                    int weight = entry.getValue();
+                    
+                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(baseBiome, weight));
+                }
+            }
         }
 
         return biome;

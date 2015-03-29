@@ -13,6 +13,7 @@ import static net.minecraftforge.common.BiomeManager.BiomeType.DESERT;
 import static net.minecraftforge.common.BiomeManager.BiomeType.ICY;
 import static net.minecraftforge.common.BiomeManager.BiomeType.WARM;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.util.WeightedRandom;
@@ -24,6 +25,9 @@ import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
+import biomesoplenty.common.biome.BOPBiomeManager;
+
+import com.google.common.collect.ImmutableList;
 
 public class GenLayerBiomeBOP extends GenLayerBiome
 {
@@ -36,6 +40,14 @@ public class GenLayerBiomeBOP extends GenLayerBiome
         biomes = ReflectionHelper.getPrivateValue(GenLayerBiome.class, this, "biomes");
         
         //TODO: Use vanilla biome weights
+        for (BiomeManager.BiomeType type : BiomeManager.BiomeType.values())
+        {
+            ImmutableList<BiomeEntry> biomesToAdd = BOPBiomeManager.getBiomes(type);
+            int idx = type.ordinal();
+
+            if (biomes[idx] == null) biomes[idx] = new ArrayList<BiomeEntry>();
+            if (biomesToAdd != null) biomes[idx].addAll(biomesToAdd);
+        }
     }
     
     @Override
@@ -43,7 +55,7 @@ public class GenLayerBiomeBOP extends GenLayerBiome
     {
         int[] inputBiomeIds = this.parent.getInts(areaX, areaY, areaWidth, areaHeight);
         int[] outputBiomeIds = IntCache.getIntCache(areaWidth * areaHeight);
-
+        
         for (int x = 0; x < areaHeight; ++x)
         {
             for (int z = 0; z < areaWidth; ++z)

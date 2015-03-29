@@ -15,21 +15,18 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenCactus;
-import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 
 import org.apache.commons.io.FileUtils;
 
 import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.util.config.JsonEntitySpawn;
-import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.gson.JsonSyntaxException;
 
@@ -136,8 +133,7 @@ public class BiomeConfigurationHandler
                     
                     //Updates the biome's weights to be in line with the config file
                     extendedBiome.addWeight(biomeType, weight);
-                    //TODO: Change to use our biome manager rather than Vanilla's
-                    BiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
                 }
             }
             
