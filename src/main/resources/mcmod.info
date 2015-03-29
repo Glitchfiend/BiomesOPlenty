@@ -5,7 +5,6 @@
     "version": "${mod_version}",
     "mcversion": "${minecraft_version}",
     "url": "www.minecraftforum.net/topic/1495041-",
-    "updateUrl": "",
     "authorList": ["Adubbz", "Amnet", "Forstride", "ted80"],
     "credits": "enchilado, gamax92, Soaryn, Tim Rurkowski",
     "logoFile": "assets/biomesoplenty/textures/gui/logo.png"
