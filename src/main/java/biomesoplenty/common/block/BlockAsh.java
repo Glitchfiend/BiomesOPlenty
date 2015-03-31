@@ -10,10 +10,12 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import biomesoplenty.api.item.BOPItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -21,21 +23,20 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BOPBlock;
-import biomesoplenty.common.util.inventory.CreativeTabBOP;
 
 //TODO: Commented methods and calls
-public class BlockAsh extends BOPBlock
+public class BlockAsh extends BlockBOPGeneric
 {
     public BlockAsh()
     {
         super(Material.sand);
 
         this.setHardness(0.4F);
-        // this.setHarvestLevel("shovel", 0);
+        this.setHarvestLevel("shovel", 0);
         this.setStepSound(Block.soundTypeSand);
     }
 
+    // ash blocks are slightly lower
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {
@@ -46,7 +47,7 @@ public class BlockAsh extends BOPBlock
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        /*
+        /* TODO:
          * if (entity instanceof EntityPlayer) { InventoryPlayer inventory =
          * ((EntityPlayer)entity).inventory;
          * 
@@ -62,26 +63,22 @@ public class BlockAsh extends BOPBlock
     @Override
     public boolean isFireSource(World world, BlockPos pos, EnumFacing side)
     {
-        if (side == EnumFacing.UP)
-        {
-            return true;
-        }
-        return false;
+        return (side == EnumFacing.UP);
     }
-
-    /*
-     * @Override public Item getItemDropped(int metadata, Random random, int
-     * fortune) { return BOPCItems.misc; }
-     * 
-     * @Override public int damageDropped(int meta) { return 1; }
-     */
-
+    
+    // drop 4 balls of ash instead of one block
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return BOPItems.ash;
+    }
     @Override
     public int quantityDropped(Random random)
     {
         return 4;
     }
 
+    // randomly show some smoke particles
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random random)

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "biomesoplenty:palm_log" },
+        "axis=z":   { "model": "biomesoplenty:palm_log_side" },
+        "axis=x":   { "model": "biomesoplenty:palm_log_side", "y": 90 },
+        "axis=none": { "model": "biomesoplenty:palm_bark" }
+    }
+}

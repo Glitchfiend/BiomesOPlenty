@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPPlant;
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -19,83 +19,111 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPFlower2 extends BOPPlant
-{
-    public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", FlowerType.class);
-
-    public BlockBOPFlower2()
-    {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, FlowerType.LAVENDER));
-    }
-
-    @Override
-    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
-    {
-        Block ground = world.getBlockState(pos.down()).getBlock();
-        FlowerType type = (FlowerType) state.getValue(VARIANT_PROP);
-
-        switch (type)
-        {
-            case MINERS_DELIGHT:
-                return ground == Blocks.stone;
-
-            default:
-                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.farmland;
-        }
-    }
-
-    @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return this.getDefaultState().withProperty(VARIANT_PROP, FlowerType.values()[meta]);
-    }
-
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        int meta = ((FlowerType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return meta;
-    }
-
-    @Override
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((FlowerType) state.getValue(VARIANT_PROP)).getName();
-    }
-
-    @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
-    {
-        this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
-    }
-
+// TODO: where have lily flowers and lilyofthevalley gone?
+public class BlockBOPFlower2 extends BlockDecoration {
+        
+    // add properties
     public static enum FlowerType implements IStringSerializable
     {
         LAVENDER, GOLDENROD, BLUEBELLS, MINERS_DELIGHT, ICY_IRIS, ROSE;
-
-        public String getName()
+        public String getName() {return this.name().toLowerCase();}
+    };
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FlowerType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}  
+    
+    public BlockBOPFlower2()
+    {
+        super();
+        
+        // define named states
+        for(FlowerType flowerType : FlowerType.values())
         {
-            return this.name().toLowerCase();
+            this.namedStates.put(flowerType.getName(), this.blockState.getBaseState().withProperty(VARIANT, flowerType));
         }
-
-        @Override
-        public String toString()
+        
+        this.setDefaultState(this.getNamedState("lavender"));
+        
+    }
+    
+    
+    // map from state to meta and vice verca
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT, FlowerType.values()[meta]);
+    }
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return ((FlowerType) state.getValue(VARIANT)).ordinal();
+    }
+    
+    
+    // give the flowers a random XZ offset so they're not spaced in a perfect grid
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.XZ;
+    }
+    
+    // set the size of the different flowers' bounding boxes
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
+    {
+        switch ((FlowerType) world.getBlockState(pos).getValue(VARIANT))
         {
-            return getName();
+            default:
+                this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+                break;
         }
     }
+    
+ 
+    
+    // which types of flower can live on which types of block
+    @Override
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
+    {
+        IBlockState groundState = world.getBlockState(pos.down());
+        Block groundBlock = groundState.getBlock();
+        
+        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass /* TODO: || groundBlock == BOPBlocks.overgrown_netherrack */);
+        boolean onStone = (groundBlock == Blocks.stone);
+        boolean onOrigin = false;
+        
+        if (groundBlock instanceof BlockBOPGrass)
+        {
+            switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
+            {
+                case SPECTRAL_MOSS: case SMOLDERING:
+                    break;
+                case ORIGIN: // origin should only support rose
+                    onOrigin = true;
+                    break;
+                case LOAMY: case SANDY: case SILTY: default:
+                    onFertile = true;
+                    break;
+            }
+        }
+        
+        switch ((FlowerType) state.getValue(VARIANT))
+        {        
+            case MINERS_DELIGHT:
+                return onStone;
+            case ROSE:
+                return onFertile || onOrigin;
+            default:
+                return onFertile;
+        }
+    }
+    
+    
+    
+
+    
 }

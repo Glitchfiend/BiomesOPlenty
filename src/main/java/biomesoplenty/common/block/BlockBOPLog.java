@@ -8,77 +8,54 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.item.ItemBOPBlock;
+import net.minecraft.block.BlockLog;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.item.ItemBlock;
 
-public class BlockBOPLog extends BlockBOPLogBase
+public class BlockBOPLog extends BlockLog implements IBOPBlock
 {
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", LogType.class);
-
+    
+    // add properties (note we inherit LOG_AXIS property from parent BlockLog)
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS });}
+  
+    // implement IDHBlock
+    protected Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    
     public BlockBOPLog()
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, LogType.SACRED_OAK).withProperty(AXIS_PROP, EnumFacing.Axis.Y));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
+        this.setHarvestLevel("axe", 0);
     }
-
-    @Override
-    public int damageDropped(IBlockState state)
-    {
-        return this.getMetaFromState(this.getDefaultState().withProperty(VARIANT_PROP, state.getValue(VARIANT_PROP)));
-    }
-
+    
+    // map from state to meta and vice verca
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        int axis = meta % 3;
-        int type = (meta - axis) / 3;
-
-        return this.getDefaultState().withProperty(VARIANT_PROP, LogType.values()[type]).withProperty(AXIS_PROP, EnumFacing.Axis.values()[axis]);
+        return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.values()[meta]);
     }
-
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int baseMeta = ((LogType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return baseMeta * 3 + ((EnumFacing.Axis) state.getValue(AXIS_PROP)).ordinal();
+        return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal();
     }
 
+    // discard the axis information - otherwise logs facing different directions would not stack together
     @Override
-    protected BlockState createBlockState()
+    public int damageDropped(IBlockState state)
     {
-        return new BlockState(this, new IProperty[] { AXIS_PROP, VARIANT_PROP });
+        return this.getMetaFromState( this.getDefaultState() );
     }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((LogType) state.getValue(VARIANT_PROP)).getName() + (fullName ? "_log" : "");
-    }
-
-    public static enum LogType implements IStringSerializable
-    {
-        SACRED_OAK, CHERRY, DARK, FIR, ETHEREAL;
-
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-    }
+    
+    
 }

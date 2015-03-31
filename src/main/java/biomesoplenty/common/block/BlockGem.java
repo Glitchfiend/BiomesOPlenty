@@ -8,86 +8,71 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPBlock;
-import biomesoplenty.common.util.block.BlockStateUtils;
+import java.util.HashMap;
+import java.util.Map;
+
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
 
 //TODO: Add gem ore drops, make gem item seperate
-public class BlockGem extends BOPBlock
+public class BlockGem extends Block implements IBOPBlock
 {
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", GemType.class);
+    // add properties
+    public static enum GemType implements IStringSerializable {AMETHYST, RUBY, PERIDOT, TOPAZ, TANZANITE, MALACHITE, SAPPHIRE, AMBER; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", GemType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    
 
     public BlockGem()
-    {
+    {        
         super(Material.rock);
-
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, GemType.AMETHYST));
-
-        this.presetStates = BlockStateUtils.getValidStatesForProperties(this.getDefaultState(), this.getPresetProperties());
-
-        for (IBlockState state : presetStates)
-        {
-            this.setHarvestLevel("pickaxe", 2, state);
-        }
-
-        this.setHarvestLevel("pickaxe", 3, this.getDefaultState().withProperty(VARIANT_PROP, GemType.AMETHYST));
-
+        
+        // set some defaults
         this.setHardness(5.0F);
         this.setResistance(10.0F);
         this.setStepSound(Block.soundTypeMetal);
+        this.setHarvestLevel("pickaxe", 2);
+        
+        // define named states
+        this.namedStates.put("amethyst_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );
+        this.namedStates.put("ruby_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.RUBY) );
+        this.namedStates.put("peridot_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.PERIDOT) );
+        this.namedStates.put("topaz_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.TOPAZ) );
+        this.namedStates.put("tanzanite_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.TANZANITE) );
+        this.namedStates.put("malachite_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.MALACHITE) );
+        this.namedStates.put("sapphire_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.SAPPHIRE) );
+        this.namedStates.put("amber_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.AMBER) );
+        
+        this.setDefaultState(this.namedStates.get("amethyst_block"));
+        
     }
 
+    // map from state to meta and vice verca
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT_PROP, GemType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, GemType.values()[meta]);
     }
-
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int meta = ((GemType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return meta;
+        return ((GemType) state.getValue(VARIANT)).ordinal();
     }
+    
 
-    @Override
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((GemType) state.getValue(VARIANT_PROP)).getName() + (fullName ? "_block" : "");
-    }
-
-    public static enum GemType implements IStringSerializable
-    {
-        AMETHYST, RUBY, PERIDOT, TOPAZ, TANZANITE, MALACHITE, SAPPHIRE, AMBER;
-
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-    }
 }

@@ -9,11 +9,11 @@
 package biomesoplenty.common.block;
 
 import static net.minecraft.block.BlockLiquid.LEVEL;
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -21,94 +21,86 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPPlant;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockCoral extends BOPPlant
+// TODO: do we need LEVEL?
+public class BlockCoral extends BlockDecoration
 {
-    public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", CoralType.class);
+    
+    // TODO: Readd kelp
+    public static enum CoralType implements IStringSerializable {PINK, ORANGE, BLUE, GLOWING, ALGAE; public String getName(){return this.name().toLowerCase();}}
+    public static PropertyEnum VARIANT = PropertyEnum.create("variant", CoralType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LEVEL, VARIANT });}  
 
     public BlockCoral()
     {
         super(Material.water);
+        
+        // set some defaults
+        this.setHardness(0.6F);
+        this.setStepSound(Block.soundTypeSand);
+        this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+        
+        // define named states
+        this.namedStates.put("pink_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.PINK) );
+        this.namedStates.put("orange_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.ORANGE) );
+        this.namedStates.put("blue_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.BLUE) );
+        this.namedStates.put("glowing_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.GLOWING) );
+        this.namedStates.put("algae", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.ALGAE) );
+        
+        this.setDefaultState(this.namedStates.get("pink_coral"));       
 
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, CoralType.PINK));
-
-        this.setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+    }
+    
+    
+    // map from state to meta and vice verca - note the LEVEL property is ignored (so the default 15 is always assumed)
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT, CoralType.values()[meta]);
+    }
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return ((CoralType) state.getValue(VARIANT)).ordinal();
+    }
+    
+    
+    // give the corals a random XZ offset so they're not spaced in a perfect grid
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.XZ;
     }
 
+    // glowing_coral emits light
     @Override
     public int getLightValue(IBlockAccess world, BlockPos pos)
     {
-        IBlockState state = world.getBlockState(pos);
-
-        if ((CoralType) state.getValue(VARIANT_PROP) == CoralType.GLOWING)
+        switch ((CoralType) world.getBlockState(pos).getValue(VARIANT))
         {
-            return 10;
+            case GLOWING:
+                return 10;
+                
+            default:
+                return super.getLightValue(); 
         }
-
-        return super.getLightValue();
     }
 
+    // require water above and earth below
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         Block ground = world.getBlockState(pos.down()).getBlock();
         Block cover = world.getBlockState(pos.up()).getBlock();
-        boolean hasWater = cover == Blocks.water || cover == Blocks.flowing_water;
-
-        // TODO: Make all types depend on mud
-        return hasWater && (ground == Blocks.dirt || ground == Blocks.sand || ground == Blocks.sponge || ground == Blocks.stone || ground == Blocks.clay || ground == Blocks.gravel || ground == Blocks.grass);
+        
+        boolean hasWater = (cover == Blocks.water || cover == Blocks.flowing_water);
+        boolean hasEarth = (ground == Blocks.dirt || ground == BOPBlocks.dirt || ground == BOPBlocks.mud || ground == Blocks.sand || ground == Blocks.sponge || ground == Blocks.stone || ground == Blocks.clay || ground == Blocks.gravel);
+        
+        return hasWater && hasEarth;
     }
 
-    @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        return this.getDefaultState().withProperty(VARIANT_PROP, CoralType.values()[meta]).withProperty(LEVEL, 15);
-    }
-
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        int meta = ((CoralType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return meta;
-    }
-
-    @Override
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP, LEVEL });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        CoralType type = (CoralType) state.getValue(VARIANT_PROP);
-
-        return type.getName() + (fullName && type != CoralType.ALGAE ? "_coral" : "");
-    }
-
-    // TODO: Readd kelp
-    public static enum CoralType implements IStringSerializable
-    {
-        PINK, ORANGE, BLUE, GLOWING, ALGAE;
-
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-    }
 }

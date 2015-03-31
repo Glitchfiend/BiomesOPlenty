@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPPlant;
+import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -19,110 +19,108 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockBOPMushroom extends BOPPlant
+// TODO: mushroom spreading? giant mushrooms with bonemeal? mushrooms popping if too bright?
+public class BlockBOPMushroom extends BlockDecoration
 {
-    public static PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", MushroomType.class);
+    // add properties
+    public static enum MushroomType implements IStringSerializable {TOADSTOOL, PORTOBELLO, BLUE_MILK_CAP, GLOWSHROOM, FLAT_MUSHROOM, SHADOW_SHROOM; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", MushroomType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}  
+    
 
     public BlockBOPMushroom()
     {
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, MushroomType.TOADSTOOL));
+        // set some defaults
+        this.setBlockBoundsByRadiusAndHeight(0.2F, 0.4F);
+        
+        // define named states
+        this.namedStates.put("toadstool", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.TOADSTOOL));
+        this.namedStates.put("portobello", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.PORTOBELLO));
+        this.namedStates.put("blue_milk_cap", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.BLUE_MILK_CAP));
+        this.namedStates.put("glowshroom", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.GLOWSHROOM));
+        this.namedStates.put("flat_mushroom", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.FLAT_MUSHROOM));
+        this.namedStates.put("shadow_shroom", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.SHADOW_SHROOM));
+        
+        this.setDefaultState(this.namedStates.get("toadstool"));        
     }
-
-    @Override
-    public int getLightValue(IBlockAccess world, BlockPos pos)
-    {
-        IBlockState blockState = world.getBlockState(pos);
-
-        if ((MushroomType) blockState.getValue(VARIANT_PROP) == MushroomType.GLOWSHROOM)
-        {
-            return 6;
-        }
-
-        return super.getLightValue();
-    }
-
-    @Override
-    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
-    {
-        Block ground = world.getBlockState(pos.down()).getBlock();
-        MushroomType type = (MushroomType) state.getValue(VARIANT_PROP);
-
-        switch (type)
-        {
-        // TODO: Make the toadstool, glowshroom, flat mushroom require overgrown
-        // netherrack
-        // TODO: Make flat mushroom, shadow shroom require bopgrass
-            case TOADSTOOL:
-                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.mycelium || ground == Blocks.grass;
-
-            case GLOWSHROOM:
-                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.mycelium || ground == Blocks.stone || ground == Blocks.netherrack;
-
-            case FLAT_MUSHROOM:
-                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.mycelium;
-
-            case SHADOW_SHROOM:
-                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.mycelium || ground == Blocks.end_stone;
-
-            default:
-                return ground == Blocks.grass || ground == Blocks.dirt || ground == Blocks.mycelium;
-        }
-    }
-
+    
+    // map from state to meta and vice verca
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT_PROP, MushroomType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, MushroomType.values()[meta]);
     }
-
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int meta = ((MushroomType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return meta;
+        return ((MushroomType) state.getValue(VARIANT)).ordinal();
     }
+    
 
+    // give the mushrooms a random XZ offset so they're not spaced in a perfect grid
     @Override
-    protected BlockState createBlockState()
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
     {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
+        return Block.EnumOffsetType.XZ;
     }
-
+    
+    // glowshrooms emit light
     @Override
-    public IProperty[] getPresetProperties()
+    public int getLightValue(IBlockAccess world, BlockPos pos)
     {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((MushroomType) state.getValue(VARIANT_PROP)).getName();
-    }
-
-    @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
-    {
-        this.setBlockBounds(0.3F, 0.0F, 0.3F, 0.7F, 0.4F, 0.7F);
-    }
-
-    public static enum MushroomType implements IStringSerializable
-    {
-        TOADSTOOL, PORTOBELLO, BLUE_MILK_CAP, GLOWSHROOM, FLAT_MUSHROOM, SHADOW_SHROOM;
-
-        @Override
-        public String getName()
+        switch ((MushroomType) world.getBlockState(pos).getValue(VARIANT))
         {
-            return this.name().toLowerCase();
+            case GLOWSHROOM:
+                return 6;
+            default:
+                return super.getLightValue();
         }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-
     }
+
+    // which types of mushroom can live on which types of block
+    @Override
+    public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
+    {
+        IBlockState groundState = world.getBlockState(pos.down());
+        Block groundBlock = groundState.getBlock();
+        
+        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.mycelium || groundBlock == Blocks.grass);
+        boolean onNetherrack = (groundBlock == Blocks.netherrack /* TODO: || groundBlock == BOPBlocks.overgrown_netherrack */);
+        boolean onStone = (groundBlock == Blocks.stone || groundBlock == BOPBlocks.stone); // TODO: hard dirt too? the other edge cases?
+        boolean onEndstone = (groundBlock == Blocks.end_stone);
+        
+        //System.out.println("ground block is " + BlockStateUtils.getStateInfoAsString(groundState));
+        if (groundBlock instanceof BlockBOPGrass)
+        {
+            switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
+            {
+                case SPECTRAL_MOSS:
+                    onEndstone = true;
+                    break;
+                case SMOLDERING: case ORIGIN: // origin should only support roses
+                    break;
+                case LOAMY: case SANDY: case SILTY: default:
+                    onFertile = true;
+                    break;
+            }
+        }
+        
+        switch ((MushroomType) state.getValue(VARIANT))
+        {
+            case TOADSTOOL:
+                return onFertile || onNetherrack;
+            case GLOWSHROOM:
+                return onFertile || onStone || onNetherrack;
+            case SHADOW_SHROOM:
+                return onFertile || onEndstone; // TODO: should this be allowed on smoldering grass?
+            default:
+                return onFertile;
+        }
+    }
+
 }

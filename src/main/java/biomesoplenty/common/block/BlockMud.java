@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -20,30 +22,65 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPBlock;
+import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockMud extends BOPBlock
+public class BlockMud extends Block implements IBOPBlock
 {
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", MudType.class);
 
-    public BlockMud()
-    {
+    // add properties
+    public static enum MudType implements IStringSerializable {MUD, QUICKSAND; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", MudType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+
+    // constructor
+    public BlockMud() {
+        
         super(Material.sand);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, MudType.MUD));
+        
+        // set some defaults
         this.setHardness(0.6F);
         this.setStepSound(Block.soundTypeSand);
+        
+        // define named states
+        this.namedStates.put("mud", this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
+        this.namedStates.put("quicksand", this.blockState.getBaseState().withProperty(VARIANT, MudType.QUICKSAND) );
+        
+        this.setDefaultState(this.namedStates.get("mud"));
+        
+    }    
+    
+    // map from state to meta and vice verca
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+        return this.getDefaultState().withProperty(VARIANT, MudType.values()[meta]);
     }
+    @Override
+    public int getMetaFromState(IBlockState state)
+    {
+        return ((MudType) state.getValue(VARIANT)).ordinal();
+    }
+    
     
     @Override
     public AxisAlignedBB getCollisionBoundingBox(World world, BlockPos pos, IBlockState state)
     {   
         float heightOffset = 0.0F;
-        switch ((MudType) state.getValue(VARIANT_PROP))
+        switch ((MudType) state.getValue(VARIANT))
         {
             // sink a little when standing on mud
             case MUD:
@@ -69,7 +106,7 @@ public class BlockMud extends BOPBlock
             //}
         }
         
-        switch ((MudType) state.getValue(VARIANT_PROP))
+        switch ((MudType) state.getValue(VARIANT))
         {
             // mud slows you greatly
             case MUD:
@@ -81,47 +118,14 @@ public class BlockMud extends BOPBlock
             case QUICKSAND:
                 entity.setInWeb();
                 break;
-        }       
-
-
+        }
     }
-
-    @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        // only one property to worry about, the variant, so just map [0 => MUD, 1 => QUICKSAND]
-        return this.getDefaultState().withProperty(VARIANT_PROP, MudType.values()[meta]);
-    }
-
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        // only one property to worry about, the variant, so just map [0 => MUD, 1 => QUICKSAND]
-        return ((MudType) state.getValue(VARIANT_PROP)).ordinal();
-    }
-
-    @Override
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((MudType) state.getValue(VARIANT_PROP)).getName();
-    }
-   
+    
+    // drop 4 balls of the item instead of one block
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        switch ((MudType) state.getValue(VARIANT_PROP))
+        switch ((MudType) state.getValue(VARIANT))
         {
             case MUD:
                 return BOPItems.mudball;
@@ -136,23 +140,7 @@ public class BlockMud extends BOPBlock
     public int quantityDropped(Random random)
     {
         return 4;
-    }
-
-    // enum representing the 2 variants of mud
-    public static enum MudType implements IStringSerializable
-    {
-        MUD, QUICKSAND;
-
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-    }
+    }    
+    
+    
 }

@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_nse",
+    "textures": {
+        "texture": "biomesoplenty:blocks/fir_planks"
+    }
+}

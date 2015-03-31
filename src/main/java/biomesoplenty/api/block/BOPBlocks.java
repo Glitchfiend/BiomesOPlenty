@@ -16,18 +16,27 @@ public class BOPBlocks
     public static Block bamboo;
     public static Block bone_segment;
     public static Block coral;
-    public static Block flower;
+    public static Block flower1;
     public static Block flower2;
-    public static Block gem;
+    public static Block gem_block;
     public static Block gem_ore;
     public static Block hive;
-    public static Block log;
-    public static Block log2;
-    public static Block log3;
-    public static Block log4;
     public static Block mushroom;
-    public static Block planks;
     public static Block stone;
+    
+    public static BOPWoodType sacred_oak;
+    public static BOPWoodType cherry;
+    public static BOPWoodType dark;
+    public static BOPWoodType fir;
+    public static BOPWoodType ethereal;
+    public static BOPWoodType magic;
+    public static BOPWoodType mangrove;
+    public static BOPWoodType palm;
+    public static BOPWoodType redwood;
+    public static BOPWoodType willow;
+    //public static Block log3;
+    //public static Block log4;
+    
     public static Block mud;
     public static Block turnip_block;
     public static Block flesh;

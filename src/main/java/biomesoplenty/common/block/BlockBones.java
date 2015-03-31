@@ -8,6 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -15,6 +18,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -23,70 +27,75 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BOPBlock;
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockBones extends BOPBlock
+public class BlockBones extends Block implements IBOPBlock
 {
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BoneType.class);
-    public static final PropertyEnum AXIS_PROP = PropertyEnum.create("axis", EnumFacing.Axis.class);
+    
+    // add properties
+    public static enum BoneType implements IStringSerializable {SMALL, MEDIUM, LARGE; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BoneType.class);
+    public static final PropertyEnum AXIS = PropertyEnum.create("axis", EnumFacing.Axis.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AXIS, VARIANT });}
 
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    
+    
     public BlockBones()
     {
         super(Material.rock);
-
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, BoneType.SMALL).withProperty(AXIS_PROP, EnumFacing.Axis.Y));
-
+        
+        // set some defaults
         this.setHardness(3.0F);
         this.setResistance(5.0F);
         this.setStepSound(Block.soundTypeStone);
-    }
+        
+        // define named states
+        this.namedStates.put("small_bone_segment", this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.SMALL));
+        this.namedStates.put("medium_bone_segment", this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.MEDIUM));
+        this.namedStates.put("large_bone_segment", this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.LARGE));
 
-    @Override
-    public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int metadata, EntityLivingBase entity)
-    {
-        return super.onBlockPlaced(world, pos, side, hitX, hitY, hitZ, metadata, entity).withProperty(AXIS_PROP, side.getAxis());
+        this.setDefaultState(this.namedStates.get("large_bone_segment"));
+        
     }
-
-    @Override
-    public int damageDropped(IBlockState state)
-    {
-        return this.getMetaFromState(this.getDefaultState().withProperty(VARIANT_PROP, state.getValue(VARIANT_PROP)));
-    }
-
+    
+    
+    // map from state to meta and vice verca 
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
         int axis = meta % 3;
         int type = (meta - axis) / 3;
-
-        return this.getDefaultState().withProperty(VARIANT_PROP, BoneType.values()[type]).withProperty(AXIS_PROP, EnumFacing.Axis.values()[axis]);
+        return this.getDefaultState().withProperty(VARIANT, BoneType.values()[type]).withProperty(AXIS, EnumFacing.Axis.values()[axis]);
     }
-
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int baseMeta = ((BoneType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return baseMeta * 3 + ((EnumFacing.Axis) state.getValue(AXIS_PROP)).ordinal();
+        int baseMeta = ((BoneType) state.getValue(VARIANT)).ordinal();
+        return baseMeta * 3 + ((EnumFacing.Axis) state.getValue(AXIS)).ordinal();
     }
-
+    
+      
+    // align placed block according to side clicked on
     @Override
-    protected BlockState createBlockState()
+    public IBlockState onBlockPlaced(World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, int metadata, EntityLivingBase entity)
     {
-        return new BlockState(this, new IProperty[] { AXIS_PROP, VARIANT_PROP });
+        return super.onBlockPlaced(world, pos, side, hitX, hitY, hitZ, metadata, entity).withProperty(AXIS, side.getAxis());
     }
 
+    // discard axis info in dropped block
     @Override
-    public IProperty[] getPresetProperties()
+    public int damageDropped(IBlockState state)
     {
-        return new IProperty[] { VARIANT_PROP };
+        return this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, state.getValue(VARIANT)));
     }
 
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((BoneType) state.getValue(VARIANT_PROP)).getName() + (fullName ? "_bone_segment" : "");
-    }
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -103,6 +112,7 @@ public class BlockBones extends BOPBlock
         return super.getCollisionBoundingBox(worldIn, pos, state);
     }
 
+    // bounding box is a bit complex as it depends on both size and orientation
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
@@ -113,7 +123,7 @@ public class BlockBones extends BOPBlock
 
         float width;
 
-        switch ((BoneType) state.getValue(VARIANT_PROP))
+        switch ((BoneType) state.getValue(VARIANT))
         {
             case SMALL:
                 width = 0.25F;
@@ -135,7 +145,7 @@ public class BlockBones extends BOPBlock
         float min = (1.0F - width) / 2F;
         float max = 1.0F - min;
 
-        switch ((EnumFacing.Axis) state.getValue(AXIS_PROP))
+        switch ((EnumFacing.Axis) state.getValue(AXIS))
         {
             case X:
                 this.setBlockBounds(0F, min, min, 1.0F, max, max);
@@ -163,20 +173,4 @@ public class BlockBones extends BOPBlock
         return false;
     }
 
-    public static enum BoneType implements IStringSerializable
-    {
-        SMALL, MEDIUM, LARGE;
-
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-    }
 }

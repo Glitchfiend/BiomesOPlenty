@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_ns",
+    "textures": {
+        "texture": "biomesoplenty:blocks/sacred_oak_planks"
+    }
+}

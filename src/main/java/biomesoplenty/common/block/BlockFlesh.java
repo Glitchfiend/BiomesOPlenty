@@ -8,26 +8,37 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.api.block.BOPBlock;
+import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockFlesh extends BOPBlock
+public class BlockFlesh extends Block implements IBOPBlock
 {
+    
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
 
     public BlockFlesh() {
         super(Material.sponge);

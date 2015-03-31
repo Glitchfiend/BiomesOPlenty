@@ -8,7 +8,7 @@
 
 package biomesoplenty.core;
 
-import biomesoplenty.api.block.BOPBlock;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class CommonProxy
@@ -17,8 +17,10 @@ public class CommonProxy
     
     public void addVariantName(Item item, String... names) {}
 
-    public void registerBlockForMeshing(BOPBlock block, int metadata, String name) {}
+    public void registerBlockForMeshing(Block block, int metadata, String name) {}
     
     public void registerItemForMeshing(Item item, String name) {}
+    public void registerItemForMeshing(Item item, int meta, String name) {}
+
     
 }

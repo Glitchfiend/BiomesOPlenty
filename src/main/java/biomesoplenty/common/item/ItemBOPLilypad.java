@@ -21,7 +21,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-public class ItemBOPLilypad extends ItemBlockWithVariants {
+public class ItemBOPLilypad extends ItemBOPBlock {
 
     public ItemBOPLilypad(Block block) {
         super(block);

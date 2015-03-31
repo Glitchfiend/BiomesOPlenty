@@ -11,7 +11,9 @@ package biomesoplenty.common.util.block;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
@@ -23,6 +25,26 @@ import com.google.common.collect.Sets;
 
 public class BlockStateUtils
 {
+    
+    public static String getStateInfoAsString(IBlockState state)
+    {
+        String desc = state.getBlock().getClass().getName() + "[";
+        Iterator it = state.getProperties().entrySet().iterator();
+        boolean first = true;
+        while (it.hasNext())
+        {
+            if (!first) {desc = desc + ",";}
+            Entry entry = (Entry)it.next();
+            IProperty iproperty = (IProperty)entry.getKey();
+            Comparable comparable = (Comparable)entry.getValue();
+            desc = desc + iproperty.getName() + "=" + iproperty.getName(comparable);
+            first = false;
+        }
+        desc = desc + "]";
+        return desc;
+    }
+    
+    
     public static IProperty getPropertyByName(IBlockState blockState, String propertyName)
     {
         for (IProperty property : (ImmutableSet<IProperty>) blockState.getProperties().keySet())

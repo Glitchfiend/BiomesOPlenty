@@ -16,7 +16,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 
-public class BlockBOPLog4 extends BlockBOPLogBase
+public class BlockBOPLog4 extends BlockBOPLogBaseOld
 {
     public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", LogType.class);
 

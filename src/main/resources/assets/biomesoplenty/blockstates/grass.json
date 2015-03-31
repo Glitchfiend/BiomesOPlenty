@@ -1,16 +1,16 @@
 {
     "variants": {
-        "snowy=false,variant=smoldering_grass_block": { "model": "biomesoplenty:smoldering_grass_block" },
-        "snowy=true,variant=smoldering_grass_block": { "model": "biomesoplenty:smoldering_grass_block" },
+        "snowy=false,variant=smoldering": { "model": "biomesoplenty:smoldering_grass_block" },
+        "snowy=true,variant=smoldering": { "model": "biomesoplenty:smoldering_grass_block" },
         "snowy=false,variant=spectral_moss": { "model": "biomesoplenty:spectral_moss" },
         "snowy=true,variant=spectral_moss": { "model": "biomesoplenty:spectral_moss" },
-        "snowy=false,variant=loamy_grass_block": { "model": "biomesoplenty:loamy_grass_block" },
-        "snowy=true,variant=loamy_grass_block": { "model": "biomesoplenty:loamy_grass_block_snowed" },
-        "snowy=false,variant=sandy_grass_block": { "model": "biomesoplenty:sandy_grass_block" },
-        "snowy=true,variant=sandy_grass_block": { "model": "biomesoplenty:sandy_grass_block_snowed" },
-        "snowy=false,variant=silty_grass_block": { "model": "biomesoplenty:silty_grass_block" },
-        "snowy=true,variant=silty_grass_block": { "model": "biomesoplenty:silty_grass_block_snowed" },
-        "snowy=false,variant=origin_grass_block": { "model": "biomesoplenty:origin_grass_block" },
-        "snowy=true,variant=origin_grass_block": { "model": "biomesoplenty:origin_grass_block_snowed" }
+        "snowy=false,variant=loamy": { "model": "biomesoplenty:loamy_grass_block" },
+        "snowy=true,variant=loamy": { "model": "biomesoplenty:loamy_grass_block_snowed" },
+        "snowy=false,variant=sandy": { "model": "biomesoplenty:sandy_grass_block" },
+        "snowy=true,variant=sandy": { "model": "biomesoplenty:sandy_grass_block_snowed" },
+        "snowy=false,variant=silty": { "model": "biomesoplenty:silty_grass_block" },
+        "snowy=true,variant=silty": { "model": "biomesoplenty:silty_grass_block_snowed" },
+        "snowy=false,variant=origin": { "model": "biomesoplenty:origin_grass_block" },
+        "snowy=true,variant=origin": { "model": "biomesoplenty:origin_grass_block_snowed" }
     }
 }

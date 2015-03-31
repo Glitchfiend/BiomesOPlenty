@@ -11,7 +11,6 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
@@ -24,51 +23,44 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-import biomesoplenty.api.block.BOPPlant;
 import biomesoplenty.api.item.BOPItems;
 
-public class BlockFruit extends BOPPlant
+public class BlockFruit extends BlockDecoration
 {
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", FruitType.class);
     
-    public BlockFruit()
-    {
-        super(Material.plants);
-        this.setStepSound(soundTypeGrass);
-        this.setBlockBounds(0.25F, 0.25F, 0.25F, 0.75F, 1.0F, 0.75F);
-        // TODO: once the mechanism for farming fruit is established: this.setCreativeTab(null);
+    // add properties
+    public static enum FruitType implements IStringSerializable {APPLE, PERSIMMON, PEACH, PEAR; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FruitType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+
+    // constructor
+    public BlockFruit() {
+                
+        // set some defaults
+        this.setStepSound(Block.soundTypeGrass);
+        this.setBlockBoundsByRadiusAndHeight(0.25F, 0.25F, true);
+        
+        // define named states
+        this.namedStates.put("apple_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.APPLE));
+        this.namedStates.put("persimmon_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.PERSIMMON));
+        this.namedStates.put("peach_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.PEACH));
+        this.namedStates.put("pear_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.PEAR));
+        
+        this.setDefaultState(this.namedStates.get("apple_block"));
+        
     }
-     
+
+    // map from state to meta and vice verca
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        // only one property to worry about, the variant, so just map [0 => STALAGMITE, 1 => STALACTITE]
-        return this.getDefaultState().withProperty(VARIANT_PROP, FruitType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, FruitType.values()[meta]);
     }
-
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        // only one property to worry about, the variant, so just map [0 => STALAGMITE, 1 => STALACTITE]
-        return ((FruitType) state.getValue(VARIANT_PROP)).ordinal();
-    }
-
-    @Override
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-    
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((FruitType) state.getValue(VARIANT_PROP)).getName() + "_block";
+        return ((FruitType) state.getValue(VARIANT)).ordinal();
     }
     
     // only allow fruit to hang from leaves
@@ -79,12 +71,28 @@ public class BlockFruit extends BOPPlant
         return blockAbove == Blocks.leaves || blockAbove == Blocks.leaves2; /* TODO: add BOP leave types - maybe check the material instead? */
     }
     
+    // map states to the corresponding fruit item
+    public static Item getFruitItem(IBlockState state)
+    {
+        switch ((FruitType) state.getValue(VARIANT))
+        {
+            case PERSIMMON:
+                return BOPItems.persimmon;
+            case PEACH:
+                return BOPItems.peach;
+            case PEAR:
+                return BOPItems.pear;
+            case APPLE: default:
+                return Items.apple;
+        }       
+    }
+    
     // In creative mode, pick block to get the fruit item
     @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, BlockPos pos)
     {
         IBlockState state = world.getBlockState(pos);
-        Item item = ((FruitType) state.getValue(VARIANT_PROP)).getItem();
+        Item item = getFruitItem(state);
         int meta = damageDropped(state);
         return new ItemStack(item, 1, meta);
     }
@@ -93,7 +101,7 @@ public class BlockFruit extends BOPPlant
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return ((FruitType) state.getValue(VARIANT_PROP)).getItem();
+        return getFruitItem(state);
     }
     
     // prevent fruit block meta value affecting fruit item dropped
@@ -101,41 +109,6 @@ public class BlockFruit extends BOPPlant
     public int damageDropped(IBlockState state)
     {
         return 0;
-    }
-    
-    // enum representing the fruit variants
-    // TODO: take outside the class so it can be reused in leaves?
-    public static enum FruitType implements IStringSerializable
-    {
-
-        APPLE, PERSIMMON, PEACH, PEAR;
-        
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
-        {
-            return getName();
-        }
-        
-        // get the item dropped when this type of fruit block is broken/picked
-        public Item getItem() {
-            switch (this)
-            {
-                case PERSIMMON:
-                    return BOPItems.persimmon;
-                case PEACH:
-                    return BOPItems.peach;
-                case PEAR:
-                    return BOPItems.pear;
-                case APPLE: default:
-                    return Items.apple;
-            }
-        }
     }
     
 }

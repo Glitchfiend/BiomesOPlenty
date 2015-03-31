@@ -8,75 +8,143 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
-import biomesoplenty.api.block.BOPBlock;
+import net.minecraft.world.World;
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 
-//TODO: Add wasp spawn on honeycomb breaking, add correct drops
-public class BlockHive extends BOPBlock
+public class BlockHive extends Block implements IBOPBlock
 {
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", HiveType.class);
-
+    
+    // add properties
+    public static enum HiveType implements IStringSerializable {HIVE, HONEYCOMB, EMPTY_HONEYCOMB, FILLED_HONEYCOMB; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", HiveType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    
     public BlockHive()
     {
         super(Material.wood);
-
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT_PROP, HiveType.HIVE));
-
+                
+        // set some defaults
         this.setHardness(0.5F);
         this.setStepSound(Block.soundTypeGrass);
+        
+        // define named states
+        this.namedStates.put("hive_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.HIVE) );
+        this.namedStates.put("honeycomb_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.HONEYCOMB) );
+        this.namedStates.put("empty_honeycomb_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.EMPTY_HONEYCOMB) );
+        this.namedStates.put("filled_honeycomb_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.FILLED_HONEYCOMB) );
+        
+        this.setDefaultState(this.namedStates.get("hive_block"));
+
     }
 
+    // map from state to meta and vice verca
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT_PROP, HiveType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, HiveType.values()[meta]);
     }
-
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int meta = ((HiveType) state.getValue(VARIANT_PROP)).ordinal();
-
-        return meta;
+        return ((HiveType) state.getValue(VARIANT)).ordinal();
     }
-
+    
+    // The 3 functions below, getItemDropped, quantityDropped and damageDropped work together to determine the drops
+    // HIVE:                1 hive block
+    // HONEYCOMB:           1-4 x honeycomb item
+    // EMPTY_HONEYCOMB:     nothing (and a wasp is spawned)
+    // FILLED_HONEYCOMB:    0-3 x filled_coneycomb item
     @Override
-    protected BlockState createBlockState()
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return new BlockState(this, new IProperty[] { VARIANT_PROP });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return ((HiveType) state.getValue(VARIANT_PROP)).getName() + (fullName ? "_block" : "");
-    }
-
-    public static enum HiveType implements IStringSerializable
-    {
-        HIVE, HONEYCOMB, EMPTY_HONEYCOMB, FILLED_HONEYCOMB;
-
-        public String getName()
+        switch ((HiveType) state.getValue(VARIANT))
         {
-            return this.name().toLowerCase();
-        }
-
-        @Override
-        public String toString()
+           case HONEYCOMB:
+                return BOPItems.honeycomb;
+            
+            case FILLED_HONEYCOMB:
+                return BOPItems.filled_honeycomb;
+                
+            case HIVE: case EMPTY_HONEYCOMB: default:
+                return super.getItemDropped(state,rand,fortune);
+        } 
+    }
+    @Override
+    public int quantityDropped(IBlockState state, int fortune, Random random)
+    {
+        switch ((HiveType) state.getValue(VARIANT))
         {
-            return getName();
+            case HONEYCOMB:
+                return 1 + random.nextInt(3);
+            
+            case FILLED_HONEYCOMB:
+                return random.nextInt(2);
+                
+            case EMPTY_HONEYCOMB:
+                return 0;
+                
+            case HIVE: default:
+                return 1;
         }
     }
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        switch ((HiveType) state.getValue(VARIANT))
+        {
+            case HONEYCOMB: case FILLED_HONEYCOMB:
+                return 0;
+                
+            case EMPTY_HONEYCOMB: case HIVE: default:
+                return this.getMetaFromState(state);
+        }
+    }
+    
+    
+    // spawn a wasp when empty honeycomb is broken
+    @Override
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        switch ((HiveType) state.getValue(VARIANT))
+        {
+            case EMPTY_HONEYCOMB:
+                // TODO: EntityWasp wasp = new EntityWasp(worldIn);
+                EntityChicken wasp = new EntityChicken(worldIn);
+                wasp.setLocationAndAngles((double)pos.getX() + 0.6D, (double)pos.getY(), (double)pos.getZ() + 0.3D, 0.0F, 0.0F);
+                worldIn.spawnEntityInWorld(wasp);
+                break;
+                
+            default:
+                break;
+        }
+        super.breakBlock(worldIn, pos, state);
+    }
+    
+
+    
+
 }

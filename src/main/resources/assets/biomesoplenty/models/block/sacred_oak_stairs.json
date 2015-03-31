@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "biomesoplenty:blocks/sacred_oak_planks",
+        "top": "biomesoplenty:blocks/sacred_oak_planks",
+        "side": "biomesoplenty:blocks/sacred_oak_planks"
+    }
+}

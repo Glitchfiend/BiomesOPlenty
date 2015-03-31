@@ -8,17 +8,25 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import biomesoplenty.api.block.BOPCrops;
+import net.minecraft.item.ItemBlock;
+import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 
-public class BlockTurnip extends BOPCrops
+// TODO: stop snow settling on this (floats above it)
+public class BlockTurnip extends BlockCrops implements IBOPBlock
 {
     
-    public BlockTurnip()
-    {
-        this.setCreativeTab(null);
-    }
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return null;}
 
     @Override
     protected Item getSeed()

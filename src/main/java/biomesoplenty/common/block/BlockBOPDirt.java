@@ -8,8 +8,10 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -17,58 +19,68 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
-import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.common.item.ItemBOPBlock;
 
-public class BlockBOPDirt extends BOPBlock
+public class BlockBOPDirt extends Block implements IBOPBlock 
 {
-
+    
+    // add properties
+    public static enum BOPDirtType implements IStringSerializable {LOAMY, SANDY, SILTY; public String getName() {return this.name().toLowerCase();}};
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPDirtType.class);
     public static final PropertyBool COARSE = PropertyBool.create("coarse");
-    public static final PropertyEnum VARIANT_PROP = PropertyEnum.create("variant", BOPDirtType.class);
+    @Override
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { COARSE, VARIANT });}
+    
+    // implement IDHBlock
+    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
+    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
+    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
+    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    
+
     
     public BlockBOPDirt() {
+        
         super(Material.ground);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT_PROP, BOPDirtType.LOAMY));
+        
+        // set some defaults
         this.setHardness(0.5F);
         this.setHarvestLevel("shovel", 0);
         this.setStepSound(Block.soundTypeGravel);
+      
+        // define named states
+        this.namedStates.put("loamy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.LOAMY) );
+        this.namedStates.put("sandy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.SANDY) );
+        this.namedStates.put("silty_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.SILTY) );
+        this.namedStates.put("coarse_loamy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(true)).withProperty(VARIANT, BOPDirtType.LOAMY) );
+        this.namedStates.put("coarse_sandy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(true)).withProperty(VARIANT, BOPDirtType.SANDY) );
+        this.namedStates.put("coarse_silty_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(true)).withProperty(VARIANT, BOPDirtType.SILTY) );
+                
+        this.setDefaultState(this.namedStates.get("loamy_dirt"));
+    
     }
     
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
         // both variant and coarseness saved in meta, first bit coarseness, other bits variant
-        return this.getDefaultState().withProperty(COARSE, Boolean.valueOf((meta & 8) > 0)).withProperty(VARIANT_PROP, BOPDirtType.values()[Math.min(2, meta & 7)]);
+        return this.getDefaultState().withProperty(COARSE, Boolean.valueOf((meta & 8) > 0)).withProperty(VARIANT, BOPDirtType.values()[Math.min(2, meta & 7)]);
     }
 
     @Override
     public int getMetaFromState(IBlockState state)
     {
         // both variant and coarseness saved in meta, first bit coarseness, other bits variant
-        return (Boolean.TRUE.equals(state.getValue(COARSE)) ? 8 : 0) | ((BOPDirtType) state.getValue(VARIANT_PROP)).ordinal();
+        return (Boolean.TRUE.equals(state.getValue(COARSE)) ? 8 : 0) | ((BOPDirtType) state.getValue(VARIANT)).ordinal();
     }
 
-    @Override
-    protected BlockState createBlockState()
-    {
-        return new BlockState(this, new IProperty[] { COARSE, VARIANT_PROP });
-    }
-
-    @Override
-    public IProperty[] getPresetProperties()
-    {
-        return new IProperty[] { COARSE, VARIANT_PROP };
-    }
-
-    @Override
-    public String getStateName(IBlockState state, boolean fullName)
-    {
-        return (Boolean.TRUE.equals(state.getValue(COARSE)) ? "coarse_" : "") + ((BOPDirtType) state.getValue(VARIANT_PROP)).getName() + "_dirt";
-    }
     
     @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
@@ -95,48 +107,37 @@ public class BlockBOPDirt extends BOPBlock
         }
     }
     
-    // enum representing the variants of dirt
-    public static enum BOPDirtType implements IStringSerializable
+        
+    // get the blockstate which corresponds to the type of grass which grows on this dirt
+    public static IBlockState getGrassBlockState(IBlockState state)
     {
-        LOAMY, SANDY, SILTY;
-
-        @Override
-        public String getName()
+        // no grass grows on coarse dirt
+        if (Boolean.FALSE.equals(state.getValue(COARSE)))
         {
-            return this.name().toLowerCase();
+            return null;
         }
-
-        @Override
-        public String toString()
-        {
-            return getName();
+        switch ((BOPDirtType) state.getValue(VARIANT))
+        {   
+            case LOAMY:
+                return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.LOAMY);
+            case SANDY:
+                return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SANDY);
+            case SILTY:
+                return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SILTY);
+            default:
+                // return vanilla grass as a backup
+                return Blocks.grass.getDefaultState();
         }
-        
-        // get the blockstate which corresponds to the type of grass which grows on this dirt
-        public IBlockState getGrassBlockState()
-        {
-            switch(this)
-            {   
-                case LOAMY:
-                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.LOAMY);
-                case SANDY:
-                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.SANDY);
-                case SILTY:
-                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT_PROP, BlockBOPGrass.BOPGrassType.SILTY);
-                default:
-                    return Blocks.grass.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
-            }
-        }
-        
-        public Block getGrassBlock()
-        {
-            return this.getGrassBlockState().getBlock();
-        }
-        
-        public int getGrassBlockMeta()
-        {
-            return this.getGrassBlock().getMetaFromState(this.getGrassBlockState());
-        }
+    }
+    
+    public Block getGrassBlock(IBlockState state)
+    {
+        return getGrassBlockState(state).getBlock();
+    }
+    
+    public int getGrassBlockMeta(IBlockState state)
+    {
+        return this.getGrassBlock(state).getMetaFromState(getGrassBlockState(state));
     }
     
 }

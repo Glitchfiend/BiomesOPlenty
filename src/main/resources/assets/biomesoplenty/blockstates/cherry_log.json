@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "biomesoplenty:cherry_log" },
+        "axis=z":   { "model": "biomesoplenty:cherry_log_side" },
+        "axis=x":   { "model": "biomesoplenty:cherry_log_side", "y": 90 },
+        "axis=none": { "model": "biomesoplenty:cherry_bark" }
+    }
+}

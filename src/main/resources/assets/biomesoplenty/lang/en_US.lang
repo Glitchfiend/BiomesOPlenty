@@ -85,11 +85,11 @@ tile.hive.honeycomb.name=Honeycomb Block
 tile.hive.empty_honeycomb.name=Empty Honeycomb Block
 tile.hive.filled_honeycomb.name=Filled Honeycomb Block
 
-tile.log.sacred_oak.name=Sacred Oak Wood
-tile.log.cherry.name=Cherry Wood
-tile.log.dark.name=Dark Wood
-tile.log.fir.name=Fir Wood
-tile.log.ethereal.name=Ethereal Wood
+tile.sacred_oak_log.name=Sacred Oak Wood
+tile.cherry_log.name=Cherry Wood
+tile.dark_log.name=Dark Wood
+tile.fir_log.name=Fir Wood
+tile.ethereal_log.name=Ethereal Wood
 tile.log2.magic.name=Magic Wood
 tile.log2.mangrove.name=Mangrove Wood
 tile.log2.palm.name=Palm Wood
