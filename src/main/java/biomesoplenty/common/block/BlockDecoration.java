@@ -46,6 +46,7 @@ public class BlockDecoration extends Block implements IBOPBlock
         super(material);
         
         // set some defaults
+        this.setTickRandomly(true);
         this.setHardness(0.0F);
         this.setStepSound(Block.soundTypePiston);
         this.setBlockBoundsByRadiusAndHeight(0.3F, 0.6F);

@@ -9,18 +9,16 @@
 package biomesoplenty.core;
 
 import java.util.ArrayList;
-import java.util.Map.Entry;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
-import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.client.util.ModelHelper;
 
 public class ClientProxy extends CommonProxy
 {
-    private static ArrayList<ModelEntry> blocksToRegister = new ArrayList();
-    private static ArrayList<ItemEntry> itemsToRegister = new ArrayList();
+    private static ArrayList<ModelEntry> blocksToRegister = new ArrayList<ModelEntry>();
+    private static ArrayList<ItemEntry> itemsToRegister = new ArrayList<ItemEntry>();
 
     @Override
     public void registerRenderers()

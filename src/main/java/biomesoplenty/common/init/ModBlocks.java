@@ -19,7 +19,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import biomesoplenty.api.block.BOPBlock;
 import biomesoplenty.api.block.BOPWoodType;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.block.BlockAsh;
@@ -48,20 +47,17 @@ import biomesoplenty.common.block.BlockStoneFormations;
 import biomesoplenty.common.block.BlockTurnip;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
 public class ModBlocks
 {
     
-    
 
     // syntactic sugar
-    
+    // BlockModifier class encapsulates modifications which can be made to generic blocks in a unified way
     public static enum BlockModifiers {HARDNESS, RESISTANCE, STEP_SOUND, CREATIVE_TAB, HARVEST_LEVEL};
     public static class BlockModifier {
-        
         private BlockModifiers mod;
         public float f;
         public int i;
@@ -91,18 +87,18 @@ public class ModBlocks
                 case HARVEST_LEVEL:
                     block.setHarvestLevel(s, i);
                     break;
-            }
-          
-            
-        }
-                
+            }            
+        }   
     }
+    // convenience methods for creating BlockModifier instances - eg  hardness(2.5F) creates a BlockModifier which can set a block's hardness to 2.5
     public static BlockModifier hardness(float f) {BlockModifier m = new BlockModifier(BlockModifiers.HARDNESS); m.f = f; return m;}
     public static BlockModifier resistance(float f) {BlockModifier m = new BlockModifier(BlockModifiers.RESISTANCE); m.f = f; return m;}
     public static BlockModifier stepSound(Block.SoundType sound) {BlockModifier m = new BlockModifier(BlockModifiers.STEP_SOUND); m.sound = sound; return m;}
     public static BlockModifier creativeTab(CreativeTabs tab) {BlockModifier m = new BlockModifier(BlockModifiers.CREATIVE_TAB); m.tab = tab; return m;}
     public static BlockModifier harvestLevel(String toolClass, int level) {BlockModifier m = new BlockModifier(BlockModifiers.HARVEST_LEVEL); m.s = toolClass; m.i = level; return m;}
-    
+    // result - can now specify lists of modifiers which all have a common type.  eg:
+    // BlockModifier[] = {hardness(2.5F), harvestLevel("axe",2), creativeTab(null)};
+    // these can be used to quickly add new blocks from generic block classes
     
     
     
@@ -202,7 +198,7 @@ public class ModBlocks
             GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
             if (bopBlock.getNamedStates().isEmpty())
             {
-                // block has no variants to register
+                // block has no named variants to register
                 registerBlockVariant(block, blockName, block.getMetaFromState(block.getDefaultState()));
             }
             else
@@ -220,44 +216,8 @@ public class ModBlocks
         else
         {
             // for vanilla blocks, just register a single variant with meta=0 and assume ItemBlock for the item class
-            // TODO: remove this bit once all the BOP blocks have been updated to support IBOPBlock
             GameRegistry.registerBlock(block, ItemBlock.class , blockName);
             registerBlockVariant(block, blockName, 0);
-        }
-
-        return block;
-    }
-    
-    private static Block registerBOPBlock(BOPBlock block, String name)
-    {
-        if (block.presetStates == null)
-            block.presetStates = BlockStateUtils.getValidStatesForProperties(block.getDefaultState(), block.getPresetProperties());
-
-        block.setUnlocalizedName(name);
-
-        if (block.hasPresetProperties())
-        {
-            GameRegistry.registerBlock(block, block.getItemClass(), name);
-
-            for (IBlockState state : block.presetStates)
-            {
-                String stateName = block.getStateName(state, true);
-                int stateMeta = block.getMetaFromState(state);
-
-                BiomesOPlenty.proxy.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + stateName);
-                BiomesOPlenty.proxy.registerBlockForMeshing(block, stateMeta, stateName);
-
-                GuiEventHandler.blockCount++;
-            }
-        }
-        else
-        {
-            GameRegistry.registerBlock(block, name);
-
-            BiomesOPlenty.proxy.addVariantName(Item.getItemFromBlock(block), BiomesOPlenty.MOD_ID + ":" + name);
-            BiomesOPlenty.proxy.registerBlockForMeshing(block, 0, name);
-
-            GuiEventHandler.blockCount++;
         }
 
         return block;

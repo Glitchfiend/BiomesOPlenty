@@ -10,16 +10,13 @@ package biomesoplenty.api.block;
 
 import java.util.Map;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
 
 public interface IBOPBlock {
     
     public Map<String, IBlockState> getNamedStates();
     public IBlockState getNamedState(String name);
-    
     public Class<? extends ItemBlock> getItemClass();
     
 }

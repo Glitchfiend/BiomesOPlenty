@@ -93,13 +93,14 @@ public class BlockBamboo extends BlockDecoration
     {
         if (this.checkAndDropBlock(worldIn, pos, state) && worldIn.isAirBlock(pos.up()))
         {
+            int age = ((Integer)state.getValue(AGE)).intValue();
             int treeHeight = 1;
             while (worldIn.getBlockState(pos.down(treeHeight)).getBlock() == this) {++treeHeight;}
-            if (treeHeight < 3)
-            {
-                int age = ((Integer)state.getValue(AGE)).intValue();
-                if (true)
-                //if (age == 15)
+            //System.out.println("Banboo age: "+age+" tree height: "+treeHeight);
+
+            if (treeHeight < 4)
+            {                
+                if (age == 15)
                 {
                     // it's old enough to grow
                     worldIn.setBlockState(pos.up(), this.getDefaultState());
