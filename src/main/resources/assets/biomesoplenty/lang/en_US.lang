@@ -1,4 +1,4 @@
-commands.biomesoplenty.usage=/biomesoplenty <tpbiome> [args]
+commands.biomesoplenty.usage=/biomesoplenty <tpbiome|biomename> [args]
 commands.biomesoplenty.biomename.usage=/biomesoplenty biomename [biomeId]
 commands.biomesoplenty.biomename.success=Biome ID %s is associated with %s
 commands.biomesoplenty.tpbiome.usage=/biomesoplenty tpbiome [biomeId]
