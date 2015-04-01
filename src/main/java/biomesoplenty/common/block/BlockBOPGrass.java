@@ -44,7 +44,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
 {
     
     // add properties (note we also inherit the SNOWY property from BlockGrass)
-    public static enum BOPGrassType implements IStringSerializable {SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN; public String getName() {return this.name().toLowerCase();}};
+    public static enum BOPGrassType implements IStringSerializable {SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK; public String getName() {return this.name().toLowerCase();}};
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGrassType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT, SNOWY });}
@@ -72,6 +72,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
         this.namedStates.put("sandy_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.SANDY) );
         this.namedStates.put("silty_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.SILTY) );
         this.namedStates.put("origin_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.ORIGIN) );
+        this.namedStates.put("overgrown_netherrack", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.OVERGROWN_NETHERRACK) );
         
         this.setDefaultState(this.namedStates.get("loamy_grass_block"));
         
@@ -107,26 +108,32 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
             // origin grass supports all plants (including crop type - no need for hoe)
             case ORIGIN:
                 return true;
+                
+            // overgrown_netherrack supports Nether plants in addition to the defaults
+            case OVERGROWN_NETHERRACK:
+                if (plantType == net.minecraftforge.common.EnumPlantType.Nether) {return true;}
+                break;
             
+            default: break;
+        }
+        
+        switch (plantType)
+        {
+            // support desert and plains plants
+            case Desert: case Plains: return true;
+            // support cave plants
+            case Cave:   return isSideSolid(world, pos, EnumFacing.UP);
+            // support beach plants if there's water alongside
+            case Beach:
+                return (
+                    world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
+                    world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
+                    world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
+                    world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                );
+             // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
-                switch (plantType)
-                {
-                    // support desert and plains plants
-                    case Desert: case Plains: return true;
-                    // support cave plants
-                    case Cave:   return isSideSolid(world, pos, EnumFacing.UP);
-                    // support beach plants if there's water alongside
-                    case Beach:
-                        return (
-                            world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                            world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                            world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                            world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
-                        );
-                     // don't support nether plants, water plants, or crops (require farmland), or anything else by default
-                    default:
-                        return false;
-                }
+                return false;
         }
     }
     
@@ -274,7 +281,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {            
-            case SPECTRAL_MOSS: case SMOLDERING:
+            case SPECTRAL_MOSS: case SMOLDERING: case OVERGROWN_NETHERRACK:
                 return false;
             default:
                 return true;
@@ -285,7 +292,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         switch ((BOPGrassType) state.getValue(VARIANT))
         {            
-            case SPECTRAL_MOSS: case SMOLDERING:
+            case SPECTRAL_MOSS: case SMOLDERING: case OVERGROWN_NETHERRACK:
                 return false;
             default:
                 return true;
@@ -403,6 +410,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SANDY);
             case SILTY:
                 return BOPBlocks.dirt.getDefaultState().withProperty(BlockBOPDirt.VARIANT, BlockBOPDirt.BOPDirtType.SILTY);
+            case OVERGROWN_NETHERRACK:
+                return Blocks.netherrack.getDefaultState();
             case SMOLDERING: case ORIGIN:  default:
                 return Blocks.dirt.getStateFromMeta(BlockDirt.DirtType.DIRT.getMetadata());
         }
@@ -433,6 +442,13 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
                     return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.SPECTRAL_MOSS);
                 }
                 break;
+             
+            case OVERGROWN_NETHERRACK:
+                if (target.getBlock()==Blocks.netherrack)
+                {
+                    return BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BlockBOPGrass.BOPGrassType.OVERGROWN_NETHERRACK);
+                }
+                break;                
                 
             // loamy/sandy/silty grasses spread to any kind of dirt
             case LOAMY: case SANDY: case SILTY:

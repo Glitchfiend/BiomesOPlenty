@@ -1,0 +1,9 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "particle": "biomesoplenty:blocks/overgrown_netherrack_bottom",
+        "bottom": "biomesoplenty:blocks/overgrown_netherrack_bottom",
+        "top": "biomesoplenty:blocks/overgrown_netherrack_top",
+        "side": "biomesoplenty:blocks/overgrown_netherrack_side"
+    }
+}
