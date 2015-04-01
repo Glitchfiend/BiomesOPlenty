@@ -36,6 +36,7 @@ import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPStairs;
 import biomesoplenty.common.block.BlockBOPStone;
+import biomesoplenty.common.block.BlockBOPVine;
 import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
@@ -153,6 +154,14 @@ public class ModBlocks
         mahogany =          registerWoodType("mahogany");
         giant_flower_stem = registerBlock( new BlockBOPLog(), "giant_flower_stem" ); // no planks, stairs, etc
         dead_log =          registerBlock( new BlockBOPLog(), "dead_log" ); // no planks, stairs, etc
+        
+        //vines
+        // TODO: colors? rendering modes? special placement rules?
+        flower_vine =       registerBlock( new BlockBOPVine(), "flower_vine" );
+        ivy =               registerBlock( new BlockBOPVine(), "ivy" );
+        moss =              registerBlock( new BlockBOPVine(), "moss" );
+        tree_moss =         registerBlock( new BlockBOPVine(), "tree_moss" );
+        wisteria =          registerBlock( new BlockBOPVine(), "wisteria" );        
         
     }
     

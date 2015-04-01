@@ -58,4 +58,11 @@ public class BOPBlocks
     public static Block crag_rock;
     public static Block mud_brick;
     public static Block crystal;
+    
+    public static Block flower_vine;
+    public static Block ivy;
+    public static Block moss;
+    public static Block tree_moss;
+    public static Block wisteria;
+    
 }
