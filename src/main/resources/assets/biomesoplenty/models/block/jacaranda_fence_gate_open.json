@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_gate_open",
+    "textures": {
+        "texture": "biomesoplenty:blocks/jacaranda_planks"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "biomesoplenty:hell_bark_log" },
+        "axis=z":   { "model": "biomesoplenty:hell_bark_log_side" },
+        "axis=x":   { "model": "biomesoplenty:hell_bark_log_side", "y": 90 },
+        "axis=none": { "model": "biomesoplenty:hell_bark_bark" }
+    }
+}

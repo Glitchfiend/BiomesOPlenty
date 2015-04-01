@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "biomesoplenty:half_slab_pine" },
+        "half=top": { "model": "biomesoplenty:upper_slab_pine" }
+    }
+}

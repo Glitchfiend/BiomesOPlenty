@@ -24,6 +24,7 @@ public class BOPBlocks
     public static Block mushroom;
     public static Block stone;
     
+    // woods
     public static BOPWoodType sacred_oak;
     public static BOPWoodType cherry;
     public static BOPWoodType dark;
@@ -34,8 +35,12 @@ public class BOPBlocks
     public static BOPWoodType palm;
     public static BOPWoodType redwood;
     public static BOPWoodType willow;
-    //public static Block log3;
-    //public static Block log4;
+    public static BOPWoodType pine;
+    public static BOPWoodType hell_bark;
+    public static BOPWoodType jacaranda;
+    public static BOPWoodType mahogany;
+    public static Block giant_flower_stem; // no planks, stairs, etc
+    public static Block dead_log; // no planks, stairs, etc
     
     public static Block mud;
     public static Block turnip_block;

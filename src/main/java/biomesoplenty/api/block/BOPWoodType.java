@@ -9,6 +9,7 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 
 public class BOPWoodType {
     
@@ -17,6 +18,7 @@ public class BOPWoodType {
     public Block stairs;
     public Block fence;
     public Block fence_gate;
-    public Block door;
+    public Block door_block;
+    public Item door_item;
     
 }

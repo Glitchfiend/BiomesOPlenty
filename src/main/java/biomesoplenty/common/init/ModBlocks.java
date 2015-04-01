@@ -18,11 +18,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemDoor;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPWoodType;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPDirt;
+import biomesoplenty.common.block.BlockBOPDoor;
 import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
 import biomesoplenty.common.block.BlockBOPFlower1;
@@ -145,14 +147,16 @@ public class ModBlocks
         palm =              registerWoodType("palm");
         redwood =           registerWoodType("redwood");
         willow =            registerWoodType("willow");
-        //log3 = registerBOPBlock(new BlockBOPLog3(), "log3");
-        //log4 = registerBOPBlock(new BlockBOPLog4(), "log4");
-        
-        
+        pine =              registerWoodType("pine");
+        hell_bark =         registerWoodType("hell_bark");
+        jacaranda =         registerWoodType("jacaranda");
+        mahogany =          registerWoodType("mahogany");
+        giant_flower_stem = registerBlock( new BlockBOPLog(), "giant_flower_stem" ); // no planks, stairs, etc
+        dead_log =          registerBlock( new BlockBOPLog(), "dead_log" ); // no planks, stairs, etc
         
     }
     
-    private static BOPWoodType registerWoodType(String name)
+    public static BOPWoodType registerWoodType(String name)
     {
         BOPWoodType wood = new BOPWoodType();
         wood.log = registerBlock( new BlockBOPLog(), name + "_log" );
@@ -160,13 +164,14 @@ public class ModBlocks
         wood.stairs = registerBlock( new BlockBOPStairs(wood.planks.getDefaultState()), name + "_stairs", harvestLevel("axe",0) );
         wood.fence = registerBlock( new BlockBOPFence(), name + "_fence", harvestLevel("axe",0) );
         wood.fence_gate = registerBlock( new BlockBOPFenceGate(), name + "_fence_gate", harvestLevel("axe",0) );
-        // TODO: wood.door
+        wood.door_block = registerBlock( new BlockBOPDoor(), name + "_door_block", creativeTab(null), harvestLevel("axe",0) );
+        wood.door_item = ModItems.registerItem( new ItemDoor(wood.door_block) , name + "_door");
         return wood;
     }
     
     
     
-    private static void registerBlockVariant(Block block, String stateName, int stateMeta)
+    public static void registerBlockVariant(Block block, String stateName, int stateMeta)
     {
         Item item = Item.getItemFromBlock(block);
         if (item != null){
@@ -176,7 +181,7 @@ public class ModBlocks
         GuiEventHandler.blockCount++;
     }
     
-    private static Block registerBlock(Block block, String blockName, BlockModifier... modifiers)
+    public static Block registerBlock(Block block, String blockName, BlockModifier... modifiers)
     {
 
         block.setUnlocalizedName(blockName);

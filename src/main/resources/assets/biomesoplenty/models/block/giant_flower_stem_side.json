@@ -1,0 +1,7 @@
+{
+    "parent": "block/column_side",
+    "textures": {
+        "end": "biomesoplenty:blocks/giant_flower_stem_top",
+        "side": "biomesoplenty:blocks/giant_flower_stem"
+    }
+}

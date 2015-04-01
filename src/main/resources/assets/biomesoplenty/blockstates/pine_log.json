@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "biomesoplenty:pine_log" },
+        "axis=z":   { "model": "biomesoplenty:pine_log_side" },
+        "axis=x":   { "model": "biomesoplenty:pine_log_side", "y": 90 },
+        "axis=none": { "model": "biomesoplenty:pine_bark" }
+    }
+}

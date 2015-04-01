@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "biomesoplenty:giant_flower_stem" },
+        "axis=z":   { "model": "biomesoplenty:giant_flower_stem_side" },
+        "axis=x":   { "model": "biomesoplenty:giant_flower_stem_side", "y": 90 },
+        "axis=none": { "model": "biomesoplenty:giant_flower_stem_bark" }
+    }
+}

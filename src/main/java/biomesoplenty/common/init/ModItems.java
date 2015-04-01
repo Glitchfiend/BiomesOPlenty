@@ -43,7 +43,7 @@ public class ModItems
         ash = registerItem(new Item(), "ash");
     }
     
-    private static Item registerItem(Item item, String name)
+    public static Item registerItem(Item item, String name)
     {    
         item.setUnlocalizedName(name).setCreativeTab(CreativeTabBOP.instance);
         GameRegistry.registerItem(item,name);
@@ -61,7 +61,6 @@ public class ModItems
             {
                 String subItemName = item.getUnlocalizedName(subItem);
                 subItemName =  subItemName.substring(subItemName.indexOf(".") + 1); // remove 'item.' from the front
-                System.out.println("adding variant " + subItemName);
                 BiomesOPlenty.proxy.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + subItemName);
                 BiomesOPlenty.proxy.registerItemForMeshing(item, subItem.getMetadata(), subItemName);
             }
