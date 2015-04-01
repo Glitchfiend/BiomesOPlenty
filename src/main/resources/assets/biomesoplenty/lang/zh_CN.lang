@@ -1,122 +1,175 @@
-generator.BIOMESOP=更多生物群系
-generator.BIOMESOP.info=注意: 1.8版的更多生物群系是个早期版本
+commands.biomesoplenty.usage=/biomesoplenty <tpbiome|biomename> [args]
+commands.biomesoplenty.biomename.usage=/biomesoplenty biomename [biomeId]
+commands.biomesoplenty.biomename.success=生物群系ID%s已绑定为: %s
+commands.biomesoplenty.tpbiome.usage=/biomesoplenty tpbiome [biomeId]
+commands.biomesoplenty.tpbiome.success=玩家%s传送到生物群系: %s,坐标(%s, %s, %s)
+commands.biomesoplenty.tpbiome.error=未找到生物群系: %s!
 
-itemGroup.tabBiomesOPlenty=更多生物群系
+generator.BIOMESOP=超多生物群系
+generator.BIOMESOP.info=注意: 1.8版本的超多生物群系仍在开发阶段.
 
-tile.ash_block.name=灰烬快
+itemGroup.tabBiomesOPlenty=超多生物群系
 
-tile.bamboo.name=竹
+tile.ash_block.name=灰烬块
+
+tile.bamboo.name=竹子
 
 tile.bone_segment.small.name=小块骨头
 tile.bone_segment.medium.name=中块骨头
 tile.bone_segment.large.name=大块骨头
 
-tile.bopGrass.spectral_moss.name=光滑苔藓
-tile.bopGrass.smoldering_grass_block.name=阴燃草块
+tile.grass.spectral_moss.name=末地苔藓方块
+tile.grass.smoldering_grass_block.name=阴燃草方块
+tile.grass.loamy_grass_block.name=肥沃草方块
+tile.grass.sandy_grass_block.name=沙质草方块
+tile.grass.silty_grass_block.name=淤泥草方块
+tile.grass.origin_grass_block.name=原始草方块
 
-tile.coral.pink.name=粉红色珊瑚
-tile.coral.orange.name=橙色珊瑚
-tile.coral.blue.name=蓝色珊瑚
-tile.coral.glowing.name=发光珊瑚
-tile.coral.algae.name=藻类
+tile.coral.pink.name=粉珊瑚
+tile.coral.orange.name=橙珊瑚
+tile.coral.blue.name=蓝珊瑚
+tile.coral.glowing.name=夜光珊瑚
+tile.coral.algae.name=海藻
 
-tile.coral.kelp_bottom.name=海带根
-tile.coral.kelp_middle.name=海带中部
-tile.coral.kelp_top.name=海带顶
-tile.coral.kelp.name=海带
+tile.coral.kelp_bottom.name=巨藻根部
+tile.coral.kelp_middle.name=巨藻
+tile.coral.kelp_top.name=巨藻顶部
+tile.coral.kelp.name=巨藻
 
-tile.flesh.name=肉
+tile.flesh.name=肉块
 
-tile.flower.clover.name=四叶草
-tile.flower.swampflower.name= Swampflower
-tile.flower.deathbloom.name=死亡之花
-tile.flower.glowflower.name= Glowflower
-tile.flower.blue_hydrangea.name=蓝色绣球
-tile.flower.orange_cosmos.name=橙宇宙
-tile.flower.pink_daffodil.name=粉红水仙
+tile.flower.clover.name=苜蓿
+tile.flower.swampflower.name=沼泽花
+tile.flower.deathbloom.name=死亡花
+tile.flower.glowflower.name=闪光花
+tile.flower.blue_hydrangea.name=蓝绣球花
+tile.flower.orange_cosmos.name=黄波斯菊
+tile.flower.pink_daffodil.name=粉水仙
 tile.flower.wildflower.name=野花
 tile.flower.violet.name=紫罗兰
-tile.flower.white_anemone.name=白色银莲花
-tile.flower.enderlotus.name= 末地疣
+tile.flower.white_anemone.name=银莲花
+tile.flower.enderlotus.name=末影莲花
 tile.flower.bromeliad.name=凤梨
-tile.flower.dandelion.name=蒲公英泡泡袖
-tile.flower.pink_hibiscus.name=粉色芙蓉
-tile.flower.lily_of_the_valley.name=铃兰
-tile.flower.burning_blossom.name=燃烧之花
+tile.flower.dandelion.name=蒲公英
+tile.flower.pink_hibiscus.name=粉木槿
+tile.flower.lily_of_the_valley.name=谷百合
+tile.flower.burning_blossom.name=火焰花
 
-tile.flower2.lavender.name=薰衣草
-tile.flower2.goldenrod.name=黄花
-tile.flower2.bluebells.name=风信子
-tile.flower2.miners_delight.name=矿工之喜
-tile.flower2.icy_iris.name=冰爽虹膜
+tile.flower2.lavender.name=熏衣草
+tile.flower2.goldenrod.name=秋麒麟草
+tile.flower2.bluebells.name=蓝铃花
+tile.flower2.miners_delight.name=乐矿花
+tile.flower2.icy_iris.name=冰虹膜花
 tile.flower2.rose.name=玫瑰
 
-tile.gem.amethyst.name=紫水晶块
+tile.gem.amethyst.name=紫晶块
 tile.gem.ruby.name=红宝石块
 tile.gem.peridot.name=橄榄石块
 tile.gem.topaz.name=黄玉块
 tile.gem.tanzanite.name=坦桑石块
-tile.gem.malachite.name=孔雀石块
+tile.gem.malachite.name=磷灰石块
 tile.gem.sapphire.name=蓝宝石块
 tile.gem.amber.name=琥珀块
 
-tile.gem_ore.amethyst.name=安德紫水晶矿
-tile.gem_ore.ruby.name=红宝石矿
-tile.gem_ore.peridot.name=橄榄石矿
-tile.gem_ore.topaz.name=黄玉矿
-tile.gem_ore.tanzanite.name=坦桑石矿石
-tile.gem_ore.malachite.name=孔雀石矿石
-tile.gem_ore.sapphire.name=蓝宝石矿
-tile.gem_ore.amber.name=琥珀矿
+tile.gem_ore.amethyst.name=末影紫晶矿石
+tile.gem_ore.ruby.name=红宝石矿石
+tile.gem_ore.peridot.name=橄榄石矿石
+tile.gem_ore.topaz.name=黄玉矿石
+tile.gem_ore.tanzanite.name=坦桑矿石
+tile.gem_ore.malachite.name=磷灰石矿石
+tile.gem_ore.sapphire.name=蓝宝石矿石
+tile.gem_ore.amber.name=琥珀矿石
 
-tile.hive.hive.name =蜂巢座
-tile.hive.honeycomb.name =蜂窝座
-tile.hive.empty_honeycomb.name =空蜂巢座
-tile.hive.filled_honeycomb.name =填充蜂窝座
+tile.hive.hive.name=蜂巢方块
+tile.hive.honeycomb.name=蜂房方块
+tile.hive.empty_honeycomb.name=空的蜂巢方块
+tile.hive.filled_honeycomb.name=满的蜂巢方块
 
-tile.log.sacred_oak.name=圣栎木
-tile.log.cherry.name=樱桃木
-tile.log.dark.name=深色木
-tile.log.fir.name=杉木
-tile.log.ethereal.name=抓包木
-tile.log2.magic.name=魔法木
-tile.log2.mangrove.name=红树林木
-tile.log2.palm.name=棕榈木
+tile.sacred_oak_log.name=神圣橡树原木
+tile.cherry_log.name=樱花树原木
+tile.dark_log.name=黑暗树原木
+tile.fir_log.name=杉树原木
+tile.ethereal_log.name=天域树原木
+tile.log2.magic.name=魔法树原木
+tile.log2.mangrove.name=红树原木
+tile.log2.palm.name=棕榈树原木
 tile.log2.redwood.name=红木原木
-tile.log2.willow.name=柳木
-tile.log3.dead.name=死木
-tile.log3.giant_flower_stem.name=巨人花茎
-tile.log3.pine.name=松木
-tile.log3.hell_bark.name=地狱树皮木
-tile.log3.jacaranda.name=蓝花楹木
-tile.log4.mahogany.name=红木
+tile.log2.willow.name=柳树原木
+tile.log3.dead.name=垂死树原木
+tile.log3.giant_flower_stem.name=巨大花茎
+tile.log3.pine.name=松树原木
+tile.log3.hell_bark.name=地狱皮树原木
+tile.log3.jacaranda.name=蓝花楹树原木
+tile.log4.mahogany.name=桃花心树原木
 
-tile.mushroom.toadstool.name=毒蕈
-tile.mushroom.portobello.name=波托贝洛
-tile.mushroom.blue_milk_cap.name=蓝帽牛奶
-tile.mushroom.glowshroom.name = Glowshroom
+tile.mud.mud.name=泥巴
+tile.mud.quicksand.name=流沙
+
+tile.mushroom.toadstool.name=毒菌
+tile.mushroom.portobello.name=双孢蘑菇
+tile.mushroom.blue_milk_cap.name=蓝牛奶伞菌
+tile.mushroom.glowshroom.name=夜光菇
 tile.mushroom.flat_mushroom.name=平菇
 tile.mushroom.shadow_shroom.name=影菇
 
-tile.planks.sacred_oak.name=圣栎木板
-tile.planks.cherry.name=樱桃木板
-tile.planks.dark.name=深色木板
-tile.planks.fir.name=杉木木板
-tile.planks.ethereal.name=抓包木板
-tile.planks.magic.name=魔法木板
-tile.planks.mangrove.name=红树林木板
-tile.planks.palm.name=棕榈木板
+tile.planks.sacred_oak.name=神圣橡树木板
+tile.planks.cherry.name=樱花树木板
+tile.planks.dark.name=黑暗树木板
+tile.planks.fir.name=杉树木板
+tile.planks.ethereal.name=天域树木板
+tile.planks.magic.name=魔法树木板
+tile.planks.mangrove.name=红树木板
+tile.planks.palm.name=棕榈树木板
 tile.planks.redwood.name=红木木板
-tile.planks.willow.name=柳木板
-tile.planks.bamboo_thatching.name=竹葺
-tile.planks.pine.name=松木木板
-tile.planks.hell_bark.name=地狱树皮木板
-tile.planks.jacaranda.name=蓝花楹木板
-tile.planks.mahogany.name=红木木板
+tile.planks.willow.name=柳树木板
+tile.planks.bamboo_thatching.name=竹板
+tile.planks.pine.name=松树木板
+tile.planks.hell_bark.name=地狱皮树木板
+tile.planks.jacaranda.name=蓝花楹树木板
+tile.planks.mahogany.name=桃花心树木板
 
-tile.stone.limestone.name=石灰石
-tile.stone.polished_limestone.name=光滑石灰石
-tile.stone.siltstone.name =粉砂岩
+tile.stone.limestone.name=石灰岩
+tile.stone.polished_limestone.name=光滑石灰岩
+tile.stone.siltstone.name=粉砂岩
 tile.stone.polished_siltstone.name=光滑粉砂岩
 tile.stone.shale.name=页岩
 tile.stone.polished_shale.name=光滑页岩
+
+tile.turnip_block.name=芜青
+
+tile.waterlily.lily_medium.name=中型睡莲
+tile.waterlily.lily_small.name=小型睡莲
+tile.waterlily.lily_tiny.name=小浮萍
+
+tile.dirt.loamy_dirt.name=肥沃泥土
+tile.dirt.sandy_dirt.name=沙质泥土
+tile.dirt.silty_dirt.name=淤泥
+tile.dirt.coarse_loamy_dirt.name=粗糙肥沃泥土
+tile.dirt.coarse_sandy_dirt.name=粗糙沙质泥土
+tile.dirt.coarse_silty_dirt.name=粗糙淤泥
+
+tile.stone_formations.stalagmite.name=石笋
+tile.stone_formations.stalactite.name=钟乳石
+
+tile.fruit_block.apple_block.name=苹果方块
+tile.fruit_block.persimmon_block.name=柿子方块
+tile.fruit_block.peach_block.name=桃子方块
+tile.fruit_block.pear_block.name=梨方块
+
+tile.ash_stone.name=火山灰岩
+tile.hard_sand.name=硬化沙子
+tile.hard_dirt.name=硬化泥土
+tile.hard_ice.name=硬化冰块
+tile.dried_dirt.name=干燥泥土
+tile.crag_rock.name=崖壁岩石
+tile.mud_brick.name=泥巴砖块
+tile.crystal.name=仙域水晶
+
+item.fleshchunk.name=肉块
+item.mudball.name=泥巴球
+item.turnip.name=芜菁
+item.turnip_seeds.name=芜菁种子
+item.persimmon.name=柿子
+item.peach.name=桃子
+item.pear.name=梨
+item.crystal_shard.name=仙域水晶碎片
