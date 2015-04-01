@@ -156,12 +156,12 @@ public class ModBlocks
         dead_log =          registerBlock( new BlockBOPLog(), "dead_log" ); // no planks, stairs, etc
         
         //vines
-        // TODO: colors? rendering modes? special placement rules?
-        flower_vine =       registerBlock( new BlockBOPVine(), "flower_vine" );
-        ivy =               registerBlock( new BlockBOPVine(), "ivy" );
-        moss =              registerBlock( new BlockBOPVine(), "moss" );
-        tree_moss =         registerBlock( new BlockBOPVine(), "tree_moss" );
-        wisteria =          registerBlock( new BlockBOPVine(), "wisteria" );        
+        // TODO: special placement rules?
+        flower_vine =       registerBlock( new BlockBOPVine(false), "flower_vine" );
+        ivy =               registerBlock( new BlockBOPVine(true), "ivy" );
+        moss =              registerBlock( new BlockBOPVine(true), "moss" );
+        tree_moss =         registerBlock( new BlockBOPVine(false), "tree_moss" );
+        wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );        
         
     }
     
