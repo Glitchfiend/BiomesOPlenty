@@ -1,0 +1,6 @@
+{
+    "parent": "biomesoplenty:block/flat_on_floor",
+    "textures": {
+        "texture": "biomesoplenty:blocks/leafpile"
+    }
+}

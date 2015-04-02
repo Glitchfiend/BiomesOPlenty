@@ -65,4 +65,6 @@ public class BOPBlocks
     public static Block tree_moss;
     public static Block wisteria;
     
+    public static Block foliage;
+    
 }

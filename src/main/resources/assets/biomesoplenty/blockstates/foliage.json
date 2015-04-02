@@ -1,0 +1,17 @@
+{
+    "variants": {
+        "variant=shortgrass": { "model": "biomesoplenty:shortgrass" },
+        "variant=mediumgrass": { "model": "biomesoplenty:mediumgrass" },
+        "variant=bush": { "model": "biomesoplenty:bush" },
+        "variant=sprout": { "model": "biomesoplenty:sprout" },
+        "variant=poisonivy": { "model": "biomesoplenty:poisonivy" },
+        "variant=berrybush": { "model": "biomesoplenty:berrybush" },
+        "variant=shrub": { "model": "biomesoplenty:shrub" },
+        "variant=wheatgrass": { "model": "biomesoplenty:wheatgrass" },
+        "variant=dampgrass": { "model": "biomesoplenty:dampgrass" },
+        "variant=koru": { "model": "biomesoplenty:koru" },
+        "variant=cloverpatch": { "model": "biomesoplenty:cloverpatch" },
+        "variant=leafpile": { "model": "biomesoplenty:leafpile" },
+        "variant=deadleafpile": { "model": "biomesoplenty:deadleafpile" }
+    }
+}

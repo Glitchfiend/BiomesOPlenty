@@ -41,6 +41,7 @@ import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockCrystal;
+import biomesoplenty.common.block.BlockFoliage;
 import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
@@ -104,6 +105,12 @@ public class ModBlocks
     // these can be used to quickly add new blocks from generic block classes
     
     
+    // TODO: use getDrops() in classes where the drops are very specific, instead of implementing all 3 of quantityDropped() getItemDropped() and damageDropped()
+    // TODO: docblocks!
+    // TODO: make better use of canSustainPlant() in BlockDecoration and children
+    // TODO: rethink named states - not as useful as I thought
+    // TODO: implement IShearable on flowers
+    // TODO: investigate Block.getRenderType()
     
     public static void init()
     {
@@ -161,7 +168,9 @@ public class ModBlocks
         ivy =               registerBlock( new BlockBOPVine(true), "ivy" );
         moss =              registerBlock( new BlockBOPVine(true), "moss" );
         tree_moss =         registerBlock( new BlockBOPVine(false), "tree_moss" );
-        wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );        
+        wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );
+        
+        foliage =           registerBlock( new BlockFoliage(), "foliage" );
         
     }
     

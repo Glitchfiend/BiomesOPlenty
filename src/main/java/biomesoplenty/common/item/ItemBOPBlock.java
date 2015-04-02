@@ -61,14 +61,8 @@ public class ItemBOPBlock extends ItemBlock
     
     @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack stack, int renderPass)
-    {
-        // TODO: might be neater to use an interface rather than checking for specific blocks?
-        if (this.block instanceof BlockBOPGrass)
-        {
-            // grass item will render with grey grass unless we set the color here
-            return ((BlockBOPGrass)this.block).getRenderColor(this.block.getStateFromMeta(stack.getMetadata()));
-        }
-        return super.getColorFromItemStack(stack,renderPass);
+    {        
+        return this.block.getRenderColor(this.block.getStateFromMeta(stack.getMetadata()));
     }
 
     @Override

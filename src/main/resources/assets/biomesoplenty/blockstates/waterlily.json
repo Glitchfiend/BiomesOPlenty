@@ -17,6 +17,12 @@
             { "model": "biomesoplenty:lily_tiny", "y": 90 },
             { "model": "biomesoplenty:lily_tiny", "y": 180 },
             { "model": "biomesoplenty:lily_tiny", "y": 270 }
+        ],
+        "variant=duckweed": [
+            { "model": "biomesoplenty:duckweed" },
+            { "model": "biomesoplenty:duckweed", "y": 90 },
+            { "model": "biomesoplenty:duckweed", "y": 180 },
+            { "model": "biomesoplenty:duckweed", "y": 270 }
         ]
     }
 }

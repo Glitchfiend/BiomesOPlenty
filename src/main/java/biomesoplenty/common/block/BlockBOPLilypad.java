@@ -26,7 +26,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
 {
     
     // add properties
-    public static enum LilypadType implements IStringSerializable {MEDIUM, SMALL, TINY; public String getName() {return this.name().toLowerCase();}};
+    public static enum LilypadType implements IStringSerializable {MEDIUM, SMALL, TINY, DUCKWEED; public String getName() {return this.name().toLowerCase();}};
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", LilypadType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
@@ -45,6 +45,7 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
         this.namedStates.put("lily_medium", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.MEDIUM) );
         this.namedStates.put("lily_small", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.SMALL) );
         this.namedStates.put("lily_tiny", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.TINY) );
+        this.namedStates.put("duckweed", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.DUCKWEED) );
         
         this.setDefaultState(this.namedStates.get("lily_medium"));
     }
