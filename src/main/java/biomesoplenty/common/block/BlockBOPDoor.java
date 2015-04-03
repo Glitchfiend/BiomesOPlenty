@@ -8,12 +8,10 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -24,13 +22,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBOPDoor extends BlockDoor implements IBOPBlock
 {  
-    // implement IDHBlock
-    protected Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return null;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
 
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return null; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {FACING, OPEN, HINGE, HALF}; }
+    public String getStateName(IBlockState state) {return "";}
     
     private Item doorItem;
     

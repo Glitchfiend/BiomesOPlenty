@@ -8,27 +8,27 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import net.minecraft.block.BlockCrops;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPBlock;
 
 // TODO: stop snow settling on this (floats above it)
 public class BlockTurnip extends BlockCrops implements IBOPBlock
 {
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return null;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
-
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {AGE}; }
+    public String getStateName(IBlockState state) {return "";}
+    
 
     @Override
     protected Item getSeed()

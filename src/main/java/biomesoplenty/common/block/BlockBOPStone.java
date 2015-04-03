@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
@@ -37,13 +34,17 @@ public class BlockBOPStone extends Block implements IBOPBlock
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT, POLISHED });}
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
-
+    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT, POLISHED}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT, POLISHED}; }
+    public String getStateName(IBlockState state)
+    {
+        return (Boolean.TRUE.equals(state.getValue(POLISHED)) ? "polished_" : "") + ((StoneType) state.getValue(VARIANT)).getName();
+    }
+    
 
     public BlockBOPStone()
     {
@@ -51,20 +52,10 @@ public class BlockBOPStone extends Block implements IBOPBlock
 
         // set some defaults
         this.setStepSound(Block.soundTypeStone);
-        
         this.setHarvestLevel("pickaxe", 1, this.getDefaultState().withProperty(VARIANT, StoneType.LIMESTONE));
         this.setHarvestLevel("pickaxe", 2, this.getDefaultState().withProperty(VARIANT, StoneType.SILTSTONE));
         this.setHarvestLevel("pickaxe", 3, this.getDefaultState().withProperty(VARIANT, StoneType.SHALE));
-        
-        // define named states
-        this.namedStates.put("limestone", this.blockState.getBaseState().withProperty(VARIANT, StoneType.LIMESTONE).withProperty(POLISHED, Boolean.valueOf(false)) );
-        this.namedStates.put("siltstone", this.blockState.getBaseState().withProperty(VARIANT, StoneType.SILTSTONE).withProperty(POLISHED, Boolean.valueOf(false)) );
-        this.namedStates.put("shale", this.blockState.getBaseState().withProperty(VARIANT, StoneType.SHALE).withProperty(POLISHED, Boolean.valueOf(false)) );
-        this.namedStates.put("polished_limestone", this.blockState.getBaseState().withProperty(VARIANT, StoneType.LIMESTONE).withProperty(POLISHED, Boolean.valueOf(true)) );
-        this.namedStates.put("polished_siltstone", this.blockState.getBaseState().withProperty(VARIANT, StoneType.SILTSTONE).withProperty(POLISHED, Boolean.valueOf(true)) );
-        this.namedStates.put("polished_shale", this.blockState.getBaseState().withProperty(VARIANT, StoneType.SHALE).withProperty(POLISHED, Boolean.valueOf(true)) );
-        
-        this.setDefaultState(this.namedStates.get("limestone"));
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, StoneType.LIMESTONE).withProperty(POLISHED, Boolean.valueOf(false)) );
         
     }
 

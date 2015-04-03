@@ -10,7 +10,7 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 
-import java.util.Map;
+import com.google.common.collect.ImmutableSet;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -57,6 +57,7 @@ import biomesoplenty.common.block.BlockStoneFormations;
 import biomesoplenty.common.block.BlockTurnip;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
+import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -282,21 +283,22 @@ public class ModBlocks
         
         if (block instanceof IBOPBlock)
         {
-            // if this block supports the IBOPBlock interface then we can use getNamedStates() and getItemClass()
+            // if this block supports the IBOPBlock interface then we can determine the item block class, and sub-blocks automatically
             IBOPBlock bopBlock = (IBOPBlock)block;
             GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
-            if (bopBlock.getNamedStates().isEmpty())
+            ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(bopBlock);            
+            
+            if (presets.isEmpty())
             {
-                // block has no named variants to register
+                // block has no sub-blocks to register
                 registerBlockVariant(block, blockName, block.getMetaFromState(block.getDefaultState()));
             }
             else
             {
-                // register all the named variants
-                for (Map.Entry<String,IBlockState> entry : bopBlock.getNamedStates().entrySet())
+                // register all the sub-blocks
+                for (IBlockState state : presets)
                 {
-                    String stateName = entry.getKey();
-                    IBlockState state = entry.getValue();
+                    String stateName = bopBlock.getStateName(state);
                     int stateMeta = block.getMetaFromState(state);
                     registerBlockVariant(block, stateName, stateMeta);
                 }

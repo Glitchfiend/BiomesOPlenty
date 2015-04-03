@@ -27,7 +27,8 @@ public class BlockBamboo extends BlockDecoration
     // add properties
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AGE });}  
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AGE });}
+    
     
     public BlockBamboo()
     {
@@ -96,7 +97,6 @@ public class BlockBamboo extends BlockDecoration
             int age = ((Integer)state.getValue(AGE)).intValue();
             int treeHeight = 1;
             while (worldIn.getBlockState(pos.down(treeHeight)).getBlock() == this) {++treeHeight;}
-            //System.out.println("Banboo age: "+age+" tree height: "+treeHeight);
 
             if (treeHeight < 4)
             {                

@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPLilypad;
 import net.minecraft.block.BlockLilyPad;
@@ -30,26 +27,29 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", LilypadType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
-    
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    // need to use a custom item class because of the unique way lilies are placed
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPLilypad.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
 
     
+    // implement IBOPBlock
+    // need to use a custom item class because of the unique way lilies are placed
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPLilypad.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state) {
+        LilypadType type = (LilypadType) state.getValue(VARIANT);
+        switch (type)
+        {
+            case DUCKWEED:
+                return type.getName();
+            default:
+                return "lily_"+type.getName();
+        }
+    }
+
     
     public BlockBOPLilypad()
     {        
-        // define named states
-        this.namedStates.put("lily_medium", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.MEDIUM) );
-        this.namedStates.put("lily_small", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.SMALL) );
-        this.namedStates.put("lily_tiny", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.TINY) );
-        this.namedStates.put("duckweed", this.blockState.getBaseState().withProperty(VARIANT, LilypadType.DUCKWEED) );
-        
-        this.setDefaultState(this.namedStates.get("lily_medium"));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, LilypadType.MEDIUM));
     }
     
     @Override

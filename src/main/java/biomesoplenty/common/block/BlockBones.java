@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -40,13 +37,15 @@ public class BlockBones extends Block implements IBOPBlock
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AXIS, VARIANT });}
 
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
-    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {AXIS, VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((BoneType) state.getValue(VARIANT)).getName() + "_bone_segment";
+    }
     
     public BlockBones()
     {
@@ -56,14 +55,8 @@ public class BlockBones extends Block implements IBOPBlock
         this.setHardness(3.0F);
         this.setResistance(5.0F);
         this.setStepSound(Block.soundTypeStone);
-        
-        // define named states
-        this.namedStates.put("small_bone_segment", this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.SMALL));
-        this.namedStates.put("medium_bone_segment", this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.MEDIUM));
-        this.namedStates.put("large_bone_segment", this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.LARGE));
-
-        this.setDefaultState(this.namedStates.get("large_bone_segment"));
-        
+     
+        this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y).withProperty(VARIANT, BoneType.LARGE));
     }
     
     

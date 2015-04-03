@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockFoliage.FoliageType;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -40,16 +39,20 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF, VARIANT });}
     
+    
+    // implement IBOPBlock
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {HALF, VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((FoliageType) state.getValue(VARIANT)).getName();
+    }
+    
+    
     public BlockDoubleFoliage()
     {
         super();
-        
-        // define named states
-        for(FoliageType foliageType : FoliageType.values())
-        {
-            this.namedStates.put(foliageType.getName(), this.blockState.getBaseState().withProperty(HALF, Half.LOWER) .withProperty(VARIANT, foliageType));
-        }
-        this.setDefaultState(this.getNamedState("flax"));
+        this.setDefaultState( this.blockState.getBaseState().withProperty(HALF, Half.LOWER) .withProperty(VARIANT, FoliageType.FLAX) );
     }
     
     // map from state to meta and vice verca - use highest bit for Half, and lower bits for variant

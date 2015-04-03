@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockLog;
@@ -25,13 +22,14 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     // add properties (note we inherit LOG_AXIS property from parent BlockLog)
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS });}
-  
-    // implement IDHBlock
-    protected Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+    
+    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {LOG_AXIS}; }
+    public String getStateName(IBlockState state) {return "";}
 
     
     public BlockBOPLog()

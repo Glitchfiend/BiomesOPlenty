@@ -30,6 +30,8 @@ class BlockDoubleDecoration extends BlockDecoration {
     public static enum Half implements IStringSerializable {LOWER, UPPER; public String getName() {return this.name().toLowerCase();}};
     public static final PropertyEnum HALF = PropertyEnum.create("half", Half.class);
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF });}
+    
+    public IProperty[] getRenderProperties() { return new IProperty[] {HALF}; }
 
     public float radius;    
     public float height;

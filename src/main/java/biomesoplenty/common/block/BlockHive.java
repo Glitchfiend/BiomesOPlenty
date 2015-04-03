@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -37,13 +35,16 @@ public class BlockHive extends Block implements IBOPBlock
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
-
+    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((HiveType) state.getValue(VARIANT)).getName() + "_block";
+    }
     
     public BlockHive()
     {
@@ -52,15 +53,7 @@ public class BlockHive extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(0.5F);
         this.setStepSound(Block.soundTypeGrass);
-        
-        // define named states
-        this.namedStates.put("hive_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.HIVE) );
-        this.namedStates.put("honeycomb_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.HONEYCOMB) );
-        this.namedStates.put("empty_honeycomb_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.EMPTY_HONEYCOMB) );
-        this.namedStates.put("filled_honeycomb_block", this.blockState.getBaseState().withProperty(VARIANT, HiveType.FILLED_HONEYCOMB) );
-        
-        this.setDefaultState(this.namedStates.get("hive_block"));
-
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, HiveType.HIVE) );
     }
 
     // map from state to meta and vice verca

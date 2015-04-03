@@ -27,6 +27,16 @@ public class BlockStoneFormations extends BlockDecoration
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", StoneFormationType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    
+    
+    // implement IBOPBlock
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((StoneFormationType) state.getValue(VARIANT)).getName();
+    }
+    
 
     // constructor
     public BlockStoneFormations() {
@@ -34,13 +44,7 @@ public class BlockStoneFormations extends BlockDecoration
         // set some defaults
         this.setHardness(0.5F);
         this.setStepSound(Block.soundTypePiston);
-        
-        // define named states
-        this.namedStates.put("stalactite", this.blockState.getBaseState().withProperty(VARIANT, StoneFormationType.STALACTITE) );
-        this.namedStates.put("stalagmite", this.blockState.getBaseState().withProperty(VARIANT, StoneFormationType.STALAGMITE) );
-        
-        this.setDefaultState(this.namedStates.get("stalagmite"));
-        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, StoneFormationType.STALAGMITE) );        
     }
     
     // map from state to meta and vice verca

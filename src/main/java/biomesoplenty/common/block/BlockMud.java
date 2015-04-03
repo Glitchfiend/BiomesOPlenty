@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -40,15 +38,17 @@ public class BlockMud extends Block implements IBOPBlock
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((MudType) state.getValue(VARIANT)).getName();
+    }
 
-
-    // constructor
     public BlockMud() {
         
         super(Material.sand);
@@ -56,12 +56,7 @@ public class BlockMud extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(0.6F);
         this.setStepSound(Block.soundTypeSand);
-        
-        // define named states
-        this.namedStates.put("mud", this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
-        this.namedStates.put("quicksand", this.blockState.getBaseState().withProperty(VARIANT, MudType.QUICKSAND) );
-        
-        this.setDefaultState(this.namedStates.get("mud"));
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MudType.MUD) );
         
     }    
     

@@ -8,9 +8,7 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
@@ -37,15 +35,15 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     // add properties - note CHECK_DECAY and DECAYABLE are both inherited from BlockLeaves
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] {CHECK_DECAY, DECAYABLE});}
-    
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+        
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {}; }
+    public String getStateName(IBlockState state) {return "";}
 
- 
+     
     private ItemStack sapling;
     private ItemStack fruit;
     private int saplingDropChance;

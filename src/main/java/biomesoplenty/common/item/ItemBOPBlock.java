@@ -11,8 +11,12 @@ package biomesoplenty.common.item;
 import java.util.List;
 import java.util.Map;
 
+import com.google.common.collect.ImmutableSet;
+
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,14 +49,15 @@ public class ItemBOPBlock extends ItemBlock
     @Override
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
-    {
-        if (bopBlock.getNamedStates().isEmpty())
+    {        
+        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(bopBlock);
+        if (presets.isEmpty())
         {
             subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState( this.block.getDefaultState() )));
         }
         else
         {
-            for (IBlockState state : this.bopBlock.getNamedStates().values())
+            for (IBlockState state : presets)
             {
                 subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState(state)));
             }
@@ -75,17 +80,18 @@ public class ItemBOPBlock extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-        if (bopBlock.getNamedStates().isEmpty())
+        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(bopBlock);
+        if (presets.isEmpty())
         {
             return super.getUnlocalizedName();
         }
         else
         {
             int meta = stack.getMetadata();
-            for (Map.Entry<String,IBlockState> entry : bopBlock.getNamedStates().entrySet()) {
-                if (block.getMetaFromState(entry.getValue()) == meta)
+            for (IBlockState state : presets) {
+                if (block.getMetaFromState(state) == meta)
                 {
-                    return super.getUnlocalizedName() + "." + entry.getKey();
+                    return super.getUnlocalizedName() + "." + bopBlock.getStateName(state);
                 }
             }
             return super.getUnlocalizedName() + "." + meta;

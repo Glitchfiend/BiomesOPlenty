@@ -8,16 +8,17 @@
 
 package biomesoplenty.api.block;
 
-import java.util.Map;
-
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
 public interface IBOPBlock {
     
-    public Map<String, IBlockState> getNamedStates();
-    public IBlockState getNamedState(String name);
     public Class<? extends ItemBlock> getItemClass();
     public int getItemRenderColor(IBlockState state, int tintIndex);
+    public IProperty[] getPresetProperties();
+    public IProperty[] getRenderProperties();
+    public IBlockState getDefaultState();
+    public String getStateName(IBlockState state);
     
 }

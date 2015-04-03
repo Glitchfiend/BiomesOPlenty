@@ -33,22 +33,24 @@ public class BlockFruit extends BlockDecoration
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FruitType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    
+    
+    // implement IBOPBlock
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((FruitType) state.getValue(VARIANT)).getName() + "_block";
+    }
+    
 
     // constructor
     public BlockFruit() {
                 
         // set some defaults
         this.setStepSound(Block.soundTypeGrass);
-        this.setBlockBoundsByRadiusAndHeight(0.25F, 0.25F, true);
-        
-        // define named states
-        this.namedStates.put("apple_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.APPLE));
-        this.namedStates.put("persimmon_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.PERSIMMON));
-        this.namedStates.put("peach_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.PEACH));
-        this.namedStates.put("pear_block", this.blockState.getBaseState().withProperty(VARIANT, FruitType.PEAR));
-        
-        this.setDefaultState(this.namedStates.get("apple_block"));
-        
+        this.setBlockBoundsByRadiusAndHeight(0.25F, 0.25F, true);        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, FruitType.APPLE) );
     }
 
     // map from state to meta and vice verca

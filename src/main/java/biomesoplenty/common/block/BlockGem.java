@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
@@ -30,14 +27,17 @@ public class BlockGem extends Block implements IBOPBlock
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", GemType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+ 
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
-
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((GemType) state.getValue(VARIANT)).getName() + "_block";
+    }
     
 
     public BlockGem()
@@ -49,19 +49,7 @@ public class BlockGem extends Block implements IBOPBlock
         this.setResistance(10.0F);
         this.setStepSound(Block.soundTypeMetal);
         this.setHarvestLevel("pickaxe", 2);
-        
-        // define named states
-        this.namedStates.put("amethyst_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );
-        this.namedStates.put("ruby_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.RUBY) );
-        this.namedStates.put("peridot_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.PERIDOT) );
-        this.namedStates.put("topaz_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.TOPAZ) );
-        this.namedStates.put("tanzanite_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.TANZANITE) );
-        this.namedStates.put("malachite_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.MALACHITE) );
-        this.namedStates.put("sapphire_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.SAPPHIRE) );
-        this.namedStates.put("amber_block", this.blockState.getBaseState().withProperty(VARIANT, GemType.AMBER) );
-        
-        this.setDefaultState(this.namedStates.get("amethyst_block"));
-        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );        
     }
 
     // map from state to meta and vice verca
