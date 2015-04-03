@@ -55,21 +55,20 @@ public class BlockDecoration extends Block implements IBOPBlock
     }
     
     // utility function for setting the block bounds - typically decoration blocks are smaller than full block size
-    public BlockDecoration setBlockBoundsByRadiusAndHeight(float radius, float height)
+    public void setBlockBoundsByRadiusAndHeight(float radius, float height)
     {
-        return this.setBlockBoundsByRadiusAndHeight(radius,height,false);
+        this.setBlockBoundsByRadiusAndHeight(radius,height,false);
     }
-    public BlockDecoration setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
+    public void setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
     {
         this.setBlockBounds(0.5F - radius, (fromTop ? 1.0F - height : 0.0F), 0.5F - radius, 0.5F + radius, (fromTop ? 1.0F : height), 0.5F + radius);
-        return this;
     }
  
     // add a canBlockStay() check before placing this block
     @Override
     public boolean canReplace(World world, BlockPos pos, EnumFacing side, ItemStack stack)
     {        
-        return super.canReplace(world, pos, side, stack) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));
+        return world.getBlockState(pos).getBlock().isReplaceable(world, pos) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));
     }
     
     // check this block is still able to remain after neighbor change

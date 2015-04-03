@@ -46,6 +46,7 @@ import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockCrystal;
+import biomesoplenty.common.block.BlockDoubleFoliage;
 import biomesoplenty.common.block.BlockFoliage;
 import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
@@ -231,7 +232,7 @@ public class ModBlocks
         dark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(dark_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dark_leaves" );
         bamboo_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(bamboo_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "bamboo_leaves" );
         
-        
+        double_foliage = registerBlock( new BlockDoubleFoliage(), "double_foliage" );
         
         
     }
