@@ -286,7 +286,7 @@ public class FogHandler
 	{
 		GameSettings settings = Minecraft.getMinecraft().gameSettings;
 		int[] ranges = ForgeModContainer.blendRanges;
-		int distance = 0;
+		int distance = 6;
 		if (settings.fancyGraphics && settings.renderDistanceChunks >= 0 && settings.renderDistanceChunks < ranges.length)
 		{
 			distance = ranges[settings.renderDistanceChunks];
@@ -355,7 +355,7 @@ public class FogHandler
 			}
 		}
 
-		if (weightBiomeFog == 0)
+		if (weightBiomeFog == 0 || distance == 0)
 		{
 			return Vec3.createVectorHelper(defR, defG, defB);
 		}
