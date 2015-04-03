@@ -25,6 +25,8 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
     public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
     public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
     public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+
     
     public BlockBOPStairs(IBlockState modelState)
     {

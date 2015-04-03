@@ -157,6 +157,20 @@ public class BlockFoliage extends BlockDecoration implements IShearable
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
         }
     }
+    
+    // berrybush item should not be tinted, even though the model is
+    @Override
+    public int getItemRenderColor(IBlockState state, int tintIndex)
+    {
+        switch ((FoliageType) state.getValue(VARIANT))
+        {
+            case BERRYBUSH:
+                return 0xFFFFFF;
+            default:
+                return this.getRenderColor(state);
+        }
+    }
+
         
     
     // different variants have different sizes

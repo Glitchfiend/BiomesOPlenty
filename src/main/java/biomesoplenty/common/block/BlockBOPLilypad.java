@@ -37,6 +37,8 @@ public class BlockBOPLilypad extends BlockLilyPad implements IBOPBlock
     public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
     // need to use a custom item class because of the unique way lilies are placed
     public Class<? extends ItemBlock> getItemClass() {return ItemBOPLilypad.class;}
+    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+
     
     
     public BlockBOPLilypad()

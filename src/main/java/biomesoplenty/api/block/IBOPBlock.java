@@ -18,5 +18,6 @@ public interface IBOPBlock {
     public Map<String, IBlockState> getNamedStates();
     public IBlockState getNamedState(String name);
     public Class<? extends ItemBlock> getItemClass();
+    public int getItemRenderColor(IBlockState state, int tintIndex);
     
 }

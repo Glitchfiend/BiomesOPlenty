@@ -59,10 +59,11 @@ public class ItemBOPBlock extends ItemBlock
         }
     }
     
+    // TODO: renderPass is actually tintIndex - use for berries etc?
     @SideOnly(Side.CLIENT)
-    public int getColorFromItemStack(ItemStack stack, int renderPass)
-    {        
-        return this.block.getRenderColor(this.block.getStateFromMeta(stack.getMetadata()));
+    public int getColorFromItemStack(ItemStack stack, int tintIndex)
+    {
+        return this.bopBlock.getItemRenderColor(this.block.getStateFromMeta(stack.getMetadata()), tintIndex);
     }
 
     @Override

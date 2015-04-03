@@ -28,6 +28,8 @@ public class BlockBOPVine extends BlockVine implements IBOPBlock
     public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
     public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
     public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+
 
     // if set to true, (the default), use BlockVine getBlockColor(), getRenderColor() and colorMultiplier() functions to color the texture based on biome
     // if set to false, use 0xFFFFFF for all the color functions so that the texture is used as it is

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.block.BlockFoliage.FoliageType;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -88,6 +89,19 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
         {
             default:
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+        }
+    }
+    
+    // flax item should not be tinted, even though the model is
+    @Override
+    public int getItemRenderColor(IBlockState state, int tintIndex)
+    {
+        switch ((FoliageType) state.getValue(VARIANT))
+        {
+            case FLAX:
+                return 0xFFFFFF;
+            default:
+                return this.getRenderColor(state);
         }
     }
     

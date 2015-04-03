@@ -29,6 +29,8 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
     public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
     public Class<? extends ItemBlock> getItemClass() {return null;}
+    public int getItemRenderColor(IBlockState state, int tintIndex) {return this.getRenderColor(state);}
+
     
     private Item doorItem;
     
