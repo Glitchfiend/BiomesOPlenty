@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "biomesoplenty:sacred_oak_sapling" },
+        "stage=1": { "model": "biomesoplenty:sacred_oak_sapling" }
+    }
+}

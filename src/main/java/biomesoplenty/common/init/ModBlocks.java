@@ -16,12 +16,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPWoodType;
 import biomesoplenty.api.block.IBOPBlock;
@@ -38,6 +38,7 @@ import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPStairs;
 import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBOPVine;
@@ -176,32 +177,62 @@ public class ModBlocks
         
         foliage =           registerBlock( new BlockFoliage(), "foliage" );
         
+        
+        // saplings
+        // TODO: implement the tree generators (at the moment all saplings generate vanilla small oak trees)
+        // TODO: check bamboo implementation
+        yellow_autumn_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "yellow_autumn_sapling"  );
+        orange_autumn_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "orange_autumn_sapling"  );
+        bamboo_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "bamboo_sapling"  );
+        magic_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "magic_sapling"  );
+        dark_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "dark_sapling"  );
+        dead_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "dead_sapling"  );
+        fir_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "fir_sapling"  );
+        ethereal_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "ethereal_sapling"  );
+        origin_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "origin_sapling"  );
+        pink_cherry_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "pink_cherry_sapling"  );
+        white_cherry_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "white_cherry_sapling"  );
+        maple_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "maple_sapling"  );
+        hellbark_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "hellbark_sapling"  );
+        flowering_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "flowering_sapling"  );
+        jacaranda_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "jacaranda_sapling"  );
+        sacred_oak_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "sacred_oak_sapling"  );
+        mangrove_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "mangrove_sapling"  );
+        palm_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "palm_sapling"  );
+        redwood_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "redwood_sapling"  );
+        willow_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "willow_sapling"  );
+        pine_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "pine_sapling"  );
+        mahogany_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "mahogany_sapling"  );
+        
+        
         // leaves
         // TODO: bamboo leaves to grow automatically?
-        // TODO: add correct saplings
         // TODO: add correct fruit (or change this implementation completely)
-        yellow_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "yellow_autumn_leaves" );
-        orange_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "orange_autumn_leaves" );
-        willow_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "willow_leaves" );
-        white_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "white_cherry_leaves" );
-        pink_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pink_cherry_leaves" );
-        sacred_oak_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "sacred_oak_leaves" );
-        redwood_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "redwood_leaves" );
-        pine_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pine_leaves" );
-        palm_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "palm_leaves" );
-        origin_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "origin_leaves" );
-        maple_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "maple_leaves" );
-        mangrove_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mangrove_leaves" );
-        mahogany_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mahogany_leaves" );
-        magic_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "magic_leaves" );
-        jacaranda_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "jacaranda_leaves" );
-        hellbark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, false ), "hellbark_leaves" );
-        flowering_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "flowering_leaves" );
-        fir_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "fir_leaves" );
-        ethereal_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "ethereal_leaves" );
-        dead_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dead_leaves" );
-        dark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dark_leaves" );
-        bamboo_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "bamboo_leaves" );
+        yellow_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(yellow_autumn_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "yellow_autumn_leaves" );
+        orange_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(orange_autumn_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "orange_autumn_leaves" );
+        willow_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(willow_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "willow_leaves" );
+        white_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(white_cherry_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "white_cherry_leaves" );
+        pink_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(pink_cherry_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pink_cherry_leaves" );
+        sacred_oak_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(sacred_oak_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "sacred_oak_leaves" );
+        redwood_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(redwood_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "redwood_leaves" );
+        pine_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(pine_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pine_leaves" );
+        palm_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(palm_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "palm_leaves" );
+        origin_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(origin_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "origin_leaves" );
+        maple_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(maple_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "maple_leaves" );
+        mangrove_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(mangrove_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mangrove_leaves" );
+        mahogany_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(mahogany_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mahogany_leaves" );
+        magic_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(magic_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "magic_leaves" );
+        jacaranda_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(jacaranda_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "jacaranda_leaves" );
+        hellbark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(hellbark_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, false ), "hellbark_leaves" );
+        flowering_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(flowering_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "flowering_leaves" );
+        fir_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(fir_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "fir_leaves" );
+        ethereal_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(ethereal_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "ethereal_leaves" );
+        dead_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(dead_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dead_leaves" );
+        dark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(dark_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dark_leaves" );
+        bamboo_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(bamboo_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "bamboo_leaves" );
+        
+        
+        
         
     }
     

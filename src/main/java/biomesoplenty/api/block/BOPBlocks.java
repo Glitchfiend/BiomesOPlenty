@@ -68,6 +68,7 @@ public class BOPBlocks
     public static Block foliage;
     
     // leaves
+    // TODO: fruit tree leaves?
     public static Block yellow_autumn_leaves;
     public static Block orange_autumn_leaves;
     public static Block willow_leaves;
@@ -90,6 +91,32 @@ public class BOPBlocks
     public static Block dead_leaves;
     public static Block dark_leaves;
     public static Block bamboo_leaves;
+    
+    // saplings
+    // TODO: fruit try saplings?
+    public static Block yellow_autumn_sapling;
+    public static Block orange_autumn_sapling;
+    public static Block bamboo_sapling;
+    public static Block magic_sapling;
+    public static Block dark_sapling;
+    public static Block dead_sapling;
+    public static Block fir_sapling;
+    public static Block ethereal_sapling;
+    public static Block origin_sapling;
+    public static Block pink_cherry_sapling;
+    public static Block white_cherry_sapling;
+    public static Block maple_sapling;
+    public static Block hellbark_sapling;
+    public static Block flowering_sapling;
+    public static Block jacaranda_sapling;
+    public static Block sacred_oak_sapling;
+    public static Block mangrove_sapling;
+    public static Block palm_sapling;
+    public static Block redwood_sapling;
+    public static Block willow_sapling;
+    public static Block pine_sapling;
+    public static Block mahogany_sapling;
+    
     
     
 }

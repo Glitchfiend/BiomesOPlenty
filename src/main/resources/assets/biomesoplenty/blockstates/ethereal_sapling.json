@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "biomesoplenty:ethereal_sapling" },
+        "stage=1": { "model": "biomesoplenty:ethereal_sapling" }
+    }
+}

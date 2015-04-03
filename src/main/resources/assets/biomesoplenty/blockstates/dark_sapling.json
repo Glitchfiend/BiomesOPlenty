@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "biomesoplenty:dark_sapling" },
+        "stage=1": { "model": "biomesoplenty:dark_sapling" }
+    }
+}

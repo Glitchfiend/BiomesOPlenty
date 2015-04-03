@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "biomesoplenty:pink_cherry_sapling" },
+        "stage=1": { "model": "biomesoplenty:pink_cherry_sapling" }
+    }
+}
