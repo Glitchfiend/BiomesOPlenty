@@ -11,6 +11,8 @@ package biomesoplenty.core;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
 import biomesoplenty.client.util.ModelHelper;
@@ -23,13 +25,21 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRenderers()
     {
+        
         for (ModelEntry modelEntry : blocksToRegister)
         {
+            // set the correct rendering mode for leaves based on the fancyGraphics game setting
+            if (modelEntry.block instanceof BlockLeaves)
+            {
+                ((BlockLeaves)modelEntry.block).setGraphicsLevel( Minecraft.getMinecraft().gameSettings.fancyGraphics );
+            }
+            // register the block model
             ModelHelper.registerBlock(modelEntry.block, modelEntry.metadata, BiomesOPlenty.MOD_ID + ":" + modelEntry.name);
         }
         
         for (ItemEntry itemEntry : itemsToRegister)
         {
+            // register the item model
             ModelHelper.registerItem(itemEntry.item, itemEntry.metadata, BiomesOPlenty.MOD_ID + ":" + itemEntry.name);
         }
        

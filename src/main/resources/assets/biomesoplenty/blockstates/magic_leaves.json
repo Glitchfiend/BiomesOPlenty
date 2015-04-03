@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "check_decay=true,decayable=true": { "model": "biomesoplenty:magic_leaves" },
+        "check_decay=true,decayable=false": { "model": "biomesoplenty:magic_leaves" },
+        "check_decay=false,decayable=true": { "model": "biomesoplenty:magic_leaves" },
+        "check_decay=false,decayable=false": { "model": "biomesoplenty:magic_leaves" }
+    }
+}

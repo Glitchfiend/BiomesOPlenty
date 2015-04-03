@@ -67,4 +67,29 @@ public class BOPBlocks
     
     public static Block foliage;
     
+    // leaves
+    public static Block yellow_autumn_leaves;
+    public static Block orange_autumn_leaves;
+    public static Block willow_leaves;
+    public static Block white_cherry_leaves;
+    public static Block pink_cherry_leaves;
+    public static Block sacred_oak_leaves;
+    public static Block redwood_leaves;
+    public static Block pine_leaves;
+    public static Block palm_leaves;
+    public static Block origin_leaves;
+    public static Block maple_leaves;
+    public static Block mangrove_leaves;
+    public static Block mahogany_leaves;
+    public static Block magic_leaves;
+    public static Block jacaranda_leaves;
+    public static Block hellbark_leaves;
+    public static Block flowering_leaves;
+    public static Block fir_leaves;
+    public static Block ethereal_leaves;
+    public static Block dead_leaves;
+    public static Block dark_leaves;
+    public static Block bamboo_leaves;
+    
+    
 }

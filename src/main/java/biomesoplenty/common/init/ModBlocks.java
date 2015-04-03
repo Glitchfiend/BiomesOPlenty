@@ -16,9 +16,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPWoodType;
 import biomesoplenty.api.block.IBOPBlock;
@@ -31,6 +34,7 @@ import biomesoplenty.common.block.BlockBOPFlower1;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPGeneric;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMushroom;
@@ -161,7 +165,7 @@ public class ModBlocks
         mahogany =          registerWoodType("mahogany");
         giant_flower_stem = registerBlock( new BlockBOPLog(), "giant_flower_stem" ); // no planks, stairs, etc
         dead_log =          registerBlock( new BlockBOPLog(), "dead_log" ); // no planks, stairs, etc
-        
+                
         //vines
         // TODO: special placement rules?
         flower_vine =       registerBlock( new BlockBOPVine(false), "flower_vine" );
@@ -172,8 +176,38 @@ public class ModBlocks
         
         foliage =           registerBlock( new BlockFoliage(), "foliage" );
         
+        // leaves
+        // TODO: bamboo leaves to grow automatically?
+        // TODO: add correct saplings
+        // TODO: add correct fruit (or change this implementation completely)
+        yellow_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "yellow_autumn_leaves" );
+        orange_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "orange_autumn_leaves" );
+        willow_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "willow_leaves" );
+        white_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "white_cherry_leaves" );
+        pink_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pink_cherry_leaves" );
+        sacred_oak_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "sacred_oak_leaves" );
+        redwood_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "redwood_leaves" );
+        pine_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pine_leaves" );
+        palm_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "palm_leaves" );
+        origin_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "origin_leaves" );
+        maple_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "maple_leaves" );
+        mangrove_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mangrove_leaves" );
+        mahogany_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mahogany_leaves" );
+        magic_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "magic_leaves" );
+        jacaranda_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "jacaranda_leaves" );
+        hellbark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, false ), "hellbark_leaves" );
+        flowering_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "flowering_leaves" );
+        fir_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "fir_leaves" );
+        ethereal_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "ethereal_leaves" );
+        dead_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dead_leaves" );
+        dark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dark_leaves" );
+        bamboo_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(Blocks.sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "bamboo_leaves" );
+        
     }
     
+    
+    // TODO: check if hellbark planks, fence etc can burn
+    // TODO: saplings
     public static BOPWoodType registerWoodType(String name)
     {
         BOPWoodType wood = new BOPWoodType();
