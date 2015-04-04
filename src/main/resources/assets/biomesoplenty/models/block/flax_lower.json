@@ -1,0 +1,6 @@
+{
+    "parent": "block/tallgrass",
+    "textures": {
+        "cross": "biomesoplenty:blocks/flax_lower"
+    }
+}

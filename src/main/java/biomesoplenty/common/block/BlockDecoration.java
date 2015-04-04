@@ -8,12 +8,11 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
@@ -31,11 +30,13 @@ import biomesoplenty.common.item.ItemBOPBlock;
 public class BlockDecoration extends Block implements IBOPBlock
 {
     
-    // implement IDHBlock
-    protected Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {}; }
+    public String getStateName(IBlockState state) {return "";}
+
 
     // constructor
     public BlockDecoration() {
@@ -55,21 +56,20 @@ public class BlockDecoration extends Block implements IBOPBlock
     }
     
     // utility function for setting the block bounds - typically decoration blocks are smaller than full block size
-    public BlockDecoration setBlockBoundsByRadiusAndHeight(float radius, float height)
+    public void setBlockBoundsByRadiusAndHeight(float radius, float height)
     {
-        return this.setBlockBoundsByRadiusAndHeight(radius,height,false);
+        this.setBlockBoundsByRadiusAndHeight(radius,height,false);
     }
-    public BlockDecoration setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
+    public void setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
     {
         this.setBlockBounds(0.5F - radius, (fromTop ? 1.0F - height : 0.0F), 0.5F - radius, 0.5F + radius, (fromTop ? 1.0F : height), 0.5F + radius);
-        return this;
     }
  
     // add a canBlockStay() check before placing this block
     @Override
     public boolean canReplace(World world, BlockPos pos, EnumFacing side, ItemStack stack)
     {        
-        return super.canReplace(world, pos, side, stack) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));
+        return world.getBlockState(pos).getBlock().isReplaceable(world, pos) && this.canBlockStay(world, pos, this.getStateFromMeta(stack.getMetadata()));
     }
     
     // check this block is still able to remain after neighbor change

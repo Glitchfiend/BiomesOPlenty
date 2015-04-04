@@ -117,6 +117,8 @@ public class BOPBlocks
     public static Block pine_sapling;
     public static Block mahogany_sapling;
     
+    public static Block double_foliage;
+    
     
     
 }

@@ -11,11 +11,15 @@ package biomesoplenty.common.util.block;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 import java.util.Map.Entry;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.IBOPBlock;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -42,6 +46,81 @@ public class BlockStateUtils
     }
     
     
+    public static ImmutableSet<IBlockState> getBlockPresets(IBOPBlock block)
+    {        
+        return getStatesSet(block.getDefaultState(), block.getPresetProperties());
+    }
+    
+    public static ImmutableSet<IBlockState> getBlockRenderStates(IBOPBlock block)
+    {
+        return getStatesSet(block.getDefaultState(), block.getRenderProperties());
+    }    
+    
+    public static ImmutableSet<IBlockState> getStatesSet(IBlockState baseState, IProperty... properties)
+    {        
+        Stack<IProperty> propStack = new Stack<IProperty>();
+        List<IBlockState> states = new ArrayList<IBlockState>();
+        for (IProperty prop : properties) {propStack.push(prop);}
+        if (!propStack.isEmpty())
+        {
+            addStatesToList(baseState, states, propStack);
+        }
+        ImmutableSet<IBlockState> ret = ImmutableSet.copyOf(states);
+        return ret;
+    }
+    
+    private static void addStatesToList(IBlockState state, List<IBlockState> list, Stack<IProperty> stack)
+    {    
+        if (stack.empty())
+        {
+            list.add(state);
+            return;
+        }
+        else
+        {
+            IProperty prop = stack.pop();        
+            for (Object value : prop.getAllowedValues())
+            {
+                addStatesToList(state.withProperty(prop, (Comparable)value), list, stack);
+            }
+            stack.push(prop);
+        }
+    }
+    
+    /*
+    public static Map<String,IBlockState> getStatesSetNamed(IBlockState baseState, IProperty... properties)
+    {        
+        Stack<IProperty> propStack = new Stack<IProperty>();
+        Map<String,IBlockState> states = new HashMap<String, IBlockState>();
+        for (IProperty prop : properties) {propStack.push(prop);}
+        AddStatesToMap(baseState, states, propStack);
+        return states;
+    }
+    
+    private static void AddStatesToMap(IBlockState state, Map<String, IBlockState> map, Stack<IProperty> stack)
+    {    
+        if (stack.empty())
+        {
+            map.put(state.getBlock().getStateName(state), state);
+            return;
+        }
+        else
+        {
+            IProperty prop = stack.pop();        
+            for (Object value : prop.getAllowedValues())
+            {
+                AddStatesToMap(state.withProperty(prop, (Comparable)value), map, stack);
+            }
+            stack.push(prop);
+        }
+    }
+    */
+    
+    
+    
+    
+    
+    
     public static IProperty getPropertyByName(IBlockState blockState, String propertyName)
     {
         for (IProperty property : (ImmutableSet<IProperty>) blockState.getProperties().keySet())
@@ -52,6 +131,7 @@ public class BlockStateUtils
 
         return null;
     }
+    
 
     public static boolean isValidPropertyName(IBlockState blockState, String propertyName)
     {
@@ -199,4 +279,5 @@ public class BlockStateUtils
             return validValues.get(counter);
         }
     }
+    
 }

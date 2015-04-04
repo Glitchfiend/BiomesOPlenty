@@ -1,0 +1,8 @@
+{
+    "parent": "biomesoplenty:block/cross_with_overlay",
+    "textures": {
+        "colored": "biomesoplenty:blocks/flax_flowers",
+        "greyscale": "biomesoplenty:blocks/flax_upper",
+        "particle": "biomesoplenty:blocks/flax_upper"
+    }
+}

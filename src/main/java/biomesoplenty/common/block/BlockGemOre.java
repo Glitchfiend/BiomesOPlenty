@@ -10,14 +10,13 @@ package biomesoplenty.common.block;
 
 import static biomesoplenty.common.block.BlockGem.VARIANT;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockGem.GemType;
 import biomesoplenty.common.item.ItemBOPBlock;
+import biomesoplenty.common.util.block.BlockStateUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,12 +31,17 @@ public class BlockGemOre extends Block implements IBOPBlock
     // add properties (note VARIANT is imported statically from the BlockGem class)
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((GemType) state.getValue(VARIANT)).getName() + "_ore";
+    }
     
     
     public BlockGemOre()
@@ -47,23 +51,15 @@ public class BlockGemOre extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(3.0F);
         this.setResistance(5.0F);
-        this.setStepSound(Block.soundTypePiston);
-        
-        // define named states
-        this.namedStates.put("amethyst_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );
-        this.namedStates.put("ruby_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.RUBY) );
-        this.namedStates.put("peridot_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.PERIDOT) );
-        this.namedStates.put("topaz_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.TOPAZ) );
-        this.namedStates.put("tanzanite_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.TANZANITE) );
-        this.namedStates.put("malachite_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.MALACHITE) );
-        this.namedStates.put("sapphire_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.SAPPHIRE) );
-        this.namedStates.put("amber_ore", this.blockState.getBaseState().withProperty(VARIANT, GemType.AMBER) );
-        
-        this.setDefaultState(this.namedStates.get("amethyst_ore"));
+        this.setStepSound(Block.soundTypePiston);        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST) );
 
         // all variants need pickaxe:2 to harvest, except amethyst which needs pickaxe:3
-        for (IBlockState state : this.namedStates.values()) {this.setHarvestLevel("pickaxe", 2, state);}
-        this.setHarvestLevel("pickaxe", 3, this.namedStates.get("amethyst_ore"));
+        for (IBlockState state : BlockStateUtils.getBlockPresets(this))
+        {
+            this.setHarvestLevel("pickaxe", 2, state);
+        }
+        this.setHarvestLevel("pickaxe", 3, this.blockState.getBaseState().withProperty(VARIANT, GemType.AMETHYST));
     
     }
 

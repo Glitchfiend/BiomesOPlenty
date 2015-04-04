@@ -33,20 +33,22 @@ public class BlockBOPFlower2 extends BlockDecoration {
     };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FlowerType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}  
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
+    
+    
+    // implement IBOPBlock
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((FlowerType) state.getValue(VARIANT)).getName();
+    }
+    
     
     public BlockBOPFlower2()
     {
         super();
-        
-        // define named states
-        for(FlowerType flowerType : FlowerType.values())
-        {
-            this.namedStates.put(flowerType.getName(), this.blockState.getBaseState().withProperty(VARIANT, flowerType));
-        }
-        
-        this.setDefaultState(this.getNamedState("lavender"));
-        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, FlowerType.LAVENDER) );        
     }
     
     

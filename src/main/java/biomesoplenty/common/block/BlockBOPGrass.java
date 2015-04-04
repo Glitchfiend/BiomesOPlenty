@@ -8,8 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
@@ -47,13 +45,24 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     public static enum BOPGrassType implements IStringSerializable {SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK; public String getName() {return this.name().toLowerCase();}};
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGrassType.class);
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT, SNOWY });}
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { SNOWY, VARIANT });}
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {SNOWY, VARIANT}; }
+    public String getStateName(IBlockState state) {
+        BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT);
+        switch (grassType)
+        {
+            case SPECTRAL_MOSS: case OVERGROWN_NETHERRACK:
+                return grassType.getName();
+            default:
+                return grassType.getName() + "_grass_block";
+        }
+    }
     
     
     public BlockBOPGrass()
@@ -64,17 +73,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
         this.setHardness(0.6F);
         this.setHarvestLevel("shovel", 0); // TODO: I think this just determines which tool speeds up digging - need to investigate more
         this.setStepSound(Block.soundTypeGrass);
-        
-        // define named states
-        this.namedStates.put("spectral_moss", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.SPECTRAL_MOSS) );
-        this.namedStates.put("smoldering_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.SMOLDERING) );
-        this.namedStates.put("loamy_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.LOAMY) );
-        this.namedStates.put("sandy_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.SANDY) );
-        this.namedStates.put("silty_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.SILTY) );
-        this.namedStates.put("origin_grass_block", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.ORIGIN) );
-        this.namedStates.put("overgrown_netherrack", this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.OVERGROWN_NETHERRACK) );
-        
-        this.setDefaultState(this.namedStates.get("loamy_grass_block"));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.LOAMY));
         
     }
     

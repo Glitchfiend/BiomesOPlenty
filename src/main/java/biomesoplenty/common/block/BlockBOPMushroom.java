@@ -9,12 +9,14 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
@@ -30,22 +32,24 @@ public class BlockBOPMushroom extends BlockDecoration
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", MushroomType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}  
+ 
     
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((MushroomType) state.getValue(VARIANT)).getName();
+    }
 
+    
     public BlockBOPMushroom()
     {
         // set some defaults
-        this.setBlockBoundsByRadiusAndHeight(0.2F, 0.4F);
-        
-        // define named states
-        this.namedStates.put("toadstool", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.TOADSTOOL));
-        this.namedStates.put("portobello", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.PORTOBELLO));
-        this.namedStates.put("blue_milk_cap", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.BLUE_MILK_CAP));
-        this.namedStates.put("glowshroom", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.GLOWSHROOM));
-        this.namedStates.put("flat_mushroom", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.FLAT_MUSHROOM));
-        this.namedStates.put("shadow_shroom", this.blockState.getBaseState().withProperty(VARIANT, MushroomType.SHADOW_SHROOM));
-        
-        this.setDefaultState(this.namedStates.get("toadstool"));        
+        this.setBlockBoundsByRadiusAndHeight(0.2F, 0.4F);       
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, MushroomType.TOADSTOOL) );        
     }
     
     // map from state to meta and vice verca
@@ -94,7 +98,6 @@ public class BlockBOPMushroom extends BlockDecoration
         boolean onStone = (groundBlock == Blocks.stone || groundBlock == BOPBlocks.stone); // TODO: hard dirt too? the other edge cases?
         boolean onEndstone = (groundBlock == Blocks.end_stone);
         
-        //System.out.println("ground block is " + BlockStateUtils.getStateInfoAsString(groundState));
         if (groundBlock instanceof BlockBOPGrass)
         {
             switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))

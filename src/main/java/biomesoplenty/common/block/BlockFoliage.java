@@ -52,18 +52,20 @@ public class BlockFoliage extends BlockDecoration implements IShearable
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
+    
+    // implement IBOPBlock
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return ((FoliageType) state.getValue(VARIANT)).getName();
+    }
+    
+    
     public BlockFoliage()
     {
         super();
-        
-        // define named states
-        for(FoliageType foliageType : FoliageType.values())
-        {
-            this.namedStates.put(foliageType.getName(), this.blockState.getBaseState().withProperty(VARIANT, foliageType));
-        }
-        
-        this.setDefaultState(this.getNamedState("shortgrass"));
-        
+        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, FoliageType.SHORTGRASS) );        
     }
     
     // map from state to meta and vice verca
@@ -157,6 +159,20 @@ public class BlockFoliage extends BlockDecoration implements IShearable
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
         }
     }
+    
+    // berrybush item should not be tinted, even though the model is
+    @Override
+    public int getItemRenderColor(IBlockState state, int tintIndex)
+    {
+        switch ((FoliageType) state.getValue(VARIANT))
+        {
+            case BERRYBUSH:
+                return 0xFFFFFF;
+            default:
+                return this.getRenderColor(state);
+        }
+    }
+
         
     
     // different variants have different sizes

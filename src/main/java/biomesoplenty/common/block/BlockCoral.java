@@ -34,6 +34,22 @@ public class BlockCoral extends BlockDecoration
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LEVEL, VARIANT });}  
 
+    // implement IBOPBlock
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        CoralType type = (CoralType) state.getValue(VARIANT);
+        switch (type)
+        {
+            case ALGAE:
+                return type.getName();
+            default:
+                return type.getName()+"_coral";
+        }
+    }
+    
+    
     public BlockCoral()
     {
         super(Material.water);
@@ -42,15 +58,7 @@ public class BlockCoral extends BlockDecoration
         this.setHardness(0.6F);
         this.setStepSound(Block.soundTypeSand);
         this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
-        
-        // define named states
-        this.namedStates.put("pink_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.PINK) );
-        this.namedStates.put("orange_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.ORANGE) );
-        this.namedStates.put("blue_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.BLUE) );
-        this.namedStates.put("glowing_coral", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.GLOWING) );
-        this.namedStates.put("algae", this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.ALGAE) );
-        
-        this.setDefaultState(this.namedStates.get("pink_coral"));       
+        this.setDefaultState( this.blockState.getBaseState().withProperty(LEVEL, 15).withProperty(VARIANT, CoralType.PINK) );       
 
     }
     

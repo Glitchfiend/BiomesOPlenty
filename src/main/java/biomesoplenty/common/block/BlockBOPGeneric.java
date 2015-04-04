@@ -8,24 +8,24 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
 public class BlockBOPGeneric extends Block implements IBOPBlock
 {
     
-    // implement IDHBlock
-    protected Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {}; }
+    public String getStateName(IBlockState state) {return "";}
+
     
     public BlockBOPGeneric() {
         // use rock as default material

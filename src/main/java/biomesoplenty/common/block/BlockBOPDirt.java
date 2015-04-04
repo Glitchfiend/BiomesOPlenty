@@ -8,9 +8,6 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -38,12 +35,15 @@ public class BlockBOPDirt extends Block implements IBOPBlock
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { COARSE, VARIANT });}
     
-    // implement IDHBlock
-    private Map<String, IBlockState> namedStates = new HashMap<String, IBlockState>();
-    public Map<String, IBlockState> getNamedStates() {return this.namedStates;}
-    public IBlockState getNamedState(String name) {return this.namedStates.get(name);}
-    public Class<? extends ItemBlock> getItemClass() {return ItemBOPBlock.class;}
-    
+    // implement IBOPBlock
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    public IProperty[] getPresetProperties() { return new IProperty[] {COARSE, VARIANT}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {COARSE, VARIANT}; }
+    public String getStateName(IBlockState state)
+    {
+        return (Boolean.TRUE.equals(state.getValue(COARSE)) ? "coarse_" : "") + ((BOPDirtType) state.getValue(VARIANT)).getName() + "_dirt";
+    }
 
     
     public BlockBOPDirt() {
@@ -53,17 +53,8 @@ public class BlockBOPDirt extends Block implements IBOPBlock
         // set some defaults
         this.setHardness(0.5F);
         this.setHarvestLevel("shovel", 0);
-        this.setStepSound(Block.soundTypeGravel);
-      
-        // define named states
-        this.namedStates.put("loamy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.LOAMY) );
-        this.namedStates.put("sandy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.SANDY) );
-        this.namedStates.put("silty_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.SILTY) );
-        this.namedStates.put("coarse_loamy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(true)).withProperty(VARIANT, BOPDirtType.LOAMY) );
-        this.namedStates.put("coarse_sandy_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(true)).withProperty(VARIANT, BOPDirtType.SANDY) );
-        this.namedStates.put("coarse_silty_dirt", this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(true)).withProperty(VARIANT, BOPDirtType.SILTY) );
-                
-        this.setDefaultState(this.namedStates.get("loamy_dirt"));
+        this.setStepSound(Block.soundTypeGravel);      
+        this.setDefaultState( this.blockState.getBaseState().withProperty(COARSE, Boolean.valueOf(false)).withProperty(VARIANT, BOPDirtType.LOAMY) );
     
     }
     
