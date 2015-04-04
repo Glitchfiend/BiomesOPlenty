@@ -29,7 +29,8 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
     public BlockBOPStairs(IBlockState modelState)
     {
         super(modelState);
+        
+        this.useNeighborBrightness = true;
     }
-    
 }
     
