@@ -9,10 +9,8 @@
 package biomesoplenty.common.util.block;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.Stack;
 import java.util.Map.Entry;
 
@@ -22,11 +20,11 @@ import net.minecraft.block.state.IBlockState;
 import biomesoplenty.api.block.IBOPBlock;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
 
 public class BlockStateUtils
 {
     
+    // utility function for dumping block state info to a string
     public static String getStateInfoAsString(IBlockState state)
     {
         String desc = state.getBlock().getClass().getName() + "[";
@@ -45,32 +43,8 @@ public class BlockStateUtils
         return desc;
     }
     
-    public static ImmutableSet<IBlockState> getBlockPresets(Block block)
-    {
-        IBlockState defaultState = block.getDefaultState();
-        if (defaultState != null && block instanceof IBOPBlock)
-        {
-            return getStatesSet(block.getDefaultState(), ((IBOPBlock)block).getPresetProperties());
-        }
-        else
-        {
-            return ImmutableSet.<IBlockState>of();
-        }        
-    }
-    
-    public static ImmutableSet<IBlockState> getBlockRenderStates(Block block)
-    {
-        IBlockState defaultState = block.getDefaultState();
-        if (defaultState != null && block instanceof IBOPBlock)
-        {
-            return getStatesSet(block.getDefaultState(), ((IBOPBlock)block).getRenderProperties());
-        }
-        else
-        {
-            return ImmutableSet.<IBlockState>of();
-        }        
-    }    
-    
+
+    // returns a set of states, one for every possible combination of values from the provided properties
     public static ImmutableSet<IBlockState> getStatesSet(IBlockState baseState, IProperty... properties)
     {        
         Stack<IProperty> propStack = new Stack<IProperty>();
@@ -84,6 +58,7 @@ public class BlockStateUtils
         return ret;
     }
     
+    // recursively add state values to a list
     private static void addStatesToList(IBlockState state, List<IBlockState> list, Stack<IProperty> stack)
     {    
         if (stack.empty())
@@ -102,7 +77,32 @@ public class BlockStateUtils
         }
     }
     
-    /*
+    // return all of the different 'preset' variants of a block
+    // works by looping through all the different values of the properties specified in block.getPresetProperties()
+    // only works on blocks supporting IBOPBlock - returns an empty set for vanilla blocks
+    public static ImmutableSet<IBlockState> getBlockPresets(Block block)
+    {
+        if (!(block instanceof IBOPBlock)) {return ImmutableSet.<IBlockState>of();}
+        IBlockState defaultState = block.getDefaultState();
+        if (defaultState == null) {defaultState = block.getBlockState().getBaseState();}
+        return getStatesSet(defaultState, ((IBOPBlock)block).getPresetProperties());        
+    }
+
+    // return all of the different 'render' variants of a block - IE the ones which have a distinct visual appearance and therefore need a model
+    // works by looping through all the different values of the properties specified in block.getRenderProperties()
+    // only works on blocks supporting IBOPBlock - returns an empty set for vanilla blocks
+    public static ImmutableSet<IBlockState> getBlockRenderStates(Block block)
+    {
+        if (!(block instanceof IBOPBlock)) {return ImmutableSet.<IBlockState>of();}
+        IBlockState defaultState = block.getDefaultState();
+        if (defaultState == null) {defaultState = block.getBlockState().getBaseState();}
+        return getStatesSet(defaultState, ((IBOPBlock)block).getRenderProperties());        
+    }
+    
+    
+    
+    /*  no use for this yet - but left here because it might be useful later
+     * 
     public static Map<String,IBlockState> getStatesSetNamed(IBlockState baseState, IProperty... properties)
     {        
         Stack<IProperty> propStack = new Stack<IProperty>();
@@ -134,8 +134,6 @@ public class BlockStateUtils
     
     
     
-    
-    
     public static IProperty getPropertyByName(IBlockState blockState, String propertyName)
     {
         for (IProperty property : (ImmutableSet<IProperty>) blockState.getProperties().keySet())
@@ -146,7 +144,6 @@ public class BlockStateUtils
 
         return null;
     }
-    
 
     public static boolean isValidPropertyName(IBlockState blockState, String propertyName)
     {
@@ -164,135 +161,5 @@ public class BlockStateUtils
         return null;
     }
 
-    public static ImmutableSet<IBlockState> getValidStatesForProperties(IBlockState baseState, IProperty... properties)
-    {
-        if (properties == null)
-            return null;
 
-        Set<IBlockState> validStates = Sets.newHashSet();
-        PropertyIndexer propertyIndexer = new PropertyIndexer(properties);
-
-        do
-        {
-            IBlockState currentState = baseState;
-
-            for (IProperty property : properties)
-            {
-                IndexedProperty indexedProperty = propertyIndexer.getIndexedProperty(property);
-
-                currentState = currentState.withProperty(property, indexedProperty.getCurrentValue());
-            }
-
-            validStates.add(currentState);
-        }
-        while (propertyIndexer.increment());
-
-        return ImmutableSet.copyOf(validStates);
-    }
-
-    private static class PropertyIndexer
-    {
-        private HashMap<IProperty, IndexedProperty> indexedProperties = new HashMap();
-
-        private IProperty finalProperty;
-
-        private PropertyIndexer(IProperty... properties)
-        {
-            finalProperty = properties[properties.length - 1];
-
-            IndexedProperty previousIndexedProperty = null;
-
-            for (IProperty property : properties)
-            {
-                IndexedProperty indexedProperty = new IndexedProperty(property);
-
-                if (previousIndexedProperty != null)
-                {
-                    indexedProperty.parent = previousIndexedProperty;
-                    previousIndexedProperty.child = indexedProperty;
-                }
-
-                indexedProperties.put(property, indexedProperty);
-                previousIndexedProperty = indexedProperty;
-            }
-        }
-
-        public boolean increment()
-        {
-            return indexedProperties.get(finalProperty).increment();
-        }
-
-        public IndexedProperty getIndexedProperty(IProperty property)
-        {
-            return indexedProperties.get(property);
-        }
-    }
-
-    private static class IndexedProperty
-    {
-        private ArrayList<Comparable> validValues = new ArrayList();
-
-        private int maxCount;
-        private int counter;
-
-        private IndexedProperty parent;
-        private IndexedProperty child;
-
-        private IndexedProperty(IProperty property)
-        {
-            this.validValues.addAll(property.getAllowedValues());
-            this.maxCount = this.validValues.size() - 1;
-        }
-
-        public boolean increment()
-        {
-            if (counter < maxCount)
-                counter++;
-            else
-            {
-                if (hasParent())
-                {
-                    resetSelfAndChildren();
-                    return this.parent.increment();
-                }
-                else
-                    return false;
-            }
-
-            return true;
-        }
-
-        public void resetSelfAndChildren()
-        {
-            counter = 0;
-            if (this.hasChild())
-                this.child.resetSelfAndChildren();
-        }
-
-        public boolean hasParent()
-        {
-            return parent != null;
-        }
-
-        public boolean hasChild()
-        {
-            return child != null;
-        }
-
-        public int getCounter()
-        {
-            return counter;
-        }
-
-        public int getMaxCount()
-        {
-            return maxCount;
-        }
-
-        public Comparable getCurrentValue()
-        {
-            return validValues.get(counter);
-        }
-    }
-    
 }

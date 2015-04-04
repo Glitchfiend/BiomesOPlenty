@@ -288,7 +288,11 @@ public class ModBlocks
             
             // check for missing default states
             IBlockState defaultState = block.getDefaultState();
-            if (defaultState == null) {throw new java.lang.NullPointerException("missing default state for " + block.getUnlocalizedName());}
+            if (defaultState == null)
+            {
+                defaultState = block.getBlockState().getBaseState();
+                BiomesOPlenty.logger.error("missing default state for " + block.getUnlocalizedName());
+            }
             
             // get the preset blocks variants
             ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(block);
