@@ -16,6 +16,7 @@ import java.util.Set;
 import java.util.Stack;
 import java.util.Map.Entry;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import biomesoplenty.api.block.IBOPBlock;
@@ -44,15 +45,30 @@ public class BlockStateUtils
         return desc;
     }
     
-    
-    public static ImmutableSet<IBlockState> getBlockPresets(IBOPBlock block)
-    {        
-        return getStatesSet(block.getDefaultState(), block.getPresetProperties());
+    public static ImmutableSet<IBlockState> getBlockPresets(Block block)
+    {
+        IBlockState defaultState = block.getDefaultState();
+        if (defaultState != null && block instanceof IBOPBlock)
+        {
+            return getStatesSet(block.getDefaultState(), ((IBOPBlock)block).getPresetProperties());
+        }
+        else
+        {
+            return ImmutableSet.<IBlockState>of();
+        }        
     }
     
-    public static ImmutableSet<IBlockState> getBlockRenderStates(IBOPBlock block)
+    public static ImmutableSet<IBlockState> getBlockRenderStates(Block block)
     {
-        return getStatesSet(block.getDefaultState(), block.getRenderProperties());
+        IBlockState defaultState = block.getDefaultState();
+        if (defaultState != null && block instanceof IBOPBlock)
+        {
+            return getStatesSet(block.getDefaultState(), ((IBOPBlock)block).getRenderProperties());
+        }
+        else
+        {
+            return ImmutableSet.<IBlockState>of();
+        }        
     }    
     
     public static ImmutableSet<IBlockState> getStatesSet(IBlockState baseState, IProperty... properties)

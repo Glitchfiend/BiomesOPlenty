@@ -47,7 +47,7 @@ public class ItemBOPBlock extends ItemBlock
     @SideOnly(Side.CLIENT)
     public void getSubItems(Item itemIn, CreativeTabs tab, List subItems)
     {        
-        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(bopBlock);
+        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this.block);
         if (presets.isEmpty())
         {
             subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState( this.block.getDefaultState() )));
@@ -78,7 +78,7 @@ public class ItemBOPBlock extends ItemBlock
     @Override
     public String getUnlocalizedName(ItemStack stack)
     {
-        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(bopBlock);
+        ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this.block);
         if (presets.isEmpty())
         {
             return super.getUnlocalizedName();

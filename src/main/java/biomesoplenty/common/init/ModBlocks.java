@@ -285,12 +285,17 @@ public class ModBlocks
             // if this block supports the IBOPBlock interface then we can determine the item block class, and sub-blocks automatically
             IBOPBlock bopBlock = (IBOPBlock)block;
             GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
-            ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(bopBlock);            
             
+            // check for missing default states
+            IBlockState defaultState = block.getDefaultState();
+            if (defaultState == null) {throw new java.lang.NullPointerException("missing default state for " + block.getUnlocalizedName());}
+            
+            // get the preset blocks variants
+            ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(block);
             if (presets.isEmpty())
             {
                 // block has no sub-blocks to register
-                registerBlockVariant(block, blockName, block.getMetaFromState(block.getDefaultState()));
+                registerBlockVariant(block, blockName, block.getMetaFromState(defaultState));
             }
             else
             {
