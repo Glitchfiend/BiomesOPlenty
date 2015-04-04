@@ -62,55 +62,7 @@ import biomesoplenty.core.BiomesOPlenty;
 
 public class ModBlocks
 {
-    
-
-    // syntactic sugar
-    // BlockModifier class encapsulates modifications which can be made to generic blocks in a unified way
-    public static enum BlockModifiers {HARDNESS, RESISTANCE, STEP_SOUND, CREATIVE_TAB, HARVEST_LEVEL};
-    public static class BlockModifier {
-        private BlockModifiers mod;
-        public float f;
-        public int i;
-        public String s;
-        public Block.SoundType sound;
-        public CreativeTabs tab;
-        public BlockModifier(BlockModifiers mod)
-        {
-            this.mod = mod;
-        }
-        public void apply(Block block)
-        {
-            switch (this.mod)
-            {
-                case HARDNESS:
-                    block.setHardness(this.f);
-                    break;
-                case RESISTANCE:
-                    block.setResistance(this.f);
-                    break;
-                case STEP_SOUND:
-                    block.setStepSound(this.sound);
-                    break;
-                case CREATIVE_TAB:
-                    block.setCreativeTab(this.tab);
-                    break;
-                case HARVEST_LEVEL:
-                    block.setHarvestLevel(s, i);
-                    break;
-            }            
-        }   
-    }
-    // convenience methods for creating BlockModifier instances - eg  hardness(2.5F) creates a BlockModifier which can set a block's hardness to 2.5
-    public static BlockModifier hardness(float f) {BlockModifier m = new BlockModifier(BlockModifiers.HARDNESS); m.f = f; return m;}
-    public static BlockModifier resistance(float f) {BlockModifier m = new BlockModifier(BlockModifiers.RESISTANCE); m.f = f; return m;}
-    public static BlockModifier stepSound(Block.SoundType sound) {BlockModifier m = new BlockModifier(BlockModifiers.STEP_SOUND); m.sound = sound; return m;}
-    public static BlockModifier creativeTab(CreativeTabs tab) {BlockModifier m = new BlockModifier(BlockModifiers.CREATIVE_TAB); m.tab = tab; return m;}
-    public static BlockModifier harvestLevel(String toolClass, int level) {BlockModifier m = new BlockModifier(BlockModifiers.HARVEST_LEVEL); m.s = toolClass; m.i = level; return m;}
-    // result - can now specify lists of modifiers which all have a common type.  eg:
-    // BlockModifier[] = {hardness(2.5F), harvestLevel("axe",2), creativeTab(null)};
-    // these can be used to quickly add new blocks from generic block classes
-    
-    
+        
     // TODO: use getDrops() in classes where the drops are very specific, instead of implementing all 3 of quantityDropped() getItemDropped() and damageDropped()
     // TODO: docblocks!
     // TODO: make better use of canSustainPlant() in BlockDecoration and children
@@ -131,7 +83,7 @@ public class ModBlocks
         mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
         stone =                 registerBlock( new BlockBOPStone(), "stone" );
         mud =                   registerBlock( new BlockMud(), "mud" );
-        turnip_block =          registerBlock( new BlockTurnip(), "turnip_block", creativeTab(null) ); // no creative tab
+        turnip_block =          registerBlock( new BlockTurnip(), "turnip_block", null ); // no creative tab
         flesh =                 registerBlock( new BlockFlesh(), "flesh" );
         grass =                 registerBlock( new BlockBOPGrass(), "grass" );
         waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
@@ -142,12 +94,12 @@ public class ModBlocks
         
         // generics
         ash_stone =             registerBlock( new BlockBOPGeneric(), "ash_stone" );
-        crag_rock =             registerBlock( new BlockBOPGeneric(), "crag_rock", stepSound(Block.soundTypeStone) );
-        dried_dirt =            registerBlock( new BlockBOPGeneric(), "dried_dirt", harvestLevel("pickaxe",0) );
-        hard_dirt =             registerBlock( new BlockBOPGeneric(), "hard_dirt", hardness(0.7F) );
-        hard_ice =              registerBlock( new BlockBOPGeneric(), "hard_ice", hardness(0.75F) );
-        hard_sand =             registerBlock( new BlockBOPGeneric(Material.sand), "hard_sand", hardness(0.9F), stepSound(Block.soundTypeSand) );
-        mud_brick =             registerBlock( new BlockBOPGeneric(), "mud_brick", resistance(2.0F) );
+        crag_rock =             registerBlock( (new BlockBOPGeneric()).setStepSound(Block.soundTypeStone), "crag_rock" );
+        dried_dirt =            registerBlock( new BlockBOPGeneric(), "dried_dirt"); dried_dirt.setHarvestLevel("pickaxe",0);
+        hard_dirt =             registerBlock( (new BlockBOPGeneric()).setHardness(0.7F), "hard_dirt" );
+        hard_ice =              registerBlock( (new BlockBOPGeneric()).setHardness(0.75F), "hard_ice" );
+        hard_sand =             registerBlock( (new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand" );
+        mud_brick =             registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick" );
  
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
         log_0 =                 registerBlock( new BlockBOPLog(0), "log_0" );
@@ -248,7 +200,7 @@ public class ModBlocks
     
     public static Block registerDoor(Block door_block, String name, Item door_item)
     {
-        door_block = registerBlock( new BlockBOPDoor(), name + "_block", creativeTab(null) );
+        door_block = registerBlock( new BlockBOPDoor(), name + "_block", null );
         door_item = ModItems.registerItem( new ItemDoor(door_block), name );
         return door_block;
     }
@@ -263,20 +215,17 @@ public class ModBlocks
         GuiEventHandler.blockCount++;
     }
     
-    public static Block registerBlock(Block block, String blockName, BlockModifier... modifiers)
+    public static Block registerBlock(Block block, String blockName)
+    {
+        // by default, set the creative tab for all blocks added in BOP to CreativeTabBOP.instance
+        return registerBlock(block, blockName, CreativeTabBOP.instance);
+    }
+    
+    public static Block registerBlock(Block block, String blockName, CreativeTabs tab)
     {
 
-        block.setUnlocalizedName(blockName);
-        
-        // by default, set the creative tab for all blocks added in BOP to CreativeTabBOP.instance
-        // can be overridden with the creativeTab() modifier if necessary
-        block.setCreativeTab(CreativeTabBOP.instance);
-        
-        // apply any modifiers
-        for (BlockModifier m : modifiers)
-        {
-            m.apply(block);
-        }
+        block.setUnlocalizedName(blockName);        
+        block.setCreativeTab(tab);
         
         if (block instanceof IBOPBlock)
         {
