@@ -63,13 +63,13 @@ public class BlockStateUtils
         for (IProperty prop : properties) {propStack.push(prop);}
         if (!propStack.isEmpty())
         {
-            AddStatesToList(baseState, states, propStack);
+            addStatesToList(baseState, states, propStack);
         }
         ImmutableSet<IBlockState> ret = ImmutableSet.copyOf(states);
         return ret;
     }
     
-    private static void AddStatesToList(IBlockState state, List<IBlockState> list, Stack<IProperty> stack)
+    private static void addStatesToList(IBlockState state, List<IBlockState> list, Stack<IProperty> stack)
     {    
         if (stack.empty())
         {
@@ -81,7 +81,7 @@ public class BlockStateUtils
             IProperty prop = stack.pop();        
             for (Object value : prop.getAllowedValues())
             {
-                AddStatesToList(state.withProperty(prop, (Comparable)value), list, stack);
+                addStatesToList(state.withProperty(prop, (Comparable)value), list, stack);
             }
             stack.push(prop);
         }
