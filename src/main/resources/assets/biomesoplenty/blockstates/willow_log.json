@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "axis=y":  { "model": "biomesoplenty:willow_log" },
-        "axis=z":   { "model": "biomesoplenty:willow_log_side" },
-        "axis=x":   { "model": "biomesoplenty:willow_log_side", "y": 90 },
-        "axis=none": { "model": "biomesoplenty:willow_bark" }
-    }
-}

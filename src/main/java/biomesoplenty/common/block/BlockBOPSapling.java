@@ -11,9 +11,12 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BOPTreeEnums.allTrees;
+import biomesoplenty.api.block.BOPTreeEnums.eightTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
@@ -21,55 +24,53 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     
     // add properties
-    public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
+    public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);    
+    // stage requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", eightTrees.class );
+    protected int pageNum;
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { STAGE });}
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { STAGE, VARIANT });}
     
-    protected WorldGenAbstractTree smallTreeGenerator;
-    protected WorldGenAbstractTree bigTreeGenerator;
-    protected WorldGenAbstractTree megaTreeGenerator;
     
-    public BlockBOPSapling(WorldGenAbstractTree smallTreeGenerator)
+    // implement IBOPBlock
+    @Override
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
+    public String getStateName(IBlockState state)
     {
-        this(smallTreeGenerator, null, null);
-    }
-
-    public BlockBOPSapling(WorldGenAbstractTree smallTreeGenerator, WorldGenAbstractTree bigTreeGenerator)
-    {
-        this(smallTreeGenerator, bigTreeGenerator, null);
+        return ((eightTrees) state.getValue(VARIANT)).map(this.pageNum).getName() + "_sapling";
     }
     
-    public BlockBOPSapling(WorldGenAbstractTree smallTreeGenerator, WorldGenAbstractTree bigTreeGenerator, WorldGenAbstractTree megaTreeGenerator)
+    
+    public BlockBOPSapling(int pageNum)
     {
         super();
-        
-        this.smallTreeGenerator = smallTreeGenerator;
-        this.bigTreeGenerator = bigTreeGenerator;
-        this.megaTreeGenerator = megaTreeGenerator;
-
+        this.pageNum = pageNum;
         this.setStepSound(Block.soundTypeGrass);
         this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
     }
     
-    
-    // map from state to meta and vice verca
+
+    // map from meta to state and vice verca.  Use the highest bit for STAGE and the other 3 for VARIANT (so we can have 8 per instance)
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(STAGE, Integer.valueOf(meta));
+        return this.getDefaultState().withProperty(VARIANT, eightTrees.values()[meta & 7]).withProperty(STAGE, Integer.valueOf(meta >> 3));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((Integer)state.getValue(STAGE)).intValue();
-    }
-    
+        return ((Integer)state.getValue(STAGE)).intValue() * 8 + ((eightTrees)state.getValue(VARIANT)).ordinal();
+    }   
     
     // which types of block allow trees
     // TODO: override for loftwood
@@ -111,6 +112,57 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     {
         return 0;
     }
+    
+    
+    
+    
+    
+    /***** stuff for growing trees *****/
+    
+    
+    // TODO: specify generator for each sapling
+    protected WorldGenAbstractTree getSmallTreeGenerator(allTrees treeType)
+    {
+        switch (treeType)
+        {
+            case YELLOW_AUTUMN:
+            case ORANGE_AUTUMN:
+            case BAMBOO:
+            case MAGIC:
+            case DARK:
+            case DEAD:
+            case FIR:
+            case ETHEREAL:
+            case ORIGIN:
+            case PINK_CHERRY:
+            case WHITE_CHERRY:
+            case MAPLE:
+            case HELLBARK:
+            case FLOWERING:
+            case JACARANDA:
+            case SACRED_OAK:
+            case MANGROVE:
+            case PALM:
+            case REDWOOD:
+            case WILLOW:
+            case PINE:
+            case MAHOGANY:
+            default:
+                 return new WorldGenTrees(true);
+        }
+    }
+ 
+    // TODO: specify generator for each sapling
+    protected WorldGenAbstractTree getBigTreeGenerator(allTrees treeType)
+    {
+        return null;
+    }
+    
+    // TODO: specify generator for each sapling
+    protected WorldGenAbstractTree getMegaTreeGenerator(allTrees treeType)
+    {
+        return null;
+    }
 
     @Override
     public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
@@ -146,8 +198,13 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     public boolean generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {return false;}
+        
+        allTrees treeType = ((eightTrees) state.getValue(VARIANT)).map(this.pageNum);        
+        WorldGenAbstractTree smallTreeGenerator = this.getSmallTreeGenerator(treeType);
+        WorldGenAbstractTree bigTreeGenerator = this.getBigTreeGenerator(treeType);
+        WorldGenAbstractTree megaTreeGenerator = this.getMegaTreeGenerator(treeType);
 
-        if (this.megaTreeGenerator != null)
+        if (megaTreeGenerator != null)
         {
             // if we have 4 saplings in a square, then try to grow a mega tree
             int i;
@@ -158,23 +215,23 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
                 {
                     if (this.thisSaplingHere(worldIn, pos.add(i, 0, j)) && this.thisSaplingHere(worldIn, pos.add(i + 1, 0, j)) && this.thisSaplingHere(worldIn, pos.add(i, 0, j + 1)) && this.thisSaplingHere(worldIn, pos.add(i + 1, 0, j + 1)))
                     {
-                        if (this.generateMegaTree(worldIn, pos.add(i, 0, j), state, rand, this.megaTreeGenerator)) {return true;}
+                        if (this.generateMegaTree(worldIn, pos.add(i, 0, j), state, rand, megaTreeGenerator)) {return true;}
                     }
                 }
             }
         }
-        if (this.bigTreeGenerator != null)
+        if (bigTreeGenerator != null)
         {
             // with a one in 10 chance, try to grow a big tree
             if (rand.nextInt(10) == 0)
             {
-                if (this.generateSmallOrBigTree(worldIn, pos, state, rand, this.bigTreeGenerator)) {return true;}
+                if (this.generateSmallOrBigTree(worldIn, pos, state, rand, bigTreeGenerator)) {return true;}
             }
         }
         // otherwise, try to grow a small tree
-        if (this.smallTreeGenerator != null)
+        if (smallTreeGenerator != null)
         {
-            if (this.generateSmallOrBigTree(worldIn, pos, state, rand, this.smallTreeGenerator)) {return true;}
+            if (this.generateSmallOrBigTree(worldIn, pos, state, rand, smallTreeGenerator)) {return true;}
         }
         return false;
     }

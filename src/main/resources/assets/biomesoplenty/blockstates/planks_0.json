@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "variant=a": { "model": "biomesoplenty:sacred_oak_planks" },
+        "variant=b": { "model": "biomesoplenty:cherry_planks" },
+        "variant=c": { "model": "biomesoplenty:dark_planks" },
+        "variant=d": { "model": "biomesoplenty:fir_planks" },
+        "variant=e": { "model": "biomesoplenty:ethereal_planks" },
+        "variant=f": { "model": "biomesoplenty:magic_planks" },
+        "variant=g": { "model": "biomesoplenty:mangrove_planks" },
+        "variant=h": { "model": "biomesoplenty:palm_planks" },
+        "variant=i": { "model": "biomesoplenty:redwood_planks" },
+        "variant=j": { "model": "biomesoplenty:willow_planks" },
+        "variant=k": { "model": "biomesoplenty:pine_planks" },
+        "variant=l": { "model": "biomesoplenty:hell_bark_planks" },
+        "variant=m": { "model": "biomesoplenty:jacaranda_planks" },
+        "variant=n": { "model": "biomesoplenty:mahogany_planks" },
+        "variant=o": { "model": "biomesoplenty:giant_flower_planks" },
+        "variant=p": { "model": "biomesoplenty:dead_planks" }
+    }
+}

@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "axis=y":  { "model": "biomesoplenty:magic_log" },
-        "axis=z":   { "model": "biomesoplenty:magic_log_side" },
-        "axis=x":   { "model": "biomesoplenty:magic_log_side", "y": 90 },
-        "axis=none": { "model": "biomesoplenty:magic_bark" }
-    }
-}

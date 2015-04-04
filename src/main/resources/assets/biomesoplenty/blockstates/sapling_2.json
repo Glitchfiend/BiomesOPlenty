@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "stage=0,variant=a": { "model": "biomesoplenty:mangrove_sapling" },
+        "stage=1,variant=a": { "model": "biomesoplenty:mangrove_sapling" },
+        "stage=0,variant=b": { "model": "biomesoplenty:palm_sapling" },
+        "stage=1,variant=b": { "model": "biomesoplenty:palm_sapling" },
+        "stage=0,variant=c": { "model": "biomesoplenty:redwood_sapling" },
+        "stage=1,variant=c": { "model": "biomesoplenty:redwood_sapling" },
+        "stage=0,variant=d": { "model": "biomesoplenty:willow_sapling" },
+        "stage=1,variant=d": { "model": "biomesoplenty:willow_sapling" },
+        "stage=0,variant=e": { "model": "biomesoplenty:pine_sapling" },
+        "stage=1,variant=e": { "model": "biomesoplenty:pine_sapling" },
+        "stage=0,variant=f": { "model": "biomesoplenty:mahogany_sapling" },
+        "stage=1,variant=f": { "model": "biomesoplenty:mahogany_sapling" },
+        "stage=0,variant=g": { "model": "biomesoplenty:yellow_autumn_sapling" },
+        "stage=1,variant=g": { "model": "biomesoplenty:yellow_autumn_sapling" },
+        "stage=0,variant=h": { "model": "biomesoplenty:yellow_autumn_sapling" },
+        "stage=1,variant=h": { "model": "biomesoplenty:yellow_autumn_sapling" }
+    }
+}

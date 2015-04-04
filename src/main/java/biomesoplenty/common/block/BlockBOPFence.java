@@ -35,6 +35,7 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     public BlockBOPFence()
     {
         super(Material.wood);
+        this.setHarvestLevel("axe", 0);
     }
     
 }

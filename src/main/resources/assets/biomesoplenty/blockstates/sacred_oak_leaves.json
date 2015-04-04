@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "check_decay=true,decayable=true": { "model": "biomesoplenty:sacred_oak_leaves" },
-        "check_decay=true,decayable=false": { "model": "biomesoplenty:sacred_oak_leaves" },
-        "check_decay=false,decayable=true": { "model": "biomesoplenty:sacred_oak_leaves" },
-        "check_decay=false,decayable=false": { "model": "biomesoplenty:sacred_oak_leaves" }
-    }
-}

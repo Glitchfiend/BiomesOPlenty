@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "check_decay=true,decayable=true,variant=a": { "model": "biomesoplenty:hellbark_leaves" },
+        "check_decay=true,decayable=false,variant=a": { "model": "biomesoplenty:hellbark_leaves" },
+        "check_decay=false,decayable=true,variant=a": { "model": "biomesoplenty:hellbark_leaves" },
+        "check_decay=false,decayable=false,variant=a": { "model": "biomesoplenty:hellbark_leaves" },
+        "check_decay=true,decayable=true,variant=b": { "model": "biomesoplenty:flowering_leaves" },
+        "check_decay=true,decayable=false,variant=b": { "model": "biomesoplenty:flowering_leaves" },
+        "check_decay=false,decayable=true,variant=b": { "model": "biomesoplenty:flowering_leaves" },
+        "check_decay=false,decayable=false,variant=b": { "model": "biomesoplenty:flowering_leaves" },
+        "check_decay=true,decayable=true,variant=c": { "model": "biomesoplenty:jacaranda_leaves" },
+        "check_decay=true,decayable=false,variant=c": { "model": "biomesoplenty:jacaranda_leaves" },
+        "check_decay=false,decayable=true,variant=c": { "model": "biomesoplenty:jacaranda_leaves" },
+        "check_decay=false,decayable=false,variant=c": { "model": "biomesoplenty:jacaranda_leaves" },
+        "check_decay=true,decayable=true,variant=d": { "model": "biomesoplenty:sacred_oak_leaves" },
+        "check_decay=true,decayable=false,variant=d": { "model": "biomesoplenty:sacred_oak_leaves" },
+        "check_decay=false,decayable=true,variant=d": { "model": "biomesoplenty:sacred_oak_leaves" },
+        "check_decay=false,decayable=false,variant=d": { "model": "biomesoplenty:sacred_oak_leaves" }
+    }
+}

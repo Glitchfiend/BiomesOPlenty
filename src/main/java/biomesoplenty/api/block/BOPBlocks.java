@@ -24,23 +24,78 @@ public class BOPBlocks
     public static Block mushroom;
     public static Block stone;
     
-    // woods
-    public static BOPWoodType sacred_oak;
-    public static BOPWoodType cherry;
-    public static BOPWoodType dark;
-    public static BOPWoodType fir;
-    public static BOPWoodType ethereal;
-    public static BOPWoodType magic;
-    public static BOPWoodType mangrove;
-    public static BOPWoodType palm;
-    public static BOPWoodType redwood;
-    public static BOPWoodType willow;
-    public static BOPWoodType pine;
-    public static BOPWoodType hell_bark;
-    public static BOPWoodType jacaranda;
-    public static BOPWoodType mahogany;
-    public static Block giant_flower_stem; // no planks, stairs, etc
-    public static Block dead_log; // no planks, stairs, etc
+    public static Block log_0;
+    public static Block log_1;
+    public static Block log_2;
+    public static Block log_3;
+    public static Block leaves_0;
+    public static Block leaves_1;
+    public static Block leaves_2;
+    public static Block leaves_3;
+    public static Block leaves_4;
+    public static Block leaves_5;
+    public static Block sapling_0;
+    public static Block sapling_1;
+    public static Block sapling_2;
+    // TODO fruit tree leaves and saplings
+    public static Block planks_0;
+    public static Block sacred_oak_stairs;
+    public static Block cherry_stairs;
+    public static Block dark_stairs;
+    public static Block fir_stairs;
+    public static Block ethereal_stairs;
+    public static Block magic_stairs;
+    public static Block mangrove_stairs;
+    public static Block palm_stairs;
+    public static Block redwood_stairs;
+    public static Block willow_stairs;
+    public static Block pine_stairs;
+    public static Block hell_bark_stairs;
+    public static Block jacaranda_stairs;
+    public static Block mahogany_stairs;
+    public static Block sacred_oak_fence;
+    public static Block cherry_fence;
+    public static Block dark_fence;
+    public static Block fir_fence;
+    public static Block ethereal_fence;
+    public static Block magic_fence;
+    public static Block mangrove_fence;
+    public static Block palm_fence;
+    public static Block redwood_fence;
+    public static Block willow_fence;
+    public static Block pine_fence;
+    public static Block hell_bark_fence;
+    public static Block jacaranda_fence;
+    public static Block mahogany_fence;
+    public static Block sacred_oak_fence_gate;
+    public static Block cherry_fence_gate;
+    public static Block dark_fence_gate;
+    public static Block fir_fence_gate;
+    public static Block ethereal_fence_gate;
+    public static Block magic_fence_gate;
+    public static Block mangrove_fence_gate;
+    public static Block palm_fence_gate;
+    public static Block redwood_fence_gate;
+    public static Block willow_fence_gate;
+    public static Block pine_fence_gate;
+    public static Block hell_bark_fence_gate;
+    public static Block jacaranda_fence_gate;
+    public static Block mahogany_fence_gate;
+    public static Block sacred_oak_door;
+    public static Block cherry_door;
+    public static Block dark_door;
+    public static Block fir_door;
+    public static Block ethereal_door;
+    public static Block magic_door;
+    public static Block mangrove_door;
+    public static Block palm_door;
+    public static Block redwood_door;
+    public static Block willow_door;
+    public static Block pine_door;
+    public static Block hell_bark_door;
+    public static Block jacaranda_door;
+    public static Block mahogany_door;
+
     
     public static Block mud;
     public static Block turnip_block;
@@ -66,57 +121,6 @@ public class BOPBlocks
     public static Block wisteria;
     
     public static Block foliage;
-    
-    // leaves
-    // TODO: fruit tree leaves?
-    public static Block yellow_autumn_leaves;
-    public static Block orange_autumn_leaves;
-    public static Block willow_leaves;
-    public static Block white_cherry_leaves;
-    public static Block pink_cherry_leaves;
-    public static Block sacred_oak_leaves;
-    public static Block redwood_leaves;
-    public static Block pine_leaves;
-    public static Block palm_leaves;
-    public static Block origin_leaves;
-    public static Block maple_leaves;
-    public static Block mangrove_leaves;
-    public static Block mahogany_leaves;
-    public static Block magic_leaves;
-    public static Block jacaranda_leaves;
-    public static Block hellbark_leaves;
-    public static Block flowering_leaves;
-    public static Block fir_leaves;
-    public static Block ethereal_leaves;
-    public static Block dead_leaves;
-    public static Block dark_leaves;
-    public static Block bamboo_leaves;
-    
-    // saplings
-    // TODO: fruit try saplings?
-    public static Block yellow_autumn_sapling;
-    public static Block orange_autumn_sapling;
-    public static Block bamboo_sapling;
-    public static Block magic_sapling;
-    public static Block dark_sapling;
-    public static Block dead_sapling;
-    public static Block fir_sapling;
-    public static Block ethereal_sapling;
-    public static Block origin_sapling;
-    public static Block pink_cherry_sapling;
-    public static Block white_cherry_sapling;
-    public static Block maple_sapling;
-    public static Block hellbark_sapling;
-    public static Block flowering_sapling;
-    public static Block jacaranda_sapling;
-    public static Block sacred_oak_sapling;
-    public static Block mangrove_sapling;
-    public static Block palm_sapling;
-    public static Block redwood_sapling;
-    public static Block willow_sapling;
-    public static Block pine_sapling;
-    public static Block mahogany_sapling;
-    
     public static Block double_foliage;
     
     

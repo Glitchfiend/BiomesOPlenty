@@ -1,0 +1,21 @@
+{
+    "variants": {
+        "axis=y,variant=a":    { "model": "biomesoplenty:sacred_oak_log" },
+        "axis=z,variant=a":    { "model": "biomesoplenty:sacred_oak_log_side" },
+        "axis=x,variant=a":    { "model": "biomesoplenty:sacred_oak_log_side", "y": 90 },
+        "axis=none,variant=a": { "model": "biomesoplenty:sacred_oak_bark" },
+        "axis=y,variant=b":    { "model": "biomesoplenty:cherry_log" },
+        "axis=z,variant=b":    { "model": "biomesoplenty:cherry_log_side" },
+        "axis=x,variant=b":    { "model": "biomesoplenty:cherry_log_side", "y": 90 },
+        "axis=none,variant=b": { "model": "biomesoplenty:cherry_bark" },
+        "axis=y,variant=c":    { "model": "biomesoplenty:dark_log" },
+        "axis=z,variant=c":    { "model": "biomesoplenty:dark_log_side" },
+        "axis=x,variant=c":    { "model": "biomesoplenty:dark_log_side", "y": 90 },
+        "axis=none,variant=c": { "model": "biomesoplenty:dark_bark" },
+        "axis=y,variant=d":    { "model": "biomesoplenty:fir_log" },
+        "axis=z,variant=d":    { "model": "biomesoplenty:fir_log_side" },
+        "axis=x,variant=d":    { "model": "biomesoplenty:fir_log_side", "y": 90 },
+        "axis=none,variant=d": { "model": "biomesoplenty:fir_bark" }
+    }
+}
+

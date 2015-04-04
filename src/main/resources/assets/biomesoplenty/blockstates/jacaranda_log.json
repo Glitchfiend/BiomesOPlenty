@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "axis=y":  { "model": "biomesoplenty:jacaranda_log" },
-        "axis=z":   { "model": "biomesoplenty:jacaranda_log_side" },
-        "axis=x":   { "model": "biomesoplenty:jacaranda_log_side", "y": 90 },
-        "axis=none": { "model": "biomesoplenty:jacaranda_bark" }
-    }
-}

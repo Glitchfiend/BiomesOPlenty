@@ -16,15 +16,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import biomesoplenty.api.block.BOPWoodType;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.BOPWoodEnums.allWoods;
+import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoor;
@@ -38,6 +36,7 @@ import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPSapling;
 import biomesoplenty.common.block.BlockBOPStairs;
 import biomesoplenty.common.block.BlockBOPStone;
@@ -120,54 +119,118 @@ public class ModBlocks
     
     public static void init()
     {
-        ash_block =         registerBlock( new BlockAsh(), "ash_block" );
-        bamboo =            registerBlock( new BlockBamboo(), "bamboo" );
-        bone_segment =      registerBlock( new BlockBones(), "bone_segment" );
-        coral =             registerBlock( new BlockCoral(), "coral" );
-        flower1 =           registerBlock( new BlockBOPFlower1(), "flower1" );
-        flower2 =           registerBlock( new BlockBOPFlower2(), "flower2" );
-        gem_block =         registerBlock( new BlockGem(), "gem_block" );
-        gem_ore =           registerBlock( new BlockGemOre(), "gem_ore" );
-        hive =              registerBlock( new BlockHive(), "hive" );
-        mushroom =          registerBlock( new BlockBOPMushroom(), "mushroom" );
-        stone =             registerBlock( new BlockBOPStone(), "stone" );
-        mud =               registerBlock( new BlockMud(), "mud" );
-        turnip_block =      registerBlock( new BlockTurnip(), "turnip_block", creativeTab(null) ); // no creative tab
-        flesh =             registerBlock( new BlockFlesh(), "flesh" );
-        grass =             registerBlock( new BlockBOPGrass(), "grass" );
-        waterlily =         registerBlock( new BlockBOPLilypad(), "waterlily" );
-        dirt =              registerBlock( new BlockBOPDirt(), "dirt" );
-        stone_formations =  registerBlock( new BlockStoneFormations(), "stone_formations" );
-        fruit_block =       registerBlock( new BlockFruit(), "fruit_block" /*, creativeTab(null) */); // TODO: once the mechanism for farming fruit is established: remove creative tab
-        crystal =           registerBlock( new BlockCrystal(), "crystal" );
+        ash_block =             registerBlock( new BlockAsh(), "ash_block" );
+        bamboo =                registerBlock( new BlockBamboo(), "bamboo" );
+        bone_segment =          registerBlock( new BlockBones(), "bone_segment" );
+        coral =                 registerBlock( new BlockCoral(), "coral" );
+        flower1 =               registerBlock( new BlockBOPFlower1(), "flower1" );
+        flower2 =               registerBlock( new BlockBOPFlower2(), "flower2" );
+        gem_block =             registerBlock( new BlockGem(), "gem_block" );
+        gem_ore =               registerBlock( new BlockGemOre(), "gem_ore" );
+        hive =                  registerBlock( new BlockHive(), "hive" );
+        mushroom =              registerBlock( new BlockBOPMushroom(), "mushroom" );
+        stone =                 registerBlock( new BlockBOPStone(), "stone" );
+        mud =                   registerBlock( new BlockMud(), "mud" );
+        turnip_block =          registerBlock( new BlockTurnip(), "turnip_block", creativeTab(null) ); // no creative tab
+        flesh =                 registerBlock( new BlockFlesh(), "flesh" );
+        grass =                 registerBlock( new BlockBOPGrass(), "grass" );
+        waterlily =             registerBlock( new BlockBOPLilypad(), "waterlily" );
+        dirt =                  registerBlock( new BlockBOPDirt(), "dirt" );
+        stone_formations =      registerBlock( new BlockStoneFormations(), "stone_formations" );
+        fruit_block =           registerBlock( new BlockFruit(), "fruit_block" /*, creativeTab(null) */); // TODO: once the mechanism for farming fruit is established: remove creative tab
+        crystal =               registerBlock( new BlockCrystal(), "crystal" );
         
         // generics
-        ash_stone =         registerBlock( new BlockBOPGeneric(), "ash_stone" );
-        crag_rock =         registerBlock( new BlockBOPGeneric(), "crag_rock", stepSound(Block.soundTypeStone) );
-        dried_dirt =        registerBlock( new BlockBOPGeneric(), "dried_dirt", harvestLevel("pickaxe",0) );
-        hard_dirt =         registerBlock( new BlockBOPGeneric(), "hard_dirt", hardness(0.7F) );
-        hard_ice =          registerBlock( new BlockBOPGeneric(), "hard_ice", hardness(0.75F) );
-        hard_sand =         registerBlock( new BlockBOPGeneric(Material.sand), "hard_sand", hardness(0.9F), stepSound(Block.soundTypeSand) );
-        mud_brick =         registerBlock( new BlockBOPGeneric(), "mud_brick", resistance(2.0F) );
+        ash_stone =             registerBlock( new BlockBOPGeneric(), "ash_stone" );
+        crag_rock =             registerBlock( new BlockBOPGeneric(), "crag_rock", stepSound(Block.soundTypeStone) );
+        dried_dirt =            registerBlock( new BlockBOPGeneric(), "dried_dirt", harvestLevel("pickaxe",0) );
+        hard_dirt =             registerBlock( new BlockBOPGeneric(), "hard_dirt", hardness(0.7F) );
+        hard_ice =              registerBlock( new BlockBOPGeneric(), "hard_ice", hardness(0.75F) );
+        hard_sand =             registerBlock( new BlockBOPGeneric(Material.sand), "hard_sand", hardness(0.9F), stepSound(Block.soundTypeSand) );
+        mud_brick =             registerBlock( new BlockBOPGeneric(), "mud_brick", resistance(2.0F) );
  
-        // woods
-        sacred_oak =        registerWoodType("sacred_oak");
-        cherry =            registerWoodType("cherry");
-        dark =              registerWoodType("dark");
-        fir =               registerWoodType("fir");
-        ethereal =          registerWoodType("ethereal");
-        magic =             registerWoodType("magic");
-        mangrove =          registerWoodType("mangrove");
-        palm =              registerWoodType("palm");
-        redwood =           registerWoodType("redwood");
-        willow =            registerWoodType("willow");
-        pine =              registerWoodType("pine");
-        hell_bark =         registerWoodType("hell_bark");
-        jacaranda =         registerWoodType("jacaranda");
-        mahogany =          registerWoodType("mahogany");
-        giant_flower_stem = registerBlock( new BlockBOPLog(), "giant_flower_stem" ); // no planks, stairs, etc
-        dead_log =          registerBlock( new BlockBOPLog(), "dead_log" ); // no planks, stairs, etc
-                
+        // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
+        log_0 =                 registerBlock( new BlockBOPLog(0), "log_0" );
+        log_1 =                 registerBlock( new BlockBOPLog(1), "log_1" );
+        log_2 =                 registerBlock( new BlockBOPLog(2), "log_2" );
+        log_3 =                 registerBlock( new BlockBOPLog(3), "log_3" );
+        // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
+        leaves_0 =              registerBlock( new BlockBOPLeaves(0), "leaves_0");
+        leaves_1 =              registerBlock( new BlockBOPLeaves(1), "leaves_1" );
+        leaves_2 =              registerBlock( new BlockBOPLeaves(1), "leaves_2" );
+        leaves_3 =              registerBlock( new BlockBOPLeaves(1), "leaves_3" );
+        leaves_4 =              registerBlock( new BlockBOPLeaves(1), "leaves_4" );
+        leaves_5 =              registerBlock( new BlockBOPLeaves(1), "leaves_5" );
+        // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
+        sapling_0 =             registerBlock( new BlockBOPSapling(0), "sapling_0");
+        sapling_1 =             registerBlock( new BlockBOPSapling(1), "sapling_1");
+        sapling_2 =             registerBlock( new BlockBOPSapling(2), "sapling_2");
+        // TODO: check if hellbark planks, fence etc can burn
+        // TODO: wooden slabs
+        // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
+        planks_0 =              registerBlock( new BlockBOPPlanks(0), "planks_0");
+        // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
+        sacred_oak_stairs =     registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.SACRED_OAK)), "sacred_oak_stairs" );
+        cherry_stairs =         registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.CHERRY)), "cherry_stairs" );
+        dark_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.DARK)), "dark_stairs" );
+        fir_stairs =            registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.FIR)), "fir_stairs" );
+        ethereal_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.ETHEREAL)), "ethereal_stairs" );
+        magic_stairs =          registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.MAGIC)), "magic_stairs" );
+        mangrove_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.MANGROVE)), "mangrove_stairs" );
+        palm_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.PALM)), "palm_stairs" );
+        redwood_stairs =        registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.REDWOOD)), "redwood_stairs" );
+        willow_stairs =         registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.WILLOW)), "willow_stairs" );
+        pine_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.PINE)), "pine_stairs" );
+        hell_bark_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.HELL_BARK)), "hell_bark_stairs" );
+        jacaranda_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.JACARANDA)), "jacaranda_stairs" );
+        mahogany_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(allWoods.MAHOGANY)), "mahogany_stairs" );
+        // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
+        sacred_oak_fence =      registerBlock( new BlockBOPFence(), "sacred_oak_fence" );
+        cherry_fence =          registerBlock( new BlockBOPFence(), "cherry_fence" );
+        dark_fence =            registerBlock( new BlockBOPFence(), "dark_fence" );
+        fir_fence =             registerBlock( new BlockBOPFence(), "fir_fence" );
+        ethereal_fence =        registerBlock( new BlockBOPFence(), "ethereal_fence" );
+        magic_fence =           registerBlock( new BlockBOPFence(), "magic_fence" );
+        mangrove_fence =        registerBlock( new BlockBOPFence(), "mangrove_fence" );
+        palm_fence =            registerBlock( new BlockBOPFence(), "palm_fence" );
+        redwood_fence =         registerBlock( new BlockBOPFence(), "redwood_fence" );
+        willow_fence =          registerBlock( new BlockBOPFence(), "willow_fence" );
+        pine_fence =            registerBlock( new BlockBOPFence(), "pine_fence" );
+        hell_bark_fence =       registerBlock( new BlockBOPFence(), "hell_bark_fence" );
+        jacaranda_fence =       registerBlock( new BlockBOPFence(), "jacaranda_fence" );
+        mahogany_fence =        registerBlock( new BlockBOPFence(), "mahogany_fence" );
+        // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
+        sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(), "sacred_oak_fence_gate" );
+        cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(), "cherry_fence_gate" );
+        dark_fence_gate =       registerBlock( new BlockBOPFenceGate(), "dark_fence_gate" );
+        fir_fence_gate =        registerBlock( new BlockBOPFenceGate(), "fir_fence_gate" );
+        ethereal_fence_gate =   registerBlock( new BlockBOPFenceGate(), "ethereal_fence_gate" );
+        magic_fence_gate =      registerBlock( new BlockBOPFenceGate(), "magic_fence_gate" );
+        mangrove_fence_gate =   registerBlock( new BlockBOPFenceGate(), "mangrove_fence_gate" );
+        palm_fence_gate =       registerBlock( new BlockBOPFenceGate(), "palm_fence_gate" );
+        redwood_fence_gate =    registerBlock( new BlockBOPFenceGate(), "redwood_fence_gate" );
+        willow_fence_gate =     registerBlock( new BlockBOPFenceGate(), "willow_fence_gate" );
+        pine_fence_gate =       registerBlock( new BlockBOPFenceGate(), "pine_fence_gate" );
+        hell_bark_fence_gate =  registerBlock( new BlockBOPFenceGate(), "hell_bark_fence_gate" );
+        jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(), "jacaranda_fence_gate" );
+        mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(), "mahogany_fence_gate" );
+        // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
+        sacred_oak_door =       registerDoor( new BlockBOPDoor(), "sacred_oak_door", BOPItems.sacred_oak_door );
+        cherry_door =           registerDoor( new BlockBOPDoor(), "cherry_door", BOPItems.cherry_door );
+        dark_door =             registerDoor( new BlockBOPDoor(), "dark_door", BOPItems.dark_door );
+        fir_door =              registerDoor( new BlockBOPDoor(), "fir_door", BOPItems.fir_door );
+        ethereal_door =         registerDoor( new BlockBOPDoor(), "ethereal_door", BOPItems.ethereal_door );
+        magic_door =            registerDoor( new BlockBOPDoor(), "magic_door", BOPItems.magic_door );
+        mangrove_door =         registerDoor( new BlockBOPDoor(), "mangrove_door", BOPItems.mangrove_door );
+        palm_door =             registerDoor( new BlockBOPDoor(), "palm_door", BOPItems.palm_door );
+        redwood_door =          registerDoor( new BlockBOPDoor(), "redwood_door", BOPItems.redwood_door );
+        willow_door =           registerDoor( new BlockBOPDoor(), "willow_door", BOPItems.willow_door );
+        pine_door =             registerDoor( new BlockBOPDoor(), "pine_door", BOPItems.pine_door );
+        hell_bark_door =        registerDoor( new BlockBOPDoor(), "hell_bark_door", BOPItems.hell_bark_door );
+        jacaranda_door =        registerDoor( new BlockBOPDoor(), "jacaranda_door", BOPItems.jacaranda_door );
+        mahogany_door =         registerDoor( new BlockBOPDoor(), "mahogany_door", BOPItems.mahogany_door );
+ 
+        
         //vines
         // TODO: special placement rules?
         flower_vine =       registerBlock( new BlockBOPVine(false), "flower_vine" );
@@ -177,83 +240,18 @@ public class ModBlocks
         wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );
         
         foliage =           registerBlock( new BlockFoliage(), "foliage" );
-        
-        
-        // saplings
-        // TODO: implement the tree generators (at the moment all saplings generate vanilla small oak trees)
-        // TODO: check bamboo implementation
-        yellow_autumn_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "yellow_autumn_sapling"  );
-        orange_autumn_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "orange_autumn_sapling"  );
-        bamboo_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "bamboo_sapling"  );
-        magic_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "magic_sapling"  );
-        dark_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "dark_sapling"  );
-        dead_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "dead_sapling"  );
-        fir_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "fir_sapling"  );
-        ethereal_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "ethereal_sapling"  );
-        origin_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "origin_sapling"  );
-        pink_cherry_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "pink_cherry_sapling"  );
-        white_cherry_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "white_cherry_sapling"  );
-        maple_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "maple_sapling"  );
-        hellbark_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "hellbark_sapling"  );
-        flowering_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "flowering_sapling"  );
-        jacaranda_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "jacaranda_sapling"  );
-        sacred_oak_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "sacred_oak_sapling"  );
-        mangrove_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "mangrove_sapling"  );
-        palm_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "palm_sapling"  );
-        redwood_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "redwood_sapling"  );
-        willow_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "willow_sapling"  );
-        pine_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "pine_sapling"  );
-        mahogany_sapling = registerBlock( new BlockBOPSapling( new WorldGenTrees(true) ), "mahogany_sapling"  );
-        
-        
-        // leaves
-        // TODO: bamboo leaves to grow automatically?
-        // TODO: add correct fruit (or change this implementation completely)
-        yellow_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(yellow_autumn_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "yellow_autumn_leaves" );
-        orange_autumn_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(orange_autumn_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "orange_autumn_leaves" );
-        willow_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(willow_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "willow_leaves" );
-        white_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(white_cherry_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "white_cherry_leaves" );
-        pink_cherry_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(pink_cherry_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pink_cherry_leaves" );
-        sacred_oak_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(sacred_oak_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "sacred_oak_leaves" );
-        redwood_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(redwood_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "redwood_leaves" );
-        pine_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(pine_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "pine_leaves" );
-        palm_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(palm_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "palm_leaves" );
-        origin_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(origin_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "origin_leaves" );
-        maple_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(maple_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "maple_leaves" );
-        mangrove_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(mangrove_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mangrove_leaves" );
-        mahogany_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(mahogany_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "mahogany_leaves" );
-        magic_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(magic_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "magic_leaves" );
-        jacaranda_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(jacaranda_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "jacaranda_leaves" );
-        hellbark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(hellbark_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, false ), "hellbark_leaves" );
-        flowering_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(flowering_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "flowering_leaves" );
-        fir_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(fir_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "fir_leaves" );
-        ethereal_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(ethereal_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "ethereal_leaves" );
-        dead_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(dead_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dead_leaves" );
-        dark_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(dark_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "dark_leaves" );
-        bamboo_leaves = registerBlock( new BlockBOPLeaves( new ItemStack(bamboo_sapling, 1, 0), new ItemStack(Items.apple, 1, 0), 20, true ), "bamboo_leaves" );
-        
         double_foliage = registerBlock( new BlockDoubleFoliage(), "double_foliage" );
         
         
     }
     
     
-    // TODO: check if hellbark planks, fence etc can burn
-    // TODO: saplings
-    public static BOPWoodType registerWoodType(String name)
+    public static Block registerDoor(Block door_block, String name, Item door_item)
     {
-        BOPWoodType wood = new BOPWoodType();
-        wood.log = registerBlock( new BlockBOPLog(), name + "_log" );
-        wood.planks = registerBlock( new BlockBOPGeneric(Material.wood), name + "_planks", hardness(2.0F), harvestLevel("axe",0), stepSound(Block.soundTypeWood) );
-        wood.stairs = registerBlock( new BlockBOPStairs(wood.planks.getDefaultState()), name + "_stairs", harvestLevel("axe",0) );
-        wood.fence = registerBlock( new BlockBOPFence(), name + "_fence", harvestLevel("axe",0) );
-        wood.fence_gate = registerBlock( new BlockBOPFenceGate(), name + "_fence_gate", harvestLevel("axe",0) );
-        wood.door_block = registerBlock( new BlockBOPDoor(), name + "_door_block", creativeTab(null), harvestLevel("axe",0) );
-        wood.door_item = ModItems.registerItem( new ItemDoor(wood.door_block) , name + "_door");
-        return wood;
+        door_block = registerBlock( new BlockBOPDoor(), name + "_block", creativeTab(null) );
+        door_item = ModItems.registerItem( new ItemDoor(door_block), name );
+        return door_block;
     }
-    
-    
     
     public static void registerBlockVariant(Block block, String stateName, int stateMeta)
     {
@@ -307,6 +305,7 @@ public class ModBlocks
                 for (IBlockState state : presets)
                 {
                     String stateName = bopBlock.getStateName(state);
+                    if (stateName.startsWith("unused")) {continue;} // TODO: find better way to filter unwanted presets
                     int stateMeta = block.getMetaFromState(state);
                     registerBlockVariant(block, stateName, stateMeta);
                 }

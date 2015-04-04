@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "check_decay=true,decayable=true,variant=a": { "model": "biomesoplenty:dark_leaves" },
+        "check_decay=true,decayable=false,variant=a": { "model": "biomesoplenty:dark_leaves" },
+        "check_decay=false,decayable=true,variant=a": { "model": "biomesoplenty:dark_leaves" },
+        "check_decay=false,decayable=false,variant=a": { "model": "biomesoplenty:dark_leaves" },
+        "check_decay=true,decayable=true,variant=b": { "model": "biomesoplenty:dead_leaves" },
+        "check_decay=true,decayable=false,variant=b": { "model": "biomesoplenty:dead_leaves" },
+        "check_decay=false,decayable=true,variant=b": { "model": "biomesoplenty:dead_leaves" },
+        "check_decay=false,decayable=false,variant=b": { "model": "biomesoplenty:dead_leaves" },
+        "check_decay=true,decayable=true,variant=c": { "model": "biomesoplenty:fir_leaves" },
+        "check_decay=true,decayable=false,variant=c": { "model": "biomesoplenty:fir_leaves" },
+        "check_decay=false,decayable=true,variant=c": { "model": "biomesoplenty:fir_leaves" },
+        "check_decay=false,decayable=false,variant=c": { "model": "biomesoplenty:fir_leaves" },
+        "check_decay=true,decayable=true,variant=d": { "model": "biomesoplenty:ethereal_leaves" },
+        "check_decay=true,decayable=false,variant=d": { "model": "biomesoplenty:ethereal_leaves" },
+        "check_decay=false,decayable=true,variant=d": { "model": "biomesoplenty:ethereal_leaves" },
+        "check_decay=false,decayable=false,variant=d": { "model": "biomesoplenty:ethereal_leaves" }
+    }
+}

@@ -24,4 +24,20 @@ public class BOPItems
     public static Item filled_honeycomb;
     public static Item gem;
     public static Item ash;
+    
+    public static Item sacred_oak_door;
+    public static Item cherry_door;
+    public static Item dark_door;
+    public static Item fir_door;
+    public static Item ethereal_door;
+    public static Item magic_door;
+    public static Item mangrove_door;
+    public static Item palm_door;
+    public static Item redwood_door;
+    public static Item willow_door;
+    public static Item pine_door;
+    public static Item hell_bark_door;
+    public static Item jacaranda_door;
+    public static Item mahogany_door;
+    
 }

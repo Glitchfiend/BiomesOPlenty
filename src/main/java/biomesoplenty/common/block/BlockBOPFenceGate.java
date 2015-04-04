@@ -37,6 +37,7 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
     public BlockBOPFenceGate()
     {
         super();
+        this.setHarvestLevel("axe", 0);
     }
     
 }

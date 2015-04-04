@@ -34,7 +34,7 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
     public BlockBOPStairs(IBlockState modelState)
     {
         super(modelState);
-        
+        this.setHarvestLevel("axe", 0);
         this.useNeighborBrightness = true;
     }
 }

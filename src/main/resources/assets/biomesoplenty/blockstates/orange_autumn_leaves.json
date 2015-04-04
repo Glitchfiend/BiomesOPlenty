@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "check_decay=true,decayable=true": { "model": "biomesoplenty:orange_autumn_leaves" },
-        "check_decay=true,decayable=false": { "model": "biomesoplenty:orange_autumn_leaves" },
-        "check_decay=false,decayable=true": { "model": "biomesoplenty:orange_autumn_leaves" },
-        "check_decay=false,decayable=false": { "model": "biomesoplenty:orange_autumn_leaves" }
-    }
-}

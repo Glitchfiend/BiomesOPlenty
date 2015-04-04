@@ -11,14 +11,19 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.block.BOPTreeEnums.fourTrees;
+import biomesoplenty.api.block.BOPTreeEnums.allTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -33,76 +38,120 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
 {
     
     // add properties - note CHECK_DECAY and DECAYABLE are both inherited from BlockLeaves
+    // both are boolean, requiring one bit each, so we have 2 bits left for the VARIANT which means we can have four per instance
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", fourTrees.class );
+    protected int pageNum;
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] {CHECK_DECAY, DECAYABLE});}
-        
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { CHECK_DECAY, DECAYABLE, VARIANT });}
+    
+    
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {}; }
+    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public String getStateName(IBlockState state) {return "";}
-
-     
-    private ItemStack sapling;
-    private ItemStack fruit;
-    private int saplingDropChance;
-    private boolean canBurn;
+    public String getStateName(IBlockState state)
+    {
+        return ((fourTrees) state.getValue(VARIANT)).map(this.pageNum).getName() + "_leaves";
+    }
     
-    public BlockBOPLeaves(ItemStack sapling, ItemStack fruit, int saplingDropChance, boolean canBurn)
+    public BlockBOPLeaves(int pageNum)
     {
         super();
         
-        this.sapling = sapling;
-        this.fruit = fruit;
-        this.saplingDropChance = saplingDropChance;
-        this.canBurn = canBurn;
-        
-        this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
+        this.pageNum = pageNum;
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, fourTrees.A).withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
     }
     
+    
+    // map from meta to state and vice verca.  Use the same scheme as for the vanilla leaf blocks
+    // highest bit is for CHECK_DECAY  true=>1 false=>0
+    // next bit is for DECAYABLE  true=>0  false=>1  (other way round this time!  cheers Mojang)
+    // low 2 bits for VARIANT
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState();
+        return this.getDefaultState().withProperty(VARIANT, fourTrees.values()[meta & 3]).withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return 0;
+        int i = ((fourTrees)state.getValue(VARIANT)).ordinal();
+        if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
+        {
+            i |= 4;
+        }
+        if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue())
+        {
+            i |= 8;
+        }
+        return i;
     }
+    
     
     @Override
     protected int getSaplingDropChance(IBlockState state)
     {
-        return this.saplingDropChance;
-    }
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune)
-    {
-        return this.sapling.getItem();
-    }
-    @Override
-    public int damageDropped(IBlockState state)
-    {
-        return this.sapling.getMetadata();
-    }
-    @Override
-    public int quantityDropped(Random random)
-    {
-        return random.nextInt(this.saplingDropChance) == 0 ? this.sapling.stackSize : 0;
+        return 20;
     }
     
     @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        allTrees treeType = ((fourTrees) state.getValue(VARIANT)).map(this.pageNum);
+        int saplingPage = treeType.ordinal() / 8;
+        if (saplingPage == 2) {return Item.getItemFromBlock(BOPBlocks.sapling_2);}
+        if (saplingPage == 1) {return Item.getItemFromBlock(BOPBlocks.sapling_1);}
+        return Item.getItemFromBlock(BOPBlocks.sapling_0);
+    }
+    
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        allTrees treeType = ((fourTrees) state.getValue(VARIANT)).map(this.pageNum);
+        return treeType.ordinal() % 8;
+    }
+    
+    // TODO: different fruits for different trees?
+    @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
-        if (this.fruit != null) {
-            spawnAsEntity(worldIn, pos, this.fruit.copy());
+        allTrees treeType = ((fourTrees) state.getValue(VARIANT)).map(this.pageNum);
+        ItemStack fruit;
+        switch (treeType)
+        {
+            case YELLOW_AUTUMN:
+            case ORANGE_AUTUMN:
+            case BAMBOO:
+            case MAGIC:
+            case DARK:
+            case DEAD:
+            case FIR:
+            case ETHEREAL:
+            case ORIGIN:
+            case PINK_CHERRY:
+            case WHITE_CHERRY:
+            case MAPLE:
+            case HELLBARK:
+            case FLOWERING:
+            case JACARANDA:
+            case SACRED_OAK:
+            case MANGROVE:
+            case PALM:
+            case REDWOOD:
+            case WILLOW:
+            case PINE:
+            case MAHOGANY:
+            default:
+                 fruit = new ItemStack(Items.apple, 1, 0);
+        }        
+        if (fruit != null) {
+            spawnAsEntity(worldIn, pos, fruit);
         }
     }
     
@@ -111,27 +160,43 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public List<ItemStack> onSheared(ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune)
     {       
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
-        ret.add(new ItemStack(this));
+        int meta = this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, world.getBlockState(pos).getValue(VARIANT))); 
+        ret.add(new ItemStack(this, 1, meta));
         return ret;
     }
     
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return this.canBurn ? Blocks.leaves.getFlammability(world, pos, face) : 0;
+        allTrees tree = ((fourTrees) world.getBlockState(pos).getValue(VARIANT)).map(this.pageNum);
+        switch (tree)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.leaves.getFlammability(world, pos, face);
+        }
     }
     
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        return this.canBurn ? Blocks.leaves.getFireSpreadSpeed(world, pos, face) : 0;
+        allTrees tree = ((fourTrees) world.getBlockState(pos).getValue(VARIANT)).map(this.pageNum);
+        switch (tree)
+        {
+            case HELLBARK:
+                return 0;
+            default:
+                return Blocks.leaves.getFireSpreadSpeed(world, pos, face);
+        }
     }
     
     
     // We are forced to implement the method below in order to extend the BlockLeaves abstract class
     // ...however, we don't actually use it anywhere so it's safe to just return null
+    // it makes no sense in our context
     @Override
-    public EnumType getWoodType(int meta) {return null;}
+    public BlockPlanks.EnumType getWoodType(int meta) {return null;}
     
     
 }

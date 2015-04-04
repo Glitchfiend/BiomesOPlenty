@@ -40,6 +40,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     public BlockBOPDoor()
     {
         super(Material.wood);
+        this.setHarvestLevel("axe", 0);
     }
     
     public void setDoorItem(Item doorItem)
