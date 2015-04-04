@@ -20,10 +20,15 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
 {
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {NORTH, EAST, SOUTH, WEST}; }
+    @Override
     public String getStateName(IBlockState state) {return "";}
 
     

@@ -28,7 +28,20 @@ public class BlockBOPStone extends Block implements IBOPBlock
 {
     
     // add properties
-    public static enum StoneType implements IStringSerializable {LIMESTONE, SILTSTONE, SHALE; public String getName() {return this.name().toLowerCase();}};
+    public static enum StoneType implements IStringSerializable
+    {
+        LIMESTONE, SILTSTONE, SHALE;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", StoneType.class);
     public static PropertyBool POLISHED = PropertyBool.create("polished");
     @Override
@@ -36,10 +49,15 @@ public class BlockBOPStone extends Block implements IBOPBlock
     
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT, POLISHED}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT, POLISHED}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return (Boolean.TRUE.equals(state.getValue(POLISHED)) ? "polished_" : "") + ((StoneType) state.getValue(VARIANT)).getName();

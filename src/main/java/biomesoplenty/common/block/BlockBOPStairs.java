@@ -19,10 +19,15 @@ public class BlockBOPStairs extends BlockStairs implements IBOPBlock
 {
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {FACING, HALF, SHAPE}; }
+    @Override
     public String getStateName(IBlockState state) {return "";}
 
     

@@ -33,17 +33,35 @@ public class BlockMud extends Block implements IBOPBlock
 {
 
     // add properties
-    public static enum MudType implements IStringSerializable {MUD, QUICKSAND; public String getName() {return this.name().toLowerCase();}};
+    public static enum MudType implements IStringSerializable
+    {
+        MUD, QUICKSAND;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", MudType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((MudType) state.getValue(VARIANT)).getName();

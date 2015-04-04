@@ -29,7 +29,16 @@ public class BlockBOPFlower2 extends BlockDecoration {
     public static enum FlowerType implements IStringSerializable
     {
         LAVENDER, GOLDENROD, BLUEBELLS, MINERS_DELIGHT, ICY_IRIS, ROSE;
-        public String getName() {return this.name().toLowerCase();}
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
     };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FlowerType.class);
     @Override
@@ -37,8 +46,11 @@ public class BlockBOPFlower2 extends BlockDecoration {
     
     
     // implement IBOPBlock
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((FlowerType) state.getValue(VARIANT)).getName();

@@ -42,17 +42,35 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
 {
     
     // add properties (note we also inherit the SNOWY property from BlockGrass)
-    public static enum BOPGrassType implements IStringSerializable {SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK; public String getName() {return this.name().toLowerCase();}};
+    public static enum BOPGrassType implements IStringSerializable
+    {
+        SPECTRAL_MOSS, SMOLDERING, LOAMY, SANDY, SILTY, ORIGIN, OVERGROWN_NETHERRACK;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPGrassType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { SNOWY, VARIANT });}
     
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {SNOWY, VARIANT}; }
+    @Override
     public String getStateName(IBlockState state) {
         BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT);
         switch (grassType)

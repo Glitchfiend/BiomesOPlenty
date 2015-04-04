@@ -29,15 +29,31 @@ public class BlockFruit extends BlockDecoration
 {
     
     // add properties
-    public static enum FruitType implements IStringSerializable {APPLE, PERSIMMON, PEACH, PEAR; public String getName() {return this.name().toLowerCase();}};
+    public static enum FruitType implements IStringSerializable
+    {
+        APPLE, PERSIMMON, PEACH, PEAR;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FruitType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
     
     // implement IBOPBlock
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((FruitType) state.getValue(VARIANT)).getName() + "_block";

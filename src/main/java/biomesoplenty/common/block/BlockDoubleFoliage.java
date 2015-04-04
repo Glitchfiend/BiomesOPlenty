@@ -34,15 +34,31 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
 {
     
     // add properties (note we inherit HALF from BlockDoubleDecoration)
-    public static enum FoliageType implements IStringSerializable {FLAX; public String getName() {return this.name().toLowerCase();}};
+    public static enum FoliageType implements IStringSerializable
+    {
+        FLAX;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FoliageType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF, VARIANT });}
     
     
     // implement IBOPBlock
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {HALF, VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((FoliageType) state.getValue(VARIANT)).getName();

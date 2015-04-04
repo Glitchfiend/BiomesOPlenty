@@ -34,10 +34,15 @@ public class BlockGemOre extends Block implements IBOPBlock
 
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((GemType) state.getValue(VARIANT)).getName() + "_ore";

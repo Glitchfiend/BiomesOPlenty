@@ -10,9 +10,6 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.biome.BOPBiomes.alps;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.config.BiomeConfigurationHandler;

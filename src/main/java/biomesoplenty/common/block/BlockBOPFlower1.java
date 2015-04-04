@@ -41,7 +41,16 @@ public class BlockBOPFlower1 extends BlockDecoration {
     public static enum FlowerType implements IStringSerializable
     {
         CLOVER, SWAMPFLOWER, DEATHBLOOM, GLOWFLOWER, BLUE_HYDRANGEA, ORANGE_COSMOS, PINK_DAFFODIL, WILDFLOWER, VIOLET, WHITE_ANEMONE, ENDERLOTUS, BROMELIAD, DANDELION, PINK_HIBISCUS, LILY_OF_THE_VALLEY, BURNING_BLOSSOM;
-        public String getName() {return this.name().toLowerCase();}
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
     };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FlowerType.class);
     @Override
@@ -49,8 +58,11 @@ public class BlockBOPFlower1 extends BlockDecoration {
     
     
     // implement IBOPBlock
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((FlowerType) state.getValue(VARIANT)).getName();

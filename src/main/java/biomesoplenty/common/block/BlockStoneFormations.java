@@ -23,15 +23,31 @@ public class BlockStoneFormations extends BlockDecoration
 {
     
     // add properties
-    public static enum StoneFormationType implements IStringSerializable {STALACTITE, STALAGMITE; public String getName() {return this.name().toLowerCase();}};
+    public static enum StoneFormationType implements IStringSerializable
+    {
+        STALACTITE, STALAGMITE;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", StoneFormationType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
     
     // implement IBOPBlock
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((StoneFormationType) state.getValue(VARIANT)).getName();
@@ -76,6 +92,7 @@ public class BlockStoneFormations extends BlockDecoration
     }
  
     // only allow stalactites hanging from stone, and only allow stalagmites on top of stone
+    @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         IBlockState touching;

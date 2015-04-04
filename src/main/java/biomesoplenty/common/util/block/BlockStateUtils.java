@@ -18,7 +18,6 @@ import java.util.Map.Entry;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
-import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 
 import com.google.common.collect.ImmutableSet;

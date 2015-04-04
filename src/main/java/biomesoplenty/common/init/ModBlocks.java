@@ -115,7 +115,6 @@ public class ModBlocks
     // TODO: use getDrops() in classes where the drops are very specific, instead of implementing all 3 of quantityDropped() getItemDropped() and damageDropped()
     // TODO: docblocks!
     // TODO: make better use of canSustainPlant() in BlockDecoration and children
-    // TODO: rethink named states - not as useful as I thought
     // TODO: implement IShearable on flowers
     // TODO: investigate Block.getRenderType()
     

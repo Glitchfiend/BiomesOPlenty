@@ -30,17 +30,35 @@ public class BlockHive extends Block implements IBOPBlock
 {
     
     // add properties
-    public static enum HiveType implements IStringSerializable {HIVE, HONEYCOMB, EMPTY_HONEYCOMB, FILLED_HONEYCOMB; public String getName() {return this.name().toLowerCase();}};
+    public static enum HiveType implements IStringSerializable
+    {
+        HIVE, HONEYCOMB, EMPTY_HONEYCOMB, FILLED_HONEYCOMB;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", HiveType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
     
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((HiveType) state.getValue(VARIANT)).getName() + "_block";

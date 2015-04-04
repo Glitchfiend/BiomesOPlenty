@@ -29,17 +29,35 @@ public class BlockBOPDirt extends Block implements IBOPBlock
 {
     
     // add properties
-    public static enum BOPDirtType implements IStringSerializable {LOAMY, SANDY, SILTY; public String getName() {return this.name().toLowerCase();}};
+    public static enum BOPDirtType implements IStringSerializable
+    {
+        LOAMY, SANDY, SILTY;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BOPDirtType.class);
     public static final PropertyBool COARSE = PropertyBool.create("coarse");
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { COARSE, VARIANT });}
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {COARSE, VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {COARSE, VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return (Boolean.TRUE.equals(state.getValue(COARSE)) ? "coarse_" : "") + ((BOPDirtType) state.getValue(VARIANT)).getName() + "_dirt";

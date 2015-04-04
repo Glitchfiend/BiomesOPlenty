@@ -27,10 +27,24 @@ import net.minecraft.world.World;
 class BlockDoubleDecoration extends BlockDecoration {
     
     // add half property
-    public static enum Half implements IStringSerializable {LOWER, UPPER; public String getName() {return this.name().toLowerCase();}};
+    public static enum Half implements IStringSerializable
+    {
+        LOWER, UPPER;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum HALF = PropertyEnum.create("half", Half.class);
+    @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF });}
-    
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {HALF}; }
 
     public float radius;    
@@ -119,6 +133,7 @@ class BlockDoubleDecoration extends BlockDecoration {
     }
     
     // Called by ItemBlock before the block is placed - the placed block must always be Half.LOWER
+    @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
         return this.getStateFromMeta(meta).withProperty(HALF, Half.LOWER);
@@ -126,6 +141,7 @@ class BlockDoubleDecoration extends BlockDecoration {
     
     // Called by ItemBlock after the (lower) block has been placed
     // Use it to add the top half of the block
+    @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         worldIn.setBlockState(pos.up(), this.getStateFromMeta(stack.getMetadata()).withProperty(HALF, Half.UPPER), 3);
     }

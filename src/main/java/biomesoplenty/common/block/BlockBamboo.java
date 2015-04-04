@@ -69,10 +69,12 @@ public class BlockBamboo extends BlockDecoration
     
     
     // map from state to meta and vice verca
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
         return this.getDefaultState().withProperty(AGE, Integer.valueOf(meta));
     }
+    @Override
     public int getMetaFromState(IBlockState state)
     {
         return ((Integer)state.getValue(AGE)).intValue();

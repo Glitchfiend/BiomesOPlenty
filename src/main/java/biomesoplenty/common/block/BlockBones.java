@@ -31,17 +31,36 @@ public class BlockBones extends Block implements IBOPBlock
 {
     
     // add properties
-    public static enum BoneType implements IStringSerializable {SMALL, MEDIUM, LARGE; public String getName() {return this.name().toLowerCase();}};
+    public static enum BoneType implements IStringSerializable
+    {
+        SMALL, MEDIUM, LARGE;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BoneType.class);
     public static final PropertyEnum AXIS = PropertyEnum.create("axis", EnumFacing.Axis.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { AXIS, VARIANT });}
 
+    
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {AXIS, VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         return ((BoneType) state.getValue(VARIANT)).getName() + "_bone_segment";

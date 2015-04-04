@@ -31,10 +31,15 @@ public class BlockDecoration extends Block implements IBOPBlock
 {
     
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {}; }
+    @Override
     public String getStateName(IBlockState state) {return "";}
 
 
@@ -116,18 +121,21 @@ public class BlockDecoration extends Block implements IBOPBlock
     }
 
     // not opaque
+    @Override
     public boolean isOpaqueCube()
     {
         return false;
     }
 
     // not full cube
+    @Override
     public boolean isFullCube()
     {
         return false;
     }
 
     @SideOnly(Side.CLIENT)
+    @Override
     public EnumWorldBlockLayer getBlockLayer()
     {
         return EnumWorldBlockLayer.CUTOUT;

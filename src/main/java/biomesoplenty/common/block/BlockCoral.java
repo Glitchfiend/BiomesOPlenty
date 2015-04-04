@@ -29,14 +29,30 @@ public class BlockCoral extends BlockDecoration
 {
     
     // TODO: Readd kelp
-    public static enum CoralType implements IStringSerializable {PINK, ORANGE, BLUE, GLOWING, ALGAE; public String getName(){return this.name().toLowerCase();}}
+    public static enum CoralType implements IStringSerializable
+    {
+        PINK, ORANGE, BLUE, GLOWING, ALGAE;
+        @Override
+        public String getName()
+        {
+            return this.name().toLowerCase();
+        }
+        @Override
+        public String toString()
+        {
+            return this.getName();
+        }
+    };
     public static PropertyEnum VARIANT = PropertyEnum.create("variant", CoralType.class);
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LEVEL, VARIANT });}  
 
     // implement IBOPBlock
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    @Override
     public String getStateName(IBlockState state)
     {
         CoralType type = (CoralType) state.getValue(VARIANT);

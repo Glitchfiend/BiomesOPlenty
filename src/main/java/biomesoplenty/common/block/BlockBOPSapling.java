@@ -58,10 +58,13 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     }
     
     
+    // map from state to meta and vice verca
+    @Override
     public IBlockState getStateFromMeta(int meta)
     {
         return this.getDefaultState().withProperty(STAGE, Integer.valueOf(meta));
     }
+    @Override
     public int getMetaFromState(IBlockState state)
     {
         return ((Integer)state.getValue(STAGE)).intValue();

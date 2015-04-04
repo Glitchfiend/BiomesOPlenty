@@ -24,10 +24,15 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
 {  
 
     // implement IBOPBlock
+    @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
+    @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
+    @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
+    @Override
     public IProperty[] getRenderProperties() { return new IProperty[] {FACING, OPEN, HINGE, HALF}; }
+    @Override
     public String getStateName(IBlockState state) {return "";}
     
     private Item doorItem;
