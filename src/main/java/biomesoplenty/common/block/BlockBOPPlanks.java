@@ -16,8 +16,8 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.BOPWoodEnums.allWoods;
-import biomesoplenty.api.block.BOPWoodEnums.sixteenWoods;
+import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
+import biomesoplenty.api.block.BOPWoodEnums.SixteenWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockBOPPlanks extends Block implements IBOPBlock
@@ -25,7 +25,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     
     // add properties (note we inherit LOG_AXIS property from parent BlockLog)
     // all 4 bits available for VARIANT, which means we can have 16 woods per instance
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", sixteenWoods.class );
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", SixteenWoods.class );
     protected int pageNum;
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });}
@@ -43,7 +43,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((sixteenWoods) state.getValue(VARIANT)).map(this.pageNum).getName() + "_planks";
+        return ((SixteenWoods) state.getValue(VARIANT)).map(this.pageNum).getName() + "_planks";
     }
     
     
@@ -51,7 +51,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     {
         super(Material.wood);
         this.pageNum = pageNum;
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, sixteenWoods.A));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, SixteenWoods.A));
         this.setHarvestLevel("axe", 0);
     }
     
@@ -59,12 +59,12 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, sixteenWoods.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, SixteenWoods.values()[meta]);
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((sixteenWoods) state.getValue(VARIANT)).ordinal();
+        return ((SixteenWoods) state.getValue(VARIANT)).ordinal();
     }
 
     @Override
@@ -73,9 +73,9 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
         return this.getMetaFromState(state);
     }
     
-    public IBlockState getStateByWood(allWoods wood)
+    public IBlockState getStateByWood(AllWoods wood)
     {
-        return this.getDefaultState().withProperty(VARIANT, sixteenWoods.mapFrom(wood));
+        return this.getDefaultState().withProperty(VARIANT, SixteenWoods.mapFrom(wood));
     }
     
 }

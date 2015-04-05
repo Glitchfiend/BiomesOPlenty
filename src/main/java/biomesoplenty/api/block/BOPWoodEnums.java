@@ -13,7 +13,7 @@ import net.minecraft.util.IStringSerializable;
 public class BOPWoodEnums
 {
     
-    public static enum allWoods implements IStringSerializable {
+    public static enum AllWoods implements IStringSerializable {
         // TODO: change HELL_BARK to HELLBARK for consistency with BOPTreeEnums
         SACRED_OAK, CHERRY, DARK, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, PINE, HELL_BARK, JACARANDA, MAHOGANY, GIANT_FLOWER, DEAD;
         @Override
@@ -27,15 +27,15 @@ public class BOPWoodEnums
         }
     }
 
-    public static enum twoWoods implements IStringSerializable {
+    public static enum TwoWoods implements IStringSerializable {
         A, B;
-        public allWoods map(int page)
+        public AllWoods map(int page)
         {
-            return allWoods.values()[page * 2 + this.ordinal()];
+            return AllWoods.values()[page * 2 + this.ordinal()];
         }
-        public static twoWoods mapFrom(allWoods e)
+        public static TwoWoods mapFrom(AllWoods e)
         {
-            return twoWoods.values()[ e.ordinal() % 2 ];
+            return TwoWoods.values()[ e.ordinal() % 2 ];
         }
         @Override
         public String getName() {
@@ -48,15 +48,15 @@ public class BOPWoodEnums
         }
     }
     
-    public static enum fourWoods implements IStringSerializable {
+    public static enum FourWoods implements IStringSerializable {
         A, B, C, D;
-        public allWoods map(int page)
+        public AllWoods map(int page)
         {
-            return allWoods.values()[page * 4 + this.ordinal()];
+            return AllWoods.values()[page * 4 + this.ordinal()];
         }
-        public static fourWoods mapFrom(allWoods e)
+        public static FourWoods mapFrom(AllWoods e)
         {
-            return fourWoods.values()[ e.ordinal() % 4 ];
+            return FourWoods.values()[ e.ordinal() % 4 ];
         }
         @Override
         public String getName() {
@@ -69,15 +69,15 @@ public class BOPWoodEnums
         }
     }
     
-    public static enum eightWoods implements IStringSerializable {
+    public static enum EightWoods implements IStringSerializable {
         A, B, C, D, E, F, G, H;
-        public allWoods map(int page)
+        public AllWoods map(int page)
         {
-            return allWoods.values()[page * 8 + this.ordinal()];
+            return AllWoods.values()[page * 8 + this.ordinal()];
         }
-        public static eightWoods mapFrom(allWoods e)
+        public static EightWoods mapFrom(AllWoods e)
         {
-            return eightWoods.values()[ e.ordinal() % 8 ];
+            return EightWoods.values()[ e.ordinal() % 8 ];
         }
         @Override
         public String getName() {
@@ -90,15 +90,15 @@ public class BOPWoodEnums
         }
     }
     
-    public static enum sixteenWoods implements IStringSerializable {
+    public static enum SixteenWoods implements IStringSerializable {
         A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P;
-        public allWoods map(int page)
+        public AllWoods map(int page)
         {
-            return allWoods.values()[page * 16 + this.ordinal()];
+            return AllWoods.values()[page * 16 + this.ordinal()];
         }
-        public static sixteenWoods mapFrom(allWoods e)
+        public static SixteenWoods mapFrom(AllWoods e)
         {
-            return sixteenWoods.values()[ e.ordinal() % 16 ];
+            return SixteenWoods.values()[ e.ordinal() % 16 ];
         }
         @Override
         public String getName() {

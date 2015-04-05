@@ -13,7 +13,7 @@ import net.minecraft.util.IStringSerializable;
 public class BOPTreeEnums
 {
     
-    public static enum allTrees implements IStringSerializable {
+    public static enum AllTrees implements IStringSerializable {
         
         // UNUSED_A and UNUSED_B are present to make the number up to 24 so that we can have 3 'pages' of 8 saplings without out-of-range index errors
         YELLOW_AUTUMN, ORANGE_AUTUMN, BAMBOO, MAGIC, DARK, DEAD, FIR, ETHEREAL, ORIGIN, PINK_CHERRY, WHITE_CHERRY, MAPLE, HELLBARK, FLOWERING, JACARANDA, SACRED_OAK, MANGROVE, PALM, REDWOOD, WILLOW, PINE, MAHOGANY, UNUSED_A, UNUSED_B;
@@ -29,15 +29,15 @@ public class BOPTreeEnums
         }
     }
 
-    public static enum twoTrees implements IStringSerializable {
+    public static enum TwoTrees implements IStringSerializable {
         A, B;
-        public allTrees map(int page)
+        public AllTrees map(int page)
         {
-            return allTrees.values()[page * 2 + this.ordinal()];
+            return AllTrees.values()[page * 2 + this.ordinal()];
         }
-        public static twoTrees mapFrom(allTrees e)
+        public static TwoTrees mapFrom(AllTrees e)
         {
-            return twoTrees.values()[ e.ordinal() % 2 ];
+            return TwoTrees.values()[ e.ordinal() % 2 ];
         }
         @Override
         public String getName() {
@@ -50,15 +50,15 @@ public class BOPTreeEnums
         }
     }
     
-    public static enum fourTrees implements IStringSerializable {
+    public static enum FourTrees implements IStringSerializable {
         A, B, C, D;
-        public allTrees map(int page)
+        public AllTrees map(int page)
         {
-            return allTrees.values()[page * 4 + this.ordinal()];
+            return AllTrees.values()[page * 4 + this.ordinal()];
         }
-        public static fourTrees mapFrom(allTrees e)
+        public static FourTrees mapFrom(AllTrees e)
         {
-            return fourTrees.values()[ e.ordinal() % 4 ];
+            return FourTrees.values()[ e.ordinal() % 4 ];
         }
         @Override
         public String getName() {
@@ -71,15 +71,15 @@ public class BOPTreeEnums
         }
     }
     
-    public static enum eightTrees implements IStringSerializable {
+    public static enum EightTrees implements IStringSerializable {
         A, B, C, D, E, F, G, H;
-        public allTrees map(int page)
+        public AllTrees map(int page)
         {
-            return allTrees.values()[page * 8 + this.ordinal()];
+            return AllTrees.values()[page * 8 + this.ordinal()];
         }
-        public static eightTrees mapFrom(allTrees e)
+        public static EightTrees mapFrom(AllTrees e)
         {
-            return eightTrees.values()[ e.ordinal() % 8 ];
+            return EightTrees.values()[ e.ordinal() % 8 ];
         }
         @Override
         public String getName() {

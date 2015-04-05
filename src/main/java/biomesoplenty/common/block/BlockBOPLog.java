@@ -8,8 +8,8 @@
 
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPWoodEnums.allWoods;
-import biomesoplenty.api.block.BOPWoodEnums.fourWoods;
+import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
+import biomesoplenty.api.block.BOPWoodEnums.FourWoods;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockLog;
@@ -24,7 +24,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     
     // add properties (note we inherit LOG_AXIS property from parent BlockLog)
     // LOG_AXIS requires 2 meta bits, so we have 2 left for the VARIANT, which means we can have four woods per instance
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", fourWoods.class );
+    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FourWoods.class );
     protected int pageNum;
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS, VARIANT });}
@@ -42,7 +42,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        allWoods wood = ((fourWoods) state.getValue(VARIANT)).map(this.pageNum);
+        AllWoods wood = ((FourWoods) state.getValue(VARIANT)).map(this.pageNum);
         switch (wood)
         {
             case GIANT_FLOWER:
@@ -57,7 +57,7 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     {
         super();
         this.pageNum = pageNum;
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y).withProperty(VARIANT, fourWoods.A));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y).withProperty(VARIANT, FourWoods.A));
         this.setHarvestLevel("axe", 0);
     }
     
@@ -65,12 +65,12 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.values()[meta >> 2]).withProperty(VARIANT, fourWoods.values()[meta & 3]);
+        return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.values()[meta >> 2]).withProperty(VARIANT, FourWoods.values()[meta & 3]);
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal() * 4 + ((fourWoods) state.getValue(VARIANT)).ordinal();
+        return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal() * 4 + ((FourWoods) state.getValue(VARIANT)).ordinal();
     }
 
     // discard the axis information - otherwise logs facing different directions would not stack together
