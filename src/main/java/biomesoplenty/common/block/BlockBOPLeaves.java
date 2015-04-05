@@ -60,7 +60,14 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((FourTrees) state.getValue(VARIANT)).map(this.pageNum).getName() + "_leaves";
+        AllTrees treeType = ((FourTrees) state.getValue(VARIANT)).map(this.pageNum);
+        switch (treeType)
+        {
+            case REG_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+                return treeType.getName() + "_petal";
+            default:
+                return treeType.getName() + "_leaves";
+        }
     }
     
     public BlockBOPLeaves(int pageNum)
@@ -150,6 +157,8 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case WILLOW:
             case PINE:
             case MAHOGANY:
+            case REG_BIG_FLOWER:
+            case YELLOW_BIG_FLOWER:
             default:
                  fruit = new ItemStack(Items.apple, 1, 0);
         }        

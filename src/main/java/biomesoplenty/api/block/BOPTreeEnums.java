@@ -15,8 +15,7 @@ public class BOPTreeEnums
     
     public static enum AllTrees implements IStringSerializable {
         
-        // UNUSED_A and UNUSED_B are present to make the number up to 24 so that we can have 3 'pages' of 8 saplings without out-of-range index errors
-        YELLOW_AUTUMN, ORANGE_AUTUMN, BAMBOO, MAGIC, DARK, DEAD, FIR, ETHEREAL, ORIGIN, PINK_CHERRY, WHITE_CHERRY, MAPLE, HELLBARK, FLOWERING, JACARANDA, SACRED_OAK, MANGROVE, PALM, REDWOOD, WILLOW, PINE, MAHOGANY, UNUSED_A, UNUSED_B;
+        YELLOW_AUTUMN, ORANGE_AUTUMN, BAMBOO, MAGIC, DARK, DEAD, FIR, ETHEREAL, ORIGIN, PINK_CHERRY, WHITE_CHERRY, MAPLE, HELLBARK, FLOWERING, JACARANDA, SACRED_OAK, MANGROVE, PALM, REDWOOD, WILLOW, PINE, MAHOGANY, REG_BIG_FLOWER, YELLOW_BIG_FLOWER;
         
         @Override
         public String getName() {

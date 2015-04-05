@@ -8,13 +8,13 @@
         "check_decay=true,decayable=false,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
         "check_decay=false,decayable=true,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
         "check_decay=false,decayable=false,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
-        "check_decay=true,decayable=true,variant=c": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=true,decayable=false,variant=c": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=false,decayable=true,variant=c": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=false,decayable=false,variant=c": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=true,decayable=true,variant=d": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=true,decayable=false,variant=d": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=false,decayable=true,variant=d": { "model": "biomesoplenty:yellow_autumn_leaves" },
-        "check_decay=false,decayable=false,variant=d": { "model": "biomesoplenty:yellow_autumn_leaves" }
+        "check_decay=true,decayable=true,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
+        "check_decay=true,decayable=false,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
+        "check_decay=false,decayable=true,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
+        "check_decay=false,decayable=false,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
+        "check_decay=true,decayable=true,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" },
+        "check_decay=true,decayable=false,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" },
+        "check_decay=false,decayable=true,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" },
+        "check_decay=false,decayable=false,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" }
     }
 }
