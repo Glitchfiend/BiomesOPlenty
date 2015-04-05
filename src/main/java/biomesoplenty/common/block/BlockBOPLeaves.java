@@ -29,8 +29,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: sort out proper base color when using fast graphics
 // TODO: flowers look tinted when using fast graphics
@@ -189,6 +192,21 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             default:
                 return Blocks.leaves.getFireSpreadSpeed(world, pos, face);
         }
+    }
+    
+    
+    //The fields used by getBlockLayer() and isOpaqueCube() are set externally for Blocks.leaves *specifically*. As a result, we do not inherit
+    //it simply be extending BlockLeaves.
+    @SideOnly(Side.CLIENT)
+    public EnumWorldBlockLayer getBlockLayer()
+    {
+        return Blocks.leaves.getBlockLayer();
+    }
+    
+    @Override
+    public boolean isOpaqueCube()
+    {
+        return Blocks.leaves.isOpaqueCube();
     }
     
     
