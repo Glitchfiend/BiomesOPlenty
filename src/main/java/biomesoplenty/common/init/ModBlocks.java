@@ -206,6 +206,7 @@ public class ModBlocks
     {
         door_block = registerBlock( new BlockBOPDoor(), name + "_block", null );
         door_item = ModItems.registerItem( new ItemDoor(door_block), name );
+        ((BlockBOPDoor)door_block).setDoorItem(door_item);
         return door_block;
     }
     

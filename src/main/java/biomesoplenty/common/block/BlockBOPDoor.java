@@ -8,11 +8,14 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Random;
+
 import biomesoplenty.api.block.IBOPBlock;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
@@ -40,6 +43,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     public BlockBOPDoor()
     {
         super(Material.wood);
+        this.setHardness(3.0F);
         this.setHarvestLevel("axe", 0);
     }
     
@@ -48,12 +52,22 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
         this.doorItem = doorItem;
     }
     
+    public Item getDoorItem()
+    {
+        return this.doorItem == null ? Items.oak_door : this.doorItem;
+    }
+    
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World worldIn, BlockPos pos)
     {
-        return this.doorItem;
-
+        return this.getDoorItem();
+    }
+    
+    @Override
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return state.getValue(HALF) == BlockDoor.EnumDoorHalf.UPPER ? null : this.getDoorItem();
     }
 }
     
