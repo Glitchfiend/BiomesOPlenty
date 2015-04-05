@@ -63,7 +63,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         AllTrees treeType = ((FourTrees) state.getValue(VARIANT)).map(this.pageNum);
         switch (treeType)
         {
-            case REG_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+            case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
                 return treeType.getName() + "_petal";
             default:
                 return treeType.getName() + "_leaves";
@@ -157,7 +157,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case WILLOW:
             case PINE:
             case MAHOGANY:
-            case REG_BIG_FLOWER:
+            case RED_BIG_FLOWER:
             case YELLOW_BIG_FLOWER:
             default:
                  fruit = new ItemStack(Items.apple, 1, 0);
