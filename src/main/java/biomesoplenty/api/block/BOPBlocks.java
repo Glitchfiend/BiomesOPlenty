@@ -127,6 +127,6 @@ public class BOPBlocks
     public static Block foliage;
     public static Block double_foliage;
     
-    
+    public static Block honey_block;
     
 }

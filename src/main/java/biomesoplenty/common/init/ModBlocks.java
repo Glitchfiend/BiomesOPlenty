@@ -59,6 +59,7 @@ import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
 import biomesoplenty.common.block.BlockHive;
+import biomesoplenty.common.block.BlockHoney;
 import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockStoneFormations;
 import biomesoplenty.common.block.BlockTurnip;
@@ -212,9 +213,9 @@ public class ModBlocks
         wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );
         
         foliage =           registerBlock( new BlockFoliage(), "foliage" );
-        double_foliage = registerBlock( new BlockDoubleFoliage(), "double_foliage" );
+        double_foliage =    registerBlock( new BlockDoubleFoliage(), "double_foliage" );
         
-      
+        honey_block =       registerBlock( new BlockHoney(), "honey_block" );
         
     }
     
