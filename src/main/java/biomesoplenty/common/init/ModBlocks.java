@@ -109,10 +109,10 @@ public class ModBlocks
         // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
         leaves_0 =              registerBlock( new BlockBOPLeaves(0), "leaves_0");
         leaves_1 =              registerBlock( new BlockBOPLeaves(1), "leaves_1" );
-        leaves_2 =              registerBlock( new BlockBOPLeaves(1), "leaves_2" );
-        leaves_3 =              registerBlock( new BlockBOPLeaves(1), "leaves_3" );
-        leaves_4 =              registerBlock( new BlockBOPLeaves(1), "leaves_4" );
-        leaves_5 =              registerBlock( new BlockBOPLeaves(1), "leaves_5" );
+        leaves_2 =              registerBlock( new BlockBOPLeaves(2), "leaves_2" );
+        leaves_3 =              registerBlock( new BlockBOPLeaves(3), "leaves_3" );
+        leaves_4 =              registerBlock( new BlockBOPLeaves(4), "leaves_4" );
+        leaves_5 =              registerBlock( new BlockBOPLeaves(5), "leaves_5" );
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         sapling_0 =             registerBlock( new BlockBOPSapling(0), "sapling_0");
         sapling_1 =             registerBlock( new BlockBOPSapling(1), "sapling_1");
