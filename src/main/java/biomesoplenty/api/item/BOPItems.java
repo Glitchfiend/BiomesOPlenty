@@ -40,4 +40,6 @@ public class BOPItems
     public static Item jacaranda_door;
     public static Item mahogany_door;
     
+    public static Item wood_slab_0;
+    public static Item wood_slab_1;
 }

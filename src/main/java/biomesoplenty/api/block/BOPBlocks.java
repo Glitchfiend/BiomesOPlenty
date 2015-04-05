@@ -39,6 +39,10 @@ public class BOPBlocks
     public static Block sapling_2;
     // TODO fruit tree leaves and saplings
     public static Block planks_0;
+    public static Block half_wood_slab_0;
+    public static Block half_wood_slab_1;
+    public static Block double_wood_slab_0;
+    public static Block double_wood_slab_1;
     public static Block sacred_oak_stairs;
     public static Block cherry_stairs;
     public static Block dark_stairs;

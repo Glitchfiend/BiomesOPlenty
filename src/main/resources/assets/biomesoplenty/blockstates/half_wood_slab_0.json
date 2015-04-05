@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "half=bottom,variant=a": { "model": "biomesoplenty:half_slab_sacred_oak" },
+        "half=top,variant=a": { "model": "biomesoplenty:upper_slab_sacred_oak" },
+        "half=bottom,variant=b": { "model": "biomesoplenty:half_slab_cherry" },
+        "half=top,variant=b": { "model": "biomesoplenty:upper_slab_cherry" },
+        "half=bottom,variant=c": { "model": "biomesoplenty:half_slab_dark" },
+        "half=top,variant=c": { "model": "biomesoplenty:upper_slab_dark" },
+        "half=bottom,variant=d": { "model": "biomesoplenty:half_slab_fir" },
+        "half=top,variant=d": { "model": "biomesoplenty:upper_slab_fir" },
+        "half=bottom,variant=e": { "model": "biomesoplenty:half_slab_ethereal" },
+        "half=top,variant=e": { "model": "biomesoplenty:upper_slab_ethereal" },
+        "half=bottom,variant=f": { "model": "biomesoplenty:half_slab_magic" },
+        "half=top,variant=f": { "model": "biomesoplenty:upper_slab_magic" },
+        "half=bottom,variant=g": { "model": "biomesoplenty:half_slab_mangrove" },
+        "half=top,variant=g": { "model": "biomesoplenty:upper_slab_mangrove" },
+        "half=bottom,variant=h": { "model": "biomesoplenty:half_slab_palm" },
+        "half=top,variant=h": { "model": "biomesoplenty:upper_slab_palm" }
+    }
+}

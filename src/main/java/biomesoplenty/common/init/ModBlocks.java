@@ -10,6 +10,7 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -18,8 +19,10 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
+import net.minecraft.item.ItemSlab;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
@@ -28,12 +31,14 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoor;
+import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
 import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
 import biomesoplenty.common.block.BlockBOPFlower1;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPGeneric;
 import biomesoplenty.common.block.BlockBOPGrass;
+import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLilypad;
 import biomesoplenty.common.block.BlockBOPLog;
@@ -110,6 +115,7 @@ public class ModBlocks
         log_1 =                 registerBlock( new BlockBOPLog(1), "log_1" );
         log_2 =                 registerBlock( new BlockBOPLog(2), "log_2" );
         log_3 =                 registerBlock( new BlockBOPLog(3), "log_3" );
+        
         // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
         leaves_0 =              registerBlock( new BlockBOPLeaves(0), "leaves_0");
         leaves_1 =              registerBlock( new BlockBOPLeaves(1), "leaves_1" );
@@ -117,14 +123,21 @@ public class ModBlocks
         leaves_3 =              registerBlock( new BlockBOPLeaves(3), "leaves_3" );
         leaves_4 =              registerBlock( new BlockBOPLeaves(4), "leaves_4" );
         leaves_5 =              registerBlock( new BlockBOPLeaves(5), "leaves_5" );
+        
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
         sapling_0 =             registerBlock( new BlockBOPSapling(0), "sapling_0");
         sapling_1 =             registerBlock( new BlockBOPSapling(1), "sapling_1");
         sapling_2 =             registerBlock( new BlockBOPSapling(2), "sapling_2");
+        
         // TODO: check if hellbark planks, fence etc can burn
-        // TODO: wooden slabs
+        
+        // 16 wood types, 8 per BlockBOPHalfWoodSlab and BlockBOPDoubleWoodSlab intance, needs 2 'pages'
+        registerWoodSlab( half_wood_slab_0, double_wood_slab_0, BOPItems.wood_slab_0, 0);
+        registerWoodSlab( half_wood_slab_1, double_wood_slab_1, BOPItems.wood_slab_1, 1);
+        
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
         planks_0 =              registerBlock( new BlockBOPPlanks(0), "planks_0");
+        
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
         sacred_oak_stairs =     registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.SACRED_OAK)), "sacred_oak_stairs" );
         cherry_stairs =         registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.CHERRY)), "cherry_stairs" );
@@ -140,6 +153,7 @@ public class ModBlocks
         hell_bark_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.HELL_BARK)), "hell_bark_stairs" );
         jacaranda_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.JACARANDA)), "jacaranda_stairs" );
         mahogany_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.MAHOGANY)), "mahogany_stairs" );
+        
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
         sacred_oak_fence =      registerBlock( new BlockBOPFence(), "sacred_oak_fence" );
         cherry_fence =          registerBlock( new BlockBOPFence(), "cherry_fence" );
@@ -155,6 +169,7 @@ public class ModBlocks
         hell_bark_fence =       registerBlock( new BlockBOPFence(), "hell_bark_fence" );
         jacaranda_fence =       registerBlock( new BlockBOPFence(), "jacaranda_fence" );
         mahogany_fence =        registerBlock( new BlockBOPFence(), "mahogany_fence" );
+        
         // fence gates have no variant metadata, use a new BlockBOPFenceGate instance for each (note there's no giant_flower_fence_gate or dead_fence_gate)
         sacred_oak_fence_gate = registerBlock( new BlockBOPFenceGate(), "sacred_oak_fence_gate" );
         cherry_fence_gate =     registerBlock( new BlockBOPFenceGate(), "cherry_fence_gate" );
@@ -170,6 +185,7 @@ public class ModBlocks
         hell_bark_fence_gate =  registerBlock( new BlockBOPFenceGate(), "hell_bark_fence_gate" );
         jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(), "jacaranda_fence_gate" );
         mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(), "mahogany_fence_gate" );
+        
         // doors have no variant metadata, use a new BlockBOPDoor instance for each (note there's no giant_flower_door or dead_door)
         sacred_oak_door =       registerDoor( new BlockBOPDoor(), "sacred_oak_door", BOPItems.sacred_oak_door );
         cherry_door =           registerDoor( new BlockBOPDoor(), "cherry_door", BOPItems.cherry_door );
@@ -198,10 +214,22 @@ public class ModBlocks
         foliage =           registerBlock( new BlockFoliage(), "foliage" );
         double_foliage = registerBlock( new BlockDoubleFoliage(), "double_foliage" );
         
+      
         
     }
     
     
+    // use a separate function for registering slabs because the half slab, double slab, and item really need to be registered together
+    public static void registerWoodSlab(Block half_slab, Block double_slab, Item slab_item, int pageNum)
+    {
+        half_slab =      registerBlock( new BlockBOPHalfWoodSlab(pageNum), "half_wood_slab_" + pageNum );
+        double_slab =    registerBlock( new BlockBOPDoubleWoodSlab(pageNum), "double_wood_slab_" + pageNum, null ); // no creative tab for double slab
+        slab_item =  ModItems.registerItem( new ItemSlab(half_slab, (BlockSlab)half_slab, (BlockSlab)double_slab), "wood_slab_" + pageNum );
+        GameData.getBlockItemMap().put(half_slab, slab_item);      
+        GameData.getBlockItemMap().put(double_slab, slab_item);
+    }
+    
+    // use a separate function for registering doors because the door block and item need to be registered together
     public static Block registerDoor(Block door_block, String name, Item door_item)
     {
         door_block = registerBlock( new BlockBOPDoor(), name + "_block", null );
@@ -209,6 +237,7 @@ public class ModBlocks
         ((BlockBOPDoor)door_block).setDoorItem(door_item);
         return door_block;
     }
+    
     
     public static void registerBlockVariant(Block block, String stateName, int stateMeta)
     {

@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "half=bottom,variant=a": { "model": "biomesoplenty:half_slab_redwood" },
+        "half=top,variant=a": { "model": "biomesoplenty:upper_slab_redwood" },
+        "half=bottom,variant=b": { "model": "biomesoplenty:half_slab_willow" },
+        "half=top,variant=b": { "model": "biomesoplenty:upper_slab_willow" },
+        "half=bottom,variant=c": { "model": "biomesoplenty:half_slab_pine" },
+        "half=top,variant=c": { "model": "biomesoplenty:upper_slab_pine" },
+        "half=bottom,variant=d": { "model": "biomesoplenty:half_slab_hell_bark" },
+        "half=top,variant=d": { "model": "biomesoplenty:upper_slab_hell_bark" },
+        "half=bottom,variant=e": { "model": "biomesoplenty:half_slab_jacaranda" },
+        "half=top,variant=e": { "model": "biomesoplenty:upper_slab_jacaranda" },
+        "half=bottom,variant=f": { "model": "biomesoplenty:half_slab_mahogany" },
+        "half=top,variant=f": { "model": "biomesoplenty:upper_slab_mahogany" },
+        "half=bottom,variant=g": { "model": "biomesoplenty:half_slab_giant_flower" },
+        "half=top,variant=g": { "model": "biomesoplenty:upper_slab_giant_flower" },
+        "half=bottom,variant=h": { "model": "biomesoplenty:half_slab_dead" },
+        "half=top,variant=h": { "model": "biomesoplenty:upper_slab_dead" }
+    }
+}
