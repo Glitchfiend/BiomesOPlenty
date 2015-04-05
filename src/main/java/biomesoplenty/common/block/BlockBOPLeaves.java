@@ -197,6 +197,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     
     //The fields used by getBlockLayer() and isOpaqueCube() are set externally for Blocks.leaves *specifically*. As a result, we do not inherit
     //it simply be extending BlockLeaves.
+    @Override
     @SideOnly(Side.CLIENT)
     public EnumWorldBlockLayer getBlockLayer()
     {
