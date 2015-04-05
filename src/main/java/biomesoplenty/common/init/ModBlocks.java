@@ -9,19 +9,21 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.block.BOPBlocks.*;
-
-import com.google.common.collect.ImmutableSet;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import biomesoplenty.api.block.IBOPBlock;
+import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPWoodEnums.allWoods;
+import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPDirt;
@@ -46,6 +48,7 @@ import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockCrystal;
 import biomesoplenty.common.block.BlockDoubleFoliage;
+import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockFoliage;
 import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
@@ -54,11 +57,12 @@ import biomesoplenty.common.block.BlockHive;
 import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockStoneFormations;
 import biomesoplenty.common.block.BlockTurnip;
-import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
+
+import com.google.common.collect.ImmutableSet;
 
 public class ModBlocks
 {
@@ -208,10 +212,11 @@ public class ModBlocks
     public static void registerBlockVariant(Block block, String stateName, int stateMeta)
     {
         Item item = Item.getItemFromBlock(block);
-        if (item != null){
-            BiomesOPlenty.proxy.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + stateName);
+        if (item != null && FMLCommonHandler.instance().getSide() == Side.CLIENT) { 
+            ModelBakery.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + stateName);
+            ModelLoader.setCustomModelResourceLocation(item, stateMeta, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + stateName, "inventory"));
         }
-        BiomesOPlenty.proxy.registerBlockForMeshing(block, stateMeta, stateName);
+
         GuiEventHandler.blockCount++;
     }
     

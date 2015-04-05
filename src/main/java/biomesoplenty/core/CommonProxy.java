@@ -8,19 +8,8 @@
 
 package biomesoplenty.core;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 
 public class CommonProxy
 {
     public void registerRenderers() {}
-    
-    public void addVariantName(Item item, String... names) {}
-
-    public void registerBlockForMeshing(Block block, int metadata, String name) {}
-    
-    public void registerItemForMeshing(Item item, String name) {}
-    public void registerItemForMeshing(Item item, int meta, String name) {}
-
-    
 }
