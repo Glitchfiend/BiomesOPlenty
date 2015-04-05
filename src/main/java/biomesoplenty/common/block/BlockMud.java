@@ -113,18 +113,16 @@ public class BlockMud extends Block implements IBOPBlock
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         
-        if (entity instanceof EntityPlayer) {
-            InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
-            // TODO: implement wadingBoots
-            //if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.wadingBoots) {
-            //    return;
-            //}
-        }
-        
         switch ((MudType) state.getValue(VARIANT))
         {
-            // mud slows you greatly
+            // mud slows you greatly unless you're wearing wading boots
             case MUD:
+                if (entity instanceof EntityPlayer) {
+                    InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+                    if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.wading_boots) {
+                        break;
+                    }
+                }
                 entity.motionX *= 0.1D;
                 entity.motionZ *= 0.1D;
                 break;

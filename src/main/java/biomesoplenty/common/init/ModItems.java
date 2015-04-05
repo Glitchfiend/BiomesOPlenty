@@ -14,8 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItemHelper;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemMudball;
+import biomesoplenty.common.item.ItemWadingBoots;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.resources.model.ModelBakery;
@@ -26,6 +28,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -46,6 +49,12 @@ public class ModItems
         filled_honeycomb = registerItem(new ItemFood(3, 0.4F, false), "filled_honeycomb");
         gem = registerItem(new ItemGem(), "gem");
         ash = registerItem(new Item(), "ash");
+    
+        // armor
+        // TODO: do we really want durability of -1?  does that mean it lasts forever?
+        BOPItemHelper.wading_boots_material = EnumHelper.addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
+        wading_boots = registerItem(new ItemWadingBoots(BOPItemHelper.wading_boots_material, 0), "wading_boots");
+    
     }
     
     public static Item registerItem(Item item, String name)

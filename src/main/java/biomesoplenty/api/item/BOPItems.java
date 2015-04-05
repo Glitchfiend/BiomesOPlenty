@@ -42,4 +42,7 @@ public class BOPItems
     
     public static Item wood_slab_0;
     public static Item wood_slab_1;
+    
+    public static Item wading_boots;
+    
 }
