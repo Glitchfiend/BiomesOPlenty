@@ -12,7 +12,10 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -268,6 +271,14 @@ public class ModBlocks
             // if this block supports the IBOPBlock interface then we can determine the item block class, and sub-blocks automatically
             IBOPBlock bopBlock = (IBOPBlock)block;
             GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
+            
+            IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
+            if (nonRenderingProperties != null)
+            {
+                // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
+                IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(nonRenderingProperties).build();
+                ModelLoader.setCustomStateMapper(block, custom_mapper);
+            }
             
             // check for missing default states
             IBlockState defaultState = block.getDefaultState();

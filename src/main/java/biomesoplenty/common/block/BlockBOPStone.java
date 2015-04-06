@@ -56,7 +56,7 @@ public class BlockBOPStone extends Block implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT, POLISHED}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT, POLISHED}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {

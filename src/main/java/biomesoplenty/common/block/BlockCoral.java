@@ -51,7 +51,7 @@ public class BlockCoral extends BlockDecoration
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return new IProperty[] {LEVEL}; }
     @Override
     public String getStateName(IBlockState state)
     {

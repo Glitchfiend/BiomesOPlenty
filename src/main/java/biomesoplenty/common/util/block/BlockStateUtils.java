@@ -86,19 +86,7 @@ public class BlockStateUtils
         IBlockState defaultState = block.getDefaultState();
         if (defaultState == null) {defaultState = block.getBlockState().getBaseState();}
         return getStatesSet(defaultState, ((IBOPBlock)block).getPresetProperties());        
-    }
-
-    // return all of the different 'render' variants of a block - IE the ones which have a distinct visual appearance and therefore need a model
-    // works by looping through all the different values of the properties specified in block.getRenderProperties()
-    // only works on blocks supporting IBOPBlock - returns an empty set for vanilla blocks
-    public static ImmutableSet<IBlockState> getBlockRenderStates(Block block)
-    {
-        if (!(block instanceof IBOPBlock)) {return ImmutableSet.<IBlockState>of();}
-        IBlockState defaultState = block.getDefaultState();
-        if (defaultState == null) {defaultState = block.getBlockState().getBaseState();}
-        return getStatesSet(defaultState, ((IBOPBlock)block).getRenderProperties());        
-    }
-    
+    }    
     
     
     /*  no use for this yet - but left here because it might be useful later

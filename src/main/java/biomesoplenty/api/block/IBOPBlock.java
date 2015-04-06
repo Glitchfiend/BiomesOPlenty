@@ -17,7 +17,7 @@ public interface IBOPBlock {
     public Class<? extends ItemBlock> getItemClass();
     public int getItemRenderColor(IBlockState state, int tintIndex);
     public IProperty[] getPresetProperties();
-    public IProperty[] getRenderProperties();
+    public IProperty[] getNonRenderingProperties();
     public String getStateName(IBlockState state);
     
 }

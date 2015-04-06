@@ -56,7 +56,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return new IProperty[] {CHECK_DECAY, DECAYABLE}; }
     @Override
     public String getStateName(IBlockState state)
     {

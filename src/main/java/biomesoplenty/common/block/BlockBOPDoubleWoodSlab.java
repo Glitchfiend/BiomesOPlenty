@@ -11,7 +11,7 @@ public class BlockBOPDoubleWoodSlab extends BlockBOPHalfWoodSlab implements IBOP
     
     // HALF isn't used in double slab because both halves are present
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return new IProperty[] {HALF}; }
     @Override
     public String getStateName(IBlockState state)
     {

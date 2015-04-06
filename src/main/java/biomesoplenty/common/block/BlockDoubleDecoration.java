@@ -45,7 +45,7 @@ class BlockDoubleDecoration extends BlockDecoration {
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { HALF });}
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {HALF}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
 
     public float radius;    
     public float height;

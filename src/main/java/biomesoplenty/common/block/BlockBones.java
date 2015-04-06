@@ -59,7 +59,7 @@ public class BlockBones extends Block implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {AXIS, VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {

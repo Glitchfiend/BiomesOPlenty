@@ -27,7 +27,7 @@ public class BlockBOPFence extends BlockFence implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {NORTH, EAST, SOUTH, WEST}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
 

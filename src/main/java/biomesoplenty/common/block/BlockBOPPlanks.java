@@ -39,7 +39,7 @@ public class BlockBOPPlanks extends Block implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {

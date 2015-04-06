@@ -56,7 +56,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {COARSE, VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {COARSE, VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {

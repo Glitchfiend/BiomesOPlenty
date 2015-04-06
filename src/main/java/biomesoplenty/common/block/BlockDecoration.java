@@ -38,7 +38,7 @@ public class BlockDecoration extends Block implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
 

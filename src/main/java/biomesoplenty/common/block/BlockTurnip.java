@@ -30,7 +30,7 @@ public class BlockTurnip extends BlockCrops implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {AGE}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {return "";}
     

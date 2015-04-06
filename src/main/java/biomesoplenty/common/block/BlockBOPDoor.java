@@ -27,6 +27,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
 {  
 
     // implement IBOPBlock
+    // properties inherited from BlockDoor:  FACING, OPEN, HINGE, HALF, POWERED
     @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
     @Override
@@ -34,7 +35,7 @@ public class BlockBOPDoor extends BlockDoor implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {FACING, OPEN, HINGE, HALF}; }
+    public IProperty[] getNonRenderingProperties() { return new IProperty[] {POWERED}; }
     @Override
     public String getStateName(IBlockState state) {return "";}
     

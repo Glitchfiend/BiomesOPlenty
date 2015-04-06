@@ -1,20 +1,8 @@
 {
     "variants": {
-        "check_decay=true,decayable=true,variant=a": { "model": "biomesoplenty:pine_leaves" },
-        "check_decay=true,decayable=false,variant=a": { "model": "biomesoplenty:pine_leaves" },
-        "check_decay=false,decayable=true,variant=a": { "model": "biomesoplenty:pine_leaves" },
-        "check_decay=false,decayable=false,variant=a": { "model": "biomesoplenty:pine_leaves" },
-        "check_decay=true,decayable=true,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
-        "check_decay=true,decayable=false,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
-        "check_decay=false,decayable=true,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
-        "check_decay=false,decayable=false,variant=b": { "model": "biomesoplenty:mahogany_leaves" },
-        "check_decay=true,decayable=true,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
-        "check_decay=true,decayable=false,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
-        "check_decay=false,decayable=true,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
-        "check_decay=false,decayable=false,variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
-        "check_decay=true,decayable=true,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" },
-        "check_decay=true,decayable=false,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" },
-        "check_decay=false,decayable=true,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" },
-        "check_decay=false,decayable=false,variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" }
+        "variant=a": { "model": "biomesoplenty:pine_leaves" },
+        "variant=b": { "model": "biomesoplenty:mahogany_leaves" },
+        "variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
+        "variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" }
     }
 }

@@ -69,7 +69,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {SNOWY, VARIANT}; }
+    public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state) {
         BOPGrassType grassType = (BOPGrassType)state.getValue(VARIANT);

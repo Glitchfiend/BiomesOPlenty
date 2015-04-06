@@ -22,6 +22,7 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
 {
  
     // implement IBOPBlock
+    // properties inherited from BlockFenceGate: FACING, OPEN, POWERED, IN_WALL
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPBlock.class; }
     @Override
@@ -29,7 +30,7 @@ public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {}; }
     @Override
-    public IProperty[] getRenderProperties() { return new IProperty[] {FACING, OPEN, IN_WALL}; }
+    public IProperty[] getNonRenderingProperties() { return new IProperty[] {POWERED}; }
     @Override
     public String getStateName(IBlockState state) {return "";}
 
