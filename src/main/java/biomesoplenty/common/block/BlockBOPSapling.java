@@ -10,9 +10,8 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
-import com.google.common.base.Predicate;
-
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BOPTreeEnums;
 import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -30,64 +29,34 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public abstract class BlockBOPSapling extends BlockDecoration implements IGrowable {
     
+   
+    // setup paged variant property
     
-    // store the variant properties for each page in this array
-    private static PropertyEnum[] variantProperties;
     // STAGE require one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
-    public static final int variantsPerPage = 8;
-    // fetch a particular page's variant property
-    // the first time this is called, it also sets up the array of variant properties
-    protected static PropertyEnum getVariantProperty(int pageNum)
-    {
-        int len = AllTrees.values().length;
-        int numPages = (int) Math.ceil( (double)len / variantsPerPage);
-        if (variantProperties == null)
-        {
-            variantProperties = new PropertyEnum[numPages];
-        }
-        pageNum = Math.max(0, Math.min(pageNum, numPages - 1));
-        if (variantProperties[pageNum] == null)
-        {
-            variantProperties[pageNum] = PropertyEnum.create("variant", AllTrees.class, getVariantEnumFilter(pageNum));
-        }
-        return variantProperties[pageNum];
-    }
-    // define the filter function used to reduce the set of enum values to the subset for the given page
-    protected static Predicate<AllTrees> getVariantEnumFilter(final int pageNum)
-    {
-        return new Predicate<AllTrees>()
-        {
-            @Override
-            public boolean apply(AllTrees tree)
-            {
-                switch (tree)
-                {
-                    case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
-                        return false;
-                    default:
-                        return (tree.ordinal() >= (variantsPerPage * pageNum)) && (tree.ordinal() < (variantsPerPage * (pageNum+1)));
-                }
-            }
-        };
-    }
+    public static final int VARIANTS_PER_PAGE = 8;
     // child classes must implement to define their page number
     abstract public int getPageNum();
+    // fetch the variant property for a given page
+    public static PropertyEnum getVariantProperty(int pageNum)
+    {
+        return BOPTreeEnums.getVariantProperty(pageNum, VARIANTS_PER_PAGE, BOPTreeEnums.TreesFilterType.SAPLINGS);
+    }
     // fetch the current instance's variant property
     public PropertyEnum getMyVariantProperty()
     {
-        return getVariantProperty(this.getPageNum());
+        return getVariantProperty(getPageNum());
     }
+    // get the meta bits from the variant
     public int metaFromVariant(AllTrees tree)
     {
-        return tree.ordinal() % variantsPerPage;
+        return tree.ordinal() % VARIANTS_PER_PAGE;
     }
+    // get the variant from meta bits (safely)
     public AllTrees variantFromMeta(int meta)
     {
-        int i = Math.max(0, Math.min(meta + (this.getPageNum() * variantsPerPage), AllTrees.values().length)); // clamp to 
+        int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllTrees.values().length));
         return AllTrees.values()[i];
     }
-    
-    
     
     
     // add properties

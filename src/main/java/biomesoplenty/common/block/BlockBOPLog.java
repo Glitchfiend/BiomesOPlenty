@@ -8,9 +8,8 @@
 
 package biomesoplenty.common.block;
 
-import com.google.common.base.Predicate;
-
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
+import biomesoplenty.api.block.BOPWoodEnums;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockLog;
@@ -23,57 +22,33 @@ import net.minecraft.item.ItemBlock;
 public abstract class BlockBOPLog extends BlockLog implements IBOPBlock
 {
     
+    // setup paged variant property
     
-    // store the variant properties for each page in this array
-    private static PropertyEnum[] variantProperties;
-    // number of variants per page
-    public static final int variantsPerPage = 4;
-    // fetch a particular page's variant property
-    // the first time this is called, it also sets up the array of variant properties
-    protected static PropertyEnum getVariantProperty(int pageNum)
-    {
-        int len = AllWoods.values().length;
-        int numPages = (int) Math.ceil( (double)len / variantsPerPage);
-        if (variantProperties == null)
-        {
-            variantProperties = new PropertyEnum[numPages];
-        }
-        pageNum = Math.max(0, Math.min(pageNum, numPages - 1));
-        if (variantProperties[pageNum] == null)
-        {
-            variantProperties[pageNum] = PropertyEnum.create("variant", AllWoods.class, getVariantEnumFilter(pageNum));
-        }
-        return variantProperties[pageNum];
-    }
-    // define the filter function used to reduce the set of enum values to the subset for the given page
-    protected static Predicate<AllWoods> getVariantEnumFilter(final int pageNum)
-    {
-        return new Predicate<AllWoods>()
-        {
-            @Override
-            public boolean apply(AllWoods wood)
-            {
-                return (wood.ordinal() >= (variantsPerPage * pageNum)) && (wood.ordinal() < (variantsPerPage * (pageNum+1)));
-            }
-        };
-    }
+    // STAGE require one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
+    public static final int VARIANTS_PER_PAGE = 4;
     // child classes must implement to define their page number
     abstract public int getPageNum();
+    // fetch the variant property for a given page
+    public static PropertyEnum getVariantProperty(int pageNum)
+    {
+        return BOPWoodEnums.getVariantProperty(pageNum, VARIANTS_PER_PAGE);
+    }
     // fetch the current instance's variant property
     public PropertyEnum getMyVariantProperty()
     {
-        return getVariantProperty(this.getPageNum());
+        return getVariantProperty(getPageNum());
     }
+    // get the meta bits from the variant
     public int metaFromVariant(AllWoods wood)
     {
-        return wood.ordinal() % variantsPerPage;
+        return wood.ordinal() % VARIANTS_PER_PAGE;
     }
+    // get the variant from meta bits (safely)
     public AllWoods variantFromMeta(int meta)
     {
-        int i = Math.max(0, Math.min(meta + (this.getPageNum() * variantsPerPage), AllWoods.values().length)); // clamp to 
+        int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllWoods.values().length));
         return AllWoods.values()[i];
-    }
-    
+    }    
     
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS, getMyVariantProperty() });}
