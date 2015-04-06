@@ -153,14 +153,17 @@ public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     }
     
     // TODO: different fruits for different trees?
-    // TODO: fruit seems to be falling too often
     @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
+        // chance will initially be related to fortune as follows:  0 => 200, 1 => 180, 2 => 160, 3 => 120, 4+ => 40
+        ItemStack fruit = null;
+        
         AllTrees tree = ((AllTrees) state.getValue(getMyVariantProperty()));
-        ItemStack fruit;
         switch (tree)
         {
+            case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+                break;
             case YELLOW_AUTUMN:
             case ORANGE_AUTUMN:
             case BAMBOO:
@@ -183,11 +186,14 @@ public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
             case WILLOW:
             case PINE:
             case MAHOGANY:
-            case RED_BIG_FLOWER:
-            case YELLOW_BIG_FLOWER:
             default:
-                 fruit = new ItemStack(Items.apple, 1, 0);
-        }        
+                if (worldIn.rand.nextInt(chance) == 0)
+                {
+                    fruit = new ItemStack(Items.apple, 1, 0);
+                }
+                break;
+        }
+        
         if (fruit != null) {
             spawnAsEntity(worldIn, pos, fruit);
         }
