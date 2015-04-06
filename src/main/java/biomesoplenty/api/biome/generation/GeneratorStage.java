@@ -8,42 +8,62 @@
 
 package biomesoplenty.api.biome.generation;
 
+import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
+
 import com.google.gson.annotations.SerializedName;
 
 public enum GeneratorStage
 {
     @SerializedName("pre")
-    PRE, 
+    PRE(null), 
     @SerializedName("big_shroom")
-    BIG_SHROOM, 
+    BIG_SHROOM(Decorate.EventType.BIG_SHROOM), 
     @SerializedName("cactus")
-    CACTUS, 
+    CACTUS(Decorate.EventType.CACTUS), 
     @SerializedName("clay")
-    CLAY, 
+    CLAY(Decorate.EventType.CLAY), 
     @SerializedName("dead_bush")
-    DEAD_BUSH, 
+    DEAD_BUSH(Decorate.EventType.DEAD_BUSH), 
     @SerializedName("lilypad")
-    LILYPAD, 
+    LILYPAD(Decorate.EventType.LILYPAD), 
     @SerializedName("flowers")
-    FLOWERS, 
+    FLOWERS(Decorate.EventType.FLOWERS), 
     @SerializedName("grass")
-    GRASS, 
+    GRASS(Decorate.EventType.GRASS), 
     @SerializedName("lake_water")
-    LAKE_WATER, 
+    LAKE_WATER(Decorate.EventType.LAKE_WATER), 
     @SerializedName("lake_lava")
-    LAKE_LAVA, 
+    LAKE_LAVA(Decorate.EventType.LAKE_LAVA), 
     @SerializedName("pumpkin")
-    PUMPKIN, 
+    PUMPKIN(Decorate.EventType.PUMPKIN), 
     @SerializedName("reed")
-    REED, 
+    REED(Decorate.EventType.REED), 
     @SerializedName("sand")
-    SAND, 
+    SAND(Decorate.EventType.SAND), 
     @SerializedName("sand_pass_2")
-    SAND_PASS2, 
+    SAND_PASS2(Decorate.EventType.SAND_PASS2), 
     @SerializedName("shroom")
-    SHROOM, 
+    SHROOM(Decorate.EventType.SHROOM), 
     @SerializedName("tree")
-    TREE, 
+    TREE(Decorate.EventType.TREE), 
     @SerializedName("post")
-    POST;
+    POST(null);
+    
+    private Decorate.EventType decorateType;
+    
+    private GeneratorStage(Decorate.EventType decorateType)
+    {
+        this.decorateType = decorateType;
+    }
+    
+    public Decorate.EventType getDecorateType()
+    {
+        return this.decorateType;
+    }
+    
+    public static GeneratorStage mapDecorateType(Decorate.EventType decorateType)
+    {
+        //Somewhat of a hack, requires the ordering of our enum to be the s
+        return decorateType != Decorate.EventType.CUSTOM ? GeneratorStage.values()[decorateType.ordinal() + 1] : null;
+    }
 }

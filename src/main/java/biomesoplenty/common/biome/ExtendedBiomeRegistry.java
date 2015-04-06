@@ -16,6 +16,8 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.generation.GenerationManager;
+import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.biome.generation.IGenerator;
 
 public class ExtendedBiomeRegistry
 {
@@ -62,6 +64,12 @@ public class ExtendedBiomeRegistry
             return BiomeOwner.OTHER;
         }
 
+        @Override
+        public void addGenerator(String name, GeneratorStage stage, IGenerator<?> generator)
+        {
+            this.generationManager.addGenerator(name, stage, generator);
+        }
+        
         @Override
         public GenerationManager getGenerationManager()
         {

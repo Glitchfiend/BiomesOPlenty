@@ -14,6 +14,8 @@ import java.util.Map;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
+import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.biome.generation.IGenerator;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -38,6 +40,12 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         return BiomeOwner.BIOMESOPLENTY;
     }
 
+    @Override
+    public void addGenerator(String name, GeneratorStage stage, IGenerator<?> generator)
+    {
+        this.generationManager.addGenerator(name, stage, generator);
+    }
+    
     @Override
     public GenerationManager getGenerationManager()
     {

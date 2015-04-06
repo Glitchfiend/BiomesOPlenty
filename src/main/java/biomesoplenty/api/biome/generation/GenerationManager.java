@@ -8,6 +8,7 @@
 
 package biomesoplenty.api.biome.generation;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,7 +22,7 @@ public class GenerationManager
 
     public void addGenerator(String name, GeneratorStage stage, IGenerator<?> generator)
     {
-        if (!generatorTable.containsColumn(name))
+        if (!this.generatorTable.containsColumn(name))
         {
             generator.setName(name);
             generator.setStage(stage);
@@ -32,6 +33,11 @@ public class GenerationManager
         {
             throw new RuntimeException("A generator with name " + name + " already exists!");
         }
+    }
+    
+    public Collection<IGenerator<?>> getGeneratorsForStage(GeneratorStage stage)
+    {
+        return this.generatorTable.rowMap().get(stage).values();
     }
     
     public Map<String, IGenerator<?>> createGeneratorMap()
