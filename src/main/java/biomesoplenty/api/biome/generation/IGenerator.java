@@ -17,8 +17,9 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public interface IGenerator<T>
+public interface IGenerator
 {
+    public void scatter(World world, Random random, BlockPos pos);
     public void generate(World world, Random random, BlockPos pos);
     
     public void setName(String name);

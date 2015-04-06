@@ -11,6 +11,8 @@ package biomesoplenty.common.biome.overworld;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class BiomeGenAlps extends BOPBiome
 {
@@ -23,9 +25,11 @@ public class BiomeGenAlps extends BOPBiome
         this.setEnableSnow();
         this.setTemperatureRainfall(0.0F, 0.5F);
 
+        this.addWeight(BiomeType.ICY, 5);
+        
         this.topBlock = Blocks.snow.getDefaultState();
         this.fillerBlock = Blocks.snow.getDefaultState();
         
-        this.addWeight(BiomeType.ICY, 5);
+        this.addGenerator("emeralds", GeneratorStage.SAND, new GeneratorOreSingle(Blocks.emerald_ore.getDefaultState(), 12, 4, 32));
     }
 }

@@ -24,14 +24,14 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 
-public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator<?>>, JsonDeserializer<IGenerator<?>>
+public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator>, JsonDeserializer<IGenerator>
 {
     @Override
-    public JsonElement serialize(IGenerator<?> src, Type typeOfSrc, JsonSerializationContext context)
+    public JsonElement serialize(IGenerator src, Type typeOfSrc, JsonSerializationContext context)
     {
         JsonObject jsonObject = new JsonObject();
         src.writeToJson(jsonObject, context);
-
+        
         jsonObject.addProperty("generator", src.getIdentifier());
         jsonObject.add("stage", context.serialize(src.getStage()));
 
@@ -39,14 +39,14 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator<?>>, Json
     }
 
     @Override
-    public IGenerator<?> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
+    public IGenerator deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
     {
         JsonObject jsonObject = json.getAsJsonObject();
 
         if (jsonObject.has("generator"))
         {
             String generatorIdentifier = jsonObject.get("generator").getAsString();
-            Class<? extends IGenerator<?>> generatorClass = GeneratorRegistry.getGeneratorClass(generatorIdentifier);
+            Class<? extends IGenerator> generatorClass = GeneratorRegistry.getGeneratorClass(generatorIdentifier);
 
             if (generatorClass == null)
             {
@@ -54,10 +54,10 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator<?>>, Json
             }
             else
             {
-                IGenerator<?> generator;
+                IGenerator generator;
                 try
                 {
-                    generator = (IGenerator<?>)generatorClass.newInstance();
+                    generator = (IGenerator)generatorClass.newInstance();
 
                     Type generatorStageType = new TypeToken<GeneratorStage>() {}.getType();
                     String generatorStageName = jsonObject.get("stage").getAsString();

@@ -16,7 +16,9 @@ public class ModHandlers
 {
     public static void init()
     {
-        MinecraftForge.TERRAIN_GEN_BUS.register(new DecorateBiomeEventHandler());
+        DecorateBiomeEventHandler decorateBiomeHandler = new DecorateBiomeEventHandler();
+        MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
+        MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
     }
 }

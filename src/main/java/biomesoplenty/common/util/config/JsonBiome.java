@@ -23,13 +23,14 @@ import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class JsonBiome
 {
-    public static final Gson serializer = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).registerTypeAdapter(IBlockState.class, new JsonBlockState()).registerTypeAdapter(IGenerator.class, new GeneratorTypeAdaptor()).create();
+    public static final Gson serializer = new GsonBuilder().setPrettyPrinting().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).registerTypeHierarchyAdapter(IBlockState.class, new JsonBlockState()).registerTypeHierarchyAdapter(IGenerator.class, new GeneratorTypeAdaptor()).create();
 
     public String biomeName;
     public int biomeId;
@@ -43,7 +44,7 @@ public class JsonBiome
     public int color;
     public int waterColorMultiplier;
     public ArrayList<JsonEntitySpawn> entities;
-    public Map<String, IGenerator<?>> decoration;
+    public Map<String, IGenerator> decoration;
 
     public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
     {

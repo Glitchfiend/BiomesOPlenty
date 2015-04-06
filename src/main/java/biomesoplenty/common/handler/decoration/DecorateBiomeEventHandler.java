@@ -40,24 +40,23 @@ public class DecorateBiomeEventHandler
     }
     
     @SubscribeEvent
-    public void onPostBiomeDecorate(DecorateBiomeEvent.Pre event)
+    public void onPostBiomeDecorate(DecorateBiomeEvent.Post event)
     {
         runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.POST);
     }
     
     private static void runGeneratorStage(World world, Random random, BlockPos pos, GeneratorStage stage)
     {
-        pos.add(16, 0, 16);
-        BiomeGenBase biome = world.getBiomeGenForCoords(pos);
+        BiomeGenBase biome = world.getBiomeGenForCoords(pos.add(16, 0, 16));
         IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
-
+        
         if (extendedBiome != null)
         {
             GenerationManager generationManager = extendedBiome.getGenerationManager();
             
-            for (IGenerator<?> generator : generationManager.getGeneratorsForStage(stage))
+            for (IGenerator generator : generationManager.getGeneratorsForStage(stage))
             {
-                generator.generate(world, random, pos);
+                generator.scatter(world, random, pos);
             }
         }
     }

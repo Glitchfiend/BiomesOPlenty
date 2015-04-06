@@ -14,13 +14,15 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Table;
 
 public class GenerationManager
 {
-    private Table<GeneratorStage, String, IGenerator<?>> generatorTable = HashBasedTable.create();
+    private Table<GeneratorStage, String, IGenerator> generatorTable = HashBasedTable.create();
 
-    public void addGenerator(String name, GeneratorStage stage, IGenerator<?> generator)
+    public void addGenerator(String name, GeneratorStage stage, IGenerator generator)
     {
         if (!this.generatorTable.containsColumn(name))
         {
@@ -35,16 +37,19 @@ public class GenerationManager
         }
     }
     
-    public Collection<IGenerator<?>> getGeneratorsForStage(GeneratorStage stage)
+    public ImmutableCollection<IGenerator> getGeneratorsForStage(GeneratorStage stage)
     {
-        return this.generatorTable.rowMap().get(stage).values();
+        Map<String, IGenerator> columnMap = this.generatorTable.rowMap().get(stage);
+        Collection<IGenerator> result = columnMap == null ? null : columnMap.values();
+        
+        return result == null ? ImmutableList.<IGenerator>of() : ImmutableList.<IGenerator>copyOf(result);
     }
     
-    public Map<String, IGenerator<?>> createGeneratorMap()
+    public Map<String, IGenerator> createGeneratorMap()
     {
-        Map<String, IGenerator<?>> result = new HashMap<String, IGenerator<?>>();
+        Map<String, IGenerator> result = new HashMap<String, IGenerator>();
         
-        for (IGenerator<?> generator : this.generatorTable.values())
+        for (IGenerator generator : this.generatorTable.values())
         {
             result.put(generator.getName(), generator);
         }
@@ -52,14 +57,14 @@ public class GenerationManager
         return result;
     }
     
-    public void createGeneratorTable(Map<String, IGenerator<?>> generators)
+    public void createGeneratorTable(Map<String, IGenerator> generators)
     {
-        Table<GeneratorStage, String, IGenerator<?>> result = HashBasedTable.create();
+        Table<GeneratorStage, String, IGenerator> result = HashBasedTable.create();
          
-        for (Entry<String, IGenerator<?>> entry : generators.entrySet())
+        for (Entry<String, IGenerator> entry : generators.entrySet())
         {
             String name = entry.getKey();
-            IGenerator<?> generator = entry.getValue();
+            IGenerator generator = entry.getValue();
 
             generator.setName(name);
             result.put(generator.getStage(), generator.getName(), generator);

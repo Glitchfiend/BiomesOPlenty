@@ -41,7 +41,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
 
     @Override
-    public void addGenerator(String name, GeneratorStage stage, IGenerator<?> generator)
+    public void addGenerator(String name, GeneratorStage stage, IGenerator generator)
     {
         this.generationManager.addGenerator(name, stage, generator);
     }

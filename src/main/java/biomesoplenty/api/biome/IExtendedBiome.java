@@ -18,7 +18,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 public interface IExtendedBiome
 {
     public BiomeOwner getBiomeOwner();
-    public void addGenerator(String name, GeneratorStage stage, IGenerator<?> generator);
+    public void addGenerator(String name, GeneratorStage stage, IGenerator generator);
     public GenerationManager getGenerationManager();
     public Map<BiomeType, Integer> getWeightMap();
     public void clearWeights();

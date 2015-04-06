@@ -8,10 +8,15 @@
 
 package biomesoplenty.common.init;
 
+import static biomesoplenty.api.biome.generation.GeneratorRegistry.registerGenerator;
+import biomesoplenty.common.world.feature.GeneratorOreCluster;
+import biomesoplenty.common.world.feature.GeneratorOreSingle;
 
 public class ModGenerators
 {
     public static void init()
     {
+        registerGenerator("ore_single", GeneratorOreSingle.class);
+        registerGenerator("ore_cluster", GeneratorOreCluster.class);
     }
 }
