@@ -112,7 +112,7 @@ public class BlockBOPMushroom extends BlockDecoration
         Block groundBlock = groundState.getBlock();
         
         boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.mycelium || groundBlock == Blocks.grass);
-        boolean onNetherrack = (groundBlock == Blocks.netherrack /* TODO: || groundBlock == BOPBlocks.overgrown_netherrack */);
+        boolean onNetherrack = (groundBlock == Blocks.netherrack);
         boolean onStone = (groundBlock == Blocks.stone || groundBlock == BOPBlocks.stone); // TODO: hard dirt too? the other edge cases?
         boolean onEndstone = (groundBlock == Blocks.end_stone);
         
@@ -123,9 +123,12 @@ public class BlockBOPMushroom extends BlockDecoration
                 case SPECTRAL_MOSS:
                     onEndstone = true;
                     break;
-                case SMOLDERING: case ORIGIN: // origin should only support roses
+                case SMOLDERING:
                     break;
-                case LOAMY: case SANDY: case SILTY: default:
+                case OVERGROWN_NETHERRACK:
+                    onFertile = true;
+                    onNetherrack = true;
+                case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
                     onFertile = true;
                     break;
             }

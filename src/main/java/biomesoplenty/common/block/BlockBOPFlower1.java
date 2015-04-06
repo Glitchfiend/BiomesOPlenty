@@ -231,9 +231,9 @@ public class BlockBOPFlower1 extends BlockDecoration {
         IBlockState groundState = world.getBlockState(pos.down());
         Block groundBlock = groundState.getBlock();
         
-        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass /* TODO: || groundBlock == BOPBlocks.overgrown_netherrack */);
+        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
         boolean onDry = (groundBlock == BOPBlocks.hard_dirt || groundBlock == Blocks.hardened_clay || groundBlock == Blocks.sand || groundBlock == BOPBlocks.hard_sand);
-        boolean onNetherrack = (groundBlock == Blocks.netherrack /* TODO: || groundBlock == BOPBlocks.overgrown_netherrack */);
+        boolean onNetherrack = (groundBlock == Blocks.netherrack);
         boolean onSpectralMoss = false;
         
         if (groundBlock instanceof BlockBOPGrass)
@@ -243,9 +243,11 @@ public class BlockBOPFlower1 extends BlockDecoration {
                 case SPECTRAL_MOSS:
                     onSpectralMoss = true;
                     break;
-                case SMOLDERING: case ORIGIN: // origin should only support roses
+                case OVERGROWN_NETHERRACK:
+                    onFertile = true;
+                    onNetherrack = true;
                     break;
-                case LOAMY: case SANDY: case SILTY: default:
+                case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
                     onFertile = true;
                     break;
             }

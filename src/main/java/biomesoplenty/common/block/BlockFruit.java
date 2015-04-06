@@ -86,7 +86,7 @@ public class BlockFruit extends BlockDecoration
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
         Block blockAbove = world.getBlockState(pos.up()).getBlock();
-        return blockAbove == Blocks.leaves || blockAbove == Blocks.leaves2; /* TODO: add BOP leave types - maybe check the material instead? */
+        return (blockAbove instanceof BlockBOPLeaves) || blockAbove == Blocks.leaves || blockAbove == Blocks.leaves2;
     }
     
     // map states to the corresponding fruit item

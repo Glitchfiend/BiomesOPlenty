@@ -15,9 +15,6 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
-//TODO:  work out how statemapper works, use it to ignore the powered property when generating models
-//see: package net.minecraft.client.renderer BlockModelShapes registerAllBlocks 
-//this kind of thing going on:   this.registerBlockWithStateMapper(Blocks.oak_fence_gate, (new StateMap.Builder()).addPropertiesToIgnore(new IProperty[] {BlockFenceGate.POWERED}).build());
 public class BlockBOPFenceGate extends BlockFenceGate implements IBOPBlock
 {
  

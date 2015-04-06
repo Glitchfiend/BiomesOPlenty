@@ -23,6 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: where have lily flowers and lilyofthevalley gone?
+// TODO implement as paged block
 public class BlockBOPFlower2 extends BlockDecoration {
         
     // add properties
@@ -106,7 +107,7 @@ public class BlockBOPFlower2 extends BlockDecoration {
         IBlockState groundState = world.getBlockState(pos.down());
         Block groundBlock = groundState.getBlock();
         
-        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass /* TODO: || groundBlock == BOPBlocks.overgrown_netherrack */);
+        boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
         boolean onStone = (groundBlock == Blocks.stone);
         boolean onOrigin = false;
         
@@ -116,10 +117,7 @@ public class BlockBOPFlower2 extends BlockDecoration {
             {
                 case SPECTRAL_MOSS: case SMOLDERING:
                     break;
-                case ORIGIN: // origin should only support rose
-                    onOrigin = true;
-                    break;
-                case LOAMY: case SANDY: case SILTY: default:
+                case LOAMY: case SANDY: case SILTY: case OVERGROWN_NETHERRACK: case ORIGIN: default:
                     onFertile = true;
                     break;
             }

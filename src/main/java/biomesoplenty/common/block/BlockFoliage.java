@@ -41,8 +41,6 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-
-// TODO use a different class for flax (FLAXBOTTOM and FLAXTOP) as it's so unusual
 public class BlockFoliage extends BlockDecoration implements IShearable
 {
     

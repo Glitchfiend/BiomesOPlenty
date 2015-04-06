@@ -15,6 +15,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
@@ -24,7 +26,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//TODO: Commented methods and calls
 public class BlockAsh extends BlockBOPGeneric
 {
     public BlockAsh()
@@ -47,15 +48,12 @@ public class BlockAsh extends BlockBOPGeneric
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        /* TODO:
-         * if (entity instanceof EntityPlayer) { InventoryPlayer inventory =
-         * ((EntityPlayer)entity).inventory;
-         * 
-         * if (inventory.armorInventory[0] != null &&
-         * inventory.armorInventory[0].getItem() == BOPCItems.wadingBoots) {
-         * return; } }
-         */
-
+        if (entity instanceof EntityPlayer) {
+            InventoryPlayer inventory = ((EntityPlayer)entity).inventory;
+            if (inventory.armorInventory[0] != null && inventory.armorInventory[0].getItem() == BOPItems.wading_boots) {
+                return;
+            }
+        }
         entity.motionX *= 0.4D;
         entity.motionZ *= 0.4D;
     }
