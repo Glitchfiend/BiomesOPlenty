@@ -24,6 +24,7 @@ public class BOPItems
     public static Item filled_honeycomb;
     public static Item gem;
     public static Item ash;
+    public static Item berries;
     
     public static Item sacred_oak_door;
     public static Item cherry_door;

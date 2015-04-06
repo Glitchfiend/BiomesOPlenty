@@ -49,6 +49,7 @@ public class ModItems
         filled_honeycomb = registerItem(new ItemFood(3, 0.4F, false), "filled_honeycomb");
         gem = registerItem(new ItemGem(), "gem");
         ash = registerItem(new Item(), "ash");
+        berries = registerItem(new ItemFood(1, 0.1F, false), "berries");
     
         // armor
         // TODO: do we really want durability of -1?  does that mean it lasts forever?

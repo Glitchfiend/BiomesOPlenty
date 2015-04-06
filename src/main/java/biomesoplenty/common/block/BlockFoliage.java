@@ -132,8 +132,7 @@ public class BlockFoliage extends BlockDecoration implements IShearable
                 
             case BERRYBUSH:
                 // BERRYBUSH always drops berries
-                // TODO: change from peach to berries once item is implemented
-                ret.add(new ItemStack(BOPItems.peach));
+                ret.add(new ItemStack(BOPItems.berries));
                 
             default:
                 break;
@@ -268,6 +267,26 @@ public class BlockFoliage extends BlockDecoration implements IShearable
     
     
     @Override
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        super.updateTick(worldIn, pos, state, rand);
+        switch ((FoliageType) state.getValue(VARIANT))
+        {
+            case BUSH:
+                // every now and then berries grow on a bush
+                if (rand.nextInt(80) > 0 && worldIn.getLightFromNeighbors(pos.up()) >= 9)
+                {
+                    worldIn.setBlockState(pos, state.withProperty(VARIANT, FoliageType.BERRYBUSH));
+                }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    
+    @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
         switch ((FoliageType) state.getValue(VARIANT))
@@ -291,8 +310,8 @@ public class BlockFoliage extends BlockDecoration implements IShearable
         {
             case BERRYBUSH:
                 // an activated berry bush turns into a regular bush and drops a berry
-                worldIn.setBlockState(pos, this.getDefaultState().withProperty(VARIANT, FoliageType.BUSH));
-                EntityItem berries = new EntityItem(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), new ItemStack(BOPItems.peach)); // TODO implement berry instead of peach
+                worldIn.setBlockState(pos, state.withProperty(VARIANT, FoliageType.BUSH));
+                EntityItem berries = new EntityItem(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), new ItemStack(BOPItems.berries));
                 if (!worldIn.isRemote)
                 {
                     worldIn.spawnEntityInWorld(berries);
@@ -327,12 +346,15 @@ public class BlockFoliage extends BlockDecoration implements IShearable
         switch ((FoliageType) state.getValue(VARIANT))
         {       
             case BERRYBUSH:
-                // BERRYBUSH gives a regular bush when sheared
+                // BERRYBUSH gives a regular bush and a berry when sheared
                 ret.add(new ItemStack(this, 1, this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, FoliageType.BUSH))));
+                ret.add(new ItemStack(BOPItems.berries, 1));
+                break;
                 
             default:
                 // default is to get the block unaltered
                 ret.add(new ItemStack(this, 1, this.getMetaFromState(state)));
+                break;
         }
         return ret;
     }
