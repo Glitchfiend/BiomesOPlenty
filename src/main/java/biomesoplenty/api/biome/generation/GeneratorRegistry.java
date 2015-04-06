@@ -8,8 +8,6 @@
 
 package biomesoplenty.api.biome.generation;
 
-import java.util.HashMap;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
