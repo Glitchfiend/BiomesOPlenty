@@ -1,6 +1,0 @@
-{
-    "parent": "block/fence_n",
-    "textures": {
-        "texture": "biomesoplenty:blocks/hell_bark_planks"
-    }
-}

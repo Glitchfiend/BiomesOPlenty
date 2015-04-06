@@ -1,7 +1,0 @@
-{
-    "parent": "block/column_side",
-    "textures": {
-        "end": "biomesoplenty:blocks/hell_bark_log_top",
-        "side": "biomesoplenty:blocks/hell_bark_log"
-    }
-}

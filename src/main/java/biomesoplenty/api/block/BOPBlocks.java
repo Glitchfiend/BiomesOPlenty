@@ -54,7 +54,7 @@ public class BOPBlocks
     public static Block redwood_stairs;
     public static Block willow_stairs;
     public static Block pine_stairs;
-    public static Block hell_bark_stairs;
+    public static Block hellbark_stairs;
     public static Block jacaranda_stairs;
     public static Block mahogany_stairs;
     public static Block sacred_oak_fence;
@@ -68,7 +68,7 @@ public class BOPBlocks
     public static Block redwood_fence;
     public static Block willow_fence;
     public static Block pine_fence;
-    public static Block hell_bark_fence;
+    public static Block hellbark_fence;
     public static Block jacaranda_fence;
     public static Block mahogany_fence;
     public static Block sacred_oak_fence_gate;
@@ -82,7 +82,7 @@ public class BOPBlocks
     public static Block redwood_fence_gate;
     public static Block willow_fence_gate;
     public static Block pine_fence_gate;
-    public static Block hell_bark_fence_gate;
+    public static Block hellbark_fence_gate;
     public static Block jacaranda_fence_gate;
     public static Block mahogany_fence_gate;
     public static Block sacred_oak_door;
@@ -96,7 +96,7 @@ public class BOPBlocks
     public static Block redwood_door;
     public static Block willow_door;
     public static Block pine_door;
-    public static Block hell_bark_door;
+    public static Block hellbark_door;
     public static Block jacaranda_door;
     public static Block mahogany_door;
 

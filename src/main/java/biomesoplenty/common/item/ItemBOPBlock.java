@@ -56,7 +56,6 @@ public class ItemBOPBlock extends ItemBlock
         {
             for (IBlockState state : presets)
             {
-                if (this.bopBlock.getStateName(state).startsWith("unused")) {continue;} // TODO: find better way to filter unwanted presets
                 subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState(state)));
             }
         }

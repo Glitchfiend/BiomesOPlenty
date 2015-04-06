@@ -12,10 +12,10 @@
         "axis=z,variant=pine":    { "model": "biomesoplenty:pine_log_side" },
         "axis=x,variant=pine":    { "model": "biomesoplenty:pine_log_side", "y": 90 },
         "axis=none,variant=pine": { "model": "biomesoplenty:pine_bark" },
-        "axis=y,variant=hell_bark":    { "model": "biomesoplenty:hell_bark_log" },
-        "axis=z,variant=hell_bark":    { "model": "biomesoplenty:hell_bark_log_side" },
-        "axis=x,variant=hell_bark":    { "model": "biomesoplenty:hell_bark_log_side", "y": 90 },
-        "axis=none,variant=hell_bark": { "model": "biomesoplenty:hell_bark_bark" }
+        "axis=y,variant=hellbark":    { "model": "biomesoplenty:hellbark_log" },
+        "axis=z,variant=hellbark":    { "model": "biomesoplenty:hellbark_log_side" },
+        "axis=x,variant=hellbark":    { "model": "biomesoplenty:hellbark_log_side", "y": 90 },
+        "axis=none,variant=hellbark": { "model": "biomesoplenty:hellbark_bark" }
     }
 }
 

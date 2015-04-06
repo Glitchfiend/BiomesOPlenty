@@ -1,0 +1,7 @@
+{
+    "parent": "block/column_side",
+    "textures": {
+        "end": "biomesoplenty:blocks/hellbark_log_top",
+        "side": "biomesoplenty:blocks/hellbark_log"
+    }
+}

@@ -19,7 +19,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.IStringSerializable;
 
-//TODO: Add gem ore drops, make gem item seperate
 public class BlockGem extends Block implements IBOPBlock
 {
     // add properties

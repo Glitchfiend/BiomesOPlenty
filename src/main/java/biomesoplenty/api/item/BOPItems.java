@@ -36,7 +36,7 @@ public class BOPItems
     public static Item redwood_door;
     public static Item willow_door;
     public static Item pine_door;
-    public static Item hell_bark_door;
+    public static Item hellbark_door;
     public static Item jacaranda_door;
     public static Item mahogany_door;
     

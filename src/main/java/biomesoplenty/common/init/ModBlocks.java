@@ -167,7 +167,7 @@ public class ModBlocks
         redwood_stairs =        registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.REDWOOD)), "redwood_stairs" );
         willow_stairs =         registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.WILLOW)), "willow_stairs" );
         pine_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.PINE)), "pine_stairs" );
-        hell_bark_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.HELL_BARK)), "hell_bark_stairs" );
+        hellbark_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.HELLBARK)), "hellbark_stairs" );
         jacaranda_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.JACARANDA)), "jacaranda_stairs" );
         mahogany_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.MAHOGANY)), "mahogany_stairs" );
         
@@ -183,7 +183,7 @@ public class ModBlocks
         redwood_fence =         registerBlock( new BlockBOPFence(), "redwood_fence" );
         willow_fence =          registerBlock( new BlockBOPFence(), "willow_fence" );
         pine_fence =            registerBlock( new BlockBOPFence(), "pine_fence" );
-        hell_bark_fence =       registerBlock( new BlockBOPFence(), "hell_bark_fence" );
+        hellbark_fence =       registerBlock( new BlockBOPFence(), "hellbark_fence" );
         jacaranda_fence =       registerBlock( new BlockBOPFence(), "jacaranda_fence" );
         mahogany_fence =        registerBlock( new BlockBOPFence(), "mahogany_fence" );
         
@@ -199,7 +199,7 @@ public class ModBlocks
         redwood_fence_gate =    registerBlock( new BlockBOPFenceGate(), "redwood_fence_gate" );
         willow_fence_gate =     registerBlock( new BlockBOPFenceGate(), "willow_fence_gate" );
         pine_fence_gate =       registerBlock( new BlockBOPFenceGate(), "pine_fence_gate" );
-        hell_bark_fence_gate =  registerBlock( new BlockBOPFenceGate(), "hell_bark_fence_gate" );
+        hellbark_fence_gate =  registerBlock( new BlockBOPFenceGate(), "hellbark_fence_gate" );
         jacaranda_fence_gate =  registerBlock( new BlockBOPFenceGate(), "jacaranda_fence_gate" );
         mahogany_fence_gate =   registerBlock( new BlockBOPFenceGate(), "mahogany_fence_gate" );
         
@@ -215,7 +215,7 @@ public class ModBlocks
         redwood_door =          registerDoor( new BlockBOPDoor(), "redwood_door", BOPItems.redwood_door );
         willow_door =           registerDoor( new BlockBOPDoor(), "willow_door", BOPItems.willow_door );
         pine_door =             registerDoor( new BlockBOPDoor(), "pine_door", BOPItems.pine_door );
-        hell_bark_door =        registerDoor( new BlockBOPDoor(), "hell_bark_door", BOPItems.hell_bark_door );
+        hellbark_door =        registerDoor( new BlockBOPDoor(), "hellbark_door", BOPItems.hellbark_door );
         jacaranda_door =        registerDoor( new BlockBOPDoor(), "jacaranda_door", BOPItems.jacaranda_door );
         mahogany_door =         registerDoor( new BlockBOPDoor(), "mahogany_door", BOPItems.mahogany_door );
  
@@ -325,7 +325,6 @@ public class ModBlocks
                 for (IBlockState state : presets)
                 {
                     String stateName = bopBlock.getStateName(state);
-                    if (stateName.startsWith("unused")) {continue;} // TODO: find better way to filter unwanted presets
                     int stateMeta = block.getMetaFromState(state);
                     registerBlockVariant(block, stateName, stateMeta);
                 }

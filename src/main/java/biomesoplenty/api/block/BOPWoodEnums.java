@@ -20,8 +20,7 @@ public class BOPWoodEnums
 {
     
     public static enum AllWoods implements IStringSerializable {
-        // TODO: change HELL_BARK to HELLBARK for consistency with BOPTreeEnums
-        SACRED_OAK, CHERRY, DARK, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, PINE, HELL_BARK, JACARANDA, MAHOGANY, GIANT_FLOWER, DEAD;
+        SACRED_OAK, CHERRY, DARK, FIR, ETHEREAL, MAGIC, MANGROVE, PALM, REDWOOD, WILLOW, PINE, HELLBARK, JACARANDA, MAHOGANY, GIANT_FLOWER, DEAD;
         @Override
         public String getName() {
             return this.name().toLowerCase();

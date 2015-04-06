@@ -89,7 +89,7 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
         
         // set some defaults
         this.setHardness(0.6F);
-        this.setHarvestLevel("shovel", 0); // TODO: I think this just determines which tool speeds up digging - need to investigate more
+        this.setHarvestLevel("shovel", 0);
         this.setStepSound(Block.soundTypeGrass);
         this.setDefaultState(this.blockState.getBaseState().withProperty(SNOWY, Boolean.valueOf(false)).withProperty(VARIANT, BOPGrassType.LOAMY));
         
@@ -183,9 +183,8 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
                     world.playSound(pos.getX(), pos.getY(), pos.getZ(), "mob.ghast.death", 20.0F, (float)Math.random() * 0.1F, true);
                     for (int l = 0; l < 8; ++l)
                     {
-                        // TODO: this isn't working for some reason
-                        world.spawnParticle(EnumParticleTypes.FLAME, (double)pos.getX() + Math.random(), (double)pos.getY() + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
-                        world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)pos.getX() + Math.random(), (double)pos.getY() + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
+                        world.spawnParticle(EnumParticleTypes.FLAME, (double)pos.getX() + Math.random(), (double)pos.getY() + 0.5D + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
+                        world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, (double)pos.getX() + Math.random(), (double)pos.getY() + 0.5D + Math.random(), (double)pos.getZ() + Math.random(), 0.0D, 0.0D, 0.0D);
                     }
                 }
                 break;

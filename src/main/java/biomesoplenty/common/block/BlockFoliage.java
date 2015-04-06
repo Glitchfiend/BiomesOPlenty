@@ -235,9 +235,9 @@ public class BlockFoliage extends BlockDecoration implements IShearable
         {
             switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
             {
-                case SPECTRAL_MOSS: case SMOLDERING: case ORIGIN: // origin should only support roses  TODO: really?
+                case SPECTRAL_MOSS: case SMOLDERING:
                     break;
-                case OVERGROWN_NETHERRACK: case LOAMY: case SANDY: case SILTY: default:
+                case OVERGROWN_NETHERRACK: case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
                     onFertile = true;
                     break;
             }
