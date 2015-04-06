@@ -26,6 +26,7 @@ import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.init.ModConfiguration;
+import biomesoplenty.common.init.ModGenerators;
 import biomesoplenty.common.init.ModHandlers;
 import biomesoplenty.common.init.ModItems;
 
@@ -56,6 +57,7 @@ public class BiomesOPlenty
         ModBlocks.init();
         ModItems.init();
         
+        ModGenerators.init();
         ModBiomes.init();
         ModHandlers.init();
         ModConfiguration.initEnd(configDirectory);

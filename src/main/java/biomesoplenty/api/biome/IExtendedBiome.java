@@ -10,8 +10,8 @@ package biomesoplenty.api.biome;
 
 import java.util.Map;
 
+import biomesoplenty.api.biome.generation.GenerationManager;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
 public interface IExtendedBiome
 {

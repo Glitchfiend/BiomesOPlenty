@@ -11,9 +11,9 @@ package biomesoplenty.api.biome;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
+import biomesoplenty.api.biome.generation.GenerationManager;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {

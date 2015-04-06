@@ -16,13 +16,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
-import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
 public class DecorateBiomeEventHandler
 {
-    @SubscribeEvent
+    /*TODO: @SubscribeEvent
     public void onBiomeDecorate(DecorateBiomeEvent.Decorate event)
     {
         World world = event.world;
@@ -45,5 +44,5 @@ public class DecorateBiomeEventHandler
                 }
             }
         }
-    }
+    }*/
 }

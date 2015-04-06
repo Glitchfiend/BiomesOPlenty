@@ -10,8 +10,11 @@ package biomesoplenty.common.util.config;
 
 import java.lang.reflect.Type;
 
-import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.api.biome.generation.GeneratorRegistry;
+import biomesoplenty.api.biome.generation.GeneratorStage;
+import biomesoplenty.api.biome.generation.IGenerator;
 
+import com.google.common.reflect.TypeToken;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -19,15 +22,18 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import com.google.gson.JsonSyntaxException;
 
 public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator<?>>, JsonDeserializer<IGenerator<?>>
 {
     @Override
     public JsonElement serialize(IGenerator<?> src, Type typeOfSrc, JsonSerializationContext context)
     {
-        JsonObject jsonObject = src.serialize((IGenerator) src).getAsJsonObject();
+        JsonObject jsonObject = new JsonObject();
+        src.writeToJson(jsonObject, context);
 
-        jsonObject.addProperty("class", src.getClass().getCanonicalName());
+        jsonObject.addProperty("generator", src.getIdentifier());
+        jsonObject.add("stage", context.serialize(src.getStage()));
 
         return jsonObject;
     }
@@ -37,22 +43,46 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator<?>>, Json
     {
         JsonObject jsonObject = json.getAsJsonObject();
 
-        if (jsonObject.has("class"))
+        if (jsonObject.has("generator"))
         {
-            try
+            String generatorIdentifier = jsonObject.get("generator").getAsString();
+            Class<? extends IGenerator<?>> generatorClass = GeneratorRegistry.getGeneratorClass(generatorIdentifier);
+
+            if (generatorClass == null)
             {
-                Class generatorClass = Class.forName(jsonObject.get("class").getAsString());
-
-                if (IGenerator.class.isAssignableFrom(generatorClass))
-                {
-                    IGenerator<?> generator = (IGenerator<?>) generatorClass.newInstance();
-
-                    return generator.deserialize(json);
-                }
+                throw new JsonSyntaxException("Generator " + generatorIdentifier + " doesn't exist");
             }
-            catch (Exception e)
+            else
             {
-                e.printStackTrace();
+                IGenerator<?> generator;
+                try
+                {
+                    generator = (IGenerator<?>)generatorClass.newInstance();
+
+                    Type generatorStageType = new TypeToken<GeneratorStage>() {}.getType();
+                    String generatorStageName = jsonObject.get("stage").getAsString();
+                    GeneratorStage generatorStage = (GeneratorStage)context.deserialize(jsonObject.get("stage"), generatorStageType);
+                    
+                    if (generatorStage == null)
+                    {
+                        throw new JsonSyntaxException("Generator stage " + generatorStageName + " is invalid");
+                    }
+                    else
+                    {
+                        generator.setStage((GeneratorStage)context.deserialize(jsonObject.get("stage"), generatorStageType));
+                        generator.readFromJson(jsonObject, context);
+                        
+                        return generator;   
+                    }
+                } 
+                catch (InstantiationException e)
+                {
+                    throw new RuntimeException("Generators must have a no-args constructor!", e);
+                } 
+                catch (IllegalAccessException e)
+                {
+                    e.printStackTrace();
+                }
             }
         }
 

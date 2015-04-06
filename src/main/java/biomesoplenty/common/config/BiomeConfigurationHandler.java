@@ -15,18 +15,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeManager.BiomeEntry;
-import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import org.apache.commons.io.FileUtils;
 
-import biomesoplenty.api.biome.BiomeOwner;
-import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.common.biome.BOPBiomeManager;
-import biomesoplenty.common.biome.ExtendedBiomeRegistry;
-import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 import biomesoplenty.common.util.config.JsonBiome;
-import biomesoplenty.common.util.config.JsonEntitySpawn;
+import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.gson.JsonSyntaxException;
 
@@ -53,11 +46,11 @@ public class BiomeConfigurationHandler
                 {
                     JsonBiome jsonBiome = JsonBiome.serializer.fromJson(FileUtils.readFileToString(configFile), JsonBiome.class);
 
-                    configureBiomeWithJson(biome, jsonBiome);
+                    JsonBiome.configureBiomeWithJson(biome, jsonBiome);
                 }
                 catch (JsonSyntaxException e)
                 {
-                    e.printStackTrace();
+                    BiomesOPlenty.logger.error("An error occurred reading " + configFile.getName(), e);
                 }
                 catch (IOException e)
                 {
@@ -95,61 +88,6 @@ public class BiomeConfigurationHandler
                 biome.theBiomeDecorator.cactiPerChunk = 0;
             }
         }*/
-    }
-
-    private static void configureBiomeWithJson(BiomeGenBase biome, JsonBiome jsonBiome)
-    {
-        IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
-
-        if (extendedBiome != null)
-        {
-            GenerationManager generationManager = extendedBiome.getGenerationManager();
-
-            if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
-            {
-                if (jsonBiome.biomeId != -1)
-                {
-                    biome.biomeID = jsonBiome.biomeId;
-                    BiomeGenBase.getBiomeGenArray()[jsonBiome.biomeId] = biome;
-                }
-                else
-                {
-                    biome.biomeID = -1;
-                }
-            }
-
-            Map<BiomeType, Integer> weightMap = jsonBiome.weights;
-            
-            //Removes the default weights set by us as they are about to be set from the config file
-            extendedBiome.clearWeights();
-            
-            //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
-            for (Entry<BiomeType, Integer> entry : weightMap.entrySet())
-            {
-                if (entry != null)
-                {
-                    BiomeType biomeType = entry.getKey();
-                    int weight = entry.getValue();
-                    
-                    //Updates the biome's weights to be in line with the config file
-                    extendedBiome.addWeight(biomeType, weight);
-                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
-                }
-            }
-            
-            biome.biomeName = jsonBiome.biomeName;
-            biome.topBlock = jsonBiome.topBlock;
-            biome.fillerBlock = jsonBiome.fillerBlock;
-            biome.setHeight(new BiomeGenBase.Height(jsonBiome.rootHeight, jsonBiome.rootVariation));
-            biome.temperature = jsonBiome.temperature;
-            biome.rainfall = jsonBiome.rainfall;
-            // TODO: Reflect and modify enableRain and enableSnow
-            biome.color = jsonBiome.color;
-            biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
-            JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
-
-            generationManager.configureGenerators(jsonBiome.decoration);
-        }
     }
 
     public static Map<BiomeGenBase, String> getConfigFileMap()

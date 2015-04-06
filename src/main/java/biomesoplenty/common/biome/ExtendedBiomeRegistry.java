@@ -8,16 +8,14 @@
 
 package biomesoplenty.common.biome;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import biomesoplenty.api.biome.BiomeOwner;
-import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.IGenerator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
+import biomesoplenty.api.biome.BiomeOwner;
+import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.api.biome.generation.GenerationManager;
 
 public class ExtendedBiomeRegistry
 {
@@ -86,39 +84,6 @@ public class ExtendedBiomeRegistry
         public void clearWeights()
         {
             this.weightMap.clear();
-        }
-    }
-
-    public static class GenerationManager
-    {
-        private Map<String, IGenerator<?>> generatorMap = new HashMap();
-        //TODO: Come up with a better sequencing system
-        private Map<String, Decorate.EventType> generatorSequenceMap = new HashMap();;
-
-        public void addGenerator(String key, IGenerator<?> generator, Decorate.EventType nextFeature)
-        {
-            this.generatorMap.put(key, generator);
-            this.generatorSequenceMap.put(key, nextFeature);
-        }
-
-        public void addGenerator(String key, IGenerator<?> generator)
-        {
-            this.addGenerator(key, generator, Decorate.EventType.CUSTOM);
-        }
-
-        public void configureGenerators(Map<String, IGenerator<?>> generatorMap)
-        {
-            this.generatorMap.putAll(generatorMap);
-        }
-
-        public Map<String, IGenerator<?>> getGeneratorMap()
-        {
-            return Collections.unmodifiableMap(this.generatorMap);
-        }
-
-        public Decorate.EventType getGeneratorStage(String key)
-        {
-            return generatorSequenceMap.get(key);
         }
     }
 }

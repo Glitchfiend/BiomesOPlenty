@@ -16,11 +16,12 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
+import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
-import biomesoplenty.api.biome.IGenerator;
+import biomesoplenty.api.biome.generation.GenerationManager;
+import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
-import biomesoplenty.common.biome.ExtendedBiomeRegistry.GenerationManager;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -67,7 +68,7 @@ public class JsonBiome
         	GenerationManager generationManager = extendedBiome.getGenerationManager();
 
         	biome.weights = extendedBiome.getWeightMap();
-        	biome.decoration = generationManager.getGeneratorMap();
+        	biome.decoration = generationManager.createGeneratorMap();
         	
             //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
             for (Entry<BiomeType, Integer> entry : extendedBiome.getWeightMap().entrySet())
@@ -83,5 +84,60 @@ public class JsonBiome
         }
 
         return biome;
+    }
+
+    public static void configureBiomeWithJson(BiomeGenBase biome, JsonBiome jsonBiome)
+    {
+        IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
+    
+        if (extendedBiome != null)
+        {
+            if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
+            {
+                if (jsonBiome.biomeId != -1)
+                {
+                    biome.biomeID = jsonBiome.biomeId;
+                    BiomeGenBase.getBiomeGenArray()[jsonBiome.biomeId] = biome;
+                }
+                else
+                {
+                    biome.biomeID = -1;
+                }
+            }
+    
+            Map<BiomeType, Integer> weightMap = jsonBiome.weights;
+            
+            //Removes the default weights set by us as they are about to be set from the config file
+            extendedBiome.clearWeights();
+            
+            //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
+            for (Entry<BiomeType, Integer> entry : weightMap.entrySet())
+            {
+                if (entry != null)
+                {
+                    BiomeType biomeType = entry.getKey();
+                    int weight = entry.getValue();
+                    
+                    //Updates the biome's weights to be in line with the config file
+                    extendedBiome.addWeight(biomeType, weight);
+                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                }
+            }
+            
+            biome.biomeName = jsonBiome.biomeName;
+            biome.topBlock = jsonBiome.topBlock;
+            biome.fillerBlock = jsonBiome.fillerBlock;
+            biome.setHeight(new BiomeGenBase.Height(jsonBiome.rootHeight, jsonBiome.rootVariation));
+            biome.temperature = jsonBiome.temperature;
+            biome.rainfall = jsonBiome.rainfall;
+            // TODO: Reflect and modify enableRain and enableSnow
+            biome.color = jsonBiome.color;
+            biome.waterColorMultiplier = jsonBiome.waterColorMultiplier;
+            JsonEntitySpawn.addBiomeEntitySpawns(biome, jsonBiome);
+    
+            GenerationManager generationManager = extendedBiome.getGenerationManager();
+            
+            generationManager.createGeneratorTable(jsonBiome.decoration);
+        }
     }
 }
