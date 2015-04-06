@@ -8,8 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import com.google.common.base.Predicate;
+
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
-import biomesoplenty.api.block.BOPWoodEnums.FourWoods;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockLog;
@@ -19,15 +20,63 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 
-public class BlockBOPLog extends BlockLog implements IBOPBlock
+public abstract class BlockBOPLog extends BlockLog implements IBOPBlock
 {
     
-    // add properties (note we inherit LOG_AXIS property from parent BlockLog)
-    // LOG_AXIS requires 2 meta bits, so we have 2 left for the VARIANT, which means we can have four woods per instance
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FourWoods.class );
-    protected int pageNum;
+    
+    // store the variant properties for each page in this array
+    private static PropertyEnum[] variantProperties;
+    // number of variants per page
+    public static final int variantsPerPage = 4;
+    // fetch a particular page's variant property
+    // the first time this is called, it also sets up the array of variant properties
+    protected static PropertyEnum getVariantProperty(int pageNum)
+    {
+        int len = AllWoods.values().length;
+        int numPages = (int) Math.ceil( (double)len / variantsPerPage);
+        if (variantProperties == null)
+        {
+            variantProperties = new PropertyEnum[numPages];
+        }
+        pageNum = Math.max(0, Math.min(pageNum, numPages - 1));
+        if (variantProperties[pageNum] == null)
+        {
+            variantProperties[pageNum] = PropertyEnum.create("variant", AllWoods.class, getVariantEnumFilter(pageNum));
+        }
+        return variantProperties[pageNum];
+    }
+    // define the filter function used to reduce the set of enum values to the subset for the given page
+    protected static Predicate<AllWoods> getVariantEnumFilter(final int pageNum)
+    {
+        return new Predicate<AllWoods>()
+        {
+            @Override
+            public boolean apply(AllWoods wood)
+            {
+                return (wood.ordinal() >= (variantsPerPage * pageNum)) && (wood.ordinal() < (variantsPerPage * (pageNum+1)));
+            }
+        };
+    }
+    // child classes must implement to define their page number
+    abstract public int getPageNum();
+    // fetch the current instance's variant property
+    public PropertyEnum getMyVariantProperty()
+    {
+        return getVariantProperty(this.getPageNum());
+    }
+    public int metaFromVariant(AllWoods wood)
+    {
+        return wood.ordinal() % variantsPerPage;
+    }
+    public AllWoods variantFromMeta(int meta)
+    {
+        int i = Math.max(0, Math.min(meta + (this.getPageNum() * variantsPerPage), AllWoods.values().length)); // clamp to 
+        return AllWoods.values()[i];
+    }
+    
+    
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS, VARIANT });}
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS, getMyVariantProperty() });}
     
     
     // implement IBOPBlock
@@ -36,13 +85,13 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {
-        AllWoods wood = ((FourWoods) state.getValue(VARIANT)).map(this.pageNum);
+        AllWoods wood = (AllWoods) state.getValue(getMyVariantProperty());
         switch (wood)
         {
             case GIANT_FLOWER:
@@ -53,11 +102,10 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     }
 
     
-    public BlockBOPLog(int pageNum)
+    public BlockBOPLog()
     {
         super();
-        this.pageNum = pageNum;
-        this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y).withProperty(VARIANT, FourWoods.A));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
         this.setHarvestLevel("axe", 0);
     }
     
@@ -65,12 +113,12 @@ public class BlockBOPLog extends BlockLog implements IBOPBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.values()[meta >> 2]).withProperty(VARIANT, FourWoods.values()[meta & 3]);
+        return this.getDefaultState().withProperty(LOG_AXIS, BlockLog.EnumAxis.values()[meta >> 2]).withProperty(getMyVariantProperty(), variantFromMeta(meta & 3));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal() * 4 + ((FourWoods) state.getValue(VARIANT)).ordinal();
+        return ((BlockLog.EnumAxis) state.getValue(LOG_AXIS)).ordinal() * 4 + metaFromVariant((AllWoods) state.getValue(getMyVariantProperty()));
     }
 
     // discard the axis information - otherwise logs facing different directions would not stack together

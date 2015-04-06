@@ -1,21 +1,21 @@
 {
     "variants": {
-        "axis=y,variant=a":    { "model": "biomesoplenty:redwood_log" },
-        "axis=z,variant=a":    { "model": "biomesoplenty:redwood_log_side" },
-        "axis=x,variant=a":    { "model": "biomesoplenty:redwood_log_side", "y": 90 },
-        "axis=none,variant=a": { "model": "biomesoplenty:redwood_bark" },
-        "axis=y,variant=b":    { "model": "biomesoplenty:willow_log" },
-        "axis=z,variant=b":    { "model": "biomesoplenty:willow_log_side" },
-        "axis=x,variant=b":    { "model": "biomesoplenty:willow_log_side", "y": 90 },
-        "axis=none,variant=b": { "model": "biomesoplenty:willow_bark" },
-        "axis=y,variant=c":    { "model": "biomesoplenty:pine_log" },
-        "axis=z,variant=c":    { "model": "biomesoplenty:pine_log_side" },
-        "axis=x,variant=c":    { "model": "biomesoplenty:pine_log_side", "y": 90 },
-        "axis=none,variant=c": { "model": "biomesoplenty:pine_bark" },
-        "axis=y,variant=d":    { "model": "biomesoplenty:hell_bark_log" },
-        "axis=z,variant=d":    { "model": "biomesoplenty:hell_bark_log_side" },
-        "axis=x,variant=d":    { "model": "biomesoplenty:hell_bark_log_side", "y": 90 },
-        "axis=none,variant=d": { "model": "biomesoplenty:hell_bark_bark" }
+        "axis=y,variant=redwood":    { "model": "biomesoplenty:redwood_log" },
+        "axis=z,variant=redwood":    { "model": "biomesoplenty:redwood_log_side" },
+        "axis=x,variant=redwood":    { "model": "biomesoplenty:redwood_log_side", "y": 90 },
+        "axis=none,variant=redwood": { "model": "biomesoplenty:redwood_bark" },
+        "axis=y,variant=willow":    { "model": "biomesoplenty:willow_log" },
+        "axis=z,variant=willow":    { "model": "biomesoplenty:willow_log_side" },
+        "axis=x,variant=willow":    { "model": "biomesoplenty:willow_log_side", "y": 90 },
+        "axis=none,variant=willow": { "model": "biomesoplenty:willow_bark" },
+        "axis=y,variant=pine":    { "model": "biomesoplenty:pine_log" },
+        "axis=z,variant=pine":    { "model": "biomesoplenty:pine_log_side" },
+        "axis=x,variant=pine":    { "model": "biomesoplenty:pine_log_side", "y": 90 },
+        "axis=none,variant=pine": { "model": "biomesoplenty:pine_bark" },
+        "axis=y,variant=hell_bark":    { "model": "biomesoplenty:hell_bark_log" },
+        "axis=z,variant=hell_bark":    { "model": "biomesoplenty:hell_bark_log_side" },
+        "axis=x,variant=hell_bark":    { "model": "biomesoplenty:hell_bark_log_side", "y": 90 },
+        "axis=none,variant=hell_bark": { "model": "biomesoplenty:hell_bark_bark" }
     }
 }
 

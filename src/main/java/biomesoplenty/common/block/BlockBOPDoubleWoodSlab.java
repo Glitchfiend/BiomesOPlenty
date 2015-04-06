@@ -1,12 +1,12 @@
 package biomesoplenty.common.block;
 
-import biomesoplenty.api.block.BOPWoodEnums.EightWoods;
+import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.IBOPBlock;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
 
 
-public class BlockBOPDoubleWoodSlab extends BlockBOPHalfWoodSlab implements IBOPBlock
+public abstract class BlockBOPDoubleWoodSlab extends BlockBOPHalfWoodSlab implements IBOPBlock
 {
     
     // HALF isn't used in double slab because both halves are present
@@ -15,23 +15,23 @@ public class BlockBOPDoubleWoodSlab extends BlockBOPHalfWoodSlab implements IBOP
     @Override
     public String getStateName(IBlockState state)
     {
-        return "double_" + ((EightWoods) state.getValue(VARIANT)).map(this.pageNum).toString() + "_wood_slab";
-    }   
+        return "double_" + super.getStateName(state);
+    } 
     
-    public BlockBOPDoubleWoodSlab(int pageNum)
+    public BlockBOPDoubleWoodSlab()
     {
-        super(pageNum);
+        super();
     }
-
+    
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, EightWoods.values()[meta & 7]);
+        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta & 7));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((EightWoods) state.getValue(VARIANT)).ordinal();
+        return metaFromVariant((AllWoods) state.getValue(getMyVariantProperty()));
     }
 
     @Override

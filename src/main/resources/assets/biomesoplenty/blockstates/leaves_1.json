@@ -1,8 +1,8 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:dark_leaves" },
-        "variant=b": { "model": "biomesoplenty:dead_leaves" },
-        "variant=c": { "model": "biomesoplenty:fir_leaves" },
-        "variant=d": { "model": "biomesoplenty:ethereal_leaves" }
+        "variant=dark": { "model": "biomesoplenty:dark_leaves" },
+        "variant=dead": { "model": "biomesoplenty:dead_leaves" },
+        "variant=fir": { "model": "biomesoplenty:fir_leaves" },
+        "variant=ethereal": { "model": "biomesoplenty:ethereal_leaves" }
     }
 }

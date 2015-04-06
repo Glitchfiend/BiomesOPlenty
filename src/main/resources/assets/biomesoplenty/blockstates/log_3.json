@@ -1,21 +1,21 @@
 {
     "variants": {
-        "axis=y,variant=a":    { "model": "biomesoplenty:jacaranda_log" },
-        "axis=z,variant=a":    { "model": "biomesoplenty:jacaranda_log_side" },
-        "axis=x,variant=a":    { "model": "biomesoplenty:jacaranda_log_side", "y": 90 },
-        "axis=none,variant=a": { "model": "biomesoplenty:jacaranda_bark" },
-        "axis=y,variant=b":    { "model": "biomesoplenty:mahogany_log" },
-        "axis=z,variant=b":    { "model": "biomesoplenty:mahogany_log_side" },
-        "axis=x,variant=b":    { "model": "biomesoplenty:mahogany_log_side", "y": 90 },
-        "axis=none,variant=b": { "model": "biomesoplenty:mahogany_bark" },
-        "axis=y,variant=c":    { "model": "biomesoplenty:giant_flower_stem" },
-        "axis=z,variant=c":    { "model": "biomesoplenty:giant_flower_stem_side" },
-        "axis=x,variant=c":    { "model": "biomesoplenty:giant_flower_stem_side", "y": 90 },
-        "axis=none,variant=c": { "model": "biomesoplenty:giant_flower_bark" },
-        "axis=y,variant=d":    { "model": "biomesoplenty:dead_log" },
-        "axis=z,variant=d":    { "model": "biomesoplenty:dead_log_side" },
-        "axis=x,variant=d":    { "model": "biomesoplenty:dead_log_side", "y": 90 },
-        "axis=none,variant=d": { "model": "biomesoplenty:dead_bark" }
+        "axis=y,variant=jacaranda":    { "model": "biomesoplenty:jacaranda_log" },
+        "axis=z,variant=jacaranda":    { "model": "biomesoplenty:jacaranda_log_side" },
+        "axis=x,variant=jacaranda":    { "model": "biomesoplenty:jacaranda_log_side", "y": 90 },
+        "axis=none,variant=jacaranda": { "model": "biomesoplenty:jacaranda_bark" },
+        "axis=y,variant=mahogany":    { "model": "biomesoplenty:mahogany_log" },
+        "axis=z,variant=mahogany":    { "model": "biomesoplenty:mahogany_log_side" },
+        "axis=x,variant=mahogany":    { "model": "biomesoplenty:mahogany_log_side", "y": 90 },
+        "axis=none,variant=mahogany": { "model": "biomesoplenty:mahogany_bark" },
+        "axis=y,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem" },
+        "axis=z,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem_side" },
+        "axis=x,variant=giant_flower":    { "model": "biomesoplenty:giant_flower_stem_side", "y": 90 },
+        "axis=none,variant=giant_flower": { "model": "biomesoplenty:giant_flower_bark" },
+        "axis=y,variant=dead":    { "model": "biomesoplenty:dead_log" },
+        "axis=z,variant=dead":    { "model": "biomesoplenty:dead_log_side" },
+        "axis=x,variant=dead":    { "model": "biomesoplenty:dead_log_side", "y": 90 },
+        "axis=none,variant=dead": { "model": "biomesoplenty:dead_bark" }
     }
 }
 

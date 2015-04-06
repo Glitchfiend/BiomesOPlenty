@@ -1,8 +1,8 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:hellbark_leaves" },
-        "variant=b": { "model": "biomesoplenty:flowering_leaves" },
-        "variant=c": { "model": "biomesoplenty:jacaranda_leaves" },
-        "variant=d": { "model": "biomesoplenty:sacred_oak_leaves" }
+        "variant=hellbark": { "model": "biomesoplenty:hellbark_leaves" },
+        "variant=flowering": { "model": "biomesoplenty:flowering_leaves" },
+        "variant=jacaranda": { "model": "biomesoplenty:jacaranda_leaves" },
+        "variant=sacred_oak": { "model": "biomesoplenty:sacred_oak_leaves" }
     }
 }

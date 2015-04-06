@@ -1,21 +1,21 @@
 {
     "variants": {
-        "axis=y,variant=a":    { "model": "biomesoplenty:ethereal_log" },
-        "axis=z,variant=a":    { "model": "biomesoplenty:ethereal_log_side" },
-        "axis=x,variant=a":    { "model": "biomesoplenty:ethereal_log_side", "y": 90 },
-        "axis=none,variant=a": { "model": "biomesoplenty:ethereal_bark" },
-        "axis=y,variant=b":    { "model": "biomesoplenty:magic_log" },
-        "axis=z,variant=b":    { "model": "biomesoplenty:magic_log_side" },
-        "axis=x,variant=b":    { "model": "biomesoplenty:magic_log_side", "y": 90 },
-        "axis=none,variant=b": { "model": "biomesoplenty:magic_bark" },
-        "axis=y,variant=c":    { "model": "biomesoplenty:mangrove_log" },
-        "axis=z,variant=c":    { "model": "biomesoplenty:mangrove_log_side" },
-        "axis=x,variant=c":    { "model": "biomesoplenty:mangrove_log_side", "y": 90 },
-        "axis=none,variant=c": { "model": "biomesoplenty:mangrove_bark" },
-        "axis=y,variant=d":    { "model": "biomesoplenty:palm_log" },
-        "axis=z,variant=d":    { "model": "biomesoplenty:palm_log_side" },
-        "axis=x,variant=d":    { "model": "biomesoplenty:palm_log_side", "y": 90 },
-        "axis=none,variant=d": { "model": "biomesoplenty:palm_bark" }
+        "axis=y,variant=ethereal":    { "model": "biomesoplenty:ethereal_log" },
+        "axis=z,variant=ethereal":    { "model": "biomesoplenty:ethereal_log_side" },
+        "axis=x,variant=ethereal":    { "model": "biomesoplenty:ethereal_log_side", "y": 90 },
+        "axis=none,variant=ethereal": { "model": "biomesoplenty:ethereal_bark" },
+        "axis=y,variant=magic":    { "model": "biomesoplenty:magic_log" },
+        "axis=z,variant=magic":    { "model": "biomesoplenty:magic_log_side" },
+        "axis=x,variant=magic":    { "model": "biomesoplenty:magic_log_side", "y": 90 },
+        "axis=none,variant=magic": { "model": "biomesoplenty:magic_bark" },
+        "axis=y,variant=mangrove":    { "model": "biomesoplenty:mangrove_log" },
+        "axis=z,variant=mangrove":    { "model": "biomesoplenty:mangrove_log_side" },
+        "axis=x,variant=mangrove":    { "model": "biomesoplenty:mangrove_log_side", "y": 90 },
+        "axis=none,variant=mangrove": { "model": "biomesoplenty:mangrove_bark" },
+        "axis=y,variant=palm":    { "model": "biomesoplenty:palm_log" },
+        "axis=z,variant=palm":    { "model": "biomesoplenty:palm_log_side" },
+        "axis=x,variant=palm":    { "model": "biomesoplenty:palm_log_side", "y": 90 },
+        "axis=none,variant=palm": { "model": "biomesoplenty:palm_bark" }
     }
 }
 

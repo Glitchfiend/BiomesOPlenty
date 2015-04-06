@@ -1,12 +1,10 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:mangrove_sapling" },
-        "variant=b": { "model": "biomesoplenty:palm_sapling" },
-        "variant=c": { "model": "biomesoplenty:redwood_sapling" },
-        "variant=d": { "model": "biomesoplenty:willow_sapling" },
-        "variant=e": { "model": "biomesoplenty:pine_sapling" },
-        "variant=f": { "model": "biomesoplenty:mahogany_sapling" },
-        "variant=g": { "model": "biomesoplenty:red_big_flower_sapling" },
-        "variant=h": { "model": "biomesoplenty:yellow_big_flower_sapling" }
+        "variant=mangrove": { "model": "biomesoplenty:mangrove_sapling" },
+        "variant=palm": { "model": "biomesoplenty:palm_sapling" },
+        "variant=redwood": { "model": "biomesoplenty:redwood_sapling" },
+        "variant=willow": { "model": "biomesoplenty:willow_sapling" },
+        "variant=pine": { "model": "biomesoplenty:pine_sapling" },
+        "variant=mahogany": { "model": "biomesoplenty:mahogany_sapling" }
     }
 }

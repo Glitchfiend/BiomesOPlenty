@@ -1,8 +1,8 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:mangrove_leaves" },
-        "variant=b": { "model": "biomesoplenty:palm_leaves" },
-        "variant=c": { "model": "biomesoplenty:redwood_leaves" },
-        "variant=d": { "model": "biomesoplenty:willow_leaves" }
+        "variant=mangrove": { "model": "biomesoplenty:mangrove_leaves" },
+        "variant=palm": { "model": "biomesoplenty:palm_leaves" },
+        "variant=redwood": { "model": "biomesoplenty:redwood_leaves" },
+        "variant=willow": { "model": "biomesoplenty:willow_leaves" }
     }
 }

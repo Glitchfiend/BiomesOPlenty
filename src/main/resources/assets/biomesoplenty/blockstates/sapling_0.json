@@ -1,12 +1,12 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:yellow_autumn_sapling" },
-        "variant=b": { "model": "biomesoplenty:orange_autumn_sapling" },
-        "variant=c": { "model": "biomesoplenty:bamboo_sapling" },
-        "variant=d": { "model": "biomesoplenty:magic_sapling" },
-        "variant=e": { "model": "biomesoplenty:dark_sapling" },
-        "variant=f": { "model": "biomesoplenty:dead_sapling" },
-        "variant=g": { "model": "biomesoplenty:fir_sapling" },
-        "variant=h": { "model": "biomesoplenty:ethereal_sapling" }
+        "variant=yellow_autumn": { "model": "biomesoplenty:yellow_autumn_sapling" },
+        "variant=orange_autumn": { "model": "biomesoplenty:orange_autumn_sapling" },
+        "variant=bamboo": { "model": "biomesoplenty:bamboo_sapling" },
+        "variant=magic": { "model": "biomesoplenty:magic_sapling" },
+        "variant=dark": { "model": "biomesoplenty:dark_sapling" },
+        "variant=dead": { "model": "biomesoplenty:dead_sapling" },
+        "variant=fir": { "model": "biomesoplenty:fir_sapling" },
+        "variant=ethereal": { "model": "biomesoplenty:ethereal_sapling" }
     }
 }

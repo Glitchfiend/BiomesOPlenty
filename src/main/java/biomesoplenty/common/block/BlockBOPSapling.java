@@ -10,9 +10,10 @@ package biomesoplenty.common.block;
 
 import java.util.Random;
 
+import com.google.common.base.Predicate;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
-import biomesoplenty.api.block.BOPTreeEnums.EightTrees;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
@@ -27,33 +28,89 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class BlockBOPSapling extends BlockDecoration implements IGrowable {
+public abstract class BlockBOPSapling extends BlockDecoration implements IGrowable {
+    
+    
+    // store the variant properties for each page in this array
+    private static PropertyEnum[] variantProperties;
+    // STAGE require one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
+    public static final int variantsPerPage = 8;
+    // fetch a particular page's variant property
+    // the first time this is called, it also sets up the array of variant properties
+    protected static PropertyEnum getVariantProperty(int pageNum)
+    {
+        int len = AllTrees.values().length;
+        int numPages = (int) Math.ceil( (double)len / variantsPerPage);
+        if (variantProperties == null)
+        {
+            variantProperties = new PropertyEnum[numPages];
+        }
+        pageNum = Math.max(0, Math.min(pageNum, numPages - 1));
+        if (variantProperties[pageNum] == null)
+        {
+            variantProperties[pageNum] = PropertyEnum.create("variant", AllTrees.class, getVariantEnumFilter(pageNum));
+        }
+        return variantProperties[pageNum];
+    }
+    // define the filter function used to reduce the set of enum values to the subset for the given page
+    protected static Predicate<AllTrees> getVariantEnumFilter(final int pageNum)
+    {
+        return new Predicate<AllTrees>()
+        {
+            @Override
+            public boolean apply(AllTrees tree)
+            {
+                switch (tree)
+                {
+                    case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
+                        return false;
+                    default:
+                        return (tree.ordinal() >= (variantsPerPage * pageNum)) && (tree.ordinal() < (variantsPerPage * (pageNum+1)));
+                }
+            }
+        };
+    }
+    // child classes must implement to define their page number
+    abstract public int getPageNum();
+    // fetch the current instance's variant property
+    public PropertyEnum getMyVariantProperty()
+    {
+        return getVariantProperty(this.getPageNum());
+    }
+    public int metaFromVariant(AllTrees tree)
+    {
+        return tree.ordinal() % variantsPerPage;
+    }
+    public AllTrees variantFromMeta(int meta)
+    {
+        int i = Math.max(0, Math.min(meta + (this.getPageNum() * variantsPerPage), AllTrees.values().length)); // clamp to 
+        return AllTrees.values()[i];
+    }
+    
+    
+    
     
     // add properties
     public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);    
-    // stage requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", EightTrees.class );
-    protected int pageNum;
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { STAGE, VARIANT });}
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { STAGE, getMyVariantProperty() });}
     
     
     // implement IBOPBlock
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return new IProperty[] {STAGE}; }
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((EightTrees) state.getValue(VARIANT)).map(this.pageNum).getName() + "_sapling";
+        return ((AllTrees) state.getValue(getMyVariantProperty())).getName() + "_sapling";
     }
     
     
-    public BlockBOPSapling(int pageNum)
+    public BlockBOPSapling()
     {
         super();
-        this.pageNum = pageNum;
         this.setStepSound(Block.soundTypeGrass);
         this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
@@ -64,13 +121,13 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, EightTrees.values()[meta & 7]).withProperty(STAGE, Integer.valueOf(meta >> 3));
+        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta & 7)).withProperty(STAGE, Integer.valueOf(meta >> 3));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((Integer)state.getValue(STAGE)).intValue() * 8 + ((EightTrees)state.getValue(VARIANT)).ordinal();
-    }   
+        return ((Integer)state.getValue(STAGE)).intValue() * 8 + metaFromVariant((AllTrees)state.getValue(getMyVariantProperty()));
+    }
     
     // which types of block allow trees
     // TODO: override for loftwood
@@ -198,8 +255,8 @@ public class BlockBOPSapling extends BlockDecoration implements IGrowable {
     public boolean generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {return false;}
-        
-        AllTrees treeType = ((EightTrees) state.getValue(VARIANT)).map(this.pageNum);        
+
+        AllTrees treeType = ((AllTrees) state.getValue(getMyVariantProperty()));
         WorldGenAbstractTree smallTreeGenerator = this.getSmallTreeGenerator(treeType);
         WorldGenAbstractTree bigTreeGenerator = this.getBigTreeGenerator(treeType);
         WorldGenAbstractTree megaTreeGenerator = this.getMegaTreeGenerator(treeType);

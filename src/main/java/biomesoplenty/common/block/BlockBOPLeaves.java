@@ -11,9 +11,10 @@ package biomesoplenty.common.block;
 import java.util.List;
 import java.util.Random;
 
+import com.google.common.base.Predicate;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
-import biomesoplenty.api.block.BOPTreeEnums.FourTrees;
 import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
 import biomesoplenty.common.item.ItemBOPBlock;
 import net.minecraft.block.BlockLeaves;
@@ -37,15 +38,67 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: sort out proper base color when using fast graphics
 // TODO: flowers look tinted when using fast graphics
-public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
+public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
 {
     
+    
+    // store the variant properties for each page in this array
+    private static PropertyEnum[] variantProperties;
+    // CHECK_DECAY and DECAYABLE require one bit each, so we have 2 bits left for the VARIANT which means we can have four per instance
+    public static final int variantsPerPage = 4;
+    // fetch a particular page's variant property
+    // the first time this is called, it also sets up the array of variant properties
+    protected static PropertyEnum getVariantProperty(int pageNum)
+    {
+        int len = AllTrees.values().length;
+        int numPages = (int) Math.ceil( (double)len / variantsPerPage);
+        if (variantProperties == null)
+        {
+            variantProperties = new PropertyEnum[numPages];
+        }
+        pageNum = Math.max(0, Math.min(pageNum, numPages - 1));
+        if (variantProperties[pageNum] == null)
+        {
+            variantProperties[pageNum] = PropertyEnum.create("variant", AllTrees.class, getVariantEnumFilter(pageNum));
+        }
+        return variantProperties[pageNum];
+    }
+    // define the filter function used to reduce the set of enum values to the subset for the given page
+    protected static Predicate<AllTrees> getVariantEnumFilter(final int pageNum)
+    {
+        return new Predicate<AllTrees>()
+        {
+            @Override
+            public boolean apply(AllTrees tree)
+            {
+                return (tree.ordinal() >= (variantsPerPage * pageNum)) && (tree.ordinal() < (variantsPerPage * (pageNum+1)));
+            }
+        };
+    }
+    // child classes must implement to define their page number
+    abstract public int getPageNum();
+    // fetch the current instance's variant property
+    public PropertyEnum getMyVariantProperty()
+    {
+        return getVariantProperty(this.getPageNum());
+    }
+    public int metaFromVariant(AllTrees tree)
+    {
+        return tree.ordinal() % variantsPerPage;
+    }
+    public AllTrees variantFromMeta(int meta)
+    {
+        int i = Math.max(0, Math.min(meta + (this.getPageNum() * variantsPerPage), AllTrees.values().length)); // clamp to 
+        return AllTrees.values()[i];
+    }
+    
+
+    
+    
+    
     // add properties - note CHECK_DECAY and DECAYABLE are both inherited from BlockLeaves
-    // both are boolean, requiring one bit each, so we have 2 bits left for the VARIANT which means we can have four per instance
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FourTrees.class );
-    protected int pageNum;
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { CHECK_DECAY, DECAYABLE, VARIANT });}
+    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { CHECK_DECAY, DECAYABLE, getMyVariantProperty() });}
     
     
     // implement IBOPBlock
@@ -54,28 +107,26 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return new IProperty[] {CHECK_DECAY, DECAYABLE}; }
     @Override
     public String getStateName(IBlockState state)
     {
-        AllTrees treeType = ((FourTrees) state.getValue(VARIANT)).map(this.pageNum);
-        switch (treeType)
+        AllTrees tree = ((AllTrees) state.getValue(getMyVariantProperty()));
+        switch (tree)
         {
             case RED_BIG_FLOWER: case YELLOW_BIG_FLOWER:
-                return treeType.getName() + "_petal";
+                return tree.getName() + "_petal";
             default:
-                return treeType.getName() + "_leaves";
+                return tree.getName() + "_leaves";
         }
     }
     
-    public BlockBOPLeaves(int pageNum)
+    public BlockBOPLeaves()
     {
         super();
-        
-        this.pageNum = pageNum;
-        this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, FourTrees.A).withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
+        this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
     }
     
     
@@ -86,12 +137,12 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, FourTrees.values()[meta & 3]).withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
+        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta & 3)).withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        int i = ((FourTrees)state.getValue(VARIANT)).ordinal();
+        int i = metaFromVariant(((AllTrees) state.getValue(getMyVariantProperty())));
         if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {
             i |= 4;
@@ -110,30 +161,33 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         return 20;
     }
     
+    // TODO: use some kind of mapping to saplings
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        AllTrees treeType = ((FourTrees) state.getValue(VARIANT)).map(this.pageNum);
+        AllTrees treeType = ((AllTrees) state.getValue(getMyVariantProperty()));
         int saplingPage = treeType.ordinal() / 8;
         if (saplingPage == 2) {return Item.getItemFromBlock(BOPBlocks.sapling_2);}
         if (saplingPage == 1) {return Item.getItemFromBlock(BOPBlocks.sapling_1);}
         return Item.getItemFromBlock(BOPBlocks.sapling_0);
     }
     
+    // TODO: use some kind of mapping to saplings
     @Override
     public int damageDropped(IBlockState state)
     {
-        AllTrees treeType = ((FourTrees) state.getValue(VARIANT)).map(this.pageNum);
-        return treeType.ordinal() % 8;
+        AllTrees tree = ((AllTrees) state.getValue(getMyVariantProperty()));
+        return tree.ordinal() % 8;
     }
     
     // TODO: different fruits for different trees?
+    // TODO: fruit seems to be falling too often
     @Override
     protected void dropApple(World worldIn, BlockPos pos, IBlockState state, int chance)
     {
-        AllTrees treeType = ((FourTrees) state.getValue(VARIANT)).map(this.pageNum);
+        AllTrees tree = ((AllTrees) state.getValue(getMyVariantProperty()));
         ItemStack fruit;
-        switch (treeType)
+        switch (tree)
         {
             case YELLOW_AUTUMN:
             case ORANGE_AUTUMN:
@@ -172,7 +226,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public List<ItemStack> onSheared(ItemStack item, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune)
     {       
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
-        int meta = this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, world.getBlockState(pos).getValue(VARIANT))); 
+        int meta = this.getMetaFromState(this.getDefaultState().withProperty(getMyVariantProperty(), world.getBlockState(pos).getValue(getMyVariantProperty()))); 
         ret.add(new ItemStack(this, 1, meta));
         return ret;
     }
@@ -180,7 +234,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        AllTrees tree = ((FourTrees) world.getBlockState(pos).getValue(VARIANT)).map(this.pageNum);
+        AllTrees tree = ((AllTrees) world.getBlockState(pos).getValue(getMyVariantProperty()));
         switch (tree)
         {
             case HELLBARK:
@@ -193,7 +247,7 @@ public class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face)
     {
-        AllTrees tree = ((FourTrees) world.getBlockState(pos).getValue(VARIANT)).map(this.pageNum);
+        AllTrees tree = ((AllTrees) world.getBlockState(pos).getValue(getMyVariantProperty()));
         switch (tree)
         {
             case HELLBARK:

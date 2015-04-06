@@ -34,20 +34,33 @@ import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.BlockAsh;
 import biomesoplenty.common.block.BlockBOPDirt;
 import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab;
+import biomesoplenty.common.block.BlockBOPDoubleWoodSlab0;
+import biomesoplenty.common.block.BlockBOPDoubleWoodSlab1;
 import biomesoplenty.common.block.BlockBOPFence;
 import biomesoplenty.common.block.BlockBOPFenceGate;
 import biomesoplenty.common.block.BlockBOPFlower1;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPGeneric;
 import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
-import biomesoplenty.common.block.BlockBOPLeaves;
+import biomesoplenty.common.block.BlockBOPHalfWoodSlab0;
+import biomesoplenty.common.block.BlockBOPHalfWoodSlab1;
+import biomesoplenty.common.block.BlockBOPLeaves0;
+import biomesoplenty.common.block.BlockBOPLeaves1;
+import biomesoplenty.common.block.BlockBOPLeaves2;
+import biomesoplenty.common.block.BlockBOPLeaves3;
+import biomesoplenty.common.block.BlockBOPLeaves4;
+import biomesoplenty.common.block.BlockBOPLeaves5;
 import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPLog;
+import biomesoplenty.common.block.BlockBOPLog0;
+import biomesoplenty.common.block.BlockBOPLog1;
+import biomesoplenty.common.block.BlockBOPLog2;
+import biomesoplenty.common.block.BlockBOPLog3;
 import biomesoplenty.common.block.BlockBOPMushroom;
 import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPSapling;
+import biomesoplenty.common.block.BlockBOPPlanks0;
+import biomesoplenty.common.block.BlockBOPSapling0;
+import biomesoplenty.common.block.BlockBOPSapling1;
+import biomesoplenty.common.block.BlockBOPSapling2;
 import biomesoplenty.common.block.BlockBOPStairs;
 import biomesoplenty.common.block.BlockBOPStone;
 import biomesoplenty.common.block.BlockBOPVine;
@@ -115,32 +128,32 @@ public class ModBlocks
         mud_brick =             registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick" );
  
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
-        log_0 =                 registerBlock( new BlockBOPLog(0), "log_0" );
-        log_1 =                 registerBlock( new BlockBOPLog(1), "log_1" );
-        log_2 =                 registerBlock( new BlockBOPLog(2), "log_2" );
-        log_3 =                 registerBlock( new BlockBOPLog(3), "log_3" );
-        
-        // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
-        leaves_0 =              registerBlock( new BlockBOPLeaves(0), "leaves_0");
-        leaves_1 =              registerBlock( new BlockBOPLeaves(1), "leaves_1" );
-        leaves_2 =              registerBlock( new BlockBOPLeaves(2), "leaves_2" );
-        leaves_3 =              registerBlock( new BlockBOPLeaves(3), "leaves_3" );
-        leaves_4 =              registerBlock( new BlockBOPLeaves(4), "leaves_4" );
-        leaves_5 =              registerBlock( new BlockBOPLeaves(5), "leaves_5" );
-        
-        // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
-        sapling_0 =             registerBlock( new BlockBOPSapling(0), "sapling_0");
-        sapling_1 =             registerBlock( new BlockBOPSapling(1), "sapling_1");
-        sapling_2 =             registerBlock( new BlockBOPSapling(2), "sapling_2");
+        log_0 =                 registerBlock( new BlockBOPLog0(), "log_0" );
+        log_1 =                 registerBlock( new BlockBOPLog1(), "log_1" );
+        log_2 =                 registerBlock( new BlockBOPLog2(), "log_2" );
+        log_3 =                 registerBlock( new BlockBOPLog3(), "log_3" );
         
         // TODO: check if hellbark planks, fence etc can burn
         
         // 16 wood types, 8 per BlockBOPHalfWoodSlab and BlockBOPDoubleWoodSlab intance, needs 2 'pages'
-        registerWoodSlab( half_wood_slab_0, double_wood_slab_0, BOPItems.wood_slab_0, 0);
-        registerWoodSlab( half_wood_slab_1, double_wood_slab_1, BOPItems.wood_slab_1, 1);
+        registerWoodSlab( wood_slab_0, double_wood_slab_0, BOPItems.wood_slab_0, 0);
+        registerWoodSlab( wood_slab_1, double_wood_slab_1, BOPItems.wood_slab_1, 1);
         
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
-        planks_0 =              registerBlock( new BlockBOPPlanks(0), "planks_0");
+        planks_0 =              registerBlock( new BlockBOPPlanks0(), "planks_0");
+        
+        // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
+        leaves_0 =              registerBlock( new BlockBOPLeaves0(), "leaves_0");
+        leaves_1 =              registerBlock( new BlockBOPLeaves1(), "leaves_1" );
+        leaves_2 =              registerBlock( new BlockBOPLeaves2(), "leaves_2" );
+        leaves_3 =              registerBlock( new BlockBOPLeaves3(), "leaves_3" );
+        leaves_4 =              registerBlock( new BlockBOPLeaves4(), "leaves_4" );
+        leaves_5 =              registerBlock( new BlockBOPLeaves5(), "leaves_5" );
+        
+        // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
+        sapling_0 =             registerBlock( new BlockBOPSapling0(), "sapling_0");
+        sapling_1 =             registerBlock( new BlockBOPSapling1(), "sapling_1");
+        sapling_2 =             registerBlock( new BlockBOPSapling2(), "sapling_2");
         
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
         sacred_oak_stairs =     registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.SACRED_OAK)), "sacred_oak_stairs" );
@@ -226,8 +239,19 @@ public class ModBlocks
     // use a separate function for registering slabs because the half slab, double slab, and item really need to be registered together
     public static void registerWoodSlab(Block half_slab, Block double_slab, Item slab_item, int pageNum)
     {
-        half_slab =      registerBlock( new BlockBOPHalfWoodSlab(pageNum), "half_wood_slab_" + pageNum );
-        double_slab =    registerBlock( new BlockBOPDoubleWoodSlab(pageNum), "double_wood_slab_" + pageNum, null ); // no creative tab for double slab
+        switch (pageNum)
+        {
+            case 0:
+                half_slab =      registerBlock( new BlockBOPHalfWoodSlab0(), "wood_slab_0");
+                double_slab =    registerBlock( new BlockBOPDoubleWoodSlab0(), "double_wood_slab_0", null ); // no creative tab for double slab
+                break;
+            case 1:
+                half_slab =      registerBlock( new BlockBOPHalfWoodSlab1(), "wood_slab_1");
+                double_slab =    registerBlock( new BlockBOPDoubleWoodSlab1(), "double_wood_slab_1", null ); // no creative tab for double slab
+                break;
+            default:
+                throw new IllegalArgumentException("No switch case yet for slab page " + pageNum);
+        }
         slab_item =  ModItems.registerItem( new ItemSlab(half_slab, (BlockSlab)half_slab, (BlockSlab)double_slab), "wood_slab_" + pageNum );
         GameData.getBlockItemMap().put(half_slab, slab_item);      
         GameData.getBlockItemMap().put(double_slab, slab_item);

@@ -1,12 +1,12 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:sacred_oak_planks" },
-        "variant=b": { "model": "biomesoplenty:cherry_planks" },
-        "variant=c": { "model": "biomesoplenty:dark_planks" },
-        "variant=d": { "model": "biomesoplenty:fir_planks" },
-        "variant=e": { "model": "biomesoplenty:ethereal_planks" },
-        "variant=f": { "model": "biomesoplenty:magic_planks" },
-        "variant=g": { "model": "biomesoplenty:mangrove_planks" },
-        "variant=h": { "model": "biomesoplenty:palm_planks" }
+        "variant=sacred_oak": { "model": "biomesoplenty:sacred_oak_planks" },
+        "variant=cherry": { "model": "biomesoplenty:cherry_planks" },
+        "variant=dark": { "model": "biomesoplenty:dark_planks" },
+        "variant=fir": { "model": "biomesoplenty:fir_planks" },
+        "variant=ethereal": { "model": "biomesoplenty:ethereal_planks" },
+        "variant=magic": { "model": "biomesoplenty:magic_planks" },
+        "variant=mangrove": { "model": "biomesoplenty:mangrove_planks" },
+        "variant=palm": { "model": "biomesoplenty:palm_planks" }
     }
 }

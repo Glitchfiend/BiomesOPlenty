@@ -1,8 +1,0 @@
-{
-    "parent": "block/upper_slab",
-    "textures": {
-        "bottom": "biomesoplenty:blocks/giant_flower_planks",
-        "top": "biomesoplenty:blocks/giant_flower_planks",
-        "side": "biomesoplenty:blocks/giant_flower_planks"
-    }
-}

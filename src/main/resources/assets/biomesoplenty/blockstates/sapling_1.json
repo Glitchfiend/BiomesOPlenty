@@ -1,12 +1,12 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:origin_sapling" },
-        "variant=b": { "model": "biomesoplenty:pink_cherry_sapling" },
-        "variant=c": { "model": "biomesoplenty:white_cherry_sapling" },
-        "variant=d": { "model": "biomesoplenty:maple_sapling" },
-        "variant=e": { "model": "biomesoplenty:hellbark_sapling" },
-        "variant=f": { "model": "biomesoplenty:flowering_sapling" },
-        "variant=g": { "model": "biomesoplenty:jacaranda_sapling" },
-        "variant=h": { "model": "biomesoplenty:sacred_oak_sapling" }
+        "variant=origin": { "model": "biomesoplenty:origin_sapling" },
+        "variant=pink_cherry": { "model": "biomesoplenty:pink_cherry_sapling" },
+        "variant=white_cherry": { "model": "biomesoplenty:white_cherry_sapling" },
+        "variant=maple": { "model": "biomesoplenty:maple_sapling" },
+        "variant=hellbark": { "model": "biomesoplenty:hellbark_sapling" },
+        "variant=flowering": { "model": "biomesoplenty:flowering_sapling" },
+        "variant=jacaranda": { "model": "biomesoplenty:jacaranda_sapling" },
+        "variant=sacred_oak": { "model": "biomesoplenty:sacred_oak_sapling" }
     }
 }

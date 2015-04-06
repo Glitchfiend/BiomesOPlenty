@@ -1,8 +1,8 @@
 {
     "variants": {
-        "variant=a": { "model": "biomesoplenty:pine_leaves" },
-        "variant=b": { "model": "biomesoplenty:mahogany_leaves" },
-        "variant=c": { "model": "biomesoplenty:red_big_flower_petal" },
-        "variant=d": { "model": "biomesoplenty:yellow_big_flower_petal" }
+        "variant=pine": { "model": "biomesoplenty:pine_leaves" },
+        "variant=mahogany": { "model": "biomesoplenty:mahogany_leaves" },
+        "variant=red_big_flower": { "model": "biomesoplenty:red_big_flower_petal" },
+        "variant=yellow_big_flower": { "model": "biomesoplenty:yellow_big_flower_petal" }
     }
 }
