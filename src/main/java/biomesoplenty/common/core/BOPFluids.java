@@ -40,6 +40,6 @@ public class BOPFluids
 	{
 		FluidRegistry.registerFluid(fluid);
 		
-		return FluidRegistry.getFluid(fluid.getName();
+		return FluidRegistry.getFluid(fluid.getName());
 	}
 }
