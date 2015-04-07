@@ -20,6 +20,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -30,6 +31,11 @@ import com.google.common.collect.Lists;
 
 public class BOPCommand extends CommandBase
 {
+    public static int blockCount = 0;
+    public static int itemCount = 0;
+    public static int entityCount = 0;
+    public static int biomeCount = 0;
+    
     @Override
     public String getCommandName()
     {
@@ -61,15 +67,19 @@ public class BOPCommand extends CommandBase
         {
             throw new WrongUsageException("commands.biomesoplenty.usage");
         }
-        else if ("biomename".equals(args[0]))
+        else if (args[0].equals("biomename"))
         {
             getBiomeName(sender, args);
         }
-        else if ("tpbiome".equals(args[0]))
+        else if (args[0].equals("tpbiome"))
         {
             teleportFoundBiome(sender, args);
         }
-        else if ("stripchunk".equals(args[0]))
+        else if (args[0].equals("stats"))
+        {
+            printStats(sender, args);
+        }
+        else if (args[0].equals("stripchunk"))
         {
             stripChunk(sender, args);
         }
@@ -114,6 +124,30 @@ public class BOPCommand extends CommandBase
         {
             sender.addChatMessage(new ChatComponentTranslation("commands.biomesoplenty.tpbiome.error", biome == null ? "Undefined" : biome.biomeName));
         }
+    }
+    
+    private void printStats(ICommandSender sender, String[] args) throws CommandException
+    {
+        ChatComponentTranslation text = new ChatComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
+        
+        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        sender.addChatMessage(text);
+        
+        text = new ChatComponentTranslation("commands.biomesoplenty.stats.blocks", blockCount);
+        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        sender.addChatMessage(text);
+        
+        text = new ChatComponentTranslation("commands.biomesoplenty.stats.items", itemCount);
+        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        sender.addChatMessage(text);
+        
+        text = new ChatComponentTranslation("commands.biomesoplenty.stats.entities", entityCount);
+        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        sender.addChatMessage(text);
+        
+        text = new ChatComponentTranslation("commands.biomesoplenty.stats.biomes", biomeCount);
+        text.getChatStyle().setColor(EnumChatFormatting.GREEN);
+        sender.addChatMessage(text);
     }
     
     private void stripChunk(ICommandSender sender, String[] args) throws CommandException
@@ -191,7 +225,7 @@ public class BOPCommand extends CommandBase
     {
         if (args.length == 1)
         {
-            return getListOfStringsMatchingLastWord(args, "biomename", "tpbiome", "stripchunk");
+            return getListOfStringsMatchingLastWord(args, "biomename", "tpbiome", "stats", "stripchunk");
         }
         else if (args.length == 3)
         {

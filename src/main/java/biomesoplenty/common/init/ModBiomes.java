@@ -13,18 +13,18 @@ import static biomesoplenty.api.biome.BOPBiomes.alps;
 import java.io.File;
 import java.io.IOException;
 
+import net.minecraft.world.biome.BiomeGenBase;
+
 import org.apache.commons.io.FileUtils;
 
-import com.google.common.base.Optional;
-import com.google.gson.JsonSyntaxException;
-
-import net.minecraft.world.biome.BiomeGenBase;
-import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
-import biomesoplenty.common.handler.GuiEventHandler;
+import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
+
+import com.google.common.base.Optional;
+import com.google.gson.JsonSyntaxException;
 
 public class ModBiomes
 {
@@ -92,7 +92,7 @@ public class ModBiomes
     private static Optional<BiomeGenBase> registerBiome(BiomeGenBase biome, String id)
     {
         biome.biomeID = getNextFreeBiomeId();
-        GuiEventHandler.biomeCount++;
+        BOPCommand.biomeCount++;
         
         return loadOrCreateConfig(biome, id);
     }

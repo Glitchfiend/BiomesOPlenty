@@ -8,19 +8,24 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.item.BOPItems.*;
+import static biomesoplenty.api.item.BOPItems.ash;
+import static biomesoplenty.api.item.BOPItems.berries;
+import static biomesoplenty.api.item.BOPItems.crystal_shard;
+import static biomesoplenty.api.item.BOPItems.filled_honeycomb;
+import static biomesoplenty.api.item.BOPItems.fleshchunk;
+import static biomesoplenty.api.item.BOPItems.gem;
+import static biomesoplenty.api.item.BOPItems.honeycomb;
+import static biomesoplenty.api.item.BOPItems.mudball;
+import static biomesoplenty.api.item.BOPItems.peach;
+import static biomesoplenty.api.item.BOPItems.pear;
+import static biomesoplenty.api.item.BOPItems.persimmon;
+import static biomesoplenty.api.item.BOPItems.turnip;
+import static biomesoplenty.api.item.BOPItems.turnip_seeds;
+import static biomesoplenty.api.item.BOPItems.wading_boots;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItemHelper;
-import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.item.ItemGem;
-import biomesoplenty.common.item.ItemMudball;
-import biomesoplenty.common.item.ItemWadingBoots;
-import biomesoplenty.common.util.inventory.CreativeTabBOP;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
@@ -33,6 +38,14 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
+import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.item.BOPItemHelper;
+import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.item.ItemGem;
+import biomesoplenty.common.item.ItemMudball;
+import biomesoplenty.common.item.ItemWadingBoots;
+import biomesoplenty.common.util.inventory.CreativeTabBOP;
+import biomesoplenty.core.BiomesOPlenty;
 
 public class ModItems
 {    
@@ -63,7 +76,7 @@ public class ModItems
     {    
         item.setUnlocalizedName(name).setCreativeTab(CreativeTabBOP.instance);
         GameRegistry.registerItem(item,name);
-        GuiEventHandler.itemCount++;
+        BOPCommand.itemCount++;
         
         // register sub types if there are any
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)

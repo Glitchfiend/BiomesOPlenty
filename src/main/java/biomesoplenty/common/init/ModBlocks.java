@@ -79,7 +79,7 @@ import biomesoplenty.common.block.BlockHoney;
 import biomesoplenty.common.block.BlockMud;
 import biomesoplenty.common.block.BlockStoneFormations;
 import biomesoplenty.common.block.BlockTurnip;
-import biomesoplenty.common.handler.GuiEventHandler;
+import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -275,7 +275,7 @@ public class ModBlocks
             ModelLoader.setCustomModelResourceLocation(item, stateMeta, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + stateName, "inventory"));
         }
 
-        GuiEventHandler.blockCount++;
+        BOPCommand.blockCount++;
     }
     
     public static Block registerBlock(Block block, String blockName)
