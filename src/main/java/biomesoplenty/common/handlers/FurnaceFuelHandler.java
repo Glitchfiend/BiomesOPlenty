@@ -71,6 +71,7 @@ public class FurnaceFuelHandler implements IFuelHandler
 	
 private static int getFuelValue(ItemStack stack)
 {
+	if ( (stack==null) || (stack.getItem()==null) ) return 0;
     Pair<Item, Integer> pair = Pair.of(stack.getItem(), stack.getItemDamage());
 
     if (fuelList.containsKey(pair))
