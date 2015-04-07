@@ -84,6 +84,7 @@ public class WorldGenFieldAssociation
         associateFeature("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 11));
         associateFeature("poisonIvyPerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 7));
         associateFeature("berryBushesPerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 8));
+        associateFeature("wildRicePerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 6));
         associateFeature("portobellosPerChunk", new WorldGenBOPFlora(BOPCBlocks.mushrooms, 1));
         associateFeature("koruPerChunk", new WorldGenBOPFlora(BOPCBlocks.foliage, 12));
         associateFeature("toadstoolsPerChunk", new WorldGenBOPFlora(BOPCBlocks.mushrooms, 0));

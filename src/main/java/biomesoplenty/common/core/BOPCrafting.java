@@ -219,9 +219,6 @@ public class BOPCrafting
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.flowerBand, 1, 2), new Object [] {"CDC", "V V", "CDC", Character.valueOf('C'), new ItemStack(BOPCBlocks.flowers, 1, 0),Character.valueOf('D'), new ItemStack(BOPCBlocks.flowers, 1, 5), Character.valueOf('V'), new ItemStack(BOPCBlocks.flowers, 1, 8)});
 		GameRegistry.addRecipe(new ItemStack(BOPCItems.flowerBand, 1, 3), new Object [] {"CDT", "V V", "TDC", Character.valueOf('C'), new ItemStack(BOPCBlocks.flowers, 1, 0),Character.valueOf('D'), new ItemStack(BOPCBlocks.flowers, 1, 5), Character.valueOf('V'), new ItemStack(BOPCBlocks.flowers, 1, 8), Character.valueOf('T'), new ItemStack(BOPCBlocks.flowers, 1, 6)});
 
-		//Other
-		GameRegistry.addRecipe(new ItemStack(Items.wheat, 1), new Object[] {"###", '#', new ItemStack(BOPCBlocks.plants,1,6)});
-
 		/*if (BOPConfigurationMisc.staffCrafting)
 		{
 			GameRegistry.addRecipe(new ItemStack(BOPItemHelper.get("ancientStaff"), 1, 0), new Object[] {"T", "P", "H", 'T', new ItemStack(BOPItemHelper.get("ancientStaff"), 1, 3), 'P', new ItemStack(BOPItemHelper.get("ancientStaff"), 1, 2), 'H', new ItemStack(BOPItemHelper.get("ancientStaff"), 1, 1)});
@@ -271,6 +268,7 @@ public class BOPCrafting
 		//Plants
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 2, 1), new Object[] {new ItemStack(BOPCBlocks.mushrooms,1,0)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.jarFilled, 1, 1), new Object[] {new ItemStack(BOPCBlocks.foliage,1,7), new ItemStack(BOPCItems.jarEmpty,1, 0)});
+		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 13), new Object[] {Items.bowl, new ItemStack(BOPCBlocks.plants, 1, 6)});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 4), new Object[] {Items.bowl, new ItemStack(BOPCItems.food, 1, 0), Items.apple, Items.melon});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 5), new Object[] {Items.bowl, new ItemStack(BOPCItems.food, 1, 2), Items.carrot, Items.potato});
 		GameRegistry.addShapelessRecipe(new ItemStack(BOPCItems.food, 1, 6), new Object[] {Items.bowl, new ItemStack(BOPCBlocks.mushrooms, 1, 0), new ItemStack(BOPCBlocks.mushrooms, 1, 1), new ItemStack(BOPCBlocks.mushrooms, 1, 2)});

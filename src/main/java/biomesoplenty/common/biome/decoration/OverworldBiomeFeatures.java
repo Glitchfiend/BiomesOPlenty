@@ -48,6 +48,7 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int berryBushesPerChunk = 0;
     @BiomeFeature public int portobellosPerChunk = 0;
     @BiomeFeature public int koruPerChunk = 0;
+    @BiomeFeature public int wildRicePerChunk = 0;
     @BiomeFeature public int blueMilksPerChunk = 0;
     @BiomeFeature public int cattailsPerChunk = 0;
     @BiomeFeature public int highCattailsPerChunk = 0;

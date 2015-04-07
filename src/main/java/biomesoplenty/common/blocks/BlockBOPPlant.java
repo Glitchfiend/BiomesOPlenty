@@ -35,7 +35,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 {
-	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "spectralfern", "thorn", "barley", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
+	private static final String[] plants = new String[] {"deadgrass", "desertgrass", "desertsprouts", "dunegrass", "spectralfern", "thorn", "wildrice", "cattail", "rivercane", "cattailtop", "cattailbottom", "wildcarrot", "cactus", "witherwart", "reed", "root"};
 	private IIcon[] textures;
 	public IIcon reedbottom;
 
@@ -148,7 +148,7 @@ public class BlockBOPPlant extends BOPBlockWorldDecor implements IShearable
 		case 5: // Thorns
 			return block == Blocks.grass|| block == Blocks.dirt || block == Blocks.soul_sand || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 			
-		case 6: // Barley
+		case 6: // Wild Rice
 			return block == Blocks.grass || block == Blocks.dirt || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 
 		case 7: // Cattail

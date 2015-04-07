@@ -19,7 +19,7 @@ import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenLandOfLakes extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.1F, 0.2F);
 	
 	public BiomeGenLandOfLakes(int id)
 	{
@@ -41,6 +41,7 @@ public class BiomeGenLandOfLakes extends BOPOverworldBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
+		this.theBiomeDecorator.bopFeatures.wildRicePerChunk = 2;
 		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 30;
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 15;
