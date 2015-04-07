@@ -26,6 +26,8 @@ import biomesoplenty.common.init.ModBiomes;
 public class GuiEventHandler
 {
     public static int blockCount = 0;
+    public static int itemCount = 0;
+    public static int biomeCount = 0;
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
@@ -59,9 +61,9 @@ public class GuiEventHandler
 
                 text.add("Progress:");
                 text.add("Blocks: " + blockCount);
-                text.add("Items: 0");
+                text.add("Items: " + itemCount);
                 text.add("Entities: 0");
-                text.add("Biomes: 0");
+                text.add("Biomes: " + biomeCount);
 
                 createWorldGui.drawHoveringText(text, event.mouseX, event.mouseY);
             }

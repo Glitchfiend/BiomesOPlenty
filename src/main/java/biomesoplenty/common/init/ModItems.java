@@ -15,6 +15,7 @@ import java.util.List;
 
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItemHelper;
+import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.item.ItemWadingBoots;
@@ -62,6 +63,7 @@ public class ModItems
     {    
         item.setUnlocalizedName(name).setCreativeTab(CreativeTabBOP.instance);
         GameRegistry.registerItem(item,name);
+        GuiEventHandler.itemCount++;
         
         // register sub types if there are any
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)

@@ -21,6 +21,7 @@ import com.google.gson.JsonSyntaxException;
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
+import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -91,7 +92,8 @@ public class ModBiomes
     private static Optional<BiomeGenBase> registerBiome(BiomeGenBase biome, String id)
     {
         biome.biomeID = getNextFreeBiomeId();
-
+        GuiEventHandler.biomeCount++;
+        
         return loadOrCreateConfig(biome, id);
     }
 
