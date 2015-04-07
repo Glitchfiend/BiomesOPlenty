@@ -8,9 +8,11 @@
 
 package biomesoplenty.api.biome;
 
+import com.google.common.base.Optional;
+
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BOPBiomes
 {
-    public static BiomeGenBase alps;
+    public static Optional<BiomeGenBase> alps = Optional.absent();
 }

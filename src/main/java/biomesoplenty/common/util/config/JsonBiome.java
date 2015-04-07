@@ -23,6 +23,7 @@ import biomesoplenty.api.biome.generation.IGenerator;
 import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 
+import com.google.common.base.Optional;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -94,7 +95,7 @@ public class JsonBiome
         return biome;
     }
 
-    public static void configureBiomeWithJson(BiomeGenBase biome, JsonBiome jsonBiome)
+    public static Optional<BiomeGenBase> configureBiomeWithJson(BiomeGenBase biome, JsonBiome jsonBiome)
     {
         IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
     
@@ -109,7 +110,7 @@ public class JsonBiome
                 }
                 else
                 {
-                    biome.biomeID = -1;
+                    return Optional.absent();
                 }
             }
     
@@ -149,6 +150,10 @@ public class JsonBiome
             GenerationManager generationManager = extendedBiome.getGenerationManager();
             
             generationManager.createGeneratorTable(jsonBiome.decoration);
+            
+            return Optional.of(biome);
         }
+        
+        return Optional.absent();
     }
 }

@@ -9,11 +9,21 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.biome.BOPBiomes.alps;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+
+import com.google.common.base.Optional;
+import com.google.gson.JsonSyntaxException;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
-import biomesoplenty.common.config.BiomeConfigurationHandler;
+import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
+import biomesoplenty.core.BiomesOPlenty;
 
 public class ModBiomes
 {
@@ -78,20 +88,18 @@ public class ModBiomes
         registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");*/
     }
 
-    private static BiomeGenBase registerBiome(BiomeGenBase biome, String id)
+    private static Optional<BiomeGenBase> registerBiome(BiomeGenBase biome, String id)
     {
         biome.biomeID = getNextFreeBiomeId();
-        BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
 
-        return biome;
+        return loadOrCreateConfig(biome, id);
     }
 
-    private static void registerExternalBiome(BiomeGenBase biome, String id)
+    /*private static void registerExternalBiome(BiomeGenBase biome, String id)
     {
         ExtendedBiomeRegistry.createExtension(biome);
         BiomeConfigurationHandler.translateVanillaValues(biome);
-        BiomeConfigurationHandler.getConfigFileMap().put(biome, id);
-    }
+    }*/
 
     public static int getNextFreeBiomeId()
     {
@@ -110,5 +118,43 @@ public class ModBiomes
         }
 
         return -1;
+    }
+    
+    private static Optional<BiomeGenBase> loadOrCreateConfig(BiomeGenBase biome, String fileName)
+    {
+        File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), fileName + ".json");
+        
+        if (configFile.exists())
+        {
+            try
+            {
+                JsonBiome jsonBiome = JsonBiome.serializer.fromJson(FileUtils.readFileToString(configFile), JsonBiome.class);
+
+                return JsonBiome.configureBiomeWithJson(biome, jsonBiome);
+            }
+            catch (JsonSyntaxException e)
+            {
+                BiomesOPlenty.logger.error("An error occurred reading " + configFile.getName(), e);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            try
+            {
+                FileUtils.write(configFile, JsonBiome.serializer.toJson(JsonBiome.createFromBiomeGenBase(biome), JsonBiome.class));
+                
+                return Optional.of(biome);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        
+        return Optional.absent();
     }
 }

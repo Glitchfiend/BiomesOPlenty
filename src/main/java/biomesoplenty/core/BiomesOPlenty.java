@@ -43,8 +43,7 @@ public class BiomesOPlenty
     public static CommonProxy proxy;
 
     public static Logger logger = LogManager.getLogger(MOD_ID);
-    
-    private File configDirectory;
+    public static File configDirectory;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -60,7 +59,6 @@ public class BiomesOPlenty
         ModGenerators.init();
         ModBiomes.init();
         ModHandlers.init();
-        ModConfiguration.initEnd(configDirectory);
     }
 
     @EventHandler
