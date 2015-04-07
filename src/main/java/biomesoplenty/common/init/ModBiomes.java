@@ -8,7 +8,7 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.biome.BOPBiomes.alps;
+import static biomesoplenty.api.biome.BOPBiomes.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +18,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import org.apache.commons.io.FileUtils;
 
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
+import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -43,6 +44,7 @@ public class ModBiomes
     private static void registerBiomes()
     {
         alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
+        arctic = registerBiome(new BiomeGenArctic().setBiomeName("Arctic"), "arctic");
     }
 
     private static void registerExternalBiomes()
