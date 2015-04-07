@@ -49,7 +49,7 @@ public class JsonBiome
     public static JsonBiome createFromBiomeGenBase(BiomeGenBase baseBiome)
     {
         JsonBiome biome = new JsonBiome();
-
+        
         biome.biomeId = baseBiome.biomeID;
         biome.biomeName = baseBiome.biomeName;
         biome.topBlock = baseBiome.topBlock;
@@ -70,6 +70,13 @@ public class JsonBiome
 
         	biome.weights = extendedBiome.getWeightMap();
         	biome.decoration = generationManager.createGeneratorMap();
+        	
+            if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
+            {
+                //Add the biome to the array if it is ours because the registration in configureBiomeWithJson is
+                //not called on the first run
+                BiomeGenBase.getBiomeGenArray()[baseBiome.biomeID] = baseBiome;
+            }
         	
             //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
             for (Entry<BiomeType, Integer> entry : extendedBiome.getWeightMap().entrySet())
