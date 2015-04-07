@@ -8,8 +8,17 @@
 
 package biomesoplenty.core;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMap;
+import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.model.ModelLoader;
+import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 
 
@@ -24,5 +33,32 @@ public class ClientProxy extends CommonProxy
             GuiMainMenu.titlePanoramaPaths = bopTitlePanoramaPaths;
             
         //Entity rendering and other stuff will go here in future
+    }
+    
+    @Override
+    public void registerItemVariantModel(Item item, String name, int metadata) 
+    {
+        if (item != null) 
+        { 
+            ModelBakery.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + name);
+            ModelLoader.setCustomModelResourceLocation(item, metadata, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + name, "inventory"));
+        }
+    }
+    
+    @Override
+    public void registerNonRenderingProperties(Block block) 
+    {
+        if (block instanceof IBOPBlock)
+        {
+            IBOPBlock bopBlock = (IBOPBlock)block;
+            IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
+            
+            if (nonRenderingProperties != null)
+            {
+                // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
+                IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(nonRenderingProperties).build();
+                ModelLoader.setCustomStateMapper(block, custom_mapper);
+            }
+        }
     }
 }

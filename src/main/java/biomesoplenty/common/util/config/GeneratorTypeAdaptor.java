@@ -77,13 +77,17 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator>, JsonDes
                 } 
                 catch (InstantiationException e)
                 {
-                    throw new RuntimeException("Generators must have a no-args constructor!", e);
+                    throw new RuntimeException("Generators must have a no-args constructor", e);
                 } 
                 catch (IllegalAccessException e)
                 {
                     e.printStackTrace();
                 }
             }
+        }
+        else
+        {
+            throw new JsonSyntaxException("Entry missing generator property");
         }
 
         return null;

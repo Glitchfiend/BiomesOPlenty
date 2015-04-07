@@ -14,10 +14,6 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
-import net.minecraft.client.renderer.block.statemap.StateMap;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -270,10 +266,7 @@ public class ModBlocks
     public static void registerBlockVariant(Block block, String stateName, int stateMeta)
     {
         Item item = Item.getItemFromBlock(block);
-        if (item != null && FMLCommonHandler.instance().getSide() == Side.CLIENT) { 
-            ModelBakery.addVariantName(item, BiomesOPlenty.MOD_ID + ":" + stateName);
-            ModelLoader.setCustomModelResourceLocation(item, stateMeta, new ModelResourceLocation(BiomesOPlenty.MOD_ID + ":" + stateName, "inventory"));
-        }
+        BiomesOPlenty.proxy.registerItemVariantModel(item, stateName, stateMeta);
 
         BOPCommand.blockCount++;
     }
@@ -296,13 +289,7 @@ public class ModBlocks
             IBOPBlock bopBlock = (IBOPBlock)block;
             GameRegistry.registerBlock(block, bopBlock.getItemClass(), blockName);
             
-            IProperty[] nonRenderingProperties = bopBlock.getNonRenderingProperties();
-            if (nonRenderingProperties != null)
-            {
-                // use a custom state mapper which will ignore the properties specified in the block as being non-rendering
-                IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(nonRenderingProperties).build();
-                ModelLoader.setCustomStateMapper(block, custom_mapper);
-            }
+            BiomesOPlenty.proxy.registerNonRenderingProperties(block);
             
             // check for missing default states
             IBlockState defaultState = block.getDefaultState();
