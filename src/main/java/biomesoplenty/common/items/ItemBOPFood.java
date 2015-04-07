@@ -21,9 +21,9 @@ import biomesoplenty.api.content.BOPCBlocks;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "peach", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip"};
-	private static final int[] foodHunger = new int[] {1, 1, 3, 5, 6, 6, 6, 0, 5, 3, 6, 3};
-	private static final float[] foodSaturation = new float[] {0.1F, 0.1F, 0.5F, 0.5F, 0.6F, 0.6F, 0.6F, 0.0F, 0.2F, 0.4F, 0.8F, 0.4F};
+	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "peach", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip", "pear"};
+	private static final int[] foodHunger = new int[] {1, 1, 3, 5, 6, 6, 6, 0, 5, 3, 6, 3, 5};
+	private static final float[] foodSaturation = new float[] {0.1F, 0.1F, 0.5F, 0.2F, 0.6F, 0.6F, 0.6F, 0.0F, 0.2F, 0.4F, 0.8F, 0.4F, 0.3F};
 	private IIcon[] textures;
 	
 	public ItemBOPFood(int healAmount)
@@ -179,12 +179,7 @@ public class ItemBOPFood extends ItemFood
     	if (itemStack.getItem() == this && itemStack.getItemDamage() == 0)
     	{             
     		return 8; 
-    	}             
-    	              
-    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 3)
-    	{             
-    		return 12;
-    	}             
+    	}
     	              
     	if (itemStack.getItem() == this && itemStack.getItemDamage() == 9)
     	{             

@@ -62,7 +62,8 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome implements IBiomeF
         : (random.nextInt(3) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves3, 0, 2, false, 5, 3, false)
         : (random.nextInt(5) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, false, 5, 3, false)
         : (random.nextInt(6) == 0 ? worldGeneratorBigTree
-                : worldGeneratorTrees))))));
+        : (random.nextInt(10) == 0 ? new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, 1)
+                : worldGeneratorTrees)))))));
     }
 
     @Override

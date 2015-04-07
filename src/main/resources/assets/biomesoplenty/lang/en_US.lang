@@ -68,6 +68,12 @@ tile.flowers2.minersdelight.name=Miner's Delight
 tile.flowers2.icyiris.name=Icy Iris
 tile.flowers2.rose.name=Rose
 
+tile.fruitBop.apple_block.name=Apple
+tile.fruitBop.persimmon_block.name=Persimmon
+tile.fruitBop.peach_block.name=Peach
+tile.fruitBop.pear_block.name=Pear
+tile.fruitBop.pinecone_block.name=Pinecone
+
 tile.stoneFormations.stalagmite.name=Stalagmite
 tile.stoneFormations.stalactite.name=Stalactite
 
@@ -122,6 +128,7 @@ tile.colorizedSaplings.redwoodSapling.name=Redwood Sapling
 tile.colorizedSaplings.willowSapling.name=Willow Sapling
 tile.colorizedSaplings.pineSapling.name=Pine Sapling
 tile.colorizedSaplings.mahoganySapling.name=Mahogany Sapling
+tile.colorizedSaplings.floweringSapling.name=Flowering Oak Sapling
 
 tile.willow.name=Willow
 tile.ivy.name=Ivy
@@ -261,6 +268,7 @@ tile.colorizedLeaves1.redwood.name=Redwood Leaves
 tile.colorizedLeaves2.willow.name=Willow Leaves
 tile.colorizedLeaves2.pine.name=Pine Leaves
 tile.colorizedLeaves2.mahogany.name=Mahogany Leaves
+tile.colorizedLeaves2.flowering.name=Flowering Oak Leaves
 
 tile.appleLeaves.name=Apple Leaves
 tile.persimmonLeaves.name=Persimmon Leaves
@@ -321,6 +329,7 @@ item.food.persimmon.name=Persimmon
 item.food.filledhoneycomb.name=Filled Honeycomb
 item.food.ambrosia.name=Ambrosia
 item.food.turnip.name=Turnip
+item.food.pear.name=Pear
 
 item.turnipSeeds.name=Turnip Seeds
 
@@ -343,6 +352,7 @@ item.misc.blackdye.name=Black Dye
 item.misc.ghastlysoul.name=Ghastly Soul
 item.misc.pixiedust.name=Pixie Dust
 item.misc.ichor.name=Ichor
+item.misc.pinecone.name=Pinecone
 
 item.jarEmpty.name=Empty Jar
 item.jarFilled.jarhoney.name=Honey Jar

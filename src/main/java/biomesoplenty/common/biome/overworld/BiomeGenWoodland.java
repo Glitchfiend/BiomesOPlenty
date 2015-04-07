@@ -11,6 +11,7 @@ import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenWoodland extends BOPOverworldBiome
 {
@@ -54,7 +55,7 @@ public class BiomeGenWoodland extends BOPOverworldBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return random.nextInt(10) == 0 ? worldGeneratorBigTree : worldGeneratorTrees;
+        return random.nextInt(10) == 0 ? worldGeneratorBigTree : (random.nextInt(15) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, 3) : worldGeneratorTrees);
     }
 	
     @Override

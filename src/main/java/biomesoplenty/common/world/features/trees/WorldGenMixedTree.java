@@ -11,7 +11,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
 import biomesoplenty.api.content.BOPCBlocks;
 
-public class WorldGenOriginalTree extends WorldGenAbstractTree
+public class WorldGenMixedTree extends WorldGenAbstractTree
 {
 	private final int minTreeHeight;
 	private final int randomTreeHeight;
@@ -20,25 +20,27 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 
 	private final Block wood;
 	private final Block leaves;
+	private final Block alt;
 	
 	private final int metaWood;
 	private int metaLeaves;
+	private int metaAlt;
 	
 	private int metaFruit = -1;
 	
-	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves)
+	public WorldGenMixedTree(Block wood, Block leaves, int metaWood, int metaLeaves, Block alt, int metaAlt)
 	{
-		this(wood, leaves, metaWood, metaLeaves, false, 4, 3, false);
+		this(wood, leaves, metaWood, metaLeaves, alt, metaAlt, false, 4, 3, false);
 	}
 	
-	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves, int metaFruit)
+	public WorldGenMixedTree(Block wood, Block leaves, int metaWood, int metaLeaves, Block alt, int metaAlt, int metaFruit)
 	{
-		this(wood, leaves, metaWood, metaLeaves, false, 5, 4, false);
+		this(wood, leaves, metaWood, metaLeaves, alt, metaAlt, false, 5, 4, false);
 		
 		this.metaFruit = metaFruit;
 	}
 
-	public WorldGenOriginalTree(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, boolean vinesGrow)
+	public WorldGenMixedTree(Block wood, Block leaves, int metaWood, int metaLeaves, Block alt, int metaAlt, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, boolean vinesGrow)
 	{
 		super(doBlockNotify);
 		
@@ -46,6 +48,8 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
 		this.leaves = leaves;
 		this.metaWood = metaWood;
 		this.metaLeaves = metaLeaves;
+		this.alt = alt;
+		this.metaAlt = metaAlt;
 		this.minTreeHeight = minTreeHeight;
 		this.randomTreeHeight = randomTreeHeight;
 		this.vinesGrow = vinesGrow;
@@ -136,8 +140,15 @@ public class WorldGenOriginalTree extends WorldGenAbstractTree
                                     Block block1 = par1World.getBlock(i2, k1, k2);
 
                                     if (block1.isAir(par1World, i2, k1, k2) || block1.isLeaves(par1World, i2, k1, k2))
-                                    {                                    	
-                                        this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, this.metaLeaves);
+                                    {                 
+                                    	if (par2Random.nextInt(3) == 0)
+                                    	{
+                                    		this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.alt, this.metaAlt);
+                                    	}
+                                    	else
+                                    	{
+                                    		this.setBlockAndNotifyAdequately(par1World, i2, k1, k2, this.leaves, this.metaLeaves);
+                                    	}
                                     }
                                 }
                             }

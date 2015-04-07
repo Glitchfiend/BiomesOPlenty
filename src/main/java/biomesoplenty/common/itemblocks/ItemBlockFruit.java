@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBlockFruit extends ItemBlock
 {
-	private static final String[] plants = new String[] {"apple_block", "persimmon_block", "peach_block"};
+	private static final String[] plants = new String[] {"apple_block", "persimmon_block", "peach_block", "pear_block", "pinecone_block"};
 	@SideOnly(Side.CLIENT)
 	private IIcon[] textures;
 
@@ -41,7 +41,7 @@ public class ItemBlockFruit extends ItemBlock
 			meta = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + plants[itemStack.getItemDamage()];
+		return super.getUnlocalizedName() + "." + plants[meta];
 	}
 
 	@Override

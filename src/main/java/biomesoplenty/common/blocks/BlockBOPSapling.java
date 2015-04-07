@@ -138,7 +138,7 @@ public class BlockBOPSapling extends BlockSapling
 			switch (meta)
 			{
 			case 0: // Apple Tree
-				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.appleLeaves, 0, true);
+				obj = new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, 1);
 				break;
 
 			case 1: // Autumn Tree
@@ -163,7 +163,7 @@ public class BlockBOPSapling extends BlockSapling
 				rnd = random.nextInt(8);
 
 				if (rnd == 0) obj = new WorldGenBOPSwampTree(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, 5, 4);
-				else obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, false, 14, 6, 0);
+				else obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves1, 2, 3, false, 14, 6, 0, -1);
 
 				break;
 
@@ -172,7 +172,7 @@ public class BlockBOPSapling extends BlockSapling
 				break;
 
 			case 6: // Fir Tree
-				obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5);
+				obj = new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5, 4);
 				break;
 
 				/*case 7: // Ethereal Tree
@@ -208,7 +208,7 @@ public class BlockBOPSapling extends BlockSapling
 				break;
 
 			case 15: // Persimmon
-				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.persimmonLeaves, 0, true);
+				obj = new WorldGenOriginalTree(Blocks.log, BOPCBlocks.leaves2, 0, 0, 1);
 				break;
 			}
 		}

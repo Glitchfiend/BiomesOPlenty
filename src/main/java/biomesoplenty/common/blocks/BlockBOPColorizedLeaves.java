@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.client.render.RenderUtils;
 import cpw.mods.fml.common.Loader;
 
 public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearable
@@ -39,10 +40,11 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     //Pine			(1)
     //Mahogany		(2)
     
-    private static final String[] leaves = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany"};
+    private static final String[] leaves = new String[] {"sacredoak", "mangrove", "palm", "redwood", "willow", "pine", "mahogany", "flowering"};
     private IIcon[][] textures;
     private final ColourizedLeafCategory category;
     int[] adjacentTreeBlocks;
+    public IIcon floweringIcon;
     
     public BlockBOPColorizedLeaves(ColourizedLeafCategory cat)
     {
@@ -87,6 +89,8 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 		        textures[1][i] = iconRegister.registerIcon("biomesoplenty:leaves_" + leaves[i] + "_fast");
             }
         }
+        
+        floweringIcon = iconRegister.registerIcon("biomesoplenty:leaves_flowering_overlay");
     }
 
     public IIcon getIconBetterLeaves(int metadata, float randomIndex)
@@ -167,10 +171,7 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
 	{
         for (int i = 0; i < 4; ++i)
         {
-            if (category != ColourizedLeafCategory.CAT2 || i < 3) 
-            {
-                list.add(new ItemStack(block, 1, i));
-            }
+        	list.add(new ItemStack(block, 1, i));
         }
     }
 
@@ -405,6 +406,12 @@ public class BlockBOPColorizedLeaves extends BlockLeavesBase implements IShearab
     {
         return true;
     }
+    
+	@Override
+	public int getRenderType()
+	{
+		return RenderUtils.leavesModel;
+	}
 
     @Override
     public void beginLeavesDecay(World world, int x, int y, int z)

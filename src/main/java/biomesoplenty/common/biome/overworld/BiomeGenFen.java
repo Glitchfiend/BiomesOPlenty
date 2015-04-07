@@ -69,7 +69,7 @@ public class BiomeGenFen extends BOPOverworldBiome implements IBiomeFog
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log2, BOPCBlocks.leaves2, 1, 0, false, 10, 12, 3) : 
+		return random.nextInt(3) == 0 ? new WorldGenBOPTaiga2(Blocks.log2, BOPCBlocks.leaves2, 1, 0, false, 10, 12, 3, -1) : 
 		(random.nextInt(20) == 0 ? new WorldGenDeadTree() : 
 		new WorldGenBOPTaiga1(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 5, 1));
 	}

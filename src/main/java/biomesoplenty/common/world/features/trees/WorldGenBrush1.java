@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import biomesoplenty.api.content.BOPCBlocks;
 
 public class WorldGenBrush1 extends WorldGenAbstractTree
 {
@@ -26,7 +27,7 @@ public class WorldGenBrush1 extends WorldGenAbstractTree
 		//TODO:			  getBlock()
 		Block block = world.getBlock(x, y, z);
 
-		if (block != Blocks.grass)
+		if (block != Blocks.grass && block != BOPCBlocks.newBopGrass)
 		{
 			return false;
 		}

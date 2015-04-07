@@ -55,7 +55,7 @@ public class BiomeGenPrairie extends BOPOverworldBiome
     //TODO:                     getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random random)
     {
-        return new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 0, 0, false, 6, 1, 7);
+        return new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 0, 0, false, 6, 1, 7, -1);
     }
 	
     @Override

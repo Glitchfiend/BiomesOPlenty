@@ -37,11 +37,13 @@ public class GenLayerMutationBOP extends GenLayer
                 this.initChunkSeed((long)(xItr + x), (long)(zItr + z));
                 int currentBiomeId = inputBiomeIds[xItr + 1 + (zItr + 1) * (length + 2)];
                 int l1 = aint1[xItr + 1 + (zItr + 1) * (length + 2)];
-                boolean isMutated = (l1 - 2) % 29 == 0;
+                boolean hills = (l1 - 2) % 29 == 0;
 
                 if (currentBiomeId != 0 && l1 >= 2 && (l1 - 2) % 29 == 1 && currentBiomeId < 128)
                 {
-                    if (BiomeGenBase.getBiome(currentBiomeId + 128) != null)
+                    BiomeGenBase mutatedBiome = BiomeGenBase.getBiome(currentBiomeId + 128);
+                	
+                    if (mutatedBiome != null && mutatedBiome instanceof BiomeGenMutated)
                     {
                         outputBiomeIds[xItr + zItr * length] = currentBiomeId + 128;
                     }
@@ -50,7 +52,7 @@ public class GenLayerMutationBOP extends GenLayer
                         outputBiomeIds[xItr + zItr * length] = currentBiomeId;
                     }
                 }
-                else if (this.nextInt(3) != 0 && !isMutated)
+                else if (this.nextInt(3) != 0 && !hills)
                 {
                     outputBiomeIds[xItr + zItr * length] = currentBiomeId;
                 }
@@ -136,7 +138,7 @@ public class GenLayerMutationBOP extends GenLayer
                         }
                     }
 
-                    if (isMutated && mutatedBiomeId != currentBiomeId)
+                    if (hills && mutatedBiomeId != currentBiomeId)
                     {
                         BiomeGenBase mutatedBiome = BiomeGenBase.getBiome(mutatedBiomeId + 128);
                         

@@ -56,8 +56,8 @@ public class BiomeGenShield extends BOPOverworldBiome
     {
 		return random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : 
 		(random.nextInt(4) == 0 ? new WorldGenPineTree() : 
-		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5) : 
-		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6)));
+		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5, 4) : 
+		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6, 4)));
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class WorldGenDeadTree extends WorldGenAbstractTree
         //TODO:           getBlock()
         Block block = world.getBlock(x, y, z);
 
-        if (block != Blocks.grass && block != Blocks.dirt && block != BOPCBlocks.driedDirt && block != Blocks.hardened_clay)
+        if (block != Blocks.grass && block != Blocks.dirt && block != BOPCBlocks.driedDirt && block != Blocks.hardened_clay && block != BOPCBlocks.newBopDirt  && block != BOPCBlocks.newBopGrass)
         {
             return false;
         }
