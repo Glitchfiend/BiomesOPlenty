@@ -119,19 +119,22 @@ public class JsonBiome
             extendedBiome.clearWeights();
             
             //TODO: Add a system for making Vanilla biome weights configurable. This won't necessarily be in this class, however it's worth noting.
-            for (Entry<BiomeType, Integer> entry : weightMap.entrySet())
+            if (biome.biomeID != -1)
             {
-                if (entry != null)
+                for (Entry<BiomeType, Integer> entry : weightMap.entrySet())
                 {
-                    BiomeType biomeType = entry.getKey();
-                    int weight = entry.getValue();
-                    
-                    //Updates the biome's weights to be in line with the config file
-                    extendedBiome.addWeight(biomeType, weight);
-                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                    if (entry != null)
+                    {
+                        BiomeType biomeType = entry.getKey();
+                        int weight = entry.getValue();
+
+                        //Updates the biome's weights to be in line with the config file
+                        extendedBiome.addWeight(biomeType, weight);
+                        BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                    }
                 }
             }
-            
+
             biome.biomeName = jsonBiome.biomeName;
             biome.topBlock = jsonBiome.topBlock;
             biome.fillerBlock = jsonBiome.fillerBlock;
