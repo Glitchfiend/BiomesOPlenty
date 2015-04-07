@@ -25,7 +25,7 @@ public class BiomeGenOrchard extends BOPOverworldBiome
 		
 		this.setHeight(biomeHeight);
         this.setColor(14024557);
-        this.setTemperatureRainfall(0.8F, 0.4F);
+        this.setTemperatureRainfall(0.7F, 0.7F);
         
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         

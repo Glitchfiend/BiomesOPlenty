@@ -26,7 +26,7 @@ public class BiomeGenRedwoodForest extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(7187004);
-        this.setTemperatureRainfall(0.8F, 0.4F);
+        this.setTemperatureRainfall(0.7F, 0.7F);
 
         this.theBiomeDecorator.treesPerChunk = 100;
         this.theBiomeDecorator.grassPerChunk = 5;

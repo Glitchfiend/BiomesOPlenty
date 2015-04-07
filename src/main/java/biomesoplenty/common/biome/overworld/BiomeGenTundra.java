@@ -25,7 +25,7 @@ public class BiomeGenTundra extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(11371606);
-        this.setTemperatureRainfall(0.2F, 0.8F);
+        this.setTemperatureRainfall(0.2F, 0.5F);
 
         this.spawnableCreatureList.clear();
 

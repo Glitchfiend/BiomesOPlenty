@@ -32,7 +32,7 @@ public class BiomeGenTropics extends BOPSubBiome
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(2211330);
-        this.setTemperatureRainfall(2.0F, 2.0F);
+        this.setTemperatureRainfall(1.2F, 1.0F);
         
         this.spawnableCreatureList.clear();
         

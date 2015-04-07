@@ -24,7 +24,7 @@ public class BiomeGenOasis extends BOPSubBiome
 		
         this.setHeight(biomeHeight);
 		this.setColor(7712283);
-        this.setTemperatureRainfall(0.9F, 0.7F);
+        this.setTemperatureRainfall(2.0F, 0.3F);
         
         this.topBlock = Blocks.grass;
         this.fillerBlock = Blocks.dirt;

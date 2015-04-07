@@ -26,7 +26,7 @@ public class BiomeGenJadeCliffs extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(9096298);
-        this.setTemperatureRainfall(0.5F, 0.1F);
+        this.setTemperatureRainfall(0.8F, 0.9F);
 
 		this.theBiomeDecorator.treesPerChunk = 12;
 		this.theBiomeDecorator.grassPerChunk = 3;

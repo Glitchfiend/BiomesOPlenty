@@ -28,7 +28,7 @@ public class BiomeGenTemperateRainforest extends BOPOverworldBiome implements IB
 
         this.setHeight(biomeHeight);
         this.setColor(12311907);
-        this.setTemperatureRainfall(0.7F, 0.8F);
+        this.setTemperatureRainfall(0.8F, 1.2F);
 		
 		this.theBiomeDecorator.treesPerChunk = 22;
 		this.theBiomeDecorator.grassPerChunk = 6;

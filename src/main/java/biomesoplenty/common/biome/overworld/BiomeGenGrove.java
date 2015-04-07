@@ -28,7 +28,7 @@ public class BiomeGenGrove extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(5341009);
-        this.setTemperatureRainfall(0.4F, 0.8F);
+        this.setTemperatureRainfall(0.7F, 0.8F);
 
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.flowersPerChunk = 5;

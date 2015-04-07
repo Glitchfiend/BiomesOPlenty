@@ -27,7 +27,7 @@ public class BiomeGenChaparral extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(12638301);
-        this.setTemperatureRainfall(0.8F, 0.4F);
+        this.setTemperatureRainfall(0.8F, 0.6F);
 
 		this.spawnableCreatureList.clear();
 		

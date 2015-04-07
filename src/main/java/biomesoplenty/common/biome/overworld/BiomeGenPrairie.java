@@ -25,7 +25,7 @@ public class BiomeGenPrairie extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(13165952);
-        this.setTemperatureRainfall(0.9F, 0.6F);
+        this.setTemperatureRainfall(0.8F, 0.3F);
 
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 

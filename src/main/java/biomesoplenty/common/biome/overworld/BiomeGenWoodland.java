@@ -23,7 +23,7 @@ public class BiomeGenWoodland extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(8694061);
-        this.setTemperatureRainfall(1.7F, 0.2F);
+        this.setTemperatureRainfall(0.6F, 0.4F);
 
 		this.theBiomeDecorator.treesPerChunk = 9;
 		this.theBiomeDecorator.grassPerChunk = 7;
@@ -78,4 +78,16 @@ public class BiomeGenWoodland extends BOPOverworldBiome
 			}
 		}
 	}
+    
+    @Override
+    public int getBiomeGrassColor(int x, int y, int z)
+    {
+        return 10729292;
+    }
+
+    @Override
+    public int getBiomeFoliageColor(int x, int y, int z)
+    {
+        return 9348641;
+    }
 }

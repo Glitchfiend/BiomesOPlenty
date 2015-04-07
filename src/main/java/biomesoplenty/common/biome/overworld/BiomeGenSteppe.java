@@ -22,7 +22,7 @@ public class BiomeGenSteppe extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(13413215);
-        this.setTemperatureRainfall(1.0F, 0.05F);
+        this.setTemperatureRainfall(0.7F, 0.05F);
         
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         

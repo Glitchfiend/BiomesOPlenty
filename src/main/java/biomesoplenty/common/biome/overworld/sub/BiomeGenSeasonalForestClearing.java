@@ -29,7 +29,7 @@ public class BiomeGenSeasonalForestClearing extends BOPSubBiome implements IBiom
 
         this.setHeight(biomeHeight);
         this.setColor(13620065);
-        this.setTemperatureRainfall(0.7F, 0.8F);
+        this.setTemperatureRainfall(0.5F, 0.8F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
 

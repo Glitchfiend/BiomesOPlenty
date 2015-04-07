@@ -27,7 +27,7 @@ public class BiomeGenCanyonRavine extends BOPSubBiome
         this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(9337689);
-        this.setTemperatureRainfall(0.8F, 0.4F);
+        this.setTemperatureRainfall(1.0F, 0.3F);
 
 		this.spawnableCreatureList.clear();
 

@@ -28,7 +28,7 @@ public class BiomeGenGrassland extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(8379261);
-        this.setTemperatureRainfall(0.7F, 0.7F);
+        this.setTemperatureRainfall(0.6F, 0.7F);
 
 		this.spawnableCreatureList.add(new SpawnListEntry(EntitySheep.class, 14, 4, 4));
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityPig.class, 12, 4, 4));

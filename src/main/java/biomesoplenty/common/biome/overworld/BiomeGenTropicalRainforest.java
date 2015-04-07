@@ -28,7 +28,7 @@ public class BiomeGenTropicalRainforest extends BOPOverworldBiome implements IBi
 
         this.setHeight(biomeHeight);
         this.setColor(8970560);
-        this.setTemperatureRainfall(1.2F, 0.9F);
+        this.setTemperatureRainfall(1.2F, 1.0F);
 
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));

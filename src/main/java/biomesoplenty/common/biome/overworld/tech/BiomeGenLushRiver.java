@@ -18,7 +18,7 @@ public class BiomeGenLushRiver extends BOPOverworldBiome
     {
         super(par1);
         this.spawnableCreatureList.clear();
-        this.setTemperatureRainfall(0.6F, 0.7F);
+        this.setTemperatureRainfall(0.7F, 0.8F);
         
         this.setHeight(biomeHeight);
         

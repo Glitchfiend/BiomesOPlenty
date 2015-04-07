@@ -6,8 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityOcelot;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -16,6 +14,7 @@ import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.entities.EntityJungleSpider;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.trees.WorldGenMixedTree;
 import biomesoplenty.common.world.features.trees.WorldGenOriginalTree;
 
 public class BiomeGenRainforest extends BOPOverworldBiome
@@ -30,7 +29,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(1368687);
-        this.setTemperatureRainfall(2.0F, 2.0F);
+        this.setTemperatureRainfall(1.0F, 1.0F);
 		
 		this.spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
 		this.spawnableMonsterList.add(new SpawnListEntry(EntityJungleSpider.class, 12, 6, 6));
@@ -64,7 +63,7 @@ public class BiomeGenRainforest extends BOPOverworldBiome
 	//TODO:						getRandomWorldGenForTrees()
 	public WorldGenAbstractTree func_150567_a(Random random)
 	{
-		return random.nextInt(15) == 0 ? this.worldGeneratorTrees : (random.nextInt(5) == 0 ? worldGeneratorBigTree : new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 0, 0, false, 8, 2, false));
+		return random.nextInt(15) == 0 ? new WorldGenOriginalTree(Blocks.log, Blocks.leaves, 2, 2) : (random.nextInt(5) == 0 ? worldGeneratorBigTree : new WorldGenMixedTree(Blocks.log, Blocks.leaves, 0, 0, BOPCBlocks.colorizedLeaves2, 3));
 	}
 
 	@Override

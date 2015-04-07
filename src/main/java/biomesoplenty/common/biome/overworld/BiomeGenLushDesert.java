@@ -30,7 +30,7 @@ public class BiomeGenLushDesert extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(9087277);
-        this.setTemperatureRainfall(1.0F, 0.3F);
+        this.setTemperatureRainfall(1.1F, 0.5F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
 
