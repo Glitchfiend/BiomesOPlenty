@@ -16,4 +16,5 @@ public class BOPBiomes
 {
     public static Optional<BiomeGenBase> alps = Optional.absent();
     public static Optional<BiomeGenBase> arctic = Optional.absent();
+    public static Optional<BiomeGenBase> crag = Optional.absent();
 }

@@ -17,6 +17,9 @@ public class MiscConfigurationHandler
 {
     public static Configuration config;
 
+    //TODO: Remove this in favour of making it configurable per biome
+    public static boolean skyColors;
+    
     public static boolean useBoPWorldTypeDefault;
     public static boolean overrideTitlePanorama;
 
@@ -28,6 +31,8 @@ public class MiscConfigurationHandler
         {
             config.load();
 
+            skyColors = config.getBoolean("Enable Sky Colors", "Enhancements", true, "Use the built-in sky colours defined for various biomes.");
+            
             //TODO: Make this default to true once all biomes have been implemented
             useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", "GUI Settings", false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
             overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", "GUI Settings", true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
