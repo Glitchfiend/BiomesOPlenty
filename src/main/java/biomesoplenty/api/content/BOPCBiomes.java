@@ -61,6 +61,7 @@ public class BOPCBiomes
 	public static BiomeGenBase wasteland;
 	public static BiomeGenBase wetland;
 	public static BiomeGenBase woodland;
+	public static BiomeGenBase xericShrubland;
 	
 	//Sub Biomes
 	public static BiomeGenBase alpsForest;

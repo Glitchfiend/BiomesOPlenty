@@ -82,6 +82,7 @@ import static biomesoplenty.api.content.BOPCBiomes.volcano;
 import static biomesoplenty.api.content.BOPCBiomes.wasteland;
 import static biomesoplenty.api.content.BOPCBiomes.wetland;
 import static biomesoplenty.api.content.BOPCBiomes.woodland;
+import static biomesoplenty.api.content.BOPCBiomes.xericShrubland;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -179,6 +180,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenTundra;
 import biomesoplenty.common.biome.overworld.BiomeGenWasteland;
 import biomesoplenty.common.biome.overworld.BiomeGenWetland;
 import biomesoplenty.common.biome.overworld.BiomeGenWoodland;
+import biomesoplenty.common.biome.overworld.BiomeGenXericShrubland;
 import biomesoplenty.common.biome.overworld.ocean.BiomeGenCoralReef;
 import biomesoplenty.common.biome.overworld.ocean.BiomeGenKelpForest;
 import biomesoplenty.common.biome.overworld.sub.BiomeGenAlpsForest;
@@ -299,6 +301,7 @@ public class BOPBiomes
         wasteland = registerOverworldBiome(BiomeGenWasteland.class, "Wasteland", TemperatureType.HOT, 3);
         wetland = registerOverworldBiome(BiomeGenWetland.class, "Wetland", TemperatureType.COOL, 7);
         woodland = registerOverworldBiome(BiomeGenWoodland.class, "Woodland", TemperatureType.COOL, 10);
+        xericShrubland = registerOverworldBiome(BiomeGenXericShrubland.class, "Xeric Shrubland", TemperatureType.HOT, 5);
 		
 		//Ocean Biomes
 		coralReef = registerOverworldSubBiome(BiomeGenCoralReef.class, "Coral Reef", 10, BiomeGenBase.ocean);

@@ -31,6 +31,7 @@ import biomesoplenty.common.world.features.WorldGenWasteland3;
 import biomesoplenty.common.world.features.WorldGenWasteland4;
 import biomesoplenty.common.world.features.WorldGenWaterReeds;
 import biomesoplenty.common.world.features.WorldGenWaterside;
+import biomesoplenty.common.world.features.WorldGenXericSplatter;
 import biomesoplenty.common.world.features.managers.WorldGenBOPFlowerManager;
 import biomesoplenty.common.world.features.managers.WorldGenBOPGrassManager;
 import biomesoplenty.common.world.features.nether.WorldGenBoneSpine;
@@ -77,6 +78,7 @@ public class WorldGenFieldAssociation
         associateFeature("stalagmitesPerChunk", new WorldGenBOPUndergroundDecoration(BOPCBlocks.stoneFormations, 0));
         associateFeature("stalactitesPerChunk", new WorldGenBOPUndergroundDecoration(BOPCBlocks.stoneFormations, 1));
         associateFeature("desertSproutsPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 2));
+        associateFeature("desertGrassPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 3));
         associateFeature("bromeliadsPerChunk", new WorldGenBOPFlora(BOPCBlocks.flowers, 12));
         associateFeature("waterReedsPerChunk", new WorldGenWaterReeds());
         associateFeature("wildCarrotsPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 11));
@@ -97,6 +99,7 @@ public class WorldGenFieldAssociation
         associateFeature("minersDelightPerChunk", new WorldGenBOPUndergroundDecoration(BOPCBlocks.flowers2, 6));
         associateFeature("rootsPerChunk", new WorldGenBOPFlora(BOPCBlocks.plants, 15));
         associateFeature("grassSplatterPerChunk", new WorldGenGrassSplatter());
+        associateFeature("xericSplatterPerChunk", new WorldGenXericSplatter());
         associateFeature("rockpilesPerChunk", new WorldGenBOPBlob(Blocks.cobblestone, 0));
         associateFeature("wastelandRockPilesPerChunk", new WorldGenBOPBlob(BOPCBlocks.driedDirt, 0));
         associateFeature("logsPerChunk", new WorldGenLog());

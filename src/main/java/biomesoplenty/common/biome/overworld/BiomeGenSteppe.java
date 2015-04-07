@@ -14,7 +14,7 @@ import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
 public class BiomeGenSteppe extends BOPOverworldBiome
 {
-	private static final Height biomeHeight = new Height(0.1F, 0.3F);
+	private static final Height biomeHeight = new Height(0.1F, 0.4F);
 	
 	public BiomeGenSteppe(int biomeID) 
 	{
@@ -22,20 +22,13 @@ public class BiomeGenSteppe extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(13413215);
-        this.setTemperatureRainfall(2.0F, 0.05F);
+        this.setTemperatureRainfall(1.0F, 0.05F);
         
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
 		this.theBiomeDecorator.treesPerChunk = -999;
-		this.theBiomeDecorator.deadBushPerChunk = 7;
-		
-		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 6;
-        this.theBiomeDecorator.bopFeatures.tinyCactiPerChunk = 1;
-        this.theBiomeDecorator.bopFeatures.bromeliadsPerChunk = 2;
-        this.theBiomeDecorator.bopFeatures.sandSplatterPerChunk = 2;
-        this.theBiomeDecorator.bopFeatures.gravelSplatterPerChunk = 6;
-        this.theBiomeDecorator.bopFeatures.dirtSplatterPerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.generateQuicksand = true;
+		this.theBiomeDecorator.reedsPerChunk = -999;
+		this.theBiomeDecorator.deadBushPerChunk = 3;
 		
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 15;
         
@@ -66,14 +59,14 @@ public class BiomeGenSteppe extends BOPOverworldBiome
 	@Override
     public int getBiomeGrassColor(int x, int y, int z)
     {
-        double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
-        return d0 < -0.7D ? 12365199 : (d0 < -0.3 ? 12033916 : 11702123);
-    }
+		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
+		return d0 < -0.1D ? 13214328 : 12885629;
+	}
 
 	@Override
 	public int getBiomeFoliageColor(int x, int y, int z)
 	{
 		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
-		return d0 < -0.7D ? 12365199 : (d0 < -0.3 ? 12033916 : 11702123);
+		return d0 < -0.1D ? 13214328 : 12885629;
 	}
 }

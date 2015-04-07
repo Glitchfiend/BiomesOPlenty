@@ -39,6 +39,7 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     //@BiomeFeature public int stalactitesPerChunk = 6;
     @BiomeFeature public int stalagmitesPerChunk = 0;
     @BiomeFeature public int stalactitesPerChunk = 0;
+    @BiomeFeature public int desertGrassPerChunk = 0;
     @BiomeFeature public int desertSproutsPerChunk = 0;
     @BiomeFeature public int bromeliadsPerChunk = 0;
     @BiomeFeature public int waterReedsPerChunk = 0;
@@ -57,6 +58,7 @@ public class OverworldBiomeFeatures extends BiomeFeaturesBase
     @BiomeFeature public int minersDelightPerChunk = 1;
     @BiomeFeature public int rootsPerChunk = 30;
     @BiomeFeature public int grassSplatterPerChunk = 0;
+    @BiomeFeature public int xericSplatterPerChunk = 0;
     @BiomeFeature public int rockpilesPerChunk = 0;
     @BiomeFeature public int logsPerChunk = 0;
     @BiomeFeature public int lavaSpoutsPerChunk = 0;
