@@ -18,6 +18,7 @@ public class MiscConfigurationHandler
     public static Configuration config;
 
     public static boolean useBoPWorldTypeDefault;
+    public static boolean overrideTitlePanorama;
 
     public static void init(File configFile)
     {
@@ -29,6 +30,7 @@ public class MiscConfigurationHandler
 
             //TODO: Make this default to true once all biomes have been implemented
             useBoPWorldTypeDefault = config.getBoolean("Default to BoP World Type", "GUI Settings", false, "Use the Biomes O' Plenty World Type by default when selecting a world.");
+            overrideTitlePanorama = config.getBoolean("Enable Biomes O\' Plenty Main Menu Panorama", "GUI Settings", true, "Override the main menu panorama and use ours instead (It\'s nicer!)");
         }
         catch (Exception e)
         {
