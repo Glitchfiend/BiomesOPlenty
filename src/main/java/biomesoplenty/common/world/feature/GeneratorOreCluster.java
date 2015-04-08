@@ -33,9 +33,9 @@ public class GeneratorOreCluster extends GeneratorOreBase
     }
     
     @Override
-    public void generate(World world, Random random, BlockPos pos)
+    public boolean generate(World world, Random random, BlockPos pos)
     {
-        this.generator.generate(world, random, pos);
+        return this.generator.generate(world, random, pos);
     }
 
     @Override

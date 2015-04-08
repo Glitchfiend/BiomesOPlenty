@@ -20,6 +20,7 @@ import org.apache.commons.io.FileUtils;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
+import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -47,6 +48,7 @@ public class ModBiomes
         alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
         arctic = registerBiome(new BiomeGenArctic().setBiomeName("Arctic"), "arctic");
         crag = registerBiome(new BiomeGenCrag().setBiomeName("Crag"), "crag");
+        originValley = registerBiome(new BiomeGenOriginValley().setBiomeName("Origin Valley"), "origin_valley");
     }
 
     private static void registerExternalBiomes()

@@ -24,7 +24,7 @@ public class BiomeGenCrag extends BOPBiome
     {
         this.setHeight(biomeHeight);
         this.setColor(5209457);
-        this.setTemperatureRainfall(2.0F, 0.0F);
+        this.setTemperatureRainfall(1.0F, 0.0F);
 
         this.addWeight(BiomeType.COOL, 3);
 

@@ -39,12 +39,14 @@ public class GeneratorOreSingle extends GeneratorOreBase
     }
     
     @Override
-    public void generate(World world, Random random, BlockPos pos)
+    public boolean generate(World world, Random random, BlockPos pos)
     {
         if (world.getBlockState(pos).getBlock().isReplaceableOreGen(world, pos, this.replace))
         {
-            world.setBlockState(pos, this.state, 2);
+            return world.setBlockState(pos, this.state, 2);
         }
+        
+        return false;
     }
 
     @Override

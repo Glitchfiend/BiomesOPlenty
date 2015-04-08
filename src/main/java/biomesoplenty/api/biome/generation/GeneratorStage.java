@@ -47,7 +47,9 @@ public enum GeneratorStage
     @SerializedName("tree")
     TREE(Decorate.EventType.TREE), 
     @SerializedName("post")
-    POST(null);
+    POST(null),
+    @SerializedName("parent")
+    PARENT(null);
     
     private Decorate.EventType decorateType;
     

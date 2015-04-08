@@ -12,7 +12,11 @@ import java.util.Random;
 
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+
+import org.apache.commons.lang3.tuple.Pair;
+
 import biomesoplenty.api.biome.generation.CustomizableGenerator;
+import biomesoplenty.common.util.biome.GeneratorUtils;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
@@ -29,8 +33,10 @@ public abstract class GeneratorOreBase extends CustomizableGenerator
     protected GeneratorOreBase(int amountPerChunk, int minHeight, int maxHeight)
     {
         this.amountPerChunk = amountPerChunk;
-        this.minHeight = minHeight;
-        this.maxHeight = maxHeight;
+        
+        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
+        this.minHeight = heights.getLeft();
+        this.maxHeight = heights.getRight();
     }
     
     @Override
@@ -59,33 +65,8 @@ public abstract class GeneratorOreBase extends CustomizableGenerator
         int minHeight = json.get("min_height").getAsInt();
         int maxHeight = json.get("max_height").getAsInt();
         
-        validateMinMaxHeight(minHeight, maxHeight);
-    }
-    
-    protected void validateMinMaxHeight(int minHeight, int maxHeight)
-    {
-        if (maxHeight < minHeight)
-        {
-            //Swap min and max height so that max is higher than min
-            int prevMinHeight = minHeight;
-            minHeight = maxHeight;
-            maxHeight = prevMinHeight;
-        }
-        else if (maxHeight == minHeight)
-        {
-            if (minHeight < 255)
-            {
-                //Increase max height to be higher than min height
-                ++maxHeight;
-            }
-            else
-            {
-                //Decrease min height so that max is higher
-                --minHeight;
-            }
-        }
-        
-        this.minHeight = minHeight;
-        this.maxHeight = maxHeight;
+        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
+        this.minHeight = heights.getLeft();
+        this.maxHeight = heights.getRight();
     }
 }

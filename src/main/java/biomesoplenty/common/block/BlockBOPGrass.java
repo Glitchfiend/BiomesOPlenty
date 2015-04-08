@@ -112,30 +112,34 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     @Override
     public boolean canSustainPlant(IBlockAccess world, BlockPos pos, EnumFacing direction, net.minecraftforge.common.IPlantable plantable)
     {
-        
+
         IBlockState state = world.getBlockState(pos);
         net.minecraftforge.common.EnumPlantType plantType = plantable.getPlantType(world, pos.offset(direction));
         
-        switch ((BOPGrassType) state.getValue(VARIANT))
+        //Forge calls this method regardless of whether the block is infact ours, so we have to check this
+        //(Somewhat illogical, I know)
+        if (state.getBlock() == this)
         {
-             // smoldering grass supports no plants
+            switch ((BOPGrassType) state.getValue(VARIANT))
+            {
+            // smoldering grass supports no plants
             case SMOLDERING:
                 return false;
-                
-            // origin grass supports all plants (including crop type - no need for hoe)
+
+                // origin grass supports all plants (including crop type - no need for hoe)
             case ORIGIN:
                 return true;
-                
-            // overgrown_netherrack supports Nether plants in addition to the defaults
+
+                // overgrown_netherrack supports Nether plants in addition to the defaults
             case OVERGROWN_NETHERRACK:
                 if (plantType == net.minecraftforge.common.EnumPlantType.Nether) {return true;}
                 break;
-            
+
             default: break;
-        }
-        
-        switch (plantType)
-        {
+            }
+
+            switch (plantType)
+            {
             // support desert and plains plants
             case Desert: case Plains: return true;
             // support cave plants
@@ -143,15 +147,18 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
             // support beach plants if there's water alongside
             case Beach:
                 return (
-                    world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
-                    world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
-                    world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
-                    world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
-                );
-             // don't support nether plants, water plants, or crops (require farmland), or anything else by default
+                        world.getBlockState(pos.east()).getBlock().getMaterial() == Material.water ||
+                        world.getBlockState(pos.west()).getBlock().getMaterial() == Material.water ||
+                        world.getBlockState(pos.north()).getBlock().getMaterial() == Material.water ||
+                        world.getBlockState(pos.south()).getBlock().getMaterial() == Material.water
+                        );
+                // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
                 return false;
+            }
         }
+        
+        return super.canSustainPlant(world, pos, direction, plantable);
     }
     
     

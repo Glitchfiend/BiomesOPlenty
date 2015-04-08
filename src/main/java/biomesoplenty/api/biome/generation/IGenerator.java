@@ -20,7 +20,7 @@ import com.google.gson.JsonSerializationContext;
 public interface IGenerator
 {
     public void scatter(World world, Random random, BlockPos pos);
-    public void generate(World world, Random random, BlockPos pos);
+    public boolean generate(World world, Random random, BlockPos pos);
     
     public void setName(String name);
     public void setStage(GeneratorStage stage);

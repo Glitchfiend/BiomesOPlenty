@@ -11,6 +11,8 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.biome.generation.GeneratorRegistry.registerGenerator;
 import biomesoplenty.common.world.feature.GeneratorOreCluster;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorWeighted;
 
 public class ModGenerators
 {
@@ -18,5 +20,7 @@ public class ModGenerators
     {
         registerGenerator("ore_single", GeneratorOreSingle.class);
         registerGenerator("ore_cluster", GeneratorOreCluster.class);
+        registerGenerator("weighted", GeneratorWeighted.class);
+        registerGenerator("basic_tree", GeneratorBasicTree.class);
     }
 }

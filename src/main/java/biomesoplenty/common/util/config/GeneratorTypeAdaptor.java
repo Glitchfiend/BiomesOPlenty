@@ -60,8 +60,8 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator>, JsonDes
                     generator = (IGenerator)generatorClass.newInstance();
 
                     Type generatorStageType = new TypeToken<GeneratorStage>() {}.getType();
-                    String generatorStageName = jsonObject.get("stage").getAsString();
                     GeneratorStage generatorStage = (GeneratorStage)context.deserialize(jsonObject.get("stage"), generatorStageType);
+                    String generatorStageName = jsonObject.get("stage") != null ? jsonObject.get("stage").getAsString() : null;
                     
                     if (generatorStage == null)
                     {

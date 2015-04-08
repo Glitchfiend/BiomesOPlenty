@@ -15,7 +15,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -35,7 +37,9 @@ public class DecorateBiomeEventHandler
     {
         if (event.type != Decorate.EventType.CUSTOM)
         {
-            runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.mapDecorateType(event.type));
+            boolean allow = runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.mapDecorateType(event.type));
+            
+            event.setResult(allow ? Result.ALLOW : Result.DENY);
         }
     }
     
@@ -45,7 +49,7 @@ public class DecorateBiomeEventHandler
         runGeneratorStage(event.world, event.rand, event.pos, GeneratorStage.POST);
     }
     
-    private static void runGeneratorStage(World world, Random random, BlockPos pos, GeneratorStage stage)
+    private static boolean runGeneratorStage(World world, Random random, BlockPos pos, GeneratorStage stage)
     {
         BiomeGenBase biome = world.getBiomeGenForCoords(pos.add(16, 0, 16));
         IExtendedBiome extendedBiome = ExtendedBiomeRegistry.getExtension(biome);
@@ -58,6 +62,17 @@ public class DecorateBiomeEventHandler
             {
                 generator.scatter(world, random, pos);
             }
+            
+            //Biomes should explicitly allow for the following by defining their own generators
+            if (extendedBiome.getBiomeOwner() == BiomeOwner.BIOMESOPLENTY)
+            {
+                if (stage == GeneratorStage.PUMPKIN)
+                {
+                    return false;
+                }
+            }
         }
+
+        return true;
     }
 }
