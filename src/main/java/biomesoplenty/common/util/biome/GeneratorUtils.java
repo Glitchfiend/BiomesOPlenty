@@ -12,8 +12,8 @@ import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.IGeneratorBase;
-import biomesoplenty.api.biome.generation.IGeneratorController;
+import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.api.biome.generation.IGenerator;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
@@ -73,12 +73,12 @@ public class GeneratorUtils
         return state;
     }
     
-    public static IGeneratorController deserializeGenerator(JsonObject json, String memberName, JsonDeserializationContext context)
+    public static IGenerator deserializeGenerator(JsonObject json, String memberName, JsonDeserializationContext context)
     {
-        return deserializeGeneratorOfType(json, memberName, context, IGeneratorController.class);
+        return deserializeGeneratorOfType(json, memberName, context, IGenerator.class);
     }
     
-    public static <T extends IGeneratorBase> T deserializeGeneratorOfType(JsonObject json, String memberName, JsonDeserializationContext context, Class<T> type)
+    public static <T extends IGenerator> T deserializeGeneratorOfType(JsonObject json, String memberName, JsonDeserializationContext context, Class<T> type)
     {
         T generator = context.deserialize(json.get(memberName), type);
         

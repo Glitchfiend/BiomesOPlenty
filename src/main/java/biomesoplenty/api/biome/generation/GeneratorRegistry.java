@@ -13,19 +13,19 @@ import com.google.common.collect.HashBiMap;
 
 public class GeneratorRegistry
 {
-    private static BiMap<String, Class<? extends IGeneratorBase>> generatorClasses = HashBiMap.create();
+    private static BiMap<String, Class<? extends IGenerator>> generatorClasses = HashBiMap.create();
     
-    public static void registerGenerator(String identifier, Class<? extends IGeneratorBase> generatorClass)
+    public static void registerGenerator(String identifier, Class<? extends IGenerator> generatorClass)
     {
         generatorClasses.put(identifier, generatorClass);
     }
     
-    public static String getIdentifier(Class<? extends IGeneratorBase> generatorClass)
+    public static String getIdentifier(Class<? extends IGenerator> generatorClass)
     {
         return generatorClasses.inverse().get(generatorClass);
     }
     
-    public static Class<? extends IGeneratorBase> getGeneratorClass(String identifier)
+    public static Class<? extends IGenerator> getGeneratorClass(String identifier)
     {
         return generatorClasses.get(identifier);
     }

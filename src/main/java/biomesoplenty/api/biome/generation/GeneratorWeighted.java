@@ -27,7 +27,7 @@ public class GeneratorWeighted extends CustomizableGenerator
     
     public GeneratorWeighted() {}
 
-    public void add(int weight, IGeneratorController entry)
+    public void add(int weight, IGenerator entry)
     {
         this.weightedEntries.add(new GeneratorWeightedEntry(weight, entry));
     }

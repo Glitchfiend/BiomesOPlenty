@@ -15,7 +15,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.IGeneratorController;
+import biomesoplenty.api.biome.generation.IGenerator;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -41,7 +41,7 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     }
 
     @Override
-    public void addGenerator(String name, GeneratorStage stage, IGeneratorController generator)
+    public void addGenerator(String name, GeneratorStage stage, IGenerator generator)
     {
         this.generationManager.addGenerator(name, stage, generator);
     }

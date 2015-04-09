@@ -19,22 +19,22 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public final class GeneratorWeightedEntry extends WeightedRandom.Item implements IGeneratorController
+public final class GeneratorWeightedEntry extends WeightedRandom.Item implements IGenerator
 {
     private final String identifier;
     private GeneratorStage stage;
-    private IGeneratorController wrappedGenerator;
+    private IGenerator wrappedGenerator;
     
     public GeneratorWeightedEntry() 
     {
         this(-1, null);
     }
     
-    public GeneratorWeightedEntry(int weight, IGeneratorController wrappedGenerator)
+    public GeneratorWeightedEntry(int weight, IGenerator wrappedGenerator)
     {
         super(weight);
         
-        this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGeneratorBase>)this.getClass());
+        this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGenerator>)this.getClass());
         this.stage = GeneratorStage.PARENT;
         this.wrappedGenerator = wrappedGenerator;
         
