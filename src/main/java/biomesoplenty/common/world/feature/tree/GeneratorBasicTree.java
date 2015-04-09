@@ -303,7 +303,8 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
     @Override
     public void writeToJson(JsonObject json, JsonSerializationContext context)
     {
-        json.addProperty("weight", this.itemWeight);
+        super.writeToJson(json, context);
+        
         json.addProperty("update_neighbours", this.updateNeighbours);
         json.addProperty("min_height", this.minHeight);
         json.addProperty("max_height", this.maxHeight);
@@ -315,7 +316,8 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
     @Override
     public void readFromJson(JsonObject json, JsonDeserializationContext context)
     {
-        this.itemWeight = json.get("weight").getAsInt();
+        super.readFromJson(json, context);
+        
         this.updateNeighbours = json.get("update_neighbours").getAsBoolean();
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);

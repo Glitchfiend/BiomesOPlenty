@@ -8,11 +8,11 @@
 
 package biomesoplenty.api.biome.generation;
 
-import java.util.Random;
-
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.World;
+
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
 
 public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item implements IGeneratorDelegate
 {
@@ -35,6 +35,18 @@ public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item 
         {
             throw new RuntimeException("The identifier for " + this.getClass().getCanonicalName() + " cannot be null!");
         }
+    }
+    
+    @Override
+    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    {
+        json.addProperty("weight", this.itemWeight);
+    }
+
+    @Override
+    public void readFromJson(JsonObject json, JsonDeserializationContext context)
+    {
+        this.itemWeight = json.get("weight").getAsInt();
     }
 
     @Override

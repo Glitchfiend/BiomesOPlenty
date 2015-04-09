@@ -8,7 +8,13 @@
 
 package biomesoplenty.common.util.biome;
 
+import java.util.Random;
+
 import org.apache.commons.lang3.tuple.Pair;
+
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -43,6 +49,25 @@ public class GeneratorUtils
         }
         
         return Pair.of(minHeight, maxHeight);
+    }
+    
+    public static int safeNextInt(Random random, int i)
+    {
+        if (i <= 1) return 0;
+
+        return random.nextInt(i);
+    }
+    
+    public static IBlockState deserializeStateNonNull(JsonObject json, String memberName, JsonDeserializationContext context)
+    {
+        IBlockState state = context.deserialize(json.get(memberName), IBlockState.class);
+        
+        if (state == null)
+        {
+            throw new JsonSyntaxException("Property " + memberName + " doesn't exist");
+        }
+        
+        return state;
     }
 
     public static boolean isBlockTreeReplacable(Block block)
