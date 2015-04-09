@@ -20,8 +20,8 @@ import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLeaves2;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
 import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.world.feature.GeneratorWeighted;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
-import biomesoplenty.common.world.feature.tree.GeneratorWeighted;
 
 public class BiomeGenOriginValley extends BOPBiome
 {

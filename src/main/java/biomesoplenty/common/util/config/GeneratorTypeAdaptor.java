@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 
 import biomesoplenty.api.biome.generation.GeneratorRegistry;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.api.biome.generation.IGeneratorBase;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.JsonDeserializationContext;
@@ -24,10 +24,10 @@ import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import com.google.gson.JsonSyntaxException;
 
-public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator>, JsonDeserializer<IGenerator>
+public class GeneratorTypeAdaptor implements JsonSerializer<IGeneratorBase>, JsonDeserializer<IGeneratorBase>
 {
     @Override
-    public JsonElement serialize(IGenerator src, Type typeOfSrc, JsonSerializationContext context)
+    public JsonElement serialize(IGeneratorBase src, Type typeOfSrc, JsonSerializationContext context)
     {
         JsonObject jsonObject = new JsonObject();
         src.writeToJson(jsonObject, context);
@@ -39,14 +39,14 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator>, JsonDes
     }
 
     @Override
-    public IGenerator deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
+    public IGeneratorBase deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException
     {
         JsonObject jsonObject = json.getAsJsonObject();
 
         if (jsonObject.has("generator"))
         {
             String generatorIdentifier = jsonObject.get("generator").getAsString();
-            Class<? extends IGenerator> generatorClass = GeneratorRegistry.getGeneratorClass(generatorIdentifier);
+            Class<? extends IGeneratorBase> generatorClass = GeneratorRegistry.getGeneratorClass(generatorIdentifier);
 
             if (generatorClass == null)
             {
@@ -54,10 +54,10 @@ public class GeneratorTypeAdaptor implements JsonSerializer<IGenerator>, JsonDes
             }
             else
             {
-                IGenerator generator;
+                IGeneratorBase generator;
                 try
                 {
-                    generator = (IGenerator)generatorClass.newInstance();
+                    generator = (IGeneratorBase)generatorClass.newInstance();
 
                     Type generatorStageType = new TypeToken<GeneratorStage>() {}.getType();
                     GeneratorStage generatorStage = (GeneratorStage)context.deserialize(jsonObject.get("stage"), generatorStageType);

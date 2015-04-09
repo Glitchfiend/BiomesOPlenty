@@ -10,15 +10,15 @@ package biomesoplenty.api.biome;
 
 import java.util.Map;
 
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.IGenerator;
-import net.minecraftforge.common.BiomeManager.BiomeType;
+import biomesoplenty.api.biome.generation.IGeneratorController;
 
 public interface IExtendedBiome
 {
     public BiomeOwner getBiomeOwner();
-    public void addGenerator(String name, GeneratorStage stage, IGenerator generator);
+    public void addGenerator(String name, GeneratorStage stage, IGeneratorController generator);
     public GenerationManager getGenerationManager();
     public Map<BiomeType, Integer> getWeightMap();
     public void clearWeights();

@@ -6,7 +6,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.world.feature.tree;
+package biomesoplenty.common.world.feature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,14 +43,9 @@ public class GeneratorWeighted extends CustomizableGenerator
     @Override
     public void scatter(World world, Random random, BlockPos pos)
     {
-        for (int i = 0; i < this.amountPerChunk; i++)
-        {
-            int x = random.nextInt(16) + 8;
-            int z = random.nextInt(16) + 8;
-            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
-            
-            generate(world, random, genPos);
-        }
+        CustomizableWeightedGenerator generator = (CustomizableWeightedGenerator)WeightedRandom.getRandomItem(random, this.weightedEntries);
+        
+        generator.scatter(world, random, pos, this.amountPerChunk);
     }
 
     @Override
@@ -58,7 +53,7 @@ public class GeneratorWeighted extends CustomizableGenerator
     {
         CustomizableWeightedGenerator generator = (CustomizableWeightedGenerator)WeightedRandom.getRandomItem(random, this.weightedEntries);
         
-        return generator.generate(world, random, pos);
+        return generator.generate(world, random, pos, this.amountPerChunk);
     }
 
     @Override

@@ -17,7 +17,7 @@ import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.api.biome.generation.IGeneratorController;
 
 public class ExtendedBiomeRegistry
 {
@@ -65,7 +65,7 @@ public class ExtendedBiomeRegistry
         }
 
         @Override
-        public void addGenerator(String name, GeneratorStage stage, IGenerator generator)
+        public void addGenerator(String name, GeneratorStage stage, IGeneratorController generator)
         {
             this.generationManager.addGenerator(name, stage, generator);
         }

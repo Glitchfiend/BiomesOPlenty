@@ -21,7 +21,8 @@ import biomesoplenty.api.biome.BiomeOwner;
 import biomesoplenty.api.biome.IExtendedBiome;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
-import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.api.biome.generation.IGeneratorBase;
+import biomesoplenty.api.biome.generation.IGeneratorController;
 import biomesoplenty.common.biome.ExtendedBiomeRegistry;
 
 public class DecorateBiomeEventHandler
@@ -58,7 +59,7 @@ public class DecorateBiomeEventHandler
         {
             GenerationManager generationManager = extendedBiome.getGenerationManager();
             
-            for (IGenerator generator : generationManager.getGeneratorsForStage(stage))
+            for (IGeneratorController generator : generationManager.getGeneratorsForStage(stage))
             {
                 generator.scatter(world, random, pos);
             }

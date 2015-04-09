@@ -61,7 +61,20 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
     }
 
     @Override
-    public boolean generate(World world, Random random, BlockPos pos)
+    public void scatter(World world, Random random, BlockPos pos, int amountPerChunk)
+    {
+        for (int i = 0; i < amountPerChunk; i++)
+        {
+            int x = random.nextInt(16) + 8;
+            int z = random.nextInt(16) + 8;
+            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
+            
+            generate(world, random, genPos, amountPerChunk);
+        }
+    }
+    
+    @Override
+    public boolean generate(World world, Random random, BlockPos pos, int amountPerChunk)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;

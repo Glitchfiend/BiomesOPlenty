@@ -14,10 +14,9 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 
-public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item implements IGenerator
+public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item implements IGeneratorDelegate
 {
     private final String identifier;
-    private String name;
     private GeneratorStage stage;
     
     protected CustomizableWeightedGenerator() 
@@ -29,7 +28,7 @@ public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item 
     {
         super(weight);
         
-        this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGenerator>)this.getClass());
+        this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGeneratorBase>)this.getClass());
         this.stage = GeneratorStage.PARENT;
         
         if (this.identifier == null)
@@ -37,27 +36,11 @@ public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item 
             throw new RuntimeException("The identifier for " + this.getClass().getCanonicalName() + " cannot be null!");
         }
     }
-    
-    //Scattering should be handled in GeneratorWeighted
-    @Override
-    public final void scatter(World world, Random random, BlockPos pos) {}
-    
-    @Override
-    public void setName(String name)
-    {
-        this.name = name;
-    }
 
     @Override
     public void setStage(GeneratorStage stage)
     {
         this.stage = stage;
-    }
-
-    @Override
-    public String getName()
-    {
-        return this.name;
     }
 
     @Override

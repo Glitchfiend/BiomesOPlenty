@@ -17,20 +17,12 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public interface IGenerator
+public interface IGeneratorBase
 {
-    public void scatter(World world, Random random, BlockPos pos);
-    public boolean generate(World world, Random random, BlockPos pos);
-    
-    public void setName(String name);
     public void setStage(GeneratorStage stage);
     
     /**The identifier for this generator should be consistent across all instances of the same type*/
     public String getIdentifier();
-    /**A unique name use to classify the purpose of a generator. For example, emeralds and ruby use the
-     * same generator (and thus, have the same identifier) but have differing names.
-     */
-    public String getName();
     public GeneratorStage getStage();
     
     public void writeToJson(JsonObject json, JsonSerializationContext context);
