@@ -6,7 +6,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.world.feature.weighted;
+package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
@@ -19,9 +19,9 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 public class GeneratorGrass extends GeneratorFlora
 {
     @Override
-    public void scatter(World world, Random random, BlockPos pos, int amountPerChunk)
+    public void scatter(World world, Random random, BlockPos pos)
     {
-        for (int i = 0; i < amountPerChunk; i++)
+        for (int i = 0; i < this.amountPerChunk; i++)
         {
             int x = random.nextInt(16) + 8;
             int z = random.nextInt(16) + 8;
@@ -29,12 +29,12 @@ public class GeneratorGrass extends GeneratorFlora
             int y = GeneratorUtils.safeNextInt(random, world.getHeight(genPos).getY() * 2);
             genPos = genPos.add(0, y, 0);
 
-            generate(world, random, genPos, amountPerChunk);
+            generate(world, random, genPos);
         }
     }
 
     @Override
-    public boolean generate(World world, Random random, BlockPos pos, int amountPerChunk)
+    public boolean generate(World world, Random random, BlockPos pos)
     {
         Block block;
 

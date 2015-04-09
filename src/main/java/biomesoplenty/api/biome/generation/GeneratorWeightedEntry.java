@@ -8,28 +8,35 @@
 
 package biomesoplenty.api.biome.generation;
 
+import java.util.Random;
+
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
+import net.minecraft.world.World;
+import biomesoplenty.common.util.biome.GeneratorUtils;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item implements IGeneratorDelegate
+public final class GeneratorWeightedEntry extends WeightedRandom.Item implements IGeneratorController
 {
     private final String identifier;
     private GeneratorStage stage;
+    private IGeneratorController wrappedGenerator;
     
-    protected CustomizableWeightedGenerator() 
+    public GeneratorWeightedEntry() 
     {
-        this(-1);
+        this(-1, null);
     }
     
-    protected CustomizableWeightedGenerator(int weight)
+    public GeneratorWeightedEntry(int weight, IGeneratorController wrappedGenerator)
     {
         super(weight);
         
         this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGeneratorBase>)this.getClass());
         this.stage = GeneratorStage.PARENT;
+        this.wrappedGenerator = wrappedGenerator;
         
         if (this.identifier == null)
         {
@@ -38,15 +45,29 @@ public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item 
     }
     
     @Override
+    public void scatter(World world, Random random, BlockPos pos)
+    {
+        this.wrappedGenerator.scatter(world, random, pos);
+    }
+
+    @Override
+    public boolean generate(World world, Random random, BlockPos pos)
+    {
+        return this.wrappedGenerator.generate(world, random, pos);
+    }
+    
+    @Override
     public void writeToJson(JsonObject json, JsonSerializationContext context)
     {
         json.addProperty("weight", this.itemWeight);
+        json.add("wrapped_generator", context.serialize(this.wrappedGenerator));
     }
 
     @Override
     public void readFromJson(JsonObject json, JsonDeserializationContext context)
     {
         this.itemWeight = json.get("weight").getAsInt();
+        this.wrappedGenerator = GeneratorUtils.deserializeGenerator(json, "wrapped_generator", context);
     }
 
     @Override
@@ -65,5 +86,15 @@ public abstract class CustomizableWeightedGenerator extends WeightedRandom.Item 
     public final String getIdentifier()
     {
         return this.identifier;
+    }
+
+    //Unnecessary, this shouldn't be used as a standard generator
+    @Override
+    public void setName(String name) {}
+
+    @Override
+    public String getName()
+    {
+        return null;
     }
 }

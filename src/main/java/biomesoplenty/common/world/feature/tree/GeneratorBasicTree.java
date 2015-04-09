@@ -22,15 +22,17 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.CustomizableWeightedGenerator;
+import biomesoplenty.api.biome.generation.CustomizableGenerator;
+import biomesoplenty.api.biome.generation.GeneratorWeightedEntry;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public class GeneratorBasicTree extends CustomizableWeightedGenerator
+public class GeneratorBasicTree extends CustomizableGenerator
 {
+    private int amountPerChunk;
     private boolean updateNeighbours;
     private int minHeight;
     private int maxHeight;
@@ -40,10 +42,9 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
     
     public GeneratorBasicTree() {}
     
-    public GeneratorBasicTree(int weight, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves, IBlockState vine)
+    public GeneratorBasicTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves, IBlockState vine)
     {
-        super(weight);
-        
+        this.amountPerChunk = amountPerChunk;
         this.updateNeighbours = updateNeighbours;
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
@@ -55,13 +56,13 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
         this.vine = vine;
     }
     
-    public GeneratorBasicTree(int weight, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
+    public GeneratorBasicTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
     {
-        this(weight, updateNeighbours, minHeight, maxHeight, log, leaves, null);
+        this(amountPerChunk, updateNeighbours, minHeight, maxHeight, log, leaves, null);
     }
 
     @Override
-    public void scatter(World world, Random random, BlockPos pos, int amountPerChunk)
+    public void scatter(World world, Random random, BlockPos pos)
     {
         for (int i = 0; i < amountPerChunk; i++)
         {
@@ -69,12 +70,12 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
             int z = random.nextInt(16) + 8;
             BlockPos genPos = world.getHeight(pos.add(x, 0, z));
             
-            generate(world, random, genPos, amountPerChunk);
+            generate(world, random, genPos);
         }
     }
     
     @Override
-    public boolean generate(World world, Random random, BlockPos pos, int amountPerChunk)
+    public boolean generate(World world, Random random, BlockPos pos)
     {
         int height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
         boolean hasSpace = true;
@@ -303,8 +304,7 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
     @Override
     public void writeToJson(JsonObject json, JsonSerializationContext context)
     {
-        super.writeToJson(json, context);
-        
+        json.addProperty("amount_per_chunk", this.amountPerChunk);
         json.addProperty("update_neighbours", this.updateNeighbours);
         json.addProperty("min_height", this.minHeight);
         json.addProperty("max_height", this.maxHeight);
@@ -316,8 +316,7 @@ public class GeneratorBasicTree extends CustomizableWeightedGenerator
     @Override
     public void readFromJson(JsonObject json, JsonDeserializationContext context)
     {
-        super.readFromJson(json, context);
-        
+        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
         this.updateNeighbours = json.get("update_neighbours").getAsBoolean();
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);

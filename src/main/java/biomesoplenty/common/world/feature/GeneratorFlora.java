@@ -6,7 +6,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  ******************************************************************************/
 
-package biomesoplenty.common.world.feature.weighted;
+package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
@@ -19,25 +19,26 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.CustomizableWeightedGenerator;
+import biomesoplenty.api.biome.generation.CustomizableGenerator;
+import biomesoplenty.api.biome.generation.GeneratorWeightedEntry;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
-public class GeneratorFlora extends CustomizableWeightedGenerator
+public class GeneratorFlora extends CustomizableGenerator
 {
-    public IBlockState state;
+    protected int amountPerChunk;
+    protected IBlockState state;
     
     public GeneratorFlora() {}
     
-    public GeneratorFlora(int weight, IBlockState state)
+    public GeneratorFlora(int amountPerChunk, IBlockState state)
     {
-        super(weight);
-        
+        this.amountPerChunk = amountPerChunk;
         this.state = state;
     }
 
     @Override
-    public void scatter(World world, Random random, BlockPos pos, int amountPerChunk)
+    public void scatter(World world, Random random, BlockPos pos)
     {
         for (int i = 0; i < amountPerChunk; i++)
         {
@@ -47,12 +48,12 @@ public class GeneratorFlora extends CustomizableWeightedGenerator
             int y = GeneratorUtils.safeNextInt(random, world.getHeight(genPos).getY() + 32);
             genPos = genPos.add(0, y, 0);
 
-            generate(world, random, genPos, amountPerChunk);
+            generate(world, random, genPos);
         }
     }
 
     @Override
-    public boolean generate(World world, Random random, BlockPos pos, int amountPerChunk)
+    public boolean generate(World world, Random random, BlockPos pos)
     {
         Block block = this.state.getBlock();
         
@@ -74,16 +75,14 @@ public class GeneratorFlora extends CustomizableWeightedGenerator
     @Override
     public void writeToJson(JsonObject json, JsonSerializationContext context)
     {
-        super.writeToJson(json, context);
-        
+        json.addProperty("amount_per_chunk", this.amountPerChunk);
         json.add("state", context.serialize(this.state));
     }
 
     @Override
     public void readFromJson(JsonObject json, JsonDeserializationContext context)
     {
-        super.readFromJson(json, context);
-        
+        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
         this.state = GeneratorUtils.deserializeStateNonNull(json, "state", context);
     }
 }

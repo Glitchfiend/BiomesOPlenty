@@ -12,6 +12,9 @@ import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import biomesoplenty.api.biome.generation.IGeneratorBase;
+import biomesoplenty.api.biome.generation.IGeneratorController;
+
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
@@ -68,6 +71,28 @@ public class GeneratorUtils
         }
         
         return state;
+    }
+    
+    public static IGeneratorController deserializeGenerator(JsonObject json, String memberName, JsonDeserializationContext context)
+    {
+        return deserializeGeneratorOfType(json, memberName, context, IGeneratorController.class);
+    }
+    
+    public static <T extends IGeneratorBase> T deserializeGeneratorOfType(JsonObject json, String memberName, JsonDeserializationContext context, Class<T> type)
+    {
+        T generator = context.deserialize(json.get(memberName), type);
+        
+        if (generator == null)
+        {
+            throw new JsonSyntaxException("Property " + memberName + " doesn't exist");
+        }
+        
+        if (!(generator.getClass().isAssignableFrom(type)))
+        {
+            throw new JsonSyntaxException("Property " + memberName + " is of an invalid type");
+        }
+        
+        return generator;
     }
 
     public static boolean isBlockTreeReplacable(Block block)
