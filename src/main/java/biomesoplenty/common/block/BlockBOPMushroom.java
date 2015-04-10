@@ -82,15 +82,6 @@ public class BlockBOPMushroom extends BlockDecoration
         return ((MushroomType) state.getValue(VARIANT)).ordinal();
     }
     
-
-    // give the mushrooms a random XZ offset so they're not spaced in a perfect grid
-    @Override
-    @SideOnly(Side.CLIENT)
-    public Block.EnumOffsetType getOffsetType()
-    {
-        return Block.EnumOffsetType.XZ;
-    }
-    
     // glowshrooms emit light
     @Override
     public int getLightValue(IBlockAccess world, BlockPos pos)

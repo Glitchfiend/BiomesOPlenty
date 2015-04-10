@@ -26,6 +26,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public abstract class BlockBOPSapling extends BlockDecoration implements IGrowable {
     
@@ -139,7 +141,12 @@ public abstract class BlockBOPSapling extends BlockDecoration implements IGrowab
         return 0;
     }
     
-    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.NONE;
+    }
     
     
     

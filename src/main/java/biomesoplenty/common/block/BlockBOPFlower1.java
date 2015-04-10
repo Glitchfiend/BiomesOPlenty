@@ -88,15 +88,6 @@ public class BlockBOPFlower1 extends BlockDecoration {
         return ((FlowerType) state.getValue(VARIANT)).ordinal();
     }
     
-    
-    // give the flowers a random XZ offset so they're not spaced in a perfect grid
-    @Override
-    @SideOnly(Side.CLIENT)
-    public Block.EnumOffsetType getOffsetType()
-    {
-        return Block.EnumOffsetType.XZ;
-    }
-    
     // set the size of the different flowers' bounding boxes
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)

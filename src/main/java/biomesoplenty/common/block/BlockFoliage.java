@@ -185,8 +185,6 @@ public class BlockFoliage extends BlockDecoration implements IShearable
                 return this.getRenderColor(state);
         }
     }
-
-        
     
     // different variants have different sizes
     @Override

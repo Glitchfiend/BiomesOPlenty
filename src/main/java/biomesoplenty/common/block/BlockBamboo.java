@@ -20,6 +20,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockBamboo extends BlockDecoration
 {
@@ -115,6 +117,13 @@ public class BlockBamboo extends BlockDecoration
                 }
             }
         }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.NONE;
     }
     
 }

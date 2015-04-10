@@ -89,15 +89,6 @@ public class BlockCoral extends BlockDecoration
     {
         return ((CoralType) state.getValue(VARIANT)).ordinal();
     }
-    
-    
-    // give the corals a random XZ offset so they're not spaced in a perfect grid
-    @Override
-    @SideOnly(Side.CLIENT)
-    public Block.EnumOffsetType getOffsetType()
-    {
-        return Block.EnumOffsetType.XZ;
-    }
 
     // glowing_coral emits light
     @Override

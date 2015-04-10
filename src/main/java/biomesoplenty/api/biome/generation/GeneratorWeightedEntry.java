@@ -67,7 +67,7 @@ public final class GeneratorWeightedEntry extends WeightedRandom.Item implements
     public void readFromJson(JsonObject json, JsonDeserializationContext context)
     {
         this.itemWeight = json.get("weight").getAsInt();
-        this.wrappedGenerator = GeneratorUtils.deserializeGenerator(json, "wrapped_generator", context);
+        this.wrappedGenerator = context.deserialize(json.get("wrapped_generator"), IGenerator.class);
     }
 
     @Override

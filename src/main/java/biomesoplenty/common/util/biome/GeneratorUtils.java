@@ -72,28 +72,6 @@ public class GeneratorUtils
         
         return state;
     }
-    
-    public static IGenerator deserializeGenerator(JsonObject json, String memberName, JsonDeserializationContext context)
-    {
-        return deserializeGeneratorOfType(json, memberName, context, IGenerator.class);
-    }
-    
-    public static <T extends IGenerator> T deserializeGeneratorOfType(JsonObject json, String memberName, JsonDeserializationContext context, Class<T> type)
-    {
-        T generator = context.deserialize(json.get(memberName), type);
-        
-        if (generator == null)
-        {
-            throw new JsonSyntaxException("Property " + memberName + " doesn't exist");
-        }
-        
-        if (!(generator.getClass().isAssignableFrom(type)))
-        {
-            throw new JsonSyntaxException("Property " + memberName + " is of an invalid type");
-        }
-        
-        return generator;
-    }
 
     public static boolean isBlockTreeReplacable(Block block)
     {

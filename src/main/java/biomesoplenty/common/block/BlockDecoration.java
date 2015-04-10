@@ -54,7 +54,7 @@ public class BlockDecoration extends Block implements IBOPBlock
         // set some defaults
         this.setTickRandomly(true);
         this.setHardness(0.0F);
-        this.setStepSound(Block.soundTypePiston);
+        this.setStepSound(Block.soundTypeGrass);
         this.setBlockBoundsByRadiusAndHeight(0.3F, 0.6F);
 
         this.setDefaultState(this.blockState.getBaseState());     
@@ -141,6 +141,13 @@ public class BlockDecoration extends Block implements IBOPBlock
         return EnumWorldBlockLayer.CUTOUT;
     }
 
-
+    //decoration should be randomly offset by default
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Block.EnumOffsetType getOffsetType()
+    {
+        return Block.EnumOffsetType.XZ;
+    }
+    
     
 }
