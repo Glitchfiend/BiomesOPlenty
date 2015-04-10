@@ -29,6 +29,7 @@ public class GeneratorWeighted extends GeneratorCustomizable
 
     public void add(int weight, IGenerator entry)
     {
+        entry.setStage(GeneratorStage.PARENT);
         this.weightedEntries.add(new GeneratorWeightedEntry(weight, entry));
     }
     

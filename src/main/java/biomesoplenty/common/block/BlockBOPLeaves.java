@@ -126,7 +126,6 @@ public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
         return i;
     }
     
-    
     @Override
     protected int getSaplingDropChance(IBlockState state)
     {
@@ -148,8 +147,10 @@ public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     @Override
     public int damageDropped(IBlockState state)
     {
-        AllTrees tree = ((AllTrees) state.getValue(getMyVariantProperty()));
-        return tree.ordinal() % 8;
+        //Ignore all other properties, only the variant is important to ensure different variants use different stacks
+        PropertyEnum property = getMyVariantProperty();
+        AllTrees tree = ((AllTrees) state.getValue(property));
+        return this.getMetaFromState(this.getDefaultState().withProperty(property, tree));
     }
     
     // TODO: different fruits for different trees?
