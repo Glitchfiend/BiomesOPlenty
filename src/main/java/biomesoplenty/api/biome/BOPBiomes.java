@@ -19,4 +19,5 @@ public class BOPBiomes
     public static Optional<BiomeGenBase> crag = Optional.absent();
     public static Optional<BiomeGenBase> originValley = Optional.absent();
     public static Optional<BiomeGenBase> steppe = Optional.absent();
+    public static Optional<BiomeGenBase> thicket = Optional.absent();
 }

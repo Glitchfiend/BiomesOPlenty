@@ -22,6 +22,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
+import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.util.config.JsonBiome;
 import biomesoplenty.common.world.WorldTypeBOP;
@@ -51,6 +52,7 @@ public class ModBiomes
         crag = registerBiome(new BiomeGenCrag().setBiomeName("Crag"), "crag");
         originValley = registerBiome(new BiomeGenOriginValley().setBiomeName("Origin Valley"), "origin_valley");
         steppe = registerBiome(new BiomeGenSteppe().setBiomeName("Steppe"), "steppe");
+        thicket = registerBiome(new BiomeGenThicket().setBiomeName("Thicket"), "thicket");
     }
 
     private static void registerExternalBiomes()

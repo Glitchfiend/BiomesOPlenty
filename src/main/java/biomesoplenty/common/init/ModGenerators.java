@@ -16,6 +16,7 @@ import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreCluster;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
 import biomesoplenty.common.world.feature.tree.GeneratorBasicTree;
+import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
 public class ModGenerators
 {
@@ -26,6 +27,7 @@ public class ModGenerators
         registerGenerator("weighted", GeneratorWeighted.class);
         registerGenerator("weighted_entry", GeneratorWeightedEntry.class);
         registerGenerator("basic_tree", GeneratorBasicTree.class);
+        registerGenerator("bush", GeneratorBush.class);
         registerGenerator("flora", GeneratorFlora.class);
         registerGenerator("grass", GeneratorGrass.class);
     }
