@@ -19,12 +19,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import biomesoplenty.api.biome.generation.CustomizableGenerator;
+import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.api.biome.generation.GeneratorWeightedEntry;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
-public class GeneratorFlora extends CustomizableGenerator
+public class GeneratorFlora extends GeneratorCustomizable
 {
     protected int amountPerChunk;
     protected IBlockState state;

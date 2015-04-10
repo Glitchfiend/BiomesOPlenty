@@ -15,14 +15,14 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.CustomizableGenerator;
+import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public abstract class GeneratorOreBase extends CustomizableGenerator
+public abstract class GeneratorOreBase extends GeneratorCustomizable
 {
     protected int amountPerChunk;
     protected int minHeight;

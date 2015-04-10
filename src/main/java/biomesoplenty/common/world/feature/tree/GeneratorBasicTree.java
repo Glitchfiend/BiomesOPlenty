@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.CustomizableGenerator;
+import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.api.biome.generation.GeneratorWeightedEntry;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
@@ -30,7 +30,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 
-public class GeneratorBasicTree extends CustomizableGenerator
+public class GeneratorBasicTree extends GeneratorCustomizable
 {
     private int amountPerChunk;
     private boolean updateNeighbours;

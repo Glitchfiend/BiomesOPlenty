@@ -21,7 +21,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.reflect.TypeToken;
 
-public class GeneratorWeighted extends CustomizableGenerator
+public class GeneratorWeighted extends GeneratorCustomizable
 {
     private List<GeneratorWeightedEntry> weightedEntries = new ArrayList<GeneratorWeightedEntry>();
     

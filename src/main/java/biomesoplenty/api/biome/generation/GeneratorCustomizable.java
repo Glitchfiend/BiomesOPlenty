@@ -8,13 +8,13 @@
 
 package biomesoplenty.api.biome.generation;
 
-public abstract class CustomizableGenerator implements IGenerator
+public abstract class GeneratorCustomizable implements IGenerator
 {
     private final String identifier;
     private String name;
     private GeneratorStage stage;
     
-    protected CustomizableGenerator()
+    protected GeneratorCustomizable()
     {
         this.identifier = GeneratorRegistry.getIdentifier((Class<? extends IGenerator>)this.getClass());
         
