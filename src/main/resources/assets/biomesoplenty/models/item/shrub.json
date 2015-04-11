@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:blocks/shrub"
+        "layer0": "biomesoplenty:items/shrub"
     },
     "display": {
         "thirdperson": {

@@ -1,5 +1,5 @@
 {
-    "parent": "block/tallgrass",
+    "parent": "block/cross",
     "textures": {
         "cross": "biomesoplenty:blocks/wheatgrass"
     }
