@@ -16,7 +16,7 @@ import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 
 public class BiomeGenXericShrubland extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.05F, 0.1F);
+    private static final Height biomeHeight = new Height(0.55F, 1.1F);
 
 	public BiomeGenXericShrubland(int id)
 	{
