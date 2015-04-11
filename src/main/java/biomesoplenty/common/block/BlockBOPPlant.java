@@ -52,7 +52,6 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: shrub needs custom item texture
 // TODO: double cattail
 // TODO: pick block?
 

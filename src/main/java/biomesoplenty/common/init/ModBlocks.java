@@ -60,7 +60,7 @@ import biomesoplenty.common.block.BlockBamboo;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockCrystal;
-import biomesoplenty.common.block.BlockDoubleFoliage;
+import biomesoplenty.common.block.BlockBOPDoublePlant;
 import biomesoplenty.common.block.BlockFlesh;
 import biomesoplenty.common.block.BlockBOPPlant0;
 import biomesoplenty.common.block.BlockBOPPlant1;
@@ -223,7 +223,7 @@ public class ModBlocks
         
         plant_0 =           registerBlock( new BlockBOPPlant0(), "plant_0" );
         plant_1 =           registerBlock( new BlockBOPPlant1(), "plant_1" );
-        double_foliage =    registerBlock( new BlockDoubleFoliage(), "double_foliage" );
+        double_plant =    registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         
         honey_block =       registerBlock( new BlockHoney(), "honey_block" );
         

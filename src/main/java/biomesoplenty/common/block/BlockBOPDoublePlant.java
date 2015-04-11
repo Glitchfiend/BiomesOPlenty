@@ -21,6 +21,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -30,13 +31,13 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockDoubleFoliage extends BlockDoubleDecoration implements IShearable
+public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShearable
 {
     
     // add properties (note we inherit HALF from BlockDoubleDecoration)
     public static enum FoliageType implements IStringSerializable
     {
-        FLAX;
+        FLAX, TALL_CATTAIL;
         @Override
         public String getName()
         {
@@ -65,7 +66,7 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
     }
     
     
-    public BlockDoubleFoliage()
+    public BlockBOPDoublePlant()
     {
         super();
         this.setDefaultState( this.blockState.getBaseState().withProperty(HALF, Half.LOWER) .withProperty(VARIANT, FoliageType.FLAX) );
@@ -85,29 +86,53 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
     
     
     
-    // TODO: comment these
+    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
+    
+    public static ColoringType getColoringType(FoliageType plant)
+    {
+        switch (plant)
+        {
+            case FLAX:
+                return ColoringType.LIKE_GRASS;
+            default:
+                return ColoringType.PLAIN;
+        }       
+    }
+ 
     @Override
     @SideOnly(Side.CLIENT)
     public int getBlockColor()
     {
-        return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+        return 0xFFFFFF;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public int getRenderColor(IBlockState state)
     {
-        return this.getBlockColor();
+        switch (getColoringType((FoliageType) state.getValue(VARIANT)))
+        {
+            case LIKE_LEAVES:
+                return ColorizerFoliage.getFoliageColorBasic();
+            case LIKE_GRASS:
+                return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+            case PLAIN: default:
+                return 0xFFFFFF;
+        }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
     {
-        switch ((FoliageType) worldIn.getBlockState(pos).getValue(VARIANT))
+        switch (getColoringType((FoliageType) worldIn.getBlockState(pos).getValue(VARIANT)))
         {
-            default:
+            case LIKE_LEAVES:
+                return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
+            case LIKE_GRASS:
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+            case PLAIN: default:
+                return 0xFFFFFF;
         }
     }
     
@@ -123,6 +148,7 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
                 return this.getRenderColor(state);
         }
     }
+    
     
     
     // different variants have different sizes
@@ -199,7 +225,7 @@ public class BlockDoubleFoliage extends BlockDoubleDecoration implements ISheara
         
         // add items based on the VARIANT
         switch ((FoliageType) lowerState.getValue(VARIANT))
-        {       
+        {
             default:
                 // default is to get the (lower) block unaltered
                 ret.add(new ItemStack(this, 1, this.getMetaFromState(lowerState.withProperty(HALF, Half.LOWER) )));

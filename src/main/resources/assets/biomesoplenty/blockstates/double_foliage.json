@@ -1,6 +1,0 @@
-{
-    "variants": {
-        "half=upper,variant=flax": { "model": "biomesoplenty:flax_upper" },
-        "half=lower,variant=flax": { "model": "biomesoplenty:flax_lower" }
-    }
-}

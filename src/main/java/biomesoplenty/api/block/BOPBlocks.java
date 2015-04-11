@@ -126,7 +126,7 @@ public class BOPBlocks
     
     public static Block plant_0;
     public static Block plant_1;
-    public static Block double_foliage;
+    public static Block double_plant;
     
     public static Block honey_block;
     
