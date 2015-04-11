@@ -24,7 +24,7 @@ public abstract class BlockBOPLog extends BlockLog implements IBOPBlock
     
     // setup paged variant property
     
-    // STAGE require one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
+    // LOG_AXIS requires two bits, so we have 2 bits left for the VARIANT which means we can have four per instance
     public static final int VARIANTS_PER_PAGE = 4;
     // child classes must implement to define their page number
     abstract public int getPageNum();

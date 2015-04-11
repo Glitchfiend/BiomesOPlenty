@@ -25,7 +25,7 @@ public abstract class BlockBOPPlanks extends Block implements IBOPBlock
     
     // setup paged variant property
     
-    // STAGE require one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
+    // All 4 meta bits available for the VARIANT which means we can have sixteen per instance
     public static final int VARIANTS_PER_PAGE = 16;
     // child classes must implement to define their page number
     abstract public int getPageNum();

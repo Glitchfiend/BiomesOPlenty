@@ -28,7 +28,7 @@ public abstract class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBloc
     
     // setup paged variant property
     
-    // STAGE require one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
+    // HALF requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
     public static final int VARIANTS_PER_PAGE = 8;
     // child classes must implement to define their page number
     abstract public int getPageNum();
