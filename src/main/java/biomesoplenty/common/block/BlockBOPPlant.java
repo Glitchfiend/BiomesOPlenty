@@ -41,6 +41,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -282,47 +283,67 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         return false;
     }
     
+   
     
-
-
-    // TODO: comment these
+    public enum ColoringType {PLAIN, LIKE_LEAVES, LIKE_GRASS};
+    
+    public static ColoringType getColoringType(AllPlants plant)
+    {
+        switch (plant)
+        {
+            case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
+                return ColoringType.LIKE_LEAVES;
+            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: 
+                return ColoringType.LIKE_GRASS;
+            default:
+                return ColoringType.PLAIN;
+        }       
+    }
+ 
     @Override
     @SideOnly(Side.CLIENT)
     public int getBlockColor()
     {
-        return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+        return 0xFFFFFF;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public int getRenderColor(IBlockState state)
     {
-        return this.getBlockColor();
+        switch (getColoringType((AllPlants) state.getValue(getMyVariantProperty())))
+        {
+            case LIKE_LEAVES:
+                return ColorizerFoliage.getFoliageColorBasic();
+            case LIKE_GRASS:
+                return ColorizerGrass.getGrassColor(0.5D, 1.0D);
+            case PLAIN: default:
+                return 0xFFFFFF;
+        }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
     {
-        IBlockState state = worldIn.getBlockState(pos);
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch (getColoringType((AllPlants) worldIn.getBlockState(pos).getValue(getMyVariantProperty())))
         {
-            case SHRUB: case LEAFPILE:
+            case LIKE_LEAVES:
                 return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
-            case DEADLEAFPILE:
-                return 0xFFFFFF;
-            default:
+            case LIKE_GRASS:
                 return BiomeColorHelper.getGrassColorAtPos(worldIn, pos);
+            case PLAIN: default:
+                return 0xFFFFFF;
         }
     }
     
-    // berrybush item should not be tinted, even though the model is
+    // berrybush / shrub item should not be tinted, even though the model is
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex)
     {
         switch ((AllPlants) state.getValue(getMyVariantProperty()))
         {
-            case BERRYBUSH:
+            case BERRYBUSH: case SHRUB:
                 return 0xFFFFFF;
             default:
                 return this.getRenderColor(state);
