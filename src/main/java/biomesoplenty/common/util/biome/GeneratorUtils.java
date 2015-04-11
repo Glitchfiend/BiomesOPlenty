@@ -12,9 +12,6 @@ import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import biomesoplenty.api.biome.generation.IGenerator;
-import biomesoplenty.api.biome.generation.IGenerator;
-
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;

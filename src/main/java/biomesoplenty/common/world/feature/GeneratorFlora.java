@@ -10,7 +10,6 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import com.google.common.base.Predicates;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
@@ -20,7 +19,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
-import biomesoplenty.api.biome.generation.GeneratorWeightedEntry;
 import biomesoplenty.common.block.BlockDecoration;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 

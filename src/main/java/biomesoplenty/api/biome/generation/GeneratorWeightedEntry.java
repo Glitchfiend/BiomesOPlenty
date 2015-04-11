@@ -13,7 +13,6 @@ import java.util.Random;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
-import biomesoplenty.common.util.biome.GeneratorUtils;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;

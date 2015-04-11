@@ -15,8 +15,6 @@ import net.minecraft.block.state.pattern.BlockHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 
 import com.google.common.base.Predicate;
 import com.google.gson.JsonDeserializationContext;
