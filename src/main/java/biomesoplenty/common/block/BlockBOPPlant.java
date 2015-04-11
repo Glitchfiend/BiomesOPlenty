@@ -17,6 +17,7 @@ import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPPlantEnums;
 import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.item.ItemBOPPlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -30,6 +31,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -51,7 +53,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: shrub needs custom item texture
 // TODO: double cattail
-// TODO: placing reeds
 // TODO: pick block?
 
 public abstract class BlockBOPPlant extends BlockDecoration implements IShearable
@@ -119,6 +120,8 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     
     
     // implement IBOPBlock
+    @Override
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPPlant.class; }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] { getMyVariantProperty() }; }
     @Override
@@ -356,6 +359,10 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
             case ROOT:
                 // roots hang from ceiling
                 this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F, true);
+                break;
+            case REED:
+                // reeds extend one block below
+                this.setBlockBounds(0.2F, -1.0F, 0.2F, 0.8F, 0.8F, 0.8F);
                 break;
             default:
                 this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
