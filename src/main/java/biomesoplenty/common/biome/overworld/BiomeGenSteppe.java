@@ -15,8 +15,8 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockFoliage;
-import biomesoplenty.common.block.BlockFoliage.FoliageType;
+import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
+import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGem.GemType;
 import biomesoplenty.common.world.feature.GeneratorGrass;
@@ -37,7 +37,7 @@ public class BiomeGenSteppe extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
         this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH, new GeneratorGrass(3, Blocks.deadbush.getDefaultState(), 4));
-        this.addGenerator("grass", GeneratorStage.GRASS, new GeneratorGrass(15, BOPBlocks.foliage.getDefaultState().withProperty(BlockFoliage.VARIANT, FoliageType.SHORTGRASS)));
+        this.addGenerator("grass", GeneratorStage.GRASS, new GeneratorGrass(15, BlockBOPPlant.getVariantState(AllPlants.SHORTGRASS)));
         this.addGenerator("ruby", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.RUBY), 12, 4, 32));
     }
     

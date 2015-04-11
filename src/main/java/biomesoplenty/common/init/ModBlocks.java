@@ -62,7 +62,8 @@ import biomesoplenty.common.block.BlockCoral;
 import biomesoplenty.common.block.BlockCrystal;
 import biomesoplenty.common.block.BlockDoubleFoliage;
 import biomesoplenty.common.block.BlockFlesh;
-import biomesoplenty.common.block.BlockFoliage;
+import biomesoplenty.common.block.BlockBOPPlant0;
+import biomesoplenty.common.block.BlockBOPPlant1;
 import biomesoplenty.common.block.BlockFruit;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGemOre;
@@ -220,7 +221,8 @@ public class ModBlocks
         tree_moss =         registerBlock( new BlockBOPVine(false), "tree_moss" );
         wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );
         
-        foliage =           registerBlock( new BlockFoliage(), "foliage" );
+        plant_0 =           registerBlock( new BlockBOPPlant0(), "plant_0" );
+        plant_1 =           registerBlock( new BlockBOPPlant1(), "plant_1" );
         double_foliage =    registerBlock( new BlockDoubleFoliage(), "double_foliage" );
         
         honey_block =       registerBlock( new BlockHoney(), "honey_block" );

@@ -3,6 +3,6 @@
     "textures": {
         "colored": "biomesoplenty:blocks/shrub_branch",
         "greyscale": "biomesoplenty:blocks/shrub",
-        "particle": "biomesoplenty:blocks/shrub_branch"
+        "particle": "biomesoplenty:blocks/shrub"
     }
 }

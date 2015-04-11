@@ -124,7 +124,8 @@ public class BOPBlocks
     public static Block tree_moss;
     public static Block wisteria;
     
-    public static Block foliage;
+    public static Block plant_0;
+    public static Block plant_1;
     public static Block double_foliage;
     
     public static Block honey_block;

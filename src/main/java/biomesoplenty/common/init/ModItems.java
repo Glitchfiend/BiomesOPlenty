@@ -8,20 +8,7 @@
 
 package biomesoplenty.common.init;
 
-import static biomesoplenty.api.item.BOPItems.ash;
-import static biomesoplenty.api.item.BOPItems.berries;
-import static biomesoplenty.api.item.BOPItems.crystal_shard;
-import static biomesoplenty.api.item.BOPItems.filled_honeycomb;
-import static biomesoplenty.api.item.BOPItems.fleshchunk;
-import static biomesoplenty.api.item.BOPItems.gem;
-import static biomesoplenty.api.item.BOPItems.honeycomb;
-import static biomesoplenty.api.item.BOPItems.mudball;
-import static biomesoplenty.api.item.BOPItems.peach;
-import static biomesoplenty.api.item.BOPItems.pear;
-import static biomesoplenty.api.item.BOPItems.persimmon;
-import static biomesoplenty.api.item.BOPItems.turnip;
-import static biomesoplenty.api.item.BOPItems.turnip_seeds;
-import static biomesoplenty.api.item.BOPItems.wading_boots;
+import static biomesoplenty.api.item.BOPItems.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +51,7 @@ public class ModItems
         gem = registerItem(new ItemGem(), "gem");
         ash = registerItem(new Item(), "ash");
         berries = registerItem(new ItemFood(1, 0.1F, false), "berries");
+        wildcarrots = registerItem(new ItemFood(3, 0.5F, false), "wildcarrots");
     
         // armor
         // TODO: do we really want durability of -1?  does that mean it lasts forever?

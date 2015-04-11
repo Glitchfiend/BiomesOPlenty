@@ -1,0 +1,15 @@
+{
+    "variants": {
+        "variant=dunegrass": { "model": "biomesoplenty:dunegrass" },
+        "variant=spectralfern": { "model": "biomesoplenty:spectralfern" },
+        "variant=thorn": { "model": "biomesoplenty:thorn" },
+        "variant=wildrice": { "model": "biomesoplenty:wildrice" },
+        "variant=cattail": { "model": "biomesoplenty:cattail" },
+        "variant=rivercane": { "model": "biomesoplenty:rivercane" },
+        "variant=wildcarrot": { "model": "biomesoplenty:wildcarrot_block" },
+        "variant=tinycactus": { "model": "biomesoplenty:tinycactus" },
+        "variant=witherwart": { "model": "biomesoplenty:witherwart" },
+        "variant=reed": { "model": "biomesoplenty:reed" },
+        "variant=root": { "model": "biomesoplenty:root" }
+    }
+}

@@ -15,9 +15,9 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.common.block.BlockFoliage;
+import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
+import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
-import biomesoplenty.common.block.BlockFoliage.FoliageType;
 import biomesoplenty.common.block.BlockGem.GemType;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -44,8 +44,8 @@ public class BiomeGenThicket extends BOPBiome
         //TODO: Add the rest of the generators, requires plant blocks
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState()));
         //this.addGenerator("thorns", GeneratorStage.FLOWERS, new GeneratorFlora(55, BOPBlocks.foliage.getDefaultState().withProperty(BlockBOPPlant., FoliageType.LEAFPILE));
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BOPBlocks.foliage.getDefaultState().withProperty(BlockFoliage.VARIANT, FoliageType.LEAFPILE)));
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BOPBlocks.foliage.getDefaultState().withProperty(BlockFoliage.VARIANT, FoliageType.DEADLEAFPILE)));
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.LEAFPILE)));
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.getVariantState(AllPlants.DEADLEAFPILE)));
         
         this.addGenerator("amber", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.AMBER), 12, 4, 32));
     }
