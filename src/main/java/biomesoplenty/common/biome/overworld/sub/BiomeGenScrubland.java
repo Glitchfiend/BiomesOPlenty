@@ -26,7 +26,7 @@ public class BiomeGenScrubland extends BOPSubBiome
 		
         this.setHeight(biomeHeight);
 		this.setColor(11445290);
-        this.setTemperatureRainfall(1.2F, 0.05F);
+        this.setTemperatureRainfall(1.2F, 0.0F);
 
 		this.theBiomeDecorator.treesPerChunk = 7;
 

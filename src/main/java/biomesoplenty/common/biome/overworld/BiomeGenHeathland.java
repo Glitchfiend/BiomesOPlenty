@@ -27,7 +27,7 @@ public class BiomeGenHeathland extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(13550967);
-        this.setTemperatureRainfall(0.8F, 0.1F);
+        this.setTemperatureRainfall(0.8F, 0.2F);
 
 		this.spawnableCreatureList.clear();
 		

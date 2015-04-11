@@ -26,7 +26,7 @@ public class BiomeGenDeadForest extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         this.setColor(12362085);
         this.setEnableSnow();
-        this.setTemperatureRainfall(0.2F, 0.8F);
+        this.setTemperatureRainfall(0.4F, 0.3F);
 
 		this.theBiomeDecorator.treesPerChunk = 3;
 		this.theBiomeDecorator.grassPerChunk = 1;

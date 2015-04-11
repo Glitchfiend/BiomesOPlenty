@@ -27,7 +27,7 @@ public class BiomeGenBayou extends BOPOverworldBiome implements IBiomeFog
 
         this.setHeight(biomeHeight);
         this.setColor(9154411);
-        this.setTemperatureRainfall(0.5F, 0.9F);
+        this.setTemperatureRainfall(0.8F, 0.9F);
 
 		this.spawnableWaterCreatureList.clear();
 		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));

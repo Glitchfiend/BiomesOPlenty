@@ -20,7 +20,7 @@ public class BiomeGenCrag extends BOPOverworldBiome implements IBiomeFog
 
         this.setHeight(biomeHeight);
         this.setColor(5209457);
-        this.setTemperatureRainfall(2.0F, 0.0F);
+        this.setTemperatureRainfall(1.0F, 0.0F);
 		
 		this.spawnableCreatureList.clear();
 		this.spawnableWaterCreatureList.clear();

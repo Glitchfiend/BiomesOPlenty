@@ -23,7 +23,7 @@ public class BiomeGenDeciduousForest extends BOPOverworldBiome
         //this.setHeight(biomeHeight); Not set?
         //TODO:	setColor()
         this.setColor(12695369);
-        this.setTemperatureRainfall(0.7F, 0.8F);
+        this.setTemperatureRainfall(0.6F, 0.8F);
 		
 		this.theBiomeDecorator.treesPerChunk = 18;
 		this.theBiomeDecorator.grassPerChunk = 10;

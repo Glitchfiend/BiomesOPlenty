@@ -31,7 +31,7 @@ public class BiomeGenOminousWoods extends BOPOverworldBiome implements IBiomeFog
         this.setHeight(biomeHeight);
         //TODO:	setColor()
         this.setColor(4145489);
-        this.setTemperatureRainfall(0.8F, 0.9F);
+        this.setTemperatureRainfall(0.5F, 0.9F);
 		
 		spawnableMonsterList.clear();
 		spawnableCreatureList.clear();

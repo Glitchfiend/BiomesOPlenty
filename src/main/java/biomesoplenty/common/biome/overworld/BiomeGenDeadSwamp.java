@@ -26,7 +26,7 @@ public class BiomeGenDeadSwamp extends BOPOverworldBiome implements IBiomeFog
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(9154376);
-        this.setTemperatureRainfall(0.8F, 0.9F);
+        this.setTemperatureRainfall(0.7F, 0.9F);
 
 		this.spawnableCreatureList.clear();
 		this.spawnableWaterCreatureList.clear();

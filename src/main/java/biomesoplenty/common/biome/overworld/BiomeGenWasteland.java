@@ -24,7 +24,7 @@ public class BiomeGenWasteland extends BOPOverworldBiome implements IBiomeFog
         this.setHeight(biomeHeight);
         this.setDisableRain();
         this.setColor(5919808);
-        this.setTemperatureRainfall(2.0F, 0.05F);
+        this.setTemperatureRainfall(1.0F, 0.05F);
         
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

@@ -27,7 +27,7 @@ public class BiomeGenBorealForest extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(10467185);
-        this.setTemperatureRainfall(0.6F, 0.7F);
+        this.setTemperatureRainfall(0.5F, 0.6F);
 		
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
 		

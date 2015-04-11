@@ -41,6 +41,7 @@ public class BiomeGenLandOfLakes extends BOPOverworldBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
+		this.theBiomeDecorator.bopFeatures.wildRicePerChunk = 2;
 		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 30;
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 15;

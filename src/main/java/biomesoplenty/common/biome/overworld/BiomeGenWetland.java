@@ -28,7 +28,7 @@ public class BiomeGenWetland extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(5215831);
-        this.setTemperatureRainfall(0.8F, 0.9F);
+        this.setTemperatureRainfall(0.6F, 0.9F);
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

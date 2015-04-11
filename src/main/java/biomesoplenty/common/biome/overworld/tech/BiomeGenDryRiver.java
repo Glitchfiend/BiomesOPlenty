@@ -14,7 +14,7 @@ public class BiomeGenDryRiver extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setDisableRain();
-        this.setTemperatureRainfall(1.2F, 0.5F);
+        this.setTemperatureRainfall(1.0F, 0.0F);
         
         this.spawnableCreatureList.clear();
 

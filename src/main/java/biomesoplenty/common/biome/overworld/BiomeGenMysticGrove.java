@@ -28,7 +28,7 @@ public class BiomeGenMysticGrove extends BOPOverworldBiome implements IBiomeFog
 		
         this.setHeight(biomeHeight);
         this.setColor(6934491);
-        this.setTemperatureRainfall(0.9F, 1.0F);
+        this.setTemperatureRainfall(0.7F, 1.0F);
 		
 		this.spawnableMonsterList.clear();
 		this.spawnableCreatureList.clear();

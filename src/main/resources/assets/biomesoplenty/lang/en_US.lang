@@ -31,7 +31,7 @@ tile.plants.desertsprouts.name=Desert Sprouts
 tile.plants.dunegrass.name=Dune Grass
 tile.plants.spectralfern.name=Spectral Fern
 tile.plants.thorn.name=Thorns
-tile.plants.barley.name=Barley
+tile.plants.wildrice.name=Wild Rice
 tile.plants.cattail.name=Cattail
 tile.plants.cattailtop.name=Cattail
 tile.plants.cattailbottom.name=Cattail
@@ -330,6 +330,7 @@ item.food.filledhoneycomb.name=Filled Honeycomb
 item.food.ambrosia.name=Ambrosia
 item.food.turnip.name=Turnip
 item.food.pear.name=Pear
+item.food.ricebowl.name=Bowl of Rice
 
 item.turnipSeeds.name=Turnip Seeds
 

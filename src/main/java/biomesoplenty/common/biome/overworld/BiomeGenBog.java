@@ -25,7 +25,7 @@ public class BiomeGenBog extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(14193503);
-        this.setTemperatureRainfall(0.8F, 0.9F);
+        this.setTemperatureRainfall(0.5F, 0.9F);
 
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();

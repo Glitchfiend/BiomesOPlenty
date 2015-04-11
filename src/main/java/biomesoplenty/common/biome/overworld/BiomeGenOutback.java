@@ -24,7 +24,7 @@ public class BiomeGenOutback extends BOPOverworldBiome
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(10843716);
-        this.setTemperatureRainfall(1.5F, 0.05F);
+        this.setTemperatureRainfall(1.3F, 0.05F);
 
 		this.spawnableCreatureList.clear();
 		

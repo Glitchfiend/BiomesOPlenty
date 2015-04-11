@@ -21,9 +21,9 @@ import biomesoplenty.api.content.BOPCBlocks;
 
 public class ItemBOPFood extends ItemFood
 {
-	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "peach", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip", "pear"};
-	private static final int[] foodHunger = new int[] {1, 1, 3, 5, 6, 6, 6, 0, 5, 3, 6, 3, 5};
-	private static final float[] foodSaturation = new float[] {0.1F, 0.1F, 0.5F, 0.2F, 0.6F, 0.6F, 0.6F, 0.0F, 0.2F, 0.4F, 0.8F, 0.4F, 0.3F};
+	private static final String[] foodTypes = new String[] {"berries", "shroompowder", "wildcarrots", "peach", "saladfruit", "saladveggie", "saladshroom", "earth", "persimmon", "filledhoneycomb", "ambrosia", "turnip", "pear", "ricebowl"};
+	private static final int[] foodHunger = new int[] {1, 1, 3, 5, 6, 6, 6, 0, 5, 3, 6, 3, 5, 2};
+	private static final float[] foodSaturation = new float[] {0.1F, 0.1F, 0.5F, 0.2F, 0.6F, 0.6F, 0.6F, 0.0F, 0.2F, 0.4F, 0.8F, 0.4F, 0.3F, 0.1F};
 	private IIcon[] textures;
 	
 	public ItemBOPFood(int healAmount)
@@ -134,6 +134,11 @@ public class ItemBOPFood extends ItemFood
         		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.glass_bottle)))
                     player.dropPlayerItemWithRandomChoice(new ItemStack(Items.glass_bottle, 1, 0), false);
         		break;
+        		
+        	case 13:
+        		if (!player.inventory.addItemStackToInventory(new ItemStack(Items.bowl)))
+                    player.dropPlayerItemWithRandomChoice(new ItemStack(Items.bowl, 1, 0), false);
+        		break;
         }
         
         return itemstack;
@@ -166,6 +171,10 @@ public class ItemBOPFood extends ItemFood
     		return 1;
     	}
     	if (itemStack.getItem() == this && itemStack.getItemDamage() == 10)
+    	{
+    		return 1;
+    	}
+    	if (itemStack.getItem() == this && itemStack.getItemDamage() == 13)
     	{
     		return 1;
     	}

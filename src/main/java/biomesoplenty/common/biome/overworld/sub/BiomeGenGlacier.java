@@ -22,7 +22,7 @@ public class BiomeGenGlacier extends BOPSubBiome
 		
         this.setHeight(biomeHeight);
 		this.setColor(11582425);
-        this.setTemperatureRainfall(0.0F, 0.5F);
+        this.setTemperatureRainfall(0.0F, 0.2F);
         this.setEnableSnow();
 		
 		this.spawnableCreatureList.clear();

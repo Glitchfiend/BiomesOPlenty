@@ -6,8 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenTaiga2;
 import biomesoplenty.api.content.BOPCBlocks;
@@ -24,7 +22,7 @@ public class BiomeGenLandOfLakesMarsh extends BOPSubBiome
 		super(id);
 		
 		this.zoom = 0.5D;
-		this.threshold = 0.5D;
+		this.threshold = 0.25D;
 
         this.setHeight(biomeHeight);
         this.setColor(6725742);
@@ -35,14 +33,14 @@ public class BiomeGenLandOfLakesMarsh extends BOPSubBiome
 		
 		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
 
-		this.theBiomeDecorator.treesPerChunk = -999;
+		this.theBiomeDecorator.treesPerChunk = 1;
 		this.theBiomeDecorator.flowersPerChunk = 3;
 		this.theBiomeDecorator.grassPerChunk = 25;
 		
 		this.theBiomeDecorator.sandPerChunk = 1;
 		this.theBiomeDecorator.sandPerChunk2 = 1;
 
-		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 4;
+		this.theBiomeDecorator.bopFeatures.wildRicePerChunk = 8;
 		this.theBiomeDecorator.bopFeatures.mudPerChunk = 9;
         this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 15;

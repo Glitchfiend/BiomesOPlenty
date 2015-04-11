@@ -25,7 +25,7 @@ public class BiomeGenBrushland extends BOPOverworldBiome
 
         this.setHeight(biomeHeight);
         this.setColor(13222271);
-        this.setTemperatureRainfall(2.0F, 0.05F);
+        this.setTemperatureRainfall(1.2F, 0.1F);
 
 		this.theBiomeDecorator.treesPerChunk = 10;
 		this.theBiomeDecorator.grassPerChunk = 6;

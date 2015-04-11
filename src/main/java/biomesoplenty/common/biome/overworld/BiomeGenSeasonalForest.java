@@ -26,7 +26,7 @@ public class BiomeGenSeasonalForest extends BOPOverworldBiome implements IBiomeF
 
         this.setHeight(biomeHeight);
         this.setColor(12502092);
-        this.setTemperatureRainfall(0.7F, 0.8F);
+        this.setTemperatureRainfall(0.5F, 0.8F);
 
         this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
 
