@@ -26,13 +26,20 @@ public class GeneratorFlora extends GeneratorCustomizable
 {
     protected int amountPerChunk;
     protected IBlockState state;
+    protected int generationAttempts;
     
     public GeneratorFlora() {}
     
-    public GeneratorFlora(int amountPerChunk, IBlockState state)
+    public GeneratorFlora(int amountPerChunk, IBlockState state, int generationAttempts)
     {
         this.amountPerChunk = amountPerChunk;
         this.state = state;
+        this.generationAttempts = generationAttempts;
+    }
+    
+    public GeneratorFlora(int amountPerChunk, IBlockState state)
+    {
+        this(amountPerChunk, state, 64);
     }
 
     @Override
@@ -55,7 +62,7 @@ public class GeneratorFlora extends GeneratorCustomizable
     {
         Block block = this.state.getBlock();
         
-        for (int i = 0; i < 64; ++i)
+        for (int i = 0; i < this.generationAttempts; ++i)
         {
             BlockPos genPos = pos.add(random.nextInt(8) - random.nextInt(8), random.nextInt(4) - random.nextInt(4), random.nextInt(8) - random.nextInt(8));
 
@@ -75,6 +82,7 @@ public class GeneratorFlora extends GeneratorCustomizable
     {
         json.addProperty("amount_per_chunk", this.amountPerChunk);
         json.add("state", context.serialize(this.state));
+        json.addProperty("generation_attempts", this.generationAttempts);
     }
 
     @Override
@@ -82,5 +90,6 @@ public class GeneratorFlora extends GeneratorCustomizable
     {
         this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
         this.state = GeneratorUtils.deserializeStateNonNull(json, "state", context);
+        this.generationAttempts = json.get("generation_attempts").getAsInt();
     }
 }

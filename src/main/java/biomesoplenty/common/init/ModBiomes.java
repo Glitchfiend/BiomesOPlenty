@@ -22,6 +22,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
 import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
+import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.command.BOPCommand;
@@ -53,6 +54,7 @@ public class ModBiomes
         crag = registerBiome(new BiomeGenCrag().setBiomeName("Crag"), "crag");
         flowerField = registerBiome(new BiomeGenFlowerField().setBiomeName("Flower Field"), "flower_field");
         originValley = registerBiome(new BiomeGenOriginValley().setBiomeName("Origin Valley"), "origin_valley");
+        shrubland = registerBiome(new BiomeGenShrubland().setBiomeName("Shrubland"), "shrubland");
         steppe = registerBiome(new BiomeGenSteppe().setBiomeName("Steppe"), "steppe");
         thicket = registerBiome(new BiomeGenThicket().setBiomeName("Thicket"), "thicket");
     }

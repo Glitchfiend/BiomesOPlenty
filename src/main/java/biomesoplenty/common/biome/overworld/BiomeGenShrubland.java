@@ -10,8 +10,8 @@ package biomesoplenty.common.biome.overworld;
 
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
+import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
@@ -24,44 +24,37 @@ import biomesoplenty.common.block.BlockGem.GemType;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
+import biomesoplenty.common.world.feature.GeneratorWaterside;
+import biomesoplenty.common.world.feature.tree.GeneratorBush;
 
-public class BiomeGenFlowerField extends BOPBiome
+public class BiomeGenShrubland extends BOPBiome
 {
-    private static final Height biomeHeight = new Height(0.125F, 0.05F);
+    private static final Height biomeHeight = new Height(0.1F, 0.1F);
     
-    public BiomeGenFlowerField()
+    public BiomeGenShrubland()
     {
         this.setHeight(biomeHeight);
-        this.setColor(4044093);
-        this.setTemperatureRainfall(0.6F, 0.7F);
-
-        this.addWeight(BiomeType.WARM, 3);
+        this.setColor(8168286);
+        this.setTemperatureRainfall(0.6F, 0.05F);
         
-        GeneratorWeighted flowerGenerator = new GeneratorWeighted(999);
-        flowerGenerator.add(2, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.PINK_TULIP)));
-        flowerGenerator.add(5, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.WHITE_TULIP)));
-        flowerGenerator.add(7, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ORANGE_TULIP)));
-        flowerGenerator.add(10, new GeneratorFlora(1, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.RED_TULIP)));
-        this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
+        this.addWeight(BiomeType.COOL, 10);
         
-        GeneratorWeighted grassGenerator = new GeneratorWeighted(35);
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
+        
+        this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(4, 7, Blocks.gravel.getDefaultState()));
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.SHRUB)));
+        
+        this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ALLIUM)));
+        
+        GeneratorWeighted grassGenerator = new GeneratorWeighted(1);
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.SHORTGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.MEDIUMGRASS)));
         grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.WHEATGRASS)));
         grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.DAMPGRASS)));
-        grassGenerator.add(2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
+        grassGenerator.add(1, new GeneratorGrass(2, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         
         this.addGenerator("peridot", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.PERIDOT), 12, 4, 32));
-    }
-    
-    @Override
-    public int getGrassColorAtPos(BlockPos pos)
-    {
-        return 7390273;
-    }
-
-    @Override
-    public int getFoliageColorAtPos(BlockPos pos)
-    {
-        return 7390273;
     }
 }

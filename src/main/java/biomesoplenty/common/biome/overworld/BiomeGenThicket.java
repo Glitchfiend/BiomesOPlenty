@@ -47,8 +47,9 @@ public class BiomeGenThicket extends BOPBiome
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState()));
         this.addGenerator("thorns", GeneratorStage.FLOWERS, new GeneratorFlora(55, BlockBOPPlant.getVariantState(AllPlants.THORN)));
         this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.SHRUB)));
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.LEAFPILE)));
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.getVariantState(AllPlants.DEADLEAFPILE)));
+
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.LEAFPILE), 256));
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.getVariantState(AllPlants.DEADLEAFPILE), 256));
         
         this.addGenerator("amber", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.AMBER), 12, 4, 32));
     }

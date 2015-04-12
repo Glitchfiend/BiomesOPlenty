@@ -10,10 +10,6 @@ package biomesoplenty.common.world.feature;
 
 import java.util.Random;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
@@ -23,15 +19,11 @@ import biomesoplenty.common.util.biome.GeneratorUtils;
 
 public class GeneratorGrass extends GeneratorFlora
 {
-    private int generationAttempts;
-    
     public GeneratorGrass() {}
     
     public GeneratorGrass(int amountPerChunk, IBlockState state, int generationAttempts)
     {
-        super(amountPerChunk, state);
-        
-        this.generationAttempts = generationAttempts;
+        super(amountPerChunk, state, generationAttempts);
     }
     
     public GeneratorGrass(int amountPerChunk, IBlockState state)
@@ -80,21 +72,5 @@ public class GeneratorGrass extends GeneratorFlora
         }
 
         return true;
-    }
-    
-    @Override
-    public void writeToJson(JsonObject json, JsonSerializationContext context)
-    {
-        super.writeToJson(json, context);
-        
-        json.addProperty("generation_attempts", this.generationAttempts);
-    }
-
-    @Override
-    public void readFromJson(JsonObject json, JsonDeserializationContext context)
-    {
-        super.readFromJson(json, context);
-        
-        this.generationAttempts = json.get("generation_attempts").getAsInt();
     }
 }
