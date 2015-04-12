@@ -37,9 +37,9 @@ public class BiomeGenThicket extends BOPBiome
         
         this.addWeight(BiomeType.COOL, 5);
         
-        GeneratorWeighted treeGenerator = new GeneratorWeighted();
-        treeGenerator.add(1, new GeneratorBasicTree(17, false, 4, 3, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
-        treeGenerator.add(4,  new GeneratorBush(17, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        GeneratorWeighted treeGenerator = new GeneratorWeighted(17);
+        treeGenerator.add(1, new GeneratorBasicTree(1, false, 4, 3, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        treeGenerator.add(4,  new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
        
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(6, 7, Blocks.gravel.getDefaultState()));

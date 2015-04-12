@@ -292,7 +292,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         {
             case SHRUB: case LEAFPILE: case POISONIVY: case BUSH: case BERRYBUSH:
                 return ColoringType.LIKE_LEAVES;
-            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: 
+            case SHORTGRASS: case MEDIUMGRASS: case SPROUT: case KORU: case CLOVERPATCH: case WHEATGRASS: case DAMPGRASS:
                 return ColoringType.LIKE_GRASS;
             default:
                 return ColoringType.PLAIN;

@@ -23,10 +23,16 @@ import com.google.gson.reflect.TypeToken;
 
 public class GeneratorWeighted extends GeneratorCustomizable
 {
+    private int amountPerChunk;
     private List<GeneratorWeightedEntry> weightedEntries = new ArrayList<GeneratorWeightedEntry>();
     
     public GeneratorWeighted() {}
 
+    public GeneratorWeighted(int amountPerChunk)
+    {
+        this.amountPerChunk = amountPerChunk;
+    }
+    
     public void add(int weight, IGenerator entry)
     {
         entry.setStage(GeneratorStage.PARENT);
@@ -36,9 +42,12 @@ public class GeneratorWeighted extends GeneratorCustomizable
     @Override
     public void scatter(World world, Random random, BlockPos pos)
     {
-        GeneratorWeightedEntry generator = (GeneratorWeightedEntry)WeightedRandom.getRandomItem(random, this.weightedEntries);
-        
-        generator.scatter(world, random, pos);
+        for (int i = 0; i < amountPerChunk; i++)
+        {
+            GeneratorWeightedEntry generator = (GeneratorWeightedEntry)WeightedRandom.getRandomItem(random, this.weightedEntries);
+
+            generator.scatter(world, random, pos);
+        }
     }
 
     @Override
@@ -52,12 +61,14 @@ public class GeneratorWeighted extends GeneratorCustomizable
     @Override
     public void writeToJson(JsonObject json, JsonSerializationContext context)
     {
+        json.addProperty("amount_per_chunk", this.amountPerChunk);
         json.add("entries", context.serialize(this.weightedEntries));
     }
 
     @Override
     public void readFromJson(JsonObject json, JsonDeserializationContext context)
     {
+        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
         this.weightedEntries = context.deserialize(json.get("entries"), new TypeToken<List<GeneratorWeightedEntry>>() {}.getType());
     }
 }
