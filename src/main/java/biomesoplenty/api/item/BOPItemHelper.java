@@ -8,9 +8,12 @@
 
 package biomesoplenty.api.item;
 
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 public class BOPItemHelper
 {
     public static ArmorMaterial wading_boots_material;
+    public static ToolMaterial mud_tool_material;
+    public static ToolMaterial amethyst_tool_material;
 }

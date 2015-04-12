@@ -47,4 +47,16 @@ public class BOPItems
     
     public static Item wading_boots;
     
+    public static Item mud_axe;
+    public static Item mud_hoe;
+    public static Item mud_pickaxe;
+    public static Item mud_shovel;
+    public static Item mud_sword;
+    public static Item amethyst_axe;
+    public static Item amethyst_hoe;
+    public static Item amethyst_pickaxe;
+    public static Item amethyst_shovel;
+    public static Item amethyst_sword;
+    
+    
 }

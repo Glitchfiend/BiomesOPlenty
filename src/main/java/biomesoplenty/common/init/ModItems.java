@@ -10,6 +10,7 @@ package biomesoplenty.common.init;
 
 import static biomesoplenty.api.item.BOPItems.*;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +18,15 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -58,6 +65,55 @@ public class ModItems
         BOPItemHelper.wading_boots_material = EnumHelper.addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
         wading_boots = registerItem(new ItemWadingBoots(BOPItemHelper.wading_boots_material, 0), "wading_boots");
     
+        
+        // tools
+
+        // addToolMaterial arguments:
+        // (String name, int harvestLevel, int maxUses, float efficiency, float damageVsEntity, int enchantability)
+        // Vanilla tool material values for comparison:
+        // WOOD(0, 59, 2.0F, 0.0F, 15),
+        // STONE(1, 131, 4.0F, 1.0F, 5),
+        // IRON(2, 250, 6.0F, 2.0F, 14),
+        // EMERALD(3, 1561, 8.0F, 3.0F, 10),
+        // GOLD(0, 32, 12.0F, 0.0F, 22);
+        ToolMaterial mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1);
+        mud_tool_material.setRepairItem(new ItemStack(mudball));
+        ToolMaterial amethyst_tool_material = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5.0F, 16);
+        // no repair item for amethyst tool - they can't be repaired
+
+        // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
+        Constructor<ItemAxe> axeConstructor;
+        try
+        {
+            axeConstructor = ItemAxe.class.getDeclaredConstructor(ToolMaterial.class);
+            axeConstructor.setAccessible(true);
+            mud_axe = registerItem(axeConstructor.newInstance(mud_tool_material), "mud_axe");
+            amethyst_axe = registerItem(axeConstructor.newInstance(amethyst_tool_material), "amethyst_axe");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        try
+        {
+            Constructor<ItemPickaxe> pickaxeConstructor = ItemPickaxe.class.getDeclaredConstructor(ToolMaterial.class);
+            pickaxeConstructor.setAccessible(true);  
+            mud_pickaxe = registerItem(pickaxeConstructor.newInstance(mud_tool_material), "mud_pickaxe");
+            amethyst_pickaxe = registerItem(pickaxeConstructor.newInstance(amethyst_tool_material), "amethyst_pickaxe");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+                
+        // the other tools have public constructors, so we create instances in the normal way
+        mud_hoe = registerItem(new ItemHoe(mud_tool_material), "mud_hoe");
+        mud_shovel = registerItem(new ItemSpade(mud_tool_material), "mud_shovel");
+        mud_sword = registerItem(new ItemSword(mud_tool_material), "mud_sword");
+        amethyst_hoe = registerItem(new ItemHoe(amethyst_tool_material), "amethyst_hoe");
+        amethyst_shovel = registerItem(new ItemSpade(amethyst_tool_material), "amethyst_shovel");
+        amethyst_sword = registerItem(new ItemSword(amethyst_tool_material), "amethyst_sword");
+        
     }
     
     public static Item registerItem(Item item, String name)
