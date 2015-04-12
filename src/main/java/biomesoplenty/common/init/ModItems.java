@@ -9,6 +9,7 @@
 package biomesoplenty.common.init;
 
 import static biomesoplenty.api.item.BOPItems.*;
+import static biomesoplenty.api.item.BOPItemHelper.*;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.item.BOPItemHelper;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemMudball;
@@ -61,9 +61,10 @@ public class ModItems
         wildcarrots = registerItem(new ItemFood(3, 0.5F, false), "wildcarrots");
     
         // armor
+        
         // TODO: do we really want durability of -1?  does that mean it lasts forever?
-        BOPItemHelper.wading_boots_material = EnumHelper.addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
-        wading_boots = registerItem(new ItemWadingBoots(BOPItemHelper.wading_boots_material, 0), "wading_boots");
+        wading_boots_material = EnumHelper.addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
+        wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
     
         
         // tools
@@ -76,9 +77,9 @@ public class ModItems
         // IRON(2, 250, 6.0F, 2.0F, 14),
         // EMERALD(3, 1561, 8.0F, 3.0F, 10),
         // GOLD(0, 32, 12.0F, 0.0F, 22);
-        ToolMaterial mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1);
+        mud_tool_material = EnumHelper.addToolMaterial("MUD", 0, 32, 0.5F, 0.0F, 1);
         mud_tool_material.setRepairItem(new ItemStack(mudball));
-        ToolMaterial amethyst_tool_material = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5.0F, 16);
+        amethyst_tool_material = EnumHelper.addToolMaterial("AMETHYST", 4, 2013, 15.0F, 5.0F, 16);
         // no repair item for amethyst tool - they can't be repaired
 
         // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
