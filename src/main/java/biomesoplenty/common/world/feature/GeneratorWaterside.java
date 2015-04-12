@@ -119,6 +119,6 @@ public class GeneratorWaterside extends GeneratorCustomizable
         this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
         this.maxRadius = json.get("max_radius").getAsInt();
         this.state = GeneratorUtils.deserializeStateNonNull(json, "state", context);
-        this.replacedStates = context.deserialize(json.get("replaced_states"), IBlockState.class);  
+        this.replacedStates = context.deserialize(json.get("replaced_states"), List.class);  
     }
 }
