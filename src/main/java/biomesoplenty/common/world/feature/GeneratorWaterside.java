@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.world.feature;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -16,7 +17,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
-import scala.actors.threadpool.Arrays;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
