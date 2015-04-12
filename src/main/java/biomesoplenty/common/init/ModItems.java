@@ -19,6 +19,7 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemHoe;
@@ -62,10 +63,33 @@ public class ModItems
     
         // armor
         
-        // TODO: do we really want durability of -1?  does that mean it lasts forever?
+        // addArmorMaterial arguments:
+        // (String name, String textureName, int durability, int[] reductionAmounts, int enchantability)
+        // Vanilla armor material values for comparison:
+        // LEATHER("leather", 5, new int[]{1, 3, 2, 1}, 15),
+        // CHAIN("chainmail", 15, new int[]{2, 5, 4, 1}, 12),
+        // IRON("iron", 15, new int[]{2, 6, 5, 2}, 9),
+        // GOLD("gold", 7, new int[]{2, 5, 3, 1}, 25),
+        // DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10);
+        
+        // TODO: do we really want durability of -1 for wading boots?  does that mean it lasts forever?
         wading_boots_material = EnumHelper.addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
+        mud_armor_material = EnumHelper.addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5);
+        mud_armor_material.customCraftingMaterial = mudball;
+        amethyst_armor_material = EnumHelper.addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{6,12,10,6}, 20);
+        
+        
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
+        mud_helmet = registerItem(new ItemArmor(mud_armor_material, 0, 0), "mud_helmet");
+        mud_chestplate = registerItem(new ItemArmor(mud_armor_material, 0, 1), "mud_chestplate");
+        mud_leggings = registerItem(new ItemArmor(mud_armor_material, 0, 2), "mud_leggings");
+        mud_boots = registerItem(new ItemArmor(mud_armor_material, 0, 3), "mud_boots");
+        amethyst_helmet = registerItem(new ItemArmor(amethyst_armor_material, 0, 0), "amethyst_helmet");
+        amethyst_chestplate = registerItem(new ItemArmor(amethyst_armor_material, 0, 1), "amethyst_chestplate");
+        amethyst_leggings = registerItem(new ItemArmor(amethyst_armor_material, 0, 2), "amethyst_leggings");
+        amethyst_boots = registerItem(new ItemArmor(amethyst_armor_material, 0, 3), "amethyst_boots");
     
+        
         
         // tools
 

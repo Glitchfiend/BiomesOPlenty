@@ -14,6 +14,8 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 public class BOPItemHelper
 {
     public static ArmorMaterial wading_boots_material;
+    public static ArmorMaterial mud_armor_material;
+    public static ArmorMaterial amethyst_armor_material;
     public static ToolMaterial mud_tool_material;
     public static ToolMaterial amethyst_tool_material;
 }
