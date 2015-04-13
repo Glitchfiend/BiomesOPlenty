@@ -66,5 +66,13 @@ public class BOPItems
     public static Item amethyst_shovel;
     public static Item amethyst_sword;
     
+    public static Item mud_scythe;
+    public static Item wood_scythe;
+    public static Item stone_scythe;
+    public static Item iron_scythe;
+    public static Item gold_scythe;
+    public static Item diamond_scythe;
+    public static Item amethyst_scythe;
+    
     
 }

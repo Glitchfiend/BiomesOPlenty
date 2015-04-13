@@ -36,6 +36,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.item.ItemBOPScythe;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.item.ItemWadingBoots;
@@ -138,6 +139,16 @@ public class ModItems
         amethyst_hoe = registerItem(new ItemHoe(amethyst_tool_material), "amethyst_hoe");
         amethyst_shovel = registerItem(new ItemSpade(amethyst_tool_material), "amethyst_shovel");
         amethyst_sword = registerItem(new ItemSword(amethyst_tool_material), "amethyst_sword");
+        
+        
+        mud_scythe = registerItem(new ItemBOPScythe(mud_tool_material), "mud_scythe");
+        wood_scythe = registerItem(new ItemBOPScythe(ToolMaterial.WOOD), "wood_scythe");
+        stone_scythe = registerItem(new ItemBOPScythe(ToolMaterial.STONE), "stone_scythe");
+        iron_scythe = registerItem(new ItemBOPScythe(ToolMaterial.IRON), "iron_scythe");
+        gold_scythe = registerItem(new ItemBOPScythe(ToolMaterial.GOLD), "gold_scythe");
+        diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.EMERALD), "diamond_scythe");
+        amethyst_scythe = registerItem(new ItemBOPScythe(amethyst_tool_material), "amethyst_scythe");
+
         
     }
     
