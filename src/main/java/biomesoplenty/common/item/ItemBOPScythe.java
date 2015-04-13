@@ -23,15 +23,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemBOPScythe extends Item
 {
     
-    protected Item.ToolMaterial theToolMaterial;
+    protected Item.ToolMaterial toolMaterial;
 
     public ItemBOPScythe(Item.ToolMaterial material)
     {
-        this.theToolMaterial = material;
+        this.toolMaterial = material;
         this.maxStackSize = 1;
         this.setMaxDamage(material.getMaxUses());
     }
@@ -41,6 +43,27 @@ public class ItemBOPScythe extends Item
     public float getStrVsBlock(ItemStack stack, Block block)
     {
         return block.getMaterial() == Material.leaves ? 15.0F : super.getStrVsBlock(stack, block);
+    }
+    
+    @Override
+    public int getItemEnchantability()
+    {
+        return this.toolMaterial.getEnchantability();
+    }
+    
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair)
+    {
+        ItemStack mat = this.toolMaterial.getRepairItemStack();
+        if (mat != null && net.minecraftforge.oredict.OreDictionary.itemMatches(mat, repair, false)) return true;
+        return super.getIsRepairable(toRepair, repair);
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D()
+    {
+        return true;
     }
     
     
@@ -54,17 +77,17 @@ public class ItemBOPScythe extends Item
         
         int radius = isLeaves ? 0 : 3;
         int height = isLeaves ? 0 : 4;
-        if (theToolMaterial == ToolMaterial.IRON || theToolMaterial == ToolMaterial.GOLD)
+        if (toolMaterial == ToolMaterial.IRON || toolMaterial == ToolMaterial.GOLD)
         {
             radius = 4;
             height = 4;
         }
-        else if (theToolMaterial == ToolMaterial.EMERALD)
+        else if (toolMaterial == ToolMaterial.EMERALD)
         {
             radius = 5;
             height = 5;
         }
-        else if (theToolMaterial == BOPItemHelper.amethyst_tool_material)
+        else if (toolMaterial == BOPItemHelper.amethyst_tool_material)
         {
             radius = 6;
             height = 6;
