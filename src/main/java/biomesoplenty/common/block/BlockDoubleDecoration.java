@@ -24,7 +24,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-class BlockDoubleDecoration extends BlockDecoration {
+public class BlockDoubleDecoration extends BlockDecoration {
     
     // add half property
     public static enum Half implements IStringSerializable

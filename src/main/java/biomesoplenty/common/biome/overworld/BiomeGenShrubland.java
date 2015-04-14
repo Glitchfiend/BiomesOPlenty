@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.biome.overworld;
 
+import static biomesoplenty.common.block.BlockBOPDoublePlant.VARIANT;
+import static biomesoplenty.common.block.BlockDoubleDecoration.HALF;
 import net.minecraft.block.BlockFlower.EnumFlowerType;
 import net.minecraft.block.BlockTallGrass;
 import net.minecraft.entity.passive.EntityHorse;
@@ -18,9 +20,12 @@ import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
+import biomesoplenty.common.block.BlockBOPDoublePlant.FoliageType;
 import biomesoplenty.common.block.BlockBOPPlant;
+import biomesoplenty.common.block.BlockDoubleDecoration.Half;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGem.GemType;
+import biomesoplenty.common.world.feature.GeneratorDoubleFlora;
 import biomesoplenty.common.world.feature.GeneratorFlora;
 import biomesoplenty.common.world.feature.GeneratorGrass;
 import biomesoplenty.common.world.feature.GeneratorOreSingle;
@@ -43,6 +48,7 @@ public class BiomeGenShrubland extends BOPBiome
         
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(4, 7, Blocks.gravel.getDefaultState()));
         this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.SHRUB)));
+        this.addGenerator("flax", GeneratorStage.FLOWERS, new GeneratorDoubleFlora(1, BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, FoliageType.FLAX).withProperty(HALF, Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, FoliageType.FLAX).withProperty(HALF, Half.UPPER), 24));
         
         this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ALLIUM)));
