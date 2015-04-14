@@ -52,7 +52,7 @@ public class BiomeGenSacredSprings extends BOPOverworldBiome
     //TODO:						getRandomWorldGenForTrees()
     public WorldGenAbstractTree func_150567_a(Random rand)
     {
-    	return (WorldGenAbstractTree)(rand.nextInt(200) == 0 ? new WorldGenSacredOak(false) : new WorldGenShrub(0, 0));
+    	return (WorldGenAbstractTree)(rand.nextInt(450) == 0 ? new WorldGenSacredOak(false) : new WorldGenShrub(0, 0));
     }
     
     @Override
