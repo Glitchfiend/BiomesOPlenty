@@ -49,6 +49,7 @@ public class BiomeGenShrubland extends BOPBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(4, 7, Blocks.gravel.getDefaultState()));
         this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.SHRUB)));
         this.addGenerator("flax", GeneratorStage.FLOWERS, new GeneratorDoubleFlora(1, BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, FoliageType.FLAX).withProperty(HALF, Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, FoliageType.FLAX).withProperty(HALF, Half.UPPER), 24));
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, new GeneratorFlora(3, BlockBOPPlant.getVariantState(AllPlants.REED), 128));
         
         this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ALLIUM)));
