@@ -74,5 +74,8 @@ public class BOPItems
     public static Item diamond_scythe;
     public static Item amethyst_scythe;
     
+    public static Item dart;
+    public static Item dart_blower;
+    
     
 }

@@ -37,6 +37,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.item.ItemBOPScythe;
+import biomesoplenty.common.item.ItemDart;
+import biomesoplenty.common.item.ItemDartBlower;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.item.ItemWadingBoots;
@@ -61,6 +63,9 @@ public class ModItems
         ash = registerItem(new Item(), "ash");
         berries = registerItem(new ItemFood(1, 0.1F, false), "berries");
         wildcarrots = registerItem(new ItemFood(3, 0.5F, false), "wildcarrots");
+        
+        dart = registerItem(new ItemDart(), "dart");
+        dart_blower = registerItem(new ItemDartBlower(), "dart_blower");
     
         // armor
         
