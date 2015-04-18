@@ -24,7 +24,6 @@ public class ItemGem extends Item
     {
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
-        this.setCreativeTab(CreativeTabs.tabMaterials);
     }
 
     // add all the gem types as separate items in the creative tab
