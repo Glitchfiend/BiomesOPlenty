@@ -1,0 +1,561 @@
+/*******************************************************************************
+ * Copyright 2015, the Biomes O' Plenty Team
+ * 
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+ * 
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ ******************************************************************************/
+
+package biomesoplenty.common.world.feature.tree;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
+import org.apache.commons.lang3.tuple.Pair;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenBigTree;
+import biomesoplenty.api.biome.generation.GeneratorCustomizable;
+import biomesoplenty.common.util.biome.GeneratorUtils;
+
+import com.google.common.collect.Lists;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+
+/*This class is heavily based on https://gist.github.com/grum/62cfdec0537e8db24eb3#file-bigtreefeature-java
+additional information has been added from http://pastebin.com/XBLdGqXQ. This class has been cross-checked
+against WorldGenBigTree to ensure any subsequent changes from Forge/Mojang have been included.*/
+public class GeneratorBigTree extends GeneratorCustomizable
+{
+    private Random random;
+    private World world;
+    private BlockPos origin;
+    
+    private int height;
+    private int trunkHeight;
+    private double trunkHeightScale = 0.618;
+    private double branchSlope = 0.381;
+    private double widthScale = 1;
+    private double foliageDensity = 1;
+    private int trunkWidth = 1;
+    //private int heightVariance = 12;
+    private int foliageHeight = 4;
+    
+    //Configurable fields
+    private int amountPerChunk;
+    private boolean updateNeighbours;
+    private int minHeight;
+    private int maxHeight;
+    private IBlockState log;
+    private IBlockState leaves;
+    
+    private List<FoliageCoords> foliageCoords;
+
+    public GeneratorBigTree() {}
+    
+    public GeneratorBigTree(int amountPerChunk, boolean updateNeighbours, int minHeight, int maxHeight, IBlockState log, IBlockState leaves)
+    {
+        this.amountPerChunk = amountPerChunk;
+        this.updateNeighbours = updateNeighbours;
+        
+        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
+        this.minHeight = heights.getLeft();
+        this.maxHeight = heights.getRight();
+        
+        this.log = log;
+        this.leaves = leaves;
+    }
+    
+    public GeneratorBigTree(int amountPerChunk, boolean updateNeighbours, IBlockState log, IBlockState leaves)
+    {
+        this(amountPerChunk, updateNeighbours, 5, 17, log, leaves);
+    }
+
+    protected void prepare() 
+    {
+        // Populate the list of foliage cluster locations.
+        // Designed to be overridden in child classes to change basic
+        // tree properties (trunk width, branch angle, foliage density, etc..).
+        
+        trunkHeight = (int) (height * trunkHeightScale);
+        
+        if (trunkHeight >= height) 
+        {
+            trunkHeight = height - 1;
+        }
+ 
+        // Define foliage clusters per y
+        int clustersPerY = (int) (1.382 + Math.pow(foliageDensity * height / 13.0, 2));
+        if (clustersPerY < 1) {
+            clustersPerY = 1;
+        }
+ 
+        final int trunkTop = origin.getY() + trunkHeight;
+        int relativeY = height - foliageHeight;
+ 
+        foliageCoords = Lists.newArrayList();
+        foliageCoords.add(new FoliageCoords(origin.up(relativeY), trunkTop));
+ 
+        for (; relativeY >= 0; relativeY--) 
+        {
+            float treeShape = treeShape(relativeY);
+            
+            if (treeShape < 0) 
+            {
+                continue;
+            }
+ 
+            for (int i = 0; i < clustersPerY; i++) 
+            {
+                final double radius = widthScale * treeShape * (random.nextFloat() + 0.328);
+                final double angle = random.nextFloat() * 2 * Math.PI;
+ 
+                final double x = radius * Math.sin(angle) + 0.5;
+                final double z = radius * Math.cos(angle) + 0.5;
+ 
+                final BlockPos checkStart = origin.add(x, relativeY - 1, z);
+                final BlockPos checkEnd = checkStart.up(foliageHeight);
+ 
+                // check the center column of the cluster for obstructions.
+                if (checkLine(checkStart, checkEnd) == -1) 
+                {
+                    // If the cluster can be created, check the branch path for obstructions.
+                    final int dx = origin.getX() - checkStart.getX();
+                    final int dz = origin.getZ() - checkStart.getZ();
+ 
+                    final double height = checkStart.getY() - Math.sqrt(dx * dx + dz * dz) * branchSlope;
+                    final int branchTop = height > trunkTop ? trunkTop : (int) height;
+                    final BlockPos checkBranchBase = new BlockPos(origin.getX(), branchTop, origin.getZ());
+ 
+                    // Now check the branch path
+                    if (checkLine(checkBranchBase, checkStart) == -1) 
+                    {
+                        // If the branch path is clear, add the position to the list of foliage positions
+                        foliageCoords.add(new FoliageCoords(checkStart, checkBranchBase.getY()));
+                    }
+                }
+            }
+        }
+    }
+
+    private void crossection(BlockPos pos, float radius, IBlockState state) 
+    {
+        // Create a circular cross section.
+        //
+        // Used to nearly everything in the foliage, branches, and trunk.
+        // This is a good target for performance optimization.
+ 
+        // Passed values:
+        // pos is the center location of the cross section
+        // radius is the radius of the section from the center
+        // direction is the direction the cross section is pointed, 0 for x, 1
+        // for y, 2 for z material is the index number for the material to use
+        
+        final int r = (int) (radius + 0.618);
+
+        for (int dx = -r; dx <= r; dx++) 
+        {
+            for (int dz = -r; dz <= r; dz++) 
+            {
+                if (Math.pow(Math.abs(dx) + 0.5, 2) + Math.pow(Math.abs(dz) + 0.5, 2) <= radius * radius) 
+                {
+                    BlockPos checkedPos = pos.add(dx, 0, dz);
+                    IBlockState checkedState = this.world.getBlockState(checkedPos);
+
+                    if (checkedState.getBlock().isAir(this.world, checkedPos) || checkedState.getBlock().isLeaves(this.world, checkedPos))
+                    {
+                        this.setBlockAndNotifyAdequately(world, checkedPos, state);
+                    }
+                }
+            }
+        }
+    }
+
+    protected float treeShape(int y) 
+    {
+        // Take the y position relative to the base of the tree.
+        // Return the distance the foliage should be from the trunk axis.
+        // Return a negative number if foliage should not be created at this
+        // height.  This method is intended for overriding in child classes,
+        // allowing different shaped trees.  This method should return a
+        // consistent value for each y (don't randomize).
+        
+        if (y < height * 0.3f) {
+            return -1f;
+        }
+ 
+        final float radius = height / 2.0f;
+        final float adjacent = radius - y;
+ 
+        float distance = MathHelper.sqrt_float(radius * radius - adjacent * adjacent);
+        
+        if (adjacent == 0) {
+            distance = radius;
+        } else if (Math.abs(adjacent) >= radius) {
+            return 0f;
+        }
+ 
+        // Alter this factor to change the overall width of the tree.
+        return distance * 0.5f;
+    }
+    
+    protected float foliageShape(int y) 
+    {
+        // Take the y position relative to the base of the foliage cluster.
+        // Return the radius of the cluster at this y
+        // Return a negative number if no foliage should be created at this
+        // level. This method is intended for overriding in child classes,
+        // allowing foliage of different sizes and shapes.
+        
+        if (y < 0 || y >= foliageHeight) 
+        {
+            return -1f;
+        } 
+        //The following has been replaced as recommended by
+        //http://www.reddit.com/r/Minecraft/comments/1m97cw/while_you_are_all_crying_over_the_name_change_of/ccfgc3k
+        //The change should fix the decaying leaves
+        /*else if (y == 0 || y == foliageHeight - 1) 
+        {
+            return 2f;
+        }*/
+        else if (y == 0 || y == foliageHeight - 2) 
+        {
+            return 2f;
+        } 
+        else if (y == foliageHeight - 1) 
+        {
+            return 1.5f;
+        } 
+        else 
+        {
+            return 3f;
+        }
+    }
+
+    private void foliageCluster(BlockPos blockPos) 
+    {
+        // Generate a cluster of foliage, with the base at blockPos
+        // The shape of the cluster is derived from foliageShape
+        // crossection is called to make each level.
+        
+        for (int y = 0; y < foliageHeight; y++) 
+        {
+            crossection(blockPos.up(y), foliageShape(y), this.leaves);
+        }
+    }
+
+    private void limb(BlockPos startPos, BlockPos endPos, IBlockState state)
+    {
+        // Create a limb from the start position to the end position.
+        // Used for creating the branches and trunk.
+        // Similar to checkLine, however it is setting rather than checking
+        
+        //The distance between the two points, may be negative if the second pos is smaller
+        BlockPos delta = endPos.add(-startPos.getX(), -startPos.getY(), -startPos.getZ());
+ 
+       int steps = getSteps(delta);
+ 
+        //How much should be incremented with each iteration relative
+        //to the greatest distance which will have a value of 1.0F.
+        float dx = delta.getX() / (float) steps;
+        float dy = delta.getY() / (float) steps;
+        float dz = delta.getZ() / (float) steps;
+ 
+        //Iterates over all values between the start pos and end pos
+        for (int i = 0; i <= steps; i++) 
+        {
+            //A delta position between the start pos and end pos. Increments are added to the x, y and z coords
+            //so that they meet their corresponding values in the end pos when j reaches the greatest distance. 0.5F
+            //is added to ensure the final point is reached.
+            BlockPos blockPos = startPos.add(.5f + i * dx, .5f + i * dy, .5f + i * dz);
+            BlockLog.EnumAxis logAxis = getLogAxis(startPos, blockPos);
+ 
+            this.setBlockAndNotifyAdequately(world, blockPos, state.withProperty(BlockLog.LOG_AXIS, logAxis));
+        }
+    }
+    
+    private int getSteps(BlockPos pos) 
+    {
+        final int absX = MathHelper.abs_int(pos.getX());
+        final int absY = MathHelper.abs_int(pos.getY());
+        final int absZ = MathHelper.abs_int(pos.getZ());
+ 
+        //Determine which axis has the greatest distance from the origin (0, 0, 0)
+        if (absZ > absX && absZ > absY) {
+            return absZ;
+        } else if (absY > absX) {
+            return absY;
+        }
+ 
+        return absX;
+    }
+
+    private int getGreatestDistance(BlockPos posIn)
+    {
+        int i = MathHelper.abs_int(posIn.getX());
+        int j = MathHelper.abs_int(posIn.getY());
+        int k = MathHelper.abs_int(posIn.getZ());
+        return k > i && k > j ? k : (j > i ? j : i);
+    }
+
+    private BlockLog.EnumAxis getLogAxis(BlockPos startPos, BlockPos endPos)
+    {
+        BlockLog.EnumAxis axis = BlockLog.EnumAxis.Y;
+        
+        //Find the difference between the start and end pos
+        int xDiff = Math.abs(endPos.getX() - startPos.getX());
+        int zDiff = Math.abs(endPos.getZ() - startPos.getZ());
+        int maxDiff = Math.max(xDiff, zDiff);
+ 
+        //Check if the distance between the two positions is greater than 0 on either
+        //the x or the z axis. axis is set to the axis with the greatest distance
+        if (maxDiff > 0) 
+        {
+            if (xDiff == maxDiff)
+            {
+                axis = BlockLog.EnumAxis.X;
+            } 
+            else if (zDiff == maxDiff)
+            {
+                axis = BlockLog.EnumAxis.Z;
+            }
+        }
+        
+        return axis;
+    }
+    
+    private void makeFoliage() 
+    {
+        // Create the tree foliage.
+        // Call foliageCluster at the correct locations
+        
+        for (FoliageCoords foliageCoord : foliageCoords) 
+        {
+            foliageCluster(foliageCoord);
+        }
+    }
+
+    protected boolean trimBranches(int localY) 
+    {
+        // For larger trees, randomly "prune" the branches so there
+        // aren't too many.
+        // Return true if the branch should be created.
+        // This method is intended for overriding in child classes, allowing
+        // decent amounts of branches on very large trees.
+        // Can also be used to disable branches on some tree types, or
+        // make branches more sparse.
+        return localY >= height * 0.2;
+    }
+
+    private void makeTrunk() 
+    {
+        // Create the trunk of the tree.
+        BlockPos start = origin;
+        BlockPos end = origin.up(trunkHeight);
+        IBlockState materialState = this.log;
+        
+        limb(start, end, materialState);
+        
+        if (trunkWidth == 2) 
+        {
+            limb(start.east(), end.east(), materialState);
+            limb(start.east().south(), end.east().south(), materialState);
+            limb(start.south(), end.south(), materialState);
+        }
+    }
+
+    private void makeBranches()
+    {
+        for (FoliageCoords endCoord : foliageCoords) 
+        {
+            int branchBase = endCoord.getBranchBase();
+            BlockPos baseCoord = new BlockPos(this.origin.getX(), branchBase, this.origin.getZ());
+
+            if (this.trimBranches(branchBase - this.origin.getY()))
+            {
+                this.limb(baseCoord, endCoord, this.log);
+            }
+        }
+    }
+
+    private int checkLine(BlockPos startPos, BlockPos endPos)
+    {
+        // Check from coordinates start to end (both inclusive) for blocks
+        // other than air and foliage If a block other than air and foliage is
+        // found, return the number of steps taken.
+        // If no block other than air and foliage is found, return -1.
+        // Examples:
+        // If the third block searched is stone, return 2
+        // If the first block searched is lava, return 0
+        
+        //The distance between the two points, may be negative if the second pos is smaller
+        BlockPos delta = endPos.add(-startPos.getX(), -startPos.getY(), -startPos.getZ());
+        
+        int steps = this.getGreatestDistance(delta);
+        
+        //How much should be incremented with each iteration relative
+        //to the greatest distance which will have a value of 1.0F.
+        float dx = (float)delta.getX() / (float)steps;
+        float dy = (float)delta.getY() / (float)steps;
+        float dz = (float)delta.getZ() / (float)steps;
+
+        //Check if both positions are the same
+        if (steps == 0)
+        {
+            return -1;
+        }
+
+        //Iterates over all values between the start pos and end pos
+        for (int i = 0; i <= steps; i++)
+        {
+            //A delta position between the start pos and end pos. Increments are added to the x, y and z coords
+            //so that they meet their corresponding values in the end pos when j reaches the greatest distance. 0.5F
+            //is added to ensure the final point is reached.
+            BlockPos deltaPos = startPos.add((double)(0.5F + (float)i * dx), (double)(0.5F + (float)i * dy), (double)(0.5F + (float)i * dz));
+
+            if (!GeneratorUtils.canTreeReplace(world, deltaPos))
+            {
+                return i;
+            }
+        }
+
+        //The line is unobstructed
+        return -1;
+    }
+    
+    @Override
+    public void scatter(World world, Random random, BlockPos pos)
+    {
+        for (int i = 0; i < amountPerChunk; i++)
+        {
+            int x = random.nextInt(16) + 8;
+            int z = random.nextInt(16) + 8;
+            BlockPos genPos = world.getHeight(pos.add(x, 0, z));
+            
+            generate(world, random, genPos);
+        }
+    }
+    
+    @Override
+    public boolean generate(World world, Random rand, BlockPos pos)
+    {
+        this.world = world;
+        this.origin = pos;
+
+        this.random = new Random(rand.nextLong());
+
+        if (this.height == 0)
+        {
+            this.height = random.nextInt(this.maxHeight - this.minHeight) + this.minHeight;
+        }
+
+        if (!this.checkLocation())
+        {
+            this.world = null; //Fix vanilla Mem leak, holds latest world
+            return false;
+        }
+
+        prepare();
+        makeFoliage();
+        makeTrunk();
+        makeBranches();
+        this.world = null; //Fix vanilla Mem leak, holds latest world
+
+        return true;
+    }
+
+
+    private boolean checkLocation()
+    {
+        BlockPos down = this.origin.down();
+        IBlockState state = this.world.getBlockState(down);
+        boolean isSoil = state.getBlock().canSustainPlant(this.world, down, EnumFacing.UP, ((BlockSapling)Blocks.sapling));
+
+        //Don't grow the tree here if the location can't sustain a sapling
+        if (!isSoil)
+        {
+            return false;
+        }
+
+        // Examine center column for how tall the tree can be.
+        int allowedHeight = checkLine(this.origin, this.origin.up(height - 1));
+
+        // If the set height is good, go with that
+        if (allowedHeight == -1) {
+            return true;
+        }
+ 
+        // If the space is too short, tell the build to abort
+        if (allowedHeight < 6) {
+            return false;
+        }
+
+        height = allowedHeight;
+        return true;
+    }
+    
+    private void setBlockAndNotifyAdequately(World world, BlockPos pos, IBlockState state)
+    {
+        if (this.updateNeighbours)
+        {
+            world.setBlockState(pos, state, 3);
+        }
+        else
+        {
+            world.setBlockState(pos, state, 2);
+        }
+    }
+
+    private static class FoliageCoords extends BlockPos 
+    {
+        private final int branchBase;
+ 
+        public FoliageCoords(BlockPos pos, int branchBase) 
+        {
+            super(pos.getX(), pos.getY(), pos.getZ());
+            this.branchBase = branchBase;
+        }
+ 
+        public int getBranchBase() 
+        {
+            return branchBase;
+        }
+    }
+
+    @Override
+    public void writeToJson(JsonObject json, JsonSerializationContext context)
+    {
+        json.addProperty("amount_per_chunk", this.amountPerChunk);
+        json.addProperty("update_neighbours", this.updateNeighbours);
+        json.addProperty("min_height", this.minHeight);
+        json.addProperty("max_height", this.maxHeight);
+        json.add("log_state", context.serialize(this.log));
+        json.add("leaves_state", context.serialize(this.leaves));
+    }
+
+    @Override
+    public void readFromJson(JsonObject json, JsonDeserializationContext context)
+    {
+        this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
+        this.updateNeighbours = json.get("update_neighbours").getAsBoolean();
+        int minHeight = json.get("min_height").getAsInt();
+        int maxHeight = json.get("max_height").getAsInt();
+        
+        Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
+        this.minHeight = heights.getLeft();
+        this.maxHeight = heights.getRight();
+        
+        this.log = context.deserialize(json.get("log_state"), IBlockState.class);
+        this.leaves = context.deserialize(json.get("leaves_state"), IBlockState.class);
+    }
+}

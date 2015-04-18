@@ -34,19 +34,6 @@ public class GeneratorUtils
             minHeight = maxHeight;
             maxHeight = prevMinHeight;
         }
-        else if (maxHeight == minHeight)
-        {
-            if (minHeight < 255)
-            {
-                //Increase max height to be higher than min height
-                ++maxHeight;
-            }
-            else
-            {
-                //Decrease min height so that max is higher
-                --minHeight;
-            }
-        }
         
         return Pair.of(minHeight, maxHeight);
     }

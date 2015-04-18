@@ -21,6 +21,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
 import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
+import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
 import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
@@ -53,6 +54,7 @@ public class ModBiomes
         arctic = registerBiome(new BiomeGenArctic().setBiomeName("Arctic"), "arctic");
         crag = registerBiome(new BiomeGenCrag().setBiomeName("Crag"), "crag");
         flowerField = registerBiome(new BiomeGenFlowerField().setBiomeName("Flower Field"), "flower_field");
+        lavenderFields = registerBiome(new BiomeGenLavenderFields().setBiomeName("Lavender Fields"), "lavender_fields");
         originValley = registerBiome(new BiomeGenOriginValley().setBiomeName("Origin Valley"), "origin_valley");
         shrubland = registerBiome(new BiomeGenShrubland().setBiomeName("Shrubland"), "shrubland");
         steppe = registerBiome(new BiomeGenSteppe().setBiomeName("Steppe"), "steppe");

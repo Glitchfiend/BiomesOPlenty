@@ -317,6 +317,8 @@ public class GeneratorBasicTree extends GeneratorCustomizable
     {
         this.amountPerChunk = json.get("amount_per_chunk").getAsInt();
         this.updateNeighbours = json.get("update_neighbours").getAsBoolean();
+        int minHeight = json.get("min_height").getAsInt();
+        int maxHeight = json.get("max_height").getAsInt();
         
         Pair<Integer, Integer> heights = GeneratorUtils.validateMinMaxHeight(minHeight, maxHeight);
         this.minHeight = heights.getLeft();
@@ -325,5 +327,7 @@ public class GeneratorBasicTree extends GeneratorCustomizable
         this.log = context.deserialize(json.get("log_state"), IBlockState.class);
         this.leaves = context.deserialize(json.get("leaves_state"), IBlockState.class);
         this.vine = context.deserialize(json.get("vine_state"), IBlockState.class);
+        
+        System.out.println(amountPerChunk + " " + updateNeighbours + " " + minHeight + " " + maxHeight + " " + log + " " + leaves);
     }
 }
