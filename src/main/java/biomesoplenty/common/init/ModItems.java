@@ -84,6 +84,18 @@ public class ModItems
         honeycomb = registerItem(new Item(), "honeycomb");
         gem = registerItem(new ItemGem(), "gem");
         ash = registerItem(new Item(), "ash");
+        mud_brick = registerItem(new Item(), "mud_brick");
+        // TODO: move dyes to their own class?
+        blue_dye = registerItem(new Item(), "blue_dye");
+        brown_dye = registerItem(new Item(), "brown_dye");
+        green_dye = registerItem(new Item(), "green_dye");
+        white_dye = registerItem(new Item(), "white_dye");
+        black_dye = registerItem(new Item(), "black_dye");
+        ghastly_soul = registerItem(new Item(), "ghastly_soul");
+        ghastly_soul.setMaxStackSize(1);
+        pixie_dust = registerItem(new Item(), "pixie_dust");
+        ichor = registerItem(new Item(), "ichor");
+        pinecone = registerItem(new Item(), "pinecone");
         
         
         dart = registerItem(new ItemDart(), "dart");

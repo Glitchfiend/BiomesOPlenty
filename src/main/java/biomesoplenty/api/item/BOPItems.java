@@ -35,6 +35,16 @@ public class BOPItems
     public static Item honeycomb;
     public static Item gem;
     public static Item ash;
+    public static Item mud_brick;
+    public static Item blue_dye;
+    public static Item brown_dye;
+    public static Item green_dye;
+    public static Item white_dye;
+    public static Item black_dye;
+    public static Item ghastly_soul;
+    public static Item pixie_dust;
+    public static Item ichor;
+    public static Item pinecone;
     
     public static Item dart;
     public static Item dart_blower;

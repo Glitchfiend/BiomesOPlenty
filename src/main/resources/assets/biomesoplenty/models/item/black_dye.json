@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "biomesoplenty:items/mud_brick"
+        "layer0": "biomesoplenty:items/black_dye"
     },
     "display": {
         "thirdperson": {
