@@ -8,13 +8,11 @@
 
 package biomesoplenty.common.world.feature.tree;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
@@ -23,7 +21,6 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
 import biomesoplenty.api.biome.generation.GeneratorCustomizable;
 import biomesoplenty.common.util.biome.GeneratorUtils;
 
