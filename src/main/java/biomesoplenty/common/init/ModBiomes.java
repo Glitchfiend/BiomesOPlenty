@@ -20,6 +20,7 @@ import org.apache.commons.io.FileUtils;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
+import biomesoplenty.common.biome.overworld.BiomeGenDenseForest;
 import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
 import biomesoplenty.common.biome.overworld.BiomeGenLavenderFields;
 import biomesoplenty.common.biome.overworld.BiomeGenOriginValley;
@@ -53,6 +54,7 @@ public class ModBiomes
         alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
         arctic = registerBiome(new BiomeGenArctic().setBiomeName("Arctic"), "arctic");
         crag = registerBiome(new BiomeGenCrag().setBiomeName("Crag"), "crag");
+        denseForest = registerBiome(new BiomeGenDenseForest().setBiomeName("Dense Forest"), "dense_forest");
         flowerField = registerBiome(new BiomeGenFlowerField().setBiomeName("Flower Field"), "flower_field");
         lavenderFields = registerBiome(new BiomeGenLavenderFields().setBiomeName("Lavender Fields"), "lavender_fields");
         originValley = registerBiome(new BiomeGenOriginValley().setBiomeName("Origin Valley"), "origin_valley");

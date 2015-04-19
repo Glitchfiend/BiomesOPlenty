@@ -327,7 +327,5 @@ public class GeneratorBasicTree extends GeneratorCustomizable
         this.log = context.deserialize(json.get("log_state"), IBlockState.class);
         this.leaves = context.deserialize(json.get("leaves_state"), IBlockState.class);
         this.vine = context.deserialize(json.get("vine_state"), IBlockState.class);
-        
-        System.out.println(amountPerChunk + " " + updateNeighbours + " " + minHeight + " " + maxHeight + " " + log + " " + leaves);
     }
 }
