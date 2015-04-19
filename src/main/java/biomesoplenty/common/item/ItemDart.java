@@ -35,6 +35,16 @@ public class ItemDart extends Item
         {
             return this.getName();
         }
+        public float getDamageInflicted()
+        {
+            switch(this)
+            {
+                case POISONDART:
+                    return 1.0F;
+                case DART: default:
+                    return 2.0F;
+            }
+        }
         public static DartType fromMeta(int meta)
         {
             return DartType.values()[meta % DartType.values().length];

@@ -10,6 +10,7 @@ package biomesoplenty.core;
 
 import java.io.File;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -26,6 +27,7 @@ import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.init.ModBiomes;
 import biomesoplenty.common.init.ModBlocks;
 import biomesoplenty.common.init.ModConfiguration;
+import biomesoplenty.common.init.ModEntities;
 import biomesoplenty.common.init.ModGenerators;
 import biomesoplenty.common.init.ModHandlers;
 import biomesoplenty.common.init.ModItems;
@@ -55,6 +57,7 @@ public class BiomesOPlenty
         // setup blocks before items, because some items need to reference blocks in their constructors (eg seeds)
         ModBlocks.init();
         ModItems.init();
+        ModEntities.init();
         
         ModGenerators.init();
         ModBiomes.init();
@@ -65,6 +68,7 @@ public class BiomesOPlenty
     public void init(FMLInitializationEvent event)
     {
         proxy.registerRenderers();
+        ModEntities.initRender( Minecraft.getMinecraft().getRenderManager() );
     }
 
     @EventHandler

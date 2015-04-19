@@ -10,8 +10,8 @@ package biomesoplenty.common.item;
 
 
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.entities.projectiles.EntityDart;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -32,41 +32,36 @@ public class ItemDartBlower extends Item
         if (worldIn.isRemote) {return itemStackIn;}
         boolean isCreative = playerIn.capabilities.isCreativeMode;
         
-        if (isCreative || playerIn.inventory.hasItem(BOPItems.dart))
+        // look for the best dart in inventory - find out which slot it's in
+        int bestDartSlot = -1;
+        ItemDart.DartType bestAvailableDartType = ItemDart.DartType.DART;
+        for (int k = 0; k < playerIn.inventory.mainInventory.length; ++k)
         {
-            // TODO: implement EntityDart EntityDart entityDart = new EntityDart(worldIn, playerIn, 1.0F);
-            EntitySnowball entityDart = new EntitySnowball(worldIn, playerIn);
-            itemStackIn.damageItem(1, playerIn);
-            worldIn.playSoundAtEntity(playerIn, "random.bow", 1.0F, 1.75F);
-            
-            // look for the best dart in inventory - find out which slot it's in
-            int bestDartSlot = -1;
-            ItemDart.DartType bestDart = ItemDart.DartType.DART;
-            for (int k = 0; k < playerIn.inventory.mainInventory.length; ++k)
+            ItemStack current = playerIn.inventory.mainInventory[k];
+            if (current != null && current.getItem()==BOPItems.dart)
             {
-                ItemStack current = playerIn.inventory.mainInventory[k];
-                if (current != null && current.getItem()==BOPItems.dart)
+                ItemDart.DartType currentDartType = ItemDart.DartType.fromMeta(current.getMetadata());
+                if (currentDartType.ordinal() >= bestAvailableDartType.ordinal())
                 {
-                    ItemDart.DartType currentDart = ItemDart.DartType.fromMeta(current.getMetadata());
-                    if (currentDart.ordinal() >= bestDart.ordinal())
-                    {
-                        bestDart = currentDart;
-                        bestDartSlot = k;
-                    }
+                    bestAvailableDartType = currentDartType;
+                    bestDartSlot = k;
                 }
             }
-            
-            // TODO: entityDart.setDartType(bestDart);
-            
-            if (isCreative)
+        }
+        
+        if (isCreative || (bestDartSlot > -1))
+        {
+            // there is a dart available to blow - blow it.
+            EntityDart entityDart = new EntityDart(worldIn, playerIn, 1.0F);
+            entityDart.setDartType(bestAvailableDartType);
+            if (!isCreative)
             {
-                worldIn.spawnEntityInWorld(entityDart);
-            }
-            else if (bestDartSlot >= 0)
-            {
-                worldIn.spawnEntityInWorld(entityDart);
+                itemStackIn.damageItem(1, playerIn);
                 playerIn.inventory.decrStackSize(bestDartSlot, 1);
             }
+            System.out.println("spawn dart "+bestAvailableDartType.getName());
+            worldIn.spawnEntityInWorld(entityDart);
+            worldIn.playSoundAtEntity(playerIn, "random.bow", 1.0F, 1.75F);
         }
               
         return itemStackIn;
