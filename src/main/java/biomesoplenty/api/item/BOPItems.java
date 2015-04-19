@@ -12,20 +12,32 @@ import net.minecraft.item.Item;
 
 public class BOPItems
 {
+    
+    public static Item berries;
+    public static Item shroompowder;
+    public static Item wildcarrots;
+    public static Item peach;
+    public static Item saladfruit;
+    public static Item saladveggie;
+    public static Item saladshroom;
+    public static Item earth;
+    public static Item persimmon;
+    public static Item filled_honeycomb;
+    public static Item ambrosia;
+    public static Item turnip;
+    public static Item pear;
+    public static Item ricebowl;
+    
     public static Item fleshchunk;
     public static Item mudball;
-    public static Item turnip;
     public static Item turnip_seeds;
-    public static Item persimmon;
-    public static Item peach;
-    public static Item pear;
     public static Item crystal_shard;
     public static Item honeycomb;
-    public static Item filled_honeycomb;
     public static Item gem;
     public static Item ash;
-    public static Item berries;
-    public static Item wildcarrots;
+    
+    public static Item dart;
+    public static Item dart_blower;
     
     public static Item sacred_oak_door;
     public static Item cherry_door;
@@ -73,9 +85,6 @@ public class BOPItems
     public static Item gold_scythe;
     public static Item diamond_scythe;
     public static Item amethyst_scythe;
-    
-    public static Item dart;
-    public static Item dart_blower;
-    
+        
     
 }

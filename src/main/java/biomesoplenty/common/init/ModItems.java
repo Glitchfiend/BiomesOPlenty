@@ -17,6 +17,7 @@ import java.util.List;
 
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -25,10 +26,12 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemHoe;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemSoup;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -36,6 +39,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.item.ItemAmbrosia;
+import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPScythe;
 import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemDartBlower;
@@ -49,20 +54,37 @@ public class ModItems
 {    
     public static void init()
     {
+        // food
+        ambrosia =          registerItem(new ItemAmbrosia(), "ambrosia");
+        berries =           registerItem(new ItemBOPFood(1, 0.1F, 8), "berries"); 
+        shroompowder =      registerItem(new ItemFood(1, 0.1F, false), "shroompowder");
+        ((ItemFood)shroompowder).setAlwaysEdible();
+        ((ItemFood)shroompowder).setPotionEffect(Potion.confusion.id, 225, 0, 0.6F);
+        wildcarrots =       registerItem(new ItemFood(3, 0.5F, false), "wildcarrots");
+        peach =             registerItem(new ItemFood(5, 0.2F, false), "peach");
+        persimmon =         registerItem(new ItemFood(5, 0.2F, false), "persimmon");
+        filled_honeycomb =  registerItem(new ItemBOPFood(3, 0.4F, 16), "filled_honeycomb");
+        turnip =            registerItem(new ItemFood(3, 0.4F, false), "turnip");
+        pear =              registerItem(new ItemFood(5, 0.3F, false), "pear");
+        saladfruit =        registerItem(new ItemSoup(6), "saladfruit");
+        ((ItemFood)saladfruit).setPotionEffect(Potion.digSpeed.id, 775, 1, 0.05F);
+        saladveggie =       registerItem(new ItemSoup(6), "saladveggie");
+        ((ItemFood)saladveggie).setPotionEffect(Potion.nightVision.id, 1100, 1, 0.05F); // TODO: Is this the right potion effect for veggie salad?
+        saladshroom =       registerItem(new ItemSoup(6), "saladshroom");
+        ((ItemFood)saladshroom).setPotionEffect(Potion.jump.id, 550, 1, 0.05F);
+        ricebowl =          registerItem(new ItemSoup(2), "ricebowl");
+        // TODO: eating earth is supposed to kill you isn't it?
+        earth =             registerItem(new ItemFood(0, 0.0F, false), "earth", null); // no creative tab
+
+        
         fleshchunk = registerItem(new Item(), "fleshchunk");
         mudball = registerItem(new ItemMudball(), "mudball");
         turnip_seeds = registerItem(new ItemSeeds(BOPBlocks.turnip_block, Blocks.farmland), "turnip_seeds");
-        turnip = registerItem(new ItemFood(3, 0.4F, false), "turnip");
-        persimmon = registerItem(new ItemFood(5, 0.2F, false), "persimmon");
-        peach = registerItem(new ItemFood(5, 0.5F, false), "peach");
-        pear = registerItem(new ItemFood(5, 0.3F, false), "pear");
         crystal_shard = registerItem(new Item(), "crystal_shard");
         honeycomb = registerItem(new Item(), "honeycomb");
-        filled_honeycomb = registerItem(new ItemFood(3, 0.4F, false), "filled_honeycomb");
         gem = registerItem(new ItemGem(), "gem");
         ash = registerItem(new Item(), "ash");
-        berries = registerItem(new ItemFood(1, 0.1F, false), "berries");
-        wildcarrots = registerItem(new ItemFood(3, 0.5F, false), "wildcarrots");
+        
         
         dart = registerItem(new ItemDart(), "dart");
         dart_blower = registerItem(new ItemDartBlower(), "dart_blower");
@@ -158,8 +180,17 @@ public class ModItems
     }
     
     public static Item registerItem(Item item, String name)
+    {
+        return registerItem(item, name, CreativeTabBOP.instance);
+    }
+    
+    public static Item registerItem(Item item, String name, CreativeTabs tab)
     {    
-        item.setUnlocalizedName(name).setCreativeTab(CreativeTabBOP.instance);
+        item.setUnlocalizedName(name);
+        if (tab != null)
+        {
+            item.setCreativeTab(CreativeTabBOP.instance);
+        }
         GameRegistry.registerItem(item,name);
         BOPCommand.itemCount++;
         

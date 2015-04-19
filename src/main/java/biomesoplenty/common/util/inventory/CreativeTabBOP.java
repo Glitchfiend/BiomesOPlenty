@@ -8,11 +8,10 @@
 
 package biomesoplenty.common.util.inventory;
 
+import biomesoplenty.api.item.BOPItems;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-//TODO: Fix icon
 public class CreativeTabBOP extends CreativeTabs
 {
     public static final CreativeTabs instance = new CreativeTabBOP(CreativeTabs.getNextID(), "tabBiomesOPlenty");
@@ -25,6 +24,6 @@ public class CreativeTabBOP extends CreativeTabs
     @Override
     public Item getTabIconItem()
     {
-        return Item.getItemFromBlock(Blocks.sapling);
+        return BOPItems.earth;
     }
 }
