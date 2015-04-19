@@ -436,13 +436,16 @@ public class GeneratorBigTree extends GeneratorCustomizable
     @Override
     public void scatter(World world, Random random, BlockPos pos)
     {
+        int successes = 0;
+        
         for (int i = 0; i < amountPerChunk; i++)
         {
             int x = random.nextInt(16) + 8;
             int z = random.nextInt(16) + 8;
             BlockPos genPos = world.getHeight(pos.add(x, 0, z));
             
-            generate(world, random, genPos);
+            if (successes < 2 && generate(world, random, genPos)) 
+                successes++;
         }
     }
     

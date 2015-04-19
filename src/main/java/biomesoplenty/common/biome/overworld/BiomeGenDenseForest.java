@@ -58,7 +58,7 @@ public class BiomeGenDenseForest extends BOPBiome
         
         this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(15, BlockBOPPlant.getVariantState(AllPlants.LEAFPILE), 256));
         
-        this.addGenerator("huge_trees", GeneratorStage.TREE, new GeneratorBigTree(7, false, 15, 25, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
+        this.addGenerator("huge_trees", GeneratorStage.TREE, new GeneratorBigTree(10, false, 15, 25, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("leaves_clusters", GeneratorStage.POST, new GeneratorBush(7, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(10);
