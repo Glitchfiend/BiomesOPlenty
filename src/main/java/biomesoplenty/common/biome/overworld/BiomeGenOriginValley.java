@@ -20,7 +20,6 @@ import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPFlower2.FlowerType;
 import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLeaves2;
 import biomesoplenty.common.block.BlockBOPGrass.BOPGrassType;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.world.feature.GeneratorFlora;
@@ -40,8 +39,7 @@ public class BiomeGenOriginValley extends BOPBiome
         
         this.topBlock = BOPBlocks.grass.getDefaultState().withProperty(BlockBOPGrass.VARIANT, BOPGrassType.ORIGIN);
     
-        GeneratorBasicTree treeGenerator = new GeneratorBasicTree(4, false, 5, 8, Blocks.log.getDefaultState(), 
-                BOPBlocks.leaves_2.getDefaultState().withProperty(BlockBOPLeaves.getVariantProperty(BlockBOPLeaves2.PAGENUM), AllTrees.ORIGIN));
+        GeneratorBasicTree treeGenerator = new GeneratorBasicTree(4, false, 5, 8, Blocks.log.getDefaultState(), BlockBOPLeaves.getVariantState(AllTrees.ORIGIN));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         
         GeneratorWeighted flowerGenerator = new GeneratorWeighted(4);

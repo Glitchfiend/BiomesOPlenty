@@ -22,9 +22,7 @@ import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.common.block.BlockBOPFlower2;
 import biomesoplenty.common.block.BlockBOPFlower2.FlowerType;
 import biomesoplenty.common.block.BlockBOPLeaves;
-import biomesoplenty.common.block.BlockBOPLeaves3;
 import biomesoplenty.common.block.BlockBOPLog;
-import biomesoplenty.common.block.BlockBOPLog3;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockGem.GemType;
@@ -49,7 +47,7 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BOPBlocks.flower2.getDefaultState().withProperty(BlockBOPFlower2.VARIANT, FlowerType.LAVENDER)));
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
-        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BOPBlocks.log_3.getDefaultState().withProperty(BlockBOPLog.getVariantProperty(BlockBOPLog3.PAGENUM), AllWoods.JACARANDA), BOPBlocks.leaves_3.getDefaultState().withProperty(BlockBOPLeaves.getVariantProperty(BlockBOPLeaves3.PAGENUM), AllTrees.JACARANDA)));
+        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.getVariantState(AllWoods.JACARANDA), BlockBOPLeaves.getVariantState(AllTrees.JACARANDA)));
         treeGenerator.add(1, new GeneratorBigTree(1, false, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         

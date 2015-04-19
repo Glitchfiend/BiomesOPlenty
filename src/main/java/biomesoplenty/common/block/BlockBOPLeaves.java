@@ -8,7 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
@@ -66,7 +68,33 @@ public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     {
         int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllTrees.values().length));
         return AllTrees.values()[i];
-    }   
+    }
+ 
+    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockFoliage instance for a particular variant
+    private static Map<Integer, BlockBOPLeaves> instances = new HashMap<Integer, BlockBOPLeaves>();
+    // get the BlockBOPLeaves instance for the given variant
+    public static BlockBOPLeaves getVariantBlock(AllTrees tree)
+    {
+        int pageNum = tree.ordinal() / VARIANTS_PER_PAGE;
+        BlockBOPLeaves block = instances.get(pageNum);
+        if (block == null) {throw new IllegalArgumentException("No BlockBOPLeaves instance created yet for page "+pageNum);}
+        return block;
+    }
+    // get the default block state for the given variant
+    public static IBlockState getVariantState(AllTrees tree)
+    {
+        BlockBOPLeaves block = getVariantBlock(tree);
+        return block.getDefaultState().withProperty(block.getMyVariantProperty() , tree);
+    }
+    // get the item representation of the given variant
+    public static ItemStack getVariantItem(AllTrees tree, int howMany)
+    {
+        return new ItemStack(getVariantBlock(tree), howMany, getVariantBlock(tree).getMetaFromState(getVariantState(tree)));
+    }
+    public static ItemStack getVariantItem(AllTrees tree)
+    {
+        return getVariantItem(tree, 1);
+    }
     
     // add properties - note CHECK_DECAY and DECAYABLE are both inherited from BlockLeaves
     @Override
@@ -98,6 +126,8 @@ public abstract class BlockBOPLeaves extends BlockLeaves implements IBOPBlock
     public BlockBOPLeaves()
     {
         super();
+        // save a reference to this instance so that later we can look up the right BlockFoliage instance for a particular variant
+        instances.put(this.getPageNum(), this);
         this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)));
     }
     

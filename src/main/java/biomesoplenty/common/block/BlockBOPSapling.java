@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
@@ -21,6 +23,7 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -59,6 +62,32 @@ public abstract class BlockBOPSapling extends BlockDecoration implements IGrowab
         int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllTrees.values().length));
         return AllTrees.values()[i];
     }
+
+    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockFoliage instance for a particular variant
+    private static Map<Integer, BlockBOPSapling> instances = new HashMap<Integer, BlockBOPSapling>();
+    // get the BlockBOPLeaves instance for the given variant
+    public static BlockBOPSapling getVariantBlock(AllTrees tree)
+    {
+        int pageNum = tree.ordinal() / VARIANTS_PER_PAGE;
+        BlockBOPSapling block = instances.get(pageNum);
+        if (block == null) {throw new IllegalArgumentException("No BlockBOPLeaves instance created yet for page "+pageNum);}
+        return block;
+    }
+    // get the default block state for the given variant
+    public static IBlockState getVariantState(AllTrees tree)
+    {
+        BlockBOPSapling block = getVariantBlock(tree);
+        return block.getDefaultState().withProperty(block.getMyVariantProperty() , tree);
+    }
+    // get the item representation of the given variant
+    public static ItemStack getVariantItem(AllTrees tree, int howMany)
+    {
+        return new ItemStack(getVariantBlock(tree), howMany, getVariantBlock(tree).getMetaFromState(getVariantState(tree)));
+    }
+    public static ItemStack getVariantItem(AllTrees tree)
+    {
+        return getVariantItem(tree, 1);
+    }
     
     
     // add properties
@@ -82,6 +111,8 @@ public abstract class BlockBOPSapling extends BlockDecoration implements IGrowab
     public BlockBOPSapling()
     {
         super();
+        // save a reference to this instance so that later we can look up the right BlockBOPSapling instance for a particular variant
+        instances.put(this.getPageNum(), this);
         this.setStepSound(Block.soundTypeGrass);
         this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));

@@ -8,6 +8,9 @@
 
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.BOPWoodEnums;
 import biomesoplenty.api.block.IBOPBlock;
@@ -18,6 +21,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 
 public abstract class BlockBOPLog extends BlockLog implements IBOPBlock
 {
@@ -48,7 +52,34 @@ public abstract class BlockBOPLog extends BlockLog implements IBOPBlock
     {
         int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllWoods.values().length));
         return AllWoods.values()[i];
-    }    
+    }
+    
+    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockBOPLog instance for a particular variant
+    private static Map<Integer, BlockBOPLog> instances = new HashMap<Integer, BlockBOPLog>();
+    // get the BlockFoliage instance for the given variant
+    public static BlockBOPLog getVariantBlock(AllWoods wood)
+    {
+        int pageNum = wood.ordinal() / VARIANTS_PER_PAGE;
+        BlockBOPLog block = instances.get(pageNum);
+        if (block == null) {throw new IllegalArgumentException("No BlockBOPLog instance created yet for page "+pageNum);}
+        return block;
+    }
+    // get the default block state for the given variant
+    public static IBlockState getVariantState(AllWoods wood)
+    {
+        BlockBOPLog block = getVariantBlock(wood);
+        return block.getDefaultState().withProperty(block.getMyVariantProperty() , wood);
+    }
+    // get the item representation of the given variant
+    public static ItemStack getVariantItem(AllWoods wood, int howMany)
+    {
+        return new ItemStack(getVariantBlock(wood), howMany, getVariantBlock(wood).getMetaFromState(getVariantState(wood)));
+    }
+    public static ItemStack getVariantItem(AllWoods wood)
+    {
+        return getVariantItem(wood, 1);
+    }
+    
     
     @Override
     protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { LOG_AXIS, getMyVariantProperty() });}
@@ -80,6 +111,8 @@ public abstract class BlockBOPLog extends BlockLog implements IBOPBlock
     public BlockBOPLog()
     {
         super();
+        // save a reference to this instance so that later we can look up the right BlockBOPLog instance for a particular variant
+        instances.put(this.getPageNum(), this);
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
         this.setHarvestLevel("axe", 0);
     }
