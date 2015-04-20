@@ -26,14 +26,4 @@ public class ModEntities
        
         
     }
-    
-    
-    public static void initRender(RenderManager renderManager)
-    {
-        
-        RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(renderManager));
-        
-    }
-    
-    
 }

@@ -10,7 +10,6 @@ package biomesoplenty.core;
 
 import java.io.File;
 
-import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -68,7 +67,6 @@ public class BiomesOPlenty
     public void init(FMLInitializationEvent event)
     {
         proxy.registerRenderers();
-        ModEntities.initRender( Minecraft.getMinecraft().getRenderManager() );
     }
 
     @EventHandler

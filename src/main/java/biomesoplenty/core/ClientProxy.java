@@ -10,6 +10,7 @@ package biomesoplenty.core;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
@@ -18,8 +19,11 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.entities.projectiles.EntityDart;
+import biomesoplenty.common.entities.projectiles.RenderDart;
 
 
 public class ClientProxy extends CommonProxy
@@ -29,10 +33,13 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerRenderers()
     {
+        Minecraft minecraft = Minecraft.getMinecraft();
+        
         if (MiscConfigurationHandler.overrideTitlePanorama)
             GuiMainMenu.titlePanoramaPaths = bopTitlePanoramaPaths;
             
         //Entity rendering and other stuff will go here in future
+        RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(minecraft.getRenderManager()));
     }
     
     @Override
