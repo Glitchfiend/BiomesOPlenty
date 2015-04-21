@@ -42,6 +42,7 @@ import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.item.ItemAmbrosia;
 import biomesoplenty.common.item.ItemBOPFood;
 import biomesoplenty.common.item.ItemBOPScythe;
+import biomesoplenty.common.item.ItemBiomeFinder;
 import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemDartBlower;
 import biomesoplenty.common.item.ItemGem;
@@ -188,6 +189,8 @@ public class ModItems
         diamond_scythe = registerItem(new ItemBOPScythe(ToolMaterial.EMERALD), "diamond_scythe");
         amethyst_scythe = registerItem(new ItemBOPScythe(amethyst_tool_material), "amethyst_scythe");
 
+        
+        biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
         
     }
     

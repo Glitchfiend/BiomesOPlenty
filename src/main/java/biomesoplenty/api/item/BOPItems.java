@@ -95,6 +95,8 @@ public class BOPItems
     public static Item gold_scythe;
     public static Item diamond_scythe;
     public static Item amethyst_scythe;
+    
+    public static Item biome_finder;
         
     
 }
