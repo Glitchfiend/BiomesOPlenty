@@ -9,10 +9,7 @@
 package biomesoplenty.common.init;
 
 import biomesoplenty.common.entities.projectiles.EntityDart;
-import biomesoplenty.common.entities.projectiles.RenderDart;
 import biomesoplenty.core.BiomesOPlenty;
-import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class ModEntities
