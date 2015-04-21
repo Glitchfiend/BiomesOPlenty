@@ -263,7 +263,6 @@ public class BlockBOPGrass extends BlockGrass implements IBOPBlock
     // xzSpread - how far can the grass spread in the x and z directions
     // downSpread - how far can the grass spread downwards
     // upSpread - how far can the grass spread upwards
-    // TODO: find a way to get vanilla grass to spread to BOP dirt types
     @SideOnly(Side.CLIENT)
     public void spreadGrass(World world, BlockPos pos, IBlockState state, Random rand, int tries, int xzSpread, int downSpread, int upSpread)
     {

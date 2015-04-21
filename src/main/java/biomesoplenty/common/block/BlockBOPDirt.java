@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.block;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -21,6 +23,9 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.item.ItemBOPBlock;
@@ -69,6 +74,7 @@ public class BlockBOPDirt extends Block implements IBOPBlock
         super(Material.ground);
         
         // set some defaults
+        this.setTickRandomly(true);
         this.setHardness(0.5F);
         this.setHarvestLevel("shovel", 0);
         this.setStepSound(Block.soundTypeGravel);      
@@ -113,6 +119,52 @@ public class BlockBOPDirt extends Block implements IBOPBlock
              // don't support nether plants, water plants, or crops (require farmland), or anything else by default
             default:
                 return false;
+        }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+        IBlockState grassState = getGrassBlockState(state);
+        if (grassState != null)
+        {
+            pullGrassFromNeighbors(world, pos, grassState, rand, 4, 1, 3, 1);
+        }
+    }
+    
+    // BOPGrass variants spread randomly to BOPDirt on the grass's updateTick
+    // However, vanilla grass does not.  This function fixes this by 'pulling' grass from nearby vanilla grass blocks at the same rate as it would spread to vanilla dirt
+    public void pullGrassFromNeighbors(World world, BlockPos pos, IBlockState grassState, Random rand, int tries, int xzSpread, int downSpread, int upSpread)
+    {
+        // if there's not enough light then there's no chance of this block becoming grassy
+        if (world.getLightFromNeighbors(pos.up()) < 4 || world.getBlockState(pos.up()).getBlock().getLightOpacity(world, pos.up()) > 2) {return;}
+        
+        int numNearbyGrassSpreadingBlocks = 0;
+        BlockPos pos1;
+        for (int dy = -downSpread; dy <= upSpread; dy++)
+        {
+            for (int dx = -xzSpread; dx <= xzSpread; dx++)
+            {
+                for (int dz = -xzSpread; dz <= xzSpread; dz++)
+                {
+                    // count only vanilla grass blocks with enough light (BOP Grass 'pushes' itself onto dirt, no need to 'pull' it)
+                    pos1 = pos.add(dx, dy, dz);
+                    if (world.getBlockState(pos1).getBlock() == Blocks.grass && world.getLightFromNeighbors(pos1.up()) >= 9)
+                    {
+                        numNearbyGrassSpreadingBlocks++;
+                    }
+                }
+            }
+        }
+        if (numNearbyGrassSpreadingBlocks == 0) {return;}
+        
+        // each grass block gets 4 tries to spread grass, chance of this block being chosen each time is 1 / volume of blocks close enough
+        // overall chance of spread = 1 - chance of not spreading
+        int vol = (xzSpread * 2 + 1) * (xzSpread * 2 + 1) * (upSpread + downSpread + 1);
+        double chanceOfSpread = 1.0D - Math.pow(1.0D - 1.0D / vol, tries * numNearbyGrassSpreadingBlocks);
+        if (rand.nextDouble() < chanceOfSpread)
+        {
+            world.setBlockState(pos, grassState);
         }
     }
     
