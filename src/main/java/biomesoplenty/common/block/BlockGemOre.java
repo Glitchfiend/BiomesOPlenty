@@ -24,6 +24,10 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class BlockGemOre extends Block implements IBOPBlock
 {
@@ -97,6 +101,14 @@ public class BlockGemOre extends Block implements IBOPBlock
     public int damageDropped(IBlockState state)
     {
         return this.getMetaFromState(state);
+    }
+
+    // Drop some experience when gems are mined
+    @Override
+    public int getExpDrop(IBlockAccess world, BlockPos pos, int fortune)
+    {
+        Random rand = world instanceof World ? ((World)world).rand : new Random();
+        return MathHelper.getRandomIntegerInRange(rand, 3, 7);
     }
     
 }
