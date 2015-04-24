@@ -8,7 +8,6 @@
 
 package biomesoplenty.common.item;
 
-import biomesoplenty.api.biome.BOPBiomes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,7 +18,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 
 public class ItemBiomeFinder extends Item
-{
+{    
     
     public ItemBiomeFinder()
     {
@@ -64,35 +63,70 @@ public class ItemBiomeFinder extends Item
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        if (world.isRemote) {return stack;} // TODO: can we make it client only and skip this?
+        // carry out the search on the server, not the client
+        if (world.isRemote) {return stack;}
         
         if (!stack.hasTagCompound()) {stack.setTagCompound(new NBTTagCompound());}
-        int biomeIDToFind = stack.getTagCompound().getInteger("biomeIDToFind");
-        BiomeGenBase biomeToFind = BiomeGenBase.getBiome(biomeIDToFind); // returns ocean if biomeIDToFind is out of bounds
-        System.out.println("Using biome finder looking for "+biomeToFind.biomeName);
-        if (stack.getTagCompound().getBoolean("foundBiome"))
+        NBTTagCompound nbt = stack.getTagCompound();
+          
+        if (nbt.getBoolean("found"))
         {
             System.out.println("Already found, returning");
             return stack;
         }
-        biomeToFind = BOPBiomes.originValley.get();
-        // search for biomeToFind, maximum distace 5000 blocks, 64 blocks between samples
-        BlockPos pos = this.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000, 64);
+        if (nbt.hasKey("searchStarted") && (world.getWorldTime() - nbt.getLong("searchStarted") < 200))
+        {
+            System.out.println("Still searching, returning");
+            return stack;
+        }
+        if (!nbt.hasKey("biomeIDToFind"))
+        {
+            System.out.println("No biome to find, returning");
+            return stack;
+        }
+
+        BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
+        System.out.println("Biome finder looking for "+biomeToFind.biomeName);
+        writeNBTSearching(nbt, world);  
         
+        // search for biomeToFind, maximum distance 5000 blocks, 64 blocks between samples
+        BlockPos pos = this.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000, 64);
         if (pos == null)
         {
-            //System.out.println("Didn't find it");
+            writeNBTNotFound(nbt);
         }
         else
         {
-            stack.getTagCompound().setInteger("posX", pos.getX());
-            stack.getTagCompound().setInteger("posY", pos.getY());
-            stack.getTagCompound().setBoolean("foundBiome", true);
-            // TODO: BOPPacketHandler.instance.sendTo(new MessageBiomePosition(pos), true);
+            writeNBTFound(nbt, pos);
         }
-                
         return stack;
     }
+    
+    public static void writeNBTSearching(NBTTagCompound nbt, World world)
+    {
+        nbt.setBoolean("found",false);
+        nbt.setLong("searchStarted", world.getWorldTime());
+        nbt.removeTag("posX");
+        nbt.removeTag("posZ");
+    }
+    
+    public static void writeNBTFound(NBTTagCompound nbt, BlockPos pos)
+    {        
+        nbt.setBoolean("found",true);
+        nbt.removeTag("searchStarted");
+        nbt.setInteger("posX", pos.getX());
+        nbt.setInteger("posZ", pos.getZ());
+    }
+    
+    public static void writeNBTNotFound(NBTTagCompound nbt)
+    {
+        nbt.setBoolean("found",false);
+        nbt.removeTag("searchStarted");
+        nbt.removeTag("posX");
+        nbt.removeTag("posZ");
+    }
+
+    
     
     
     /* TODO:  all the rendering stuff... not sure how it's going to work
