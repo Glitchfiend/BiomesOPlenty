@@ -12,11 +12,14 @@ import net.minecraftforge.common.MinecraftForge;
 import biomesoplenty.common.handler.DyeEventHandler;
 import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
+import biomesoplenty.common.network.BOPPacketHandler;
 
 public class ModHandlers
 {
     public static void init()
     {
+        BOPPacketHandler.init();
+        
         DecorateBiomeEventHandler decorateBiomeHandler = new DecorateBiomeEventHandler();
         MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
