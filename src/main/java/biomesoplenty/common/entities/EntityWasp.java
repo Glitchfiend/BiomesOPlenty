@@ -352,10 +352,7 @@ public class EntityWasp extends EntityFlying implements IMob {
             // focus attack on target position
             EntityLivingBase attackTarget = this.wasp.getAttackTarget();
             this.targetPos.setTarget(attackTarget.posX, attackTarget.posY, attackTarget.posZ);
-            
-            // give up if the target is too far away
-            // double followRange = this.wasp.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
-           
+                      
              // damage the target if it's in range, and it has been long enough since the last attack
             double damageRange = (double)(this.wasp.width + attackTarget.width);
             if (this.attackTick <= 0 && this.targetPos.dist < damageRange)

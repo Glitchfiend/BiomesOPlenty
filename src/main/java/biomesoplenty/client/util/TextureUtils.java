@@ -9,7 +9,6 @@
 package biomesoplenty.client.util;
 
 import biomesoplenty.client.texture.TextureAnimationFrame;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
