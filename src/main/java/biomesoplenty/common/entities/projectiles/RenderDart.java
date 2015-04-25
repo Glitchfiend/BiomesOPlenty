@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * Copyright 2015, the Biomes O' Plenty Team
+ * 
+ * This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License.
+ * 
+ * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+ ******************************************************************************/
+
 package biomesoplenty.common.entities.projectiles;
 
 import net.minecraft.client.renderer.GlStateManager;
@@ -20,15 +28,15 @@ public class RenderDart extends Render
 
     protected ResourceLocation[] textures;
     
-    public RenderDart(RenderManager p_i46193_1_)
+    public RenderDart(RenderManager renderManager)
     {
-        super(p_i46193_1_);
+        super(renderManager);
         int n = ItemDart.DartType.values().length;
         this.textures = new ResourceLocation[n];
         for (int i = 0; i < n; ++i)
         {
             this.textures[i] = new ResourceLocation("biomesoplenty:textures/entity/" + ItemDart.DartType.values()[i].getName() + ".png");
-        }        
+        }
     }
 
     // TODO: de-obfuscate
