@@ -1,5 +1,5 @@
 {
-    "parent": "builtin/compass",
+    "parent": "builtin/generated",
     "textures": {
         "layer0": "biomesoplenty:items/biome_finder"
     },

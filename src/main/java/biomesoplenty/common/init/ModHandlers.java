@@ -9,6 +9,7 @@
 package biomesoplenty.common.init;
 
 import net.minecraftforge.common.MinecraftForge;
+import biomesoplenty.client.handler.ModelBakeHandler;
 import biomesoplenty.common.handler.DyeEventHandler;
 import biomesoplenty.common.handler.GuiEventHandler;
 import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
@@ -23,6 +24,7 @@ public class ModHandlers
         DecorateBiomeEventHandler decorateBiomeHandler = new DecorateBiomeEventHandler();
         MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
+        MinecraftForge.EVENT_BUS.register(new ModelBakeHandler());
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
     }
