@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.init;
 
+import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -21,6 +22,8 @@ public class ModEntities
         // TODO: how to set id?
         EntityRegistry.registerModEntity(EntityDart.class, "dart", 26, BiomesOPlenty.instance, 80, 3, true);
        
+        EntityRegistry.registerModEntity(EntityWasp.class, "wasp", 27, BiomesOPlenty.instance, 80, 3, true);
+
         
     }
 }

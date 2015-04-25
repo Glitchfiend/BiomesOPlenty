@@ -16,7 +16,6 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
@@ -24,6 +23,7 @@ import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.World;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.item.ItemBOPBlock;
 
 public class BlockHive extends Block implements IBOPBlock
@@ -145,8 +145,7 @@ public class BlockHive extends Block implements IBOPBlock
         switch ((HiveType) state.getValue(VARIANT))
         {
             case EMPTY_HONEYCOMB:
-                // TODO: EntityWasp wasp = new EntityWasp(worldIn);
-                EntityChicken wasp = new EntityChicken(worldIn);
+                EntityWasp wasp = new EntityWasp(worldIn);
                 wasp.setLocationAndAngles((double)pos.getX() + 0.6D, (double)pos.getY(), (double)pos.getZ() + 0.3D, 0.0F, 0.0F);
                 worldIn.spawnEntityInWorld(wasp);
                 break;

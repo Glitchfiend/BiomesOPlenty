@@ -22,6 +22,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.config.MiscConfigurationHandler;
+import biomesoplenty.common.entities.EntityWasp;
+import biomesoplenty.common.entities.RenderWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.common.entities.projectiles.RenderDart;
 
@@ -40,6 +42,8 @@ public class ClientProxy extends CommonProxy
             
         //Entity rendering and other stuff will go here in future
         RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(minecraft.getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityWasp.class, new RenderWasp(minecraft.getRenderManager()));
+
     }
     
     @Override
