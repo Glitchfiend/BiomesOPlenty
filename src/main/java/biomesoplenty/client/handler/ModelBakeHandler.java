@@ -30,7 +30,7 @@ public class ModelBakeHandler
     {
         TextureMap map = event.map;
         
-        biomeFinderFrames = TextureUtils.splitAnimatedTexture(map, "biomesoplenty:items/biome_finder", 32);
+        biomeFinderFrames = TextureUtils.splitAnimatedTexture(map, "biomesoplenty:items/biome_finder", 12);
     }
     
     @SubscribeEvent

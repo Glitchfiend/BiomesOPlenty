@@ -17,25 +17,21 @@ import net.minecraft.client.resources.model.IBakedModel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.model.IFlexibleBakedModel;
 import net.minecraftforge.client.model.ISmartItemModel;
 
 public class ModelBiomeFinder extends IFlexibleBakedModel.Wrapper implements ISmartItemModel
 {
-    private double[] currentAngles = new double[BiomeGenBase.getBiomeGenArray().length];
-    private double[] angleDeltas = new double[BiomeGenBase.getBiomeGenArray().length];
     
+    private IBakedModel[] frames;
     private IBakedModel defaultModel;
-    private IBakedModel[] frames; 
     
     public ModelBiomeFinder(IBakedModel defaultModel, TextureAtlasSprite[] frameTextures)
     {
         super(defaultModel, DefaultVertexFormats.ITEM);
-        
         this.defaultModel = defaultModel;
         this.frames = ModelUtils.generateModelsForTextures(defaultModel, frameTextures);
-    }
+     }
     
     @Override
     public TextureAtlasSprite getTexture()
@@ -46,67 +42,50 @@ public class ModelBiomeFinder extends IFlexibleBakedModel.Wrapper implements ISm
     @Override
     public IBakedModel handleItemState(ItemStack stack)
     {
-        Minecraft minecraft = Minecraft.getMinecraft();
-        EntityPlayerSP player = minecraft.thePlayer;
-        NBTTagCompound compound = stack.getTagCompound();
+        EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
+        if (player == null) {return this.defaultModel;}
         
-        if (player != null && compound != null)
-        {
-            int biomeID = compound.getInteger("biomeIDToFind");
-            int posX = compound.getInteger("posX");
-            int posZ = compound.getInteger("posZ");
-            boolean foundBiome = compound.getBoolean("foundBiome");
-            
-            return frames[getIconIndexFacingBiome(player, posX, posZ, biomeID)];
+        NBTTagCompound nbt = stack.getTagCompound();
+        if (nbt != null && nbt.hasKey("biomeIDToFind"))
+        {                
+            if (nbt.hasKey("searchStarted"))
+            {
+                // searching for biome, but not yet found indicate searching by flashing
+                return this.getFlashingFrame(player);
+            }
+            else if (nbt.getBoolean("found"))
+            {
+                // if the biome has been found, point at it
+                int posX = nbt.getInteger("posX");
+                int posZ = nbt.getInteger("posZ");
+                return getFrameForPositionRelativeToPlayer(player, posX, posZ);
+            }
+            else
+            {
+                // the search has not yet been started, show all sectors lit
+                return this.frames[9];
+            }
         }
-        
-        return defaultModel;
+        else
+        {
+            // if we've got here, the biome finder has not been bound to a biome yet - show no sectors lit
+            return this.frames[8];
+        }
     }
     
-    public int getIconIndexFacingBiome(EntityPlayer player, int biomePosX, int biomePosZ, int biomeID)
+    public IBakedModel getFlashingFrame(EntityPlayerSP player)
     {
-        double biomeAngle = 0.0D;
-
+        return (player.getRNG().nextInt(2) == 0 ? this.frames[10] : this.frames[11]);
+    }
+    
+    public IBakedModel getFrameForPositionRelativeToPlayer(EntityPlayer player, int biomePosX, int biomePosZ)
+    {
         double xDiff = (double)biomePosX - player.posX;
         double zDiff = (double)biomePosZ - player.posZ;
-        player.rotationYaw %= 360.0D;
-
-        //Converts the player's yaw to radians, subtracts the angle of the coord of the biome
-        biomeAngle = -((player.rotationYaw - 90.0D) / 180.0D * Math.PI - Math.atan2(zDiff, xDiff));
-
-        double d6;
-
-        for (d6 = biomeAngle - this.currentAngles[biomeID]; d6 < -Math.PI; d6 += (Math.PI * 2D))
-        {
-            ;
-        }
-
-        while (d6 >= Math.PI)
-        {
-            d6 -= (Math.PI * 2D);
-        }
-
-        if (d6 < -1.0D)
-        {
-            d6 = -1.0D;
-        }
-
-        if (d6 > 1.0D)
-        {
-            d6 = 1.0D;
-        }
-
-        this.angleDeltas[biomeID] += d6 * 0.1D;
-        this.angleDeltas[biomeID] *= 0.8D;
-        this.currentAngles[biomeID] += this.angleDeltas[biomeID];
-
-        int i;
-
-        for (i = (int)((this.currentAngles[biomeID] / (Math.PI * 2D) + 1.0D) * (double)32) % 32; i < 0; i = (i + 32) % 32)
-        {
-            ;
-        }
-
-        return i;
+        // angle (in degrees) of direction from player to biome (relative to player rotation)
+        double angleDiff = (Math.atan2(zDiff, xDiff) * 180.0D / Math.PI) + 270.0D - player.rotationYaw;
+        // there are 8 sectors on the biome finder, so 45 degrees each (offset by 22.5 to center the angle in the middle of the sector)
+        int sector = (int)Math.floor((angleDiff + 22.5D) / 45.0D);
+        return this.frames[((sector % 8) + 8) % 8];        
     }
 }

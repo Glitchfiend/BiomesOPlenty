@@ -63,31 +63,29 @@ public class ItemBiomeFinder extends Item
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        // carry out the search on the server, not the client
-        if (world.isRemote) {return stack;}
-        
+
         if (!stack.hasTagCompound()) {stack.setTagCompound(new NBTTagCompound());}
         NBTTagCompound nbt = stack.getTagCompound();
-          
+        
         if (nbt.getBoolean("found"))
         {
-            System.out.println("Already found, returning");
             return stack;
         }
-        if (nbt.hasKey("searchStarted") && (world.getWorldTime() - nbt.getLong("searchStarted") < 200))
+        if (nbt.hasKey("searchStarted") && (world.getWorldTime() - nbt.getLong("searchStarted") < 100))
         {
-            System.out.println("Still searching, returning");
             return stack;
         }
         if (!nbt.hasKey("biomeIDToFind"))
         {
-            System.out.println("No biome to find, returning");
             return stack;
         }
-
         BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
-        System.out.println("Biome finder looking for "+biomeToFind.biomeName);
+        
+        // both client and server set the 'searching' tag - client to update the rendering, server so it can't be used again too quickly
         writeNBTSearching(nbt, world);  
+        
+        // carry out the search on the server, not the client
+        if (world.isRemote) {return stack;}
         
         // search for biomeToFind, maximum distance 5000 blocks, 64 blocks between samples
         BlockPos pos = this.spiralOutwardsLookingForBiome(world, biomeToFind, player.posX, player.posZ, 5000, 64);
@@ -99,7 +97,8 @@ public class ItemBiomeFinder extends Item
         {
             writeNBTFound(nbt, pos);
         }
-        return stack;
+        // It is necessary for the server to return a copy of the stack to make sure that the client successfully replaces it in the inventory
+        return stack.copy();
     }
     
     public static void writeNBTSearching(NBTTagCompound nbt, World world)
@@ -111,7 +110,7 @@ public class ItemBiomeFinder extends Item
     }
     
     public static void writeNBTFound(NBTTagCompound nbt, BlockPos pos)
-    {        
+    {
         nbt.setBoolean("found",true);
         nbt.removeTag("searchStarted");
         nbt.setInteger("posX", pos.getX());
@@ -126,18 +125,5 @@ public class ItemBiomeFinder extends Item
         nbt.removeTag("posZ");
     }
 
-    
-    
-    
-    /* TODO:  all the rendering stuff... not sure how it's going to work
-    public class TextureBiomeFinder extends TextureAtlasSprite
-    {
-
-        public TextureBiomeFinder(String spriteName) {
-            super(spriteName);
-        }
-        
-    }
-    */
     
 }
