@@ -1,0 +1,14 @@
+{
+  "mob.wasp.hurt": {
+    "category": "hostile",
+    "sounds": [
+      "mob/wasp/hurt"
+    ]
+  },
+  "mob.wasp.say": {
+    "category": "hostile",
+    "sounds": [
+      "mob/wasp/say"
+    ]
+  }
+}

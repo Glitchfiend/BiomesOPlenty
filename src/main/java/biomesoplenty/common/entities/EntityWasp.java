@@ -55,7 +55,6 @@ public class EntityWasp extends EntityFlying implements IMob {
         return target.attackEntityFrom(DamageSource.causeMobDamage(this), f);
     }
     
-    // TODO: sounds don't work yet - need to register them somewhere first I think
     @Override
     protected String getLivingSound()
     {
