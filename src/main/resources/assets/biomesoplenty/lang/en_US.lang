@@ -178,3 +178,8 @@ item.persimmon.name=Persimmon
 item.peach.name=Peach
 item.pear.name=Pear
 item.crystal_shard.name=Celestial Crystal Shard
+
+
+biome_finder.searching=Searching for %s
+biome_finder.found=Found %s!
+biome_finder.not_found=Not found, maybe %s is too far away
