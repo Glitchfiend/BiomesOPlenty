@@ -19,18 +19,8 @@ import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemHoe;
-import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.ItemSeeds;
-import net.minecraft.item.ItemSoup;
-import net.minecraft.item.ItemSpade;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
@@ -45,6 +35,7 @@ import biomesoplenty.common.item.ItemBOPScythe;
 import biomesoplenty.common.item.ItemBiomeFinder;
 import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemDartBlower;
+import biomesoplenty.common.item.ItemEnderporter;
 import biomesoplenty.common.item.ItemGem;
 import biomesoplenty.common.item.ItemMudball;
 import biomesoplenty.common.item.ItemWadingBoots;
@@ -148,6 +139,7 @@ public class ModItems
         // no repair item for amethyst tool - they can't be repaired
 
         // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
+        // TODO use utility functions for this
         Constructor<ItemAxe> axeConstructor;
         try
         {
@@ -191,6 +183,7 @@ public class ModItems
 
         
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
+        enderporter = registerItem(new ItemEnderporter(), "enderporter");
         
     }
     

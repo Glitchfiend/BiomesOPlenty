@@ -97,6 +97,7 @@ public class BOPItems
     public static Item amethyst_scythe;
     
     public static Item biome_finder;
+    public static Item enderporter;
         
     
 }
