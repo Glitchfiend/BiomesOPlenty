@@ -1,4 +1,16 @@
 {
+  "mob.pixie.hurt": {
+    "category": "neutral",
+    "sounds": [
+      "mob/pixie/hurt"
+    ]
+  },
+  "mob.pixie.say": {
+    "category": "neutral",
+    "sounds": [
+      "mob/pixie/say"
+    ]
+  },
   "mob.wasp.hurt": {
     "category": "hostile",
     "sounds": [

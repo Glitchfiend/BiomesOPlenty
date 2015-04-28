@@ -8,6 +8,7 @@
 
 package biomesoplenty.common.init;
 
+import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
 import biomesoplenty.core.BiomesOPlenty;
@@ -20,10 +21,10 @@ public class ModEntities
     {
         
         // TODO: how to set id?
+        // TODO: why can't we use the summon command on these?
         EntityRegistry.registerModEntity(EntityDart.class, "dart", 26, BiomesOPlenty.instance, 80, 3, true);
-       
         EntityRegistry.registerModEntity(EntityWasp.class, "wasp", 27, BiomesOPlenty.instance, 80, 3, true);
-
+        EntityRegistry.registerModEntity(EntityPixie.class, "pixie", 28, BiomesOPlenty.instance, 80, 3, true);
         
     }
 }
