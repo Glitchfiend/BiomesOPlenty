@@ -34,7 +34,7 @@ public class ItemEnderporter extends Item {
         if (world.provider.isSurfaceWorld())
         {
             stack.damageItem(1, player);
-            //player.addPotionEffect(new PotionEffect(Potion.blindness.id, 100, 999));
+            player.addPotionEffect(new PotionEffect(Potion.blindness.id, 30, 999));
             player.addPotionEffect(new PotionEffect(Potion.resistance.id, 200, 999));
             player.addPotionEffect(new PotionEffect(Potion.nightVision.id, 100, 999));
             player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 200, 3));
@@ -47,7 +47,7 @@ public class ItemEnderporter extends Item {
             // have the server inform the client that they can't use the enderporter
             if (!world.isRemote)
             {
-                ChatComponentText msg = new ChatComponentText("\u00a75" + StatCollector.translateToLocal("enderporter.prevent"));
+                ChatComponentText msg = new ChatComponentText(StatCollector.translateToLocal("enderporter.prevent"));
                 msg.getChatStyle().setColor(EnumChatFormatting.DARK_PURPLE);
                 player.addChatMessage(msg);
             }
