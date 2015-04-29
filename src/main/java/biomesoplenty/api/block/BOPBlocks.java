@@ -9,6 +9,7 @@
 package biomesoplenty.api.block;
 
 import net.minecraft.block.Block;
+import net.minecraftforge.fluids.Fluid;
 
 public class BOPBlocks
 {
@@ -130,4 +131,6 @@ public class BOPBlocks
     
     public static Block honey_block;
     
+    public static Block honey;
+    public static Fluid honey_fluid;
 }

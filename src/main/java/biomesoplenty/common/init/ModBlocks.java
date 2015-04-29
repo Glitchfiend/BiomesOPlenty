@@ -12,67 +12,28 @@ import static biomesoplenty.api.block.BOPBlocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.statemap.IStateMapper;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemSlab;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.item.BOPItems;
-import biomesoplenty.common.block.BlockAsh;
-import biomesoplenty.common.block.BlockBOPDirt;
-import biomesoplenty.common.block.BlockBOPDoor;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab0;
-import biomesoplenty.common.block.BlockBOPDoubleWoodSlab1;
-import biomesoplenty.common.block.BlockBOPFence;
-import biomesoplenty.common.block.BlockBOPFenceGate;
-import biomesoplenty.common.block.BlockBOPFlower1;
-import biomesoplenty.common.block.BlockBOPFlower2;
-import biomesoplenty.common.block.BlockBOPGeneric;
-import biomesoplenty.common.block.BlockBOPGrass;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab0;
-import biomesoplenty.common.block.BlockBOPHalfWoodSlab1;
-import biomesoplenty.common.block.BlockBOPLeaves0;
-import biomesoplenty.common.block.BlockBOPLeaves1;
-import biomesoplenty.common.block.BlockBOPLeaves2;
-import biomesoplenty.common.block.BlockBOPLeaves3;
-import biomesoplenty.common.block.BlockBOPLeaves4;
-import biomesoplenty.common.block.BlockBOPLeaves5;
-import biomesoplenty.common.block.BlockBOPLilypad;
-import biomesoplenty.common.block.BlockBOPLog0;
-import biomesoplenty.common.block.BlockBOPLog1;
-import biomesoplenty.common.block.BlockBOPLog2;
-import biomesoplenty.common.block.BlockBOPLog3;
-import biomesoplenty.common.block.BlockBOPMushroom;
-import biomesoplenty.common.block.BlockBOPPlanks;
-import biomesoplenty.common.block.BlockBOPPlanks0;
-import biomesoplenty.common.block.BlockBOPSapling0;
-import biomesoplenty.common.block.BlockBOPSapling1;
-import biomesoplenty.common.block.BlockBOPSapling2;
-import biomesoplenty.common.block.BlockBOPStairs;
-import biomesoplenty.common.block.BlockBOPStone;
-import biomesoplenty.common.block.BlockBOPVine;
-import biomesoplenty.common.block.BlockBamboo;
-import biomesoplenty.common.block.BlockBones;
-import biomesoplenty.common.block.BlockCoral;
-import biomesoplenty.common.block.BlockCrystal;
-import biomesoplenty.common.block.BlockBOPDoublePlant;
-import biomesoplenty.common.block.BlockFlesh;
-import biomesoplenty.common.block.BlockBOPPlant0;
-import biomesoplenty.common.block.BlockBOPPlant1;
-import biomesoplenty.common.block.BlockFruit;
-import biomesoplenty.common.block.BlockGem;
-import biomesoplenty.common.block.BlockGemOre;
-import biomesoplenty.common.block.BlockHive;
-import biomesoplenty.common.block.BlockHoney;
-import biomesoplenty.common.block.BlockMud;
-import biomesoplenty.common.block.BlockStoneFormations;
-import biomesoplenty.common.block.BlockTurnip;
+import biomesoplenty.client.handler.ModelBakeHandler;
+import biomesoplenty.common.block.*;
 import biomesoplenty.common.command.BOPCommand;
+import biomesoplenty.common.fluids.blocks.BlockHoneyFluid;
 import biomesoplenty.common.util.block.BlockStateUtils;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
@@ -227,6 +188,25 @@ public class ModBlocks
         
         honey_block =       registerBlock( new BlockHoney(), "honey_block" );
         
+        
+        // TODO: make the honey render!  at the moment, no forge fluids are rendering in 1.8, they're invisible
+        honey_fluid = new Fluid("honey");
+        honey_fluid.setViscosity(1500);
+        FluidRegistry.registerFluid(honey_fluid);
+        honey = registerFluidBlock(honey_fluid, new BlockHoneyFluid(honey_fluid), "honey");
+        
+    }
+    
+    
+    public static Block registerFluidBlock(Fluid fluid, BlockFluidBase fluidBlock, String name)
+    {
+        Block block = GameRegistry.registerBlock(fluidBlock, null, name);
+        // use a custom state mapper which will ignore the LEVEL property
+        IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(new IProperty[] {BlockFluidBase.LEVEL}).build();
+        ModelLoader.setCustomStateMapper(block, custom_mapper);
+        fluid.setBlock(fluidBlock);
+        ModelBakeHandler.fluidsToTextureStitch.add(name);
+        return block;
     }
     
     

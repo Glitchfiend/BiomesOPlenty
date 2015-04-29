@@ -8,20 +8,28 @@
 
 package biomesoplenty.client.handler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import biomesoplenty.client.model.ModelBiomeFinder;
 import biomesoplenty.client.texture.TextureAnimationFrame;
 import biomesoplenty.client.util.TextureUtils;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.model.IBakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.util.IRegistry;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class ModelBakeHandler
 {
     public static final ModelResourceLocation BIOME_FINDER = new ModelResourceLocation("biomesoplenty:biome_finder", "inventory");
+    
+    public static List<String> fluidsToTextureStitch = new ArrayList<String>();
     
     private TextureAnimationFrame[] biomeFinderFrames;
     
@@ -31,6 +39,19 @@ public class ModelBakeHandler
         TextureMap map = event.map;
         
         biomeFinderFrames = TextureUtils.splitAnimatedTexture(map, "biomesoplenty:items/biome_finder", 12);
+        
+        for (String name : fluidsToTextureStitch)
+        {
+            Fluid fluid = FluidRegistry.getFluid(name);
+            if (fluid == null)
+            {
+                BiomesOPlenty.logger.error("No fluid found with name "+name);
+            }
+            else
+            {
+                fluid.setIcons(map.getAtlasSprite("biomesoplenty:blocks/"+name+"_still"), map.getAtlasSprite("biomesoplenty:blocks/"+name+"_flowing"));
+            }
+        }
     }
     
     @SubscribeEvent
