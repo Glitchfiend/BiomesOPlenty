@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Random;
 
 import biomesoplenty.api.item.BOPItems;
+import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.entity.EntityFlying;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
@@ -22,7 +24,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
@@ -60,8 +61,7 @@ public class EntityPixie extends EntityFlying implements IMob {
             {
                 if (this.rand.nextInt(2)==0)
                 {
-                    // TODO: add pixie particle BiomesOPlenty.proxy.spawnParticle("pixietrail", this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - (double)this.yOffset, this.posZ + (this.rand.nextDouble()) * (double)this.width);
-                    this.worldObj.spawnParticle(EnumParticleTypes.PORTAL, this.posX + (this.rand.nextDouble() - 0.5D) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble() - 0.5D) * (double)this.width, (this.rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (this.rand.nextDouble() - 0.5D) * 2.0D, new int[0]);
+                    BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.PIXIETRAIL, this.posX + (this.rand.nextDouble()) * (double)this.width, this.posY + this.rand.nextDouble() * (double)this.height - 0.25D, this.posZ + (this.rand.nextDouble()) * (double)this.width);
                 }
             }
         }
