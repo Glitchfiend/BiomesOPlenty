@@ -98,6 +98,6 @@ public class BOPItems
     
     public static Item biome_finder;
     public static Item enderporter;
-        
+    public static Item jar_empty;
     
 }

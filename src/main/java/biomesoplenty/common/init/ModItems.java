@@ -29,16 +29,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.item.ItemAmbrosia;
-import biomesoplenty.common.item.ItemBOPFood;
-import biomesoplenty.common.item.ItemBOPScythe;
-import biomesoplenty.common.item.ItemBiomeFinder;
-import biomesoplenty.common.item.ItemDart;
-import biomesoplenty.common.item.ItemDartBlower;
-import biomesoplenty.common.item.ItemEnderporter;
-import biomesoplenty.common.item.ItemGem;
-import biomesoplenty.common.item.ItemMudball;
-import biomesoplenty.common.item.ItemWadingBoots;
+import biomesoplenty.common.item.*;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -184,6 +175,7 @@ public class ModItems
         
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
         enderporter = registerItem(new ItemEnderporter(), "enderporter");
+        jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         
     }
     
