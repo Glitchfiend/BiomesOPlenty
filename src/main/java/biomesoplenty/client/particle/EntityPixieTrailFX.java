@@ -11,17 +11,16 @@ package biomesoplenty.client.particle;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.WorldRenderer;
-import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class EntityPixieTrailFX extends EntityFX
 {
     
     public static ResourceLocation textureLocation = new ResourceLocation("biomesoplenty:textures/particles/pixietrail.png");
-    public static SimpleTexture texture;
     float pixieTrailParticleScale;
 
     public EntityPixieTrailFX(World world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn)
@@ -52,9 +51,8 @@ public class EntityPixieTrailFX extends EntityFX
     @Override
     public void renderParticle(WorldRenderer worldRendererIn, Entity entity, float partialTicks, float p_180434_4_, float p_180434_5_, float p_180434_6_, float p_180434_7_, float p_180434_8_)
     {
-        
         // EffectRenderer will by default bind the vanilla particles texture, override with our own (this is loaded and initialized in ClientProxy)
-        GlStateManager.bindTexture(texture.getGlTextureId());
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(textureLocation);        
         
         float scaleMultiplier = ((float)this.particleAge + partialTicks) / (float)this.particleMaxAge * 32.0F;
         scaleMultiplier = MathHelper.clamp_float(scaleMultiplier, 0.0F, 1.0F);

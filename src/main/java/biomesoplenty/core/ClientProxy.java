@@ -15,8 +15,6 @@ import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.client.renderer.block.statemap.StateMap;
-import net.minecraft.client.renderer.texture.SimpleTexture;
-import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -26,7 +24,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.particle.BOPParticleTypes;
-import biomesoplenty.client.particle.EntityPixieTrailFX;
+import biomesoplenty.client.particle.*;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
@@ -43,7 +41,6 @@ public class ClientProxy extends CommonProxy
     public void registerRenderers()
     {
         Minecraft minecraft = Minecraft.getMinecraft();
-        TextureManager textureManager = minecraft.renderEngine;
         
         if (MiscConfigurationHandler.overrideTitlePanorama)
             GuiMainMenu.titlePanoramaPaths = bopTitlePanoramaPaths;
@@ -52,11 +49,6 @@ public class ClientProxy extends CommonProxy
         RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(minecraft.getRenderManager()));
         RenderingRegistry.registerEntityRenderingHandler(EntityWasp.class, new RenderWasp(minecraft.getRenderManager()));
         RenderingRegistry.registerEntityRenderingHandler(EntityPixie.class, new RenderPixie(minecraft.getRenderManager()));
-        
-        
-        // load the texture for EntityPixieTrailFX
-        EntityPixieTrailFX.texture = new SimpleTexture(EntityPixieTrailFX.textureLocation);
-        textureManager.loadTexture(EntityPixieTrailFX.textureLocation, EntityPixieTrailFX.texture);
 
     }
     
@@ -96,6 +88,9 @@ public class ClientProxy extends CommonProxy
         {
             case PIXIETRAIL:
                 entityFx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03));
+                break;
+            default:
+                break;
         }
         
         if (entityFx != null) {minecraft.effectRenderer.addEffect(entityFx);}
