@@ -2,5 +2,5 @@ package biomesoplenty.api.particle;
 
 public enum BOPParticleTypes
 {
-    PIXIETRAIL;
+    PIXIETRAIL, DANDELION;
 }

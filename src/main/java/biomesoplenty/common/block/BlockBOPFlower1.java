@@ -11,6 +11,7 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.item.ItemBOPFlower;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -20,6 +21,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemShears;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -33,7 +35,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: Readd eyebulb in as a seperate block
-// TODO: Readd dandelion blowing
 // TODO: placing lily of the valley.  where is lily flower?
 public class BlockBOPFlower1 extends BlockDecoration {
         
@@ -58,6 +59,8 @@ public class BlockBOPFlower1 extends BlockDecoration {
     
     
     // implement IBOPBlock
+    @Override
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPFlower.class; }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override

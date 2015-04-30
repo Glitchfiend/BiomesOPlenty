@@ -89,6 +89,9 @@ public class ClientProxy extends CommonProxy
             case PIXIETRAIL:
                 entityFx = new EntityPixieTrailFX(minecraft.theWorld, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03), -0.02D, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.03, 0.03));
                 break;
+            case DANDELION:
+                entityFx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
+                break;
             default:
                 break;
         }

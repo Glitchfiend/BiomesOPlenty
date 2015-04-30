@@ -9,12 +9,14 @@
 package biomesoplenty.common.block;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.common.item.ItemBOPFlower;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
@@ -45,6 +47,8 @@ public class BlockBOPFlower2 extends BlockDecoration {
     
     
     // implement IBOPBlock
+    @Override
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPFlower.class; }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
     @Override
