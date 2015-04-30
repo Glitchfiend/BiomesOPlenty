@@ -176,6 +176,8 @@ public class ModItems
         biome_finder = registerItem(new ItemBiomeFinder(), "biome_finder");
         enderporter = registerItem(new ItemEnderporter(), "enderporter");
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
+        jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
+
         
     }
     

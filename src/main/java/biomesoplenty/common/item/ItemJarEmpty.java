@@ -60,8 +60,7 @@ public class ItemJarEmpty extends Item
                 --stack.stackSize;
                 player.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
                 
-                // TODO: change to filled jar of honey when implemented
-                ItemStack honeyJar =  new ItemStack(BOPItems.honeycomb);
+                ItemStack honeyJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.HONEY.ordinal());
                 // if there was only one empty jar in the stack, replace it, otherwise add the filledJar elsewhere in the inventory
                 if (stack.stackSize <= 0)
                 {
@@ -87,8 +86,8 @@ public class ItemJarEmpty extends Item
             EntityPixie pixie = (EntityPixie)target;
             pixie.setDead();
             --stack.stackSize;
-            // TODO: change to pixie jar
-            EntityItem pixieJarEntity = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, new ItemStack(BOPItems.pixie_dust));
+            ItemStack pixieJar = new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.PIXIE.ordinal());
+            EntityItem pixieJarEntity = new EntityItem(player.worldObj, player.posX, player.posY, player.posZ, pixieJar);
             if (!player.worldObj.isRemote)
             {
                 player.worldObj.spawnEntityInWorld(pixieJarEntity);
@@ -98,7 +97,6 @@ public class ItemJarEmpty extends Item
         }
         return false;
     }
-    
     
 }
   
