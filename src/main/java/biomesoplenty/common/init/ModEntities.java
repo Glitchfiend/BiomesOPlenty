@@ -11,7 +11,6 @@ package biomesoplenty.common.init;
 import biomesoplenty.common.entities.EntityPixie;
 import biomesoplenty.common.entities.EntityWasp;
 import biomesoplenty.common.entities.projectiles.EntityDart;
-import biomesoplenty.core.BiomesOPlenty;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class ModEntities
@@ -19,12 +18,9 @@ public class ModEntities
     
     public static void init()
     {
-        
-        // TODO: how to set id?
-        // TODO: why can't we use the summon command on these?
-        EntityRegistry.registerModEntity(EntityDart.class, "dart", 26, BiomesOPlenty.instance, 80, 3, true);
-        EntityRegistry.registerModEntity(EntityWasp.class, "wasp", 27, BiomesOPlenty.instance, 80, 3, true);
-        EntityRegistry.registerModEntity(EntityPixie.class, "pixie", 28, BiomesOPlenty.instance, 80, 3, true);
-        
+        EntityRegistry.registerGlobalEntityID(EntityDart.class, "dart", EntityRegistry.findGlobalUniqueEntityId());
+        EntityRegistry.registerGlobalEntityID(EntityWasp.class, "wasp", EntityRegistry.findGlobalUniqueEntityId(), 0xFEE563, 0x000000);
+        EntityRegistry.registerGlobalEntityID(EntityPixie.class, "pixie", EntityRegistry.findGlobalUniqueEntityId(), 0xFFFFFF, 0xFF4DFF);  
     }
+    
 }
