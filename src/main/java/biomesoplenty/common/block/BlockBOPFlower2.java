@@ -79,6 +79,13 @@ public class BlockBOPFlower2 extends BlockDecoration {
         return ((FlowerType) state.getValue(VARIANT)).ordinal();
     }
     
+    // make sure the block drops the right type of flower
+    @Override
+    public int damageDropped(IBlockState state)
+    {
+        return this.getMetaFromState(state);
+    }
+    
     // set the size of the different flowers' bounding boxes
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
