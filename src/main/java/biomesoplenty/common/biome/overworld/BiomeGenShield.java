@@ -33,14 +33,14 @@ public class BiomeGenShield extends BOPOverworldBiome
 		this.theBiomeDecorator.sandPerChunk = -999;
 		this.theBiomeDecorator.sandPerChunk2 = -999;
 
-		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 9;
+		this.theBiomeDecorator.bopFeatures.gravelPerChunk = 15;
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.waterReedsPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.deadLeafPilesPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.seaweedPerChunk = 5;
         this.theBiomeDecorator.bopFeatures.algaePerChunk = 4;
-        this.theBiomeDecorator.bopFeatures.generateStoneInGrass2 = true;
+        //this.theBiomeDecorator.bopFeatures.generateStoneInGrass2 = true;
         this.theBiomeDecorator.bopFeatures.flaxPerChunk = 1;
 
         this.theBiomeDecorator.bopFeatures.bopGrassPerChunk = 12;
@@ -56,8 +56,7 @@ public class BiomeGenShield extends BOPOverworldBiome
     {
 		return random.nextInt(2) == 0 ? new WorldGenShrub(0, 0) : 
 		(random.nextInt(4) == 0 ? new WorldGenPineTree() : 
-		(random.nextInt(6) == 0 ? new WorldGenBOPTaiga2(BOPCBlocks.logs1, BOPCBlocks.leaves2, 3, 1, false, 10, 10, 5, 4) : 
-		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6, 4)));
+		new WorldGenBOPTaiga2(Blocks.log, Blocks.leaves, 1, 1, false, 9, 9, 6, 4));
 	}
 
 	@Override
@@ -89,6 +88,25 @@ public class BiomeGenShield extends BOPOverworldBiome
 			new WorldGenMoss().generate(world, random, x, y, z);
 		}
 	}
+	
+	public void genTerrainBlocks(World p_150573_1_, Random p_150573_2_, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
+    {
+
+        if (p_150573_7_ > 1.75D)
+        {
+            this.topBlock = Blocks.stone;
+            this.fillerBlock = Blocks.stone;
+            this.field_150604_aj = 0;
+        }
+        else if (p_150573_7_ > -0.95D)
+        {
+            this.topBlock = Blocks.grass;
+            this.fillerBlock = Blocks.dirt;
+            this.field_150604_aj = 0;
+        }
+
+        this.genBiomeTerrain(p_150573_1_, p_150573_2_, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
+    }
 
 	@Override
     public int getBiomeGrassColor(int x, int y, int z)

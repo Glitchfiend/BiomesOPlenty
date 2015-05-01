@@ -20,6 +20,7 @@ import static biomesoplenty.api.content.BOPCBiomes.crag;
 import static biomesoplenty.api.content.BOPCBiomes.deadForest;
 import static biomesoplenty.api.content.BOPCBiomes.deadSwamp;
 import static biomesoplenty.api.content.BOPCBiomes.deciduousForest;
+import static biomesoplenty.api.content.BOPCBiomes.denseForest;
 import static biomesoplenty.api.content.BOPCBiomes.dryRiver;
 import static biomesoplenty.api.content.BOPCBiomes.eucalyptusForest;
 import static biomesoplenty.api.content.BOPCBiomes.fen;
@@ -139,6 +140,7 @@ import biomesoplenty.common.biome.overworld.BiomeGenCrag;
 import biomesoplenty.common.biome.overworld.BiomeGenDeadForest;
 import biomesoplenty.common.biome.overworld.BiomeGenDeadSwamp;
 import biomesoplenty.common.biome.overworld.BiomeGenDeciduousForest;
+import biomesoplenty.common.biome.overworld.BiomeGenDenseForest;
 import biomesoplenty.common.biome.overworld.BiomeGenEucalyptusForest;
 import biomesoplenty.common.biome.overworld.BiomeGenFen;
 import biomesoplenty.common.biome.overworld.BiomeGenFlowerField;
@@ -260,6 +262,7 @@ public class BOPBiomes
         deadForest = registerOverworldBiome(BiomeGenDeadForest.class, "Dead Forest", TemperatureType.COOL, 5);
         deadSwamp = registerOverworldBiome(BiomeGenDeadSwamp.class, "Dead Swamp", TemperatureType.COOL, 5);
         deciduousForest = registerOverworldBiome(BiomeGenDeciduousForest.class, "Deciduous Forest", TemperatureType.WARM, 10);
+        denseForest = registerOverworldBiome(BiomeGenDenseForest.class, "Dense Forest", TemperatureType.WARM, 7);
         eucalyptusForest = registerOverworldBiome(BiomeGenEucalyptusForest.class, "Eucalyptus Forest", TemperatureType.HOT, 7);
         fen = registerOverworldBiome(BiomeGenFen.class, "Fen", TemperatureType.COOL, 10);
         flowerField = registerOverworldBiome(BiomeGenFlowerField.class, "Flower Field", TemperatureType.WARM, 3);
@@ -394,6 +397,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.deadForest, Type.FOREST, Type.DEAD, Type.SPARSE, Type.SPOOKY);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deadSwamp, Type.SWAMP, Type.DEAD, Type.SPARSE, Type.SPOOKY);
         BiomeDictionary.registerBiomeType(BOPCBiomes.deciduousForest, Type.FOREST, Type.DENSE, Type.DRY);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.denseForest, Type.FOREST, Type.DENSE, Type.LUSH);
         BiomeDictionary.registerBiomeType(BOPCBiomes.eucalyptusForest, Type.JUNGLE, Type.HOT, Type.DRY, Type.LUSH, Type.SPARSE);
         BiomeDictionary.registerBiomeType(BOPCBiomes.fen, Type.FOREST, Type.SWAMP, Type.DEAD, Type.WET);
         BiomeDictionary.registerBiomeType(BOPCBiomes.flowerField, Type.PLAINS, Type.LUSH);
@@ -453,6 +457,7 @@ public class BOPBiomes
         BiomeDictionary.registerBiomeType(BOPCBiomes.wasteland, Type.WASTELAND, Type.SPOOKY, Type.DEAD, Type.SPARSE);
         BiomeDictionary.registerBiomeType(BOPCBiomes.wetland, Type.SWAMP, Type.FOREST, Type.LUSH, Type.WET, Type.DENSE);
         BiomeDictionary.registerBiomeType(BOPCBiomes.woodland, Type.FOREST, Type.DRY, Type.DENSE);
+        BiomeDictionary.registerBiomeType(BOPCBiomes.xericShrubland, Type.SANDY, Type.LUSH, Type.DRY, Type.HOT);
 	}
 	
 	private static void disableRivers()

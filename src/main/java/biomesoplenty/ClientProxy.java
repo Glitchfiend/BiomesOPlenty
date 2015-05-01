@@ -46,7 +46,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy 
 {
-	public static Minecraft minecraft = Minecraft.getMinecraft();
+	public Minecraft minecraft = Minecraft.getMinecraft();
 	
 	//Client Only
 	@Override

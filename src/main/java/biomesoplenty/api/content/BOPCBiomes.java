@@ -21,6 +21,7 @@ public class BOPCBiomes
 	public static BiomeGenBase deadForest;
 	public static BiomeGenBase deadSwamp;
 	public static BiomeGenBase deciduousForest;
+	public static BiomeGenBase denseForest;
 	public static BiomeGenBase eucalyptusForest;
 	public static BiomeGenBase fen;
 	public static BiomeGenBase flowerField;
