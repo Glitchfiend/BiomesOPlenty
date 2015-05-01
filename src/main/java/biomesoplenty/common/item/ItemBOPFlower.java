@@ -64,7 +64,7 @@ public class ItemBOPFlower extends ItemBOPBlock {
             Vec3 vec = player.getLook(0.5F);
             Random rnd = player.getRNG();
         
-            if (!player.worldObj.isRemote)
+            if (player.worldObj.isRemote)
             {
                 for (int p = 0; p < 4; ++p)
                 {
