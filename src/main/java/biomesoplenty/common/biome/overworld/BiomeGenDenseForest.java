@@ -14,7 +14,7 @@ import biomesoplenty.common.world.features.trees.WorldGenBOPShrub;
 
 public class BiomeGenDenseForest extends BOPOverworldBiome
 {
-    private static final Height biomeHeight = new Height(0.075F, 0.05F);
+    private static final Height biomeHeight = new Height(0.575F, 1.05F);
     
     public BiomeGenDenseForest(int id)
     {
