@@ -10,21 +10,17 @@ package biomesoplenty.client.particle;
 
 import org.lwjgl.opengl.GL11;
 
+import biomesoplenty.core.ClientProxy;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class EntityDandelionFX extends EntityFX
 {
     
-    public static ResourceLocation textureLocation = new ResourceLocation("biomesoplenty:textures/particles/dandelion.png");
-    public static ResourceLocation vanillaParticleTextureLocation = new ResourceLocation("textures/particle/particles.png");
-
     public EntityDandelionFX(World world, double xCoordIn, double yCoordIn, double zCoordIn, float par14)
     {
         this(world, xCoordIn, yCoordIn, zCoordIn, 0.0D, 0.0D, 0.0D, par14);
@@ -33,6 +29,10 @@ public class EntityDandelionFX extends EntityFX
     public EntityDandelionFX(World world, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn, float par14)
     {
         super(world, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
+        
+        // dandelion texture is at position 0,0
+        this.particleTextureIndexX = 0;
+        this.particleTextureIndexY = 0;
                 
         this.motionX *= 0.20000000149011612D;
         this.motionY *= 0.10000000149011612D;
@@ -48,13 +48,17 @@ public class EntityDandelionFX extends EntityFX
     }
     
     @Override
+    public int getFXLayer()
+    {
+        return 2;
+    }
+    
+    @Override
     public void renderParticle(WorldRenderer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
     {
         
-        Tessellator.getInstance().draw();
         // EffectRenderer will by default bind the vanilla particles texture, override with our own
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(textureLocation);
-        renderer.startDrawingQuads();
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(ClientProxy.particleTexturesLocation);
         
         GlStateManager.depthMask(false);
         // TODO what's this?
@@ -62,30 +66,12 @@ public class EntityDandelionFX extends EntityFX
         GlStateManager.enableBlend();
         GlStateManager.blendFunc(770, 1);
         
-        doRenderParticle(renderer, entity, partialTicks, rotX, rotXZ, rotZ, rotYZ, rotXY);
+        super.renderParticle(renderer, entity, partialTicks, rotX, rotXZ, rotZ, rotYZ, rotXY);
         
         GL11.glDisable(3042);
         GlStateManager.disableBlend();
         GlStateManager.depthMask(true);
-        
-        Tessellator.getInstance().draw();
-        // put texture back to vanilla version
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(vanillaParticleTextureLocation);
-        renderer.startDrawingQuads();
-    }
-    
-    // replace EntityFX.renderParticle with code to make it use the entire texture (u and v from 0 to 1)
-    public void doRenderParticle(WorldRenderer renderer, Entity entity, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY)
-    {
-        float scale = 0.1F * this.particleScale;
-        float x = (float)(this.prevPosX + (this.posX - this.prevPosX) * (double)partialTicks - interpPosX);
-        float y = (float)(this.prevPosY + (this.posY - this.prevPosY) * (double)partialTicks - interpPosY);
-        float z = (float)(this.prevPosZ + (this.posZ - this.prevPosZ) * (double)partialTicks - interpPosZ);
-        renderer.setColorRGBA_F(this.particleRed, this.particleGreen, this.particleBlue, this.particleAlpha);
-        renderer.addVertexWithUV((double)(x - rotX * scale - rotYZ * scale), (double)(y - rotXZ * scale), (double)(z - rotZ * scale - rotXY * scale), 1.0D, 1.0D);
-        renderer.addVertexWithUV((double)(x - rotX * scale + rotYZ * scale), (double)(y + rotXZ * scale), (double)(z - rotZ * scale + rotXY * scale), 1.0D, 0.0D);
-        renderer.addVertexWithUV((double)(x + rotX * scale + rotYZ * scale), (double)(y + rotXZ * scale), (double)(z + rotZ * scale + rotXY * scale), 0.0D, 0.0D);
-        renderer.addVertexWithUV((double)(x + rotX * scale - rotYZ * scale), (double)(y - rotXZ * scale), (double)(z + rotZ * scale - rotXY * scale), 0.0D, 1.0D);
+
     }
     
     @Override

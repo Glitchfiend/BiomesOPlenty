@@ -64,10 +64,13 @@ public class ItemBOPFlower extends ItemBOPBlock {
             Vec3 vec = player.getLook(0.5F);
             Random rnd = player.getRNG();
         
-            for (int p = 0; p < 4; ++p)
+            if (!player.worldObj.isRemote)
             {
-                float pos = (rnd.nextFloat() - 0.5F) / 8;
-                BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.DANDELION, player.posX + vec.xCoord + pos, player.posY + vec.yCoord + player.getEyeHeight() + pos, player.posZ + vec.zCoord + pos);
+                for (int p = 0; p < 4; ++p)
+                {
+                    float pos = (rnd.nextFloat() - 0.5F) / 8;
+                    BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.DANDELION, player.posX + vec.xCoord + pos, player.posY + vec.yCoord + player.getEyeHeight() + pos, player.posZ + vec.zCoord + pos);
+                }
             }
         
             if (count < 10 && !player.capabilities.isCreativeMode) {
