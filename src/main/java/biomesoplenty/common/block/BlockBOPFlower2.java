@@ -93,7 +93,7 @@ public class BlockBOPFlower2 extends BlockDecoration {
         switch ((FlowerType) world.getBlockState(pos).getValue(VARIANT))
         {
             default:
-                this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
                 break;
         }
     }

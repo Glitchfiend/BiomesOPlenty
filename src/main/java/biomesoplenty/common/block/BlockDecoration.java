@@ -63,11 +63,31 @@ public class BlockDecoration extends Block implements IBOPBlock
     // utility function for setting the block bounds - typically decoration blocks are smaller than full block size
     public void setBlockBoundsByRadiusAndHeight(float radius, float height)
     {
-        this.setBlockBoundsByRadiusAndHeight(radius,height,false);
+        this.setBlockBoundsByRadiusAndHeight(radius, height, false);
     }
     public void setBlockBoundsByRadiusAndHeight(float radius, float height, boolean fromTop)
     {
         this.setBlockBounds(0.5F - radius, (fromTop ? 1.0F - height : 0.0F), 0.5F - radius, 0.5F + radius, (fromTop ? 1.0F : height), 0.5F + radius);
+    }
+    // some decoration blocks have a random XZ offset applied - if we set block bounds based on state, we may need these functions to correct for the offset
+    public void setBlockBoundsByRadiusAndHeightWithXZOffset(float radius, float height, BlockPos pos)
+    {
+        this.setBlockBoundsByRadiusAndHeightWithXZOffset(radius, height, false, pos);
+    }
+    public void setBlockBoundsByRadiusAndHeightWithXZOffset(float radius, float height, boolean fromTop, BlockPos pos)
+    {
+        // some Minecraft weirdness to get over here: in BlockModelRenderer there are 2 alternative quad drawers
+        // renderModelAmbientOcclusionQuads and renderModelStandardQuads, and they use very nearly but not quite the same functions for the XZ offset
+        // both versions rely on getting an unpredictable long 'hash' of the BlockPos coordinates
+        // the ambient one uses long i = MathHelper.getPositionRandom(pos)  (which equates to long i = (long)(x * 3129871) ^ (long)z * 116129781L ^ (long)y; )
+        // the standard one uses long i = (long)(x * 3129871) ^ (long)z * 116129781L; (no dependence on y)
+        // we use the standard one here, because that's the one being used to draw the plants
+        // it looks like a mistake to me.  I think they probably intended to use MathHelper.getPositionRandom for both, but maybe there is some reason behind it
+        long i = (long)(pos.getX() * 3129871) ^ (long)pos.getZ() * 116129781L;
+        i = i * i * 42317861L + i * 11L;
+        float dx = (((float)(i >> 16 & 15L) / 15.0F) - 0.5F) * 0.5F;
+        float dz = (((float)(i >> 24 & 15L) / 15.0F) - 0.5F) * 0.5F;
+        this.setBlockBounds(0.5F - radius + dx, (fromTop ? 1.0F - height : 0.0F), 0.5F - radius + dz, 0.5F + radius + dx, (fromTop ? 1.0F : height), 0.5F + radius + dz);
     }
  
     // add a canBlockStay() check before placing this block

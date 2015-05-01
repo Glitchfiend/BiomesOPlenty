@@ -105,23 +105,23 @@ public class BlockBOPFlower1 extends BlockDecoration {
         switch ((FlowerType) world.getBlockState(pos).getValue(VARIANT))
         {
             case CLOVER:
-                this.setBlockBoundsByRadiusAndHeight(0.5F, 0.015625F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.5F, 0.015625F, pos);
                 break;
 
             case ORANGE_COSMOS:
-                this.setBlockBoundsByRadiusAndHeight(0.2F, 0.8F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.8F, pos);
                 break;
 
             case PINK_DAFFODIL: case DANDELION:
-                this.setBlockBoundsByRadiusAndHeight(0.2F, 0.6F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.6F, pos);
                 break;
 
             case WHITE_ANEMONE:
-                this.setBlockBoundsByRadiusAndHeight(0.2F, 0.5F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.2F, 0.5F, pos);
                 break;
 
             default:
-                this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
+                this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.4F, 0.8F, pos);
                 break;
         }
     }
