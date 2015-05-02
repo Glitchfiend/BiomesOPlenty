@@ -23,9 +23,11 @@ import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.client.handler.ModelBakeHandler;
 import biomesoplenty.client.particle.*;
 import biomesoplenty.common.config.MiscConfigurationHandler;
 import biomesoplenty.common.entities.EntityPixie;
@@ -82,6 +84,15 @@ public class ClientProxy extends CommonProxy
                 ModelLoader.setCustomStateMapper(block, custom_mapper);
             }
         }
+    }
+    
+    @Override
+    public void registerFluidBlockRendering(Block block, String name) 
+    {
+        // use a custom state mapper which will ignore the LEVEL property
+        IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(new IProperty[] {BlockFluidBase.LEVEL}).build();
+        ModelLoader.setCustomStateMapper(block, custom_mapper);
+        ModelBakeHandler.fluidsToTextureStitch.add(name);
     }
     
     @Override

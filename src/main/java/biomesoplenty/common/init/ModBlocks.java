@@ -201,11 +201,8 @@ public class ModBlocks
     public static Block registerFluidBlock(Fluid fluid, BlockFluidBase fluidBlock, String name)
     {
         Block block = GameRegistry.registerBlock(fluidBlock, null, name);
-        // use a custom state mapper which will ignore the LEVEL property
-        IStateMapper custom_mapper = (new StateMap.Builder()).addPropertiesToIgnore(new IProperty[] {BlockFluidBase.LEVEL}).build();
-        ModelLoader.setCustomStateMapper(block, custom_mapper);
+        BiomesOPlenty.proxy.registerFluidBlockRendering(block, name);
         fluid.setBlock(fluidBlock);
-        ModelBakeHandler.fluidsToTextureStitch.add(name);
         return block;
     }
     

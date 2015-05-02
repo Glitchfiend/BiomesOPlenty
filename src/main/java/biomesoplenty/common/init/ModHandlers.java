@@ -9,6 +9,9 @@
 package biomesoplenty.common.init;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import biomesoplenty.client.handler.ModelBakeHandler;
 import biomesoplenty.common.handler.DyeEventHandler;
 import biomesoplenty.common.handler.GuiEventHandler;
@@ -24,8 +27,18 @@ public class ModHandlers
         DecorateBiomeEventHandler decorateBiomeHandler = new DecorateBiomeEventHandler();
         MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
+        MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
+        
+        if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+        {
+            registerClientEvents();
+        }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    private static void registerClientEvents()
+    {
         MinecraftForge.EVENT_BUS.register(new ModelBakeHandler());
         MinecraftForge.EVENT_BUS.register(new GuiEventHandler());
-        MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
     }
 }
