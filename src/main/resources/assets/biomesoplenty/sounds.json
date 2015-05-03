@@ -22,5 +22,23 @@
     "sounds": [
       "mob/wasp/say"
     ]
+  },
+  "records.wanderer": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/wanderer",
+        "stream": true
+      }
+    ]
+  },
+  "records.corruption": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/corruption",
+        "stream": true
+      }
+    ]
   }
 }

@@ -178,6 +178,8 @@ public class ModItems
         jar_empty = registerItem(new ItemJarEmpty(), "jar_empty");
         jar_filled = registerItem(new ItemJarFilled(), "jar_filled");
 
+        record_wanderer = registerItem(new ItemBOPRecord("wanderer"), "record_wanderer");
+        record_corruption = registerItem(new ItemBOPRecord("corruption"), "record_corruption");
         
     }
     
