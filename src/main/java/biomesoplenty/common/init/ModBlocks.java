@@ -66,6 +66,7 @@ public class ModBlocks
         stone_formations =      registerBlock( new BlockStoneFormations(), "stone_formations" );
         fruit_block =           registerBlock( new BlockFruit(), "fruit_block" /*, creativeTab(null) */); // TODO: once the mechanism for farming fruit is established: remove creative tab
         crystal =               registerBlock( new BlockCrystal(), "crystal" );
+        biome_block =           registerBlock( new BlockBiomeBlock(), "biome_block" );
         
         // generics
         ash_stone =             registerBlock( new BlockBOPGeneric(), "ash_stone" );

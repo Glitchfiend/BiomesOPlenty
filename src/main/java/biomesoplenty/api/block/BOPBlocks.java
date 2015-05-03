@@ -24,6 +24,7 @@ public class BOPBlocks
     public static Block hive;
     public static Block mushroom;
     public static Block stone;
+    public static Block biome_block;
     
     public static Block log_0;
     public static Block log_1;

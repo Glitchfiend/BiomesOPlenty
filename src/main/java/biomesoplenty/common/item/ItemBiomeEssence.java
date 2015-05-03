@@ -17,7 +17,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: This is probably all kinds of wrong
 public class ItemBiomeEssence extends Item
 {
     public ItemBiomeEssence() {}
@@ -28,49 +27,46 @@ public class ItemBiomeEssence extends Item
         return true;
     }
     
-    // TODO: wtf?
+    // TODO: really?  this looks well dodgy.
     @Override
     public ItemStack getContainerItem(ItemStack itemStack)
     {
         return itemStack;
-    }
+    }    
     
+    public BiomeGenBase getBiome(ItemStack itemStack)
+    {
+        if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeID"))
+        {
+            int biomeId = itemStack.getTagCompound().getInteger("biomeID");
+            try
+            {
+                return BiomeGenBase.getBiomeGenArray()[biomeId];
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        return null;
+    }
     
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
     {
-        if (itemStack.hasTagCompound())
+        BiomeGenBase biome = this.getBiome(itemStack);
+        if (biome != null)
         {
-            if (itemStack.getTagCompound().hasKey("biomeID")) 
-            {
-                BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeID")];
-
-                if (biome != null)
-                {
-                    infoList.add(biome.biomeName);
-                }
-            }
+            infoList.add(biome.biomeName);
         }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public int getColorFromItemStack(ItemStack itemStack, int par2)
+    public int getColorFromItemStack(ItemStack itemStack, int tintIndex)
     {
-        if (itemStack.hasTagCompound())
-        {
-            if (itemStack.getTagCompound().hasKey("biomeID"))
-            {
-                BiomeGenBase biome = BiomeGenBase.getBiomeGenArray()[itemStack.getTagCompound().getInteger("biomeID")];
-                
-                if (biome != null)
-                {
-                    return biome.color;
-                }
-            }
-        }
-        
-        return 16777215;
+        BiomeGenBase biome = this.getBiome(itemStack);
+        return biome == null ? 0xFFFFFF : biome.color;
     }
     
     @Override

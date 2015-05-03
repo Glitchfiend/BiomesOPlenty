@@ -69,4 +69,10 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
     {
         this.weightMap.clear();
     }
+    
+    // whether or not a biome essence item corresponding to this biome should be able to drop from biome blocks
+    public boolean hasBiomeEssence()
+    {
+        return true;
+    }
 }
