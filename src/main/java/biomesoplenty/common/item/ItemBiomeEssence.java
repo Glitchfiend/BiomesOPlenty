@@ -38,15 +38,7 @@ public class ItemBiomeEssence extends Item
     {
         if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeID"))
         {
-            int biomeId = itemStack.getTagCompound().getInteger("biomeID");
-            try
-            {
-                return BiomeGenBase.getBiomeGenArray()[biomeId];
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
+            return BiomeGenBase.getBiome(itemStack.getTagCompound().getInteger("biomeID"));
         }
         return null;
     }

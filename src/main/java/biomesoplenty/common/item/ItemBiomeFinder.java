@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.item;
 
+import java.util.List;
+
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -150,6 +152,18 @@ public class ItemBiomeFinder extends Item
         nbt.removeTag("searchStarted");
         nbt.removeTag("posX");
         nbt.removeTag("posZ");
+    }
+    
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List infoList, boolean advancedItemTooltips)
+    {
+        if (!itemStack.hasTagCompound()) {return;}
+        NBTTagCompound nbt = itemStack.getTagCompound();
+        if (nbt.hasKey("biomeIDToFind"))
+        {
+            BiomeGenBase biomeToFind = BiomeGenBase.getBiome(nbt.getInteger("biomeIDToFind")); // returns ocean if biomeIDToFind is out of bounds
+            infoList.add(biomeToFind.biomeName);
+        }
     }
 
     
