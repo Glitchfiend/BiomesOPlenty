@@ -11,8 +11,6 @@ package biomesoplenty.core;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraftforge.fluids.BlockFluidBase;
-
 
 public class CommonProxy
 {
