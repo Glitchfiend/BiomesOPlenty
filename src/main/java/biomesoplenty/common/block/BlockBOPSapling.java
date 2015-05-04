@@ -15,6 +15,7 @@ import java.util.Random;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.block.BOPTreeEnums;
 import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
+import biomesoplenty.common.item.ItemBOPSapling;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
@@ -23,6 +24,7 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -97,6 +99,8 @@ public abstract class BlockBOPSapling extends BlockDecoration implements IGrowab
     
     
     // implement IBOPBlock
+    @Override
+    public Class<? extends ItemBlock> getItemClass() { return ItemBOPSapling.class; }
     @Override
     public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
     @Override
