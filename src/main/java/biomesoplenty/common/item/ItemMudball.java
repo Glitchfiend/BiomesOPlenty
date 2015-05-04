@@ -8,10 +8,10 @@
 
 package biomesoplenty.common.item;
 
+import biomesoplenty.common.entities.projectiles.EntityMudball;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.stats.StatList;
 import net.minecraft.world.World;
 
@@ -35,8 +35,7 @@ public class ItemMudball extends Item
 
         if (!worldIn.isRemote)
         {
-            // TODO: implement EntityMudball worldIn.spawnEntityInWorld(new EntityMudball(worldIn, playerIn));
-            worldIn.spawnEntityInWorld(new EntitySnowball(worldIn, playerIn));
+            worldIn.spawnEntityInWorld(new EntityMudball(worldIn, playerIn));
         }
 
         playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);

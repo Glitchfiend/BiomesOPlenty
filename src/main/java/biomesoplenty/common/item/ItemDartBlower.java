@@ -59,7 +59,6 @@ public class ItemDartBlower extends Item
                 itemStackIn.damageItem(1, playerIn);
                 playerIn.inventory.decrStackSize(bestDartSlot, 1);
             }
-            System.out.println("spawn dart "+bestAvailableDartType.getName());
             worldIn.spawnEntityInWorld(entityDart);
             worldIn.playSoundAtEntity(playerIn, "random.bow", 1.0F, 1.75F);
         }

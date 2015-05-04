@@ -111,6 +111,8 @@ public class BOPItems
     public static Item record_wanderer;
     public static Item record_corruption;
     
+    public static Item spawn_egg;
+    
     // TODO: public static Item ancientStaff;
     // TODO: public static Item bop_bucket;
     // TODO: public static Item flower_band;

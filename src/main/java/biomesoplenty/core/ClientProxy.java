@@ -20,22 +20,20 @@ import net.minecraft.client.renderer.texture.SimpleTexture;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import biomesoplenty.api.block.IBOPBlock;
+import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.api.particle.BOPParticleTypes;
 import biomesoplenty.client.handler.ModelBakeHandler;
 import biomesoplenty.client.particle.*;
 import biomesoplenty.common.config.MiscConfigurationHandler;
-import biomesoplenty.common.entities.EntityPixie;
-import biomesoplenty.common.entities.EntityWasp;
-import biomesoplenty.common.entities.RenderPixie;
-import biomesoplenty.common.entities.RenderWasp;
-import biomesoplenty.common.entities.projectiles.EntityDart;
-import biomesoplenty.common.entities.projectiles.RenderDart;
+import biomesoplenty.common.entities.*;
+import biomesoplenty.common.entities.projectiles.*;
 
 public class ClientProxy extends CommonProxy
 {
@@ -54,6 +52,9 @@ public class ClientProxy extends CommonProxy
         RenderingRegistry.registerEntityRenderingHandler(EntityDart.class, new RenderDart(minecraft.getRenderManager()));
         RenderingRegistry.registerEntityRenderingHandler(EntityWasp.class, new RenderWasp(minecraft.getRenderManager()));
         RenderingRegistry.registerEntityRenderingHandler(EntityPixie.class, new RenderPixie(minecraft.getRenderManager()));
+        RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderMudball(minecraft.getRenderManager(), BOPItems.mudball, minecraft.getRenderItem()));
+        //RenderingRegistry.registerEntityRenderingHandler(EntityMudball.class, new RenderSnowball(minecraft.getRenderManager(), BOPItems.mudball, minecraft.getRenderItem()));
+
 
         ITextureObject particleTextures = (ITextureObject)(new SimpleTexture(particleTexturesLocation));
         minecraft.renderEngine.loadTexture(particleTexturesLocation, particleTextures);
@@ -108,6 +109,10 @@ public class ClientProxy extends CommonProxy
             case DANDELION:
                 entityFx = new EntityDandelionFX(minecraft.theWorld, x, y, z, 2.0F);
                 break;
+            case MUD:
+                int itemId = Item.getIdFromItem(BOPItems.mudball);
+                minecraft.theWorld.spawnParticle(EnumParticleTypes.ITEM_CRACK, x, y, z, MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), MathHelper.getRandomDoubleInRange(minecraft.theWorld.rand, -0.08D, 0.08D), new int[] {itemId});
+                return;
             default:
                 break;
         }

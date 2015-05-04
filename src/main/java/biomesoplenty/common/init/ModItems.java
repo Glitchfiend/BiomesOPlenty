@@ -193,6 +193,8 @@ public class ModItems
         record_wanderer = registerItem(new ItemBOPRecord("wanderer"), "record_wanderer");
         record_corruption = registerItem(new ItemBOPRecord("corruption"), "record_corruption");
         
+        spawn_egg = registerItem(new ItemBOPSpawnEgg(), "spawn_egg");
+        
     }
     
     public static Item registerItem(Item item, String name)

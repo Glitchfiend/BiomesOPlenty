@@ -55,8 +55,8 @@ public class BiomesOPlenty
         
         // setup blocks before items, because some items need to reference blocks in their constructors (eg seeds)
         ModBlocks.init();
-        ModItems.init();
         ModEntities.init();
+        ModItems.init();
         
         ModGenerators.init();
         ModBiomes.init();

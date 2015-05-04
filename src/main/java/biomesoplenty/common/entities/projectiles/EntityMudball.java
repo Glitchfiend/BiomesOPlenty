@@ -1,0 +1,54 @@
+package biomesoplenty.common.entities.projectiles;
+
+import biomesoplenty.api.particle.BOPParticleTypes;
+import biomesoplenty.core.BiomesOPlenty;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
+
+public class EntityMudball extends EntityThrowable
+{
+
+    public EntityMudball(World worldIn)
+    {
+        super(worldIn);
+    }
+
+    public EntityMudball(World worldIn, EntityLivingBase thrower)
+    {
+        super(worldIn, thrower);
+    }
+
+    public EntityMudball(World worldIn, double x, double y, double z)
+    {
+        super(worldIn, x, y, z);
+    }
+
+    @Override
+    protected void onImpact(MovingObjectPosition hit)
+    {
+        if (hit.entityHit != null)
+        {
+            // entity hit isn't damaged
+            hit.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0.0F);
+            if (hit.entityHit instanceof EntityLivingBase)
+            {
+                ((EntityLivingBase)hit.entityHit).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 400, 2));
+            }
+        }
+
+        for (int i = 0; i < 16; ++i)
+        {
+            BiomesOPlenty.proxy.spawnParticle(BOPParticleTypes.MUD, this.posX, this.posY, this.posZ);
+        }
+
+        if (!this.worldObj.isRemote)
+        {
+            this.setDead();
+        }
+    }
+}
