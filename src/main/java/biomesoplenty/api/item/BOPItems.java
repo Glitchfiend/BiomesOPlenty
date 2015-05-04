@@ -68,6 +68,12 @@ public class BOPItems
     public static Item wood_slab_1;
     
     public static Item wading_boots;
+    public static Item flippers;
+    public static Item plain_flower_band;
+    public static Item lush_flower_band;
+    public static Item exotic_flower_band;
+    public static Item dull_flower_band;
+    
     public static Item mud_helmet;
     public static Item mud_chestplate;
     public static Item mud_leggings;

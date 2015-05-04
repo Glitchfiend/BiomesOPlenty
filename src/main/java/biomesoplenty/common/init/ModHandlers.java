@@ -12,10 +12,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import biomesoplenty.client.handler.ModelBakeHandler;
-import biomesoplenty.common.handler.DyeEventHandler;
-import biomesoplenty.common.handler.GuiEventHandler;
-import biomesoplenty.common.handler.decoration.DecorateBiomeEventHandler;
+import biomesoplenty.client.handler.*;
+import biomesoplenty.common.handler.*;
+import biomesoplenty.common.handler.decoration.*;
 import biomesoplenty.common.network.BOPPacketHandler;
 
 public class ModHandlers
@@ -28,6 +27,7 @@ public class ModHandlers
         MinecraftForge.EVENT_BUS.register(decorateBiomeHandler);
         MinecraftForge.TERRAIN_GEN_BUS.register(decorateBiomeHandler);
         MinecraftForge.EVENT_BUS.register(new DyeEventHandler());
+        MinecraftForge.EVENT_BUS.register(new FlippersEventHandler());
         
         if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
         {

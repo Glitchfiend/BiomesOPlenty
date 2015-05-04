@@ -95,14 +95,25 @@ public class ModItems
         // GOLD("gold", 7, new int[]{2, 5, 3, 1}, 25),
         // DIAMOND("diamond", 33, new int[]{3, 8, 6, 3}, 10);
         
-        // TODO: do we really want durability of -1 for wading boots?  does that mean it lasts forever?
+        // TODO: do we really want durability of -1 for these unprotective armor items?  does that mean it lasts forever?
         wading_boots_material = EnumHelper.addArmorMaterial("WADING_BOOTS", "biomesoplenty:wading_boots", -1, new int[]{0,0,0,0}, 0);
+        flippers_material = EnumHelper.addArmorMaterial("FLIPPERS", "biomesoplenty:flippers", -1, new int[]{0,0,0,0}, 0);
+        plain_flower_band_material = EnumHelper.addArmorMaterial("PLAIN_FLOWER_BAND", "biomesoplenty:plain_flower_band", -1, new int[]{0,0,0,0}, 0);
+        lush_flower_band_material = EnumHelper.addArmorMaterial("LUSH_FLOWER_BAND", "biomesoplenty:lush_flower_band", -1, new int[]{0,0,0,0}, 0);
+        exotic_flower_band_material = EnumHelper.addArmorMaterial("EXOTIC_FLOWER_BAND", "biomesoplenty:exotic_flower_band", -1, new int[]{0,0,0,0}, 0);
+        dull_flower_band_material = EnumHelper.addArmorMaterial("DULL_FLOWER_BAND", "biomesoplenty:dull_flower_band", -1, new int[]{0,0,0,0}, 0);
+        
         mud_armor_material = EnumHelper.addArmorMaterial("MUD", "biomesoplenty:mud_armor", 2, new int[]{1,1,1,1}, 5);
         mud_armor_material.customCraftingMaterial = mudball;
         amethyst_armor_material = EnumHelper.addArmorMaterial("AMETHYST", "biomesoplenty:amethyst_armor", 40, new int[]{6,12,10,6}, 20);
         
-        
         wading_boots = registerItem(new ItemWadingBoots(wading_boots_material, 0), "wading_boots");
+        flippers = registerItem(new ItemFlippers(flippers_material, 0), "flippers");
+        plain_flower_band = registerItem(new ItemFlowerBand(plain_flower_band_material, 0), "plain_flower_band");
+        lush_flower_band = registerItem(new ItemFlowerBand(lush_flower_band_material, 0), "lush_flower_band");
+        exotic_flower_band = registerItem(new ItemFlowerBand(exotic_flower_band_material, 0), "exotic_flower_band");
+        dull_flower_band = registerItem(new ItemFlowerBand(dull_flower_band_material, 0), "dull_flower_band");
+        
         mud_helmet = registerItem(new ItemArmor(mud_armor_material, 0, 0), "mud_helmet");
         mud_chestplate = registerItem(new ItemArmor(mud_armor_material, 0, 1), "mud_chestplate");
         mud_leggings = registerItem(new ItemArmor(mud_armor_material, 0, 2), "mud_leggings");

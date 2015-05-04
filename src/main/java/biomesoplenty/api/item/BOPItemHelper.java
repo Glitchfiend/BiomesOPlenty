@@ -14,6 +14,12 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 public class BOPItemHelper
 {
     public static ArmorMaterial wading_boots_material;
+    public static ArmorMaterial flippers_material;
+    public static ArmorMaterial plain_flower_band_material;
+    public static ArmorMaterial lush_flower_band_material;
+    public static ArmorMaterial exotic_flower_band_material;
+    public static ArmorMaterial dull_flower_band_material;
+    
     public static ArmorMaterial mud_armor_material;
     public static ArmorMaterial amethyst_armor_material;
     public static ToolMaterial mud_tool_material;
