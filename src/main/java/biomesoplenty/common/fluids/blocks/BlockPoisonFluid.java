@@ -10,13 +10,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidFinite;
 import net.minecraftforge.fluids.Fluid;
 
-public class BlockHoneyFluid extends BlockFluidFinite
+public class BlockPoisonFluid extends BlockFluidFinite
 {
 
-    public BlockHoneyFluid(Fluid fluid)
+    public BlockPoisonFluid(Fluid fluid)
     {
         super(fluid, Material.water);
-        this.setLightOpacity(1);
+        this.setLightOpacity(3);
+        this.quantaPerBlock = 4;
     }
     
     @Override
@@ -24,7 +25,8 @@ public class BlockHoneyFluid extends BlockFluidFinite
     {
         if (entity instanceof EntityLivingBase)
         {
-            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 200, 2));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.poison.id, 100));
+            ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(Potion.hunger.id, 100));
         }
     }
 

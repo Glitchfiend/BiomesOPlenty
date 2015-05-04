@@ -134,4 +134,8 @@ public class BOPBlocks
     
     public static Block honey;
     public static Fluid honey_fluid;
+    public static Block blood;
+    public static Fluid blood_fluid;
+    public static Block poison;
+    public static Fluid poison_fluid;
 }
