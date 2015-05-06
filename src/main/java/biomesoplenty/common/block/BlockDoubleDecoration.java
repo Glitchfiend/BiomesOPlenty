@@ -10,6 +10,7 @@ package biomesoplenty.common.block;
 
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
@@ -104,7 +105,9 @@ public class BlockDoubleDecoration extends BlockDecoration {
     {
         IBlockState lowerState = this.getLowerState(world, pos);
         IBlockState upperState = this.getUpperState(world, pos);
-        return lowerState.getBlock() == this && lowerState.getValue(HALF) == Half.LOWER && upperState.getBlock() == this && upperState.getValue(HALF) == Half.UPPER;
+        Block lowerBlock = lowerState.getBlock();
+        Block upperBlock = upperState.getBlock();
+        return (lowerBlock instanceof BlockDoubleDecoration) && (upperBlock instanceof BlockDoubleDecoration) && (lowerBlock == upperBlock) && lowerState.getValue(HALF) == Half.LOWER && upperState.getValue(HALF) == Half.UPPER;
     }
     
     
@@ -209,6 +212,7 @@ public class BlockDoubleDecoration extends BlockDecoration {
     public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
         
         List<ItemStack> drops = new java.util.ArrayList<ItemStack>();
+        if (!this.isValidDoubleBlock(world, pos)) {return drops;}
         drops.addAll( this.getUpperShearDrops(item, world, this.getUpperPos(world, pos), this.getUpperState(world, pos), fortune) );
         drops.addAll( this.getLowerShearDrops(item, world, this.getLowerPos(world, pos), this.getLowerState(world, pos), fortune) );
         
