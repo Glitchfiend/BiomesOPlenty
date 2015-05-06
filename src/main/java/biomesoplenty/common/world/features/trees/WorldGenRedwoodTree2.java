@@ -50,7 +50,7 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
         	boolean isSoil = true;
         	boolean hasSpace = true;
 
-        	for (int ix = -2; ix <= 2; ix++)
+        	for (int ix = -2; ix <= 2 && isSoil; ix++)
         	{
         		for (int iz = -2; iz <= 2; iz++)
         		{
@@ -64,9 +64,9 @@ public class WorldGenRedwoodTree2 extends WorldGenAbstractTree
         		}
         	}
 
-        	for (int ix = -2; ix <= 2; ix++)
+        	for (int ix = -2; ix <= 2 && hasSpace; ix++)
         	{
-        		for (int iy = 0; iy <= treeHeight; iy++)
+        		for (int iy = 0; iy <= treeHeight && hasSpace; iy++)
         		{
         			for (int iz = -2; iz <= 2; iz++)
         			{
