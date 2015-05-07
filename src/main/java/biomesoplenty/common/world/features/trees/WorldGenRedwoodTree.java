@@ -61,9 +61,9 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                     b0 = 8;
                 }
 
-                for (int j1 = x - b0; j1 <= x + b0 && flag; ++j1)
+                for (int j1 = x - b0; j1 <= x + b0; ++j1)
                 {
-                    for (k1 = z - b0; k1 <= z + b0 && flag; ++k1)
+                    for (k1 = z - b0; k1 <= z + b0; ++k1)
                     {
                         if (i1 >= 0 && i1 < 256)
                         {
