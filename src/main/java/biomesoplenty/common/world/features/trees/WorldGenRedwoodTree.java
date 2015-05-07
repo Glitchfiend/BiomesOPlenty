@@ -40,9 +40,8 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
     public boolean generate(World world, Random random, int x, int y, int z)
     {
         int l = random.nextInt(this.randomTreeHeight) + this.minTreeHeight;
-        boolean flag = true;
 
-        if (y >= 1 && y + l + 1 <= 256)
+        if (y >= 1 && y < (256-2))
         {
             byte b0;
             int k1;
@@ -62,9 +61,9 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                     b0 = 8;
                 }
 
-                for (int j1 = x - b0; j1 <= x + b0 && flag; ++j1)
+                for (int j1 = x - b0; j1 <= x + b0; ++j1)
                 {
-                    for (k1 = z - b0; k1 <= z + b0 && flag; ++k1)
+                    for (k1 = z - b0; k1 <= z + b0; ++k1)
                     {
                         if (i1 >= 0 && i1 < 256)
                         {
@@ -72,25 +71,18 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
 
                             if (!this.isReplaceable(world, j1, i1, k1))
                             {
-                                flag = false;
+                                return false;
                             }
                         }
                         else
                         {
-                            flag = false;
+                            return false;
                         }
                     }
                 }
             }
 
-            if (!flag)
             {
-                return false;
-            }
-            else
-            {
-                boolean isSoil = true;
-                boolean hasSpace = true;
                 
                 for (int ix = -3; ix <= 3; ix++)
                 {
@@ -100,8 +92,8 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
                         
                         if (!block2.canSustainPlant(world, x + ix, y - 1, z + iz, ForgeDirection.UP, (BlockSapling)Blocks.sapling))
                         {
-                            isSoil = false;
-                            break;
+                            // Not enough Soil
+                            return false;
                         }
                     }
                 }
@@ -116,14 +108,13 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
 
                             if (!block2.isAir(world, x + ix, y + iy, z + iz))
                             {
-                                hasSpace = false;
-                                break;
+                                // Not enough Space
+                                return false;
                             }
                         }
                     }
                 }
                 
-                if (isSoil && hasSpace && y < 256 - l - 1)
                 {
                     for (int ix = -3; ix <= 3; ix++)
                     {
@@ -245,15 +236,9 @@ public class WorldGenRedwoodTree extends WorldGenAbstractTree
 
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
     }
 }
