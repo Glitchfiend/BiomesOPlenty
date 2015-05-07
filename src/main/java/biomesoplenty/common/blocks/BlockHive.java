@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.api.content.BOPCItems;
 import biomesoplenty.common.entities.EntityWasp;
 
@@ -39,7 +40,7 @@ public class BlockHive extends Block
 	//TODO:		breakBlock()
 	public void breakBlock(World world, int x, int y, int z, Block par5, int par6)
     {
-    	if (world.getBlockMetadata(x, y, z) == 2)
+    	if (world.getBlockMetadata(x, y, z) == 2 && BOPConfigurationIDs.waspID > 0)
     	{
 			EntityWasp wasp = new EntityWasp(world);
 			wasp.setLocationAndAngles((double)x + 0.6, (double)y, (double)z + 0.3, 0.0F, 0.0F);
