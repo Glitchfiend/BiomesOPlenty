@@ -309,6 +309,14 @@ public class BOPBlocks
 		Blocks.fire.setFireInfo(BOPCBlocks.appleLeaves, 30, 60);
 		Blocks.fire.setFireInfo(BOPCBlocks.colorizedLeaves1, 30, 60);
 		Blocks.fire.setFireInfo(BOPCBlocks.colorizedLeaves2, 30, 60);
+		Blocks.fire.setFireInfo(BOPCBlocks.leaves1, 30, 60);
+		Blocks.fire.setFireInfo(BOPCBlocks.leaves2, 30, 60);
+		Blocks.fire.setFireInfo(BOPCBlocks.leaves3, 30, 60);
+		Blocks.fire.setFireInfo(BOPCBlocks.leaves4, 30, 60);
+		Blocks.fire.setFireInfo(BOPCBlocks.logs1, 5, 5);
+		Blocks.fire.setFireInfo(BOPCBlocks.logs2, 5, 5);
+		Blocks.fire.setFireInfo(BOPCBlocks.logs3, 5, 5);
+		Blocks.fire.setFireInfo(BOPCBlocks.logs4, 5, 5);
 		Blocks.fire.setFireInfo(BOPCBlocks.foliage, 60, 100);
 		Blocks.fire.setFireInfo(BOPCBlocks.persimmonLeaves, 30, 60);
 		Blocks.fire.setFireInfo(BOPCBlocks.petals, 30, 60);
