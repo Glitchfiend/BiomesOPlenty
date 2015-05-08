@@ -1,21 +1,45 @@
+commands.biomesoplenty.usage=/biomesoplenty <tpbiome|biomename|stripchunk> [аргументы]
+commands.biomesoplenty.biomename.usage=/biomesoplenty biomename [ID биома]
+commands.biomesoplenty.biomename.success=ID биома %s связан с %s
+commands.biomesoplenty.tpbiome.usage=/biomesoplenty tpbiome [ID биома]
+commands.biomesoplenty.tpbiome.success=%s телепортирован в биом %s на (%s, %s, %s)
+commands.biomesoplenty.tpbiome.error=Не удалось найти биом %s!
+commands.biomesoplenty.stats.blocks=Блоки: %s
+commands.biomesoplenty.stats.items=Предметы: %s
+commands.biomesoplenty.stats.entities=Сущности: %s
+commands.biomesoplenty.stats.biomes=Биомы: %s
+commands.biomesoplenty.stripchunk.usage=/biomesoplenty stripchunk [радиус] <include|exclude> [блок] [метаданные]
+
+generator.BIOMESOP=Biomes O' Plenty
+generator.BIOMESOP.info=Примечание: Biomes O' Plenty для Minecraft 1.8 находится в очень ранней стадии
+
 itemGroup.tabBiomesOPlenty=Biomes O' Plenty
 
 tile.ash_block.name=Пепельный блок
 
 tile.bamboo.name=Бамбук
 
-tile.bopGrass.spectral_moss.name=Спектральный мох
-tile.bopGrass.smoldering_grass_block.name=Блок тлеющей травы
+tile.bone_segment.small.name=Малый сегмент кости
+tile.bone_segment.medium.name=Средний сегмент кости
+tile.bone_segment.large.name=Большой сегмент кости
+
+tile.grass.spectral_moss.name=Спектральный мох
+tile.grass.smoldering_grass_block.name=Блок тлеющей травы
+tile.grass.loamy_grass_block.name=Блок глиняной травы
+tile.grass.sandy_grass_block.name=Блок песчаной травы
+tile.grass.silty_grass_block.name=Блок илистой травы
+tile.grass.origin_grass_block.name=Блок обычной травы
+
+tile.coral.pink.name=Розовый коралл
+tile.coral.orange.name=Оранжевый коралл
+tile.coral.blue.name=Синий коралл
+tile.coral.glowing.name=Светящийся коралл
+tile.coral.algae.name=Водоросли
 
 tile.coral.kelp_bottom.name=Ламинария
 tile.coral.kelp_middle.name=Ламинария
 tile.coral.kelp_top.name=Ламинария
 tile.coral.kelp.name=Ламинария
-tile.coral.pink_coral.name=Розовый коралл
-tile.coral.orange_coral.name=Оранжевый коралл
-tile.coral.blue_coral.name=Синий коралл
-tile.coral.glowing_coral.name=Светящийся коралл
-tile.coral.algae.name=Водоросли
 
 tile.flesh.name=Плоть
 
@@ -66,11 +90,11 @@ tile.hive.honeycomb.name=Блок медовых соты
 tile.hive.empty_honeycomb.name=Пустой блок медовых сот
 tile.hive.filled_honeycomb.name=Заполненный блок медовых сот
 
-tile.log.sacred_oak.name=Древесина священного дуба
-tile.log.cherry.name=Древесина вишнёвого дерева
-tile.log.dark.name=Древесина тёмного дерева
-tile.log.fir.name=Древесина пихты
-tile.log.ethereal.name=Эфирная древесина
+tile.sacred_oak_log.name=Древесина священного дуба
+tile.cherry_log.name=Древесина вишнёвого дерева
+tile.dark_log.name=Древесина тёмного дерева
+tile.fir_log.name=Древесина пихты
+tile.ethereal_log.name=Эфирная древесина
 tile.log2.magic.name=Магическая древесина
 tile.log2.mangrove.name=Древесина мангрового дерева
 tile.log2.palm.name=Древесина пальмы
@@ -82,6 +106,9 @@ tile.log3.pine.name=Древесина сосны
 tile.log3.hell_bark.name=Древесина адского дерева
 tile.log3.jacaranda.name=Древесина жакаранды
 tile.log4.mahogany.name=Махагониевая древесина
+
+tile.mud.mud.name=Грязь
+tile.mud.quicksand.name=Зыбучий песок
 
 tile.mushroom.toadstool.name=Поганка
 tile.mushroom.portobello.name=Портобелло
@@ -112,3 +139,47 @@ tile.stone.siltstone.name=Алевролит
 tile.stone.polished_siltstone.name=Гладкий алевролит
 tile.stone.shale.name=Глинистый сланец
 tile.stone.polished_shale.name=Гладкий глинистый сланец
+
+tile.turnip_block.name=Репа
+
+tile.waterlily.lily_medium.name=Средняя кувшинка
+tile.waterlily.lily_small.name=Малая кувшинка
+tile.waterlily.lily_tiny.name=Крохотная кувшинка
+
+tile.dirt.loamy_dirt.name=Глиняная земля
+tile.dirt.sandy_dirt.name=Песчаная земля
+tile.dirt.silty_dirt.name=Илистая земля
+tile.dirt.coarse_loamy_dirt.name=Шероховатая глиняная земля
+tile.dirt.coarse_sandy_dirt.name=Шероховатая песчаная земля
+tile.dirt.coarse_silty_dirt.name=Шероховатая илистая земля
+
+tile.stone_formations.stalagmite.name=Сталагмит
+tile.stone_formations.stalactite.name=Сталактит
+
+tile.fruit_block.apple_block.name=Яблоко
+tile.fruit_block.persimmon_block.name=Хурма
+tile.fruit_block.peach_block.name=Персик
+tile.fruit_block.pear_block.name=Груша
+
+tile.ash_stone.name=Пепельный камень
+tile.hard_sand.name=Затвердевший песок
+tile.hard_dirt.name=Затвердевшая земля
+tile.hard_ice.name=Затвердевший лёд
+tile.dried_dirt.name=Осушённая земля
+tile.crag_rock.name=Горная порода
+tile.mud_brick.name=Кирпичи из грязи
+tile.crystal.name=Небесный кристалл
+
+item.fleshchunk.name=Кусок плоти
+item.mudball.name=Комок грязи
+item.turnip.name=Репа
+item.turnip_seeds.name=Семена репы
+item.persimmon.name=Хурма
+item.peach.name=Персик
+item.pear.name=Груша
+item.crystal_shard.name=Осколок небесного кристалла
+
+
+biome_finder.searching=Идёт поиск %s
+biome_finder.found=%s найден!
+biome_finder.not_found=Ничего не найдено, возможно %s слишком далеко
