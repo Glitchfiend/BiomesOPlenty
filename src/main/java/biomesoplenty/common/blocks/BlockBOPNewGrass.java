@@ -173,12 +173,6 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
 		return baseName + "." + grassTypes[itemStack.getItemDamage()];
 	}
 	
-    @Override
-	public boolean renderAsNormalBlock()
-    {
-        return false;
-    }
-	
 	@Override
 	public int getRenderType()
 	{
