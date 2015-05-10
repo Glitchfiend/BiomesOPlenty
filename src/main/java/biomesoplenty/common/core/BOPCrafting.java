@@ -295,13 +295,36 @@ public class BOPCrafting
 
 	private static void addOreRegistration()
 	{
-		//Ore Registration
+		//Registration in Ore Dictionary
 		OreDictionary.registerOre("plankWood", new ItemStack(BOPCBlocks.planks, 1, OreDictionary.WILDCARD_VALUE));
 
 		OreDictionary.registerOre("stickWood", new ItemStack(BOPCBlocks.bamboo));
 		OreDictionary.registerOre("stickWood", new ItemStack(BOPCBlocks.plants, 1, 8));
 		
 		OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPCBlocks.flesh, 1, 0));
+		
+		OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPCItems.food, 1, 1));
+		OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPCItems.food, 1, 4));
+		OreDictionary.registerOre("foodVeggiesalad", new ItemStack(BOPCItems.food, 1, 5));
+		OreDictionary.registerOre("foodMushroomsalad", new ItemStack(BOPCItems.food, 1, 6));
+		OreDictionary.registerOre("foodFilledhoneycomb", new ItemStack(BOPCItems.food, 1, 9));
+		OreDictionary.registerOre("foodAmbrosia", new ItemStack(BOPCItems.food, 1, 10));
+		OreDictionary.registerOre("foodBowlofrice", new ItemStack(BOPCItems.food, 1, 13));
+		
+		OreDictionary.registerOre("cropWildcarrots", new ItemStack(BOPCItems.food, 1, 2));
+		OreDictionary.registerOre("cropPeach", new ItemStack(BOPCItems.food, 1, 3));
+		OreDictionary.registerOre("cropPersimmon", new ItemStack(BOPCItems.food, 1, 8));
+		OreDictionary.registerOre("cropTurnip", new ItemStack(BOPCItems.food, 1, 11));
+		OreDictionary.registerOre("cropPear", new ItemStack(BOPCItems.food, 1, 12));
+		
+		OreDictionary.registerOre("listAllfruit", new ItemStack(BOPCItems.food, 1, 3));
+		OreDictionary.registerOre("listAllfruit", new ItemStack(BOPCItems.food, 1, 8));
+		OreDictionary.registerOre("listAllrootveggie", new ItemStack(BOPCItems.food, 1, 11));
+		OreDictionary.registerOre("listAllveggie", new ItemStack(BOPCItems.food, 1, 11));
+		OreDictionary.registerOre("listAllfruit", new ItemStack(BOPCItems.food, 1, 12));
+		
+		OreDictionary.registerOre("seedTurnip", new ItemStack(BOPCItems.turnipSeeds));
+		OreDictionary.registerOre("listAllseed", new ItemStack(BOPCItems.turnipSeeds));
 
 		OreDictionary.registerOre("dyeBlue", new ItemStack(BOPCItems.misc, 1, 5));
 		OreDictionary.registerOre("dyeBrown", new ItemStack(BOPCItems.misc, 1, 6));
