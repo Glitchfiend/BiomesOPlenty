@@ -72,7 +72,7 @@ public class BlockBOPColorizedSapling extends BlockSapling
 	protected void checkAndDropBlock(World world, int x, int y, int z)
     {
     	int meta = world.getBlockMetadata(x, y, z);
-        if (!this.canBlockStay(world, x, y, z, meta))
+        if (!this.isValidPosition(world, x, y, z, meta))
         {
             this.dropBlockAsItem(world, x, y, z, meta, 0);
             world.setBlockToAir(x, y, z);
