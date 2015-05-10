@@ -126,7 +126,7 @@ public class ItemJarFilled extends Item
 					}
 					else
 					{
-						entityPlayer.setCurrentItemOrArmor(0, new ItemStack(BOPCItems.jarEmpty, 1, 0);
+						entityPlayer.setCurrentItemOrArmor(0, new ItemStack(BOPCItems.jarEmpty, 1, 0));
 					}
 				}
 
