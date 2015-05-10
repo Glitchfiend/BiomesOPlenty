@@ -38,50 +38,13 @@ public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
     @Override
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        int l = random.nextInt(this.randomTreeHeight) + this.minTreeHeight;
+        int treeHeight = random.nextInt(this.randomTreeHeight) + this.minTreeHeight;
 
-        if (y >= 1 && y < (256-2))
+        if (y >= 1 && (y+treeHeight) < (256-2))
         {
             byte b0;
             int k1;
             Block block;
-
-            for (int i1 = y; i1 <= y + 1 + l; ++i1)
-            {
-                b0 = 5;
-
-                if (i1 == y)
-                {
-                    b0 = 5;
-                }
-
-                if (i1 >= y + 1 + l - 2)
-                {
-                    b0 = 6;
-                }
-
-                for (int j1 = x - b0; j1 <= x + b0; ++j1)
-                {
-                    for (k1 = z - b0; k1 <= z + b0; ++k1)
-                    {
-                        if (i1 >= 0 && i1 < 256)
-                        {
-                            block = world.getBlock(j1, i1, k1);
-
-                            if (!this.isReplaceable(world, j1, i1, k1))
-                            {
-                                return false;
-                            }
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-            {
 
                 for (int ix = -1; ix <= 1; ix++)
                 {
@@ -99,7 +62,7 @@ public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
                 
                 for (int ix = -1; ix <= 1; ix++)
                 {
-                    for (int iy = 0; iy <= l; iy++)
+                    for (int iy = 0; iy <= treeHeight; iy++)
                     {
                         for (int iz = -1; iz <= 1; iz++)
                         {
@@ -114,7 +77,6 @@ public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
                     }
                 }
                 
-                {
                     for (int ix = -1; ix <= 1; ix++)
                     {
                         for (int iz = -1; iz <= 1; iz++)
@@ -135,9 +97,9 @@ public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
                     int j2;
                     int i3;
 
-                    for (k1 = y - b0 + l; k1 <= y + l; ++k1)
+                    for (k1 = y - b0 + treeHeight; k1 <= y + treeHeight; ++k1)
                     {
-                        i3 = k1 - (y + l);
+                        i3 = k1 - (y + treeHeight);
                         l1 = b1 + 1 - i3 / 6;
 
                         for (i2 = x - l1; i2 <= x + l1; ++i2)
@@ -164,19 +126,19 @@ public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
                         }
                     }
 
-                    for (k1 = 0; k1 < l; ++k1)
+                    for (k1 = 0; k1 < treeHeight; ++k1)
                     {
                         block = world.getBlock(x, y + k1, z);
 
                         if (block.isAir(world, x, y + k1, z) || block.isLeaves(world, x, y + k1, z))
                         {
                             //1
-                            this.setBlockAndNotifyAdequately(world, x, y + (l), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l + 1), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l + 2), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l + 3), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l + 4), z, this.wood, this.woodMeta);
-                            this.setBlockAndNotifyAdequately(world, x, y + (l + 5), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (treeHeight), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (treeHeight + 1), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (treeHeight + 2), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (treeHeight + 3), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (treeHeight + 4), z, this.wood, this.woodMeta);
+                            this.setBlockAndNotifyAdequately(world, x, y + (treeHeight + 5), z, this.wood, this.woodMeta);
                             this.setBlockAndNotifyAdequately(world, x, y + k1, z, this.wood, this.woodMeta);
                             
                             //2
@@ -196,8 +158,6 @@ public class WorldGenRedwoodTree3 extends WorldGenAbstractTree
                     }
 
                     return true;
-                }
-            }
         }
         
         return false;
