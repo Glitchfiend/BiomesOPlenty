@@ -52,12 +52,12 @@ public class BlockBones extends Block
 	//TODO:		 getIcon()
 	public IIcon getIcon(int side, int meta)
 	{
+		if (meta == 5 || meta == 6) {
+			meta = 1;
+		}
+		
 		if (meta < 0 || meta >= textures.length) {
 			meta = 0;
-		}
-
-		if (meta == 4 || meta == 5) {
-			meta = 1;
 		}
 
 		return textures[meta];
