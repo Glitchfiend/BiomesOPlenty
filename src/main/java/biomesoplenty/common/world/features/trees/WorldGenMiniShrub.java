@@ -61,6 +61,16 @@ public class WorldGenMiniShrub extends WorldGenAbstractTree
                         return false;
                 }
             }*/
+            if ( !this.isReplaceable(world, x, y + 1, z) || 
+                 !this.isReplaceable(world, x, y + 2, z) ||
+                 !this.isReplaceable(world, x+1, y + 2, z) ||
+                 !this.isReplaceable(world, x-1, y + 2, z) ||
+                 !this.isReplaceable(world, x, y + 2, z+1) ||
+                 !this.isReplaceable(world, x, y + 2, z-1) ||
+                 !this.isReplaceable(world, x, y + 3, z))
+            {
+                return false;
+            }
 
             world.getBlock(x, y, z).onPlantGrow(world, x, y, z, x, y, z);
             
