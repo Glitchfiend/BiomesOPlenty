@@ -46,7 +46,6 @@ public class ItemBlockGrave extends ItemBlock
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
-		//TODO:				getBlock()
 		Block block = world.getBlock(x, y, z);
 
 		if (block == Blocks.snow && (world.getBlockMetadata(x, y, z) & 7) < 1)
@@ -90,11 +89,9 @@ public class ItemBlockGrave extends ItemBlock
 			return false;
 		else if (!player.canPlayerEdit(x, y, z, side, itemstack))
 			return false;
-		//TODO:					   getBlockMaterial()
-		else if (y == 255 && block.getMaterial().isSolid())
+		else if (y == 255 && field_150939_a.getMaterial().isSolid())
 			return false;
-		//TODO:		   canPlaceEntityOnSide()?
-		else if (world.canPlaceEntityOnSide(block, x, y, z, false, side, player, itemstack))
+		else if (world.canPlaceEntityOnSide(field_150939_a, x, y, z, false, side, player, itemstack))
 		{
 	        int o = ((MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) + 2) % 4;
 	        int fO;
@@ -108,25 +105,21 @@ public class ItemBlockGrave extends ItemBlock
 	        	fO = 2;
 	        }
 
-			if (placeGrave(itemstack, player, block, world, x, y, z, fO, side, hitVecX, hitVecY, hitVecZ)) return true;
+			if (placeGrave(itemstack, player, world, x, y, z, fO, side, hitVecX, hitVecY, hitVecZ)) return true;
 		} 
 
 		return false;
 	}
 	
-	private boolean placeGrave(ItemStack itemstack, EntityPlayer player, Block block, World world, int x, int y, int z, int meta, int side, float hitVecX, float hitVecY, float hitVecZ)
+	private boolean placeGrave(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int meta, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
-		//TODO:   isAirBlock()
 		if (world.isAirBlock(x, y + 1, z))
 		{
-			//TODO:		   onBlockPlaced()
-			int k1 = block.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, meta);
-			//TODO:		   onBlockPlaced()
-			int k2 = block.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, meta + 1);
+			int k1 = field_150939_a.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, meta);
+			int k2 = field_150939_a.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, meta + 1);
 
 			if (placeBlockAt(itemstack, player, world, x, y, z, side, hitVecX, hitVecY, hitVecZ, k1) && placeBlockAt(itemstack, player, world, x, y + 1, z, side, hitVecX, hitVecY, hitVecZ, k2))
 			{
-				//TODO:												linkedBlock	  stepSound.getPlaceSound()			linkedBlock	stepSound.getVolume()							  linkedBlock   stepSound.getPitch()
 				world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, field_150939_a.stepSound.func_150496_b(), (field_150939_a.stepSound.getVolume() + 1.0F) / 2.0F, field_150939_a.stepSound.getPitch() * 0.8F);
 				--itemstack.stackSize;
 			}

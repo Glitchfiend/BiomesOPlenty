@@ -41,7 +41,6 @@ public class ItemBlockBones extends ItemBlock
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitVecX, float hitVecY, float hitVecZ)
 	{
-		//TODO:				getBlock()
 		Block block = world.getBlock(x, y, z);
 
 		if (block == Blocks.snow && (world.getBlockMetadata(x, y, z) & 7) < 1)
@@ -85,38 +84,34 @@ public class ItemBlockBones extends ItemBlock
 			return false;
 		else if (!player.canPlayerEdit(x, y, z, side, itemstack))
 			return false;
-		//TODO:					   getBlockMaterial()
-		else if (y == 255 && block.getMaterial().isSolid())
+		else if (y == 255 && field_150939_a.getMaterial().isSolid())
 			return false;
-		//TODO:		   canPlaceEntityOnSide()?
-		else if (world.canPlaceEntityOnSide(block, x, y, z, false, side, player, itemstack))
+		else if (world.canPlaceEntityOnSide(field_150939_a, x, y, z, false, side, player, itemstack))
 		{
-			int j1 = this.getMetadata(itemstack.getItemDamage());
+			int itemMeta = this.getMetadata(itemstack.getItemDamage());
 
 			if (side == 2 || side == 3)
 			{
 				if (itemstack.getItemDamage() == 0) {
-					j1 = 3;
+					itemMeta = 3;
 				} else if (itemstack.getItemDamage() == 1) {
-					j1 = 5;
+					itemMeta = 5;
 				}
 			}
 
 			if (side == 4 || side == 5)
 			{
 				if (itemstack.getItemDamage() == 0) {
-					j1 = 4;
+					itemMeta = 4;
 				} else if (itemstack.getItemDamage() == 1) {
-					j1 = 6;
+					itemMeta = 6;
 				}
 			}
 
-			//TODO:		   onBlockPlaced()
-			int k1 = block.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, j1);
+			int blockMeta = field_150939_a.onBlockPlaced(world, x, y, z, side, hitVecX, hitVecY, hitVecZ, itemMeta);
 
-			if (placeBlockAt(itemstack, player, world, x, y, z, side, hitVecX, hitVecY, hitVecZ, k1))
+			if (placeBlockAt(itemstack, player, world, x, y, z, side, hitVecX, hitVecY, hitVecZ, blockMeta))
 			{
-				//TODO:												linkedBlock	  stepSound.getPlaceSound()			linkedBlock	stepSound.getVolume()							  linkedBlock   stepSound.getPitch()
 				world.playSoundEffect(x + 0.5F, y + 0.5F, z + 0.5F, field_150939_a.stepSound.func_150496_b(), (field_150939_a.stepSound.getVolume() + 1.0F) / 2.0F, field_150939_a.stepSound.getPitch() * 0.8F);
 				--itemstack.stackSize;
 			}
