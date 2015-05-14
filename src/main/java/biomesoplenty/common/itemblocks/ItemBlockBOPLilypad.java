@@ -41,7 +41,7 @@ public class ItemBlockBOPLilypad extends ItemBlock
 			meta = 0;
 		}
 
-		return super.getUnlocalizedName() + "." + lily[itemStack.getItemDamage()];
+		return super.getUnlocalizedName() + "." + lily[meta];
 	}
 
 	@Override
