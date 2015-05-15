@@ -39,35 +39,22 @@ public class BlockBOPColorizedSapling extends BlockSapling
 		this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
 	}
     
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random random)
-	{
-		super.updateTick(world, x, y, z, random);
-		
-        this.checkAndDropBlock(world, x, y, z);
-	}
-    
-    @Override
-    public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
-    {
-        this.checkAndDropBlock(world, x, y, z);
-        super.onNeighborBlockChange(world, x, y, z, block);
-    }
-    
     @Override
     public boolean canReplace(World world, int x, int y, int z, int side, ItemStack itemStack)
     {
-    	return this.canBlockStay(world, x, y, z, itemStack.getItemDamage());
+    	return this.canPlaceBlockAt(world, x, y, z) && this.isValidPosition(world, x, y, z, itemStack.getItemDamage());
     } 
     
+    /**
+     * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
+     */
     @Override
-	@Deprecated
-    public boolean canBlockStay(World world, int x, int y, int z) 
+    public boolean canPlaceBlockAt(World world, int x, int y, int z)
     {
-    	return super.canBlockStay(world, x, y, z);
+        return world.getBlock(x, y, z).isReplaceable(world, x, y, z);
     }
     
-    public boolean canBlockStay(World world, int x, int y, int z, int metadata)
+    public boolean isValidPosition(World world, int x, int y, int z, int metadata)
     {
 		Block block = world.getBlock(x, y - 1, z);
 
@@ -84,9 +71,10 @@ public class BlockBOPColorizedSapling extends BlockSapling
     @Override
 	protected void checkAndDropBlock(World world, int x, int y, int z)
     {
-        if (!this.canBlockStay(world, x, y, z, world.getBlockMetadata(x, y, z)))
+    	int meta = world.getBlockMetadata(x, y, z);
+        if (!this.isValidPosition(world, x, y, z, meta))
         {
-            this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            this.dropBlockAsItem(world, x, y, z, meta, 0);
             world.setBlockToAir(x, y, z);
         }
     }
@@ -118,22 +106,6 @@ public class BlockBOPColorizedSapling extends BlockSapling
 	{
 		for (int i = 0; i < saplings.length; ++i) {
 			list.add(new ItemStack(block, 1, i));
-		}
-	}
-
-	@Override
-	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)
-	{
-		Block block = world.getBlock(x, y - 1, z);
-		int meta = world.getBlockMetadata(x, y - 1, z);
-
-		switch (meta)
-		{
-		case 1: // Mangrove
-			return block == Blocks.sand;
-
-		default:
-			return block == Blocks.grass || block == Blocks.dirt || block == Blocks.farmland || block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 		}
 	}
 

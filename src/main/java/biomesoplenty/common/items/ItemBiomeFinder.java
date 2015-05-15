@@ -60,7 +60,7 @@ public class ItemBiomeFinder extends Item
                 int playerX = MathHelper.floor_double(player.posX);
                 int playerZ = MathHelper.floor_double(player.posZ);
 
-                for (int x = 10; x <= 10; x++)
+                for (int x = 10; x >= -10; x--)
                 {
                     for (int z = -10; z <= 10; z++)
                     {
@@ -72,6 +72,7 @@ public class ItemBiomeFinder extends Item
                             break;
                         }
                     }
+                    if (finalFoundPosition1 != null) break;
                 }
 
                 ChunkPosition finalFoundPosition2 = null;
@@ -88,6 +89,7 @@ public class ItemBiomeFinder extends Item
                             break;
                         }
                     }
+                    if (finalFoundPosition2 != null) break;
                 }
 
                 ChunkPosition biomePosition = null;

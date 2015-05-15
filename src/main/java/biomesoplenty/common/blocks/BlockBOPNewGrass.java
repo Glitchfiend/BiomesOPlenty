@@ -173,12 +173,6 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
 		return baseName + "." + grassTypes[itemStack.getItemDamage()];
 	}
 	
-    @Override
-	public boolean renderAsNormalBlock()
-    {
-        return false;
-    }
-	
 	@Override
 	public int getRenderType()
 	{
@@ -212,6 +206,7 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
+    	if (meta > grassTypes.length-1) meta = 0;
         return side == 1 ? Blocks.grass.getIcon(side, meta) : side == 0 ? BOPCBlocks.newBopDirt.getIcon(side, meta * 2) : grassIcons[2 * meta];
     }
     
@@ -220,6 +215,7 @@ public class BlockBOPNewGrass extends BlockGrass implements ISubLocalization
     public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side)
     {
     	int meta = world.getBlockMetadata(x, y, z);
+    	if (meta > grassTypes.length-1) meta = 0;
     	
     	if (side == 0)
     	{

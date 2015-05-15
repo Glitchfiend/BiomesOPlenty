@@ -17,6 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import biomesoplenty.BiomesOPlenty;
 import biomesoplenty.api.content.BOPCItems;
+import biomesoplenty.common.configuration.BOPConfigurationIDs;
 import biomesoplenty.common.entities.EntityPixie;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -81,7 +82,7 @@ public class ItemJarFilled extends Item
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float xoffset, float yoffset, float zoffset)
 	{
-		if (itemStack.getItemDamage() == 2)
+		if (itemStack.getItemDamage() == 2 && BOPConfigurationIDs.pixieID > 0)
 		{
 			if (entityPlayer.dimension == 0)
 			{
@@ -116,14 +117,16 @@ public class ItemJarFilled extends Item
 				{
 					--itemStack.stackSize;
 
-					if (itemStack.stackSize <= 0)
+					if (itemStack.stackSize > 0)
 					{
-						itemStack = new ItemStack(BOPCItems.jarEmpty, 1, 0);
+						if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(BOPCItems.jarEmpty, 1, 0)))
+						{
+							entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(BOPCItems.jarEmpty, 1, 0), false);
+						}
 					}
-
-					if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(BOPCItems.jarEmpty, 1, 0)))
+					else
 					{
-						entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(BOPCItems.jarEmpty, 1, 0), false);
+						entityPlayer.setCurrentItemOrArmor(0, new ItemStack(BOPCItems.jarEmpty, 1, 0));
 					}
 				}
 
