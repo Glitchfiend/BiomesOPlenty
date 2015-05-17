@@ -23,13 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.init.ModBiomes;
-import biomesoplenty.common.init.ModBlocks;
-import biomesoplenty.common.init.ModConfiguration;
-import biomesoplenty.common.init.ModEntities;
-import biomesoplenty.common.init.ModGenerators;
-import biomesoplenty.common.init.ModHandlers;
-import biomesoplenty.common.init.ModItems;
+import biomesoplenty.common.init.*;
 
 @Mod(modid = BiomesOPlenty.MOD_ID, name = BiomesOPlenty.MOD_NAME)
 public class BiomesOPlenty
@@ -61,6 +55,8 @@ public class BiomesOPlenty
         ModGenerators.init();
         ModBiomes.init();
         ModHandlers.init();
+        
+        ModCrafting.init();
     }
 
     @EventHandler
