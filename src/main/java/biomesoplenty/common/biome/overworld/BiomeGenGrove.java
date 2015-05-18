@@ -1,38 +1,36 @@
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenMiniShrub;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar;
 import biomesoplenty.common.world.features.trees.WorldGenPoplar2;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class BiomeGenGrove extends BOPOverworldBiome
-{
+import java.util.Random;
+
+public class BiomeGenGrove extends BOPOverworldBiome {
     private static final Height biomeHeight = new Height(0.6F, 1.2F);
 
-	public BiomeGenGrove(int id)
-	{
-		super(id);
-		
+    public BiomeGenGrove(int id) {
+        super(id);
+
         //TODO: setHeight()
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(5341009);
         this.setTemperatureRainfall(0.7F, 0.8F);
 
-		this.theBiomeDecorator.treesPerChunk = 3;
-		this.theBiomeDecorator.flowersPerChunk = 5;
-		this.theBiomeDecorator.grassPerChunk = 8;
+        this.theBiomeDecorator.treesPerChunk = 3;
+        this.theBiomeDecorator.flowersPerChunk = 5;
+        this.theBiomeDecorator.grassPerChunk = 8;
 
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 50;
         this.theBiomeDecorator.bopFeatures.sproutsPerChunk = 1;
@@ -52,47 +50,41 @@ public class BiomeGenGrove extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 1D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
-	}
+    }
 
-	@Override
+    @Override
     //TODO:                     getRandomWorldGenForTrees()
-    public WorldGenAbstractTree func_150567_a(Random random)
-    {
-		return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
-	}
+    public WorldGenAbstractTree func_150567_a(Random random) {
+        return random.nextInt(2) == 0 ? new WorldGenMiniShrub(Blocks.log, Blocks.leaves, 0, 0, Blocks.grass, Blocks.sand) : random.nextInt(3) == 0 ? new WorldGenPoplar2() : new WorldGenPoplar();
+    }
 
-	@Override
-	public void decorate(World world, Random random, int chunkX, int chunkZ)
-	{
-		super.decorate(world, random, chunkX, chunkZ);
-		int var5 = 12 + random.nextInt(6);
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ) {
+        super.decorate(world, random, chunkX, chunkZ);
+        int var5 = 12 + random.nextInt(6);
 
-		for (int var6 = 0; var6 < var5; ++var6)
-		{
-			int x = chunkX + random.nextInt(16);
-			int y = random.nextInt(28) + 4;
-			int z = chunkZ + random.nextInt(16);
+        for (int var6 = 0; var6 < var5; ++var6) {
+            int x = chunkX + random.nextInt(16);
+            int y = random.nextInt(28) + 4;
+            int z = chunkZ + random.nextInt(16);
 
-			Block block = world.getBlock(x, y, z);
+            Block block = world.getBlock(x, y, z);
 
-			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
-			{
-				world.setBlock(x, y, z, BOPCBlocks.gemOre, 14, 2);
-			}
-		}
-	}
-	
-	@Override
-    public int getBiomeGrassColor(int x, int y, int z)
-    {
-		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
-		return d0 < -0.1D ? 5341009 : 6331992;
-	}
+            if (block != null && BOPConfigurationTerrainGen.generateGems && block.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 14, 2);
+            }
+        }
+    }
 
-	@Override
-	public int getBiomeFoliageColor(int x, int y, int z)
-	{
-		double d0 = plantNoise.func_151601_a((double)x * 0.0225D, (double)z * 0.0225D);
-		return d0 < -0.1D ? 6396257 : 7714153;
-	}
+    @Override
+    public int getBiomeGrassColor(int x, int y, int z) {
+        double d0 = plantNoise.func_151601_a((double) x * 0.0225D, (double) z * 0.0225D);
+        return d0 < -0.1D ? 5341009 : 6331992;
+    }
+
+    @Override
+    public int getBiomeFoliageColor(int x, int y, int z) {
+        double d0 = plantNoise.func_151601_a((double) x * 0.0225D, (double) z * 0.0225D);
+        return d0 < -0.1D ? 6396257 : 7714153;
+    }
 }

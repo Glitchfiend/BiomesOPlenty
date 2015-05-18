@@ -1,42 +1,40 @@
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
 
-public class BiomeGenMoor extends BOPOverworldBiome
-{
+import java.util.Random;
+
+public class BiomeGenMoor extends BOPOverworldBiome {
     private static final Height biomeHeight = new Height(2.0F, 1.025F);
-    
-	public BiomeGenMoor(int id)
-	{
-		super(id);
-		
+
+    public BiomeGenMoor(int id) {
+        super(id);
+
         //TODO: setHeight()
         this.setHeight(biomeHeight);
         //TODO: setColor()
         this.setColor(6394725);
         this.setTemperatureRainfall(0.5F, 1.0F);
 
-		this.spawnableCreatureList.clear();
-		this.spawnableWaterCreatureList.clear();
-		
-	    this.waterColorMultiplier = 5800566;
+        this.spawnableCreatureList.clear();
+        this.spawnableWaterCreatureList.clear();
 
-		this.theBiomeDecorator.treesPerChunk = -999;
-		this.theBiomeDecorator.flowersPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 4;
-		this.theBiomeDecorator.mushroomsPerChunk = 2;
-		this.theBiomeDecorator.sandPerChunk = -999;
-		this.theBiomeDecorator.sandPerChunk2 = -999;
+        this.waterColorMultiplier = 5800566;
+
+        this.theBiomeDecorator.treesPerChunk = -999;
+        this.theBiomeDecorator.flowersPerChunk = -999;
+        this.theBiomeDecorator.grassPerChunk = 4;
+        this.theBiomeDecorator.mushroomsPerChunk = 2;
+        this.theBiomeDecorator.sandPerChunk = -999;
+        this.theBiomeDecorator.sandPerChunk2 = -999;
 
         this.theBiomeDecorator.bopFeatures.mudPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.waterLakesPerChunk = 10;
@@ -55,32 +53,28 @@ public class BiomeGenMoor extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
-	}
-	
-	@Override
-	public void decorate(World world, Random random, int chunkX, int chunkZ)
-	{
-		super.decorate(world, random, chunkX, chunkZ);
+    }
+
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ) {
+        super.decorate(world, random, chunkX, chunkZ);
         int var5 = 12 + random.nextInt(6);
 
-        for (int var6 = 0; var6 < var5; ++var6)
-        {
+        for (int var6 = 0; var6 < var5; ++var6) {
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
             Block block = world.getBlock(x, y, z);
 
-            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
-            {
+            if (block != null && BOPConfigurationTerrainGen.generateGems && block.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
-	}
-	
-	@Override
-    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
-    {
+    }
+
+    @Override
+    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_) {
         this.topBlock = BOPCBlocks.newBopGrass;
         this.field_150604_aj = 0;
         this.fillerBlock = BOPCBlocks.newBopDirt;
@@ -88,24 +82,21 @@ public class BiomeGenMoor extends BOPOverworldBiome
         this.genBiomeTerrain(world, random, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 
-	@Override
+    @Override
     //TODO:     getBiomeGrassColor()
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
-    {
-		return 6394725;
-	}
+    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_) {
+        return 6394725;
+    }
 
-	@Override
+    @Override
     //TODO:     getBiomeFoliageColor()
-    public int getBiomeFoliageColor(int x, int y, int z)
-    {
-		return 6394725;
-	}
+    public int getBiomeFoliageColor(int x, int y, int z) {
+        return 6394725;
+    }
 
-	@Override
-	public int getSkyColorByTemp(float par1)
-	{
-		if (BOPConfigurationMisc.skyColors) return 10536403;
-		else return super.getSkyColorByTemp(par1);
-	}
+    @Override
+    public int getSkyColorByTemp(float par1) {
+        if (BOPConfigurationMisc.skyColors) return 10536403;
+        else return super.getSkyColorByTemp(par1);
+    }
 }

@@ -1,28 +1,26 @@
 package biomesoplenty.common.biome.overworld.sub;
 
-import java.util.Random;
-
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biome.BOPSubBiome; import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.content.BOPCBlocks;
-import biomesoplenty.common.biome.BOPSubBiome;
-import biomesoplenty.common.configuration.BOPConfigurationMisc;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenDeadTree;
 
-public class BiomeGenQuagmire extends BOPSubBiome
-{
+import java.util.Random;
+
+public class BiomeGenQuagmire extends BOPSubBiome {
     private static final Height biomeHeight = new Height(0.0F, 1.1F);
-    
-    public BiomeGenQuagmire(int id)
-    {
+
+    public BiomeGenQuagmire(int id) {
         super(id);
-        
+
         this.zoom = 0.5D;
-		this.threshold = 0D;
-        
+        this.threshold = 0D;
+
         //TODO: setHeight()
         this.setHeight(biomeHeight);
         //TODO: setColor()
@@ -58,53 +56,46 @@ public class BiomeGenQuagmire extends BOPSubBiome
 
     @Override
     //TODO:                     getRandomWorldGenForTrees()
-    public WorldGenAbstractTree func_150567_a(Random random)
-    {
+    public WorldGenAbstractTree func_150567_a(Random random) {
         return new WorldGenDeadTree();
     }
 
     @Override
-    public void decorate(World world, Random random, int chunkX, int chunkZ)
-    {
+    public void decorate(World world, Random random, int chunkX, int chunkZ) {
         super.decorate(world, random, chunkX, chunkZ);
         int var5 = 12 + random.nextInt(6);
 
-        for (int var6 = 0; var6 < var5; ++var6)
-        {
+        for (int var6 = 0; var6 < var5; ++var6) {
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
             Block block = world.getBlock(x, y, z);
 
-            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
-            {
+            if (block != null && BOPConfigurationTerrainGen.generateGems && block.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
     }
 
     @Override
-    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_)
-    {
+    public int getBiomeGrassColor(int p_150558_1_, int p_150558_2_, int p_150558_3_) {
         return 10390377;
     }
 
     @Override
-    public int getBiomeFoliageColor(int x, int y, int z)
-    {
+    public int getBiomeFoliageColor(int x, int y, int z) {
         return 10390377;
     }
 
     @Override
-    public int getSkyColorByTemp(float par1)
-    {
+    public int getSkyColorByTemp(float par1) {
         if (BOPConfigurationMisc.skyColors) return 12436670;
         else return super.getSkyColorByTemp(par1);
     }
 
     /*@Override
-	public int getFogColour()
+    public int getFogColour()
 	{
 		return 13291213;
 	}
