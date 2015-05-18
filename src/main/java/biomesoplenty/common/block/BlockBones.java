@@ -16,6 +16,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -64,6 +65,15 @@ public class BlockBones extends Block implements IBOPBlock
     public String getStateName(IBlockState state)
     {
         return ((BoneType) state.getValue(VARIANT)).getName() + "_bone_segment";
+    }
+    
+    public ItemStack getVariantItem(BoneType type)
+    {
+        return this.getVariantItem(type, 1);
+    }
+    public ItemStack getVariantItem(BoneType type, int howMany)
+    {
+        return new ItemStack(this, howMany, this.getMetaFromState(this.getDefaultState().withProperty(VARIANT, type)));
     }
     
     public BlockBones()

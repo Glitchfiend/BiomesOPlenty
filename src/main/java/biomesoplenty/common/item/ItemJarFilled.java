@@ -27,7 +27,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemJarFilled extends Item
 {
     
-    enum JarContents implements IStringSerializable
+    public enum JarContents implements IStringSerializable
     {
         HONEY, POISON, PIXIE;
         
