@@ -87,14 +87,14 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         return AllPlants.values()[i];
     }
     
-    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockFoliage instance for a particular variant
+    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockBOPPlant instance for a particular variant
     private static Map<Integer, BlockBOPPlant> instances = new HashMap<Integer, BlockBOPPlant>();
-    // get the BlockFoliage instance for the given variant
+    // get the BlockBOPPlant instance for the given variant
     public static BlockBOPPlant getVariantBlock(AllPlants plant)
     {
         int pageNum = plant.ordinal() / VARIANTS_PER_PAGE;
         BlockBOPPlant block = instances.get(pageNum);
-        if (block == null) {throw new IllegalArgumentException("No BlockFoliage instance created yet for page "+pageNum);}
+        if (block == null) {throw new IllegalArgumentException("No BlockBOPPlant instance created yet for page "+pageNum);}
         return block;
     }
     // get the default block state for the given variant

@@ -35,6 +35,7 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
 {
     
     // add properties (note we inherit HALF from BlockDoubleDecoration)
+    // TODO: rename this
     public static enum FoliageType implements IStringSerializable
     {
         FLAX, TALL_CATTAIL;
@@ -224,14 +225,19 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
-        switch ((FoliageType) lowerState.getValue(VARIANT))
+        FoliageType type = (FoliageType) lowerState.getValue(VARIANT);
+        switch (type)
         {
             default:
                 // default is to get the (lower) block unaltered
-                ret.add(new ItemStack(this, 1, this.getMetaFromState(lowerState.withProperty(HALF, Half.LOWER) )));
+                ret.add(this.getVariantItem(type));
         }
         return ret;
     }
 
+    public ItemStack getVariantItem(FoliageType type) {
+        IBlockState state = this.getDefaultState().withProperty(HALF, Half.LOWER).withProperty(VARIANT, type);
+        return new ItemStack(this, 1, this.getMetaFromState(state));
+    }
     
 }

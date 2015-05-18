@@ -1,6 +1,8 @@
 package biomesoplenty.common.block;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -53,6 +55,33 @@ public abstract class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBloc
         int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllWoods.values().length));
         return AllWoods.values()[i];
     }
+
+    
+    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockBOPHalfWoodSlab instance for a particular variant
+    private static Map<Integer, BlockBOPHalfWoodSlab> instances = new HashMap<Integer, BlockBOPHalfWoodSlab>();
+    // get the BlockBOPHalfWoodSlab instance for the given variant
+    public static BlockBOPHalfWoodSlab getVariantBlock(AllWoods wood)
+    {
+        int pageNum = wood.ordinal() / VARIANTS_PER_PAGE;
+        BlockBOPHalfWoodSlab block = instances.get(pageNum);
+        if (block == null) {throw new IllegalArgumentException("No BlockBOPHalfWoodSlab instance created yet for page "+pageNum);}
+        return block;
+    }
+    // get the default block state for the given variant
+    public static IBlockState getVariantState(AllWoods wood)
+    {
+        BlockBOPHalfWoodSlab block = getVariantBlock(wood);
+        return block.getDefaultState().withProperty(block.getMyVariantProperty() , wood);
+    }
+    // get the item representation of the given variant
+    public static ItemStack getVariantItem(AllWoods wood, int howMany)
+    {
+        return new ItemStack(getVariantBlock(wood), howMany, getVariantBlock(wood).getMetaFromState(getVariantState(wood)));
+    }
+    public static ItemStack getVariantItem(AllWoods wood)
+    {
+        return getVariantItem(wood, 1);
+    }
     
     
     // add properties (note we inherit HALF property from parent BlockSlab)
@@ -77,6 +106,8 @@ public abstract class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBloc
     public BlockBOPHalfWoodSlab()
     {
         super(Material.wood);
+        // save a reference to this instance so that later we can look up the right BlockBOPLog instance for a particular variant
+        instances.put(this.getPageNum(), this);
         this.useNeighborBrightness = true;
         this.setHardness(2.0F).setResistance(5.0F).setStepSound(soundTypeWood);
         this.setHarvestLevel("axe", 0);

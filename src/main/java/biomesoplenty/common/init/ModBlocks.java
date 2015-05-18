@@ -169,6 +169,8 @@ public class ModBlocks
         jacaranda_door =        registerDoor( new BlockBOPDoor(), "jacaranda_door", BOPItems.jacaranda_door );
         mahogany_door =         registerDoor( new BlockBOPDoor(), "mahogany_door", BOPItems.mahogany_door );
  
+        // TODO: stone/mud brick stairs and slabs
+        
         
         //vines
         // TODO: special placement rules?
@@ -286,7 +288,7 @@ public class ModBlocks
             if (presets.isEmpty())
             {
                 // block has no sub-blocks to register
-                registerBlockVariant(block, blockName, block.getMetaFromState(defaultState));
+                registerBlockVariant(block, blockName, 0);
             }
             else
             {

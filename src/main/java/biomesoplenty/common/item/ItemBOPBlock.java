@@ -50,7 +50,7 @@ public class ItemBOPBlock extends ItemBlock
         ImmutableSet<IBlockState> presets = BlockStateUtils.getBlockPresets(this.block);
         if (presets.isEmpty())
         {
-            subItems.add(new ItemStack(this.block, 1, this.block.getMetaFromState( this.block.getDefaultState() )));
+            subItems.add(new ItemStack(this.block, 1, 0));
         }
         else
         {

@@ -30,6 +30,14 @@ public class BOPWoodEnums
         {
             return this.getName();
         }
+        public boolean hasPlanks() {
+            switch (this) {
+                case GIANT_FLOWER: case DEAD:
+                    return false;
+                default:
+                    return true;
+            }
+        }
     }
     
     
@@ -43,7 +51,7 @@ public class BOPWoodEnums
                 @Override
                 public boolean apply(AllWoods wood)
                 {
-                    if (filterType == WITH_PLANKS && (wood == AllWoods.GIANT_FLOWER || wood == AllWoods.DEAD) )
+                    if (filterType == WITH_PLANKS && !wood.hasPlanks())
                     {
                         return false;
                     }
