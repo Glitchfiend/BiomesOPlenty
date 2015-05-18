@@ -1,42 +1,39 @@
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
-import biomesoplenty.api.content.BOPCBlocks;
-import biomesoplenty.common.biome.BOPOverworldBiome;
-import biomesoplenty.common.world.features.WorldGenBOPDoubleFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 
-public class BiomeGenMarsh extends BOPOverworldBiome
-{
-	private static final Height biomeHeight = new Height(0.1F, 0.05F);
-	
-	public BiomeGenMarsh(int id)
-	{
-		super(id);
+import java.util.Random;
+
+public class BiomeGenMarsh extends BOPOverworldBiome {
+    private static final Height biomeHeight = new Height(0.625F, 1.05F);
+
+    public BiomeGenMarsh(int id) {
+        super(id);
 
         this.setHeight(biomeHeight);
         this.setColor(6725742);
         this.setTemperatureRainfall(0.5F, 0.9F);
 
-		this.spawnableCreatureList.clear();
-		this.spawnableWaterCreatureList.clear();
-		
-		this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
+        this.spawnableCreatureList.clear();
+        this.spawnableWaterCreatureList.clear();
 
-		this.theBiomeDecorator.treesPerChunk = -999;
-		this.theBiomeDecorator.flowersPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = 15;
-		
-		this.theBiomeDecorator.reedsPerChunk = -999;
-		this.theBiomeDecorator.sandPerChunk = -999;
-		this.theBiomeDecorator.sandPerChunk2 = -999;
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 10, 1, 3));
+
+        this.theBiomeDecorator.treesPerChunk = -999;
+        this.theBiomeDecorator.flowersPerChunk = -999;
+        this.theBiomeDecorator.grassPerChunk = 15;
+
+        this.theBiomeDecorator.reedsPerChunk = -999;
+        this.theBiomeDecorator.sandPerChunk = -999;
+        this.theBiomeDecorator.sandPerChunk2 = -999;
 
         this.theBiomeDecorator.bopFeatures.koruPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.mudPerChunk = 2;
@@ -52,29 +49,26 @@ public class BiomeGenMarsh extends BOPOverworldBiome
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.1D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 0.1D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPDoubleFlora(2), 10.0D);
-	}
+    }
 
-	@Override
-	public void decorate(World world, Random random, int chunkX, int chunkZ)
-	{
-		super.decorate(world, random, chunkX, chunkZ);
-		int var5 = 12 + random.nextInt(6);
+    @Override
+    public void decorate(World world, Random random, int chunkX, int chunkZ) {
+        super.decorate(world, random, chunkX, chunkZ);
+        int var5 = 12 + random.nextInt(6);
 
-		for (int var6 = 0; var6 < var5; ++var6)
-		{
-			int x = chunkX + random.nextInt(16);
-			int y = random.nextInt(28) + 4;
-			int z = chunkZ + random.nextInt(16);
+        for (int var6 = 0; var6 < var5; ++var6) {
+            int x = chunkX + random.nextInt(16);
+            int y = random.nextInt(28) + 4;
+            int z = chunkZ + random.nextInt(16);
 
-			Block block = world.getBlock(x, y, z);
+            Block block = world.getBlock(x, y, z);
 
-			if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
-			{
-				world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
-			}
-		}
-	}
-	
+            if (block != null && BOPConfigurationTerrainGen.generateGems && block.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
+                world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
+            }
+        }
+    }
+
 	/*@Override
 	public int getFogColour()
 	{

@@ -1,27 +1,26 @@
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.client.fog.IBiomeFog;
 import biomesoplenty.common.biome.BOPOverworldBiome;
 import biomesoplenty.common.configuration.BOPConfigurationMisc;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
 import biomesoplenty.common.world.features.trees.WorldGenBogTree1;
 import biomesoplenty.common.world.features.trees.WorldGenBogTree2;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class BiomeGenSludgepit extends BOPOverworldBiome implements IBiomeFog
-{
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
+import java.util.Random;
 
-    public BiomeGenSludgepit(int id)
-    {
+public class BiomeGenSludgepit extends BOPOverworldBiome implements IBiomeFog {
+    private static final Height biomeHeight = new Height(0.0F, 1.1F);
+
+    public BiomeGenSludgepit(int id) {
         super(id);
-        
+
         //TODO: setHeight()
         this.setHeight(biomeHeight);
         //TODO: setColor()
@@ -56,39 +55,34 @@ public class BiomeGenSludgepit extends BOPOverworldBiome implements IBiomeFog
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 0), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(Blocks.tallgrass, 1), 1D);
     }
-    
+
     @Override
     //TODO:                     getRandomWorldGenForTrees()
-    public WorldGenAbstractTree func_150567_a(Random random)
-    {
-        return random.nextInt(3) == 0 ? new WorldGenBogTree2(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 4) : 
-        new WorldGenBogTree1(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 5);
+    public WorldGenAbstractTree func_150567_a(Random random) {
+        return random.nextInt(3) == 0 ? new WorldGenBogTree2(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 4) :
+                new WorldGenBogTree1(Blocks.log2, Blocks.leaves2, 1, 1, false, 7, 5);
     }
 
     @Override
-    public void decorate(World world, Random random, int chunkX, int chunkZ)
-    {
+    public void decorate(World world, Random random, int chunkX, int chunkZ) {
         super.decorate(world, random, chunkX, chunkZ);
         int var5 = 12 + random.nextInt(6);
 
-        for (int var6 = 0; var6 < var5; ++var6)
-        {
+        for (int var6 = 0; var6 < var5; ++var6) {
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
             Block block = world.getBlock(x, y, z);
 
-            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
-            {
+            if (block != null && BOPConfigurationTerrainGen.generateGems && block.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
         }
     }
-    
+
     @Override
-    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_)
-    {
+    public void genTerrainBlocks(World world, Random random, Block[] p_150573_3_, byte[] p_150573_4_, int p_150573_5_, int p_150573_6_, double p_150573_7_) {
         this.topBlock = BOPCBlocks.newBopGrass;
         this.field_150604_aj = 0;
         this.fillerBlock = BOPCBlocks.newBopDirt;
@@ -96,36 +90,31 @@ public class BiomeGenSludgepit extends BOPOverworldBiome implements IBiomeFog
         this.genBiomeTerrain(world, random, p_150573_3_, p_150573_4_, p_150573_5_, p_150573_6_, p_150573_7_);
     }
 
-	@Override
-    public int getBiomeGrassColor(int x, int y, int z)
-    {
-		return 7627817;
-	}
-
-	@Override
-    public int getBiomeFoliageColor(int x, int y, int z)
-    {
-		return 9539892;
-	}
-	
     @Override
-    public int getSkyColorByTemp(float par1)
-    {
+    public int getBiomeGrassColor(int x, int y, int z) {
+        return 7627817;
+    }
+
+    @Override
+    public int getBiomeFoliageColor(int x, int y, int z) {
+        return 9539892;
+    }
+
+    @Override
+    public int getSkyColorByTemp(float par1) {
         if (BOPConfigurationMisc.skyColors) return 7039816;
         else return super.getSkyColorByTemp(par1);
 
     }
 
-	@Override
-	public int getFogColour(int x, int y, int z)
-	{
-		return 10463856;
-	}
+    @Override
+    public int getFogColour(int x, int y, int z) {
+        return 10463856;
+    }
 
-	@Override
-	public float getFogDensity(int x, int y, int z)
-	{
-	    // TODO Auto-generated method stub
-	    return 0.6F;
-	}
+    @Override
+    public float getFogDensity(int x, int y, int z) {
+        // TODO Auto-generated method stub
+        return 0.6F;
+    }
 }

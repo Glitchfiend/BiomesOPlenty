@@ -1,26 +1,15 @@
 package biomesoplenty.common.biome.overridden;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenTaiga2;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import biomesoplenty.api.biome.BOPInheritedBiome;
 import biomesoplenty.api.content.BOPCBlocks;
 import biomesoplenty.common.biome.BOPInheritedOverworldBiome;
 import biomesoplenty.common.world.features.WorldGenBOPFlora;
 import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenBOPExtremeHills extends BOPInheritedOverworldBiome
-{
-	public BiomeGenBOPExtremeHills(int biomeID, BiomeGenBase inheritedBiome) 
-	{
-		super(biomeID, inheritedBiome);
+public class BiomeGenBOPExtremeHills extends BOPInheritedOverworldBiome {
+    public BiomeGenBOPExtremeHills(int biomeID, BiomeGenBase inheritedBiome) {
+        super(biomeID, inheritedBiome);
 
         this.theBiomeDecorator.bopFeatures.shrubsPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.leafPilesPerChunk = 3;
@@ -35,5 +24,5 @@ public class BiomeGenBOPExtremeHills extends BOPInheritedOverworldBiome
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 2), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 10), 0.5D);
         this.theBiomeDecorator.bopFeatures.weightedGrassGen.put(new WorldGenBOPTallGrass(BOPCBlocks.foliage, 11), 0.5D);
-	}
+    }
 }

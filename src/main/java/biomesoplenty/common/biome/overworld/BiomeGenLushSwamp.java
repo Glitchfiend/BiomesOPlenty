@@ -1,41 +1,38 @@
 package biomesoplenty.common.biome.overworld;
 
-import java.util.Random;
-
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.common.biome.BOPOverworldBiome;
+import biomesoplenty.common.configuration.BOPConfigurationTerrainGen;
+import biomesoplenty.common.world.features.WorldGenBOPFlora;
+import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
+import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 import net.minecraft.block.Block;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import biomesoplenty.api.content.BOPCBlocks;
-import biomesoplenty.common.biome.BOPOverworldBiome;
-import biomesoplenty.common.world.features.WorldGenBOPFlora;
-import biomesoplenty.common.world.features.WorldGenBOPTallGrass;
-import biomesoplenty.common.world.features.trees.WorldGenBOPSwampTree;
 
-public class BiomeGenLushSwamp extends BOPOverworldBiome
-{
-    private static final Height biomeHeight = new Height(0.0F, 0.1F);
+import java.util.Random;
 
-    public BiomeGenLushSwamp(int id)
-    {
+public class BiomeGenLushSwamp extends BOPOverworldBiome {
+    private static final Height biomeHeight = new Height(0.0F, 1.1F);
+
+    public BiomeGenLushSwamp(int id) {
         super(id);
 
         this.setHeight(biomeHeight);
         this.setColor(5746228);
         this.setTemperatureRainfall(0.7F, 1.0F);
-        
-        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
-        
-		this.theBiomeDecorator.treesPerChunk = 10;
-		this.theBiomeDecorator.grassPerChunk = 4;
-		this.theBiomeDecorator.mushroomsPerChunk = 8;
-		this.theBiomeDecorator.reedsPerChunk = 16;
-		this.theBiomeDecorator.waterlilyPerChunk = 4;
 
-		this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
+
+        this.theBiomeDecorator.treesPerChunk = 10;
+        this.theBiomeDecorator.grassPerChunk = 4;
+        this.theBiomeDecorator.mushroomsPerChunk = 8;
+        this.theBiomeDecorator.reedsPerChunk = 16;
+        this.theBiomeDecorator.waterlilyPerChunk = 4;
+
+        this.theBiomeDecorator.bopFeatures.bopLilyPerChunk = 4;
         this.theBiomeDecorator.bopFeatures.bopFlowersPerChunk = 1;
         this.theBiomeDecorator.bopFeatures.cattailsPerChunk = 10;
         this.theBiomeDecorator.bopFeatures.highCattailsPerChunk = 5;
@@ -62,27 +59,23 @@ public class BiomeGenLushSwamp extends BOPOverworldBiome
 
     @Override
     //TODO:                     getRandomWorldGenForTrees()
-    public WorldGenAbstractTree func_150567_a(Random random)
-    {
+    public WorldGenAbstractTree func_150567_a(Random random) {
         return new WorldGenBOPSwampTree(Blocks.log, Blocks.leaves, 0, 0, 8, 6, BOPCBlocks.ivy, -1);
     }
 
     @Override
-    public void decorate(World world, Random random, int chunkX, int chunkZ)
-    {
+    public void decorate(World world, Random random, int chunkX, int chunkZ) {
         super.decorate(world, random, chunkX, chunkZ);
         int var5 = 12 + random.nextInt(6);
 
-        for (int var6 = 0; var6 < var5; ++var6)
-        {
+        for (int var6 = 0; var6 < var5; ++var6) {
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(28) + 4;
             int z = chunkZ + random.nextInt(16);
 
             Block block = world.getBlock(x, y, z);
 
-            if (block != null && block.isReplaceableOreGen(world, x, y, z, Blocks.stone))
-            {
+            if (block != null && BOPConfigurationTerrainGen.generateGems && block.isReplaceableOreGen(world, x, y, z, Blocks.stone)) {
                 //TODO: setBlock()
                 world.setBlock(x, y, z, BOPCBlocks.gemOre, 10, 2);
             }
