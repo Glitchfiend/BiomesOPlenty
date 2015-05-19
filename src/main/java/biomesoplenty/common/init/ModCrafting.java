@@ -24,6 +24,7 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockHive;
+import biomesoplenty.common.crafting.BiomeEssenceRecipe;
 import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemJarFilled;
@@ -286,6 +287,12 @@ public class ModCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.dart, 1, ItemDart.DartType.POISONDART.ordinal()), new Object[] {new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal()), new ItemStack(BOPItems.dart, 1, ItemDart.DartType.DART.ordinal())});        
         
         
+        /*** Biome Finder ***/
+        
+        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald), 'R', new ItemStack(Items.redstone)});
+        GameRegistry.addRecipe(new BiomeEssenceRecipe());
+        
+        
         /*** Misc Others ***/
         
         GameRegistry.addShapedRecipe(new ItemStack(Items.string), new Object[] {"FFF", "FFF", "FFF", 'F', ((BlockBOPDoublePlant)BOPBlocks.double_plant).getVariantItem(BlockBOPDoublePlant.FoliageType.FLAX)});
@@ -301,8 +308,6 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(Blocks.mossy_cobblestone, 1, 0), new Object[] {"MMM", "MCM", "MMM", 'M', BOPBlocks.moss, 'C', Blocks.cobblestone});
         GameRegistry.addShapedRecipe(new ItemStack(Blocks.stonebrick, 1, 1), new Object[] {"MMM", "MSM", "MMM", 'M', BOPBlocks.moss, 'S', Blocks.stonebrick});
         GameRegistry.addShapedRecipe(new ItemStack(BOPItems.enderporter), new Object[] {"IOI", "OAO", "IOI", 'I', Items.ender_eye, 'O', new ItemStack(BOPItems.ghastly_soul), 'A', new ItemStack(BOPItems.gem, 1, BlockGem.GemType.AMETHYST.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPItems.biome_finder), new Object[] {" E ", "ERE", " E ", 'E', new ItemStack(Items.emerald), 'R', new ItemStack(Items.redstone)});
-        // TODO: GameRegistry.addShapedRecipe(new BiomeEssenceRecipe());
         // TODO: bamboo thatching (was planks:10 in 1.7 ) GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo_thatching), new Object[] {"##", "##", '#', BOPBlocks.bamboo});
         // TODO: GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo, 8), new Object [] {" #", "# ", '#', new ItemStack(BOPBlocks.bamboo_thatching)});
         // TODO: GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.bamboo, 8), new Object [] {"# ", " #", '#', new ItemStack(BOPBlocks.bamboo_thatching)});

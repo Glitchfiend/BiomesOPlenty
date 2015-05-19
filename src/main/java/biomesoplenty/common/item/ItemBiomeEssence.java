@@ -21,19 +21,6 @@ public class ItemBiomeEssence extends Item
 {
     public ItemBiomeEssence() {}
     
-    @Override
-    public boolean hasContainerItem(ItemStack itemStack)
-    {
-        return true;
-    }
-    
-    // TODO: really?  this looks well dodgy.
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack)
-    {
-        return itemStack;
-    }    
-    
     public BiomeGenBase getBiome(ItemStack itemStack)
     {
         if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("biomeID"))
