@@ -52,7 +52,6 @@ public class FurnaceFuelHandler implements IFuelHandler
     
     public int getFuelValue(ItemStack stack)
     {
-        System.out.println("testing for fuel "+stack.getDisplayName());
         if (stack == null) {return 0;}        
         Item item = stack.getItem();
         if (item == null) {return 0;}
@@ -61,14 +60,12 @@ public class FurnaceFuelHandler implements IFuelHandler
         // see if the specific item/meta combination is registered
         if (itemMetaFuelList.containsKey(pair))
         {
-            System.out.println("specific match");
             return itemMetaFuelList.get(pair);
         }
         
         // see if the item in general is registered
         if (itemFuelList.containsKey(item))
         {
-            System.out.println("general match");
             return itemFuelList.get(item);
         }
         
