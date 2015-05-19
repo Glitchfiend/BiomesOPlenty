@@ -33,6 +33,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ModCrafting
@@ -40,10 +41,10 @@ public class ModCrafting
     
     public static void init()
     {
+        addOreRegistration();
         addCraftingRecipies();
         addSmeltingRecipes();
     }
-    
     
     
     private static void addCraftingRecipies()
@@ -367,5 +368,194 @@ public class ModCrafting
         bopFuel.addFuel(BOPItems.ash, 400); // TODO: really? 400?  Ash is already burnt but burns better than wooden planks?
         
     }
+    
+    
+    private static void addOreRegistration()
+    {
+        //Registration in Ore Dictionary
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, OreDictionary.WILDCARD_VALUE));
+
+        OreDictionary.registerOre("stickWood", new ItemStack(BOPBlocks.bamboo));
+        OreDictionary.registerOre("stickWood", BlockBOPPlant.getVariantItem(AllPlants.RIVERCANE));
+        
+        OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPBlocks.flesh, 1, 0));
+        
+        OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPItems.shroompowder));
+        OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPItems.saladfruit));
+        OreDictionary.registerOre("foodVeggiesalad", new ItemStack(BOPItems.saladveggie));
+        OreDictionary.registerOre("foodMushroomsalad", new ItemStack(BOPItems.saladshroom));
+        OreDictionary.registerOre("foodFilledhoneycomb", new ItemStack(BOPItems.filled_honeycomb));
+        OreDictionary.registerOre("foodAmbrosia", new ItemStack(BOPItems.ambrosia));
+        OreDictionary.registerOre("foodBowlofrice", new ItemStack(BOPItems.ricebowl));
+        
+        OreDictionary.registerOre("cropWildcarrots", new ItemStack(BOPItems.wildcarrots));
+        OreDictionary.registerOre("cropPeach", new ItemStack(BOPItems.peach));
+        OreDictionary.registerOre("cropPersimmon", new ItemStack(BOPItems.persimmon));
+        OreDictionary.registerOre("cropTurnip", new ItemStack(BOPItems.turnip));
+        OreDictionary.registerOre("cropPear", new ItemStack(BOPItems.pear));
+        
+        OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.peach));
+        OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.persimmon));
+        OreDictionary.registerOre("listAllrootveggie", new ItemStack(BOPItems.turnip));
+        OreDictionary.registerOre("listAllveggie", new ItemStack(BOPItems.turnip));
+        OreDictionary.registerOre("listAllfruit", new ItemStack(BOPItems.pear));
+        
+        OreDictionary.registerOre("seedTurnip", new ItemStack(BOPItems.turnip_seeds));
+        OreDictionary.registerOre("listAllseed", new ItemStack(BOPItems.turnip_seeds));
+
+        OreDictionary.registerOre("dyeBlue", new ItemStack(BOPItems.blue_dye));
+        OreDictionary.registerOre("dyeBrown", new ItemStack(BOPItems.brown_dye));
+        OreDictionary.registerOre("dyeGreen", new ItemStack(BOPItems.green_dye));
+        OreDictionary.registerOre("dyeWhite", new ItemStack(BOPItems.white_dye));
+        OreDictionary.registerOre("dyeBlack", new ItemStack(BOPItems.black_dye));
+        
+        OreDictionary.registerOre("gemRuby", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.RUBY.ordinal()));
+        OreDictionary.registerOre("gemPeridot", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.PERIDOT.ordinal()));
+        OreDictionary.registerOre("gemTopaz", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.TOPAZ.ordinal()));
+        OreDictionary.registerOre("gemTanzanite", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.TANZANITE.ordinal()));
+        OreDictionary.registerOre("gemMalachite", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.MALACHITE.ordinal()));
+        OreDictionary.registerOre("gemSapphire", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.SAPPHIRE.ordinal()));
+        OreDictionary.registerOre("gemAmber", new ItemStack(BOPItems.gem, 1, BlockGem.GemType.AMBER.ordinal()));
+        // TODO: AMETHYST ?
+        
+        OreDictionary.registerOre("oreRuby", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.RUBY.ordinal()));
+        OreDictionary.registerOre("oreTopaz", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.TOPAZ.ordinal()));
+        OreDictionary.registerOre("orePeridot", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.PERIDOT.ordinal()));
+        OreDictionary.registerOre("oreTanzanite", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.TANZANITE.ordinal()));
+        OreDictionary.registerOre("oreMalachite", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.MALACHITE.ordinal()));
+        OreDictionary.registerOre("oreSapphire", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.SAPPHIRE.ordinal()));
+        OreDictionary.registerOre("oreAmber", new ItemStack(BOPBlocks.gem_ore , 1, BlockGem.GemType.AMBER.ordinal()));
+
+        OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_0, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_1, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_2, 1, OreDictionary.WILDCARD_VALUE));        
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_0, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_1, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_2, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_3, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_4, 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_5, 1, OreDictionary.WILDCARD_VALUE));
+        // TODO ?
+        // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.appleLeaves, 1, OreDictionary.WILDCARD_VALUE));
+        // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.persimmonLeaves, 1, OreDictionary.WILDCARD_VALUE));
+        
+        // SACRED_OAK
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.SACRED_OAK));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.SACRED_OAK.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.SACRED_OAK));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.sacred_oak_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.sacred_oak_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.sacred_oak_fence_gate));
+        
+        // CHERRY
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.CHERRY));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.CHERRY.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.CHERRY));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.cherry_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.cherry_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.cherry_fence_gate));
+        
+        // DARK
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.DARK));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.DARK.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.DARK));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.dark_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.dark_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.dark_fence_gate));
+        
+        // FIR
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.FIR));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.FIR.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.FIR));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.fir_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.fir_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.fir_fence_gate));
+        
+        // ETHEREAL
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.ETHEREAL));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.ETHEREAL.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.ETHEREAL));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.ethereal_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.ethereal_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.ethereal_fence_gate));
+        
+        // MAGIC
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.MAGIC));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAGIC.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.MAGIC));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.magic_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.magic_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.magic_fence_gate));
+        
+        // MANGROVE
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.MANGROVE));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MANGROVE.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.MANGROVE));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.mangrove_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.mangrove_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.mangrove_fence_gate));
+        
+        // PALM
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.PALM));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PALM.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.PALM));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.palm_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.palm_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.palm_fence_gate));
+        
+        // REDWOOD
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.REDWOOD));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.REDWOOD.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.REDWOOD));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.redwood_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.redwood_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.redwood_fence_gate));
+        
+        // WILLOW
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.WILLOW));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.WILLOW.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.WILLOW));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.willow_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.willow_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.willow_fence_gate));
+        
+        // PINE
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.PINE));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PINE.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.PINE));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.pine_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.pine_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.pine_fence_gate));
+        
+        // HELLBARK
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.HELLBARK));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.HELLBARK.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.HELLBARK));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.hellbark_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.hellbark_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.hellbark_fence_gate));
+        
+        // JACARANDA
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.JACARANDA));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.JACARANDA.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.JACARANDA));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.jacaranda_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.jacaranda_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.jacaranda_fence_gate));
+        
+        // MAHOGANY
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.MAHOGANY));
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAHOGANY.ordinal()));
+        OreDictionary.registerOre("slabWood", BlockBOPHalfWoodSlab.getVariantItem(AllWoods.MAHOGANY));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPBlocks.mahogany_stairs));
+        OreDictionary.registerOre("fenceWood", new ItemStack(BOPBlocks.mahogany_fence));
+        OreDictionary.registerOre("fenceGateWood", new ItemStack(BOPBlocks.mahogany_fence_gate));
+        
+        // DEAD
+        OreDictionary.registerOre("logWood", BlockBOPLog.getVariantItem(AllWoods.DEAD));        
+
+
+    }
+    
     
 }
