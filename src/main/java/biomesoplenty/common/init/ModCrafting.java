@@ -24,6 +24,7 @@ import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockGem;
 import biomesoplenty.common.block.BlockHive;
+import biomesoplenty.common.handler.FurnaceFuelHandler;
 import biomesoplenty.common.item.ItemDart;
 import biomesoplenty.common.item.ItemJarFilled;
 import net.minecraft.init.Blocks;
@@ -39,6 +40,7 @@ public class ModCrafting
     public static void init()
     {
         addCraftingRecipies();
+        addSmeltingRecipes();
     }
     
     
@@ -310,9 +312,9 @@ public class ModCrafting
         GameRegistry.addShapedRecipe(new ItemStack(Items.rotten_flesh), new Object[] {"FFF", "FPF", "FFF", 'F', new ItemStack(BOPItems.fleshchunk), 'P', new ItemStack(BOPItems.jar_filled, 1, ItemJarFilled.JarContents.POISON.ordinal())});
 
         //Bone Segments > Bonemeal
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 3, 15), new Object[] {((BlockBones)BOPBlocks.bone_segment).getVariantItem(BlockBones.BoneType.SMALL)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 6, 15), new Object[] {((BlockBones)BOPBlocks.bone_segment).getVariantItem(BlockBones.BoneType.MEDIUM)});
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 12, 15), new Object[] {((BlockBones)BOPBlocks.bone_segment).getVariantItem(BlockBones.BoneType.LARGE)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 3, EnumDyeColor.WHITE.getDyeDamage()), new Object[] {((BlockBones)BOPBlocks.bone_segment).getVariantItem(BlockBones.BoneType.SMALL)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 6, EnumDyeColor.WHITE.getDyeDamage()), new Object[] {((BlockBones)BOPBlocks.bone_segment).getVariantItem(BlockBones.BoneType.MEDIUM)});
+        GameRegistry.addShapelessRecipe(new ItemStack(Items.dye, 12, EnumDyeColor.WHITE.getDyeDamage()), new Object[] {((BlockBones)BOPBlocks.bone_segment).getVariantItem(BlockBones.BoneType.LARGE)});
         
         //Honeycombs
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hive, 1, BlockHive.HiveType.HONEYCOMB.ordinal()), new Object [] {"##", "##", '#', new ItemStack(BOPItems.honeycomb)});
@@ -326,6 +328,38 @@ public class ModCrafting
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladveggie), new Object[] {Items.bowl, BOPItems.wildcarrots, Items.carrot, Items.potato});
         GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.saladshroom), new Object[] {Items.bowl, new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.TOADSTOOL.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.PORTOBELLO.ordinal()), new ItemStack(BOPBlocks.mushroom, 1, BlockBOPMushroom.MushroomType.BLUE_MILK_CAP.ordinal())});
 
+        
+    }
+    
+    
+    public static void addSmeltingRecipes()
+    {
+        
+        // Register smelting recipes
+        GameRegistry.addSmelting(Blocks.dirt, new ItemStack(BOPBlocks.dried_dirt), 0F);
+        GameRegistry.addSmelting(BlockBOPPlant.getVariantItem(AllPlants.TINYCACTUS), new ItemStack(Items.dye, 1, EnumDyeColor.GREEN.getDyeDamage()), 0.2F);
+        GameRegistry.addSmelting(BOPItems.mudball, new ItemStack(BOPItems.mud_brick), 0F);
+        for (AllWoods wood : AllWoods.values())
+        {
+            if (wood.canMakeCharcoal())
+            {
+                GameRegistry.addSmelting(BlockBOPLog.getVariantItem(wood), new ItemStack(Items.coal, 1, 1), 15F);
+            }
+        }
+        
+        // Register items which can be used as fuel
+        FurnaceFuelHandler bopFuel = new FurnaceFuelHandler();
+        GameRegistry.registerFuelHandler(bopFuel);
+
+        bopFuel.addFuel(BOPBlocks.sapling_0, 100);
+        bopFuel.addFuel(BOPBlocks.sapling_1, 100);
+        bopFuel.addFuel(BOPBlocks.sapling_2, 100);
+        bopFuel.addFuel(BOPBlocks.wood_slab_0, 150);
+        bopFuel.addFuel(BOPBlocks.wood_slab_1, 150);
+        // Note, we don't have to add all the other wood blocks - by default any block with Material = wood burns with value of 300
+        // See TileEntityFurnace.getItemBurnTime()
+
+        bopFuel.addFuel(BOPItems.ash, 400); // TODO: really? 400?  Ash is already burnt but burns better than wooden planks?
         
     }
     

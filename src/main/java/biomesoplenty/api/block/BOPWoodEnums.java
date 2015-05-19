@@ -30,9 +30,19 @@ public class BOPWoodEnums
         {
             return this.getName();
         }
-        public boolean hasPlanks() {
+        public boolean hasPlanks()
+        {
             switch (this) {
                 case GIANT_FLOWER: case DEAD:
+                    return false;
+                default:
+                    return true;
+            }
+        }
+        public boolean canMakeCharcoal()
+        {
+            switch (this) {
+                case GIANT_FLOWER:
                     return false;
                 default:
                     return true;
