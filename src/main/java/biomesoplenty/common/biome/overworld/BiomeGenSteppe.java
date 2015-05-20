@@ -37,7 +37,7 @@ public class BiomeGenSteppe extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
         this.addGenerator("dead_bushes", GeneratorStage.DEAD_BUSH, new GeneratorGrass(3, Blocks.deadbush.getDefaultState(), 4));
-        this.addGenerator("grass", GeneratorStage.GRASS, new GeneratorGrass(15, BlockBOPPlant.getVariantState(AllPlants.SHORTGRASS)));
+        this.addGenerator("grass", GeneratorStage.GRASS, new GeneratorGrass(15, BlockBOPPlant.paging.getVariantState(AllPlants.SHORTGRASS)));
         this.addGenerator("ruby", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.RUBY), 12, 4, 32));
     }
     

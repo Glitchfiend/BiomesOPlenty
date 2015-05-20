@@ -1,19 +1,16 @@
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.google.common.collect.ImmutableSet;
 
-import biomesoplenty.api.block.BOPWoodEnums;
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.common.util.block.BlockStateUtils;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,90 +21,61 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 
-public abstract class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
+public class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBlock
 {
-    
     
     // setup paged variant property
     
     // HALF requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
-    public static final int VARIANTS_PER_PAGE = 8;
-    // child classes must implement to define their page number
-    abstract public int getPageNum();
-    // fetch the variant property for a given page
-    public static PropertyEnum getVariantProperty(int pageNum)
-    {
-        return BOPWoodEnums.getVariantProperty(pageNum, VARIANTS_PER_PAGE, BOPWoodEnums.WoodsFilterType.WITH_PLANKS);
-    }
-    // fetch the current instance's variant property
-    public PropertyEnum getMyVariantProperty()
-    {
-        return getVariantProperty(getPageNum());
-    }
-    // get the meta bits from the variant
-    public int metaFromVariant(AllWoods wood)
-    {
-        return wood.ordinal() % VARIANTS_PER_PAGE;
-    }
-    // get the variant from meta bits (safely)
-    public AllWoods variantFromMeta(int meta)
-    {
-        int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllWoods.values().length));
-        return AllWoods.values()[i];
-    }
-
+    public static VariantPagingHelper<BlockBOPHalfWoodSlab, AllWoods> paging = new VariantPagingHelper<BlockBOPHalfWoodSlab, AllWoods>(8, AllWoods.class, AllWoods.withPlanks);
     
-    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockBOPHalfWoodSlab instance for a particular variant
-    private static Map<Integer, BlockBOPHalfWoodSlab> instances = new HashMap<Integer, BlockBOPHalfWoodSlab>();
-    // get the BlockBOPHalfWoodSlab instance for the given variant
-    public static BlockBOPHalfWoodSlab getVariantBlock(AllWoods wood)
-    {
-        int pageNum = wood.ordinal() / VARIANTS_PER_PAGE;
-        BlockBOPHalfWoodSlab block = instances.get(pageNum);
-        if (block == null) {throw new IllegalArgumentException("No BlockBOPHalfWoodSlab instance created yet for page "+pageNum);}
-        return block;
-    }
-    // get the default block state for the given variant
-    public static IBlockState getVariantState(AllWoods wood)
-    {
-        BlockBOPHalfWoodSlab block = getVariantBlock(wood);
-        return block.getDefaultState().withProperty(block.getMyVariantProperty() , wood);
-    }
-    // get the item representation of the given variant
-    public static ItemStack getVariantItem(AllWoods wood, int howMany)
-    {
-        return new ItemStack(getVariantBlock(wood), howMany, getVariantBlock(wood).getMetaFromState(getVariantState(wood)));
-    }
-    public static ItemStack getVariantItem(AllWoods wood)
-    {
-        return getVariantItem(wood, 1);
+    // Slightly naughty hackery here
+    // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
+    // There is no way to set the individual block instance's variant property before this, because the super() has to be first
+    // So, we use the static variable currentVariantProperty to provide each instance access to its variant property during creation
+    private static IProperty currentVariantProperty;
+    
+    // Create an instance for each page
+    public static void createAllPages()
+    {        
+        int numPages = paging.getNumPages();        
+        for (int i = 0; i < numPages; ++i)
+        {
+            currentVariantProperty = paging.getVariantProperty(i);
+            paging.addBlock(i, new BlockBOPHalfWoodSlab());
+        }
+        
     }
     
+    // Each instance has a reference to its own variant property
+    public IProperty variantProperty;
     
     // add properties (note we inherit HALF property from parent BlockSlab)
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] {HALF, getMyVariantProperty()});}
-
+    protected BlockState createBlockState()
+    {
+        this.variantProperty = currentVariantProperty; // get from static variable
+        return new BlockState(this, new IProperty[] { HALF, this.variantProperty });
+    }
+    
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return null; }
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {this.variantProperty}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((AllWoods) state.getValue(getMyVariantProperty())).getName() + "_wood_slab";
+        return ((AllWoods) state.getValue(this.variantProperty)).getName() + "_wood_slab";
     }  
     
-    public BlockBOPHalfWoodSlab()
+    private BlockBOPHalfWoodSlab()
     {
         super(Material.wood);
-        // save a reference to this instance so that later we can look up the right BlockBOPLog instance for a particular variant
-        instances.put(this.getPageNum(), this);
         this.useNeighborBrightness = true;
         this.setHardness(2.0F).setResistance(5.0F).setStepSound(soundTypeWood);
         this.setHarvestLevel("axe", 0);
@@ -124,24 +92,25 @@ public abstract class BlockBOPHalfWoodSlab extends BlockSlab implements IBOPBloc
     @Override
     public IProperty getVariantProperty()
     {
-        return getMyVariantProperty();
+        return this.variantProperty;
     }
     @Override
     public Object getVariant(ItemStack stack)
     {
-        return variantFromMeta(stack.getMetadata() & 7);
+        return paging.getVariant(this, stack.getMetadata() & 7);
     }
     
 
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta & 7)).withProperty(HALF, (meta & 8) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
+        return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta & 7)).withProperty(HALF, (meta & 8) == 0 ? BlockSlab.EnumBlockHalf.BOTTOM : BlockSlab.EnumBlockHalf.TOP);
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return (state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP ? 8 : 0) + metaFromVariant((AllWoods) state.getValue(getMyVariantProperty()));
+        AllWoods wood = (AllWoods) state.getValue(this.variantProperty);
+        return (state.getValue(HALF) == BlockSlab.EnumBlockHalf.TOP ? 8 : 0) + paging.getIndex(wood);
     }
 
     @Override

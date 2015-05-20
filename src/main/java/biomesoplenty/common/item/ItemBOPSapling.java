@@ -30,7 +30,7 @@ public class ItemBOPSapling extends ItemBOPBlock
     @Override
     public boolean hasEffect(ItemStack stack)
     {
-        AllTrees tree = this.saplingBlock.variantFromMeta(stack.getMetadata());
+        AllTrees tree = BlockBOPSapling.paging.getVariant(this.saplingBlock, stack.getMetadata());
         switch (tree)
         {
             case SACRED_OAK:

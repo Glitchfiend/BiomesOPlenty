@@ -37,7 +37,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
         {
             BlockBOPPlant block = (BlockBOPPlant)this.block;
             IBlockState state = block.getStateFromMeta( itemStackIn.getMetadata() );
-            AllPlants plant = ((AllPlants) state.getValue(block.getMyVariantProperty()));
+            AllPlants plant = ((AllPlants) state.getValue(block.variantProperty));
             if (plant == AllPlants.REED)
             {
                 
@@ -71,7 +71,7 @@ public class ItemBOPPlant extends ItemBOPBlock {
                             // special case for handling block placement with reeds
                             net.minecraftforge.common.util.BlockSnapshot blocksnapshot = net.minecraftforge.common.util.BlockSnapshot.getBlockSnapshot(worldIn, blockpos1);
                                                 
-                            worldIn.setBlockState(blockpos1, BlockBOPPlant.getVariantState(AllPlants.REED));
+                            worldIn.setBlockState(blockpos1, BlockBOPPlant.paging.getVariantState(AllPlants.REED));
                             if (net.minecraftforge.event.ForgeEventFactory.onPlayerBlockPlace(playerIn, blocksnapshot, net.minecraft.util.EnumFacing.UP).isCanceled())
                             {
                                 blocksnapshot.restore(true, false);

@@ -47,19 +47,19 @@ public class BiomeGenShrubland extends BOPBiome
         this.spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 5, 2, 6));
         
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(4, 7, Blocks.gravel.getDefaultState()));
-        this.addGenerator("bushes", GeneratorStage.FLOWERS, new GeneratorFlora(7, BlockBOPPlant.getVariantState(AllPlants.BUSH)));
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.SHRUB)));
+        this.addGenerator("bushes", GeneratorStage.FLOWERS, new GeneratorFlora(7, BlockBOPPlant.paging.getVariantState(AllPlants.BUSH)));
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(AllPlants.SHRUB)));
         this.addGenerator("flax", GeneratorStage.FLOWERS, new GeneratorDoubleFlora(1, BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, FoliageType.FLAX).withProperty(HALF, Half.LOWER), BOPBlocks.double_plant.getDefaultState().withProperty(VARIANT, FoliageType.FLAX).withProperty(HALF, Half.UPPER), 24));
-        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, new GeneratorFlora(3, BlockBOPPlant.getVariantState(AllPlants.REED), 128));
+        this.addGenerator("water_reeds", GeneratorStage.LILYPAD, new GeneratorFlora(3, BlockBOPPlant.paging.getVariantState(AllPlants.REED), 128));
         
         this.addGenerator("trees", GeneratorStage.TREE, new GeneratorBush(1, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState().withProperty(Blocks.red_flower.getTypeProperty(), EnumFlowerType.ALLIUM)));
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(1);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.SHORTGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.MEDIUMGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.WHEATGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.DAMPGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.SHORTGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.MEDIUMGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.WHEATGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.DAMPGRASS)));
         grassGenerator.add(1, new GeneratorGrass(2, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         

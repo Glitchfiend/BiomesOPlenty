@@ -8,20 +8,17 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPPlantEnums;
 import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.item.ItemBOPPlant;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -52,84 +49,57 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO: double cattail
 // TODO: pick block?
 
-public abstract class BlockBOPPlant extends BlockDecoration implements IShearable
+public class BlockBOPPlant extends BlockDecoration implements IShearable
 {
-    
     
     // setup paged variant property
     
     // All 4 meta bits available for VARIANT which means we can have sixteen per instance
-    public static final int VARIANTS_PER_PAGE = 16;
-    // child classes must implement to define their page number
-    abstract public int getPageNum();
-    // fetch the variant property for a given page
-    public static PropertyEnum getVariantProperty(int pageNum)
-    {
-        return BOPPlantEnums.getVariantProperty(pageNum, VARIANTS_PER_PAGE);
-    }
-    // fetch the current instance's variant property
-    public PropertyEnum getMyVariantProperty()
-    {
-        return getVariantProperty(getPageNum());
-    }
-    // get the meta bits from the variant
-    public int metaFromVariant(AllPlants plant)
-    {
-        return plant.ordinal() % VARIANTS_PER_PAGE;
-    }
-    // get the variant from meta bits (safely)
-    public AllPlants variantFromMeta(int meta)
-    {
-        int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllPlants.values().length));
-        return AllPlants.values()[i];
+    public static VariantPagingHelper<BlockBOPPlant, AllPlants> paging = new VariantPagingHelper<BlockBOPPlant, AllPlants>(16, AllPlants.class);
+    
+    // Slightly naughty hackery here
+    // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
+    // There is no way to set the individual block instance's variant property before this, because the super() has to be first
+    // So, we use the static variable currentVariantProperty to provide each instance access to its variant property during creation
+    private static IProperty currentVariantProperty;
+    
+    // Create an instance for each page
+    public static void createAllPages()
+    {        
+        int numPages = paging.getNumPages();        
+        for (int i = 0; i < numPages; ++i)
+        {
+            currentVariantProperty = paging.getVariantProperty(i);
+            paging.addBlock(i, new BlockBOPPlant());
+        }
+        
     }
     
-    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockBOPPlant instance for a particular variant
-    private static Map<Integer, BlockBOPPlant> instances = new HashMap<Integer, BlockBOPPlant>();
-    // get the BlockBOPPlant instance for the given variant
-    public static BlockBOPPlant getVariantBlock(AllPlants plant)
-    {
-        int pageNum = plant.ordinal() / VARIANTS_PER_PAGE;
-        BlockBOPPlant block = instances.get(pageNum);
-        if (block == null) {throw new IllegalArgumentException("No BlockBOPPlant instance created yet for page "+pageNum);}
-        return block;
-    }
-    // get the default block state for the given variant
-    public static IBlockState getVariantState(AllPlants plant)
-    {
-        BlockBOPPlant block = getVariantBlock(plant);
-        return block.getDefaultState().withProperty(block.getMyVariantProperty() , plant);
-    }
-    // get the item representation of the given variant
-    public static ItemStack getVariantItem(AllPlants plant, int howMany)
-    {
-        return new ItemStack(getVariantBlock(plant), howMany, getVariantBlock(plant).getMetaFromState(getVariantState(plant)));
-    }
-    public static ItemStack getVariantItem(AllPlants plant)
-    {
-        return getVariantItem(plant, 1);
-    }
-    
-    
+    // Each instance has a reference to its own variant property
+    public IProperty variantProperty;
     
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { getMyVariantProperty() });}
+    protected BlockState createBlockState()
+    {
+        this.variantProperty = currentVariantProperty; // get from static variable
+        return new BlockState(this, new IProperty[] { this.variantProperty });
+    }
+
     
     
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPPlant.class; }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] { getMyVariantProperty() }; }
+    public IProperty[] getPresetProperties() { return new IProperty[] { this.variantProperty }; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {
-        AllPlants plant = (AllPlants) state.getValue(getMyVariantProperty());
+        AllPlants plant = (AllPlants) state.getValue(this.variantProperty);
         switch (plant)
         {
             case WILDCARROT:
@@ -139,11 +109,9 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         }
     }
     
-    public BlockBOPPlant()
+    private BlockBOPPlant()
     {
         super();
-        // save a reference to this instance so that later we can look up the right BlockFoliage instance for a particular variant
-        instances.put(this.getPageNum(), this);
         this.setDefaultState( this.blockState.getBaseState() );        
     }
     
@@ -151,12 +119,13 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta));
+        return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return metaFromVariant((AllPlants) state.getValue(getMyVariantProperty()));
+        AllPlants plant = (AllPlants) state.getValue(this.variantProperty);
+        return paging.getIndex(plant);
     }
     
     
@@ -170,7 +139,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
-        AllPlants plant = (AllPlants) state.getValue(getMyVariantProperty());
+        AllPlants plant = (AllPlants) state.getValue(this.variantProperty);
         switch (plant)
         {
             case SHORTGRASS: case MEDIUMGRASS: case WHEATGRASS: case DAMPGRASS:
@@ -206,7 +175,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
                 // wildrice drops itself only 1 in 5 times
                 if (rand.nextInt(5) == 0)
                 {
-                    ret.add(getVariantItem(plant));
+                    ret.add(paging.getVariantItem(plant));
                 }
                 break;
             
@@ -216,7 +185,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
                 
             case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT:
                 // these variants drop themselves as items
-                ret.add(getVariantItem(plant));
+                ret.add(paging.getVariantItem(plant));
                 break;
                 
             default:
@@ -232,7 +201,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     {
         super.harvestBlock(world, player, pos, state, tileentity);
         boolean usingShears = (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears));
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             // suffer cactus damage if you harvest thorn without shears
             case THORN:
@@ -255,7 +224,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         Block block = state.getBlock();
         // make sure the block at pos is actually this block (according to the comments in Block.addDestroyEffects, it might not be...)
         if (block != this) {return false;}
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case WITHERWART:
                 byte n = 3;
@@ -310,7 +279,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @SideOnly(Side.CLIENT)
     public int getRenderColor(IBlockState state)
     {
-        switch (getColoringType((AllPlants) state.getValue(getMyVariantProperty())))
+        switch (getColoringType((AllPlants) state.getValue(this.variantProperty)))
         {
             case LIKE_LEAVES:
                 return ColorizerFoliage.getFoliageColorBasic();
@@ -325,7 +294,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass)
     {
-        switch (getColoringType((AllPlants) worldIn.getBlockState(pos).getValue(getMyVariantProperty())))
+        switch (getColoringType((AllPlants) worldIn.getBlockState(pos).getValue(this.variantProperty)))
         {
             case LIKE_LEAVES:
                 return BiomeColorHelper.getFoliageColorAtPos(worldIn, pos);
@@ -340,7 +309,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex)
     {
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case BERRYBUSH: case SHRUB:
                 return 0xFFFFFF;
@@ -354,7 +323,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {   
         IBlockState state = worldIn.getBlockState(pos);
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case CLOVERPATCH: case LEAFPILE: case DEADLEAFPILE:
                 this.setBlockBoundsByRadiusAndHeight(0.5F, 0.015625F);
@@ -396,7 +365,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     public boolean canBlockStay(World world, BlockPos pos, IBlockState state)
     {
-        AllPlants plant = ((AllPlants) state.getValue(getMyVariantProperty()));
+        AllPlants plant = ((AllPlants) state.getValue(this.variantProperty));
         // roots hang down from above, all the others grow up from below
         IBlockState adjacentBlockState = world.getBlockState(plant == AllPlants.ROOT ? pos.up() : pos.down());
         Block adjacentBlock = adjacentBlockState.getBlock();
@@ -450,7 +419,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
                 boolean hasWater = (world.getBlockState(pos.add(-1, -1, 0)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(1,-1,0)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(0,-1,-1)).getBlock().getMaterial() == Material.water || world.getBlockState(pos.add(0,-1,1)).getBlock().getMaterial() == Material.water);
                 return onGrass && hasWater;
             case RIVERCANE:
-                boolean onSelf = ( (adjacentBlock instanceof BlockBOPPlant) && ((AllPlants) adjacentBlockState.getValue(((BlockBOPPlant)adjacentBlock).getMyVariantProperty()) == AllPlants.RIVERCANE) );
+                boolean onSelf = ( (adjacentBlock instanceof BlockBOPPlant) && ((AllPlants) adjacentBlockState.getValue(((BlockBOPPlant)adjacentBlock).variantProperty) == AllPlants.RIVERCANE) );
                 return onSelf || onFertile;
             case WITHERWART:
                 return (adjacentBlock == Blocks.soul_sand);
@@ -469,7 +438,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             // poison ivy throws up occasional spell particles
             case POISONIVY:
@@ -490,13 +459,13 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         super.updateTick(worldIn, pos, state, rand);
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case BUSH:
                 // every now and then berries grow on a bush
                 if (rand.nextInt(80) > 0 && worldIn.getLightFromNeighbors(pos.up()) >= 9)
                 {
-                    worldIn.setBlockState(pos, getVariantState(AllPlants.BERRYBUSH));
+                    worldIn.setBlockState(pos, paging.getVariantState(AllPlants.BERRYBUSH));
                 }
                 break;
                 
@@ -509,7 +478,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case POISONIVY:
                 // poison ivy poisons players who walk into it
@@ -538,11 +507,11 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case BERRYBUSH:
                 // an activated berry bush turns into a regular bush and drops a berry
-                worldIn.setBlockState(pos, getVariantState(AllPlants.BUSH));
+                worldIn.setBlockState(pos, paging.getVariantState(AllPlants.BUSH));
                 EntityItem berries = new EntityItem(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), new ItemStack(BOPItems.berries));
                 if (!worldIn.isRemote)
                 {
@@ -565,7 +534,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
     @Override
     public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos) {
         IBlockState state = world.getBlockState(pos);
-        switch ((AllPlants) state.getValue(getMyVariantProperty()))
+        switch ((AllPlants) state.getValue(this.variantProperty))
         {
             case CATTAIL: case RIVERCANE: case WILDCARROT:
                 return false;
@@ -581,7 +550,7 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
         List<ItemStack> ret = new java.util.ArrayList<ItemStack>();
         
         // add items based on the VARIANT
-        AllPlants plant = ((AllPlants) world.getBlockState(pos).getValue(getMyVariantProperty()));
+        AllPlants plant = ((AllPlants) world.getBlockState(pos).getValue(this.variantProperty));
         switch (plant)
         {
             case CATTAIL: case RIVERCANE: case TINYCACTUS: case WITHERWART: case REED: case ROOT:
@@ -590,14 +559,13 @@ public abstract class BlockBOPPlant extends BlockDecoration implements IShearabl
                 
             case BERRYBUSH:
                 // BERRYBUSH gives a regular bush when sheared (note this is in addition to the berry from getDrops)
-                IBlockState bush = getVariantState(AllPlants.BUSH);
-                ret.add(new ItemStack(bush.getBlock(), 1, this.getMetaFromState(bush)));
+                ret.add(paging.getVariantItem(AllPlants.BUSH));
                 // ret.add(new ItemStack(BOPItems.berries, 1));
                 break;
                 
             default:
                 // for everything else, get the block as an item
-                ret.add(getVariantItem(plant));
+                ret.add(paging.getVariantItem(plant));
                 break;
         }
         return ret;

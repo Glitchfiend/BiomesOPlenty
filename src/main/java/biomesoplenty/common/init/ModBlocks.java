@@ -78,48 +78,54 @@ public class ModBlocks
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );
  
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
-        log_0 =                 registerBlock( new BlockBOPLog0(), "log_0" );
-        log_1 =                 registerBlock( new BlockBOPLog1(), "log_1" );
-        log_2 =                 registerBlock( new BlockBOPLog2(), "log_2" );
-        log_3 =                 registerBlock( new BlockBOPLog3(), "log_3" );
+        BlockBOPLog.createAllPages();
+        log_0 =                 registerBlock( BlockBOPLog.paging.getBlock(0), "log_0" );
+        log_1 =                 registerBlock( BlockBOPLog.paging.getBlock(1), "log_1" );
+        log_2 =                 registerBlock( BlockBOPLog.paging.getBlock(2), "log_2" );
+        log_3 =                 registerBlock( BlockBOPLog.paging.getBlock(3), "log_3" );
         
         // TODO: check if hellbark planks, fence etc can burn
         
         // 16 wood types, 8 per BlockBOPHalfWoodSlab and BlockBOPDoubleWoodSlab intance, needs 2 'pages'
+        BlockBOPDoubleWoodSlab.createAllPages();
+        BlockBOPHalfWoodSlab.createAllPages();
         registerWoodSlab( wood_slab_0, double_wood_slab_0, BOPItems.wood_slab_0, 0);
         registerWoodSlab( wood_slab_1, double_wood_slab_1, BOPItems.wood_slab_1, 1);
         
         // 16 wood types, 16 per BlockBOPPlanks instance, needs 1 'pages'
-        planks_0 =              registerBlock( new BlockBOPPlanks0(), "planks_0");
+        BlockBOPPlanks.createAllPages();
+        planks_0 =              registerBlock( BlockBOPPlanks.paging.getBlock(0), "planks_0");
         
         // 22 tree types, 4 per BlockBOPLeaves instance, needs 6 'pages'
-        leaves_0 =              registerBlock( new BlockBOPLeaves0(), "leaves_0");
-        leaves_1 =              registerBlock( new BlockBOPLeaves1(), "leaves_1" );
-        leaves_2 =              registerBlock( new BlockBOPLeaves2(), "leaves_2" );
-        leaves_3 =              registerBlock( new BlockBOPLeaves3(), "leaves_3" );
-        leaves_4 =              registerBlock( new BlockBOPLeaves4(), "leaves_4" );
-        leaves_5 =              registerBlock( new BlockBOPLeaves5(), "leaves_5" );
+        BlockBOPLeaves.createAllPages();
+        leaves_0 =              registerBlock( BlockBOPLeaves.paging.getBlock(0), "leaves_0");
+        leaves_1 =              registerBlock( BlockBOPLeaves.paging.getBlock(1), "leaves_1" );
+        leaves_2 =              registerBlock( BlockBOPLeaves.paging.getBlock(2), "leaves_2" );
+        leaves_3 =              registerBlock( BlockBOPLeaves.paging.getBlock(3), "leaves_3" );
+        leaves_4 =              registerBlock( BlockBOPLeaves.paging.getBlock(4), "leaves_4" );
+        leaves_5 =              registerBlock( BlockBOPLeaves.paging.getBlock(5), "leaves_5" );
         
         // 22 tree types, 8 per BlockBOPSapling instance, needs 3 'pages'
-        sapling_0 =             registerBlock( new BlockBOPSapling0(), "sapling_0");
-        sapling_1 =             registerBlock( new BlockBOPSapling1(), "sapling_1");
-        sapling_2 =             registerBlock( new BlockBOPSapling2(), "sapling_2");
+        BlockBOPSapling.createAllPages();
+        sapling_0 =             registerBlock( BlockBOPSapling.paging.getBlock(0), "sapling_0");
+        sapling_1 =             registerBlock( BlockBOPSapling.paging.getBlock(1), "sapling_1");
+        sapling_2 =             registerBlock( BlockBOPSapling.paging.getBlock(2), "sapling_2");
         
         // stairs have no variant metadata, use a new BlockBOPStairs instance for each (note there's no giant_flower_stairs or dead_stairs)
-        sacred_oak_stairs =     registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.SACRED_OAK)), "sacred_oak_stairs" );
-        cherry_stairs =         registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.CHERRY)), "cherry_stairs" );
-        dark_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.DARK)), "dark_stairs" );
-        fir_stairs =            registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.FIR)), "fir_stairs" );
-        ethereal_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.ETHEREAL)), "ethereal_stairs" );
-        magic_stairs =          registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.MAGIC)), "magic_stairs" );
-        mangrove_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.MANGROVE)), "mangrove_stairs" );
-        palm_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.PALM)), "palm_stairs" );
-        redwood_stairs =        registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.REDWOOD)), "redwood_stairs" );
-        willow_stairs =         registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.WILLOW)), "willow_stairs" );
-        pine_stairs =           registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.PINE)), "pine_stairs" );
-        hellbark_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.HELLBARK)), "hellbark_stairs" );
-        jacaranda_stairs =      registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.JACARANDA)), "jacaranda_stairs" );
-        mahogany_stairs =       registerBlock( new BlockBOPStairs(((BlockBOPPlanks)planks_0).getStateByWood(AllWoods.MAHOGANY)), "mahogany_stairs" );
+        sacred_oak_stairs =     registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.SACRED_OAK)), "sacred_oak_stairs" );
+        cherry_stairs =         registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.CHERRY)), "cherry_stairs" );
+        dark_stairs =           registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.DARK)), "dark_stairs" );
+        fir_stairs =            registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.FIR)), "fir_stairs" );
+        ethereal_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.ETHEREAL)), "ethereal_stairs" );
+        magic_stairs =          registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.MAGIC)), "magic_stairs" );
+        mangrove_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.MANGROVE)), "mangrove_stairs" );
+        palm_stairs =           registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.PALM)), "palm_stairs" );
+        redwood_stairs =        registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.REDWOOD)), "redwood_stairs" );
+        willow_stairs =         registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.WILLOW)), "willow_stairs" );
+        pine_stairs =           registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.PINE)), "pine_stairs" );
+        hellbark_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.HELLBARK)), "hellbark_stairs" );
+        jacaranda_stairs =      registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.JACARANDA)), "jacaranda_stairs" );
+        mahogany_stairs =       registerBlock( new BlockBOPStairs(BlockBOPPlanks.paging.getVariantState(AllWoods.MAHOGANY)), "mahogany_stairs" );
         
         // fences have no variant metadata, use a new BlockBOPFence instance for each (note there's no giant_flower_fence or dead_fence)
         sacred_oak_fence =      registerBlock( new BlockBOPFence(), "sacred_oak_fence" );
@@ -180,9 +186,10 @@ public class ModBlocks
         tree_moss =         registerBlock( new BlockBOPVine(false), "tree_moss" );
         wisteria =          registerBlock( new BlockBOPVine(false), "wisteria" );
         
-        plant_0 =           registerBlock( new BlockBOPPlant0(), "plant_0" );
-        plant_1 =           registerBlock( new BlockBOPPlant1(), "plant_1" );
-        double_plant =    registerBlock( new BlockBOPDoublePlant(), "double_plant" );
+        BlockBOPPlant.createAllPages();
+        plant_0 =           registerBlock( BlockBOPPlant.paging.getBlock(0), "plant_0" );
+        plant_1 =           registerBlock( BlockBOPPlant.paging.getBlock(1), "plant_1" );
+        double_plant =      registerBlock( new BlockBOPDoublePlant(), "double_plant" );
         
         honey_block =       registerBlock( new BlockHoney(), "honey_block" );
         
@@ -219,19 +226,9 @@ public class ModBlocks
     // use a separate function for registering slabs because the half slab, double slab, and item really need to be registered together
     public static void registerWoodSlab(Block half_slab, Block double_slab, Item slab_item, int pageNum)
     {
-        switch (pageNum)
-        {
-            case 0:
-                half_slab =      registerBlock( new BlockBOPHalfWoodSlab0(), "wood_slab_0");
-                double_slab =    registerBlock( new BlockBOPDoubleWoodSlab0(), "double_wood_slab_0", null ); // no creative tab for double slab
-                break;
-            case 1:
-                half_slab =      registerBlock( new BlockBOPHalfWoodSlab1(), "wood_slab_1");
-                double_slab =    registerBlock( new BlockBOPDoubleWoodSlab1(), "double_wood_slab_1", null ); // no creative tab for double slab
-                break;
-            default:
-                throw new IllegalArgumentException("No switch case yet for slab page " + pageNum);
-        }
+
+        half_slab =      registerBlock( BlockBOPHalfWoodSlab.paging.getBlock(pageNum), "wood_slab_" + pageNum);
+        double_slab =    registerBlock( BlockBOPDoubleWoodSlab.paging.getBlock(pageNum), "double_wood_slab_" + pageNum, null ); // no creative tab for double slab
         slab_item =  ModItems.registerItem( new ItemSlab(half_slab, (BlockSlab)half_slab, (BlockSlab)double_slab), "wood_slab_" + pageNum );
         GameData.getBlockItemMap().put(half_slab, slab_item);      
         GameData.getBlockItemMap().put(double_slab, slab_item);

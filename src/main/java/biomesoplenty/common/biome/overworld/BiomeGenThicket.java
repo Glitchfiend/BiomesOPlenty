@@ -45,11 +45,11 @@ public class BiomeGenThicket extends BOPBiome
         this.addGenerator("gravel", GeneratorStage.SAND_PASS2, new GeneratorWaterside(6, 7, Blocks.gravel.getDefaultState()));
 
         this.addGenerator("flowers", GeneratorStage.FLOWERS, new GeneratorFlora(5, Blocks.red_flower.getDefaultState()));
-        this.addGenerator("thorns", GeneratorStage.FLOWERS, new GeneratorFlora(55, BlockBOPPlant.getVariantState(AllPlants.THORN)));
-        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.SHRUB)));
+        this.addGenerator("thorns", GeneratorStage.FLOWERS, new GeneratorFlora(55, BlockBOPPlant.paging.getVariantState(AllPlants.THORN)));
+        this.addGenerator("shrubs", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(AllPlants.SHRUB)));
 
-        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.getVariantState(AllPlants.LEAFPILE), 256));
-        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.getVariantState(AllPlants.DEADLEAFPILE), 256));
+        this.addGenerator("leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(5, BlockBOPPlant.paging.getVariantState(AllPlants.LEAFPILE), 256));
+        this.addGenerator("dead_leaf_piles", GeneratorStage.FLOWERS, new GeneratorFlora(10, BlockBOPPlant.paging.getVariantState(AllPlants.DEADLEAFPILE), 256));
         
         this.addGenerator("amber", GeneratorStage.SAND, new GeneratorOreSingle(BOPBlocks.gem_ore.getDefaultState().withProperty(BlockGem.VARIANT, GemType.AMBER), 12, 4, 32));
     }

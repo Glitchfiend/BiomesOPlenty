@@ -45,8 +45,8 @@ public class BiomeGenFlowerField extends BOPBiome
         this.addGenerator("flowers", GeneratorStage.FLOWERS, flowerGenerator);
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(35);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.WHEATGRASS)));
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.DAMPGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.WHEATGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.DAMPGRASS)));
         grassGenerator.add(2, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         

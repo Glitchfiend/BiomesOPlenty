@@ -11,49 +11,49 @@ package biomesoplenty.common.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
-import biomesoplenty.api.block.BOPWoodEnums;
 import biomesoplenty.api.block.IBOPBlock;
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
 import biomesoplenty.common.item.ItemBOPBlock;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 
-public abstract class BlockBOPPlanks extends Block implements IBOPBlock
+public class BlockBOPPlanks extends Block implements IBOPBlock
 {
     
     // setup paged variant property
     
     // All 4 meta bits available for the VARIANT which means we can have sixteen per instance
-    public static final int VARIANTS_PER_PAGE = 16;
-    // child classes must implement to define their page number
-    abstract public int getPageNum();
-    // fetch the variant property for a given page
-    public static PropertyEnum getVariantProperty(int pageNum)
-    {
-        return BOPWoodEnums.getVariantProperty(pageNum, VARIANTS_PER_PAGE, BOPWoodEnums.WoodsFilterType.WITH_PLANKS);
-    }
-    // fetch the current instance's variant property
-    public PropertyEnum getMyVariantProperty()
-    {
-        return getVariantProperty(getPageNum());
-    }
-    // get the meta bits from the variant
-    public int metaFromVariant(AllWoods wood)
-    {
-        return wood.ordinal() % VARIANTS_PER_PAGE;
-    }
-    // get the variant from meta bits (safely)
-    public AllWoods variantFromMeta(int meta)
-    {
-        int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllWoods.values().length));
-        return AllWoods.values()[i];
+    public static VariantPagingHelper<BlockBOPPlanks, AllWoods> paging = new VariantPagingHelper<BlockBOPPlanks, AllWoods>(16, AllWoods.class, AllWoods.withPlanks);
+    
+    // Slightly naughty hackery here
+    // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
+    // There is no way to set the individual block instance's variant property before this, because the super() has to be first
+    // So, we use the static variable currentVariantProperty to provide each instance access to its variant property during creation
+    private static IProperty currentVariantProperty;
+    
+    // Create an instance for each page
+    public static void createAllPages()
+    {        
+        int numPages = paging.getNumPages();        
+        for (int i = 0; i < numPages; ++i)
+        {
+            currentVariantProperty = paging.getVariantProperty(i);
+            paging.addBlock(i, new BlockBOPPlanks());
+        }
+        
     }
     
-    // add properties (note we inherit LOG_AXIS property from parent BlockLog)
+    // Each instance has a reference to its own variant property
+    public IProperty variantProperty;
+    
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { getMyVariantProperty() });}
+    protected BlockState createBlockState()
+    {
+        this.variantProperty = currentVariantProperty; // get from static variable
+        return new BlockState(this, new IProperty[] { this.variantProperty });
+    }
     
     
     // implement IBOPBlock
@@ -62,13 +62,13 @@ public abstract class BlockBOPPlanks extends Block implements IBOPBlock
     @Override
     public int getItemRenderColor(IBlockState state, int tintIndex) { return this.getRenderColor(state); }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {this.variantProperty}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((AllWoods) state.getValue(getMyVariantProperty())).getName() + "_planks";
+        return ((AllWoods) state.getValue(this.variantProperty)).getName() + "_planks";
     }
     
     
@@ -83,23 +83,19 @@ public abstract class BlockBOPPlanks extends Block implements IBOPBlock
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta));
+        return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return metaFromVariant((AllWoods) state.getValue(getMyVariantProperty()));
+        AllWoods wood = (AllWoods) state.getValue(this.variantProperty);
+        return paging.getIndex(wood);
     }
 
     @Override
     public int damageDropped(IBlockState state)
     {
         return this.getMetaFromState(state);
-    }
-    
-    public IBlockState getStateByWood(AllWoods wood)
-    {
-        return this.getDefaultState().withProperty(getMyVariantProperty(), wood);
     }
     
 }

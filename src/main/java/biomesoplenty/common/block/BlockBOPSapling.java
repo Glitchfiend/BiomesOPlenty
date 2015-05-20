@@ -8,24 +8,20 @@
 
 package biomesoplenty.common.block;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
-import biomesoplenty.api.block.BOPTreeEnums;
 import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
 import biomesoplenty.common.item.ItemBOPSapling;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -34,89 +30,60 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public abstract class BlockBOPSapling extends BlockDecoration implements IGrowable {
-    
-   
+public class BlockBOPSapling extends BlockDecoration implements IGrowable {
+
     // setup paged variant property
     
     // STAGE requires one bit, so we have 3 bits left for the VARIANT which means we can have eight per instance
-    public static final int VARIANTS_PER_PAGE = 8;
-    // child classes must implement to define their page number
-    abstract public int getPageNum();
-    // fetch the variant property for a given page
-    public static PropertyEnum getVariantProperty(int pageNum)
-    {
-        return BOPTreeEnums.getVariantProperty(pageNum, VARIANTS_PER_PAGE, BOPTreeEnums.TreesFilterType.SAPLINGS);
-    }
-    // fetch the current instance's variant property
-    public PropertyEnum getMyVariantProperty()
-    {
-        return getVariantProperty(getPageNum());
-    }
-    // get the meta bits from the variant
-    public int metaFromVariant(AllTrees tree)
-    {
-        return tree.ordinal() % VARIANTS_PER_PAGE;
-    }
-    // get the variant from meta bits (safely)
-    public AllTrees variantFromMeta(int meta)
-    {
-        int i = Math.max(0, Math.min(meta + (this.getPageNum() * VARIANTS_PER_PAGE), AllTrees.values().length));
-        return AllTrees.values()[i];
-    }
-
-    // store reference to each created instance, indexed by page num, so that later we can look up the right BlockFoliage instance for a particular variant
-    private static Map<Integer, BlockBOPSapling> instances = new HashMap<Integer, BlockBOPSapling>();
-    // get the BlockBOPLeaves instance for the given variant
-    public static BlockBOPSapling getVariantBlock(AllTrees tree)
-    {
-        int pageNum = tree.ordinal() / VARIANTS_PER_PAGE;
-        BlockBOPSapling block = instances.get(pageNum);
-        if (block == null) {throw new IllegalArgumentException("No BlockBOPLeaves instance created yet for page "+pageNum);}
-        return block;
-    }
-    // get the default block state for the given variant
-    public static IBlockState getVariantState(AllTrees tree)
-    {
-        BlockBOPSapling block = getVariantBlock(tree);
-        return block.getDefaultState().withProperty(block.getMyVariantProperty() , tree);
-    }
-    // get the item representation of the given variant
-    public static ItemStack getVariantItem(AllTrees tree, int howMany)
-    {
-        return new ItemStack(getVariantBlock(tree), howMany, getVariantBlock(tree).getMetaFromState(getVariantState(tree)));
-    }
-    public static ItemStack getVariantItem(AllTrees tree)
-    {
-        return getVariantItem(tree, 1);
+    public static VariantPagingHelper<BlockBOPSapling, AllTrees> paging = new VariantPagingHelper<BlockBOPSapling, AllTrees>(8, AllTrees.class, AllTrees.withSaplings);
+    
+    // Slightly naughty hackery here
+    // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
+    // There is no way to set the individual block instance's variant property before this, because the super() has to be first
+    // So, we use the static variable currentVariantProperty to provide each instance access to its variant property during creation
+    private static IProperty currentVariantProperty;
+    
+    // Create an instance for each page
+    public static void createAllPages()
+    {        
+        int numPages = paging.getNumPages();        
+        for (int i = 0; i < numPages; ++i)
+        {
+            currentVariantProperty = paging.getVariantProperty(i);
+            paging.addBlock(i, new BlockBOPSapling());
+        }   
     }
     
+    // Each instance has a reference to its own variant property
+    public IProperty variantProperty;
     
-    // add properties
-    public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);    
+    public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1); 
+    
     @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { STAGE, getMyVariantProperty() });}
-    
+    protected BlockState createBlockState()
+    {
+        this.variantProperty = currentVariantProperty; // get from static variable
+        return new BlockState(this, new IProperty[] { STAGE, this.variantProperty });
+    }
+       
     
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPSapling.class; }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {getMyVariantProperty()}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] {this.variantProperty}; }
     @Override
     public IProperty[] getNonRenderingProperties() { return new IProperty[] {STAGE}; }
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((AllTrees) state.getValue(getMyVariantProperty())).getName() + "_sapling";
+        return ((AllTrees) state.getValue(this.variantProperty)).getName() + "_sapling";
     }
     
     
     public BlockBOPSapling()
     {
         super();
-        // save a reference to this instance so that later we can look up the right BlockBOPSapling instance for a particular variant
-        instances.put(this.getPageNum(), this);
         this.setStepSound(Block.soundTypeGrass);
         this.setBlockBoundsByRadiusAndHeight(0.4F, 0.8F);
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
@@ -127,12 +94,13 @@ public abstract class BlockBOPSapling extends BlockDecoration implements IGrowab
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(getMyVariantProperty(), variantFromMeta(meta & 7)).withProperty(STAGE, Integer.valueOf(meta >> 3));
+        return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta & 7)).withProperty(STAGE, Integer.valueOf(meta >> 3));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((Integer)state.getValue(STAGE)).intValue() * 8 + metaFromVariant((AllTrees)state.getValue(getMyVariantProperty()));
+        AllTrees tree = (AllTrees)state.getValue(this.variantProperty);
+        return ((Integer)state.getValue(STAGE)).intValue() * 8 + paging.getIndex(tree);
     }
     
     // which types of block allow trees
@@ -267,7 +235,7 @@ public abstract class BlockBOPSapling extends BlockDecoration implements IGrowab
     {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) {return false;}
 
-        AllTrees treeType = ((AllTrees) state.getValue(getMyVariantProperty()));
+        AllTrees treeType = ((AllTrees) state.getValue(this.variantProperty));
         WorldGenAbstractTree smallTreeGenerator = this.getSmallTreeGenerator(treeType);
         WorldGenAbstractTree bigTreeGenerator = this.getBigTreeGenerator(treeType);
         WorldGenAbstractTree megaTreeGenerator = this.getMegaTreeGenerator(treeType);

@@ -47,12 +47,12 @@ public class BiomeGenLavenderFields extends BOPBiome
         this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BOPBlocks.flower2.getDefaultState().withProperty(BlockBOPFlower2.VARIANT, FlowerType.LAVENDER)));
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
-        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.getVariantState(AllWoods.JACARANDA), BlockBOPLeaves.getVariantState(AllTrees.JACARANDA)));
+        treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.paging.getVariantState(AllWoods.JACARANDA), BlockBOPLeaves.paging.getVariantState(AllTrees.JACARANDA)));
         treeGenerator.add(1, new GeneratorBigTree(1, false, Blocks.log.getDefaultState(), Blocks.leaves.getDefaultState()));
         this.addGenerator("trees", GeneratorStage.TREE, treeGenerator);
         
         GeneratorWeighted grassGenerator = new GeneratorWeighted(20);
-        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.getVariantState(AllPlants.WHEATGRASS)));
+        grassGenerator.add(1, new GeneratorGrass(1, BlockBOPPlant.paging.getVariantState(AllPlants.WHEATGRASS)));
         grassGenerator.add(3, new GeneratorGrass(1, Blocks.tallgrass.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS)));
         this.addGenerator("grass", GeneratorStage.GRASS, grassGenerator);
         
