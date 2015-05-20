@@ -20,6 +20,7 @@ import biomesoplenty.common.block.BlockBOPGrass;
 import biomesoplenty.common.block.BlockBOPHalfWoodSlab;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPMushroom;
+import biomesoplenty.common.block.BlockBOPPlanks;
 import biomesoplenty.common.block.BlockBOPPlant;
 import biomesoplenty.common.block.BlockBones;
 import biomesoplenty.common.block.BlockGem;
@@ -102,117 +103,96 @@ public class ModCrafting
         
         // Note you can't make planks (and therefore doors, fences etc) from GIANT_FLOWER and DEAD logs
         
+        for (AllWoods wood : AllWoods.values())
+        {
+            if (!wood.hasPlanks()) {continue;}
+            GameRegistry.addShapelessRecipe(BlockBOPPlanks.paging.getVariantItem(wood, 4), BlockBOPLog.paging.getVariantItem(wood));
+            GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(wood, 6), new Object[] {"###", '#', BlockBOPPlanks.paging.getVariantItem(wood)});
+        }
+        
         // SACRED_OAK
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.SACRED_OAK.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.SACRED_OAK));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.sacred_oak_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.SACRED_OAK.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.sacred_oak_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.SACRED_OAK.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.sacred_oak_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.SACRED_OAK.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.sacred_oak_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.SACRED_OAK.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.SACRED_OAK, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.SACRED_OAK.ordinal())});        
 
         // CHERRY
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.CHERRY.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.CHERRY));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.cherry_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.CHERRY.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.cherry_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.CHERRY.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.cherry_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.CHERRY.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.cherry_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.CHERRY.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.CHERRY, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.CHERRY.ordinal())});        
 
         // DARK
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.DARK.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.DARK));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dark_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.DARK.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.dark_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.DARK.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dark_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.DARK.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.dark_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.DARK.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.DARK, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.DARK.ordinal())});        
 
         // FIR
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.FIR.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.FIR));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.fir_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.FIR.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.fir_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.FIR.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.fir_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.FIR.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.fir_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.FIR.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.FIR, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.FIR.ordinal())});        
 
         // ETHEREAL
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.ETHEREAL.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.ETHEREAL));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.ethereal_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.ETHEREAL.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.ethereal_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.ETHEREAL.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.ethereal_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.ETHEREAL.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.ethereal_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.ETHEREAL.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.ETHEREAL, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.ETHEREAL.ordinal())});        
 
         // MAGIC
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.MAGIC.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.MAGIC));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.magic_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAGIC.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.magic_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAGIC.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.magic_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAGIC.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.magic_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAGIC.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.MAGIC, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAGIC.ordinal())});        
 
         // MANGROVE
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.MANGROVE.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.MANGROVE));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mangrove_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MANGROVE.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.mangrove_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MANGROVE.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mangrove_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MANGROVE.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mangrove_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MANGROVE.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.MANGROVE, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MANGROVE.ordinal())});        
         
         // PALM
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.PALM.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.PALM));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.palm_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PALM.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.palm_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PALM.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.palm_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PALM.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.palm_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PALM.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.PALM, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PALM.ordinal())});        
         
         // REDWOOD
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.REDWOOD.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.REDWOOD));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.redwood_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.REDWOOD.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.redwood_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.REDWOOD.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.redwood_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.REDWOOD.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.redwood_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.REDWOOD.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.REDWOOD, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.REDWOOD.ordinal())});        
 
         // WILLOW
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.WILLOW.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.WILLOW));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.willow_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.WILLOW.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.willow_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.WILLOW.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.willow_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.WILLOW.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.willow_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.WILLOW.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.WILLOW, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.WILLOW.ordinal())});        
 
         // PINE
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.PINE.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.PINE));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.pine_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PINE.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.pine_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PINE.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.pine_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PINE.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.pine_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PINE.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.PINE, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.PINE.ordinal())});        
 
         // HELLBARK
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.HELLBARK.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.HELLBARK));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hellbark_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.HELLBARK.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.hellbark_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.HELLBARK.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hellbark_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.HELLBARK.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.hellbark_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.HELLBARK.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.HELLBARK, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.HELLBARK.ordinal())});        
 
         // JACARANDA
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.JACARANDA.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.JACARANDA));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.jacaranda_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.JACARANDA.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.jacaranda_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.JACARANDA.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.jacaranda_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.JACARANDA.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.jacaranda_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.JACARANDA.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.JACARANDA, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.JACARANDA.ordinal())});        
 
         // MAHOGANY
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPBlocks.planks_0, 4, AllWoods.MAHOGANY.ordinal()), BlockBOPLog.paging.getVariantItem(AllWoods.MAHOGANY));
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mahogany_stairs, 4), new Object[] {"#  ", "## ", "###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAHOGANY.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(((BlockBOPDoor)BOPBlocks.mahogany_door).getDoorItem(), 3), new Object[] {"##", "##", "##", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAHOGANY.ordinal())});
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mahogany_fence, 3), new Object[] {"W#W", "W#W", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAHOGANY.ordinal())});       
         GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.mahogany_fence_gate, 1), new Object[] {"#W#", "#W#", '#', Items.stick, 'W', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAHOGANY.ordinal())});
-        GameRegistry.addShapedRecipe(BlockBOPHalfWoodSlab.paging.getVariantItem(AllWoods.MAHOGANY, 6), new Object[] {"###", '#', new ItemStack(BOPBlocks.planks_0, 1, AllWoods.MAHOGANY.ordinal())});        
 
         
         /*** Gems and Gem Blocks ***/
