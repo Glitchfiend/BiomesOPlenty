@@ -8,6 +8,8 @@
 
 package biomesoplenty.common.init;
 
+import com.google.common.base.CaseFormat;
+
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.api.item.BOPItems;
 import biomesoplenty.common.block.*;
@@ -104,24 +106,11 @@ public class ModCrafting
         
         /*** Gems and Gem Blocks ***/
         
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.AMETHYST.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.AMETHYST.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.RUBY.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.RUBY.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.PERIDOT.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.PERIDOT.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.TOPAZ.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.TOPAZ.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.TANZANITE.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.TANZANITE.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.MALACHITE.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.MALACHITE.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.SAPPHIRE.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.SAPPHIRE.ordinal())});
-        GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, BOPGems.AMBER.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.AMBER.ordinal())});
-         
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.AMETHYST.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMETHYST.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.RUBY.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.PERIDOT.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.TOPAZ.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.TANZANITE.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.MALACHITE.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.SAPPHIRE.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal())});
-        GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, BOPGems.AMBER.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal())});
-               
+        for (BOPGems gem : BOPGems.values())
+        {
+            GameRegistry.addShapelessRecipe(new ItemStack(BOPItems.gem, 9, gem.ordinal()), new Object[] {new ItemStack(BOPBlocks.gem_ore , 1, gem.ordinal())});
+            GameRegistry.addShapedRecipe(new ItemStack(BOPBlocks.gem_block, 1, gem.ordinal()), new Object[] {"AAA", "AAA", "AAA", 'A', new ItemStack(BOPItems.gem, 1, gem.ordinal())});
+        }             
         
         /*** Tools, weapons, armor ***/
         
@@ -260,7 +249,6 @@ public class ModCrafting
     private static void addOreRegistration()
     {
         //Registration in Ore Dictionary
-        OreDictionary.registerOre("plankWood", new ItemStack(BOPBlocks.planks_0, 1, OreDictionary.WILDCARD_VALUE));
 
         OreDictionary.registerOre("stickWood", new ItemStack(BOPBlocks.bamboo));
         OreDictionary.registerOre("stickWood", BlockBOPPlant.paging.getVariantItem(BOPPlants.RIVERCANE));
@@ -296,22 +284,14 @@ public class ModCrafting
         OreDictionary.registerOre("dyeWhite", new ItemStack(BOPItems.white_dye));
         OreDictionary.registerOre("dyeBlack", new ItemStack(BOPItems.black_dye));
         
-        OreDictionary.registerOre("gemRuby", new ItemStack(BOPItems.gem, 1, BOPGems.RUBY.ordinal()));
-        OreDictionary.registerOre("gemPeridot", new ItemStack(BOPItems.gem, 1, BOPGems.PERIDOT.ordinal()));
-        OreDictionary.registerOre("gemTopaz", new ItemStack(BOPItems.gem, 1, BOPGems.TOPAZ.ordinal()));
-        OreDictionary.registerOre("gemTanzanite", new ItemStack(BOPItems.gem, 1, BOPGems.TANZANITE.ordinal()));
-        OreDictionary.registerOre("gemMalachite", new ItemStack(BOPItems.gem, 1, BOPGems.MALACHITE.ordinal()));
-        OreDictionary.registerOre("gemSapphire", new ItemStack(BOPItems.gem, 1, BOPGems.SAPPHIRE.ordinal()));
-        OreDictionary.registerOre("gemAmber", new ItemStack(BOPItems.gem, 1, BOPGems.AMBER.ordinal()));
-        // TODO: AMETHYST ?
-        
-        OreDictionary.registerOre("oreRuby", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.RUBY.ordinal()));
-        OreDictionary.registerOre("oreTopaz", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.TOPAZ.ordinal()));
-        OreDictionary.registerOre("orePeridot", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.PERIDOT.ordinal()));
-        OreDictionary.registerOre("oreTanzanite", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.TANZANITE.ordinal()));
-        OreDictionary.registerOre("oreMalachite", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.MALACHITE.ordinal()));
-        OreDictionary.registerOre("oreSapphire", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.SAPPHIRE.ordinal()));
-        OreDictionary.registerOre("oreAmber", new ItemStack(BOPBlocks.gem_ore , 1, BOPGems.AMBER.ordinal()));
+        for (BOPGems gem : BOPGems.values())
+        {
+            // TODO: for some reason, Amethyst was not included in these sections in the 1.7 code - check this is correct, deliberate behavior
+            if (gem == BOPGems.AMETHYST) {continue;}
+            String gemName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, gem.name());
+            OreDictionary.registerOre("gem"+gemName, new ItemStack(BOPItems.gem, 1, gem.ordinal()));
+            OreDictionary.registerOre("ore"+gemName, new ItemStack(BOPBlocks.gem_ore , 1, gem.ordinal()));
+        }
 
         OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_0, 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_1, 1, OreDictionary.WILDCARD_VALUE));
