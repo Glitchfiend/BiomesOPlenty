@@ -284,6 +284,10 @@ public class ModCrafting
         OreDictionary.registerOre("dyeWhite", new ItemStack(BOPItems.white_dye));
         OreDictionary.registerOre("dyeBlack", new ItemStack(BOPItems.black_dye));
         
+        OreDictionary.registerOre("record", new ItemStack(BOPItems.record_corruption));
+        OreDictionary.registerOre("record", new ItemStack(BOPItems.record_wanderer));
+        
+        
         for (BOPGems gem : BOPGems.values())
         {
             // TODO: for some reason, Amethyst was not included in these sections in the 1.7 code - check this is correct, deliberate behavior
@@ -292,20 +296,27 @@ public class ModCrafting
             OreDictionary.registerOre("gem"+gemName, new ItemStack(BOPItems.gem, 1, gem.ordinal()));
             OreDictionary.registerOre("ore"+gemName, new ItemStack(BOPBlocks.gem_ore , 1, gem.ordinal()));
         }
-
-        OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_0, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_1, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeSapling", new ItemStack(BOPBlocks.sapling_2, 1, OreDictionary.WILDCARD_VALUE));        
-        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_0, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_1, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_2, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_3, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_4, 1, OreDictionary.WILDCARD_VALUE));
-        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPBlocks.leaves_5, 1, OreDictionary.WILDCARD_VALUE));
+        
+        for (BOPFlowers flower : BOPFlowers.values())
+        {
+            String flowerName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, flower.name());
+            OreDictionary.registerOre("flower"+flowerName, BlockBOPFlower.paging.getVariantItem(flower));
+        }
+        
+        for (BOPPlants plant : BOPPlants.values())
+        {
+            String plantName = CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, plant.name());
+            OreDictionary.registerOre("plant"+plantName, BlockBOPPlant.paging.getVariantItem(plant));
+        }
+        
+        for (BOPTrees tree : BOPTrees.values())
+        {
+            OreDictionary.registerOre("treeSapling", BlockBOPSapling.paging.getVariantItem(tree));
+            OreDictionary.registerOre("treeLeaves", BlockBOPLeaves.paging.getVariantItem(tree));
+        }
         // TODO ?
         // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.appleLeaves, 1, OreDictionary.WILDCARD_VALUE));
         // OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.persimmonLeaves, 1, OreDictionary.WILDCARD_VALUE));
-        
         
         for (BOPWoods wood : BOPWoods.values())
         {
