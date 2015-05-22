@@ -16,11 +16,11 @@ import biomesoplenty.api.biome.BOPBiome;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.GeneratorWeighted;
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
 import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
 import biomesoplenty.api.block.BOPTreeEnums.AllTrees;
 import biomesoplenty.api.block.BOPWoodEnums.AllWoods;
-import biomesoplenty.common.block.BlockBOPFlower2;
-import biomesoplenty.common.block.BlockBOPFlower2.FlowerType;
+import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPLeaves;
 import biomesoplenty.common.block.BlockBOPLog;
 import biomesoplenty.common.block.BlockBOPPlant;
@@ -44,7 +44,7 @@ public class BiomeGenLavenderFields extends BOPBiome
     
         this.addWeight(BiomeType.WARM, 3);
         
-        this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BOPBlocks.flower2.getDefaultState().withProperty(BlockBOPFlower2.VARIANT, FlowerType.LAVENDER)));
+        this.addGenerator("lavender", GeneratorStage.FLOWERS, new GeneratorFlora(999, BlockBOPFlower.paging.getVariantState(AllFlowers.LAVENDER)));
         
         GeneratorWeighted treeGenerator = new GeneratorWeighted(1);
         treeGenerator.add(3, new GeneratorBasicTree(1, false, 4, 7, BlockBOPLog.paging.getVariantState(AllWoods.JACARANDA), BlockBOPLeaves.paging.getVariantState(AllTrees.JACARANDA)));

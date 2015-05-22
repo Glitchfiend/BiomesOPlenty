@@ -10,11 +10,11 @@ package biomesoplenty.common.item;
 
 import java.util.Random;
 
+import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
 import biomesoplenty.api.particle.BOPParticleTypes;
-import biomesoplenty.common.block.BlockBOPFlower1;
+import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.core.BiomesOPlenty;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -27,11 +27,10 @@ public class ItemBOPFlower extends ItemBOPBlock {
         super(block);
     }
     
-    public boolean isDandelion(ItemStack stack)
+    public AllFlowers getFlower(ItemStack stack)
     {
-        if (!(this.block instanceof BlockBOPFlower1)) {return false;}
-        IBlockState state = ((BlockBOPFlower1)this.block).getStateFromMeta(stack.getMetadata());
-        return state.getValue(BlockBOPFlower1.VARIANT) == BlockBOPFlower1.FlowerType.DANDELION;     
+        if (! (this.block instanceof BlockBOPFlower)) {return null;}
+        return BlockBOPFlower.paging.getVariant((BlockBOPFlower)this.block, stack.getMetadata());
     }
     
     @Override
@@ -43,13 +42,13 @@ public class ItemBOPFlower extends ItemBOPBlock {
     @Override
     public EnumAction getItemUseAction(ItemStack stack)
     {
-        return this.isDandelion(stack) ? EnumAction.BLOCK : super.getItemUseAction(stack);
+        return (this.getFlower(stack) == AllFlowers.DANDELION) ? EnumAction.BLOCK : super.getItemUseAction(stack);
     }
     
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        if (this.isDandelion(stack))
+        if (this.getFlower(stack) == AllFlowers.DANDELION)
         {
             player.setItemInUse(stack, this.getMaxItemUseDuration(stack));
         }
@@ -59,7 +58,7 @@ public class ItemBOPFlower extends ItemBOPBlock {
     @Override
     public void onUsingTick(ItemStack stack, EntityPlayer player, int count)
     {
-        if (this.isDandelion(stack))
+        if (this.getFlower(stack) == AllFlowers.DANDELION)
         {
             Vec3 vec = player.getLook(0.5F);
             Random rnd = player.getRNG();

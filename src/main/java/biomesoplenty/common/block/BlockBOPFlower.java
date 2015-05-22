@@ -11,10 +11,11 @@ package biomesoplenty.common.block;
 import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
+import biomesoplenty.api.block.BOPFlowerEnums.AllFlowers;
 import biomesoplenty.common.item.ItemBOPFlower;
+import biomesoplenty.common.util.block.VariantPagingHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -28,7 +29,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.IStringSerializable;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -36,46 +36,60 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 // TODO: Readd eyebulb in as a seperate block
 // TODO: placing lily of the valley.  where is lily flower?
-public class BlockBOPFlower1 extends BlockDecoration {
-        
-    // add properties
-    public static enum FlowerType implements IStringSerializable
-    {
-        CLOVER, SWAMPFLOWER, DEATHBLOOM, GLOWFLOWER, BLUE_HYDRANGEA, ORANGE_COSMOS, PINK_DAFFODIL, WILDFLOWER, VIOLET, WHITE_ANEMONE, ENDERLOTUS, BROMELIAD, DANDELION, PINK_HIBISCUS, LILY_OF_THE_VALLEY, BURNING_BLOSSOM;
-        @Override
-        public String getName()
-        {
-            return this.name().toLowerCase();
-        }
-        @Override
-        public String toString()
-        {
-            return this.getName();
-        }
-    };
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", FlowerType.class);
-    @Override
-    protected BlockState createBlockState() {return new BlockState(this, new IProperty[] { VARIANT });} 
+public class BlockBOPFlower extends BlockDecoration
+{
     
+    // setup paged variant property
+    
+    // All 4 bits are available for the VARIANT which means we can have sixteen per instance
+    public static VariantPagingHelper<BlockBOPFlower, AllFlowers> paging = new VariantPagingHelper<BlockBOPFlower, AllFlowers>(16, AllFlowers.class);
+    
+    // Slightly naughty hackery here
+    // The constructor of Block() calls createBlockState() which needs to know the particular instance's variant property
+    // There is no way to set the individual block instance's variant property before this, because the super() has to be first
+    // So, we use the static variable currentVariantProperty to provide each instance access to its variant property during creation
+    private static IProperty currentVariantProperty;
+    
+    // Create an instance for each page
+    public static void createAllPages()
+    {        
+        int numPages = paging.getNumPages();        
+        for (int i = 0; i < numPages; ++i)
+        {
+            currentVariantProperty = paging.getVariantProperty(i);
+            paging.addBlock(i, new BlockBOPFlower());
+        }   
+    }
+    
+    // Each instance has a reference to its own variant property
+    public IProperty variantProperty;
+    
+    @Override
+    protected BlockState createBlockState()
+    {
+        this.variantProperty = currentVariantProperty; // get from static variable
+        return new BlockState(this, new IProperty[] { this.variantProperty });
+    }
+        
     
     // implement IBOPBlock
     @Override
     public Class<? extends ItemBlock> getItemClass() { return ItemBOPFlower.class; }
     @Override
-    public IProperty[] getPresetProperties() { return new IProperty[] {VARIANT}; }
+    public IProperty[] getPresetProperties() { return new IProperty[] { this.variantProperty }; }
     @Override
     public IProperty[] getNonRenderingProperties() { return null; }
     @Override
     public String getStateName(IBlockState state)
     {
-        return ((FlowerType) state.getValue(VARIANT)).getName();
+        return ((AllFlowers) state.getValue(this.variantProperty)).getName();
     }
     
     
-    public BlockBOPFlower1()
+    public BlockBOPFlower()
     {
         super();        
-        this.setDefaultState( this.blockState.getBaseState().withProperty(VARIANT, FlowerType.CLOVER) );
+        this.setDefaultState( this.blockState.getBaseState() );
     }
     
     
@@ -83,12 +97,13 @@ public class BlockBOPFlower1 extends BlockDecoration {
     @Override
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(VARIANT, FlowerType.values()[meta]);
+        return this.getDefaultState().withProperty(this.variantProperty, paging.getVariant(this, meta));
     }
     @Override
     public int getMetaFromState(IBlockState state)
     {
-        return ((FlowerType) state.getValue(VARIANT)).ordinal();
+        AllFlowers flower = (AllFlowers) state.getValue(this.variantProperty);
+        return paging.getIndex(flower);
     }
     
     // make sure the block drops the right type of flower
@@ -98,11 +113,12 @@ public class BlockBOPFlower1 extends BlockDecoration {
         return this.getMetaFromState(state);
     }
     
+    
     // set the size of the different flowers' bounding boxes
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess world, BlockPos pos)
     {
-        switch ((FlowerType) world.getBlockState(pos).getValue(VARIANT))
+        switch ((AllFlowers) world.getBlockState(pos).getValue(this.variantProperty))
         {
             case CLOVER:
                 this.setBlockBoundsByRadiusAndHeightWithXZOffset(0.5F, 0.015625F, pos);
@@ -131,7 +147,7 @@ public class BlockBOPFlower1 extends BlockDecoration {
     @Override
     public int getLightValue(IBlockAccess world, BlockPos pos)
     {
-        switch ((FlowerType) world.getBlockState(pos).getValue(VARIANT))
+        switch ((AllFlowers) world.getBlockState(pos).getValue(this.variantProperty))
         {
             case GLOWFLOWER:
                 return 9;
@@ -153,7 +169,7 @@ public class BlockBOPFlower1 extends BlockDecoration {
         super.harvestBlock(world, player, pos, state, tileentity);
         if (player.getCurrentEquippedItem() == null || !(player.getCurrentEquippedItem().getItem() instanceof ItemShears))
         {
-            switch ((FlowerType) state.getValue(VARIANT))
+            switch ((AllFlowers) state.getValue(this.variantProperty))
             {
                 // suffer wither effect if you harvest deathbloom without shears
                 case DEATHBLOOM:
@@ -174,7 +190,7 @@ public class BlockBOPFlower1 extends BlockDecoration {
     @Override
     public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
     {
-        switch((FlowerType) state.getValue(VARIANT))
+        switch((AllFlowers) state.getValue(this.variantProperty))
         {
             // suffer wither effect if you walk on deathbloom
             case DEATHBLOOM:
@@ -201,7 +217,7 @@ public class BlockBOPFlower1 extends BlockDecoration {
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, BlockPos pos, IBlockState state, Random rand)
     {
-        switch((FlowerType) state.getValue(VARIANT))
+        switch((AllFlowers) state.getValue(this.variantProperty))
         {
             case DEATHBLOOM:
                 if (rand.nextInt(4) != 0)
@@ -223,7 +239,6 @@ public class BlockBOPFlower1 extends BlockDecoration {
     }
     
     
-
     
     // which types of flower can live on which types of block
     @Override
@@ -235,6 +250,7 @@ public class BlockBOPFlower1 extends BlockDecoration {
         boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == Blocks.farmland || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.grass);
         boolean onDry = (groundBlock == BOPBlocks.hard_dirt || groundBlock == Blocks.hardened_clay || groundBlock == Blocks.sand || groundBlock == BOPBlocks.hard_sand);
         boolean onNetherrack = (groundBlock == Blocks.netherrack);
+        boolean onStone = (groundBlock == Blocks.stone);
         boolean onSpectralMoss = false;
         
         if (groundBlock instanceof BlockBOPGrass)
@@ -254,7 +270,7 @@ public class BlockBOPFlower1 extends BlockDecoration {
             }
         }
         
-        switch ((FlowerType) state.getValue(VARIANT))
+        switch ((AllFlowers) state.getValue(this.variantProperty))
         {
             case ENDERLOTUS:
                 return onSpectralMoss;
@@ -262,12 +278,13 @@ public class BlockBOPFlower1 extends BlockDecoration {
                 return onDry;
             case BURNING_BLOSSOM:
                 return onNetherrack;
+            case MINERS_DELIGHT:
+                return onStone;
             default:
                 return onFertile;
         }
         
     }
-    
     
     
 

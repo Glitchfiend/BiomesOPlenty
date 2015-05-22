@@ -10,8 +10,7 @@ package biomesoplenty.common.item;
 
 import biomesoplenty.api.block.BOPPlantEnums.AllPlants;
 import biomesoplenty.api.item.BOPItemHelper;
-import biomesoplenty.common.block.BlockBOPFlower1;
-import biomesoplenty.common.block.BlockBOPFlower2;
+import biomesoplenty.common.block.BlockBOPFlower;
 import biomesoplenty.common.block.BlockBOPPlant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
@@ -190,7 +189,7 @@ public class ItemBOPScythe extends Item
                         world.setBlockState(pos, BlockBOPPlant.paging.getVariantState(AllPlants.MEDIUMGRASS));
                         return true;
                     }
-                    else if ((block instanceof BlockFlower) || (block instanceof BlockBOPFlower1) || (block instanceof BlockBOPFlower2))
+                    else if ((block instanceof BlockFlower) || (block instanceof BlockBOPFlower))
                     {
                         block.dropBlockAsItem(world, pos, state, fortune);
                         world.setBlockToAir(pos);

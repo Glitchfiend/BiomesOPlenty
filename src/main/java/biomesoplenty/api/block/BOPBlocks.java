@@ -17,8 +17,6 @@ public class BOPBlocks
     public static Block bamboo;
     public static Block bone_segment;
     public static Block coral;
-    public static Block flower1;
-    public static Block flower2;
     public static Block gem_block;
     public static Block gem_ore;
     public static Block hive;
@@ -26,6 +24,8 @@ public class BOPBlocks
     public static Block stone;
     public static Block biome_block;
     
+    public static Block flower_0;
+    public static Block flower_1;
     public static Block log_0;
     public static Block log_1;
     public static Block log_2;

@@ -50,8 +50,6 @@ public class ModBlocks
         bamboo =                registerBlock( new BlockBamboo(), "bamboo" );
         bone_segment =          registerBlock( new BlockBones(), "bone_segment" );
         coral =                 registerBlock( new BlockCoral(), "coral" );
-        flower1 =               registerBlock( new BlockBOPFlower1(), "flower1" );
-        flower2 =               registerBlock( new BlockBOPFlower2(), "flower2" );
         gem_block =             registerBlock( new BlockGem(), "gem_block" );
         gem_ore =               registerBlock( new BlockGemOre(), "gem_ore" );
         hive =                  registerBlock( new BlockHive(), "hive" );
@@ -77,6 +75,11 @@ public class ModBlocks
         hard_sand =             registerBlock( (new BlockBOPGeneric(Material.sand)).setHardness(0.9F).setStepSound(Block.soundTypeSand), "hard_sand" );
         mud_brick_block =       registerBlock( (new BlockBOPGeneric()).setResistance(2.0F), "mud_brick_block" );
  
+        // 22 flower types 16 per BlockBOPFlower instance, needs 2 'pages'
+        BlockBOPFlower.createAllPages();
+        flower_0 =              registerBlock( BlockBOPFlower.paging.getBlock(0), "flower_0" );
+        flower_1 =              registerBlock( BlockBOPFlower.paging.getBlock(1), "flower_1" );
+        
         // 16 wood types, 4 per BlockBOPLog instance, needs 4 'pages'
         BlockBOPLog.createAllPages();
         log_0 =                 registerBlock( BlockBOPLog.paging.getBlock(0), "log_0" );
