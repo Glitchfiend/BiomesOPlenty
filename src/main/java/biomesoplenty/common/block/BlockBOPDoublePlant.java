@@ -13,6 +13,7 @@ import java.util.Random;
 
 import biomesoplenty.api.block.BOPBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
@@ -164,25 +165,37 @@ public class BlockBOPDoublePlant extends BlockDoubleDecoration implements IShear
     }
     
     
-    
     @Override
     public boolean canBlockStay(World world, BlockPos lowerPos, IBlockState state)
-    {        
+    {     
+        DoublePlantType plant = ((DoublePlantType) state.getValue(VARIANT));
         IBlockState groundState = world.getBlockState(lowerPos.down());
         Block groundBlock = groundState.getBlock();
         boolean onFertile = (groundBlock == Blocks.dirt || groundBlock == BOPBlocks.dirt || groundBlock == Blocks.mycelium || groundBlock == Blocks.grass);
+        boolean onGrass = (groundBlock == Blocks.grass);
         if (groundBlock instanceof BlockBOPGrass)
         {
             switch ((BlockBOPGrass.BOPGrassType) groundState.getValue(BlockBOPGrass.VARIANT))
             {
                 case SPECTRAL_MOSS: case SMOLDERING:
                     break;
-                case OVERGROWN_NETHERRACK: case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
+                case OVERGROWN_NETHERRACK:
                     onFertile = true;
+                    break;
+                case LOAMY: case SANDY: case SILTY: case ORIGIN: default:
+                    onFertile = true;
+                    onGrass = true;
                     break;
             }
         }
-        return onFertile;
+        switch (plant)
+        {
+            case TALL_CATTAIL:
+                boolean hasWater = (world.getBlockState(lowerPos.add(-1, -1, 0)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(1,-1,0)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(0,-1,-1)).getBlock().getMaterial() == Material.water || world.getBlockState(lowerPos.add(0,-1,1)).getBlock().getMaterial() == Material.water);
+                return onGrass && hasWater;
+            case FLAX: default:
+                return onFertile;
+        }        
         
     }
     
