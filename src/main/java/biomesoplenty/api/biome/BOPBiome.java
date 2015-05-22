@@ -16,6 +16,7 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 import biomesoplenty.api.biome.generation.GenerationManager;
 import biomesoplenty.api.biome.generation.GeneratorStage;
 import biomesoplenty.api.biome.generation.IGenerator;
+import biomesoplenty.common.util.config.ConfigHelper;
 
 public class BOPBiome extends BiomeGenBase implements IExtendedBiome
 {
@@ -33,6 +34,20 @@ public class BOPBiome extends BiomeGenBase implements IExtendedBiome
         this.theBiomeDecorator.sandPerChunk2 = -999;
         this.theBiomeDecorator.clayPerChunk = -999;
     }
+    
+    public void configure(ConfigHelper conf)
+    {
+        this.biomeName = conf.getString("biomeName",this.biomeName);
+        
+        this.topBlock = conf.getBlockState("topBlock", this.topBlock);
+        this.fillerBlock = conf.getBlockState("fillerBlock", this.fillerBlock);
+        this.minHeight = conf.getFloat("rootHeight", this.minHeight);
+        this.maxHeight = conf.getFloat("variation", this.maxHeight);
+        this.temperature = conf.getFloat("temperature", this.temperature);
+        this.rainfall = conf.getFloat("rainfall", this.rainfall);
+        this.waterColorMultiplier = conf.getInt("waterColorMultiplier", this.waterColorMultiplier);
+    }
+    
 
     @Override
     public BiomeOwner getBiomeOwner()

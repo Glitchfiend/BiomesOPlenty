@@ -11,12 +11,17 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.biome.BOPBiomes.*;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 
-import org.apache.commons.io.FileUtils;
-
+import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.api.biome.IExtendedBiome;
+import biomesoplenty.common.biome.BOPBiomeManager;
 import biomesoplenty.common.biome.overworld.BiomeGenAlps;
 import biomesoplenty.common.biome.overworld.BiomeGenArctic;
 import biomesoplenty.common.biome.overworld.BiomeGenCrag;
@@ -28,40 +33,90 @@ import biomesoplenty.common.biome.overworld.BiomeGenShrubland;
 import biomesoplenty.common.biome.overworld.BiomeGenSteppe;
 import biomesoplenty.common.biome.overworld.BiomeGenThicket;
 import biomesoplenty.common.command.BOPCommand;
-import biomesoplenty.common.util.config.JsonBiome;
+import biomesoplenty.common.util.config.ConfigHelper;
 import biomesoplenty.common.world.WorldTypeBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
 import com.google.common.base.Optional;
-import com.google.gson.JsonSyntaxException;
 
 public class ModBiomes
 {
     public static WorldTypeBOP worldTypeBOP;
 
     private static int nextBiomeId = 40;
+    private static File biomeIdMapFile;
+    private static ConfigHelper biomeIdMapConf;
+    private static Map<String, Integer> biomeIdMap;
 
     public static void init()
     {
         worldTypeBOP = new WorldTypeBOP();
-
+        
+        // get BOP biome ids from the config file (if it exists)
+        biomeIdMapFile = new File(BiomesOPlenty.configDirectory, "biome_ids.json");
+        biomeIdMapConf = new ConfigHelper(biomeIdMapFile);
+        biomeIdMap = new HashMap<String, Integer>();
+        
         registerBiomes();
         registerExternalBiomes();
+        
+        // save the biome ids to the config file (creating it if it doesn't exist)
+        ConfigHelper.writeFile(biomeIdMapFile, biomeIdMap);
+        
     }
+    
 
     private static void registerBiomes()
     {
-        alps = registerBiome(new BiomeGenAlps().setBiomeName("Alps"), "alps");
-        arctic = registerBiome(new BiomeGenArctic().setBiomeName("Arctic"), "arctic");
-        crag = registerBiome(new BiomeGenCrag().setBiomeName("Crag"), "crag");
-        denseForest = registerBiome(new BiomeGenDenseForest().setBiomeName("Dense Forest"), "dense_forest");
-        flowerField = registerBiome(new BiomeGenFlowerField().setBiomeName("Flower Field"), "flower_field");
-        lavenderFields = registerBiome(new BiomeGenLavenderFields().setBiomeName("Lavender Fields"), "lavender_fields");
-        originValley = registerBiome(new BiomeGenOriginValley().setBiomeName("Origin Valley"), "origin_valley");
-        shrubland = registerBiome(new BiomeGenShrubland().setBiomeName("Shrubland"), "shrubland");
-        steppe = registerBiome(new BiomeGenSteppe().setBiomeName("Steppe"), "steppe");
-        thicket = registerBiome(new BiomeGenThicket().setBiomeName("Thicket"), "thicket");
+        alps = registerBOPBiome(new BiomeGenAlps(), "Alps", "alps");
+        arctic = registerBOPBiome(new BiomeGenArctic(), "Arctic", "arctic");
+        crag = registerBOPBiome(new BiomeGenCrag(), "Crag", "crag");
+        denseForest = registerBOPBiome(new BiomeGenDenseForest(), "Dense Forest", "dense_forest");
+        flowerField = registerBOPBiome(new BiomeGenFlowerField(), "Flower Field", "flower_field");
+        lavenderFields = registerBOPBiome(new BiomeGenLavenderFields(), "Lavender Fields", "lavender_fields");
+        originValley = registerBOPBiome(new BiomeGenOriginValley(), "Origin Valley", "origin_valley");
+        shrubland = registerBOPBiome(new BiomeGenShrubland(), "Shrubland", "shrubland");
+        steppe = registerBOPBiome(new BiomeGenSteppe(), "Steppe", "steppe");
+        thicket = registerBOPBiome(new BiomeGenThicket(), "Thicket", "thicket");
     }
+    
+    private static Optional<BiomeGenBase> registerBOPBiome(BOPBiome biome, String name, String idName)
+    {
+        
+        Integer id = biomeIdMapConf.getInt(idName, null);
+        if (id == null) {id = new Integer(getNextFreeBiomeId());}
+        biomeIdMap.put(idName, id);
+        
+        if (id > -1) {
+            
+            File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), idName + ".json");
+            ConfigHelper conf = new ConfigHelper(configFile);
+            
+            BOPCommand.biomeCount++;
+            biome.biomeID = id;
+            biome.setBiomeName(name);
+            biome.configure(conf);
+
+            BiomeGenBase.getBiomeGenArray()[id] = biome;
+            
+            for (Entry<BiomeType, Integer> entry : ((IExtendedBiome)biome).getWeightMap().entrySet())
+            {
+                if (entry != null)
+                {
+                    BiomeType biomeType = entry.getKey();
+                    int weight = entry.getValue();
+                    BOPBiomeManager.addBiome(biomeType, new BiomeEntry(biome, weight));
+                }
+            }
+            
+            return Optional.of((BiomeGenBase)biome);
+            
+        } else {
+            return Optional.absent();
+        }
+    }
+    
+    
 
     private static void registerExternalBiomes()
     {
@@ -107,14 +162,6 @@ public class ModBiomes
         registerExternalBiome(BiomeGenBase.mesaPlateau, "mesa_plateau");*/
     }
 
-    private static Optional<BiomeGenBase> registerBiome(BiomeGenBase biome, String id)
-    {
-        biome.biomeID = getNextFreeBiomeId();
-        BOPCommand.biomeCount++;
-        
-        return loadOrCreateConfig(biome, id);
-    }
-
     /*private static void registerExternalBiome(BiomeGenBase biome, String id)
     {
         ExtendedBiomeRegistry.createExtension(biome);
@@ -139,42 +186,5 @@ public class ModBiomes
 
         return -1;
     }
-    
-    private static Optional<BiomeGenBase> loadOrCreateConfig(BiomeGenBase biome, String fileName)
-    {
-        File configFile = new File(new File(BiomesOPlenty.configDirectory, "biomes"), fileName + ".json");
-        
-        if (configFile.exists())
-        {
-            try
-            {
-                JsonBiome jsonBiome = JsonBiome.serializer.fromJson(FileUtils.readFileToString(configFile), JsonBiome.class);
-
-                return JsonBiome.configureBiomeWithJson(biome, jsonBiome);
-            }
-            catch (JsonSyntaxException e)
-            {
-                BiomesOPlenty.logger.error("An error occurred reading " + configFile.getName(), e);
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
-        else
-        {
-            try
-            {
-                FileUtils.write(configFile, JsonBiome.serializer.toJson(JsonBiome.createFromBiomeGenBase(biome), JsonBiome.class));
-                
-                return Optional.of(biome);
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
-        
-        return Optional.absent();
-    }
+ 
 }
