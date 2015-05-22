@@ -11,7 +11,6 @@ package biomesoplenty.common.init;
 import static biomesoplenty.api.item.BOPItems.*;
 import static biomesoplenty.api.item.BOPItemHelper.*;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +29,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import biomesoplenty.api.block.BOPBlocks;
 import biomesoplenty.common.command.BOPCommand;
 import biomesoplenty.common.item.*;
+import biomesoplenty.common.util.BOPReflectionHelper;
 import biomesoplenty.common.util.inventory.CreativeTabBOP;
 import biomesoplenty.core.BiomesOPlenty;
 
@@ -141,30 +141,10 @@ public class ModItems
         // no repair item for amethyst tool - they can't be repaired
 
         // ItemAxe and ItemPickaxe have protected constructors - use reflection to construct
-        // TODO use utility functions for this
-        Constructor<ItemAxe> axeConstructor;
-        try
-        {
-            axeConstructor = ItemAxe.class.getDeclaredConstructor(ToolMaterial.class);
-            axeConstructor.setAccessible(true);
-            mud_axe = registerItem(axeConstructor.newInstance(mud_tool_material), "mud_axe");
-            amethyst_axe = registerItem(axeConstructor.newInstance(amethyst_tool_material), "amethyst_axe");
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        try
-        {
-            Constructor<ItemPickaxe> pickaxeConstructor = ItemPickaxe.class.getDeclaredConstructor(ToolMaterial.class);
-            pickaxeConstructor.setAccessible(true);  
-            mud_pickaxe = registerItem(pickaxeConstructor.newInstance(mud_tool_material), "mud_pickaxe");
-            amethyst_pickaxe = registerItem(pickaxeConstructor.newInstance(amethyst_tool_material), "amethyst_pickaxe");
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        mud_axe = registerItem(BOPReflectionHelper.construct(ItemAxe.class, mud_tool_material), "mud_axe");
+        mud_pickaxe = registerItem(BOPReflectionHelper.construct(ItemPickaxe.class, mud_tool_material), "mud_pickaxe");
+        amethyst_axe = registerItem(BOPReflectionHelper.construct(ItemAxe.class, amethyst_tool_material), "amethyst_axe");
+        amethyst_pickaxe = registerItem(BOPReflectionHelper.construct(ItemPickaxe.class, amethyst_tool_material), "amethyst_pickaxe");
                 
         // the other tools have public constructors, so we create instances in the normal way
         mud_hoe = registerItem(new ItemHoe(mud_tool_material), "mud_hoe");
